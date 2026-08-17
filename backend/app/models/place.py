@@ -14,7 +14,7 @@ class Place(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name = Column(String, nullable=False)
     category_id = Column(UUID(as_uuid=True), ForeignKey("categories.id"), nullable=False)
-    location = Column(Geography(geometry_type="POINT", srid=4326), nullable=False)
+    location = Column(Geography(geometry_type="POINT", srid=4326), nullable=True)
     description = Column(String, nullable=True)
     # Structured opening hours; null when genuinely unknown -- never guessed.
     opening_hours = Column(JSON, nullable=True)

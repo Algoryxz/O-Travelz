@@ -162,6 +162,33 @@ Smarak.
 
 Phase 0 database contract and Phase 1 verified data.
 
+**Current status**
+
+Phase 2 remains incomplete.
+
+**Completed within the current Phase 2 boundary**
+
+- The place coordinate mapping architecture is approved: `lon` → X, `lat` → Y,
+  `Geography(POINT, SRID 4326)`.
+- The nullable place-coordinate architecture is approved and represented in the
+  Place model and reversible migration.
+- The place importer implements the approved coordinate mapping and paired-null
+  behavior without fabricating coordinates.
+- Coordinate validation and importer transaction/idempotency tests are implemented.
+
+**Remaining before Phase 2 completion**
+
+- Receive Akriti's corrected v5.1 research handoff.
+- Complete the v5.1 compatibility audit.
+- Restore the `geoalchemy2` environment and execute spatial/database-backed tests.
+- Complete any remaining database migration/model work identified by review.
+- Perform the safe production import.
+- Perform post-import verification.
+
+Akriti remains responsible for research correctness, provenance, and the canonical data
+handoff. Smarak remains responsible for database semantics, importer behavior,
+coordinate mapping, and deterministic core implementation.
+
 **Allowed work**
 
 - Implement migrations and database semantics.

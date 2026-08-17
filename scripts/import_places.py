@@ -1,17 +1,15 @@
 """Validate and import the canonical place data.
 
 The source files are owned by Akriti; this module owns their deterministic load into
-the database. The importer deliberately does not choose a meaning for the source
-``lat``/``lon`` fields because the canonical documents still record the mapping to the
-model's PostGIS ``location`` field as an OPEN DECISION.
+the database. Canonical ``lat``/``lon`` values map to PostGIS as
+``POINT(lon lat)`` with SRID 4326. A verified place may have a NULL location when
+both coordinates are intentionally unresolved.
 
 Run from the repository root with::
 
     python scripts/import_places.py --validate
 
-The full database import remains guarded until the coordinate mapping is approved.
-Call :func:`import_records` with an explicitly approved ``location_builder`` once that
-decision exists. The database session and model imports are kept lazy so validation
+The database session and optional PostGIS value construction remain lazy so validation
 and focused importer tests do not require a live database or optional PostGIS package.
 """
 from __future__ import annotations
@@ -48,10 +46,6 @@ _PLACE_FIELDS = frozenset(
 
 class ImportValidationError(ValueError):
     """Raised when source data cannot be safely imported."""
-
-
-class LocationMappingDecisionRequired(RuntimeError):
-    """Raised until the canonical lat/lon-to-PostGIS mapping is approved."""
 
 
 @dataclass(frozen=True)
@@ -121,7 +115,11 @@ def _validate_categories(records: Any) -> tuple[dict[str, Any], ...]:
     return tuple(validated)
 
 
-def _validate_coordinate(value: Any, field: str, label: str, minimum: float, maximum: float) -> float:
+def _validate_coordinate(
+    value: Any, field: str, label: str, minimum: float, maximum: float
+) -> float | None:
+    if value is None:
+        return None
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise ImportValidationError(f"{label}.{field} must be a number")
     number = float(value)
@@ -172,8 +170,12 @@ def _validate_places(records: Any, category_names: set[str]) -> tuple[dict[str, 
             raise ImportValidationError(
                 f"{label}.category {category!r} is not present in categories.json"
             )
-        lat = _validate_coordinate(record.get("lat"), "lat", label, -90.0, 90.0)
-        lon = _validate_coordinate(record.get("lon"), "lon", label, -180.0, 180.0)
+        if "lat" not in record or "lon" not in record:
+            raise ImportValidationError(f"{label} requires both lat and lon fields")
+        if (record["lat"] is None) != (record["lon"] is None):
+            raise ImportValidationError(f"{label} requires both lat and lon or neither")
+        lat = _validate_coordinate(record["lat"], "lat", label, -90.0, 90.0)
+        lon = _validate_coordinate(record["lon"], "lon", label, -180.0, 180.0)
 
         source = _require_nonempty_string(record, "source", label)
         if source == "REQUIRED" or source.startswith("REQUIRED:"):
@@ -241,6 +243,23 @@ def _parse_verified_at(value: str | None) -> datetime | None:
     return datetime.fromisoformat(value.replace("Z", "+00:00"))
 
 
+def _build_location(record: dict[str, Any]) -> Any:
+    """Build the approved PostGIS point without swapping latitude and longitude."""
+    lat = record["lat"]
+    lon = record["lon"]
+    if lat is None and lon is None:
+        return None
+
+    try:
+        from geoalchemy2.elements import WKTElement
+    except ImportError as exc:
+        raise ImportValidationError(
+            "geoalchemy2 is required to build PostGIS place locations"
+        ) from exc
+
+    return WKTElement(f"POINT({lon} {lat})", srid=4326)
+
+
 def _find_one(session: Any, model: type[Any], **filters: Any) -> Any | None:
     return session.query(model).filter_by(**filters).one_or_none()
 
@@ -279,18 +298,11 @@ def import_records(
 ) -> ImportResult:
     """Validate and upsert categories and places in one transaction.
 
-    ``location_builder`` is intentionally mandatory for place persistence in the
-    current project state. It must be supplied by the approved coordinate mapping
-    decision; this importer does not assume that ``(lon, lat)`` is the canonical
-    representation for the model's PostGIS field.
+    ``location_builder`` is an optional test/integration hook. When omitted, the
+    approved ``POINT(lon lat)`` Geography value is built here; an unresolved pair
+    produces ``None``.
     """
     validated = validate_input(categories, places)
-    if validated.places and location_builder is None:
-        raise LocationMappingDecisionRequired(
-            "Cannot import places: the canonical lat/lon to PostGIS location mapping "
-            "is an OPEN DECISION in docs/ARCHITECTURE.md; approve it before supplying "
-            "a location_builder"
-        )
 
     if category_model is None or place_model is None:
         model_category, model_place = _load_models()
@@ -300,14 +312,14 @@ def import_records(
     # Build every location before the first session.add so a mapping failure cannot
     # leave categories or an earlier place partially written.
     place_values: list[tuple[dict[str, Any], Any]] = []
-    if location_builder is not None:
-        for record in validated.places:
-            location = location_builder(record)
-            if location is None:
-                raise ImportValidationError(
-                    f"location_builder returned no location for {record['name']!r}"
-                )
-            place_values.append((record, location))
+    builder = location_builder if location_builder is not None else _build_location
+    for record in validated.places:
+        location = builder(record)
+        if location is None and (record["lat"] is not None or record["lon"] is not None):
+            raise ImportValidationError(
+                f"location_builder returned no location for {record['name']!r}"
+            )
+        place_values.append((record, location))
 
     try:
         categories_by_name, category_count = import_categories(
@@ -385,26 +397,20 @@ def main(argv: list[str] | None = None) -> int:
         print("Validation passed")
         return 0
 
-    if validated.places:
-        print(
-            "ERROR: Cannot import places until the canonical lat/lon to PostGIS "
-            "location mapping OPEN DECISION is approved"
-        )
-        return 1
-
-    # This branch is intentionally only useful for a categories-only source file. It
-    # still uses the project's SessionLocal infrastructure and transaction boundary.
     session = _open_session()
     try:
-        _, created = import_categories(session, validated.categories)
-        session.commit()
+        result = import_records(session, categories, places)
     except Exception as exc:
         session.rollback()
         print(f"ERROR: database import failed: {exc}")
         return 1
     finally:
         session.close()
-    print(f"Imported {created} new categories")
+    print(
+        f"Imported {result.categories_created} categories, "
+        f"{result.places_created} new places, "
+        f"{result.places_updated} updated places"
+    )
     return 0
 
 

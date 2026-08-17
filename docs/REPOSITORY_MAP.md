@@ -122,7 +122,7 @@ directories are listed when they establish an ownership boundary.
 
 | Path | Purpose | Owner | Phase | Belongs here | Does not belong here | Dependencies |
 |---|---|---|---|---|---|---|
-| `scripts/import_places.py` | Current place loader stub | Smarak | 2 | `TO COMPLETE`: database place/category import | Ranking or frontend behavior | Place data and DB models |
+| `scripts/import_places.py` | Place validation and database importer | Smarak | 2 | Strict place/category validation, coordinate mapping, nullable-location handling, provenance-preserving upserts | Ranking or frontend behavior | Place data and DB models |
 | `scripts/import_transport.py` | Current transport loader stub | Smarak | 2 | `TO COMPLETE`: provider/route/fare import | Provider API implementation | Transport data and DB models |
 | `scripts/data_validation.py` | Phase 0 source-data preflight helpers | Smarak | 0/2 | Schema-shape and provenance preflight | Database writes or provider research | `data/` contracts |
 | `infra/docker-compose.yml` | Current local PostgreSQL/PostGIS and backend stack | Rudra | 2/7 | Local environment configuration | Product logic | Database and backend |

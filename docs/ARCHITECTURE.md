@@ -73,9 +73,38 @@ The database model is implemented in `backend/app/models/`. The Phase 0 migratio
 scaffold is in `backend/alembic/` with configuration in `backend/alembic.ini`. Schema
 changes belong to Smarak and must use this migration path.
 
-`OPEN DECISION`: The documentation describes place coordinates as `lat`/`lon`, while
-the current model stores a PostGIS `location` field. The canonical import/API mapping
-must be approved before implementation.
+### Place coordinate mapping
+
+Canonical research/API coordinates are represented as `lat`/`lon`. They map to
+PostGIS `Geography(POINT, SRID 4326)` as follows:
+
+- `lon` → X
+- `lat` → Y
+- SRID = 4326
+
+For example, `lat = 20.2961` and `lon = 85.8245` become
+`POINT(85.8245 20.2961)`.
+
+Coordinates must be finite and within valid geographic ranges. No coordinate may be
+inferred, fabricated, or substituted from a nearby landmark.
+
+### Missing place coordinates
+
+An otherwise verified place may be persisted with `location = NULL` when an exact
+geographic position cannot be defensibly verified. `NULL` location means:
+
+> The place is verified, but its exact geographic position is currently unknown or
+> unsupported by sufficient evidence.
+
+It does not mean the place is invalid or unverified. Places with `NULL` location:
+
+- may remain available as verified place data for non-geospatial uses;
+- must not participate in geospatial calculations;
+- must not participate in routing;
+- must not be selected for itinerary generation that requires a physical coordinate.
+
+When a defensible coordinate is later verified, update the existing place's
+`location` rather than creating a duplicate place.
 
 `OPEN DECISION`: The documentation uses both `rule` and `rule_type` for fare rules,
 and the current model lacks all documented verification metadata. Smarak and Akriti

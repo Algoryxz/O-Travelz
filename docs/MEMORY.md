@@ -19,9 +19,11 @@ The final repository-preparation pass is also complete: fresh-account onboarding
 handoff artifacts, phase review templates, scope checks, and role-specific AI-start
 prompts are present.
 
-The first independent Phase 2 place-import slice is implemented. Phase 2 remains
-incomplete because the canonical lat/lon-to-PostGIS-location mapping is still an
-OPEN DECISION and the current place file contains no verified records.
+The first independent Phase 2 place-import slice is implemented. The approved place
+coordinate architecture, nullable-location model/migration, importer mapping, and
+validation tests are complete. Phase 2 remains incomplete because the corrected v5.1
+research handoff, final compatibility audit, spatial/database-backed test execution,
+safe production import, and post-import verification remain.
 
 The generic transport-import foundation is implemented and tested, but no current
 Akriti transport file is importable as production data because coordinates, duplicate
@@ -44,11 +46,16 @@ stop identities, provider tier aggregation, and estimate metadata remain unresol
   logic.
 - Frontend/backend contract types and contract tests were added without UI.
 - Frontend/map ownership boundary was recorded without geometry implementation.
-- Data import scripts provide strict validation and guarded database-import entry points;
-  production writes remain gated by verified data and approved semantics.
+- Data import scripts provide strict validation, approved coordinate mapping, paired-null
+  location handling, provenance-preserving upserts, and transaction-safe database entry
+  points; production writes remain gated by corrected verified data and environment
+  readiness.
 - The first Phase 2 place-import slice now provides strict pre-write validation,
-  deterministic category upserts, provenance-preserving place upserts behind an
-  explicit location-mapping hook, and idempotency tests.
+  deterministic category upserts, provenance-preserving place upserts, approved
+  `POINT(lon lat)` mapping with SRID 4326, nullable-location handling, optional custom
+  location-builder hooks, and idempotency tests.
+- `Place.location` is nullable and has a reversible Alembic migration for verified
+  places whose exact coordinates are not defensibly known.
 - The transport importer foundation now normalizes and dependency-orders providers,
   stops, routes, route-stops, scheduled trips, and fare rules with idempotency and
   data-tier/estimate validation tests.
@@ -67,22 +74,26 @@ stop identities, provider tier aggregation, and estimate metadata remain unresol
 ## Active work
 
 The first Phase 2 place-import slice and the generic transport-import foundation are
-complete for their approved boundaries. The next implementation action is to resolve
-the coordinate and transport-tier/estimate decisions and receive seed-ready verified
-data from Akriti before enabling production persistence.
+complete for their approved boundaries. The next place-import actions are to receive
+Akriti's corrected v5.1 handoff, complete the compatibility audit, restore the
+`geoalchemy2` environment, execute spatial/database-backed tests, and then perform a
+safe production import followed by post-import verification. Transport-tier and
+estimate decisions and seed-ready transport data remain separate dependencies.
 
 ## Gated work
 
-Remaining Phase 2 work remains gated by its documented dependencies and affected
-`OPEN DECISION` items. This is an intentional phase gate, not a technical failure.
+Remaining Phase 2 work remains gated by corrected research data, environment and test
+readiness, migration/database verification, safe seed conditions, and the remaining
+transport `OPEN DECISION` items. This is an intentional phase gate, not a technical
+failure.
 
 ## Blocked work
 
 No work is marked permanently blocked. The following work is intentionally gated:
 
 - provider research implementation until its Phase 1 start conditions are accepted;
-- full place database import until verified data and the lat/lon-to-PostGIS mapping
-  decision are ready;
+- full place database import until the corrected v5.1 data, final compatibility audit,
+  spatial/database-backed test execution, and post-import verification are ready;
 - transport database seeding until stop coordinates, duplicate stop identity, provider
   tier aggregation, and estimate metadata are approved or supplied in representable
   form;
@@ -107,13 +118,41 @@ No work is marked permanently blocked. The following work is intentionally gated
 - Feature freeze is active.
 - Phase 0 contract schemas are validation boundaries, not feature implementations.
 
+## Place coordinate architecture — approved
+
+- Canonical research/API coordinates are `lat`/`lon`.
+- The PostGIS representation is `Geography(POINT, SRID 4326)`.
+- `lon` maps to X and `lat` maps to Y.
+- `lat=20.2961`, `lon=85.8245` becomes `POINT(85.8245 20.2961)`.
+- Coordinates must be finite and within valid geographic ranges.
+- Coordinates must never be fabricated, inferred, or substituted from nearby landmarks.
+- A verified place may have `location=NULL` when its exact coordinates cannot be
+  defensibly verified.
+- `NULL` location means verified place plus unknown or unsupported geographic position;
+  it does not mean invalid or unverified.
+- Null-location places cannot participate in geospatial calculations, routing, or
+  itinerary selection that requires a physical coordinate.
+- When a coordinate is later verified, update the existing place instead of creating a
+  duplicate.
+
+## Importer implementation status
+
+- `scripts/import_places.py` defaults to `WKTElement("POINT(lon lat)", srid=4326)`.
+- Both coordinates `NULL` produce `location=NULL`.
+- Exactly one coordinate `NULL` is rejected.
+- Missing coordinate fields are rejected.
+- Finite, range, NaN, and infinite-coordinate validation remains enforced.
+- The obsolete `LocationMappingDecisionRequired` guard was removed.
+- The CLI imports through `import_records`.
+- Existing `location_builder` hooks remain supported.
+- Provenance, idempotency, and rollback behavior remain supported.
+
 ## Known open decisions
 
 - Whether discovery/search, filters, place cards, and recommendations are separate
   approved screens or part of the existing itinerary/conversation flow.
 - Whether saved/revisited plans are an approved product feature; the current PRD treats
   them as out of scope.
-- Canonical mapping from research/API `lat`/`lon` to the PostGIS `location` field.
 - Final fare-rule field names and verification metadata.
 - Exact metadata for estimates while preserving the three transport data tiers.
 - How one provider's static and scheduled source files map to the model's singular
@@ -127,8 +166,9 @@ No work is marked permanently blocked. The following work is intentionally gated
 - Ranking, itinerary, AI, API routers, geospatial behavior, and transport graph/service
   are not implemented.
 - Only the base transport adapter exists.
-- Database migration scaffolding exists; the first place-import slice is implemented,
-  but full place persistence remains gated by the coordinate mapping decision.
+- Database migration scaffolding and the approved nullable-location migration exist;
+  the first place-import slice is implemented, but full place persistence remains
+  gated by corrected v5.1 data, environment readiness, and import verification.
 - `data/places/places.json` contains an explicit example placeholder.
 - No transport provider static records or fare records have been imported; the current
   Akriti files contain unresolved stop coordinates and duplicate E-Ride stop names.
@@ -136,7 +176,6 @@ No work is marked permanently blocked. The following work is intentionally gated
   ownership notes, and contract tests exist.
 - Docker Compose does not currently include a frontend service.
 - Provider verification documentation is still unfilled.
-- Git metadata is not available at the workspace root.
 
 ## Approved architecture decisions
 
@@ -148,6 +187,9 @@ No work is marked permanently blocked. The following work is intentionally gated
 - Susmita owns authoritative map/geospatial behavior; Deeptiman integrates it.
 - Rudra owns backend/API wiring and routing; Smarak owns ranking, itinerary meaning, and
   AI orchestration.
+- Akriti owns research correctness, provenance, and canonical data handoffs; Smarak
+  owns database semantics, importer behavior, coordinate mapping, and the deterministic
+  core.
 - Punam coordinates documentation, phase tracking, evidence, demo, and readiness.
 
 ## Feature-freeze status
@@ -160,10 +202,10 @@ the change rules in `docs/RULES.md`.
 Date: 2026-08-17
 
 - Backend health test: passed with the available bundled Python environment.
-- Backend tests: 29 passed, 1 skipped because the bundled runtime lacks the
+- Full backend test suite: 68 passed, 2 skipped because the bundled runtime lacks the
   already-declared `geoalchemy2` dependency.
-- Place importer tests: 8 passed, including validation, category/place import,
-  idempotency, duplicate prevention, provenance preservation, and placeholder rejection.
+- Place importer suite: 47 passed, 1 skipped because the approved PostGIS WKT assertion
+  requires `geoalchemy2`.
 - Transport importer tests: 15 passed, covering all six transport entities, dependency
   ordering, references, idempotency, provenance, tiers, unknown fare state, estimate
   rejection, and coordinate guards.
@@ -172,6 +214,8 @@ Date: 2026-08-17
 - Frontend TypeScript/Vitest tests: not run because frontend dependencies and TypeScript
   tooling are not installed locally.
 - Migration Python syntax: validated with the available Python runtime.
+- `git diff --check`: passed.
+- No Akriti data was modified; no unrelated models were modified; no commit was created.
 - Docker Compose configuration: parsed successfully with database health ordering; the
   obsolete `version` key was removed.
 - Feature-creep scan: no Phase 1+ providers, ranking, itinerary generation, AI
