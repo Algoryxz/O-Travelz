@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_USER: otravelz
+      POSTGRES_PASSWORD: otravelz
+      POSTGRES_DB: otravelz
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U otravelz -d otravelz"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - otravelz_pgdata:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ../backend
+    environment:
+      DATABASE_URL: postgresql://otravelz:otravelz@db:5432/otravelz
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+volumes:
+  otravelz_pgdata:

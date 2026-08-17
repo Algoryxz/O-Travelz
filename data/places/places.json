@@ -1,0 +1,14 @@
+[
+  {
+    "_comment": "Example record showing the required shape. Replace with real, sourced entries. Akriti: see docs/team/AKRITI.md.",
+    "name": "Example Place — replace me",
+    "category": "temple",
+    "lat": 20.2376,
+    "lon": 85.8315,
+    "description": "Short factual description.",
+    "opening_hours": null,
+    "avg_visit_minutes": 60,
+    "price_tier": "free",
+    "source": "REQUIRED: URL or 'on-the-ground, verified <date>'"
+  }
+]

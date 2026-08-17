@@ -1,0 +1,40 @@
+{
+  "itinerary_id": "fixture-0001",
+  "constraints": { "days": 1, "interests": ["temples", "food"], "start": "Example Hotel" },
+  "days": [
+    {
+      "day_number": 1,
+      "date": "2026-09-01",
+      "stops": [
+        {
+          "sequence": 1,
+          "place": { "id": "p1", "name": "Example Temple", "category": "temple" },
+          "planned_arrival": "09:00",
+          "planned_departure": "10:15"
+        },
+        {
+          "sequence": 2,
+          "place": { "id": "p2", "name": "Example Market", "category": "market" },
+          "planned_arrival": "10:40",
+          "planned_departure": "12:00"
+        }
+      ],
+      "hops": [
+        {
+          "from_sequence": 1,
+          "to_sequence": 2,
+          "mode": "walk+bus",
+          "estimated_minutes": 22,
+          "estimated_cost": 15,
+          "legs": [
+            { "mode": "walk", "detail": "8 min to nearest bus stop" },
+            { "mode": "bus", "provider": "Mo Bus", "route": "5", "detail": "3 stops" },
+            { "mode": "walk", "detail": "4 min to destination" }
+          ],
+          "data_tier": "static"
+        }
+      ]
+    }
+  ],
+  "explanation": "Fixture explanation text for frontend dev — matches the structure above."
+}

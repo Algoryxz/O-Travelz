@@ -1,0 +1,9 @@
+[
+  { "name": "temple" },
+  { "name": "museum" },
+  { "name": "market" },
+  { "name": "park" },
+  { "name": "food" },
+  { "name": "monument" },
+  { "name": "lake" }
+]
