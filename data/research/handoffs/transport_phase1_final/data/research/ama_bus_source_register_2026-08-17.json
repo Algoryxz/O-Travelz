@@ -1,0 +1,38 @@
+{
+  "verification_date": "2026-08-17",
+  "primary_sources": {
+    "ama_bus_detailed_stoppages_march_2026": {
+      "title": "AMA Bus Detailed Stoppages, Capital Region w.e.f 16th March, 2026",
+      "source": "https://linktr.ee/crut_bbsr",
+      "status": "identified_but_primary_pdf_not_available_in_current_file_workspace"
+    },
+    "ama_bus_bqs": {
+      "title": "Bus Queue Shelters location in City",
+      "source": "https://www.comprehensiveregiontransport.in/transit-services/mo-bus/bus-queue-shelters",
+      "status": "verified_83_records"
+    },
+    "ama_bus_fares": {
+      "title": "AMA BUS fares",
+      "source": "https://www.comprehensiveregiontransport.in/transit-services/ama-bus",
+      "status": "verified_minimum_and_passes"
+    },
+    "ama_bus_operational_route": {
+      "title": "AMA BUS Operational route",
+      "source": "https://www.comprehensiveregiontransport.in/ama-bus-operational-route",
+      "status": "network_artifact_confirmed"
+    },
+    "ama_bus_schedule_august_2026": {
+      "title": "Schedule for Regular AMA Bus Operations in Capital Region w.e.f. 01.08.2026",
+      "source": "https://linktr.ee/crut_bbsr",
+      "status": "primary_pdf_available_in_uploaded_evidence"
+    }
+  },
+  "secondary_sources": {
+    "route_12": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+  },
+  "blocked_inputs": [
+    "AMA_MoBus_current_BQS_stop_inventory_research_v1.csv was referenced in the project context but is not present in the uploaded repository/archive workspace.",
+    "AMA_MoBus_route_stop_extraction_v1_routes86-93.csv was referenced in the project context but is not present in the uploaded repository/archive workspace.",
+    "The primary March 2026 Detailed Stoppages PDF is listed by CRUT's official Linktree but its document content was not delivered in the uploaded files and was not exposed as text by the web index."
+  ]
+}

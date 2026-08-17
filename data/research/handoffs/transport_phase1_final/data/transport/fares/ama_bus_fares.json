@@ -1,0 +1,54 @@
+{
+  "provider": "AMA Bus / Mo Bus",
+  "fare_type": "distance_based",
+  "currency": "INR",
+  "minimum_standard_fare_inr": 5,
+  "ac_minimum_fare_inr": 5,
+  "non_ac_minimum_fare_inr": 5,
+  "full_distance_band_table_available_in_source": false,
+  "status": "verified_minimum_only",
+  "passes": {
+    "city_pass": {
+      "fare_up_to_inr": 30,
+      "one_day": {
+        "trips": 6,
+        "non_ac_inr": 40,
+        "ac_inr": 60
+      },
+      "thirty_day": {
+        "trips": 120,
+        "non_ac_inr": 550,
+        "ac_inr": 750
+      }
+    },
+    "magic_pass": {
+      "fare_up_to_inr": 50,
+      "one_day": {
+        "trips": 6,
+        "non_ac_inr": 80,
+        "ac_inr": 120
+      },
+      "thirty_day": {
+        "trips": 90,
+        "non_ac_inr": 1100,
+        "ac_inr": 1500
+      }
+    },
+    "long_route_pass": {
+      "fare_above_inr": 50,
+      "one_day": {
+        "trips": 3,
+        "non_ac_inr": 150,
+        "ac_inr": 180
+      },
+      "thirty_day": {
+        "trips": 60,
+        "non_ac_inr": 3000,
+        "ac_inr": 3500
+      }
+    }
+  },
+  "source": "https://www.comprehensiveregiontransport.in/transit-services/ama-bus",
+  "verification_date": "2026-08-17",
+  "note": "CRUT currently states AC and Non-AC Ama Bus fares start at Rs 5 and are distance-based. This file does not invent the complete distance-band table."
+}

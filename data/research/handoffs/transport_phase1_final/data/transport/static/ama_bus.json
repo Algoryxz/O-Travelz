@@ -1,0 +1,347 @@
+{
+  "provider": "AMA Bus / Mo Bus",
+  "mode": "bus",
+  "status": "PARTIAL_PENDING_PRIMARY_MARCH_2026_TOPOLOGY",
+  "stops": [
+    {
+      "name": "BHUBANESWAR RLY. STN.",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "MASTER CANTEEN",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "SRIYA SQUARE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "RAM MANDIR",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "EXHIBITION GROUND",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "HOUSING BOARD SQUARE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "AG COLONY",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "SHASTRI NAGAR SQUARE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "THE WORLD",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "KALINGA STADIUM GATE- 2",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "KALINGA STADIUM GATE- 8",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "JAYDEV VIHAR SQUARE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "PAL HEIGHTS",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "MAYFAIR ROAD",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "JANATA MAIDAN",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "XAVIER SQUARE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "FORTUNE TOWER",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "KALINGA HOSPITAL SQUARE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "RAIL SADAN",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "OMFED SQUARE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "NILADRI VIHAR SQUARE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "DAMANA SQUARE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "CHANDRASHEKHARPUR P.S.",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "PATIA SQUARE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "KOEL CAMPUS",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "KANAN VIHAR PHASE- 2",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "KIIT SQUARE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "SIKHARCHANDI VIHAR",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "NANDAN VIHAR",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "MANI TRIBHUVAN",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "ROYAL LAGOON",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "RAGHUNATHPUR",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "RAGHUNATHPUR VILLAGE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "DULADEI TEMPLE",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "NANDANKANAN HIGH SCHOOL",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    },
+    {
+      "name": "NANDANKANAN",
+      "lat": null,
+      "lon": null,
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    }
+  ],
+  "routes": [
+    {
+      "name": "12",
+      "route_name": "Bhubaneswar Railway Station \u2194 Nandankanan (via Jaydev Vihar)",
+      "stop_sequence": [
+        "BHUBANESWAR RLY. STN.",
+        "MASTER CANTEEN",
+        "SRIYA SQUARE",
+        "RAM MANDIR",
+        "EXHIBITION GROUND",
+        "HOUSING BOARD SQUARE",
+        "AG COLONY",
+        "SHASTRI NAGAR SQUARE",
+        "THE WORLD",
+        "KALINGA STADIUM GATE- 2",
+        "KALINGA STADIUM GATE- 8",
+        "JAYDEV VIHAR SQUARE",
+        "PAL HEIGHTS",
+        "MAYFAIR ROAD",
+        "JANATA MAIDAN",
+        "XAVIER SQUARE",
+        "FORTUNE TOWER",
+        "KALINGA HOSPITAL SQUARE",
+        "RAIL SADAN",
+        "OMFED SQUARE",
+        "NILADRI VIHAR SQUARE",
+        "DAMANA SQUARE",
+        "CHANDRASHEKHARPUR P.S.",
+        "PATIA SQUARE",
+        "KOEL CAMPUS",
+        "KANAN VIHAR PHASE- 2",
+        "KIIT SQUARE",
+        "SIKHARCHANDI VIHAR",
+        "NANDAN VIHAR",
+        "MANI TRIBHUVAN",
+        "ROYAL LAGOON",
+        "RAGHUNATHPUR",
+        "RAGHUNATHPUR VILLAGE",
+        "DULADEI TEMPLE",
+        "NANDANKANAN HIGH SCHOOL",
+        "NANDANKANAN"
+      ],
+      "source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html"
+    }
+  ],
+  "source": "https://www.comprehensiveregiontransport.in/ama-bus-operational-route",
+  "verified_on": "2026-08-17",
+  "data_tier": "static",
+  "source_note": "Route 12 topology is retained as secondary/historical-supporting evidence. The complete current Capital Region topology must be rebuilt from CRUT's 16 March 2026 Detailed Stoppages source before this file can be treated as canonical.",
+  "current_schedule_effective_date": "2026-06-01",
+  "current_schedule_status": "official_reference_listed_content_not_extracted",
+  "verification_date": "2026-08-17"
+}

@@ -1,9 +1,29 @@
 [
-  { "name": "temple" },
-  { "name": "museum" },
-  { "name": "market" },
-  { "name": "park" },
-  { "name": "food" },
-  { "name": "monument" },
-  { "name": "lake" }
+  {
+    "name": "temple"
+  },
+  {
+    "name": "museum"
+  },
+  {
+    "name": "market"
+  },
+  {
+    "name": "park"
+  },
+  {
+    "name": "monument"
+  },
+  {
+    "name": "lake"
+  },
+  {
+    "name": "planetarium"
+  },
+  {
+    "name": "sports_venue"
+  },
+  {
+    "name": "science_center"
+  }
 ]

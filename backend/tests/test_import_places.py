@@ -418,13 +418,48 @@ def test_malformed_record_is_rejected_before_database_writes(category_records, p
 
 
 def test_placeholder_is_rejected_and_not_imported():
-    placeholder = load_places()
+    placeholder = [
+        {
+            "_comment": "Example record",
+            "name": "Example Place — replace me",
+            "category": "temple",
+            "lat": 20.2,
+            "lon": 85.8,
+            "description": "Placeholder",
+            "opening_hours": None,
+            "avg_visit_minutes": None,
+            "price_tier": None,
+            "source": "REQUIRED: URL",
+            "verified_at": None,
+        }
+    ]
 
     with pytest.raises(ImportValidationError, match="placeholder"):
         validate_input([{"name": "temple"}], placeholder)
 
 
 def test_existing_placeholder_causes_cli_rejection_before_session_open(monkeypatch):
+    monkeypatch.setattr(
+        "import_places.load_categories", lambda: [{"name": "temple"}]
+    )
+    monkeypatch.setattr(
+        "import_places.load_places",
+        lambda: [
+            {
+                "_comment": "Example record",
+                "name": "Example Place — replace me",
+                "category": "temple",
+                "lat": 20.2,
+                "lon": 85.8,
+                "description": "Placeholder",
+                "opening_hours": None,
+                "avg_visit_minutes": None,
+                "price_tier": None,
+                "source": "REQUIRED: URL",
+                "verified_at": None,
+            }
+        ],
+    )
     monkeypatch.setattr(
         "import_places._open_session",
         lambda: pytest.fail("the placeholder must be rejected before opening a session"),

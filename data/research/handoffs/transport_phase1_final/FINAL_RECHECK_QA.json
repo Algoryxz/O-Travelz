@@ -1,0 +1,70 @@
+{
+  "verification_date": "2026-08-17",
+  "official_live_source_recheck": {
+    "source": "https://linktr.ee/crut_bbsr",
+    "topology": "March 16 2026 detailed stoppages listed",
+    "schedule": "June 1 2026 schedule listed",
+    "august_schedule_claim": "not accepted as current after live-source recheck"
+  },
+  "counts": {
+    "places": 32,
+    "bqs": 83,
+    "regional_ordered_stops": 648,
+    "regional_candidates": 354,
+    "capital_region_route12_stops": 36,
+    "route12_bqs_matches": 22,
+    "route12_new_or_unresolved": 14
+  },
+  "validation_checks": [
+    {
+      "check": "places_count_32",
+      "pass": true,
+      "value": 32
+    },
+    {
+      "check": "bqs_count_83",
+      "pass": true,
+      "value": 83
+    },
+    {
+      "check": "regional_ordered_rows_648",
+      "pass": true,
+      "value": 648
+    },
+    {
+      "check": "regional_candidate_rows_354",
+      "pass": true,
+      "value": 354
+    },
+    {
+      "check": "route12_rows_36",
+      "pass": true,
+      "value": 36
+    },
+    {
+      "check": "route12_sequence_1_to_36",
+      "pass": true,
+      "value": [
+        1,
+        2,
+        3,
+        34,
+        35,
+        36
+      ]
+    },
+    {
+      "check": "route12_bqs_matches_22",
+      "pass": true,
+      "value": 22
+    },
+    {
+      "check": "no_route12_coordinates",
+      "pass": true,
+      "value": true
+    }
+  ],
+  "capital_region_status": "INCOMPLETE_PRIMARY_TOPOLOGY",
+  "engineering_ready": false,
+  "reason": "The authoritative March 16 2026 detailed-stoppages PDF is listed by CRUT but its payload is not available for extraction in this environment. No complete Capital Region route-stop topology or final canonical stop IDs are claimed."
+}
