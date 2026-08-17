@@ -19,7 +19,12 @@ depends_on: Union[str, Sequence[str], None] = None
 
 def upgrade() -> None:
     op.execute("CREATE EXTENSION IF NOT EXISTS postgis")
-    data_tier = postgresql.ENUM("static", "scheduled", "live", name="datatier")
+    # The enum is created explicitly above. Disable SQLAlchemy's table-level
+    # create event so offline SQL and an empty-database upgrade emit CREATE TYPE
+    # exactly once.
+    data_tier = postgresql.ENUM(
+        "static", "scheduled", "live", name="datatier", create_type=False
+    )
     data_tier.create(op.get_bind(), checkfirst=True)
 
     op.create_table(

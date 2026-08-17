@@ -164,7 +164,9 @@ Phase 0 database contract and Phase 1 verified data.
 
 **Current status**
 
-Phase 2 remains incomplete.
+Phase 2 engineering acceptance is complete. Research closure remains open for
+explicitly tracked AMA data-quality items; those items are represented as unknown or
+unresolved states and are not engineering failures.
 
 **Completed within the current Phase 2 boundary**
 
@@ -175,15 +177,36 @@ Phase 2 remains incomplete.
 - The place importer implements the approved coordinate mapping and paired-null
   behavior without fabricating coordinates.
 - Coordinate validation and importer transaction/idempotency tests are implemented.
+- The corrected v5.1 handoff is audited and accepted without changing its research facts.
+- Category IDs, research IDs, provenance notes, and coordinate/audit metadata are
+  preserved by the model, migration, and importer.
+- The empty-database offline migration path emits PostGIS geography/index definitions,
+  applies nullable place location, and creates the enum exactly once.
+- The declared geoalchemy2 runtime is available and the backend suite passes.
+- Live PostgreSQL 16.4/PostGIS 3.4.3 migration reached
+  `0004_transport_research_layers` from an empty database; current-schema upgrade is a
+  no-op at head.
+- Live geography types, SRID 4326, GiST indexes, valid `POINT(lon lat)` persistence,
+  NULL-coordinate persistence, and transaction rollback were verified.
+- The v5.1 place handoff was imported and verified: 9 categories, 32 places, 24
+  intentional NULL locations, no placeholders, duplicates, orphan categories, or
+  invalid spatial rows. A second import created no new records.
+- The corrected AMA Bus handoff was imported through its dedicated adapter: 72 confirmed
+  stops, 95 routes, 193 schedule groups, and 3,617 departure times. Provenance and all
+  three timetable layers were preserved; a second import created no duplicates.
+- The 11 unresolved BQS records and all 36 Route 12 rows without canonical candidates
+  were excluded from confirmed stop and route-stop production records.
 
-**Remaining before Phase 2 completion**
+**Research closure remains open**
 
-- Receive Akriti's corrected v5.1 research handoff.
-- Complete the v5.1 compatibility audit.
-- Restore the `geoalchemy2` environment and execute spatial/database-backed tests.
-- Complete any remaining database migration/model work identified by review.
-- Perform the safe production import.
-- Perform post-import verification.
+- All 83 AMA coordinates remain unresolved.
+- Three BQS near-name variants require physical confirmation.
+- Eight official BQS records lack March stoppage-source evidence.
+- Route 12 has 36 unresolved canonical route-stop mappings.
+- The corrected AMA Bus package contains no structured fare payload.
+
+These are research/source-closure items. They must not be resolved by inference or
+treated as migration/import engineering failures.
 
 Akriti remains responsible for research correctness, provenance, and the canonical data
 handoff. Smarak remains responsible for database semantics, importer behavior,
@@ -217,6 +240,15 @@ coordinate mapping, and deterministic core implementation.
 - Database and import behavior remains separate from ranking, AI, frontend, and provider
   integration behavior.
 
+**Engineering acceptance evidence**
+
+- PostgreSQL 16.4/PostGIS 3.4.3 live database: container `infra-db-1`, healthy.
+- Full backend suite: 82 passed.
+- Place preflight, AMA preflight, live spatial SQL, post-import verification, idempotent
+  re-import, and live rollback checks passed.
+- `alembic check` reports only PostGIS extension-owned catalog tables outside application
+  metadata; this is an autogenerate comparison limitation, not application-schema drift.
+
 **Exit criteria**
 
 - Migrations run from an empty database.
@@ -232,7 +264,10 @@ coordinate mapping, and deterministic core implementation.
 
 **Handoff**
 
-Smarak hands the schema and import contract to Rudra and the deterministic services.
+Smarak hands the verified Phase 2 database/import outputs to Rudra and the deterministic
+services. The Phase 3 gate is satisfied as defined here: Phase 1 provider verification
+and Phase 2 database/import outputs are available. Rudra may begin Phase 3 transportation
+and routing work while preserving every unresolved research state.
 
 ## Phase 3 — Transportation and routing
 
@@ -247,6 +282,11 @@ Rudra.
 **Dependencies**
 
 Phase 1 provider verification and Phase 2 database/import outputs.
+
+**Gate status**
+
+Satisfied for Phase 3 entry. This does not authorize Phase 4, Phase 5, Phase 6A, or
+Phase 6B work, and it does not close AMA research uncertainties.
 
 **Allowed work**
 

@@ -25,7 +25,13 @@ Compare implementation with every phase requirement. Check:
 
 Create a report using docs/phases/PHASE_COMPLETION_TEMPLATE.md.
 
-Do not mark the phase COMPLETE if any required exit criterion fails, is untested, is
-blocked by an unavailable dependency, or is only scaffolded. Use PARTIAL or BLOCKED and
-explain why.
+Separate engineering acceptance from research closure. Mark engineering acceptance
+COMPLETE only when the applicable exit criteria are verified by actual evidence. If the
+canonical gate permits explicit unknown or unresolved research states, report those
+under Research closure status rather than treating them as engineering failures. Use
+PARTIAL or BLOCKED when an engineering criterion is actually missing, untested, or
+unavailable. Do not infer a pass from intention or scaffolding.
+
+Record the review in Markdown using the phase completion template and create handoffs for
+the next phase owners.
 ```

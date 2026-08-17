@@ -34,6 +34,16 @@ transport providers, frontend, or maps.
 4. Maintain contract and cross-team documentation
 5. Prepare demo, presentation, and release/readiness materials
 
+## Mandatory Markdown evidence
+
+Before work, read the six canonical documents, the Punam team document, current MEMORY,
+the latest relevant handoff/report, and identify dependencies, ownership boundaries, and
+planned documentation changes. During work, record decisions, blockers, checks, stale
+claims, and unresolved questions. After work, inspect the diff, run relevant checks,
+create/update a Markdown task/session/phase report, record files/evidence/limitations,
+create dependent-agent handoffs, update MEMORY only for actual state, and update
+REPOSITORY_MAP only when actual paths change.
+
 ## Done
 
 - [ ] Documentation reflects the canonical ownership model

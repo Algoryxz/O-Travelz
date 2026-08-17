@@ -79,11 +79,16 @@ directories are listed when they establish an ownership boundary.
 | `backend/app/transport/adapters/` | Existing adapter package | Rudra | 3 | `TO CREATE`: verified provider adapters | Ranking, itinerary, or AI | `data/transport/`, database |
 | `backend/app/transport/graph/` | Existing empty graph package | Rudra | 3 | `TO CREATE`: stop/walking graph and pathfinding | Map UI or authoritative place ranking | Transport data and geospatial outputs |
 | `backend/app/transport/` | Transport subsystem | Rudra | 3 | Adapters, graph, planning service | Core ranking, AI, complete frontend | Provider verification and database |
-| `backend/tests/` | Backend health, Phase 0 contract, and later subsystem tests | Relevant implementation owner | 0–7 | Unit, contract, integration tests | Test-only product behavior | Backend dependencies |
+| `backend/tests/` | Backend health, Phase 0 contract, Phase 2 database/import, and later subsystem tests | Relevant implementation owner | 0–7 | Unit, contract, migration, spatial, import, and integration tests | Test-only product behavior | Backend dependencies |
+| `backend/tests/test_ama_bus_adapter.py` | Corrected AMA Bus adapter tests | Smarak/Akriti | 2 | Schema validation, confirmed-slice filtering, timetable preservation, idempotency, rollback, and unresolved-state checks | Research fact changes | AMA handoff and transport models |
+| `backend/tests/test_data_validation.py` | Source-data preflight tests | Smarak | 2 | Place/transport shape, provenance, coordinate, and duplicate validation | Database writes or research edits | `scripts/data_validation.py` |
 | `backend/alembic.ini` | Alembic configuration | Smarak | 0–2 | Migration runner configuration | Runtime product settings | `backend/alembic/` |
-| `backend/alembic/` | Alembic environment and initial schema migration | Smarak | 0–2 | Reproducible database schema changes | Feature data or provider logic | SQLAlchemy models, PostgreSQL/PostGIS |
+| `backend/alembic/` | Alembic environment and Phase 2 schema migration chain | Smarak | 0–2 | Reproducible database schema changes through the live-verified head | Feature data or provider logic | SQLAlchemy models, PostgreSQL/PostGIS |
 | `backend/alembic/env.py` | Alembic runtime environment | Smarak | 0–2 | Settings and model metadata wiring | Application request handling | `backend/alembic.ini`, SQLAlchemy models |
 | `backend/alembic/versions/0001_initial_schema.py` | Initial canonical database migration | Smarak | 0–2 | Current model tables and PostGIS extension | Seed data or later-phase behavior | Database contract |
+| `backend/alembic/versions/0002_make_place_location_nullable.py` | Nullable verified-place location migration | Smarak | 2 | Reversible NULL-coordinate semantics | Fabricated coordinates | Place contract |
+| `backend/alembic/versions/0003_preserve_v51_place_metadata.py` | v5.1 provenance and audit metadata migration | Smarak | 2 | Research IDs, category display metadata, and place audit fields | Research fact changes | v5.1 handoff, SQLAlchemy models |
+| `backend/alembic/versions/0004_transport_research_layers.py` | Transport research-layer migration | Smarak | 2 | Nullable stop identity metadata, route source metadata, provider source/tier, schedule groups, and fare unknown/status fields | Fabricated transport facts or Phase 3 behavior | AMA handoff, SQLAlchemy models |
 | `backend/requirements.txt` | Python dependency pins | Rudra with affected owners | 0–7 | Approved backend dependencies | Unapproved packages | Backend implementation |
 | `backend/Dockerfile` | Backend container definition | Rudra | 7 | Backend build/run configuration | Application feature code | Backend package |
 
@@ -95,9 +100,9 @@ directories are listed when they establish an ownership boundary.
 | `data/places/categories.json` | Current category records | Akriti | 1 | Sourced category input | Database-generated output | Place schema |
 | `data/places/places.json` | Current place records | Akriti | 1 | Sourced place input | Example placeholders in final dataset | Place schema and sources |
 | `data/transport/static/README.md` | Static transport file shape | Akriti | 1 | Provider topology/schedule input format | Provider implementation | Transport contract |
-| `data/transport/static/` | Existing directory with no provider records | Akriti | 1 | `TO CREATE`: verified provider static files | Unsourced routes or schedules | Provider verification |
-| `data/transport/fares/` | Existing empty fare directory | Akriti | 1 | `TO CREATE`: verified fare files | Guessed fares | Provider verification |
-| `data/research/` | Existing empty research directory | Akriti | 1 | `TO CREATE`: research notes and source material | Imported production records | Data rules |
+| `data/transport/static/` | Current provider topology and schedule research inputs | Akriti | 1 | Sourced provider topology/schedule files, including explicit unresolved values | Unsourced routes or schedules | Provider verification |
+| `data/transport/fares/` | Current provider fare research inputs | Akriti | 1 | Sourced fares, including explicit unknown amounts | Guessed fares | Provider verification |
+| `data/research/` | Research notes and reviewed handoff packages | Akriti | 1/2 | Source evidence and immutable research handoffs | Imported production records | Data rules |
 
 ## Frontend
 
@@ -123,10 +128,24 @@ directories are listed when they establish an ownership boundary.
 | Path | Purpose | Owner | Phase | Belongs here | Does not belong here | Dependencies |
 |---|---|---|---|---|---|---|
 | `scripts/import_places.py` | Place validation and database importer | Smarak | 2 | Strict place/category validation, coordinate mapping, nullable-location handling, provenance-preserving upserts | Ranking or frontend behavior | Place data and DB models |
-| `scripts/import_transport.py` | Current transport loader stub | Smarak | 2 | `TO COMPLETE`: provider/route/fare import | Provider API implementation | Transport data and DB models |
+| `scripts/verify_places.py` | Read-only post-import evidence generator | Smarak | 2 | Counts, provenance, duplicate, coordinate, and PostGIS checks | Database writes or product behavior | Place data and DB models |
+| `scripts/import_transport.py` | Provider-neutral transport loader | Smarak | 2 | Generic provider/route/fare normalization and import boundary | Provider API implementation | Transport data and DB models |
+| `scripts/import_ama_bus.py` | Corrected AMA Bus research-package adapter | Smarak/Akriti | 2 | Explicit package validation and provenance-preserving confirmed-slice import | Route topology or provider APIs | AMA Bus research handoff and transport schema |
 | `scripts/data_validation.py` | Phase 0 source-data preflight helpers | Smarak | 0/2 | Schema-shape and provenance preflight | Database writes or provider research | `data/` contracts |
 | `infra/docker-compose.yml` | Current local PostgreSQL/PostGIS and backend stack | Rudra | 2/7 | Local environment configuration | Product logic | Database and backend |
 
 `OPEN DECISION`: The architecture documentation describes a whole-stack local demo,
 while the current Compose file contains no frontend service. The required final local
 stack shape must be approved before infrastructure changes.
+
+## Evidence and handoff records
+
+| Path | Purpose | Owner | Phase | Belongs here | Does not belong here | Dependencies |
+|---|---|---|---|---|---|---|
+| `docs/phases/PHASE_2_DOCUMENTATION_SYNC_REPORT_2026-08-17.md` | Final Phase 2 documentation/state synchronization report | Punam | 2/3 | Evidence-backed status, gate, handoffs, blockers, and next actions | New implementation or research facts | `docs/PHASES.md`, live acceptance evidence |
+| `docs/handoffs/2026-08-17_RUDRA_PHASE2_TRANSPORT_HANDOFF.md` | Phase 2 transport outputs and Phase 3 boundaries for Rudra | Smarak/Punam | 2/3 | Confirmed outputs, unresolved states, ownership, and next action | Provider implementation | AMA adapter and Phase 3 contract |
+| `docs/handoffs/2026-08-17_SUSMITA_PHASE2_GEOMETRY_HANDOFF.md` | Phase 2 geometry limitations for Susmita | Smarak/Punam | 2/6A | NULL/unavailable geometry semantics and dependencies | Invented coordinates or map implementation | Phase 2 spatial evidence |
+| `docs/handoffs/2026-08-17_SMARAK_PHASE2_ACCEPTANCE_HANDOFF.md` | Phase 2 engineering acceptance record for Smarak | Punam | 2 | Verified implementation responsibilities and research boundary | Competing canonical status | `docs/MEMORY.md` |
+| `docs/handoffs/2026-08-17_AKRITI_RESEARCH_CLOSURE_HANDOFF.md` | Remaining AMA research closure items for Akriti | Smarak/Punam | 2 | Explicit unresolved records and evidence needed | Guessed facts or schema changes | AMA research package |
+| `docs/handoffs/2026-08-17_DEEPTIMAN_PHASE2_DEPENDENCY_HANDOFF.md` | Later frontend dependency record for Deeptiman | Smarak/Punam | 2/6B | API/map dependency and scope boundary | Unauthorized frontend features | Phase 3/6 contracts |
+| `docs/handoffs/2026-08-17_PUNAM_DOCUMENTATION_SYNC_HANDOFF.md` | Documentation and release-readiness maintenance record | Punam | 2/7 | Canonical evidence and synchronization responsibilities | Implementation ownership | All canonical docs |

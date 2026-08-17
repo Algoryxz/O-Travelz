@@ -36,6 +36,17 @@ geospatial implementation into the core-brain modules.
 - Susmita for map/geospatial outputs
 - Punam for documentation, shared context, architecture records, and release evidence
 
+## Required evidence protocol
+
+Before work, read the canonical documents, this team document, the build guide, current
+`docs/MEMORY.md`, the latest relevant handoff, and the latest relevant phase report;
+identify dependencies, ownership boundaries, and planned changes. During work, keep
+semantic changes within scope, record decisions, blockers, tests, and unresolved
+questions, and never silently resolve open decisions. After work, inspect the diff, run
+relevant tests, create/update a Markdown task or session report, record files/tests/
+decisions/limitations, create dependent-agent handoffs, and update MEMORY only for
+actual project-state changes.
+
 ## Reusable AI-start prompt
 
 ```text

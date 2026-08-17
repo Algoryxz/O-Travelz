@@ -32,4 +32,9 @@ OWNER:
 DEPENDENTS:
 
 Do not implement until the user explicitly resolves the conflict.
+
+If implementation is approved, keep a Markdown task/session report. Before work record
+the planned files, dependencies, and ownership boundary; during work record decisions,
+tests, blockers, and unresolved questions; after work record the diff, exact test
+results, files changed, limitations, handoff, and next action.
 ```

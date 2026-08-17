@@ -58,6 +58,21 @@ implementation outside it. Add tests for normalization, multimodal journeys, mis
 data, provider failure, and freshness/status.
 ```
 
+## Mandatory Markdown evidence
+
+Before work, read the six canonical documents, the Rudra team document, current MEMORY,
+the latest relevant handoff/report, and identify dependencies, ownership boundaries, and
+planned changes. During work, preserve provider evidence and data tiers, record
+decisions, blockers, tests, and unresolved questions, and never invent provider facts.
+After work, inspect the diff, run relevant tests, create/update a Markdown task/session/
+phase report, record files/tests/decisions/limitations, create dependent-agent handoffs,
+and update MEMORY only for actual state changes.
+
+Phase 2 outputs available to Rudra are 72 confirmed AMA stops with NULL/unresolved
+coordinates, 95 routes, 193 schedule groups, 3,617 timetable values, one scheduled
+provider-source layer, and no Route 12 canonical mappings. No live API capability is
+implied.
+
 ## Done
 - [ ] Provider abstraction exists
 - [ ] Verified providers are implemented appropriately

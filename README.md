@@ -45,9 +45,11 @@ Then read the relevant file in `docs/team/` and its build guide in
 
 ## Current phase
 
-Phase 0 foundation and final repository preparation are complete for the approved scope.
-Phase 1+ implementation remains gated by `docs/PHASES.md` and the open decisions in
-`docs/MEMORY.md`.
+Phase 2 engineering acceptance is complete: the live PostgreSQL/PostGIS migration,
+place import, confirmed AMA Bus import, post-import verification, and idempotency checks
+passed. Phase 2 research closure remains open for explicit AMA coordinate, identity,
+route-stop, and fare uncertainties. The canonical Phase 3 entry gate is satisfied;
+Phase 3 transportation/routing is the current implementation frontier.
 
 ## Session workflow
 
@@ -57,6 +59,8 @@ Phase 1+ implementation remains gated by `docs/PHASES.md` and the open decisions
 - Finish with `docs/handoffs/END_OF_SESSION_PROMPT.md` and a handoff based on
   `docs/handoffs/TEMPLATE.md`.
 - Use `docs/phases/PHASE_COMPLETION_TEMPLATE.md` only for a verified phase review.
+- Every meaningful task must leave Markdown evidence and a dependent-agent handoff using
+  the templates under `docs/handoffs/`.
 
 Do not add product features, providers, dependencies, files, or abstractions because
 they seem useful. If a request conflicts with the canonical documents, stop and report

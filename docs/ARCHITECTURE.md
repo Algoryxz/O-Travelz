@@ -4,8 +4,9 @@ Status: canonical architecture and ownership boundary
 
 This document consolidates the approved architecture currently described in the
 repository. It describes the intended system boundaries without adding product
-requirements. The implementation is currently a skeleton; missing implementation is
-tracked in `docs/MEMORY.md` and future paths are marked in `docs/REPOSITORY_MAP.md`.
+requirements. Phase 2 database/import engineering is live-verified and accepted;
+Phase 3+ service behavior remains future work and is tracked in `docs/PHASES.md` and
+`docs/REPOSITORY_MAP.md`.
 
 ## Architectural principles
 
@@ -39,9 +40,10 @@ Backend API (FastAPI)
 ```
 
 The current repository implements the FastAPI health endpoint, SQLAlchemy model
-foundation, Phase 0 boundary schemas, migration scaffolding, and contract tests.
-Ranking, itinerary generation, AI execution, routing, geospatial behavior, and the
-frontend flow are not yet implemented.
+foundation, Phase 0 boundary schemas, the Phase 2 migration chain/importers, live
+verified place and AMA Bus persistence, and contract/database tests. Ranking,
+itinerary generation, AI execution, routing, geospatial behavior, and the frontend
+flow are not yet implemented.
 
 ## Ownership and boundaries
 
@@ -64,14 +66,21 @@ Verified human-curated data lives in `data/` and is imported into PostgreSQL/Pos
 Facts must retain source and verification information. The documented entities are:
 
 - `Place` and `Category`;
-- `TransportProvider`, `Stop`, `Route`, `RouteStop`, `ScheduledTrip`, and `FareRule`;
+- `TransportProvider`, `TransportProviderSource`, `Stop`, `Route`, `RouteStop`,
+  `ScheduledTrip`, `ScheduledTripGroup`, and `FareRule`;
 - `Itinerary`, `ItineraryDay`, `ItineraryStop`, and `TransportHop`;
 - `User` exists in the current model as a minimal persistence-related entity, but a
   save/revisit product flow is not approved in the PRD.
 
-The database model is implemented in `backend/app/models/`. The Phase 0 migration
-scaffold is in `backend/alembic/` with configuration in `backend/alembic.ini`. Schema
-changes belong to Smarak and must use this migration path.
+The database model is implemented in `backend/app/models/`. The migration chain is in
+`backend/alembic/`, with configuration in `backend/alembic.ini`; the live verified
+head is `0004_transport_research_layers`. Schema changes belong to Smarak and must use
+this migration path.
+
+The reviewed v5.1 place handoff uses `categories.json.id` as the canonical category
+reference and retains the display label and description separately. Place imports retain
+the handoff research ID plus source-provenance, coordinate-verification, and audit-status
+metadata; those identifiers are traceability fields, not replacements for database UUIDs.
 
 ### Place coordinate mapping
 
@@ -106,9 +115,10 @@ It does not mean the place is invalid or unverified. Places with `NULL` location
 When a defensible coordinate is later verified, update the existing place's
 `location` rather than creating a duplicate place.
 
-`OPEN DECISION`: The documentation uses both `rule` and `rule_type` for fare rules,
-and the current model lacks all documented verification metadata. Smarak and Akriti
-must approve the final semantic field set.
+Fare rules retain nullable fare values and explicit status/currency/verification-note
+metadata. Unknown or unavailable fares remain unknown; no value is fabricated when a
+source does not provide a structured fare payload. The corrected AMA Bus handoff has
+no structured fare payload, so it does not create a confirmed AMA fare value.
 
 ## Verified data and provenance
 
@@ -117,9 +127,11 @@ verification evidence. Rudra's adapters may consume only providers that have bee
 verified in the provider-verification record. Smarak's imports must preserve source and
 freshness information.
 
-No AI-generated placeholder is authoritative data. The current place file contains an
-explicit example placeholder and the transport static directory contains no provider
-records; this is an incomplete project state, not usable product data.
+No AI-generated placeholder is authoritative data. The v5.1 handoff contains 32 sourced,
+verified place records and no placeholder records. The corrected AMA Bus adapter is a
+dedicated package boundary: it imports only the 72 identity-confirmed stop records,
+95 routes, 193 schedule groups, and 3,617 timetable values that the package establishes,
+while preserving provenance and excluding unresolved records and route-stop mappings.
 
 ## Transportation
 
@@ -142,9 +154,15 @@ Estimates must be labeled as estimates and must not be represented as live facts
 model currently uses the three values above; the transport documentation also uses the
 phrase “estimate-only.”
 
-`OPEN DECISION`: Confirm the exact metadata field used to distinguish an estimated
-static or scheduled value from a verified value while preserving the three primary
-data-tier values.
+`TransportProviderSource` preserves provider-specific source/tier records so static,
+scheduled, and live layers can coexist without collapsing the canonical three tiers.
+`ScheduledTripGroup` preserves raw, normalized source-order, and chronological
+timetable layers. A confirmed transport stop may have `location = NULL` with explicit
+coordinate and reconciliation status when its identity is verified but its exact
+position is not.
+
+Estimate semantics remain explicit at the contract boundary; no AMA Bus live status or
+provider API capability is implied by the static/scheduled research import.
 
 If no route is found, the transport result must contain an explicit unavailable state
 with a reason. Missing provider data must fall back honestly where the approved

@@ -33,6 +33,25 @@ After reading, report:
 - blockers
 - the next action you recommend
 
+Before work begins, state the change you plan to make, the files you expect to touch,
+the dependencies you rely on, and the ownership boundaries that constrain the work.
+
+During work:
+
+- keep implementation within the assigned ownership and phase;
+- record important decisions, blockers, test evidence, and unresolved questions;
+- never silently resolve a document conflict or fabricate factual data.
+
+After work:
+
+- inspect `git diff` and `git status`;
+- run the appropriate tests and record exact results;
+- create or update a Markdown task/session/phase report using the repository templates;
+- record files changed, decisions, contracts, database/data effects, limitations,
+  blockers, remaining work, and a handoff for dependent agents;
+- update `docs/MEMORY.md` only when actual project state changed and
+  `docs/REPOSITORY_MAP.md` only when actual paths changed.
+
 Check the requested work against the canonical documents. If it conflicts with them,
 STOP and report the conflict using CURRENT, DOCUMENTED, PROBLEM, PROPOSED CANONICAL
 VERSION, OWNER, and DEPENDENTS. Do not guess.

@@ -75,7 +75,8 @@ exactly what the AI layer reads to write its explanation. See
 ## 6. Database entities (high level)
 
 See `docs/architecture/02-database.md` for full detail. Summary: `Place`, `Category`,
-`TransportProvider`, `Stop`, `Route`, `ScheduledTrip`, `FareRule`, `Itinerary`,
+`TransportProvider`, `TransportProviderSource`, `Stop`, `Route`, `ScheduledTrip`,
+`ScheduledTripGroup`, `FareRule`, `Itinerary`,
 `ItineraryDay`, `ItineraryStop`, `TransportHop`, `User` (minimal, for saved plans).
 
 ## 7. Transportation model
@@ -113,9 +114,10 @@ stays enforced server-side.
 
 ## 11. Deployment
 
-`infra/` holds environment config and a docker-compose setup for local dev (Postgres +
-PostGIS, backend, frontend). Production deployment target is decided later once the demo
-is validated — not a blocker for Phase 0–7 work.
+`infra/` holds environment config and a docker-compose setup for local development. The
+PostgreSQL/PostGIS service is live-verified; backend and frontend are not both wired as
+compose services in the current repository. Production deployment remains a later
+decision.
 
 ## 12. Non-goals for v1
 

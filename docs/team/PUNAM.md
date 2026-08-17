@@ -36,6 +36,17 @@ Documentation is current, ownership boundaries are explicit, decisions have evid
 phase status is traceable, and demo/release readiness is documented without taking over
 implementation ownership.
 
+## Required evidence protocol
+
+Before work, read the canonical documents, this team document, the build guide, current
+`docs/MEMORY.md`, the latest relevant handoff, and the latest relevant phase report;
+identify dependencies, ownership boundaries, and planned documentation changes. During
+work, record decisions, blockers, tests/checks, stale claims, and unresolved questions;
+never silently replace canonical conflicts. After work, inspect the diff, run relevant
+checks, create/update a Markdown task/session/phase report, record files/evidence and
+remaining work, create dependent-agent handoffs, update MEMORY only for actual state,
+and update REPOSITORY_MAP only when paths change.
+
 ## Reusable AI-start prompt
 
 ```text

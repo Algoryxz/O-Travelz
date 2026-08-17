@@ -43,11 +43,11 @@ research and verified sources. Punam owns documentation and release coordination
   `plan_transport_hop` signature matches what Smarak actually calls.
 
 ## What must be completed before you start
-- Akriti's Phase 1 provider verification + static data (at least for demo-relevant
-  providers).
-- Smarak's Phase 2 DB/import (or you can build against raw `data/` files for early dev
-  and swap to DB queries once import scripts exist — don't block on this if Akriti's
-  data is ready first).
+- Akriti's Phase 1 provider verification and the latest relevant research handoff.
+- Smarak's Phase 2 live-verified database/import outputs, recorded in
+  `docs/handoffs/2026-08-17_RUDRA_PHASE2_TRANSPORT_HANDOFF.md`.
+- A scope check and Markdown task report identifying the Phase 3 files, dependencies,
+  and ownership boundary.
 
 ## What you hand off
 - `plan_transport_hop()` service → Smarak (itinerary logic calls it per hop).
@@ -74,6 +74,16 @@ research and verified sources. Punam owns documentation and release coordination
 [ ] Unit tests for adapters + pathfinding
 [ ] Handed off to Smarak, with the interface and evidence documented for Punam's shared
 project context
+
+## Required evidence protocol
+
+Before work, read the canonical documents, this team document, the build guide, current
+`docs/MEMORY.md`, the latest relevant handoff, and the latest relevant phase report;
+identify dependencies, ownership boundaries, and planned changes. During work, preserve
+provider evidence and data tiers, record decisions, blockers, tests, and unresolved
+questions, and never invent provider facts. After work, inspect the diff, run relevant
+tests, create/update a Markdown task or session report, record files/tests/decisions/
+limitations, create dependent-agent handoffs, and update MEMORY only for actual state.
 
 ## Reusable AI-start prompt
 

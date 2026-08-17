@@ -1,48 +1,51 @@
-# Session Handoff
+# Task / Session Handoff
 
-## Person
+## Task
 
-## Date
+## Owner
 
 ## Phase
 
 ## Objective
 
+## Dependencies
+
+## Scope
+
 ## Status
 
 COMPLETE / PARTIAL / BLOCKED / DEFERRED
 
-## Work Completed
+## Files changed
 
-## Files Created
+## Implementation summary
 
-## Files Modified
+## Decisions
 
-## Files Deleted
+## Contracts affected
 
-## What Each Important File Does
+## Tests run
 
-## Architecture Changes
+## Test results
 
-## Contract Changes
+## Database/data changes
 
-## Decisions Made
+## Research/source changes
 
-## Dependencies Added
+## Known limitations
 
-## Tests Run
-
-## Test Results
-
-## Known Problems
-
-## Incomplete Work
+## Unresolved questions
 
 ## Blockers
 
-## Next Recommended Step
+## Handoff
 
-## What the Next Developer/AI Needs to Know
+## Next action
 
-## Do Not Change
+## Timestamp
 
+## Evidence and safety
+
+- Inspect `git diff` and `git status` before handoff.
+- Run `git diff --check` and all relevant tests.
+- Do not fabricate facts, silently resolve conflicts, or modify out-of-scope sources.

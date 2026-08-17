@@ -253,8 +253,10 @@ This frozen record does **not** claim:
 **To Rudra:** provider verification and the capabilities/data tiers that may be considered
 for later adapter work.
 
-**Remaining Phase 1 work:** place/category dataset, final transport topology coordinate
-verification, and data-shape validation. This record itself is frozen and should not be
-silently expanded during those tasks.
+**Historical freeze note:** At the Phase 1 freeze, place/category completion, transport
+topology coordinate verification, and data-shape validation were listed as remaining
+work. Phase 2 evidence now covers the place data shape and the confirmed AMA Bus import;
+coordinate and identity closure items remain open as explicitly tracked research facts.
+This record itself remains frozen and must not be silently expanded.
 
 **Freeze date:** 2026-08-17

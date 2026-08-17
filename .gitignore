@@ -1,3 +1,19 @@
 **/node_modules/
 **/dist/
 **/build/
+
+# Python virtual environments
+.venv/
+venv/
+
+# Python test/cache artifacts
+.pytest_cache/
+**/.pytest_cache/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Local environment/configuration
+.env
+.env.*
+!.env.example

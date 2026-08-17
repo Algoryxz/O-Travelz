@@ -2,52 +2,34 @@
 
 ## Phase
 
-## Objective
+## Owner
 
-## Owners
+## Entry criteria
 
-## Required Deliverables
+## Work completed
 
-## Deliverables Completed
+## Files changed
 
-## Deliverables Partial
+## Acceptance criteria
 
-## Deliverables Not Started
+## Exit criteria
 
-## Acceptance Criteria
+## Tests/evidence
 
-## Exit Criteria
+## Known limitations
 
-## Files Created
+## Research closure status
 
-## Files Modified
+## Dependencies handed off
 
-## Contracts Finalized
+## Next phase readiness
 
-## Architecture Decisions
+## Sign-off/evidence
 
-## Tests
+## Status
 
-## Test Results
+COMPLETE / PARTIAL / BLOCKED / DEFERRED
 
-## Known Issues
-
-## Technical Debt
-
-## Deferred Work
-
-## Blockers
-
-## Dependencies for Next Phase
-
-## Required Handoffs
-
-## Next Phase
-
-## Next Phase Instructions
-
-## Final Status
-
-COMPLETE / PARTIAL / BLOCKED
-
-A phase may be marked COMPLETE only when every required exit criterion is verified.
+A phase may be marked COMPLETE only when every applicable engineering exit criterion is
+verified. Research closure must be reported separately when the canonical phase gate
+allows engineering acceptance with explicit unknown or unresolved source states.

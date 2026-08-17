@@ -158,6 +158,9 @@ class NormalizedFareRule:
     amount: float | None
     source: str
     verified_at: datetime | None
+    status: str | None = None
+    currency: str | None = None
+    verification_note: str | None = None
 
 
 @dataclass(frozen=True)
@@ -527,7 +530,19 @@ def _normalise_fare(
         raise TransportImportError(f"{label}.status must be a string or null")
     if status == "unknown_for_static_seed" and normalized_amount is not None:
         raise TransportImportError(f"{label} cannot mark a fare unknown while supplying an amount")
-    return NormalizedFareRule(provider, normalized_rule_type, float(normalized_amount) if normalized_amount is not None else None, source, verified_at)
+    verification_note = raw_record.get("verification_note")
+    if verification_note is not None and not isinstance(verification_note, str):
+        raise TransportImportError(f"{label}.verification_note must be a string or null")
+    return NormalizedFareRule(
+        provider,
+        normalized_rule_type,
+        float(normalized_amount) if normalized_amount is not None else None,
+        source,
+        verified_at,
+        status,
+        currency,
+        verification_note,
+    )
 
 
 def normalize_transport_sources(bundle: TransportSourceBundle) -> NormalizedTransportData:
@@ -791,6 +806,9 @@ def import_transport_sources(
                 "amount": fare.amount,
                 "source": fare.source,
                 "verified_at": fare.verified_at,
+                "status": fare.status,
+                "currency": fare.currency,
+                "verification_note": fare.verification_note,
             }
             row = _find_one(
                 session,

@@ -19,6 +19,16 @@ shared project-context owner: Punam.
   with multiple `legs`, per the contract doc — not multiple hops — because it's one
   planning unit between two itinerary stops).
 
+## Phase 2 persistence boundary
+
+The live Phase 2 database adds `TransportProviderSource` for provider-specific source and
+tier records and `ScheduledTripGroup` for source-traceable timetable groups. A confirmed
+stop may have `location = NULL` when identity is verified but its exact coordinate is not;
+coordinate status, reconciliation status, source, effective date, verification date, and
+notes remain explicit. Fare rules preserve unknown/status metadata without inventing a
+fare value. The corrected AMA adapter imports only the evidence-backed confirmed slice;
+it does not create Route 12 canonical stop mappings where the source candidates are blank.
+
 ## Data tiers (critical distinction)
 
 1. **Static** — topology and fare structure that changes rarely: which stops a route

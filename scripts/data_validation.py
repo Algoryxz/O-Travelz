@@ -60,6 +60,44 @@ def validate_transport_static(record: Any, filename: str) -> ValidationReport:
     return report
 
 
+def validate_transport_schedule(record: Any, filename: str) -> ValidationReport:
+    """Validate schedule-file shape separately from static topology files."""
+    report = ValidationReport()
+    if not isinstance(record, dict):
+        report.errors.append(f"{filename} must contain an object")
+        return report
+    for key in ("provider", "source", "verified_on", "data_tier", "routes"):
+        if key not in record:
+            report.errors.append(f"{filename} missing: {key}")
+    if record.get("source") in (None, "", "REQUIRED"):
+        report.errors.append(f"{filename} requires a real source")
+    if record.get("data_tier") not in (None, "scheduled"):
+        report.errors.append(f"{filename}.data_tier must be scheduled")
+    if "routes" in record and not isinstance(record["routes"], list):
+        report.errors.append(f"{filename}.routes must be an array")
+    return report
+
+
+def validate_transport_fare(record: Any, filename: str) -> ValidationReport:
+    """Validate fare-file shape without asserting an unknown fare amount."""
+    report = ValidationReport()
+    if not isinstance(record, dict):
+        report.errors.append(f"{filename} must contain an object")
+        return report
+    for key in ("provider", "source", "verified_on"):
+        if key not in record:
+            report.errors.append(f"{filename} missing: {key}")
+    if record.get("source") in (None, "", "REQUIRED"):
+        report.errors.append(f"{filename} requires a real source")
+    if not record.get("fare_type") and not record.get("rule_type"):
+        report.errors.append(f"{filename} requires fare_type or rule_type")
+    if record.get("amount_inr") is not None and not isinstance(
+        record["amount_inr"], (int, float)
+    ):
+        report.errors.append(f"{filename}.amount_inr must be numeric or null")
+    return report
+
+
 def merge_reports(*reports: ValidationReport) -> ValidationReport:
     merged = ValidationReport()
     for report in reports:

@@ -44,8 +44,11 @@ Ownership is fixed:
 Read the current phase and status in `docs/MEMORY.md`. The canonical phase order and
 gates are in `docs/PHASES.md`.
 
-The repository is currently prepared through Phase 0. Do not begin Phase 1+ work unless
-the phase dependencies and approval gates allow it.
+Phase 2 engineering acceptance is complete and the live database/import evidence is
+recorded in `docs/PHASES.md` and `docs/phases/`. Phase 2 research closure remains open
+for explicitly tracked AMA uncertainties. The canonical Phase 3 entry gate is satisfied;
+Phase 3 transportation/routing is the current implementation frontier, subject to its
+scope and ownership boundaries.
 
 ## 4. Start an AI session
 
@@ -73,6 +76,10 @@ Frontend: cd frontend && npm test
 
 If a test cannot run because an environment dependency is unavailable, report that
 limitation. Never claim a passing result that was not observed.
+
+For every meaningful task, create or update a Markdown task/session/phase report and a
+handoff for dependent owners. Record files, decisions, tests, blockers, unresolved
+questions, limitations, and the exact next action.
 
 ## 7. Finish and hand off
 

@@ -10,19 +10,28 @@ and approved migration path.
 
 ## Core entities
 
-**Place** — id, name, category_id, lat/lon (geography point), description, opening_hours
-(structured, may be null if unknown — never guessed), avg_visit_minutes, price_tier,
-source (where the data came from), verified_at.
+**Place** — database id, optional research_id, name, category_id, lat/lon (geography
+point), description, opening_hours (structured, may be null if unknown — never guessed),
+avg_visit_minutes, price_tier, source, verified_at, source_provenance_note,
+coordinate_verification, coordinate_audit_status, and audit_status. Research IDs are
+traceability identifiers; the database continues to use UUID primary keys.
 
-**Category** — id, name (e.g. temple, museum, market, park, food).
+**Category** — id, name (the canonical category identifier, e.g. temple, museum, market,
+park), display_name, and description.
 
 **TransportProvider** — id, name (e.g. "Mo Bus", "Mo E-Ride", "Odisha Yatri", "Auto/E-rickshaw",
-"Taxi", "Walking"), mode (bus/rail/paratransit/walk/cab), data_tier
-(static | scheduled | live — see transportation doc), notes_on_verification.
+"Taxi", "Walking"), legacy default data_tier (static | scheduled | live — see transportation
+doc), notes_on_verification. **TransportProviderSource** holds the source-specific tier,
+source, effective date, verification date, and notes so static and scheduled evidence for
+one provider do not collapse into one tier.
 
-**Stop** — id, provider_id, name, lat/lon, external_ref (if a provider ID exists).
+**Stop** — id, provider_id, name, optional published/matched names, nullable geography point,
+external_ref, research_id, canonical_stop_id, coordinate_status, reconciliation_status,
+source, effective date, verification date, and notes. A NULL location can therefore mean an
+identity-confirmed stop whose exact physical coordinate is still unresolved.
 
-**Route** — id, provider_id, name/number, geometry (nullable — only if verified shape
+**Route** — id, provider_id, name/number, route_code, route_name, source, source page/reference,
+effective date, verification date, notes, and geometry (nullable — only if verified shape
 data exists).
 
 **RouteStop** — route_id, stop_id, sequence_order (topology: which stops a route visits,
@@ -31,8 +40,14 @@ in order).
 **ScheduledTrip** — id, route_id, headway_minutes OR explicit departure times
 (nullable — only populate what's actually verified; a route can have headway-only data).
 
+**ScheduledTripGroup** — id, route_id, group label, source/page, effective date, data tier,
+verification metadata, and three preserved JSON time layers: raw source-order, normalized
+source-order, and chronological. It represents source timetable groups without creating
+route-stop topology.
+
 **FareRule** — id, provider_id, rule (flat fare / distance-banded / route-specific),
-amount, source, verified_at.
+amount (nullable), source, verified_at, status, currency, and verification note. Unknown
+fare state remains explicit and never supplies a fabricated amount.
 
 **Itinerary** — id, user_id (nullable, anonymous allowed), constraints (JSON: dates,
 interests, pace, budget, start location), created_at.
@@ -57,8 +72,8 @@ system in v1 (can be a simple token/local-storage handle for the demo).
 - `TransportHop` on an itinerary is a snapshot at plan time (estimated_minutes/cost), not
   a live pointer, so a saved itinerary doesn't silently change when live data updates —
   but it does record `route_id`/`provider_id` so it can be *refreshed* on demand.
-- `data_tier` on `TransportProvider` lets every downstream consumer (ranking, itinerary
-  builder, AI explanation) know how confident to be, without re-deriving that per query.
+- `TransportProviderSource.data_tier` lets every downstream consumer distinguish static,
+  scheduled, and live evidence without re-deriving source provenance or collapsing layers.
 
 ## Ownership
 

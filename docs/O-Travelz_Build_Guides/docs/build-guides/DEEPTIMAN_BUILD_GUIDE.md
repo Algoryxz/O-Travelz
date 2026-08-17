@@ -35,6 +35,18 @@ transport providers, routing, or authoritative geospatial calculations.
 7. Loading, error, and replanning states
 8. Frontend tests and integration evidence
 
+## Mandatory Markdown evidence
+
+Before work, read the six canonical documents, the Deeptiman team document, current
+MEMORY, the latest relevant handoff/report, and identify dependencies, ownership
+boundaries, and planned changes. During work, preserve shared contracts, record
+decisions, blockers, tests, and unresolved questions, and do not add unauthorized
+frontend features. After work, inspect the diff, run relevant tests, create/update a
+Markdown task/session/phase report, record files/tests/decisions/limitations, create a
+dependent-agent handoff, and update MEMORY only for actual state changes.
+
+Frontend integration waits for approved later API and map contracts.
+
 ## Done
 
 - [ ] Complete frontend starts

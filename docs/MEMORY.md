@@ -7,7 +7,9 @@ architectural, contract, phase, or readiness changes.
 
 ## Current phase
 
-Phase 2 — Database and import (first importer slice only; phase not complete).
+Phase 2 engineering acceptance is complete. Phase 2 research closure remains open for
+explicitly tracked AMA data-quality items. Phase 3 transportation/routing is the next
+implementation frontier under the gate in `docs/PHASES.md`.
 
 ## Phase status
 
@@ -19,15 +21,24 @@ The final repository-preparation pass is also complete: fresh-account onboarding
 handoff artifacts, phase review templates, scope checks, and role-specific AI-start
 prompts are present.
 
-The first independent Phase 2 place-import slice is implemented. The approved place
-coordinate architecture, nullable-location model/migration, importer mapping, and
-validation tests are complete. Phase 2 remains incomplete because the corrected v5.1
-research handoff, final compatibility audit, spatial/database-backed test execution,
-safe production import, and post-import verification remain.
+The v5.1 place handoff is now audited and accepted by the importer contract: 32 places,
+9 canonical category IDs, 8 complete coordinate pairs, 24 intentional NULL pairs, 32
+sources, 32 date-only verification values, no placeholders, no duplicate research IDs,
+and no unresolved category references. The live database-backed migration, production
+import, and post-import verification have now passed for the reviewed place handoff.
 
-The generic transport-import foundation is implemented and tested, but no current
-Akriti transport file is importable as production data because coordinates, duplicate
-stop identities, provider tier aggregation, and estimate metadata remain unresolved.
+The generic transport-import foundation is implemented and tested. The corrected AMA Bus
+handoff is now validated by a dedicated adapter: 72 identity-confirmed stops are
+representable with NULL coordinates, 95 routes and 193 schedule groups preserve 3,617
+times across raw/normalized/chronological layers, and 11 BQS records plus 36 Route 12
+rows remain explicitly unresolved. The confirmed AMA Bus slice is now imported and
+verified in the live PostgreSQL/PostGIS database; research uncertainties remain outside
+confirmed production stops.
+
+Phase 2 engineering acceptance is complete. Research closure is intentionally open and
+does not make the verified migration/import implementation incomplete. The canonical
+Phase 3 gate is satisfied because Phase 1 provider verification and the Phase 2
+database/import outputs are available.
 
 ## Completed work
 
@@ -48,17 +59,33 @@ stop identities, provider tier aggregation, and estimate metadata remain unresol
 - Frontend/map ownership boundary was recorded without geometry implementation.
 - Data import scripts provide strict validation, approved coordinate mapping, paired-null
   location handling, provenance-preserving upserts, and transaction-safe database entry
-  points; production writes remain gated by corrected verified data and environment
-  readiness.
+  points; the reviewed place and AMA confirmed slices have passed live production import.
 - The first Phase 2 place-import slice now provides strict pre-write validation,
   deterministic category upserts, provenance-preserving place upserts, approved
   `POINT(lon lat)` mapping with SRID 4326, nullable-location handling, optional custom
   location-builder hooks, and idempotency tests.
 - `Place.location` is nullable and has a reversible Alembic migration for verified
   places whose exact coordinates are not defensibly known.
+- Migration `0003_preserve_v51_place_metadata` preserves v5.1 research IDs, category
+  display metadata, provenance notes, and coordinate/audit metadata.
+- `scripts/import_places.py --data-dir data/research/handoffs/places_v5.1/data/places`
+  validates the reviewed handoff without rewriting its research facts. The importer
+  remains deterministic, transaction-safe, idempotent, and provenance-preserving.
+- `scripts/verify_places.py` provides read-only JSON post-import evidence for counts,
+  provenance, duplicates, NULL-coordinate semantics, and PostGIS point/SRID checks.
 - The transport importer foundation now normalizes and dependency-orders providers,
   stops, routes, route-stops, scheduled trips, and fare rules with idempotency and
   data-tier/estimate validation tests.
+- Migration `0004_transport_research_layers` adds nullable, provenance-bearing transport
+  stop identities; route source metadata; `TransportProviderSource`; `ScheduledTripGroup`;
+  and explicit fare unknown/status fields.
+- `scripts/import_ama_bus.py` is a dedicated, checksum/schema-validating AMA Bus adapter.
+  It imports only the 72 records with canonical stop IDs, preserves NULL coordinates and
+  timetable layers, imports 95 routes and 193 groups, and reports rather than promotes
+  11 unresolved BQS records and 36 unmapped Route 12 source rows.
+- Live import evidence: 9 categories/32 places and 72 AMA stops/95 routes/193 schedule
+  groups/3,617 departure times are persisted; AMA stops retain NULL locations and
+  unresolved coordinate status.
 - Local database health ordering was added to Docker Compose.
 - Session, task-completion, phase-review, scope-check, and start/end prompts were added
   under `docs/handoffs/`.
@@ -73,32 +100,26 @@ stop identities, provider tier aggregation, and estimate metadata remain unresol
 
 ## Active work
 
-The first Phase 2 place-import slice and the generic transport-import foundation are
-complete for their approved boundaries. The next place-import actions are to receive
-Akriti's corrected v5.1 handoff, complete the compatibility audit, restore the
-`geoalchemy2` environment, execute spatial/database-backed tests, and then perform a
-safe production import followed by post-import verification. Transport-tier and
-estimate decisions and seed-ready transport data remain separate dependencies.
+Phase 2 handoff and documentation synchronization are complete for the verified current
+state. The next implementation work, if authorized, is Phase 3 transportation/routing
+owned by Rudra. Akriti research closure remains a parallel data-quality responsibility;
+it must not be resolved through inference or schema shortcuts.
 
 ## Gated work
 
-Remaining Phase 2 work remains gated by corrected research data, environment and test
-readiness, migration/database verification, safe seed conditions, and the remaining
-transport `OPEN DECISION` items. This is an intentional phase gate, not a technical
-failure.
+Phase 3 entry is permitted by the canonical gate. Phase 4, Phase 5, Phase 6A, and Phase
+6B remain gated by their own dependencies. Production transport work beyond the verified
+AMA slice remains limited by source evidence and explicit unresolved states.
 
 ## Blocked work
 
 No work is marked permanently blocked. The following work is intentionally gated:
 
-- provider research implementation until its Phase 1 start conditions are accepted;
-- full place database import until the corrected v5.1 data, final compatibility audit,
-  spatial/database-backed test execution, and post-import verification are ready;
-- transport database seeding until stop coordinates, duplicate stop identity, provider
-  tier aggregation, and estimate metadata are approved or supplied in representable
-  form;
-- transport, ranking, itinerary, AI, maps, and frontend implementation until their
-  phase dependencies and contracts are satisfied.
+- research closure for AMA coordinates, identities, route-stop mappings, and fares;
+- production transport seeding beyond the verified AMA Bus slice until source evidence
+  is supplied in representable form;
+- Phase 4–6B implementation until each phase's canonical dependencies and contracts are
+  satisfied.
 
 ## Frozen decisions
 
@@ -153,10 +174,10 @@ No work is marked permanently blocked. The following work is intentionally gated
   approved screens or part of the existing itinerary/conversation flow.
 - Whether saved/revisited plans are an approved product feature; the current PRD treats
   them as out of scope.
-- Final fare-rule field names and verification metadata.
 - Exact metadata for estimates while preserving the three transport data tiers.
-- How one provider's static and scheduled source files map to the model's singular
-  `TransportProvider.data_tier`.
+- Whether unresolved transport research records should receive a separate research-only
+  persistence layer; the AMA Bus adapter currently keeps the 11 unresolved BQS records
+  outside confirmed `stops`.
 - Exact GeoJSON and frontend/map integration contract.
 - API request validation, error schema, versioning, and anonymous-user behavior.
 
@@ -165,17 +186,19 @@ No work is marked permanently blocked. The following work is intentionally gated
 - Backend currently exposes only `/health`.
 - Ranking, itinerary, AI, API routers, geospatial behavior, and transport graph/service
   are not implemented.
-- Only the base transport adapter exists.
-- Database migration scaffolding and the approved nullable-location migration exist;
-  the first place-import slice is implemented, but full place persistence remains
-  gated by corrected v5.1 data, environment readiness, and import verification.
-- `data/places/places.json` contains an explicit example placeholder.
-- No transport provider static records or fare records have been imported; the current
-  Akriti files contain unresolved stop coordinates and duplicate E-Ride stop names.
+- The generic transport importer remains provider-neutral; the corrected AMA Bus package
+  is handled by `scripts/import_ama_bus.py` and its confirmed slice is live-imported.
+- Database migrations include the v5.1 metadata preservation migration and the live-tested
+  transport research-layer migration; place persistence and verification are live-tested.
+- The corrected AMA import contains one scheduled provider-source/tier layer and no
+  structured fare payload; no fare value was fabricated. Older generic transport seed
+  files remain outside the confirmed AMA production slice and retain their own research
+  limitations.
 - Complete frontend source implementation is absent; Phase 0 boundary types, map
   ownership notes, and contract tests exist.
 - Docker Compose does not currently include a frontend service.
-- Provider verification documentation is still unfilled.
+- Provider verification is recorded in the frozen Phase 1 provider record; public API
+  integration remains unverified where that record says so.
 
 ## Approved architecture decisions
 
@@ -202,23 +225,55 @@ the change rules in `docs/RULES.md`.
 Date: 2026-08-17
 
 - Backend health test: passed with the available bundled Python environment.
-- Full backend test suite: 68 passed, 2 skipped because the bundled runtime lacks the
-  already-declared `geoalchemy2` dependency.
-- Place importer suite: 47 passed, 1 skipped because the approved PostGIS WKT assertion
-  requires `geoalchemy2`.
-- Transport importer tests: 15 passed, covering all six transport entities, dependency
+- Full backend test suite: 82 passed with the declared `geoalchemy2==0.15.2` runtime
+  available.
+- v5.1 place preflight and importer compatibility tests passed; 32 places and 9
+  categories validate, including paired coordinates, provenance, verification dates,
+  category references, and idempotent research-ID upserts.
+- Transport importer tests: 20 passed (15 generic plus 5 AMA Bus adapter tests), covering all six transport entities, dependency
   ordering, references, idempotency, provenance, tiers, unknown fare state, estimate
   rejection, and coordinate guards.
-- Place preflight: correctly rejected the existing placeholder record. Transport
-  preflight correctly rejected duplicate unresolved E-Ride stop identities.
+- Current place preflight passed for both the repository projection and the reviewed v5.1
+  handoff. Transport preflight correctly rejected duplicate unresolved E-Ride stop
+  identities before any database write.
 - Frontend TypeScript/Vitest tests: not run because frontend dependencies and TypeScript
   tooling are not installed locally.
 - Migration Python syntax: validated with the available Python runtime.
+- Alembic offline migration SQL: validated from empty-database scripts; `datatier` is
+  created once, PostGIS geography/index definitions are present, nullable place and
+  transport-stop locations are applied, and v5.1/transport provenance constraints and
+  source-layer tables are emitted.
+- Corrected AMA Bus package validation: checksum manifest passed; 83 BQS records,
+  72 canonical stop IDs, 95 routes, 193 schedule groups, and 3,617 times reconciled.
+- Live database verification: PostgreSQL 16.4/PostGIS 3.4; Alembic head
+  `0004_transport_research_layers`; geography columns are `Point,4326` with GiST indexes;
+  place and AMA imports, verification, idempotent re-imports, and transaction rollback
+  checks passed.
+- `alembic check` still reports PostGIS extension-owned catalog tables as absent from the
+  application metadata; this is an autogenerate comparison limitation and was not used to
+  alter the extension or application schema.
 - `git diff --check`: passed.
 - No Akriti data was modified; no unrelated models were modified; no commit was created.
-- Docker Compose configuration: parsed successfully with database health ordering; the
-  obsolete `version` key was removed.
+- Docker Compose configuration is present with database health ordering; the live
+  `infra-db-1` container was healthy during acceptance.
 - Feature-creep scan: no Phase 1+ providers, ranking, itinerary generation, AI
   execution, map geometry, or frontend UI was added.
 - No Phase 3+ functionality was added: ranking, itinerary generation, AI execution,
   provider integrations, routing, map geometry, and frontend UI remain absent.
+
+## Evidence locations
+
+- Phase 2 engineering acceptance and gate: `docs/PHASES.md`.
+- Canonical architecture and model semantics: `docs/ARCHITECTURE.md`.
+- Live acceptance and documentation synchronization: `docs/phases/`.
+- Role handoffs: `docs/handoffs/`.
+- Place post-import verifier: `scripts/verify_places.py`.
+- AMA Bus adapter: `scripts/import_ama_bus.py`.
+
+## Current next actions
+
+1. Rudra may begin only the bounded Phase 3 transportation/routing work defined in
+   `docs/PHASES.md` and must preserve every unknown/unresolved source state.
+2. Akriti may close AMA coordinates, near-name identities, March-source evidence, Route
+   12 mappings, and fare research only with new defensible source evidence.
+3. Punam maintains canonical status, evidence, handoffs, and release-readiness records.

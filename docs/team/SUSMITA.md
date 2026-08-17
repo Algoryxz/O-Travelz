@@ -32,6 +32,17 @@ services.
 Provide stable map/geospatial inputs and rendering contracts to Deeptiman. Record map
 contract gaps in the shared project documentation maintained by Punam.
 
+## Required evidence protocol
+
+Before work, read the canonical documents, this team document, the build guide, current
+`docs/MEMORY.md`, the latest relevant handoff, and the latest relevant phase report;
+identify dependencies, ownership boundaries, and planned changes. During work, preserve
+unknown/missing geometry states, record decisions, blockers, tests, and unresolved
+questions, and never invent coordinates or authoritative transport facts. After work,
+inspect the diff, run relevant tests, create/update a Markdown task or session report,
+record files/tests/decisions/limitations, create a dependent-agent handoff, and update
+MEMORY only for actual project-state changes.
+
 ## Reusable AI-start prompt
 
 ```text

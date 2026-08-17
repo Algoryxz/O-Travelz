@@ -44,8 +44,9 @@ transport-provider integrations here.
   entities Smarak will import them into (same field names where possible).
 
 ## What must be completed before you start
-Nothing — you can start as soon as the doc templates exist (Phase 0, which is quick).
-Your work runs in parallel with Smarak's Phase 0.
+Read the canonical documents, current MEMORY, the latest research handoff/report, and
+the relevant build guide. Phase 2 engineering acceptance is complete; remaining Akriti
+work is research closure only and must preserve unresolved AMA facts.
 
 ## What you hand off
 - Provider verification doc → Rudra (so he knows which adapters can support scheduled/
@@ -70,6 +71,16 @@ Your work runs in parallel with Smarak's Phase 0.
 [ ] Schedule data (real or explicit headway-estimate) for demo-relevant providers
 [ ] Fare data for demo-relevant providers
 [ ] Handed off to Smarak, confirmed import script runs cleanly against it
+
+## Required evidence protocol
+
+Before work, read the canonical documents, this team document, the build guide, current
+`docs/MEMORY.md`, the latest relevant handoff, and the latest relevant phase report;
+identify dependencies, ownership boundaries, and planned changes. During work, preserve
+source facts, record decisions, blockers, tests, and unresolved questions, and never
+silently resolve uncertainty. After work, inspect the diff, run relevant validation,
+create/update a Markdown task or session report, record files/tests/decisions/limitations,
+create a dependent-agent handoff, and update MEMORY only for actual state changes.
 
 ## Reusable AI-start prompt
 

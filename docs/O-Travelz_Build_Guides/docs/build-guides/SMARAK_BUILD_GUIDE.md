@@ -35,6 +35,16 @@ implementation into the core-brain modules.
 5. AI orchestration
 6. Core tests and integration handoffs
 
+## Mandatory Markdown evidence
+
+Before work, read the six canonical documents, the Smarak team document, current MEMORY,
+the latest relevant handoff/report, and identify dependencies, ownership boundaries, and
+planned changes. During work, keep semantic changes within scope, record decisions,
+blockers, tests, and unresolved questions, and never silently resolve open decisions.
+After work, inspect the diff, run relevant tests, create/update a Markdown task/session/
+phase report, record files/tests/decisions/limitations, create dependent-agent handoffs,
+and update MEMORY only for actual state changes.
+
 ## Done
 
 - [ ] Database and data semantics are documented and tested

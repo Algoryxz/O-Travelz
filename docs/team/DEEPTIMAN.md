@@ -31,6 +31,16 @@ frontend or recreate its authoritative geospatial logic.
 Coordinate frontend API and map-integration contracts with Rudra, Smarak, and Susmita.
 Report contract or UX gaps to Punam for shared project context and documentation.
 
+## Required evidence protocol
+
+Before work, read the canonical documents, this team document, the build guide, current
+`docs/MEMORY.md`, the latest relevant handoff, and the latest relevant phase report;
+identify dependencies, ownership boundaries, and planned changes. During work, preserve
+shared contracts, record decisions, blockers, tests, and unresolved questions, and do
+not silently add frontend features. After work, inspect the diff, run relevant tests,
+create/update a Markdown task or session report, record files/tests/decisions/limitations,
+create a dependent-agent handoff, and update MEMORY only for actual state changes.
+
 ## Reusable AI-start prompt
 
 ```text

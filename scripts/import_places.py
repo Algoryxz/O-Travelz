@@ -8,9 +8,14 @@ both coordinates are intentionally unresolved.
 Run from the repository root with::
 
     python scripts/import_places.py --validate
+    python scripts/import_places.py --validate \
+        --data-dir data/research/handoffs/places_v5.1/data/places
 
 The database session and optional PostGIS value construction remain lazy so validation
 and focused importer tests do not require a live database or optional PostGIS package.
+The explicit ``--data-dir`` option allows a reviewed research handoff to be imported
+without rewriting the handoff or silently replacing the repository's current source
+projection.
 """
 from __future__ import annotations
 
@@ -26,9 +31,10 @@ from typing import Any, Callable, Iterable
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "places"
 BACKEND_DIR = DATA_DIR.parent.parent / "backend"
 
-_CATEGORY_FIELDS = frozenset({"name"})
+_CATEGORY_FIELDS = frozenset({"id", "name", "description"})
 _PLACE_FIELDS = frozenset(
     {
+        "id",
         "name",
         "category",
         "lat",
@@ -38,6 +44,10 @@ _PLACE_FIELDS = frozenset(
         "avg_visit_minutes",
         "price_tier",
         "source",
+        "source_provenance_note",
+        "coordinate_verification",
+        "coordinate_audit_status",
+        "audit_status",
         "verified_at",
         "_comment",
     }
@@ -107,11 +117,21 @@ def _validate_categories(records: Any) -> tuple[dict[str, Any], ...]:
         if not isinstance(record, dict):
             raise ImportValidationError(f"{label} must be an object")
         _validate_unknown_fields(record, _CATEGORY_FIELDS, label)
-        name = _require_nonempty_string(record, "name", label)
-        if name in seen:
-            raise ImportValidationError(f"{label} duplicates category name {name!r}")
-        seen.add(name)
-        validated.append({"name": name})
+        display_name = _require_nonempty_string(record, "name", label)
+        identifier = record.get("id", display_name)
+        if not isinstance(identifier, str) or not identifier.strip():
+            raise ImportValidationError(f"{label}.id must be a non-empty string")
+        if identifier != identifier.strip():
+            raise ImportValidationError(f"{label}.id must not have leading/trailing whitespace")
+        if identifier in seen:
+            raise ImportValidationError(f"{label} duplicates category id {identifier!r}")
+        description = record.get("description")
+        if description is not None and not isinstance(description, str):
+            raise ImportValidationError(f"{label}.description must be a string or null")
+        seen.add(identifier)
+        validated.append(
+            {"id": identifier, "name": display_name, "description": description}
+        )
     return tuple(validated)
 
 
@@ -153,7 +173,7 @@ def _validate_places(records: Any, category_names: set[str]) -> tuple[dict[str, 
         raise ImportValidationError("places must be a JSON array")
 
     validated: list[dict[str, Any]] = []
-    seen: set[tuple[str, str, str]] = set()
+    seen: set[tuple[str, ...]] = set()
     for index, record in enumerate(records):
         label = f"places[{index}]"
         if not isinstance(record, dict):
@@ -165,6 +185,9 @@ def _validate_places(records: Any, category_names: set[str]) -> tuple[dict[str, 
         _validate_unknown_fields(record, _PLACE_FIELDS, label)
 
         name = _require_nonempty_string(record, "name", label)
+        research_id = record.get("id")
+        if research_id is not None:
+            research_id = _require_nonempty_string(record, "id", label)
         category = _require_nonempty_string(record, "category", label)
         if category not in category_names:
             raise ImportValidationError(
@@ -176,6 +199,21 @@ def _validate_places(records: Any, category_names: set[str]) -> tuple[dict[str, 
             raise ImportValidationError(f"{label} requires both lat and lon or neither")
         lat = _validate_coordinate(record["lat"], "lat", label, -90.0, 90.0)
         lon = _validate_coordinate(record["lon"], "lon", label, -180.0, 180.0)
+
+        for field in (
+            "source_provenance_note",
+            "coordinate_verification",
+            "coordinate_audit_status",
+            "audit_status",
+        ):
+            value = record.get(field)
+            if value is not None and not isinstance(value, str):
+                raise ImportValidationError(f"{label}.{field} must be a string or null")
+        coordinate_audit_status = record.get("coordinate_audit_status")
+        if lat is not None and lon is not None and coordinate_audit_status not in (None, "high"):
+            raise ImportValidationError(
+                f"{label}.coordinate_audit_status must be high for non-null coordinates"
+            )
 
         source = _require_nonempty_string(record, "source", label)
         if source == "REQUIRED" or source.startswith("REQUIRED:"):
@@ -200,7 +238,9 @@ def _validate_places(records: Any, category_names: set[str]) -> tuple[dict[str, 
             raise ImportValidationError(f"{label}.price_tier must be a string or null")
         _validate_verified_at(record.get("verified_at"), label)
 
-        identity = (name, category, source)
+        identity = ("research_id", research_id) if research_id is not None else (
+            "canonical", name, category, source
+        )
         if identity in seen:
             raise ImportValidationError(
                 f"{label} duplicates place identity (name, category, source)"
@@ -209,6 +249,7 @@ def _validate_places(records: Any, category_names: set[str]) -> tuple[dict[str, 
         validated.append(
             {
                 **record,
+                "id": research_id,
                 "name": name,
                 "category": category,
                 "lat": lat,
@@ -222,7 +263,7 @@ def _validate_places(records: Any, category_names: set[str]) -> tuple[dict[str, 
 def validate_input(categories: Any, places: Any) -> ValidatedInput:
     """Validate all source data before a session or database write is attempted."""
     validated_categories = _validate_categories(categories)
-    category_names = {record["name"] for record in validated_categories}
+    category_names = {record["id"] for record in validated_categories}
     validated_places = _validate_places(places, category_names)
     return ValidatedInput(validated_categories, validated_places)
 
@@ -231,6 +272,9 @@ def _load_models() -> tuple[type[Any], type[Any]]:
     """Load the canonical SQLAlchemy models only for a database import."""
     if str(BACKEND_DIR) not in sys.path:
         sys.path.insert(0, str(BACKEND_DIR))
+    # Import the model hub first. Importing Category directly would make
+    # app.db.base import Category while Category is still being initialized.
+    from app.db import base as _model_base  # noqa: F401
     from app.models.category import Category
     from app.models.place import Place
 
@@ -276,13 +320,23 @@ def import_categories(
     categories_by_name: dict[str, Any] = {}
     created = 0
     for record in sorted(validated, key=lambda item: item["name"]):
+        identifier = record["id"]
         name = record["name"]
-        category = _find_one(session, category_model, name=name)
+        category = _find_one(session, category_model, name=identifier)
         if category is None:
-            category = category_model(name=name)
+            category = category_model(
+                name=identifier,
+                display_name=name,
+                description=record.get("description"),
+            )
             session.add(category)
             created += 1
-        categories_by_name[name] = category
+        else:
+            if hasattr(category, "display_name"):
+                category.display_name = name
+            if hasattr(category, "description"):
+                category.description = record.get("description")
+        categories_by_name[identifier] = category
     session.flush()
     return categories_by_name, created
 
@@ -333,6 +387,7 @@ def import_records(
         ):
             category = categories_by_name[record["category"]]
             values = {
+                "research_id": record.get("id"),
                 "name": record["name"],
                 "category_id": category.id,
                 "location": location,
@@ -342,14 +397,31 @@ def import_records(
                 "price_tier": record.get("price_tier"),
                 "source": record["source"],
                 "verified_at": _parse_verified_at(record.get("verified_at")),
+                "source_provenance_note": record.get("source_provenance_note"),
+                "coordinate_verification": record.get("coordinate_verification"),
+                "coordinate_audit_status": record.get("coordinate_audit_status"),
+                "audit_status": record.get("audit_status"),
             }
-            existing = _find_one(
-                session,
-                place_model,
-                name=values["name"],
-                category_id=values["category_id"],
-                source=values["source"],
-            )
+            if values["research_id"] is not None:
+                existing = _find_one(session, place_model, research_id=values["research_id"])
+                if existing is None:
+                    # Adopt a pre-v5.1 row with the same canonical identity rather
+                    # than creating a duplicate when traceability is first added.
+                    existing = _find_one(
+                        session,
+                        place_model,
+                        name=values["name"],
+                        category_id=values["category_id"],
+                        source=values["source"],
+                    )
+            else:
+                existing = _find_one(
+                    session,
+                    place_model,
+                    name=values["name"],
+                    category_id=values["category_id"],
+                    source=values["source"],
+                )
             if existing is None:
                 session.add(place_model(**values))
                 place_count += 1
@@ -380,18 +452,28 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="validate source data without opening a database or writing records",
     )
+    parser.add_argument(
+        "--data-dir",
+        type=Path,
+        default=DATA_DIR,
+        help="directory containing categories.json and places.json",
+    )
     args = parser.parse_args(argv)
 
     try:
-        categories = load_categories()
-        places = load_places()
+        if args.data_dir == DATA_DIR:
+            categories = load_categories()
+            places = load_places()
+        else:
+            categories = load_categories(args.data_dir / "categories.json")
+            places = load_places(args.data_dir / "places.json")
         validated = validate_input(categories, places)
     except ImportValidationError as exc:
         print(f"ERROR: {exc}")
         return 1
 
     print(
-        f"Loaded {len(validated.categories)} categories, {len(validated.places)} places from {DATA_DIR}"
+        f"Loaded {len(validated.categories)} categories, {len(validated.places)} places from {args.data_dir}"
     )
     if args.validate:
         print("Validation passed")

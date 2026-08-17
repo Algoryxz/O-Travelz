@@ -55,6 +55,19 @@ For transport providers, distinguish static, scheduled, live, unavailable, and u
 Validate data against the documented schema and report uncertainties before handoff.
 ```
 
+## Mandatory Markdown evidence
+
+Before work, read the six canonical documents, the Akriti team document, current MEMORY,
+the latest relevant handoff/report, and identify dependencies, ownership boundaries, and
+planned changes. During work, preserve source facts, record decisions, blockers, tests,
+and unresolved questions, and never fabricate data. After work, inspect the diff, run
+validation, create/update a Markdown task/session/phase report, record files/tests/
+decisions/limitations, create a dependent-agent handoff, and update MEMORY only for
+actual state changes.
+
+Phase 2 has imported only the evidence-backed AMA confirmed slice. Coordinate, identity,
+Route 12 mapping, and fare closure remains research work and must remain explicit.
+
 ## Done
 - [ ] Place records are consistent
 - [ ] Coordinates are checked

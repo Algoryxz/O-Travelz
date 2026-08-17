@@ -32,11 +32,18 @@ Phase 3 (transport adapters).
 import scripts), consuming Akriti's Phase 1 output.
 **Produces:** working Postgres schema, `scripts/import_places.py`,
 `scripts/import_transport.py`, seeded local dev DB.
-**Must be finished before:** Phase 3, Phase 4 (both query the DB).
+**Status:** Engineering acceptance is complete. Research closure remains open for
+explicitly tracked AMA data-quality items and does not invalidate the verified database
+and import outputs.
+
+**Must be finished before:** Phase 3 and Phase 4 database dependencies are satisfied by
+the live-verified Phase 2 outputs; each later phase still follows its own canonical gate
+in `docs/PHASES.md`.
 
 ## Phase 3 — Transportation module
 **Who:** Rudra
-**Depends on:** Phase 1 (data), Phase 2 (DB/import working).
+**Depends on:** Phase 1 provider verification and Phase 2 database/import outputs; both
+canonical inputs are available. Unresolved research states remain explicit.
 **Produces:** `backend/app/transport/adapters/*`, `backend/app/transport/graph/*`,
 working `plan_transport_hop` service.
 **Must be finished before:** Phase 4 can produce real (non-mocked) hops; Phase 4 can

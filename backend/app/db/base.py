@@ -13,7 +13,8 @@ Base = declarative_base()
 from app.models.category import Category        # noqa: E402,F401
 from app.models.place import Place               # noqa: E402,F401
 from app.models.transport import (               # noqa: E402,F401
-    TransportProvider, Stop, Route, RouteStop, ScheduledTrip, FareRule,
+    TransportProvider, TransportProviderSource, Stop, Route, RouteStop,
+    ScheduledTrip, ScheduledTripGroup, FareRule,
 )
 from app.models.itinerary import (               # noqa: E402,F401
     Itinerary, ItineraryDay, ItineraryStop, TransportHop,

@@ -34,6 +34,19 @@ def test_fare_rule_retains_verification_metadata():
     assert {"source", "verified_at"}.issubset(columns)
 
 
+def test_place_and_category_retain_v51_metadata():
+    place_columns = {column.name for column in Base.metadata.tables["places"].columns}
+    category_columns = {column.name for column in Base.metadata.tables["categories"].columns}
+    assert {
+        "research_id",
+        "source_provenance_note",
+        "coordinate_verification",
+        "coordinate_audit_status",
+        "audit_status",
+    }.issubset(place_columns)
+    assert {"display_name", "description"}.issubset(category_columns)
+
+
 def test_place_location_accepts_valid_point_and_null():
     location_column = Place.__table__.columns["location"]
     assert location_column.nullable is True

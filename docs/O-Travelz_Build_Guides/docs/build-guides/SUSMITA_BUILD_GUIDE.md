@@ -35,6 +35,19 @@ Do not calculate authoritative transport facts or replace Rudra's backend/routin
 4. Map integration contract for Deeptiman
 5. Map/geospatial tests and handoff evidence
 
+## Mandatory Markdown evidence
+
+Before work, read the six canonical documents, the Susmita team document, current MEMORY,
+the latest relevant handoff/report, and identify dependencies, ownership boundaries, and
+planned changes. During work, preserve unknown/missing geometry states, record decisions,
+blockers, tests, and unresolved questions, and never invent coordinates or authoritative
+transport facts. After work, inspect the diff, run relevant tests, create/update a
+Markdown task/session/phase report, record files/tests/decisions/limitations, create a
+dependent-agent handoff, and update MEMORY only for actual state changes.
+
+Missing stop coordinates and route geometry must be represented as unavailable/unknown,
+not inferred from names or nearby landmarks.
+
 ## Done
 
 - [ ] Maps render the supplied places and routes

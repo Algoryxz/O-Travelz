@@ -6,30 +6,42 @@
 
 ## Phase
 
-## Problem Solved
-
-## Implementation
-
-## Files
-
-## Interfaces
-
-## Inputs
-
-## Outputs
+## Objective
 
 ## Dependencies
 
-## Error Handling
+## Scope
 
-## Tests
+## Files changed
 
-## Limitations
+## Implementation summary
 
-## Future Work
+## Decisions
 
-## Handoff Information
+## Contracts affected
+
+## Tests run
+
+## Test results
+
+## Database/data changes
+
+## Research/source changes
+
+## Known limitations
+
+## Unresolved questions
+
+## Blockers
+
+## Handoff
+
+## Next action
+
+## Timestamp
 
 ## Status
 
 COMPLETE / PARTIAL / BLOCKED / DEFERRED
+
+Every claim must identify its command, test, file, database check, or research evidence.

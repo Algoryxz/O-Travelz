@@ -1,8 +1,8 @@
 # Session Handoffs
 
 This directory is the operational handoff system for O-Travelz. Every meaningful
-developer or AI session should leave a concise, factual handoff so the next person can
-continue without the original conversation.
+developer or AI session should leave concise, factual Markdown evidence so the next
+person can continue without the original conversation.
 
 ## Files
 
@@ -12,6 +12,12 @@ continue without the original conversation.
 - `END_OF_SESSION_PROMPT.md` — reusable prompt for closing work.
 - `PHASE_REVIEW_PROMPT.md` — reusable prompt for reviewing a phase.
 - `SCOPE_CHECK_PROMPT.md` — reusable anti-feature-creep and ownership check.
+
+Every meaningful task must also create or update a structured Markdown task, session, or
+phase report. Reports must include the objective, owner, phase, dependencies, scope,
+files, implementation summary, decisions, contracts, tests/results, data/research
+effects, limitations, unresolved questions, blockers, handoff, next action, and
+timestamp.
 
 Phase completion reports use `docs/phases/PHASE_COMPLETION_TEMPLATE.md`.
 

@@ -13,6 +13,7 @@ from import_places import (  # noqa: E402
     import_categories,
     import_records,
     load_places,
+    load_categories,
     main,
     validate_input,
 )
@@ -21,10 +22,11 @@ from import_places import (  # noqa: E402
 class FakeCategory:
     _next_id = 1
 
-    def __init__(self, name):
+    def __init__(self, **values):
         self.id = f"category-{FakeCategory._next_id}"
         FakeCategory._next_id += 1
-        self.name = name
+        for field, value in values.items():
+            setattr(self, field, value)
 
 
 class FakePlace:
@@ -156,21 +158,22 @@ def test_unknown_place_field_is_rejected_before_database_writes(category_records
     assert session.commit_count == 0
 
 
-def test_unknown_category_field_is_rejected_before_database_writes(place_record):
+def test_category_display_metadata_is_preserved(place_record):
     session = FakeSession()
 
-    with pytest.raises(ImportValidationError, match="unsupported fields: description"):
-        import_records(
-            session,
-            [{"name": "temple", "description": "not part of the contract"}],
-            [place_record],
-            location_builder=lambda record: "opaque-location",
-            category_model=FakeCategory,
-            place_model=FakePlace,
-        )
+    import_records(
+        session,
+        [{"id": "temple", "name": "Temple", "description": "sourced category"}],
+        [place_record],
+        location_builder=lambda record: "opaque-location",
+        category_model=FakeCategory,
+        place_model=FakePlace,
+    )
 
-    assert session.records == []
-    assert session.commit_count == 0
+    category = next(record for record in session.records if isinstance(record, FakeCategory))
+    assert category.name == "temple"
+    assert category.display_name == "Temple"
+    assert category.description == "sourced category"
 
 
 @pytest.mark.parametrize(
@@ -510,3 +513,59 @@ def test_partial_null_coordinates_are_rejected(category_records, place_record, n
 
     with pytest.raises(ImportValidationError, match="requires both lat and lon"):
         validate_input(category_records, [place_record])
+
+
+def test_v51_handoff_validates_and_preserves_research_metadata():
+    repo_root = Path(__file__).resolve().parents[2]
+    handoff = repo_root / "data" / "research" / "handoffs" / "places_v5.1" / "data" / "places"
+    validated = validate_input(
+        load_categories(handoff / "categories.json"),
+        load_places(handoff / "places.json"),
+    )
+
+    assert len(validated.categories) == 9
+    assert len(validated.places) == 32
+    assert {record["category"] for record in validated.places} == {
+        record["id"] for record in validated.categories
+    }
+    assert sum(record["lat"] is not None for record in validated.places) == 8
+    assert sum(record["lat"] is None for record in validated.places) == 24
+    assert all(record["id"].startswith("place_") for record in validated.places)
+    assert all(record["verified_at"] == "2026-08-17" for record in validated.places)
+    assert all(
+        record["coordinate_audit_status"] == "high"
+        for record in validated.places
+        if record["lat"] is not None
+    )
+
+
+def test_v51_handoff_import_is_idempotent_and_preserves_audit_fields():
+    repo_root = Path(__file__).resolve().parents[2]
+    handoff = repo_root / "data" / "research" / "handoffs" / "places_v5.1" / "data" / "places"
+    categories = load_categories(handoff / "categories.json")
+    places = load_places(handoff / "places.json")
+    session = FakeSession()
+    kwargs = {
+        "location_builder": lambda record: (
+            None if record["lat"] is None else {"point": (record["lon"], record["lat"])}
+        ),
+        "category_model": FakeCategory,
+        "place_model": FakePlace,
+    }
+
+    first = import_records(session, categories, places, **kwargs)
+    second = import_records(session, categories, places, **kwargs)
+
+    assert first.categories_created == 9
+    assert first.places_created == 32
+    assert second.categories_created == 0
+    assert second.places_created == 0
+    assert second.places_updated == 32
+    imported = next(
+        record
+        for record in session.records
+        if isinstance(record, FakePlace) and record.research_id == "place_022"
+    )
+    assert imported.source_provenance_note
+    assert imported.coordinate_audit_status == "unknown"
+    assert imported.location is None
