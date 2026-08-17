@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /* Brand */
+  --color-emerald:         #059669;
+  --color-emerald-light:   #10b981;
+  --color-emerald-dark:    #047857;
+  --color-emerald-surface: #ecfdf5;
+  --color-emerald-border:  #a7f3d0;
+
+  /* Grey scale */
+  --color-grey-50:  #f9fafb;
+  --color-grey-100: #f3f4f6;
+  --color-grey-200: #e5e7eb;
+  --color-grey-300: #d1d5db;
+  --color-grey-400: #9ca3af;
+  --color-grey-500: #6b7280;
+  --color-grey-600: #4b5563;
+  --color-grey-700: #374151;
+  --color-grey-800: #1f2937;
+  --color-grey-900: #111827;
+
+  /* Semantic status (only used for data, not brand) */
+  --color-crowd-low:      #dcfce7;
+  --color-crowd-low-text: #166534;
+  --color-crowd-mid:      #fef9c3;
+  --color-crowd-mid-text: #713f12;
+  --color-crowd-high:     #fee2e2;
+  --color-crowd-high-text:#7f1d1d;
+
+  /* Typography */
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'DM Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html  { scroll-behavior: smooth; }
+body  { font-family: 'Inter', system-ui, sans-serif; background: #f9fafb; color: #111827; }
+
+::-webkit-scrollbar          { width: 0; height: 0; }
+::selection                  { background: #059669; color: #fff; }
+
+@keyframes livepulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+.live-dot { animation: livepulse 2.4s ease-in-out infinite; }
+
+@keyframes fillbar { from { width: 0 } }
+.fill-bar { animation: fillbar 1s cubic-bezier(.22,1,.36,1) both; }
+
+/* Horizontal category scroll — hide scrollbar */
+.cat-scroll { overflow-x: auto; scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none; }
+.cat-scroll::-webkit-scrollbar { display: none; }
+
+/* Surprise Me glow pulse */
+@keyframes surpriseglow {
+  0%,100% { box-shadow: 0 6px 28px rgba(5,150,105,0.50) }
+  50%      { box-shadow: 0 8px 52px rgba(5,150,105,0.80), 0 0 40px 8px rgba(52,211,153,0.22) }
+}
+.surprise-glow { animation: surpriseglow 3s ease-in-out infinite; }
+
+/* Floating destination marker cards */
+@keyframes floatcard  { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-6px)} }
+@keyframes floatcard2 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-5px)} }
+@keyframes floatcard3 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-7px)} }
+@keyframes floatcard4 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-4px)} }
+.fc1 { animation: floatcard  5.5s ease-in-out infinite; }
+.fc2 { animation: floatcard2 6.5s ease-in-out infinite; animation-delay: -1.5s; }
+.fc3 { animation: floatcard3 7s   ease-in-out infinite; animation-delay: -3s; }
+.fc4 { animation: floatcard4 5s   ease-in-out infinite; animation-delay: -2s; }
