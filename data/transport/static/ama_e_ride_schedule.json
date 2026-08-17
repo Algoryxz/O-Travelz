@@ -1,0 +1,112 @@
+{
+  "provider": "AMA E-Ride",
+  "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf",
+  "verified_on": "2026-08-17",
+  "data_tier": "scheduled",
+  "routes": [
+    {
+      "route": "ER-01",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 20,
+      "headway_minutes_max": 20,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "route": "ER-02",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 15,
+      "headway_minutes_max": 20,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "route": "ER-03",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 15,
+      "headway_minutes_max": 20,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "route": "ER-04",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 10,
+      "headway_minutes_max": 10,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "route": "ER-05",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 10,
+      "headway_minutes_max": 10,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "route": "ER-06",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 15,
+      "headway_minutes_max": 20,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "route": "ER-07",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 15,
+      "headway_minutes_max": 20,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "route": "ER-08",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 20,
+      "headway_minutes_max": 20,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "route": "ER-09",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 20,
+      "headway_minutes_max": 20,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "route": "ER-10",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 20,
+      "headway_minutes_max": 20,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "route": "ER-11",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 20,
+      "headway_minutes_max": 20,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "route": "ER-12",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 20,
+      "headway_minutes_max": 20,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "route": "ER-13",
+      "hours": "09:00-18:00",
+      "headway_minutes_min": 10,
+      "headway_minutes_max": 15,
+      "basis": "estimate-only; official PDF says available approximately every N minutes during peak hours",
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    }
+  ]
+}

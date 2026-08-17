@@ -1,0 +1,8 @@
+{
+  "provider": "AMA E-Ride",
+  "fare_type": "flat",
+  "amount_inr": 10,
+  "currency": "INR",
+  "source": "https://www.comprehensiveregiontransport.in/transit-services/ama-e-ride",
+  "verified_on": "2026-08-17"
+}
