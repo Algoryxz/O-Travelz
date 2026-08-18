@@ -6,6 +6,7 @@ orchestration logic behind those routes. Router modules are stubbed here and fil
 by their owners in later phases.
 """
 from fastapi import FastAPI
+from app.api.transport_routes import router as transport_router
 
 app = FastAPI(
     title="O-Travelz API",
@@ -18,6 +19,9 @@ app = FastAPI(
 def health() -> dict:
     """Basic liveness check used by docker-compose / CI."""
     return {"status": "ok"}
+
+
+app.include_router(transport_router, prefix="/transport", tags=["transport"])
 
 
 # Routers are registered here as they land. Left commented until their owners'

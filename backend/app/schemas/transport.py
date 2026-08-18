@@ -1,7 +1,7 @@
 """Transport boundary contracts. Owner: Rudra; semantics: Smarak."""
 from enum import Enum
 
-from pydantic import Field
+from pydantic import Field, model_validator
 
 from app.schemas.common import ContractModel
 
@@ -32,6 +32,13 @@ class TransportHopContract(ContractModel):
     legs: list[TransportLeg] = Field(default_factory=list)
     data_tier: DataTier
     reason: str | None = None
+
+    @model_validator(mode="after")
+    def unavailable_hop_requires_reason(self):
+        """Keep the executable contract aligned with the documented failure state."""
+        if self.mode == "unavailable" and not self.reason:
+            raise ValueError("unavailable transport hops require a reason")
+        return self
 
 
 class ProviderStatusContract(ContractModel):

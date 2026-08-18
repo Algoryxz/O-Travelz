@@ -80,6 +80,29 @@ def test_contracts_reject_undocumented_fields():
         )
 
 
+def test_unavailable_transport_hop_requires_reason():
+    with pytest.raises(ValidationError, match="require a reason"):
+        TransportHopContract.model_validate(
+            {
+                "from_sequence": 1,
+                "to_sequence": 2,
+                "mode": "unavailable",
+                "data_tier": "scheduled",
+            }
+        )
+
+    hop = TransportHopContract.model_validate(
+        {
+            "from_sequence": 1,
+            "to_sequence": 2,
+            "mode": "unavailable",
+            "data_tier": "scheduled",
+            "reason": "No verified provider data is available.",
+        }
+    )
+    assert hop.reason == "No verified provider data is available."
+
+
 def test_ai_tool_contracts_have_structured_arguments():
     constraints = {"days": 1, "interests": ["temples"], "start": "Hotel"}
     place = {"id": "p1", "name": "Temple", "category": "temple"}
