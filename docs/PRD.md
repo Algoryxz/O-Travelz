@@ -122,22 +122,25 @@ DECISION` in `docs/ARCHITECTURE.md`.
 ## Itinerary capabilities
 
 An itinerary contains an identifier, constraints, ordered days, ordered places within
-each day, planned arrival/departure values where available, transport hops, and a
-grounded explanation. A hop may contain multiple ordered legs and a data-tier label.
+each day, planned arrival/departure values where available, and transport hops. A hop
+may contain multiple ordered legs and a data-tier label. Grounded conversational prose
+is returned by the accepted `AIResponse` envelope; the canonical `ItineraryResponse`
+keeps its deterministic facts-only `explanation` field.
 
 Phase 4's deterministic implementation ranks globally by exact canonical
 interest/category relevance, selects unique coordinate-bearing places with a maximum of
 three stops per day, preserves global rank order, and retains unavailable transport hops
 with explicit reasons. It does not infer missing coordinates, timing, fares, durations,
-or pace/mobility compliance. Its `explanation` is empty facts-only output until the
-Phase 5 grounded explanation layer is implemented.
+or pace/mobility compliance. Its `explanation` remains empty facts-only output; accepted
+Phase 5 grounded prose is returned through the separate `AIResponse` envelope.
 
 ## Replanning capabilities
 
-Replanning is constraint-based. A changed preference such as less walking or a lower
-transport budget must be converted into structured constraints and passed back through
-ranking, itinerary, and transport services. The AI must not directly rewrite itinerary
-facts or route details.
+Replanning is constraint-based. Supported Phase 5 refinements (`days`, `interests`,
+`dates`, and `start`) are converted into structured constraints and passed back through
+the deterministic itinerary service. Walking/mobility, pace, and lower transport-budget
+optimization remain unsupported and must be reported honestly. The AI must not directly
+rewrite itinerary facts or route details.
 
 ## Constraints
 

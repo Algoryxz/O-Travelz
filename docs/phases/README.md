@@ -61,8 +61,9 @@ Phase 2 lands; itinerary generation needs Phase 3's transport service for real h
 **Who:** Smarak
 **Depends on:** tool contracts (can start against mocked tools immediately after
 Phase 0), then wires to real Phase 4/Phase 3 implementations once available.
-**Produces:** `backend/app/ai/*`, `/itinerary/plan` gains AI-written explanation +
-conversational refinement endpoint.
+**Produces:** accepted `backend/app/ai/*`, grounded `AIResponse`, and the separate
+`POST /ai/plan` conversational refinement endpoint. The deterministic
+`POST /itinerary/plan` contract remains unchanged.
 
 ## Phase 6 — Frontend
 **Who:** Deeptiman

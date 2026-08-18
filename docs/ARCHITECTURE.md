@@ -43,9 +43,9 @@ Backend API (FastAPI)
 The current repository implements the FastAPI health endpoint, SQLAlchemy model
 foundation, Phase 0 boundary schemas, the Phase 2 migration chain/importers, the
 accepted Phase 3 transport boundary, the accepted Phase 4 ranking/itinerary/API
-boundaries, live verified place and AMA Bus persistence, and contract/database tests.
-AI execution, geospatial behavior, and the complete frontend flow are not yet
-implemented.
+boundaries, accepted Phase 5 provider-neutral AI orchestration/grounding, live
+verified place and AMA Bus persistence, and contract/database tests. Geospatial
+behavior and the complete frontend flow are not yet implemented.
 
 ## Ownership and boundaries
 
@@ -189,7 +189,8 @@ legs, estimated duration/cost, and `data_tier`.
 The executable itinerary and HTTP boundary schemas are in
 `backend/app/schemas/itinerary.py` and `backend/app/schemas/api.py`. Phase 4 implements
 the deterministic service and `POST /itinerary/plan`; the response is facts-only and
-uses an empty `explanation` until Phase 5 grounded explanation is approved.
+uses an empty deterministic `explanation`; accepted Phase 5 grounded prose is returned
+through the separate `AIResponse` boundary.
 
 Phase 4 ranks all verified places by exact canonical category relevance, then filters
 coordinate-bearing places for routed selection, selects at most three unique places per
@@ -205,20 +206,21 @@ AI has three responsibilities:
 2. Orchestrate approved deterministic tools.
 3. Explain deterministic results and process refinements.
 
-The approved tool concepts are:
+The accepted Phase 5 tool surface is:
 
-- `search_places`;
 - `build_itinerary`;
 - `plan_transport_hop`;
-- `get_place_details`;
 - `get_provider_status`.
+
+`search_places` and `get_place_details` remain deferred schema-only capabilities.
 
 The AI layer must not query the database directly, compute geometry, rank places,
 sequence stops, compute fares/durations, or state facts absent from current-turn tool
 results.
 
-Phase 0 defines only the argument/result schemas in `backend/app/ai/schemas.py`. It does
-not execute a model or tool.
+Phase 5 adds the provider-neutral model boundary, validated orchestration, current-turn
+grounding, deterministic claim rendering, and the separate `POST /ai/plan` route.
+No commercial provider is selected.
 
 ## Maps and geospatial behavior
 

@@ -14,8 +14,8 @@ and Susmita consume the contract in their respective frontend and map/geospatial
 Executable Phase 0 boundary models are in `backend/app/schemas/itinerary.py`,
 `backend/app/schemas/transport.py`, and `backend/app/schemas/api.py`. The matching
 frontend types are in `frontend/src/api/contracts.ts`. Phase 4 implements the
-deterministic API route and feature services; Phase 5 remains responsible for grounded
-explanation orchestration.
+deterministic API route and feature services; accepted Phase 5 provides grounded
+explanation orchestration through the separate `AIResponse` boundary.
 
 ```json
 {

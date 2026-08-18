@@ -46,9 +46,10 @@ gates are in `docs/PHASES.md`.
 
 Phase 2 engineering acceptance is complete and the live database/import evidence is
 recorded in `docs/PHASES.md` and `docs/phases/`. Phase 2 research closure remains open
-for explicitly tracked AMA uncertainties. The canonical Phase 3 entry gate is satisfied;
-Phase 3 transportation/routing is the current implementation frontier, subject to its
-scope and ownership boundaries.
+for explicitly tracked AMA uncertainties. Phase 3 and Phase 4 are accepted, and Phase 5
+is accepted with explicit limitations. Its grounded `AIResponse` boundary is available
+to later approved consumers; Phase 6A/6B implementation remains gated and has not
+started.
 
 ## 4. Start an AI session
 

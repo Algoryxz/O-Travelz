@@ -362,8 +362,9 @@ places at a maximum of three per day, preserves global order and requested day l
 and calls the Phase 3 transport service for start and same-day consecutive hops. A
 resolved start uses `from_sequence=0`; unavailable hops remain explicit with nullable
 facts and an honest `unknown` tier where the public schema cannot represent a real
-freshness tier. The response is facts-only with an empty deterministic `explanation`;
-AI prose remains Phase 5 work. Full details are in
+freshness tier. The deterministic response remains facts-only with an empty
+`explanation`; accepted Phase 5 prose is returned through the separate grounded AI
+boundary. Full details are in
 `docs/handoffs/2026-08-18_SMARAK_PHASE4_DECISIONS.md`.
 
 **Current status**
@@ -437,6 +438,40 @@ Smarak.
 **Dependencies**
 
 Phase 0 AI-tool contract; real Phase 3 and Phase 4 services for integrated behavior.
+
+**Current status**
+
+**PHASE 5 — ACCEPTED WITH EXPLICIT LIMITATIONS.** Acceptance was recorded on
+2026-08-18 after the final grounding audit. The accepted implementation preserves
+deterministic authority and exposes the separate `POST /ai/plan` conversational
+boundary; `POST /itinerary/plan` remains unchanged.
+
+The accepted grounding flow is:
+
+```text
+User intent -> validated AI intent -> approved deterministic tools
+-> deterministic facts -> current-turn GroundingContext
+-> deep-copied model snapshot -> validated ModelClaims
+-> exact fact/value validation -> deterministic rendering
+-> finite safe framing -> AIResponse
+```
+
+Raw `ModelResponse.message` is quarantined and never rendered. Supported refinement
+fields are `days`, `interests`, `dates`, and `start`. Walking/mobility, pace, and
+transport-budget optimization remain explicitly unsupported.
+
+**Acceptance evidence**
+
+- Full backend suite: 153 passed, 1 warning.
+- Phase 5 suite: 19 passed, 1 warning.
+- `python -m compileall -q backend` passed.
+- `git diff --check` passed.
+- Final acceptance handoff: `docs/handoffs/2026-08-18_SMARAK_PHASE5_ACCEPTANCE_HANDOFF.md`.
+
+The remaining limitations are no selected commercial provider, the narrow offline
+fallback, deferred search/place-details schemas, existing transport/data availability
+limits, the existing Pydantic deprecation warning, and production frontend
+conversation integration remaining outside Phase 5. These are not acceptance blockers.
 
 **Allowed work**
 

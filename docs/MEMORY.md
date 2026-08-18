@@ -10,8 +10,10 @@ architectural, contract, phase, or readiness changes.
 Phase 2 engineering acceptance is complete. Phase 2 research closure remains open for
 explicitly tracked AMA data-quality items. Phase 3 transportation/routing is accepted
 with explicit limitations at `d6a0291`. Phase 4 deterministic ranking, itinerary
-generation, and facts-only API behavior are accepted on 2026-08-18; Phase 5 grounded
-explanation/orchestration is the next gated frontier.
+generation, and facts-only API behavior are accepted on 2026-08-18 at `d843bb4`.
+Phase 5 grounded AI orchestration is **ACCEPTED WITH EXPLICIT LIMITATIONS** as of
+2026-08-18. Phase 6A and 6B remain gated by their own dependencies; Phase 6 work has
+not started.
 
 ## Phase status
 
@@ -48,6 +50,12 @@ decision record is `docs/handoffs/2026-08-18_SMARAK_PHASE4_DECISIONS.md`; the Ph
 acceptance record is `docs/handoffs/2026-08-18_SMARAK_PHASE4_ACCEPTANCE_HANDOFF.md`.
 Phase 4 implementation is accepted and now serves as the canonical deterministic
 itinerary baseline.
+
+Phase 5 implementation is accepted with explicit limitations. Its provider-neutral
+orchestrator validates structured intent, calls only approved deterministic tools,
+and returns grounded `AIResponse` messages. Raw `ModelResponse.message` is quarantined;
+only accepted current-turn claims and finite safe framing reach public factual prose.
+The accepted record is `docs/handoffs/2026-08-18_SMARAK_PHASE5_ACCEPTANCE_HANDOFF.md`.
 
 ## Completed work
 
@@ -108,6 +116,11 @@ itinerary baseline.
 - Ownership scan found no stale claims assigning AI to Deeptiman, complete frontend to
   Susmita, ranking/itinerary to Punam, database to Akriti, or ranking to Rudra.
 - Final README and START_HERE onboarding paths were verified.
+- Phase 5 grounded AI orchestration, deterministic tool adapters, grounding snapshot,
+  claim validation, refinement behavior, and `POST /ai/plan` were implemented and
+  accepted with explicit limitations.
+- Phase 5 acceptance evidence: full backend suite 153 passed with 1 warning; Phase 5
+  suite 19 passed with 1 warning; compileall and `git diff --check` passed.
 
 ## Active work
 
@@ -119,11 +132,13 @@ contains contract-independent WGS84 validation and clearly labelled geometry/tra
 fixtures; it does not define a map payload or implement routing. Phase 4 contains the
 approved deterministic ranking, itinerary sequencing, sequence-aware transport
 integration, and facts-only API work, and that implementation is accepted.
+Phase 5 grounding and orchestration are accepted with explicit limitations and are now
+the available AI dependency for later approved consumers.
 
 ## Gated work
 
-Phase 3 entry and the approved Phase 4 implementation gate are satisfied. Phase 5,
-Phase 6A, and Phase 6B remain gated by their own dependencies. Production transport work
+Phase 3 entry, the approved Phase 4 implementation, and the Phase 5 acceptance gate are
+satisfied. Phase 6A and Phase 6B remain gated by their own dependencies. Production transport work
 beyond the verified AMA slice remains limited by source evidence and explicit unresolved
 states.
 
@@ -134,7 +149,7 @@ No work is marked permanently blocked. The following work is intentionally gated
 - research closure for AMA coordinates, identities, route-stop mappings, and fares;
 - production transport seeding beyond the verified AMA Bus slice until source evidence
   is supplied in representable form;
-- Phase 5–6B implementation until each phase's canonical dependencies and contracts are
+- Phase 6A/6B implementation until each phase's canonical dependencies and contracts are
   satisfied.
 
 ## Frozen decisions
@@ -200,8 +215,9 @@ No work is marked permanently blocked. The following work is intentionally gated
 
 ## Known implementation issues
 
-- Phase 4 ranking, itinerary, and facts-only API behavior are accepted; AI, map, and
-  frontend production behavior remain unimplemented.
+- Phase 4 ranking, itinerary, and facts-only API behavior are accepted; Phase 5 AI
+  orchestration is accepted with explicit limitations; map and frontend production
+  behavior remain unimplemented.
 - The generic transport importer remains provider-neutral; the corrected AMA Bus package
   is handled by `scripts/import_ama_bus.py` and its confirmed slice is live-imported.
 - Database migrations include the v5.1 metadata preservation migration and the live-tested
@@ -232,7 +248,8 @@ No work is marked permanently blocked. The following work is intentionally gated
 - Punam coordinates documentation, phase tracking, evidence, demo, and readiness.
 - Phase 4 ranks by exact canonical category relevance, filters coordinate-bearing places
   for routed selection, caps days at three unique stops, preserves global order, and
-  returns an empty deterministic explanation until Phase 5.
+  returns an empty deterministic explanation. Phase 5 returns separate grounded prose
+  through `AIResponse`.
 - `from_sequence=0` represents a resolved start origin; the public schema's `unknown`
   tier is used when an unavailable state cannot honestly be assigned static, scheduled,
   or live. The Phase 2 database enum remains unchanged.
@@ -254,6 +271,8 @@ Date: 2026-08-18
   backend application compile check passed; the existing frontend itinerary fixture
   parsed through the backend contract.
 - Phase 4 focused suite: `16 passed, 1 warning`.
+- Phase 5 acceptance: `19 passed, 1 warning`; full backend regression `153 passed, 1
+  warning`; compileall and `git diff --check` passed.
 - Phase 3 control regression run after the shared unavailable-reason contract fix: full
   backend suite 83 passed; focused transport-contract tests 6 passed.
 - v5.1 place preflight and importer compatibility tests passed; 32 places and 9
@@ -287,11 +306,12 @@ Date: 2026-08-18
 - Docker Compose configuration is present with database health ordering; the live
   `infra-db-1` container was healthy during acceptance.
 - Phase 4 scope/fabrication scan: no provider data, coordinates, fares, schedules,
-  durations, AI execution, map geometry, or frontend UI was added.
+  durations, map geometry, or frontend UI was added; Phase 5 AI execution remains
+  behind its accepted provider-neutral/deterministic boundary.
 - Phase 3 transport/routing is accepted with explicit limitations; Phase 4 ranking,
-  itinerary generation, and API implementation are accepted. AI execution, provider
-  integrations beyond the accepted bounded transport layer, map geometry, and frontend
-  UI remain absent.
+  itinerary generation, and API implementation are accepted. Phase 5 AI orchestration
+  is accepted with explicit limitations; commercial provider integration, map geometry,
+  and frontend UI remain absent.
 
 ## Evidence locations
 
@@ -321,9 +341,9 @@ Date: 2026-08-18
    and the map contract are approved; no map payload or route behavior is inferred.
 4. Smarak reviews actual Phase 3 code, tests, migrations, contracts, and handoffs before
    accepting any checklist item.
-5. Phase 5 may begin only after its separate gate is approved; it must preserve the
-   accepted Phase 4 baseline, including empty `explanation`, `unknown` hop honesty,
-   `from_sequence=0`, and the inherited Phase 3 transport limits.
+5. Phase 5 is accepted and may be consumed by later approved work through its grounded
+  `AIResponse` boundary; it preserves the Phase 4 baseline, including empty
+  `explanation`, `unknown` hop honesty, `from_sequence=0`, and inherited Phase 3 limits.
 6. Akriti may close AMA coordinates, near-name identities, March-source evidence, Route
    12 mappings, and fare research only with new defensible source evidence.
 7. Punam maintains canonical status, evidence, handoffs, and release-readiness records.

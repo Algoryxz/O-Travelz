@@ -4,6 +4,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from app.api.transport_routes import router as transport_router
 from app.api.itinerary_routes import router as itinerary_router
+from app.api.ai_routes import router as ai_router
 from app.schemas.api import APIErrorDetail, APIErrorResponse
 from app.services.itinerary import ItineraryPlanningError
 
@@ -24,8 +25,7 @@ app.include_router(transport_router, prefix="/transport", tags=["transport"])
 app.include_router(itinerary_router, prefix="/itinerary", tags=["itinerary"])
 
 
-# from app.api.ai_routes import router as ai_router
-# app.include_router(ai_router, prefix="/itinerary", tags=["ai"])
+app.include_router(ai_router, prefix="/ai", tags=["ai"])
 
 
 @app.exception_handler(ItineraryPlanningError)
