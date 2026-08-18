@@ -518,6 +518,26 @@ Smarak hands the grounded response contract to Rudra and Deeptiman.
 
 ## Phase 6A — Maps and geospatial subsystem
 
+**Current status**
+
+Final research closure is complete, but Phase 6A implementation is **GATED / NOT
+AUTHORIZED**. The reduced implementation scope is limited to verified places and
+supplied geometry with explicit source semantics, an approved map contract, honest
+unavailable-geometry states, and integration of verified backend/routing outputs.
+AMA coordinate-based stop mapping and AMA route geometry are outside the current
+scope. Names, `bqs_jb`, GIS `objectid`/`objectid_1`, `slno`, endpoint overlap, and
+stop order cannot establish canonical identity or topology. Reopen the AMA feature
+only if an authoritative cross-system identity crosswalk becomes available. See
+`docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`.
+
+This full-phase gate is distinct from the accepted v1 HTTP boundary: the bounded
+HTTP implementation exists and is accepted as of 2026-08-18 after the prior REVISE
+findings were corrected and final re-verification passed. This does not complete
+Phase 6A.
+
+PHASE 6A HTTP — ACCEPTED. Final evidence: 39 HTTP tests, 68 combined HTTP/core tests,
+221 full backend tests, compile passed, and `git diff --check` passed.
+
 **Objective**
 
 Represent verified places, stops, route lines, and multimodal paths for map consumption.

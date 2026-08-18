@@ -1,6 +1,5 @@
-"""Contract-independent geospatial preparation helpers.
+"""Geospatial validation and endpoint-neutral Phase 6A projection boundaries."""
 
-This package intentionally does not define the public map/GeoJSON payload.  Rudra's
-verified routing output and Smarak's approved map contract are required before map
-representations or API wiring can be implemented.
-"""
+from app.geospatial.projection import MapProjectionService, project_map
+
+__all__ = ["MapProjectionService", "project_map"]

@@ -134,6 +134,10 @@ approved deterministic ranking, itinerary sequencing, sequence-aware transport
 integration, and facts-only API work, and that implementation is accepted.
 Phase 5 grounding and orchestration are accepted with explicit limitations and are now
 the available AI dependency for later approved consumers.
+The bounded Phase 6A HTTP implementation adds only `POST /map/v1/projection`; it
+does not complete Phase 6A or authorize frontend behavior. PHASE 6A HTTP — ACCEPTED
+on 2026-08-18. Final evidence: 39 HTTP tests, 68 combined HTTP/core tests, 221 full
+backend tests, compile passed, and `git diff --check` passed.
 
 ## Gated work
 
@@ -216,8 +220,9 @@ No work is marked permanently blocked. The following work is intentionally gated
 ## Known implementation issues
 
 - Phase 4 ranking, itinerary, and facts-only API behavior are accepted; Phase 5 AI
-  orchestration is accepted with explicit limitations; map and frontend production
-  behavior remain unimplemented.
+  orchestration is accepted with explicit limitations; the bounded Phase 6A HTTP
+  adapter is implemented, while map visualization and frontend production behavior
+  remain unimplemented.
 - The generic transport importer remains provider-neutral; the corrected AMA Bus package
   is handled by `scripts/import_ama_bus.py` and its confirmed slice is live-imported.
 - Database migrations include the v5.1 metadata preservation migration and the live-tested
