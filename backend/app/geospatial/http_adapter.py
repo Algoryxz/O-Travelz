@@ -48,7 +48,7 @@ class MapProjectionHTTPAdapter:
             for item in request.requested_features
         ]
 
-        if not requested_refs:
+        if not requested_refs and not request.requested_hops:
             raise MapProjectionHTTPError(
                 code="empty_requested_feature_set",
                 message="requested_features must contain at least one feature",
@@ -73,7 +73,7 @@ class MapProjectionHTTPAdapter:
         core_request = MapProjectionRequest(
             requested_features=requested_refs,
             approved_features=approved_features,
-            requested_hops=[],
+            requested_hops=request.requested_hops,
         )
         try:
             return project_map(core_request)

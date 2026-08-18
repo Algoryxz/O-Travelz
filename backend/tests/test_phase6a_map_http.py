@@ -278,7 +278,7 @@ def test_client_supplied_geometry_authority_identity_provenance_or_persistence_i
     assert session.calls == []
 
 
-@pytest.mark.parametrize("field", ["requested_hops", "legs", "route_stops", "relationships"])
+@pytest.mark.parametrize("field", ["legs", "route_stops", "relationships", "hops"])
 def test_client_hop_leg_relationship_or_routestop_context_is_rejected(field):
     payload = {
         "requested_features": [{"entity": "place", "id": str(uuid4())}],
@@ -289,6 +289,267 @@ def test_client_hop_leg_relationship_or_routestop_context_is_rejected(field):
     assert response.status_code == 422
     assert response.json()["error"]["code"] == "unsupported_relationship"
     assert session.calls == []
+
+
+def test_v1_backward_compatibility_when_requested_hops_omitted():
+    place = _place(location=WKTElement("POINT(85.81 20.29)", srid=4326))
+    response, _ = _post({"requested_features": [_feature("place", place.id)]}, [place])
+
+    assert response.status_code == 200
+    body = response.json()
+    assert len(body["features"]) == 1
+    assert body["relationships"] == []
+
+
+def test_v1_backward_compatibility_when_requested_hops_is_empty_list():
+    place = _place(location=WKTElement("POINT(85.81 20.29)", srid=4326))
+    response, _ = _post(
+        {
+            "requested_features": [_feature("place", place.id)],
+            "requested_hops": [],
+        },
+        [place],
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    assert len(body["features"]) == 1
+    assert body["relationships"] == []
+
+
+def test_v2_valid_requested_hops_produces_structured_relationships():
+    hop_payload = {
+        "day_number": 1,
+        "hop": {
+            "from_sequence": 0,
+            "to_sequence": 1,
+            "mode": "walk+provider+walk",
+            "reason": "Direct morning journey",
+            "legs": [
+                {"mode": "walk", "detail": "Walk to bus stop"},
+                {
+                    "mode": "provider",
+                    "detail": "Take bus 10",
+                    "provider": "CRUT",
+                    "route": "Mo Bus 10",
+                },
+                {"mode": "walk", "detail": "Walk to destination"},
+            ],
+            "data_tier": "scheduled",
+        },
+    }
+    response, _ = _post({"requested_hops": [hop_payload]})
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["features"] == []
+    assert len(body["relationships"]) == 1
+
+    rel = body["relationships"][0]
+    assert rel["relationship_type"] == "itinerary_hop"
+    assert rel["hop_ref"] == {"day_number": 1, "from_sequence": 0, "to_sequence": 1}
+    assert rel["mode"] == "walk+provider+walk"
+    assert rel["data_tier"] == "scheduled"
+    assert rel["reason"] == "Direct morning journey"
+    assert len(rel["legs"]) == 3
+
+    assert rel["legs"][0] == {
+        "mode": "walk",
+        "detail": "Walk to bus stop",
+        "provider": None,
+        "route": None,
+        "geometry_status": "unavailable",
+        "geometry": None,
+        "route_ref": None,
+        "stop_refs": [],
+        "unavailable_reason": "source_missing",
+    }
+    assert rel["legs"][1] == {
+        "mode": "provider",
+        "detail": "Take bus 10",
+        "provider": "CRUT",
+        "route": "Mo Bus 10",
+        "geometry_status": "unavailable",
+        "geometry": None,
+        "route_ref": None,
+        "stop_refs": [],
+        "unavailable_reason": "provider_geometry_unavailable",
+    }
+    assert rel["legs"][2] == {
+        "mode": "walk",
+        "detail": "Walk to destination",
+        "provider": None,
+        "route": None,
+        "geometry_status": "unavailable",
+        "geometry": None,
+        "route_ref": None,
+        "stop_refs": [],
+        "unavailable_reason": "source_missing",
+    }
+
+
+def test_v2_hop_context_preserves_from_sequence_zero_origin_sentinel():
+    hop_payload = {
+        "day_number": 2,
+        "hop": {
+            "from_sequence": 0,
+            "to_sequence": 1,
+            "mode": "walk",
+            "legs": [{"mode": "walk", "detail": "From start origin"}],
+            "data_tier": "static",
+        },
+    }
+    response, _ = _post({"requested_hops": [hop_payload]})
+
+    assert response.status_code == 200
+    body = response.json()
+    rel = body["relationships"][0]
+    assert rel["hop_ref"]["from_sequence"] == 0
+    assert rel["hop_ref"]["to_sequence"] == 1
+    assert body["features"] == []
+
+
+def test_v2_transport_leg_route_remains_display_only_and_cannot_authorize_route_ref():
+    hop_payload = {
+        "day_number": 1,
+        "hop": {
+            "from_sequence": 1,
+            "to_sequence": 2,
+            "mode": "provider",
+            "legs": [
+                {
+                    "mode": "provider",
+                    "detail": "Bus ride",
+                    "provider": "CRUT",
+                    "route": "Route 12",
+                }
+            ],
+            "data_tier": "scheduled",
+        },
+    }
+    response, _ = _post({"requested_hops": [hop_payload]})
+
+    assert response.status_code == 200
+    leg = response.json()["relationships"][0]["legs"][0]
+    assert leg["route"] == "Route 12"
+    assert leg["route_ref"] is None
+    assert leg["stop_refs"] == []
+
+
+def test_v2_hop_context_cannot_authorize_place_or_stop_or_route_features():
+    hop_payload = {
+        "day_number": 1,
+        "hop": {
+            "from_sequence": 1,
+            "to_sequence": 2,
+            "mode": "provider",
+            "legs": [
+                {
+                    "mode": "provider",
+                    "detail": "CRUT bus",
+                    "provider": "CRUT",
+                    "route": "Mo Bus 10",
+                }
+            ],
+            "data_tier": "scheduled",
+        },
+    }
+    response, session = _post({"requested_hops": [hop_payload]})
+
+    assert response.status_code == 200
+    assert response.json()["features"] == []
+    assert session.calls == []
+
+
+def test_v2_duplicate_requested_hops_are_rejected_before_projection():
+    hop_payload = {
+        "day_number": 1,
+        "hop": {
+            "from_sequence": 1,
+            "to_sequence": 2,
+            "mode": "walk",
+            "legs": [{"mode": "walk", "detail": "walk"}],
+            "data_tier": "static",
+        },
+    }
+    response, session = _post(
+        {"requested_hops": [hop_payload, hop_payload]}
+    )
+
+    assert response.status_code == 422
+    assert response.json()["error"]["code"] == "validation_error"
+    assert session.calls == []
+
+
+def test_v2_malformed_hop_context_is_rejected_before_projection():
+    invalid_hop = {
+        "day_number": 0,
+        "hop": {
+            "from_sequence": -1,
+            "to_sequence": 1,
+            "mode": "walk",
+            "legs": [],
+            "data_tier": "invalid_tier",
+        },
+    }
+    response, session = _post({"requested_hops": [invalid_hop]})
+
+    assert response.status_code == 422
+    assert response.json()["error"]["code"] == "validation_error"
+    assert session.calls == []
+
+
+def test_v2_mixed_features_and_hops_are_projected_together():
+    place = _place(location=WKTElement("POINT(85.81 20.29)", srid=4326))
+    hop_payload = {
+        "day_number": 1,
+        "hop": {
+            "from_sequence": 0,
+            "to_sequence": 1,
+            "mode": "walk",
+            "legs": [{"mode": "walk", "detail": "Walk to temple"}],
+            "data_tier": "static",
+        },
+    }
+    response, _ = _post(
+        {
+            "requested_features": [_feature("place", place.id)],
+            "requested_hops": [hop_payload],
+        },
+        [place],
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    assert len(body["features"]) == 1
+    assert body["features"][0]["canonical_ref"]["id"] == str(place.id)
+    assert len(body["relationships"]) == 1
+    assert body["relationships"][0]["hop_ref"] == {"day_number": 1, "from_sequence": 0, "to_sequence": 1}
+    assert body["unavailable_items"] == []
+
+
+def test_v2_repeated_http_response_with_hops_is_deterministic():
+    place = _place(location=WKTElement("POINT(85.81 20.29)", srid=4326))
+    hop_payload = {
+        "day_number": 1,
+        "hop": {
+            "from_sequence": 0,
+            "to_sequence": 1,
+            "mode": "walk",
+            "legs": [{"mode": "walk", "detail": "Walk to temple"}],
+            "data_tier": "static",
+        },
+    }
+    payload = {
+        "requested_features": [_feature("place", place.id)],
+        "requested_hops": [hop_payload],
+    }
+
+    first, _ = _post(payload, [place])
+    second, _ = _post(payload, [place])
+
+    assert first.status_code == second.status_code == 200
+    assert first.json() == second.json()
 
 
 def test_route_display_identity_and_routestop_are_not_exposed():

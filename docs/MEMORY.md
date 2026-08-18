@@ -7,13 +7,19 @@ architectural, contract, phase, or readiness changes.
 
 ## Current phase
 
-Phase 2 engineering acceptance is complete. Phase 2 research closure remains open for
-explicitly tracked AMA data-quality items. Phase 3 transportation/routing is accepted
-with explicit limitations at `d6a0291`. Phase 4 deterministic ranking, itinerary
-generation, and facts-only API behavior are accepted on 2026-08-18 at `d843bb4`.
-Phase 5 grounded AI orchestration is **ACCEPTED WITH EXPLICIT LIMITATIONS** as of
-2026-08-18. Phase 6A and 6B remain gated by their own dependencies; Phase 6 work has
-not started.
+Phase 0 and Phase 1 are accepted. Phase 2 engineering/import acceptance is complete;
+the remaining AMA source questions are now recorded as an unresolved research closure,
+not as an invitation to infer data. Phase 3 transportation/routing is accepted with
+explicit limitations at `d6a0291`. Phase 4 deterministic ranking, itinerary generation,
+and facts-only API behavior are accepted on 2026-08-18 at `d843bb4`. Phase 5 grounded
+AI orchestration is **ACCEPTED WITH EXPLICIT LIMITATIONS** as of 2026-08-18 at the
+accepted checkpoint `a60befc`. Final Phase 6A research closure is recorded in
+`docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`;
+the accepted Phase 6A HTTP V1 contract was implemented and accepted on 2026-08-18;
+the finalized Phase 6A Reduced Map Contract V2 is implemented as a bounded extension
+to `POST /map/v1/projection` supporting optional `requested_hops`; PHASE 6A HTTP V2 — ACCEPTED
+on 2026-08-18 after independent verification (49 HTTP tests, 78 combined tests, 231 full
+backend tests). The rest of Phase 6A and Phase 6B have not started.
 
 ## Phase status
 
@@ -31,18 +37,19 @@ sources, 32 date-only verification values, no placeholders, no duplicate researc
 and no unresolved category references. The live database-backed migration, production
 import, and post-import verification have now passed for the reviewed place handoff.
 
-The generic transport-import foundation is implemented and tested. The corrected AMA Bus
-handoff is now validated by a dedicated adapter: 72 identity-confirmed stops are
-representable with NULL coordinates, 95 routes and 193 schedule groups preserve 3,617
-times across raw/normalized/chronological layers, and 11 BQS records plus 36 Route 12
-rows remain explicitly unresolved. The confirmed AMA Bus slice is now imported and
-verified in the live PostgreSQL/PostGIS database; research uncertainties remain outside
-confirmed production stops.
+The generic transport-import foundation is implemented and tested. The accepted
+import/database evidence represents 72 identity-confirmed stops with NULL coordinates,
+95 routes and 193 schedule groups preserving 3,617 times across raw/normalized/
+chronological layers, while 11 BQS records plus 36 Route 12 rows remain explicitly
+unresolved. The corrected 72-ID research package itself is not present in the current
+repository and was not recoverable from reachable or unreachable Git objects. The
+confirmed AMA slice remains historical accepted production state; no official GIS
+feature has been promoted into it.
 
-Phase 2 engineering acceptance is complete. Research closure is intentionally open and
-does not make the verified migration/import implementation incomplete. The canonical
-Phase 3 gate is satisfied because Phase 1 provider verification and the Phase 2
-database/import outputs are available.
+Phase 2 engineering acceptance is complete. The final research closure is recorded as
+unresolved and does not make the verified migration/import implementation incomplete.
+The canonical Phase 3 gate is satisfied because Phase 1 provider verification and the
+Phase 2 database/import outputs are available.
 
 Phase 3 bounded transport implementation was accepted with explicit limitations in
 `docs/handoffs/2026-08-18_SMARAK_PHASE3_INTEGRATION_REVIEW_2.md`. The approved Phase 4
@@ -125,9 +132,10 @@ The accepted record is `docs/handoffs/2026-08-18_SMARAK_PHASE5_ACCEPTANCE_HANDOF
 ## Active work
 
 Phase 2 handoff and documentation synchronization are complete for the verified current
-state. Phase 3 transport/routing is accepted only within its explicit limitations;
-Akriti research closure remains a parallel data-quality responsibility and must not be
-resolved through inference or schema shortcuts. Susmita's 2026-08-18 preparation slice
+state. Phase 3 transport/routing is accepted only within its explicit limitations.
+Akriti's final AMA research investigation is closed without a defensible AMA/BQS-to-GIS
+record crosswalk; no coordinate, route geometry, GIS object ID, `slno`, `bqs_jb`, or
+name match may be promoted. Susmita's 2026-08-18 preparation slice
 contains contract-independent WGS84 validation and clearly labelled geometry/transport
 fixtures; it does not define a map payload or implement routing. Phase 4 contains the
 approved deterministic ranking, itinerary sequencing, sequence-aware transport
@@ -135,26 +143,38 @@ integration, and facts-only API work, and that implementation is accepted.
 Phase 5 grounding and orchestration are accepted with explicit limitations and are now
 the available AI dependency for later approved consumers.
 The bounded Phase 6A HTTP implementation adds only `POST /map/v1/projection`; it
-does not complete Phase 6A or authorize frontend behavior. PHASE 6A HTTP — ACCEPTED
-on 2026-08-18. Final evidence: 39 HTTP tests, 68 combined HTTP/core tests, 221 full
-backend tests, compile passed, and `git diff --check` passed.
+does not complete Phase 6A or authorize frontend behavior. PHASE 6A HTTP V1 was ACCEPTED
+on 2026-08-18 (39 HTTP tests). PHASE 6A HTTP V2 — ACCEPTED on 2026-08-18 as a bounded
+`requested_hops` extension preserving V1 backward compatibility. Verification evidence:
+49 HTTP tests, 78 combined HTTP/core tests, 231 full backend tests, compile passed, and
+`git diff --check` passed.
 
 ## Gated work
 
 Phase 3 entry, the approved Phase 4 implementation, and the Phase 5 acceptance gate are
-satisfied. Phase 6A and Phase 6B remain gated by their own dependencies. Production transport work
-beyond the verified AMA slice remains limited by source evidence and explicit unresolved
-states.
+satisfied. Phase 6A research closure and the map HTTP V2 contract closeout are complete;
+the bounded HTTP V2 implementation is accepted, while the remaining Phase 6A map subsystem
+and Phase 6B remain incomplete. Production transport work beyond the verified AMA slice
+remains limited by source evidence and explicit unresolved states.
 
 ## Blocked work
 
 No work is marked permanently blocked. The following work is intentionally gated:
 
-- research closure for AMA coordinates, identities, route-stop mappings, and fares;
+- a defensible AMA/GIS cross-system identity crosswalk, AMA coordinates, and Route 12
+  identity/sequence evidence; these cannot be supplied by the exposed official GIS
+  layer, names, `bqs_jb`, GIS object IDs, or `slno`;
 - production transport seeding beyond the verified AMA Bus slice until source evidence
   is supplied in representable form;
-- Phase 6A/6B implementation until each phase's canonical dependencies and contracts are
-  satisfied.
+- Remaining Phase 6A map/geospatial work until authoritative supplied geometry and the
+  required ownership handoff are available; Phase 6B until the Phase 6A handoff is
+  stable.
+
+Temporary operating overlay: Susmita remains the canonical map/geospatial owner, but
+Smarak temporarily handles Phase 6A coordination/readiness execution. Rudra remains
+the canonical routing owner, while Smarak temporarily handles the routing-side Phase
+6A responsibility and coordination/closure work. This is not a permanent ownership
+transfer.
 
 ## Frozen decisions
 
@@ -214,6 +234,10 @@ No work is marked permanently blocked. The following work is intentionally gated
   persistence layer; the AMA Bus adapter currently keeps the 11 unresolved BQS records
   outside confirmed `stops`.
 - Exact GeoJSON and frontend/map integration contract.
+- Exact authoritative source/semantics for any supplied stop or route geometry; the
+  official BusPISLocations layer does not provide an O-Travelz identity crosswalk.
+- Whether a future authoritative AMA/GIS cross-system identity crosswalk is supplied;
+  until then AMA coordinate mapping and AMA route geometry are outside Phase 6A.
 - Any future API versioning, authentication, or persistence behavior outside the bounded
   Phase 4 anonymous endpoint.
 
@@ -225,6 +249,8 @@ No work is marked permanently blocked. The following work is intentionally gated
   remain unimplemented.
 - The generic transport importer remains provider-neutral; the corrected AMA Bus package
   is handled by `scripts/import_ama_bus.py` and its confirmed slice is live-imported.
+  That adapter expects the missing corrected source package; it does not reconstruct
+  the 72 records or infer GIS identity/coordinates.
 - Database migrations include the v5.1 metadata preservation migration and the live-tested
   transport research-layer migration; place persistence and verification are live-tested.
 - The corrected AMA import contains one scheduled provider-source/tier layer and no
@@ -317,6 +343,8 @@ Date: 2026-08-18
   itinerary generation, and API implementation are accepted. Phase 5 AI orchestration
   is accepted with explicit limitations; commercial provider integration, map geometry,
   and frontend UI remain absent.
+- Final Phase 6A research closure found no defensible AMA/BQS-to-GIS record bridge;
+  no AMA coordinate or route geometry is admitted to the canonical source hierarchy.
 
 ## Evidence locations
 
@@ -327,6 +355,7 @@ Date: 2026-08-18
 - Rudra Phase 3 scope: `docs/handoffs/2026-08-18_RUDRA_PHASE3_SCOPE_REPORT.md`.
 - Susmita Phase 3/6A dependency readiness: `docs/handoffs/2026-08-18_SUSMITA_PHASE3_DEPENDENCY_PHASE6A_READINESS_REPORT.md`.
 - Susmita Phase 6A preparation evidence: `docs/handoffs/2026-08-18_SUSMITA_PHASE6A_PREPARATION_REPORT.md`.
+- Final Phase 6A research/state reconciliation: `docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`.
 - Smarak Phase 4 acceptance: `docs/handoffs/2026-08-18_SMARAK_PHASE4_ACCEPTANCE_HANDOFF.md`.
 - Contract-independent geospatial validation: `backend/app/geospatial/validation.py` and
   `backend/tests/test_geospatial_validation.py`.
@@ -338,17 +367,15 @@ Date: 2026-08-18
 
 ## Current next actions
 
-1. Smarak reviews the Rudra and Susmita scope/readiness reports and resolves or approves
-   their listed open decisions before implementation where needed.
-2. Rudra begins only the bounded transportation/routing work defined in `docs/PHASES.md`,
-   preserving every unknown/unresolved source state.
-3. Susmita keeps the Phase 6A validation/fixture preparation bounded until Rudra outputs
-   and the map contract are approved; no map payload or route behavior is inferred.
-4. Smarak reviews actual Phase 3 code, tests, migrations, contracts, and handoffs before
-   accepting any checklist item.
-5. Phase 5 is accepted and may be consumed by later approved work through its grounded
-  `AIResponse` boundary; it preserves the Phase 4 baseline, including empty
-  `explanation`, `unknown` hop honesty, `from_sequence=0`, and inherited Phase 3 limits.
-6. Akriti may close AMA coordinates, near-name identities, March-source evidence, Route
-   12 mappings, and fare research only with new defensible source evidence.
-7. Punam maintains canonical status, evidence, handoffs, and release-readiness records.
+1. Retain the accepted bounded Phase 6A HTTP slice and keep the remaining map/
+   geospatial work incomplete until its authoritative inputs and handoff are ready.
+2. Do not use the official GIS layer, `bqs_jb`, GIS object IDs, `slno`, or name overlap
+   to reconstruct AMA identities, coordinates, or Route 12 topology.
+3. If an authoritative cross-system identity crosswalk becomes available, Akriti
+   verifies it, Smarak reviews the data/import implications, Rudra reviews routing
+   semantics, and Susmita reviews the map/geospatial contract before reopening the AMA
+   feature.
+4. When Phase 6A is authorized, Smarak temporarily coordinates execution/readiness;
+   Rudra remains routing authority and Susmita remains canonical map owner.
+5. Deeptiman starts Phase 6B only after a stable Phase 6A contract and handoff; Punam
+   then coordinates Phase 7 integration/readiness and Phase 8 demo preparation.

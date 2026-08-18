@@ -69,7 +69,6 @@ async def request_validation_error_handler(
         )
     is_map_request = request.url.path == "/map/v1/projection"
     unsupported_relationship_fields = {
-        "requested_hops",
         "hops",
         "legs",
         "route_stops",

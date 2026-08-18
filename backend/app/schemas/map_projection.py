@@ -217,15 +217,23 @@ class MapProjectionFeatureRequest(ContractModel):
 
 
 class MapProjectionHTTPRequest(ContractModel):
-    """The frozen public v1 request; internal authorization fields are excluded."""
+    """Public map projection request supporting typed features and optional hop context."""
 
-    requested_features: list[MapProjectionFeatureRequest]
+    requested_features: list[MapProjectionFeatureRequest] = Field(default_factory=list)
+    requested_hops: list[RequestedHopContext] = Field(default_factory=list)
 
     @model_validator(mode="after")
-    def validate_requested_features(self) -> "MapProjectionHTTPRequest":
+    def validate_request(self) -> "MapProjectionHTTPRequest":
         refs = [(item.entity, item.id) for item in self.requested_features]
         if len(refs) != len(set(refs)):
             raise ValueError("requested_features must not contain duplicate typed UUIDs")
+
+        hop_refs = [
+            (item.day_number, item.hop.from_sequence, item.hop.to_sequence)
+            for item in self.requested_hops
+        ]
+        if len(hop_refs) != len(set(hop_refs)):
+            raise ValueError("requested_hops must not contain duplicate hop references")
         return self
 
 

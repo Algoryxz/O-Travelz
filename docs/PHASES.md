@@ -164,9 +164,10 @@ Phase 0 database contract and Phase 1 verified data.
 
 **Current status**
 
-Phase 2 engineering acceptance is complete. Research closure remains open for
-explicitly tracked AMA data-quality items; those items are represented as unknown or
-unresolved states and are not engineering failures.
+Phase 2 engineering acceptance is complete. The final AMA Phase 6A research
+investigation is now closed without a defensible cross-system identity crosswalk;
+the unresolved AMA data-quality items remain represented as unknown or unresolved
+states and are not engineering failures.
 
 **Completed within the current Phase 2 boundary**
 
@@ -197,20 +198,28 @@ unresolved states and are not engineering failures.
 - The 11 unresolved BQS records and all 36 Route 12 rows without canonical candidates
   were excluded from confirmed stop and route-stop production records.
 
-**Research closure remains open**
+**AMA research closure state**
 
-- All 83 AMA coordinates remain unresolved.
+- All 83 AMA coordinates remain unresolved; no official GIS coordinate has been
+  promoted into the AMA records.
 - Three BQS near-name variants require physical confirmation.
 - Eight official BQS records lack March stoppage-source evidence.
 - Route 12 has 36 unresolved canonical route-stop mappings.
 - The corrected AMA Bus package contains no structured fare payload.
+- The missing 72-ID reconciliation was not recovered from reachable or unreachable
+  Git objects. The exposed official `BusPISLocations` layer does not supply a
+  defensible O-Travelz crosswalk; `bqs_jb`, GIS object IDs, and `slno` are not
+  canonical O-Travelz identifiers.
 
 These are research/source-closure items. They must not be resolved by inference or
 treated as migration/import engineering failures.
 
-Akriti remains responsible for research correctness, provenance, and the canonical data
-handoff. Smarak remains responsible for database semantics, importer behavior,
-coordinate mapping, and deterministic core implementation.
+Akriti's current AMA research closure is complete as unresolved. Akriti remains
+responsible for research correctness, provenance, and any future authoritative
+crosswalk; Smarak remains responsible for database semantics, importer behavior,
+coordinate mapping, and deterministic core implementation. No coordinate-based AMA
+mapping or AMA route geometry may be reopened without an authoritative cross-system
+identity crosswalk.
 
 **Allowed work**
 
@@ -530,13 +539,14 @@ stop order cannot establish canonical identity or topology. Reopen the AMA featu
 only if an authoritative cross-system identity crosswalk becomes available. See
 `docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`.
 
-This full-phase gate is distinct from the accepted v1 HTTP boundary: the bounded
-HTTP implementation exists and is accepted as of 2026-08-18 after the prior REVISE
-findings were corrected and final re-verification passed. This does not complete
-Phase 6A.
+This full-phase gate is distinct from the HTTP boundary: the bounded
+HTTP V1 implementation was accepted on 2026-08-18 (39 HTTP tests); the Phase 6A HTTP V2
+boundary is implemented with optional `requested_hops` and is ACCEPTED as of 2026-08-18
+after independent verification (49 HTTP tests, 78 combined HTTP/core tests, 231 full backend
+tests). This does not complete all of Phase 6A.
 
-PHASE 6A HTTP — ACCEPTED. Final evidence: 39 HTTP tests, 68 combined HTTP/core tests,
-221 full backend tests, compile passed, and `git diff --check` passed.
+PHASE 6A HTTP V1 — ACCEPTED; PHASE 6A HTTP V2 — ACCEPTED. Evidence: 49 HTTP tests,
+78 combined HTTP/core tests, 231 full backend tests, compile passed, and `git diff --check` passed.
 
 **Objective**
 
@@ -550,6 +560,11 @@ Susmita.
 
 Phase 0 map contract; Phase 3 routing outputs and Phase 4 itinerary identifiers.
 Fixture data may be used while dependent services are incomplete.
+
+The official BhubaneswarOne `BusPISLocations` GIS source is evidence for this gate,
+not an approved O-Travelz identity source. No record-level AMA/BQS-to-GIS crosswalk
+was established, and Route 12 cannot be independently closed from the exposed
+official GIS.
 
 **Allowed work**
 
@@ -590,7 +605,10 @@ Fixture data may be used while dependent services are incomplete.
 
 **Handoff**
 
-Susmita hands the stable map contract and visualization subsystem to Deeptiman.
+Susmita remains the canonical map owner and normally hands the stable map contract
+and visualization subsystem to Deeptiman. For the current temporary operating
+arrangement, Smarak handles Phase 6A coordination/readiness execution; this is not a
+canonical ownership transfer.
 
 ## Phase 6B — Complete frontend and user experience
 
@@ -606,6 +624,10 @@ Deeptiman.
 
 Phase 0 itinerary/API/frontend-map contracts; Phase 6A map handoff; fixture data may be
 used before backend integration is complete.
+
+Phase 6B is blocked until Phase 6A supplies a stable approved map contract and handoff.
+Deeptiman must not recreate authoritative geospatial logic or adopt unlinked AMA/GIS
+features.
 
 **Allowed work**
 
@@ -659,6 +681,9 @@ Validate the complete local stack, contracts, evidence, and release readiness.
 **Owner**
 
 Punam coordinates. Each implementation owner validates their subsystem.
+
+Punam also coordinates the Phase 7/8 readiness and demo sequence once Phase 6A and
+Phase 6B have genuine implementation and handoff evidence.
 
 **Dependencies**
 
