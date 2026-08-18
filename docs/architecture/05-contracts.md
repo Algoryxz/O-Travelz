@@ -13,8 +13,9 @@ and Susmita consume the contract in their respective frontend and map/geospatial
 
 Executable Phase 0 boundary models are in `backend/app/schemas/itinerary.py`,
 `backend/app/schemas/transport.py`, and `backend/app/schemas/api.py`. The matching
-frontend types are in `frontend/src/api/contracts.ts`. The API route and feature
-services remain later-phase work.
+frontend types are in `frontend/src/api/contracts.ts`. Phase 4 implements the
+deterministic API route and feature services; Phase 5 remains responsible for grounded
+explanation orchestration.
 
 ```json
 {
@@ -49,12 +50,17 @@ services remain later-phase work.
       ]
     }
   ],
-  "explanation": "AI-generated prose, grounded entirely in the structure above"
+  "explanation": ""
 }
 ```
 
 Rules:
 - Every fact in `explanation` must be traceable to a field above.
+- Phase 4 returns an empty deterministic `explanation`; AI-generated prose is not part
+  of the Phase 4 response.
+- `from_sequence=0` is reserved for a resolved start origin; itinerary stop sequences
+  remain positive. An unavailable/unsupported hop may use `data_tier="unknown"` when a
+  static, scheduled, or live tier would be misleading.
 - `data_tier` on each hop must be surfaced in the UI (e.g. a small "approximate" badge
   when not live) so the user isn't misled about certainty.
 - An unavailable hop must carry a human-readable `reason`; normal hops may omit it.

@@ -24,11 +24,7 @@ class ItineraryDayContract(ContractModel):
 
 
 class ItineraryPlanRequest(PlanningConstraints):
-    """Phase 0 request boundary for POST /itinerary/plan.
-
-    The endpoint itself remains a later-phase implementation. API versioning,
-    authentication, and error-envelope policy remain OPEN DECISION items.
-    """
+    """Phase 4 request boundary for facts-only POST /itinerary/plan."""
 
 
 class ItineraryResponse(ContractModel):

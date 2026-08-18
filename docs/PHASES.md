@@ -288,6 +288,13 @@ Phase 1 provider verification and Phase 2 database/import outputs.
 Satisfied for Phase 3 entry. This does not authorize Phase 4, Phase 5, Phase 6A, or
 Phase 6B work, and it does not close AMA research uncertainties.
 
+**Current control status**
+
+Smarak's Phase 3 control report and acceptance checklist are established. Repository
+inspection on 2026-08-17 found no accepted Phase 3 provider adapters, graph/pathfinding,
+transport service, or geospatial service implementation yet. The gate permits Rudra to
+begin the authorized work; it does not count unstarted requirements as complete.
+
 **Allowed work**
 
 - Implement provider adapters for verified providers.
@@ -346,6 +353,32 @@ Smarak.
 **Dependencies**
 
 Phase 0 semantic contracts and Phase 2 database; Phase 3 transport for real hops.
+
+**Approved implementation semantics**
+
+Phase 4 ranks globally by exact canonical interest/category relevance with the approved
+category/name/research-ID/UUID tie-break order. It selects unique coordinate-bearing
+places at a maximum of three per day, preserves global order and requested day labels,
+and calls the Phase 3 transport service for start and same-day consecutive hops. A
+resolved start uses `from_sequence=0`; unavailable hops remain explicit with nullable
+facts and an honest `unknown` tier where the public schema cannot represent a real
+freshness tier. The response is facts-only with an empty deterministic `explanation`;
+AI prose remains Phase 5 work. Full details are in
+`docs/handoffs/2026-08-18_SMARAK_PHASE4_DECISIONS.md`.
+
+**Current status**
+
+PHASE 4 ACCEPTED. The approved Phase 4 implementation is present in the ranking,
+itinerary, and API boundaries. Acceptance was recorded on 2026-08-18 after the final
+Smarak audit; inherited Phase 3 provider-data limitations remain explicit.
+
+**Acceptance evidence**
+
+- Final Smarak acceptance audit: all 12 critical requirements PASS.
+- Phase 4 suite: 16 passed, 1 warning.
+- Full backend suite: 134 passed, 1 warning.
+- `python -m compileall -q backend` passed.
+- `git diff --check` passed.
 
 **Allowed work**
 

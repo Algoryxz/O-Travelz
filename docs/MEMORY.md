@@ -8,8 +8,10 @@ architectural, contract, phase, or readiness changes.
 ## Current phase
 
 Phase 2 engineering acceptance is complete. Phase 2 research closure remains open for
-explicitly tracked AMA data-quality items. Phase 3 transportation/routing is the next
-implementation frontier under the gate in `docs/PHASES.md`.
+explicitly tracked AMA data-quality items. Phase 3 transportation/routing is accepted
+with explicit limitations at `d6a0291`. Phase 4 deterministic ranking, itinerary
+generation, and facts-only API behavior are accepted on 2026-08-18; Phase 5 grounded
+explanation/orchestration is the next gated frontier.
 
 ## Phase status
 
@@ -39,6 +41,13 @@ Phase 2 engineering acceptance is complete. Research closure is intentionally op
 does not make the verified migration/import implementation incomplete. The canonical
 Phase 3 gate is satisfied because Phase 1 provider verification and the Phase 2
 database/import outputs are available.
+
+Phase 3 bounded transport implementation was accepted with explicit limitations in
+`docs/handoffs/2026-08-18_SMARAK_PHASE3_INTEGRATION_REVIEW_2.md`. The approved Phase 4
+decision record is `docs/handoffs/2026-08-18_SMARAK_PHASE4_DECISIONS.md`; the Phase 4
+acceptance record is `docs/handoffs/2026-08-18_SMARAK_PHASE4_ACCEPTANCE_HANDOFF.md`.
+Phase 4 implementation is accepted and now serves as the canonical deterministic
+itinerary baseline.
 
 ## Completed work
 
@@ -76,6 +85,8 @@ database/import outputs are available.
 - The transport importer foundation now normalizes and dependency-orders providers,
   stops, routes, route-stops, scheduled trips, and fare rules with idempotency and
   data-tier/estimate validation tests.
+- The shared `TransportHopContract` now requires a human-readable reason whenever
+  `mode="unavailable"`; this is a contract validation fix, not a transport planner.
 - Migration `0004_transport_research_layers` adds nullable, provenance-bearing transport
   stop identities; route source metadata; `TransportProviderSource`; `ScheduledTripGroup`;
   and explicit fare unknown/status fields.
@@ -101,15 +112,20 @@ database/import outputs are available.
 ## Active work
 
 Phase 2 handoff and documentation synchronization are complete for the verified current
-state. The next implementation work, if authorized, is Phase 3 transportation/routing
-owned by Rudra. Akriti research closure remains a parallel data-quality responsibility;
-it must not be resolved through inference or schema shortcuts.
+state. Phase 3 transport/routing is accepted only within its explicit limitations;
+Akriti research closure remains a parallel data-quality responsibility and must not be
+resolved through inference or schema shortcuts. Susmita's 2026-08-18 preparation slice
+contains contract-independent WGS84 validation and clearly labelled geometry/transport
+fixtures; it does not define a map payload or implement routing. Phase 4 contains the
+approved deterministic ranking, itinerary sequencing, sequence-aware transport
+integration, and facts-only API work, and that implementation is accepted.
 
 ## Gated work
 
-Phase 3 entry is permitted by the canonical gate. Phase 4, Phase 5, Phase 6A, and Phase
-6B remain gated by their own dependencies. Production transport work beyond the verified
-AMA slice remains limited by source evidence and explicit unresolved states.
+Phase 3 entry and the approved Phase 4 implementation gate are satisfied. Phase 5,
+Phase 6A, and Phase 6B remain gated by their own dependencies. Production transport work
+beyond the verified AMA slice remains limited by source evidence and explicit unresolved
+states.
 
 ## Blocked work
 
@@ -118,7 +134,7 @@ No work is marked permanently blocked. The following work is intentionally gated
 - research closure for AMA coordinates, identities, route-stop mappings, and fares;
 - production transport seeding beyond the verified AMA Bus slice until source evidence
   is supplied in representable form;
-- Phase 4–6B implementation until each phase's canonical dependencies and contracts are
+- Phase 5–6B implementation until each phase's canonical dependencies and contracts are
   satisfied.
 
 ## Frozen decisions
@@ -179,13 +195,13 @@ No work is marked permanently blocked. The following work is intentionally gated
   persistence layer; the AMA Bus adapter currently keeps the 11 unresolved BQS records
   outside confirmed `stops`.
 - Exact GeoJSON and frontend/map integration contract.
-- API request validation, error schema, versioning, and anonymous-user behavior.
+- Any future API versioning, authentication, or persistence behavior outside the bounded
+  Phase 4 anonymous endpoint.
 
 ## Known implementation issues
 
-- Backend currently exposes only `/health`.
-- Ranking, itinerary, AI, API routers, geospatial behavior, and transport graph/service
-  are not implemented.
+- Phase 4 ranking, itinerary, and facts-only API behavior are accepted; AI, map, and
+  frontend production behavior remain unimplemented.
 - The generic transport importer remains provider-neutral; the corrected AMA Bus package
   is handled by `scripts/import_ama_bus.py` and its confirmed slice is live-imported.
 - Database migrations include the v5.1 metadata preservation migration and the live-tested
@@ -214,6 +230,12 @@ No work is marked permanently blocked. The following work is intentionally gated
   owns database semantics, importer behavior, coordinate mapping, and the deterministic
   core.
 - Punam coordinates documentation, phase tracking, evidence, demo, and readiness.
+- Phase 4 ranks by exact canonical category relevance, filters coordinate-bearing places
+  for routed selection, caps days at three unique stops, preserves global order, and
+  returns an empty deterministic explanation until Phase 5.
+- `from_sequence=0` represents a resolved start origin; the public schema's `unknown`
+  tier is used when an unavailable state cannot honestly be assigned static, scheduled,
+  or live. The Phase 2 database enum remains unchanged.
 
 ## Feature-freeze status
 
@@ -222,11 +244,18 @@ the change rules in `docs/RULES.md`.
 
 ## Last verified state
 
-Date: 2026-08-17
+Date: 2026-08-18
 
 - Backend health test: passed with the available bundled Python environment.
 - Full backend test suite: 82 passed with the declared `geoalchemy2==0.15.2` runtime
   available.
+- Phase 4 acceptance audit: all 12 critical requirements passed.
+- Phase 4 implementation regression: full backend suite `134 passed, 1 warning`;
+  backend application compile check passed; the existing frontend itinerary fixture
+  parsed through the backend contract.
+- Phase 4 focused suite: `16 passed, 1 warning`.
+- Phase 3 control regression run after the shared unavailable-reason contract fix: full
+  backend suite 83 passed; focused transport-contract tests 6 passed.
 - v5.1 place preflight and importer compatibility tests passed; 32 places and 9
   categories validate, including paired coordinates, provenance, verification dates,
   category references, and idempotent research-ID upserts.
@@ -236,8 +265,9 @@ Date: 2026-08-17
 - Current place preflight passed for both the repository projection and the reviewed v5.1
   handoff. Transport preflight correctly rejected duplicate unresolved E-Ride stop
   identities before any database write.
-- Frontend TypeScript/Vitest tests: not run because frontend dependencies and TypeScript
-  tooling are not installed locally.
+- Frontend TypeScript/Vitest tests: not run because `frontend/node_modules` and the
+  frontend tooling are not installed locally; the shared fixture was validated through
+  the backend itinerary contract.
 - Migration Python syntax: validated with the available Python runtime.
 - Alembic offline migration SQL: validated from empty-database scripts; `datatier` is
   created once, PostGIS geography/index definitions are present, nullable place and
@@ -256,14 +286,25 @@ Date: 2026-08-17
 - No Akriti data was modified; no unrelated models were modified; no commit was created.
 - Docker Compose configuration is present with database health ordering; the live
   `infra-db-1` container was healthy during acceptance.
-- Feature-creep scan: no Phase 1+ providers, ranking, itinerary generation, AI
-  execution, map geometry, or frontend UI was added.
-- No Phase 3+ functionality was added: ranking, itinerary generation, AI execution,
-  provider integrations, routing, map geometry, and frontend UI remain absent.
+- Phase 4 scope/fabrication scan: no provider data, coordinates, fares, schedules,
+  durations, AI execution, map geometry, or frontend UI was added.
+- Phase 3 transport/routing is accepted with explicit limitations; Phase 4 ranking,
+  itinerary generation, and API implementation are accepted. AI execution, provider
+  integrations beyond the accepted bounded transport layer, map geometry, and frontend
+  UI remain absent.
 
 ## Evidence locations
 
 - Phase 2 engineering acceptance and gate: `docs/PHASES.md`.
+- Phase 3 control contract: `docs/handoffs/2026-08-17_SMARAK_PHASE3_CONTROL_REPORT.md`.
+- Phase 3 acceptance tracking: `docs/phases/PHASE_3_ACCEPTANCE_CHECKLIST_2026-08-17.md`.
+- Smarak Phase 3 decisions/progress: `docs/handoffs/2026-08-17_SMARAK_PHASE3_PROGRESS.md`.
+- Rudra Phase 3 scope: `docs/handoffs/2026-08-18_RUDRA_PHASE3_SCOPE_REPORT.md`.
+- Susmita Phase 3/6A dependency readiness: `docs/handoffs/2026-08-18_SUSMITA_PHASE3_DEPENDENCY_PHASE6A_READINESS_REPORT.md`.
+- Susmita Phase 6A preparation evidence: `docs/handoffs/2026-08-18_SUSMITA_PHASE6A_PREPARATION_REPORT.md`.
+- Smarak Phase 4 acceptance: `docs/handoffs/2026-08-18_SMARAK_PHASE4_ACCEPTANCE_HANDOFF.md`.
+- Contract-independent geospatial validation: `backend/app/geospatial/validation.py` and
+  `backend/tests/test_geospatial_validation.py`.
 - Canonical architecture and model semantics: `docs/ARCHITECTURE.md`.
 - Live acceptance and documentation synchronization: `docs/phases/`.
 - Role handoffs: `docs/handoffs/`.
@@ -272,8 +313,17 @@ Date: 2026-08-17
 
 ## Current next actions
 
-1. Rudra may begin only the bounded Phase 3 transportation/routing work defined in
-   `docs/PHASES.md` and must preserve every unknown/unresolved source state.
-2. Akriti may close AMA coordinates, near-name identities, March-source evidence, Route
+1. Smarak reviews the Rudra and Susmita scope/readiness reports and resolves or approves
+   their listed open decisions before implementation where needed.
+2. Rudra begins only the bounded transportation/routing work defined in `docs/PHASES.md`,
+   preserving every unknown/unresolved source state.
+3. Susmita keeps the Phase 6A validation/fixture preparation bounded until Rudra outputs
+   and the map contract are approved; no map payload or route behavior is inferred.
+4. Smarak reviews actual Phase 3 code, tests, migrations, contracts, and handoffs before
+   accepting any checklist item.
+5. Phase 5 may begin only after its separate gate is approved; it must preserve the
+   accepted Phase 4 baseline, including empty `explanation`, `unknown` hop honesty,
+   `from_sequence=0`, and the inherited Phase 3 transport limits.
+6. Akriti may close AMA coordinates, near-name identities, March-source evidence, Route
    12 mappings, and fare research only with new defensible source evidence.
-3. Punam maintains canonical status, evidence, handoffs, and release-readiness records.
+7. Punam maintains canonical status, evidence, handoffs, and release-readiness records.

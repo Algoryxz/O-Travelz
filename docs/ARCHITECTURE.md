@@ -5,8 +5,9 @@ Status: canonical architecture and ownership boundary
 This document consolidates the approved architecture currently described in the
 repository. It describes the intended system boundaries without adding product
 requirements. Phase 2 database/import engineering is live-verified and accepted;
-Phase 3+ service behavior remains future work and is tracked in `docs/PHASES.md` and
-`docs/REPOSITORY_MAP.md`.
+Phase 3 transport/routing is accepted with explicit limitations; Phase 4 ranking,
+itinerary generation, and facts-only API behavior are accepted. Remaining gated work
+is tracked in `docs/PHASES.md` and `docs/REPOSITORY_MAP.md`.
 
 ## Architectural principles
 
@@ -40,10 +41,11 @@ Backend API (FastAPI)
 ```
 
 The current repository implements the FastAPI health endpoint, SQLAlchemy model
-foundation, Phase 0 boundary schemas, the Phase 2 migration chain/importers, live
-verified place and AMA Bus persistence, and contract/database tests. Ranking,
-itinerary generation, AI execution, routing, geospatial behavior, and the frontend
-flow are not yet implemented.
+foundation, Phase 0 boundary schemas, the Phase 2 migration chain/importers, the
+accepted Phase 3 transport boundary, the accepted Phase 4 ranking/itinerary/API
+boundaries, live verified place and AMA Bus persistence, and contract/database tests.
+AI execution, geospatial behavior, and the complete frontend flow are not yet
+implemented.
 
 ## Ownership and boundaries
 
@@ -150,6 +152,10 @@ Transport data tiers are:
 - `scheduled`: verified timetables or explicit headway information;
 - `live`: verified real-time position or ETA data.
 
+The executable API/schema contract may also use `unknown` when a hop or provider state
+cannot honestly be represented as static, scheduled, or live. `unknown` is not a claim
+of a fourth freshness source and is not added to the Phase 2 database enum.
+
 Estimates must be labeled as estimates and must not be represented as live facts. The
 model currently uses the three values above; the transport documentation also uses the
 phrase “estimate-only.”
@@ -180,10 +186,16 @@ and frontend layers. Its documented top-level fields are `itinerary_id`, `constr
 `days`, and `explanation`. Days contain ordered stops and hops; hops contain ordered
 legs, estimated duration/cost, and `data_tier`.
 
-The Phase 0 executable itinerary and HTTP boundary schemas are in
-`backend/app/schemas/itinerary.py` and `backend/app/schemas/api.py`. They validate the
-existing fixture shape; the endpoint and deterministic itinerary service remain later
-phase work.
+The executable itinerary and HTTP boundary schemas are in
+`backend/app/schemas/itinerary.py` and `backend/app/schemas/api.py`. Phase 4 implements
+the deterministic service and `POST /itinerary/plan`; the response is facts-only and
+uses an empty `explanation` until Phase 5 grounded explanation is approved.
+
+Phase 4 ranks all verified places by exact canonical category relevance, then filters
+coordinate-bearing places for routed selection, selects at most three unique places per
+day, and preserves global rank order. A valid exact start origin is represented by
+`from_sequence=0`; same-day hops use their actual positive stop sequences. These
+semantics are recorded in `docs/handoffs/2026-08-18_SMARAK_PHASE4_DECISIONS.md`.
 
 ## AI orchestration
 
@@ -241,14 +253,16 @@ The documented primary endpoint is `POST /itinerary/plan`. Rudra owns HTTP/API w
 Smarak owns the semantic itinerary and AI behavior behind the boundary. The backend
 returns structured itinerary data, and AI explanation is grounded in that structure.
 
-Phase 0 provides validated request, response, and error schemas only. The route is not
-wired until the later itinerary/API implementation phase.
+The route uses the existing structured request/response/error schemas. Complete
+planning failures return the structured API error contract; individual unavailable
+transport hops remain inside an otherwise valid itinerary.
 
 External provider integrations are allowed only after Akriti's verification. Rudra's
 adapter layer must preserve provider data tier and failure states.
 
-`OPEN DECISION`: Request validation, error schema, API versioning, anonymous-user
-behavior, and exact endpoint registration are not yet stabilized.
+No new API versioning system is introduced. Phase 4 registers the approved route and
+uses structured validation/planning errors. The route remains an anonymous boundary;
+authentication and persistence are outside this phase.
 
 ## Dependencies and handoffs
 

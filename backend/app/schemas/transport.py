@@ -7,11 +7,12 @@ from app.schemas.common import ContractModel
 
 
 class DataTier(str, Enum):
-    """The only approved transport freshness tiers."""
+    """Transport freshness tiers plus honest unavailable/unknown state."""
 
     STATIC = "static"
     SCHEDULED = "scheduled"
     LIVE = "live"
+    UNKNOWN = "unknown"
 
 
 class TransportLeg(ContractModel):
@@ -24,7 +25,8 @@ class TransportLeg(ContractModel):
 class TransportHopContract(ContractModel):
     """One planning unit between two itinerary stops."""
 
-    from_sequence: int = Field(ge=1)
+    # ``0`` is the deterministic sentinel for a non-itinerary start origin.
+    from_sequence: int = Field(ge=0)
     to_sequence: int = Field(ge=1)
     mode: str
     estimated_minutes: int | None = Field(default=None, ge=0)

@@ -11,9 +11,16 @@ class PathResult:
 
 
 def _edge_score(edge: GraphEdge) -> tuple[int, int]:
-    # Missing provider duration is not guessed. It has a deterministic but less
-    # preferred routing score; output duration remains unknown.
-    return (edge.estimated_minutes if edge.estimated_minutes is not None else 0, int(edge.estimated_minutes is None))
+    """Return ``(unknown_duration_edges, known_minutes)`` for one edge.
+
+    An unknown duration contributes only to the explicit unknown-count dimension. It
+    must never be treated as zero minutes. Known-duration paths are preferred over
+    paths containing unknown durations; among paths with the same unknown status,
+    known minutes and hop count remain deterministic tie-breakers.
+    """
+    if edge.estimated_minutes is None:
+        return (1, 0)
+    return (0, edge.estimated_minutes)
 
 
 def find_path(graph: TransportGraph, origin_id: str, destination_id: str) -> PathResult | None:
@@ -29,8 +36,12 @@ def find_path(graph: TransportGraph, origin_id: str, destination_id: str) -> Pat
         if node == destination_id:
             return PathResult(edges)
         for edge in graph.outgoing(node):
-            minutes, unknown = _edge_score(edge)
-            next_score = (score[0] + minutes, score[1] + unknown, score[2] + 1)
+            unknown_edges, known_minutes = _edge_score(edge)
+            next_score = (
+                score[0] + unknown_edges,
+                score[1] + known_minutes,
+                score[2] + 1,
+            )
             edge_signature = f"{edge.source}>{edge.target}:{edge.mode}:{edge.provider or ''}:{edge.route or ''}"
             heapq.heappush(queue, (next_score, signature + (edge_signature,), edge.target, edges + (edge,)))
     return None

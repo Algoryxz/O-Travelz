@@ -47,6 +47,11 @@ Every `TransportHop` and `get_provider_status()` result carries `data_tier` so n
 downstream (itinerary builder, AI explanation, frontend badge) can accidentally present
 static/estimated data as live fact.
 
+The Phase 4 API/schema boundary may use `unknown` for an unavailable or unsupported
+state that cannot honestly be represented as static, scheduled, or live. This is an
+honesty state, not a new provider freshness tier, and it is not added to the Phase 2
+database enum.
+
 ## Provider adapter pattern
 
 `backend/app/transport/adapters/` — one adapter per provider, implementing a common

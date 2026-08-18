@@ -29,6 +29,10 @@ class PlanTransportHopArgs(ContractModel):
     from_place: PlaceSummary
     to_place: PlaceSummary
     constraints: PlanningConstraints
+    # Defaults preserve the Phase 3 two-stop tool call while allowing itinerary
+    # generation to propagate its actual sequence context.
+    from_sequence: int = Field(default=1, ge=0)
+    to_sequence: int = Field(default=2, ge=1)
 
 
 class PlanTransportHopResult(TransportHopContract):

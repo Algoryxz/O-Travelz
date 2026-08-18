@@ -91,11 +91,12 @@ static data exists for a provider, itineraries say "Mo Bus route 5 runs roughly 
 ## 8. Map/geospatial model
 
 Susmita owns the map/geospatial subsystem, including routes, route lines, and multimodal
-map visualization. Rudra's backend/API layer exposes verified geometry and routing
-outputs (stop locations, walking paths where available, route shapes where available) as
-GeoJSON for that subsystem. Deeptiman integrates the map layer into the complete
-frontend experience. AI never computes geometry; it only refers to place/stop names and
-reads distances/durations that the backend already computed.
+map visualization. Rudra's backend/API layer will expose verified geometry and routing
+outputs (stop locations, walking paths where available, route shapes where available)
+through an approved backend/map contract. The exact GeoJSON or non-GeoJSON shape remains
+open and must not be inferred from this overview. Deeptiman integrates the approved map
+layer into the complete frontend experience. AI never computes geometry; it only refers
+to place/stop names and reads distances/durations that the backend already computed.
 
 ## 9. Frontend structure
 

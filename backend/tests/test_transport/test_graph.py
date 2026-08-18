@@ -4,7 +4,7 @@ from app.transport.adapters.base import NormalizedRoute, NormalizedStop
 from app.transport.adapters.mo_bus import MoBusAdapter
 from app.transport.adapters.mo_e_ride import MoERideAdapter
 from app.transport.adapters.walking import Coordinate
-from app.transport.graph import GraphNode, build_graph, find_path
+from app.transport.graph import GraphEdge, GraphNode, TransportGraph, build_graph, find_path
 
 
 def _graph():
@@ -30,6 +30,78 @@ def test_pathfinding_is_deterministic_and_multimodal():
     second = find_path(graph, "place:from", "place:to")
     assert first == second
     assert [edge.mode for edge in first.edges] == ["walk", "bus", "walk"]
+
+
+def test_known_walking_duration_beats_unknown_provider_duration():
+    graph = TransportGraph()
+    graph.add_node(GraphNode("origin", Coordinate(20.0, 85.0)))
+    graph.add_node(GraphNode("transfer", Coordinate(20.0, 85.001)))
+    graph.add_node(GraphNode("destination", Coordinate(20.0, 85.002)))
+    graph.add_edge(
+        GraphEdge(
+            "origin",
+            "destination",
+            "walk",
+            "Known walking fallback",
+            DataTier.STATIC,
+            estimated_minutes=20,
+        )
+    )
+    graph.add_edge(
+        GraphEdge(
+            "origin",
+            "transfer",
+            "bus",
+            "Unknown-duration provider leg",
+            DataTier.SCHEDULED,
+            provider="ama-bus",
+            route="R-unknown",
+            estimated_minutes=None,
+        )
+    )
+    graph.add_edge(
+        GraphEdge(
+            "transfer",
+            "destination",
+            "walk",
+            "Known walking transfer",
+            DataTier.STATIC,
+            estimated_minutes=1,
+        )
+    )
+
+    path = find_path(graph, "origin", "destination")
+
+    assert path is not None
+    assert [edge.mode for edge in path.edges] == ["walk"]
+    assert path.edges[0].estimated_minutes == 20
+
+
+def test_unknown_duration_remains_unknown_and_path_selection_is_deterministic():
+    graph = TransportGraph()
+    graph.add_node(GraphNode("origin", Coordinate(20.0, 85.0)))
+    graph.add_node(GraphNode("destination", Coordinate(20.0, 85.001)))
+    graph.add_edge(
+        GraphEdge(
+            "origin",
+            "destination",
+            "bus",
+            "Unknown-duration provider leg",
+            DataTier.SCHEDULED,
+            provider="ama-bus",
+            route="R-unknown",
+            estimated_minutes=None,
+        )
+    )
+
+    first = find_path(graph, "origin", "destination")
+    second = find_path(graph, "origin", "destination")
+
+    assert first == second
+    assert first is not None
+    assert first.edges[0].estimated_minutes is None
+    assert first.edges[0].provider == "ama-bus"
+    assert first.edges[0].data_tier is DataTier.SCHEDULED
 
 
 def test_unreachable_graph_returns_none():

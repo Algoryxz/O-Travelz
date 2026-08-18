@@ -4,7 +4,7 @@
  * This file contains types only; it does not implement a frontend flow.
  */
 
-export type DataTier = "static" | "scheduled" | "live";
+export type DataTier = "static" | "scheduled" | "live" | "unknown";
 
 export interface PlanningConstraints {
   days: number;

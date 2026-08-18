@@ -97,9 +97,27 @@ class TransportService:
         origin = self.resolver.resolve(args.from_place.id)
         destination = self.resolver.resolve(args.to_place.id)
         if origin is None or destination is None:
-            return self._unavailable("One or both requested places could not be resolved from verified place data.")
+            return self._unavailable(
+                "One or both requested places could not be resolved from verified place data.",
+                args.from_sequence,
+                args.to_sequence,
+            )
         if origin.coordinate is None or destination.coordinate is None:
-            return self._unavailable("Routing is unavailable because one or both places have no verified coordinates.")
+            return self._unavailable(
+                "Routing is unavailable because one or both places have no verified coordinates.",
+                args.from_sequence,
+                args.to_sequence,
+            )
+
+        unsupported_constraints = self._unsupported_transport_constraints(args)
+        if unsupported_constraints:
+            return self._unavailable(
+                "Transport routing cannot yet evaluate these constraints: "
+                + ", ".join(unsupported_constraints)
+                + ".",
+                args.from_sequence,
+                args.to_sequence,
+            )
 
         usable: list[TransportAdapter] = []
         failures: list[str] = []
@@ -115,14 +133,55 @@ class TransportService:
         path = find_path(graph, "place:from", "place:to")
         if path is None:
             suffix = f" Provider data failed for: {', '.join(sorted(failures))}." if failures else ""
-            return self._unavailable("No verified transport path connects these places." + suffix)
+            return self._unavailable(
+                "No verified transport path connects these places." + suffix,
+                args.from_sequence,
+                args.to_sequence,
+            )
         tiers = [edge.data_tier for edge in path.edges]
         total_minutes = sum(edge.estimated_minutes for edge in path.edges) if all(edge.estimated_minutes is not None for edge in path.edges) else None
         legs = [TransportLeg(mode=edge.mode, detail=edge.detail, provider=edge.provider, route=edge.route) for edge in path.edges]
         modes = [edge.mode for edge in path.edges]
         mode = modes[0] if len(set(modes)) == 1 else "+".join(dict.fromkeys(modes))
-        return TransportHopContract(from_sequence=1, to_sequence=2, mode=mode, estimated_minutes=total_minutes, estimated_cost=None, legs=legs, data_tier=aggregate_data_tier(tiers))
+        return TransportHopContract(
+            from_sequence=args.from_sequence,
+            to_sequence=args.to_sequence,
+            mode=mode,
+            estimated_minutes=total_minutes,
+            estimated_cost=None,
+            legs=legs,
+            data_tier=aggregate_data_tier(tiers),
+        )
 
     @staticmethod
-    def _unavailable(reason: str) -> TransportHopContract:
-        return TransportHopContract(from_sequence=1, to_sequence=2, mode="unavailable", estimated_minutes=None, estimated_cost=None, legs=[], data_tier=DataTier.STATIC, reason=reason)
+    def _unsupported_transport_constraints(args: PlanTransportHopArgs) -> tuple[str, ...]:
+        """Fail closed for transport constraints whose semantics are not approved.
+
+        The shared constraint contract also carries itinerary/ranking inputs such as
+        days, interests, dates, and start. Those are intentionally outside this hop
+        service. The transport-relevant fields below have no approved cost, mobility,
+        or walking-preference semantics, so returning unavailable is safer than
+        claiming that the planner enforced them.
+        """
+        constraints = args.constraints
+        unsupported: list[str] = []
+        if constraints.budget_transport_per_day is not None:
+            unsupported.append("budget_transport_per_day")
+        if constraints.mobility:
+            unsupported.append("mobility")
+        if constraints.pace:
+            unsupported.append("pace")
+        return tuple(unsupported)
+
+    @staticmethod
+    def _unavailable(reason: str, from_sequence: int, to_sequence: int) -> TransportHopContract:
+        return TransportHopContract(
+            from_sequence=from_sequence,
+            to_sequence=to_sequence,
+            mode="unavailable",
+            estimated_minutes=None,
+            estimated_cost=None,
+            legs=[],
+            data_tier=DataTier.UNKNOWN,
+            reason=reason,
+        )

@@ -103,6 +103,20 @@ def test_unavailable_transport_hop_requires_reason():
     assert hop.reason == "No verified provider data is available."
 
 
+def test_transport_contract_accepts_start_sentinel_and_unknown_tier():
+    hop = TransportHopContract.model_validate(
+        {
+            "from_sequence": 0,
+            "to_sequence": 1,
+            "mode": "unavailable",
+            "data_tier": "unknown",
+            "reason": "The start origin is not routable.",
+        }
+    )
+    assert hop.from_sequence == 0
+    assert hop.data_tier is DataTier.UNKNOWN
+
+
 def test_ai_tool_contracts_have_structured_arguments():
     constraints = {"days": 1, "interests": ["temples"], "start": "Hotel"}
     place = {"id": "p1", "name": "Temple", "category": "temple"}

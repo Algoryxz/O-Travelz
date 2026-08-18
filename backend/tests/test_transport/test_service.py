@@ -7,8 +7,14 @@ from app.transport.adapters.walking import Coordinate, walking_distance_meters
 from app.transport.service import MappingPlaceResolver, ProviderNotAvailableError, TransportService
 
 
-def _args(start="from", end="to"):
-    return PlanTransportHopArgs(from_place={"id": start, "name": start, "category": "test"}, to_place={"id": end, "name": end, "category": "test"}, constraints={"days": 1})
+def _args(start="from", end="to", from_sequence=1, to_sequence=2):
+    return PlanTransportHopArgs(
+        from_place={"id": start, "name": start, "category": "test"},
+        to_place={"id": end, "name": end, "category": "test"},
+        constraints={"days": 1},
+        from_sequence=from_sequence,
+        to_sequence=to_sequence,
+    )
 
 
 def test_walking_is_deterministic_and_uses_no_fare():
@@ -20,10 +26,45 @@ def test_walking_is_deterministic_and_uses_no_fare():
     assert walking_distance_meters(Coordinate(20, 85), Coordinate(20, 85.001)) > 0
 
 
+def test_transport_service_propagates_arbitrary_sequence_context():
+    service = TransportService(
+        MappingPlaceResolver({"from": Coordinate(20, 85), "to": Coordinate(20, 85.001)}),
+        [],
+    )
+
+    hop = service.plan_transport_hop(_args(from_sequence=0, to_sequence=1))
+
+    assert (hop.from_sequence, hop.to_sequence) == (0, 1)
+
+
 def test_missing_coordinates_and_missing_place_are_unavailable_with_reasons():
     service = TransportService(MappingPlaceResolver({"from": None, "to": Coordinate(20, 85)}), [])
     assert "no verified coordinates" in service.plan_transport_hop(_args()).reason
     assert "could not be resolved" in service.plan_transport_hop(_args("missing", "to")).reason
+
+
+@pytest.mark.parametrize(
+    "constraint",
+    [
+        {"budget_transport_per_day": 100},
+        {"mobility": "avoid long walks"},
+        {"pace": "slow"},
+    ],
+)
+def test_unsupported_transport_constraints_are_not_claimed_as_enforced(constraint):
+    service = TransportService(
+        MappingPlaceResolver({"from": Coordinate(20, 85), "to": Coordinate(20, 85.001)}),
+        [],
+    )
+    payload = _args().model_dump()
+    payload["constraints"].update(constraint)
+    args = PlanTransportHopArgs.model_validate(payload)
+
+    hop = service.plan_transport_hop(args)
+
+    assert hop.mode == "unavailable"
+    assert hop.reason
+    assert next(iter(constraint)) in hop.reason
 
 
 def test_verified_fixture_produces_ordered_multimodal_hop_and_conservative_tier():
