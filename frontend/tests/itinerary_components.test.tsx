@@ -210,7 +210,6 @@ describe("Phase 6B Itinerary UI Components", () => {
       expect(html).toContain("1");
       expect(html).toContain("Lingaraj Temple");
       expect(html).toContain("temple");
-      expect(html).toContain("ID: place-101");
       expect(html).toContain("09:00");
       expect(html).toContain("10:30");
     });

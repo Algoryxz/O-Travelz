@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import type { PlaceDetail } from "../api/contracts";
 import { apiClient as defaultApiClient, ApiClient } from "../api/client";
 import { getPlaceRegion, getPlaceImageUrl } from "../utils/imageService";
+import { resolvePlaceImageUrl } from "../utils/imageAdapter";
 
 // Bundled authoritative seed fallback (so UI is instant & robust in all environments)
 import seedPlacesData from "../../../data/places/places.json";
@@ -15,9 +16,10 @@ export function toExtendedPlace(place: PlaceDetail): ExtendedPlaceDetail {
   return {
     ...place,
     region: getPlaceRegion(place.name),
-    imageUrl: getPlaceImageUrl(place.name, place.category),
+    imageUrl: resolvePlaceImageUrl(place, "card"),
   };
 }
+
 
 const FALLBACK_EXTENDED_PLACES: ExtendedPlaceDetail[] = (seedPlacesData as any[]).map((raw, idx) => ({
   id: raw.id || `seed_place_${idx + 1}`,

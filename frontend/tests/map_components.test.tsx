@@ -26,6 +26,9 @@ describe("Phase 6B Map Components", () => {
         geometry_status: "available",
         geometry: { type: "Point", coordinates: [85.81, 20.29] },
         unavailable_reason: null,
+        name: "Lingaraj Temple",
+        category: "temple",
+        region: "Bhubaneswar & Central",
       },
       {
         feature_type: "place",
@@ -33,6 +36,9 @@ describe("Phase 6B Map Components", () => {
         geometry_status: "available",
         geometry: { type: "Point", coordinates: [85.85, 20.32] },
         unavailable_reason: null,
+        name: "Mukteswar Temple",
+        category: "temple",
+        region: "Bhubaneswar & Central",
       },
       {
         feature_type: "place",
@@ -71,9 +77,9 @@ describe("Phase 6B Map Components", () => {
       const html = renderClean(<MapCanvas features={sampleProjection.features} />);
 
       expect(html).toContain("Interactive Map View");
-      expect(html).toContain("Point #1");
+      expect(html).toContain("Lingaraj Temple");
       expect(html).toContain("85.8100°, 20.2900°");
-      expect(html).toContain("Point #2");
+      expect(html).toContain("Mukteswar Temple");
       expect(html).toContain("85.8500°, 20.3200°");
     });
 
@@ -208,6 +214,121 @@ describe("Phase 6B Map Components", () => {
       );
 
       expect(html).toContain("Network Connection Error");
+    });
+
+    it("renders multimodal relationship with LineString geometry and transit segments", () => {
+      const projectionWithMultimodal: MapProjectionResponse = {
+        requested_features: [
+          { entity: "place", id: "550e8400-e29b-41d4-a716-446655440000" },
+          { entity: "place", id: "660e8400-e29b-41d4-a716-446655440001" },
+        ],
+        features: [
+          {
+            feature_type: "place",
+            canonical_ref: { entity: "place", id: "550e8400-e29b-41d4-a716-446655440000" },
+            geometry_status: "available",
+            geometry: { type: "Point", coordinates: [85.81, 20.29] },
+          },
+          {
+            feature_type: "place",
+            canonical_ref: { entity: "place", id: "660e8400-e29b-41d4-a716-446655440001" },
+            geometry_status: "available",
+            geometry: { type: "Point", coordinates: [85.85, 20.32] },
+          },
+        ],
+        relationships: [
+          {
+            relationship_type: "itinerary_hop",
+            hop_ref: { day_number: 1, from_sequence: 1, to_sequence: 2 },
+            mode: "train+bus",
+            data_tier: "scheduled",
+            reason: "Fastest combined transit connection",
+            legs: [
+              {
+                mode: "train",
+                detail: "Puri Express to Bhubaneswar",
+                provider: "Indian Railways",
+                route: "18410",
+                geometry_status: "available",
+                geometry: {
+                  type: "LineString",
+                  coordinates: [
+                    [85.81, 20.29],
+                    [85.83, 20.30],
+                    [85.85, 20.32],
+                  ],
+                },
+                stop_refs: ["stop_puri", "stop_bbsr"],
+              },
+              {
+                mode: "bus",
+                detail: "Mo Bus Route 10 to Master Canteen",
+                provider: "CRUT",
+                route: "10",
+                geometry_status: "unavailable",
+                geometry: null,
+                stop_refs: [],
+                unavailable_reason: "provider_geometry_unavailable",
+              },
+            ],
+          },
+        ],
+        unavailable_items: [],
+      };
+
+      const drawerHtml = renderClean(
+        <MapDetailsDrawer
+          features={projectionWithMultimodal.features}
+          relationships={projectionWithMultimodal.relationships}
+          unavailableItems={projectionWithMultimodal.unavailable_items}
+        />
+      );
+
+      expect(drawerHtml).toContain("Day 1: Stop 1 → Stop 2");
+      expect(drawerHtml).toContain("Mode: train+bus");
+      expect(drawerHtml).toContain("Scheduled");
+      expect(drawerHtml).toContain("Puri Express to Bhubaneswar");
+      expect(drawerHtml).toContain("Route Plotted");
+      expect(drawerHtml).toContain("Mo Bus Route 10 to Master Canteen");
+      expect(drawerHtml).toContain("Standard Connection");
+    });
+
+    it("preserves honest unavailable reason codes without inventing synthetic coordinates", () => {
+      const projectionUnavailable: MapProjectionResponse = {
+        requested_features: [
+          { entity: "place", id: "unverified_place_001" },
+        ],
+        features: [
+          {
+            feature_type: "place",
+            canonical_ref: { entity: "place", id: "unverified_place_001" },
+            geometry_status: "unavailable",
+            geometry: null,
+            unavailable_reason: "coordinate_unverified",
+          },
+        ],
+        relationships: [],
+        unavailable_items: [
+          {
+            item_type: "feature",
+            ref: { entity: "place", id: "unverified_place_001" },
+            unavailable_reason: "coordinate_unverified",
+          },
+        ],
+      };
+
+      const drawerHtml = renderClean(
+        <MapDetailsDrawer
+          features={projectionUnavailable.features}
+          relationships={projectionUnavailable.relationships}
+          unavailableItems={projectionUnavailable.unavailable_items}
+        />
+      );
+
+      expect(drawerHtml).toContain("Stops Without Map Pins (1)");
+      expect(drawerHtml).toContain("unverified_place_001");
+      expect(drawerHtml).toContain("Notice on Selected Places (1)");
+      expect(drawerHtml).toContain("(coordinate_unverified)");
     });
   });
 });

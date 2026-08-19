@@ -131,6 +131,9 @@ export interface MapFeature {
   geometry_status: GeometryStatus;
   geometry: MapGeometry | null;
   unavailable_reason?: UnavailableReason | null;
+  name?: string | null;
+  category?: string | null;
+  region?: string | null;
 }
 
 export interface MapHopRef {
@@ -190,6 +193,31 @@ export interface MapProjectionResponse {
 
 /* ================= Authoritative Places Discovery Contracts ================= */
 
+export interface PlaceImageContract {
+  id?: string;
+  storage_key?: string | null;
+  url: string;
+  thumbnail_url?: string | null;
+  card_url?: string | null;
+  alt_text?: string | null;
+  title?: string | null;
+  source_url?: string | null;
+  source_name?: string | null;
+  creator?: string | null;
+  license?: string | null;
+  attribution?: string | null;
+  retrieval_timestamp?: string | null;
+  width?: number | null;
+  height?: number | null;
+  aspect_ratio?: number | null;
+  content_sha256?: string | null;
+  content_type?: string | null;
+  size_bytes?: number | null;
+  status?: string | null;
+  sort_order?: number;
+  is_primary?: boolean;
+}
+
 export interface PlaceDetail {
   id: string;
   name: string;
@@ -201,6 +229,7 @@ export interface PlaceDetail {
   price_tier?: string | null;
   source?: string | null;
   verified_at?: string | null;
+  images?: PlaceImageContract[];
 }
 
 export interface PlaceListParams {

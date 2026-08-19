@@ -13,6 +13,7 @@ interface MapViewProps {
   selectedPlace?: SelectedPlaceInfo | null;
   onClearSelectedPlace?: () => void;
   onPlanTripWithPlace?: (place: SelectedPlaceInfo) => void;
+  onViewDetails?: (place: SelectedPlaceInfo) => void;
   onClearError?: () => void;
 }
 
@@ -23,6 +24,7 @@ export const MapView: React.FC<MapViewProps> = ({
   selectedPlace,
   onClearSelectedPlace,
   onPlanTripWithPlace,
+  onViewDetails,
   onClearError,
 }) => {
   const availableCount =
@@ -176,6 +178,8 @@ export const MapView: React.FC<MapViewProps> = ({
             features={featuresToRender}
             relationships={projection?.relationships ?? []}
             selectedFeatureId={selectedPlace?.id || selectedPlace?.name || null}
+            onPlanTripWithPlace={onPlanTripWithPlace}
+            onViewDetails={onViewDetails}
           />
           {projection && (
             <MapDetailsDrawer

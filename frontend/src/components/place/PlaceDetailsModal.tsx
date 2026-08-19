@@ -12,8 +12,10 @@ import {
   Sparkles,
   Award,
 } from "lucide-react";
+import type { PlaceImageContract } from "../../api/contracts";
 import { useSavedPlaces } from "../../store/useSavedPlaces";
-import { getPlaceGallery, getPlaceRegion } from "../../utils/imageService";
+import { getPlaceRegion } from "../../utils/imageService";
+import { resolvePlaceGallery } from "../../utils/imageAdapter";
 import { PhotoGallery } from "../gallery/PhotoGallery";
 
 export interface SelectedPlaceInfo {
@@ -33,6 +35,7 @@ export interface SelectedPlaceInfo {
   bgImage?: string;
   tags?: string[];
   coordinates?: [number, number];
+  images?: PlaceImageContract[];
 }
 
 interface PlaceDetailsModalProps {
@@ -52,7 +55,8 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
   const saved = isSaved(place.name);
 
   const region = place.location || getPlaceRegion(place.name);
-  const gallery = getPlaceGallery(place.name, place.category);
+  const gallery = resolvePlaceGallery(place);
+
 
   // Derive "Best Suited For" based on category & region
   const getBestSuitedFor = (category: string, name: string): string => {

@@ -109,9 +109,9 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         const featureId = (feature as any).id || feature.canonical_ref?.id || `feat-${index}`;
         const isSelected = selectedFeatureId === featureId;
         const props = (feature as any).properties;
-        const placeName = props?.name || `Point #${index + 1}`;
-        const category = props?.category || "destination";
-        const region = props?.location || getPlaceRegion(placeName);
+        const placeName = feature.name || props?.name || "Destination";
+        const category = feature.category || props?.category || "destination";
+        const region = feature.region || props?.location || getPlaceRegion(placeName);
         const imageUrl = getPlaceImageUrl(placeName, category);
 
         const latLng = L.latLng(lat, lon);
@@ -200,27 +200,66 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         });
       });
 
-      if (pointFeatures.length > 1) {
-        const polylinePoints = pointFeatures.map((f) => [
-          f.geometry.coordinates[1],
-          f.geometry.coordinates[0],
-        ] as [number, number]);
+      // Render only approved LineString geometries from backend features
+      lineFeatures.forEach((lineFeat) => {
+        const lineCoords = lineFeat.geometry.coordinates.map(
+          (c) => [c[1], c[0]] as [number, number]
+        );
+        lineCoords.forEach((pt) => bounds.extend(L.latLng(pt[0], pt[1])));
 
-        L.polyline(polylinePoints, {
+        L.polyline(lineCoords, {
           color: "#059669",
           weight: 4,
-          opacity: 0.85,
-          dashArray: "8, 6",
+          opacity: 0.9,
+          lineCap: "round",
+          lineJoin: "round",
         }).addTo(routesLayer);
-      }
+      });
 
-      if (pointFeatures.length > 0) {
+      // Render approved LineString geometries from multimodal relationship legs
+      relationships.forEach((rel) => {
+        rel.legs?.forEach((leg) => {
+          if (
+            leg.geometry_status === "available" &&
+            leg.geometry &&
+            leg.geometry.type === "LineString" &&
+            Array.isArray(leg.geometry.coordinates) &&
+            leg.geometry.coordinates.length > 0
+          ) {
+            const legCoords = leg.geometry.coordinates.map(
+              (c) => [c[1], c[0]] as [number, number]
+            );
+            legCoords.forEach((pt) => bounds.extend(L.latLng(pt[0], pt[1])));
+
+            const color =
+              leg.mode === "train" || leg.mode === "rail"
+                ? "#4f46e5"
+                : leg.mode === "walk"
+                ? "#d97706"
+                : "#059669";
+
+            const dashArray = leg.mode === "walk" ? "4, 4" : undefined;
+
+            L.polyline(legCoords, {
+              color,
+              weight: leg.mode === "walk" ? 3 : 4,
+              opacity: 0.9,
+              dashArray,
+              lineCap: "round",
+              lineJoin: "round",
+            }).addTo(routesLayer);
+          }
+        });
+      });
+
+      if (pointFeatures.length > 0 || lineFeatures.length > 0) {
         map.fitBounds(bounds, { padding: [60, 60], maxZoom: 14 });
       } else {
         map.setView([20.4625, 85.8828], 7);
       }
     });
-  }, [features, pointFeatures, lineFeatures, selectedFeatureId, isLeafletReady, onSelectFeature, onPlanTripWithPlace, onViewDetails]);
+  }, [features, pointFeatures, lineFeatures, relationships, selectedFeatureId, isLeafletReady, onSelectFeature, onPlanTripWithPlace, onViewDetails]);
+
 
   const WIDTH = 600;
   const HEIGHT = 380;
@@ -292,12 +331,12 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           const featureId = (feature as any).id || feature.canonical_ref?.id || `feat-${index}`;
           const isSelected = selectedFeatureId === featureId;
           const props = (feature as any).properties;
-          const label = props?.name || `Point #${index + 1}`;
+          const label = feature.name || props?.name || "Destination";
 
           return (
             <g
               key={`map-pin-${featureId}-${index}`}
-              data-testid={`map-pin-${props?.name?.toLowerCase().replace(/[^a-z0-9]/g, "-") || index}`}
+              data-testid={`map-pin-${(feature.name || props?.name || "destination").toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
             >
               <circle cx={cx} cy={cy} r={isSelected ? 10 : 7} fill={isSelected ? "#fbbf24" : "#10b981"} />
               <text x={cx} y={cy + 18} fill="#ffffff" fontSize="10" textAnchor="middle">

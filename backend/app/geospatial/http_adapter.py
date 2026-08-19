@@ -19,6 +19,31 @@ from app.schemas.map_projection import (
 )
 
 
+def _determine_region(name: str | None) -> str | None:
+    if not name:
+        return None
+    name_lower = name.lower()
+    if any(k in name_lower for k in ["puri", "gundicha", "swargadwar"]):
+        return "Puri & Coastal"
+    if any(k in name_lower for k in ["konark", "chandrabhaga", "ramachandi"]):
+        return "Konark & Marine"
+    if any(k in name_lower for k in ["cuttack", "barabati", "chandi", "maritime", "netaji"]):
+        return "Cuttack & Mahanadi"
+    if any(k in name_lower for k in ["chilika", "kalijai", "mangalajodi", "gopalpur", "tara tarini"]):
+        return "Chilika & Southern Coast"
+    if any(k in name_lower for k in ["daringbadi", "midubanda", "coffee", "belghar", "kandhamal"]):
+        return "Kandhamal & Southern Hills"
+    if any(k in name_lower for k in ["hirakud", "samaleswari", "huma", "debrigarh", "sambalpur"]):
+        return "Sambalpur & Western Odisha"
+    if any(k in name_lower for k in ["rourkela", "hanuman vatika", "mandira", "khandadhar", "sundargarh"]):
+        return "Rourkela & Sundargarh"
+    if any(k in name_lower for k in ["similipal", "barehipani", "bhitarkanika", "chandipur", "balasore", "mayurbhanj"]):
+        return "Northern Odisha & Wildlife"
+    if any(k in name_lower for k in ["koraput", "deomali", "gupteswar", "duduma", "kolab", "rayagada", "majhigouri"]):
+        return "Koraput & Tribal Highlands"
+    return "Bhubaneswar & Central"
+
+
 class MapProjectionHTTPError(Exception):
     """Structured failure raised by the map HTTP adapter."""
 
@@ -106,6 +131,18 @@ class MapProjectionHTTPAdapter:
             )
 
         entity = authorized_ref.entity
+        name = getattr(record, "name", None)
+        category = None
+        if entity == "place":
+            if hasattr(record, "category") and record.category:
+                category = record.category.name
+        elif entity == "stop":
+            category = "stop"
+        elif entity == "route":
+            category = "route"
+
+        region = _determine_region(name) if entity == "place" else None
+
         raw_geometry = getattr(record, "geometry", None) if entity == "route" else getattr(record, "location", None)
         if raw_geometry is None:
             unavailable_reason = "source_missing" if entity == "route" else "coordinate_unverified"
@@ -113,6 +150,9 @@ class MapProjectionHTTPAdapter:
                 authorized_ref=authorized_ref,
                 geometry=None,
                 unavailable_reason=unavailable_reason,
+                name=name,
+                category=category,
+                region=region,
             )
 
         try:
@@ -134,6 +174,9 @@ class MapProjectionHTTPAdapter:
             return ApprovedFeatureGeometry(
                 authorized_ref=authorized_ref,
                 geometry=geometry,
+                name=name,
+                category=category,
+                region=region,
             )
         except Exception as error:
             raise MapProjectionHTTPError(

@@ -4,6 +4,7 @@ import uuid
 from geoalchemy2 import Geography
 from sqlalchemy import Column, ForeignKey, Integer, String, JSON, DateTime, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import relationship
 
 from app.db.base import Base
 
@@ -35,3 +36,14 @@ class Place(Base):
     coordinate_verification = Column(String, nullable=True)
     coordinate_audit_status = Column(String, nullable=True)
     audit_status = Column(String, nullable=True)
+
+    # Category relationship
+    category = relationship("Category")
+
+    # 1:N relationship to PlaceImage
+    images = relationship(
+        "PlaceImage",
+        back_populates="place",
+        cascade="all, delete-orphan",
+        order_by="PlaceImage.sort_order",
+    )

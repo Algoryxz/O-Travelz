@@ -4,7 +4,15 @@ from dataclasses import dataclass, field
 from app.db.base import Base as _ModelBase  # noqa: F401
 from app.models.transport import DataTier
 from app.transport.adapters.base import NormalizedRoute, NormalizedStop, TransportAdapter
-from app.transport.adapters.walking import Coordinate, walking_distance_meters, walking_minutes
+from app.transport.adapters.walking import (
+    Coordinate,
+    MAX_TRANSIT_TRANSFER_WALK_METERS,
+    MAX_WALKING_DISTANCE_METERS,
+    road_distance_meters,
+    road_minutes,
+    walking_distance_meters,
+    walking_minutes,
+)
 
 
 @dataclass(frozen=True)
@@ -41,13 +49,58 @@ class TransportGraph:
         return sorted((edge for edge in self.edges if edge.source == node_id), key=lambda edge: (edge.target, edge.mode, edge.provider or "", edge.route or ""))
 
 
-def add_walking_edge(graph: TransportGraph, source: str, target: str) -> None:
-    """Add a directed straight-line walking edge when both verified coordinates exist."""
+def add_walking_edge(
+    graph: TransportGraph,
+    source: str,
+    target: str,
+    max_meters: int | None = MAX_WALKING_DISTANCE_METERS,
+) -> bool:
+    """Add a directed straight-line walking edge when both verified coordinates exist and distance <= max_meters."""
+    start, end = graph.nodes.get(source), graph.nodes.get(target)
+    if not start or not end:
+        return False
+    distance = walking_distance_meters(start.coordinate, end.coordinate)
+    if max_meters is not None and distance > max_meters:
+        return False
+    mins = walking_minutes(distance)
+    dist_str = f"{distance} m" if distance < 1000 else f"{round(distance / 1000, 1)} km"
+    graph.add_edge(
+        GraphEdge(
+            source,
+            target,
+            "walk",
+            f"Walk ~{dist_str} ({mins} min)",
+            DataTier.STATIC,
+            estimated_minutes=mins,
+        )
+    )
+    return True
+
+
+def add_road_edge(graph: TransportGraph, source: str, target: str) -> None:
+    """Add a directed road/car travel edge for journeys between verified coordinates."""
     start, end = graph.nodes.get(source), graph.nodes.get(target)
     if not start or not end:
         return
-    distance = walking_distance_meters(start.coordinate, end.coordinate)
-    graph.add_edge(GraphEdge(source, target, "walk", f"Walk approximately {distance} m (straight-line distance)", DataTier.STATIC, estimated_minutes=walking_minutes(distance)))
+    road_meters = road_distance_meters(start.coordinate, end.coordinate)
+    mins = road_minutes(road_meters)
+    road_km = round(road_meters / 1000, 1)
+    if mins >= 60:
+        hours = mins // 60
+        remaining_mins = mins % 60
+        duration_str = f"{hours}h {remaining_mins:02d}m" if remaining_mins > 0 else f"{hours}h"
+    else:
+        duration_str = f"{mins} min"
+    graph.add_edge(
+        GraphEdge(
+            source,
+            target,
+            "road",
+            f"Road ~{road_km} km ({duration_str})",
+            DataTier.STATIC,
+            estimated_minutes=mins,
+        )
+    )
 
 
 def add_adapter_data(graph: TransportGraph, adapter: TransportAdapter) -> None:
@@ -76,9 +129,17 @@ def build_graph(origin: GraphNode, destination: GraphNode, adapters: list[Transp
         except Exception:
             # Failure isolation occurs again in the service to retain a useful reason.
             continue
-    add_walking_edge(graph, origin.id, destination.id)
+
+    # 1. Direct walk if walkable (<= 2000m)
+    walked = add_walking_edge(graph, origin.id, destination.id, max_meters=MAX_WALKING_DISTANCE_METERS)
+
+    # 2. Road travel for journeys between places beyond walking distance
+    if not walked:
+        add_road_edge(graph, origin.id, destination.id)
+
+    # 3. Transit transfer connections (<= 1500m to transit stops)
     for node_id in sorted(graph.nodes):
         if node_id.startswith("stop:"):
-            add_walking_edge(graph, origin.id, node_id)
-            add_walking_edge(graph, node_id, destination.id)
+            add_walking_edge(graph, origin.id, node_id, max_meters=MAX_TRANSIT_TRANSFER_WALK_METERS)
+            add_walking_edge(graph, node_id, destination.id, max_meters=MAX_TRANSIT_TRANSFER_WALK_METERS)
     return graph

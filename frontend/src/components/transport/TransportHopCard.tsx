@@ -11,6 +11,33 @@ export const TransportHopCard: React.FC<TransportHopCardProps> = ({ hop }) => {
   const isOrigin = hop.from_sequence === 0;
   const isUnavailable = hop.mode === "unavailable" || !!hop.reason;
 
+  const formatDuration = (mins: number | null | undefined): string | null => {
+    if (mins === null || mins === undefined) return null;
+    if (mins < 60) return `${mins} min`;
+    const hours = Math.floor(mins / 60);
+    const remaining = mins % 60;
+    return remaining > 0 ? `${hours}h ${remaining.toString().padStart(2, "0")}m` : `${hours}h`;
+  };
+
+  const formatMode = (mode: string): string => {
+    const m = mode.toLowerCase();
+    if (m === "road" || m === "car") return "Car / Road";
+    if (m === "walk") return "Walk";
+    if (m === "bus") return "Bus";
+    if (m === "rail" || m === "train") return "Train";
+    if (m === "e-rickshaw" || m === "e_ride") return "Mo E-Ride";
+    if (m === "unavailable") return "unavailable";
+    return mode;
+  };
+
+  const extractDistance = (hop: TransportHop): string | null => {
+    for (const leg of hop.legs || []) {
+      const match = leg.detail?.match(/(?:~|approximately\s+)?(\d+(?:\.\d+)?\s*(?:km|m))/i);
+      if (match) return match[1];
+    }
+    return null;
+  };
+
   const getModeIcon = (mode: string) => {
     const m = mode.toLowerCase();
     if (m.includes("walk")) return <Footprints size={15} className="text-emerald-700" />;
@@ -21,6 +48,9 @@ export const TransportHopCard: React.FC<TransportHopCardProps> = ({ hop }) => {
   const hopTitle = isOrigin
     ? "Origin Start → Stop 1"
     : `Stop ${hop.from_sequence} → Stop ${hop.to_sequence}`;
+
+  const formattedDuration = formatDuration(hop.estimated_minutes);
+  const distanceStr = extractDistance(hop);
 
   return (
     <div
@@ -51,7 +81,7 @@ export const TransportHopCard: React.FC<TransportHopCardProps> = ({ hop }) => {
                 {hopTitle}
               </div>
               <span className="text-[11px] text-gray-500 font-medium">
-                {`Mode: ${hop.mode}`}
+                {`Mode: ${formatMode(hop.mode)}`}
               </span>
             </div>
           </div>
@@ -61,10 +91,17 @@ export const TransportHopCard: React.FC<TransportHopCardProps> = ({ hop }) => {
 
         {/* Travel metrics strip */}
         <div className="mt-2.5 flex flex-wrap items-center gap-3 text-xs text-gray-600">
-          {hop.estimated_minutes !== null && hop.estimated_minutes !== undefined && (
+          {formattedDuration && (
             <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-100">
               <Clock size={12} className="text-emerald-700" />
-              <span className="font-semibold text-gray-900">{`Duration: ${hop.estimated_minutes} min`}</span>
+              <span className="font-semibold text-gray-900">{formattedDuration}</span>
+            </div>
+          )}
+
+          {distanceStr && (
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-100">
+              <span className="text-emerald-700 font-bold">📍</span>
+              <span className="font-semibold text-gray-900">{distanceStr}</span>
             </div>
           )}
 

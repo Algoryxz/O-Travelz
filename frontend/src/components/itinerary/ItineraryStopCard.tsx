@@ -48,9 +48,6 @@ export const ItineraryStopCard: React.FC<ItineraryStopCardProps> = ({ stop }) =>
               <MapPin size={10} className="text-gray-400" />
               <span>{region}</span>
             </span>
-            <span className="text-xs text-gray-400 font-mono hidden sm:inline">
-              {`ID: ${stop.place.id}`}
-            </span>
           </div>
 
           <h4 className="text-sm sm:text-base font-bold text-gray-900 leading-snug truncate">

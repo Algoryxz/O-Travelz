@@ -373,4 +373,7 @@ def test_projection_is_deterministic_and_exposes_no_provenance_fields():
         "geometry_status",
         "geometry",
         "unavailable_reason",
+        "name",
+        "category",
+        "region",
     }

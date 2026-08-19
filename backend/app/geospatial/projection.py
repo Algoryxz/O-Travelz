@@ -64,6 +64,9 @@ class MapProjectionService:
             geometry_status=geometry_status,
             geometry=item.geometry,
             unavailable_reason=item.unavailable_reason,
+            name=item.name,
+            category=item.category,
+            region=item.region,
         )
 
     @staticmethod

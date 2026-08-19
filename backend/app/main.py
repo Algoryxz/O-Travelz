@@ -8,6 +8,7 @@ from app.api.itinerary_routes import router as itinerary_router
 from app.api.ai_routes import router as ai_router
 from app.api.map_routes import router as map_router
 from app.api.places_routes import router as places_router
+from app.api.image_routes import router as image_router
 from app.geospatial.http_adapter import MapProjectionHTTPError
 from app.schemas.api import APIErrorDetail, APIErrorResponse
 from app.services.itinerary import ItineraryPlanningError
@@ -38,6 +39,9 @@ app.include_router(itinerary_router, prefix="/itinerary", tags=["itinerary"])
 app.include_router(places_router, prefix="/places", tags=["places"])
 app.include_router(ai_router, prefix="/ai", tags=["ai"])
 app.include_router(map_router, prefix="/map/v1", tags=["map"])
+app.include_router(image_router, prefix="/api/v1/images", tags=["images"])
+app.include_router(image_router, prefix="/static/images", tags=["images"])
+
 
 
 @app.exception_handler(MapProjectionHTTPError)

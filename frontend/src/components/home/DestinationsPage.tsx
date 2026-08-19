@@ -12,7 +12,9 @@ import {
 } from "lucide-react";
 import { useSavedPlaces } from "../../store/useSavedPlaces";
 import { usePlaces, type ExtendedPlaceDetail } from "../../store/usePlaces";
+import { getPlaceImageUrl } from "../../utils/imageService";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
+
 
 interface DestinationsPageProps {
   onSelectPlace: (place: SelectedPlaceInfo) => void;
@@ -269,6 +271,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                     source: place.source,
                     verified_at: place.verified_at,
                     imageUrl: place.imageUrl,
+                    images: place.images,
                   })
                 }
                 className="group rounded-3xl bg-white border border-gray-200 overflow-hidden shadow-2xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
@@ -280,11 +283,11 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                     alt={place.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-95"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src =
-                        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80";
+                      (e.target as HTMLImageElement).src = getPlaceImageUrl(place.name, place.category);
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+
 
                   {/* Save Button */}
                   <button

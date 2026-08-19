@@ -139,9 +139,8 @@ MapGeometry = PointGeometry | LineStringGeometry
 class ApprovedFeatureGeometry(ContractModel):
     """Backend-supplied geometry keyed by an authorized canonical backend fact.
 
-    The model intentionally has no name, provider route, source-row, GIS, endpoint,
-    or alternate-identifier fields.  A null geometry is still a valid supplied record
-    when its unavailable reason is explicit.
+    Carries canonical place identity (name, category, region) alongside verified geometry.
+    A null geometry is still a valid supplied record when its unavailable reason is explicit.
     """
 
     model_config = ConfigDict(
@@ -153,6 +152,9 @@ class ApprovedFeatureGeometry(ContractModel):
     authorized_ref: AuthorizedCanonicalRef
     geometry: MapGeometry | None = None
     unavailable_reason: UnavailableReason | None = None
+    name: str | None = None
+    category: str | None = None
+    region: str | None = None
 
     @model_validator(mode="after")
     def validate_feature_geometry(self) -> "ApprovedFeatureGeometry":
@@ -243,6 +245,9 @@ class MapFeature(ContractModel):
     geometry_status: GeometryStatus
     geometry: MapGeometry | None
     unavailable_reason: UnavailableReason | None = None
+    name: str | None = None
+    category: str | None = None
+    region: str | None = None
 
     @model_validator(mode="after")
     def validate_feature_state(self) -> "MapFeature":

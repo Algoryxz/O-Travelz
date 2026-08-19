@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 from app.db.session import get_db
 from app.models.category import Category
 from app.models.place import Place
+from app.schemas.image import PlaceImageResponse
 
 router = APIRouter()
 
@@ -24,6 +25,7 @@ class PlaceDetailResponse(BaseModel):
     price_tier: Optional[str] = None
     source: Optional[str] = None
     verified_at: Optional[str] = None
+    images: List[PlaceImageResponse] = []
 
 
 @router.get("", response_model=List[PlaceDetailResponse])
@@ -62,6 +64,13 @@ def list_places(
             except Exception:
                 pass
 
+        image_responses = []
+        try:
+            if hasattr(place, "images") and place.images:
+                image_responses = [PlaceImageResponse.model_validate(img) for img in place.images]
+        except Exception:
+            image_responses = []
+
         places.append(
             PlaceDetailResponse(
                 id=str(place.id),
@@ -74,6 +83,7 @@ def list_places(
                 price_tier=place.price_tier,
                 source=place.source,
                 verified_at=str(place.verified_at) if place.verified_at else None,
+                images=image_responses,
             )
         )
 
@@ -118,6 +128,14 @@ def get_place(
         except Exception:
             pass
 
+    image_responses = []
+    try:
+        if hasattr(place, "images") and place.images:
+            image_responses = [PlaceImageResponse.model_validate(img) for img in place.images]
+    except Exception:
+        image_responses = []
+
+
     return PlaceDetailResponse(
         id=str(place.id),
         name=place.name,
@@ -129,4 +147,5 @@ def get_place(
         price_tier=place.price_tier,
         source=place.source,
         verified_at=str(place.verified_at) if place.verified_at else None,
+        images=image_responses,
     )

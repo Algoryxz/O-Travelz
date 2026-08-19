@@ -267,12 +267,23 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   };
 
   const handlePlanTripWithPlace = (place: SelectedPlaceInfo) => {
+    const existingInterests = constraints.interests || [];
+    const categoryName = place.category?.toLowerCase().trim();
+    const updatedInterests =
+      existingInterests.length > 0
+        ? existingInterests
+        : categoryName
+        ? [categoryName]
+        : [];
+
     setConstraints({
       ...constraints,
       start: place.name,
+      interests: updatedInterests,
     });
     setSelectedPlaceForModal(null);
     setActiveTab("plan");
+    setActiveMode("structured");
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -429,13 +440,22 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         <SavedPlacesPage
           onBackToDiscover={() => setActiveTab("discover")}
           onPlanWithSaved={(places) => {
-            const interests = Array.from(
-              new Set(places.map((p) => p.category.toLowerCase().split(" ")[0]))
+            const savedCategories = Array.from(
+              new Set(
+                places
+                  .map((p) => p.category?.toLowerCase().trim())
+                  .filter((cat): cat is string => !!cat)
+              )
             );
+            const existingInterests = constraints.interests || [];
+            const mergedInterests = Array.from(
+              new Set([...existingInterests, ...savedCategories])
+            );
+
             setConstraints({
               ...constraints,
-              interests: interests.length > 0 ? interests : [],
-              start: places[0]?.name || null,
+              interests: mergedInterests,
+              start: constraints.start || places[0]?.name || null,
             });
             setActiveTab("plan");
             setActiveMode("structured");
@@ -480,6 +500,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
             selectedPlace={selectedMapPlace}
             onClearSelectedPlace={() => setSelectedMapPlace(null)}
             onPlanTripWithPlace={handlePlanTripWithPlace}
+            onViewDetails={(place) => setSelectedPlaceForModal(place)}
             onClearError={clearMapError}
           />
         </main>

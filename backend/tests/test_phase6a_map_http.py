@@ -187,6 +187,9 @@ def test_authorized_null_geometry_is_successful_and_unavailable():
             "geometry_status": "unavailable",
             "geometry": None,
             "unavailable_reason": "coordinate_unverified",
+            "name": "HTTP test place",
+            "category": None,
+            "region": "Bhubaneswar & Central",
         }
     ]
 
