@@ -32,9 +32,10 @@ Phase 3 (transport adapters).
 import scripts), consuming Akriti's Phase 1 output.
 **Produces:** working Postgres schema, `scripts/import_places.py`,
 `scripts/import_transport.py`, seeded local dev DB.
-**Status:** Engineering acceptance is complete. Research closure remains open for
-explicitly tracked AMA data-quality items and does not invalidate the verified database
-and import outputs.
+**Status:** Engineering acceptance is complete. Final AMA Phase 6A research closure is
+complete without a defensible GIS identity crosswalk; unresolved data-quality items
+remain explicit and do not invalidate the verified database/import outputs. AMA
+coordinate mapping and AMA route geometry remain outside the gated Phase 6A scope.
 
 **Must be finished before:** Phase 3 and Phase 4 database dependencies are satisfied by
 the live-verified Phase 2 outputs; each later phase still follows its own canonical gate

@@ -16,6 +16,11 @@ You coordinate cross-team clarity and record decisions. You do not implement ran
 itinerary logic, AI orchestration, backend/API behavior, transport providers, frontend,
 or maps.
 
+After the gated Phase 6A and dependent Phase 6B work is genuinely complete, Punam
+coordinates Phase 7 integration/readiness and Phase 8 demo preparation. The current
+Phase 6A closure and reduced-scope decision is recorded in
+`docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`.
+
 ## Own
 - project documentation and shared context
 - phase plans, status, evidence, and readiness checklists

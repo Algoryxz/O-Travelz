@@ -62,6 +62,15 @@ behavior and the complete frontend flow are not yet implemented.
 | Complete frontend and UX | Deeptiman | Owns all user-facing views, state, and map integration. |
 | Documentation and release readiness | Punam | Owns canonical context, phase tracking, evidence, demo, and readiness. |
 
+### Temporary current-state operating overlay
+
+The canonical ownership table above is unchanged. For the current Phase 6A closure
+only, Smarak temporarily handles Phase 6A coordination/readiness execution while
+Susmita is unavailable. Smarak also temporarily handles the routing-side Phase 6A
+coordination/closure work normally supplied by Rudra. Rudra remains the routing
+authority and Susmita remains the canonical map/geospatial owner; this overlay does
+not authorize invented routing, coordinates, or geometry.
+
 ## Data and database
 
 Verified human-curated data lives in `data/` and is imported into PostgreSQL/PostGIS.
@@ -229,11 +238,22 @@ Rudra exposes verified geometry and routing outputs through backend contracts. D
 integrates those outputs into the complete frontend. AI only reads deterministic distance,
 duration, place, and stop values.
 
+The final Phase 6A research closure identified the official BhubaneswarOne
+`BusPISLocations` GIS layer but found no defensible record-level crosswalk to the
+O-Travelz AMA/BQS records. `bqs_jb`, GIS object IDs, and `slno` are not O-Travelz
+canonical identifiers, and exposed official GIS data does not independently close
+Route 12 identity or sequence. No AMA coordinate-based stop mapping or AMA route
+geometry is admitted to the architecture. That feature may be reopened only after
+an authoritative cross-system identity crosswalk is verified.
+
 `OPEN DECISION`: The exact GeoJSON/map contract for places, stops, route lines, hop-leg
 geometry, identifiers, and unavailable geometry states has not been approved.
 
 Phase 0 records this boundary in `frontend/src/components/map/README.md`; no geometry
-implementation is present.
+implementation is present. Phase 6A implementation remains gated and is reduced to
+approved map contracts plus verified/supplied geometry with honest unavailable states;
+the current decision record is
+`docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`.
 
 ## Frontend
 

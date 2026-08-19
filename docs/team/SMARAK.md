@@ -16,6 +16,16 @@ You also own the shared semantic schemas and deterministic application logic req
 make those responsibilities coherent. Rudra owns backend/API wiring and external
 integrations; Akriti owns the verified research data consumed by the database.
 
+## Temporary Phase 6A operating responsibility
+
+For the current Phase 6A research-closure state, Smarak temporarily handles Phase 6A
+coordination and readiness execution while Susmita is unavailable. Smarak also
+temporarily handles routing-side Phase 6A coordination/closure work normally supplied
+by Rudra. Susmita remains the canonical map/geospatial owner and Rudra remains the
+canonical routing authority; this temporary arrangement does not permit invented
+coordinates, topology, or geometry. See
+`docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`.
+
 ## Own
 - database models, migrations, and data semantics
 - ranking and candidate-selection logic

@@ -45,11 +45,12 @@ Read the current phase and status in `docs/MEMORY.md`. The canonical phase order
 gates are in `docs/PHASES.md`.
 
 Phase 2 engineering acceptance is complete and the live database/import evidence is
-recorded in `docs/PHASES.md` and `docs/phases/`. Phase 2 research closure remains open
-for explicitly tracked AMA uncertainties. Phase 3 and Phase 4 are accepted, and Phase 5
-is accepted with explicit limitations. Its grounded `AIResponse` boundary is available
-to later approved consumers; Phase 6A/6B implementation remains gated and has not
-started.
+recorded in `docs/PHASES.md` and `docs/phases/`. The final AMA Phase 6A research
+investigation is closed without a defensible cross-system GIS identity bridge; AMA
+coordinates and AMA route geometry remain excluded. Phases 0–5 are accepted within
+their explicit limits, Phase 6A implementation remains gated to a reduced verified-input
+scope, and Phase 6B has not started. Read the current decision record:
+`docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`.
 
 ## 4. Start an AI session
 

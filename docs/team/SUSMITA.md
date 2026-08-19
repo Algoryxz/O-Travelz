@@ -12,6 +12,11 @@ You own maps, geospatial behavior, routes, route lines, and multimodal map
 visualization. Your subsystem supplies map and route representations consumed by
 Deeptiman's frontend.
 
+Susmita remains the canonical Phase 6A owner. While Susmita is unavailable, Smarak
+temporarily handles Phase 6A coordination/readiness execution. This does not change
+the ownership boundary or authorize AMA coordinates, AMA route geometry, or any GIS
+identity inferred from names, `bqs_jb`, `objectid`, or `slno`.
+
 ## Own
 - map/geospatial implementation
 - route and route-line visualization

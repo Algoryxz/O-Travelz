@@ -15,3 +15,11 @@ states, and rendering handoff have not been approved. No map implementation belo
 Phase 0 or in this preparation slice. See
 `docs/handoffs/2026-08-18_SUSMITA_PHASE6A_PREPARATION_REPORT.md` for the current gap,
 Rudra dependency, and fixture boundaries.
+
+The final Phase 6A research closure adds a hard data boundary: the official
+BhubaneswarOne `BusPISLocations` layer has no defensible record-level crosswalk to
+O-Travelz AMA/BQS records. Its `bqs_jb`, GIS object IDs, and `slno` are not O-Travelz
+canonical identifiers. The frontend must not adopt AMA coordinates, AMA route geometry,
+or Route 12 topology from names or unlinked GIS features. Phase 6B remains dependent
+on a stable approved Phase 6A contract and handoff. See
+`docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`.

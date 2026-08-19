@@ -17,6 +17,11 @@ Smarak owns ranking, itinerary logic, and AI orchestration. Deeptiman owns the f
 and user experience. Susmita owns maps/geospatial visualization. Akriti owns transport
 research and verified sources. Punam owns documentation and release coordination.
 
+Rudra remains the canonical routing authority. During the current temporary Phase 6A
+operating arrangement, Smarak handles routing-side Phase 6A coordination and closure
+work normally supplied by Rudra; this is not a transfer of routing ownership and does
+not authorize inferred Route 12 topology or geometry.
+
 ### Files you create
 
 - `backend/app/transport/adapters/base.py` — the `TransportAdapter` interface (see

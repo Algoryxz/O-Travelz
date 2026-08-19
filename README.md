@@ -47,9 +47,11 @@ Then read the relevant file in `docs/team/` and its build guide in
 
 Phase 2 engineering acceptance is complete: the live PostgreSQL/PostGIS migration,
 place import, confirmed AMA Bus import, post-import verification, and idempotency checks
-passed. Phase 2 research closure remains open for explicit AMA coordinate, identity,
-route-stop, and fare uncertainties. The canonical Phase 3 entry gate is satisfied;
-Phase 3 transportation/routing is the current implementation frontier.
+passed. The final AMA Phase 6A research investigation closed without a defensible
+cross-system GIS identity bridge; AMA coordinates and AMA route geometry remain excluded.
+Phases 0–5 are accepted within their documented limits, Phase 6A implementation is
+gated to a reduced verified-input scope, and Phase 6B has not started. See
+`docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`.
 
 ## Session workflow
 

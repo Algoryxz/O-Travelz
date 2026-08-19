@@ -17,6 +17,13 @@ Smarak owns the database implementation and data semantics that store this infor
 Rudra owns backend/API integrations and routing. Do not implement database behavior or
 transport-provider integrations here.
 
+The final AMA Phase 6A research investigation is closed without a defensible
+record-level crosswalk to the official BhubaneswarOne GIS layer. All AMA coordinates,
+AMA route geometry, and Route 12 identity/sequence claims remain unresolved. Do not
+promote `bqs_jb`, GIS object IDs, `slno`, or name overlap as O-Travelz canonical
+identity. Reopen this research feature only when an authoritative cross-system
+identity crosswalk is available and verifiable.
+
 ### Files you create
 
 - `docs/transportation/01-providers.md` — **fill in the template** for every provider

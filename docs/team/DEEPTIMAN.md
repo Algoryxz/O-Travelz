@@ -16,6 +16,10 @@ Susmita owns the map/geospatial subsystem, route lines, and multimodal map visua
 You consume and integrate that subsystem; do not move its implementation into the
 frontend or recreate its authoritative geospatial logic.
 
+Phase 6B remains dependent on a stable approved Phase 6A map contract and handoff.
+Do not independently adopt unlinked BhubaneswarOne GIS features, AMA coordinates, AMA
+route geometry, or Route 12 topology in the frontend.
+
 ## Own
 - `frontend/`
 - frontend tests
