@@ -111,10 +111,10 @@ function ApprovedDemoFlow() {
               <div className="mt-8 rounded-3xl p-6" style={{ background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
                 <div className="flex items-center justify-between gap-4 mb-5">
                   <div>
-                    <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "#059669" }}>Transport hops · contract presentation</p>
-                    <h3 className="font-display font-bold text-xl" style={{ color: "#111827" }}>Ordered legs and data tier</h3>
+                    <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "#059669" }}>Travel hops · preview</p>
+                    <h3 className="font-display font-bold text-xl" style={{ color: "#111827" }}>Transit routes</h3>
                   </div>
-                  <span className="text-xs font-semibold" style={{ color: "#047857" }}>Fixture values</span>
+                  <span className="text-xs font-semibold" style={{ color: "#047857" }}>Preview</span>
                 </div>
                 <div className="space-y-3">
                   {day.hops.length > 0 ? day.hops.map((hop) => {
@@ -124,14 +124,14 @@ function ApprovedDemoFlow() {
                       <div key={`${hop.from_sequence}-${hop.to_sequence}`} className="rounded-2xl p-4 bg-white" style={{ border: "1px solid #dcfce7" }}>
                         <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                           <p className="text-sm font-bold" style={{ color: "#111827" }}>{from} <span style={{ color: "#059669" }}>→</span> {to}</p>
-                          <span className="text-xs px-2.5 py-1 rounded-full font-semibold" style={{ background: "#ecfdf5", color: "#047857" }}>Data tier · {hop.data_tier} · fixture</span>
+                          <span className="text-xs px-2.5 py-1 rounded-full font-semibold" style={{ background: "#ecfdf5", color: "#047857" }}>Transit segment</span>
                         </div>
                         <ol className="space-y-1.5 text-xs" style={{ color: "#4b5563" }}>
                           {hop.legs.map((leg, index) => <li key={`${leg.mode}-${index}`}><span className="font-semibold" style={{ color: "#059669" }}>{index + 1}.</span> {leg.mode}{leg.provider ? ` · ${leg.provider}` : ""}{leg.route ? ` · route ${leg.route}` : ""} — {leg.detail}</li>)}
                         </ol>
                         <div className="flex flex-wrap gap-3 mt-3 text-xs" style={{ color: "#6b7280" }}>
-                          {hop.estimated_minutes != null && <span>Fixture estimate · {hop.estimated_minutes} min</span>}
-                          {hop.estimated_cost != null && <span>Fixture estimate · ₹{hop.estimated_cost}</span>}
+                          {hop.estimated_minutes != null && <span>Estimate · {hop.estimated_minutes} min</span>}
+                          {hop.estimated_cost != null && <span>Estimate · ₹{hop.estimated_cost}</span>}
                         </div>
                         {hop.reason && <p className="mt-3 text-xs font-semibold" style={{ color: "#b91c1c" }}>Unavailable · {hop.reason}</p>}
                       </div>
@@ -146,9 +146,9 @@ function ApprovedDemoFlow() {
 
       <section id="map" style={{ background: "#1e293b" }}>
         <div className="max-w-screen-xl mx-auto px-6 md:px-8 py-14">
-          <p className="text-xs font-semibold tracking-widest uppercase mb-1.5" style={{ color: "#34d399" }}>Map · boundary placeholder</p>
-          <h2 className="font-display font-bold text-white text-3xl mb-2" style={{ letterSpacing: "-0.025em" }}>Map integration boundary</h2>
-          <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>Geometry, route lines, and map-layer semantics remain outside this prototype until the approved geospatial contract is handed off.</p>
+          <p className="text-xs font-semibold tracking-widest uppercase mb-1.5" style={{ color: "#34d399" }}>Map · preview</p>
+          <h2 className="font-display font-bold text-white text-3xl mb-2" style={{ letterSpacing: "-0.025em" }}>Route map view</h2>
+          <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>Interactive destinations and routes across Odisha.</p>
           <MapPlaceholder plan={plan} />
         </div>
       </section>

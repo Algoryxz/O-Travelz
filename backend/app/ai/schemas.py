@@ -143,6 +143,15 @@ class AIResponse(ContractModel):
 class AIPlanRequest(ContractModel):
     message: str = Field(min_length=1)
     constraints: PlanningConstraints | None = None
+    current_constraints: PlanningConstraints | None = None
+
+    @model_validator(mode="after")
+    def resolve_constraints_alias(self) -> AIPlanRequest:
+        if self.constraints is None and self.current_constraints is not None:
+            self.constraints = self.current_constraints
+        return self
+
+
 
 
 class ModelClaim(ContractModel):

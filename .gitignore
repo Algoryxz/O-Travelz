@@ -9,9 +9,12 @@ venv/
 # Python test/cache artifacts
 .pytest_cache/
 **/.pytest_cache/
+.pytest_tmp/
+.pytest_tmp_cache/
 __pycache__/
 **/__pycache__/
 *.py[cod]
+
 
 # Local environment/configuration
 .env

@@ -1,29 +1,67 @@
 [
   {
-    "name": "temple"
+    "id": "temple",
+    "name": "temple",
+    "description": "Religious temples, shrines, and sacred architecture"
   },
   {
-    "name": "museum"
+    "id": "monument",
+    "name": "monument",
+    "description": "Historic monuments, forts, caves, and peace pagodas"
   },
   {
-    "name": "market"
+    "id": "museum",
+    "name": "museum",
+    "description": "Museums, galleries, and heritage collections"
   },
   {
-    "name": "park"
+    "id": "market",
+    "name": "market",
+    "description": "Handicrafts, handlooms, and traditional markets"
   },
   {
-    "name": "monument"
+    "id": "park",
+    "name": "park",
+    "description": "Zoological parks, botanical gardens, and urban recreation"
   },
   {
-    "name": "lake"
+    "id": "lake",
+    "name": "lake",
+    "description": "Lakes, reservoirs, and inland water bodies"
   },
   {
-    "name": "planetarium"
+    "id": "beach",
+    "name": "beach",
+    "description": "Coastal beaches, golden sands, and marine shores"
   },
   {
-    "name": "sports_venue"
+    "id": "nature",
+    "name": "nature",
+    "description": "Hill stations, valleys, coffee gardens, and nature reserves"
   },
   {
-    "name": "science_center"
+    "id": "waterfall",
+    "name": "waterfall",
+    "description": "Scenic waterfalls, cascades, and river gorges"
+  },
+  {
+    "id": "wildlife",
+    "name": "wildlife",
+    "description": "National parks, bird sanctuaries, and tiger reserves"
+  },
+  {
+    "id": "planetarium",
+    "name": "planetarium",
+    "description": "Astronomy education and planetariums"
+  },
+  {
+    "id": "sports_venue",
+    "name": "sports_venue",
+    "description": "International stadiums and sports complexes"
+  },
+  {
+    "id": "science_center",
+    "name": "science_center",
+    "description": "Interactive science centers and galleries"
   }
 ]

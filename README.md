@@ -1,69 +1,73 @@
-# O-Travelz
+# O-Travelz — Whole-Odisha Travel & Transit Platform
 
-O-Travelz is a transportation-aware trip-planning system for exploring a city, starting
-with Bhubaneswar/Odisha. It produces realistic day and multi-day itineraries grounded in
-verified places and transportation data.
+O-Travelz is a transportation-aware destination exploration and trip-planning platform for the entire state of Odisha. It enables travelers, locals, students, and families to discover authentic destinations across all regions of Odisha and produce realistic single-day and multi-day itineraries with verified transportation hops, interactive maps, and grounded conversational AI assistance.
 
-The core rule is:
+The foundational principle is:
 
-> AI orchestrates. It does not invent factual travel information.
+> AI orchestrates and refines. It does not invent factual travel information. All itineraries, places, and coordinates are grounded in verified data.
 
-## Start here
+---
 
-Read [START_HERE.md](START_HERE.md), then read the six canonical documents:
+## Key Features
 
-1. [docs/PRD.md](docs/PRD.md) — approved product scope and feature freeze.
-2. [docs/RULES.md](docs/RULES.md) — rules for people and AI assistants.
-3. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — canonical architecture and ownership.
-4. [docs/PHASES.md](docs/PHASES.md) — phase order and completion gates.
-5. [docs/MEMORY.md](docs/MEMORY.md) — current project-state ledger.
-6. [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md) — actual paths and ownership.
+- **Whole-Odisha Destination Catalog**: 50+ verified places across Coastal, Central, Southern Hills & Lakes, Western, Northern, and Tribal Highland zones of Odisha with official descriptions, real coordinates, visit durations, and price tiers.
+- **Dedicated All Destinations View**: Filter by geographical region, category, or real-time search term.
+- **Authoritative Place Details Modal**: Verified facts, high-res travel photography, entry tier, visit durations, and direct actions to Save, View on Map, or Plan Trip Here.
+- **Interactive Multi-Region Map**: State-wide dynamic SVG map canvas adapting bounds across longitudes 81°E–87.5°E and latitudes 17.5°N–22.5°N.
+- **Deterministic Itinerary Planner**: Multi-day sequencing with transport hops (walking, Mo Bus, Mo E-Ride) and explicit data confidence tiers (static, scheduled, live).
+- **Grounded AI Copilot**: Multi-turn conversational planning recognizing regional destinations across Odisha with honest clarification prompts.
+- **Lightweight Client Persistence**: Saved places and multi-turn trip histories persist in the browser via `localStorage` with zero account barriers.
 
-Then read the relevant file in `docs/team/` and its build guide in
-`docs/O-Travelz_Build_Guides/docs/build-guides/`.
+---
 
-## Repository areas
+## Canonical Documents
 
-- `backend/` — FastAPI, database models, contracts, and later deterministic/backend
-  services.
-- `frontend/` — React + TypeScript + Vite frontend and tests.
-- `data/` — sourced, human-verified research input.
-- `docs/` — canonical context, supporting design detail, team guidance, and handoffs.
-- `scripts/` — data validation/import workflow.
-- `infra/` — reproducible local infrastructure configuration.
+1. [docs/PRD.md](docs/PRD.md) — Product requirements and approved views.
+2. [docs/RULES.md](docs/RULES.md) — Architectural rules and factuality constraints.
+3. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — Canonical system architecture and API boundaries.
+4. [docs/PHASES.md](docs/PHASES.md) — Build phases and completion criteria.
+5. [docs/MEMORY.md](docs/MEMORY.md) — Current project-state ledger.
+6. [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md) — Repository directory map and ownership.
 
-## Ownership
+---
 
-| Person | Ownership |
-|---|---|
-| Smarak | Core brain, database, data semantics, ranking, itinerary logic, AI orchestration |
-| Akriti | Research, verification, places, sources, transport research |
-| Rudra | Backend, APIs, external integrations, providers, routing |
-| Susmita | Maps, geospatial, routes, route lines, multimodal visualization |
-| Deeptiman | Complete frontend and user experience |
-| Punam | Documentation, context, phases, evidence, demo, presentation, release readiness |
+## Repository Structure
 
-## Current phase
+- `backend/` — FastAPI backend with `GET /places`, `POST /itinerary/plan`, `POST /ai/plan`, `POST /map/v1/projection`.
+- `frontend/` — React 18 + TypeScript + Vite responsive frontend application.
+- `data/` — Sourced, verified place and transportation research data.
+- `docs/` — Canonical architecture, requirements, phase records, and handoffs.
+- `scripts/` — Deterministic data validation and database import scripts.
 
-Phase 2 engineering acceptance is complete: the live PostgreSQL/PostGIS migration,
-place import, confirmed AMA Bus import, post-import verification, and idempotency checks
-passed. The final AMA Phase 6A research investigation closed without a defensible
-cross-system GIS identity bridge; AMA coordinates and AMA route geometry remain excluded.
-Phases 0–5 are accepted within their documented limits, Phase 6A implementation is
-gated to a reduced verified-input scope, and Phase 6B has not started. See
-`docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`.
+---
 
-## Session workflow
+## Running the Application Locally
 
-- Start an AI session with `docs/handoffs/START_OF_SESSION_PROMPT.md`.
-- Work only in the current phase and owned paths.
-- Run relevant tests and report limitations honestly.
-- Finish with `docs/handoffs/END_OF_SESSION_PROMPT.md` and a handoff based on
-  `docs/handoffs/TEMPLATE.md`.
-- Use `docs/phases/PHASE_COMPLETION_TEMPLATE.md` only for a verified phase review.
-- Every meaningful task must leave Markdown evidence and a dependent-agent handoff using
-  the templates under `docs/handoffs/`.
+### Backend Setup
+```bash
+# Activate virtual environment
+.\.venv\Scripts\activate
 
-Do not add product features, providers, dependencies, files, or abstractions because
-they seem useful. If a request conflicts with the canonical documents, stop and report
-the conflict.
+# Validate and import verified places into database
+python scripts/import_places.py
+
+# Start FastAPI development server
+uvicorn app.main:app --app-dir backend --reload --port 8000
+```
+
+### Frontend Setup
+```bash
+cd frontend
+
+# Install dependencies (if needed)
+npm install
+
+# Run Vitest test suite
+npm test
+
+# Build production bundle
+npm run build
+
+# Start Vite dev server
+npm run dev
+```

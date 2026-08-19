@@ -1,1 +1,1 @@
-export { default } from "./pages/DemoHome";
+export { default } from "./pages/ItineraryPlannerPage";

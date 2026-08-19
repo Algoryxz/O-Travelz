@@ -41,18 +41,53 @@ def _origin_matches(records: Sequence[VerifiedPlace], value: str) -> VerifiedPla
     if not normalized:
         return None
 
+    # 1. Exact ID match
     for record in records:
         if record.database_id == normalized or record.research_id == normalized:
             return record
 
-    name_matches = [
+    # 2. Exact casefold match
+    for record in records:
+        if record.name.casefold() == normalized.casefold():
+            return record
+
+    # 3. Normalized alias matching
+    alias_map = {
+        "bhubaneswar": "Lingaraj Temple",
+        "puri": "Puri Golden Beach",
+        "konark": "Konark Sun Temple",
+        "cuttack": "Barabati Fort",
+        "chilika": "Chilika Lake - Satapada",
+        "daringbadi": "Daringbadi Hill Station",
+        "sambalpur": "Samaleswari Temple, Sambalpur",
+        "rourkela": "Hanuman Vatika, Rourkela",
+        "similipal": "Similipal National Park",
+        "koraput": "Gupteswar Cave Temple, Koraput",
+        "balasore": "Chandipur Beach",
+        "gopalpur": "Gopalpur-on-Sea Beach",
+        "kendrapara": "Bhitarkanika National Park",
+        "mayurbhanj": "Similipal National Park",
+        "rayagada": "Maa Majhigouri Temple, Rayagada",
+        "jeypore": "Kolab Reservoir & Botanical Garden",
+    }
+    alias_target = alias_map.get(normalized.casefold())
+    if alias_target:
+        for record in records:
+            if record.name.casefold() == alias_target.casefold():
+                return record
+
+    # 4. Case-insensitive substring match (preferring records with coordinates)
+    norm_lower = normalized.casefold()
+    substring_matches = [
         record
         for record in records
-        if record.name.casefold() == normalized.casefold()
+        if norm_lower in record.name.casefold() or record.name.casefold() in norm_lower
     ]
-    if len(name_matches) != 1:
-        return None
-    return name_matches[0]
+    if substring_matches:
+        with_coords = [r for r in substring_matches if r.coordinate is not None]
+        return with_coords[0] if with_coords else substring_matches[0]
+
+    return None
 
 
 class InMemoryPlaceRepository:
