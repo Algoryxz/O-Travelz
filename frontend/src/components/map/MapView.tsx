@@ -14,6 +14,8 @@ interface MapViewProps {
   error: unknown | null;
   allPlaces?: Array<{ id: string; name: string; category: string; location?: string; lat?: number | null; lon?: number | null; description?: string | null }>;
   selectedPlace?: SelectedPlaceInfo | null;
+  userLocation?: { lat: number; lon: number } | null;
+  userLocationName?: string;
   onClearSelectedPlace?: () => void;
   onPlanTripWithPlace?: (place: SelectedPlaceInfo) => void;
   onViewDetails?: (place: SelectedPlaceInfo) => void;
@@ -26,6 +28,8 @@ export const MapView: React.FC<MapViewProps> = ({
   error,
   allPlaces = [],
   selectedPlace,
+  userLocation,
+  userLocationName,
   onClearSelectedPlace,
   onPlanTripWithPlace,
   onViewDetails,
@@ -203,6 +207,8 @@ export const MapView: React.FC<MapViewProps> = ({
             features={featuresToRender}
             relationships={projection?.relationships ?? []}
             selectedFeatureId={selectedPlace?.id || selectedPlace?.name || null}
+            userLocation={userLocation}
+            userLocationName={userLocationName}
             onPlanTripWithPlace={onPlanTripWithPlace}
             onViewDetails={onViewDetails}
           />

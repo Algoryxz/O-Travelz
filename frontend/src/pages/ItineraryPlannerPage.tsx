@@ -4,7 +4,9 @@ import { useAIConversation } from "../store/useAIConversation";
 import { useMapProjection } from "../store/useMapProjection";
 import { useConversationHistory } from "../store/useConversationHistory";
 import { useSavedPlaces } from "../store/useSavedPlaces";
+import { useRecentPlaces } from "../store/useRecentPlaces";
 import { usePlaces } from "../store/usePlaces";
+import { getPlaceImageUrl, getPlaceRegion } from "../utils/imageService";
 import { ConstraintForm } from "../components/itinerary/ConstraintForm";
 import { ErrorAlert } from "../components/itinerary/ErrorAlert";
 import { InitialState } from "../components/itinerary/InitialState";
@@ -71,6 +73,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   const plannerSectionRef = useRef<HTMLDivElement>(null);
 
   const { savedPlaces, savedCount } = useSavedPlaces();
+  const { recentPlaces, addRecentPlace, count: revisitCount } = useRecentPlaces();
   const { places: allVerifiedPlaces, getPlaceByName } = usePlaces();
   const [newTripFeedback, setNewTripFeedback] = useState<string | null>(null);
   const [isLiveLocation, setIsLiveLocation] = useState<boolean>(true);
@@ -188,6 +191,35 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         constraints: newConstraints,
         itinerary: plan,
       });
+
+      // Record all planned stops into User Memory & Revisit Places system
+      if (plan.days && plan.days.length > 0) {
+        const tripTitle = `${plan.days.length}-Day Odisha Itinerary (${newConstraints?.start || "Odisha"})`;
+        plan.days.forEach((day) => {
+          day.stops.forEach((stop) => {
+            const placeId = stop.place?.id || `stop-${day.day_number}-${stop.sequence}`;
+            const placeName = stop.place?.name || "Destination";
+            const category = stop.place?.category || "destination";
+            const timeDesc = stop.planned_arrival ? `${stop.planned_arrival} - ${stop.planned_departure || "depart"}` : `Stop ${stop.sequence}`;
+            addRecentPlace({
+              id: placeId,
+              name: placeName,
+              category,
+              location: getPlaceRegion(placeName),
+              description: `Day ${day.day_number} (${timeDesc})`,
+              imageUrl: getPlaceImageUrl(placeName, category),
+              rating: 4.8,
+              status: "planned",
+              tripAssociation: {
+                tripId: `trip-${Date.now()}`,
+                title: tripTitle,
+                date: new Date().toISOString().split("T")[0],
+                daysCount: plan.days.length,
+              },
+            });
+          });
+        });
+      }
     }
   };
 
@@ -201,6 +233,35 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
       if (updatedPlan) {
         setItinerary(updatedPlan);
         setActiveResultTab("itinerary");
+
+        // Record AI planned stops into User Memory & Revisit Places system
+        if (updatedPlan.days && updatedPlan.days.length > 0) {
+          const tripTitle = `${updatedPlan.days.length}-Day AI Custom Trip (${updatedConstraints?.start || "Odisha"})`;
+          updatedPlan.days.forEach((day) => {
+            day.stops.forEach((stop) => {
+              const placeId = stop.place?.id || `ai-stop-${day.day_number}-${stop.sequence}`;
+              const placeName = stop.place?.name || "Destination";
+              const category = stop.place?.category || "destination";
+              const timeDesc = stop.planned_arrival ? `${stop.planned_arrival} - ${stop.planned_departure || "depart"}` : `AI Stop ${stop.sequence}`;
+              addRecentPlace({
+                id: placeId,
+                name: placeName,
+                category,
+                location: getPlaceRegion(placeName),
+                description: `Day ${day.day_number} (${timeDesc})`,
+                imageUrl: getPlaceImageUrl(placeName, category),
+                rating: 4.9,
+                status: "planned",
+                tripAssociation: {
+                  tripId: `ai-trip-${Date.now()}`,
+                  title: tripTitle,
+                  date: new Date().toISOString().split("T")[0],
+                  daysCount: updatedPlan.days.length,
+                },
+              });
+            });
+          });
+        }
       }
 
       // Save conversation turn to history
@@ -237,176 +298,91 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
     const target = conversations.find((c) => c.id === id);
     if (!target) return;
 
-    setActiveConversationId(id);
-    if (target.constraints) {
-      setConstraints(target.constraints);
-    }
-    setItinerary(target.itinerary);
+    setActiveConversationId(target.id);
     setAiHistory(target.history);
-    if (target.history.length > 0) {
-      const lastAssistantTurn = [...target.history]
-        .reverse()
-        .find((t) => t.role === "assistant");
-      if (lastAssistantTurn) {
-        setAiResponse({
-          message: lastAssistantTurn.message,
-          status: "success",
-          itinerary: target.itinerary,
-          clarification: null,
-          changed_constraints: target.constraints,
-        });
-      }
-    }
-    setActiveTab("plan");
-    setActiveResultTab("itinerary");
-  };
-
-  const handleSearchHero = (term: string) => {
-    setDestinationSearch(term);
-    setActiveTab("destinations");
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    setConstraints(target.constraints);
+    setItinerary(target.itinerary);
+    if (target.itinerary) {
+      setActiveResultTab("itinerary");
+      setActiveTab("plan");
     }
   };
 
-  const handleSurpriseMe = () => {
-    if (allVerifiedPlaces.length === 0) return;
-
-    let candidates = allVerifiedPlaces;
-    
-    // Prioritize geographically relevant places based on selectedLocation
-    if (selectedLocation) {
-      const locCandidates = candidates.filter((p) => 
-        p.name.toLowerCase().includes(selectedLocation.toLowerCase()) ||
-        (p.description || "").toLowerCase().includes(selectedLocation.toLowerCase())
-      );
-      if (locCandidates.length > 0) {
-        candidates = locCandidates;
-      }
-    }
-
-    // Apply category preferences if available (using selectedCategory)
-    if (selectedCategory && selectedCategory !== "All") {
-      const catCandidates = candidates.filter((p) => 
-        p.category.toLowerCase().includes(selectedCategory.toLowerCase())
-      );
-      if (catCandidates.length > 0) {
-        candidates = catCandidates;
-      }
-    }
-
-    // Randomize among valid candidates
-    const randomPlace = candidates[Math.floor(Math.random() * candidates.length)];
-
-    setSelectedPlaceForModal({
-      name: randomPlace.name,
-      category: randomPlace.category,
-      description: randomPlace.description ?? undefined,
-      interests: randomPlace.interests,
-    });
+  const handleDeleteSavedConversation = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    deleteConversation(id);
   };
 
-  const handleSelectHeroDestination = (dest: SelectedPlaceInfo) => {
-    setSelectedPlaceForModal(dest);
+  const handleSelectPlaceFromCategory = (place: SelectedPlaceInfo) => {
+    setSelectedPlaceForModal(place);
   };
 
-  const handleSelectCategory = (category: string) => {
-    setSelectedCategory(category);
-    setActiveTab("category");
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  const handlePlanWithCategory = (category: string) => {
-    const catLower = category.toLowerCase().trim();
-    // Only pass interest if it exactly matches a canonical interest ID.
-    // Physical categories (e.g. temple, market, museum, sports_venue) are NEVER converted to interests.
-    const isCanonicalInterest = [
-      "heritage",
-      "spirituality",
-      "architecture",
-      "food",
-      "culture",
-      "nature",
-      "beach",
-      "wildlife",
-      "waterfall",
-      "relaxation",
-      "adventure",
-      "shopping",
-    ].includes(catLower);
-
-    setConstraints({
-      ...constraints,
-      interests: isCanonicalInterest ? [catLower] : [],
-    });
+  const handlePlanTripWithSinglePlace = (place: SelectedPlaceInfo) => {
+    setSelectedPlaceForModal(null);
     setActiveTab("plan");
     setActiveMode("structured");
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+
+    // Initialize constraints with the place's location or interests
+    setConstraints({
+      days: 2,
+      interests: place.interests || [place.category.toLowerCase()],
+      start: place.location || selectedLocation,
+    });
+
+    // Auto-scroll to planner form
+    setTimeout(() => {
+      plannerSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
+  const handlePlanWithSavedPlaces = (places: Array<{ name: string; category: string }>) => {
+    setActiveTab("plan");
+    setActiveMode("structured");
+
+    const interests = Array.from(
+      new Set(places.map((p) => p.category.toLowerCase()))
+    );
+
+    setConstraints({
+      days: Math.min(Math.max(places.length, 1), 7),
+      interests: interests.length > 0 ? interests : ["heritage"],
+      start: selectedLocation,
+    });
+
+    setTimeout(() => {
+      plannerSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   };
 
   const handleViewPlaceOnMap = (place: SelectedPlaceInfo) => {
-    setSelectedMapPlace(place);
     setSelectedPlaceForModal(null);
+    setSelectedMapPlace(place);
     setActiveTab("map");
     setActiveResultTab("map");
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
   };
 
-  const handlePlanTripWithPlace = (place: SelectedPlaceInfo) => {
-    // Semantic precedence: Explicit traveler-selected interests > genuine place.interests > empty interests
-    const explicitInterests = constraints.interests || [];
-    const lookup = getPlaceByName(place.name);
-    const genuinePlaceInterests =
-      place.interests && place.interests.length > 0
-        ? place.interests
-        : lookup?.interests && lookup.interests.length > 0
-        ? lookup.interests
-        : [];
-
-    const effectiveInterests =
-      explicitInterests.length > 0
-        ? explicitInterests
-        : genuinePlaceInterests.length > 0
-        ? genuinePlaceInterests
-        : [];
-
-    setConstraints({
-      ...constraints,
-      start: place.name,
-      interests: effectiveInterests,
-    });
-    setSelectedPlaceForModal(null);
-    setActiveTab("plan");
-    setActiveMode("structured");
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+  const handleClearSelectedMapPlace = () => {
+    setSelectedMapPlace(null);
   };
 
-  const handlePreferencesChange = (newPrefs: UserTravelPreferences) => {
-    if (newPrefs.interests && newPrefs.interests.length > 0) {
-      setConstraints({
-        ...constraints,
-        interests: newPrefs.interests,
-      });
-    }
+  const handleApplyUserPreferences = (prefs: UserTravelPreferences) => {
+    setConstraints((prev) => ({
+      ...prev,
+      pace: prefs.pacePreference,
+      budget_transport_per_day:
+        prefs.budgetTier === "budget"
+          ? 1000
+          : prefs.budgetTier === "moderate"
+          ? 3000
+          : 6000,
+    }));
   };
-
-
-  const availableMapPointsCount =
-    projection?.features.filter((f) => f.geometry_status === "available").length ?? 0;
 
   return (
-    <div className="min-h-screen bg-[#f8faf8] dark:bg-[#08120f] font-body text-gray-900 dark:text-gray-100 flex flex-col selection:bg-emerald-600 selection:text-white transition-colors duration-200">
-      {/* Top Navigation Bar */}
+    <div className="min-h-screen bg-[#08120F] text-[#FBF8F1] flex flex-col font-sans antialiased selection:bg-emerald-500 selection:text-white transition-colors duration-200">
+      {/* 1. Header Navigation */}
       <TopNav
-        activeTab={activeTab === "category" ? "discover" : (activeTab as NavTab)}
+        activeTab={activeTab === "category" ? "destinations" : (activeTab as NavTab)}
         onTabChange={handleTabChange}
         selectedLocation={selectedLocation}
         onLocationChange={setSelectedLocation}
@@ -414,501 +390,411 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         onOpenAI={() => setIsAISidebarOpen(true)}
         onOpenSettings={() => setIsSettingsModalOpen(true)}
         savedCount={savedCount}
+        revisitCount={revisitCount}
         isLiveLocation={isLiveLocation}
         onToggleLiveLocation={handleToggleLiveLocation}
         onRefreshLocation={fetchLiveLocation}
       />
 
-      {/* Mobile Navigation Drawer */}
+      {/* 2. Mobile Drawer */}
       <MobileDrawer
         isOpen={isMobileDrawerOpen}
         onClose={() => setIsMobileDrawerOpen(false)}
-        activeTab={activeTab === "category" ? "discover" : (activeTab as NavTab)}
+        activeTab={activeTab === "category" ? "destinations" : (activeTab as NavTab)}
         onSelectTab={handleTabChange}
         onOpenAI={() => setIsAISidebarOpen(true)}
         onOpenSettings={() => setIsSettingsModalOpen(true)}
         savedCount={savedCount}
       />
 
-      {/* Persistent AI Sidebar */}
-      <AISidebar
-        isOpen={isAISidebarOpen}
-        onClose={() => setIsAISidebarOpen(false)}
-        isLoading={isLoading}
-        error={aiError}
-        history={aiHistory}
-        aiResponse={aiResponse}
-        onSend={handleAiPlan}
-        onClearError={clearAiError}
-        hasItinerary={!!itinerary}
-        activeItinerary={itinerary}
-        conversations={conversations}
-        activeConversationId={activeConversationId}
-        onSelectConversation={handleSelectSavedConversation}
-        onNewTrip={handleStartNewTrip}
-        onDeleteConversation={deleteConversation}
-        onViewItineraryTab={() => {
-          setActiveTab("plan");
-          setActiveResultTab("itinerary");
-        }}
-      />
+      {/* 3. Main Views Switching */}
+      <main className="flex-1">
+        {/* VIEW 1: HOME / DISCOVER */}
+        {activeTab === "discover" && (
+          <div className="space-y-12 pb-16 animate-in fade-in duration-300">
+            <OdishaHero
+              selectedLocation={selectedLocation}
+              destinationSearch={destinationSearch}
+              onSearchChange={setDestinationSearch}
+              onNavigateToPlan={() => handleTabChange("plan")}
+              onNavigateToMap={() => handleTabChange("map")}
+              onNavigateToCopilot={() => setIsAISidebarOpen(true)}
+              onSelectCategory={(cat) => {
+                setSelectedCategory(cat);
+                setActiveTab("category");
+              }}
+              onSelectPlace={(place) => setSelectedPlaceForModal(place)}
+            />
 
-      {/* Settings Modal */}
-      <SettingsModal
-        isOpen={isSettingsModalOpen}
-        onClose={() => setIsSettingsModalOpen(false)}
-        onPreferencesChange={handlePreferencesChange}
-      />
+            <HomeSections
+              selectedLocation={selectedLocation}
+              userCoords={userCoords}
+              onNavigateToPlan={() => handleTabChange("plan")}
+              onNavigateToMap={(place) => {
+                if (place) {
+                  setSelectedMapPlace(place);
+                }
+                handleTabChange("map");
+              }}
+              onNavigateToCopilot={() => setIsAISidebarOpen(true)}
+              onSelectCategory={(cat) => {
+                setSelectedCategory(cat);
+                setActiveTab("category");
+              }}
+              onSelectPlace={(place) => setSelectedPlaceForModal(place)}
+            />
+          </div>
+        )}
 
-      {/* Place Details Modal */}
+        {/* VIEW 2: ALL DESTINATIONS DIRECTORY */}
+        {activeTab === "destinations" && (
+          <div className="animate-in fade-in duration-300">
+            <DestinationsPage
+              selectedLocation={selectedLocation}
+              onSelectPlace={(place) => setSelectedPlaceForModal(place)}
+              onPlanTrip={(place) => handlePlanTripWithSinglePlace(place)}
+              onViewOnMap={(place) => handleViewPlaceOnMap(place)}
+            />
+          </div>
+        )}
+
+        {/* VIEW 3: CATEGORY EXPLORE PAGE */}
+        {activeTab === "category" && (
+          <div className="animate-in fade-in duration-300">
+            <CategoryExplorePage
+              categoryName={selectedCategory}
+              onBack={() => setActiveTab("discover")}
+              onSelectPlace={handleSelectPlaceFromCategory}
+              onPlanWithSinglePlace={handlePlanTripWithSinglePlace}
+              onOpenMap={handleViewPlaceOnMap}
+            />
+          </div>
+        )}
+
+        {/* VIEW 4: SAVED PLACES / WISHLIST / REVISIT */}
+        {(activeTab === "saved" || activeTab === "revisit") && (
+          <div className="animate-in fade-in duration-300">
+            <SavedPlacesPage
+              initialViewMode={activeTab === "revisit" ? "revisit" : "saved"}
+              onBackToDiscover={() => setActiveTab("discover")}
+              onPlanWithSaved={handlePlanWithSavedPlaces}
+              onPlanWithSinglePlace={handlePlanTripWithSinglePlace}
+              onOpenMap={(place) => {
+                if (place) {
+                  setSelectedMapPlace(place);
+                }
+                setActiveTab("map");
+              }}
+              onSelectPlace={(place) => setSelectedPlaceForModal(place)}
+            />
+          </div>
+        )}
+
+        {/* VIEW 5: STANDALONE MAP TAB */}
+        {activeTab === "map" && !itinerary && (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 animate-in fade-in duration-300">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-gray-200 dark:border-slate-800">
+              <div>
+                <span className="text-xs font-bold font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                  Verified Geographical Explorer
+                </span>
+                <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 dark:text-white tracking-tight">
+                  Odisha Interactive Map
+                </h1>
+              </div>
+              <button
+                type="button"
+                onClick={() => handleTabChange("plan")}
+                className="px-4 py-2 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer self-start sm:self-auto"
+              >
+                <Compass size={15} />
+                <span>Build an Itinerary Route</span>
+              </button>
+            </div>
+
+            <MapView
+              projection={projection}
+              isLoading={isMapLoading}
+              error={mapError}
+              allPlaces={allVerifiedPlaces}
+              selectedPlace={selectedMapPlace}
+              userLocation={userCoords}
+              userLocationName={selectedLocation}
+              onClearSelectedPlace={handleClearSelectedMapPlace}
+              onPlanTripWithPlace={handlePlanTripWithSinglePlace}
+              onViewDetails={(p) => setSelectedPlaceForModal(p)}
+              onClearError={clearMapError}
+            />
+          </div>
+        )}
+
+        {/* VIEW 6: ITINERARY PLANNER & RESULTS */}
+        {(activeTab === "plan" || (activeTab === "map" && itinerary)) && (
+          <div
+            ref={plannerSectionRef}
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-in fade-in duration-300"
+          >
+            {/* Header & Trip Management Strip */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-emerald-900/40">
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-mono font-bold">
+                  <span className="live-dot" />
+                  <span>ODISHA ROUTE &amp; TRANSIT PLANNER</span>
+                </div>
+                <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-white tracking-tight">
+                  Plan Your Odisha Journey
+                </h1>
+                <p className="text-xs sm:text-sm text-gray-300">
+                  Combine deterministic scheduling with AI Copilot recommendations.
+                </p>
+              </div>
+
+              {/* Trip Controls & History Pills */}
+              <div className="flex flex-wrap items-center gap-2.5">
+                {itinerary && (
+                  <button
+                    type="button"
+                    data-testid="start-new-trip-button"
+                    onClick={handleStartNewTrip}
+                    className="px-3.5 py-2 rounded-2xl bg-[#09221b] border border-emerald-800/40 hover:bg-emerald-900/60 text-emerald-300 text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+                  >
+                    <Plus size={14} />
+                    <span>Start New Trip</span>
+                  </button>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => setIsAISidebarOpen(true)}
+                  className="px-3.5 py-2 rounded-2xl bg-emerald-950/80 border border-emerald-700/60 text-emerald-200 text-xs font-bold transition-all hover:bg-emerald-900 flex items-center gap-1.5 cursor-pointer shadow-xs"
+                >
+                  <Bot size={14} className="text-emerald-400" />
+                  <span>AI Copilot Panel</span>
+                </button>
+              </div>
+            </div>
+
+            {/* User feedback alert when new trip is started */}
+            {newTripFeedback && (
+              <div className="p-3.5 rounded-2xl bg-emerald-950 text-emerald-200 border border-emerald-700 text-xs flex items-center gap-2 animate-in fade-in duration-200">
+                <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
+                <span>{newTripFeedback}</span>
+              </div>
+            )}
+
+            {/* Saved Trips Carousel / Strip if history exists */}
+            {conversations.length > 0 && (
+              <div className="p-4 rounded-3xl bg-[#061e17] border border-emerald-800/40 space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider font-mono flex items-center gap-1.5">
+                    <History size={13} />
+                    <span>Your Trips ({conversations.length})</span>
+                  </div>
+                  <span className="text-[11px] text-gray-400">
+                    Switch between active and past planned itineraries
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2 overflow-x-auto pb-1">
+                  {conversations.map((conv) => {
+                    const isActive = conv.id === activeConversationId;
+                    return (
+                      <div
+                        key={conv.id}
+                        onClick={() => handleSelectSavedConversation(conv.id)}
+                        className={`group flex items-center gap-2 px-3.5 py-2 rounded-2xl text-xs font-medium border transition-all shrink-0 cursor-pointer ${
+                          isActive
+                            ? "bg-emerald-600 text-white border-emerald-500 shadow-md font-bold"
+                            : "bg-[#09221b] text-gray-300 border-emerald-800/50 hover:border-emerald-500/50 hover:bg-emerald-900/40"
+                        }`}
+                      >
+                        <CalendarDays size={13} className={isActive ? "text-white" : "text-emerald-400"} />
+                        <span className="truncate max-w-[160px]">{conv.title}</span>
+                        <button
+                          type="button"
+                          onClick={(e) => handleDeleteSavedConversation(conv.id, e)}
+                          className="opacity-0 group-hover:opacity-100 hover:text-rose-400 text-gray-400 transition-opacity p-0.5 ml-1"
+                          aria-label="Delete trip"
+                        >
+                          <Trash2 size={12} />
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Mode Switcher: Structured Planner vs AI Copilot Full Panel */}
+            <div className="flex items-center p-1 rounded-2xl bg-[#081d17] border border-emerald-800/50 w-fit shadow-inner">
+              <button
+                type="button"
+                data-testid="mode-tab-structured"
+                onClick={() => setActiveMode("structured")}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                  activeMode === "structured"
+                    ? "bg-emerald-600 text-white shadow-md"
+                    : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
+                }`}
+              >
+                <Compass size={14} />
+                <span>Form Planner</span>
+              </button>
+
+              <button
+                type="button"
+                data-testid="mode-tab-ai"
+                onClick={() => setActiveMode("ai")}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                  activeMode === "ai"
+                    ? "bg-emerald-600 text-white shadow-md"
+                    : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
+                }`}
+              >
+                <Bot size={14} />
+                <span>AI Travel Assistant</span>
+              </button>
+            </div>
+
+            {/* Planner Form / AI Input Panel */}
+            <div className="grid grid-cols-1 gap-6">
+              {activeMode === "structured" ? (
+                <ConstraintForm
+                  initialConstraints={constraints}
+                  isLoading={isLoading}
+                  isReplanning={Boolean(itinerary)}
+                  onSubmit={handleStructuredPlan}
+                  onReset={resetPlanner}
+                />
+              ) : (
+                <AIConversationPanel
+                  history={aiHistory}
+                  isLoading={isAiLoading}
+                  aiResponse={aiResponse}
+                  onSendMessage={handleAiPlan}
+                />
+              )}
+            </div>
+
+            {/* Errors */}
+            {plannerError && (
+              <ErrorAlert error={plannerError} onDismiss={clearPlannerError} />
+            )}
+            {aiError && <ErrorAlert error={aiError} onDismiss={clearAiError} />}
+
+            {/* Results Area */}
+            {isLoading && <LoadingState />}
+
+            {!isLoading && !itinerary && <InitialState />}
+
+            {!isLoading && itinerary && (
+              <div className="space-y-6 pt-4 border-t border-emerald-900/40">
+                {/* Result Tab Selector: Itinerary Timeline vs Map Route */}
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center p-1 rounded-2xl bg-[#081d17] border border-emerald-800/50 shadow-inner">
+                    <button
+                      type="button"
+                      data-testid="result-tab-itinerary"
+                      onClick={() => setActiveResultTab("itinerary")}
+                      className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                        activeResultTab === "itinerary"
+                          ? "bg-emerald-600 text-white shadow-md"
+                          : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
+                      }`}
+                    >
+                      <CalendarDays size={14} />
+                      <span>Timeline Schedule</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      data-testid="result-tab-map"
+                      onClick={() => setActiveResultTab("map")}
+                      className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                        activeResultTab === "map"
+                          ? "bg-emerald-600 text-white shadow-md"
+                          : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
+                      }`}
+                    >
+                      <MapPin size={14} />
+                      <span>Route &amp; Hop Map</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Tab 1: Itinerary Timeline View */}
+                {activeResultTab === "itinerary" && (
+                  <ItineraryView
+                    itinerary={itinerary}
+                    onOpenMap={() => setActiveResultTab("map")}
+                    onViewPlaceDetails={(place) =>
+                      setSelectedPlaceForModal({
+                        id: place.id,
+                        name: place.name,
+                        category: place.category,
+                        location: getPlaceRegion(place.name),
+                        imageUrl: getPlaceImageUrl(place.name, place.category),
+                      })
+                    }
+                  />
+                )}
+
+                {/* Tab 2: Map Projection View */}
+                {activeResultTab === "map" && (
+                  <MapView
+                    projection={projection}
+                    isLoading={isMapLoading}
+                    error={mapError}
+                    allPlaces={allVerifiedPlaces}
+                    userLocation={userCoords}
+                    userLocationName={selectedLocation}
+                    onPlanTripWithPlace={handlePlanTripWithSinglePlace}
+                    onViewDetails={(p) => setSelectedPlaceForModal(p)}
+                    onClearError={clearMapError}
+                  />
+                )}
+              </div>
+            )}
+          </div>
+        )}
+      </main>
+
+      {/* 4. Place Details Interactive Modal */}
       {selectedPlaceForModal && (
         <PlaceDetailsModal
           place={selectedPlaceForModal}
           onClose={() => setSelectedPlaceForModal(null)}
-          onViewOnMap={handleViewPlaceOnMap}
-          onPlanTrip={handlePlanTripWithPlace}
+          onPlanTrip={(p) => handlePlanTripWithSinglePlace(p)}
+          onViewOnMap={(p) => handleViewPlaceOnMap(p)}
         />
       )}
 
-      {/* 1. DISCOVER VIEW */}
-      {activeTab === "discover" && (
-        <div className="space-y-12">
-          {/* Hero Section */}
-          <OdishaHero
-            selectedLocation={selectedLocation}
-            onSearch={handleSearchHero}
-            onSurpriseMe={handleSurpriseMe}
-            onSelectDestination={(destName) =>
-              handleSelectHeroDestination({
-                name: destName,
-                category: "Destination",
-                description: `Explore the sights, culture, and beauty of ${destName}.`,
-              })
-            }
-            onViewAllDestinations={() => setActiveTab("destinations")}
-          />
+      {/* 5. AI Copilot Side Drawer */}
+      <AISidebar
+        isOpen={isAISidebarOpen}
+        onClose={() => setIsAISidebarOpen(false)}
+        history={aiHistory}
+        isLoading={isAiLoading}
+        aiResponse={aiResponse}
+        onSendMessage={handleAiPlan}
+      />
 
-          {/* Discovery & Contextual Home Sections with 2 Coverflow Carousels */}
-          <HomeSections
-            selectedLocation={selectedLocation}
-            userCoords={userCoords}
-            onNavigateToPlan={() => setActiveTab("plan")}
-            onNavigateToMap={(place) => {
-              if (place) {
-                handleViewPlaceOnMap(place);
-              } else {
-                setActiveTab("map");
-                setActiveResultTab("map");
-              }
-            }}
-            onSelectCategory={handleSelectCategory}
-            onSelectPlace={(place) => setSelectedPlaceForModal(place)}
-            onNavigateToCopilot={() => setIsAISidebarOpen(true)}
-          />
-        </div>
-      )}
+      {/* 6. Settings & Travel Preferences Modal */}
+      <SettingsModal
+        isOpen={isSettingsModalOpen}
+        onClose={() => setIsSettingsModalOpen(false)}
+        onApplyPreferences={handleApplyUserPreferences}
+      />
 
-      {/* 2. ALL DESTINATIONS DISCOVERY VIEW */}
-      {activeTab === "destinations" && (
-        <DestinationsPage
-          initialSearch={destinationSearch}
-          onSelectPlace={(place) => setSelectedPlaceForModal(place)}
-          onViewOnMap={handleViewPlaceOnMap}
-          onPlanTripWithPlace={handlePlanTripWithPlace}
-        />
-      )}
-
-      {/* 3. CATEGORY EXPLORATION VIEW */}
-      {activeTab === "category" && (
-        <CategoryExplorePage
-          category={selectedCategory}
-          selectedLocation={selectedLocation}
-          onBack={() => setActiveTab("discover")}
-          onPlanTripWithCategory={handlePlanWithCategory}
-          onOpenMap={(place) => {
-            if (place) {
-              handleViewPlaceOnMap(place);
-            } else {
-              setActiveTab("map");
-              setActiveResultTab("map");
-            }
-          }}
-          onSelectPlace={(place) => setSelectedPlaceForModal(place)}
-        />
-      )}
-
-      {/* 4. SAVED PLACES VIEW */}
-      {activeTab === "saved" && (
-        <SavedPlacesPage
-          onBackToDiscover={() => setActiveTab("discover")}
-          onPlanWithSaved={(savedItems) => {
-            const explicitInterests = constraints.interests || [];
-            const genuineSavedInterests = Array.from(
-              new Set(
-                savedItems.flatMap((p) => {
-                  const lookup = getPlaceByName(p.name);
-                  return p.interests || lookup?.interests || [];
-                })
-              )
-            );
-            const effectiveInterests =
-              explicitInterests.length > 0
-                ? explicitInterests
-                : genuineSavedInterests.length > 0
-                ? genuineSavedInterests
-                : [];
-
-            setConstraints({
-              ...constraints,
-              interests: effectiveInterests,
-              start: constraints.start || savedItems[0]?.name || null,
-            });
-            setActiveTab("plan");
-            setActiveMode("structured");
-          }}
-          onOpenMap={(place) => {
-            if (place) {
-              handleViewPlaceOnMap(place);
-            } else {
-              setActiveTab("map");
-              setActiveResultTab("map");
-            }
-          }}
-          onSelectPlace={(place) => setSelectedPlaceForModal(place)}
-        />
-      )}
-
-      {/* 5. MAP FULL VIEW */}
-      {activeTab === "map" && (
-        <main className="max-w-7xl w-full mx-auto px-4 sm:px-6 py-8 space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-gray-200 dark:border-slate-800">
-            <div>
-              <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono flex items-center gap-1.5">
-                <span className="live-dot" /> ODISHA ROUTE &amp; TRANSIT MAP
-              </div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 dark:text-white tracking-tight">
-                Interactive Map
-              </h1>
-            </div>
-            <button
-              type="button"
-              onClick={() => setActiveTab("plan")}
-              className="px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold shadow-sm transition-colors cursor-pointer"
-            >
-              Open Trip Planner
-            </button>
-          </div>
-
-          <MapView
-            projection={projection}
-            isLoading={isMapLoading}
-            error={mapError}
-            selectedPlace={selectedMapPlace}
-            onClearSelectedPlace={() => setSelectedMapPlace(null)}
-            onPlanTripWithPlace={handlePlanTripWithPlace}
-            onViewDetails={(place) => setSelectedPlaceForModal(place)}
-            onClearError={clearMapError}
-          />
-        </main>
-      )}
-
-      {/* 6. PLAN TRIP WORKSPACE */}
-      {(activeTab === "plan" || activeTab === "discover") && (
-        <main
-          ref={plannerSectionRef}
-          id="planner-workspace"
-          className={`max-w-7xl w-full mx-auto px-4 sm:px-6 py-12 space-y-8 ${
-            activeTab === "discover" ? "pt-4 border-t border-gray-200/60 dark:border-slate-800" : ""
-          }`}
-        >
-          {/* Planner Workspace Header */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-[#0b241d] text-white border border-emerald-800/40 shadow-xl relative overflow-hidden">
-            <div className="absolute right-0 top-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="relative z-10 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="live-dot" />
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono">
-                  Odisha Travel Planner
-                </span>
-              </div>
-              <h1 className="text-2xl sm:text-4xl font-extrabold font-display tracking-tight text-white">
-                Transportation-Aware Itinerary Planner
-              </h1>
-              <p className="text-xs sm:text-sm text-emerald-200/80 max-w-2xl leading-relaxed">
-                Plan realistic itineraries across Odisha with local transport, interactive maps,
-                and smart AI recommendations.
-              </p>
-            </div>
-          </div>
-
-          {/* New Trip Feedback Notification */}
-          {newTripFeedback && (
-            <div
-              data-testid="new-trip-feedback-banner"
-              className="p-3.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 text-emerald-950 dark:text-emerald-200 text-xs font-semibold flex items-center justify-between gap-3 animate-in fade-in duration-200"
-            >
-              <div className="flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-emerald-700 dark:text-emerald-400 shrink-0" />
-                <span>{newTripFeedback}</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setNewTripFeedback(null)}
-                className="text-xs text-emerald-800 dark:text-emerald-300 hover:text-emerald-950 dark:hover:text-white cursor-pointer"
-              >
-                Dismiss
-              </button>
-            </div>
-          )}
-
-          {/* Main Grid with Trip History Sidebar & Planning Center */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Sidebar: Conversation / Trip History */}
-            <aside
-              data-testid="trip-history-sidebar"
-              className="lg:col-span-4 space-y-4"
-            >
-              {/* New Trip Button */}
-              <button
-                type="button"
-                data-testid="new-trip-button"
-                onClick={handleStartNewTrip}
-                className="w-full py-3 px-4 rounded-2xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
-              >
-                <Plus size={16} />
-                <span>New Trip</span>
-              </button>
-
-              {/* Saved Trips Box */}
-              <div className="p-4 rounded-3xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 shadow-xs space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-gray-100 dark:border-slate-800">
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 flex items-center gap-1.5 font-mono">
-                    <History size={13} className="text-emerald-600 dark:text-emerald-400" />
-                    <span>Your Trips</span>
-                  </div>
-                  {conversations.length > 0 && (
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">
-                      {conversations.length}
-                    </span>
-                  )}
-                </div>
-
-                {conversations.length === 0 ? (
-                  <div className="p-4 text-center text-xs text-gray-400 dark:text-gray-500 space-y-1">
-                    <p>No saved trips yet.</p>
-                    <p className="text-[11px] text-gray-400 dark:text-gray-500">
-                      Plan a trip with the form or AI copilot to store it here.
-                    </p>
-                  </div>
-                ) : (
-                  <div
-                    data-testid="saved-trips-list"
-                    className="space-y-1.5 max-h-80 overflow-y-auto pr-1"
-                  >
-                    {conversations.map((conv) => {
-                      const isActive = activeConversationId === conv.id;
-                      const dateStr = new Date(conv.timestamp).toLocaleDateString("en-IN", {
-                        month: "short",
-                        day: "numeric",
-                      });
-
-                      return (
-                        <div
-                          key={conv.id}
-                          data-testid={`trip-history-item-${conv.id}`}
-                          onClick={() => handleSelectSavedConversation(conv.id)}
-                          className={`p-3 rounded-2xl transition-all cursor-pointer flex items-start justify-between gap-2 border ${
-                            isActive
-                              ? "bg-emerald-50 dark:bg-emerald-950/70 border-emerald-300 dark:border-emerald-700 text-emerald-950 dark:text-emerald-200 font-semibold shadow-2xs"
-                              : "bg-gray-50/70 dark:bg-slate-800/70 border-transparent hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300"
-                          }`}
-                        >
-                          <div className="min-w-0 flex-1">
-                            <div className="text-xs truncate font-display font-bold text-gray-900 dark:text-white">
-                              {conv.title}
-                            </div>
-                            <div className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5 flex flex-wrap items-center gap-1.5">
-                              <span>{dateStr}</span>
-                              {conv.itinerary && (
-                                <span>· {conv.itinerary.days.length}d</span>
-                              )}
-                              {conv.constraints?.start && (
-                                <span className="text-emerald-700 dark:text-emerald-400 font-medium">
-                                  · from {conv.constraints.start}
-                                </span>
-                              )}
-                            </div>
-                            {conv.constraints?.interests && conv.constraints.interests.length > 0 && (
-                              <div className="flex flex-wrap items-center gap-1 mt-1.5">
-                                {conv.constraints.interests.slice(0, 3).map((intId) => (
-                                  <span
-                                    key={intId}
-                                    className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-emerald-100/70 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 capitalize"
-                                  >
-                                    {intId}
-                                  </span>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-
-                          <button
-                            type="button"
-                            data-testid={`delete-trip-${conv.id}`}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              deleteConversation(conv.id);
-                            }}
-                            className="p-1 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer shrink-0 mt-0.5"
-                            aria-label="Delete trip"
-                          >
-                            <Trash2 size={13} />
-                          </button>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            </aside>
-
-            {/* Right Center: Forms, AI Copilot & Results */}
-            <div className="lg:col-span-8 space-y-6">
-              {/* Mode Selector Tabs */}
-              <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 shadow-xs max-w-md">
-                <button
-                  type="button"
-                  data-testid="mode-tab-structured"
-                  onClick={() => setActiveMode("structured")}
-                  className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                    activeMode === "structured"
-                      ? "bg-[#059669] text-white shadow-sm"
-                      : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-slate-800"
-                  }`}
-                >
-                  <CalendarDays size={14} />
-                  <span>Structured Form</span>
-                </button>
-                <button
-                  type="button"
-                  data-testid="mode-tab-ai"
-                  onClick={() => setActiveMode("ai")}
-                  className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                    activeMode === "ai"
-                      ? "bg-[#059669] text-white shadow-sm"
-                      : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-slate-800"
-                  }`}
-                >
-                  <Bot size={14} />
-                  <span>{itinerary ? "AI Refinement" : "AI Trip Assistant"}</span>
-                </button>
-              </div>
-
-              {/* Mode Panel Rendering */}
-              <div className="transition-all duration-200">
-                {activeMode === "structured" ? (
-                  <ConstraintForm
-                    initialConstraints={constraints}
-                    isLoading={isLoading}
-                    isReplanning={!!itinerary}
-                    onSubmit={handleStructuredPlan}
-                    onReset={handleStartNewTrip}
-                  />
-                ) : (
-                  <AIConversationPanel
-                    currentConstraints={constraints}
-                    hasItinerary={!!itinerary}
-                    isLoading={isLoading}
-                    error={aiError}
-                    aiResponse={aiResponse}
-                    history={aiHistory}
-                    onSend={handleAiPlan}
-                    onClearError={clearAiError}
-                  />
-                )}
-              </div>
-
-              {/* Error Alert Display for Planner */}
-              {plannerError != null && (
-                <ErrorAlert error={plannerError} onDismiss={clearPlannerError} />
-              )}
-
-              {/* Dynamic State Rendering */}
-              {isLoading && <LoadingState />}
-
-              {!isLoading && !itinerary && !plannerError && !aiResponse && <InitialState />}
-
-              {/* Results Area with View Switcher (Itinerary Schedule vs Map) */}
-              {!isLoading && itinerary && (
-                <div className="space-y-6 pt-4">
-                  {/* View Switcher Tabs */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3 border-b border-gray-200 dark:border-slate-800">
-                    <div className="flex items-center gap-2">
-                      <button
-                        type="button"
-                        data-testid="result-tab-itinerary"
-                        onClick={() => setActiveResultTab("itinerary")}
-                        className={`px-5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
-                          activeResultTab === "itinerary"
-                            ? "bg-gray-900 text-white shadow-md"
-                            : "bg-white dark:bg-slate-850 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 border border-gray-200 dark:border-slate-700"
-                        }`}
-                      >
-                        <CalendarDays size={14} />
-                        <span>Itinerary Schedule</span>
-                      </button>
-                      <button
-                        type="button"
-                        data-testid="result-tab-map"
-                        onClick={() => setActiveResultTab("map")}
-                        className={`px-5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
-                          activeResultTab === "map"
-                            ? "bg-gray-900 text-white shadow-md"
-                            : "bg-white dark:bg-slate-850 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 border border-gray-200 dark:border-slate-700"
-                        }`}
-                      >
-                        <MapPin size={14} />
-                        <span>Interactive Map</span>
-                        {availableMapPointsCount > 0 && (
-                          <span className="px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[10px] font-mono">
-                            {availableMapPointsCount}
-                          </span>
-                        )}
-                      </button>
-                    </div>
-
-                    <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">
-                      <span className="font-bold text-gray-900 dark:text-white">{itinerary.days.length}</span>{" "}
-                      {itinerary.days.length === 1 ? "Day" : "Days"} ·{" "}
-                      <span className="font-bold text-gray-900 dark:text-white">{availableMapPointsCount}</span> Mapped Destinations
-                    </div>
-                  </div>
-
-                  {/* Active Result View Display */}
-                  {activeResultTab === "itinerary" ? (
-                    <ItineraryView itinerary={itinerary} />
-                  ) : (
-                    <MapView
-                      projection={projection}
-                      isLoading={isMapLoading}
-                      error={mapError}
-                      selectedPlace={selectedMapPlace}
-                      onClearSelectedPlace={() => setSelectedMapPlace(null)}
-                      onPlanTripWithPlace={handlePlanTripWithPlace}
-                      onClearError={clearMapError}
-                    />
-                  )}
-                </div>
-              )}
-            </div>
-          </div>
-        </main>
-      )}
-
-      {/* 7. Full Site Footer */}
-      <Footer onNavigateToTab={handleTabChange} />
+      {/* 7. Comprehensive Footer with Location-Aware Hub Intelligence */}
+      <Footer
+        selectedLocation={selectedLocation}
+        onNavigate={handleTabChange}
+        onSelectCategory={(cat) => {
+          setSelectedCategory(cat);
+          setActiveTab("category");
+        }}
+      />
     </div>
   );
 };
-
-export default ItineraryPlannerPage;

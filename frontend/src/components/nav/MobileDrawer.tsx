@@ -56,7 +56,10 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
                 O-Travelz
               </div>
               <div className="text-[10px] text-emerald-400 font-mono font-semibold">
-                by Algoryxz
+                safe • secure • smart
+              </div>
+              <div className="text-[9px] text-emerald-300/70 font-mono">
+                Odisha, in your rhythm. • by Algoryxz
               </div>
             </div>
           </div>
@@ -75,7 +78,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
         <div className="flex-1 overflow-y-auto py-6 space-y-6">
           <div>
             <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-400/70 px-3 mb-2 font-mono">
-              Explore Odisha
+              Navigate &amp; Explore
             </div>
             <nav className="space-y-1">
               <button
@@ -198,10 +201,10 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
             </nav>
           </div>
 
-          {/* Settings & Preferences */}
+          {/* Settings & Quick Tools */}
           <div>
             <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-400/70 px-3 mb-2 font-mono">
-              Preferences
+              Settings &amp; Tools
             </div>
             <button
               type="button"

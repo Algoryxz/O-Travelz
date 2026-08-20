@@ -39,6 +39,7 @@ export interface SelectedPlaceInfo {
   tags?: string[];
   imageUrl?: string;
   images?: PlaceImageContract[];
+  badge?: string | null;
   source?: string | null;
   verified_at?: string | null;
   distance?: string;
@@ -76,6 +77,13 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
         name: place.name,
         category: place.category,
         location: region,
+        lat: place.lat,
+        lon: place.lon,
+        description: place.description,
+        avg_visit_minutes: place.avg_visit_minutes ?? undefined,
+        status: "explored",
+        interests: place.interests,
+        tags: place.tags,
         imageUrl: place.imageUrl || resolvePlaceImageUrl({ name: place.name, category: place.category, images: place.images }, "card"),
       });
     }
@@ -142,7 +150,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
         </button>
 
         {/* Hero Photo / Gallery Carousel */}
-        <div className="relative h-64 sm:h-72 w-full bg-slate-900 shrink-0 overflow-hidden">
+        <div data-testid="destination-photo-gallery" className="relative h-64 sm:h-72 w-full bg-slate-900 shrink-0 overflow-hidden">
           <img
             src={activeImage.url}
             alt={activeImage.alt || place.name}
@@ -156,55 +164,60 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-          {/* Gallery Navigation Arrows if multiple photos */}
+          {/* Gallery Navigation Arrows & Counter if multiple photos */}
           {gallery.length > 1 && (
-            <div className="absolute inset-y-0 inset-x-3 flex items-center justify-between pointer-events-none">
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedImageIndex((prev) =>
-                    prev === 0 ? gallery.length - 1 : prev - 1
-                  );
-                }}
-                className="w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md transition-colors pointer-events-auto cursor-pointer"
-                aria-label="Previous photo"
-              >
-                <ChevronLeft size={16} />
-              </button>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedImageIndex((prev) =>
-                    prev === gallery.length - 1 ? 0 : prev + 1
-                  );
-                }}
-                className="w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md transition-colors pointer-events-auto cursor-pointer"
-                aria-label="Next photo"
-              >
-                <ChevronRight size={16} />
-              </button>
-            </div>
-          )}
-
-          {/* Gallery Indicator / Thumbnails */}
-          {gallery.length > 1 && (
-            <div className="absolute top-4 left-4 flex items-center gap-1.5 z-10">
-              {gallery.map((_, idx) => (
+            <>
+              <div className="absolute inset-y-0 inset-x-3 flex items-center justify-between pointer-events-none">
                 <button
-                  key={idx}
                   type="button"
-                  onClick={() => setSelectedImageIndex(idx)}
-                  className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                    idx === selectedImageIndex
-                      ? "w-6 bg-emerald-400"
-                      : "w-2 bg-white/60 hover:bg-white"
-                  }`}
-                  aria-label={`View photo ${idx + 1}`}
-                />
-              ))}
-            </div>
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedImageIndex((prev) =>
+                      prev === 0 ? gallery.length - 1 : prev - 1
+                    );
+                  }}
+                  className="w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md transition-colors pointer-events-auto cursor-pointer"
+                  aria-label="Previous photo"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedImageIndex((prev) =>
+                      prev === gallery.length - 1 ? 0 : prev + 1
+                    );
+                  }}
+                  className="w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md transition-colors pointer-events-auto cursor-pointer"
+                  aria-label="Next photo"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+
+              {/* Gallery Indicator / Thumbnails + Text Counter */}
+              <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
+                <span className="px-2.5 py-0.5 rounded-full bg-black/60 text-white text-[10px] font-mono font-bold backdrop-blur-md border border-white/20">
+                  {selectedImageIndex + 1} / {gallery.length}
+                </span>
+                <div className="flex items-center gap-1.5">
+                  {gallery.map((_, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setSelectedImageIndex(idx)}
+                      className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                        idx === selectedImageIndex
+                          ? "w-6 bg-emerald-400"
+                          : "w-2 bg-white/60 hover:bg-white"
+                      }`}
+                      aria-label={`View photo ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </>
           )}
 
           {/* Badges on Hero */}
@@ -214,6 +227,11 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
                 <span className="px-3 py-0.5 rounded-full bg-emerald-600/90 text-white text-[11px] font-bold uppercase tracking-wider backdrop-blur-md">
                   {place.category}
                 </span>
+                {place.badge && (
+                  <span className="px-3 py-0.5 rounded-full bg-amber-500/90 text-slate-950 text-[11px] font-bold uppercase tracking-wider backdrop-blur-md">
+                    {place.badge}
+                  </span>
+                )}
                 {region && (
                   <span className="px-3 py-0.5 rounded-full bg-black/50 text-white text-[11px] font-medium backdrop-blur-md flex items-center gap-1">
                     <MapPin size={11} className="text-emerald-400" />
@@ -229,7 +247,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
             {/* Save Button */}
             <button
               type="button"
-              data-testid={`modal-save-button-${place.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+              data-testid="modal-save-button"
               onClick={handleToggleSave}
               className={`p-3 rounded-2xl flex items-center gap-2 font-bold text-xs backdrop-blur-md transition-all cursor-pointer shadow-lg ${
                 saved
@@ -238,7 +256,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
               }`}
             >
               <Heart size={16} className={saved ? "fill-white" : ""} />
-              <span>{saved ? "Saved" : "Save"}</span>
+              <span>{saved ? "Save Place" : "Save Place"}</span>
             </button>
           </div>
         </div>
@@ -266,7 +284,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
                   <span>Duration</span>
                 </div>
                 <div className="text-sm font-bold font-display text-gray-900 dark:text-white">
-                  {place.avg_visit_minutes} mins
+                  ~{place.avg_visit_minutes} mins
                 </div>
               </div>
             )}
@@ -290,7 +308,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
                   <span>GPS Coordinates</span>
                 </div>
                 <div className="text-xs font-mono font-semibold text-gray-900 dark:text-white truncate">
-                  {place.lat.toFixed(3)}°N, {place.lon.toFixed(3)}°E
+                  {place.lat.toFixed(2)}°N, {place.lon.toFixed(2)}°E
                 </div>
               </div>
             )}
@@ -302,7 +320,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
             <div className="space-y-2.5">
               <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono flex items-center gap-1.5">
                 <Sparkles size={13} />
-                <span>Interests & Experiences</span>
+                <span>Themes: Interests &amp; Experiences</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {(place.interests || []).map((interest) => (
@@ -350,14 +368,14 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
             {onViewOnMap && (
               <button
                 type="button"
-                data-testid={`modal-view-map-${place.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+                data-testid="modal-view-on-map-button"
                 onClick={() => {
                   onViewOnMap(place);
                 }}
                 className="px-4 py-2.5 rounded-2xl bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-800 dark:text-gray-200 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"
               >
                 <Compass size={15} className="text-emerald-700 dark:text-emerald-400" />
-                <span>View on Map</span>
+                <span>Explore on Map</span>
               </button>
             )}
           </div>
@@ -374,7 +392,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
             {onPlanTrip && (
               <button
                 type="button"
-                data-testid={`modal-plan-trip-${place.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+                data-testid="modal-plan-trip-button"
                 onClick={() => {
                   onPlanTrip(place);
                 }}

@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import type { MapFeature, MapRelationship } from "../../api/contracts";
+import type { MapFeature, MapRelationship } from "../../types/api";
 import { getPlaceImageUrl, getPlaceRegion } from "../../utils/imageService";
 
 interface MapCanvasProps {
   features: MapFeature[];
   relationships?: MapRelationship[];
   selectedFeatureId?: string | null;
+  userLocation?: { lat: number; lon: number } | null;
+  userLocationName?: string;
   onSelectFeature?: (feature: MapFeature) => void;
   onPlanTripWithPlace?: (place: { id?: string; name: string; category: string; location?: string }) => void;
   onViewDetails?: (place: { id?: string; name: string; category: string; location?: string }) => void;
@@ -15,6 +17,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   features,
   relationships = [],
   selectedFeatureId,
+  userLocation,
+  userLocationName,
   onSelectFeature,
   onPlanTripWithPlace,
   onViewDetails,
@@ -277,16 +281,89 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         });
       });
 
+      // Render distinct User Location Beacon if available
+      if (userLocation && userLocation.lat != null && userLocation.lon != null) {
+        const userLatLng = L.latLng(userLocation.lat, userLocation.lon);
+        bounds.extend(userLatLng);
+
+        const userBeaconHtml = `
+          <div style="position: relative; display: flex; flex-direction: column; align-items: center; pointer-events: auto;">
+            <div style="
+              position: absolute;
+              top: -6px;
+              width: 44px;
+              height: 44px;
+              border-radius: 50%;
+              background: rgba(16, 185, 129, 0.28);
+              border: 1px solid rgba(52, 211, 153, 0.5);
+              box-shadow: 0 0 16px rgba(16, 185, 129, 0.6);
+            "></div>
+            <div style="
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              background: linear-gradient(135deg, #059669, #0284c7);
+              border: 3px solid #ffffff;
+              box-shadow: 0 0 14px rgba(16, 185, 129, 0.9), 0 4px 10px rgba(0,0,0,0.4);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #ffffff;
+              font-weight: 900;
+              font-size: 13px;
+            ">
+              📍
+            </div>
+            <div style="
+              margin-top: 5px;
+              padding: 3px 8px;
+              background: #022c22;
+              border: 1px solid #10b981;
+              border-radius: 9999px;
+              color: #6ee7b7;
+              font-size: 10px;
+              font-weight: 800;
+              font-family: monospace;
+              white-space: nowrap;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            ">
+              ● You are here (${userLocationName || "Live Location"})
+            </div>
+          </div>
+        `;
+
+        const userIcon = L.divIcon({
+          html: userBeaconHtml,
+          className: "custom-user-beacon",
+          iconSize: [160, 65],
+          iconAnchor: [80, 20],
+          popupAnchor: [0, -25],
+        });
+
+        const userMarker = L.marker(userLatLng, { icon: userIcon, zIndexOffset: 1000 }).addTo(markersLayer);
+        userMarker.bindPopup(`
+          <div style="font-family: system-ui, sans-serif; padding: 4px; color: #111827;">
+            <div style="font-weight: 800; color: #065f46; font-size: 12px; display: flex; items-center; gap: 4px;">
+              <span>📍 Your Live Position</span>
+            </div>
+            <div style="font-size: 11px; color: #4b5563; margin-top: 2px;">${userLocation.lat.toFixed(4)}°N, ${userLocation.lon.toFixed(4)}°E</div>
+            <div style="font-size: 10px; color: #059669; font-weight: 700; margin-top: 4px;">Verified Location Service Active</div>
+          </div>
+        `);
+      }
+
       if (pointFeatures.length > 1 || lineFeatures.length > 0) {
         map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
       } else if (pointFeatures.length === 1) {
         const [lon, lat] = pointFeatures[0].geometry.coordinates;
         map.setView([lat, lon], 13);
+      } else if (userLocation && userLocation.lat != null && userLocation.lon != null) {
+        map.setView([userLocation.lat, userLocation.lon], 13);
       } else {
         map.setView([20.4625, 85.8828], 7);
       }
     });
-  }, [features, pointFeatures, lineFeatures, relationships, selectedFeatureId, isLeafletReady, onSelectFeature, onPlanTripWithPlace, onViewDetails]);
+  }, [features, pointFeatures, lineFeatures, relationships, selectedFeatureId, userLocation, userLocationName, isLeafletReady, onSelectFeature, onPlanTripWithPlace, onViewDetails]);
 
 
   const WIDTH = 600;
