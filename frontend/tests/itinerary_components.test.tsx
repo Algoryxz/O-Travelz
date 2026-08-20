@@ -46,7 +46,7 @@ describe("Phase 6B Itinerary UI Components", () => {
     it("renders initial form controls with optional interests", () => {
       const html = renderClean(
         <ConstraintForm
-          initialConstraints={{ days: 2, interests: ["heritage", "temple"] }}
+          initialConstraints={{ days: 2, interests: ["heritage", "spirituality"] }}
           isLoading={false}
           onSubmit={() => {}}
         />
@@ -56,6 +56,72 @@ describe("Phase 6B Itinerary UI Components", () => {
       expect(html).toContain("Trip Constraints");
       expect(html).toContain("Plan Itinerary");
       expect(html).toContain("Interests / Themes");
+    });
+
+    it("renders all 12 canonical interest chips with human-friendly labels and exact test-ids", () => {
+      const html = renderClean(
+        <ConstraintForm
+          isLoading={false}
+          onSubmit={() => {}}
+        />
+      );
+
+      const expectedInterests = [
+        { id: "heritage", label: "Heritage" },
+        { id: "spirituality", label: "Spirituality" },
+        { id: "architecture", label: "Architecture" },
+        { id: "food", label: "Food &amp; Cuisine" },
+        { id: "culture", label: "Culture" },
+        { id: "nature", label: "Nature" },
+        { id: "beach", label: "Beaches" },
+        { id: "wildlife", label: "Wildlife" },
+        { id: "waterfall", label: "Waterfalls" },
+        { id: "relaxation", label: "Relaxation" },
+        { id: "adventure", label: "Adventure" },
+        { id: "shopping", label: "Shopping" },
+      ];
+
+      for (const item of expectedInterests) {
+        expect(html).toContain(`data-testid="interest-chip-${item.id}"`);
+        expect(html).toContain(item.label);
+      }
+    });
+
+    it("does not render unsupported interest chips like photography, family, or physical category temple", () => {
+      const html = renderClean(
+        <ConstraintForm
+          isLoading={false}
+          onSubmit={() => {}}
+        />
+      );
+
+      expect(html).not.toContain('data-testid="interest-chip-photography"');
+      expect(html).not.toContain('data-testid="interest-chip-family"');
+      expect(html).not.toContain('data-testid="interest-chip-temple"');
+      expect(html).not.toContain('data-testid="interest-chip-monument"');
+    });
+
+    it("renders all 7 quick origin hub pills with exact test-ids", () => {
+      const html = renderClean(
+        <ConstraintForm
+          isLoading={false}
+          onSubmit={() => {}}
+        />
+      );
+
+      const expectedHubs = [
+        "bhubaneswar",
+        "puri",
+        "konark",
+        "cuttack",
+        "daringbadi",
+        "sambalpur",
+        "koraput",
+      ];
+
+      for (const hub of expectedHubs) {
+        expect(html).toContain(`data-testid="origin-hub-${hub}"`);
+      }
     });
 
     it("renders form with empty interests as valid and ready to submit (Surprise Me)", () => {
@@ -229,13 +295,13 @@ describe("Phase 6B Itinerary UI Components", () => {
   });
 
   describe("ItineraryView Component", () => {
-    it("renders full itinerary view with constraints and explanation", () => {
+    it("renders full itinerary view with traveler title, constraints, and copy button", () => {
       const fixture = sampleItineraryFixture as unknown as ItineraryPlanResponse;
       const html = renderClean(<ItineraryView itinerary={fixture} />);
 
-      expect(html).toContain("Your Trip Itinerary");
+      expect(html).toContain("Verified Odisha Itinerary");
+      expect(html).toContain("Copy Itinerary Summary");
       expect(html).toContain("fixture-0001");
-      expect(html).toContain("temples, food");
       expect(html).toContain("Example Hotel");
       expect(html).toContain("Trip Overview");
       expect(html).toContain("Fixture explanation text for frontend dev");

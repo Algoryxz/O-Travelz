@@ -19,6 +19,7 @@ import {
   Bookmark,
 } from "lucide-react";
 import { useSavedPlaces } from "../../store/useSavedPlaces";
+import { useWeather } from "../../store/useWeather";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
 import { CoverflowCarousel, type CoverflowItem } from "../gallery/CoverflowCarousel";
 import {
@@ -48,6 +49,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
 }) => {
   const [activeFilter, setActiveFilter] = useState("All");
   const { savedPlaces, isSaved, toggleSavePlace } = useSavedPlaces();
+  const { weather, isLoading: isWeatherLoading } = useWeather(selectedLocation);
 
   // Carousel #1: Featured Whole-Odisha Destinations
   const discoveryCarouselItems: CoverflowItem[] = useMemo(() => {
@@ -298,33 +300,48 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
       </section>
 
       {/* 2. Weather Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-testid="weather-banner-section">
         <div className="p-5 sm:p-6 rounded-3xl bg-[#09221b] text-white border border-emerald-800/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-md">
           <div className="flex items-center gap-4 sm:gap-5">
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-300 shrink-0">
               <CloudRain size={24} />
             </div>
             <div>
-              <div className="text-[10px] font-bold uppercase tracking-widest text-emerald-400 font-mono">
-                LOCAL WEATHER · {selectedLocation.toUpperCase()}
+              <div className="text-[10px] font-bold uppercase tracking-widest text-emerald-400 font-mono flex items-center gap-2">
+                <span>LOCAL WEATHER · {selectedLocation.toUpperCase()}</span>
+                {weather?.current.provider && (
+                  <span className="text-[9px] text-emerald-400/60 font-sans normal-case">
+                    (via {weather.current.provider})
+                  </span>
+                )}
               </div>
               <div className="flex items-baseline gap-3 mt-0.5">
                 <span className="text-2xl sm:text-3xl font-extrabold font-display text-white">
-                  26°C
+                  {weather ? `${Math.round(weather.current.temperature_c)}°C` : isWeatherLoading ? "--°C" : "28°C"}
                 </span>
-                <span className="text-xs text-emerald-200 font-medium">Cloudy</span>
-                <span className="text-xs text-emerald-300/70 font-mono">🌧 100% rain</span>
-                <span className="text-xs text-emerald-300/70 font-mono hidden sm:inline">💨 12 km/h wind</span>
+                <span className="text-xs text-emerald-200 font-medium">
+                  {weather?.current.condition || (isWeatherLoading ? "Loading..." : "Pleasant")}
+                </span>
+                {weather?.current.humidity_pct != null && (
+                  <span className="text-xs text-emerald-300/70 font-mono">
+                    💧 {weather.current.humidity_pct}% humidity
+                  </span>
+                )}
+                {weather?.current.wind_speed_kmh != null && (
+                  <span className="text-xs text-emerald-300/70 font-mono hidden sm:inline">
+                    💨 {Math.round(weather.current.wind_speed_kmh)} km/h
+                  </span>
+                )}
               </div>
             </div>
           </div>
 
           <div className="flex items-center gap-3 text-xs text-emerald-200/80">
             <span className="italic max-w-sm">
-              Carry a light rain layer and favor covered stops.
+              {weather?.current.advice || "Check local conditions before departing for regional travel."}
             </span>
             <span className="px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-400 text-[10px] font-mono border border-emerald-800 shrink-0">
-              FORECAST
+              {weather?.current.status === "available" ? "LIVE FORECAST" : "FORECAST"}
             </span>
           </div>
         </div>

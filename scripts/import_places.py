@@ -1,9 +1,10 @@
-"""Validate and import the canonical place data.
+"""Validate and import canonical place and interest data.
 
-The source files are owned by Akriti; this module owns their deterministic load into
-the database. Canonical ``lat``/``lon`` values map to PostGIS as
+The source files are owned by research/data curators; this module owns their
+deterministic load into the database. Canonical ``lat``/``lon`` values map to PostGIS as
 ``POINT(lon lat)`` with SRID 4326. A verified place may have a NULL location when
-both coordinates are intentionally unresolved.
+both coordinates are intentionally unresolved. Normalized traveler-facing interests
+are mapped M:N via the ``place_interests`` table.
 
 Run from the repository root with::
 
@@ -13,9 +14,6 @@ Run from the repository root with::
 
 The database session and optional PostGIS value construction remain lazy so validation
 and focused importer tests do not require a live database or optional PostGIS package.
-The explicit ``--data-dir`` option allows a reviewed research handoff to be imported
-without rewriting the handoff or silently replacing the repository's current source
-projection.
 """
 from __future__ import annotations
 
@@ -32,6 +30,7 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "places"
 BACKEND_DIR = DATA_DIR.parent.parent / "backend"
 
 _CATEGORY_FIELDS = frozenset({"id", "name", "description"})
+_INTEREST_FIELDS = frozenset({"id", "name", "description"})
 _PLACE_FIELDS = frozenset(
     {
         "id",
@@ -43,6 +42,7 @@ _PLACE_FIELDS = frozenset(
         "opening_hours",
         "avg_visit_minutes",
         "price_tier",
+        "interests",
         "source",
         "source_provenance_note",
         "coordinate_verification",
@@ -62,6 +62,7 @@ class ImportValidationError(ValueError):
 class ValidatedInput:
     categories: tuple[dict[str, Any], ...]
     places: tuple[dict[str, Any], ...]
+    interests: tuple[dict[str, Any], ...] = ()
 
 
 @dataclass(frozen=True)
@@ -69,6 +70,8 @@ class ImportResult:
     categories_created: int = 0
     places_created: int = 0
     places_updated: int = 0
+    interests_created: int = 0
+    place_interests_created: int = 0
 
 
 def _read_json_array(path: Path, label: str) -> list[dict[str, Any]]:
@@ -84,6 +87,14 @@ def _read_json_array(path: Path, label: str) -> list[dict[str, Any]]:
 def load_categories(path: Path | None = None) -> list[dict[str, Any]]:
     """Load the canonical category JSON file."""
     return _read_json_array(path or DATA_DIR / "categories.json", "categories")
+
+
+def load_interests(path: Path | None = None) -> list[dict[str, Any]]:
+    """Load the canonical interest JSON file if present."""
+    target = path or DATA_DIR / "interests.json"
+    if not target.exists():
+        return []
+    return _read_json_array(target, "interests")
 
 
 def load_places(path: Path | None = None) -> list[dict[str, Any]]:
@@ -135,6 +146,37 @@ def _validate_categories(records: Any) -> tuple[dict[str, Any], ...]:
     return tuple(validated)
 
 
+def _validate_interests(records: Any) -> tuple[dict[str, Any], ...]:
+    if records is None:
+        return ()
+    if not isinstance(records, list):
+        raise ImportValidationError("interests must be a JSON array")
+
+    validated: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for index, record in enumerate(records):
+        label = f"interests[{index}]"
+        if not isinstance(record, dict):
+            raise ImportValidationError(f"{label} must be an object")
+        _validate_unknown_fields(record, _INTEREST_FIELDS, label)
+        display_name = _require_nonempty_string(record, "name", label)
+        identifier = record.get("id", display_name)
+        if not isinstance(identifier, str) or not identifier.strip():
+            raise ImportValidationError(f"{label}.id must be a non-empty string")
+        if identifier != identifier.strip():
+            raise ImportValidationError(f"{label}.id must not have leading/trailing whitespace")
+        if identifier in seen:
+            raise ImportValidationError(f"{label} duplicates interest id {identifier!r}")
+        description = record.get("description")
+        if description is not None and not isinstance(description, str):
+            raise ImportValidationError(f"{label}.description must be a string or null")
+        seen.add(identifier)
+        validated.append(
+            {"id": identifier, "name": display_name, "description": description}
+        )
+    return tuple(validated)
+
+
 def _validate_coordinate(
     value: Any, field: str, label: str, minimum: float, maximum: float
 ) -> float | None:
@@ -168,7 +210,11 @@ def _validate_json_value(value: Any, field: str, label: str) -> None:
         raise ImportValidationError(f"{label}.{field} must be JSON-serializable") from exc
 
 
-def _validate_places(records: Any, category_names: set[str]) -> tuple[dict[str, Any], ...]:
+def _validate_places(
+    records: Any,
+    category_names: set[str],
+    interest_names: set[str] | None = None,
+) -> tuple[dict[str, Any], ...]:
     if not isinstance(records, list):
         raise ImportValidationError("places must be a JSON array")
 
@@ -238,6 +284,27 @@ def _validate_places(records: Any, category_names: set[str]) -> tuple[dict[str, 
             raise ImportValidationError(f"{label}.price_tier must be a string or null")
         _validate_verified_at(record.get("verified_at"), label)
 
+        # Validate interests if present
+        raw_interests = record.get("interests")
+        validated_interests: list[str] = []
+        if raw_interests is not None:
+            if not isinstance(raw_interests, list):
+                raise ImportValidationError(f"{label}.interests must be a list of strings")
+            seen_place_interests: set[str] = set()
+            for int_idx, interest_item in enumerate(raw_interests):
+                int_label = f"{label}.interests[{int_idx}]"
+                if not isinstance(interest_item, str) or not interest_item.strip():
+                    raise ImportValidationError(f"{int_label} must be a non-empty string")
+                norm_interest = interest_item.strip()
+                if norm_interest in seen_place_interests:
+                    raise ImportValidationError(f"{label} duplicates interest {norm_interest!r}")
+                if interest_names is not None and interest_names and norm_interest not in interest_names:
+                    raise ImportValidationError(
+                        f"{int_label} {norm_interest!r} is not present in interests.json"
+                    )
+                seen_place_interests.add(norm_interest)
+                validated_interests.append(norm_interest)
+
         identity = ("research_id", research_id) if research_id is not None else (
             "canonical", name, category, source
         )
@@ -254,31 +321,37 @@ def _validate_places(records: Any, category_names: set[str]) -> tuple[dict[str, 
                 "category": category,
                 "lat": lat,
                 "lon": lon,
+                "interests": tuple(validated_interests),
                 "source": source,
             }
         )
     return tuple(validated)
 
 
-def validate_input(categories: Any, places: Any) -> ValidatedInput:
+def validate_input(
+    categories: Any,
+    places: Any,
+    interests: Any = None,
+) -> ValidatedInput:
     """Validate all source data before a session or database write is attempted."""
     validated_categories = _validate_categories(categories)
     category_names = {record["id"] for record in validated_categories}
-    validated_places = _validate_places(places, category_names)
-    return ValidatedInput(validated_categories, validated_places)
+    validated_interests = _validate_interests(interests) if interests is not None else ()
+    interest_names = {record["id"] for record in validated_interests} if validated_interests else set()
+    validated_places = _validate_places(places, category_names, interest_names if interest_names else None)
+    return ValidatedInput(validated_categories, validated_places, validated_interests)
 
 
-def _load_models() -> tuple[type[Any], type[Any]]:
-    """Load the canonical SQLAlchemy models only for a database import."""
+def _load_models() -> tuple[type[Any], type[Any], type[Any], type[Any]]:
+    """Load canonical SQLAlchemy models for database operations."""
     if str(BACKEND_DIR) not in sys.path:
         sys.path.insert(0, str(BACKEND_DIR))
-    # Import the model hub first. Importing Category directly would make
-    # app.db.base import Category while Category is still being initialized.
     from app.db import base as _model_base  # noqa: F401
     from app.models.category import Category
     from app.models.place import Place
+    from app.models.interest import Interest, PlaceInterest
 
-    return Category, Place
+    return Category, Place, Interest, PlaceInterest
 
 
 def _parse_verified_at(value: str | None) -> datetime | None:
@@ -315,7 +388,8 @@ def import_categories(
     category_model: type[Any] | None = None,
 ) -> tuple[dict[str, Any], int]:
     """Upsert categories in stable name order and return name-to-row mappings."""
-    category_model = category_model or _load_models()[0]
+    if category_model is None:
+        category_model = _load_models()[0]
     validated = _validate_categories(list(records))
     categories_by_name: dict[str, Any] = {}
     created = 0
@@ -341,30 +415,63 @@ def import_categories(
     return categories_by_name, created
 
 
+def import_interests(
+    session: Any,
+    records: Iterable[dict[str, Any]],
+    *,
+    interest_model: type[Any] | None = None,
+) -> tuple[dict[str, Any], int]:
+    """Upsert interests in stable name order and return name-to-row mappings."""
+    if interest_model is None:
+        interest_model = _load_models()[2]
+    validated = _validate_interests(list(records))
+    interests_by_name: dict[str, Any] = {}
+    created = 0
+    for record in sorted(validated, key=lambda item: item["name"]):
+        identifier = record["id"]
+        name = record["name"]
+        interest = _find_one(session, interest_model, name=identifier)
+        if interest is None:
+            interest = interest_model(
+                name=identifier,
+                display_name=name,
+                description=record.get("description"),
+            )
+            session.add(interest)
+            created += 1
+        else:
+            if hasattr(interest, "display_name"):
+                interest.display_name = name
+            if hasattr(interest, "description"):
+                interest.description = record.get("description")
+        interests_by_name[identifier] = interest
+    session.flush()
+    return interests_by_name, created
+
+
 def import_records(
     session: Any,
     categories: Any,
     places: Any,
     *,
+    interests: Any = None,
     location_builder: Callable[[dict[str, Any]], Any] | None = None,
     category_model: type[Any] | None = None,
     place_model: type[Any] | None = None,
+    interest_model: type[Any] | None = None,
+    place_interest_model: type[Any] | None = None,
 ) -> ImportResult:
-    """Validate and upsert categories and places in one transaction.
+    """Validate and upsert categories, interests, places, and associations in one transaction."""
+    validated = validate_input(categories, places, interests)
 
-    ``location_builder`` is an optional test/integration hook. When omitted, the
-    approved ``POINT(lon lat)`` Geography value is built here; an unresolved pair
-    produces ``None``.
-    """
-    validated = validate_input(categories, places)
-
-    if category_model is None or place_model is None:
-        model_category, model_place = _load_models()
-        category_model = category_model or model_category
+    if category_model is None or place_model is None or interest_model is None or place_interest_model is None:
+        model_cat, model_place, model_interest, model_pi = _load_models()
+        category_model = category_model or model_cat
         place_model = place_model or model_place
+        interest_model = interest_model or model_interest
+        place_interest_model = place_interest_model or model_pi
 
-    # Build every location before the first session.add so a mapping failure cannot
-    # leave categories or an earlier place partially written.
+    # Build every location before any session.add
     place_values: list[tuple[dict[str, Any], Any]] = []
     builder = location_builder if location_builder is not None else _build_location
     for record in validated.places:
@@ -379,8 +486,17 @@ def import_records(
         categories_by_name, category_count = import_categories(
             session, validated.categories, category_model=category_model
         )
+        interests_by_name: dict[str, Any] = {}
+        interest_count = 0
+        if validated.interests:
+            interests_by_name, interest_count = import_interests(
+                session, validated.interests, interest_model=interest_model
+            )
+
         place_count = 0
         place_updates = 0
+        place_interests_created = 0
+
         for record, location in sorted(
             place_values,
             key=lambda item: (item[0]["category"], item[0]["name"], item[0]["source"]),
@@ -402,19 +518,10 @@ def import_records(
                 "coordinate_audit_status": record.get("coordinate_audit_status"),
                 "audit_status": record.get("audit_status"),
             }
+            existing = None
             if values["research_id"] is not None:
                 existing = _find_one(session, place_model, research_id=values["research_id"])
-                if existing is None:
-                    # Adopt a pre-v5.1 row with the same canonical identity rather
-                    # than creating a duplicate when traceability is first added.
-                    existing = _find_one(
-                        session,
-                        place_model,
-                        name=values["name"],
-                        category_id=values["category_id"],
-                        source=values["source"],
-                    )
-            else:
+            if existing is None:
                 existing = _find_one(
                     session,
                     place_model,
@@ -422,19 +529,53 @@ def import_records(
                     category_id=values["category_id"],
                     source=values["source"],
                 )
-            if existing is None:
-                session.add(place_model(**values))
+
+            place_instance = existing
+            if place_instance is None:
+                place_instance = place_model(**values)
+                session.add(place_instance)
                 place_count += 1
             else:
                 for field, value in values.items():
-                    setattr(existing, field, value)
+                    setattr(place_instance, field, value)
                 place_updates += 1
+
+            session.flush()
+
+            # Upsert place_interests if interests were provided
+            place_interest_tags = record.get("interests", ())
+            if place_interest_tags and interests_by_name:
+                for tag in place_interest_tags:
+                    interest_obj = interests_by_name.get(tag)
+                    if interest_obj is not None:
+                        existing_pi = _find_one(
+                            session,
+                            place_interest_model,
+                            place_id=place_instance.id,
+                            interest_id=interest_obj.id,
+                        )
+                        if existing_pi is None:
+                            session.add(
+                                place_interest_model(
+                                    place_id=place_instance.id,
+                                    interest_id=interest_obj.id,
+                                )
+                            )
+                            place_interests_created += 1
+
         session.flush()
         session.commit()
     except Exception:
         session.rollback()
         raise
-    return ImportResult(category_count, place_count, place_updates)
+
+    return ImportResult(
+        categories_created=category_count,
+        places_created=place_count,
+        places_updated=place_updates,
+        interests_created=interest_count,
+        place_interests_created=place_interests_created,
+    )
 
 
 def _open_session() -> Any:
@@ -446,7 +587,7 @@ def _open_session() -> Any:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Validate or import place data.")
+    parser = argparse.ArgumentParser(description="Validate or import place and interest data.")
     parser.add_argument(
         "--validate",
         action="store_true",
@@ -456,7 +597,7 @@ def main(argv: list[str] | None = None) -> int:
         "--data-dir",
         type=Path,
         default=DATA_DIR,
-        help="directory containing categories.json and places.json",
+        help="directory containing categories.json, places.json, and optional interests.json",
     )
     args = parser.parse_args(argv)
 
@@ -464,16 +605,22 @@ def main(argv: list[str] | None = None) -> int:
         if args.data_dir == DATA_DIR:
             categories = load_categories()
             places = load_places()
+            interests = load_interests()
         else:
-            categories = load_categories(args.data_dir / "categories.json")
-            places = load_places(args.data_dir / "places.json")
-        validated = validate_input(categories, places)
+            categories_file = args.data_dir / "categories.json"
+            places_file = args.data_dir / "places.json"
+            interests_file = args.data_dir / "interests.json"
+            categories = load_categories(categories_file) if categories_file.exists() else []
+            places = load_places(places_file) if places_file.exists() else []
+            interests = load_interests(interests_file) if interests_file.exists() else []
+
+        validated = validate_input(categories, places, interests)
     except ImportValidationError as exc:
         print(f"ERROR: {exc}")
         return 1
 
     print(
-        f"Loaded {len(validated.categories)} categories, {len(validated.places)} places from {args.data_dir}"
+        f"Loaded {len(validated.categories)} categories, {len(validated.interests)} interests, {len(validated.places)} places from {args.data_dir}"
     )
     if args.validate:
         print("Validation passed")
@@ -481,7 +628,7 @@ def main(argv: list[str] | None = None) -> int:
 
     session = _open_session()
     try:
-        result = import_records(session, categories, places)
+        result = import_records(session, categories, places, interests=interests)
     except Exception as exc:
         session.rollback()
         print(f"ERROR: database import failed: {exc}")
@@ -490,8 +637,10 @@ def main(argv: list[str] | None = None) -> int:
         session.close()
     print(
         f"Imported {result.categories_created} categories, "
+        f"{result.interests_created} interests, "
         f"{result.places_created} new places, "
-        f"{result.places_updated} updated places"
+        f"{result.places_updated} updated places, "
+        f"{result.place_interests_created} place-interest associations"
     )
     return 0
 

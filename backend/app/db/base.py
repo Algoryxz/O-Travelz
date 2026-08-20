@@ -11,6 +11,7 @@ Base = declarative_base()
 
 # Import models so Base.metadata is aware of every table before Alembic autogenerates.
 from app.models.category import Category        # noqa: E402,F401
+from app.models.interest import Interest, PlaceInterest  # noqa: E402,F401
 from app.models.place import Place               # noqa: E402,F401
 from app.models.place_image import PlaceImage    # noqa: E402,F401
 from app.models.transport import (               # noqa: E402,F401

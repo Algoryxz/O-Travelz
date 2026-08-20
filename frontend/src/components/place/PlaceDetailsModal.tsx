@@ -34,6 +34,7 @@ export interface SelectedPlaceInfo {
   imageUrl?: string;
   bgImage?: string;
   tags?: string[];
+  interests?: string[];
   coordinates?: [number, number];
   images?: PlaceImageContract[];
 }
@@ -130,7 +131,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
           </div>
 
           {/* Why Visit / Best For Highlight Box */}
-          <div className="p-3.5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/50 border border-emerald-100 dark:border-emerald-900/60 text-xs space-y-1.5">
+          <div className="p-3.5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/50 border border-emerald-100 dark:border-emerald-900/60 text-xs space-y-2">
             <div className="flex items-center gap-1.5 text-emerald-900 dark:text-emerald-300 font-bold">
               <Sparkles size={14} className="text-emerald-700 dark:text-emerald-400" />
               <span>Highlights &amp; Experiences</span>
@@ -138,6 +139,21 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
             <p className="text-emerald-950 dark:text-emerald-200 font-medium leading-relaxed">
               {getBestSuitedFor(place.category, place.name)}
             </p>
+            {place.interests && place.interests.length > 0 && (
+              <div className="flex flex-wrap items-center gap-1.5 pt-1 border-t border-emerald-200/50 dark:border-emerald-800/40">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
+                  Themes:
+                </span>
+                {place.interests.map((interestId) => (
+                  <span
+                    key={interestId}
+                    className="px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 text-emerald-900 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800 text-[10px] font-semibold capitalize"
+                  >
+                    {interestId}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Travel Information Cards */}

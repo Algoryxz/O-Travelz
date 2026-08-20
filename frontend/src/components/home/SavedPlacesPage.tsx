@@ -148,6 +148,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                           description: item.notes,
                           location: item.location,
                           tags: item.tags,
+                          interests: item.interests,
                           coordinates: item.coordinates,
                         })
                       }
@@ -187,6 +188,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                         category: item.category,
                         location: item.location,
                         description: item.notes,
+                        interests: item.interests,
                       })
                     }
                     className="flex items-center gap-1 text-emerald-700 hover:text-emerald-900 font-medium cursor-pointer"

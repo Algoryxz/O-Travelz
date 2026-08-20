@@ -252,6 +252,26 @@ export class ApiClient {
       }
     );
   }
+
+  async getWeather(params: { lat?: number; lon?: number; location_name?: string } = {}): Promise<import("./contracts").WeatherResponse> {
+    const query = new URLSearchParams();
+    if (params.lat != null) query.set("lat", params.lat.toString());
+    if (params.lon != null) query.set("lon", params.lon.toString());
+    if (params.location_name) query.set("location_name", params.location_name);
+    const qs = query.toString() ? `?${query.toString()}` : "";
+
+    return this.request<import("./contracts").WeatherResponse>(
+      `/weather/current${qs}`,
+      { method: "GET" },
+      (data): data is import("./contracts").WeatherResponse => {
+        return (
+          isPlainObject(data) &&
+          typeof data.location_name === "string" &&
+          isPlainObject(data.current)
+        );
+      }
+    );
+  }
 }
 
 export const apiClient = new ApiClient();

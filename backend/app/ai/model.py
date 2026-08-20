@@ -46,20 +46,36 @@ class FakeModelAdapter(ModelAdapter):
 
 
 class RuleBasedModelAdapter(ModelAdapter):
-    """Deterministic intent parser recognizing Whole-Odisha destinations and travel themes."""
+    """Deterministic intent parser recognizing Whole-Odisha destinations and canonical travel themes."""
 
-    _INTERESTS = (
+    _CANONICAL_INTERESTS: tuple[str, ...] = (
         "heritage",
-        "temple",
+        "spirituality",
+        "architecture",
+        "food",
         "culture",
         "nature",
-        "wildlife",
         "beach",
+        "wildlife",
         "waterfall",
-        "food",
+        "relaxation",
+        "adventure",
         "shopping",
-        "monument",
-        "lake",
+    )
+
+    _INTEREST_KEYWORD_MAPPINGS: tuple[tuple[str, tuple[str, ...]], ...] = (
+        ("heritage", ("heritage", "historic", "historical", "monument", "monuments")),
+        ("spirituality", ("spirituality", "spiritual", "temple", "temples", "shrine", "shrines", "pilgrimage")),
+        ("architecture", ("architecture", "architectural")),
+        ("food", ("food", "cuisine", "culinary", "sweets")),
+        ("culture", ("culture", "cultural", "museum", "museums", "arts", "tradition", "traditional")),
+        ("nature", ("nature", "natural", "hill station", "hills", "forest", "lake", "lakes")),
+        ("beach", ("beach", "beaches", "coast", "coastal", "sea")),
+        ("wildlife", ("wildlife", "safari", "sanctuary", "zoo", "animals", "birds")),
+        ("waterfall", ("waterfall", "waterfalls", "falls", "cascade")),
+        ("relaxation", ("relaxation", "relaxing", "relax", "peaceful", "leisure")),
+        ("adventure", ("adventure", "trekking", "hiking")),
+        ("shopping", ("shopping", "market", "markets", "crafts", "bazaar", "handlooms")),
     )
 
     _KNOWN_PLACES: tuple[tuple[str, tuple[str, ...]], ...] = (
@@ -120,6 +136,17 @@ class RuleBasedModelAdapter(ModelAdapter):
         ("Maa Majhigouri Temple, Rayagada", ("majhigouri", "rayagada")),
     )
 
+    def _extract_interests(self, text: str) -> list[str]:
+        found: list[str] = []
+        for canonical_id, keywords in self._INTEREST_KEYWORD_MAPPINGS:
+            for kw in keywords:
+                pattern = r"\b" + re.escape(kw) + r"\b"
+                if re.search(pattern, text):
+                    if canonical_id not in found:
+                        found.append(canonical_id)
+                    break
+        return found
+
     def parse_intent(self, user_message: str, existing_constraints: PlanningConstraints | None = None) -> Any:
         text = user_message.strip().lower()
 
@@ -147,7 +174,7 @@ class RuleBasedModelAdapter(ModelAdapter):
             }
 
         day_match = re.search(r"(\d+)\s*[- ]?day", text)
-        found_interests = [word for word in self._INTERESTS if word in text]
+        found_interests = self._extract_interests(text)
 
         refinement_words = (
             "refine",

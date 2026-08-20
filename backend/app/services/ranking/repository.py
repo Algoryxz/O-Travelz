@@ -12,7 +12,8 @@ class VerifiedPlace:
     """Facts needed by ranking and itinerary eligibility.
 
     ``category_id`` is the canonical category identifier stored in ``Category.name``;
-    ``database_id`` is the persisted UUID used as the final deterministic tie-break.
+    ``database_id`` is the persisted UUID used as the final deterministic tie-break;
+    ``interests`` is the normalized canonical interest identifiers.
     """
 
     database_id: str
@@ -23,6 +24,7 @@ class VerifiedPlace:
     opening_hours: object | None = None
     avg_visit_minutes: int | None = None
     price_tier: str | None = None
+    interests: tuple[str, ...] = ()
 
     def to_summary(self):
         from app.schemas.common import PlaceSummary
@@ -110,15 +112,26 @@ class SQLAlchemyPlaceRepository:
         self._session = session
 
     def list_verified_places(self) -> Sequence[VerifiedPlace]:
+        from sqlalchemy.orm import joinedload
         from app.models.category import Category
         from app.models.place import Place
+        from app.models.interest import PlaceInterest
 
-        rows = (
+        query = (
             self._session.query(Place, Category)
             .join(Category, Place.category_id == Category.id)
             .filter(Place.verified_at.isnot(None))
-            .all()
         )
+        if hasattr(query, "options"):
+            try:
+                from sqlalchemy.orm import joinedload
+                from app.models.interest import PlaceInterest
+                query = query.options(
+                    joinedload(Place.interest_associations).joinedload(PlaceInterest.interest)
+                )
+            except Exception:
+                pass
+        rows = query.all()
         return tuple(self._record(place, category) for place, category in rows)
 
     def resolve_origin(self, value: str) -> VerifiedPlace | None:
@@ -137,6 +150,14 @@ class SQLAlchemyPlaceRepository:
                 # An unreadable persisted geometry is not a valid routing origin.
                 coordinate = None
 
+        interests = tuple(
+            sorted(
+                assoc.interest.name
+                for assoc in getattr(place, "interest_associations", [])
+                if getattr(assoc, "interest", None) and assoc.interest.name
+            )
+        )
+
         return VerifiedPlace(
             database_id=str(place.id),
             category_id=category.name,
@@ -146,4 +167,5 @@ class SQLAlchemyPlaceRepository:
             opening_hours=place.opening_hours,
             avg_visit_minutes=place.avg_visit_minutes,
             price_tier=place.price_tier,
+            interests=interests,
         )

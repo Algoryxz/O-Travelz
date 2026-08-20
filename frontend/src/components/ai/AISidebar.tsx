@@ -21,6 +21,7 @@ import type { AIResponse, PlanningConstraints, ItineraryPlanResponse } from "../
 import type { ConversationTurn } from "../../store/useAIConversation";
 import type { SavedTripConversation } from "../../store/useConversationHistory";
 import { ErrorAlert } from "../itinerary/ErrorAlert";
+import { getRefinementSuggestions } from "../../utils/timelineService";
 
 interface AISidebarProps {
   isOpen: boolean;
@@ -40,15 +41,6 @@ interface AISidebarProps {
   onDeleteConversation: (id: string) => void;
   onViewItineraryTab?: () => void;
 }
-
-const REFINEMENT_PROMPTS = [
-  "Make this more nature focused",
-  "Add temples",
-  "Make it 3 days",
-  "Reduce driving",
-  "Add beaches",
-  "Make it budget friendly",
-];
 
 export const AISidebar: React.FC<AISidebarProps> = ({
   isOpen,
@@ -72,6 +64,11 @@ export const AISidebar: React.FC<AISidebarProps> = ({
   const [showHistoryList, setShowHistoryList] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const refinementPrompts = getRefinementSuggestions(
+    activeItinerary?.constraints,
+    hasItinerary
+  );
 
   // Auto-scroll to bottom of conversation
   useEffect(() => {
@@ -153,26 +150,26 @@ export const AISidebar: React.FC<AISidebarProps> = ({
             {/* Close Button */}
             <button
               type="button"
-              data-testid="close-ai-sidebar"
+              data-testid="sidebar-close-btn"
               onClick={onClose}
-              className="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-              aria-label="Close AI Sidebar"
+              className="w-8 h-8 rounded-xl bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 text-gray-600 dark:text-gray-300 flex items-center justify-center transition-colors cursor-pointer"
+              aria-label="Close sidebar"
             >
-              <X size={18} />
+              <X size={16} />
             </button>
           </div>
         </div>
 
-        {/* Saved Trips Accordion / Dropdown */}
-        <div className="px-4 py-2 border-b border-gray-100 dark:border-emerald-900/30 bg-gray-50/40 dark:bg-slate-900">
+        {/* Saved Trips Drawer Toggle Bar */}
+        <div className="px-4 py-2 border-b border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900">
           <button
             type="button"
-            data-testid="toggle-trips-history"
+            data-testid="sidebar-toggle-history-btn"
             onClick={() => setShowHistoryList(!showHistoryList)}
-            className="w-full flex items-center justify-between text-xs font-bold text-gray-600 dark:text-gray-300 py-1 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors cursor-pointer"
+            className="w-full flex items-center justify-between text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-emerald-700 transition-colors py-1 cursor-pointer"
           >
             <div className="flex items-center gap-1.5">
-              <History size={13} className="text-emerald-600 dark:text-emerald-400" />
+              <History size={13} className="text-emerald-600" />
               <span>Your Saved Trips ({conversations.length})</span>
             </div>
             {showHistoryList ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
@@ -181,7 +178,7 @@ export const AISidebar: React.FC<AISidebarProps> = ({
           {showHistoryList && (
             <div
               data-testid="sidebar-trips-list"
-              className="mt-2 space-y-1 max-h-40 overflow-y-auto pr-1 animate-in fade-in duration-150"
+              className="mt-2 space-y-1.5 max-h-48 overflow-y-auto pr-1 animate-in fade-in duration-150"
             >
               {conversations.length === 0 ? (
                 <div className="p-3 text-center text-[11px] text-gray-400">
@@ -190,22 +187,45 @@ export const AISidebar: React.FC<AISidebarProps> = ({
               ) : (
                 conversations.map((c) => {
                   const isActive = c.id === activeConversationId;
+                  const dateStr = new Date(c.timestamp).toLocaleDateString("en-IN", {
+                    month: "short",
+                    day: "numeric",
+                  });
+
                   return (
                     <div
                       key={c.id}
                       data-testid={`sidebar-trip-item-${c.id}`}
                       onClick={() => onSelectConversation(c.id)}
-                      className={`w-full p-2 rounded-xl text-left flex items-center justify-between text-xs transition-all cursor-pointer ${
+                      className={`w-full p-2.5 rounded-xl text-left flex items-start justify-between text-xs transition-all cursor-pointer border ${
                         isActive
-                          ? "bg-emerald-100/70 dark:bg-emerald-950/80 text-emerald-900 dark:text-emerald-200 font-bold border border-emerald-300 dark:border-emerald-800"
-                          : "hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300"
+                          ? "bg-emerald-50 dark:bg-emerald-950/80 text-emerald-950 dark:text-emerald-200 font-semibold border-emerald-300 dark:border-emerald-700 shadow-2xs"
+                          : "hover:bg-gray-50 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300 border-transparent"
                       }`}
                     >
-                      <div className="truncate pr-2">
-                        <div className="truncate">{c.title}</div>
-                        <div className="text-[10px] text-gray-400 dark:text-gray-500 font-normal">
-                          {new Date(c.timestamp).toLocaleDateString()}
+                      <div className="min-w-0 flex-1 pr-2">
+                        <div className="truncate font-bold text-gray-900 dark:text-white">
+                          {c.title}
                         </div>
+                        <div className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5 flex flex-wrap items-center gap-1">
+                          <span>{dateStr}</span>
+                          {c.itinerary && <span>· {c.itinerary.days.length}d</span>}
+                          {c.constraints?.start && (
+                            <span className="text-emerald-700 dark:text-emerald-400">· {c.constraints.start}</span>
+                          )}
+                        </div>
+                        {c.constraints?.interests && c.constraints.interests.length > 0 && (
+                          <div className="flex flex-wrap items-center gap-1 mt-1">
+                            {c.constraints.interests.slice(0, 2).map((intId) => (
+                              <span
+                                key={intId}
+                                className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-100/80 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 font-semibold capitalize"
+                              >
+                                {intId}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                       </div>
                       <button
                         type="button"
@@ -214,7 +234,7 @@ export const AISidebar: React.FC<AISidebarProps> = ({
                           e.stopPropagation();
                           onDeleteConversation(c.id);
                         }}
-                        className="p-1 text-gray-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors cursor-pointer"
+                        className="p-1 text-gray-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors cursor-pointer shrink-0 mt-0.5"
                       >
                         <Trash2 size={13} />
                       </button>
@@ -288,44 +308,43 @@ export const AISidebar: React.FC<AISidebarProps> = ({
                   )}
 
                   <div
-                    className={`max-w-[85%] rounded-2xl p-3 leading-relaxed ${
+                    className={`max-w-[85%] rounded-2xl p-3 text-xs leading-relaxed ${
                       isUser
-                        ? "bg-emerald-700 text-white shadow-xs font-medium"
-                        : "bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-gray-100 border border-gray-200/80 dark:border-slate-700 shadow-2xs"
+                        ? "bg-emerald-700 text-white shadow-2xs font-medium"
+                        : "bg-gray-50 dark:bg-slate-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-slate-700 shadow-2xs"
                     }`}
                   >
                     <p className="whitespace-pre-wrap">{turn.message}</p>
 
                     {/* Clarification prompt banner */}
                     {!isUser && turn.response?.clarification && (
-                      <div
-                        data-testid="ai-clarification-box"
-                        className="mt-2.5 p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-blue-950 dark:text-blue-200 space-y-1"
-                      >
+                      <div className="mt-2.5 p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-blue-950 dark:text-blue-200 space-y-1">
                         <div className="font-bold text-blue-900 dark:text-blue-300 flex items-center gap-1 text-[11px]">
-                          <HelpCircle size={12} className="text-blue-600" />
-                          <span>Clarification:</span>
+                          <HelpCircle size={12} className="text-blue-700 dark:text-blue-400" />
+                          <span>Clarification Needed:</span>
                         </div>
-                        <p className="text-[11px] font-medium">{turn.response.clarification.question}</p>
+                        <p className="text-blue-900 dark:text-blue-200 font-medium">
+                          {turn.response.clarification.question}
+                        </p>
                       </div>
                     )}
 
-                    {/* Changed constraints chips */}
+                    {/* Updated constraints summary */}
                     {!isUser && turn.response?.changed_constraints && (
                       <div className="mt-2 pt-2 border-t border-gray-200 dark:border-slate-700 flex flex-wrap gap-1.5 text-[10px]">
                         {turn.response.changed_constraints.days != null && (
-                          <span className="px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-semibold border border-emerald-200 dark:border-emerald-800">
+                          <span className="px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-semibold border border-emerald-300 dark:border-emerald-800">
                             Days: {turn.response.changed_constraints.days}
                           </span>
                         )}
                         {turn.response.changed_constraints.interests && (
-                          <span className="px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-semibold border border-emerald-200 dark:border-emerald-800">
+                          <span className="px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-semibold border border-emerald-300 dark:border-emerald-800">
                             {turn.response.changed_constraints.interests.join(", ")}
                           </span>
                         )}
                         {turn.response.changed_constraints.start && (
-                          <span className="px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-semibold border border-emerald-200 dark:border-emerald-800">
-                            From: {turn.response.changed_constraints.start}
+                          <span className="px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-semibold border border-emerald-300 dark:border-emerald-800">
+                            Start: {turn.response.changed_constraints.start}
                           </span>
                         )}
                       </div>
@@ -373,7 +392,7 @@ export const AISidebar: React.FC<AISidebarProps> = ({
             Suggested Refinements
           </div>
           <div className="flex gap-1.5 overflow-x-auto pb-1 no-scrollbar">
-            {REFINEMENT_PROMPTS.map((prompt, idx) => (
+            {refinementPrompts.map((prompt, idx) => (
               <button
                 key={idx}
                 type="button"
@@ -400,7 +419,7 @@ export const AISidebar: React.FC<AISidebarProps> = ({
               type="text"
               placeholder={
                 hasItinerary
-                  ? "e.g. 'Add temples', 'Make it 3 days'..."
+                  ? "e.g. 'Add food stops', 'Make it 3 days'..."
                   : "e.g. 'Plan a 2-day nature trip in Koraput'..."
               }
               value={inputMessage}

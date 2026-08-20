@@ -86,14 +86,37 @@ export const TransportHopCard: React.FC<TransportHopCardProps> = ({ hop }) => {
             </div>
           </div>
 
-          <DataTierBadge tier={hop.data_tier} />
+          <div className="flex items-center gap-2">
+            {hop.estimated_minutes != null && hop.estimated_minutes > 120 && (
+              <span
+                data-testid="long-transfer-badge"
+                className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-extrabold uppercase tracking-wider"
+              >
+                Long Journey
+              </span>
+            )}
+            <DataTierBadge tier={hop.data_tier} />
+          </div>
         </div>
 
         {/* Travel metrics strip */}
         <div className="mt-2.5 flex flex-wrap items-center gap-3 text-xs text-gray-600">
           {formattedDuration && (
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-100">
-              <Clock size={12} className="text-emerald-700" />
+            <div
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border ${
+                hop.estimated_minutes != null && hop.estimated_minutes > 120
+                  ? "bg-amber-50 border-amber-200 text-amber-950 font-bold"
+                  : "bg-gray-50 border-gray-100"
+              }`}
+            >
+              <Clock
+                size={12}
+                className={
+                  hop.estimated_minutes != null && hop.estimated_minutes > 120
+                    ? "text-amber-700"
+                    : "text-emerald-700"
+                }
+              />
               <span className="font-semibold text-gray-900">{formattedDuration}</span>
             </div>
           )}

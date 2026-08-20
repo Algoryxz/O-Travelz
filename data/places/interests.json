@@ -1,0 +1,62 @@
+[
+  {
+    "id": "heritage",
+    "name": "heritage",
+    "description": "Historic monuments, forts, archaeological ruins, and classical heritage"
+  },
+  {
+    "id": "spirituality",
+    "name": "spirituality",
+    "description": "Sacred pilgrimage temples, shrines, monastic mathas, and spiritual centers"
+  },
+  {
+    "id": "architecture",
+    "name": "architecture",
+    "description": "Kalinga stone carvings, torana gateways, rock-cut caves, and classical structures"
+  },
+  {
+    "id": "food",
+    "name": "food",
+    "description": "Authentic regional Odia cuisine, sacred Mahaprasad, and street delicacies"
+  },
+  {
+    "id": "culture",
+    "name": "culture",
+    "description": "Living arts, handicrafts, museum collections, and cultural traditions"
+  },
+  {
+    "id": "nature",
+    "name": "nature",
+    "description": "Lakes, hill stations, scenic valleys, botanical gardens, and landscape viewpoints"
+  },
+  {
+    "id": "beach",
+    "name": "beach",
+    "description": "Coastal shores, golden sand beaches, marine promenades, and tidal phenomena"
+  },
+  {
+    "id": "wildlife",
+    "name": "wildlife",
+    "description": "National parks, bird sanctuaries, biosphere reserves, and wildlife habitats"
+  },
+  {
+    "id": "waterfall",
+    "name": "waterfall",
+    "description": "Perennial cascades, gorges, and forested water drops"
+  },
+  {
+    "id": "relaxation",
+    "name": "relaxation",
+    "description": "Tranquil retreats, peaceful promenades, leisurely viewpoints, and gardens"
+  },
+  {
+    "id": "adventure",
+    "name": "adventure",
+    "description": "Trekking, high peaks, safaris, and water sports expeditions"
+  },
+  {
+    "id": "shopping",
+    "name": "shopping",
+    "description": "Artisan handicraft markets, handloom bazaars, and traditional craft hubs"
+  }
+]

@@ -9,9 +9,12 @@ from app.api.ai_routes import router as ai_router
 from app.api.map_routes import router as map_router
 from app.api.places_routes import router as places_router
 from app.api.image_routes import router as image_router
+from app.api.weather_routes import router as weather_router
 from app.geospatial.http_adapter import MapProjectionHTTPError
 from app.schemas.api import APIErrorDetail, APIErrorResponse
 from app.services.itinerary import ItineraryPlanningError
+
+import os
 
 app = FastAPI(
     title="O-Travelz API",
@@ -19,10 +22,18 @@ app = FastAPI(
     version="0.1.0",
 )
 
+cors_origins_raw = os.environ.get("CORS_ORIGINS", "*")
+if cors_origins_raw.strip() == "*":
+    cors_origins = ["*"]
+    allow_credentials = False
+else:
+    cors_origins = [o.strip() for o in cors_origins_raw.split(",") if o.strip()]
+    allow_credentials = True
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=cors_origins,
+    allow_credentials=allow_credentials,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -41,6 +52,7 @@ app.include_router(ai_router, prefix="/ai", tags=["ai"])
 app.include_router(map_router, prefix="/map/v1", tags=["map"])
 app.include_router(image_router, prefix="/api/v1/images", tags=["images"])
 app.include_router(image_router, prefix="/static/images", tags=["images"])
+app.include_router(weather_router, prefix="/weather", tags=["weather"])
 
 
 

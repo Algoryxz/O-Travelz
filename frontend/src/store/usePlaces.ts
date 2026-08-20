@@ -32,6 +32,7 @@ const FALLBACK_EXTENDED_PLACES: ExtendedPlaceDetail[] = (seedPlacesData as any[]
   price_tier: raw.price_tier,
   source: raw.source,
   verified_at: raw.verified_at,
+  interests: raw.interests || [],
   region: getPlaceRegion(raw.name),
   imageUrl: getPlaceImageUrl(raw.name, raw.category),
 }));

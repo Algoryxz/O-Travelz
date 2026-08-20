@@ -1,85 +1,85 @@
 # O-Travelz Project Memory
 
-**Status**: Canonical Current-State Ledger (Phase 8 Demo Preparation & Final Release Gate Complete)
+**Status**: Canonical Current-State Ledger (Final Release Synchronization & Deployment Ready)
 
 This is a project-state record, not general AI memory.
 
 ---
 
-## Current State & Phase Completion Summary
+## 1. Current Release State Summary
 
-- **Phase 0 (Canonical Contracts & Freeze)**: Accepted.
-- **Phase 1 (Research & Verification)**: Accepted.
-- **Phase 2 (Database & Importers)**: Accepted.
-- **Phase 3 (Transport Graph & Providers)**: Accepted with explicit limitations.
-- **Phase 4 (Ranking & Itinerary Generation)**: Accepted.
-- **Phase 5 (AI Orchestration & Grounding)**: Accepted.
-- **Phase 6A (Geospatial, Map Projection V2 & Live Azure Storage)**: **ACCEPTED & VERIFIED**.
-- **Phase 6B (Frontend Implementation & UX Pass)**: **ACCEPTED & VERIFIED**.
-- **Phase 7 (Readiness & Integration Gate)**: **PASS — COMPLETE & VERIFIED**.
-- **Phase 8 (Demo Preparation & Final Release Gate)**: **PASS — COMPLETE & VERIFIED**.
+- **Date**: August 20, 2026
+- **Current Branch**: `main`
+- **Overall Status**: **READY TO DEPLOY (Release Candidate Complete)**
 
----
-
-## Canonical Demo Baseline & Rehearsal Status
-
-1. **Approved Scenarios**:
-   - **Scenario 1**: *The Odisha Heritage Triangle* (Bhubaneswar $\rightarrow$ Puri $\rightarrow$ Konark, 3 days $\rightarrow$ AI-refined to 2 days).
-   - **Scenario 2**: *Coastal Eco-Tourism & Wildlife* (Puri $\rightarrow$ Chilika $\rightarrow$ Konark, 2 days with AI safety clarification & explicit 3-day extension).
-2. **Rehearsal Evidence**:
-   - Automated rehearsal script [`scratch/phase8_demo_rehearsal.py`](file:///c:/Users/smara/Desktop/o-travelz/scratch/phase8_demo_rehearsal.py) and frontend test suite [`canonical_demo_flow.test.tsx`](file:///c:/Users/smara/Desktop/o-travelz/frontend/tests/canonical_demo_flow.test.tsx) pass with 100% reproducibility.
-3. **Documentation Package**:
-   - Demo Runbook: [`docs/DEMO_RUNBOOK.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/DEMO_RUNBOOK.md)
-   - Demonstration Evidence: [`docs/DEMO_EVIDENCE.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/DEMO_EVIDENCE.md)
-   - Known Limitations: [`docs/KNOWN_LIMITATIONS.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/KNOWN_LIMITATIONS.md)
-   - Destination Semantic Identity Audit: [`docs/50_DESTINATIONS_IMAGE_IDENTITY_AUDIT.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/50_DESTINATIONS_IMAGE_IDENTITY_AUDIT.md)
-   - Homepage Category Image Identity Audit: [`docs/HOMEPAGE_CATEGORY_IMAGE_IDENTITY_AUDIT.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/HOMEPAGE_CATEGORY_IMAGE_IDENTITY_AUDIT.md)
+### Verified Implementation Components:
+- **Backend**: FastAPI (Python 3.12) REST API with Pydantic V2 typed contracts, deterministic ranking service, Dijkstra transport graph router, PostGIS geospatial projector, and Open-Meteo weather service.
+- **Frontend**: React 18 + TypeScript + Vite responsive web application; interactive Leaflet map canvas, client-side trip history archive/restore, and contextual AI copilot.
+- **Database**: PostgreSQL 16 + PostGIS extension with 81 canonical places, 13 physical categories, 12 normalized traveler interests, and 206 Place-Interest M:N associations.
+- **Map Subsystem**: Single authoritative backend projection architecture (`POST /map/v1/projection`) consuming PostGIS geometry with graceful error, loading, and truthful empty states.
+- **Itinerary Engine**: Deterministic ranking with exact-interest matching, transport-aware graph routing, and cumulative timeline scheduling with truthful unknown transit handling.
+- **AI Copilot**: Rule-based intent extraction enforcing deterministic constraints; dynamic contextual suggestion generator; zero hallucinated facts.
+- **Persistence**: Client-side trip snapshots with full restoration across duration, start hub, and canonical interests with defensive error handling.
+- **Weather Integration**: Backend-isolated Open-Meteo weather adapter with WMO condition normalization, traveler advice, hub resolution, and live frontend UI widget.
+- **Deployment Readiness**: Production Vite build clean; Docker Compose backend ready; Vercel SPA rewrite configuration in place.
 
 ---
 
-## Quality Gate Baseline
+## 2. Canonical Dataset & Taxonomy Invariants
 
-- **Backend Pytest**: **288 tests in suite** (287 passed, 1 skipped when DB container offline; 288 passed when DB container online, 1 warning, 0 failures).
-- **Frontend Vitest**: **131 passed** across 16 test suites (100% green, 0 failures).
-- **Frontend Production Build**: Clean Vite build (`dist/` generated with 0 errors).
-- **Git Diff Check**: Clean (0 whitespace/conflict warnings).
-- **Image Subsystem Gate**: **CLOSED & LOCKED**.
-  - 0 duplicate destination or category image identities.
-  - Destination semantic identity audit: **50/50 verified matches** ([`50_DESTINATIONS_IMAGE_IDENTITY_AUDIT.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/50_DESTINATIONS_IMAGE_IDENTITY_AUDIT.md)).
-  - Homepage category image identity audit: **6/6 verified matches** ([`HOMEPAGE_CATEGORY_IMAGE_IDENTITY_AUDIT.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/HOMEPAGE_CATEGORY_IMAGE_IDENTITY_AUDIT.md)).
-  - Carousel visual identity audit: **5/5 hero destinations verified** with authentic WebP photography.
-- **Working Tree**: Uncommitted product implementation baseline.
+- **Verified Places**: **81 canonical places** with 100% verified WGS84 coordinate coverage (81/81).
+- **Physical Categories (13)**: `temple`, `monument`, `museum`, `market`, `park`, `lake`, `beach`, `nature`, `waterfall`, `wildlife`, `planetarium`, `sports_venue`, `science_center`.
+- **Traveler Interests (12)**: `heritage`, `spirituality`, `architecture`, `food`, `culture`, `nature`, `beach`, `wildlife`, `waterfall`, `relaxation`, `adventure`, `shopping`.
+- **Place-Interest Associations**: **206 verified M:N associations** (0 duplicate records).
+- **Importer Idempotency**: [scripts/import_places.py](file:///c:/Users/smara/Desktop/o-travelz/scripts/import_places.py) runs with zero duplicate additions or unintended database growth on repeated execution.
+- **Interest Provenance Precedence**: $\text{Explicit traveler-selected interests} \succ \text{genuine place.interests} \succ \text{empty } []$.
+- **Category Separation**: Physical categories and thematic interests are strictly separated; zero synthetic category-to-interest conversions.
 
 ---
 
-## Live Cloud & Storage Architecture
+## 3. Quality Gate & Test Evidence
 
-- **Azure Storage Account**: `stotravelzprod` (`centralindia`, `Standard_LRS`, `StorageV2`).
-- **Container Security**: `otravelz-images` (Private container, `AllowBlobPublicAccess = false`).
-- **Authentication**: Entra ID / `DefaultAzureCredential` via Azure CLI identity.
-- **Image Inventory**: 50/50 canonical Whole-Odisha destinations have verified, destination-specific photography ingested with full Creative Commons / Wikimedia Commons legal provenance and WebP multi-variant generation (`hero`, `card`, `thumbnail`).
-- **Delivery**: Secure backend proxy (`GET /api/v1/images/{storage_key}`) with `Cache-Control: public, max-age=31536000, immutable`.
-- **Fallback**: Verified multi-image sets and client-side fallbacks in `imageAdapter.ts` / `imageService.ts`.
-
----
-
-## Real-Product Traveler Journey & Handoff Baseline
-
-- **Destination Discovery**: Real-time filtering by region, category, and keyword across all 50 canonical Whole-Odisha places with real photography.
-- **Verified Place Details**: Reusable modal presenting descriptions, durations, price tiers, coordinates, and official source links without debug or UUID identifiers.
-- **Map & Itinerary Identity**: Canonical names (`feature.name`), categories, and regions bound from database records through projection contracts; zero `"Point #N"` or debug `{ID: ...}` labels.
-- **Transport Authority & Hierarchy**: Walking strictly constrained to $\le 2000\text{ m}$; intercity and non-walkable journeys $> 2000\text{ m}$ routed via the backend road engine (`mode="road"`) with realistic duration and distance calculations. Multimodal transit (Mo Bus) preserved.
-- **Traveler Handoff Flows**:
-  - *Place Details $\rightarrow$ Plan Trip*: Pre-populates `start = place.name` and seeds canonical category into `interests` if empty, preserving existing traveler intent.
-  - *Saved Places $\rightarrow$ Plan with Saved*: Aggregates distinct canonical categories into `interests` and binds starting location.
-  - *Map Marker Popup $\rightarrow$ Plan Trip*: Direct React callback path from Leaflet pin popups into the planning workspace.
+- **Backend Pytest**: **324 passed** / 0 failed across 26 test suites (`pytest backend/tests`).
+- **Frontend Vitest**: **167 passed** / 0 failed across 20 test files (`npm --prefix frontend test`).
+- **Production Build**: `npm --prefix frontend run build` completed with zero TypeScript/Vite errors (`dist/index.html` + css/js bundles).
+- **Backend Python Compilation**: `python -m compileall -q backend` completed with 0 errors.
+- **Git Diff Check**: `git diff --check` clean with 0 whitespace/conflict errors.
+- **Smoke Suite**: [scratch/full_smoke_suite.py](file:///c:/Users/smara/Desktop/o-travelz/scratch/full_smoke_suite.py) verified live API, importer idempotency, AI planning, and weather endpoints with 100% pass rate.
 
 ---
 
-## Explicit Scope Freeze
+## 4. Canonical Demo Scenarios
 
-- Zero AI in frontend components.
-- Zero client-side route synthesis or coordinate mathematics.
-- Zero unapproved product features (no hotel booking, flights, profiles, payments, social, or external booking).
-- Strict contract enforcement via Pydantic `extra="forbid"`.
-- Next state: **Release Presentation & Demonstration Ready (Gate CLOSED)**.
+1. **Scenario 1 — The Odisha Heritage Triangle**:
+   - Prompt: *"Plan a 2-day heritage trip in Bhubaneswar"*
+   - Result: Deterministically parsed `days=2`, `start="Bhubaneswar"`, `interests=["heritage"]`, scheduling verified stops (Lingaraj Temple, Mukteswara Temple, Khandagiri Caves) with inter-stop transit.
+2. **Scenario 2 — Architecture & Culinary Tour**:
+   - Prompt: *"Plan a 2-day architecture and heritage trip in Bhubaneswar"*
+   - Result: Deterministically parsed `interests=["heritage", "architecture"]`, routing through iconic temples and authentic food precincts (Ananda Bazar, Bapuji Nagar Food Corridor).
+3. **Scenario 3 — Non-Canonical Safety**:
+   - Prompt: *"Plan a photography trip"*
+   - Result: Non-canonical `photography` interest is safely omitted without hallucination or runtime error.
+
+---
+
+## 5. Deployment Configuration
+
+- **Frontend**:
+  - Build command: `npm run build`
+  - Output: `frontend/dist`
+  - Target: Vercel / Netlify / Cloudflare Pages
+  - Routing: [frontend/vercel.json](file:///c:/Users/smara/Desktop/o-travelz/frontend/vercel.json)
+  - Env: `VITE_API_BASE_URL`
+- **Backend**:
+  - Command: `uvicorn app.main:app --host 0.0.0.0 --port 8000`
+  - Python: 3.12
+  - Target: Docker / Render / Fly.io / AWS ECS
+  - Env: `DATABASE_URL`, `ENVIRONMENT=production`, `CORS_ORIGINS`, `WEATHER_PROVIDER=Open-Meteo`, `WEATHER_BASE_URL=https://api.open-meteo.com/v1/forecast`
+  - Health Endpoint: `GET /health`
+
+---
+
+## 6. Known Limitations
+
+- Real-time GTFS transit vehicle positions are not modeled; transport hops utilize verified static/scheduled baseline speeds.
+- Administrative district boundary GIS polygons are not modeled; long transfers are accurately labeled as `"Long Journey"`.

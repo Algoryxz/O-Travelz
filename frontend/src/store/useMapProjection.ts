@@ -23,6 +23,10 @@ export interface MapProjectionHook {
     itinerary: ItineraryPlanResponse,
     customClient?: ApiClient
   ) => Promise<MapProjectionResponse | null>;
+  fetchPlacesProjection: (
+    placeIds: string[],
+    customClient?: ApiClient
+  ) => Promise<MapProjectionResponse | null>;
   clearError: () => void;
   reset: () => void;
 }
@@ -98,6 +102,46 @@ export function useMapProjection(): MapProjectionHook {
     []
   );
 
+  const fetchPlacesProjection = useCallback(
+    async (
+      placeIds: string[],
+      customClient?: ApiClient
+    ): Promise<MapProjectionResponse | null> => {
+      const client = customClient ?? defaultApiClient;
+
+      const validPlaceIds = Array.from(new Set(placeIds)).filter(isUUID);
+      if (validPlaceIds.length === 0) {
+        setProjection(null);
+        setIsLoading(false);
+        setError(null);
+        return null;
+      }
+
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const payload: MapProjectionHTTPRequest = {
+          requested_features: validPlaceIds.map((id) => ({
+            entity: "place",
+            id,
+          })),
+          requested_hops: [],
+        };
+        const result = await client.getMapProjection(payload);
+        setProjection(result);
+        setIsLoading(false);
+        return result;
+      } catch (err) {
+        setError(err);
+        setProjection(null);
+        setIsLoading(false);
+        return null;
+      }
+    },
+    []
+  );
+
   const clearError = useCallback(() => {
     setError(null);
   }, []);
@@ -113,6 +157,7 @@ export function useMapProjection(): MapProjectionHook {
     isLoading,
     error,
     fetchProjection,
+    fetchPlacesProjection,
     clearError,
     reset,
   };

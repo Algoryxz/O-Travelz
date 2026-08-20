@@ -16,8 +16,16 @@ avg_visit_minutes, price_tier, source, verified_at, source_provenance_note,
 coordinate_verification, coordinate_audit_status, and audit_status. Research IDs are
 traceability identifiers; the database continues to use UUID primary keys.
 
-**Category** — id, name (the canonical category identifier, e.g. temple, museum, market,
-park), display_name, and description.
+**Category** — id, name (the canonical physical place type, e.g. temple, museum, market,
+park, beach, lake, monument, nature, waterfall, wildlife, planetarium, sports_venue, science_center),
+display_name, and description.
+
+**Interest** — id, name (the canonical traveler-facing thematic attribute, e.g. heritage, spirituality,
+architecture, food, culture, nature, beach, wildlife, waterfall, relaxation, adventure, shopping),
+display_name, and description.
+
+**PlaceInterest** — id, place_id, interest_id, with a unique constraint on (place_id, interest_id) to
+provide normalized many-to-many associations between places and thematic interests.
 
 **TransportProvider** — id, name (e.g. "Mo Bus", "Mo E-Ride", "Odisha Yatri", "Auto/E-rickshaw",
 "Taxi", "Walking"), legacy default data_tier (static | scheduled | live — see transportation

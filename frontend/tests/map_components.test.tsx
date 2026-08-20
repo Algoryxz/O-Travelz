@@ -186,9 +186,9 @@ describe("Phase 6B Map Components", () => {
       expect(html).toContain("Loading Map...");
     });
 
-    it("renders empty state when projection is null and not loading", () => {
+    it("renders empty state when projection is null and showAllPlacesWhenEmpty is false", () => {
       const html = renderClean(
-        <MapView projection={null} isLoading={false} error={null} />
+        <MapView projection={null} isLoading={false} error={null} showAllPlacesWhenEmpty={false} />
       );
 
       expect(html).toContain("Explore on the Map");

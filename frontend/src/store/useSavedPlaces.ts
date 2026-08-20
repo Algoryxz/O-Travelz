@@ -9,6 +9,7 @@ export interface SavedPlaceItem {
   distance?: string;
   notes?: string;
   tags?: string[];
+  interests?: string[];
   addedDate?: string;
   coordinates?: [number, number]; // [lon, lat]
 }

@@ -4,6 +4,7 @@ import { useAIConversation } from "../store/useAIConversation";
 import { useMapProjection } from "../store/useMapProjection";
 import { useConversationHistory } from "../store/useConversationHistory";
 import { useSavedPlaces } from "../store/useSavedPlaces";
+import { usePlaces } from "../store/usePlaces";
 import { ConstraintForm } from "../components/itinerary/ConstraintForm";
 import { ErrorAlert } from "../components/itinerary/ErrorAlert";
 import { InitialState } from "../components/itinerary/InitialState";
@@ -35,6 +36,7 @@ import {
   Compass,
   History,
   Sliders,
+  CheckCircle2,
 } from "lucide-react";
 
 type PlanningMode = "structured" | "ai";
@@ -67,6 +69,8 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   const plannerSectionRef = useRef<HTMLDivElement>(null);
 
   const { savedPlaces, savedCount } = useSavedPlaces();
+  const { places: allVerifiedPlaces, getPlaceByName } = usePlaces();
+  const [newTripFeedback, setNewTripFeedback] = useState<string | null>(null);
 
   const {
     conversations,
@@ -106,20 +110,26 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
     isLoading: isMapLoading,
     error: mapError,
     fetchProjection,
+    fetchPlacesProjection,
     clearError: clearMapError,
     reset: resetMap,
   } = useMapProjection();
 
   const isLoading = isPlannerLoading || isAiLoading;
 
-  // Whenever an itinerary is produced or updated, fetch its map projection
+  // Authoritative backend map projection flow:
+  // 1. If an itinerary is active, fetch its projection (stops + hops).
+  // 2. If no itinerary is active and traveler opens Map tab, fetch authoritative places projection.
   useEffect(() => {
     if (itinerary) {
       fetchProjection(itinerary, apiClient);
+    } else if (activeTab === "map") {
+      const placeIds = allVerifiedPlaces.map((p) => p.id);
+      fetchPlacesProjection(placeIds, apiClient);
     } else {
       resetMap();
     }
-  }, [itinerary, fetchProjection, resetMap, apiClient]);
+  }, [itinerary, activeTab, allVerifiedPlaces, fetchProjection, fetchPlacesProjection, resetMap, apiClient]);
 
   const handleTabChange = (tab: NavTab) => {
     setActiveTab(tab);
@@ -148,22 +158,15 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   };
 
   const handleAiPlan = async (userMessage: string) => {
-    const response = await sendAiPlan(userMessage, itinerary ? constraints : null, apiClient);
+    const response = await sendAiPlan(userMessage, constraints, apiClient);
     if (response) {
-      let updatedPlan = itinerary;
-      let updatedConstraints = constraints;
+      const updatedConstraints = response.changed_constraints || constraints;
+      const updatedPlan = response.itinerary || itinerary;
 
-      if (response.itinerary) {
-        updatedPlan = response.itinerary;
-        setItinerary(response.itinerary);
+      setConstraints(updatedConstraints);
+      if (updatedPlan) {
+        setItinerary(updatedPlan);
         setActiveResultTab("itinerary");
-        if (activeTab !== "plan") {
-          setActiveTab("plan");
-        }
-      }
-      if (response.changed_constraints) {
-        updatedConstraints = response.changed_constraints;
-        setConstraints(response.changed_constraints);
       }
 
       // Save conversation turn to history
@@ -181,6 +184,15 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   };
 
   const handleStartNewTrip = () => {
+    if (itinerary) {
+      saveOrUpdateConversation({
+        history: aiHistory,
+        constraints,
+        itinerary,
+      });
+      setNewTripFeedback("Previous itinerary saved to 'Your Trips'. Starting a fresh plan.");
+      setTimeout(() => setNewTripFeedback(null), 4000);
+    }
     startNewTrip();
     resetPlanner();
     resetAi();
@@ -245,9 +257,27 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   };
 
   const handlePlanWithCategory = (category: string) => {
+    const catLower = category.toLowerCase().trim();
+    // Only pass interest if it exactly matches a canonical interest ID.
+    // Physical categories (e.g. temple, market, museum, sports_venue) are NEVER converted to interests.
+    const isCanonicalInterest = [
+      "heritage",
+      "spirituality",
+      "architecture",
+      "food",
+      "culture",
+      "nature",
+      "beach",
+      "wildlife",
+      "waterfall",
+      "relaxation",
+      "adventure",
+      "shopping",
+    ].includes(catLower);
+
     setConstraints({
       ...constraints,
-      interests: [category.toLowerCase()],
+      interests: isCanonicalInterest ? [catLower] : [],
     });
     setActiveTab("plan");
     setActiveMode("structured");
@@ -267,19 +297,27 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   };
 
   const handlePlanTripWithPlace = (place: SelectedPlaceInfo) => {
-    const existingInterests = constraints.interests || [];
-    const categoryName = place.category?.toLowerCase().trim();
-    const updatedInterests =
-      existingInterests.length > 0
-        ? existingInterests
-        : categoryName
-        ? [categoryName]
+    // Semantic precedence: Explicit traveler-selected interests > genuine place.interests > empty interests
+    const explicitInterests = constraints.interests || [];
+    const lookup = getPlaceByName(place.name);
+    const genuinePlaceInterests =
+      place.interests && place.interests.length > 0
+        ? place.interests
+        : lookup?.interests && lookup.interests.length > 0
+        ? lookup.interests
+        : [];
+
+    const effectiveInterests =
+      explicitInterests.length > 0
+        ? explicitInterests
+        : genuinePlaceInterests.length > 0
+        ? genuinePlaceInterests
         : [];
 
     setConstraints({
       ...constraints,
       start: place.name,
-      interests: updatedInterests,
+      interests: effectiveInterests,
     });
     setSelectedPlaceForModal(null);
     setActiveTab("plan");
@@ -439,23 +477,27 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
       {activeTab === "saved" && (
         <SavedPlacesPage
           onBackToDiscover={() => setActiveTab("discover")}
-          onPlanWithSaved={(places) => {
-            const savedCategories = Array.from(
+          onPlanWithSaved={(savedItems) => {
+            const explicitInterests = constraints.interests || [];
+            const genuineSavedInterests = Array.from(
               new Set(
-                places
-                  .map((p) => p.category?.toLowerCase().trim())
-                  .filter((cat): cat is string => !!cat)
+                savedItems.flatMap((p) => {
+                  const lookup = getPlaceByName(p.name);
+                  return p.interests || lookup?.interests || [];
+                })
               )
             );
-            const existingInterests = constraints.interests || [];
-            const mergedInterests = Array.from(
-              new Set([...existingInterests, ...savedCategories])
-            );
+            const effectiveInterests =
+              explicitInterests.length > 0
+                ? explicitInterests
+                : genuineSavedInterests.length > 0
+                ? genuineSavedInterests
+                : [];
 
             setConstraints({
               ...constraints,
-              interests: mergedInterests,
-              start: constraints.start || places[0]?.name || null,
+              interests: effectiveInterests,
+              start: constraints.start || savedItems[0]?.name || null,
             });
             setActiveTab("plan");
             setActiveMode("structured");
@@ -535,6 +577,26 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
             </div>
           </div>
 
+          {/* New Trip Feedback Notification */}
+          {newTripFeedback && (
+            <div
+              data-testid="new-trip-feedback-banner"
+              className="p-3.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 text-emerald-950 dark:text-emerald-200 text-xs font-semibold flex items-center justify-between gap-3 animate-in fade-in duration-200"
+            >
+              <div className="flex items-center gap-2">
+                <CheckCircle2 size={16} className="text-emerald-700 dark:text-emerald-400 shrink-0" />
+                <span>{newTripFeedback}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setNewTripFeedback(null)}
+                className="text-xs text-emerald-800 dark:text-emerald-300 hover:text-emerald-950 dark:hover:text-white cursor-pointer"
+              >
+                Dismiss
+              </button>
+            </div>
+          )}
+
           {/* Main Grid with Trip History Sidebar & Planning Center */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Sidebar: Conversation / Trip History */}
@@ -591,9 +653,9 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
                           key={conv.id}
                           data-testid={`trip-history-item-${conv.id}`}
                           onClick={() => handleSelectSavedConversation(conv.id)}
-                          className={`p-3 rounded-2xl transition-all cursor-pointer flex items-center justify-between gap-2 border ${
+                          className={`p-3 rounded-2xl transition-all cursor-pointer flex items-start justify-between gap-2 border ${
                             isActive
-                              ? "bg-emerald-50 dark:bg-emerald-950/70 border-emerald-300 dark:border-emerald-700 text-emerald-950 dark:text-emerald-200 font-semibold"
+                              ? "bg-emerald-50 dark:bg-emerald-950/70 border-emerald-300 dark:border-emerald-700 text-emerald-950 dark:text-emerald-200 font-semibold shadow-2xs"
                               : "bg-gray-50/70 dark:bg-slate-800/70 border-transparent hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300"
                           }`}
                         >
@@ -601,12 +663,29 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
                             <div className="text-xs truncate font-display font-bold text-gray-900 dark:text-white">
                               {conv.title}
                             </div>
-                            <div className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5 flex items-center gap-2">
+                            <div className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5 flex flex-wrap items-center gap-1.5">
                               <span>{dateStr}</span>
                               {conv.itinerary && (
                                 <span>· {conv.itinerary.days.length}d</span>
                               )}
+                              {conv.constraints?.start && (
+                                <span className="text-emerald-700 dark:text-emerald-400 font-medium">
+                                  · from {conv.constraints.start}
+                                </span>
+                              )}
                             </div>
+                            {conv.constraints?.interests && conv.constraints.interests.length > 0 && (
+                              <div className="flex flex-wrap items-center gap-1 mt-1.5">
+                                {conv.constraints.interests.slice(0, 3).map((intId) => (
+                                  <span
+                                    key={intId}
+                                    className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-emerald-100/70 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 capitalize"
+                                  >
+                                    {intId}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
                           </div>
 
                           <button
@@ -616,7 +695,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
                               e.stopPropagation();
                               deleteConversation(conv.id);
                             }}
-                            className="p-1 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer"
+                            className="p-1 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer shrink-0 mt-0.5"
                             aria-label="Delete trip"
                           >
                             <Trash2 size={13} />

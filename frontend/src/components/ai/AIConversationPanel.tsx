@@ -4,6 +4,8 @@ import { ErrorAlert } from "../itinerary/ErrorAlert";
 import { Bot, Send, Sparkles, User, HelpCircle, CheckCircle2, AlertCircle } from "lucide-react";
 import type { ConversationTurn } from "../../store/useAIConversation";
 
+import { getRefinementSuggestions } from "../../utils/timelineService";
+
 interface AIConversationPanelProps {
   currentConstraints?: PlanningConstraints | null;
   hasItinerary: boolean;
@@ -14,14 +16,6 @@ interface AIConversationPanelProps {
   onSend: (message: string) => void;
   onClearError?: () => void;
 }
-
-const REFINEMENT_SUGGESTIONS = [
-  "Make it more food focused",
-  "Add temples and culture",
-  "Plan 2 days in Koraput",
-  "Start from Daringbadi",
-  "More nature & waterfalls",
-];
 
 export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
   currentConstraints,
@@ -34,6 +28,7 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
   onClearError,
 }) => {
   const [message, setMessage] = useState<string>("");
+  const refinementSuggestions = getRefinementSuggestions(currentConstraints, hasItinerary);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -102,14 +97,14 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
           Suggested Prompts
         </span>
         <div className="flex flex-wrap gap-2">
-          {REFINEMENT_SUGGESTIONS.map((suggestion, index) => (
+          {refinementSuggestions.map((suggestion, index) => (
             <button
               type="button"
               key={index}
               disabled={isLoading}
               onClick={() => handleSuggestionClick(suggestion)}
               data-testid={`ai-suggestion-${index}`}
-              className="text-xs px-3.5 py-1.5 rounded-xl bg-gray-50 hover:bg-emerald-50 text-gray-700 hover:text-emerald-900 border border-gray-200 hover:border-emerald-300 transition-colors disabled:opacity-50 text-left cursor-pointer"
+              className="text-xs px-3.5 py-1.5 rounded-xl bg-gray-50 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/60 text-gray-700 dark:text-gray-300 hover:text-emerald-900 dark:hover:text-emerald-200 border border-gray-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors disabled:opacity-50 text-left cursor-pointer"
             >
               &ldquo;{suggestion}&rdquo;
             </button>

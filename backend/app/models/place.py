@@ -47,3 +47,10 @@ class Place(Base):
         cascade="all, delete-orphan",
         order_by="PlaceImage.sort_order",
     )
+
+    # M:N relationship to Interest via PlaceInterest
+    interest_associations = relationship(
+        "PlaceInterest",
+        back_populates="place",
+        cascade="all, delete-orphan",
+    )

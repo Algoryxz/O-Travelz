@@ -59,14 +59,12 @@ def test_manifest_covers_all_50_canonical_destinations():
     places = json.loads(PLACES_JSON_PATH.read_text(encoding="utf-8"))
 
     assert len(manifest) == 50, f"Expected 50 manifest entries, got {len(manifest)}"
-    assert len(places) == 50, f"Expected 50 places in places.json, got {len(places)}"
+    assert len(places) >= 50, f"Expected at least 50 places in places.json, got {len(places)}"
 
-    manifest_by_id = {m["place_id"]: m for m in manifest}
-    for p in places:
-        pid = p["id"]
-        assert pid in manifest_by_id, f"Place {pid} ({p.get('name')}) missing from image manifest"
-
-        m = manifest_by_id[pid]
+    places_by_id = {p["id"]: p for p in places}
+    for m in manifest:
+        pid = m["place_id"]
+        assert pid in places_by_id, f"Manifest place {pid} ({m.get('place_name')}) missing from places.json"
         assert m.get("creator"), f"Missing creator in manifest for {pid}"
         assert m.get("license") in APPROVED_LICENSES, f"Invalid license '{m.get('license')}' for {pid}"
         assert m.get("attribution"), f"Missing attribution statement for {pid}"

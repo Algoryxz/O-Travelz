@@ -10,7 +10,6 @@ from app.services.ranking.repository import VerifiedPlace
 
 def normalize_identifier(value: str) -> str:
     """Normalize identifiers without fuzzy or semantic matching."""
-
     return value.strip().casefold()
 
 
@@ -21,14 +20,14 @@ class RankedPlace:
 
 
 class RankingService:
-    """Rank candidates using only approved category relevance and tie-breaks."""
+    """Rank candidates using only approved interest and category relevance and tie-breaks."""
 
     def rank(
         self,
         constraints: PlanningConstraints,
         candidates: Iterable[VerifiedPlace],
     ) -> tuple[RankedPlace, ...]:
-        interests = {
+        requested_interests = {
             normalize_identifier(interest)
             for interest in constraints.interests
             if normalize_identifier(interest)
@@ -36,15 +35,24 @@ class RankingService:
         ranked = [
             RankedPlace(
                 place=candidate,
-                relevance=(
-                    1
-                    if interests and normalize_identifier(candidate.category_id) in interests
-                    else 0
-                ),
+                relevance=self._calculate_relevance(candidate, requested_interests),
             )
             for candidate in candidates
         ]
         return tuple(sorted(ranked, key=self._sort_key))
+
+    @staticmethod
+    def _calculate_relevance(candidate: VerifiedPlace, requested_interests: set[str]) -> int:
+        if not requested_interests:
+            return 0
+        candidate_interests = {
+            normalize_identifier(i) for i in candidate.interests if normalize_identifier(i)
+        }
+        # Exact matching only: count number of exact matched interests
+        interest_matches = len(requested_interests & candidate_interests)
+        # Backwards-compatible exact category match if category name is in requested_interests
+        cat_match = 1 if normalize_identifier(candidate.category_id) in requested_interests else 0
+        return interest_matches + cat_match
 
     @staticmethod
     def _sort_key(candidate: RankedPlace) -> tuple[int, str, str, int, str, str]:

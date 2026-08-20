@@ -25,7 +25,7 @@ describe("Phase 6B AI Conversation Components", () => {
 
       expect(html).toContain("AI Trip Assistant");
       expect(html).toContain("Suggested Prompts");
-      expect(html).toContain("Make it more food focused");
+      expect(html).toContain("Plan a 2-day heritage trip in Bhubaneswar");
       expect(html).toContain("Ask AI Assistant");
     });
 
