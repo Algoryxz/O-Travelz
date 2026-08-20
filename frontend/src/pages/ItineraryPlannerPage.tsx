@@ -73,21 +73,37 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   const { savedPlaces, savedCount } = useSavedPlaces();
   const { places: allVerifiedPlaces, getPlaceByName } = usePlaces();
   const [newTripFeedback, setNewTripFeedback] = useState<string | null>(null);
+  const [isLiveLocation, setIsLiveLocation] = useState<boolean>(true);
 
-  useEffect(() => {
+  const fetchLiveLocation = () => {
     if (typeof navigator !== "undefined" && navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setUserCoords({
             lat: position.coords.latitude,
-            lon: position.coords.longitude
+            lon: position.coords.longitude,
           });
+          setIsLiveLocation(true);
         },
         (error) => {
           console.warn("Geolocation error:", error);
+          setIsLiveLocation(false);
         }
       );
     }
+  };
+
+  const handleToggleLiveLocation = () => {
+    if (isLiveLocation) {
+      setIsLiveLocation(false);
+      setUserCoords(null);
+    } else {
+      fetchLiveLocation();
+    }
+  };
+
+  useEffect(() => {
+    fetchLiveLocation();
   }, []);
 
   const {
@@ -398,6 +414,9 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         onOpenAI={() => setIsAISidebarOpen(true)}
         onOpenSettings={() => setIsSettingsModalOpen(true)}
         savedCount={savedCount}
+        isLiveLocation={isLiveLocation}
+        onToggleLiveLocation={handleToggleLiveLocation}
+        onRefreshLocation={fetchLiveLocation}
       />
 
       {/* Mobile Navigation Drawer */}
