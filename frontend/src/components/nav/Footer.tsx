@@ -3,10 +3,19 @@ import { MapPin, ShieldCheck, Sparkles, Heart, ArrowUp, Compass } from "lucide-r
 import type { NavTab } from "./TopNav";
 
 interface FooterProps {
+  selectedLocation?: string;
+  onNavigate?: (tab: NavTab) => void;
+  onSelectCategory?: (category: string) => void;
   onNavigateToTab?: (tab: NavTab) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigateToTab }) => {
+export const Footer: React.FC<FooterProps> = ({
+  selectedLocation = "Bhubaneswar",
+  onNavigate,
+  onSelectCategory,
+  onNavigateToTab,
+}) => {
+  const handleNav = onNavigate || onNavigateToTab;
   return (
     <footer className="relative bg-[#041611] text-[#93b3a7] border-t border-emerald-950/80 pt-14 pb-10 overflow-hidden">
       {/* Decorative subtle ambient glows */}
@@ -31,7 +40,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToTab }) => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-emerald-900/40 items-start">
           {/* Brand Col */}
           <div className="md:col-span-5 space-y-3.5">
-            <div className="flex items-center gap-3 group cursor-pointer" onClick={() => onNavigateToTab?.("discover")}>
+            <div className="flex items-center gap-3 group cursor-pointer" onClick={() => handleNav?.("discover")}>
               <img
                 src="/images/logo.png"
                 alt="O-Travelz Logo"
@@ -78,10 +87,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToTab }) => {
             <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 font-mono">
               PROVENANCE
             </div>
-            <span className="px-3.5 py-1.5 rounded-xl bg-emerald-950/90 text-emerald-300 text-xs font-bold border border-emerald-800/70 font-mono flex items-center gap-1.5 shadow-sm hover:border-emerald-500/50 transition-colors">
-              <MapPin size={12} className="text-emerald-400" />
-              <span>MADE IN ODISHA</span>
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-3.5 py-1.5 rounded-xl bg-emerald-950/90 text-emerald-300 text-xs font-bold border border-emerald-800/70 font-mono flex items-center gap-1.5 shadow-sm hover:border-emerald-500/50 transition-colors">
+                <MapPin size={12} className="text-emerald-400" />
+                <span>MADE IN ODISHA · {selectedLocation}</span>
+              </span>
+            </div>
             <div className="text-[11px] text-emerald-400/80 flex items-center gap-1.5 pt-1">
               <span>Designed with care for explorers</span>
               <Heart size={12} className="text-rose-400 fill-rose-400" />

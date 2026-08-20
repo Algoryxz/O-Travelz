@@ -35,12 +35,12 @@ const STORAGE_KEY = "otravelz_place_memories_v2";
 const MAX_MEMORIES = 30;
 
 function loadPlaceMemories(): PlaceMemoryItem[] {
-  if (typeof window === "undefined") return [];
+  if (typeof window === "undefined" && typeof localStorage === "undefined") return [];
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = typeof localStorage !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
     if (!raw) {
       // Check legacy key
-      const legacyRaw = localStorage.getItem("otravelz_recent_places_v1");
+      const legacyRaw = typeof localStorage !== "undefined" ? localStorage.getItem("otravelz_recent_places_v1") : null;
       if (legacyRaw) {
         const legacy = JSON.parse(legacyRaw);
         return legacy.map((item: any) => ({
@@ -59,9 +59,11 @@ function loadPlaceMemories(): PlaceMemoryItem[] {
 }
 
 function savePlaceMemories(items: PlaceMemoryItem[]): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" && typeof localStorage === "undefined") return;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
   } catch {
     // Ignore storage errors
   }

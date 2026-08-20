@@ -5,21 +5,21 @@ export interface SavedPlaceItem {
   name: string;
   category: string;
   location?: string;
-  description?: string | null;
-  distance?: string;
   notes?: string;
+  distance?: string;
+  coordinates?: [number, number];
+  savedAt?: number;
+  description?: string;
   tags?: string[];
   interests?: string[];
-  addedDate?: string;
-  coordinates?: [number, number]; // [lon, lat]
 }
 
 const STORAGE_KEY = "o_travelz_saved_places";
 
 function loadSavedPlacesFromStorage(): SavedPlaceItem[] {
-  if (typeof window === "undefined") return [];
+  if (typeof window === "undefined" && typeof localStorage === "undefined") return [];
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = typeof localStorage !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
     if (!raw) return [];
     const parsed = JSON.parse(raw);
     return Array.isArray(parsed) ? parsed : [];
@@ -29,9 +29,11 @@ function loadSavedPlacesFromStorage(): SavedPlaceItem[] {
 }
 
 function saveSavedPlacesToStorage(items: SavedPlaceItem[]): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" && typeof localStorage === "undefined") return;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
   } catch {
     // ignore storage quota errors
   }
@@ -54,11 +56,12 @@ export function useSavedPlaces() {
   }, []);
 
   const isSaved = useCallback(
-    (idOrName: string): boolean => {
-      const match = idOrName.trim().toLowerCase();
+    (placeIdOrName: string) => {
+      const target = placeIdOrName.toLowerCase().trim();
       return savedPlaces.some(
         (p) =>
-          p.id.toLowerCase() === match || p.name.toLowerCase() === match
+          p.id.toLowerCase().trim() === target ||
+          p.name.toLowerCase().trim() === target
       );
     },
     [savedPlaces]
@@ -66,36 +69,25 @@ export function useSavedPlaces() {
 
   const savePlace = useCallback((place: SavedPlaceItem) => {
     setSavedPlaces((prev) => {
-      if (
-        prev.some(
-          (p) =>
-            p.id.toLowerCase() === place.id.toLowerCase() ||
-            p.name.toLowerCase() === place.name.toLowerCase()
-        )
-      ) {
-        return prev;
-      }
-      const updated = [
-        ...prev,
-        {
-          ...place,
-          addedDate: place.addedDate ?? new Date().toLocaleDateString("en-IN", {
-            month: "short",
-            day: "numeric",
-          }),
-        },
-      ];
+      const exists = prev.some(
+        (p) =>
+          p.id.toLowerCase().trim() === place.id.toLowerCase().trim() ||
+          p.name.toLowerCase().trim() === place.name.toLowerCase().trim()
+      );
+      if (exists) return prev;
+      const updated = [{ ...place, savedAt: Date.now() }, ...prev];
       saveSavedPlacesToStorage(updated);
       return updated;
     });
   }, []);
 
-  const removePlace = useCallback((idOrName: string) => {
+  const removePlace = useCallback((placeIdOrName: string) => {
     setSavedPlaces((prev) => {
-      const match = idOrName.trim().toLowerCase();
+      const target = placeIdOrName.toLowerCase().trim();
       const updated = prev.filter(
         (p) =>
-          p.id.toLowerCase() !== match && p.name.toLowerCase() !== match
+          p.id.toLowerCase().trim() !== target &&
+          p.name.toLowerCase().trim() !== target
       );
       saveSavedPlacesToStorage(updated);
       return updated;
@@ -113,7 +105,7 @@ export function useSavedPlaces() {
     [isSaved, savePlace, removePlace]
   );
 
-  const clearAllSaved = useCallback(() => {
+  const clearSavedPlaces = useCallback(() => {
     setSavedPlaces([]);
     saveSavedPlacesToStorage([]);
   }, []);
@@ -125,6 +117,6 @@ export function useSavedPlaces() {
     savePlace,
     removePlace,
     toggleSavePlace,
-    clearAllSaved,
+    clearSavedPlaces,
   };
 }
