@@ -21,11 +21,12 @@ import { HomeSections } from "../components/home/HomeSections";
 import { DestinationsPage } from "../components/home/DestinationsPage";
 import { CategoryExplorePage } from "../components/home/CategoryExplorePage";
 import { SavedPlacesPage } from "../components/home/SavedPlacesPage";
+import { Footer } from "../components/nav/Footer";
 import {
   PlaceDetailsModal,
   type SelectedPlaceInfo,
 } from "../components/place/PlaceDetailsModal";
-import type { ApiClient } from "../api/client";
+import type { ApiClient } from "../services/api";
 import {
   Bot,
   CalendarDays,
@@ -51,6 +52,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   const [activeTab, setActiveTab] = useState<AppView>("discover");
   const [selectedCategory, setSelectedCategory] = useState<string>("Nature");
   const [selectedLocation, setSelectedLocation] = useState<string>("Bhubaneswar");
+  const [userCoords, setUserCoords] = useState<{lat: number, lon: number} | null>(null);
   const [destinationSearch, setDestinationSearch] = useState<string>("");
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
   const [isAISidebarOpen, setIsAISidebarOpen] = useState(false);
@@ -71,6 +73,22 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   const { savedPlaces, savedCount } = useSavedPlaces();
   const { places: allVerifiedPlaces, getPlaceByName } = usePlaces();
   const [newTripFeedback, setNewTripFeedback] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof navigator !== "undefined" && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserCoords({
+            lat: position.coords.latitude,
+            lon: position.coords.longitude
+          });
+        },
+        (error) => {
+          console.warn("Geolocation error:", error);
+        }
+      );
+    }
+  }, []);
 
   const {
     conversations,
@@ -236,12 +254,40 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   };
 
   const handleSurpriseMe = () => {
-    handleAiPlan("Plan an exciting 2-day trip in Odisha");
-    setActiveMode("ai");
-    setActiveTab("plan");
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    if (allVerifiedPlaces.length === 0) return;
+
+    let candidates = allVerifiedPlaces;
+    
+    // Prioritize geographically relevant places based on selectedLocation
+    if (selectedLocation) {
+      const locCandidates = candidates.filter((p) => 
+        p.name.toLowerCase().includes(selectedLocation.toLowerCase()) ||
+        (p.description || "").toLowerCase().includes(selectedLocation.toLowerCase())
+      );
+      if (locCandidates.length > 0) {
+        candidates = locCandidates;
+      }
     }
+
+    // Apply category preferences if available (using selectedCategory)
+    if (selectedCategory && selectedCategory !== "All") {
+      const catCandidates = candidates.filter((p) => 
+        p.category.toLowerCase().includes(selectedCategory.toLowerCase())
+      );
+      if (catCandidates.length > 0) {
+        candidates = catCandidates;
+      }
+    }
+
+    // Randomize among valid candidates
+    const randomPlace = candidates[Math.floor(Math.random() * candidates.length)];
+
+    setSelectedPlaceForModal({
+      name: randomPlace.name,
+      category: randomPlace.category,
+      description: randomPlace.description ?? undefined,
+      interests: randomPlace.interests,
+    });
   };
 
   const handleSelectHeroDestination = (dest: SelectedPlaceInfo) => {
@@ -426,6 +472,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
           {/* Discovery & Contextual Home Sections with 2 Coverflow Carousels */}
           <HomeSections
             selectedLocation={selectedLocation}
+            userCoords={userCoords}
             onNavigateToPlan={() => setActiveTab("plan")}
             onNavigateToMap={(place) => {
               if (place) {
@@ -435,11 +482,9 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
                 setActiveResultTab("map");
               }
             }}
-            onNavigateToCopilot={() => {
-              setIsAISidebarOpen(true);
-            }}
             onSelectCategory={handleSelectCategory}
             onSelectPlace={(place) => setSelectedPlaceForModal(place)}
+            onNavigateToCopilot={() => setIsAISidebarOpen(true)}
           />
         </div>
       )}
@@ -519,7 +564,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         <main className="max-w-7xl w-full mx-auto px-4 sm:px-6 py-8 space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-gray-200 dark:border-slate-800">
             <div>
-              <div className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-mono flex items-center gap-1.5">
+              <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono flex items-center gap-1.5">
                 <span className="live-dot" /> ODISHA ROUTE &amp; TRANSIT MAP
               </div>
               <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 dark:text-white tracking-tight">
@@ -563,7 +608,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
             <div className="relative z-10 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="live-dot" />
-                <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 font-mono">
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono">
                   Odisha Travel Planner
                 </span>
               </div>
@@ -840,6 +885,9 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
           </div>
         </main>
       )}
+
+      {/* 7. Full Site Footer */}
+      <Footer onNavigateToTab={handleTabChange} />
     </div>
   );
 };

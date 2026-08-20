@@ -108,7 +108,7 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
         <div className="flex items-end justify-between gap-4 mb-3 px-1 sm:px-0">
           <div>
             {tag && (
-              <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-mono">
+              <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono">
                 {tag}
               </div>
             )}

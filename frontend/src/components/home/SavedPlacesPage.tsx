@@ -43,7 +43,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
             <ArrowLeft size={18} />
           </button>
           <div>
-            <div className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 font-mono">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 font-mono">
               SAVED DESTINATIONS
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 tracking-tight flex items-center gap-2">
@@ -149,7 +149,8 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                           location: item.location,
                           tags: item.tags,
                           interests: item.interests,
-                          coordinates: item.coordinates,
+                          lat: item.coordinates?.[1],
+                          lon: item.coordinates?.[0],
                         })
                       }
                     >

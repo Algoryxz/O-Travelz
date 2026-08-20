@@ -15,7 +15,7 @@ import { usePlaces, type ExtendedPlaceDetail } from "../../store/usePlaces";
 import { getPlaceImageUrl } from "../../utils/imageService";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
 
-import { CANONICAL_CATEGORIES, CANONICAL_INTERESTS } from "../../api/contracts";
+import { CANONICAL_CATEGORIES, CANONICAL_INTERESTS } from "../../types/api";
 
 interface DestinationsPageProps {
   onSelectPlace: (place: SelectedPlaceInfo) => void;
@@ -115,7 +115,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
         <div className="relative z-10 space-y-3">
           <div className="flex items-center gap-2">
             <span className="live-dot" />
-            <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 font-mono">
+            <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono">
               All Odisha Destinations ({places.length} Places)
             </span>
           </div>

@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { useSavedPlaces } from "../../store/useSavedPlaces";
 import { useWeather } from "../../store/useWeather";
+import { usePlaces } from "../../store/usePlaces";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
 import { CoverflowCarousel, type CoverflowItem } from "../gallery/CoverflowCarousel";
 import {
@@ -30,8 +31,22 @@ import {
   DEFAULT_FALLBACK_IMAGE,
 } from "../../utils/imageService";
 
+// Helper function to calculate distance in km using Haversine formula
+function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371; // Earth's radius in km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return R * c;
+}
+
 interface HomeSectionsProps {
   selectedLocation: string;
+  userCoords?: { lat: number, lon: number } | null;
   onNavigateToPlan: () => void;
   onNavigateToMap: (place?: SelectedPlaceInfo) => void;
   onNavigateToCopilot: () => void;
@@ -41,6 +56,7 @@ interface HomeSectionsProps {
 
 export const HomeSections: React.FC<HomeSectionsProps> = ({
   selectedLocation,
+  userCoords,
   onNavigateToPlan,
   onNavigateToMap,
   onNavigateToCopilot,
@@ -50,6 +66,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
   const [activeFilter, setActiveFilter] = useState("All");
   const { savedPlaces, isSaved, toggleSavePlace } = useSavedPlaces();
   const { weather, isLoading: isWeatherLoading } = useWeather(selectedLocation);
+  const { places } = usePlaces();
 
   // Carousel #1: Featured Whole-Odisha Destinations
   const discoveryCarouselItems: CoverflowItem[] = useMemo(() => {
@@ -158,44 +175,31 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
     ];
   }, []);
 
-  const nearbyPlaces = [
-    {
-      title: "Brewbakes Café",
-      type: "FOOD & DRINK",
-      category: "Hangout & Chill",
-      distance: "0.8 km",
-      status: "Open now",
-      note: "Specialty brew & calm work tables",
-      rating: 4.7,
-    },
-    {
-      title: "Kalinga Stadium",
-      type: "SPORTS & ACTIVITIES",
-      category: "Sports",
-      distance: "2.1 km",
-      status: "Available",
-      note: "Athletic complex & badminton courts",
-      rating: 4.5,
-    },
-    {
-      title: "Game On Arena",
-      type: "GAMING & CYBER",
-      category: "Hangout & Chill",
-      distance: "1.4 km",
-      status: "Open now",
-      note: "PC gaming lounge & console stations",
-      rating: 4.6,
-    },
-    {
-      title: "SBI ATM, Jaydev Vihar",
-      type: "ATMS",
-      category: "ATMs",
-      distance: "0.4 km",
-      status: "Status unavailable",
-      note: "Cash dispenser next to Pal Heights",
-      rating: 4.0,
-    },
-  ];
+  const nearbyPlaces = useMemo(() => {
+    if (!places || places.length === 0) return [];
+    
+    // Determine the reference coordinates. Default to Bhubaneswar if none.
+    const refLat = userCoords?.lat ?? 20.2961;
+    const refLon = userCoords?.lon ?? 85.8245;
+
+    return places
+      .filter(place => place.lat != null && place.lon != null)
+      .map(place => {
+        const dist = calculateDistance(refLat, refLon, place.lat as number, place.lon as number);
+        return {
+          title: place.name,
+          type: place.category.toUpperCase(),
+          category: place.category,
+          distance: dist < 1 ? `${(dist * 1000).toFixed(0)} m` : `${dist.toFixed(1)} km`,
+          distanceValue: dist,
+          status: "Available",
+          note: (place.description || "").substring(0, 60) + "...",
+          rating: 4.5,
+        };
+      })
+      .sort((a, b) => a.distanceValue - b.distanceValue)
+      .slice(0, 4);
+  }, [places, userCoords]);
 
   const detourPlaces = useMemo(() => {
     return [
@@ -307,7 +311,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
               <CloudRain size={24} />
             </div>
             <div>
-              <div className="text-[10px] font-bold uppercase tracking-widest text-emerald-400 font-mono flex items-center gap-2">
+              <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 font-mono flex items-center gap-2">
                 <span>LOCAL WEATHER · {selectedLocation.toUpperCase()}</span>
                 {weather?.current.provider && (
                   <span className="text-[9px] text-emerald-400/60 font-sans normal-case">
@@ -363,7 +367,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-3">
           <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-mono">
+            <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono">
               BROWSE BY CATEGORY
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 dark:text-white tracking-tight mt-0.5">
@@ -442,7 +446,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4">
           <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-mono flex items-center gap-1.5">
+            <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono flex items-center gap-1.5">
               <span className="live-dot" /> PLACES NEAR {selectedLocation.toUpperCase()}
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 dark:text-white tracking-tight mt-0.5">
@@ -566,7 +570,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-4">
           <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-mono">
+            <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono">
               WORTH THE DETOUR
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 dark:text-white tracking-tight mt-0.5">
@@ -672,7 +676,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="p-6 sm:p-8 rounded-3xl bg-[#dbe8d8] dark:bg-[#0f2d24] text-[#142c26] dark:text-[#d1e6de] border border-[#bed3be] dark:border-emerald-800/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
           <div className="space-y-1.5">
-            <div className="text-xs font-bold uppercase tracking-widest text-[#059669] dark:text-emerald-400 font-mono">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#059669] dark:text-emerald-400 font-mono">
               YOUR NEXT CHAPTER
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display tracking-tight text-[#142c26] dark:text-white">
@@ -698,7 +702,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-3">
           <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-mono">
+            <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono">
               ALWAYS WITHIN REACH
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 dark:text-white tracking-tight mt-0.5">
@@ -774,61 +778,6 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
           </button>
         </div>
       </section>
-
-      {/* 10. Full Site Footer */}
-      <footer className="bg-[#051c16] text-[#8ea79c] border-t border-emerald-950 py-10 sm:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 sm:pb-8 border-b border-emerald-900/40">
-            <div className="flex items-center gap-3">
-              <img
-                src="/images/logo.jpeg"
-                alt="O-Travelz Logo"
-                className="w-9 h-9 rounded-xl object-cover shadow-xs border border-emerald-700/20"
-                onError={(e) => {
-                  (e.currentTarget as HTMLElement).style.display = "none";
-                }}
-              />
-              <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white font-display font-black text-base flex items-center justify-center shadow-xs">
-                O
-              </div>
-              <div>
-                <div className="font-display font-extrabold text-lg text-white leading-none">
-                  O-Travelz
-                </div>
-                <div className="text-[11px] text-emerald-400 mt-1 font-mono">
-                  Safe • Secure • Smart
-                </div>
-              </div>
-            </div>
-
-            <p className="text-xs text-center italic text-emerald-200/70 max-w-md">
-              &ldquo;Odisha is not just a place to visit — it is a rhythm to return to.&rdquo;
-            </p>
-
-            <div className="flex items-center gap-3 text-xs">
-              <span className="text-emerald-300">
-                Designed with care <span role="img" aria-label="heart">❤️</span>
-              </span>
-              <span className="px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 text-[10px] font-bold border border-emerald-800/60 font-mono flex items-center gap-1">
-                <MapPin size={10} /> MADE IN ODISHA
-              </span>
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-400/60 font-mono">
-            <div>
-              © 2026 O-Travelz. Odisha Travel &amp; Transit Planner.
-            </div>
-            <button
-              type="button"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-emerald-300 hover:text-white transition-colors cursor-pointer"
-            >
-              Back to top ↑
-            </button>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

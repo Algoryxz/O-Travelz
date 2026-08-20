@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import type { ItineraryPlanResponse } from "../../api/contracts";
+import type { ItineraryPlanResponse } from "../../types/api";
 import { ItineraryDaySection } from "./ItineraryDaySection";
 import { usePlaces } from "../../store/usePlaces";
 import {
@@ -75,7 +75,7 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({ itinerary }) => {
           <div className="space-y-1.5 min-w-0">
             <div className="flex items-center gap-2">
               <span className="live-dot" />
-              <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-mono">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono">
                 Verified Odisha Itinerary
               </span>
             </div>

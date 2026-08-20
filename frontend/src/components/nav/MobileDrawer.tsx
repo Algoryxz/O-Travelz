@@ -53,21 +53,15 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
           <div className="flex items-center gap-3">
             <img
               src="/images/logo.jpeg"
-              alt="O-Travelz"
-              className="w-8 h-8 rounded-xl object-cover shadow-xs border border-emerald-700/20"
-              onError={(e) => {
-                (e.currentTarget as HTMLElement).style.display = "none";
-              }}
+              alt="O-Travelz Logo"
+              className="h-11 w-auto rounded-lg object-contain shadow-xs border border-gray-100 dark:border-slate-800"
             />
-            <div className="w-8 h-8 rounded-xl bg-emerald-700 text-white font-display font-black text-sm flex items-center justify-center shadow-xs">
-              O
-            </div>
             <div>
-              <div className="font-display font-extrabold text-base leading-none text-gray-900 dark:text-white">
+              <div className="font-display font-extrabold text-sm text-gray-900 dark:text-white tracking-tight">
                 O-Travelz
               </div>
-              <div className="text-[10px] text-gray-400 dark:text-gray-400 mt-1">
-                Odisha, in your rhythm.
+              <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">
+                by Algoryxz
               </div>
             </div>
           </div>
@@ -250,11 +244,16 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
         </div>
 
         {/* Status Footer */}
-        <div className="pt-4 border-t border-gray-200 dark:border-slate-800 flex items-center justify-between text-[10px] text-gray-400 font-mono">
-          <div className="flex items-center gap-1.5">
-            <span className="live-dot" /> Safe • Secure • Smart
+        <div className="pt-4 border-t border-gray-200 dark:border-slate-800 flex flex-col gap-1.5 text-[10px] text-gray-500 dark:text-gray-400 font-mono">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5">
+              <span className="live-dot" /> <span className="font-semibold text-emerald-700 dark:text-emerald-400">safe • secure • smart</span>
+            </div>
+            <span>Odisha</span>
           </div>
-          <span>Odisha</span>
+          <div className="text-[9px] text-gray-400 dark:text-gray-500">
+            Built by Algoryxz
+          </div>
         </div>
       </aside>
     </div>

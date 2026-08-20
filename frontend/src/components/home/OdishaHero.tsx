@@ -108,7 +108,7 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
           </div>
 
           <div className="space-y-3">
-            <div className="text-emerald-400 text-xs font-bold uppercase tracking-widest font-mono">
+            <div className="text-emerald-400 text-xs font-bold uppercase tracking-wider font-mono">
               ODISHA, YOUR WAY
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight text-white leading-[1.08]">
