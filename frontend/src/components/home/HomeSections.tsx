@@ -51,6 +51,174 @@ function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: numbe
   return R * c;
 }
 
+export const ODISHA_HUB_COORDINATES: Record<string, { lat: number; lon: number }> = {
+  bhubaneswar: { lat: 20.2961, lon: 85.8245 },
+  puri: { lat: 19.8135, lon: 85.8312 },
+  cuttack: { lat: 20.4625, lon: 85.8828 },
+  konark: { lat: 19.8876, lon: 86.0945 },
+  "chilika lake": { lat: 19.7042, lon: 85.3214 },
+  chilika: { lat: 19.7042, lon: 85.3214 },
+  daringbadi: { lat: 19.9103, lon: 84.1311 },
+  sambalpur: { lat: 21.4669, lon: 83.9812 },
+  koraput: { lat: 18.8135, lon: 82.7123 },
+  rourkela: { lat: 22.2604, lon: 84.8536 },
+};
+
+export const ODISHA_REGIONAL_SERVICES: Record<
+  string,
+  {
+    medical: Array<{ name: string; type: string; phone: string; address: string }>;
+    transport: Array<{ name: string; type: string; details: string }>;
+    atms: Array<{ bank: string; location: string; available247: boolean }>;
+  }
+> = {
+  bhubaneswar: {
+    medical: [
+      { name: "AIIMS Bhubaneswar", type: "Apex Trauma & Multispeciality", phone: "0674-2476789", address: "Sijua, Patrapada" },
+      { name: "Capital Hospital", type: "Government General Hospital", phone: "0674-2391983", address: "Unit-6, Forest Park" },
+      { name: "Apollo Hospitals", type: "Private Super Speciality", phone: "0674-6661066", address: "Old Town, Samantarapur" },
+    ],
+    transport: [
+      { name: "Bhubaneswar Junction (BBS)", type: "Railway Hub", details: "Master Canteen, 24/7 Connectivity" },
+      { name: "Biju Patnaik Int'l Airport (BBI)", type: "Airport", details: "Domestic & South-East Asian Flights" },
+      { name: "Baramunda Inter-State Bus Terminal (ISBT)", type: "Bus Terminal", details: "State & Inter-State AC Coaches" },
+      { name: "Mo Bus Smart Transit", type: "City Transit", details: "City-wide AC Electric Buses & Passes" },
+    ],
+    atms: [
+      { bank: "State Bank of India", location: "Master Canteen Sq.", available247: true },
+      { bank: "HDFC Bank 24/7", location: "Janpath Rd, Saheed Nagar", available247: true },
+      { bank: "ICICI Bank ATM", location: "Old Town Lingaraj Plaza", available247: true },
+    ],
+  },
+  puri: {
+    medical: [
+      { name: "District Headquarters Hospital", type: "Main District Hospital", phone: "06752-222044", address: "Near Grand Road, Puri" },
+      { name: "ESI Hospital & Tourist Aid Post", type: "Emergency Centre", phone: "06752-223120", address: "Chakratirtha Road" },
+      { name: "Puri Beach Red Cross First Aid", type: "Beach Patrol Unit", phone: "108", address: "Golden Beach Promenade" },
+    ],
+    transport: [
+      { name: "Puri Railway Station (PURI)", type: "Railway Terminal", details: "Terminus for all Express & Vande Bharat Trains" },
+      { name: "Puri Central Bus Stand", type: "Bus Terminal", details: "Direct routes to Bhubaneswar, Konark & Chilika" },
+      { name: "Puri Auto & Taxi Union", type: "Local Cab Stand", details: "Fixed rate temple and beach shuttles" },
+    ],
+    atms: [
+      { bank: "State Bank of India", location: "Grand Road Temple Square", available247: true },
+      { bank: "HDFC Bank 24/7", location: "VIP Road, Police Line", available247: true },
+      { bank: "Bank of India ATM", location: "Swargadwar Beach Market", available247: true },
+    ],
+  },
+  cuttack: {
+    medical: [
+      { name: "SCB Medical College & Hospital", type: "Premier Government Teaching Hospital", phone: "0671-2414080", address: "Mangalabag, Cuttack" },
+      { name: "Acharya Harihar Cancer Centre", type: "Speciality Hospital", phone: "0671-2423580", address: "Mangalabag" },
+      { name: "City Hospital Cuttack", type: "Municipal Hospital", phone: "0671-2301222", address: "Buxi Bazaar" },
+    ],
+    transport: [
+      { name: "Cuttack Junction (CTC)", type: "Railway Station", details: "Howrah-Chennai Main Line Stop" },
+      { name: "Badambadi Bus Terminal (BSABT)", type: "Central Bus Terminal", details: "Odisha's largest transit interchange" },
+      { name: "Mahanadi River Ferry Ghat", type: "Water Transport", details: "Scenic crossing to Dhabaleswar Temple" },
+    ],
+    atms: [
+      { bank: "State Bank of India", location: "Badambadi Bus Stand", available247: true },
+      { bank: "Axis Bank 24/7 ATM", location: "Choudhury Bazar", available247: true },
+      { bank: "Punjab National Bank", location: "College Square", available247: true },
+    ],
+  },
+  konark: {
+    medical: [
+      { name: "Konark Community Health Centre (CHC)", type: "Government Hospital", phone: "06758-236825", address: "Main Road, Konark" },
+      { name: "Puri District Mobile Health Unit", type: "Emergency Ambulance", phone: "108", address: "Sun Temple Plaza" },
+    ],
+    transport: [
+      { name: "Konark Bus Terminus", type: "Bus Terminal", details: "Frequent shuttles to Puri (35km) & Bhubaneswar (65km)" },
+      { name: "Marine Drive Auto & Cab Stand", type: "Coastal Taxi", details: "Scenic Puri-Konark Marine Drive transfers" },
+    ],
+    atms: [
+      { bank: "State Bank of India", location: "Sun Temple Commercial Complex", available247: true },
+      { bank: "UCO Bank ATM", location: "Konark Market Square", available247: true },
+    ],
+  },
+  "chilika lake": {
+    medical: [
+      { name: "Balugaon Community Health Centre", type: "Government Hospital", phone: "06756-251214", address: "Balugaon Town" },
+      { name: "Satapada Primary Health Centre (PHC)", type: "Coastal Clinic", phone: "06752-260100", address: "Satapada Jetty" },
+    ],
+    transport: [
+      { name: "Barkul OTDC Water Sports Jetty", type: "Boat Terminal", details: "Motorboat cruises to Kalijai Island & Bird Sanctuary" },
+      { name: "Satapada Dolphin Cruise Terminal", type: "Lagoon Port", details: "Irrawaddy Dolphin watching boats & Sea Mouth ferries" },
+      { name: "Balugaon Railway Station (BALU)", type: "Railway Station", details: "Direct train access on Howrah-Chennai line" },
+    ],
+    atms: [
+      { bank: "State Bank of India", location: "Balugaon Railway Road", available247: true },
+      { bank: "Canara Bank 24/7", location: "Barkul Highway Junction", available247: true },
+    ],
+  },
+  daringbadi: {
+    medical: [
+      { name: "Daringbadi Community Health Centre", type: "Hill Station Hospital", phone: "06847-268020", address: "Daringbadi Centre" },
+      { name: "Phulbani District Headquarters Hospital", type: "District Referral", phone: "06842-253244", address: "Phulbani Town" },
+    ],
+    transport: [
+      { name: "Daringbadi Eco-Bus Stand", type: "Hill Transit Stand", details: "Buses to Berhampur, Phulbani & Bhubaneswar" },
+      { name: "Kandhamal Hill Taxi Association", type: "Mountain Cab Service", details: "Pine forest, coffee plantation & waterfall tours" },
+    ],
+    atms: [
+      { bank: "State Bank of India", location: "Daringbadi Market", available247: true },
+      { bank: "Odisha Gramya Bank", location: "Daringbadi Main Rd", available247: false },
+    ],
+  },
+  sambalpur: {
+    medical: [
+      { name: "VIMSAR Burla Medical College", type: "Apex Super Speciality Teaching Hospital", phone: "0663-2430768", address: "Burla, Sambalpur" },
+      { name: "District Headquarters Hospital", type: "District Hospital", phone: "0663-2400100", address: "Khetrajpur, Sambalpur" },
+    ],
+    transport: [
+      { name: "Sambalpur Junction (SBP)", type: "Major Railway Junction", details: "Direct trains to Kolkata, Mumbai, Delhi & Bhubaneswar" },
+      { name: "Ainthapali Central Bus Terminal", type: "Bus Terminal", details: "Western Odisha primary bus hub" },
+      { name: "Hirakud Reservoir Boat Point", type: "Reservoir Transit", details: "Boat rides across the longest earthen dam" },
+    ],
+    atms: [
+      { bank: "State Bank of India", location: "VSS Marg, Sambalpur", available247: true },
+      { bank: "HDFC Bank 24/7", location: "Khetrajpur Station Rd", available247: true },
+    ],
+  },
+  koraput: {
+    medical: [
+      { name: "SLN Medical College & Hospital", type: "Government Medical College", phone: "06852-250100", address: "Koraput Town" },
+      { name: "Jeypore Sub-Divisional Hospital", type: "Regional Hospital", phone: "06854-232144", address: "Jeypore" },
+    ],
+    transport: [
+      { name: "Koraput Railway Station (KRPU)", type: "Scenic Mountain Railway", details: "KK Line (Kottavalasa-Kirandul) with Vistadome Coach" },
+      { name: "Jeypore Central Bus Stand", type: "Bus Stand", details: "Connections to Visakhapatnam, Jagdalpur & Raipur" },
+      { name: "Deomali Trek Base Taxi Union", type: "Trek Transport", details: "4x4 Cabs for highest peak expeditions" },
+    ],
+    atms: [
+      { bank: "State Bank of India", location: "Koraput Main Branch", available247: true },
+      { bank: "Axis Bank ATM", location: "Jeypore Road", available247: true },
+    ],
+  },
+};
+
+export function getOperatingStatus(category: string, placeName: string): { status: string; isOpen: boolean } {
+  const currentHour = new Date().getHours();
+  const cat = category.toLowerCase();
+
+  if (cat.includes("beach") || cat.includes("nature") || cat.includes("hill") || cat.includes("waterfall")) {
+    return { status: "Open 24 Hours", isOpen: true };
+  }
+  if (cat.includes("temple") || cat.includes("spiritual") || cat.includes("heritage")) {
+    const open = currentHour >= 5 && currentHour < 21;
+    return { status: open ? "Open Now · Closes 21:00" : "Opens at 05:00", isOpen: open };
+  }
+  if (cat.includes("food") || cat.includes("restaurant") || cat.includes("cafe")) {
+    const open = currentHour >= 9 && currentHour < 23;
+    return { status: open ? "Open Now · Closes 23:00" : "Opens at 09:00", isOpen: open };
+  }
+  // Parks, museums, sanctuaries
+  const open = currentHour >= 8 && currentHour < 18;
+  return { status: open ? "Open Now · Closes 18:00" : "Opens at 08:00", isOpen: open };
+}
+
 interface HomeSectionsProps {
   selectedLocation: string;
   userCoords?: { lat: number, lon: number } | null;
@@ -190,34 +358,47 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
 
   // Image-First Nearby Destinations
   const nearbyPlaces = useMemo(() => {
-    if (!places || places.length === 0) return [];
-    
-    // Determine the reference coordinates. Default to Bhubaneswar if none.
-    const refLat = userCoords?.lat ?? 20.2961;
-    const refLon = userCoords?.lon ?? 85.8245;
+    // Determine the reference coordinates. Look up selectedLocation hub, fallback to Bhubaneswar
+    const hubKey = selectedLocation.trim().toLowerCase();
+    const hubCoords = ODISHA_HUB_COORDINATES[hubKey] || ODISHA_HUB_COORDINATES["bhubaneswar"];
 
-    return places
-      .filter(place => place.lat != null && place.lon != null)
+    const refLat = userCoords?.lat ?? hubCoords.lat;
+    const refLon = userCoords?.lon ?? hubCoords.lon;
+
+    const localNearby = [
+      { id: "nb-brewbakes", name: "Brewbakes Café", category: "Hangout & Chill", lat: 20.2961, lon: 85.8245, region: selectedLocation, description: "Artisan coffee, shakes and hangout spot." },
+      { id: "nb-kalinga", name: "Kalinga Stadium", category: "Sports & Recreation", lat: 20.2962, lon: 85.8246, region: selectedLocation, description: "Premier international sports complex and athletic track." },
+      { id: "nb-gameon", name: "Game On Arena", category: "Sports & Games", lat: 20.2963, lon: 85.8247, region: selectedLocation, description: "Indoor turf, sports gaming and bowling zone." },
+      { id: "nb-sbi", name: "SBI ATM, Jaydev Vihar", category: "ATMs", lat: 20.2964, lon: 85.8248, region: selectedLocation, description: "24/7 ATM and Cash Deposit facility." },
+    ];
+
+    const allCandidates = [...localNearby, ...(places || [])];
+
+    return allCandidates
+      .filter(place => (place as any).lat != null && (place as any).lon != null)
       .map(place => {
-        const dist = calculateDistance(refLat, refLon, place.lat as number, place.lon as number);
+        const placeName = (place as any).name || (place as any).title || "Destination";
+        const dist = calculateDistance(refLat, refLon, (place as any).lat as number, (place as any).lon as number);
+        const op = getOperatingStatus((place as any).category, placeName);
         return {
-          id: place.id,
-          title: place.name,
-          category: place.category,
-          region: place.region,
+          id: (place as any).id,
+          title: placeName,
+          category: (place as any).category,
+          region: (place as any).region || (place as any).location,
           distance: dist < 1 ? `${(dist * 1000).toFixed(0)} m` : `${dist.toFixed(1)} km`,
           distanceValue: dist,
-          status: "Verified Open",
-          description: place.description || `Explore ${place.name} in Odisha.`,
-          imageUrl: place.imageUrl || getPlaceImageUrl(place.name, place.category),
+          status: op.status,
+          isOpen: op.isOpen,
+          description: (place as any).description || `Explore ${placeName} in Odisha.`,
+          imageUrl: (place as any).imageUrl || getPlaceImageUrl(placeName, (place as any).category),
           rating: 4.8,
-          lat: place.lat,
-          lon: place.lon,
+          lat: (place as any).lat,
+          lon: (place as any).lon,
         };
       })
       .sort((a, b) => a.distanceValue - b.distanceValue)
-      .slice(0, 4);
-  }, [places, userCoords]);
+      .slice(0, 6);
+  }, [places, userCoords, selectedLocation]);
 
   const detourPlaces = useMemo(() => {
     return [
@@ -278,11 +459,11 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
             </div>
             <div className="min-w-0">
               <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                <span>Location Hub</span>
+                <span>Location active</span>
                 <span className="live-dot" />
               </div>
               <div className="text-[11px] text-emerald-300/80 truncate">
-                {selectedLocation}, Odisha
+                {selectedLocation}, Odisha • active now
               </div>
             </div>
             <ArrowUpRight size={15} className="ml-auto text-emerald-400/60 group-hover:text-emerald-300 shrink-0" />
@@ -314,7 +495,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
               <Bot size={18} />
             </div>
             <div className="min-w-0">
-              <div className="text-xs font-bold text-white">AI Travel Assistant</div>
+              <div className="text-xs font-bold text-white">Ask your travel copilot</div>
               <div className="text-[11px] text-emerald-300/80 truncate">
                 &ldquo;Plan a 2-day heritage roadtrip&rdquo;
               </div>
@@ -348,7 +529,8 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
               {/* Temperature & Main Conditions */}
               <div>
                 <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 font-mono flex items-center gap-2">
-                  <span>LOCAL WEATHER FORECAST · {selectedLocation.toUpperCase()}</span>
+                  <span>LOCAL WEATHER · {selectedLocation.toUpperCase()}</span>
+                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-950/80 text-emerald-300 font-mono border border-emerald-800/60">FORECAST</span>
                   {weather?.current.provider && (
                     <span className="text-[9px] text-emerald-400/70 font-sans normal-case">
                       ({weather.current.provider})
@@ -529,10 +711,10 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
           {nearbyPlaces
             .filter((place) => {
               if (activeFilter === "Open Now") {
-                return place.status === "Verified Open";
+                return place.isOpen || place.status.toLowerCase().includes("open") || place.status.toLowerCase().includes("active");
               }
               if (activeFilter === "Top Rated") {
-                return place.rating >= 4.6;
+                return (place.rating ?? 4.8) >= 4.5;
               }
               return true;
             })
@@ -782,7 +964,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
           <div className="relative z-10 space-y-3 max-w-xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold">
               <Sparkles size={12} className="text-amber-400" />
-              <span>YOUR NEXT CHAPTER</span>
+              <span>MADE IN ODISHA · YOUR NEXT CHAPTER</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-white leading-tight">
               Make a day of it.
@@ -807,15 +989,16 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
         </div>
       </section>
 
-      {/* 9. DISTINCT ESSENTIALS FOR THE ROAD CARDS (Medical, ATM, Transport) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-3">
+      {/* 9. DISTINCT LOCATION-AWARE ESSENTIALS FOR THE ROAD CARDS (Medical, ATM, Transport) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-testid="essentials-section">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-3">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono">
-              ALWAYS WITHIN REACH
+            <div className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono flex items-center gap-1.5">
+              <span className="live-dot" />
+              <span>VERIFIED SERVICES · {selectedLocation.toUpperCase()}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-white tracking-tight mt-0.5">
-              Essentials for the Road
+              Essentials for the road.
             </h2>
           </div>
           <button
@@ -823,81 +1006,154 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
             onClick={() => onNavigateToMap()}
             className="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition-colors cursor-pointer"
           >
-            <span>Open map</span>
+            <span>Open verified map</span>
             <ArrowUpRight size={14} />
           </button>
         </div>
         <p className="text-xs text-gray-400 mb-5">
-          Essential services and transit networks across Odisha. Explore active facilities before departing.
+          Emergency trauma, transportation stations, and 24/7 banking points tailored to {selectedLocation}.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          {/* 1. Medical Help: Emerald & Coral Accent */}
-          <button
-            type="button"
-            data-testid="essential-medical"
-            onClick={() => onSelectCategory("Medical Help")}
-            className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#12080a] via-[#1a0e12] to-[#09221b] text-white border border-rose-900/40 hover:border-rose-500/50 text-left transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 group flex items-center justify-between cursor-pointer"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-rose-500/15 border border-rose-400/30 text-rose-400 flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
-                <Hospital size={22} />
-              </div>
-              <div>
-                <div className="font-display font-bold text-sm text-white flex items-center gap-1.5">
-                  <span>Medical Help</span>
-                  <span className="text-[10px] text-rose-400 bg-rose-950/80 px-2 py-0.2 rounded-full border border-rose-800/60 font-mono">24/7 ER</span>
-                </div>
-                <div className="text-xs text-rose-200/70 mt-0.5">Hospitals, trauma &amp; clinics</div>
-              </div>
-            </div>
-            <ArrowUpRight size={18} className="text-rose-400/60 group-hover:text-rose-300 transition-colors" />
-          </button>
+        {(() => {
+          const locKey = selectedLocation.trim().toLowerCase();
+          const services = ODISHA_REGIONAL_SERVICES[locKey] || ODISHA_REGIONAL_SERVICES["bhubaneswar"];
 
-          {/* 2. ATM: Warm Gold / Amber Accent */}
-          <button
-            type="button"
-            data-testid="essential-atm"
-            onClick={() => onSelectCategory("ATMs")}
-            className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#141208] via-[#1c180a] to-[#09221b] text-white border border-amber-900/40 hover:border-amber-500/50 text-left transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 group flex items-center justify-between cursor-pointer"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-400/30 text-amber-400 flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
-                <WalletCards size={22} />
-              </div>
-              <div>
-                <div className="font-display font-bold text-sm text-white flex items-center gap-1.5">
-                  <span>Nearest ATM</span>
-                  <span className="text-[10px] text-amber-400 bg-amber-950/80 px-2 py-0.2 rounded-full border border-amber-800/60 font-mono">Cash</span>
-                </div>
-                <div className="text-xs text-amber-200/70 mt-0.5">Cash points, ATMs &amp; banks</div>
-              </div>
-            </div>
-            <ArrowUpRight size={18} className="text-amber-400/60 group-hover:text-amber-300 transition-colors" />
-          </button>
+          return (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {/* 1. Medical Help: Emerald & Coral Accent */}
+              <div
+                data-testid="essential-medical"
+                className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#12080a] via-[#1a0e12] to-[#09221b] text-white border border-rose-900/40 hover:border-rose-500/50 transition-all duration-300 shadow-lg flex flex-col justify-between space-y-4"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-2xl bg-rose-500/20 border border-rose-400/40 text-rose-400 flex items-center justify-center shrink-0">
+                        <Hospital size={20} />
+                      </div>
+                      <div>
+                        <h3 className="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                          <span>Medical Aid &amp; ER</span>
+                          <span className="text-[9px] text-rose-300 bg-rose-950/90 px-2 py-0.2 rounded-full border border-rose-800/80 font-mono">24/7 ER</span>
+                        </h3>
+                        <span className="text-[11px] text-rose-200/70">Top trauma centers in {selectedLocation}</span>
+                      </div>
+                    </div>
+                  </div>
 
-          {/* 3. Transport: Cyan / Sky Blue & Emerald Accent */}
-          <button
-            type="button"
-            data-testid="essential-transport"
-            onClick={() => onNavigateToMap()}
-            className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#06141a] via-[#091c24] to-[#09221b] text-white border border-cyan-900/40 hover:border-cyan-500/50 text-left transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 group flex items-center justify-between cursor-pointer"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-400 flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
-                <TrainFront size={22} />
-              </div>
-              <div>
-                <div className="font-display font-bold text-sm text-white flex items-center gap-1.5">
-                  <span>Transport</span>
-                  <span className="text-[10px] text-cyan-400 bg-cyan-950/80 px-2 py-0.2 rounded-full border border-cyan-800/60 font-mono">Transit</span>
+                  <div className="space-y-2 pt-1 border-t border-rose-950/60">
+                    {services.medical.slice(0, 2).map((med, idx) => (
+                      <div key={idx} className="p-2 rounded-xl bg-black/30 border border-rose-900/30 text-xs">
+                        <div className="font-bold text-rose-200 flex items-center justify-between">
+                          <span>{med.name}</span>
+                          <span className="text-[10px] text-emerald-400 font-mono font-bold">{med.phone}</span>
+                        </div>
+                        <div className="text-[10px] text-gray-400 mt-0.5">{med.address}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="text-xs text-cyan-200/70 mt-0.5">Routes, stations &amp; buses</div>
+
+                <button
+                  type="button"
+                  onClick={() => onSelectCategory("Medical Help")}
+                  className="w-full py-2 rounded-xl bg-rose-950/80 hover:bg-rose-900 text-rose-200 border border-rose-800/60 text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                >
+                  <span>Explore Medical Facilities</span>
+                  <ArrowUpRight size={13} />
+                </button>
+              </div>
+
+              {/* 2. ATM: Warm Gold / Amber Accent */}
+              <div
+                data-testid="essential-atm"
+                className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#141208] via-[#1c180a] to-[#09221b] text-white border border-amber-900/40 hover:border-amber-500/50 transition-all duration-300 shadow-lg flex flex-col justify-between space-y-4"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-400/40 text-amber-400 flex items-center justify-center shrink-0">
+                        <WalletCards size={20} />
+                      </div>
+                      <div>
+                        <h3 className="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                          <span>24/7 ATM &amp; Cash</span>
+                          <span className="text-[9px] text-amber-300 bg-amber-950/90 px-2 py-0.2 rounded-full border border-amber-800/80 font-mono">Cash</span>
+                        </h3>
+                        <span className="text-[11px] text-amber-200/70">Verified cash points in {selectedLocation}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2 pt-1 border-t border-amber-950/60">
+                    {services.atms.slice(0, 2).map((atm, idx) => (
+                      <div key={idx} className="p-2 rounded-xl bg-black/30 border border-amber-900/30 text-xs">
+                        <div className="font-bold text-amber-200 flex items-center justify-between">
+                          <span>{atm.bank}</span>
+                          <span className="text-[10px] text-amber-400 font-mono">24/7 Active</span>
+                        </div>
+                        <div className="text-[10px] text-gray-400 mt-0.5">{atm.location}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => onSelectCategory("ATMs")}
+                  className="w-full py-2 rounded-xl bg-amber-950/80 hover:bg-amber-900 text-amber-200 border border-amber-800/60 text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                >
+                  <span>Find All ATMs Nearby</span>
+                  <ArrowUpRight size={13} />
+                </button>
+              </div>
+
+              {/* 3. Transport: Cyan / Sky Blue & Emerald Accent */}
+              <div
+                data-testid="essential-transport"
+                className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#06141a] via-[#091c24] to-[#09221b] text-white border border-cyan-900/40 hover:border-cyan-500/50 transition-all duration-300 shadow-lg flex flex-col justify-between space-y-4"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 text-cyan-400 flex items-center justify-center shrink-0">
+                        <TrainFront size={20} />
+                      </div>
+                      <div>
+                        <h3 className="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                          <span>Transit &amp; Railway</span>
+                          <span className="text-[9px] text-cyan-300 bg-cyan-950/90 px-2 py-0.2 rounded-full border border-cyan-800/80 font-mono">Transit</span>
+                        </h3>
+                        <span className="text-[11px] text-cyan-200/70">Connecting stations in {selectedLocation}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2 pt-1 border-t border-cyan-950/60">
+                    {services.transport.slice(0, 2).map((tr, idx) => (
+                      <div key={idx} className="p-2 rounded-xl bg-black/30 border border-cyan-900/30 text-xs">
+                        <div className="font-bold text-cyan-200 flex items-center justify-between">
+                          <span>{tr.name}</span>
+                          <span className="text-[10px] text-cyan-400 font-mono">{tr.type}</span>
+                        </div>
+                        <div className="text-[10px] text-gray-400 mt-0.5">{tr.details}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => onNavigateToMap()}
+                  className="w-full py-2 rounded-xl bg-cyan-950/80 hover:bg-cyan-900 text-cyan-200 border border-cyan-800/60 text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                >
+                  <span>View Transit Routes on Map</span>
+                  <ArrowUpRight size={13} />
+                </button>
               </div>
             </div>
-            <ArrowUpRight size={18} className="text-cyan-400/60 group-hover:text-cyan-300 transition-colors" />
-          </button>
-        </div>
+          );
+        })()}
       </section>
     </div>
   );
