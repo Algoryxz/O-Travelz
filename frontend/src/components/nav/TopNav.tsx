@@ -12,9 +12,14 @@ import {
   RefreshCw,
   Radio,
   Navigation,
+  Compass,
+  Bookmark,
+  History,
+  LayoutDashboard,
+  Map as MapIcon,
 } from "lucide-react";
 
-export type NavTab = "discover" | "destinations" | "map" | "plan" | "saved";
+export type NavTab = "discover" | "destinations" | "map" | "plan" | "saved" | "revisit";
 
 interface TopNavProps {
   activeTab: NavTab;
@@ -25,6 +30,7 @@ interface TopNavProps {
   onOpenAI?: () => void;
   onOpenSettings?: () => void;
   savedCount?: number;
+  revisitCount?: number;
   isLiveLocation?: boolean;
   onToggleLiveLocation?: () => void;
   onRefreshLocation?: () => void;
@@ -39,15 +45,18 @@ export const TopNav: React.FC<TopNavProps> = ({
   onOpenAI,
   onOpenSettings,
   savedCount = 0,
+  revisitCount = 0,
   isLiveLocation = false,
   onToggleLiveLocation,
   onRefreshLocation,
 }) => {
   const [showLocationMenu, setShowLocationMenu] = useState(false);
+  const [showNavMenu, setShowNavMenu] = useState(false);
   const [isRefreshingLoc, setIsRefreshingLoc] = useState(false);
   const locationMenuRef = useRef<HTMLDivElement>(null);
+  const navMenuRef = useRef<HTMLDivElement>(null);
 
-  // Close location menu when clicking outside
+  // Close menus when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -55,6 +64,12 @@ export const TopNav: React.FC<TopNavProps> = ({
         !locationMenuRef.current.contains(e.target as Node)
       ) {
         setShowLocationMenu(false);
+      }
+      if (
+        navMenuRef.current &&
+        !navMenuRef.current.contains(e.target as Node)
+      ) {
+        setShowNavMenu(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -84,7 +99,7 @@ export const TopNav: React.FC<TopNavProps> = ({
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[#08120F]/95 backdrop-blur-xl border-b border-emerald-950/80 px-4 sm:px-6 py-2.5 flex items-center justify-between transition-colors duration-200">
-      {/* Left: Mobile menu & Location Dropdown */}
+      {/* Left: Mobile menu, Navigation Dropdown & Location Selector */}
       <div className="flex items-center gap-2 sm:gap-3">
         <button
           type="button"
@@ -95,6 +110,127 @@ export const TopNav: React.FC<TopNavProps> = ({
         >
           <Menu size={20} />
         </button>
+
+        {/* Permanent Top-Left Navigation Menu Dropdown */}
+        <div className="relative" ref={navMenuRef}>
+          <button
+            type="button"
+            data-testid="top-left-nav-dropdown-btn"
+            onClick={() => setShowNavMenu(!showNavMenu)}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-2xl bg-[#0b241d] border border-emerald-800/50 hover:border-emerald-500/50 text-emerald-200 text-xs font-bold transition-all cursor-pointer shadow-md"
+            title="Navigation & Your Space"
+          >
+            <Compass size={15} className="text-emerald-400 shrink-0" />
+            <span className="hidden sm:inline font-display">Navigate</span>
+            <ChevronDown size={13} className="text-emerald-400/80 ml-0.5" />
+          </button>
+
+          {showNavMenu && (
+            <div className="absolute left-0 top-full mt-2 w-64 p-3 rounded-2xl bg-[#0B0F19] border border-emerald-800/60 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-150 text-white">
+              {/* NAVIGATION SECTION */}
+              <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 font-mono px-2 py-1 border-b border-emerald-900/50 mb-1">
+                NAVIGATION
+              </div>
+              <div className="space-y-0.5 mb-3">
+                <button
+                  type="button"
+                  onClick={() => { onTabChange("discover"); setShowNavMenu(false); }}
+                  className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
+                    activeTab === "discover" ? "bg-emerald-950 text-emerald-300 border border-emerald-700/60" : "hover:bg-emerald-950/40 text-gray-200"
+                  }`}
+                >
+                  <LayoutDashboard size={14} className="text-emerald-400" />
+                  <span>Dashboard</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => { onTabChange("destinations"); setShowNavMenu(false); }}
+                  className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
+                    activeTab === "destinations" ? "bg-emerald-950 text-emerald-300 border border-emerald-700/60" : "hover:bg-emerald-950/40 text-gray-200"
+                  }`}
+                >
+                  <Compass size={14} className="text-emerald-400" />
+                  <span>Explore</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => { onTabChange("map"); setShowNavMenu(false); }}
+                  className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
+                    activeTab === "map" ? "bg-emerald-950 text-emerald-300 border border-emerald-700/60" : "hover:bg-emerald-950/40 text-gray-200"
+                  }`}
+                >
+                  <MapIcon size={14} className="text-emerald-400" />
+                  <span>Live Map</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => { onOpenAI?.(); setShowNavMenu(false); }}
+                  className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-semibold transition-colors hover:bg-emerald-950/40 text-gray-200 cursor-pointer"
+                >
+                  <Bot size={14} className="text-emerald-400" />
+                  <span>AI Copilot</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => { onTabChange("plan"); setShowNavMenu(false); }}
+                  className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
+                    activeTab === "plan" ? "bg-emerald-950 text-emerald-300 border border-emerald-700/60" : "hover:bg-emerald-950/40 text-gray-200"
+                  }`}
+                >
+                  <Sparkles size={14} className="text-emerald-400" />
+                  <span>Plan a Trip</span>
+                </button>
+              </div>
+
+              {/* YOUR SPACE SECTION */}
+              <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 font-mono px-2 py-1 border-b border-emerald-900/50 mb-1">
+                YOUR SPACE
+              </div>
+              <div className="space-y-0.5">
+                <button
+                  type="button"
+                  onClick={() => { onTabChange("saved"); setShowNavMenu(false); }}
+                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
+                    activeTab === "saved" ? "bg-emerald-950 text-emerald-300 border border-emerald-700/60" : "hover:bg-emerald-950/40 text-gray-200"
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Bookmark size={14} className="text-emerald-400" />
+                    <span>Saved Places</span>
+                  </div>
+                  {savedCount > 0 && (
+                    <span className="px-1.5 py-0.5 rounded-full bg-rose-950 border border-rose-800 text-rose-300 text-[10px] font-bold">
+                      {savedCount}
+                    </span>
+                  )}
+                </button>
+
+                <button
+                  type="button"
+                  data-testid="nav-menu-revisit-places"
+                  onClick={() => { onTabChange("revisit"); setShowNavMenu(false); }}
+                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
+                    activeTab === "revisit" ? "bg-amber-950 text-amber-300 border border-amber-700/60" : "hover:bg-emerald-950/40 text-gray-200"
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <History size={14} className="text-amber-400" />
+                    <span>Revisit Places</span>
+                  </div>
+                  {revisitCount > 0 && (
+                    <span className="px-1.5 py-0.5 rounded-full bg-amber-950 border border-amber-800 text-amber-300 text-[10px] font-bold">
+                      {revisitCount}
+                    </span>
+                  )}
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Location Dropdown Pill with Attached Live Location Status */}
         <div className="relative" ref={locationMenuRef}>
@@ -306,10 +442,29 @@ export const TopNav: React.FC<TopNavProps> = ({
                 : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
             }`}
           >
+            <Bookmark size={13} className="text-emerald-400" />
             <span>Saved</span>
             {savedCount > 0 && (
               <span className="px-1.5 py-0.2 rounded-full bg-rose-950 border border-rose-800/80 text-rose-300 text-[10px] font-bold">
                 {savedCount}
+              </span>
+            )}
+          </button>
+          <button
+            type="button"
+            data-testid="nav-tab-revisit"
+            onClick={() => onTabChange("revisit")}
+            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+              activeTab === "revisit"
+                ? "text-amber-300 bg-amber-950/90 border border-amber-700/50 shadow-xs"
+                : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
+            }`}
+          >
+            <History size={13} className="text-amber-400" />
+            <span>Revisit Places</span>
+            {revisitCount > 0 && (
+              <span className="px-1.5 py-0.2 rounded-full bg-amber-950 border border-amber-800/80 text-amber-300 text-[10px] font-bold">
+                {revisitCount}
               </span>
             )}
           </button>
