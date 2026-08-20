@@ -11,7 +11,19 @@ class LocalImageStorage(ImageStorage):
     """Stores image assets on the local filesystem."""
 
     def __init__(self, base_path: str = "./data/images", base_url: str = "/static/images"):
-        self.base_path = Path(base_path).resolve()
+        # Resolve authoritative data/images root dynamically
+        candidates = [
+            (Path(__file__).resolve().parent.parent.parent.parent / "data" / "images").resolve(),
+            Path("../data/images").resolve(),
+            Path("./data/images").resolve(),
+            Path(base_path).resolve(),
+        ]
+        resolved_path = Path(base_path).resolve()
+        for c in candidates:
+            if (c / "places").is_dir():
+                resolved_path = c
+                break
+        self.base_path = resolved_path
         self.base_url = base_url.rstrip("/")
         self.base_path.mkdir(parents=True, exist_ok=True)
 
