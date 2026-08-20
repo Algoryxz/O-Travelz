@@ -155,10 +155,10 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
 
         {/* Region Selector Pills */}
         <div className="space-y-1.5">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 font-mono">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-400/80 font-mono">
             Filter by Region
           </div>
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none whitespace-nowrap">
             {REGIONS.map((region) => (
               <button
                 key={region}
@@ -167,8 +167,8 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                 onClick={() => setSelectedRegion(region)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer border shrink-0 ${
                   selectedRegion === region
-                    ? "bg-emerald-700 border-emerald-700 text-white shadow-xs"
-                    : "bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-800 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white"
+                    ? "bg-emerald-600 border-emerald-500 text-white shadow-[0_0_12px_rgba(16,185,129,0.35)]"
+                    : "bg-[#0B0F19] border-emerald-900/60 text-gray-300 hover:text-white hover:border-emerald-700/60"
                 }`}
               >
                 {region}
@@ -179,20 +179,20 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
 
         {/* 13 Physical Category Filter Chips */}
         <div className="space-y-1.5">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 font-mono">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-400/80 font-mono">
             Filter by Category
           </div>
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none whitespace-nowrap">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
                 type="button"
                 data-testid={`cat-filter-${cat.id}`}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 ${
                   selectedCategory === cat.id
-                    ? "bg-gray-900 dark:bg-emerald-700 border-gray-900 dark:border-emerald-700 text-white shadow-xs"
-                    : "bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-800 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white"
+                    ? "bg-emerald-600 border-emerald-500 text-white shadow-[0_0_12px_rgba(16,185,129,0.35)] font-bold"
+                    : "bg-[#0B0F19] border-emerald-900/60 text-gray-300 hover:text-white hover:border-emerald-700/60"
                 }`}
               >
                 {cat.label}
@@ -203,21 +203,21 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
 
         {/* 12 Canonical Thematic Interest Filter Chips */}
         <div className="space-y-1.5">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono flex items-center gap-1.5">
-            <Sparkles size={13} />
+          <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 font-mono flex items-center gap-1.5">
+            <Sparkles size={13} className="text-amber-400" />
             <span>Filter by Experience / Theme</span>
           </div>
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none whitespace-nowrap">
             {INTEREST_FILTERS.map((interest) => (
               <button
                 key={interest.id}
                 type="button"
                 data-testid={`interest-filter-${interest.id}`}
                 onClick={() => setSelectedInterest(interest.id)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 ${
                   selectedInterest === interest.id
-                    ? "bg-emerald-800 dark:bg-emerald-600 border-emerald-800 dark:border-emerald-600 text-white shadow-xs font-bold"
-                    : "bg-emerald-50/60 dark:bg-slate-850 border-emerald-200/80 dark:border-emerald-900/40 text-emerald-900 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-slate-800"
+                    ? "bg-emerald-600 border-emerald-500 text-white shadow-[0_0_12px_rgba(16,185,129,0.35)] font-bold"
+                    : "bg-[#081b15] border-emerald-900/60 text-emerald-200 hover:text-white hover:border-emerald-600/60"
                 }`}
               >
                 {interest.label}
