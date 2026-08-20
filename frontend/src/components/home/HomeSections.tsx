@@ -37,6 +37,11 @@ import {
   getCategoryImage,
   DEFAULT_FALLBACK_IMAGE,
 } from "../../utils/imageService";
+import {
+  getPlaceOperatingHours,
+  getPlaceRatingMetadata,
+  type OperatingHoursResult,
+} from "../../utils/operatingHoursService";
 
 // Helper function to calculate distance in km using Haversine formula
 function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
@@ -199,24 +204,74 @@ export const ODISHA_REGIONAL_SERVICES: Record<
   },
 };
 
-export function getOperatingStatus(category: string, placeName: string): { status: string; isOpen: boolean } {
-  const currentHour = new Date().getHours();
-  const cat = category.toLowerCase();
+export const ODISHA_HUB_LOCAL_HIGHLIGHTS: Record<
+  string,
+  Array<{ id: string; name: string; category: string; lat: number; lon: number; description: string }>
+> = {
+  bhubaneswar: [
+    { id: "nb-bbsr-brewbakes", name: "Brewbakes Café", category: "Hangout & Chill", lat: 20.2961, lon: 85.8245, description: "Artisan coffee, shakes and hangout spot in Jaydev Vihar." },
+    { id: "nb-bbsr-kalinga", name: "Kalinga Stadium", category: "Sports & Recreation", lat: 20.2962, lon: 85.8246, description: "Premier international sports complex and athletic track." },
+    { id: "nb-bbsr-gameon", name: "Game On Arena", category: "Sports & Games", lat: 20.2963, lon: 85.8247, description: "Indoor turf, sports gaming and bowling zone in Patia." },
+    { id: "nb-bbsr-sbi", name: "SBI ATM, Jaydev Vihar", category: "ATMs", lat: 20.2964, lon: 85.8248, description: "24/7 ATM and Cash Deposit facility." },
+  ],
+  puri: [
+    { id: "nb-puri-honeybee", name: "Honey Bee Bakery & Cafe", category: "Hangout & Chill", lat: 19.8135, lon: 85.8312, description: "Seaside Italian cafe, artisanal pizza and bakery on CT Road." },
+    { id: "nb-puri-beach", name: "Puri Golden Beach", category: "Coastal Beach", lat: 19.8050, lon: 85.8340, description: "Blue Flag certified beach promenade with morning yoga and evening sea breeze." },
+    { id: "nb-puri-market", name: "Swargadwar Beach Market", category: "Shopping & Crafts", lat: 19.7995, lon: 85.8220, description: "Handicrafts, seashell art, khaja sweets and beachside shopping." },
+    { id: "nb-puri-sbi", name: "SBI 24/7 ATM, Grand Road", category: "ATMs", lat: 19.8120, lon: 85.8300, description: "24/7 ATM and Cash Point near Jagannath Temple." },
+  ],
+  cuttack: [
+    { id: "nb-ctc-barabati", name: "Barabati Stadium & Fort", category: "Sports & Heritage", lat: 20.4810, lon: 85.8670, description: "Historic 14th century fort ruins and cricket stadium." },
+    { id: "nb-ctc-silver", name: "Choudhury Bazar Silver Filigree", category: "Shopping & Crafts", lat: 20.4650, lon: 85.8810, description: "Traditional Tarakasi silver filigree master workshops." },
+    { id: "nb-ctc-dahibara", name: "Raghu Dahi Bara Aloodum", category: "Food & Cuisine", lat: 20.4630, lon: 85.8820, description: "Iconic Cuttack style spiced Dahi Bara Aloodum street food." },
+    { id: "nb-ctc-sbi", name: "SBI ATM, Badambadi", category: "ATMs", lat: 20.4580, lon: 85.8790, description: "24/7 ATM near Central Bus Station." },
+  ],
+  konark: [
+    { id: "nb-konark-otdc", name: "Yatrinivas Cafe & Restaurant", category: "Hangout & Chill", lat: 19.8876, lon: 86.0945, description: "OTDC dining hall serving authentic Odia thalis." },
+    { id: "nb-konark-chandrabhaga", name: "Chandrabhaga Beach Point", category: "Coastal Beach", lat: 19.8710, lon: 86.1150, description: "Serene shoreline, beach walks and sunrise lookout." },
+    { id: "nb-konark-museum", name: "ASI Site Museum Konark", category: "Heritage & Culture", lat: 19.8890, lon: 86.0930, description: "Sculptures and restored stones from Sun Temple complex." },
+    { id: "nb-konark-sbi", name: "SBI 24/7 ATM, Temple Square", category: "ATMs", lat: 19.8870, lon: 86.0940, description: "24/7 ATM at Konark Market complex." },
+  ],
+  "chilika lake": [
+    { id: "nb-chilika-otdc", name: "Panthanivas Barkul Restaurant", category: "Hangout & Chill", lat: 19.7042, lon: 85.3214, description: "Lakefront dining overlooking the blue waters of Chilika." },
+    { id: "nb-chilika-jetty", name: "Barkul Water Sports Jetty", category: "Boating & Safaris", lat: 19.7020, lon: 85.3200, description: "Speed boats, passenger ferries and Kalijai island tours." },
+    { id: "nb-chilika-mangalajodi", name: "Mangalajodi Birding Eco-Camp", category: "Nature & Wildlife", lat: 19.9140, lon: 85.4210, description: "Country boat wetlands safari guided by local conservationists." },
+    { id: "nb-chilika-sbi", name: "SBI ATM, Balugaon", category: "ATMs", lat: 19.7420, lon: 85.2150, description: "24/7 ATM on National Highway junction." },
+  ],
+  daringbadi: [
+    { id: "nb-daring-cafe", name: "Hill View Coffee & Tea Lounge", category: "Hangout & Chill", lat: 19.9103, lon: 84.1311, description: "Locally grown organic Kandhamal coffee and snacks." },
+    { id: "nb-daring-pine", name: "Daringbadi Pine Forest", category: "Nature & Hills", lat: 19.9150, lon: 84.1350, description: "Whispering pine trees and misty walking trails." },
+    { id: "nb-daring-park", name: "Hill View Nature Park", category: "Parks & Views", lat: 19.9120, lon: 84.1290, description: "Panoramic valley view, watchtower and butterfly garden." },
+    { id: "nb-daring-sbi", name: "SBI ATM, Daringbadi Market", category: "ATMs", lat: 19.9100, lon: 84.1300, description: "Town center cash dispensing point." },
+  ],
+  sambalpur: [
+    { id: "nb-sbp-cafe", name: "Mahanadi Riverfront Plaza", category: "Hangout & Chill", lat: 21.4669, lon: 83.9812, description: "Evening strolls, street chaat and river breezes." },
+    { id: "nb-sbp-samaleswari", name: "Maa Samaleswari Temple Complex", category: "Heritage & Culture", lat: 21.4630, lon: 83.9780, description: "Presiding deity of Western Odisha on the banks of Mahanadi." },
+    { id: "nb-sbp-hirakud", name: "Hirakud Gandhi Minar Viewpoint", category: "Nature & Views", lat: 21.5280, lon: 83.8720, description: "Panoramic 360-degree overlook of the vast reservoir." },
+    { id: "nb-sbp-sbi", name: "SBI ATM, VSS Marg", category: "ATMs", lat: 21.4670, lon: 83.9820, description: "24/7 ATM in downtown Sambalpur." },
+  ],
+  koraput: [
+    { id: "nb-krp-coffee", name: "Koraput Organic Coffee Cafe", category: "Hangout & Chill", lat: 18.8135, lon: 82.7123, description: "Specialty high-altitude shade-grown Arabica coffee." },
+    { id: "nb-krp-tribal", name: "COATS Tribal Museum", category: "Heritage & Culture", lat: 18.8150, lon: 82.7150, description: "Preserving indigenous cultural artifacts and documentation." },
+    { id: "nb-krp-kolab", name: "Kolab Botanical Garden & Lake", category: "Nature & Lakes", lat: 18.7850, lon: 82.6840, description: "Terraced gardens, boating and scenic mountain views." },
+    { id: "nb-krp-sbi", name: "SBI ATM, Main Road Koraput", category: "ATMs", lat: 18.8130, lon: 82.7120, description: "24/7 ATM in Koraput central square." },
+  ],
+  rourkela: [
+    { id: "nb-rkl-cafe", name: "Sector-5 Boulevard Cafe", category: "Hangout & Chill", lat: 22.2604, lon: 84.8536, description: "Youth hangout, coffee and quick bites in steel city." },
+    { id: "nb-rkl-hanuman", name: "Hanuman Vatika Garden", category: "Heritage & Parks", lat: 22.2450, lon: 84.8420, description: "Garden complex featuring a 75-foot Hanuman statue." },
+    { id: "nb-rkl-igpark", name: "Indira Gandhi Park & Zoo", category: "Parks & Wildlife", lat: 22.2510, lon: 84.8610, description: "Urban park with deer safari, musical fountain and aquarium." },
+    { id: "nb-rkl-sbi", name: "SBI ATM, Bisra Road", category: "ATMs", lat: 22.2600, lon: 84.8540, description: "24/7 ATM near Rourkela Railway Station." },
+  ],
+};
 
-  if (cat.includes("beach") || cat.includes("nature") || cat.includes("hill") || cat.includes("waterfall")) {
-    return { status: "Open 24 Hours", isOpen: true };
-  }
-  if (cat.includes("temple") || cat.includes("spiritual") || cat.includes("heritage")) {
-    const open = currentHour >= 5 && currentHour < 21;
-    return { status: open ? "Open Now · Closes 21:00" : "Opens at 05:00", isOpen: open };
-  }
-  if (cat.includes("food") || cat.includes("restaurant") || cat.includes("cafe")) {
-    const open = currentHour >= 9 && currentHour < 23;
-    return { status: open ? "Open Now · Closes 23:00" : "Opens at 09:00", isOpen: open };
-  }
-  // Parks, museums, sanctuaries
-  const open = currentHour >= 8 && currentHour < 18;
-  return { status: open ? "Open Now · Closes 18:00" : "Opens at 08:00", isOpen: open };
+export function getOperatingStatus(category: string, placeName: string): { status: string; isOpen: boolean; is24Hours?: boolean; hoursDescription?: string } {
+  const res = getPlaceOperatingHours(placeName, category);
+  return {
+    status: res.status,
+    isOpen: res.isOpen === true,
+    is24Hours: res.is24Hours,
+    hoursDescription: res.hoursDescription,
+  };
 }
 
 interface HomeSectionsProps {
@@ -365,33 +420,36 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
     const refLat = userCoords?.lat ?? hubCoords.lat;
     const refLon = userCoords?.lon ?? hubCoords.lon;
 
-    const localNearby = [
-      { id: "nb-brewbakes", name: "Brewbakes Café", category: "Hangout & Chill", lat: 20.2961, lon: 85.8245, region: selectedLocation, description: "Artisan coffee, shakes and hangout spot." },
-      { id: "nb-kalinga", name: "Kalinga Stadium", category: "Sports & Recreation", lat: 20.2962, lon: 85.8246, region: selectedLocation, description: "Premier international sports complex and athletic track." },
-      { id: "nb-gameon", name: "Game On Arena", category: "Sports & Games", lat: 20.2963, lon: 85.8247, region: selectedLocation, description: "Indoor turf, sports gaming and bowling zone." },
-      { id: "nb-sbi", name: "SBI ATM, Jaydev Vihar", category: "ATMs", lat: 20.2964, lon: 85.8248, region: selectedLocation, description: "24/7 ATM and Cash Deposit facility." },
-    ];
+    const localNearby = ODISHA_HUB_LOCAL_HIGHLIGHTS[hubKey] || ODISHA_HUB_LOCAL_HIGHLIGHTS["bhubaneswar"];
 
     const allCandidates = [...localNearby, ...(places || [])];
 
     return allCandidates
-      .filter(place => (place as any).lat != null && (place as any).lon != null)
-      .map(place => {
+      .filter((place) => (place as any).lat != null && (place as any).lon != null)
+      .map((place) => {
         const placeName = (place as any).name || (place as any).title || "Destination";
-        const dist = calculateDistance(refLat, refLon, (place as any).lat as number, (place as any).lon as number);
+        const dist = calculateDistance(
+          refLat,
+          refLon,
+          (place as any).lat as number,
+          (place as any).lon as number
+        );
         const op = getOperatingStatus((place as any).category, placeName);
+        const meta = getPlaceRatingMetadata(placeName, (place as any).rating || 4.8);
+
         return {
           id: (place as any).id,
           title: placeName,
           category: (place as any).category,
-          region: (place as any).region || (place as any).location,
+          region: (place as any).region || (place as any).location || selectedLocation,
           distance: dist < 1 ? `${(dist * 1000).toFixed(0)} m` : `${dist.toFixed(1)} km`,
           distanceValue: dist,
           status: op.status,
           isOpen: op.isOpen,
-          description: (place as any).description || `Explore ${placeName} in Odisha.`,
+          description: (place as any).description || `Explore ${placeName} in ${selectedLocation}, Odisha.`,
           imageUrl: (place as any).imageUrl || getPlaceImageUrl(placeName, (place as any).category),
-          rating: 4.8,
+          rating: meta.rating,
+          reviewCount: meta.reviewCount,
           lat: (place as any).lat,
           lon: (place as any).lon,
         };
@@ -711,10 +769,10 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
           {nearbyPlaces
             .filter((place) => {
               if (activeFilter === "Open Now") {
-                return place.isOpen || place.status.toLowerCase().includes("open") || place.status.toLowerCase().includes("active");
+                return place.isOpen === true || (place.isOpen !== false && place.status.toLowerCase().includes("open"));
               }
               if (activeFilter === "Top Rated") {
-                return (place.rating ?? 4.8) >= 4.5;
+                return (place.rating ?? 4.8) >= 4.6;
               }
               return true;
             })
@@ -788,12 +846,35 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                         </button>
                       </div>
 
-                      <div className="flex items-center gap-2 text-xs text-emerald-300/90 mt-1 font-mono">
+                      <div className="flex flex-wrap items-center gap-2 text-xs text-emerald-300/90 mt-1 font-mono">
                         <span className="flex items-center gap-1 font-bold text-emerald-400">
                           <MapPin size={11} /> {place.distance}
                         </span>
                         <span>·</span>
-                        <span className="text-[11px] text-emerald-200">● {place.status}</span>
+                        <span
+                          className={`text-[11px] ${
+                            place.isOpen === true
+                              ? "text-emerald-300"
+                              : place.isOpen === false
+                              ? "text-amber-300/90"
+                              : "text-gray-400"
+                          }`}
+                        >
+                          ● {place.status}
+                        </span>
+                        {place.rating != null && (
+                          <>
+                            <span>·</span>
+                            <span className="text-amber-300 font-bold flex items-center gap-0.5">
+                              ★ {place.rating.toFixed(1)}
+                              {place.reviewCount ? (
+                                <span className="text-[10px] text-gray-400 font-normal ml-0.5">
+                                  ({place.reviewCount > 999 ? `${(place.reviewCount / 1000).toFixed(1)}k` : place.reviewCount})
+                                </span>
+                              ) : null}
+                            </span>
+                          </>
+                        )}
                       </div>
 
                       <p className="text-xs text-gray-300 mt-2 line-clamp-2 leading-relaxed">
