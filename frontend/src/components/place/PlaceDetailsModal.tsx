@@ -53,6 +53,8 @@ export interface PlaceDetailsModalProps {
   onPlanTrip?: (place: SelectedPlaceInfo) => void;
 }
 
+import { useRecentPlaces } from "../../store/useRecentPlaces";
+
 export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
   place,
   onClose,
@@ -60,11 +62,24 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
   onPlanTrip,
 }) => {
   const { isSaved, toggleSavePlace } = useSavedPlaces();
+  const { addRecentPlace } = useRecentPlaces();
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const placeIdOrName = place.id || place.name;
   const saved = isSaved(placeIdOrName);
   const region = place.location || getPlaceRegion(place.name);
+
+  React.useEffect(() => {
+    if (place?.name) {
+      addRecentPlace({
+        id: place.id || place.name.toLowerCase().replace(/[^a-z0-9]/g, "_"),
+        name: place.name,
+        category: place.category,
+        location: region,
+        imageUrl: place.imageUrl || resolvePlaceImageUrl({ name: place.name, category: place.category, images: place.images }, "card"),
+      });
+    }
+  }, [place, addRecentPlace, region]);
 
   // Gallery resolution
   const gallery = resolvePlaceGallery({

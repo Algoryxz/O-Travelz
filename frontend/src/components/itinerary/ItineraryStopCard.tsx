@@ -1,9 +1,11 @@
 import React from "react";
-import type { ItineraryStop } from "../../api/contracts";
+import type { ItineraryStop } from "../../types/api";
 import { getPlaceImageUrl, getPlaceRegion } from "../../utils/imageService";
 import { usePlaces } from "../../store/usePlaces";
 import { CANONICAL_INTEREST_LABELS } from "../../utils/timelineService";
 import { MapPin, Clock, Timer, Sparkles } from "lucide-react";
+
+import { resolvePlaceImageUrl } from "../../utils/imageAdapter";
 
 interface ItineraryStopCardProps {
   stop: ItineraryStop;
@@ -23,7 +25,7 @@ export const ItineraryStopCard: React.FC<ItineraryStopCardProps> = ({
   const { getPlaceByName, getPlaceById } = usePlaces();
   const placeDetail = getPlaceById(stop.place.id) || getPlaceByName(stop.place.name);
 
-  const imageUrl = getPlaceImageUrl(stop.place.name, stop.place.category);
+  const imageUrl = resolvePlaceImageUrl(placeDetail || { name: stop.place.name, category: stop.place.category }, "card");
   const region = getPlaceRegion(stop.place.name);
 
   const arrivalTime =

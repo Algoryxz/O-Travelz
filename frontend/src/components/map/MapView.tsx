@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import type { MapProjectionResponse, MapFeature } from "../../api/contracts";
+import type { MapProjectionResponse, MapFeature } from "../../types/api";
 import { MapCanvas } from "./MapCanvas";
 import { MapDetailsDrawer } from "./MapDetailsDrawer";
 import { ErrorAlert } from "../itinerary/ErrorAlert";
@@ -12,6 +12,7 @@ interface MapViewProps {
   projection: MapProjectionResponse | null;
   isLoading: boolean;
   error: unknown | null;
+  allPlaces?: Array<{ id: string; name: string; category: string; location?: string; lat?: number | null; lon?: number | null; description?: string | null }>;
   selectedPlace?: SelectedPlaceInfo | null;
   onClearSelectedPlace?: () => void;
   onPlanTripWithPlace?: (place: SelectedPlaceInfo) => void;
@@ -23,6 +24,7 @@ export const MapView: React.FC<MapViewProps> = ({
   projection,
   isLoading,
   error,
+  allPlaces = [],
   selectedPlace,
   onClearSelectedPlace,
   onPlanTripWithPlace,
@@ -35,11 +37,27 @@ export const MapView: React.FC<MapViewProps> = ({
     projection?.features.filter((f) => f.geometry_status === "unavailable").length ?? 0;
   const relationshipsCount = projection?.relationships.length ?? 0;
 
-  // Features are strictly consumed from authoritative backend map projection,
+  // Features are consumed from backend map projection, or all verified places across Odisha,
   // or a standalone selected place with verified coordinates when exploring a single spot
   const featuresToRender: MapFeature[] = useMemo(() => {
     if (projection && projection.features.length > 0) {
       return projection.features;
+    }
+    if (allPlaces && allPlaces.length > 0) {
+      return allPlaces
+        .filter((p) => p.lat != null && p.lon != null)
+        .map((p) => ({
+          canonical_ref: { entity: "place", id: p.id || p.name },
+          name: p.name,
+          category: p.category,
+          region: p.location || getPlaceRegion(p.name),
+          feature_type: "place" as const,
+          geometry_status: "available" as const,
+          geometry: {
+            type: "Point" as const,
+            coordinates: [p.lon!, p.lat!] as [number, number],
+          },
+        }));
     }
     if (selectedPlace && selectedPlace.lat != null && selectedPlace.lon != null) {
       return [
@@ -58,7 +76,7 @@ export const MapView: React.FC<MapViewProps> = ({
       ];
     }
     return [];
-  }, [projection, selectedPlace]);
+  }, [projection, allPlaces, selectedPlace]);
 
   const hasMapContent = featuresToRender.length > 0 || (projection && projection.relationships.length > 0);
 
