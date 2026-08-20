@@ -52,6 +52,40 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
     setActiveIndex((prev) => (prev < total - 1 ? prev + 1 : 0));
   }, [total]);
 
+  // Wheel event horizontal scroll handling with throttling
+  const lastWheelTime = useRef<number>(0);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const onWheel = (e: WheelEvent) => {
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      if (Math.abs(delta) < 6) return;
+
+      // Prevent window scrolling while pointer is over carousel
+      e.preventDefault();
+
+      const now = Date.now();
+      if (now - lastWheelTime.current < 240) {
+        return;
+      }
+
+      if (delta > 0) {
+        handleNext();
+        lastWheelTime.current = now;
+      } else if (delta < 0) {
+        handlePrev();
+        lastWheelTime.current = now;
+      }
+    };
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => {
+      el.removeEventListener("wheel", onWheel);
+    };
+  }, [handleNext, handlePrev]);
+
   // Keyboard navigation
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {

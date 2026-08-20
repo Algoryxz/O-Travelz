@@ -3,24 +3,18 @@
 @import 'leaflet/dist/leaflet.css';
 
 @theme {
-  /* Brand Emerald Palette */
-  --color-emerald-primary: #059669;
+  /* Brand V2 Palette */
+  --color-brand-cream: #FBF8F1;
+  --color-brand-ink: #1E1E1E;
+  --color-brand-emerald: #059669;
+  --color-brand-obsidian: #0B0F19;
+
+  /* Additional shades for UI elements */
   --color-emerald-dark: #064e3b;
   --color-emerald-deep: #042f24;
-  --color-emerald-forest: #142c26;
-  --color-emerald-night: #071111;
   --color-emerald-light: #10b981;
   --color-emerald-mint: #34d399;
   --color-emerald-surface: #ecfdf5;
-  --color-emerald-border: #a7f3d0;
-
-  /* Neutrals & Paper Tones */
-  --color-paper-base: #f5f2ea;
-  --color-paper-light: #fbfaf5;
-  --color-paper-card: #ffffff;
-  --color-paper-border: #e6e2d8;
-  --color-paper-dark: #26352f;
-  --color-paper-muted: #74847b;
 
   /* Typography */
   --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -41,21 +35,20 @@ body {
   margin: 0;
   min-width: 320px;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #f8faf8;
-  color: #172033;
+  background: var(--color-brand-obsidian);
+  color: var(--color-brand-cream);
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Dark Theme Overrides */
+/* Dark Theme (Canonical) */
 html.dark body {
-  background: #08120f;
-  color: #e2ede8;
+  background: var(--color-brand-obsidian);
+  color: var(--color-brand-cream);
 }
 
 html.dark .bg-white {
-  background-color: #11221d !important;
-  color: #e2ede8 !important;
+  background-color: #161B22 !important;
+  color: var(--color-brand-cream) !important;
 }
 
 html.dark .bg-gray-50 {
