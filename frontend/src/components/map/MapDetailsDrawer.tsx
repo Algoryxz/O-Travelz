@@ -38,25 +38,29 @@ export const MapDetailsDrawer: React.FC<MapDetailsDrawerProps> = ({
 
         {availableFeatures.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-            {availableFeatures.map((f, idx) => (
-              <div
-                key={`avail-${f.canonical_ref.id}-${idx}`}
-                data-testid={`available-feature-${idx}`}
-                className="p-2.5 rounded-2xl bg-emerald-50/60 border border-emerald-200 flex items-center justify-between"
-              >
-                <div>
-                  <span className="font-mono text-gray-800 block text-[11px] truncate max-w-[150px]" title={f.canonical_ref.id}>
-                    {f.canonical_ref.id}
-                  </span>
-                  <span className="text-[10px] text-gray-500 uppercase">{f.feature_type}</span>
+            {availableFeatures.map((f, idx) => {
+              const displayName = f.name || "Verified Destination";
+              const category = f.category || f.feature_type;
+              return (
+                <div
+                  key={`avail-${f.canonical_ref.id}-${idx}`}
+                  data-testid={`available-feature-${idx}`}
+                  className="p-2.5 rounded-2xl bg-emerald-50/60 border border-emerald-200 flex items-center justify-between"
+                >
+                  <div className="min-w-0 pr-2">
+                    <span className="font-bold text-gray-900 block text-xs truncate max-w-[180px]" title={displayName}>
+                      {displayName}
+                    </span>
+                    <span className="text-[10px] text-emerald-800 font-semibold uppercase">{category}</span>
+                  </div>
+                  {f.geometry?.type === "Point" && (
+                    <span className="font-mono text-emerald-900 font-medium text-[11px] shrink-0">
+                      {f.geometry.coordinates[0].toFixed(4)}°, {f.geometry.coordinates[1].toFixed(4)}°
+                    </span>
+                  )}
                 </div>
-                {f.geometry?.type === "Point" && (
-                  <span className="font-mono text-emerald-900 font-medium text-[11px]">
-                    {f.geometry.coordinates[0].toFixed(4)}°, {f.geometry.coordinates[1].toFixed(4)}°
-                  </span>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
         ) : (
           <p className="text-xs text-gray-400 italic">No destination locations currently returned.</p>
@@ -73,23 +77,27 @@ export const MapDetailsDrawer: React.FC<MapDetailsDrawerProps> = ({
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-            {unavailableFeatures.map((f, idx) => (
-              <div
-                key={`unavail-${f.canonical_ref.id}-${idx}`}
-                data-testid={`unavailable-feature-${idx}`}
-                className="p-2.5 rounded-2xl bg-amber-50/60 border border-amber-200 flex flex-col justify-between"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-gray-800 text-[11px] truncate max-w-[140px]" title={f.canonical_ref.id}>
-                    {f.canonical_ref.id}
+            {unavailableFeatures.map((f, idx) => {
+              const displayName = f.name || "Pending Destination";
+              const category = f.category || f.feature_type;
+              return (
+                <div
+                  key={`unavail-${f.canonical_ref.id}-${idx}`}
+                  data-testid={`unavailable-feature-${idx}`}
+                  className="p-2.5 rounded-2xl bg-amber-50/60 border border-amber-200 flex flex-col justify-between"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-gray-900 text-xs truncate max-w-[180px]" title={displayName}>
+                      {displayName}
+                    </span>
+                    <span className="text-[10px] text-amber-700 font-medium uppercase">{category}</span>
+                  </div>
+                  <span className="mt-1 text-[11px] text-amber-900 font-mono">
+                    Status: Location details pending
                   </span>
-                  <span className="text-[10px] text-amber-700 font-medium uppercase">{f.feature_type}</span>
                 </div>
-                <span className="mt-1 text-[11px] text-amber-900 font-mono">
-                  Status: Location details pending
-                </span>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}

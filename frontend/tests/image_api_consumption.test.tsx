@@ -233,4 +233,60 @@ describe("Phase 4: Frontend API Image Consumption & Adapter", () => {
     expect(html).toContain("1 / 2");
     expect(html).toContain("Lingaraj Temple Sanctum Main View");
   });
+
+  it("consumes authoritative backend image proxy URLs (/static/images/...) in PlaceDetailsModal and card", () => {
+    const authoritativeBackendPlace: PlaceDetail = {
+      id: "place_bbsr_001",
+      name: "Lingaraj Temple",
+      category: "temple",
+      description: "11th-century Lingaraj Temple towering sandstone deula spire",
+      lat: 20.238333,
+      lon: 85.833611,
+      avg_visit_minutes: 90,
+      price_tier: "free",
+      source: "https://odishatourism.gov.in",
+      verified_at: "2026-08-19T00:00:00Z",
+      images: [
+        {
+          id: "img-lingaraj-001",
+          storage_key: "places/place_bbsr_001/6565b97835e5/hero.webp",
+          url: "/static/images/places/place_bbsr_001/6565b97835e5/hero.webp",
+          card_url: "/static/images/places/place_bbsr_001/6565b97835e5/card.webp",
+          thumbnail_url: "/static/images/places/place_bbsr_001/6565b97835e5/thumbnail.webp",
+          alt_text: "11th-century Lingaraj Temple towering sandstone deula spire",
+          title: "Lingaraj Temple",
+          source_name: "Wikimedia Commons",
+          license: "CC BY-SA 4.0",
+          attribution: "Photo by Subhashree Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
+          is_primary: true,
+          sort_order: 1,
+        },
+      ],
+    };
+
+    // 1. Check resolution for card and hero
+    const cardUrl = resolvePlaceImageUrl(authoritativeBackendPlace, "card");
+    expect(cardUrl).toBe("/static/images/places/place_bbsr_001/6565b97835e5/card.webp");
+
+    const heroUrl = resolvePlaceImageUrl(authoritativeBackendPlace, "hero");
+    expect(heroUrl).toBe("/static/images/places/place_bbsr_001/6565b97835e5/hero.webp");
+
+    // 2. Check toExtendedPlace
+    const extended = toExtendedPlace(authoritativeBackendPlace);
+    expect(extended.imageUrl).toBe("/static/images/places/place_bbsr_001/6565b97835e5/card.webp");
+    expect(extended.region).toBe("Bhubaneswar & Central");
+
+    // 3. Check PlaceDetailsModal rendering
+    const modalHtml = renderClean(
+      <PlaceDetailsModal
+        place={authoritativeBackendPlace}
+        onClose={() => {}}
+        onViewOnMap={() => {}}
+        onPlanTrip={() => {}}
+      />
+    );
+    expect(modalHtml).toContain("/static/images/places/place_bbsr_001/6565b97835e5/hero.webp");
+    expect(modalHtml).toContain("Lingaraj Temple");
+    expect(modalHtml).toContain("Bhubaneswar &amp; Central");
+  });
 });

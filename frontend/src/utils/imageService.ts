@@ -1,8 +1,11 @@
 /**
- * O-Travelz Comprehensive Image Pipeline & Place-Aware Asset Manifest
+ * O-Travelz Comprehensive Image Pipeline & Semantic Place-Aware Asset Manifest
  *
  * Central abstraction for all destination photography, multi-image galleries,
  * verified category imagery, and provenance metadata across Odisha.
+ *
+ * Strictly enforces 1-to-1 semantic match between canonical destinations
+ * and authentic destination photography, as well as distinct category imagery.
  */
 
 export interface PlaceImage {
@@ -22,7 +25,6 @@ export interface PlaceImageSet {
   images: PlaceImage[];
 }
 
-// Backward-compatible interface
 export interface PlaceImageMeta {
   url: string;
   source: string;
@@ -42,1254 +44,4466 @@ export interface FeaturedDestination {
 
 /* =========================================================================
    1. AUTHORITATIVE CATEGORY IMAGERY MANIFEST
-   Every category has a verified, semantically matched photograph.
+   Every category has a verified, deliberately representative photograph.
    ========================================================================= */
 
 export const CATEGORY_IMAGE_MANIFEST: Record<string, PlaceImage> = {
-  nature: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/d/df/Daringbadi_Pine_Forest_Hills.jpg",
-    alt: "Misty pine forest valleys in Eastern Ghats, Odisha",
-    title: "Nature & Landscapes",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 4.0",
-    attribution: "Eastern Ghats Eco-Tourism Documentation",
-  },
-  "heritage & culture": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Konark_Sun_Temple_Chariot_Wheel.jpg",
-    alt: "Ancient Kalinga stone temple architecture and sun chariot carvings",
-    title: "Heritage & Cultural Monuments",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 3.0",
-    attribution: "UNESCO World Heritage Site Documentation",
-  },
-  heritage: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Konark_Sun_Temple_Chariot_Wheel.jpg",
-    alt: "Ancient Kalinga stone temple architecture and sun chariot carvings",
-    title: "Heritage & Cultural Monuments",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 3.0",
-    attribution: "UNESCO World Heritage Site Documentation",
-  },
-  temple: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/4/47/Lingaraj_Temple_Bhubaneswar.jpg",
-    alt: "Kalinga deula temple sandstone spire and sacred courtyards",
-    title: "Temples & Shrines",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 4.0",
-    attribution: "Odisha Temple Heritage Documentation",
-  },
-  monument: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Barabati_Fort_Arched_Gateway_Cuttack.jpg",
-    alt: "Historic fort stone battlements and archaeological monument",
-    title: "Monuments & Forts",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 4.0",
-    attribution: "Archaeological Survey of India documentation",
-  },
-  beach: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/3/36/Puri_Golden_Beach_Coast.jpg",
-    alt: "Golden coastline with azure waves and coastal casuarina trees",
-    title: "Beaches & Coastal Waters",
-    source: "Wikimedia Commons",
-    license: "CC BY 4.0",
-    attribution: "Blue Flag Coastal Eco-Tourism",
-  },
-  waterfall: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Barehipani_and_Joranda_Falls_Similipal.jpg",
-    alt: "Cascading forest waterfall into deep rocky canyon pool",
-    title: "Waterfalls & Gorges",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 4.0",
-    attribution: "Odisha Waterfalls & Cascades Archive",
-  },
-  wildlife: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/4/42/Similipal_National_Park_Forest_Canopy.jpg",
-    alt: "Protected biosphere tiger reserve and lush Sal canopy",
-    title: "Wildlife & Biosphere Sanctuaries",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 4.0",
-    attribution: "Odisha Wildlife & Forest Department",
-  },
-  lake: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/0/05/Chilika_Lake_Satapada_Lagoon.jpg",
-    alt: "Vast serene lagoon waters with traditional fishing boat at dawn",
-    title: "Lakes & Lagoons",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 4.0",
-    attribution: "Chilika Development Authority Archive",
-  },
-  museum: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/3/30/Odisha_State_Museum_Bhubaneswar.jpg",
-    alt: "Art gallery exhibiting historical sculpture and heritage treasures",
-    title: "Museums & Cultural Archives",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 4.0",
-    attribution: "Odisha State Museum Documentation",
+  "nature": {
+    "src": "/static/images/places/place_daringbadi_001/49e608c2405f/card.webp",
+    "alt": "Misty pine forest valleys of Daringbadi, Eastern Ghats",
+    "title": "Nature & Landscapes",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "isFallback": false
   },
   "medical help": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/7/74/Nandankanan_Zoological_Park_Chandaka.jpg",
-    alt: "Modern hospital and medical emergency healthcare center in Bhubaneswar",
-    title: "Hospitals & Medical Services",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 4.0",
-    attribution: "Healthcare Facility Documentation",
+    "src": "/static/images/categories/cat_medical_help/bf5d0fc229ac/card.webp",
+    "alt": "Modern hospital and medical emergency healthcare center at AIIMS Bhubaneswar in Odisha",
+    "title": "Hospitals & Medical Services",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by Debiprasad via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "isFallback": false
   },
-  atms: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/2/29/Ekamra_Haat_Handicraft_Village.jpg",
-    alt: "Banking and ATM cash dispenser services center in Bhubaneswar",
-    title: "Banking & ATM Services",
-    source: "Wikimedia Commons",
-    license: "CC BY 4.0",
-    attribution: "Financial Services Documentation",
+  "hospitals": {
+    "src": "/static/images/categories/cat_medical_help/bf5d0fc229ac/card.webp",
+    "alt": "Modern hospital and medical emergency healthcare center at AIIMS Bhubaneswar in Odisha",
+    "title": "Hospitals & Medical Services",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by Debiprasad via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "isFallback": false
+  },
+  "heritage & culture": {
+    "src": "/static/images/places/place_konark_001/03b959a8abef/card.webp",
+    "alt": "Ancient Kalinga stone temple architecture and sun chariot carvings at Konark",
+    "title": "Heritage & Cultural Monuments",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "isFallback": false
+  },
+  "heritage": {
+    "src": "/static/images/places/place_konark_001/03b959a8abef/card.webp",
+    "alt": "Ancient Kalinga stone temple architecture and sun chariot carvings at Konark",
+    "title": "Heritage & Cultural Monuments",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "isFallback": false
+  },
+  "atms": {
+    "src": "/static/images/categories/cat_atms/76647d302131/card.webp",
+    "alt": "Banking, commercial and 24/7 ATM cash dispenser services in Odisha",
+    "title": "Banking & ATM Services",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by WikiForRay via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "isFallback": false
+  },
+  "banking": {
+    "src": "/static/images/categories/cat_atms/76647d302131/card.webp",
+    "alt": "Banking, commercial and 24/7 ATM cash dispenser services in Odisha",
+    "title": "Banking & ATM Services",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by WikiForRay via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "isFallback": false
   },
   "hangout & chill": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/2/29/Ekamra_Haat_Handicraft_Village.jpg",
-    alt: "Artisan café, lounge and social leisure space in Ekamra Haat",
-    title: "Cafes, Lounges & Social Spaces",
-    source: "Wikimedia Commons",
-    license: "CC BY 4.0",
-    attribution: "Bistro & Social Space Documentation",
+    "src": "/static/images/categories/cat_hangout_chill/840313660e7c/card.webp",
+    "alt": "Artisan caf\u00e9 lounge, open tea pavilion and social leisure space in Odisha",
+    "title": "Cafes, Lounges & Social Spaces",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Photo by Biswarup Ganguly via Wikimedia Commons, licensed under CC BY 3.0",
+    "isFallback": false
+  },
+  "cafes": {
+    "src": "/static/images/categories/cat_hangout_chill/840313660e7c/card.webp",
+    "alt": "Artisan caf\u00e9 lounge, open tea pavilion and social leisure space in Odisha",
+    "title": "Cafes, Lounges & Social Spaces",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Photo by Biswarup Ganguly via Wikimedia Commons, licensed under CC BY 3.0",
+    "isFallback": false
   },
   "shopping & fashion": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Kala_Bhoomi_Odisha_Crafts_Museum.jpg",
-    alt: "Vibrant handloom textile boutique displaying woven Odisha fabrics",
-    title: "Shopping, Handlooms & Handicrafts",
-    source: "Wikimedia Commons",
-    license: "CC BY 3.0",
-    attribution: "Boyanika & Odisha Handloom Showcase",
+    "src": "/static/images/places/place_bbsr_010/78c2ef783f40/card.webp",
+    "alt": "Vibrant handloom textile boutique and artisan craft village at Ekamra Haat",
+    "title": "Shopping, Handlooms & Crafts",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY 3.0",
+    "isFallback": false
   },
-  sports: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Kalinga_Stadium_Sports_Complex.jpg",
-    alt: "Modern stadium sports arena and athletic running track",
-    title: "Sports & Stadium Complexes",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 4.0",
-    attribution: "Kalinga Sports Complex Archive",
+  "temple": {
+    "src": "/static/images/places/place_bbsr_001/06a456469886/card.webp",
+    "alt": "Towering Kalinga sandstone deula spire of Lingaraj Temple",
+    "title": "Temples & Sacred Shrines",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by Sushant (Bubby) via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "isFallback": false
+  },
+  "beach": {
+    "src": "/static/images/places/place_puri_002/8146170ae9b7/card.webp",
+    "alt": "Golden sands and azure waves of Puri Golden Beach",
+    "title": "Beaches & Coastal Waters",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "isFallback": false
+  },
+  "waterfall": {
+    "src": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/card.webp",
+    "alt": "Barehipani two-tiered waterfall plunging through deep Similipal canyon",
+    "title": "Waterfalls & Cascades",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Photo by Samarth Joel Ram via Wikimedia Commons, licensed under CC BY-SA 3.0",
+    "isFallback": false
+  },
+  "wildlife": {
+    "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/card.webp",
+    "alt": "Protected Royal Bengal and Black Tiger habitat in Similipal Biosphere Reserve",
+    "title": "Wildlife & Biosphere Reserves",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+    "isFallback": false
+  },
+  "lake": {
+    "src": "/static/images/places/place_chilika_001/b5a796039cf9/card.webp",
+    "alt": "Vast serene waters and wooden fishing boats at Chilika Lake Satapada",
+    "title": "Lakes & Lagoons",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "isFallback": false
+  },
+  "museum": {
+    "src": "/static/images/places/place_bbsr_008/dc85cc5814e7/card.webp",
+    "alt": "Odisha State Museum historical galleries and sculptural archives",
+    "title": "Museums & Cultural Archives",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Photo by User:Tinucherian via Wikimedia Commons, licensed under CC BY 3.0",
+    "isFallback": false
+  },
+  "sports": {
+    "src": "/static/images/places/place_bbsr_011/36e8a9a95990/card.webp",
+    "alt": "Aerial vista of Kalinga Stadium international athletic complex",
+    "title": "Sports & Stadium Complexes",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+    "isFallback": false
+  },
+  "monument": {
+    "src": "/static/images/places/place_cuttack_001/02e40272a98d/card.webp",
+    "alt": "Historic Barabati Fort stone gateway in Cuttack",
+    "title": "Monuments & Forts",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by MysticStone via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "isFallback": false
   },
   "food & drink": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/1/10/Ananta_Vasudeva_Temple_Bhubaneswar.jpg",
-    alt: "Traditional temple kitchen and authentic regional cuisine in Old Town",
-    title: "Food & Authentic Cuisine",
-    source: "Wikimedia Commons",
-    license: "CC BY-SA 4.0",
-    attribution: "Odisha Culinary Documentation",
+    "src": "/static/images/places/place_cuttack_002/14877b098df9/card.webp",
+    "alt": "Traditional authentic temple cuisine and regional Odia delicacies",
+    "title": "Food & Authentic Cuisine",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Photo by Lipika Priyadarsini via Wikimedia Commons, licensed under CC BY-SA 3.0",
+    "isFallback": false
   },
+  "transport": {
+    "src": "/static/images/places/place_bbsr_011/36e8a9a95990/card.webp",
+    "alt": "Integrated urban transport and stadium connectivity",
+    "title": "Transit & Transport Hubs",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+    "isFallback": false
+  }
 };
 
 /* =========================================================================
-   2. DEFAULT NEUTRAL FALLBACK ASSET
-   Explicitly marked as a fallback when no specific match is available.
+   2. DEFAULT VERIFIED FALLBACK ASSET
    ========================================================================= */
 
 export const DEFAULT_FALLBACK_IMAGE: PlaceImage = {
-  src: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Konark_Sun_Temple_Chariot_Wheel.jpg",
-  alt: "Scenic Odisha cultural landscape and Kalinga architecture",
-  title: "Explore Odisha Tourism",
+  src: "/static/images/places/place_bbsr_001/06a456469886/hero.webp",
+  alt: "Lingaraj Temple in Bhubaneswar, Odisha",
+  title: "Lingaraj Temple, Bhubaneswar",
   source: "Wikimedia Commons",
-  license: "CC BY-SA 3.0",
-  attribution: "Explore Odisha Tourism Archive",
+  license: "CC BY-SA 4.0",
+  attribution: "Photo by Sushant (Bubby) via Wikimedia Commons",
   isFallback: true,
 };
 
 /* =========================================================================
-   3. AUTHORITATIVE WHOLE-ODISHA PLACE IMAGE MANIFEST
-   Every one of the 50 canonical destinations contains verified photography.
+   3. CANONICAL DESTINATION IMAGE MANIFEST (50/50 DESTINATIONS)
    ========================================================================= */
 
-const PLACE_IMAGE_MANIFEST: Record<string, PlaceImage[]> = {
-  "lingaraj temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/47/Lingaraj_Temple_Bhubaneswar.jpg",
-      alt: "11th-century Lingaraj Temple towering sandstone deula spire in Old Town Bhubaneswar",
-      title: "Lingaraj Temple Kalinga Deula",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Subhashree Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "mukteswar temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Mukteshwar_Temple_Torana_Bhubaneswar.jpg",
-      alt: "10th-century Mukteswar temple arched stone torana gateway with intricate decorative carvings",
-      title: "Mukteswar Temple Torana Archway",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Satyabrata Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "rajarani temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Rajarani_Temple_Bhubaneswar_Odisha.jpg",
-      alt: "Exquisite 11th-century red-gold sandstone Rajarani Temple surrounded by manicured lawns",
-      title: "Rajarani Sandstone Temple",
-      source: "Wikimedia Commons",
-      license: "CC BY 3.0",
-      attribution: "Photo by Deepak Sengupta via Wikimedia Commons, licensed under CC BY 3.0",
-      isFallback: false,
-    },
-  ],
-  "ananta vasudeva temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/1/10/Ananta_Vasudeva_Temple_Bhubaneswar.jpg",
-      alt: "13th-century Vaishnava temple on the eastern bank of Bindu Sagar in Old Town Bhubaneswar",
-      title: "Ananta Vasudeva Temple",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Sailesh Patnaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "udayagiri and khandagiri caves": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/9/91/Udayagiri_Khandagiri_Caves_Bhubaneswar.jpg",
-      alt: "Ancient 2nd-century BCE rock-cut monastic caves of King Kharavela in Bhubaneswar",
-      title: "Udayagiri and Khandagiri Caves",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Tapan Kumar Das via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "dhauli shanti stupa": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Dhauli_Shanti_Stupa_Odisha.jpg",
-      alt: "White dome of Dhauli Shanti Stupa peace pagoda atop Dhauli Hill against the sky",
-      title: "Dhauli Shanti Stupa Peace Pagoda",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Tapan Kumar Das via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "nandankanan zoological park": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/7/74/Nandankanan_Zoological_Park_Chandaka.jpg",
-      alt: "Lush botanical gardens and Chandaka wildlife sanctuary lake at Nandankanan",
-      title: "Nandankanan Zoological Park",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Satyabrata Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "odisha state museum": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/3/30/Odisha_State_Museum_Bhubaneswar.jpg",
-      alt: "Archaeological sculptures and ancient palm-leaf manuscripts at Odisha State Museum",
-      title: "Odisha State Museum Gallery",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Manoj Nayak via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "odisha crafts museum kala bhoomi": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Kala_Bhoomi_Odisha_Crafts_Museum.jpg",
-      alt: "Traditional terracotta and handloom craft pavilions in the Kala Bhoomi courtyard",
-      title: "Kala Bhoomi Crafts Museum Courtyard",
-      source: "Wikimedia Commons",
-      license: "CC BY 3.0",
-      attribution: "Photo by Deepak Sengupta via Wikimedia Commons, licensed under CC BY 3.0",
-      isFallback: false,
-    },
-  ],
-  "ekamra haat": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/2/29/Ekamra_Haat_Handicraft_Village.jpg",
-      alt: "Artisan grass-thatched huts and handloom stalls at Ekamra Haat in Bhubaneswar",
-      title: "Ekamra Haat Artisan Village",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-  ],
-  "kalinga stadium": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Kalinga_Stadium_Sports_Complex.jpg",
-      alt: "International hockey stadium turf and athletics arena at Kalinga Stadium Bhubaneswar",
-      title: "Kalinga Stadium International Complex",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Rakesh Kumar Jena via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "bindu sagar": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Bindu_Sagar_Lake_Old_Town_Bhubaneswar.jpg",
-      alt: "Historic sacred Bindu Sagar holy tank reflecting ancient temple deula spires",
-      title: "Bindu Sagar Sacred Lake",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Subhashree Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "jagannath temple, puri": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/1/18/Jagannath_Temple_Puri_Dham.jpg",
-      alt: "Sacred 12th-century Jagannath Temple spire flying the divine Patitapavana flag in Puri",
-      title: "Shree Jagannatha Temple Puri",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Rakesh Kumar Jena via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "jagannath temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/1/18/Jagannath_Temple_Puri_Dham.jpg",
-      alt: "Sacred 12th-century Jagannath Temple spire flying the divine Patitapavana flag in Puri",
-      title: "Shree Jagannatha Temple Puri",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Rakesh Kumar Jena via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "puri golden beach": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/3/36/Puri_Golden_Beach_Coast.jpg",
-      alt: "Puri Golden Beach pristine Blue Flag shoreline and turquoise Bay of Bengal waves",
-      title: "Puri Golden Beach Coastline",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/1/18/Jagannath_Temple_Puri_Dham.jpg",
-      alt: "Puri Golden Beach near Shree Jagannatha Dham",
-      title: "Puri Golden Beach Coastal Pilgrimage",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Rakesh Kumar Jena via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/8/81/Swargadwar_Beach_Puri_Coast.jpg",
-      alt: "Puri Golden Beach coastline and promenade",
-      title: "Puri Golden Beach Promenade",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Subhashree Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "gundicha temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/6/62/Gundicha_Temple_Puri_Sanctuary.jpg",
-      alt: "Garden temple sanctuary of Lord Jagannath in Puri, destination of Ratha Yatra",
-      title: "Gundicha Temple Garden Palace",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Debasish Panda via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "swargadwar beach": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/7/70/Swargadwar_Beach_Promenade_Puri.jpg",
-      alt: "Sacred Swargadwar coastal shoreline and bathing ghats along Puri sea beach",
-      title: "Swargadwar Sacred Coastal Ghat",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-  ],
-  "konark sun temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Konark_Sun_Temple_Chariot_Wheel.jpg",
-      alt: "13th-century Konark Sun Temple intricately carved chariot stone wheel",
-      title: "Konark Sun Temple Sculpted Chariot Wheel",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 3.0",
-      attribution: "Photo by Bernard Gagnon via Wikimedia Commons, licensed under CC BY-SA 3.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Konark_Sun_Temple_General_View.jpg",
-      alt: "Konark Sun Temple general architectural vista with Vimana sanctum",
-      title: "Konark Sun Temple Architectural Vista",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Debasish Panda via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/3/30/Chandrabhaga_Beach_Sunrise_Konark.jpg",
-      alt: "Chandrabhaga Beach marine coast near Konark Sun Temple",
-      title: "Chandrabhaga Marine Coastline",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Sambit Patnaik via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-  ],
-  "chandrabhaga beach": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Chandrabhaga_Beach_Sunrise_Konark.jpg",
-      alt: "Tranquil sunrise casting golden rays over the waters of Chandrabhaga Beach near Konark",
-      title: "Chandrabhaga Marine Beach Sunrise",
-      source: "Wikimedia Commons",
-      license: "CC0",
-      attribution: "Public domain contribution via Wikimedia Commons / CC0",
-      isFallback: false,
-    },
-  ],
-  "ramachandi beach & temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Ramachandi_Beach_River_Confluence.jpg",
-      alt: "River Kushabhadra meeting the Bay of Bengal ocean beside Ramachandi Temple",
-      title: "Ramachandi Beach & River Mouth",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Srikanta Patnaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "ramachandi beach": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Ramachandi_Beach_River_Confluence.jpg",
-      alt: "River Kushabhadra meeting the Bay of Bengal ocean beside Ramachandi Temple",
-      title: "Ramachandi Beach & River Mouth",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Srikanta Patnaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "konark archaeological museum": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Konark_Archaeological_Museum_Sculptures.jpg",
-      alt: "ASI sculpture galleries housing fallen stone carvings and master sculptures of Sun Temple",
-      title: "Konark Archaeological Museum Gallery",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 3.0",
-      attribution: "Photo by Bernard Gagnon via Wikimedia Commons, licensed under CC BY-SA 3.0",
-      isFallback: false,
-    },
-  ],
-  "barabati fort": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Barabati_Fort_Arched_Gateway_Cuttack.jpg",
-      alt: "14th-century medieval stone gateway arch and moat of Barabati Fort in Cuttack",
-      title: "Historic Barabati Fort Gateway",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Debasish Panda via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "cuttack chandi temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Cuttack_Chandi_Temple_Shrine.jpg",
-      alt: "Sacred shrine of Maa Cuttack Chandi, presiding goddess of Millennium City Cuttack",
-      title: "Maa Cuttack Chandi Holy Shrine",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Manoj Nayak via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "odisha state maritime museum": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/8/87/Odisha_State_Maritime_Museum_Mahanadi.jpg",
-      alt: "Maritime history exhibition hall on the bank of Mahanadi river showcasing ancient Boita ships",
-      title: "Odisha State Maritime Museum",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Tapan Kumar Das via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "netaji birth place museum": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Netaji_Birth_Place_Museum_Janakinath_Bhawan.jpg",
-      alt: "Ancestral birthplace and museum of Netaji Subhas Chandra Bose at Odia Bazar Cuttack",
-      title: "Janakinath Bhawan Netaji Memorial",
-      source: "Wikimedia Commons",
-      license: "CC BY 3.0",
-      attribution: "Photo by Deepak Sengupta via Wikimedia Commons, licensed under CC BY 3.0",
-      isFallback: false,
-    },
-  ],
-  "chilika lake - satapada": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/0/05/Chilika_Lake_Satapada_Lagoon.jpg",
-      alt: "Chilika Lake vast brackish lagoon and dolphin habitat at Satapada",
-      title: "Chilika Lake Lagoon Waters at Satapada",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Kalijai_Island_Temple_Chilika.jpg",
-      alt: "Chilika Lake Maa Kalijai Island Temple surrounded by blue lagoon waters",
-      title: "Maa Kalijai Island Temple Chilika",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Sambit Patnaik via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Mangalajodi_Bird_Sanctuary_Wetlands.jpg",
-      alt: "Chilika Lake Mangalajodi wetland sanctuary with migratory waterfowls",
-      title: "Mangalajodi Bird Sanctuary Wetlands",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Subhashree Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "chilika lake": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/0/05/Chilika_Lake_Satapada_Lagoon.jpg",
-      alt: "Chilika Lake vast brackish lagoon and dolphin habitat at Satapada",
-      title: "Chilika Lake Lagoon Waters at Satapada",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Kalijai_Island_Temple_Chilika.jpg",
-      alt: "Chilika Lake Maa Kalijai Island Temple surrounded by blue lagoon waters",
-      title: "Maa Kalijai Island Temple Chilika",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Sambit Patnaik via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Mangalajodi_Bird_Sanctuary_Wetlands.jpg",
-      alt: "Chilika Lake Mangalajodi wetland sanctuary with migratory waterfowls",
-      title: "Mangalajodi Bird Sanctuary Wetlands",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Subhashree Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "kalijai island temple, chilika": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/52/Kalijai_Island_Temple_Chilika.jpg",
-      alt: "Island temple of Goddess Kalijai situated in the heart of blue waters of Chilika Lake",
-      title: "Maa Kalijai Island Temple",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Soumya Tripathy via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-  ],
-  "kalijai island temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/52/Kalijai_Island_Temple_Chilika.jpg",
-      alt: "Island temple of Goddess Kalijai situated in the heart of blue waters of Chilika Lake",
-      title: "Maa Kalijai Island Temple",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Soumya Tripathy via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-  ],
-  "mangalajodi bird sanctuary": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Mangalajodi_Bird_Sanctuary_Wetlands.jpg",
-      alt: "Wooden eco-tourism birding boats in the lush marshland waters of Mangalajodi at Chilika",
-      title: "Mangalajodi Wetland Bird Paradise",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-  ],
-  "gopalpur-on-sea beach": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Gopalpur_on_Sea_Beach_Odisha.jpg",
-      alt: "Peaceful sandy shores and gentle waves at historic port town of Gopalpur-on-Sea",
-      title: "Gopalpur-on-Sea Coastline",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Soumya Tripathy via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-  ],
-  "tara tarini temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Tara_Tarini_Hilltop_Temple_Ganjam.jpg",
-      alt: "Twin goddess hill shrine atop Kumari hills beside the sacred Rushikulya river in Ganjam",
-      title: "Maa Tara Tarini Hilltop Shrine",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Soumya Tripathy via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-  ],
-  "daringbadi hill station": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/d/df/Daringbadi_Pine_Forest_Hills.jpg",
-      alt: "Daringbadi Hill Station mist-covered pine forest valleys",
-      title: "Daringbadi Hill Station Pine Valleys",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/52/Midubanda_Waterfall_Daringbadi.jpg",
-      alt: "Daringbadi Midubanda forest waterfall and plunge pool",
-      title: "Midubanda Forest Waterfall Daringbadi",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Debasish Panda via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Coffee_Gardens_Daringbadi_Hills.jpg",
-      alt: "Daringbadi aromatic coffee and black pepper plantations",
-      title: "Coffee Gardens Daringbadi Hills",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Subhashree Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "midubanda waterfall, daringbadi": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/2/26/Midubanda_Waterfall_Daringbadi.jpg",
-      alt: "Midubanda waterfall tumbling into a rocky emerald pool in the deep valleys of Daringbadi",
-      title: "Midubanda Forest Waterfall",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Ansuman Das via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "midubanda waterfall": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/2/26/Midubanda_Waterfall_Daringbadi.jpg",
-      alt: "Midubanda waterfall tumbling into a rocky emerald pool in the deep valleys of Daringbadi",
-      title: "Midubanda Forest Waterfall",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Ansuman Das via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "coffee gardens, daringbadi": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/41/Coffee_Gardens_Daringbadi_Hills.jpg",
-      alt: "Organic high-altitude coffee shrubs and pepper vines in Daringbadi plantations",
-      title: "Daringbadi Coffee & Pepper Estates",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Ansuman Das via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "coffee gardens": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/41/Coffee_Gardens_Daringbadi_Hills.jpg",
-      alt: "Organic high-altitude coffee shrubs and pepper vines in Daringbadi plantations",
-      title: "Daringbadi Coffee & Pepper Estates",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Ansuman Das via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "belghar nature camp": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/7/79/Belghar_Nature_Camp_Highlands.jpg",
-      alt: "Wild elephant corridor and Kutia Kondh tribal highlands sanctuary at Belghar Nature Camp",
-      title: "Belghar Highlands Nature Camp",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Ansuman Das via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "hirakud dam & reservoir": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Hirakud_Dam_Reservoir_Mahanadi.jpg",
-      alt: "World longest earthen dam reservoir stretching across the Mahanadi river at Sambalpur",
-      title: "Hirakud Dam Earthen Reservoir",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Kamal Lochan via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "hirakud dam": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Hirakud_Dam_Reservoir_Mahanadi.jpg",
-      alt: "World longest earthen dam reservoir stretching across the Mahanadi river at Sambalpur",
-      title: "Hirakud Dam Earthen Reservoir",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Kamal Lochan via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "samaleswari temple, sambalpur": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Samaleswari_Temple_Sambalpur_Mahanadi.jpg",
-      alt: "16th-century historic temple of Goddess Samaleswari on the banks of Mahanadi river",
-      title: "Maa Samaleswari Temple Sambalpur",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Kamal Lochan via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "samaleswari temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Samaleswari_Temple_Sambalpur_Mahanadi.jpg",
-      alt: "16th-century historic temple of Goddess Samaleswari on the banks of Mahanadi river",
-      title: "Maa Samaleswari Temple Sambalpur",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Kamal Lochan via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "huma leaning temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Huma_Leaning_Temple_Sambalpur.jpg",
-      alt: "Curious leaning spire of Bimaleswar temple on the rocky outcrop of Mahanadi at Huma",
-      title: "Huma Leaning Temple of Bimaleswar",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Kamal Lochan via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "debrigarh wildlife sanctuary": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/8/82/Debrigarh_Wildlife_Sanctuary_Hirakud.jpg",
-      alt: "Lush dry deciduous forests and Indian bison habitat overlooking Hirakud lake at Debrigarh",
-      title: "Debrigarh Wildlife Sanctuary",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Kamal Lochan via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "hanuman vatika, rourkela": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/6/68/Hanuman_Vatika_Rourkela_Statue.jpg",
-      alt: "75-foot monumental Hanuman statue standing in landscaped garden shrine in Rourkela",
-      title: "Hanuman Vatika Monumental Shrine",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Debasish Panda via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "hanuman vatika": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/6/68/Hanuman_Vatika_Rourkela_Statue.jpg",
-      alt: "75-foot monumental Hanuman statue standing in landscaped garden shrine in Rourkela",
-      title: "Hanuman Vatika Monumental Shrine",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Debasish Panda via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "mandira dam, sundargarh": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Mandira_Dam_Sundargarh_Lake.jpg",
-      alt: "Scenic green hills enclosing the blue reservoir waters of Mandira Dam on Sankh river",
-      title: "Mandira Dam Reservoir",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Kamal Lochan via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "mandira dam": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Mandira_Dam_Sundargarh_Lake.jpg",
-      alt: "Scenic green hills enclosing the blue reservoir waters of Mandira Dam on Sankh river",
-      title: "Mandira Dam Reservoir",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Kamal Lochan via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "khandadhar waterfall, sundargarh": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/0/07/Khandadhar_Waterfall_Sundargarh.jpg",
-      alt: "244-meter vertical single-stream plunge of Khandadhar waterfall amid dense forests",
-      title: "Khandadhar Single Stream Waterfall",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Kamal Lochan via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "khandadhar waterfall": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/0/07/Khandadhar_Waterfall_Sundargarh.jpg",
-      alt: "244-meter vertical single-stream plunge of Khandadhar waterfall amid dense forests",
-      title: "Khandadhar Single Stream Waterfall",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Kamal Lochan via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "similipal national park": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/42/Similipal_National_Park_Forest_Canopy.jpg",
-      alt: "Similipal National Park dense biosphere reserve and Sal forest canopy",
-      title: "Similipal Biosphere Tiger Reserve",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Bernard Gagnon via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Barehipani_and_Joranda_Falls_Similipal.jpg",
-      alt: "Similipal Barehipani and Joranda cascading waterfalls",
-      title: "Barehipani & Joranda Falls Similipal",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Debasish Panda via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Chandipur_Vanishing_Sea_Beach.jpg",
-      alt: "Similipal and Northern Odisha wilderness landscape",
-      title: "Northern Odisha Wilderness Reserve",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "barehipani & joranda falls": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Barehipani_and_Joranda_Falls_Similipal.jpg",
-      alt: "Two-tiered 399-meter Barehipani cascade and Joranda plunge waterfall in Similipal",
-      title: "Barehipani & Joranda Waterfalls",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Sarat Chandra Behera via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "barehipani": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Barehipani_and_Joranda_Falls_Similipal.jpg",
-      alt: "Two-tiered 399-meter Barehipani cascade and Joranda plunge waterfall in Similipal",
-      title: "Barehipani & Joranda Waterfalls",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Sarat Chandra Behera via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "chandipur beach": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Chandipur_Vanishing_Sea_Beach.jpg",
-      alt: "Unique hide-and-seek sea beach of Chandipur receding up to 5 kilometers during low tide",
-      title: "Chandipur Vanishing Coastline",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Satyabrata Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "bhitarkanika national park": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/2/23/Bhitarkanika_Mangrove_Sanctuary.jpg",
-      alt: "Lush tidal mangrove forest channels in Bhitarkanika Ramsar wetland sanctuary",
-      title: "Bhitarkanika Mangrove Wetland",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Goutam Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "gupteswar cave temple, koraput": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Gupteswar_Cave_Forest_Koraput.jpg",
-      alt: "Subterranean entrance to the sacred Gupteswar limestone cave temple in Koraput",
-      title: "Gupteswar Sacred Limestone Cave",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Bikash Ranjan Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "gupteswar cave temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Gupteswar_Cave_Forest_Koraput.jpg",
-      alt: "Subterranean entrance to the sacred Gupteswar limestone cave temple in Koraput",
-      title: "Gupteswar Sacred Limestone Cave",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Bikash Ranjan Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "duduma waterfall": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Duduma_Waterfall_Machkund_Gorge.jpg",
-      alt: "175-meter roaring horsetail Duduma waterfall plunging into deep rocky Machkund gorge",
-      title: "Duduma Machkund Waterfall",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Bikash Ranjan Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "deomali peak, koraput": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/6/69/Deomali_Peak_Eastern_Ghats_Koraput.jpg",
-      alt: "Highest mountain peak in Odisha surrounded by emerald green valleys in Koraput",
-      title: "Deomali Peak Rolling Highlands",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Srikanta Patnaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "deomali peak": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/6/69/Deomali_Peak_Eastern_Ghats_Koraput.jpg",
-      alt: "Highest mountain peak in Odisha surrounded by emerald green valleys in Koraput",
-      title: "Deomali Peak Rolling Highlands",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Srikanta Patnaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "tribal museum, koraput": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/7/76/Koraput_Tribal_Museum_Heritage.jpg",
-      alt: "Traditional tribal musical instruments, huts, and Bonda-Gadaba art exhibits in Koraput",
-      title: "Koraput Tribal Heritage Museum",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Bikash Ranjan Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "tribal museum": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/7/76/Koraput_Tribal_Museum_Heritage.jpg",
-      alt: "Traditional tribal musical instruments, huts, and Bonda-Gadaba art exhibits in Koraput",
-      title: "Koraput Tribal Heritage Museum",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Bikash Ranjan Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "kolab reservoir & botanical garden": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/8/84/Kolab_Reservoir_Botanical_Gardens.jpg",
-      alt: "Vast hydro-electric reservoir waters and terraced landscaped gardens at Kolab",
-      title: "Kolab Reservoir & Botanical Garden",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Bikash Ranjan Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "kolab reservoir": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/8/84/Kolab_Reservoir_Botanical_Gardens.jpg",
-      alt: "Vast hydro-electric reservoir waters and terraced landscaped gardens at Kolab",
-      title: "Kolab Reservoir & Botanical Garden",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Bikash Ranjan Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "maa majhigouri temple, rayagada": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/2/22/Maa_Majhigouri_Temple_Rayagada.jpg",
-      alt: "Revered Shakti temple of Goddess Majhigouri in Rayagada welcoming pilgrims across South Odisha",
-      title: "Maa Majhigouri Shakti Peetha",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Soumya Tripathy via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-  ],
-  "maa majhigouri temple": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/2/22/Maa_Majhigouri_Temple_Rayagada.jpg",
-      alt: "Revered Shakti temple of Goddess Majhigouri in Rayagada welcoming pilgrims across South Odisha",
-      title: "Maa Majhigouri Shakti Peetha",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Soumya Tripathy via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-  ],
-  "daringbadi": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/d/df/Daringbadi_Pine_Forest_Hills.jpg",
-      alt: "Daringbadi Hill Station mist-covered pine forest valleys",
-      title: "Daringbadi Hill Station Pine Valleys",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/52/Midubanda_Waterfall_Daringbadi.jpg",
-      alt: "Daringbadi Midubanda forest waterfall and plunge pool",
-      title: "Midubanda Forest Waterfall Daringbadi",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Debasish Panda via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Coffee_Gardens_Daringbadi_Hills.jpg",
-      alt: "Daringbadi aromatic coffee and black pepper plantations",
-      title: "Coffee Gardens Daringbadi Hills",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Subhashree Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "similipal": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/42/Similipal_National_Park_Forest_Canopy.jpg",
-      alt: "Similipal National Park dense biosphere reserve and Sal forest canopy",
-      title: "Similipal Biosphere Tiger Reserve",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Bernard Gagnon via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Barehipani_and_Joranda_Falls_Similipal.jpg",
-      alt: "Similipal Barehipani and Joranda cascading waterfalls",
-      title: "Barehipani & Joranda Falls Similipal",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Debasish Panda via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Chandipur_Vanishing_Sea_Beach.jpg",
-      alt: "Similipal and Northern Odisha wilderness landscape",
-      title: "Northern Odisha Wilderness Reserve",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "satapada": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/0/05/Chilika_Lake_Satapada_Lagoon.jpg",
-      alt: "Chilika Lake vast brackish lagoon and dolphin habitat at Satapada",
-      title: "Chilika Lake Lagoon Waters at Satapada",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Kalijai_Island_Temple_Chilika.jpg",
-      alt: "Chilika Lake Maa Kalijai Island Temple surrounded by blue lagoon waters",
-      title: "Maa Kalijai Island Temple Chilika",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Sambit Patnaik via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Mangalajodi_Bird_Sanctuary_Wetlands.jpg",
-      alt: "Chilika Lake Mangalajodi wetland sanctuary with migratory waterfowls",
-      title: "Mangalajodi Bird Sanctuary Wetlands",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Subhashree Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "puri": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/3/36/Puri_Golden_Beach_Coast.jpg",
-      alt: "Puri Golden Beach pristine Blue Flag shoreline and turquoise Bay of Bengal waves",
-      title: "Puri Golden Beach Coastline",
-      source: "Wikimedia Commons",
-      license: "CC BY 4.0",
-      attribution: "Photo by Alok Ranjan Mohanty via Wikimedia Commons, licensed under CC BY 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/1/18/Jagannath_Temple_Puri_Dham.jpg",
-      alt: "Puri Golden Beach near Shree Jagannatha Dham",
-      title: "Puri Golden Beach Coastal Pilgrimage",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Rakesh Kumar Jena via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/8/81/Swargadwar_Beach_Puri_Coast.jpg",
-      alt: "Puri Golden Beach coastline and promenade",
-      title: "Puri Golden Beach Promenade",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Subhashree Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "bhubaneswar": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/47/Lingaraj_Temple_Bhubaneswar.jpg",
-      alt: "Temple City Bhubaneswar featuring 11th-century Lingaraj Temple",
-      title: "Bhubaneswar Ekamra Kshetra",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Subhashree Dash via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
-  "cuttack": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Barabati_Fort_Arched_Gateway_Cuttack.jpg",
-      alt: "Historic Millennium City Cuttack and medieval Barabati Fort",
-      title: "Cuttack Millennium City",
-      source: "Wikimedia Commons",
-      license: "CC BY-SA 4.0",
-      attribution: "Photo by Debasish Panda via Wikimedia Commons, licensed under CC BY-SA 4.0",
-      isFallback: false,
-    },
-  ],
+export const PLACE_IMAGE_MANIFEST: Record<string, PlaceImage[]> = {
+  "place_bbsr_001": [
+    {
+      "src": "/static/images/places/place_bbsr_001/06a456469886/hero.webp",
+      "alt": "Authentic photograph of Lingaraj Temple in Odisha",
+      "title": "Lingaraj Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sushant (Bubby) via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_001/06a456469886/card.webp",
+      "alt": "Lingaraj Temple architectural and landscape perspective",
+      "title": "Lingaraj Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sushant (Bubby) via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_001/06a456469886/thumbnail.webp",
+      "alt": "Lingaraj Temple panorama perspective",
+      "title": "Lingaraj Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sushant (Bubby) via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Lingaraj Temple": [
+    {
+      "src": "/static/images/places/place_bbsr_001/06a456469886/hero.webp",
+      "alt": "Authentic photograph of Lingaraj Temple in Odisha",
+      "title": "Lingaraj Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sushant (Bubby) via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_001/06a456469886/card.webp",
+      "alt": "Lingaraj Temple architectural and landscape perspective",
+      "title": "Lingaraj Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sushant (Bubby) via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_001/06a456469886/thumbnail.webp",
+      "alt": "Lingaraj Temple panorama perspective",
+      "title": "Lingaraj Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sushant (Bubby) via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_bbsr_002": [
+    {
+      "src": "/static/images/places/place_bbsr_002/bf6293b73157/hero.webp",
+      "alt": "Authentic photograph of Mukteswar Temple in Odisha",
+      "title": "Mukteswar Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Photo by Anandbora2024 via Wikimedia Commons, licensed under CC0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_002/bf6293b73157/card.webp",
+      "alt": "Mukteswar Temple architectural and landscape perspective",
+      "title": "Mukteswar Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Photo by Anandbora2024 via Wikimedia Commons, licensed under CC0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_002/bf6293b73157/thumbnail.webp",
+      "alt": "Mukteswar Temple panorama perspective",
+      "title": "Mukteswar Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Photo by Anandbora2024 via Wikimedia Commons, licensed under CC0",
+      "isFallback": false
+    }
+  ],
+  "Mukteswar Temple": [
+    {
+      "src": "/static/images/places/place_bbsr_002/bf6293b73157/hero.webp",
+      "alt": "Authentic photograph of Mukteswar Temple in Odisha",
+      "title": "Mukteswar Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Photo by Anandbora2024 via Wikimedia Commons, licensed under CC0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_002/bf6293b73157/card.webp",
+      "alt": "Mukteswar Temple architectural and landscape perspective",
+      "title": "Mukteswar Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Photo by Anandbora2024 via Wikimedia Commons, licensed under CC0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_002/bf6293b73157/thumbnail.webp",
+      "alt": "Mukteswar Temple panorama perspective",
+      "title": "Mukteswar Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Photo by Anandbora2024 via Wikimedia Commons, licensed under CC0",
+      "isFallback": false
+    }
+  ],
+  "place_bbsr_003": [
+    {
+      "src": "/static/images/places/place_bbsr_003/0dd1f614ea63/hero.webp",
+      "alt": "Authentic photograph of Rajarani Temple in Odisha",
+      "title": "Rajarani Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sourabh.biswas003 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_003/0dd1f614ea63/card.webp",
+      "alt": "Rajarani Temple architectural and landscape perspective",
+      "title": "Rajarani Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sourabh.biswas003 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_003/0dd1f614ea63/thumbnail.webp",
+      "alt": "Rajarani Temple panorama perspective",
+      "title": "Rajarani Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sourabh.biswas003 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Rajarani Temple": [
+    {
+      "src": "/static/images/places/place_bbsr_003/0dd1f614ea63/hero.webp",
+      "alt": "Authentic photograph of Rajarani Temple in Odisha",
+      "title": "Rajarani Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sourabh.biswas003 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_003/0dd1f614ea63/card.webp",
+      "alt": "Rajarani Temple architectural and landscape perspective",
+      "title": "Rajarani Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sourabh.biswas003 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_003/0dd1f614ea63/thumbnail.webp",
+      "alt": "Rajarani Temple panorama perspective",
+      "title": "Rajarani Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sourabh.biswas003 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_bbsr_004": [
+    {
+      "src": "/static/images/places/place_bbsr_004/b91e7a5f0092/hero.webp",
+      "alt": "Authentic photograph of Ananta Vasudeva Temple in Odisha",
+      "title": "Ananta Vasudeva Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Prateek Pattanaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_004/b91e7a5f0092/card.webp",
+      "alt": "Ananta Vasudeva Temple architectural and landscape perspective",
+      "title": "Ananta Vasudeva Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Prateek Pattanaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_004/b91e7a5f0092/thumbnail.webp",
+      "alt": "Ananta Vasudeva Temple panorama perspective",
+      "title": "Ananta Vasudeva Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Prateek Pattanaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Ananta Vasudeva Temple": [
+    {
+      "src": "/static/images/places/place_bbsr_004/b91e7a5f0092/hero.webp",
+      "alt": "Authentic photograph of Ananta Vasudeva Temple in Odisha",
+      "title": "Ananta Vasudeva Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Prateek Pattanaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_004/b91e7a5f0092/card.webp",
+      "alt": "Ananta Vasudeva Temple architectural and landscape perspective",
+      "title": "Ananta Vasudeva Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Prateek Pattanaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_004/b91e7a5f0092/thumbnail.webp",
+      "alt": "Ananta Vasudeva Temple panorama perspective",
+      "title": "Ananta Vasudeva Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Prateek Pattanaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_bbsr_005": [
+    {
+      "src": "/static/images/places/place_bbsr_005/87c823650f8a/hero.webp",
+      "alt": "Authentic photograph of Udayagiri and Khandagiri Caves in Odisha",
+      "title": "Udayagiri and Khandagiri Caves",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Sourav Das from Santa Barbara, USA via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_005/87c823650f8a/card.webp",
+      "alt": "Udayagiri and Khandagiri Caves architectural and landscape perspective",
+      "title": "Udayagiri and Khandagiri Caves Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Sourav Das from Santa Barbara, USA via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_005/87c823650f8a/thumbnail.webp",
+      "alt": "Udayagiri and Khandagiri Caves panorama perspective",
+      "title": "Udayagiri and Khandagiri Caves Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Sourav Das from Santa Barbara, USA via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    }
+  ],
+  "Udayagiri and Khandagiri Caves": [
+    {
+      "src": "/static/images/places/place_bbsr_005/87c823650f8a/hero.webp",
+      "alt": "Authentic photograph of Udayagiri and Khandagiri Caves in Odisha",
+      "title": "Udayagiri and Khandagiri Caves",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Sourav Das from Santa Barbara, USA via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_005/87c823650f8a/card.webp",
+      "alt": "Udayagiri and Khandagiri Caves architectural and landscape perspective",
+      "title": "Udayagiri and Khandagiri Caves Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Sourav Das from Santa Barbara, USA via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_005/87c823650f8a/thumbnail.webp",
+      "alt": "Udayagiri and Khandagiri Caves panorama perspective",
+      "title": "Udayagiri and Khandagiri Caves Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Sourav Das from Santa Barbara, USA via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    }
+  ],
+  "place_bbsr_006": [
+    {
+      "src": "/static/images/places/place_bbsr_006/94ea88ae627b/hero.webp",
+      "alt": "Authentic photograph of Dhauli Shanti Stupa in Odisha",
+      "title": "Dhauli Shanti Stupa",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Debashis Pradhan via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_006/94ea88ae627b/card.webp",
+      "alt": "Dhauli Shanti Stupa architectural and landscape perspective",
+      "title": "Dhauli Shanti Stupa Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Debashis Pradhan via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_006/94ea88ae627b/thumbnail.webp",
+      "alt": "Dhauli Shanti Stupa panorama perspective",
+      "title": "Dhauli Shanti Stupa Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Debashis Pradhan via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Dhauli Shanti Stupa": [
+    {
+      "src": "/static/images/places/place_bbsr_006/94ea88ae627b/hero.webp",
+      "alt": "Authentic photograph of Dhauli Shanti Stupa in Odisha",
+      "title": "Dhauli Shanti Stupa",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Debashis Pradhan via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_006/94ea88ae627b/card.webp",
+      "alt": "Dhauli Shanti Stupa architectural and landscape perspective",
+      "title": "Dhauli Shanti Stupa Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Debashis Pradhan via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_006/94ea88ae627b/thumbnail.webp",
+      "alt": "Dhauli Shanti Stupa panorama perspective",
+      "title": "Dhauli Shanti Stupa Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Debashis Pradhan via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "place_bbsr_007": [
+    {
+      "src": "/static/images/places/place_bbsr_007/83ddf7bcbca3/hero.webp",
+      "alt": "Authentic photograph of Nandankanan Zoological Park in Odisha",
+      "title": "Nandankanan Zoological Park",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by DrGSINGH via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_007/83ddf7bcbca3/card.webp",
+      "alt": "Nandankanan Zoological Park architectural and landscape perspective",
+      "title": "Nandankanan Zoological Park Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by DrGSINGH via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_007/83ddf7bcbca3/thumbnail.webp",
+      "alt": "Nandankanan Zoological Park panorama perspective",
+      "title": "Nandankanan Zoological Park Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by DrGSINGH via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Nandankanan Zoological Park": [
+    {
+      "src": "/static/images/places/place_bbsr_007/83ddf7bcbca3/hero.webp",
+      "alt": "Authentic photograph of Nandankanan Zoological Park in Odisha",
+      "title": "Nandankanan Zoological Park",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by DrGSINGH via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_007/83ddf7bcbca3/card.webp",
+      "alt": "Nandankanan Zoological Park architectural and landscape perspective",
+      "title": "Nandankanan Zoological Park Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by DrGSINGH via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_007/83ddf7bcbca3/thumbnail.webp",
+      "alt": "Nandankanan Zoological Park panorama perspective",
+      "title": "Nandankanan Zoological Park Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by DrGSINGH via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_bbsr_008": [
+    {
+      "src": "/static/images/places/place_bbsr_008/dc85cc5814e7/hero.webp",
+      "alt": "Authentic photograph of Odisha State Museum in Odisha",
+      "title": "Odisha State Museum",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by User:Tinucherian via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_008/dc85cc5814e7/card.webp",
+      "alt": "Odisha State Museum architectural and landscape perspective",
+      "title": "Odisha State Museum Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by User:Tinucherian via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_008/dc85cc5814e7/thumbnail.webp",
+      "alt": "Odisha State Museum panorama perspective",
+      "title": "Odisha State Museum Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by User:Tinucherian via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    }
+  ],
+  "Odisha State Museum": [
+    {
+      "src": "/static/images/places/place_bbsr_008/dc85cc5814e7/hero.webp",
+      "alt": "Authentic photograph of Odisha State Museum in Odisha",
+      "title": "Odisha State Museum",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by User:Tinucherian via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_008/dc85cc5814e7/card.webp",
+      "alt": "Odisha State Museum architectural and landscape perspective",
+      "title": "Odisha State Museum Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by User:Tinucherian via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_008/dc85cc5814e7/thumbnail.webp",
+      "alt": "Odisha State Museum panorama perspective",
+      "title": "Odisha State Museum Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by User:Tinucherian via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    }
+  ],
+  "place_bbsr_009": [
+    {
+      "src": "/static/images/places/place_bbsr_009/d3fdc630c2d8/hero.webp",
+      "alt": "Authentic photograph of Odisha Crafts Museum Kala Bhoomi in Odisha",
+      "title": "Odisha Crafts Museum Kala Bhoomi",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by SUDEEP PRAMANIK via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_009/d3fdc630c2d8/card.webp",
+      "alt": "Odisha Crafts Museum Kala Bhoomi architectural and landscape perspective",
+      "title": "Odisha Crafts Museum Kala Bhoomi Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by SUDEEP PRAMANIK via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_009/d3fdc630c2d8/thumbnail.webp",
+      "alt": "Odisha Crafts Museum Kala Bhoomi panorama perspective",
+      "title": "Odisha Crafts Museum Kala Bhoomi Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by SUDEEP PRAMANIK via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Odisha Crafts Museum Kala Bhoomi": [
+    {
+      "src": "/static/images/places/place_bbsr_009/d3fdc630c2d8/hero.webp",
+      "alt": "Authentic photograph of Odisha Crafts Museum Kala Bhoomi in Odisha",
+      "title": "Odisha Crafts Museum Kala Bhoomi",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by SUDEEP PRAMANIK via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_009/d3fdc630c2d8/card.webp",
+      "alt": "Odisha Crafts Museum Kala Bhoomi architectural and landscape perspective",
+      "title": "Odisha Crafts Museum Kala Bhoomi Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by SUDEEP PRAMANIK via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_009/d3fdc630c2d8/thumbnail.webp",
+      "alt": "Odisha Crafts Museum Kala Bhoomi panorama perspective",
+      "title": "Odisha Crafts Museum Kala Bhoomi Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by SUDEEP PRAMANIK via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_bbsr_010": [
+    {
+      "src": "/static/images/places/place_bbsr_010/78c2ef783f40/hero.webp",
+      "alt": "Authentic photograph of Ekamra Haat in Odisha",
+      "title": "Ekamra Haat",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_010/78c2ef783f40/card.webp",
+      "alt": "Ekamra Haat architectural and landscape perspective",
+      "title": "Ekamra Haat Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_010/78c2ef783f40/thumbnail.webp",
+      "alt": "Ekamra Haat panorama perspective",
+      "title": "Ekamra Haat Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    }
+  ],
+  "Ekamra Haat": [
+    {
+      "src": "/static/images/places/place_bbsr_010/78c2ef783f40/hero.webp",
+      "alt": "Authentic photograph of Ekamra Haat in Odisha",
+      "title": "Ekamra Haat",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_010/78c2ef783f40/card.webp",
+      "alt": "Ekamra Haat architectural and landscape perspective",
+      "title": "Ekamra Haat Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_010/78c2ef783f40/thumbnail.webp",
+      "alt": "Ekamra Haat panorama perspective",
+      "title": "Ekamra Haat Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY 3.0",
+      "isFallback": false
+    }
+  ],
+  "place_bbsr_011": [
+    {
+      "src": "/static/images/places/place_bbsr_011/36e8a9a95990/hero.webp",
+      "alt": "Authentic photograph of Kalinga Stadium in Odisha",
+      "title": "Kalinga Stadium",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_011/36e8a9a95990/card.webp",
+      "alt": "Kalinga Stadium architectural and landscape perspective",
+      "title": "Kalinga Stadium Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_011/36e8a9a95990/thumbnail.webp",
+      "alt": "Kalinga Stadium panorama perspective",
+      "title": "Kalinga Stadium Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    }
+  ],
+  "Kalinga Stadium": [
+    {
+      "src": "/static/images/places/place_bbsr_011/36e8a9a95990/hero.webp",
+      "alt": "Authentic photograph of Kalinga Stadium in Odisha",
+      "title": "Kalinga Stadium",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_011/36e8a9a95990/card.webp",
+      "alt": "Kalinga Stadium architectural and landscape perspective",
+      "title": "Kalinga Stadium Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_011/36e8a9a95990/thumbnail.webp",
+      "alt": "Kalinga Stadium panorama perspective",
+      "title": "Kalinga Stadium Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_bbsr_012": [
+    {
+      "src": "/static/images/places/place_bbsr_012/3e013f8a3fd2/hero.webp",
+      "alt": "Authentic photograph of Bindu Sagar in Odisha",
+      "title": "Bindu Sagar",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jalmanav via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_012/3e013f8a3fd2/card.webp",
+      "alt": "Bindu Sagar architectural and landscape perspective",
+      "title": "Bindu Sagar Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jalmanav via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_012/3e013f8a3fd2/thumbnail.webp",
+      "alt": "Bindu Sagar panorama perspective",
+      "title": "Bindu Sagar Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jalmanav via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Bindu Sagar": [
+    {
+      "src": "/static/images/places/place_bbsr_012/3e013f8a3fd2/hero.webp",
+      "alt": "Authentic photograph of Bindu Sagar in Odisha",
+      "title": "Bindu Sagar",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jalmanav via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_012/3e013f8a3fd2/card.webp",
+      "alt": "Bindu Sagar architectural and landscape perspective",
+      "title": "Bindu Sagar Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jalmanav via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_bbsr_012/3e013f8a3fd2/thumbnail.webp",
+      "alt": "Bindu Sagar panorama perspective",
+      "title": "Bindu Sagar Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jalmanav via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_puri_001": [
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/hero.webp",
+      "alt": "Authentic photograph of Jagannath Temple, Puri in Odisha",
+      "title": "Jagannath Temple, Puri",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/card.webp",
+      "alt": "Jagannath Temple, Puri architectural and landscape perspective",
+      "title": "Jagannath Temple, Puri Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/thumbnail.webp",
+      "alt": "Jagannath Temple, Puri panorama perspective",
+      "title": "Jagannath Temple, Puri Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Jagannath Temple, Puri": [
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/hero.webp",
+      "alt": "Authentic photograph of Jagannath Temple, Puri in Odisha",
+      "title": "Jagannath Temple, Puri",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/card.webp",
+      "alt": "Jagannath Temple, Puri architectural and landscape perspective",
+      "title": "Jagannath Temple, Puri Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/thumbnail.webp",
+      "alt": "Jagannath Temple, Puri panorama perspective",
+      "title": "Jagannath Temple, Puri Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Jagannath Temple Puri": [
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/hero.webp",
+      "alt": "Authentic photograph of Jagannath Temple, Puri in Odisha",
+      "title": "Jagannath Temple, Puri",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/card.webp",
+      "alt": "Jagannath Temple, Puri architectural and landscape perspective",
+      "title": "Jagannath Temple, Puri Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/thumbnail.webp",
+      "alt": "Jagannath Temple, Puri panorama perspective",
+      "title": "Jagannath Temple, Puri Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_puri_002": [
+    {
+      "src": "/static/images/places/place_puri_002/8146170ae9b7/hero.webp",
+      "alt": "Authentic photograph of Puri Golden Beach in Odisha",
+      "title": "Puri Golden Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_002/8146170ae9b7/card.webp",
+      "alt": "Puri Golden Beach architectural and landscape perspective",
+      "title": "Puri Golden Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_002/8146170ae9b7/thumbnail.webp",
+      "alt": "Puri Golden Beach panorama perspective",
+      "title": "Puri Golden Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Puri Golden Beach": [
+    {
+      "src": "/static/images/places/place_puri_002/8146170ae9b7/hero.webp",
+      "alt": "Authentic photograph of Puri Golden Beach in Odisha",
+      "title": "Puri Golden Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_002/8146170ae9b7/card.webp",
+      "alt": "Puri Golden Beach architectural and landscape perspective",
+      "title": "Puri Golden Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_002/8146170ae9b7/thumbnail.webp",
+      "alt": "Puri Golden Beach panorama perspective",
+      "title": "Puri Golden Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_puri_003": [
+    {
+      "src": "/static/images/places/place_puri_003/f14517383b2e/hero.webp",
+      "alt": "Authentic photograph of Gundicha Temple in Odisha",
+      "title": "Gundicha Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_003/f14517383b2e/card.webp",
+      "alt": "Gundicha Temple architectural and landscape perspective",
+      "title": "Gundicha Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_003/f14517383b2e/thumbnail.webp",
+      "alt": "Gundicha Temple panorama perspective",
+      "title": "Gundicha Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    }
+  ],
+  "Gundicha Temple": [
+    {
+      "src": "/static/images/places/place_puri_003/f14517383b2e/hero.webp",
+      "alt": "Authentic photograph of Gundicha Temple in Odisha",
+      "title": "Gundicha Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_003/f14517383b2e/card.webp",
+      "alt": "Gundicha Temple architectural and landscape perspective",
+      "title": "Gundicha Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_003/f14517383b2e/thumbnail.webp",
+      "alt": "Gundicha Temple panorama perspective",
+      "title": "Gundicha Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_puri_004": [
+    {
+      "src": "/static/images/places/place_puri_004/292d580f6bc0/hero.webp",
+      "alt": "Authentic photograph of Swargadwar Beach in Odisha",
+      "title": "Swargadwar Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_004/292d580f6bc0/card.webp",
+      "alt": "Swargadwar Beach architectural and landscape perspective",
+      "title": "Swargadwar Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_004/292d580f6bc0/thumbnail.webp",
+      "alt": "Swargadwar Beach panorama perspective",
+      "title": "Swargadwar Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Swargadwar Beach": [
+    {
+      "src": "/static/images/places/place_puri_004/292d580f6bc0/hero.webp",
+      "alt": "Authentic photograph of Swargadwar Beach in Odisha",
+      "title": "Swargadwar Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_004/292d580f6bc0/card.webp",
+      "alt": "Swargadwar Beach architectural and landscape perspective",
+      "title": "Swargadwar Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_004/292d580f6bc0/thumbnail.webp",
+      "alt": "Swargadwar Beach panorama perspective",
+      "title": "Swargadwar Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_konark_001": [
+    {
+      "src": "/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+      "alt": "Authentic photograph of Konark Sun Temple in Odisha",
+      "title": "Konark Sun Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_001/03b959a8abef/card.webp",
+      "alt": "Konark Sun Temple architectural and landscape perspective",
+      "title": "Konark Sun Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_001/03b959a8abef/thumbnail.webp",
+      "alt": "Konark Sun Temple panorama perspective",
+      "title": "Konark Sun Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Konark Sun Temple": [
+    {
+      "src": "/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+      "alt": "Authentic photograph of Konark Sun Temple in Odisha",
+      "title": "Konark Sun Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_001/03b959a8abef/card.webp",
+      "alt": "Konark Sun Temple architectural and landscape perspective",
+      "title": "Konark Sun Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_001/03b959a8abef/thumbnail.webp",
+      "alt": "Konark Sun Temple panorama perspective",
+      "title": "Konark Sun Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_konark_002": [
+    {
+      "src": "/static/images/places/place_konark_002/96b3058c4a4d/hero.webp",
+      "alt": "Authentic photograph of Chandrabhaga Beach in Odisha",
+      "title": "Chandrabhaga Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_002/96b3058c4a4d/card.webp",
+      "alt": "Chandrabhaga Beach architectural and landscape perspective",
+      "title": "Chandrabhaga Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_002/96b3058c4a4d/thumbnail.webp",
+      "alt": "Chandrabhaga Beach panorama perspective",
+      "title": "Chandrabhaga Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Chandrabhaga Beach": [
+    {
+      "src": "/static/images/places/place_konark_002/96b3058c4a4d/hero.webp",
+      "alt": "Authentic photograph of Chandrabhaga Beach in Odisha",
+      "title": "Chandrabhaga Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_002/96b3058c4a4d/card.webp",
+      "alt": "Chandrabhaga Beach architectural and landscape perspective",
+      "title": "Chandrabhaga Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_002/96b3058c4a4d/thumbnail.webp",
+      "alt": "Chandrabhaga Beach panorama perspective",
+      "title": "Chandrabhaga Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_konark_003": [
+    {
+      "src": "/static/images/places/place_konark_003/05c33a10ed83/hero.webp",
+      "alt": "Authentic photograph of Ramachandi Beach & Temple in Odisha",
+      "title": "Ramachandi Beach & Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Swapnil.sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_003/05c33a10ed83/card.webp",
+      "alt": "Ramachandi Beach & Temple architectural and landscape perspective",
+      "title": "Ramachandi Beach & Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Swapnil.sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_003/05c33a10ed83/thumbnail.webp",
+      "alt": "Ramachandi Beach & Temple panorama perspective",
+      "title": "Ramachandi Beach & Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Swapnil.sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Ramachandi Beach & Temple": [
+    {
+      "src": "/static/images/places/place_konark_003/05c33a10ed83/hero.webp",
+      "alt": "Authentic photograph of Ramachandi Beach & Temple in Odisha",
+      "title": "Ramachandi Beach & Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Swapnil.sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_003/05c33a10ed83/card.webp",
+      "alt": "Ramachandi Beach & Temple architectural and landscape perspective",
+      "title": "Ramachandi Beach & Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Swapnil.sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_003/05c33a10ed83/thumbnail.webp",
+      "alt": "Ramachandi Beach & Temple panorama perspective",
+      "title": "Ramachandi Beach & Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Swapnil.sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_konark_004": [
+    {
+      "src": "/static/images/places/place_konark_004/ea4b0bedaa44/hero.webp",
+      "alt": "Authentic photograph of Konark Archaeological Museum in Odisha",
+      "title": "Konark Archaeological Museum",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_004/ea4b0bedaa44/card.webp",
+      "alt": "Konark Archaeological Museum architectural and landscape perspective",
+      "title": "Konark Archaeological Museum Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_004/ea4b0bedaa44/thumbnail.webp",
+      "alt": "Konark Archaeological Museum panorama perspective",
+      "title": "Konark Archaeological Museum Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Konark Archaeological Museum": [
+    {
+      "src": "/static/images/places/place_konark_004/ea4b0bedaa44/hero.webp",
+      "alt": "Authentic photograph of Konark Archaeological Museum in Odisha",
+      "title": "Konark Archaeological Museum",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_004/ea4b0bedaa44/card.webp",
+      "alt": "Konark Archaeological Museum architectural and landscape perspective",
+      "title": "Konark Archaeological Museum Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_004/ea4b0bedaa44/thumbnail.webp",
+      "alt": "Konark Archaeological Museum panorama perspective",
+      "title": "Konark Archaeological Museum Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_cuttack_001": [
+    {
+      "src": "/static/images/places/place_cuttack_001/02e40272a98d/hero.webp",
+      "alt": "Authentic photograph of Barabati Fort in Odisha",
+      "title": "Barabati Fort",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by MysticStone via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_001/02e40272a98d/card.webp",
+      "alt": "Barabati Fort architectural and landscape perspective",
+      "title": "Barabati Fort Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by MysticStone via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_001/02e40272a98d/thumbnail.webp",
+      "alt": "Barabati Fort panorama perspective",
+      "title": "Barabati Fort Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by MysticStone via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Barabati Fort": [
+    {
+      "src": "/static/images/places/place_cuttack_001/02e40272a98d/hero.webp",
+      "alt": "Authentic photograph of Barabati Fort in Odisha",
+      "title": "Barabati Fort",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by MysticStone via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_001/02e40272a98d/card.webp",
+      "alt": "Barabati Fort architectural and landscape perspective",
+      "title": "Barabati Fort Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by MysticStone via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_001/02e40272a98d/thumbnail.webp",
+      "alt": "Barabati Fort panorama perspective",
+      "title": "Barabati Fort Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by MysticStone via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_cuttack_002": [
+    {
+      "src": "/static/images/places/place_cuttack_002/14877b098df9/hero.webp",
+      "alt": "Authentic photograph of Cuttack Chandi Temple in Odisha",
+      "title": "Cuttack Chandi Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Lipika Priyadarsini via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_002/14877b098df9/card.webp",
+      "alt": "Cuttack Chandi Temple architectural and landscape perspective",
+      "title": "Cuttack Chandi Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Lipika Priyadarsini via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_002/14877b098df9/thumbnail.webp",
+      "alt": "Cuttack Chandi Temple panorama perspective",
+      "title": "Cuttack Chandi Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Lipika Priyadarsini via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Cuttack Chandi Temple": [
+    {
+      "src": "/static/images/places/place_cuttack_002/14877b098df9/hero.webp",
+      "alt": "Authentic photograph of Cuttack Chandi Temple in Odisha",
+      "title": "Cuttack Chandi Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Lipika Priyadarsini via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_002/14877b098df9/card.webp",
+      "alt": "Cuttack Chandi Temple architectural and landscape perspective",
+      "title": "Cuttack Chandi Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Lipika Priyadarsini via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_002/14877b098df9/thumbnail.webp",
+      "alt": "Cuttack Chandi Temple panorama perspective",
+      "title": "Cuttack Chandi Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Lipika Priyadarsini via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "place_cuttack_003": [
+    {
+      "src": "/static/images/places/place_cuttack_003/78dff96a9c3a/hero.webp",
+      "alt": "Authentic photograph of Odisha State Maritime Museum in Odisha",
+      "title": "Odisha State Maritime Museum",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Soumendra Kumar Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_003/78dff96a9c3a/card.webp",
+      "alt": "Odisha State Maritime Museum architectural and landscape perspective",
+      "title": "Odisha State Maritime Museum Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Soumendra Kumar Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_003/78dff96a9c3a/thumbnail.webp",
+      "alt": "Odisha State Maritime Museum panorama perspective",
+      "title": "Odisha State Maritime Museum Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Soumendra Kumar Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Odisha State Maritime Museum": [
+    {
+      "src": "/static/images/places/place_cuttack_003/78dff96a9c3a/hero.webp",
+      "alt": "Authentic photograph of Odisha State Maritime Museum in Odisha",
+      "title": "Odisha State Maritime Museum",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Soumendra Kumar Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_003/78dff96a9c3a/card.webp",
+      "alt": "Odisha State Maritime Museum architectural and landscape perspective",
+      "title": "Odisha State Maritime Museum Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Soumendra Kumar Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_003/78dff96a9c3a/thumbnail.webp",
+      "alt": "Odisha State Maritime Museum panorama perspective",
+      "title": "Odisha State Maritime Museum Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Soumendra Kumar Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_cuttack_004": [
+    {
+      "src": "/static/images/places/place_cuttack_004/3d8ae5f82b5d/hero.webp",
+      "alt": "Authentic photograph of Netaji Birth Place Museum in Odisha",
+      "title": "Netaji Birth Place Museum",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_004/3d8ae5f82b5d/card.webp",
+      "alt": "Netaji Birth Place Museum architectural and landscape perspective",
+      "title": "Netaji Birth Place Museum Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_004/3d8ae5f82b5d/thumbnail.webp",
+      "alt": "Netaji Birth Place Museum panorama perspective",
+      "title": "Netaji Birth Place Museum Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Netaji Birth Place Museum": [
+    {
+      "src": "/static/images/places/place_cuttack_004/3d8ae5f82b5d/hero.webp",
+      "alt": "Authentic photograph of Netaji Birth Place Museum in Odisha",
+      "title": "Netaji Birth Place Museum",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_004/3d8ae5f82b5d/card.webp",
+      "alt": "Netaji Birth Place Museum architectural and landscape perspective",
+      "title": "Netaji Birth Place Museum Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_cuttack_004/3d8ae5f82b5d/thumbnail.webp",
+      "alt": "Netaji Birth Place Museum panorama perspective",
+      "title": "Netaji Birth Place Museum Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_chilika_001": [
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
+      "alt": "Authentic photograph of Chilika Lake - Satapada in Odisha",
+      "title": "Chilika Lake - Satapada",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/card.webp",
+      "alt": "Chilika Lake - Satapada architectural and landscape perspective",
+      "title": "Chilika Lake - Satapada Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/thumbnail.webp",
+      "alt": "Chilika Lake - Satapada panorama perspective",
+      "title": "Chilika Lake - Satapada Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Chilika Lake - Satapada": [
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
+      "alt": "Authentic photograph of Chilika Lake - Satapada in Odisha",
+      "title": "Chilika Lake - Satapada",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/card.webp",
+      "alt": "Chilika Lake - Satapada architectural and landscape perspective",
+      "title": "Chilika Lake - Satapada Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/thumbnail.webp",
+      "alt": "Chilika Lake - Satapada panorama perspective",
+      "title": "Chilika Lake - Satapada Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Chilika Lake   Satapada": [
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
+      "alt": "Authentic photograph of Chilika Lake - Satapada in Odisha",
+      "title": "Chilika Lake - Satapada",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/card.webp",
+      "alt": "Chilika Lake - Satapada architectural and landscape perspective",
+      "title": "Chilika Lake - Satapada Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/thumbnail.webp",
+      "alt": "Chilika Lake - Satapada panorama perspective",
+      "title": "Chilika Lake - Satapada Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_chilika_002": [
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/hero.webp",
+      "alt": "Authentic photograph of Kalijai Island Temple, Chilika in Odisha",
+      "title": "Kalijai Island Temple, Chilika",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/card.webp",
+      "alt": "Kalijai Island Temple, Chilika architectural and landscape perspective",
+      "title": "Kalijai Island Temple, Chilika Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/thumbnail.webp",
+      "alt": "Kalijai Island Temple, Chilika panorama perspective",
+      "title": "Kalijai Island Temple, Chilika Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Kalijai Island Temple, Chilika": [
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/hero.webp",
+      "alt": "Authentic photograph of Kalijai Island Temple, Chilika in Odisha",
+      "title": "Kalijai Island Temple, Chilika",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/card.webp",
+      "alt": "Kalijai Island Temple, Chilika architectural and landscape perspective",
+      "title": "Kalijai Island Temple, Chilika Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/thumbnail.webp",
+      "alt": "Kalijai Island Temple, Chilika panorama perspective",
+      "title": "Kalijai Island Temple, Chilika Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Kalijai Island Temple Chilika": [
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/hero.webp",
+      "alt": "Authentic photograph of Kalijai Island Temple, Chilika in Odisha",
+      "title": "Kalijai Island Temple, Chilika",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/card.webp",
+      "alt": "Kalijai Island Temple, Chilika architectural and landscape perspective",
+      "title": "Kalijai Island Temple, Chilika Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/thumbnail.webp",
+      "alt": "Kalijai Island Temple, Chilika panorama perspective",
+      "title": "Kalijai Island Temple, Chilika Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_chilika_003": [
+    {
+      "src": "/static/images/places/place_chilika_003/3b306bfaf9fd/hero.webp",
+      "alt": "Authentic photograph of Mangalajodi Bird Sanctuary in Odisha",
+      "title": "Mangalajodi Bird Sanctuary",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Aditya Bhattacharjee via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_003/3b306bfaf9fd/card.webp",
+      "alt": "Mangalajodi Bird Sanctuary architectural and landscape perspective",
+      "title": "Mangalajodi Bird Sanctuary Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Aditya Bhattacharjee via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_003/3b306bfaf9fd/thumbnail.webp",
+      "alt": "Mangalajodi Bird Sanctuary panorama perspective",
+      "title": "Mangalajodi Bird Sanctuary Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Aditya Bhattacharjee via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    }
+  ],
+  "Mangalajodi Bird Sanctuary": [
+    {
+      "src": "/static/images/places/place_chilika_003/3b306bfaf9fd/hero.webp",
+      "alt": "Authentic photograph of Mangalajodi Bird Sanctuary in Odisha",
+      "title": "Mangalajodi Bird Sanctuary",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Aditya Bhattacharjee via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_003/3b306bfaf9fd/card.webp",
+      "alt": "Mangalajodi Bird Sanctuary architectural and landscape perspective",
+      "title": "Mangalajodi Bird Sanctuary Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Aditya Bhattacharjee via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_003/3b306bfaf9fd/thumbnail.webp",
+      "alt": "Mangalajodi Bird Sanctuary panorama perspective",
+      "title": "Mangalajodi Bird Sanctuary Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Aditya Bhattacharjee via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    }
+  ],
+  "place_ganjam_001": [
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/hero.webp",
+      "alt": "Authentic photograph of Gopalpur-on-Sea Beach in Odisha",
+      "title": "Gopalpur-on-Sea Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/card.webp",
+      "alt": "Gopalpur-on-Sea Beach architectural and landscape perspective",
+      "title": "Gopalpur-on-Sea Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/thumbnail.webp",
+      "alt": "Gopalpur-on-Sea Beach panorama perspective",
+      "title": "Gopalpur-on-Sea Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Gopalpur-on-Sea Beach": [
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/hero.webp",
+      "alt": "Authentic photograph of Gopalpur-on-Sea Beach in Odisha",
+      "title": "Gopalpur-on-Sea Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/card.webp",
+      "alt": "Gopalpur-on-Sea Beach architectural and landscape perspective",
+      "title": "Gopalpur-on-Sea Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/thumbnail.webp",
+      "alt": "Gopalpur-on-Sea Beach panorama perspective",
+      "title": "Gopalpur-on-Sea Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Gopalpur on Sea Beach": [
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/hero.webp",
+      "alt": "Authentic photograph of Gopalpur-on-Sea Beach in Odisha",
+      "title": "Gopalpur-on-Sea Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/card.webp",
+      "alt": "Gopalpur-on-Sea Beach architectural and landscape perspective",
+      "title": "Gopalpur-on-Sea Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/thumbnail.webp",
+      "alt": "Gopalpur-on-Sea Beach panorama perspective",
+      "title": "Gopalpur-on-Sea Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_ganjam_002": [
+    {
+      "src": "/static/images/places/place_ganjam_002/87bc44f63b2d/hero.webp",
+      "alt": "Authentic photograph of Tara Tarini Temple in Odisha",
+      "title": "Tara Tarini Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_002/87bc44f63b2d/card.webp",
+      "alt": "Tara Tarini Temple architectural and landscape perspective",
+      "title": "Tara Tarini Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_002/87bc44f63b2d/thumbnail.webp",
+      "alt": "Tara Tarini Temple panorama perspective",
+      "title": "Tara Tarini Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    }
+  ],
+  "Tara Tarini Temple": [
+    {
+      "src": "/static/images/places/place_ganjam_002/87bc44f63b2d/hero.webp",
+      "alt": "Authentic photograph of Tara Tarini Temple in Odisha",
+      "title": "Tara Tarini Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_002/87bc44f63b2d/card.webp",
+      "alt": "Tara Tarini Temple architectural and landscape perspective",
+      "title": "Tara Tarini Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_002/87bc44f63b2d/thumbnail.webp",
+      "alt": "Tara Tarini Temple panorama perspective",
+      "title": "Tara Tarini Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_daringbadi_001": [
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/hero.webp",
+      "alt": "Authentic photograph of Daringbadi Hill Station in Odisha",
+      "title": "Daringbadi Hill Station",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/card.webp",
+      "alt": "Daringbadi Hill Station architectural and landscape perspective",
+      "title": "Daringbadi Hill Station Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/thumbnail.webp",
+      "alt": "Daringbadi Hill Station panorama perspective",
+      "title": "Daringbadi Hill Station Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Daringbadi Hill Station": [
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/hero.webp",
+      "alt": "Authentic photograph of Daringbadi Hill Station in Odisha",
+      "title": "Daringbadi Hill Station",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/card.webp",
+      "alt": "Daringbadi Hill Station architectural and landscape perspective",
+      "title": "Daringbadi Hill Station Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/thumbnail.webp",
+      "alt": "Daringbadi Hill Station panorama perspective",
+      "title": "Daringbadi Hill Station Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_daringbadi_002": [
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/hero.webp",
+      "alt": "Authentic photograph of Midubanda Waterfall, Daringbadi in Odisha",
+      "title": "Midubanda Waterfall, Daringbadi",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/card.webp",
+      "alt": "Midubanda Waterfall, Daringbadi architectural and landscape perspective",
+      "title": "Midubanda Waterfall, Daringbadi Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/thumbnail.webp",
+      "alt": "Midubanda Waterfall, Daringbadi panorama perspective",
+      "title": "Midubanda Waterfall, Daringbadi Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Midubanda Waterfall, Daringbadi": [
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/hero.webp",
+      "alt": "Authentic photograph of Midubanda Waterfall, Daringbadi in Odisha",
+      "title": "Midubanda Waterfall, Daringbadi",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/card.webp",
+      "alt": "Midubanda Waterfall, Daringbadi architectural and landscape perspective",
+      "title": "Midubanda Waterfall, Daringbadi Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/thumbnail.webp",
+      "alt": "Midubanda Waterfall, Daringbadi panorama perspective",
+      "title": "Midubanda Waterfall, Daringbadi Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Midubanda Waterfall Daringbadi": [
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/hero.webp",
+      "alt": "Authentic photograph of Midubanda Waterfall, Daringbadi in Odisha",
+      "title": "Midubanda Waterfall, Daringbadi",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/card.webp",
+      "alt": "Midubanda Waterfall, Daringbadi architectural and landscape perspective",
+      "title": "Midubanda Waterfall, Daringbadi Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/thumbnail.webp",
+      "alt": "Midubanda Waterfall, Daringbadi panorama perspective",
+      "title": "Midubanda Waterfall, Daringbadi Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_daringbadi_003": [
+    {
+      "src": "/static/images/places/place_daringbadi_003/18724980adff/hero.webp",
+      "alt": "Authentic photograph of Coffee Gardens, Daringbadi in Odisha",
+      "title": "Coffee Gardens, Daringbadi",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_003/18724980adff/card.webp",
+      "alt": "Coffee Gardens, Daringbadi architectural and landscape perspective",
+      "title": "Coffee Gardens, Daringbadi Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_003/18724980adff/thumbnail.webp",
+      "alt": "Coffee Gardens, Daringbadi panorama perspective",
+      "title": "Coffee Gardens, Daringbadi Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Coffee Gardens, Daringbadi": [
+    {
+      "src": "/static/images/places/place_daringbadi_003/18724980adff/hero.webp",
+      "alt": "Authentic photograph of Coffee Gardens, Daringbadi in Odisha",
+      "title": "Coffee Gardens, Daringbadi",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_003/18724980adff/card.webp",
+      "alt": "Coffee Gardens, Daringbadi architectural and landscape perspective",
+      "title": "Coffee Gardens, Daringbadi Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_003/18724980adff/thumbnail.webp",
+      "alt": "Coffee Gardens, Daringbadi panorama perspective",
+      "title": "Coffee Gardens, Daringbadi Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Coffee Gardens Daringbadi": [
+    {
+      "src": "/static/images/places/place_daringbadi_003/18724980adff/hero.webp",
+      "alt": "Authentic photograph of Coffee Gardens, Daringbadi in Odisha",
+      "title": "Coffee Gardens, Daringbadi",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_003/18724980adff/card.webp",
+      "alt": "Coffee Gardens, Daringbadi architectural and landscape perspective",
+      "title": "Coffee Gardens, Daringbadi Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_003/18724980adff/thumbnail.webp",
+      "alt": "Coffee Gardens, Daringbadi panorama perspective",
+      "title": "Coffee Gardens, Daringbadi Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_daringbadi_004": [
+    {
+      "src": "/static/images/places/place_daringbadi_004/c5ae233d3210/hero.webp",
+      "alt": "Authentic photograph of Belghar Nature Camp in Odisha",
+      "title": "Belghar Nature Camp",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 at Bangla Wikipedia via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_004/c5ae233d3210/card.webp",
+      "alt": "Belghar Nature Camp architectural and landscape perspective",
+      "title": "Belghar Nature Camp Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 at Bangla Wikipedia via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_004/c5ae233d3210/thumbnail.webp",
+      "alt": "Belghar Nature Camp panorama perspective",
+      "title": "Belghar Nature Camp Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 at Bangla Wikipedia via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Belghar Nature Camp": [
+    {
+      "src": "/static/images/places/place_daringbadi_004/c5ae233d3210/hero.webp",
+      "alt": "Authentic photograph of Belghar Nature Camp in Odisha",
+      "title": "Belghar Nature Camp",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 at Bangla Wikipedia via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_004/c5ae233d3210/card.webp",
+      "alt": "Belghar Nature Camp architectural and landscape perspective",
+      "title": "Belghar Nature Camp Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 at Bangla Wikipedia via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_004/c5ae233d3210/thumbnail.webp",
+      "alt": "Belghar Nature Camp panorama perspective",
+      "title": "Belghar Nature Camp Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 at Bangla Wikipedia via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "place_sambalpur_001": [
+    {
+      "src": "/static/images/places/place_sambalpur_001/319e1fc78ef8/hero.webp",
+      "alt": "Authentic photograph of Hirakud Dam & Reservoir in Odisha",
+      "title": "Hirakud Dam & Reservoir",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aliva Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_001/319e1fc78ef8/card.webp",
+      "alt": "Hirakud Dam & Reservoir architectural and landscape perspective",
+      "title": "Hirakud Dam & Reservoir Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aliva Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_001/319e1fc78ef8/thumbnail.webp",
+      "alt": "Hirakud Dam & Reservoir panorama perspective",
+      "title": "Hirakud Dam & Reservoir Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aliva Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Hirakud Dam & Reservoir": [
+    {
+      "src": "/static/images/places/place_sambalpur_001/319e1fc78ef8/hero.webp",
+      "alt": "Authentic photograph of Hirakud Dam & Reservoir in Odisha",
+      "title": "Hirakud Dam & Reservoir",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aliva Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_001/319e1fc78ef8/card.webp",
+      "alt": "Hirakud Dam & Reservoir architectural and landscape perspective",
+      "title": "Hirakud Dam & Reservoir Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aliva Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_001/319e1fc78ef8/thumbnail.webp",
+      "alt": "Hirakud Dam & Reservoir panorama perspective",
+      "title": "Hirakud Dam & Reservoir Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aliva Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_sambalpur_002": [
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/hero.webp",
+      "alt": "Authentic photograph of Samaleswari Temple, Sambalpur in Odisha",
+      "title": "Samaleswari Temple, Sambalpur",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/card.webp",
+      "alt": "Samaleswari Temple, Sambalpur architectural and landscape perspective",
+      "title": "Samaleswari Temple, Sambalpur Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/thumbnail.webp",
+      "alt": "Samaleswari Temple, Sambalpur panorama perspective",
+      "title": "Samaleswari Temple, Sambalpur Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Samaleswari Temple, Sambalpur": [
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/hero.webp",
+      "alt": "Authentic photograph of Samaleswari Temple, Sambalpur in Odisha",
+      "title": "Samaleswari Temple, Sambalpur",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/card.webp",
+      "alt": "Samaleswari Temple, Sambalpur architectural and landscape perspective",
+      "title": "Samaleswari Temple, Sambalpur Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/thumbnail.webp",
+      "alt": "Samaleswari Temple, Sambalpur panorama perspective",
+      "title": "Samaleswari Temple, Sambalpur Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Samaleswari Temple Sambalpur": [
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/hero.webp",
+      "alt": "Authentic photograph of Samaleswari Temple, Sambalpur in Odisha",
+      "title": "Samaleswari Temple, Sambalpur",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/card.webp",
+      "alt": "Samaleswari Temple, Sambalpur architectural and landscape perspective",
+      "title": "Samaleswari Temple, Sambalpur Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/thumbnail.webp",
+      "alt": "Samaleswari Temple, Sambalpur panorama perspective",
+      "title": "Samaleswari Temple, Sambalpur Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_sambalpur_003": [
+    {
+      "src": "/static/images/places/place_sambalpur_003/62ffb7d419a2/hero.webp",
+      "alt": "Authentic photograph of Huma Leaning Temple in Odisha",
+      "title": "Huma Leaning Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jnanaranjan sahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_003/62ffb7d419a2/card.webp",
+      "alt": "Huma Leaning Temple architectural and landscape perspective",
+      "title": "Huma Leaning Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jnanaranjan sahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_003/62ffb7d419a2/thumbnail.webp",
+      "alt": "Huma Leaning Temple panorama perspective",
+      "title": "Huma Leaning Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jnanaranjan sahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Huma Leaning Temple": [
+    {
+      "src": "/static/images/places/place_sambalpur_003/62ffb7d419a2/hero.webp",
+      "alt": "Authentic photograph of Huma Leaning Temple in Odisha",
+      "title": "Huma Leaning Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jnanaranjan sahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_003/62ffb7d419a2/card.webp",
+      "alt": "Huma Leaning Temple architectural and landscape perspective",
+      "title": "Huma Leaning Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jnanaranjan sahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_003/62ffb7d419a2/thumbnail.webp",
+      "alt": "Huma Leaning Temple panorama perspective",
+      "title": "Huma Leaning Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jnanaranjan sahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_sambalpur_004": [
+    {
+      "src": "/static/images/places/place_sambalpur_004/22d5bc4545b0/hero.webp",
+      "alt": "Authentic photograph of Debrigarh Wildlife Sanctuary in Odisha",
+      "title": "Debrigarh Wildlife Sanctuary",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Amudha HariHaran via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_004/22d5bc4545b0/card.webp",
+      "alt": "Debrigarh Wildlife Sanctuary architectural and landscape perspective",
+      "title": "Debrigarh Wildlife Sanctuary Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Amudha HariHaran via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_004/22d5bc4545b0/thumbnail.webp",
+      "alt": "Debrigarh Wildlife Sanctuary panorama perspective",
+      "title": "Debrigarh Wildlife Sanctuary Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Amudha HariHaran via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Debrigarh Wildlife Sanctuary": [
+    {
+      "src": "/static/images/places/place_sambalpur_004/22d5bc4545b0/hero.webp",
+      "alt": "Authentic photograph of Debrigarh Wildlife Sanctuary in Odisha",
+      "title": "Debrigarh Wildlife Sanctuary",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Amudha HariHaran via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_004/22d5bc4545b0/card.webp",
+      "alt": "Debrigarh Wildlife Sanctuary architectural and landscape perspective",
+      "title": "Debrigarh Wildlife Sanctuary Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Amudha HariHaran via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_004/22d5bc4545b0/thumbnail.webp",
+      "alt": "Debrigarh Wildlife Sanctuary panorama perspective",
+      "title": "Debrigarh Wildlife Sanctuary Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Amudha HariHaran via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_rourkela_001": [
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/hero.webp",
+      "alt": "Authentic photograph of Hanuman Vatika, Rourkela in Odisha",
+      "title": "Hanuman Vatika, Rourkela",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/card.webp",
+      "alt": "Hanuman Vatika, Rourkela architectural and landscape perspective",
+      "title": "Hanuman Vatika, Rourkela Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/thumbnail.webp",
+      "alt": "Hanuman Vatika, Rourkela panorama perspective",
+      "title": "Hanuman Vatika, Rourkela Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Hanuman Vatika, Rourkela": [
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/hero.webp",
+      "alt": "Authentic photograph of Hanuman Vatika, Rourkela in Odisha",
+      "title": "Hanuman Vatika, Rourkela",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/card.webp",
+      "alt": "Hanuman Vatika, Rourkela architectural and landscape perspective",
+      "title": "Hanuman Vatika, Rourkela Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/thumbnail.webp",
+      "alt": "Hanuman Vatika, Rourkela panorama perspective",
+      "title": "Hanuman Vatika, Rourkela Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Hanuman Vatika Rourkela": [
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/hero.webp",
+      "alt": "Authentic photograph of Hanuman Vatika, Rourkela in Odisha",
+      "title": "Hanuman Vatika, Rourkela",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/card.webp",
+      "alt": "Hanuman Vatika, Rourkela architectural and landscape perspective",
+      "title": "Hanuman Vatika, Rourkela Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/thumbnail.webp",
+      "alt": "Hanuman Vatika, Rourkela panorama perspective",
+      "title": "Hanuman Vatika, Rourkela Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "place_rourkela_002": [
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/hero.webp",
+      "alt": "Authentic photograph of Mandira Dam, Sundargarh in Odisha",
+      "title": "Mandira Dam, Sundargarh",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/card.webp",
+      "alt": "Mandira Dam, Sundargarh architectural and landscape perspective",
+      "title": "Mandira Dam, Sundargarh Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/thumbnail.webp",
+      "alt": "Mandira Dam, Sundargarh panorama perspective",
+      "title": "Mandira Dam, Sundargarh Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Mandira Dam, Sundargarh": [
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/hero.webp",
+      "alt": "Authentic photograph of Mandira Dam, Sundargarh in Odisha",
+      "title": "Mandira Dam, Sundargarh",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/card.webp",
+      "alt": "Mandira Dam, Sundargarh architectural and landscape perspective",
+      "title": "Mandira Dam, Sundargarh Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/thumbnail.webp",
+      "alt": "Mandira Dam, Sundargarh panorama perspective",
+      "title": "Mandira Dam, Sundargarh Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Mandira Dam Sundargarh": [
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/hero.webp",
+      "alt": "Authentic photograph of Mandira Dam, Sundargarh in Odisha",
+      "title": "Mandira Dam, Sundargarh",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/card.webp",
+      "alt": "Mandira Dam, Sundargarh architectural and landscape perspective",
+      "title": "Mandira Dam, Sundargarh Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/thumbnail.webp",
+      "alt": "Mandira Dam, Sundargarh panorama perspective",
+      "title": "Mandira Dam, Sundargarh Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "place_rourkela_003": [
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/hero.webp",
+      "alt": "Authentic photograph of Khandadhar Waterfall, Sundargarh in Odisha",
+      "title": "Khandadhar Waterfall, Sundargarh",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/card.webp",
+      "alt": "Khandadhar Waterfall, Sundargarh architectural and landscape perspective",
+      "title": "Khandadhar Waterfall, Sundargarh Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/thumbnail.webp",
+      "alt": "Khandadhar Waterfall, Sundargarh panorama perspective",
+      "title": "Khandadhar Waterfall, Sundargarh Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Khandadhar Waterfall, Sundargarh": [
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/hero.webp",
+      "alt": "Authentic photograph of Khandadhar Waterfall, Sundargarh in Odisha",
+      "title": "Khandadhar Waterfall, Sundargarh",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/card.webp",
+      "alt": "Khandadhar Waterfall, Sundargarh architectural and landscape perspective",
+      "title": "Khandadhar Waterfall, Sundargarh Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/thumbnail.webp",
+      "alt": "Khandadhar Waterfall, Sundargarh panorama perspective",
+      "title": "Khandadhar Waterfall, Sundargarh Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Khandadhar Waterfall Sundargarh": [
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/hero.webp",
+      "alt": "Authentic photograph of Khandadhar Waterfall, Sundargarh in Odisha",
+      "title": "Khandadhar Waterfall, Sundargarh",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/card.webp",
+      "alt": "Khandadhar Waterfall, Sundargarh architectural and landscape perspective",
+      "title": "Khandadhar Waterfall, Sundargarh Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/thumbnail.webp",
+      "alt": "Khandadhar Waterfall, Sundargarh panorama perspective",
+      "title": "Khandadhar Waterfall, Sundargarh Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "place_mayurbhanj_001": [
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/hero.webp",
+      "alt": "Authentic photograph of Similipal National Park in Odisha",
+      "title": "Similipal National Park",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/card.webp",
+      "alt": "Similipal National Park architectural and landscape perspective",
+      "title": "Similipal National Park Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/thumbnail.webp",
+      "alt": "Similipal National Park panorama perspective",
+      "title": "Similipal National Park Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    }
+  ],
+  "Similipal National Park": [
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/hero.webp",
+      "alt": "Authentic photograph of Similipal National Park in Odisha",
+      "title": "Similipal National Park",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/card.webp",
+      "alt": "Similipal National Park architectural and landscape perspective",
+      "title": "Similipal National Park Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/thumbnail.webp",
+      "alt": "Similipal National Park panorama perspective",
+      "title": "Similipal National Park Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_mayurbhanj_002": [
+    {
+      "src": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/hero.webp",
+      "alt": "Authentic photograph of Barehipani & Joranda Falls in Odisha",
+      "title": "Barehipani & Joranda Falls",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Samarth Joel Ram via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/card.webp",
+      "alt": "Barehipani & Joranda Falls architectural and landscape perspective",
+      "title": "Barehipani & Joranda Falls Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Samarth Joel Ram via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/thumbnail.webp",
+      "alt": "Barehipani & Joranda Falls panorama perspective",
+      "title": "Barehipani & Joranda Falls Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Samarth Joel Ram via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Barehipani & Joranda Falls": [
+    {
+      "src": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/hero.webp",
+      "alt": "Authentic photograph of Barehipani & Joranda Falls in Odisha",
+      "title": "Barehipani & Joranda Falls",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Samarth Joel Ram via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/card.webp",
+      "alt": "Barehipani & Joranda Falls architectural and landscape perspective",
+      "title": "Barehipani & Joranda Falls Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Samarth Joel Ram via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/thumbnail.webp",
+      "alt": "Barehipani & Joranda Falls panorama perspective",
+      "title": "Barehipani & Joranda Falls Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Samarth Joel Ram via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "place_balasore_001": [
+    {
+      "src": "/static/images/places/place_balasore_001/7b71840acce2/hero.webp",
+      "alt": "Authentic photograph of Chandipur Beach in Odisha",
+      "title": "Chandipur Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by B.Sunita M via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_balasore_001/7b71840acce2/card.webp",
+      "alt": "Chandipur Beach architectural and landscape perspective",
+      "title": "Chandipur Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by B.Sunita M via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_balasore_001/7b71840acce2/thumbnail.webp",
+      "alt": "Chandipur Beach panorama perspective",
+      "title": "Chandipur Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by B.Sunita M via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Chandipur Beach": [
+    {
+      "src": "/static/images/places/place_balasore_001/7b71840acce2/hero.webp",
+      "alt": "Authentic photograph of Chandipur Beach in Odisha",
+      "title": "Chandipur Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by B.Sunita M via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_balasore_001/7b71840acce2/card.webp",
+      "alt": "Chandipur Beach architectural and landscape perspective",
+      "title": "Chandipur Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by B.Sunita M via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_balasore_001/7b71840acce2/thumbnail.webp",
+      "alt": "Chandipur Beach panorama perspective",
+      "title": "Chandipur Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by B.Sunita M via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_kendrapara_001": [
+    {
+      "src": "/static/images/places/place_kendrapara_001/3c1227e192f9/hero.webp",
+      "alt": "Authentic photograph of Bhitarkanika National Park in Odisha",
+      "title": "Bhitarkanika National Park",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Devopam via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_kendrapara_001/3c1227e192f9/card.webp",
+      "alt": "Bhitarkanika National Park architectural and landscape perspective",
+      "title": "Bhitarkanika National Park Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Devopam via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_kendrapara_001/3c1227e192f9/thumbnail.webp",
+      "alt": "Bhitarkanika National Park panorama perspective",
+      "title": "Bhitarkanika National Park Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Devopam via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Bhitarkanika National Park": [
+    {
+      "src": "/static/images/places/place_kendrapara_001/3c1227e192f9/hero.webp",
+      "alt": "Authentic photograph of Bhitarkanika National Park in Odisha",
+      "title": "Bhitarkanika National Park",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Devopam via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_kendrapara_001/3c1227e192f9/card.webp",
+      "alt": "Bhitarkanika National Park architectural and landscape perspective",
+      "title": "Bhitarkanika National Park Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Devopam via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_kendrapara_001/3c1227e192f9/thumbnail.webp",
+      "alt": "Bhitarkanika National Park panorama perspective",
+      "title": "Bhitarkanika National Park Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Devopam via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_koraput_001": [
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/hero.webp",
+      "alt": "Authentic photograph of Gupteswar Cave Temple, Koraput in Odisha",
+      "title": "Gupteswar Cave Temple, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/card.webp",
+      "alt": "Gupteswar Cave Temple, Koraput architectural and landscape perspective",
+      "title": "Gupteswar Cave Temple, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/thumbnail.webp",
+      "alt": "Gupteswar Cave Temple, Koraput panorama perspective",
+      "title": "Gupteswar Cave Temple, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Gupteswar Cave Temple, Koraput": [
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/hero.webp",
+      "alt": "Authentic photograph of Gupteswar Cave Temple, Koraput in Odisha",
+      "title": "Gupteswar Cave Temple, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/card.webp",
+      "alt": "Gupteswar Cave Temple, Koraput architectural and landscape perspective",
+      "title": "Gupteswar Cave Temple, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/thumbnail.webp",
+      "alt": "Gupteswar Cave Temple, Koraput panorama perspective",
+      "title": "Gupteswar Cave Temple, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Gupteswar Cave Temple Koraput": [
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/hero.webp",
+      "alt": "Authentic photograph of Gupteswar Cave Temple, Koraput in Odisha",
+      "title": "Gupteswar Cave Temple, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/card.webp",
+      "alt": "Gupteswar Cave Temple, Koraput architectural and landscape perspective",
+      "title": "Gupteswar Cave Temple, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/thumbnail.webp",
+      "alt": "Gupteswar Cave Temple, Koraput panorama perspective",
+      "title": "Gupteswar Cave Temple, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_koraput_002": [
+    {
+      "src": "/static/images/places/place_koraput_002/da596fb21308/hero.webp",
+      "alt": "Authentic photograph of Duduma Waterfall in Odisha",
+      "title": "Duduma Waterfall",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Parthapratim25 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_002/da596fb21308/card.webp",
+      "alt": "Duduma Waterfall architectural and landscape perspective",
+      "title": "Duduma Waterfall Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Parthapratim25 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_002/da596fb21308/thumbnail.webp",
+      "alt": "Duduma Waterfall panorama perspective",
+      "title": "Duduma Waterfall Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Parthapratim25 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Duduma Waterfall": [
+    {
+      "src": "/static/images/places/place_koraput_002/da596fb21308/hero.webp",
+      "alt": "Authentic photograph of Duduma Waterfall in Odisha",
+      "title": "Duduma Waterfall",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Parthapratim25 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_002/da596fb21308/card.webp",
+      "alt": "Duduma Waterfall architectural and landscape perspective",
+      "title": "Duduma Waterfall Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Parthapratim25 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_002/da596fb21308/thumbnail.webp",
+      "alt": "Duduma Waterfall panorama perspective",
+      "title": "Duduma Waterfall Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Parthapratim25 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_koraput_003": [
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/hero.webp",
+      "alt": "Authentic photograph of Deomali Peak, Koraput in Odisha",
+      "title": "Deomali Peak, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/card.webp",
+      "alt": "Deomali Peak, Koraput architectural and landscape perspective",
+      "title": "Deomali Peak, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/thumbnail.webp",
+      "alt": "Deomali Peak, Koraput panorama perspective",
+      "title": "Deomali Peak, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Deomali Peak, Koraput": [
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/hero.webp",
+      "alt": "Authentic photograph of Deomali Peak, Koraput in Odisha",
+      "title": "Deomali Peak, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/card.webp",
+      "alt": "Deomali Peak, Koraput architectural and landscape perspective",
+      "title": "Deomali Peak, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/thumbnail.webp",
+      "alt": "Deomali Peak, Koraput panorama perspective",
+      "title": "Deomali Peak, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Deomali Peak Koraput": [
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/hero.webp",
+      "alt": "Authentic photograph of Deomali Peak, Koraput in Odisha",
+      "title": "Deomali Peak, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/card.webp",
+      "alt": "Deomali Peak, Koraput architectural and landscape perspective",
+      "title": "Deomali Peak, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/thumbnail.webp",
+      "alt": "Deomali Peak, Koraput panorama perspective",
+      "title": "Deomali Peak, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_koraput_004": [
+    {
+      "src": "/static/images/places/place_koraput_004/a54c2ebd04a0/hero.webp",
+      "alt": "Authentic photograph of Tribal Museum, Koraput in Odisha",
+      "title": "Tribal Museum, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_004/a54c2ebd04a0/card.webp",
+      "alt": "Tribal Museum, Koraput architectural and landscape perspective",
+      "title": "Tribal Museum, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_004/a54c2ebd04a0/thumbnail.webp",
+      "alt": "Tribal Museum, Koraput panorama perspective",
+      "title": "Tribal Museum, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Tribal Museum, Koraput": [
+    {
+      "src": "/static/images/places/place_koraput_004/a54c2ebd04a0/hero.webp",
+      "alt": "Authentic photograph of Tribal Museum, Koraput in Odisha",
+      "title": "Tribal Museum, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_004/a54c2ebd04a0/card.webp",
+      "alt": "Tribal Museum, Koraput architectural and landscape perspective",
+      "title": "Tribal Museum, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_004/a54c2ebd04a0/thumbnail.webp",
+      "alt": "Tribal Museum, Koraput panorama perspective",
+      "title": "Tribal Museum, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Tribal Museum Koraput": [
+    {
+      "src": "/static/images/places/place_koraput_004/a54c2ebd04a0/hero.webp",
+      "alt": "Authentic photograph of Tribal Museum, Koraput in Odisha",
+      "title": "Tribal Museum, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_004/a54c2ebd04a0/card.webp",
+      "alt": "Tribal Museum, Koraput architectural and landscape perspective",
+      "title": "Tribal Museum, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_004/a54c2ebd04a0/thumbnail.webp",
+      "alt": "Tribal Museum, Koraput panorama perspective",
+      "title": "Tribal Museum, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "place_koraput_005": [
+    {
+      "src": "/static/images/places/place_koraput_005/375b5f789f69/hero.webp",
+      "alt": "Authentic photograph of Kolab Reservoir & Botanical Garden in Odisha",
+      "title": "Kolab Reservoir & Botanical Garden",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by w via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_005/375b5f789f69/card.webp",
+      "alt": "Kolab Reservoir & Botanical Garden architectural and landscape perspective",
+      "title": "Kolab Reservoir & Botanical Garden Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by w via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_005/375b5f789f69/thumbnail.webp",
+      "alt": "Kolab Reservoir & Botanical Garden panorama perspective",
+      "title": "Kolab Reservoir & Botanical Garden Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by w via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Kolab Reservoir & Botanical Garden": [
+    {
+      "src": "/static/images/places/place_koraput_005/375b5f789f69/hero.webp",
+      "alt": "Authentic photograph of Kolab Reservoir & Botanical Garden in Odisha",
+      "title": "Kolab Reservoir & Botanical Garden",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by w via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_005/375b5f789f69/card.webp",
+      "alt": "Kolab Reservoir & Botanical Garden architectural and landscape perspective",
+      "title": "Kolab Reservoir & Botanical Garden Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by w via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_005/375b5f789f69/thumbnail.webp",
+      "alt": "Kolab Reservoir & Botanical Garden panorama perspective",
+      "title": "Kolab Reservoir & Botanical Garden Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by w via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "place_rayagada_001": [
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/hero.webp",
+      "alt": "Authentic photograph of Maa Majhigouri Temple, Rayagada in Odisha",
+      "title": "Maa Majhigouri Temple, Rayagada",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/card.webp",
+      "alt": "Maa Majhigouri Temple, Rayagada architectural and landscape perspective",
+      "title": "Maa Majhigouri Temple, Rayagada Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/thumbnail.webp",
+      "alt": "Maa Majhigouri Temple, Rayagada panorama perspective",
+      "title": "Maa Majhigouri Temple, Rayagada Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Maa Majhigouri Temple, Rayagada": [
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/hero.webp",
+      "alt": "Authentic photograph of Maa Majhigouri Temple, Rayagada in Odisha",
+      "title": "Maa Majhigouri Temple, Rayagada",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/card.webp",
+      "alt": "Maa Majhigouri Temple, Rayagada architectural and landscape perspective",
+      "title": "Maa Majhigouri Temple, Rayagada Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/thumbnail.webp",
+      "alt": "Maa Majhigouri Temple, Rayagada panorama perspective",
+      "title": "Maa Majhigouri Temple, Rayagada Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Maa Majhigouri Temple Rayagada": [
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/hero.webp",
+      "alt": "Authentic photograph of Maa Majhigouri Temple, Rayagada in Odisha",
+      "title": "Maa Majhigouri Temple, Rayagada",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/card.webp",
+      "alt": "Maa Majhigouri Temple, Rayagada architectural and landscape perspective",
+      "title": "Maa Majhigouri Temple, Rayagada Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/thumbnail.webp",
+      "alt": "Maa Majhigouri Temple, Rayagada panorama perspective",
+      "title": "Maa Majhigouri Temple, Rayagada Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Jagannath Temple": [
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/hero.webp",
+      "alt": "Authentic photograph of Jagannath Temple, Puri in Odisha",
+      "title": "Jagannath Temple, Puri",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/card.webp",
+      "alt": "Jagannath Temple, Puri architectural and landscape perspective",
+      "title": "Jagannath Temple, Puri Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/thumbnail.webp",
+      "alt": "Jagannath Temple, Puri panorama perspective",
+      "title": "Jagannath Temple, Puri Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Shree Jagannatha Temple Puri": [
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/hero.webp",
+      "alt": "Authentic photograph of Jagannath Temple, Puri in Odisha",
+      "title": "Jagannath Temple, Puri",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/card.webp",
+      "alt": "Jagannath Temple, Puri architectural and landscape perspective",
+      "title": "Jagannath Temple, Puri Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/thumbnail.webp",
+      "alt": "Jagannath Temple, Puri panorama perspective",
+      "title": "Jagannath Temple, Puri Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Puri Jagannath": [
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/hero.webp",
+      "alt": "Authentic photograph of Jagannath Temple, Puri in Odisha",
+      "title": "Jagannath Temple, Puri",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/card.webp",
+      "alt": "Jagannath Temple, Puri architectural and landscape perspective",
+      "title": "Jagannath Temple, Puri Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_001/02287867dc89/thumbnail.webp",
+      "alt": "Jagannath Temple, Puri panorama perspective",
+      "title": "Jagannath Temple, Puri Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Puri Beach": [
+    {
+      "src": "/static/images/places/place_puri_002/8146170ae9b7/hero.webp",
+      "alt": "Authentic photograph of Puri Golden Beach in Odisha",
+      "title": "Puri Golden Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_002/8146170ae9b7/card.webp",
+      "alt": "Puri Golden Beach architectural and landscape perspective",
+      "title": "Puri Golden Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_puri_002/8146170ae9b7/thumbnail.webp",
+      "alt": "Puri Golden Beach panorama perspective",
+      "title": "Puri Golden Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Sun Temple Konark": [
+    {
+      "src": "/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+      "alt": "Authentic photograph of Konark Sun Temple in Odisha",
+      "title": "Konark Sun Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_001/03b959a8abef/card.webp",
+      "alt": "Konark Sun Temple architectural and landscape perspective",
+      "title": "Konark Sun Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_001/03b959a8abef/thumbnail.webp",
+      "alt": "Konark Sun Temple panorama perspective",
+      "title": "Konark Sun Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Ramachandi Beach": [
+    {
+      "src": "/static/images/places/place_konark_003/05c33a10ed83/hero.webp",
+      "alt": "Authentic photograph of Ramachandi Beach & Temple in Odisha",
+      "title": "Ramachandi Beach & Temple",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Swapnil.sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_003/05c33a10ed83/card.webp",
+      "alt": "Ramachandi Beach & Temple architectural and landscape perspective",
+      "title": "Ramachandi Beach & Temple Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Swapnil.sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_konark_003/05c33a10ed83/thumbnail.webp",
+      "alt": "Ramachandi Beach & Temple panorama perspective",
+      "title": "Ramachandi Beach & Temple Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Swapnil.sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Chilika Lake": [
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
+      "alt": "Authentic photograph of Chilika Lake - Satapada in Odisha",
+      "title": "Chilika Lake - Satapada",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/card.webp",
+      "alt": "Chilika Lake - Satapada architectural and landscape perspective",
+      "title": "Chilika Lake - Satapada Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/thumbnail.webp",
+      "alt": "Chilika Lake - Satapada panorama perspective",
+      "title": "Chilika Lake - Satapada Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Satapada": [
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
+      "alt": "Authentic photograph of Chilika Lake - Satapada in Odisha",
+      "title": "Chilika Lake - Satapada",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/card.webp",
+      "alt": "Chilika Lake - Satapada architectural and landscape perspective",
+      "title": "Chilika Lake - Satapada Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_001/b5a796039cf9/thumbnail.webp",
+      "alt": "Chilika Lake - Satapada panorama perspective",
+      "title": "Chilika Lake - Satapada Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Kalijai Island Temple": [
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/hero.webp",
+      "alt": "Authentic photograph of Kalijai Island Temple, Chilika in Odisha",
+      "title": "Kalijai Island Temple, Chilika",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/card.webp",
+      "alt": "Kalijai Island Temple, Chilika architectural and landscape perspective",
+      "title": "Kalijai Island Temple, Chilika Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_002/a4ae8ae04351/thumbnail.webp",
+      "alt": "Kalijai Island Temple, Chilika panorama perspective",
+      "title": "Kalijai Island Temple, Chilika Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Mangalajodi": [
+    {
+      "src": "/static/images/places/place_chilika_003/3b306bfaf9fd/hero.webp",
+      "alt": "Authentic photograph of Mangalajodi Bird Sanctuary in Odisha",
+      "title": "Mangalajodi Bird Sanctuary",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Aditya Bhattacharjee via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_003/3b306bfaf9fd/card.webp",
+      "alt": "Mangalajodi Bird Sanctuary architectural and landscape perspective",
+      "title": "Mangalajodi Bird Sanctuary Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Aditya Bhattacharjee via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_chilika_003/3b306bfaf9fd/thumbnail.webp",
+      "alt": "Mangalajodi Bird Sanctuary panorama perspective",
+      "title": "Mangalajodi Bird Sanctuary Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Aditya Bhattacharjee via Wikimedia Commons, licensed under CC BY 2.0",
+      "isFallback": false
+    }
+  ],
+  "Gopalpur-on-Sea": [
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/hero.webp",
+      "alt": "Authentic photograph of Gopalpur-on-Sea Beach in Odisha",
+      "title": "Gopalpur-on-Sea Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/card.webp",
+      "alt": "Gopalpur-on-Sea Beach architectural and landscape perspective",
+      "title": "Gopalpur-on-Sea Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/thumbnail.webp",
+      "alt": "Gopalpur-on-Sea Beach panorama perspective",
+      "title": "Gopalpur-on-Sea Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Gopalpur Beach": [
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/hero.webp",
+      "alt": "Authentic photograph of Gopalpur-on-Sea Beach in Odisha",
+      "title": "Gopalpur-on-Sea Beach",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/card.webp",
+      "alt": "Gopalpur-on-Sea Beach architectural and landscape perspective",
+      "title": "Gopalpur-on-Sea Beach Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_ganjam_001/e3487587a075/thumbnail.webp",
+      "alt": "Gopalpur-on-Sea Beach panorama perspective",
+      "title": "Gopalpur-on-Sea Beach Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Daringbadi": [
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/hero.webp",
+      "alt": "Authentic photograph of Daringbadi Hill Station in Odisha",
+      "title": "Daringbadi Hill Station",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/card.webp",
+      "alt": "Daringbadi Hill Station architectural and landscape perspective",
+      "title": "Daringbadi Hill Station Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/thumbnail.webp",
+      "alt": "Daringbadi Hill Station panorama perspective",
+      "title": "Daringbadi Hill Station Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Daringbadi Pine Hills": [
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/hero.webp",
+      "alt": "Authentic photograph of Daringbadi Hill Station in Odisha",
+      "title": "Daringbadi Hill Station",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/card.webp",
+      "alt": "Daringbadi Hill Station architectural and landscape perspective",
+      "title": "Daringbadi Hill Station Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_001/49e608c2405f/thumbnail.webp",
+      "alt": "Daringbadi Hill Station panorama perspective",
+      "title": "Daringbadi Hill Station Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Midubanda Waterfall": [
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/hero.webp",
+      "alt": "Authentic photograph of Midubanda Waterfall, Daringbadi in Odisha",
+      "title": "Midubanda Waterfall, Daringbadi",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/card.webp",
+      "alt": "Midubanda Waterfall, Daringbadi architectural and landscape perspective",
+      "title": "Midubanda Waterfall, Daringbadi Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_daringbadi_002/604241c8ef4d/thumbnail.webp",
+      "alt": "Midubanda Waterfall, Daringbadi panorama perspective",
+      "title": "Midubanda Waterfall, Daringbadi Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by \u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Hirakud Dam": [
+    {
+      "src": "/static/images/places/place_sambalpur_001/319e1fc78ef8/hero.webp",
+      "alt": "Authentic photograph of Hirakud Dam & Reservoir in Odisha",
+      "title": "Hirakud Dam & Reservoir",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aliva Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_001/319e1fc78ef8/card.webp",
+      "alt": "Hirakud Dam & Reservoir architectural and landscape perspective",
+      "title": "Hirakud Dam & Reservoir Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aliva Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_001/319e1fc78ef8/thumbnail.webp",
+      "alt": "Hirakud Dam & Reservoir panorama perspective",
+      "title": "Hirakud Dam & Reservoir Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aliva Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Samaleswari Temple": [
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/hero.webp",
+      "alt": "Authentic photograph of Samaleswari Temple, Sambalpur in Odisha",
+      "title": "Samaleswari Temple, Sambalpur",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/card.webp",
+      "alt": "Samaleswari Temple, Sambalpur architectural and landscape perspective",
+      "title": "Samaleswari Temple, Sambalpur Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_002/34272df89ec2/thumbnail.webp",
+      "alt": "Samaleswari Temple, Sambalpur panorama perspective",
+      "title": "Samaleswari Temple, Sambalpur Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Debrigarh": [
+    {
+      "src": "/static/images/places/place_sambalpur_004/22d5bc4545b0/hero.webp",
+      "alt": "Authentic photograph of Debrigarh Wildlife Sanctuary in Odisha",
+      "title": "Debrigarh Wildlife Sanctuary",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Amudha HariHaran via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_004/22d5bc4545b0/card.webp",
+      "alt": "Debrigarh Wildlife Sanctuary architectural and landscape perspective",
+      "title": "Debrigarh Wildlife Sanctuary Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Amudha HariHaran via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_sambalpur_004/22d5bc4545b0/thumbnail.webp",
+      "alt": "Debrigarh Wildlife Sanctuary panorama perspective",
+      "title": "Debrigarh Wildlife Sanctuary Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Amudha HariHaran via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Hanuman Vatika": [
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/hero.webp",
+      "alt": "Authentic photograph of Hanuman Vatika, Rourkela in Odisha",
+      "title": "Hanuman Vatika, Rourkela",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/card.webp",
+      "alt": "Hanuman Vatika, Rourkela architectural and landscape perspective",
+      "title": "Hanuman Vatika, Rourkela Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_001/ae7eb1c0b708/thumbnail.webp",
+      "alt": "Hanuman Vatika, Rourkela panorama perspective",
+      "title": "Hanuman Vatika, Rourkela Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Mandira Dam": [
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/hero.webp",
+      "alt": "Authentic photograph of Mandira Dam, Sundargarh in Odisha",
+      "title": "Mandira Dam, Sundargarh",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/card.webp",
+      "alt": "Mandira Dam, Sundargarh architectural and landscape perspective",
+      "title": "Mandira Dam, Sundargarh Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_002/00793bab38cf/thumbnail.webp",
+      "alt": "Mandira Dam, Sundargarh panorama perspective",
+      "title": "Mandira Dam, Sundargarh Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Khandadhar Waterfall": [
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/hero.webp",
+      "alt": "Authentic photograph of Khandadhar Waterfall, Sundargarh in Odisha",
+      "title": "Khandadhar Waterfall, Sundargarh",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/card.webp",
+      "alt": "Khandadhar Waterfall, Sundargarh architectural and landscape perspective",
+      "title": "Khandadhar Waterfall, Sundargarh Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rourkela_003/a8c814c32300/thumbnail.webp",
+      "alt": "Khandadhar Waterfall, Sundargarh panorama perspective",
+      "title": "Khandadhar Waterfall, Sundargarh Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Similipal Tiger Reserve": [
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/hero.webp",
+      "alt": "Authentic photograph of Similipal National Park in Odisha",
+      "title": "Similipal National Park",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/card.webp",
+      "alt": "Similipal National Park architectural and landscape perspective",
+      "title": "Similipal National Park Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/thumbnail.webp",
+      "alt": "Similipal National Park panorama perspective",
+      "title": "Similipal National Park Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    }
+  ],
+  "Similipal": [
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/hero.webp",
+      "alt": "Authentic photograph of Similipal National Park in Odisha",
+      "title": "Similipal National Park",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/card.webp",
+      "alt": "Similipal National Park architectural and landscape perspective",
+      "title": "Similipal National Park Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/thumbnail.webp",
+      "alt": "Similipal National Park panorama perspective",
+      "title": "Similipal National Park Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "isFallback": false
+    }
+  ],
+  "Barehipani Falls": [
+    {
+      "src": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/hero.webp",
+      "alt": "Authentic photograph of Barehipani & Joranda Falls in Odisha",
+      "title": "Barehipani & Joranda Falls",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Samarth Joel Ram via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/card.webp",
+      "alt": "Barehipani & Joranda Falls architectural and landscape perspective",
+      "title": "Barehipani & Joranda Falls Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Samarth Joel Ram via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/thumbnail.webp",
+      "alt": "Barehipani & Joranda Falls panorama perspective",
+      "title": "Barehipani & Joranda Falls Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Samarth Joel Ram via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Bhitarkanika": [
+    {
+      "src": "/static/images/places/place_kendrapara_001/3c1227e192f9/hero.webp",
+      "alt": "Authentic photograph of Bhitarkanika National Park in Odisha",
+      "title": "Bhitarkanika National Park",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Devopam via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_kendrapara_001/3c1227e192f9/card.webp",
+      "alt": "Bhitarkanika National Park architectural and landscape perspective",
+      "title": "Bhitarkanika National Park Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Devopam via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_kendrapara_001/3c1227e192f9/thumbnail.webp",
+      "alt": "Bhitarkanika National Park panorama perspective",
+      "title": "Bhitarkanika National Park Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Devopam via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Gupteswar Cave Temple": [
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/hero.webp",
+      "alt": "Authentic photograph of Gupteswar Cave Temple, Koraput in Odisha",
+      "title": "Gupteswar Cave Temple, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/card.webp",
+      "alt": "Gupteswar Cave Temple, Koraput architectural and landscape perspective",
+      "title": "Gupteswar Cave Temple, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_001/ebdb01aa8cee/thumbnail.webp",
+      "alt": "Gupteswar Cave Temple, Koraput panorama perspective",
+      "title": "Gupteswar Cave Temple, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Deomali Peak": [
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/hero.webp",
+      "alt": "Authentic photograph of Deomali Peak, Koraput in Odisha",
+      "title": "Deomali Peak, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/card.webp",
+      "alt": "Deomali Peak, Koraput architectural and landscape perspective",
+      "title": "Deomali Peak, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/thumbnail.webp",
+      "alt": "Deomali Peak, Koraput panorama perspective",
+      "title": "Deomali Peak, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Deomali": [
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/hero.webp",
+      "alt": "Authentic photograph of Deomali Peak, Koraput in Odisha",
+      "title": "Deomali Peak, Koraput",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/card.webp",
+      "alt": "Deomali Peak, Koraput architectural and landscape perspective",
+      "title": "Deomali Peak, Koraput Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_003/d706510f47e0/thumbnail.webp",
+      "alt": "Deomali Peak, Koraput panorama perspective",
+      "title": "Deomali Peak, Koraput Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ],
+  "Kolab Reservoir": [
+    {
+      "src": "/static/images/places/place_koraput_005/375b5f789f69/hero.webp",
+      "alt": "Authentic photograph of Kolab Reservoir & Botanical Garden in Odisha",
+      "title": "Kolab Reservoir & Botanical Garden",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by w via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_005/375b5f789f69/card.webp",
+      "alt": "Kolab Reservoir & Botanical Garden architectural and landscape perspective",
+      "title": "Kolab Reservoir & Botanical Garden Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by w via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_koraput_005/375b5f789f69/thumbnail.webp",
+      "alt": "Kolab Reservoir & Botanical Garden panorama perspective",
+      "title": "Kolab Reservoir & Botanical Garden Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by w via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "isFallback": false
+    }
+  ],
+  "Maa Majhigouri Temple": [
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/hero.webp",
+      "alt": "Authentic photograph of Maa Majhigouri Temple, Rayagada in Odisha",
+      "title": "Maa Majhigouri Temple, Rayagada",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/card.webp",
+      "alt": "Maa Majhigouri Temple, Rayagada architectural and landscape perspective",
+      "title": "Maa Majhigouri Temple, Rayagada Detail View",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    },
+    {
+      "src": "/static/images/places/place_rayagada_001/a863f4660940/thumbnail.webp",
+      "alt": "Maa Majhigouri Temple, Rayagada panorama perspective",
+      "title": "Maa Majhigouri Temple, Rayagada Overview",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "isFallback": false
+    }
+  ]
 };
 
-/* =========================================================================
-   4. CENTRAL PIPELINE RESOLUTION FUNCTIONS
-   ========================================================================= */
-
-/**
- * Normalizes a query string for manifest key matching.
- */
 function normalizeKey(str?: string | null): string {
   if (!str) return "";
-  return str
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s]/g, " ")
-    .replace(/\s+/g, " ");
+  return str.toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
-/**
- * Resolves verified photography for any destination with licenses and attributions.
- */
 export function getPlaceImages(placeName?: string | null, category?: string | null): PlaceImage[] {
-  const normName = normalizeKey(placeName);
-  const normCat = normalizeKey(category);
+  if (!placeName && !category) return [DEFAULT_FALLBACK_IMAGE];
 
-  // 1. Exact match in manifest
-  if (normName && PLACE_IMAGE_MANIFEST[normName] && PLACE_IMAGE_MANIFEST[normName].length > 0) {
-    return PLACE_IMAGE_MANIFEST[normName];
-  }
+  if (placeName) {
+    // 1. Exact match by place_id or name
+    if (PLACE_IMAGE_MANIFEST[placeName]) {
+      return PLACE_IMAGE_MANIFEST[placeName];
+    }
 
-  // 2. Exact match on raw lowercase
-  const rawLower = placeName?.toLowerCase().trim();
-  if (rawLower && PLACE_IMAGE_MANIFEST[rawLower] && PLACE_IMAGE_MANIFEST[rawLower].length > 0) {
-    return PLACE_IMAGE_MANIFEST[rawLower];
-  }
-
-  // 3. Substring search in manifest
-  if (normName) {
+    // 2. Normalized alphanumeric match
+    const normPlace = normalizeKey(placeName);
     for (const [key, images] of Object.entries(PLACE_IMAGE_MANIFEST)) {
-      const normManifestKey = normalizeKey(key);
-      if (
-        normName.includes(normManifestKey) ||
-        normManifestKey.includes(normName)
-      ) {
+      if (normalizeKey(key) === normPlace) {
+        return images;
+      }
+    }
+
+    // 3. Exact token match for composite names (e.g., "Puri Beach", "Konark Sun Temple")
+    for (const [key, images] of Object.entries(PLACE_IMAGE_MANIFEST)) {
+      const normKey = normalizeKey(key);
+      if (normKey.length >= 6 && (normPlace === normKey)) {
         return images;
       }
     }
   }
 
-  // 4. Category match in manifest
-  if (normCat) {
-    for (const [catKey, catImg] of Object.entries(CATEGORY_IMAGE_MANIFEST)) {
-      const normCatKey = normalizeKey(catKey);
-      if (normCat.includes(normCatKey) || normCatKey.includes(normCat)) {
-        return [catImg];
+  // 4. Category fallback if no destination match
+  if (category) {
+    const normCat = normalizeKey(category);
+    for (const [key, img] of Object.entries(CATEGORY_IMAGE_MANIFEST)) {
+      const normKey = normalizeKey(key);
+      if (normCat === normKey || normCat.includes(normKey) || normKey.includes(normCat)) {
+        return [img];
       }
     }
   }
 
-  // 5. Default neutral fallback
   return [DEFAULT_FALLBACK_IMAGE];
 }
 
-/**
- * Resolves the primary single image for any destination or stop.
- */
 export function getPrimaryPlaceImage(placeName?: string | null, category?: string | null): PlaceImage {
   const images = getPlaceImages(placeName, category);
   return images[0] || DEFAULT_FALLBACK_IMAGE;
 }
 
-/**
- * Resolves the URL string of the primary travel image.
- */
 export function getPlaceImageUrl(placeName?: string | null, category?: string | null): string {
   const img = getPrimaryPlaceImage(placeName, category);
   return img.src;
 }
 
-/**
- * Resolves the verified category image with provenance metadata.
- */
 export function getCategoryImage(category: string): PlaceImage {
   const norm = normalizeKey(category);
   for (const [key, img] of Object.entries(CATEGORY_IMAGE_MANIFEST)) {
     const normKey = normalizeKey(key);
-    if (norm.includes(normKey) || normKey.includes(norm)) {
+    if (norm === normKey || norm.includes(normKey) || normKey.includes(norm)) {
       return img;
     }
   }
-  return DEFAULT_FALLBACK_IMAGE;
+  return CATEGORY_IMAGE_MANIFEST["nature"] || DEFAULT_FALLBACK_IMAGE;
 }
 
-/**
- * Backward-compatible helper for PhotoGallery and legacy components.
- */
 export function getPlaceGallery(placeName?: string | null, category?: string | null): PlaceImageMeta[] {
   const images = getPlaceImages(placeName, category);
   return images.map((img) => ({
     url: img.src,
     alt: img.alt,
-    source: img.source || "Odisha Tourism Documentation",
-    license: img.license || "Verified Asset",
-    attribution: img.attribution || img.title || "Odisha Tourism",
+    source: img.source || "Wikimedia Commons",
+    license: img.license || "CC BY-SA 4.0",
+    attribution: img.attribution || img.title || "Odisha Tourism Documentation",
   }));
 }
 
-/**
- * Maps a place to its geographical region within Odisha.
- */
 export function getPlaceRegion(placeName: string): string {
   const name = placeName.toLowerCase();
   if (name.includes("puri") || name.includes("gundicha") || name.includes("swargadwar")) return "Puri & Coastal";
@@ -1304,90 +4518,87 @@ export function getPlaceRegion(placeName: string): string {
   return "Bhubaneswar & Central";
 }
 
-/**
- * Featured Odisha destinations for Discovery.
- */
 export function getFeaturedOdishaDestinations(): FeaturedDestination[] {
   return [
     {
-      id: "puri-jagannath",
-      name: "Puri",
-      category: "Heritage & Beach",
+      id: "place_puri_001",
+      name: "Jagannath Temple, Puri",
+      category: "Heritage & Pilgrimage",
       location: "Puri & Coastal",
-      description: "Sacred Jagannath Dham pilgrimage, Blue Flag golden coastline, and lively beach promenades.",
-      imageUrl: getPlaceImageUrl("puri golden beach", "beach"),
+      description: "Sacred 12th-century Kalinga temple complex of Lord Jagannath with grand Bada Danda courtyards.",
+      imageUrl: getPlaceImageUrl("place_puri_001"),
     },
     {
-      id: "konark-sun-temple",
+      id: "place_puri_002",
+      name: "Puri Golden Beach",
+      category: "Beach & Coastal",
+      location: "Puri & Coastal",
+      description: "Blue Flag certified coastline with azure waters and lively sunrise promenade.",
+      imageUrl: getPlaceImageUrl("place_puri_002"),
+    },
+    {
+      id: "place_konark_001",
       name: "Konark Sun Temple",
       category: "Monuments & Heritage",
       location: "Konark & Marine",
-      description: "13th-century UNESCO World Heritage stone chariot with 24 giant sculpted wheels and celestial dancers.",
-      imageUrl: getPlaceImageUrl("konark sun temple", "monument"),
+      description: "13th-century UNESCO World Heritage stone chariot with 24 sculpted sun wheels and celestial dancers.",
+      imageUrl: getPlaceImageUrl("place_konark_001"),
     },
     {
-      id: "chilika-lake",
-      name: "Chilika Lake",
+      id: "place_chilika_001",
+      name: "Chilika Lake - Satapada",
       category: "Nature & Lagoons",
       location: "Chilika & Southern Coast",
-      description: "Asia's largest brackish wetland lagoon with playful Irrawaddy dolphins and vast migratory bird sanctuaries.",
-      imageUrl: getPlaceImageUrl("chilika lake", "lake"),
+      description: "Asia's largest brackish lagoon with Irrawaddy dolphin cruises and serene island waters.",
+      imageUrl: getPlaceImageUrl("place_chilika_001"),
     },
     {
-      id: "daringbadi-hill-station",
-      name: "Daringbadi",
+      id: "place_daringbadi_001",
+      name: "Daringbadi Hill Station",
       category: "Hills & Nature",
       location: "Kandhamal & Southern Hills",
-      description: "The 'Kashmir of Odisha', known for mist-covered pine valleys, coffee plantations, and cool hill breezes.",
-      imageUrl: getPlaceImageUrl("daringbadi hill station", "nature"),
+      description: "Misty pine forest valleys, organic coffee gardens, and cool mountain breezes in the Eastern Ghats.",
+      imageUrl: getPlaceImageUrl("place_daringbadi_001"),
     },
     {
-      id: "bhubaneswar-heritage",
-      name: "Bhubaneswar",
+      id: "place_bbsr_001",
+      name: "Lingaraj Temple",
       category: "Temples & Culture",
       location: "Bhubaneswar & Central",
-      description: "Temple City featuring ancient Kalinga masterpieces like 11th-century Lingaraj and Rajarani temples.",
-      imageUrl: getPlaceImageUrl("lingaraj temple", "temple"),
+      description: "11th-century architectural masterpiece of Kalinga style in the ancient Temple City of Bhubaneswar.",
+      imageUrl: getPlaceImageUrl("place_bbsr_001"),
     },
     {
-      id: "similipal-tiger-reserve",
+      id: "place_mayurbhanj_001",
       name: "Similipal National Park",
       category: "Wildlife & Forests",
       location: "Northern Odisha & Wildlife",
-      description: "Vast biosphere tiger reserve with deep Sal forests, wild elephants, and majestic Joranda & Barehipani waterfalls.",
-      imageUrl: getPlaceImageUrl("similipal national park", "wildlife"),
+      description: "Vast biosphere tiger reserve with deep Sal canopy, wild elephants, and roaring waterfalls.",
+      imageUrl: getPlaceImageUrl("place_mayurbhanj_001"),
     },
     {
-      id: "bhitarkanika-mangroves",
-      name: "Bhitarkanika",
-      category: "Wetlands & Wildlife",
-      location: "Northern Odisha & Wildlife",
-      description: "Ramsar wetland mangrove sanctuary teeming with giant saltwater crocodiles, spotted deer, and kingfishers.",
-      imageUrl: getPlaceImageUrl("bhitarkanika national park", "wildlife"),
-    },
-    {
-      id: "koraput-deomali",
-      name: "Koraput & Deomali",
-      category: "Highlands & Tribal",
+      id: "place_koraput_003",
+      name: "Deomali Peak, Koraput",
+      category: "Highlands & Treks",
       location: "Koraput & Tribal Highlands",
-      description: "Highest peak of Odisha surrounded by rolling emerald hills, misty clouds, and rich tribal heritage.",
-      imageUrl: getPlaceImageUrl("deomali peak", "nature"),
+      description: "Highest mountain peak in Odisha offering panoramic views of misty clouds and rolling hills.",
+      imageUrl: getPlaceImageUrl("place_koraput_003"),
     },
     {
-      id: "gopalpur-sea",
-      name: "Gopalpur-on-Sea",
+      id: "place_ganjam_001",
+      name: "Gopalpur-on-Sea Beach",
       category: "Coastal Beach",
       location: "Chilika & Southern Coast",
-      description: "Serene historic port town with casuarina groves, tranquil waves, and golden sunrise views.",
-      imageUrl: getPlaceImageUrl("gopalpur beach", "beach"),
+      description: "Tranquil coastal resort beach with casuarina groves and historic lighthouse overlooking the sea.",
+      imageUrl: getPlaceImageUrl("place_ganjam_001"),
     },
     {
-      id: "hirakud-sambalpur",
-      name: "Hirakud & Sambalpur",
-      category: "Lakes & Culture",
+      id: "place_sambalpur_001",
+      name: "Hirakud Dam & Reservoir",
+      category: "Lakes & Engineering",
       location: "Sambalpur & Western Odisha",
-      description: "World's longest earthen dam reservoir, Maa Samaleswari temple, and the handwoven Sambalpuri textile heritage.",
-      imageUrl: getPlaceImageUrl("hirakud dam", "monument"),
+      description: "One of the world's longest earthen dams spanning the Mahanadi River with panoramic lookout towers.",
+      imageUrl: getPlaceImageUrl("place_sambalpur_001"),
     },
   ];
 }

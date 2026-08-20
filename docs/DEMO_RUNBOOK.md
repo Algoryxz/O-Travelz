@@ -34,11 +34,10 @@ Run these commands from the repository root:
 # 1. Verify Azure CLI identity
 az account show --output table
 
-# 2. Run backend pytest quality gate (274 tests)
-.venv\Scripts\pytest.exe backend/tests --basetemp=backend/tests/.tmp -p no:cacheprovider
-Remove-Item -Recurse -Force backend/tests/.tmp
+# 2. Run backend pytest quality gate (288 tests in suite)
+.venv\Scripts\pytest.exe backend/tests --basetemp=.pytest_tmp -o cache_dir=.pytest_tmp_cache
 
-# 3. Run frontend test suite (128 tests across 16 files)
+# 3. Run frontend test suite (131 tests across 16 files)
 npm --prefix frontend test
 
 # 4. Start backend development server (Port 8000)

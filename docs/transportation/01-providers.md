@@ -1,9 +1,9 @@
 # O-Travelz — Provider Verification Record
 
-**Status:** FROZEN  
-**Phase:** Phase 1 — Research and verified data  
-**Verification date:** 2026-08-17  
-**Verifier:** Temporary Akriti coverage (Smarak)  
+**Status:** FROZEN
+**Phase:** Phase 1 — Research and verified data
+**Verification date:** 2026-08-17
+**Verifier:** Temporary Akriti coverage (Smarak)
 **Scope:** Bhubaneswar/Odisha initial product scope
 
 ## Freeze rule

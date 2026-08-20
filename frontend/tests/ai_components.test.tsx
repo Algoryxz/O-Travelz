@@ -185,5 +185,39 @@ describe("Phase 6B AI Conversation Components", () => {
       expect(html).toContain("Network Connection Error");
       expect(html).toContain("Unable to connect to the O-Travelz backend service");
     });
+
+    it("renders multi-turn chat history with assistant clarification boxes truthfully", () => {
+      const history: import("../src/store/useAIConversation").ConversationTurn[] = [
+        { role: "user", message: "Make it more food focused" },
+        {
+          role: "assistant",
+          message: "Which existing itinerary should I refine?",
+          response: {
+            message: "Which existing itinerary should I refine?",
+            status: "clarification",
+            itinerary: null,
+            clarification: {
+              question: "Which existing itinerary should I refine?",
+              reason: "A refinement needs current constraints.",
+            },
+          },
+        },
+      ];
+
+      const html = renderClean(
+        <AIConversationPanel
+          hasItinerary={false}
+          isLoading={false}
+          error={null}
+          aiResponse={null}
+          history={history}
+          onSend={() => {}}
+        />
+      );
+
+      expect(html).toContain("Make it more food focused");
+      expect(html).toContain("Which existing itinerary should I refine?");
+      expect(html).toContain("Clarification Needed:");
+    });
   });
 });

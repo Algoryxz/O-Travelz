@@ -745,6 +745,25 @@ Everyone, coordinated by Punam.
 
 Phase 7 readiness evidence and verified demo data.
 
+**Current status**
+
+**PHASE 8 — ACCEPTED & COMPLETE (FINAL RELEASE GATE CLOSED)**. The canonical demo
+rehearsal and release documentation audit are complete. Both canonical scenarios
+(Odisha Heritage Triangle and Coastal Eco-Tourism & Wildlife) pass with 100%
+reproducibility across automated scripts, frontend test suites, and live HTTP
+services. The image subsystem gate is locked with 0 duplicate identities across 50
+destinations and 6 homepage category cards.
+
+**Acceptance evidence**
+
+- Full backend test suite: 288 tests in suite (287 passed, 1 skipped when DB container offline; 288 passed when DB container online, 1 warning, 0 failures).
+- Full frontend test suite: 131 passed across 16 test files (100% green, 0 failures).
+- Frontend production build: `npm --prefix frontend run build` passed cleanly in 3.74s (0 errors).
+- Clean working tree and diff check: `git diff --check` passed cleanly.
+- Canonical rehearsal script: `scratch/phase8_demo_rehearsal.py` passes all 7 validation gates and both scenarios.
+- Image semantic identity audits: `docs/50_DESTINATIONS_IMAGE_IDENTITY_AUDIT.md` (50/50 verified matches) and `docs/HOMEPAGE_CATEGORY_IMAGE_IDENTITY_AUDIT.md` (6/6 verified matches).
+- Documentation package: `docs/MEMORY.md`, `docs/DEMO_EVIDENCE.md`, `docs/DEMO_RUNBOOK.md`, and `docs/KNOWN_LIMITATIONS.md`.
+
 **Allowed work**
 
 - Select approved demo scenarios.

@@ -27,10 +27,8 @@ from pydantic import BaseModel, Field, field_validator
 from sqlalchemy.orm import Session
 
 from app.core.config import Settings, settings
-from app.db.base import Base
+from app.db.base import Base, Place, PlaceImage
 from app.db.session import SessionLocal
-from app.models.place import Place
-from app.models.place_image import PlaceImage
 
 from app.storage.base import ImageStorage
 from app.storage.downloader import (

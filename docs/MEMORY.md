@@ -1,6 +1,6 @@
 # O-Travelz Project Memory
 
-**Status**: Canonical Current-State Ledger (Phase 8 Demo Preparation & Release Baseline Complete)
+**Status**: Canonical Current-State Ledger (Phase 8 Demo Preparation & Final Release Gate Complete)
 
 This is a project-state record, not general AI memory.
 
@@ -17,7 +17,7 @@ This is a project-state record, not general AI memory.
 - **Phase 6A (Geospatial, Map Projection V2 & Live Azure Storage)**: **ACCEPTED & VERIFIED**.
 - **Phase 6B (Frontend Implementation & UX Pass)**: **ACCEPTED & VERIFIED**.
 - **Phase 7 (Readiness & Integration Gate)**: **PASS — COMPLETE & VERIFIED**.
-- **Phase 8 (Demo Preparation & Rehearsal)**: **PASS — COMPLETE & VERIFIED**.
+- **Phase 8 (Demo Preparation & Final Release Gate)**: **PASS — COMPLETE & VERIFIED**.
 
 ---
 
@@ -32,15 +32,22 @@ This is a project-state record, not general AI memory.
    - Demo Runbook: [`docs/DEMO_RUNBOOK.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/DEMO_RUNBOOK.md)
    - Demonstration Evidence: [`docs/DEMO_EVIDENCE.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/DEMO_EVIDENCE.md)
    - Known Limitations: [`docs/KNOWN_LIMITATIONS.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/KNOWN_LIMITATIONS.md)
+   - Destination Semantic Identity Audit: [`docs/50_DESTINATIONS_IMAGE_IDENTITY_AUDIT.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/50_DESTINATIONS_IMAGE_IDENTITY_AUDIT.md)
+   - Homepage Category Image Identity Audit: [`docs/HOMEPAGE_CATEGORY_IMAGE_IDENTITY_AUDIT.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/HOMEPAGE_CATEGORY_IMAGE_IDENTITY_AUDIT.md)
 
 ---
 
 ## Quality Gate Baseline
 
-- **Backend Pytest**: **274 passed**, 1 warning (100% green, 0 failures).
-- **Frontend Vitest**: **128 passed** across 16 test suites (100% green, 0 failures).
+- **Backend Pytest**: **288 tests in suite** (287 passed, 1 skipped when DB container offline; 288 passed when DB container online, 1 warning, 0 failures).
+- **Frontend Vitest**: **131 passed** across 16 test suites (100% green, 0 failures).
 - **Frontend Production Build**: Clean Vite build (`dist/` generated with 0 errors).
 - **Git Diff Check**: Clean (0 whitespace/conflict warnings).
+- **Image Subsystem Gate**: **CLOSED & LOCKED**.
+  - 0 duplicate destination or category image identities.
+  - Destination semantic identity audit: **50/50 verified matches** ([`50_DESTINATIONS_IMAGE_IDENTITY_AUDIT.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/50_DESTINATIONS_IMAGE_IDENTITY_AUDIT.md)).
+  - Homepage category image identity audit: **6/6 verified matches** ([`HOMEPAGE_CATEGORY_IMAGE_IDENTITY_AUDIT.md`](file:///c:/Users/smara/Desktop/o-travelz/docs/HOMEPAGE_CATEGORY_IMAGE_IDENTITY_AUDIT.md)).
+  - Carousel visual identity audit: **5/5 hero destinations verified** with authentic WebP photography.
 - **Working Tree**: Uncommitted product implementation baseline.
 
 ---
@@ -75,4 +82,4 @@ This is a project-state record, not general AI memory.
 - Zero client-side route synthesis or coordinate mathematics.
 - Zero unapproved product features (no hotel booking, flights, profiles, payments, social, or external booking).
 - Strict contract enforcement via Pydantic `extra="forbid"`.
-- Next state: **Release Presentation & Demonstration Ready**.
+- Next state: **Release Presentation & Demonstration Ready (Gate CLOSED)**.

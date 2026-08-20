@@ -175,11 +175,12 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
           if (absDiff > 3) return null;
 
           // 3D positioning transform
-          const translateX = diff * 210; // 210px step for balanced overlap
-          const rotateY = diff * -28; // -28deg tilt
-          const scale = isCenter ? 1 : Math.max(0.74, 1 - absDiff * 0.12);
+          const translateX = diff * 235; // 235px step for optimal visible surface area
+          const rotateY = diff * -22; // -22deg gentle tilt preserving photo visibility
+          const scale = isCenter ? 1 : Math.max(0.82, 1 - absDiff * 0.09);
           const zIndex = 30 - absDiff * 5;
-          const opacity = Math.max(0.38, 1 - absDiff * 0.24);
+          // Keep inactive cards vivid and clearly visible (minimum 70% opacity)
+          const opacity = isCenter ? 1 : Math.max(0.70, 1 - absDiff * 0.14);
 
           const saved = isSaved(item.title);
 
@@ -199,21 +200,21 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
                 zIndex,
                 opacity,
               }}
-              className="absolute w-[260px] sm:w-[310px] md:w-[330px] h-[310px] sm:h-[345px] rounded-3xl overflow-hidden shadow-xl transition-transform duration-500 ease-out bg-slate-950 flex flex-col justify-end p-4 sm:p-5 text-white border border-white/10 group cursor-pointer"
+              className="absolute w-[270px] sm:w-[320px] md:w-[340px] h-[310px] sm:h-[345px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 ease-out bg-slate-900 flex flex-col justify-end p-4 sm:p-5 text-white border border-emerald-500/20 hover:border-emerald-400/40 group cursor-pointer"
             >
-              {/* Background Image with Object Cover */}
+              {/* Background Image with Object Cover & High Vibrancy */}
               <img
                 src={item.imageUrl}
                 alt={item.title}
                 loading={isCenter ? "eager" : "lazy"}
-                className="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform duration-700"
+                className="absolute inset-0 w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-700"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = DEFAULT_FALLBACK_IMAGE.src;
                 }}
               />
 
-              {/* Gradient Overlay for Text Readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
+              {/* Refined Gradient Overlay Preserving Photographic Clarity in Upper/Middle areas */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 via-45% to-transparent pointer-events-none" />
 
               {/* Top Badges */}
               <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">

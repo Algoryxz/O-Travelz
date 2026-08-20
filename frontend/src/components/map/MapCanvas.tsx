@@ -49,9 +49,11 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     if (typeof window === "undefined" || !mapContainerRef.current) return;
 
     let isMounted = true;
+    let resizeObserver: ResizeObserver | null = null;
+    const container = mapContainerRef.current;
 
     import("leaflet").then((L) => {
-      if (!isMounted || !mapContainerRef.current) return;
+      if (!isMounted || !container) return;
 
       delete (L.Icon.Default.prototype as any)._getIconUrl;
       L.Icon.Default.mergeOptions({
@@ -61,10 +63,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       });
 
       if (!leafletMapRef.current) {
-        const map = L.map(mapContainerRef.current, {
+        const map = L.map(container, {
           center: [20.4625, 85.8828],
           zoom: 7,
-          minZoom: 6,
+          minZoom: 5,
           maxZoom: 18,
           zoomControl: true,
         });
@@ -78,6 +80,22 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         routesLayerRef.current = L.layerGroup().addTo(map);
         leafletMapRef.current = map;
         setIsLeafletReady(true);
+
+        // Invalidate size once after slight tick to ensure correct dimensions
+        setTimeout(() => {
+          if (leafletMapRef.current) {
+            leafletMapRef.current.invalidateSize();
+          }
+        }, 100);
+      }
+
+      if (typeof ResizeObserver !== "undefined" && container) {
+        resizeObserver = new ResizeObserver(() => {
+          if (leafletMapRef.current) {
+            leafletMapRef.current.invalidateSize();
+          }
+        });
+        resizeObserver.observe(container);
       }
     }).catch(() => {
       setIsLeafletReady(false);
@@ -85,6 +103,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
     return () => {
       isMounted = false;
+      if (resizeObserver && container) {
+        resizeObserver.unobserve(container);
+        resizeObserver.disconnect();
+      }
     };
   }, []);
 
@@ -99,6 +121,9 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
       if (!map || !markersLayer || !routesLayer) return;
 
+      // Invalidate size before calculating bounds
+      map.invalidateSize();
+
       markersLayer.clearLayers();
       routesLayer.clearLayers();
 
@@ -109,8 +134,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         const featureId = (feature as any).id || feature.canonical_ref?.id || `feat-${index}`;
         const isSelected = selectedFeatureId === featureId;
         const props = (feature as any).properties;
-        const placeName = feature.name || props?.name || "Destination";
-        const category = feature.category || props?.category || "destination";
+        const placeName = feature.name || (feature as any).display_name || props?.name || "Destination";
+        const category = feature.category || (feature as any).category_name || props?.category || "destination";
         const region = feature.region || props?.location || getPlaceRegion(placeName);
         const imageUrl = getPlaceImageUrl(placeName, category);
 
@@ -252,8 +277,11 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         });
       });
 
-      if (pointFeatures.length > 0 || lineFeatures.length > 0) {
-        map.fitBounds(bounds, { padding: [60, 60], maxZoom: 14 });
+      if (pointFeatures.length > 1 || lineFeatures.length > 0) {
+        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
+      } else if (pointFeatures.length === 1) {
+        const [lon, lat] = pointFeatures[0].geometry.coordinates;
+        map.setView([lat, lon], 13);
       } else {
         map.setView([20.4625, 85.8828], 7);
       }
@@ -301,7 +329,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   return (
     <div
       data-testid="map-canvas-container"
-      className="relative rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden shadow-inner w-full min-h-[380px] sm:min-h-[460px]"
+      className="relative rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden shadow-inner w-full min-h-[420px] sm:min-h-[500px]"
     >
       <div className="sr-only">Interactive Map View</div>
 
@@ -313,7 +341,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       <div
         ref={mapContainerRef}
         data-testid="leaflet-map-element"
-        className="w-full h-[380px] sm:h-[460px] z-0"
+        className="w-full h-[420px] sm:h-[500px] z-0"
       />
 
       {/* Fallback SVG representation for SSR and tests */}
@@ -331,12 +359,12 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           const featureId = (feature as any).id || feature.canonical_ref?.id || `feat-${index}`;
           const isSelected = selectedFeatureId === featureId;
           const props = (feature as any).properties;
-          const label = feature.name || props?.name || "Destination";
+          const label = feature.name || (feature as any).display_name || props?.name || "Destination";
 
           return (
             <g
               key={`map-pin-${featureId}-${index}`}
-              data-testid={`map-pin-${(feature.name || props?.name || "destination").toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+              data-testid={`map-pin-${(feature.name || (feature as any).display_name || props?.name || "destination").toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
             >
               <circle cx={cx} cy={cy} r={isSelected ? 10 : 7} fill={isSelected ? "#fbbf24" : "#10b981"} />
               <text x={cx} y={cy + 18} fill="#ffffff" fontSize="10" textAnchor="middle">

@@ -1,0 +1,74 @@
+[
+  {
+    "category_label": "Nature",
+    "category_key": "nature",
+    "resolved_source_id": "place_daringbadi_001",
+    "wikimedia_file": "File:Black pepper creepers, Daringbari.jpg",
+    "creator": "\u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0",
+    "license": "CC BY-SA 4.0",
+    "resolved_local_asset": "/static/images/places/place_daringbadi_001/49e608c2405f/card.webp",
+    "semantic_appropriateness": "Authentic photograph of lush pine valleys and green hills of Daringbadi hill station, perfectly representing nature and landscapes.",
+    "duplicate_source_with": null,
+    "semantic_status": "VERIFIED_CATEGORY_MATCH"
+  },
+  {
+    "category_label": "Medical Help",
+    "category_key": "medical help",
+    "resolved_source_id": "cat_medical_help",
+    "wikimedia_file": "File:AIIMS Bhubaneswar, Odisha.jpg",
+    "creator": "Debiprasad",
+    "license": "CC BY-SA 4.0",
+    "resolved_local_asset": "/static/images/categories/cat_medical_help/bf5d0fc229ac/card.webp",
+    "semantic_appropriateness": "Authentic photograph of AIIMS Bhubaneswar hospital and healthcare emergency medical campus in Odisha.",
+    "duplicate_source_with": null,
+    "semantic_status": "VERIFIED_CATEGORY_MATCH"
+  },
+  {
+    "category_label": "Heritage & Culture",
+    "category_key": "heritage & culture",
+    "resolved_source_id": "place_konark_001",
+    "wikimedia_file": "File:Chariot Wheel at Sun Temple, Konark,-Konark-Odisha-IMG 001.jpg",
+    "creator": "Phadke09",
+    "license": "CC BY-SA 4.0",
+    "resolved_local_asset": "/static/images/places/place_konark_001/03b959a8abef/card.webp",
+    "semantic_appropriateness": "Authentic photograph of 13th-century UNESCO World Heritage Konark Sun Temple chariot wheel, embodying Kalinga heritage and art.",
+    "duplicate_source_with": null,
+    "semantic_status": "VERIFIED_CATEGORY_MATCH"
+  },
+  {
+    "category_label": "ATMs",
+    "category_key": "atms",
+    "resolved_source_id": "cat_atms",
+    "wikimedia_file": "File:State Bank of India ATM, Khankul.jpg",
+    "creator": "WikiForRay",
+    "license": "CC BY-SA 4.0",
+    "resolved_local_asset": "/static/images/categories/cat_atms/76647d302131/card.webp",
+    "semantic_appropriateness": "Authentic photograph of a 24/7 State Bank of India ATM cash dispenser kiosk and banking service.",
+    "duplicate_source_with": null,
+    "semantic_status": "VERIFIED_CATEGORY_MATCH"
+  },
+  {
+    "category_label": "Hangout & Chill",
+    "category_key": "hangout & chill",
+    "resolved_source_id": "cat_hangout_chill",
+    "wikimedia_file": "File:Village Tea Stall - Sasapasi - Dhenkanal 2018-01-25 9733.JPG",
+    "creator": "Biswarup Ganguly",
+    "license": "CC BY 3.0",
+    "resolved_local_asset": "/static/images/categories/cat_hangout_chill/840313660e7c/card.webp",
+    "semantic_appropriateness": "Authentic photograph of traditional tea stall, caf\u00e9 lounge and relaxed social gathering space in Odisha.",
+    "duplicate_source_with": null,
+    "semantic_status": "VERIFIED_CATEGORY_MATCH"
+  },
+  {
+    "category_label": "Shopping & Fashion",
+    "category_key": "shopping & fashion",
+    "resolved_source_id": "place_bbsr_010",
+    "wikimedia_file": "File:Ekamra haat Bhubaneswar Odisha.JPG",
+    "creator": "Subhashish Panigrahi",
+    "license": "CC BY 3.0",
+    "resolved_local_asset": "/static/images/places/place_bbsr_010/78c2ef783f40/card.webp",
+    "semantic_appropriateness": "Authentic photograph of Ekamra Haat craft village, the premier destination for regional Odisha handloom boutiques and artisan crafts.",
+    "duplicate_source_with": null,
+    "semantic_status": "VERIFIED_CATEGORY_MATCH"
+  }
+]

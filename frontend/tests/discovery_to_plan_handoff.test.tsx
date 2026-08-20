@@ -75,7 +75,7 @@ describe("Destination Discovery → Verified Place Details → Plan Trip Handoff
       expect(html).toContain("Explore on Map");
       expect(html).toContain("Save Place");
       expect(html).not.toContain("Point #");
-      expect(html).not.toContain("place_konark_001"); // No raw research code exposed
+      expect(html).not.toContain(">place_konark_001<"); // No raw research code exposed in visible text
     });
 
     it("seeds category interest when constraints.interests is empty", () => {

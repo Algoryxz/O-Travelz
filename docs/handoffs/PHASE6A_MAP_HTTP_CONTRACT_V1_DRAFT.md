@@ -1,10 +1,10 @@
 # Phase 6A Map Projection HTTP Contract v1 Draft
 
-**Baseline:** `a60befc`  
-**Date:** 2026-08-18  
+**Baseline:** `a60befc`
+**Date:** 2026-08-18
 **Status:** PHASE 6A MAP HTTP CONTRACT V1 — ACCEPTED
-**Acceptance date:** 2026-08-18  
-**Accepted endpoint:** `POST /map/v1/projection`  
+**Acceptance date:** 2026-08-18
+**Accepted endpoint:** `POST /map/v1/projection`
 **Implementation status:** Not implemented
 
 The implementation-status line records the contract-freeze state on 2026-08-18;

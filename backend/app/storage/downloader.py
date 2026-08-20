@@ -48,18 +48,6 @@ class HttpImageDownloader:
             if path_obj.is_file():
                 return path_obj.read_bytes()
 
-        # Check local fixture fallback before network
-        fixture_candidates = [
-            Path("data/images/sources/fixtures"),
-            Path(__file__).resolve().parent.parent.parent.parent / "data" / "images" / "sources" / "fixtures",
-            Path(__file__).resolve().parent.parent.parent / "data" / "images" / "sources" / "fixtures",
-        ]
-        filename = url.split("/")[-1]
-        for fixture_dir in fixture_candidates:
-            if fixture_dir.is_dir():
-                local_fixture = fixture_dir / filename
-                if local_fixture.is_file():
-                    return local_fixture.read_bytes()
 
         headers = {
             "User-Agent": "OTravelz-Destination-Ingestion/1.0 (https://o-travelz.com; contact@o-travelz.com) httpx/0.27.2",

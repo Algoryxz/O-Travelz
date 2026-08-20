@@ -4,6 +4,7 @@ import { MapCanvas } from "./MapCanvas";
 import { MapDetailsDrawer } from "./MapDetailsDrawer";
 import { ErrorAlert } from "../itinerary/ErrorAlert";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
+import { getPlaceRegion } from "../../utils/imageService";
 import { MapPin, Compass, X } from "lucide-react";
 
 interface MapViewProps {
@@ -42,7 +43,9 @@ export const MapView: React.FC<MapViewProps> = ({
       return [
         {
           canonical_ref: { entity: "place", id: selectedPlace.id || selectedPlace.name },
-          display_name: selectedPlace.name,
+          name: selectedPlace.name,
+          category: selectedPlace.category,
+          region: selectedPlace.location || getPlaceRegion(selectedPlace.name),
           feature_type: "place",
           geometry_status: "available",
           geometry: {

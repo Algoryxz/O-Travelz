@@ -1,122 +1,110 @@
-"""Provider-neutral model boundary and deterministic test implementations."""
+"""Provider-neutral model adapter returning structured claims."""
 from __future__ import annotations
 
 import re
-from typing import Any, Protocol
+from typing import Any
 
-from app.ai.schemas import IntentKind
-from app.schemas.common import PlanningConstraints
-
-
-class ModelAdapter(Protocol):
-    """The only interface the orchestrator needs from a model provider."""
-
-    def parse_intent(
-        self,
-        user_message: str,
-        existing_constraints: PlanningConstraints | None = None,
-    ) -> Any: ...
-
-    def generate_response(self, context: Any) -> Any: ...
+from app.ai.schemas import AIIntent, Clarification, IntentKind, PlanningConstraints
 
 
-class FakeModelAdapter:
-    """Scriptable, network-free model used by transcript tests.
+class ModelAdapter:
+    def parse_intent(self, user_message: str, existing_constraints: PlanningConstraints | None = None) -> Any:
+        raise NotImplementedError
 
-    Values are intentionally returned without pre-validation so tests can
-    reproduce malformed provider output and verify the orchestrator boundary.
-    """
+    def generate_response(self, context: Any) -> Any:
+        raise NotImplementedError
+
+
+class FakeModelAdapter(ModelAdapter):
+    """Deterministic adapter used by unit and orchestration tests."""
 
     def __init__(
         self,
-        intent: Any | None = None,
-        final_response: Any | None = None,
-        *,
-        intents: list[Any] | None = None,
-        responses: list[Any] | None = None,
+        intent: dict[str, Any] | None = None,
+        final_response: dict[str, Any] | None = None,
+        raw_intent: dict[str, Any] | None = None,
+        raw_response: dict[str, Any] | None = None,
     ):
-        self._intents = list(intents or ([] if intent is None else [intent]))
-        self._responses = list(responses or ([] if final_response is None else [final_response]))
+        self.raw_intent = intent if intent is not None else (raw_intent or {
+            "kind": IntentKind.PLANNING.value,
+            "constraints": {"days": 1, "interests": ["heritage"]},
+            "tool_calls": [{"name": "build_itinerary", "arguments": {}}],
+        })
+        self.raw_response = final_response if final_response is not None else (raw_response or {
+            "framing": "grounded_result",
+            "claims": [
+                {"fact_id": "stop:1:name", "value": "Lingaraj Temple"},
+                {"fact_id": "hop:1:mode", "value": "walk"},
+            ],
+        })
 
     def parse_intent(self, user_message: str, existing_constraints: PlanningConstraints | None = None) -> Any:
-        if self._intents:
-            return self._intents.pop(0)
-        return {
-            "kind": IntentKind.CLARIFICATION.value,
-            "clarification": {
-                "question": "What itinerary would you like me to plan?",
-                "reason": "The test model has no scripted intent.",
-            },
-        }
+        return self.raw_intent
 
     def generate_response(self, context: Any) -> Any:
-        if self._responses:
-            return self._responses.pop(0)
-        return {"framing": "grounded_result", "claims": []}
+        return self.raw_response
 
 
-class RuleBasedModelAdapter:
-    """Grounded local model adapter for Odisha travel planning and conversational refinement.
-
-    Recognizes travel durations, destinations, starting points, and themes across
-    all supported regions of Odisha (Coastal, Central, Southern, Western, Northern,
-    and Tribal Highlands).
-    """
+class RuleBasedModelAdapter(ModelAdapter):
+    """Deterministic intent parser recognizing Whole-Odisha destinations and travel themes."""
 
     _INTERESTS = (
         "heritage",
-        "food",
         "temple",
-        "history",
         "culture",
         "nature",
-        "beach",
         "wildlife",
+        "beach",
         "waterfall",
+        "food",
+        "shopping",
         "monument",
         "lake",
-        "park",
-        "sports",
-        "market",
-        "museum",
     )
 
-    _KNOWN_PLACES = (
-        ("Lingaraj Temple", ("lingaraj", "lingaraj temple")),
-        ("Mukteswar Temple", ("mukteswar", "mukteshwar")),
-        ("Rajarani Temple", ("rajarani",)),
-        ("Udayagiri and Khandagiri Caves", ("khandagiri", "udayagiri", "caves")),
-        ("Dhauli Shanti Stupa", ("dhauli", "peace pagoda", "shanti stupa")),
+    _KNOWN_PLACES: tuple[tuple[str, tuple[str, ...]], ...] = (
+        ("Lingaraj Temple", ("lingaraj", "lingaraja")),
+        ("Mukteswar Temple", ("mukteswar", "muktesvara")),
+        ("Rajarani Temple", ("rajarani", "raja rani")),
+        ("Dhauli Shanti Stupa", ("dhauli", "shanti stupa", "peace pagoda")),
+        ("Udayagiri and Khandagiri Caves", ("udayagiri", "khandagiri", "caves")),
         ("Nandankanan Zoological Park", ("nandankanan", "zoo")),
-        ("Odisha State Museum", ("state museum",)),
-        ("Odisha Crafts Museum Kala Bhoomi", ("kala bhoomi", "crafts museum")),
-        ("Ekamra Haat", ("ekamra haat",)),
-        ("Kalinga Stadium", ("kalinga stadium",)),
-        ("Jagannath Temple, Puri", ("jagannath", "jagannatha", "puri temple")),
-        ("Puri Golden Beach", ("puri beach", "golden beach", "puri")),
-        ("Gundicha Temple", ("gundicha",)),
+        ("Odisha State Museum", ("state museum", "bhubaneswar museum")),
+        ("Ekamra Haat", ("ekamra haat", "crafts market")),
+        ("Bindu Sagar Lake", ("bindu sagar", "bindusagar")),
+        ("Bhubaneswar", ("bhubaneswar", "capital", "old town")),
+        ("Puri Golden Beach", ("puri beach", "golden beach", "puri sea beach")),
+        ("Jagannath Temple, Puri", ("jagannath", "puri temple", "shree jagannath")),
+        ("Gundicha Temple, Puri", ("gundicha",)),
         ("Swargadwar Beach", ("swargadwar",)),
-        ("Konark Sun Temple", ("konark", "sun temple", "black pagoda")),
-        ("Chandrabhaga Beach", ("chandrabhaga",)),
+        ("Puri", ("puri",)),
+        ("Konark Sun Temple", ("konark sun temple", "black pagoda", "sun temple")),
+        ("Chandrabhaga Beach", ("chandrabhaga", "konark beach")),
         ("Ramachandi Beach & Temple", ("ramachandi",)),
-        ("Barabati Fort", ("barabati", "cuttack fort")),
-        ("Cuttack Chandi Temple", ("cuttack chandi", "chandi temple")),
-        ("Odisha State Maritime Museum", ("maritime museum",)),
-        ("Netaji Birth Place Museum", ("netaji museum", "netaji birth place")),
+        ("Konark Archaeological Museum", ("konark museum",)),
+        ("Konark", ("konark",)),
         ("Chilika Lake - Satapada", ("chilika", "satapada", "dolphin sanctuary")),
-        ("Kalijai Island Temple, Chilika", ("kalijai", "kalijai island")),
+        ("Kalijai Island, Chilika", ("kalijai", "kalijai temple")),
         ("Mangalajodi Bird Sanctuary", ("mangalajodi", "bird sanctuary")),
-        ("Gopalpur-on-Sea Beach", ("gopalpur", "gopalpur beach")),
+        ("Barabati Fort", ("barabati", "barabati fort")),
+        ("Cuttack Chandi Temple", ("cuttack chandi", "chandi temple")),
+        ("Netaji Birthplace Museum", ("netaji museum", "netaji birthplace")),
+        ("Odisha Maritime Museum", ("maritime museum", "cuttack maritime")),
+        ("Cuttack", ("cuttack", "silver city")),
+        ("Gopalpur Beach", ("gopalpur", "gopalpur-on-sea")),
         ("Tara Tarini Temple", ("tara tarini", "taratarini")),
-        ("Daringbadi Hill Station", ("daringbadi", "kashmir of odisha")),
-        ("Midubanda Waterfall, Daringbadi", ("midubanda", "daringbadi waterfall")),
-        ("Coffee Gardens, Daringbadi", ("coffee garden", "coffee plantations")),
-        ("Belghar Nature Camp", ("belghar",)),
+        ("Tampara Lake", ("tampara", "tampara lake")),
+        ("Daringbadi Hill Station", ("daringbadi hill station", "kashmir of odisha")),
+        ("Coffee Gardens, Daringbadi", ("coffee garden", "coffee gardens")),
+        ("Midubanda Waterfall", ("midubanda", "daringbadi waterfall")),
+        ("Belghar Nature Camp", ("belghar", "belghar sanctuary")),
+        ("Daringbadi", ("daringbadi", "kandhamal")),
+        ("Samaleswari Temple, Sambalpur", ("samaleswari", "samaleswari temple")),
         ("Hirakud Dam & Reservoir", ("hirakud", "hirakud dam")),
-        ("Samaleswari Temple, Sambalpur", ("samaleswari", "samaleswari temple", "sambalpur")),
         ("Huma Leaning Temple", ("huma", "leaning temple")),
         ("Debrigarh Wildlife Sanctuary", ("debrigarh",)),
-        ("Hanuman Vatika, Rourkela", ("hanuman vatika", "rourkela")),
+        ("Sambalpur", ("sambalpur",)),
+        ("Hanuman Vatika, Rourkela", ("hanuman vatika",)),
         ("Mandira Dam, Sundargarh", ("mandira dam", "sundargarh")),
         ("Khandadhar Waterfall, Sundargarh", ("khandadhar",)),
         ("Similipal National Park", ("similipal", "mayurbhanj tiger reserve")),
@@ -128,6 +116,7 @@ class RuleBasedModelAdapter:
         ("Deomali Peak, Koraput", ("deomali", "highest peak")),
         ("Tribal Museum, Koraput", ("koraput tribal museum", "koraput museum")),
         ("Kolab Reservoir & Botanical Garden", ("kolab", "kolab dam", "jeypore")),
+        ("Koraput", ("koraput",)),
         ("Maa Majhigouri Temple, Rayagada", ("majhigouri", "rayagada")),
     )
 
@@ -145,9 +134,8 @@ class RuleBasedModelAdapter:
         detected_start: str | None = None
         for canonical_name, aliases in self._KNOWN_PLACES:
             if any(alias in text for alias in aliases):
-                if any(kw in text for kw in ("start from", "start at", "from", "around", "near", "in")):
-                    detected_start = canonical_name
-                    break
+                detected_start = canonical_name
+                break
 
         if ("start from" in text or "start at" in text or "hotel" in text) and not detected_start:
             return {
@@ -158,57 +146,82 @@ class RuleBasedModelAdapter:
                 },
             }
 
-        # Handle conversational refinements
-        refinement_triggers = (
+        day_match = re.search(r"(\d+)\s*[- ]?day", text)
+        found_interests = [word for word in self._INTERESTS if word in text]
+
+        refinement_words = (
             "refine",
-            "more food",
-            "food focused",
-            "food-focused",
-            "add nature",
-            "more nature",
-            "add temples",
-            "more temples",
-            "add beach",
-            "more beach",
-            "add heritage",
-            "change interest",
-            "switch to",
+            "more",
+            "add",
+            "focused",
+            "extend",
+            "change",
+            "switch",
+            "reduce",
+            "budget",
+            "less",
         )
-        if any(trigger in text for trigger in refinement_triggers) or (existing_constraints and detected_start and "day" not in text):
-            if existing_constraints is None:
+
+        # 1. Existing constraints present -> conversational refinement
+        if existing_constraints is not None:
+            # Check for general Q&A / ambiguous questions that are not modifications
+            if text in ("tell me about nature", "tell me about puri", "what is daringbadi", "help", "hello", "hi"):
                 return {
                     "kind": IntentKind.CLARIFICATION.value,
                     "clarification": {
-                        "question": "Which existing itinerary should I refine?",
-                        "reason": "A refinement needs current constraints.",
+                        "question": "How many days should I plan, and which Odisha region or themes (e.g. Puri, Konark, Chilika, Daringbadi, Sambalpur, Koraput, Heritage, Beaches, Nature) would you like to explore?",
+                        "reason": "The request does not include enough supported planning detail.",
                     },
                 }
 
-            # Determine updated interests or starting point
-            new_interests = list(existing_constraints.interests or [])
-            for theme in self._INTERESTS:
-                if theme in text and theme not in new_interests:
-                    new_interests.append(theme)
-
             update_payload: dict[str, Any] = {}
-            if new_interests:
-                update_payload["interests"] = new_interests
-            if detected_start:
+            if day_match:
+                update_payload["days"] = int(day_match.group(1))
+
+            if detected_start and detected_start != existing_constraints.start:
                 update_payload["start"] = detected_start
 
+            if "change" in text or "switch" in text or "only" in text:
+                if found_interests:
+                    update_payload["interests"] = found_interests
+            elif found_interests:
+                merged = list(existing_constraints.interests or [])
+                for theme in found_interests:
+                    if theme not in merged:
+                        merged.append(theme)
+                update_payload["interests"] = merged
+
+            # If user explicitly used refinement words or modified parameters
+            is_refinement = (
+                bool(update_payload)
+                or any(w in text for w in refinement_words)
+                or bool(day_match)
+                or bool(detected_start)
+            )
+
+            if is_refinement:
+                if not update_payload:
+                    update_payload = {"interests": list(existing_constraints.interests or [])}
+                return {
+                    "kind": IntentKind.REFINEMENT.value,
+                    "constraint_update": update_payload,
+                    "tool_calls": [{"name": "build_itinerary", "arguments": {}}],
+                }
+
+        # 2. No existing constraints -> check if user is asking to refine without context
+        if any(w in text for w in refinement_words) and not day_match and not detected_start:
             return {
-                "kind": IntentKind.REFINEMENT.value,
-                "constraint_update": update_payload,
-                "tool_calls": [{"name": "build_itinerary", "arguments": {}}],
+                "kind": IntentKind.CLARIFICATION.value,
+                "clarification": {
+                    "question": "Which existing itinerary should I refine?",
+                    "reason": "A refinement needs current constraints.",
+                },
             }
 
-        # Handle planning intent (e.g. "2 days in Koraput", "3 day heritage trip around Puri")
-        day_match = re.search(r"(\d+)\s*[- ]?day", text)
-        interests = [word for word in self._INTERESTS if word in text]
-
-        if day_match:
-            days = int(day_match.group(1))
-            constraints: dict[str, Any] = {"days": days, "interests": interests}
+        # 3. New planning request from scratch
+        if day_match or detected_start or found_interests:
+            days = int(day_match.group(1)) if day_match else 2
+            constraints: dict[str, Any] = {"days": days, "interests": found_interests}
             if detected_start:
                 constraints["start"] = detected_start
 
@@ -218,15 +231,7 @@ class RuleBasedModelAdapter:
                 "tool_calls": [{"name": "build_itinerary", "arguments": {}}],
             }
 
-        if detected_start:
-            constraints = {"days": 2, "interests": interests, "start": detected_start}
-            return {
-                "kind": IntentKind.PLANNING.value,
-                "constraints": constraints,
-                "tool_calls": [{"name": "build_itinerary", "arguments": {}}],
-            }
-
-        # Handle Q&A / Clarification about Odisha destinations
+        # 4. Handle Q&A / Clarification about Odisha destinations
         return {
             "kind": IntentKind.CLARIFICATION.value,
             "clarification": {

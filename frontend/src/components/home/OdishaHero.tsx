@@ -9,6 +9,8 @@ import {
   Play,
 } from "lucide-react";
 
+import { getPlaceImageUrl } from "../../utils/imageService";
+
 interface OdishaHeroProps {
   selectedLocation: string;
   onSearch: (term: string) => void;
@@ -34,28 +36,28 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
       category: "Hills · Nature",
       detail: "Cool climate · 280 km",
       quote: "Monsoon air and mountain roads",
-      bgImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80",
+      bgImage: getPlaceImageUrl("place_daringbadi_001"),
     },
     {
       name: "Chilika Lake",
       category: "Wildlife · Nature",
       detail: "Dolphins · Flamingos",
       quote: "Slow water, wide skies",
-      bgImage: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=80",
+      bgImage: getPlaceImageUrl("place_chilika_001"),
     },
     {
       name: "Konark Sun Temple",
       category: "Heritage · UNESCO",
       detail: "Open now · 6:00 PM",
       quote: "Stone, shadow, and a coastline that makes history bigger",
-      bgImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+      bgImage: getPlaceImageUrl("place_konark_001"),
     },
     {
       name: "Puri Beach",
       category: "Beach · Coastal",
       detail: "60 km · High season",
       quote: "Salt air, long walks, and an easy coastal reset",
-      bgImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
+      bgImage: getPlaceImageUrl("place_puri_002"),
     },
   ];
 

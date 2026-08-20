@@ -95,7 +95,7 @@ describe("Phase 6B Map Components", () => {
   });
 
   describe("MapDetailsDrawer Component", () => {
-    it("renders mapped locations list", () => {
+    it("renders mapped locations list with canonical destination names and categories", () => {
       const html = renderClean(
         <MapDetailsDrawer
           features={sampleProjection.features}
@@ -105,11 +105,13 @@ describe("Phase 6B Map Components", () => {
       );
 
       expect(html).toContain("Mapped Locations (2)");
-      expect(html).toContain("550e8400-e29b-41d4-a716-446655440000");
+      expect(html).toContain("Lingaraj Temple");
+      expect(html).toContain("temple");
       expect(html).toContain("85.8100°, 20.2900°");
+      expect(html).not.toContain("550e8400-e29b-41d4-a716-446655440000");
     });
 
-    it("explicitly represents unavailable geometry honestly", () => {
+    it("explicitly represents unavailable geometry honestly with canonical name", () => {
       const html = renderClean(
         <MapDetailsDrawer
           features={sampleProjection.features}
@@ -119,7 +121,8 @@ describe("Phase 6B Map Components", () => {
       );
 
       expect(html).toContain("Stops Without Map Pins (1)");
-      expect(html).toContain("770e8400-e29b-41d4-a716-446655440002");
+      expect(html).toContain("Pending Destination");
+      expect(html).not.toContain("770e8400-e29b-41d4-a716-446655440002");
     });
 
     it("renders multimodal transit relationships and legs status", () => {
@@ -329,6 +332,32 @@ describe("Phase 6B Map Components", () => {
       expect(drawerHtml).toContain("unverified_place_001");
       expect(drawerHtml).toContain("Notice on Selected Places (1)");
       expect(drawerHtml).toContain("(coordinate_unverified)");
+    });
+
+    it("renders canonical destination name for selected place instead of generic Destination", () => {
+      const selectedPlace = {
+        id: "lingaraj-temple",
+        name: "Lingaraj Temple",
+        category: "temple",
+        location: "Bhubaneswar & Central",
+        lat: 20.2384,
+        lon: 85.8346,
+      };
+
+      const html = renderClean(
+        <MapView
+          projection={null}
+          isLoading={false}
+          error={null}
+          selectedPlace={selectedPlace}
+        />
+      );
+
+      expect(html).toContain("Lingaraj Temple");
+      expect(html).toContain("85.8346°, 20.2384°");
+      expect(html).not.toContain("1 Destination");
+      expect(html).toContain("data-testid=\"map-selected-place-banner\"");
+      expect(html).toContain("data-testid=\"map-pin-lingaraj-temple\"");
     });
   });
 });

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Info } from "lucide-react";
 import type { PlaceImageMeta } from "../../utils/imageService";
 
@@ -17,6 +17,12 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   const [failedIndices, setFailedIndices] = useState<Set<number>>(new Set());
   const [showAttribution, setShowAttribution] = useState<boolean>(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+    setFailedIndices(new Set());
+    setShowAttribution(false);
+  }, [placeName, images]);
 
   const validImages = images.filter((_, idx) => !failedIndices.has(idx));
   const activeList = validImages.length > 0 ? validImages : images;
