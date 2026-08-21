@@ -21,9 +21,15 @@ import {
 
 interface ItineraryViewProps {
   itinerary: ItineraryPlanResponse;
+  onOpenMap?: () => void;
+  onViewPlaceDetails?: (place: any) => void;
 }
 
-export const ItineraryView: React.FC<ItineraryViewProps> = ({ itinerary }) => {
+export const ItineraryView: React.FC<ItineraryViewProps> = ({
+  itinerary,
+  onOpenMap,
+  onViewPlaceDetails,
+}) => {
   const { itinerary_id, constraints, days, explanation } = itinerary;
   const { getPlaceByName } = usePlaces();
 

@@ -51,15 +51,18 @@ interface SettingsModalProps {
   isOpen: boolean;
   onClose: () => void;
   onPreferencesChange?: (prefs: UserTravelPreferences) => void;
+  onApplyPreferences?: (prefs: UserTravelPreferences) => void;
 }
 
 export const SettingsModal: React.FC<SettingsModalProps> = ({
   isOpen,
   onClose,
   onPreferencesChange,
+  onApplyPreferences,
 }) => {
   const { conversations, deleteConversation, startNewTrip } = useConversationHistory();
   const { savedPlaces, clearAllSaved } = useSavedPlaces();
+  const handlePrefsChange = onApplyPreferences || onPreferencesChange || (() => {});
 
   const [prefs, setPrefs] = useState<UserTravelPreferences>(() => loadUserPreferences());
   const [activeTab, setActiveTab] = useState<"travel" | "data">("travel");
@@ -83,21 +86,21 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     const updated = { ...prefs, interests: nextInterests };
     setPrefs(updated);
     saveUserPreferences(updated);
-    onPreferencesChange?.(updated);
+    handlePrefsChange(updated);
   };
 
   const handleBudgetChange = (tier: UserTravelPreferences["budgetTier"]) => {
     const updated = { ...prefs, budgetTier: tier };
     setPrefs(updated);
     saveUserPreferences(updated);
-    onPreferencesChange?.(updated);
+    handlePrefsChange(updated);
   };
 
   const handleTransportChange = (transport: UserTravelPreferences["transportPreference"]) => {
     const updated = { ...prefs, transportPreference: transport };
     setPrefs(updated);
     saveUserPreferences(updated);
-    onPreferencesChange?.(updated);
+    handlePrefsChange(updated);
   };
 
   const handleClearHistory = () => {
@@ -114,7 +117,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   const handleResetAll = () => {
     setPrefs(DEFAULT_PREFERENCES);
     saveUserPreferences(DEFAULT_PREFERENCES);
-    onPreferencesChange?.(DEFAULT_PREFERENCES);
+    handlePrefsChange(DEFAULT_PREFERENCES);
     showTemporaryFeedback("Preferences reset to defaults.");
   };
 

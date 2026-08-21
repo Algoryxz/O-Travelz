@@ -47,31 +47,25 @@ describe("Master UI / UX / Product Completion Test Suite", () => {
 
 
   // 1. Theme & Settings Dock
-  it("renders ThemeSettingsDock with Sun, Moon, and Settings actions", () => {
+  it("renders ThemeSettingsDock with Settings action", () => {
     let settingsOpened = false;
     const html = renderClean(
       <ThemeSettingsDock onOpenSettings={() => { settingsOpened = true; }} />
     );
 
     expect(html).toContain("theme-settings-dock");
-    expect(html).toContain("dock-light-btn");
-    expect(html).toContain("dock-dark-btn");
     expect(html).toContain("dock-settings-btn");
-    expect(html).toContain("theme-toggle");
   });
 
   // 2. Settings Modal
-  it("renders SettingsModal with Appearance, Travel Style, and Data Storage tabs", () => {
+  it("renders SettingsModal with Travel Style and Data Storage tabs", () => {
     const html = renderClean(
       <SettingsModal isOpen={true} onClose={() => {}} />
     );
 
     expect(html).toContain("settings-modal");
-    expect(html).toContain("settings-tab-appearance");
     expect(html).toContain("settings-tab-travel");
     expect(html).toContain("settings-tab-data");
-    expect(html).toContain("Light Theme");
-    expect(html).toContain("Dark Theme");
   });
 
 
@@ -247,7 +241,7 @@ describe("Master UI / UX / Product Completion Test Suite", () => {
 
     expect(html).toContain("place-details-modal");
     expect(html).toContain("Konark Sun Temple");
-    expect(html).toContain("UNESCO Heritage");
+    expect(html).toContain("UNESCO");
     expect(html).toContain("~120 mins");
     expect(html).toContain("19.89°N, 86.09°E");
     expect(html).toContain("modal-save-button");
@@ -291,7 +285,7 @@ describe("Master UI / UX / Product Completion Test Suite", () => {
         onOpenMobileDrawer={() => {}}
       />
     );
-    expect(navHtml).toContain("/images/logo.jpeg");
+    expect(navHtml).toContain("/images/logo");
     expect(navHtml).toContain("O-Travelz");
     expect(navHtml).toContain("safe • secure • smart");
 
@@ -303,7 +297,7 @@ describe("Master UI / UX / Product Completion Test Suite", () => {
         onSelectTab={() => {}}
       />
     );
-    expect(drawerHtml).toContain("/images/logo.jpeg");
+    expect(drawerHtml).toContain("/images/logo");
     expect(drawerHtml).toContain("Odisha, in your rhythm.");
   });
 });

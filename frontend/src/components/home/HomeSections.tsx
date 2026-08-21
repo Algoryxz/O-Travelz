@@ -39,7 +39,6 @@ import {
 } from "../../utils/imageService";
 import {
   getPlaceOperatingHours,
-  getPlaceRatingMetadata,
   type OperatingHoursResult,
 } from "../../utils/operatingHoursService";
 
@@ -435,7 +434,6 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
           (place as any).lon as number
         );
         const op = getOperatingStatus((place as any).category, placeName);
-        const meta = getPlaceRatingMetadata(placeName, (place as any).rating || 4.8);
 
         return {
           id: (place as any).id,
@@ -448,8 +446,6 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
           isOpen: op.isOpen,
           description: (place as any).description || `Explore ${placeName} in ${selectedLocation}, Odisha.`,
           imageUrl: (place as any).imageUrl || getPlaceImageUrl(placeName, (place as any).category),
-          rating: meta.rating,
-          reviewCount: meta.reviewCount,
           lat: (place as any).lat,
           lon: (place as any).lon,
         };
@@ -598,10 +594,10 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
 
                 <div className="flex flex-wrap items-baseline gap-3.5 mt-1">
                   <span className="text-3xl sm:text-4xl font-extrabold font-display text-white tracking-tight">
-                    {weather ? `${Math.round(weather.current.temperature_c)}°C` : isWeatherLoading ? "--°C" : "28°C"}
+                    {weather ? `${Math.round(weather.current.temperature_c)}°C` : "--°C"}
                   </span>
                   <span className="text-sm font-semibold text-emerald-200 bg-emerald-950/70 px-2.5 py-0.5 rounded-lg border border-emerald-800/60">
-                    {weather?.current.condition || (isWeatherLoading ? "Fetching..." : "Pleasant")}
+                    {weather?.current.condition || (isWeatherLoading ? "Fetching..." : "Live Forecast")}
                   </span>
                   {weather?.current.humidity_pct != null && (
                     <span className="text-xs text-emerald-300/80 font-mono flex items-center gap-1">
@@ -771,9 +767,6 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
               if (activeFilter === "Open Now") {
                 return place.isOpen === true || (place.isOpen !== false && place.status.toLowerCase().includes("open"));
               }
-              if (activeFilter === "Top Rated") {
-                return (place.rating ?? 4.8) >= 4.6;
-              }
               return true;
             })
             .map((place) => {
@@ -862,19 +855,6 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                         >
                           ● {place.status}
                         </span>
-                        {place.rating != null && (
-                          <>
-                            <span>·</span>
-                            <span className="text-amber-300 font-bold flex items-center gap-0.5">
-                              ★ {place.rating.toFixed(1)}
-                              {place.reviewCount ? (
-                                <span className="text-[10px] text-gray-400 font-normal ml-0.5">
-                                  ({place.reviewCount > 999 ? `${(place.reviewCount / 1000).toFixed(1)}k` : place.reviewCount})
-                                </span>
-                              ) : null}
-                            </span>
-                          </>
-                        )}
                       </div>
 
                       <p className="text-xs text-gray-300 mt-2 line-clamp-2 leading-relaxed">

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useItineraryPlanner } from "../store/useItineraryPlanner";
 import { useAIConversation } from "../store/useAIConversation";
 import { useMapProjection } from "../store/useMapProjection";
-import { useConversationHistory } from "../store/useConversationHistory";
+import { useConversationHistory, type SavedTripConversation } from "../store/useConversationHistory";
 import { useSavedPlaces } from "../store/useSavedPlaces";
 import { useRecentPlaces } from "../store/useRecentPlaces";
 import { usePlaces } from "../store/usePlaces";
@@ -35,11 +35,8 @@ import {
   MapPin,
   Plus,
   Trash2,
-  Sparkles,
   Compass,
   History,
-  Sliders,
-  CheckCircle2,
 } from "lucide-react";
 
 type PlanningMode = "structured" | "ai";
@@ -48,10 +45,11 @@ type AppView = NavTab | "category" | "settings";
 
 interface ItineraryPlannerPageProps {
   apiClient?: ApiClient;
+  initialTab?: AppView;
 }
 
-export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiClient }) => {
-  const [activeTab, setActiveTab] = useState<AppView>("discover");
+export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiClient, initialTab }) => {
+  const [activeTab, setActiveTab] = useState<AppView>(initialTab || "discover");
   const [selectedCategory, setSelectedCategory] = useState<string>("Nature");
   const [selectedLocation, setSelectedLocation] = useState<string>("Bhubaneswar");
   const [userCoords, setUserCoords] = useState<{lat: number, lon: number} | null>(null);
@@ -72,10 +70,9 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
 
   const plannerSectionRef = useRef<HTMLDivElement>(null);
 
-  const { savedPlaces, savedCount } = useSavedPlaces();
-  const { recentPlaces, addRecentPlace, count: revisitCount } = useRecentPlaces();
-  const { places: allVerifiedPlaces, getPlaceByName } = usePlaces();
-  const [newTripFeedback, setNewTripFeedback] = useState<string | null>(null);
+  const { savedCount } = useSavedPlaces();
+  const { addRecentPlace, count: revisitCount } = useRecentPlaces();
+  const { places: allVerifiedPlaces } = usePlaces();
   const [isLiveLocation, setIsLiveLocation] = useState<boolean>(true);
 
   const fetchLiveLocation = () => {
@@ -137,9 +134,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
     aiResponse,
     sendAiPlan,
     setHistory: setAiHistory,
-    setAiResponse,
     clearError: clearAiError,
-    reset: resetAi,
   } = useAIConversation();
 
   const {
@@ -208,7 +203,6 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
               location: getPlaceRegion(placeName),
               description: `Day ${day.day_number} (${timeDesc})`,
               imageUrl: getPlaceImageUrl(placeName, category),
-              rating: 4.8,
               status: "planned",
               tripAssociation: {
                 tripId: `trip-${Date.now()}`,
@@ -250,7 +244,6 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
                 location: getPlaceRegion(placeName),
                 description: `Day ${day.day_number} (${timeDesc})`,
                 imageUrl: getPlaceImageUrl(placeName, category),
-                rating: 4.9,
                 status: "planned",
                 tripAssociation: {
                   tripId: `ai-trip-${Date.now()}`,
@@ -264,43 +257,24 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         }
       }
 
-      // Save conversation turn to history
       saveOrUpdateConversation({
         history: [
           ...aiHistory,
           { role: "user", message: userMessage },
-          { role: "assistant", message: response.message, response },
+          { role: "assistant", message: response.message },
         ],
         constraints: updatedConstraints,
         itinerary: updatedPlan,
-        promptForTitle: userMessage,
       });
     }
   };
 
-  const handleStartNewTrip = () => {
-    if (itinerary) {
-      saveOrUpdateConversation({
-        history: aiHistory,
-        constraints,
-        itinerary,
-      });
-      setNewTripFeedback("Previous itinerary saved to 'Your Trips'. Starting a fresh plan.");
-      setTimeout(() => setNewTripFeedback(null), 4000);
-    }
-    startNewTrip();
-    resetPlanner();
-    resetAi();
-    resetMap();
-  };
-
-  const handleSelectSavedConversation = (id: string) => {
-    const target = conversations.find((c) => c.id === id);
-    if (!target) return;
-
+  const handleSelectSavedConversation = (target: SavedTripConversation) => {
     setActiveConversationId(target.id);
     setAiHistory(target.history);
-    setConstraints(target.constraints);
+    if (target.constraints) {
+      setConstraints(target.constraints);
+    }
     setItinerary(target.itinerary);
     if (target.itinerary) {
       setActiveResultTab("itinerary");
@@ -366,16 +340,15 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   };
 
   const handleApplyUserPreferences = (prefs: UserTravelPreferences) => {
-    setConstraints((prev) => ({
-      ...prev,
-      pace: prefs.pacePreference,
+    setConstraints({
+      ...constraints,
       budget_transport_per_day:
         prefs.budgetTier === "budget"
           ? 1000
-          : prefs.budgetTier === "moderate"
+          : prefs.budgetTier === "balanced"
           ? 3000
           : 6000,
-    }));
+    });
   };
 
   return (
@@ -430,7 +403,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
               selectedLocation={selectedLocation}
               userCoords={userCoords}
               onNavigateToPlan={() => handleTabChange("plan")}
-              onNavigateToMap={(place) => {
+              onNavigateToMap={(place?: SelectedPlaceInfo) => {
                 if (place) {
                   setSelectedMapPlace(place);
                 }
@@ -466,7 +439,11 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
               onBack={() => setActiveTab("discover")}
               onSelectPlace={handleSelectPlaceFromCategory}
               onPlanWithSinglePlace={handlePlanTripWithSinglePlace}
-              onOpenMap={handleViewPlaceOnMap}
+              onOpenMap={(place?: SelectedPlaceInfo) => {
+                if (place) {
+                  handleViewPlaceOnMap(place);
+                }
+              }}
             />
           </div>
         )}
@@ -534,75 +511,57 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
             ref={plannerSectionRef}
             className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-in fade-in duration-300"
           >
-            {/* Header & Trip Management Strip */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-emerald-900/40">
-              <div className="space-y-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-mono font-bold">
-                  <span className="live-dot" />
-                  <span>ODISHA ROUTE &amp; TRANSIT PLANNER</span>
-                </div>
+            {/* Planner Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-gray-200 dark:border-slate-800">
+              <div>
+                <span className="text-xs font-bold font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                  Deterministic Travel Engine
+                </span>
                 <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-white tracking-tight">
-                  Plan Your Odisha Journey
+                  Odisha Itinerary Workspace
                 </h1>
-                <p className="text-xs sm:text-sm text-gray-300">
-                  Combine deterministic scheduling with AI Copilot recommendations.
+                <p className="text-xs text-gray-400 mt-1">
+                  Verified routes, topological hops, and curated schedules across all Odisha destinations.
                 </p>
               </div>
 
-              {/* Trip Controls & History Pills */}
-              <div className="flex flex-wrap items-center gap-2.5">
-                {itinerary && (
-                  <button
-                    type="button"
-                    data-testid="start-new-trip-button"
-                    onClick={handleStartNewTrip}
-                    className="px-3.5 py-2 rounded-2xl bg-[#09221b] border border-emerald-800/40 hover:bg-emerald-900/60 text-emerald-300 text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
-                  >
-                    <Plus size={14} />
-                    <span>Start New Trip</span>
-                  </button>
-                )}
-
+              {itinerary && (
                 <button
                   type="button"
-                  onClick={() => setIsAISidebarOpen(true)}
-                  className="px-3.5 py-2 rounded-2xl bg-emerald-950/80 border border-emerald-700/60 text-emerald-200 text-xs font-bold transition-all hover:bg-emerald-900 flex items-center gap-1.5 cursor-pointer shadow-xs"
+                  onClick={resetPlanner}
+                  className="px-3.5 py-1.5 rounded-xl border border-emerald-800/60 hover:border-emerald-600 bg-emerald-950/40 text-emerald-300 text-xs font-semibold flex items-center gap-1.5 transition-all self-start sm:self-auto cursor-pointer"
                 >
-                  <Bot size={14} className="text-emerald-400" />
-                  <span>AI Copilot Panel</span>
+                  <Plus size={14} />
+                  <span>New Plan</span>
                 </button>
-              </div>
+              )}
             </div>
 
-            {/* User feedback alert when new trip is started */}
-            {newTripFeedback && (
-              <div className="p-3.5 rounded-2xl bg-emerald-950 text-emerald-200 border border-emerald-700 text-xs flex items-center gap-2 animate-in fade-in duration-200">
-                <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
-                <span>{newTripFeedback}</span>
-              </div>
-            )}
-
-            {/* Saved Trips Carousel / Strip if history exists */}
+            {/* Trip History Strip */}
             {conversations.length > 0 && (
-              <div className="p-4 rounded-3xl bg-[#061e17] border border-emerald-800/40 space-y-2.5">
-                <div className="flex items-center justify-between">
-                  <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider font-mono flex items-center gap-1.5">
+              <div className="p-4 rounded-2xl bg-[#071f18] border border-emerald-800/40 space-y-2">
+                <div className="flex items-center justify-between text-xs text-emerald-400 font-mono font-bold uppercase tracking-wider">
+                  <span className="flex items-center gap-1.5">
                     <History size={13} />
-                    <span>Your Trips ({conversations.length})</span>
-                  </div>
-                  <span className="text-[11px] text-gray-400">
-                    Switch between active and past planned itineraries
+                    Saved Journeys ({conversations.length})
                   </span>
+                  <button
+                    type="button"
+                    onClick={startNewTrip}
+                    className="hover:text-emerald-200 text-[11px] underline cursor-pointer"
+                  >
+                    + New Journey
+                  </button>
                 </div>
 
-                <div className="flex items-center gap-2 overflow-x-auto pb-1">
+                <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
                   {conversations.map((conv) => {
                     const isActive = conv.id === activeConversationId;
                     return (
                       <div
                         key={conv.id}
-                        onClick={() => handleSelectSavedConversation(conv.id)}
-                        className={`group flex items-center gap-2 px-3.5 py-2 rounded-2xl text-xs font-medium border transition-all shrink-0 cursor-pointer ${
+                        onClick={() => handleSelectSavedConversation(conv)}
+                        className={`group shrink-0 px-3 py-1.5 rounded-xl text-xs flex items-center gap-2 cursor-pointer transition-all border ${
                           isActive
                             ? "bg-emerald-600 text-white border-emerald-500 shadow-md font-bold"
                             : "bg-[#09221b] text-gray-300 border-emerald-800/50 hover:border-emerald-500/50 hover:bg-emerald-900/40"
@@ -672,15 +631,16 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
                   isLoading={isAiLoading}
                   aiResponse={aiResponse}
                   onSendMessage={handleAiPlan}
+                  onClearError={clearAiError}
                 />
               )}
             </div>
 
             {/* Errors */}
-            {plannerError && (
+            {plannerError ? (
               <ErrorAlert error={plannerError} onDismiss={clearPlannerError} />
-            )}
-            {aiError && <ErrorAlert error={aiError} onDismiss={clearAiError} />}
+            ) : null}
+            {aiError ? <ErrorAlert error={aiError} onDismiss={clearAiError} /> : null}
 
             {/* Results Area */}
             {isLoading && <LoadingState />}
@@ -798,3 +758,5 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
     </div>
   );
 };
+
+export default ItineraryPlannerPage;

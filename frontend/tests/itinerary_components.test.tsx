@@ -328,9 +328,9 @@ describe("Phase 6B Itinerary UI Components", () => {
 
   describe("ItineraryPlannerPage Component Integration", () => {
     it("renders initial full page with title and initial empty state", () => {
-      const html = renderClean(<ItineraryPlannerPage />);
-      expect(html).toContain("Transportation-Aware Itinerary Planner");
-      expect(html).toContain("Trip Constraints");
+      const html = renderClean(<ItineraryPlannerPage initialTab="plan" />);
+      expect(html).toContain("Deterministic Travel Engine");
+      expect(html).toContain("Odisha Itinerary Workspace");
       expect(html).toContain("Where will Odisha take you?");
     });
   });

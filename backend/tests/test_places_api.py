@@ -56,7 +56,7 @@ class MockPlacesDB:
             )
             # Attach location and mock shape
             place.location = mock_loc
-            place.research_id = p.get("research_id", p["name"])
+            place.research_id = p.get("id") or p.get("research_id", p["name"])
             self.places.append((place, cat or Category(id=place.category_id, name=p["category"])))
 
     def query(self, *models):
@@ -71,15 +71,21 @@ class MockQuery:
         return self
 
     def filter(self, *criteria):
-        # We can implement basic filtering
         filtered = self.items
         for crit in criteria:
-            crit_str = str(crit).lower()
-            if "category.name" in crit_str or "categories.name" in crit_str:
-                # category filter
-                pass
-            elif "places.id ==" in crit_str or "place.id ==" in crit_str:
-                pass
+            if hasattr(crit, "left") and hasattr(crit, "right"):
+                col_name = getattr(crit.left, "name", None)
+                val = getattr(crit.right, "value", None)
+                if col_name == "id":
+                    filtered = [(p, c) for p, c in filtered if str(p.id) == str(val)]
+                elif col_name == "research_id":
+                    filtered = [(p, c) for p, c in filtered if str(getattr(p, "research_id", "")) == str(val)]
+                elif col_name == "category_id":
+                    filtered = [(p, c) for p, c in filtered if str(p.category_id) == str(val)]
+            else:
+                crit_str = str(crit).lower()
+                if "places.id" in crit_str or "place.id" in crit_str:
+                    pass
         return MockQuery(filtered)
 
     def filter_by_category(self, cat_name: str):
@@ -163,16 +169,27 @@ def test_list_places_search_query():
 
 
 def test_get_place_by_id():
-    """Verify GET /places/{id} lookup."""
+    """Verify GET /places/{id} lookup with UUID, research_id, and invalid IDs."""
     list_res = client.get("/places")
     first_place = list_res.json()[0]
     place_id = first_place["id"]
 
+    # 1. Look up by UUID
     detail_res = client.get(f"/places/{place_id}")
     assert detail_res.status_code == 200
     detail = detail_res.json()
     assert detail["name"] == first_place["name"]
     assert detail["category"] == first_place["category"]
+
+    # 2. Look up by non-UUID research_id / slug
+    res_slug = client.get("/places/place_013")
+    assert res_slug.status_code == 200
+    assert "Museum of Tribal Arts" in res_slug.json()["name"]
+
+    # 3. Non-existent non-UUID identifier returns clean 404
+    missing_res = client.get("/places/non-existent-place-slug")
+    assert missing_res.status_code == 404
+    assert missing_res.json() == {"detail": "Place not found"}
 
 
 def test_ai_plan_whole_odisha_destinations():

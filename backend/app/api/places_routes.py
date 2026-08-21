@@ -122,17 +122,28 @@ def get_place(
     db: Session = Depends(get_db),
 ) -> PlaceDetailResponse:
     """Retrieve authoritative details for a specific verified place."""
-    query = (
-        db.query(Place, Category)
-        .join(Category, Place.category_id == Category.id)
-        .filter(Place.id == place_id)
-    )
-    if hasattr(query, "options"):
-        try:
-            query = query.options(joinedload(Place.interest_associations).joinedload(PlaceInterest.interest))
-        except Exception:
-            pass
-    record = query.first()
+    import uuid
+
+    is_valid_uuid = False
+    try:
+        uuid.UUID(str(place_id))
+        is_valid_uuid = True
+    except (ValueError, AttributeError, TypeError):
+        is_valid_uuid = False
+
+    record = None
+    if is_valid_uuid:
+        query = (
+            db.query(Place, Category)
+            .join(Category, Place.category_id == Category.id)
+            .filter(Place.id == place_id)
+        )
+        if hasattr(query, "options"):
+            try:
+                query = query.options(joinedload(Place.interest_associations).joinedload(PlaceInterest.interest))
+            except Exception:
+                pass
+        record = query.first()
 
     if not record:
         # Also try matching by research_id if given

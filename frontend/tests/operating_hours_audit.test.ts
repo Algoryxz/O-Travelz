@@ -71,17 +71,13 @@ describe("Live Data Audit: Place-Specific Operating Hours & Real Ratings", () =>
     expect(randomPlace.status).toBe("Hours unavailable · Check locally");
   });
 
-  it("5. Verifies canonical place ratings and review counts from authoritative sources", () => {
+  it("5. Verifies place ratings are not fabricated when no backend authority exists", () => {
     const konarkMeta = getPlaceRatingMetadata("Konark Sun Temple");
-    expect(konarkMeta.rating).toBe(4.9);
-    expect(konarkMeta.reviewCount).toBeGreaterThanOrEqual(10000);
+    expect(konarkMeta.rating).toBeNull();
+    expect(konarkMeta.reviewCount).toBeNull();
 
     const jagannathMeta = getPlaceRatingMetadata("Shree Jagannath Temple, Puri");
-    expect(jagannathMeta.rating).toBe(4.9);
-    expect(jagannathMeta.reviewCount).toBeGreaterThanOrEqual(20000);
-
-    const museumMeta = getPlaceRatingMetadata("Odisha State Museum");
-    expect(museumMeta.rating).toBe(4.6);
-    expect(museumMeta.reviewCount).toBeGreaterThanOrEqual(3000);
+    expect(jagannathMeta.rating).toBeNull();
+    expect(jagannathMeta.reviewCount).toBeNull();
   });
 });

@@ -154,7 +154,7 @@ describe("ApiClient", () => {
       } catch (e) {
         expect(e).toBeInstanceOf(NetworkError);
         const netErr = e as NetworkError;
-        expect(netErr.message).toContain("Failed to fetch");
+        expect(netErr.message).toContain("Failed to communicate with O-Travelz API");
       }
     });
   });

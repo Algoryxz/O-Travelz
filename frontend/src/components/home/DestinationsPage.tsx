@@ -20,7 +20,9 @@ import { CANONICAL_CATEGORIES, CANONICAL_INTERESTS } from "../../types/api";
 interface DestinationsPageProps {
   onSelectPlace: (place: SelectedPlaceInfo) => void;
   onViewOnMap: (place: SelectedPlaceInfo) => void;
-  onPlanTripWithPlace: (place: SelectedPlaceInfo) => void;
+  onPlanTripWithPlace?: (place: SelectedPlaceInfo) => void;
+  onPlanTrip?: (place: SelectedPlaceInfo) => void;
+  selectedLocation?: string;
   initialSearch?: string;
 }
 
@@ -54,8 +56,11 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
   onSelectPlace,
   onViewOnMap,
   onPlanTripWithPlace,
+  onPlanTrip,
+  selectedLocation,
   initialSearch = "",
 }) => {
+  const handlePlanTrip = onPlanTripWithPlace || onPlanTrip || (() => {});
   const { places, isLoading } = usePlaces();
   const { isSaved, toggleSavePlace } = useSavedPlaces();
 
@@ -419,7 +424,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                       data-testid={`plan-with-${place.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
                       onClick={(e) => {
                         e.stopPropagation();
-                        onPlanTripWithPlace({
+                        handlePlanTrip({
                           id: place.id,
                           name: place.name,
                           category: place.category,

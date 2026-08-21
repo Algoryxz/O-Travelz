@@ -46,8 +46,6 @@ function loadPlaceMemories(): PlaceMemoryItem[] {
         return legacy.map((item: any) => ({
           ...item,
           status: "explored" as MemoryStatus,
-          rating: 4.8,
-          reviewCount: 420,
         }));
       }
       return [];
@@ -119,8 +117,8 @@ export function useRecentPlaces() {
           lon: place.lon ?? existing?.lon ?? null,
           imageUrl: place.imageUrl || existing?.imageUrl,
           description: place.description || existing?.description,
-          rating: place.rating ?? existing?.rating ?? 4.8,
-          reviewCount: place.reviewCount ?? existing?.reviewCount ?? 350,
+          rating: place.rating ?? existing?.rating,
+          reviewCount: place.reviewCount ?? existing?.reviewCount,
           avg_visit_minutes: place.avg_visit_minutes ?? existing?.avg_visit_minutes ?? 60,
           status: updatedStatus,
           visitedAt: Date.now(),

@@ -15,10 +15,12 @@ import { useSavedPlaces } from "../../store/useSavedPlaces";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
 
 interface CategoryExplorePageProps {
-  category: string;
-  selectedLocation: string;
+  category?: string;
+  categoryName?: string;
+  selectedLocation?: string;
   onBack: () => void;
-  onPlanTripWithCategory: (category: string) => void;
+  onPlanTripWithCategory?: (category: string) => void;
+  onPlanWithSinglePlace?: (place: SelectedPlaceInfo) => void;
   onOpenMap: (place?: SelectedPlaceInfo) => void;
   onSelectPlace?: (place: SelectedPlaceInfo) => void;
 }
@@ -304,13 +306,16 @@ const CATEGORY_DATA: Record<
 
 export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
   category,
-  selectedLocation,
+  categoryName,
+  selectedLocation = "Bhubaneswar",
   onBack,
   onPlanTripWithCategory,
+  onPlanWithSinglePlace,
   onOpenMap,
   onSelectPlace,
 }) => {
-  const categoryData = CATEGORY_DATA[category] || CATEGORY_DATA["Nature"];
+  const activeCategoryName = category || categoryName || "Nature";
+  const categoryData = CATEGORY_DATA[activeCategoryName] || CATEGORY_DATA["Nature"];
   const Icon = categoryData.icon;
   const { isSaved, toggleSavePlace } = useSavedPlaces();
 
@@ -349,7 +354,7 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
           <button
             type="button"
             data-testid="category-plan-cta"
-            onClick={() => onPlanTripWithCategory(category)}
+            onClick={() => onPlanTripWithCategory?.(activeCategoryName)}
             className="px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-sm flex items-center gap-2 transition-colors cursor-pointer"
           >
             <Compass size={15} />
@@ -364,7 +369,7 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                 onOpenMap({
                   id: p.id,
                   name: p.name,
-                  category,
+                  category: activeCategoryName,
                   location: p.distance,
                   description: p.subtitle,
                 });
@@ -407,7 +412,7 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                     onSelectPlace?.({
                       id: place.id,
                       name: place.name,
-                      category,
+                      category: activeCategoryName,
                       distance: place.distance,
                       description: place.subtitle,
                       tags: place.tags,
@@ -426,7 +431,7 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                     toggleSavePlace({
                       id: place.id,
                       name: place.name,
-                      category,
+                      category: activeCategoryName,
                       distance: place.distance,
                       notes: place.subtitle,
                       tags: place.tags,
@@ -472,7 +477,7 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                       onOpenMap({
                         id: place.id,
                         name: place.name,
-                        category,
+                        category: activeCategoryName,
                         location: place.distance,
                         description: place.subtitle,
                       })

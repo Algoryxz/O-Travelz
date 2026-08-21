@@ -41,8 +41,22 @@ class SQLAlchemyPlaceResolver:
 
     def resolve(self, place_id: str) -> ResolvedPlace | None:
         from app.models.place import Place
+        import uuid
 
-        place = self._session.get(Place, place_id)
+        place = None
+        try:
+            uuid_obj = uuid.UUID(str(place_id))
+            place = self._session.get(Place, uuid_obj)
+        except (ValueError, AttributeError, TypeError):
+            place = None
+
+        if place is None and hasattr(self._session, "query"):
+            # Fallback to research_id lookup
+            try:
+                place = self._session.query(Place).filter(Place.research_id == str(place_id)).first()
+            except Exception:
+                place = None
+
         if place is None:
             return None
         if place.location is None:

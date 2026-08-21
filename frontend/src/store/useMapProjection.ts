@@ -24,7 +24,7 @@ export interface MapProjectionHook {
     customClient?: ApiClient
   ) => Promise<MapProjectionResponse | null>;
   fetchPlacesProjection: (
-    placeIds: string[],
+    placeIds?: string[],
     customClient?: ApiClient
   ) => Promise<MapProjectionResponse | null>;
   clearError: () => void;
@@ -49,19 +49,18 @@ export function useMapProjection(): MapProjectionHook {
 
       for (const day of itinerary.days) {
         for (const stop of day.stops) {
-          if (stop.place?.id && !seenPlaceIds.has(stop.place.id)) {
-            seenPlaceIds.add(stop.place.id);
-            if (isUUID(stop.place.id)) {
-              requestedFeatures.push({
-                entity: "place",
-                id: stop.place.id,
-              });
-            }
+          const placeId = stop.place?.id ? String(stop.place.id).trim() : "";
+          if (placeId && !seenPlaceIds.has(placeId)) {
+            seenPlaceIds.add(placeId);
+            requestedFeatures.push({
+              entity: "place",
+              id: placeId,
+            });
           }
         }
       }
 
-      // Extract requested hop contexts
+      // Extract hops
       const requestedHops: RequestedHopContext[] = [];
       for (const day of itinerary.days) {
         for (const hop of day.hops) {
@@ -70,14 +69,6 @@ export function useMapProjection(): MapProjectionHook {
             hop,
           });
         }
-      }
-
-      // If no valid UUID features exist to request, do not trigger an empty 422 request
-      if (requestedFeatures.length === 0) {
-        setProjection(null);
-        setIsLoading(false);
-        setError(null);
-        return null;
       }
 
       setIsLoading(true);
@@ -104,12 +95,14 @@ export function useMapProjection(): MapProjectionHook {
 
   const fetchPlacesProjection = useCallback(
     async (
-      placeIds: string[],
+      placeIds: string[] = [],
       customClient?: ApiClient
     ): Promise<MapProjectionResponse | null> => {
       const client = customClient ?? defaultApiClient;
 
-      const validPlaceIds = Array.from(new Set(placeIds)).filter(isUUID);
+      const validPlaceIds = Array.from(new Set(placeIds))
+        .map((id) => (typeof id === "string" ? id.trim() : ""))
+        .filter((id) => id.length > 0);
       if (validPlaceIds.length === 0) {
         setProjection(null);
         setIsLoading(false);

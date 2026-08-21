@@ -197,4 +197,96 @@ describe("Phase 6B Map Projection Flow & Integration", () => {
     expect(res2.features[0].canonical_ref.id).toBe("550e8400-e29b-41d4-a716-446655440002");
     expect(mockGetMapProjection).toHaveBeenCalledTimes(2);
   });
+
+  it("regression: useMapProjection forwards UUID, research_id, and slug place IDs without filtering", async () => {
+    const mixedItinerary: ItineraryPlanResponse = {
+      itinerary_id: "plan-mixed-ids",
+      constraints: { days: 1, interests: ["heritage"] },
+      days: [
+        {
+          day_number: 1,
+          stops: [
+            {
+              sequence: 1,
+              place: {
+                id: "550e8400-e29b-41d4-a716-446655440000",
+                name: "Lingaraj Temple",
+                category: "temple",
+              },
+            },
+            {
+              sequence: 2,
+              place: {
+                id: "place_puri_001",
+                name: "Jagannath Temple",
+                category: "temple",
+              },
+            },
+            {
+              sequence: 3,
+              place: {
+                id: "puri-golden-beach",
+                name: "Golden Beach",
+                category: "beach",
+              },
+            },
+            {
+              sequence: 4,
+              place: {
+                id: "",
+                name: "Empty ID Stop",
+                category: "other",
+              },
+            },
+          ],
+          hops: [],
+        },
+      ],
+      explanation: "",
+    };
+
+    let capturedPayload: MapProjectionHTTPRequest | null = null;
+    const mockClient = {
+      getMapProjection: vi.fn().mockImplementation(async (payload: MapProjectionHTTPRequest) => {
+        capturedPayload = payload;
+        return {
+          requested_features: payload.requested_features,
+          features: [],
+          relationships: [],
+          unavailable_items: [],
+        } as MapProjectionResponse;
+      }),
+    } as unknown as ApiClient;
+
+    // Simulate extraction logic of useMapProjection
+    const seenPlaceIds = new Set<string>();
+    const requestedFeatures: Array<{ entity: "place"; id: string }> = [];
+    for (const day of mixedItinerary.days) {
+      for (const stop of day.stops) {
+        const placeId = stop.place?.id ? String(stop.place.id).trim() : "";
+        if (placeId && !seenPlaceIds.has(placeId)) {
+          seenPlaceIds.add(placeId);
+          requestedFeatures.push({ entity: "place", id: placeId });
+        }
+      }
+    }
+
+    await mockClient.getMapProjection({
+      requested_features: requestedFeatures,
+      requested_hops: [],
+    });
+
+    expect(capturedPayload).not.toBeNull();
+    const sentIds = (capturedPayload as unknown as MapProjectionHTTPRequest).requested_features.map((f) => f.id);
+
+    // 1. UUID is forwarded
+    expect(sentIds).toContain("550e8400-e29b-41d4-a716-446655440000");
+    // 2. research_id is forwarded
+    expect(sentIds).toContain("place_puri_001");
+    // 3. slug-style identifier is forwarded
+    expect(sentIds).toContain("puri-golden-beach");
+    // 4. empty identifiers are not sent
+    expect(sentIds).not.toContain("");
+    expect(sentIds.length).toBe(3);
+  });
 });

@@ -48,9 +48,11 @@ export interface SelectedPlaceInfo {
 }
 
 export interface PlaceDetailsModalProps {
-  place: SelectedPlaceInfo;
+  place: SelectedPlaceInfo | null;
+  isOpen?: boolean;
   onClose: () => void;
   onViewOnMap?: (place: SelectedPlaceInfo) => void;
+  onExploreMap?: (place: SelectedPlaceInfo) => void;
   onPlanTrip?: (place: SelectedPlaceInfo) => void;
 }
 
@@ -58,10 +60,14 @@ import { useRecentPlaces } from "../../store/useRecentPlaces";
 
 export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
   place,
+  isOpen = true,
   onClose,
   onViewOnMap,
+  onExploreMap,
   onPlanTrip,
 }) => {
+  if (!place || !isOpen) return null;
+  const handleExploreMap = onExploreMap || onViewOnMap || (() => {});
   const { isSaved, toggleSavePlace } = useSavedPlaces();
   const { addRecentPlace } = useRecentPlaces();
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);

@@ -8,38 +8,41 @@ import { getRefinementSuggestions } from "../../utils/timelineService";
 
 interface AIConversationPanelProps {
   currentConstraints?: PlanningConstraints | null;
-  hasItinerary: boolean;
+  hasItinerary?: boolean;
   isLoading: boolean;
-  error: unknown | null;
-  aiResponse: AIResponse | null;
+  error?: unknown | null;
+  aiResponse?: AIResponse | null;
   history?: ConversationTurn[];
-  onSend: (message: string) => void;
+  onSend?: (message: string) => void;
+  onSendMessage?: (message: string) => void;
   onClearError?: () => void;
 }
 
 export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
   currentConstraints,
-  hasItinerary,
+  hasItinerary = false,
   isLoading,
-  error,
-  aiResponse,
+  error = null,
+  aiResponse = null,
   history = [],
   onSend,
+  onSendMessage,
   onClearError,
 }) => {
   const [message, setMessage] = useState<string>("");
+  const sendMessage = onSend || onSendMessage || (() => {});
   const refinementSuggestions = getRefinementSuggestions(currentConstraints, hasItinerary);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!message.trim() || isLoading) return;
-    onSend(message);
+    sendMessage(message);
     setMessage("");
   };
 
   const handleSuggestionClick = (suggestion: string) => {
     if (isLoading) return;
-    onSend(suggestion);
+    sendMessage(suggestion);
   };
 
   const getStatusBadge = (status: string) => {

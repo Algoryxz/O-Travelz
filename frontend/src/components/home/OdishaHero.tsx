@@ -13,10 +13,17 @@ import { getPlaceImageUrl } from "../../utils/imageService";
 
 interface OdishaHeroProps {
   selectedLocation: string;
-  onSearch: (term: string) => void;
-  onSurpriseMe: () => void;
-  onSelectDestination: (name: string) => void;
-  onViewAllDestinations: () => void;
+  onSearch?: (term: string) => void;
+  onSurpriseMe?: () => void;
+  onSelectDestination?: (name: string) => void;
+  onViewAllDestinations?: () => void;
+  destinationSearch?: string;
+  onSearchChange?: (term: string) => void;
+  onNavigateToPlan?: () => void;
+  onNavigateToMap?: () => void;
+  onNavigateToCopilot?: () => void;
+  onSelectCategory?: (cat: string) => void;
+  onSelectPlace?: (place: any) => void;
 }
 
 export const OdishaHero: React.FC<OdishaHeroProps> = ({
@@ -25,6 +32,13 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
   onSurpriseMe,
   onSelectDestination,
   onViewAllDestinations,
+  destinationSearch,
+  onSearchChange,
+  onNavigateToPlan,
+  onNavigateToMap,
+  onNavigateToCopilot,
+  onSelectCategory,
+  onSelectPlace,
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeSlide, setActiveSlide] = useState(0);
@@ -73,7 +87,7 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-      onSearch(searchTerm.trim());
+      onSearch?.(searchTerm.trim());
     }
   };
 
@@ -171,7 +185,7 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
                   key={dest.name}
                   onClick={() => {
                     setActiveSlide(idx);
-                    onSelectDestination(dest.name);
+                    onSelectDestination?.(dest.name);
                   }}
                   className={`w-full text-left p-3.5 rounded-2xl transition-all cursor-pointer flex items-center justify-between gap-4 ${
                     isActive

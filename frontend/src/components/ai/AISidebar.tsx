@@ -27,18 +27,19 @@ interface AISidebarProps {
   isOpen: boolean;
   onClose: () => void;
   isLoading: boolean;
-  error: unknown | null;
+  error?: unknown | null;
   history: ConversationTurn[];
-  aiResponse: AIResponse | null;
-  onSend: (message: string) => void;
+  aiResponse?: AIResponse | null;
+  onSend?: (message: string) => void;
+  onSendMessage?: (message: string) => void;
   onClearError?: () => void;
-  hasItinerary: boolean;
+  hasItinerary?: boolean;
   activeItinerary?: ItineraryPlanResponse | null;
-  conversations: SavedTripConversation[];
-  activeConversationId: string | null;
-  onSelectConversation: (id: string) => void;
-  onNewTrip: () => void;
-  onDeleteConversation: (id: string) => void;
+  conversations?: SavedTripConversation[];
+  activeConversationId?: string | null;
+  onSelectConversation?: (id: string) => void;
+  onNewTrip?: () => void;
+  onDeleteConversation?: (id: string) => void;
   onViewItineraryTab?: () => void;
 }
 
@@ -46,21 +47,23 @@ export const AISidebar: React.FC<AISidebarProps> = ({
   isOpen,
   onClose,
   isLoading,
-  error,
-  history,
-  aiResponse,
+  error = null,
+  history = [],
+  aiResponse = null,
   onSend,
+  onSendMessage,
   onClearError,
-  hasItinerary,
-  activeItinerary,
-  conversations,
-  activeConversationId,
-  onSelectConversation,
-  onNewTrip,
-  onDeleteConversation,
+  hasItinerary = false,
+  activeItinerary = null,
+  conversations = [],
+  activeConversationId = null,
+  onSelectConversation = () => {},
+  onNewTrip = () => {},
+  onDeleteConversation = () => {},
   onViewItineraryTab,
 }) => {
   const [inputMessage, setInputMessage] = useState<string>("");
+  const sendMessage = onSend || onSendMessage || (() => {});
   const [showHistoryList, setShowHistoryList] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -89,13 +92,13 @@ export const AISidebar: React.FC<AISidebarProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputMessage.trim() || isLoading) return;
-    onSend(inputMessage);
+    sendMessage(inputMessage);
     setInputMessage("");
   };
 
   const handleSuggestion = (prompt: string) => {
     if (isLoading) return;
-    onSend(prompt);
+    sendMessage(prompt);
   };
 
   return (

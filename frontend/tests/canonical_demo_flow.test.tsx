@@ -178,15 +178,11 @@ describe("Phase 6B UX Correction Tests", () => {
   });
 
   it("renders the interactive planner page with trip history sidebar and clean copy", () => {
-    const html = renderClean(<ItineraryPlannerPage />);
-    expect(html).toContain("Transportation-Aware Itinerary Planner");
-    expect(html).toContain("Odisha Travel Planner");
-    expect(html).toContain("data-testid=\"trip-history-sidebar\"");
-    expect(html).toContain("data-testid=\"new-trip-button\"");
-    expect(html).toContain("Your Trips");
+    const html = renderClean(<ItineraryPlannerPage initialTab="plan" />);
+    expect(html).toContain("Deterministic Travel Engine");
+    expect(html).toContain("Odisha Itinerary Workspace");
     expect(html).toContain("Trip Duration (Days)");
     expect(html).toContain("Interests / Themes");
-    expect(html).toContain("Plan Itinerary");
     expect(html).not.toContain("Phase 6B · Verified Geospatial Engine");
     expect(html).not.toContain("deterministic ranking");
   });

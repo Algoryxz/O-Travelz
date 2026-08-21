@@ -118,5 +118,6 @@ export function useSavedPlaces() {
     removePlace,
     toggleSavePlace,
     clearSavedPlaces,
+    clearAllSaved: clearSavedPlaces,
   };
 }

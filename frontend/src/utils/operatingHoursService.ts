@@ -25,8 +25,8 @@ export interface PlaceScheduleRule {
   shifts?: Array<{ open: string; close: string }>; // "HH:MM" 24-hr format
   is24Hours?: boolean;
   notes?: string;
-  rating?: number;
-  reviewCount?: number;
+  rating?: number | null;
+  reviewCount?: number | null;
 }
 
 /**
@@ -399,24 +399,17 @@ export function getPlaceOperatingHours(
 }
 
 /**
- * Returns verified rating and review count for a destination, prioritizing real dataset metrics.
+ * Authoritative Place Ratings:
+ * In accordance with Phase 6B & Architecture requirements, factual travel data must not be
+ * invented in frontend code. Since ratings and review counts have no authoritative source in the
+ * backend database model, they are represented as unavailable (null).
  */
 export function getPlaceRatingMetadata(
-  placeName: string,
-  fallbackRating: number = 4.8
-): { rating: number; reviewCount: number } {
-  const normName = placeName.trim().toLowerCase();
-  const schedule = VERIFIED_PLACE_SCHEDULES[normName];
-
-  if (schedule && schedule.rating) {
-    return {
-      rating: schedule.rating,
-      reviewCount: schedule.reviewCount || 1200,
-    };
-  }
-
+  _placeName: string,
+  _fallbackRating?: number
+): { rating: number | null; reviewCount: number | null } {
   return {
-    rating: fallbackRating,
-    reviewCount: 650,
+    rating: null,
+    reviewCount: null,
   };
 }
