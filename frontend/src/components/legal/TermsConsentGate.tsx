@@ -41,9 +41,9 @@ export const TermsConsentGate: React.FC<TermsConsentGateProps> = ({ onAccept }) 
         <div className="flex items-center gap-3">
           <div className="relative flex items-center justify-center">
             <img
-              src="/images/logo.png"
+              src="/logo.jpeg"
               alt="O-Travelz Logo"
-              className="w-9 h-9 rounded-2xl object-contain shadow-md shrink-0"
+              className="w-9 h-9 rounded-2xl object-cover ring-1 ring-teal-500/40 shadow-md shrink-0"
               onError={(e) => {
                 (e.target as HTMLElement).style.display = "none";
               }}

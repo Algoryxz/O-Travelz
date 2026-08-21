@@ -9,6 +9,54 @@
  */
 import { getRegionForPlace } from "./regionUtils";
 
+export function getBackendBaseUrl(): string {
+  if (typeof import.meta !== "undefined" && import.meta.env) {
+    const raw = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || "";
+    return typeof raw === "string" ? raw.trim().replace(/\/+$/, "") : "";
+  }
+  return "";
+}
+
+export function getBackendAssetUrl(storageKeyOrPath?: string | null): string {
+  if (!storageKeyOrPath || typeof storageKeyOrPath !== "string") {
+    return "";
+  }
+  const trimmed = storageKeyOrPath.trim();
+  if (!trimmed) {
+    return "";
+  }
+  // If it's already an absolute URL or inline data URI / blob, return as-is
+  if (/^(https?:\/\/|data:|blob:)/i.test(trimmed)) {
+    return trimmed;
+  }
+
+  // Reject path traversal
+  if (trimmed.includes("..")) {
+    return "";
+  }
+
+  const baseUrl = getBackendBaseUrl();
+  const cleanPath = trimmed.replace(/^[\/\\]+/, "").replace(/\\/g, "/");
+
+  if (!cleanPath) {
+    return "";
+  }
+
+  // Ensure path starts with static/images/
+  let finalPath = cleanPath;
+  if (!finalPath.startsWith("static/images/") && !finalPath.startsWith("api/v1/images/")) {
+    finalPath = `static/images/${finalPath}`;
+  }
+
+  finalPath = finalPath.replace(/\/{2,}/g, "/");
+
+  if (!baseUrl) {
+    return `/${finalPath}`;
+  }
+
+  return `${baseUrl}/${finalPath}`;
+}
+
 export interface PlaceImage {
   src: string;
   alt: string;
@@ -18,6 +66,7 @@ export interface PlaceImage {
   license?: string;
   isFallback?: boolean;
 }
+
 
 export interface PlaceImageSet {
   placeId: string;
@@ -5005,21 +5054,28 @@ export function getCategoryFallback(category?: string | null): PlaceImage {
   return DEFAULT_FALLBACK_IMAGE;
 }
 
+function resolveImagesWithBackendUrl(images: PlaceImage[]): PlaceImage[] {
+  return images.map((img) => ({
+    ...img,
+    src: getBackendAssetUrl(img.src),
+  }));
+}
+
 export function getPlaceImages(placeName?: string | null, category?: string | null): PlaceImage[] {
-  if (!placeName && !category) return [DEFAULT_FALLBACK_IMAGE];
+  if (!placeName && !category) return resolveImagesWithBackendUrl([DEFAULT_FALLBACK_IMAGE]);
 
   if (placeName) {
     const normPlace = normalizeKey(placeName);
 
     // 1. Exact match by canonical place_id or name in PLACE_IMAGE_MANIFEST
     if (PLACE_IMAGE_MANIFEST[placeName]) {
-      return PLACE_IMAGE_MANIFEST[placeName];
+      return resolveImagesWithBackendUrl(PLACE_IMAGE_MANIFEST[placeName]);
     }
 
     // 2. Normalized alphanumeric match ONLY for verified canonical place keys
     for (const [key, images] of Object.entries(PLACE_IMAGE_MANIFEST)) {
       if (normalizeKey(key) === normPlace) {
-        return images;
+        return resolveImagesWithBackendUrl(images);
       }
     }
 
@@ -5035,27 +5091,30 @@ export function getPlaceImages(placeName?: string | null, category?: string | nu
         }
       }
       if (candidates.length === 1) {
-        return candidates[0];
+        return resolveImagesWithBackendUrl(candidates[0]);
       }
     }
   }
 
   // 4. Strict safe fallback: Return category-themed neutral SVG fallback (NEVER another destination's photo!)
   if (category) {
-    return [getCategoryFallback(category)];
+    return resolveImagesWithBackendUrl([getCategoryFallback(category)]);
   }
 
-  return [DEFAULT_FALLBACK_IMAGE];
+  return resolveImagesWithBackendUrl([DEFAULT_FALLBACK_IMAGE]);
 }
 
 export function getPrimaryPlaceImage(placeName?: string | null, category?: string | null): PlaceImage {
   const images = getPlaceImages(placeName, category);
-  return images[0] || DEFAULT_FALLBACK_IMAGE;
+  return images[0] || {
+    ...DEFAULT_FALLBACK_IMAGE,
+    src: getBackendAssetUrl(DEFAULT_FALLBACK_IMAGE.src),
+  };
 }
 
 export function getPlaceImageUrl(placeName?: string | null, category?: string | null): string {
   const img = getPrimaryPlaceImage(placeName, category);
-  return img.src;
+  return getBackendAssetUrl(img.src);
 }
 
 const DISCOVER_CATEGORY_CARDS: Record<string, PlaceImage> = {
@@ -5102,28 +5161,39 @@ export function getCategoryImage(category: string): PlaceImage {
   for (const [key, img] of Object.entries(CATEGORY_IMAGE_MANIFEST)) {
     const normKey = normalizeKey(key);
     if (norm === normKey || norm.includes(normKey) || normKey.includes(norm)) {
-      return img;
+      return {
+        ...img,
+        src: getBackendAssetUrl(img.src),
+      };
     }
   }
   for (const [key, img] of Object.entries(DISCOVER_CATEGORY_CARDS)) {
     const normKey = normalizeKey(key);
     if (norm === normKey || norm.includes(normKey) || normKey.includes(norm)) {
-      return img;
+      return {
+        ...img,
+        src: getBackendAssetUrl(img.src),
+      };
     }
   }
-  return getCategoryFallback(category);
+  const fallback = getCategoryFallback(category);
+  return {
+    ...fallback,
+    src: getBackendAssetUrl(fallback.src),
+  };
 }
 
 export function getPlaceGallery(placeName?: string | null, category?: string | null): PlaceImageMeta[] {
   const images = getPlaceImages(placeName, category);
   return images.map((img) => ({
-    url: img.src.replace(/\/(thumbnail|card)\.webp$/i, "/hero.webp"),
+    url: getBackendAssetUrl(img.src.replace(/\/(thumbnail|card)\.webp$/i, "/hero.webp")),
     alt: img.alt,
     source: img.source || "Wikimedia Commons",
     license: img.license || "CC BY-SA 4.0",
     attribution: img.attribution || img.title || "Odisha Tourism Documentation",
   }));
 }
+
 
 export function getPlaceRegion(districtOrPlaceId?: string, placeId?: string): string {
   return getRegionForPlace(districtOrPlaceId, placeId);

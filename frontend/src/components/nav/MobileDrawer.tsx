@@ -75,9 +75,9 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
         <div className="p-5 border-b border-[#263244] flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <img
-              src="/images/logo.png"
+              src="/logo.jpeg"
               alt="O-Travelz Logo"
-              className="w-7 h-7 rounded-xl object-contain shadow-xs shrink-0"
+              className="w-7 h-7 rounded-xl object-cover ring-1 ring-teal-500/40 shadow-xs shrink-0"
               onError={(e) => {
                 (e.target as HTMLElement).style.display = 'none';
               }}

@@ -45,6 +45,7 @@ import {
 } from "lucide-react";
 
 import { LocationPermissionModal } from "../components/location/LocationPermissionModal";
+import { useGeolocation } from "../hooks/useGeolocation";
 import { PrivacyPolicyPage } from "../components/legal/PrivacyPolicyPage";
 import { TermsConditionsPage } from "../components/legal/TermsConditionsPage";
 import { ContactGrievancePage } from "../components/legal/ContactGrievancePage";
@@ -132,7 +133,6 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
   const [activeTab, setActiveTab] = useState<AppView>(getInitialTab);
   const [selectedCategory, setSelectedCategory] = useState<string>("Nature");
   const [selectedLocation, setSelectedLocation] = useState<string>("Bhubaneswar");
-  const [userCoords, setUserCoords] = useState<{lat: number, lon: number} | null>(null);
   const [destinationSearch, setDestinationSearch] = useState<string>("");
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
   const [isAISidebarOpen, setIsAISidebarOpen] = useState(false);
@@ -140,11 +140,31 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
   const [activeMode, setActiveMode] = useState<PlanningMode>("structured");
   const [activeResultTab, setActiveResultTab] = useState<ResultViewTab>("itinerary");
 
-  // Location consent states (Two-Step Permission Flow)
-  const [locationStatus, setLocationStatus] = useState<"granted" | "not_granted" | "denied" | "loading">("not_granted");
-  const [locationError, setLocationError] = useState<string | null>(null);
-  const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
-  const [locationText, setLocationText] = useState<string>("");
+  // Robust Client-Side Geolocation State Machine Hook
+  const {
+    status: geoStatus,
+    coords: geoCoords,
+    errorMessage: geoError,
+    isModalOpen: isLocationModalOpen,
+    openPrompt: handleOpenLocationPrompt,
+    confirmAndRequest: handleAllowLocation,
+    retry: handleRetryLocation,
+    dismissModal: handleCloseLocationModal,
+  } = useGeolocation();
+
+  // Location display calculation - strictly only when status is granted or active
+  const isLiveActive = (geoStatus === "granted" || geoStatus === "active") && geoCoords !== null;
+  const userCoords = isLiveActive ? { lat: geoCoords.lat, lon: geoCoords.lon } : null;
+
+  let locationText = "";
+  if (isLiveActive && geoCoords) {
+    const closest = findClosestOdishaHub(geoCoords.lat, geoCoords.lon);
+    if (closest.distanceKm <= 500) {
+      locationText = `${closest.name}, Odisha`;
+    } else {
+      locationText = `Odisha (${closest.name} Hub)`;
+    }
+  }
 
   // Selected place for modal information
   const [selectedPlaceForModal, setSelectedPlaceForModal] =
@@ -160,46 +180,6 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
   const { addRecentPlace, count: revisitCount } = useRecentPlaces();
   const { places: allVerifiedPlaces, getPlaceByName } = usePlaces();
 
-  // Two-Step Geolocation Handler
-  const handleOpenLocationPrompt = () => {
-    setIsLocationModalOpen(true);
-    setLocationError(null);
-  };
-
-  const handleAllowLocation = () => {
-    if (typeof navigator === "undefined" || !navigator.geolocation) {
-      setLocationError("Geolocation is not supported by your browser.");
-      setLocationStatus("denied");
-      return;
-    }
-
-    setLocationStatus("loading");
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const coords = {
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        };
-        setUserCoords(coords);
-        setLocationStatus("granted");
-        setLocationError(null);
-        setIsLocationModalOpen(false);
-
-        const closest = findClosestOdishaHub(coords.lat, coords.lon);
-        setLocationText(`${closest.name}, Odisha`);
-      },
-      (error) => {
-        console.warn("Geolocation permission error:", error);
-        setLocationStatus("denied");
-        if (error.code === error.PERMISSION_DENIED) {
-          setLocationError("Location access was denied in your browser settings.");
-        } else {
-          setLocationError("Unable to retrieve location coordinates at this time.");
-        }
-      },
-      { timeout: 10000, enableHighAccuracy: true }
-    );
-  };
 
   const {
     conversations,
@@ -535,10 +515,11 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
         onOpenSettings={() => setIsSettingsModalOpen(true)}
         savedCount={savedCount}
         revisitCount={revisitCount}
-        locationStatus={locationStatus}
+        locationStatus={geoStatus}
         locationText={locationText}
         onRequestLocation={handleOpenLocationPrompt}
       />
+
 
       {/* 2. Mobile Drawer */}
       <MobileDrawer
@@ -915,12 +896,13 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
       {/* 5. Two-Step Geolocation Permission Explanation Modal */}
       <LocationPermissionModal
         isOpen={isLocationModalOpen}
-        onClose={() => setIsLocationModalOpen(false)}
+        onClose={handleCloseLocationModal}
         onConfirm={handleAllowLocation}
-        isLoading={locationStatus === "loading"}
-        error={locationError}
-        onRetry={handleAllowLocation}
+        isLoading={geoStatus === "requesting"}
+        error={geoError}
+        onRetry={handleRetryLocation}
       />
+
 
       {/* 6. AI Copilot Side Drawer */}
       <AISidebar

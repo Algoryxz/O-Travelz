@@ -15,12 +15,14 @@ def get_current_weather(
     lat: float | None = Query(None, description="Latitude in EPSG:4326"),
     lon: float | None = Query(None, description="Longitude in EPSG:4326"),
     location_name: str | None = Query(None, description="Location name, e.g. Bhubaneswar"),
+    hub: str | None = Query(None, description="Hub alias for location name"),
 ) -> WeatherResponse:
     """Get current weather observation for a location."""
+    effective_name = location_name or hub
     return _service.get_weather_for_location(
         lat=lat,
         lon=lon,
-        location_name=location_name,
+        location_name=effective_name,
     )
 
 
@@ -29,10 +31,12 @@ def get_weather_forecast(
     lat: float | None = Query(None, description="Latitude in EPSG:4326"),
     lon: float | None = Query(None, description="Longitude in EPSG:4326"),
     location_name: str | None = Query(None, description="Location name, e.g. Bhubaneswar"),
+    hub: str | None = Query(None, description="Hub alias for location name"),
 ) -> WeatherResponse:
     """Get weather forecast for a location."""
+    effective_name = location_name or hub
     return _service.get_weather_for_location(
         lat=lat,
         lon=lon,
-        location_name=location_name,
+        location_name=effective_name,
     )

@@ -9,7 +9,9 @@ if str(backend_dir) not in sys.path:
 from app.db.session import SessionLocal
 from app.db.base import Base, Place, PlaceImage
 
-manifest = json.loads(Path("data/images/sources/manifest.json").read_text(encoding="utf-8"))
+manifest_path = Path(__file__).resolve().parent.parent / "data" / "images" / "sources" / "manifest.json"
+manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
 db = SessionLocal()
 count = 0
 for m in manifest:

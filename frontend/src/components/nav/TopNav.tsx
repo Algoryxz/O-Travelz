@@ -43,11 +43,24 @@ export interface TopNavProps {
   onOpenSettings?: () => void;
   savedCount?: number;
   revisitCount?: number;
-  locationStatus?: "granted" | "not_granted" | "denied" | "loading";
+  locationStatus?:
+    | "granted"
+    | "active"
+    | "not_granted"
+    | "idle"
+    | "prompt"
+    | "denied"
+    | "loading"
+    | "requesting"
+    | "timeout"
+    | "unavailable"
+    | "unsupported";
+
   locationText?: string;
   onRequestLocation?: () => void;
   [key: string]: any;
 }
+
 
 const AVAILABLE_LOCATIONS = [
   "Bhubaneswar",
@@ -128,9 +141,9 @@ export const TopNav: React.FC<TopNavProps> = ({
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => onTabChange("discover")}>
             <div className="relative flex items-center justify-center">
               <img
-                src="/images/logo.png"
+                src="/logo.jpeg"
                 alt="O-Travelz Logo"
-                className="w-8 h-8 rounded-xl object-contain shadow-xs shrink-0"
+                className="w-8 h-8 rounded-xl object-cover ring-1 ring-teal-500/40 shadow-xs shrink-0"
                 onError={(e) => {
                   (e.target as HTMLElement).style.display = 'none';
                 }}
@@ -153,6 +166,7 @@ export const TopNav: React.FC<TopNavProps> = ({
               </p>
             </div>
           </div>
+
 
           {/* Desktop Navigation Pills */}
           <nav className="hidden md:flex items-center gap-1.5 bg-[#111827]/80 p-1.5 rounded-2xl border border-[#263244]">
@@ -322,39 +336,51 @@ export const TopNav: React.FC<TopNavProps> = ({
               data-testid="header-live-location-control"
               onClick={onRequestLocation}
               title={
-                locationStatus === "granted"
+                locationStatus === "granted" || locationStatus === "active"
                   ? `Live Location Active: ${locationText || selectedLocation}`
                   : locationStatus === "denied"
-                  ? "Location Blocked — Click to view settings"
-                  : "Click to enable Live Location"
+                  ? "Location permission denied — Click to view settings"
+                  : locationStatus === "loading" || locationStatus === "requesting"
+                  ? "Finding your location…"
+                  : locationStatus === "timeout"
+                  ? "Location request timed out — Click to try again"
+                  : locationStatus === "unavailable"
+                  ? "Location unavailable — Click to retry"
+                  : locationStatus === "unsupported"
+                  ? "Location not supported by browser"
+                  : "Use my live location"
               }
               className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all cursor-pointer shadow-xs ${
-                locationStatus === "granted"
+                locationStatus === "granted" || locationStatus === "active"
                   ? "bg-[#172235] border-teal-500/50 text-teal-300 hover:border-teal-400"
                   : locationStatus === "denied"
                   ? "bg-rose-950/40 border-rose-500/40 text-rose-300 hover:border-rose-400"
-                  : locationStatus === "loading"
+                  : locationStatus === "loading" || locationStatus === "requesting"
                   ? "bg-[#172235] border-amber-500/40 text-amber-300"
+                  : locationStatus === "timeout" || locationStatus === "unavailable"
+                  ? "bg-amber-950/40 border-amber-500/40 text-amber-300 hover:border-amber-400"
                   : "bg-[#111827] border-[#263244] text-slate-300 hover:border-slate-500 hover:text-white"
               }`}
             >
               {/* Status Dot */}
-              {locationStatus === "granted" ? (
+              {locationStatus === "granted" || locationStatus === "active" ? (
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500" />
                 </span>
               ) : locationStatus === "denied" ? (
                 <span className="h-2 w-2 rounded-full bg-rose-500 shrink-0" />
-              ) : locationStatus === "loading" ? (
+              ) : locationStatus === "loading" || locationStatus === "requesting" ? (
                 <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
+              ) : locationStatus === "timeout" || locationStatus === "unavailable" ? (
+                <span className="h-2 w-2 rounded-full bg-amber-500 shrink-0" />
               ) : (
                 <span className="h-2 w-2 rounded-full bg-amber-400/80 shrink-0" />
               )}
 
               {/* Status Text */}
               <div className="flex items-center gap-1">
-                {locationStatus === "granted" ? (
+                {locationStatus === "granted" || locationStatus === "active" ? (
                   <>
                     <span className="font-bold text-teal-200">LIVE Location</span>
                     <span className="hidden lg:inline text-slate-400 font-normal">
@@ -363,13 +389,23 @@ export const TopNav: React.FC<TopNavProps> = ({
                   </>
                 ) : locationStatus === "denied" ? (
                   <span className="text-rose-300">Location Blocked</span>
-                ) : locationStatus === "loading" ? (
-                  <span className="text-amber-300">Locating...</span>
-                ) : (
+                ) : locationStatus === "loading" || locationStatus === "requesting" ? (
+                  <span className="text-amber-300">Finding your location…</span>
+                ) : locationStatus === "timeout" ? (
+                  <span className="text-amber-300">Location Timeout</span>
+                ) : locationStatus === "unavailable" ? (
+                  <span className="text-amber-300">Location Unavailable</span>
+                ) : locationStatus === "unsupported" ? (
+                  <span className="text-slate-400">Location Unsupported</span>
+                ) : locationStatus === "not_granted" ? (
                   <span className="text-slate-200">Enable Location</span>
+                ) : (
+                  <span className="text-slate-200">Use my live location</span>
                 )}
               </div>
             </button>
+
+
 
             {/* Hub Selector Dropdown */}
             <div className="relative hidden sm:block" ref={locationMenuRef}>

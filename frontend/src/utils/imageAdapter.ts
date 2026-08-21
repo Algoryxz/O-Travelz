@@ -12,6 +12,7 @@ import {
   getPrimaryPlaceImage,
   getPlaceGallery,
   getPlaceImageUrl,
+  getBackendAssetUrl,
   DEFAULT_FALLBACK_IMAGE,
 } from "./imageService";
 
@@ -29,17 +30,23 @@ export interface PlaceLike {
  * Select the appropriate URL string from a PlaceImageContract based on requested variant.
  */
 export function getVariantUrl(img: PlaceImageContract, variant: ImageVariant = "card"): string {
+  let url = img.url;
   switch (variant) {
     case "thumbnail":
-      return img.thumbnail_url || img.card_url || img.url;
+      url = img.thumbnail_url || img.card_url || img.url;
+      break;
     case "card":
-      return img.card_url || img.url;
+      url = img.card_url || img.url;
+      break;
     case "hero":
     case "original":
     default:
-      return img.url;
+      url = img.url;
+      break;
   }
+  return getBackendAssetUrl(url);
 }
+
 
 /**
  * Sorts and selects images, ensuring primary image comes first.
@@ -135,7 +142,7 @@ export function resolvePlaceImageUrl(
   }
 
   if (place?.imageUrl && isSafePlaceAsset(place, place.imageUrl)) {
-    return place.imageUrl;
+    return getBackendAssetUrl(place.imageUrl);
   }
 
   return getPlaceImageUrl(place?.name, place?.category);

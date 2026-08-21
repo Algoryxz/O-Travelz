@@ -40,9 +40,9 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="space-y-3 md:col-span-2">
             <div className="flex items-center gap-2.5">
               <img
-                src="/images/logo.png"
+                src="/logo.jpeg"
                 alt="O-Travelz Logo"
-                className="w-7 h-7 rounded-xl object-contain shadow-xs shrink-0"
+                className="w-7 h-7 rounded-xl object-cover ring-1 ring-teal-500/40 shadow-xs shrink-0"
                 onError={(e) => {
                   (e.target as HTMLElement).style.display = 'none';
                 }}

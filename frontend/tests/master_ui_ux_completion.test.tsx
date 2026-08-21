@@ -285,7 +285,7 @@ describe("Master UI / UX / Product Completion Test Suite", () => {
         onOpenMobileDrawer={() => {}}
       />
     );
-    expect(navHtml).toContain("/images/logo");
+    expect(navHtml).toContain("/logo.jpeg");
     expect(navHtml).toContain("O-Travelz");
     expect(navHtml).toContain("safe • secure • smart");
 
@@ -297,7 +297,7 @@ describe("Master UI / UX / Product Completion Test Suite", () => {
         onSelectTab={() => {}}
       />
     );
-    expect(drawerHtml).toContain("/images/logo");
+    expect(drawerHtml).toContain("/logo.jpeg");
     expect(drawerHtml).toContain("Odisha, in your rhythm.");
   });
 });

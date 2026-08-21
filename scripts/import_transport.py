@@ -838,6 +838,27 @@ def import_transport_sources(
     )
 
 
+def _open_session() -> Any:
+    if str(BACKEND_DIR) not in sys.path:
+        sys.path.insert(0, str(BACKEND_DIR))
+    from app.db.session import SessionLocal
+
+    return SessionLocal()
+
+
+def _default_postgis_location_builder(stop_dict: dict[str, Any]) -> Any:
+    lat = stop_dict.get("lat")
+    lon = stop_dict.get("lon")
+    if lat is None or lon is None:
+        return None
+    try:
+        from geoalchemy2.elements import WKTElement
+
+        return WKTElement(f"POINT({lon} {lat})", srid=4326)
+    except ImportError:
+        return f"POINT({lon} {lat})"
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Validate or import transport data.")
     parser.add_argument(
@@ -860,20 +881,32 @@ def main(argv: list[str] | None = None) -> int:
         f"{len(normalized.fare_rules)} fare rules"
     )
     if args.validate:
-        if normalized.stops:
-            print(
-                "ERROR: stop import remains blocked until the canonical lat/lon to PostGIS "
-                "location mapping OPEN DECISION is approved"
-            )
-            return 1
         print("Validation passed")
         return 0
 
+    session = _open_session()
+    try:
+        result = import_transport_sources(
+            session,
+            bundle,
+            location_builder=_default_postgis_location_builder,
+        )
+    except Exception as exc:
+        session.rollback()
+        print(f"ERROR: database import failed: {exc}")
+        return 1
+    finally:
+        session.close()
+
     print(
-        "ERROR: transport import requires an explicit approved stop location mapping; "
-        "use import_transport_sources from a controlled caller after that decision"
+        f"Imported {result.created_providers} providers, "
+        f"{result.created_stops} stops, "
+        f"{result.created_routes} routes, "
+        f"{result.created_route_stops} route stops, "
+        f"{result.created_scheduled_trips} scheduled trips, "
+        f"{result.created_fare_rules} fare rules"
     )
-    return 1
+    return 0
 
 
 if __name__ == "__main__":
