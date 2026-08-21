@@ -1,25 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 @import 'leaflet/dist/leaflet.css';
 
 @theme {
-  /* Brand V2 Palette */
-  --color-brand-cream: #FBF8F1;
-  --color-brand-ink: #1E1E1E;
-  --color-brand-emerald: #059669;
-  --color-brand-obsidian: #0B0F19;
+  /* Core Semantic Neutral Canvas & Surfaces */
+  --color-canvas-bg: #0B1220;
+  --color-surface: #111827;
+  --color-surface-elevated: #172235;
+  --color-surface-hover: #1E2D44;
+  --color-surface-card: #0F172A;
+  --color-border-subtle: #1F293D;
+  --color-border-default: #263244;
+  --color-border-strong: #334155;
 
-  /* Additional shades for UI elements */
-  --color-emerald-dark: #064e3b;
-  --color-emerald-deep: #042f24;
-  --color-emerald-light: #10b981;
-  --color-emerald-mint: #34d399;
-  --color-emerald-surface: #ecfdf5;
+  /* Typography Colors */
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-text-inverse: #0F172A;
+
+  /* Restrained Accents */
+  --color-brand-teal: #14B8A6;
+  --color-brand-teal-dark: #0F766E;
+  --color-brand-teal-light: #2DD4BF;
+  --color-brand-teal-subtle: rgba(20, 184, 166, 0.12);
+
+  --color-accent-saffron: #F59E0B;
+  --color-accent-saffron-dark: #D97706;
+  --color-accent-coral: #F97370;
+  --color-accent-sky: #38BDF8;
+  --color-accent-violet: #8B7CF6;
+
+  /* Semantic Category Colors */
+  --color-cat-nature: #10B981;
+  --color-cat-heritage: #D97706;
+  --color-cat-beach: #0284C7;
+  --color-cat-food: #F59E0B;
+  --color-cat-shopping: #A855F7;
+  --color-cat-medical: #F43F5E;
+  --color-cat-transit: #06B6D4;
+
+  /* Backward-compatible variables for components referencing brand emerald */
+  --color-brand-cream: #F8FAFC;
+  --color-brand-ink: #0F172A;
+  --color-brand-emerald: #14B8A6;
+  --color-brand-obsidian: #0B1220;
+
+  /* Emerald Tonal Scale (Disciplined Teal/Emerald) */
+  --color-emerald-950: #06211C;
+  --color-emerald-900: #0A372E;
+  --color-emerald-800: #0F5E4E;
+  --color-emerald-700: #0F766E;
+  --color-emerald-600: #14B8A6;
+  --color-emerald-500: #2DD4BF;
+  --color-emerald-400: #5EEAD4;
+  --color-emerald-300: #99F6E4;
+  --color-emerald-100: #CCFBF1;
+  --color-emerald-50: #F0FDFA;
 
   /* Typography */
-  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-serif: 'DM Serif Display', Georgia, serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'DM Mono', monospace;
 }
 
@@ -34,76 +76,19 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--color-brand-obsidian);
-  color: var(--color-brand-cream);
+  font-family: var(--font-body);
+  background: #0B1220;
+  color: #F8FAFC;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark Theme (Canonical) */
-html.dark body {
-  background: var(--color-brand-obsidian);
-  color: var(--color-brand-cream);
+html[data-theme="light"] body {
+  background: #F8FAFC;
+  color: #0F172A;
 }
 
-html.dark .bg-white {
-  background-color: #161B22 !important;
-  color: var(--color-brand-cream) !important;
-}
-
-html.dark .bg-gray-50 {
-  background-color: #0d1a16 !important;
-  color: #c9ded6 !important;
-}
-
-html.dark .bg-gray-100 {
-  background-color: #182e27 !important;
-  color: #d1e6de !important;
-}
-
-html.dark .border-gray-100,
-html.dark .border-gray-200,
-html.dark .border-gray-300 {
-  border-color: #1e3a32 !important;
-}
-
-html.dark .text-gray-900 {
-  color: #f1f8f5 !important;
-}
-
-html.dark .text-gray-800 {
-  color: #e2ede8 !important;
-}
-
-html.dark .text-gray-700 {
-  color: #c7ded5 !important;
-}
-
-html.dark .text-gray-600 {
-  color: #a4c4b8 !important;
-}
-
-html.dark .text-gray-500 {
-  color: #83a89b !important;
-}
-
-html.dark .text-gray-400 {
-  color: #688c80 !important;
-}
-
-html.dark input,
-html.dark select,
-html.dark textarea {
-  background-color: #0c1a16 !important;
-  color: #f1f8f5 !important;
-  border-color: #23433a !important;
-}
-
-html.dark .topbar {
-  background: rgba(13, 27, 23, 0.92) !important;
-  border-bottom-color: #1e3a32 !important;
-}
-
+/* Base Form & Interactive Typography */
 button, input, select, textarea {
   font: inherit;
 }
@@ -114,14 +99,14 @@ button {
 }
 
 button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-  outline: 2px solid #059669;
+  outline: 2px solid #14B8A6;
   outline-offset: 2px;
 }
 
-/* Animations */
+/* Subtle, Disciplined Status Animations */
 @keyframes livepulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.92); }
+  50% { opacity: 0.45; transform: scale(0.94); }
 }
 
 .live-dot {
@@ -129,49 +114,21 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #10b981;
-  animation: livepulse 2.2s ease-in-out infinite;
+  background: #14B8A6;
+  animation: livepulse 2.5s ease-in-out infinite;
 }
 
-@keyframes floatcard {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
-}
-
-.float-slow {
-  animation: floatcard 6s ease-in-out infinite;
-}
-
-/* Glassmorphism & Cards */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(229, 231, 235, 0.8);
-}
-
-html.dark .glass-panel {
-  background: rgba(17, 34, 29, 0.88) !important;
-  border-color: rgba(30, 58, 50, 0.8) !important;
-}
-
-.glass-dark-card {
-  background: rgba(14, 44, 38, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+/* Disciplined Elevation & Surfaces */
 .shadow-paper {
-  box-shadow: 0 4px 20px -2px rgba(12, 45, 36, 0.08), 0 2px 6px -1px rgba(12, 45, 36, 0.04);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.15);
 }
 
 .shadow-paper-lg {
-  box-shadow: 0 10px 30px -4px rgba(12, 45, 36, 0.12), 0 4px 10px -2px rgba(12, 45, 36, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
 }
 
 .shadow-paper-xl {
-  box-shadow: 0 20px 40px -6px rgba(12, 45, 36, 0.16), 0 8px 16px -4px rgba(12, 45, 36, 0.08);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -4px rgba(0, 0, 0, 0.25);
 }
 
 /* Top Navigation Bar */
@@ -183,14 +140,14 @@ html.dark .glass-panel {
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(11, 18, 32, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
-  transition: all 0.2s ease;
+  border-bottom: 1px solid #263244;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-/* Custom Scrollbar */
+/* Custom Minimal Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -201,10 +158,10 @@ html.dark .glass-panel {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(5, 150, 105, 0.25);
+  background: rgba(148, 163, 184, 0.2);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(5, 150, 105, 0.5);
+  background: rgba(20, 184, 166, 0.4);
 }

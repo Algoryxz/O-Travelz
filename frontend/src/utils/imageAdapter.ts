@@ -90,6 +90,15 @@ export function contractToPlaceImageMeta(
   };
 }
 
+function isSafePlaceAsset(place?: PlaceLike | null, imgUrl?: string): boolean {
+  if (!place) return true;
+  // Protect against deprecated bhoga sweets asset hash (14877b098df9)
+  if (imgUrl && imgUrl.includes("14877b098df9")) {
+    return false;
+  }
+  return true;
+}
+
 /**
  * Resolves the primary PlaceImage for a destination, preferring backend API imagery
  * and gracefully falling back to imageService.ts.
@@ -98,9 +107,12 @@ export function resolvePlaceImage(
   place?: PlaceLike | null,
   variant: ImageVariant = "card"
 ): PlaceImage {
-  if (place?.images && place.images.length > 0) {
+  if (place?.images && place.images.length > 0 && isSafePlaceAsset(place)) {
     const sorted = sortPlaceImages(place.images);
-    return contractToPlaceImage(sorted[0], place.name, variant);
+    const candidateUrl = getVariantUrl(sorted[0], variant);
+    if (isSafePlaceAsset(place, candidateUrl)) {
+      return contractToPlaceImage(sorted[0], place.name, variant);
+    }
   }
 
   // Graceful fallback to imageService.ts
@@ -114,12 +126,15 @@ export function resolvePlaceImageUrl(
   place?: PlaceLike | null,
   variant: ImageVariant = "card"
 ): string {
-  if (place?.images && place.images.length > 0) {
+  if (place?.images && place.images.length > 0 && isSafePlaceAsset(place)) {
     const sorted = sortPlaceImages(place.images);
-    return getVariantUrl(sorted[0], variant);
+    const candidateUrl = getVariantUrl(sorted[0], variant);
+    if (isSafePlaceAsset(place, candidateUrl)) {
+      return candidateUrl;
+    }
   }
 
-  if (place?.imageUrl) {
+  if (place?.imageUrl && isSafePlaceAsset(place, place.imageUrl)) {
     return place.imageUrl;
   }
 
@@ -133,11 +148,15 @@ export function resolvePlaceImageUrl(
 export function resolvePlaceGallery(
   place?: PlaceLike | null
 ): PlaceImageMeta[] {
-  if (place?.images && place.images.length > 0) {
+  if (place?.images && place.images.length > 0 && isSafePlaceAsset(place)) {
     const sorted = sortPlaceImages(place.images);
-    return sorted.map((img) => contractToPlaceImageMeta(img, place.name, "hero"));
+    const filtered = sorted.filter((img) => isSafePlaceAsset(place, getVariantUrl(img, "hero")));
+    if (filtered.length > 0) {
+      return filtered.map((img) => contractToPlaceImageMeta(img, place.name, "hero"));
+    }
   }
 
   // Graceful fallback to imageService.ts
   return getPlaceGallery(place?.name, place?.category);
 }
+

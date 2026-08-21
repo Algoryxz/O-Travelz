@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Compass, MapPin, ArrowRight, Heart } from "lucide-react";
+import { ChevronLeft, ChevronRight, Compass, MapPin, Heart } from "lucide-react";
 import { useSavedPlaces } from "../../store/useSavedPlaces";
 import { DEFAULT_FALLBACK_IMAGE } from "../../utils/imageService";
 
@@ -142,17 +142,17 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
         <div className="flex items-end justify-between gap-4 mb-3 px-1 sm:px-0">
           <div>
             {tag && (
-              <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono">
+              <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#14B8A6] font-mono">
                 {tag}
               </div>
             )}
             {title && (
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold font-display text-gray-900 dark:text-white tracking-tight mt-0.5">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold font-display text-white tracking-tight mt-0.5">
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 max-w-xl line-clamp-1 sm:line-clamp-none">
+              <p className="text-xs text-slate-400 mt-0.5 max-w-xl line-clamp-1 sm:line-clamp-none">
                 {subtitle}
               </p>
             )}
@@ -165,7 +165,7 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
               data-testid="coverflow-prev-button"
               onClick={handlePrev}
               aria-label="Previous destination"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 flex items-center justify-center shadow-2xs hover:shadow-xs transition-all cursor-pointer"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#111827] hover:bg-[#172235] border border-[#263244] text-slate-200 flex items-center justify-center shadow-xs transition-all cursor-pointer"
             >
               <ChevronLeft size={16} />
             </button>
@@ -174,7 +174,7 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
               data-testid="coverflow-next-button"
               onClick={handleNext}
               aria-label="Next destination"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 flex items-center justify-center shadow-2xs hover:shadow-xs transition-all cursor-pointer"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#111827] hover:bg-[#172235] border border-[#263244] text-slate-200 flex items-center justify-center shadow-xs transition-all cursor-pointer"
             >
               <ChevronRight size={16} />
             </button>
@@ -234,7 +234,7 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
                 zIndex,
                 opacity,
               }}
-              className="absolute w-[270px] sm:w-[320px] md:w-[340px] h-[310px] sm:h-[345px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 ease-out bg-slate-900 flex flex-col justify-end p-4 sm:p-5 text-white border border-emerald-500/20 hover:border-emerald-400/40 group cursor-pointer"
+              className="absolute w-[270px] sm:w-[320px] md:w-[340px] h-[310px] sm:h-[345px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 ease-out bg-[#111827] flex flex-col justify-end p-4 sm:p-5 text-white border border-[#263244] hover:border-[#14B8A6]/60 group cursor-pointer"
             >
               {/* Background Image with Object Cover & High Vibrancy */}
               <img
@@ -248,11 +248,11 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
               />
 
               {/* Refined Gradient Overlay Preserving Photographic Clarity in Upper/Middle areas */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 via-45% to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 via-50% to-transparent pointer-events-none" />
 
               {/* Top Badges */}
               <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
-                <span className="px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-emerald-300 text-[10px] font-bold uppercase tracking-wider border border-white/10">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#111827]/80 backdrop-blur-md text-teal-300 text-[10px] font-bold uppercase tracking-wider border border-[#263244]">
                   {item.category}
                 </span>
 
@@ -271,7 +271,7 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
                   }}
                   className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center backdrop-blur-md border transition-colors cursor-pointer ${
                     saved
-                      ? "bg-rose-500/80 border-rose-400 text-white"
+                      ? "bg-rose-600/90 border-rose-500 text-white shadow-sm"
                       : "bg-black/40 hover:bg-black/60 border-white/20 text-white"
                   }`}
                   aria-label={`Save ${item.title}`}
@@ -283,8 +283,8 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
               {/* Bottom Caption & Action Button */}
               <div className="relative z-10 space-y-1.5">
                 {item.location && (
-                  <div className="text-[10px] sm:text-[11px] text-emerald-200/90 font-medium flex items-center gap-1">
-                    <MapPin size={10} className="text-emerald-400" />
+                  <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium flex items-center gap-1">
+                    <MapPin size={10} className="text-[#14B8A6]" />
                     <span className="truncate">{item.location}</span>
                   </div>
                 )}
@@ -294,7 +294,7 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
                 </h3>
 
                 {item.description && (
-                  <p className="text-[11px] sm:text-xs text-gray-300 line-clamp-2 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-slate-300 line-clamp-2 leading-relaxed">
                     {item.description}
                   </p>
                 )}
@@ -312,7 +312,7 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
                           onSelectItem?.(item);
                         }
                       }}
-                      className="flex-1 py-1.5 sm:py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-colors cursor-pointer"
+                      className="flex-1 py-1.5 sm:py-2 px-3 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-colors cursor-pointer"
                     >
                       <Compass size={13} />
                       <span>Explore Details</span>
@@ -336,8 +336,8 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
             onClick={() => setActiveIndex(idx)}
             className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
               idx === activeIndex
-                ? "w-6 bg-emerald-600 dark:bg-emerald-400"
-                : "w-1.5 bg-gray-300 dark:bg-slate-700 hover:bg-gray-400"
+                ? "w-6 bg-[#14B8A6]"
+                : "w-1.5 bg-[#263244] hover:bg-slate-600"
             }`}
           />
         ))}

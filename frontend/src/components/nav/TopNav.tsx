@@ -1,38 +1,50 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
-  MapPin,
-  ChevronDown,
-  Menu,
-  Check,
-  LocateFixed,
-  Waves,
-  Sparkles,
-  Bot,
-  Settings,
-  RefreshCw,
   Compass,
+  MapPin,
+  Sparkles,
   Bookmark,
+  Menu,
+  ChevronDown,
+  Bot,
+  Layers,
+  Sun,
+  Moon,
   History,
-  LayoutDashboard,
-  Map as MapIcon,
+  CalendarDays,
+  Sliders,
+  MoreHorizontal,
+  Route,
 } from "lucide-react";
+import { useTheme } from "../../store/useTheme";
 
-export type NavTab = "discover" | "destinations" | "map" | "plan" | "saved" | "revisit";
+export type NavTab = "discover" | "destinations" | "map" | "plan" | "saved" | "revisit" | "category" | "settings";
 
-interface TopNavProps {
-  activeTab: NavTab;
-  onTabChange: (tab: NavTab) => void;
+export interface TopNavProps {
+  activeTab: string;
+  onTabChange: (tab: any) => void;
   selectedLocation: string;
-  onLocationChange: (location: string) => void;
+  onLocationChange: (location: any) => void;
   onOpenMobileDrawer: () => void;
+  onToggleCopilot?: () => void;
   onOpenAI?: () => void;
+  onRefreshLocation?: () => void;
   onOpenSettings?: () => void;
   savedCount?: number;
   revisitCount?: number;
-  isLiveLocation?: boolean;
-  onToggleLiveLocation?: () => void;
-  onRefreshLocation?: () => void;
+  [key: string]: any;
 }
+
+const AVAILABLE_LOCATIONS = [
+  "Bhubaneswar",
+  "Puri",
+  "Konark",
+  "Cuttack",
+  "Daringbadi",
+  "Sambalpur",
+  "Koraput",
+  "Chilika Lake",
+] as const;
 
 export const TopNav: React.FC<TopNavProps> = ({
   activeTab,
@@ -40,363 +52,335 @@ export const TopNav: React.FC<TopNavProps> = ({
   selectedLocation,
   onLocationChange,
   onOpenMobileDrawer,
-  onOpenAI,
+  onToggleCopilot,
   onOpenSettings,
   savedCount = 0,
   revisitCount = 0,
-  isLiveLocation = false,
-  onToggleLiveLocation,
-  onRefreshLocation,
 }) => {
-  const [showLocationMenu, setShowLocationMenu] = useState(false);
-  const [showNavMenu, setShowNavMenu] = useState(false);
-  const [isRefreshingLoc, setIsRefreshingLoc] = useState(false);
-  const locationMenuRef = useRef<HTMLDivElement>(null);
-  const navMenuRef = useRef<HTMLDivElement>(null);
+  const [locationDropdownOpen, setLocationDropdownOpen] = useState(false);
+  const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false);
+  const { toggleTheme, isDark } = useTheme();
 
-  // Close menus when clicking outside
+  const moreMenuRef = useRef<HTMLDivElement | null>(null);
+  const locationMenuRef = useRef<HTMLDivElement | null>(null);
+
+  // Close menus on outside click or Escape key
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        locationMenuRef.current &&
-        !locationMenuRef.current.contains(e.target as Node)
-      ) {
-        setShowLocationMenu(false);
+    const handlePointerDown = (e: MouseEvent) => {
+      if (moreMenuRef.current && !moreMenuRef.current.contains(e.target as Node)) {
+        setIsMoreMenuOpen(false);
       }
-      if (
-        navMenuRef.current &&
-        !navMenuRef.current.contains(e.target as Node)
-      ) {
-        setShowNavMenu(false);
+      if (locationMenuRef.current && !locationMenuRef.current.contains(e.target as Node)) {
+        setLocationDropdownOpen(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMoreMenuOpen(false);
+        setLocationDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
-  const handleRefresh = async (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsRefreshingLoc(true);
-    if (onRefreshLocation) {
-      await onRefreshLocation();
-    }
-    setTimeout(() => setIsRefreshingLoc(false), 800);
-  };
-
-  const locations = [
-    { name: "Bhubaneswar", subtitle: "Capital region & Old Town" },
-    { name: "Puri", subtitle: "Coastal heritage & beaches" },
-    { name: "Chilika Lake", subtitle: "Wetland & bird sanctuary" },
-    { name: "Konark", subtitle: "Sun Temple heritage" },
-    { name: "Daringbadi", subtitle: "Hill station & pine forests" },
-    { name: "Sambalpur", subtitle: "Hirakud & Western Odisha" },
-    { name: "Koraput", subtitle: "Highlands & tribal heritage" },
-    { name: "Cuttack", subtitle: "Silver city & Mahanadi river" },
-    { name: "Rourkela", subtitle: "Steel city & northern hills" },
+  const navItems = [
+    { id: "discover", label: "Discover", icon: Compass, testId: "nav-tab-discover" },
+    { id: "destinations", label: "Destinations", icon: Layers, testId: "nav-tab-destinations" },
+    { id: "map", label: "Map & Routes", icon: MapPin, testId: "nav-tab-map" },
+    { id: "plan", label: "Plan Trip", icon: Sparkles, testId: "nav-tab-plan" },
+    { id: "saved", label: "Saved", icon: Bookmark, testId: "nav-tab-saved", badge: savedCount },
   ];
 
-  return (
-    <header className="sticky top-0 z-40 w-full bg-[#08120F]/90 backdrop-blur-md border-b border-emerald-900/30 transition-all">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2 sm:gap-4">
-        {/* Left Area: Logo & Location Control */}
-        <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-          {/* Mobile drawer toggle */}
-          <button
-            type="button"
-            data-testid="mobile-menu-button"
-            onClick={onOpenMobileDrawer}
-            className="lg:hidden p-2 -ml-1 text-gray-300 hover:text-white rounded-lg hover:bg-emerald-950/50 transition-colors cursor-pointer"
-            aria-label="Open menu"
-          >
-            <Menu size={20} />
-          </button>
+  const handleMoreItemClick = (action: () => void) => {
+    action();
+    setIsMoreMenuOpen(false);
+  };
 
-          {/* Sleek Brand Logo Lockup */}
-          <div
-            data-testid="brand-logo-lockup"
-            className="flex items-center gap-2 cursor-pointer select-none group"
-            onClick={() => onTabChange("discover")}
-          >
-            <img
-              src="/images/logo.png"
-              alt="O-Travelz"
-              className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
-            />
-            <div className="hidden md:block text-left">
-              <span className="font-display font-bold text-sm text-white tracking-tight leading-none block">
-                O-Travelz
-              </span>
-              <span className="text-[9px] text-emerald-400/90 font-mono tracking-wider block">
+  return (
+    <header className="sticky top-0 z-40 w-full bg-[#0B1220]/95 backdrop-blur-md border-b border-[#263244] transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 md:h-18">
+          {/* Logo & Brand Lockup */}
+          <div className="flex items-center gap-3 cursor-pointer" onClick={() => onTabChange("discover")}>
+            <div className="relative flex items-center justify-center">
+              <img
+                src="/images/logo.png"
+                alt="O-Travelz Logo"
+                className="w-8 h-8 rounded-xl object-contain shadow-xs shrink-0"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = 'none';
+                }}
+              />
+              <svg className="w-8 h-8 text-[#14B8A6] hidden only-if-no-img" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="8" fill="#111827" stroke="#263244" strokeWidth="1.5"/>
+                <circle cx="16" cy="16" r="8" stroke="#14B8A6" strokeWidth="2.5" strokeDasharray="36 12"/>
+                <circle cx="16" cy="16" r="3.5" fill="#F59E0B"/>
+              </svg>
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="font-display font-black text-lg tracking-tight text-white">
+                  O-Travelz
+                </span>
+                <span className="live-dot" />
+              </div>
+              <p className="text-[10px] text-teal-400 font-medium tracking-wide">
                 safe • secure • smart
-              </span>
+              </p>
             </div>
           </div>
 
-          {/* Sleek Compact Location Control */}
-          <div className="relative" ref={locationMenuRef}>
-            <div className="flex items-center rounded-full bg-emerald-950/40 hover:bg-emerald-950/70 border border-emerald-800/40 transition-all text-xs">
-              <button
-                type="button"
-                data-testid="location-selector-button"
-                onClick={() => setShowLocationMenu(!showLocationMenu)}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-gray-200 hover:text-white font-medium transition-colors cursor-pointer"
-                title="Select destination hub"
-              >
-                <MapPin size={13} className="text-emerald-400 shrink-0" />
-                <span className="truncate max-w-[85px] sm:max-w-[120px] font-sans font-semibold text-xs text-emerald-100">
-                  {selectedLocation}
-                </span>
-                <ChevronDown size={11} className="text-emerald-400/70 shrink-0" />
-              </button>
-
-              <button
-                type="button"
-                data-testid="toggle-live-location-btn"
-                onClick={onToggleLiveLocation}
-                title={isLiveLocation ? "Live Location is ON (Click to toggle)" : "Live Location is OFF (Click to enable)"}
-                className="flex items-center gap-1 px-2.5 py-1 mr-1 rounded-full text-[10px] font-mono font-semibold transition-all cursor-pointer select-none hover:opacity-90"
-              >
-                <span
-                  className={`w-2 h-2 rounded-full shrink-0 ${
-                    isLiveLocation
-                      ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)] animate-pulse"
-                      : "bg-rose-500/80"
-                  }`}
-                />
-                <span className={isLiveLocation ? "text-emerald-300" : "text-gray-400"}>
-                  Live Location
-                </span>
-              </button>
-
-              {isLiveLocation && onRefreshLocation && (
+          {/* Desktop Navigation Pills */}
+          <nav className="hidden md:flex items-center gap-1.5 bg-[#111827]/80 p-1.5 rounded-2xl border border-[#263244]">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeTab === item.id;
+              return (
                 <button
+                  key={item.id}
                   type="button"
-                  data-testid="refresh-location-btn"
-                  onClick={handleRefresh}
-                  title="Refresh GPS position"
-                  className="p-1 mr-1 text-emerald-400/80 hover:text-emerald-200 rounded-full transition-colors cursor-pointer"
-                  aria-label="Refresh location"
+                  data-testid={item.testId}
+                  onClick={() => onTabChange(item.id)}
+                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? "bg-[#14B8A6] text-white shadow-xs font-bold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800"
+                  }`}
                 >
-                  <RefreshCw size={11} className={isRefreshingLoc ? "animate-spin text-emerald-300" : ""} />
+                  <Icon size={14} className={isActive ? "text-white" : "text-slate-400"} />
+                  <span>{item.label}</span>
+                  {item.badge !== undefined && item.badge > 0 && (
+                    <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-bold ${
+                      isActive ? "bg-white text-teal-800" : "bg-[#172235] text-teal-300 border border-[#263244]"
+                    }`}>
+                      {item.badge}
+                    </span>
+                  )}
                 </button>
+              );
+            })}
+
+            {/* Functional More Menu Trigger */}
+            <div className="relative" ref={moreMenuRef}>
+              <button
+                type="button"
+                data-testid="desktop-more-menu-btn"
+                aria-haspopup="true"
+                aria-expanded={isMoreMenuOpen}
+                aria-label="More navigation options"
+                onClick={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                  isMoreMenuOpen || activeTab === "revisit" || activeTab === "category"
+                    ? "bg-[#172235] text-[#14B8A6] border border-[#14B8A6]/40 font-bold"
+                    : "text-slate-300 hover:text-white hover:bg-slate-800"
+                }`}
+              >
+                <MoreHorizontal size={14} />
+                <span>More</span>
+                <ChevronDown size={12} className={`transition-transform duration-200 ${isMoreMenuOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {/* Functional More Menu Dropdown Surface */}
+              {isMoreMenuOpen && (
+                <div
+                  data-testid="desktop-more-menu-dropdown"
+                  role="menu"
+                  aria-label="More options menu"
+                  className="absolute right-0 mt-2 w-72 bg-[#111827]/98 backdrop-blur-xl border border-[#263244] rounded-2xl shadow-2xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150 divide-y divide-[#263244]"
+                >
+                  {/* Section 1: YOUR SPACE */}
+                  <div className="py-1.5 px-2">
+                    <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
+                      Your Space
+                    </div>
+                    <button
+                      type="button"
+                      role="menuitem"
+                      data-testid="more-menu-saved-places"
+                      onClick={() => handleMoreItemClick(() => onTabChange("saved"))}
+                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center justify-between cursor-pointer"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <Bookmark size={14} className="text-teal-400" />
+                        <span>Saved Places</span>
+                      </div>
+                      {savedCount > 0 && (
+                        <span className="px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-300 text-[10px] font-bold">
+                          {savedCount}
+                        </span>
+                      )}
+                    </button>
+
+                    <button
+                      type="button"
+                      role="menuitem"
+                      data-testid="more-menu-revisit-places"
+                      onClick={() => handleMoreItemClick(() => onTabChange("revisit"))}
+                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center justify-between cursor-pointer"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <History size={14} className="text-sky-400" />
+                        <span>Revisit Places</span>
+                      </div>
+                      {revisitCount > 0 && (
+                        <span className="px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-300 text-[10px] font-bold">
+                          {revisitCount}
+                        </span>
+                      )}
+                    </button>
+
+                    <button
+                      type="button"
+                      role="menuitem"
+                      data-testid="more-menu-planned-trips"
+                      onClick={() => handleMoreItemClick(() => onTabChange("plan"))}
+                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
+                    >
+                      <CalendarDays size={14} className="text-amber-400" />
+                      <span>Planned Trips &amp; Itineraries</span>
+                    </button>
+                  </div>
+
+                  {/* Section 2: DISCOVERY SHORTCUTS */}
+                  <div className="py-1.5 px-2">
+                    <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
+                      Discovery Shortcuts
+                    </div>
+                    <button
+                      type="button"
+                      role="menuitem"
+                      data-testid="more-menu-all-destinations"
+                      onClick={() => handleMoreItemClick(() => onTabChange("destinations"))}
+                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
+                    >
+                      <Layers size={14} className="text-teal-400" />
+                      <span>All Destinations Index (81)</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      role="menuitem"
+                      data-testid="more-menu-thematic-circuits"
+                      onClick={() => handleMoreItemClick(() => onTabChange("category"))}
+                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
+                    >
+                      <Route size={14} className="text-purple-400" />
+                      <span>Thematic Travel Circuits</span>
+                    </button>
+                  </div>
+
+                  {/* Section 3: PREFERENCES & TOOLS */}
+                  <div className="py-1.5 px-2">
+                    <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
+                      Preferences &amp; Tools
+                    </div>
+                    <button
+                      type="button"
+                      role="menuitem"
+                      data-testid="more-menu-trip-preferences"
+                      onClick={() => handleMoreItemClick(() => onOpenSettings && onOpenSettings())}
+                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
+                    >
+                      <Sliders size={14} className="text-emerald-400" />
+                      <span>Trip Preferences</span>
+                    </button>
+                  </div>
+                </div>
               )}
             </div>
+          </nav>
 
-            {/* Location Selector Dropdown Popover */}
-            {showLocationMenu && (
-              <div className="absolute left-0 top-full mt-2 w-72 p-2.5 rounded-2xl bg-[#091813] border border-emerald-700/50 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-150 text-white">
-                <div className="flex items-center justify-between px-2 py-1 border-b border-emerald-900/40 mb-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 font-mono">
-                    Explore Regional Hub
-                  </span>
-                  <span className="text-[10px] text-emerald-300/60 font-mono">9 Hubs</span>
-                </div>
+          {/* Right Action Controls: Location Selector + Theme Toggle + Copilot Button + Mobile Menu */}
+          <div className="flex items-center gap-2.5">
+            {/* Location Selector Dropdown */}
+            <div className="relative" ref={locationMenuRef}>
+              <button
+                type="button"
+                data-testid="location-selector"
+                onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#111827] border border-[#263244] hover:border-slate-500 text-xs font-semibold text-slate-200 transition-colors cursor-pointer"
+              >
+                <MapPin size={13} className="text-[#14B8A6]" />
+                <span className="truncate max-w-[100px] sm:max-w-none">{selectedLocation}</span>
+                <ChevronDown size={13} className="text-slate-400" />
+              </button>
 
-                <div className="space-y-0.5 max-h-64 overflow-y-auto pr-1">
-                  {locations.map((loc) => (
+              {locationDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-[#111827] border border-[#263244] rounded-2xl shadow-xl py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="px-3 py-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-[#263244] font-mono">
+                    Select Odisha Hub
+                  </div>
+                  {AVAILABLE_LOCATIONS.map((loc) => (
                     <button
-                      key={loc.name}
+                      key={loc}
                       type="button"
                       onClick={() => {
-                        onLocationChange(loc.name);
-                        setShowLocationMenu(false);
+                        onLocationChange(loc);
+                        setLocationDropdownOpen(false);
                       }}
-                      className={`w-full flex items-center justify-between p-2 rounded-xl text-left transition-colors cursor-pointer ${
-                        selectedLocation === loc.name
-                          ? "bg-emerald-900/60 text-emerald-200 font-semibold"
-                          : "hover:bg-emerald-950/50 text-gray-300 hover:text-white"
+                      className={`w-full text-left px-3 py-2 text-xs transition-colors flex items-center justify-between cursor-pointer ${
+                        selectedLocation === loc
+                          ? "bg-[#172235] text-[#14B8A6] font-bold"
+                          : "text-slate-300 hover:bg-slate-800 hover:text-white"
                       }`}
                     >
-                      <div className="flex items-center gap-2">
-                        {loc.name === "Chilika Lake" ? (
-                          <Waves size={14} className="text-emerald-400 shrink-0" />
-                        ) : (
-                          <LocateFixed size={14} className="text-emerald-400 shrink-0" />
-                        )}
-                        <div>
-                          <div className="text-xs font-semibold text-white">{loc.name}</div>
-                          <div className="text-[10px] text-emerald-300/60">{loc.subtitle}</div>
-                        </div>
-                      </div>
-                      {selectedLocation === loc.name && (
-                        <Check size={13} className="text-emerald-400 shrink-0" />
-                      )}
+                      <span>{loc}</span>
+                      {selectedLocation === loc && <span className="w-1.5 h-1.5 rounded-full bg-[#14B8A6]" />}
                     </button>
                   ))}
                 </div>
-              </div>
-            )}
-          </div>
-        </div>
+              )}
+            </div>
 
-        {/* Center: Desktop Navigation Tabs (Lightweight, Understated) */}
-        <nav className="hidden lg:flex items-center gap-1" aria-label="Main Navigation">
-          {[
-            { id: "discover", label: "Discover", testId: "nav-tab-discover" },
-            { id: "destinations", label: "Destinations", testId: "nav-tab-destinations" },
-            { id: "map", label: "Map", testId: "nav-tab-map" },
-            { id: "plan", label: "Plan Trip", testId: "nav-tab-plan" },
-          ].map((tab) => {
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                type="button"
-                data-testid={tab.testId}
-                onClick={() => onTabChange(tab.id as NavTab)}
-                className={`relative px-3 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
-                  isActive
-                    ? "text-emerald-200 bg-emerald-950/70 border border-emerald-700/40 shadow-xs font-semibold"
-                    : "text-gray-300 hover:text-white hover:bg-emerald-950/30"
-                }`}
-              >
-                {tab.label}
-              </button>
-            );
-          })}
-
-          {/* Saved Places */}
-          <button
-            type="button"
-            data-testid="nav-tab-saved"
-            onClick={() => onTabChange("saved")}
-            className={`relative px-3 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
-              activeTab === "saved"
-                ? "text-emerald-200 bg-emerald-950/70 border border-emerald-700/40 shadow-xs font-semibold"
-                : "text-gray-300 hover:text-white hover:bg-emerald-950/30"
-            }`}
-          >
-            <Bookmark size={13} className="text-emerald-400/90" />
-            <span>Saved</span>
-            {savedCount > 0 && (
-              <span className="px-1.5 py-0.2 rounded-full bg-rose-950 border border-rose-800/70 text-rose-300 text-[10px] font-bold">
-                {savedCount}
-              </span>
-            )}
-          </button>
-
-          {/* Revisit Places */}
-          <button
-            type="button"
-            data-testid="nav-tab-revisit"
-            onClick={() => onTabChange("revisit")}
-            className={`relative px-3 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
-              activeTab === "revisit"
-                ? "text-amber-200 bg-amber-950/70 border border-amber-700/40 shadow-xs font-semibold"
-                : "text-gray-300 hover:text-white hover:bg-emerald-950/30"
-            }`}
-          >
-            <History size={13} className="text-amber-400/90" />
-            <span>Revisit</span>
-            {revisitCount > 0 && (
-              <span className="px-1.5 py-0.2 rounded-full bg-amber-950 border border-amber-800/70 text-amber-300 text-[10px] font-bold">
-                {revisitCount}
-              </span>
-            )}
-          </button>
-        </nav>
-
-        {/* Right Area: AI Copilot, Settings & Plan CTA */}
-        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          {/* Quick Navigate dropdown for smaller screens / accessibility */}
-          <div className="relative lg:hidden" ref={navMenuRef}>
+            {/* Dark / Light Theme Toggle */}
             <button
               type="button"
-              data-testid="top-left-nav-dropdown-btn"
-              onClick={() => setShowNavMenu(!showNavMenu)}
-              className="p-1.5 rounded-full bg-emerald-950/50 border border-emerald-800/40 text-emerald-300 text-xs font-semibold transition-colors cursor-pointer"
-              title="Menu"
+              data-testid="desktop-theme-toggle"
+              onClick={toggleTheme}
+              className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#111827] border border-[#263244] hover:border-slate-500 text-slate-300 hover:text-white transition-colors cursor-pointer"
+              aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+              title={isDark ? "Switch to light theme" : "Switch to dark theme"}
             >
-              <Compass size={16} />
+              {isDark ? (
+                <Sun size={15} className="text-[#F59E0B]" />
+              ) : (
+                <Moon size={15} className="text-[#38BDF8]" />
+              )}
             </button>
 
-            {showNavMenu && (
-              <div className="absolute right-0 top-full mt-2 w-56 p-2 rounded-2xl bg-[#091813] border border-emerald-700/50 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-150 text-white">
-                <div className="space-y-0.5">
-                  <button
-                    type="button"
-                    onClick={() => { onTabChange("discover"); setShowNavMenu(false); }}
-                    className={`w-full flex items-center gap-2 p-2 rounded-xl text-xs font-semibold ${activeTab === "discover" ? "bg-emerald-900/60 text-emerald-200" : "text-gray-300"}`}
-                  >
-                    <LayoutDashboard size={14} className="text-emerald-400" />
-                    <span>Discover</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => { onTabChange("destinations"); setShowNavMenu(false); }}
-                    className={`w-full flex items-center gap-2 p-2 rounded-xl text-xs font-semibold ${activeTab === "destinations" ? "bg-emerald-900/60 text-emerald-200" : "text-gray-300"}`}
-                  >
-                    <Compass size={14} className="text-emerald-400" />
-                    <span>Destinations</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => { onTabChange("map"); setShowNavMenu(false); }}
-                    className={`w-full flex items-center gap-2 p-2 rounded-xl text-xs font-semibold ${activeTab === "map" ? "bg-emerald-900/60 text-emerald-200" : "text-gray-300"}`}
-                  >
-                    <MapIcon size={14} className="text-emerald-400" />
-                    <span>Map</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => { onTabChange("plan"); setShowNavMenu(false); }}
-                    className={`w-full flex items-center gap-2 p-2 rounded-xl text-xs font-semibold ${activeTab === "plan" ? "bg-emerald-900/60 text-emerald-200" : "text-gray-300"}`}
-                  >
-                    <Sparkles size={14} className="text-emerald-400" />
-                    <span>Plan Trip</span>
-                  </button>
-                  <button
-                    type="button"
-                    data-testid="nav-menu-revisit-places"
-                    onClick={() => { onTabChange("revisit"); setShowNavMenu(false); }}
-                    className={`w-full flex items-center gap-2 p-2 rounded-xl text-xs font-semibold ${activeTab === "revisit" ? "bg-amber-900/60 text-amber-200" : "text-gray-300"}`}
-                  >
-                    <History size={14} className="text-amber-400" />
-                    <span>Revisit Places</span>
-                  </button>
-                </div>
-              </div>
+            {/* AI Trip Copilot Button */}
+            {onToggleCopilot && (
+              <button
+                type="button"
+                data-testid="open-ai-sidebar-btn"
+                onClick={onToggleCopilot}
+                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#8B5CF6]/15 hover:bg-[#8B5CF6]/25 border border-[#8B5CF6]/40 text-[#A78BFA] text-xs font-bold transition-colors cursor-pointer shadow-2xs"
+              >
+                <Bot size={14} className="text-[#A78BFA]" />
+                <span>AI Copilot</span>
+              </button>
             )}
+
+            {/* Mobile Menu Hamburger */}
+            <button
+              type="button"
+              data-testid="mobile-menu-button"
+              onClick={onOpenMobileDrawer}
+              className="md:hidden p-2 rounded-xl bg-[#111827] border border-[#263244] text-slate-300 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+              aria-label="Open mobile menu"
+            >
+              <Menu size={18} />
+            </button>
           </div>
-
-          {/* AI Copilot Action Pill */}
-          <button
-            type="button"
-            data-testid="open-ai-planner-btn"
-            onClick={onOpenAI}
-            title="Ask AI Travel Copilot"
-            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-700/40 text-emerald-200 text-xs font-semibold transition-all cursor-pointer"
-          >
-            <Bot size={13} className="text-emerald-400" />
-            <span className="hidden sm:inline">AI Copilot</span>
-          </button>
-
-          {/* Settings Icon */}
-          <button
-            type="button"
-            data-testid="topbar-settings-btn"
-            onClick={onOpenSettings}
-            title="Settings"
-            className="p-2 text-gray-300 hover:text-emerald-200 hover:bg-emerald-950/50 rounded-full transition-colors cursor-pointer"
-            aria-label="Settings"
-          >
-            <Settings size={15} />
-          </button>
-
-          {/* Plan Trip CTA */}
-          <button
-            type="button"
-            data-testid="quick-plan-trip-btn"
-            onClick={() => onTabChange("plan")}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
-          >
-            <Sparkles size={12} />
-            <span>Plan Trip</span>
-          </button>
         </div>
       </div>
     </header>
   );
 };
-
-export default TopNav;

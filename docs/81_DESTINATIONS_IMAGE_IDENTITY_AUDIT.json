@@ -1,0 +1,822 @@
+{
+  "generated_at": "2026-08-21T15:48:00Z",
+  "total_destinations": 81,
+  "authentic_count": 81,
+  "fallback_count": 0,
+  "cross_leakage_count": 0,
+  "semantic_mismatches_count": 0,
+  "broken_images_count": 0,
+  "audit_verdict": "PRODUCTION_READY",
+  "destinations": [
+    {
+      "place_id": "place_013",
+      "name": "Museum of Tribal Arts and Artifacts",
+      "category": "museum",
+      "resolved_url": "/static/images/places/place_013/a2d24252c0ce/hero.webp",
+      "hash": "d4d62bef0f7a",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_012",
+      "name": "Regional Museum of Natural History",
+      "category": "museum",
+      "resolved_url": "/static/images/places/place_012/a917c9873b59/hero.webp",
+      "hash": "25e66c6bdda5",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_032",
+      "name": "Buddha Jayanti Park",
+      "category": "park",
+      "resolved_url": "/static/images/places/place_032/1b4f7e6f8b2e/hero.webp",
+      "hash": "eb16dfe4bfb0",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_031",
+      "name": "Indira Gandhi Park",
+      "category": "park",
+      "resolved_url": "/static/images/places/place_031/420159c383f2/hero.webp",
+      "hash": "f61c490083f3",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_014",
+      "name": "Pathani Samanta Planetarium",
+      "category": "planetarium",
+      "resolved_url": "/static/images/places/place_014/30f7ed6f5755/hero.webp",
+      "hash": "6d1fdeff8600",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_008",
+      "name": "Odisha State Museum",
+      "category": "museum",
+      "resolved_url": "/static/images/places/place_bbsr_008/dc85cc5814e7/hero.webp",
+      "hash": "3c377ca7ae4d",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_006",
+      "name": "Dhauli Shanti Stupa",
+      "category": "monument",
+      "resolved_url": "/static/images/places/place_bbsr_006/94ea88ae627b/hero.webp",
+      "hash": "b97b796cf8d3",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_030",
+      "name": "Regional Science Centre, Bhubaneswar",
+      "category": "science_center",
+      "resolved_url": "/static/images/places/place_030/dd18b0f33834/hero.webp",
+      "hash": "7e6a5dd58777",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_024",
+      "name": "Bharati Matha Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_024/c24a920d9ea5/hero.webp",
+      "hash": "25d33fcaf014",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_019",
+      "name": "Brahmeswar Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_019/79d401a75a62/hero.webp",
+      "hash": "8c41512794ca",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_007",
+      "name": "Chausathi Yogini Temple, Hirapur",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_007/6d8254429a6a/hero.webp",
+      "hash": "688428e76866",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_029",
+      "name": "Kapilesvara Siva Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_029/4878025f4210/hero.webp",
+      "hash": "629e0d316424",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_025",
+      "name": "Kedar Gouri Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_025/32de32c1a13d/hero.webp",
+      "hash": "afa3817a7112",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_026",
+      "name": "Megheswar Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_026/37aea0eff98c/hero.webp",
+      "hash": "2358708e457f",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_027",
+      "name": "Nageshwar Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_027/17b31b2b4531/hero.webp",
+      "hash": "ec4462838d1e",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_puri_002",
+      "name": "Puri Golden Beach",
+      "category": "beach",
+      "resolved_url": "/static/images/places/place_puri_002/8146170ae9b7/hero.webp",
+      "hash": "00fb2864e082",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_005",
+      "name": "Parasurameswar Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_005/4e56a105e3a5/hero.webp",
+      "hash": "581a309feae6",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_022",
+      "name": "Ram Mandir, Bhubaneswar",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_022/250c5fb998e6/hero.webp",
+      "hash": "0fe83295bff0",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_021",
+      "name": "Rameshwar Deula",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_021/40dbffdb3896/hero.webp",
+      "hash": "d27a48534ba3",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_028",
+      "name": "Talesvara Siva Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_028/cd738a94a267/hero.webp",
+      "hash": "8b4ab0a16a86",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_023",
+      "name": "Chitrakarini Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_023/993614bac0d4/hero.webp",
+      "hash": "e905ca6cefe5",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_020",
+      "name": "Bhaskareswar Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_020/eaedc027e860/hero.webp",
+      "hash": "7260da480782",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_018",
+      "name": "Baitala Deula",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_018/3fdcd749885b/hero.webp",
+      "hash": "0182b2371bd1",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_004",
+      "name": "Ananta Vasudeva Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_bbsr_004/b91e7a5f0092/hero.webp",
+      "hash": "2b3a3deda365",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_005",
+      "name": "Udayagiri and Khandagiri Caves",
+      "category": "monument",
+      "resolved_url": "/static/images/places/place_bbsr_005/87c823650f8a/hero.webp",
+      "hash": "adc78812ca75",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_002",
+      "name": "Mukteswar Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_bbsr_002/bf6293b73157/hero.webp",
+      "hash": "9d7c070806d6",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_012",
+      "name": "Bindu Sagar",
+      "category": "lake",
+      "resolved_url": "/static/images/places/place_bbsr_012/3e013f8a3fd2/hero.webp",
+      "hash": "f1b8532bfdaf",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_007",
+      "name": "Nandankanan Zoological Park",
+      "category": "park",
+      "resolved_url": "/static/images/places/place_bbsr_007/83ddf7bcbca3/hero.webp",
+      "hash": "fa8a6af5b5a3",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_konark_003",
+      "name": "Ramachandi Beach & Temple",
+      "category": "beach",
+      "resolved_url": "/static/images/places/place_konark_003/05c33a10ed83/hero.webp",
+      "hash": "93e8493c9984",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_chilika_002",
+      "name": "Kalijai Island Temple, Chilika",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_chilika_002/a4ae8ae04351/hero.webp",
+      "hash": "1e6b70e4d422",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_puri_003",
+      "name": "Gundicha Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_puri_003/f14517383b2e/hero.webp",
+      "hash": "19a38ccc9237",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_puri_001",
+      "name": "Jagannath Temple, Puri",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_puri_001/02287867dc89/hero.webp",
+      "hash": "221018a9a053",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_sambalpur_002",
+      "name": "Samaleswari Temple, Sambalpur",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_sambalpur_002/34272df89ec2/hero.webp",
+      "hash": "ca77d95d558c",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_011",
+      "name": "Kalinga Stadium",
+      "category": "sports_venue",
+      "resolved_url": "/static/images/places/place_bbsr_011/36e8a9a95990/hero.webp",
+      "hash": "7cd6c2cd8b99",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_puri_004",
+      "name": "Swargadwar Beach",
+      "category": "beach",
+      "resolved_url": "/static/images/places/place_puri_004/292d580f6bc0/hero.webp",
+      "hash": "f5cfcec030f0",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_cuttack_001",
+      "name": "Barabati Fort",
+      "category": "monument",
+      "resolved_url": "/static/images/places/place_cuttack_001/02e40272a98d/hero.webp",
+      "hash": "8683ce2a3349",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_rourkela_001",
+      "name": "Hanuman Vatika, Rourkela",
+      "category": "monument",
+      "resolved_url": "/static/images/places/place_rourkela_001/ae7eb1c0b708/hero.webp",
+      "hash": "6f39b76c1e40",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_sambalpur_001",
+      "name": "Hirakud Dam & Reservoir",
+      "category": "monument",
+      "resolved_url": "/static/images/places/place_sambalpur_001/319e1fc78ef8/hero.webp",
+      "hash": "2304fbcc3f22",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_rourkela_003",
+      "name": "Khandadhar Waterfall, Sundargarh",
+      "category": "waterfall",
+      "resolved_url": "/static/images/places/place_rourkela_003/a8c814c32300/hero.webp",
+      "hash": "7e85c0626ad4",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_konark_002",
+      "name": "Chandrabhaga Beach",
+      "category": "beach",
+      "resolved_url": "/static/images/places/place_konark_002/96b3058c4a4d/hero.webp",
+      "hash": "55051d2f6d6a",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_koraput_001",
+      "name": "Gupteswar Cave Temple, Koraput",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_koraput_001/ebdb01aa8cee/hero.webp",
+      "hash": "214109082a46",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_mayurbhanj_002",
+      "name": "Barehipani & Joranda Falls",
+      "category": "waterfall",
+      "resolved_url": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/hero.webp",
+      "hash": "dfbddb298d18",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_chilika_003",
+      "name": "Mangalajodi Bird Sanctuary",
+      "category": "wildlife",
+      "resolved_url": "/static/images/places/place_chilika_003/3b306bfaf9fd/hero.webp",
+      "hash": "1970511ac957",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_kendrapara_001",
+      "name": "Bhitarkanika National Park",
+      "category": "wildlife",
+      "resolved_url": "/static/images/places/place_kendrapara_001/3c1227e192f9/hero.webp",
+      "hash": "8d2316b2d1b6",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_koraput_005",
+      "name": "Kolab Reservoir & Botanical Garden",
+      "category": "lake",
+      "resolved_url": "/static/images/places/place_koraput_005/375b5f789f69/hero.webp",
+      "hash": "9428a804c19b",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_konark_001",
+      "name": "Konark Sun Temple",
+      "category": "monument",
+      "resolved_url": "/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+      "hash": "30233514ed27",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_ganjam_001",
+      "name": "Gopalpur-on-Sea Beach",
+      "category": "beach",
+      "resolved_url": "/static/images/places/place_ganjam_001/e3487587a075/hero.webp",
+      "hash": "2ba7331edbca",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_cuttack_004",
+      "name": "Netaji Birth Place Museum",
+      "category": "museum",
+      "resolved_url": "/static/images/places/place_cuttack_004/3d8ae5f82b5d/hero.webp",
+      "hash": "6028fcefbbdb",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_sambalpur_003",
+      "name": "Huma Leaning Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_sambalpur_003/62ffb7d419a2/hero.webp",
+      "hash": "75a497b9892a",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_ganjam_002",
+      "name": "Tara Tarini Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_ganjam_002/87bc44f63b2d/hero.webp",
+      "hash": "c97113548640",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_konark_004",
+      "name": "Konark Archaeological Museum",
+      "category": "museum",
+      "resolved_url": "/static/images/places/place_konark_004/ea4b0bedaa44/hero.webp",
+      "hash": "987efb4c8cd4",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_daringbadi_003",
+      "name": "Coffee Gardens, Daringbadi",
+      "category": "nature",
+      "resolved_url": "/static/images/places/place_daringbadi_003/18724980adff/hero.webp",
+      "hash": "bf234aaf0a7a",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_mayurbhanj_001",
+      "name": "Similipal National Park",
+      "category": "wildlife",
+      "resolved_url": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/hero.webp",
+      "hash": "fcf8b1d97a1f",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_koraput_003",
+      "name": "Deomali Peak, Koraput",
+      "category": "nature",
+      "resolved_url": "/static/images/places/place_koraput_003/d706510f47e0/hero.webp",
+      "hash": "cf85a554ea74",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_chilika_001",
+      "name": "Chilika Lake - Satapada",
+      "category": "lake",
+      "resolved_url": "/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
+      "hash": "cd9979befe0f",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_balasore_001",
+      "name": "Chandipur Beach",
+      "category": "beach",
+      "resolved_url": "/static/images/places/place_balasore_001/7b71840acce2/hero.webp",
+      "hash": "870476fcd5a3",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_daringbadi_004",
+      "name": "Belghar Nature Camp",
+      "category": "nature",
+      "resolved_url": "/static/images/places/place_daringbadi_004/c5ae233d3210/hero.webp",
+      "hash": "7108c1bb165d",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_009",
+      "name": "Odisha Crafts Museum Kala Bhoomi",
+      "category": "museum",
+      "resolved_url": "/static/images/places/place_bbsr_009/d3fdc630c2d8/hero.webp",
+      "hash": "8e1a2f95e898",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_sambalpur_004",
+      "name": "Debrigarh Wildlife Sanctuary",
+      "category": "wildlife",
+      "resolved_url": "/static/images/places/place_sambalpur_004/22d5bc4545b0/hero.webp",
+      "hash": "57a924e06560",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_cuttack_003",
+      "name": "Odisha State Maritime Museum",
+      "category": "museum",
+      "resolved_url": "/static/images/places/place_cuttack_003/78dff96a9c3a/hero.webp",
+      "hash": "9539d72f9b09",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_010",
+      "name": "Ekamra Haat",
+      "category": "market",
+      "resolved_url": "/static/images/places/place_bbsr_010/78c2ef783f40/hero.webp",
+      "hash": "c4b28feb4acb",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_cuttack_002",
+      "name": "Cuttack Chandi Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_cuttack_002/57a31cc80182/hero.webp",
+      "hash": "858e6e68edca",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_koraput_004",
+      "name": "Tribal Museum, Koraput",
+      "category": "museum",
+      "resolved_url": "/static/images/places/place_koraput_004/a54c2ebd04a0/hero.webp",
+      "hash": "49238f2e9ab7",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_koraput_002",
+      "name": "Duduma Waterfall",
+      "category": "waterfall",
+      "resolved_url": "/static/images/places/place_koraput_002/da596fb21308/hero.webp",
+      "hash": "f31b239068f3",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_rayagada_001",
+      "name": "Maa Majhigouri Temple, Rayagada",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_rayagada_001/a863f4660940/hero.webp",
+      "hash": "cbd3eb5f14b1",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_001",
+      "name": "Lingaraj Temple",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_bbsr_001/06a456469886/hero.webp",
+      "hash": "2d027688c708",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_daringbadi_002",
+      "name": "Midubanda Waterfall, Daringbadi",
+      "category": "waterfall",
+      "resolved_url": "/static/images/places/place_daringbadi_002/604241c8ef4d/hero.webp",
+      "hash": "59c7d5a76204",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_daringbadi_001",
+      "name": "Daringbadi Hill Station",
+      "category": "nature",
+      "resolved_url": "/static/images/places/place_daringbadi_001/49e608c2405f/hero.webp",
+      "hash": "e4b20d57f785",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_bbsr_003",
+      "name": "Rajarani Temple",
+      "category": "monument",
+      "resolved_url": "/static/images/places/place_bbsr_003/0dd1f614ea63/hero.webp",
+      "hash": "a38c0702a961",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_rourkela_002",
+      "name": "Mandira Dam, Sundargarh",
+      "category": "lake",
+      "resolved_url": "/static/images/places/place_rourkela_002/00793bab38cf/hero.webp",
+      "hash": "9bd6a166f67c",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_food_001",
+      "name": "Pahala Rasagola Sweet Hub",
+      "category": "market",
+      "resolved_url": "/static/images/places/place_food_001/e6fb3a71867e/hero.webp",
+      "hash": "ff5a47a43b16",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_food_002",
+      "name": "Nimapada Chhena Jhili Market",
+      "category": "market",
+      "resolved_url": "/static/images/places/place_food_002/e0850b09b5ca/hero.webp",
+      "hash": "b566021270c7",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_food_003",
+      "name": "Ananda Bazar, Puri",
+      "category": "market",
+      "resolved_url": "/static/images/places/place_food_003/5a13e730e909/hero.webp",
+      "hash": "e2cd1c7763a9",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_food_004",
+      "name": "Choudhury Bazar Dahibara Hub, Cuttack",
+      "category": "market",
+      "resolved_url": "/static/images/places/place_food_004/4e765c230837/hero.webp",
+      "hash": "2e25023e2dda",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_food_005",
+      "name": "Bikalananda Kar Rasagola Hub, Salepur",
+      "category": "market",
+      "resolved_url": "/static/images/places/place_food_005/daeb11d5893b/hero.webp",
+      "hash": "d3adf454a4f0",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_food_006",
+      "name": "OTDC Nimantran Restaurant, Bhubaneswar",
+      "category": "market",
+      "resolved_url": "/static/images/places/place_food_006/88f959c50d0e/hero.webp",
+      "hash": "41aef6993ead",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_food_007",
+      "name": "Bapuji Nagar Food Corridor, Bhubaneswar",
+      "category": "market",
+      "resolved_url": "/static/images/places/place_food_007/a0a492f880a5/hero.webp",
+      "hash": "abab4a207030",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_food_008",
+      "name": "Unit-4 Traditional Food & Fish Market, Bhubaneswar",
+      "category": "market",
+      "resolved_url": "/static/images/places/place_food_008/35cde5e9e0e8/hero.webp",
+      "hash": "371d3511306f",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_food_009",
+      "name": "OTDC Panthasala Odia Cuisine Centre, Konark",
+      "category": "market",
+      "resolved_url": "/static/images/places/place_food_009/0b3143c9ea24/hero.webp",
+      "hash": "a9a26a18db58",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_food_010",
+      "name": "Maa Mangala Temple Food & Pitha Precinct, Kakatpur",
+      "category": "temple",
+      "resolved_url": "/static/images/places/place_food_010/abcf1ef01835/hero.webp",
+      "hash": "b796ad12f4c5",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    },
+    {
+      "place_id": "place_food_011",
+      "name": "Raghunathpur Culinary Corner, Bhubaneswar",
+      "category": "market",
+      "resolved_url": "/static/images/places/place_food_011/cb1d3fcc1b6c/hero.webp",
+      "hash": "3d57bcc6c2f4",
+      "dimensions": "1080x720",
+      "type": "AUTHENTIC_WEBP",
+      "status": "PASS"
+    }
+  ]
+}

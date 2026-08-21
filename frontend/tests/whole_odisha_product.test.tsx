@@ -131,8 +131,8 @@ describe("Whole-Odisha Productization & Discovery Tests", () => {
     expect(navHtml).toContain("nav-tab-saved");
     expect(navHtml).toContain("3"); // Saved count badge
 
-    // Theme controls absent (authoritative dark mode)
-    expect(navHtml).not.toContain("theme-toggle");
+    // Accessible theme controls present
+    expect(navHtml).toContain("desktop-theme-toggle");
 
     const drawerHtml = renderClean(
       <MobileDrawer
@@ -149,7 +149,7 @@ describe("Whole-Odisha Productization & Discovery Tests", () => {
     expect(drawerHtml).toContain("drawer-nav-map");
     expect(drawerHtml).toContain("drawer-nav-plan");
     expect(drawerHtml).toContain("drawer-nav-saved");
-    expect(drawerHtml).not.toContain("drawer-theme-toggle");
+    expect(drawerHtml).toContain("mobile-theme-toggle");
   });
 
   it("verifies MapView renders standalone selected place banner with Plan Trip Here button", () => {

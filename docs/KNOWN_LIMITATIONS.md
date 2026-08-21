@@ -28,14 +28,14 @@
 
 ---
 
-## 3. Database Catalog Discrepancy (50 Canonical vs 70 Database Rows)
+## 3. Database Catalog Evolution & Legacy Records
 
 1. **Canonical Dataset**:
-   - `data/places/places.json` defines exactly 50 canonical Whole-Odisha destinations covering all 6 geographical zones.
-2. **Legacy Phase 0 Database Rows**:
-   - The PostgreSQL database contains 70 place records (50 canonical destinations + 20 early prototype seed records like `place_005`, `place_012`).
-   - 100% of the 17 `PlaceImage` records map directly to canonical destinations.
-   - The legacy rows cause zero test failures and are preserved as non-blocking technical debt to avoid destructive database migrations.
+   - `data/places/places.json` defines **81 canonical Whole-Odisha destinations** covering all 30 districts across 6 geographical zones with 100% verified WGS84 coordinate coverage.
+2. **Legacy Phase 0 Database Rows & Schema Tolerance**:
+   - Early prototype seed records from Phase 0 (e.g., `place_005`, `place_012`) may exist in non-reset legacy databases alongside canonical records.
+   - The database schema and idempotent importer ([scripts/import_places.py](file:///c:/Users/smara/Desktop/o-travelz/scripts/import_places.py)) safely manage canonical place records without destructive table drops.
+   - All `PlaceImage` records map directly to verified canonical destinations, causing zero test failures.
 
 ---
 

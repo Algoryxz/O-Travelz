@@ -30,6 +30,7 @@ import { useWeather } from "../../store/useWeather";
 import { usePlaces } from "../../store/usePlaces";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
 import { CoverflowCarousel, type CoverflowItem } from "../gallery/CoverflowCarousel";
+import { WeatherCard } from "../weather/WeatherCard";
 import {
   getFeaturedOdishaDestinations,
   getPlaceImageUrl,
@@ -201,6 +202,21 @@ export const ODISHA_REGIONAL_SERVICES: Record<
       { bank: "Axis Bank ATM", location: "Jeypore Road", available247: true },
     ],
   },
+  rourkela: {
+    medical: [
+      { name: "Ispat General Hospital (IGH)", type: "Super Speciality Hospital", phone: "0661-2642100", address: "Sector 19, Rourkela" },
+      { name: "Rourkela Government Hospital (RGH)", type: "Government Hospital", phone: "0661-2500100", address: "Panposh Road" },
+    ],
+    transport: [
+      { name: "Rourkela Railway Junction (ROU)", type: "Railway Junction", details: "Howrah-Mumbai mainline major station" },
+      { name: "Rourkela Airport (RRK)", type: "Commercial Airport", details: "Flights to Bhubaneswar & Kolkata" },
+      { name: "Udit Nagar Bus Stand", type: "Bus Stand", details: "Inter-state express coaches" },
+    ],
+    atms: [
+      { bank: "State Bank of India", location: "Bisra Road", available247: true },
+      { bank: "HDFC Bank ATM", location: "Main Road Sector 1", available247: true },
+    ],
+  },
 };
 
 export const ODISHA_HUB_LOCAL_HIGHLIGHTS: Record<
@@ -294,7 +310,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
 }) => {
   const [activeFilter, setActiveFilter] = useState("All");
   const { savedPlaces, isSaved, toggleSavePlace } = useSavedPlaces();
-  const { weather, isLoading: isWeatherLoading } = useWeather(selectedLocation);
+  const { weather, isLoading: isWeatherLoading, error: weatherError, refetch: refetchWeather } = useWeather(selectedLocation);
   const { places } = usePlaces();
 
   // Carousel #1: Featured Whole-Odisha Destinations
@@ -368,7 +384,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
     ];
   }, [savedPlaces]);
 
-  // Categories resolved through central image pipeline
+  // Categories with distinct restrained semantic badges
   const categories = useMemo(() => {
     return [
       {
@@ -376,43 +392,54 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
         emoji: "🌿",
         icon: Mountain,
         image: getCategoryImage("nature"),
+        badgeColor: "bg-emerald-600/90",
+        accentColor: "text-emerald-400",
       },
       {
         label: "Medical Help",
         emoji: "🏥",
         icon: Hospital,
         image: getCategoryImage("medical help"),
+        badgeColor: "bg-rose-600/90",
+        accentColor: "text-rose-400",
       },
       {
         label: "Heritage & Culture",
         emoji: "🏛️",
         icon: Landmark,
         image: getCategoryImage("heritage & culture"),
+        badgeColor: "bg-amber-600/90",
+        accentColor: "text-amber-400",
       },
       {
         label: "ATMs",
         emoji: "💳",
         icon: WalletCards,
         image: getCategoryImage("atms"),
+        badgeColor: "bg-yellow-600/90",
+        accentColor: "text-yellow-400",
       },
       {
         label: "Hangout & Chill",
         emoji: "☕",
         icon: Coffee,
         image: getCategoryImage("hangout & chill"),
+        badgeColor: "bg-orange-600/90",
+        accentColor: "text-orange-400",
       },
       {
         label: "Shopping & Fashion",
         emoji: "🛍️",
         icon: ShoppingBag,
         image: getCategoryImage("shopping & fashion"),
+        badgeColor: "bg-purple-600/90",
+        accentColor: "text-purple-400",
       },
     ];
   }, []);
 
   // Image-First Nearby Destinations
   const nearbyPlaces = useMemo(() => {
-    // Determine the reference coordinates. Look up selectedLocation hub, fallback to Bhubaneswar
     const hubKey = selectedLocation.trim().toLowerCase();
     const hubCoords = ODISHA_HUB_COORDINATES[hubKey] || ODISHA_HUB_COORDINATES["bhubaneswar"];
 
@@ -420,7 +447,6 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
     const refLon = userCoords?.lon ?? hubCoords.lon;
 
     const localNearby = ODISHA_HUB_LOCAL_HIGHLIGHTS[hubKey] || ODISHA_HUB_LOCAL_HIGHLIGHTS["bhubaneswar"];
-
     const allCandidates = [...localNearby, ...(places || [])];
 
     return allCandidates
@@ -502,13 +528,13 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
     <div className="space-y-10 sm:space-y-12">
       {/* 1. Context Action Bar */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-2 sm:p-2.5 rounded-3xl bg-[#09221b] text-white border border-emerald-800/40 grid grid-cols-1 md:grid-cols-3 gap-2 shadow-lg">
+        <div className="p-2 sm:p-2.5 rounded-3xl bg-[#111827] text-white border border-[#263244] grid grid-cols-1 md:grid-cols-3 gap-2 shadow-md">
           <button
             type="button"
             onClick={() => onNavigateToMap()}
-            className="flex items-center gap-3.5 p-3 rounded-2xl hover:bg-emerald-950/60 transition-all text-left cursor-pointer group"
+            className="flex items-center gap-3.5 p-3 rounded-2xl hover:bg-[#172235] transition-all text-left cursor-pointer group"
           >
-            <div className="w-10 h-10 rounded-xl bg-emerald-800/60 text-emerald-300 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-[#172235] border border-[#334155] text-[#14B8A6] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
               <Crosshair size={18} />
             </div>
             <div className="min-w-0">
@@ -516,117 +542,58 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                 <span>Location active</span>
                 <span className="live-dot" />
               </div>
-              <div className="text-[11px] text-emerald-300/80 truncate">
+              <div className="text-[11px] text-slate-400 truncate">
                 {selectedLocation}, Odisha • active now
               </div>
             </div>
-            <ArrowUpRight size={15} className="ml-auto text-emerald-400/60 group-hover:text-emerald-300 shrink-0" />
+            <ArrowUpRight size={15} className="ml-auto text-slate-500 group-hover:text-slate-200 shrink-0" />
           </button>
 
           <button
             type="button"
             onClick={() => onNavigateToMap()}
-            className="flex items-center gap-3.5 p-3 rounded-2xl hover:bg-emerald-950/60 transition-all text-left border-t md:border-t-0 md:border-l border-emerald-900/40 cursor-pointer group"
+            className="flex items-center gap-3.5 p-3 rounded-2xl hover:bg-[#172235] transition-all text-left border-t md:border-t-0 md:border-l border-[#263244] cursor-pointer group"
           >
-            <div className="w-10 h-10 rounded-xl bg-emerald-800/60 text-emerald-300 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-[#172235] border border-[#334155] text-[#38BDF8] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
               <Layers3 size={18} />
             </div>
             <div className="min-w-0">
               <div className="text-xs font-bold text-white">Live Route &amp; Transit Map</div>
-              <div className="text-[11px] text-emerald-300/80 truncate">
+              <div className="text-[11px] text-slate-400 truncate">
                 Explore nearby attractions &amp; services
               </div>
             </div>
-            <ArrowUpRight size={15} className="ml-auto text-emerald-400/60 group-hover:text-emerald-300 shrink-0" />
+            <ArrowUpRight size={15} className="ml-auto text-slate-500 group-hover:text-slate-200 shrink-0" />
           </button>
 
           <button
             type="button"
             onClick={onNavigateToCopilot}
-            className="flex items-center gap-3.5 p-3 rounded-2xl hover:bg-emerald-950/60 transition-all text-left border-t md:border-t-0 md:border-l border-emerald-900/40 cursor-pointer group"
+            className="flex items-center gap-3.5 p-3 rounded-2xl hover:bg-[#172235] transition-all text-left border-t md:border-t-0 md:border-l border-[#263244] cursor-pointer group"
           >
-            <div className="w-10 h-10 rounded-xl bg-emerald-800/60 text-emerald-300 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-[#172235] border border-[#334155] text-[#8B7CF6] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
               <Bot size={18} />
             </div>
             <div className="min-w-0">
               <div className="text-xs font-bold text-white">Ask your travel copilot</div>
-              <div className="text-[11px] text-emerald-300/80 truncate">
+              <div className="text-[11px] text-slate-400 truncate">
                 &ldquo;Plan a 2-day heritage roadtrip&rdquo;
               </div>
             </div>
-            <ArrowUpRight size={15} className="ml-auto text-emerald-400/60 group-hover:text-emerald-300 shrink-0" />
+            <ArrowUpRight size={15} className="ml-auto text-slate-500 group-hover:text-slate-200 shrink-0" />
           </button>
         </div>
       </section>
 
-      {/* 2. V1-Quality Rich Weather Banner Module */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-testid="weather-banner-section">
-        <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-[#07241c] via-[#0b2b22] to-[#061e17] text-white border border-emerald-800/50 shadow-xl overflow-hidden">
-          {/* Atmospheric ambient glow */}
-          <div className="absolute right-0 top-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="flex items-center gap-4 sm:gap-6">
-              {/* Weather Animated Icon Container */}
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-900/40 border border-emerald-400/40 flex items-center justify-center text-emerald-300 shadow-md shrink-0">
-                {weather?.current.condition.toLowerCase().includes("rain") ? (
-                  <CloudRain size={32} className="animate-bounce text-cyan-300" />
-                ) : weather?.current.condition.toLowerCase().includes("thunder") ? (
-                  <CloudLightning size={32} className="text-amber-400" />
-                ) : weather?.current.condition.toLowerCase().includes("cloud") ? (
-                  <Cloud size={32} className="text-emerald-300" />
-                ) : (
-                  <Sun size={32} className="animate-spin-slow text-amber-400" />
-                )}
-              </div>
-
-              {/* Temperature & Main Conditions */}
-              <div>
-                <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 font-mono flex items-center gap-2">
-                  <span>LOCAL WEATHER · {selectedLocation.toUpperCase()}</span>
-                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-950/80 text-emerald-300 font-mono border border-emerald-800/60">FORECAST</span>
-                  {weather?.current.provider && (
-                    <span className="text-[9px] text-emerald-400/70 font-sans normal-case">
-                      ({weather.current.provider})
-                    </span>
-                  )}
-                </div>
-
-                <div className="flex flex-wrap items-baseline gap-3.5 mt-1">
-                  <span className="text-3xl sm:text-4xl font-extrabold font-display text-white tracking-tight">
-                    {weather ? `${Math.round(weather.current.temperature_c)}°C` : "--°C"}
-                  </span>
-                  <span className="text-sm font-semibold text-emerald-200 bg-emerald-950/70 px-2.5 py-0.5 rounded-lg border border-emerald-800/60">
-                    {weather?.current.condition || (isWeatherLoading ? "Fetching..." : "Live Forecast")}
-                  </span>
-                  {weather?.current.humidity_pct != null && (
-                    <span className="text-xs text-emerald-300/80 font-mono flex items-center gap-1">
-                      <Droplets size={13} className="text-cyan-400" />
-                      <span>{weather.current.humidity_pct}% humidity</span>
-                    </span>
-                  )}
-                  {weather?.current.wind_speed_kmh != null && (
-                    <span className="text-xs text-emerald-300/80 font-mono hidden sm:flex items-center gap-1">
-                      <Wind size={13} className="text-emerald-400" />
-                      <span>{Math.round(weather.current.wind_speed_kmh)} km/h wind</span>
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Travel Guidance Badge */}
-            <div className="flex flex-col sm:flex-row md:flex-col items-start md:items-end gap-2 text-xs text-emerald-200/90">
-              <span className="italic max-w-sm text-left md:text-right text-emerald-100/90 leading-relaxed">
-                &ldquo;{weather?.current.advice || "Optimal conditions for coastal and cultural exploration today."}&rdquo;
-              </span>
-              <span className="px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 text-[10px] font-mono font-bold border border-emerald-700/60 flex items-center gap-1.5 shadow-xs">
-                <span className="live-dot" />
-                <span>{weather?.current.status === "available" ? "LIVE METRICS" : "FORECAST"}</span>
-              </span>
-            </div>
-          </div>
-        </div>
+      {/* 2. Rich Adaptive Weather Banner Module */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <WeatherCard
+          locationName={selectedLocation}
+          weather={weather}
+          isLoading={isWeatherLoading}
+          error={weatherError}
+          onRefresh={refetchWeather}
+        />
       </section>
 
       {/* 3. COVERFLOW CAROUSEL #1: Destination Discovery */}
@@ -645,7 +612,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-3">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#14B8A6] font-mono">
               BROWSE BY CATEGORY
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-white tracking-tight mt-0.5">
@@ -655,14 +622,14 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
           <button
             type="button"
             onClick={onNavigateToPlan}
-            className="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition-colors cursor-pointer"
+            className="text-xs font-bold text-[#14B8A6] hover:text-teal-300 flex items-center gap-1 transition-colors cursor-pointer"
           >
             <span>Plan by category</span>
             <ArrowUpRight size={14} />
           </button>
         </div>
 
-        <p className="text-xs text-gray-400 mb-5">
+        <p className="text-xs text-slate-400 mb-5">
           Select a travel theme to view verified destinations and jumpstart your custom itinerary.
         </p>
 
@@ -675,24 +642,24 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                 key={cat.label}
                 data-testid={`category-card-${cat.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                 onClick={() => onSelectCategory(cat.label)}
-                className="group relative h-48 sm:h-52 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between p-4 sm:p-5 text-white border border-emerald-900/40 cursor-pointer bg-slate-900"
+                className="group relative h-48 sm:h-52 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between p-4 sm:p-5 text-white border border-[#263244] hover:border-slate-600 cursor-pointer bg-[#111827]"
               >
                 {/* Category Background Image */}
                 <img
                   src={cat.image.src}
                   alt={cat.image.alt}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover brightness-85 group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = DEFAULT_FALLBACK_IMAGE.src;
                   }}
                 />
 
                 {/* Gradient Overlay for Crisp Text Contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
 
                 {/* Top Icon Badge */}
-                <div className="relative z-10 w-10 h-10 rounded-xl bg-emerald-600/90 backdrop-blur-md text-white flex items-center justify-center shadow-md border border-white/15">
+                <div className={`relative z-10 w-10 h-10 rounded-xl ${cat.badgeColor} backdrop-blur-md text-white flex items-center justify-center shadow-md border border-white/20`}>
                   <Icon size={18} />
                 </div>
 
@@ -703,13 +670,13 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                       <span>{cat.emoji}</span>
                       <span>{cat.label}</span>
                     </h3>
-                    <span className="text-[10px] sm:text-[11px] text-emerald-300 font-mono tracking-wider">
+                    <span className={`text-[10px] sm:text-[11px] ${cat.accentColor} font-mono tracking-wider`}>
                       VERIFIED PLACES
                     </span>
                   </div>
                   <button
                     type="button"
-                    className="px-3 py-1.5 rounded-xl bg-emerald-600 group-hover:bg-emerald-500 text-white font-bold text-xs shadow-sm flex items-center gap-1 transition-all shrink-0 cursor-pointer"
+                    className="px-3 py-1.5 rounded-xl bg-white/20 hover:bg-white/30 backdrop-blur-xs text-white font-bold text-xs shadow-sm flex items-center gap-1 transition-all shrink-0 cursor-pointer"
                   >
                     <span>Explore</span>
                     <ArrowUpRight size={12} />
@@ -725,13 +692,13 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono flex items-center gap-1.5">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#14B8A6] font-mono flex items-center gap-1.5">
               <span className="live-dot" /> PLACES NEAR {selectedLocation.toUpperCase()}
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-white tracking-tight mt-0.5">
               Nearby &amp; Active Now
             </h2>
-            <p className="text-xs text-gray-400 mt-0.5">
+            <p className="text-xs text-slate-400 mt-0.5">
               Image-first discovery of top destinations close to your active location.
             </p>
           </div>
@@ -750,8 +717,8 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                 onClick={() => setActiveFilter(f.label)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                   activeFilter === f.label
-                    ? "bg-emerald-600 text-white shadow-xs"
-                    : "bg-[#09221b] text-gray-300 hover:text-white border border-emerald-900/60"
+                    ? "bg-[#14B8A6] text-white shadow-xs"
+                    : "bg-[#111827] text-slate-300 hover:text-white border border-[#263244]"
                 }`}
               >
                 {f.label}
@@ -787,10 +754,10 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                       lon: place.lon,
                     })
                   }
-                  className="group rounded-3xl bg-[#0a231c] text-white border border-emerald-900/50 hover:border-emerald-500/50 transition-all duration-300 flex flex-col sm:flex-row overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-0.5 cursor-pointer"
+                  className="group rounded-3xl bg-[#111827] text-white border border-[#263244] hover:border-[#14B8A6]/60 transition-all duration-300 flex flex-col sm:flex-row overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-0.5 cursor-pointer"
                 >
                   {/* Left / Top Image Container */}
-                  <div className="relative w-full sm:w-44 h-40 sm:h-auto bg-slate-900 shrink-0 overflow-hidden">
+                  <div className="relative w-full sm:w-44 h-40 sm:h-auto bg-[#172235] shrink-0 overflow-hidden">
                     <img
                       src={place.imageUrl}
                       alt={place.title}
@@ -802,7 +769,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                     <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-black/80 via-transparent to-transparent pointer-events-none" />
 
                     {/* Top Category Badge */}
-                    <span className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-emerald-950/90 border border-emerald-700/60 text-emerald-300 text-[9px] font-bold uppercase tracking-wider backdrop-blur-md">
+                    <span className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#111827]/85 border border-[#263244] text-teal-300 text-[9px] font-bold uppercase tracking-wider backdrop-blur-md">
                       {place.category}
                     </span>
                   </div>
@@ -811,7 +778,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                   <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3 min-w-0">
                     <div>
                       <div className="flex items-start justify-between gap-2">
-                        <h3 className="font-display font-bold text-base text-white group-hover:text-emerald-300 transition-colors truncate">
+                        <h3 className="font-display font-bold text-base text-white group-hover:text-teal-300 transition-colors truncate">
                           {place.title}
                         </h3>
 
@@ -831,7 +798,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                           className={`w-7 h-7 rounded-lg flex items-center justify-center transition-colors shrink-0 cursor-pointer ${
                             saved
                               ? "text-rose-400 bg-rose-950/60"
-                              : "text-gray-400 hover:text-white hover:bg-emerald-950/80"
+                              : "text-slate-400 hover:text-white hover:bg-slate-800"
                           }`}
                           aria-label={`Save ${place.title}`}
                         >
@@ -839,32 +806,32 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                         </button>
                       </div>
 
-                      <div className="flex flex-wrap items-center gap-2 text-xs text-emerald-300/90 mt-1 font-mono">
-                        <span className="flex items-center gap-1 font-bold text-emerald-400">
+                      <div className="flex flex-wrap items-center gap-2 text-xs text-slate-300 mt-1 font-mono">
+                        <span className="flex items-center gap-1 font-bold text-[#14B8A6]">
                           <MapPin size={11} /> {place.distance}
                         </span>
                         <span>·</span>
                         <span
                           className={`text-[11px] ${
                             place.isOpen === true
-                              ? "text-emerald-300"
+                              ? "text-teal-300"
                               : place.isOpen === false
-                              ? "text-amber-300/90"
-                              : "text-gray-400"
+                              ? "text-amber-300"
+                              : "text-slate-400"
                           }`}
                         >
                           ● {place.status}
                         </span>
                       </div>
 
-                      <p className="text-xs text-gray-300 mt-2 line-clamp-2 leading-relaxed">
+                      <p className="text-xs text-slate-300 mt-2 line-clamp-2 leading-relaxed">
                         {place.description}
                       </p>
                     </div>
 
                     {/* Quick Action Button */}
-                    <div className="pt-2 border-t border-emerald-900/40 flex items-center justify-between text-xs">
-                      <span className="text-[10px] text-gray-400">{place.region || "Odisha"}</span>
+                    <div className="pt-2 border-t border-[#263244] flex items-center justify-between text-xs">
+                      <span className="text-[10px] text-slate-400">{place.region || "Odisha"}</span>
                       <button
                         type="button"
                         onClick={(e) => {
@@ -879,7 +846,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                             lon: place.lon,
                           });
                         }}
-                        className="text-xs text-emerald-300 hover:text-white font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                        className="text-xs text-[#14B8A6] hover:text-teal-200 font-bold flex items-center gap-1 transition-colors cursor-pointer"
                       >
                         <span>View Map</span>
                         <ArrowUpRight size={13} />
@@ -896,7 +863,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-4">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#14B8A6] font-mono">
               WORTH THE DETOUR
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-white tracking-tight mt-0.5">
@@ -906,7 +873,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
           <button
             type="button"
             onClick={onNavigateToPlan}
-            className="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition-colors cursor-pointer"
+            className="text-xs font-bold text-[#14B8A6] hover:text-teal-300 flex items-center gap-1 transition-colors cursor-pointer"
           >
             <span>Build an itinerary</span>
             <ArrowUpRight size={14} />
@@ -918,30 +885,30 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
           {detourPlaces.map((item) => (
             <div
               key={item.name}
-              className="relative h-80 sm:h-88 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col justify-end p-4 sm:p-5 text-white bg-slate-900 border border-emerald-900/40 hover:border-emerald-500/40"
+              className="relative h-80 sm:h-88 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col justify-end p-4 sm:p-5 text-white bg-[#111827] border border-[#263244] hover:border-slate-500"
             >
               {/* Background Image */}
               <img
                 src={item.imageUrl}
                 alt={item.name}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover brightness-85 group-hover:scale-105 transition-transform duration-500"
+                className="absolute inset-0 w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-500"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = DEFAULT_FALLBACK_IMAGE.src;
                 }}
               />
 
               {/* Dark gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#041a13] via-[#041a13]/50 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
 
               <div className="relative z-10 space-y-2">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 font-mono">
+                <div className="text-[10px] font-bold uppercase tracking-wider text-teal-300 font-mono">
                   {item.tag}
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold font-display leading-tight text-white line-clamp-1">
                   {item.name}
                 </h3>
-                <p className="text-xs text-gray-200 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
                   {item.desc}
                 </p>
                 <div className="pt-1.5 flex items-center gap-2">
@@ -998,39 +965,23 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
         />
       </section>
 
-      {/* 8. UPGRADED "MAKE A DAY OF IT" FULL V2 DESIGN */}
+      {/* 8. "MAKE A DAY OF IT" FULL V2 DESIGN */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-testid="make-a-day-cta-section">
-        <div className="relative p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#06251D] via-[#0B241D] to-[#041611] text-white border border-emerald-700/40 shadow-2xl overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div className="relative p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#111827] via-[#172235] to-[#0F172A] text-white border border-[#263244] shadow-2xl overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           {/* Ambient Glows */}
-          <div className="absolute right-0 top-0 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -left-10 -bottom-10 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-
-          {/* Decorative SVG Journey Route Curve & Markers */}
-          <div className="absolute -left-4 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none hidden lg:block">
-            <svg width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M10 110 C 60 20, 140 130, 200 40"
-                stroke="#10B981"
-                strokeWidth="2"
-                strokeDasharray="4 4"
-              />
-              <circle cx="10" cy="110" r="5" fill="#10B981" />
-              <circle cx="95" cy="70" r="4" fill="#34D399" />
-              <circle cx="140" cy="100" r="4" fill="#F59E0B" />
-              <circle cx="200" cy="40" r="6" fill="#10B981" stroke="#06251D" strokeWidth="2" />
-            </svg>
-          </div>
+          <div className="absolute right-0 top-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -left-10 -bottom-10 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
           {/* Left Text */}
           <div className="relative z-10 space-y-3 max-w-xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold">
-              <Sparkles size={12} className="text-amber-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111827] border border-[#334155] text-teal-300 text-xs font-mono font-bold">
+              <Sparkles size={12} className="text-[#F59E0B]" />
               <span>MADE IN ODISHA · YOUR NEXT CHAPTER</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-white leading-tight">
               Make a day of it.
             </h2>
-            <p className="text-sm sm:text-base text-emerald-100/90 leading-relaxed font-light">
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-light">
               Tell us the time you have. We&apos;ll connect the shrines, coastline, authentic cuisine, and transport to make every kilometer feel effortless.
             </p>
           </div>
@@ -1040,7 +991,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
             <button
               type="button"
               onClick={onNavigateToPlan}
-              className="px-7 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-sm shadow-xl hover:shadow-emerald-500/30 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+              className="px-7 py-3.5 rounded-2xl bg-[#14B8A6] hover:bg-[#0D9488] text-white font-display font-bold text-sm shadow-xl hover:shadow-teal-500/20 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
             >
               <Compass size={16} />
               <span>Plan My Trip</span>
@@ -1050,11 +1001,11 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
         </div>
       </section>
 
-      {/* 9. DISTINCT LOCATION-AWARE ESSENTIALS FOR THE ROAD CARDS (Medical, ATM, Transport) */}
+      {/* 9. ESSENTIALS FOR THE ROAD CARDS (Medical, ATM, Transport) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-testid="essentials-section">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-3">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono flex items-center gap-1.5">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#14B8A6] font-mono flex items-center gap-1.5">
               <span className="live-dot" />
               <span>VERIFIED SERVICES · {selectedLocation.toUpperCase()}</span>
             </div>
@@ -1065,13 +1016,13 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
           <button
             type="button"
             onClick={() => onNavigateToMap()}
-            className="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition-colors cursor-pointer"
+            className="text-xs font-bold text-[#14B8A6] hover:text-teal-300 flex items-center gap-1 transition-colors cursor-pointer"
           >
             <span>Open verified map</span>
             <ArrowUpRight size={14} />
           </button>
         </div>
-        <p className="text-xs text-gray-400 mb-5">
+        <p className="text-xs text-slate-400 mb-5">
           Emergency trauma, transportation stations, and 24/7 banking points tailored to {selectedLocation}.
         </p>
 
@@ -1081,35 +1032,35 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
 
           return (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {/* 1. Medical Help: Emerald & Coral Accent */}
+              {/* 1. Medical Help: Slate with Coral Accent */}
               <div
                 data-testid="essential-medical"
-                className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#12080a] via-[#1a0e12] to-[#09221b] text-white border border-rose-900/40 hover:border-rose-500/50 transition-all duration-300 shadow-lg flex flex-col justify-between space-y-4"
+                className="p-5 sm:p-6 rounded-3xl bg-[#111827] text-white border border-[#263244] hover:border-rose-500/50 transition-all duration-300 shadow-lg flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-2xl bg-rose-500/20 border border-rose-400/40 text-rose-400 flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-2xl bg-rose-500/15 border border-rose-400/30 text-rose-400 flex items-center justify-center shrink-0">
                         <Hospital size={20} />
                       </div>
                       <div>
                         <h3 className="font-display font-bold text-sm text-white flex items-center gap-1.5">
                           <span>Medical Aid &amp; ER</span>
-                          <span className="text-[9px] text-rose-300 bg-rose-950/90 px-2 py-0.2 rounded-full border border-rose-800/80 font-mono">24/7 ER</span>
+                          <span className="text-[9px] text-rose-300 bg-rose-950/80 px-2 py-0.2 rounded-full border border-rose-800/60 font-mono">24/7 ER</span>
                         </h3>
-                        <span className="text-[11px] text-rose-200/70">Top trauma centers in {selectedLocation}</span>
+                        <span className="text-[11px] text-slate-400">Top trauma centers in {selectedLocation}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="space-y-2 pt-1 border-t border-rose-950/60">
+                  <div className="space-y-2 pt-1 border-t border-[#263244]">
                     {services.medical.slice(0, 2).map((med, idx) => (
-                      <div key={idx} className="p-2 rounded-xl bg-black/30 border border-rose-900/30 text-xs">
-                        <div className="font-bold text-rose-200 flex items-center justify-between">
+                      <div key={idx} className="p-2.5 rounded-xl bg-[#172235] border border-[#263244] text-xs">
+                        <div className="font-bold text-slate-200 flex items-center justify-between">
                           <span>{med.name}</span>
-                          <span className="text-[10px] text-emerald-400 font-mono font-bold">{med.phone}</span>
+                          <span className="text-[10px] text-teal-400 font-mono font-bold">{med.phone}</span>
                         </div>
-                        <div className="text-[10px] text-gray-400 mt-0.5">{med.address}</div>
+                        <div className="text-[10px] text-slate-400 mt-0.5">{med.address}</div>
                       </div>
                     ))}
                   </div>
@@ -1118,42 +1069,42 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                 <button
                   type="button"
                   onClick={() => onSelectCategory("Medical Help")}
-                  className="w-full py-2 rounded-xl bg-rose-950/80 hover:bg-rose-900 text-rose-200 border border-rose-800/60 text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                  className="w-full py-2.5 rounded-xl bg-[#172235] hover:bg-rose-950/50 text-rose-300 hover:text-rose-200 border border-[#263244] hover:border-rose-700/60 text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer"
                 >
                   <span>Explore Medical Facilities</span>
                   <ArrowUpRight size={13} />
                 </button>
               </div>
 
-              {/* 2. ATM: Warm Gold / Amber Accent */}
+              {/* 2. ATM: Slate with Warm Amber Accent */}
               <div
                 data-testid="essential-atm"
-                className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#141208] via-[#1c180a] to-[#09221b] text-white border border-amber-900/40 hover:border-amber-500/50 transition-all duration-300 shadow-lg flex flex-col justify-between space-y-4"
+                className="p-5 sm:p-6 rounded-3xl bg-[#111827] text-white border border-[#263244] hover:border-amber-500/50 transition-all duration-300 shadow-lg flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-400/40 text-amber-400 flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-2xl bg-amber-500/15 border border-amber-400/30 text-amber-400 flex items-center justify-center shrink-0">
                         <WalletCards size={20} />
                       </div>
                       <div>
                         <h3 className="font-display font-bold text-sm text-white flex items-center gap-1.5">
                           <span>24/7 ATM &amp; Cash</span>
-                          <span className="text-[9px] text-amber-300 bg-amber-950/90 px-2 py-0.2 rounded-full border border-amber-800/80 font-mono">Cash</span>
+                          <span className="text-[9px] text-amber-300 bg-amber-950/80 px-2 py-0.2 rounded-full border border-amber-800/60 font-mono">Cash</span>
                         </h3>
-                        <span className="text-[11px] text-amber-200/70">Verified cash points in {selectedLocation}</span>
+                        <span className="text-[11px] text-slate-400">Verified cash points in {selectedLocation}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="space-y-2 pt-1 border-t border-amber-950/60">
+                  <div className="space-y-2 pt-1 border-t border-[#263244]">
                     {services.atms.slice(0, 2).map((atm, idx) => (
-                      <div key={idx} className="p-2 rounded-xl bg-black/30 border border-amber-900/30 text-xs">
-                        <div className="font-bold text-amber-200 flex items-center justify-between">
+                      <div key={idx} className="p-2.5 rounded-xl bg-[#172235] border border-[#263244] text-xs">
+                        <div className="font-bold text-slate-200 flex items-center justify-between">
                           <span>{atm.bank}</span>
                           <span className="text-[10px] text-amber-400 font-mono">24/7 Active</span>
                         </div>
-                        <div className="text-[10px] text-gray-400 mt-0.5">{atm.location}</div>
+                        <div className="text-[10px] text-slate-400 mt-0.5">{atm.location}</div>
                       </div>
                     ))}
                   </div>
@@ -1162,42 +1113,42 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                 <button
                   type="button"
                   onClick={() => onSelectCategory("ATMs")}
-                  className="w-full py-2 rounded-xl bg-amber-950/80 hover:bg-amber-900 text-amber-200 border border-amber-800/60 text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                  className="w-full py-2.5 rounded-xl bg-[#172235] hover:bg-amber-950/50 text-amber-300 hover:text-amber-200 border border-[#263244] hover:border-amber-700/60 text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer"
                 >
                   <span>Find All ATMs Nearby</span>
                   <ArrowUpRight size={13} />
                 </button>
               </div>
 
-              {/* 3. Transport: Cyan / Sky Blue & Emerald Accent */}
+              {/* 3. Transport: Slate with Cyan Accent */}
               <div
                 data-testid="essential-transport"
-                className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#06141a] via-[#091c24] to-[#09221b] text-white border border-cyan-900/40 hover:border-cyan-500/50 transition-all duration-300 shadow-lg flex flex-col justify-between space-y-4"
+                className="p-5 sm:p-6 rounded-3xl bg-[#111827] text-white border border-[#263244] hover:border-cyan-500/50 transition-all duration-300 shadow-lg flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 text-cyan-400 flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-400 flex items-center justify-center shrink-0">
                         <TrainFront size={20} />
                       </div>
                       <div>
                         <h3 className="font-display font-bold text-sm text-white flex items-center gap-1.5">
                           <span>Transit &amp; Railway</span>
-                          <span className="text-[9px] text-cyan-300 bg-cyan-950/90 px-2 py-0.2 rounded-full border border-cyan-800/80 font-mono">Transit</span>
+                          <span className="text-[9px] text-cyan-300 bg-cyan-950/80 px-2 py-0.2 rounded-full border border-cyan-800/60 font-mono">Transit</span>
                         </h3>
-                        <span className="text-[11px] text-cyan-200/70">Connecting stations in {selectedLocation}</span>
+                        <span className="text-[11px] text-slate-400">Connecting stations in {selectedLocation}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="space-y-2 pt-1 border-t border-cyan-950/60">
+                  <div className="space-y-2 pt-1 border-t border-[#263244]">
                     {services.transport.slice(0, 2).map((tr, idx) => (
-                      <div key={idx} className="p-2 rounded-xl bg-black/30 border border-cyan-900/30 text-xs">
-                        <div className="font-bold text-cyan-200 flex items-center justify-between">
+                      <div key={idx} className="p-2.5 rounded-xl bg-[#172235] border border-[#263244] text-xs">
+                        <div className="font-bold text-slate-200 flex items-center justify-between">
                           <span>{tr.name}</span>
                           <span className="text-[10px] text-cyan-400 font-mono">{tr.type}</span>
                         </div>
-                        <div className="text-[10px] text-gray-400 mt-0.5">{tr.details}</div>
+                        <div className="text-[10px] text-slate-400 mt-0.5">{tr.details}</div>
                       </div>
                     ))}
                   </div>
@@ -1206,7 +1157,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
                 <button
                   type="button"
                   onClick={() => onNavigateToMap()}
-                  className="w-full py-2 rounded-xl bg-cyan-950/80 hover:bg-cyan-900 text-cyan-200 border border-cyan-800/60 text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                  className="w-full py-2.5 rounded-xl bg-[#172235] hover:bg-cyan-950/50 text-cyan-300 hover:text-cyan-200 border border-[#263244] hover:border-cyan-700/60 text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer"
                 >
                   <span>View Transit Routes on Map</span>
                   <ArrowUpRight size={13} />

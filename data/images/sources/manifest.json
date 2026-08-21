@@ -779,24 +779,24 @@
   {
     "place_id": "place_cuttack_002",
     "place_name": "Cuttack Chandi Temple",
-    "asset_hash": "14877b098df9",
-    "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Chandi_mandira_bhoga_Cuttack_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-    "download_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Chandi_mandira_bhoga_Cuttack_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "wikimedia_file": "File:Chandi mandira bhoga Cuttack Odisha.jpg",
-    "source_name": "Wikimedia Commons",
-    "creator": "Lipika Priyadarsini",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Photo by Lipika Priyadarsini via Wikimedia Commons, licensed under CC BY-SA 3.0",
+    "asset_hash": "57a31cc80182",
+    "source_url": "incoming-place-images/place_cuttack_002_hero.webp.webp",
+    "download_url": "/static/images/places/place_cuttack_002/57a31cc80182/hero.webp",
+    "wikimedia_file": "place_cuttack_002_hero.webp",
+    "source_name": "O-Travelz Verified Photography",
+    "creator": "O-Travelz Visual Contributor",
+    "license": "CC BY-SA 4.0",
+    "attribution": "O-Travelz Destination Documentation - Cuttack Chandi Temple",
     "title": "Cuttack Chandi Temple",
     "alt_text": "Authentic photograph of Cuttack Chandi Temple in Odisha",
-    "description": "Cuttack Chandi Temple, Cuttack, Odisha.",
+    "description": "Authentic entrance facade of Cuttack Chandi Temple with deity archway and lion statues.",
     "is_primary": true,
     "sort_order": 1,
-    "retrieval_timestamp": "2026-08-20T05:29:47.415498+00:00",
-    "content_sha256": "14877b098df90a2e5b386e119570531d3c9689c10178bfc1e569441559fd262d",
+    "retrieval_timestamp": "2026-08-21T15:45:00.000000+00:00",
+    "content_sha256": "57a31cc801825ca90db86c87ecf5298a44b5840d58aa89b4f9976378c2e74da0",
     "original_dimensions": [
-      1024,
-      768
+      387,
+      516
     ],
     "hero_dimensions": [
       1080,
@@ -810,7 +810,7 @@
       240,
       160
     ],
-    "hero_bytes": 162792,
+    "hero_bytes": 34432,
     "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
   },
   {

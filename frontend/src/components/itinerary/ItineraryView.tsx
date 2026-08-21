@@ -52,7 +52,6 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
         setCopyError(null);
         setTimeout(() => setCopied(false), 2500);
       } else {
-        // Fallback for environments where navigator.clipboard might be unavailable
         const textarea = document.createElement("textarea");
         textarea.value = summaryText;
         textarea.style.position = "fixed";
@@ -76,21 +75,36 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
   return (
     <div data-testid="itinerary-view" className="space-y-6">
       {/* Traveler-Focused Header Card */}
-      <div className="p-5 md:p-7 rounded-3xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 shadow-sm space-y-5">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-gray-100 dark:border-slate-800">
+      <div className="p-5 md:p-7 rounded-3xl bg-[#111827] border border-[#263244] shadow-sm space-y-5 text-white">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#263244]">
           <div className="space-y-1.5 min-w-0">
             <div className="flex items-center gap-2">
               <span className="live-dot" />
-              <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#14B8A6] font-mono">
                 Verified Odisha Itinerary
               </span>
+              {itinerary_id && (
+                <span className="text-[10px] text-slate-400 font-mono">
+                  (Ref: {itinerary_id})
+                </span>
+              )}
             </div>
             <h2
               data-testid="itinerary-traveler-title"
-              className="text-xl sm:text-2xl font-extrabold font-display text-gray-900 dark:text-white tracking-tight"
+              className="text-xl sm:text-2xl font-extrabold font-display text-white tracking-tight"
             >
               {tripTitle}
             </h2>
+            {explanation && (
+              <div className="space-y-0.5 pt-1">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono">
+                  Trip Overview
+                </span>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {explanation}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Action: Copy Itinerary Summary */}
@@ -101,8 +115,8 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
               onClick={handleCopySummary}
               className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border shadow-2xs ${
                 copied
-                  ? "bg-emerald-700 text-white border-emerald-700 shadow-sm"
-                  : "bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-700"
+                  ? "bg-[#14B8A6] text-white border-[#14B8A6] shadow-sm"
+                  : "bg-[#172235] text-slate-200 border-[#263244] hover:bg-[#1E2D44]"
               }`}
               aria-label="Copy Itinerary Summary"
             >
@@ -113,7 +127,7 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
                 </>
               ) : (
                 <>
-                  <Copy size={14} className="text-emerald-700 dark:text-emerald-400" />
+                  <Copy size={14} className="text-[#14B8A6]" />
                   <span>Copy Itinerary Summary</span>
                 </>
               )}
@@ -122,7 +136,7 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
         </div>
 
         {copyError && (
-          <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-200 text-xs font-medium">
+          <div className="p-3 rounded-xl bg-amber-950/60 border border-amber-800 text-amber-200 text-xs font-medium">
             {copyError}
           </div>
         )}
@@ -132,119 +146,92 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
           data-testid="itinerary-metrics-strip"
           className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs"
         >
-          <div className="p-3 rounded-2xl bg-gray-50/80 dark:bg-slate-800/80 border border-gray-100 dark:border-slate-750 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 flex items-center justify-center shrink-0">
+          <div className="p-3 rounded-2xl bg-[#172235] border border-[#263244] flex items-center gap-3">
+            <div className="w-8 h-8 rounded-xl bg-[#14B8A6]/20 text-teal-300 flex items-center justify-center shrink-0">
               <Calendar size={15} />
             </div>
             <div>
-              <span className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-wider block">
+              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
                 Duration
               </span>
-              <span className="text-gray-900 dark:text-white font-bold text-sm">
+              <span className="text-white font-bold text-sm">
                 {days.length} {days.length === 1 ? "Day" : "Days"}
               </span>
             </div>
           </div>
 
-          <div className="p-3 rounded-2xl bg-gray-50/80 dark:bg-slate-800/80 border border-gray-100 dark:border-slate-750 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300 flex items-center justify-center shrink-0">
+          <div className="p-3 rounded-2xl bg-[#172235] border border-[#263244] flex items-center gap-3">
+            <div className="w-8 h-8 rounded-xl bg-blue-500/20 text-blue-300 flex items-center justify-center shrink-0">
               <MapPin size={15} />
             </div>
             <div>
-              <span className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-wider block">
-                Stops
+              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+                Total Stops
               </span>
-              <span className="text-gray-900 dark:text-white font-bold text-sm">
-                {totalStopsCount} Destinations
+              <span className="text-white font-bold text-sm">
+                {totalStopsCount} {totalStopsCount === 1 ? "Destination" : "Destinations"}
               </span>
             </div>
           </div>
 
-          <div className="p-3 rounded-2xl bg-gray-50/80 dark:bg-slate-800/80 border border-gray-100 dark:border-slate-750 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 flex items-center justify-center shrink-0">
+          <div className="p-3 rounded-2xl bg-[#172235] border border-[#263244] flex items-center gap-3">
+            <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0">
               <Clock size={15} />
             </div>
             <div>
-              <span className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-wider block">
-                Total Transit
+              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+                Transit Time
               </span>
-              <span className="text-gray-900 dark:text-white font-bold text-sm">
+              <span className="text-white font-bold text-sm font-mono">
                 ~{formatDurationHoursMins(totalTransitMinutes)}
               </span>
             </div>
           </div>
 
-          <div className="p-3 rounded-2xl bg-gray-50/80 dark:bg-slate-800/80 border border-gray-100 dark:border-slate-750 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 flex items-center justify-center shrink-0">
+          <div className="p-3 rounded-2xl bg-[#172235] border border-[#263244] flex items-center gap-3">
+            <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center shrink-0">
               <Compass size={15} />
             </div>
-            <div className="min-w-0 flex-1">
-              <span className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-wider block">
-                Starting Hub
+            <div>
+              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+                Origin Hub
               </span>
-              <span
-                className="text-gray-900 dark:text-white font-bold text-sm truncate block"
-                title={constraints.start || "Flexible Origin"}
-              >
-                {constraints.start || "Flexible Origin"}
+              <span className="text-white font-bold text-sm truncate max-w-[110px] block">
+                {constraints?.start || "Bhubaneswar"}
               </span>
             </div>
           </div>
         </div>
 
-        {/* Selected Themes & Secondary Metadata */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 mr-1">
+        {/* Selected Requested Interests Pills */}
+        {constraints?.interests && constraints.interests.length > 0 && (
+          <div className="flex flex-wrap items-center gap-1.5 pt-1">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono mr-1">
               Themes:
             </span>
-            {constraints.interests && constraints.interests.length > 0 ? (
-              constraints.interests.map((interestId) => (
+            {constraints.interests.map((interestId) => {
+              const label = CANONICAL_INTEREST_LABELS[interestId] || interestId;
+              return (
                 <span
                   key={interestId}
-                  className="px-2.5 py-0.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 text-[11px] font-semibold"
+                  className="px-2.5 py-0.5 rounded-full bg-[#172235] text-teal-300 border border-[#263244] text-[11px] font-semibold flex items-center gap-1"
                 >
-                  {CANONICAL_INTEREST_LABELS[interestId] || interestId}
+                  <Sparkles size={11} className="text-[#14B8A6]" />
+                  <span>{label}</span>
                 </span>
-              ))
-            ) : (
-              <span className="px-2.5 py-0.5 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-400 text-[11px] font-medium">
-                Balanced Highlights
-              </span>
-            )}
-          </div>
-
-          {/* Subdued Technical ID reference */}
-          <div
-            data-testid="itinerary-id-badge"
-            className="text-[10px] text-gray-400 dark:text-gray-500 font-mono"
-          >
-            Ref: <span className="text-gray-500 dark:text-gray-400">{itinerary_id}</span>
-          </div>
-        </div>
-
-        {/* Explanation Banner (if present and non-empty) */}
-        {explanation && explanation.trim().length > 0 && (
-          <div
-            data-testid="itinerary-backend-explanation"
-            className="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/50 border border-emerald-200/80 dark:border-emerald-800/60 text-xs text-emerald-950 dark:text-emerald-200 leading-relaxed"
-          >
-            <div className="font-semibold text-emerald-900 dark:text-emerald-300 mb-1 flex items-center gap-1.5">
-              <Sparkles size={13} className="text-emerald-700 dark:text-emerald-400" />
-              <span>Trip Overview</span>
-            </div>
-            <p className="text-emerald-900/90 dark:text-emerald-200/90">{explanation}</p>
+              );
+            })}
           </div>
         )}
       </div>
 
-      {/* Days list */}
-      <div>
+      {/* Daily Timeline Sections */}
+      <div className="space-y-6">
         {days.map((day) => (
           <ItineraryDaySection
-            key={`day-${day.day_number}`}
+            key={day.day_number}
             day={day}
-            requestedInterests={constraints.interests}
+            requestedInterests={constraints?.interests || []}
           />
         ))}
       </div>

@@ -40,9 +40,9 @@ export const TransportHopCard: React.FC<TransportHopCardProps> = ({ hop }) => {
 
   const getModeIcon = (mode: string) => {
     const m = mode.toLowerCase();
-    if (m.includes("walk")) return <Footprints size={15} className="text-emerald-700" />;
-    if (m.includes("bus") || m.includes("transit")) return <Bus size={15} className="text-blue-700" />;
-    return <Car size={15} className="text-amber-700" />;
+    if (m.includes("walk")) return <Footprints size={15} className="text-[#14B8A6]" />;
+    if (m.includes("bus") || m.includes("transit")) return <Bus size={15} className="text-[#38BDF8]" />;
+    return <Car size={15} className="text-[#F59E0B]" />;
   };
 
   const hopTitle = isOrigin
@@ -58,29 +58,29 @@ export const TransportHopCard: React.FC<TransportHopCardProps> = ({ hop }) => {
       className="relative pl-8 my-2.5 transition-all"
     >
       {/* Timeline connection line and directional arrow */}
-      <div className="absolute left-3.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-300 via-emerald-400 to-emerald-300 flex items-center justify-center">
-        <div className="w-5 h-5 rounded-full bg-white border-2 border-emerald-600 flex items-center justify-center shadow-xs">
-          <ArrowDown size={11} className="text-emerald-700" />
+      <div className="absolute left-3.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#14B8A6] via-[#0F766E] to-[#14B8A6] flex items-center justify-center">
+        <div className="w-5 h-5 rounded-full bg-[#111827] border-2 border-[#14B8A6] flex items-center justify-center shadow-xs">
+          <ArrowDown size={11} className="text-teal-300" />
         </div>
       </div>
 
       <div
         className={`p-3.5 sm:p-4 rounded-2xl border transition-all ${
           isUnavailable
-            ? "bg-amber-50/70 border-amber-200"
-            : "bg-white border-gray-200 shadow-2xs hover:border-emerald-300"
+            ? "bg-amber-950/40 border-amber-800/60 text-amber-200"
+            : "bg-[#111827] border-[#263244] text-white shadow-2xs hover:border-[#14B8A6]/50"
         }`}
       >
-        <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-gray-100">
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-[#263244]">
           <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center">
+            <div className="p-1.5 rounded-lg bg-[#172235] border border-[#263244] flex items-center justify-center">
               {getModeIcon(hop.mode)}
             </div>
             <div>
-              <div className="text-xs font-bold text-gray-900">
+              <div className="text-xs font-bold text-white">
                 {hopTitle}
               </div>
-              <span className="text-[11px] text-gray-500 font-medium">
+              <span className="text-[11px] text-slate-400 font-medium">
                 {`Mode: ${formatMode(hop.mode)}`}
               </span>
             </div>
@@ -90,7 +90,7 @@ export const TransportHopCard: React.FC<TransportHopCardProps> = ({ hop }) => {
             {hop.estimated_minutes != null && hop.estimated_minutes > 120 && (
               <span
                 data-testid="long-transfer-badge"
-                className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-extrabold uppercase tracking-wider"
+                className="px-2.5 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-700/60 text-[10px] font-extrabold uppercase tracking-wider"
               >
                 Long Journey
               </span>
@@ -100,38 +100,38 @@ export const TransportHopCard: React.FC<TransportHopCardProps> = ({ hop }) => {
         </div>
 
         {/* Travel metrics strip */}
-        <div className="mt-2.5 flex flex-wrap items-center gap-3 text-xs text-gray-600">
+        <div className="mt-2.5 flex flex-wrap items-center gap-3 text-xs text-slate-300">
           {formattedDuration && (
             <div
               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border ${
                 hop.estimated_minutes != null && hop.estimated_minutes > 120
-                  ? "bg-amber-50 border-amber-200 text-amber-950 font-bold"
-                  : "bg-gray-50 border-gray-100"
+                  ? "bg-amber-950/60 border-amber-800 text-amber-200 font-bold"
+                  : "bg-[#172235] border-[#263244]"
               }`}
             >
               <Clock
                 size={12}
                 className={
                   hop.estimated_minutes != null && hop.estimated_minutes > 120
-                    ? "text-amber-700"
-                    : "text-emerald-700"
+                    ? "text-amber-400"
+                    : "text-[#14B8A6]"
                 }
               />
-              <span className="font-semibold text-gray-900">{formattedDuration}</span>
+              <span className="font-semibold text-white font-mono">{formattedDuration}</span>
             </div>
           )}
 
           {distanceStr && (
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-100">
-              <span className="text-emerald-700 font-bold">📍</span>
-              <span className="font-semibold text-gray-900">{distanceStr}</span>
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#172235] border border-[#263244]">
+              <span className="text-[#14B8A6] font-bold">📍</span>
+              <span className="font-semibold text-white font-mono">{distanceStr}</span>
             </div>
           )}
 
           {hop.estimated_cost !== null && hop.estimated_cost !== undefined && (
-            <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-100">
-              <IndianRupee size={12} className="text-emerald-700" />
-              <span className="font-semibold text-gray-900">{`Est. Cost: ₹${hop.estimated_cost}`}</span>
+            <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#172235] border border-[#263244]">
+              <IndianRupee size={12} className="text-[#14B8A6]" />
+              <span className="font-semibold text-white font-mono">{`Est. Cost: ₹${hop.estimated_cost}`}</span>
             </div>
           )}
         </div>
@@ -139,29 +139,29 @@ export const TransportHopCard: React.FC<TransportHopCardProps> = ({ hop }) => {
         {hop.reason && (
           <div
             data-testid="transport-hop-reason"
-            className="mt-2.5 p-2.5 rounded-xl bg-amber-100/80 border border-amber-200 text-amber-900 text-xs font-medium flex items-start gap-2"
+            className="mt-2.5 p-2.5 rounded-xl bg-amber-950/60 border border-amber-800 text-amber-200 text-xs font-medium flex items-start gap-2"
           >
-            <AlertTriangle size={14} className="text-amber-700 shrink-0 mt-0.5" />
+            <AlertTriangle size={14} className="text-amber-400 shrink-0 mt-0.5" />
             <span>{`Transport Notice: ${hop.reason}`}</span>
           </div>
         )}
 
         {hop.legs && hop.legs.length > 0 && (
-          <div className="mt-2.5 pt-2 border-t border-gray-100 space-y-1">
-            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+          <div className="mt-2.5 pt-2 border-t border-[#263244] space-y-1">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
               Transit Legs
             </span>
-            <div className="space-y-1 text-xs text-gray-700">
+            <div className="space-y-1 text-xs text-slate-300">
               {hop.legs.map((leg, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span className="font-semibold capitalize text-gray-900">{leg.mode}:</span>
-                  <span className="text-gray-600">{leg.detail}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#14B8A6]" />
+                  <span className="font-semibold capitalize text-white">{leg.mode}:</span>
+                  <span className="text-slate-300">{leg.detail}</span>
                   {leg.provider && (
-                    <span className="text-gray-400 font-mono text-[10px]">{`(Provider: ${leg.provider})`}</span>
+                    <span className="text-slate-400 font-mono text-[10px]">{`(Provider: ${leg.provider})`}</span>
                   )}
                   {leg.route && (
-                    <span className="text-gray-400 font-mono text-[10px]">{`(Route: ${leg.route})`}</span>
+                    <span className="text-slate-400 font-mono text-[10px]">{`(Route: ${leg.route})`}</span>
                   )}
                 </div>
               ))}

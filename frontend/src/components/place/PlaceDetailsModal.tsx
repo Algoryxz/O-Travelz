@@ -24,6 +24,7 @@ import {
   resolvePlaceGallery,
   resolvePlaceImageUrl,
 } from "../../utils/imageAdapter";
+import { useRecentPlaces } from "../../store/useRecentPlaces";
 
 export interface SelectedPlaceInfo {
   id?: string;
@@ -55,8 +56,6 @@ export interface PlaceDetailsModalProps {
   onExploreMap?: (place: SelectedPlaceInfo) => void;
   onPlanTrip?: (place: SelectedPlaceInfo) => void;
 }
-
-import { useRecentPlaces } from "../../store/useRecentPlaces";
 
 export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
   place,
@@ -100,20 +99,14 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
     id: place.id,
     name: place.name,
     category: place.category,
-    images: place.images,
     imageUrl: place.imageUrl,
+    images: place.images,
   });
 
-  const activeImage =
-    gallery.length > 0
-      ? gallery[Math.min(selectedImageIndex, gallery.length - 1)]
-      : {
-          url: resolvePlaceImageUrl(place, "hero"),
-          alt: place.name,
-          source: "O-Travelz Verified",
-          license: "Standard",
-          attribution: "O-Travelz Tourism Documentation",
-        };
+  const activeImage = gallery[selectedImageIndex] || gallery[0] || {
+    url: getPlaceImageUrl(place.name, place.category),
+    alt: place.name,
+  };
 
   const handleToggleSave = () => {
     toggleSavePlace({
@@ -122,26 +115,18 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
       category: place.category,
       location: region,
       description: place.description,
-      distance: place.distance,
-      notes: place.notes,
-      tags: place.tags,
       interests: place.interests,
-      coordinates:
-        place.lon != null && place.lat != null
-          ? [place.lon, place.lat]
-          : undefined,
     });
   };
 
   return (
     <div
-      data-testid="place-details-modal-overlay"
-      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-200"
+      data-testid="place-details-modal"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        data-testid="place-details-modal"
-        className="relative w-full max-w-2xl bg-[#FBF8F1] dark:bg-[#0B0F19] text-[#1E1E1E] dark:text-gray-100 rounded-3xl shadow-2xl border border-emerald-900/20 dark:border-emerald-700/30 overflow-hidden my-auto flex flex-col max-h-[90vh]"
+        className="relative w-full max-w-2xl max-h-[90vh] bg-[#111827] rounded-3xl border border-[#263244] shadow-2xl overflow-hidden flex flex-col animate-in zoom-in-95 duration-200 text-white"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -149,14 +134,14 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
           type="button"
           data-testid="close-place-details-modal"
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/20"
           aria-label="Close details"
         >
           <X size={20} />
         </button>
 
         {/* Hero Photo / Gallery Carousel */}
-        <div data-testid="destination-photo-gallery" className="relative h-64 sm:h-72 w-full bg-slate-900 shrink-0 overflow-hidden">
+        <div data-testid="destination-photo-gallery" className="relative h-64 sm:h-72 w-full bg-[#0B1220] shrink-0 overflow-hidden">
           <img
             src={activeImage.url}
             alt={activeImage.alt || place.name}
@@ -168,7 +153,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
               );
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-black/30 to-transparent" />
 
           {/* Gallery Navigation Arrows & Counter if multiple photos */}
           {gallery.length > 1 && (
@@ -182,7 +167,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
                       prev === 0 ? gallery.length - 1 : prev - 1
                     );
                   }}
-                  className="w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md transition-colors pointer-events-auto cursor-pointer"
+                  className="w-8 h-8 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors pointer-events-auto cursor-pointer border border-white/20"
                   aria-label="Previous photo"
                 >
                   <ChevronLeft size={16} />
@@ -195,7 +180,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
                       prev === gallery.length - 1 ? 0 : prev + 1
                     );
                   }}
-                  className="w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md transition-colors pointer-events-auto cursor-pointer"
+                  className="w-8 h-8 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors pointer-events-auto cursor-pointer border border-white/20"
                   aria-label="Next photo"
                 >
                   <ChevronRight size={16} />
@@ -215,7 +200,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
                       onClick={() => setSelectedImageIndex(idx)}
                       className={`h-1.5 rounded-full transition-all cursor-pointer ${
                         idx === selectedImageIndex
-                          ? "w-6 bg-emerald-400"
+                          ? "w-6 bg-[#14B8A6]"
                           : "w-2 bg-white/60 hover:bg-white"
                       }`}
                       aria-label={`View photo ${idx + 1}`}
@@ -230,7 +215,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
           <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-3 text-white">
             <div className="space-y-1">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-0.5 rounded-full bg-emerald-600/90 text-white text-[11px] font-bold uppercase tracking-wider backdrop-blur-md">
+                <span className="px-3 py-0.5 rounded-full bg-[#111827]/90 text-teal-300 border border-[#263244] text-[11px] font-bold uppercase tracking-wider backdrop-blur-md">
                   {place.category}
                 </span>
                 {place.badge && (
@@ -239,8 +224,8 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
                   </span>
                 )}
                 {region && (
-                  <span className="px-3 py-0.5 rounded-full bg-black/50 text-white text-[11px] font-medium backdrop-blur-md flex items-center gap-1">
-                    <MapPin size={11} className="text-emerald-400" />
+                  <span className="px-3 py-0.5 rounded-full bg-black/50 text-white text-[11px] font-medium backdrop-blur-md flex items-center gap-1 border border-white/20">
+                    <MapPin size={11} className="text-[#14B8A6]" />
                     <span>{region}</span>
                   </span>
                 )}
@@ -258,11 +243,11 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
               className={`p-3 rounded-2xl flex items-center gap-2 font-bold text-xs backdrop-blur-md transition-all cursor-pointer shadow-lg ${
                 saved
                   ? "bg-rose-600 text-white hover:bg-rose-700"
-                  : "bg-white/20 hover:bg-white/30 text-white border border-white/20"
+                  : "bg-black/50 hover:bg-black/70 text-white border border-white/20"
               }`}
             >
               <Heart size={16} className={saved ? "fill-white" : ""} />
-              <span>{saved ? "Save Place" : "Save Place"}</span>
+              <span>{saved ? "Saved" : "Save Place"}</span>
             </button>
           </div>
         </div>
@@ -271,11 +256,11 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
         <div className="p-6 sm:p-8 space-y-6 overflow-y-auto flex-1">
           {/* Description */}
           <div className="space-y-2">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono flex items-center gap-1.5">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#14B8A6] font-mono flex items-center gap-1.5">
               <Info size={13} />
               <span>About Destination</span>
             </div>
-            <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
               {place.description ||
                 `Explore ${place.name}, a premier destination in ${region || "Odisha"}.`}
             </p>
@@ -284,36 +269,36 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
           {/* Quick Facts / Metadata Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {place.avg_visit_minutes != null && (
-              <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/80 space-y-1">
-                <div className="flex items-center gap-1.5 text-gray-400 dark:text-gray-400 text-xs">
-                  <Clock size={14} className="text-emerald-600 dark:text-emerald-400" />
+              <div className="p-3.5 rounded-2xl bg-[#172235] border border-[#263244] space-y-1">
+                <div className="flex items-center gap-1.5 text-slate-400 text-xs">
+                  <Clock size={14} className="text-[#14B8A6]" />
                   <span>Duration</span>
                 </div>
-                <div className="text-sm font-bold font-display text-gray-900 dark:text-white">
+                <div className="text-sm font-bold font-display text-white font-mono">
                   ~{place.avg_visit_minutes} mins
                 </div>
               </div>
             )}
 
             {place.price_tier && (
-              <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/80 space-y-1">
-                <div className="flex items-center gap-1.5 text-gray-400 dark:text-gray-400 text-xs">
-                  <Tag size={14} className="text-emerald-600 dark:text-emerald-400" />
+              <div className="p-3.5 rounded-2xl bg-[#172235] border border-[#263244] space-y-1">
+                <div className="flex items-center gap-1.5 text-slate-400 text-xs">
+                  <Tag size={14} className="text-[#14B8A6]" />
                   <span>Price Tier</span>
                 </div>
-                <div className="text-sm font-bold font-display text-gray-900 dark:text-white capitalize">
+                <div className="text-sm font-bold font-display text-white capitalize">
                   {place.price_tier}
                 </div>
               </div>
             )}
 
             {place.lat != null && place.lon != null && (
-              <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/80 space-y-1">
-                <div className="flex items-center gap-1.5 text-gray-400 dark:text-gray-400 text-xs">
-                  <Navigation size={14} className="text-emerald-600 dark:text-emerald-400" />
+              <div className="p-3.5 rounded-2xl bg-[#172235] border border-[#263244] space-y-1">
+                <div className="flex items-center gap-1.5 text-slate-400 text-xs">
+                  <Navigation size={14} className="text-[#14B8A6]" />
                   <span>GPS Coordinates</span>
                 </div>
-                <div className="text-xs font-mono font-semibold text-gray-900 dark:text-white truncate">
+                <div className="text-xs font-mono font-semibold text-white truncate">
                   {place.lat.toFixed(2)}°N, {place.lon.toFixed(2)}°E
                 </div>
               </div>
@@ -324,7 +309,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
           {((place.interests && place.interests.length > 0) ||
             (place.tags && place.tags.length > 0)) && (
             <div className="space-y-2.5">
-              <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-mono flex items-center gap-1.5">
+              <div className="text-[11px] font-bold uppercase tracking-wider text-[#14B8A6] font-mono flex items-center gap-1.5">
                 <Sparkles size={13} />
                 <span>Themes: Interests &amp; Experiences</span>
               </div>
@@ -332,16 +317,16 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
                 {(place.interests || []).map((interest) => (
                   <span
                     key={interest}
-                    className="px-3 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-300 text-xs font-semibold capitalize flex items-center gap-1"
+                    className="px-3 py-1 rounded-xl bg-[#172235] border border-[#263244] text-teal-300 text-xs font-semibold capitalize flex items-center gap-1"
                   >
-                    <Sparkles size={11} className="text-emerald-600" />
+                    <Sparkles size={11} className="text-[#14B8A6]" />
                     <span>{interest}</span>
                   </span>
                 ))}
                 {(place.tags || []).map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 rounded-xl bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 text-xs font-medium"
+                    className="px-3 py-1 rounded-xl bg-[#172235] border border-[#263244] text-slate-300 text-xs font-medium"
                   >
                     {tag}
                   </span>
@@ -349,66 +334,37 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
               </div>
             </div>
           )}
-
-          {/* Verification & Dataset Integrity Attribution */}
-          <div className="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/60 flex items-start gap-3">
-            <ShieldCheck size={18} className="text-emerald-700 dark:text-emerald-400 shrink-0 mt-0.5" />
-            <div className="text-xs space-y-1 text-emerald-950 dark:text-emerald-200">
-              <div className="font-bold">Authoritative Odisha Dataset</div>
-              <div className="text-emerald-800/80 dark:text-emerald-300/80 leading-relaxed">
-                {place.source || "Official Tourism & Cultural Documentation"}
-                {place.verified_at ? ` · Verified on ${place.verified_at}` : ""}
-              </div>
-              {activeImage.attribution && (
-                <div className="text-[10px] text-emerald-700/70 dark:text-emerald-400/60 pt-0.5">
-                  Photo Attribution: {activeImage.attribution}
-                </div>
-              )}
-            </div>
-          </div>
         </div>
 
-        {/* Action Footer Strip */}
-        <div className="p-4 sm:p-6 bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 flex items-center justify-between gap-3 shrink-0">
-          <div className="flex items-center gap-2">
-            {onViewOnMap && (
-              <button
-                type="button"
-                data-testid="modal-view-on-map-button"
-                onClick={() => {
-                  onViewOnMap(place);
-                }}
-                className="px-4 py-2.5 rounded-2xl bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-800 dark:text-gray-200 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"
-              >
-                <Compass size={15} className="text-emerald-700 dark:text-emerald-400" />
-                <span>Explore on Map</span>
-              </button>
-            )}
-          </div>
+        {/* Action Buttons Strip */}
+        <div className="p-5 sm:p-6 bg-[#0B1220] border-t border-[#263244] flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <button
+            type="button"
+            data-testid="modal-view-on-map-button"
+            onClick={() => {
+              handleExploreMap(place);
+              onClose();
+            }}
+            className="px-4 py-2.5 rounded-xl bg-[#172235] hover:bg-[#1E2D44] text-slate-200 border border-[#263244] text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-xs"
+          >
+            <Compass size={15} className="text-[#14B8A6]" />
+            <span>Explore on Map</span>
+          </button>
 
-          <div className="flex items-center gap-3">
+          {onPlanTrip && (
             <button
               type="button"
-              onClick={onClose}
-              className="px-4 py-2.5 rounded-2xl bg-transparent hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-600 dark:text-gray-400 text-xs font-semibold transition-colors cursor-pointer"
+              data-testid="modal-plan-trip-button"
+              onClick={() => {
+                onPlanTrip(place);
+                onClose();
+              }}
+              className="px-6 py-2.5 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white text-xs font-bold shadow-md hover:shadow-teal-500/20 transition-all flex items-center gap-2 cursor-pointer"
             >
-              Close
+              <CalendarDays size={15} />
+              <span>Plan Trip Here</span>
             </button>
-
-            {onPlanTrip && (
-              <button
-                type="button"
-                data-testid="modal-plan-trip-button"
-                onClick={() => {
-                  onPlanTrip(place);
-                }}
-                className="px-5 py-2.5 rounded-2xl bg-[#059669] hover:bg-emerald-700 text-white text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer"
-              >
-                <CalendarDays size={15} />
-                <span>Plan Trip Here</span>
-              </button>
-            )}
-          </div>
+          )}
         </div>
       </div>
     </div>

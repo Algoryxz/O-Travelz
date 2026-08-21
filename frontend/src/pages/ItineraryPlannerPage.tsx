@@ -18,6 +18,7 @@ import { SettingsModal, type UserTravelPreferences } from "../components/setting
 import { MapView } from "../components/map/MapView";
 import { TopNav, type NavTab } from "../components/nav/TopNav";
 import { MobileDrawer } from "../components/nav/MobileDrawer";
+import { FloatingNavigationDock } from "../components/nav/FloatingNavigationDock";
 import { OdishaHero } from "../components/home/OdishaHero";
 import { HomeSections } from "../components/home/HomeSections";
 import { DestinationsPage } from "../components/home/DestinationsPage";
@@ -72,7 +73,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
 
   const { savedCount } = useSavedPlaces();
   const { addRecentPlace, count: revisitCount } = useRecentPlaces();
-  const { places: allVerifiedPlaces } = usePlaces();
+  const { places: allVerifiedPlaces, getPlaceByName } = usePlaces();
   const [isLiveLocation, setIsLiveLocation] = useState<boolean>(true);
 
   const fetchLiveLocation = () => {
@@ -350,9 +351,41 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
           : 6000,
     });
   };
+  const handleSurpriseMe = () => {
+    if (allVerifiedPlaces && allVerifiedPlaces.length > 0) {
+      const randomIndex = Math.floor(Math.random() * allVerifiedPlaces.length);
+      const p = allVerifiedPlaces[randomIndex];
+      setSelectedPlaceForModal({
+        ...p,
+        description: p.description ?? undefined,
+      });
+    }
+  };
+
+  const handleHeroSearch = (term: string) => {
+    setDestinationSearch(term);
+    setActiveTab("destinations");
+  };
+
+  const handleHeroSelectDestination = (name: string) => {
+    const found = getPlaceByName(name);
+    if (found) {
+      setSelectedPlaceForModal({
+        ...found,
+        description: found.description ?? undefined,
+      });
+    } else {
+      setDestinationSearch(name);
+      setActiveTab("destinations");
+    }
+  };
+
+  const handleViewAllDestinations = () => {
+    setActiveTab("destinations");
+  };
 
   return (
-    <div className="min-h-screen bg-[#08120F] text-[#FBF8F1] flex flex-col font-sans antialiased selection:bg-emerald-500 selection:text-white transition-colors duration-200">
+    <div className="min-h-screen bg-[#0B1220] text-[#F8FAFC] flex flex-col font-sans antialiased selection:bg-[#14B8A6] selection:text-white transition-colors duration-200">
       {/* 1. Header Navigation */}
       <TopNav
         activeTab={activeTab === "category" ? "destinations" : (activeTab as NavTab)}
@@ -378,6 +411,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         onOpenAI={() => setIsAISidebarOpen(true)}
         onOpenSettings={() => setIsSettingsModalOpen(true)}
         savedCount={savedCount}
+        revisitCount={revisitCount}
       />
 
       {/* 3. Main Views Switching */}
@@ -389,6 +423,10 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
               selectedLocation={selectedLocation}
               destinationSearch={destinationSearch}
               onSearchChange={setDestinationSearch}
+              onSearch={handleHeroSearch}
+              onSurpriseMe={handleSurpriseMe}
+              onSelectDestination={handleHeroSelectDestination}
+              onViewAllDestinations={handleViewAllDestinations}
               onNavigateToPlan={() => handleTabChange("plan")}
               onNavigateToMap={() => handleTabChange("map")}
               onNavigateToCopilot={() => setIsAISidebarOpen(true)}
@@ -746,11 +784,47 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         onApplyPreferences={handleApplyUserPreferences}
       />
 
+      {/* Floating AI Agent Dock Trigger (21st.dev Agent Dock Pattern) */}
+      {!isAISidebarOpen && (
+        <aside
+          aria-label="AI Travel Assistant Quick Launcher"
+          className="fixed bottom-6 right-6 z-30 flex items-center gap-2"
+        >
+          <button
+            type="button"
+            data-testid="floating-ai-dock-btn"
+            onClick={() => setIsAISidebarOpen(true)}
+            className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#111827]/95 hover:bg-[#172235] text-white border border-[#263244] hover:border-[#8B5CF6]/60 shadow-2xl backdrop-blur-xl transition-all duration-300 group cursor-pointer"
+            aria-label="Open AI Copilot Travel Assistant"
+          >
+            <div className="w-7 h-7 rounded-full bg-[#8B5CF6]/20 border border-[#8B5CF6]/40 flex items-center justify-center text-[#A78BFA] group-hover:scale-110 transition-transform">
+              <Bot size={15} />
+            </div>
+            <div className="text-left hidden sm:block">
+              <div className="text-[11px] font-bold text-white flex items-center gap-1.5 leading-none">
+                <span>O-Travelz AI</span>
+                <span className="live-dot" />
+              </div>
+              <div className="text-[9px] text-[#A78BFA] font-mono leading-none mt-1">
+                Travel Assistant
+              </div>
+            </div>
+          </button>
+        </aside>
+      )}
+
+      {/* Floating 21st.dev Navigation Dock */}
+      <FloatingNavigationDock
+        activeTab={activeTab === "category" ? "destinations" : (activeTab as NavTab)}
+        onSelectTab={handleTabChange}
+        savedCount={savedCount}
+      />
+
       {/* 7. Comprehensive Footer with Location-Aware Hub Intelligence */}
       <Footer
         selectedLocation={selectedLocation}
         onNavigate={handleTabChange}
-        onSelectCategory={(cat) => {
+        onSelectCategory={(cat: string) => {
           setSelectedCategory(cat);
           setActiveTab("category");
         }}

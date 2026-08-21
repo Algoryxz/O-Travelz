@@ -386,11 +386,11 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
       </div>
 
       {/* Description Summary Card */}
-      <div className="p-6 rounded-3xl bg-[#0b241d] text-white border border-emerald-800/40 shadow-lg">
-        <p className="text-sm sm:text-base text-emerald-100/90 leading-relaxed max-w-3xl">
+      <div className="p-6 rounded-3xl bg-[#111827] text-white border border-[#263244] shadow-lg">
+        <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-3xl">
           {categoryData.description}
         </p>
-        <div className="text-xs text-emerald-300/80 font-mono mt-3">
+        <div className="text-xs text-[#14B8A6] font-mono mt-3">
           Curated destinations and highlights around {selectedLocation} and connected regions.
         </div>
       </div>
@@ -403,7 +403,7 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
             <div
               key={place.id}
               data-testid={`category-place-${place.id}`}
-              className="p-6 rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all space-y-4"
+              className="p-6 rounded-3xl bg-[#111827] border border-[#263244] hover:border-[#14B8A6]/60 shadow-sm hover:shadow-md transition-all space-y-4 text-white"
             >
               <div className="flex items-start justify-between gap-3">
                 <div
@@ -419,10 +419,10 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                     })
                   }
                 >
-                  <h3 className="font-display font-bold text-lg text-gray-900 hover:text-emerald-700 transition-colors">
+                  <h3 className="font-display font-bold text-lg text-white hover:text-teal-300 transition-colors">
                     {place.name}
                   </h3>
-                  <p className="text-xs text-gray-500 mt-0.5">{place.subtitle}</p>
+                  <p className="text-xs text-slate-400 mt-0.5">{place.subtitle}</p>
                 </div>
 
                 <button
@@ -439,8 +439,8 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                   }
                   className={`w-9 h-9 rounded-xl flex items-center justify-center transition-colors shrink-0 cursor-pointer ${
                     saved
-                      ? "bg-red-50 text-red-500"
-                      : "bg-gray-100 text-gray-400 hover:text-gray-700 hover:bg-gray-200"
+                      ? "bg-rose-950/80 text-rose-300 border border-rose-800/60"
+                      : "bg-[#172235] text-slate-400 hover:text-white border border-[#263244]"
                   }`}
                   aria-label={`Save ${place.name}`}
                 >
@@ -448,22 +448,22 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                 </button>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 text-xs text-gray-600">
-                <span className="font-semibold text-emerald-700 flex items-center gap-1">
+              <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400">
+                <span className="font-semibold text-[#14B8A6] flex items-center gap-1 font-mono">
                   <MapPin size={13} /> {place.distance}
                 </span>
                 <span>·</span>
-                <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 font-medium">
+                <span className="px-2 py-0.5 rounded-md bg-[#172235] text-teal-300 border border-[#263244] font-medium">
                   {place.status}
                 </span>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-gray-100">
+              <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-[#263244]">
                 <div className="flex flex-wrap gap-1.5">
                   {place.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-lg bg-gray-100 text-gray-600 text-[11px] font-medium"
+                      className="px-2.5 py-1 rounded-lg bg-[#172235] text-slate-300 border border-[#263244] text-[11px] font-medium"
                     >
                       {tag}
                     </span>
@@ -482,7 +482,7 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                         description: place.subtitle,
                       })
                     }
-                    className="text-xs text-emerald-700 hover:text-emerald-900 font-semibold flex items-center gap-1 cursor-pointer"
+                    className="text-xs text-[#14B8A6] hover:text-teal-200 font-semibold flex items-center gap-1 cursor-pointer"
                   >
                     <MapPin size={12} /> Map
                   </button>

@@ -38,20 +38,20 @@ export const ItineraryDaySection: React.FC<ItineraryDaySectionProps> = ({
   return (
     <section
       data-testid={`itinerary-day-${day.day_number}`}
-      className="p-5 md:p-6 rounded-3xl bg-gray-50 dark:bg-slate-850/60 border border-gray-200/80 dark:border-slate-800 mb-6 last:mb-0 shadow-sm"
+      className="p-5 md:p-6 rounded-3xl bg-[#111827] border border-[#263244] mb-6 last:mb-0 shadow-sm text-white"
     >
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-gray-200 dark:border-slate-800">
-        <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2 font-display">
-          <span className="px-3 py-1 rounded-xl bg-emerald-700 text-white text-xs font-extrabold uppercase tracking-wider shadow-2xs">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-[#263244]">
+        <h3 className="text-lg font-bold text-white flex items-center gap-2 font-display">
+          <span className="px-3 py-1 rounded-xl bg-[#14B8A6] text-white text-xs font-extrabold uppercase tracking-wider shadow-2xs">
             {`Day ${day.day_number}`}
           </span>
           {day.date && (
-            <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 font-mono">
+            <span className="text-xs font-semibold text-slate-400 font-mono">
               {`(${day.date})`}
             </span>
           )}
         </h3>
-        <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+        <div className="text-xs text-slate-400 font-medium">
           {`${day.stops.length} ${day.stops.length === 1 ? "Stop" : "Stops"} · ${day.hops.length} ${day.hops.length === 1 ? "Hop" : "Hops"}`}
         </div>
       </div>

@@ -49,25 +49,25 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
     switch (status) {
       case "success":
         return (
-          <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">
+          <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#14B8A6]/20 text-teal-300 border border-[#14B8A6]/40">
             Success
           </span>
         );
       case "clarification":
         return (
-          <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 border border-blue-300">
+          <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-950/80 text-blue-300 border border-blue-800/60">
             Clarification Needed
           </span>
         );
       case "unsupported":
         return (
-          <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-300">
+          <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-950/80 text-amber-300 border border-amber-800/60">
             Note on Request
           </span>
         );
       default:
         return (
-          <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-800 border border-gray-300">
+          <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#172235] text-slate-300 border border-[#263244]">
             {status}
           </span>
         );
@@ -77,16 +77,16 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
   return (
     <div
       data-testid="ai-conversation-panel"
-      className="p-5 md:p-6 rounded-3xl bg-white border border-emerald-200/80 shadow-sm space-y-5"
+      className="p-5 md:p-6 rounded-3xl bg-[#111827] border border-[#263244] shadow-sm space-y-5 text-white"
     >
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-gray-100">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#263244]">
         <div>
-          <h3 className="text-base font-bold font-display text-gray-900 flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+          <h3 className="text-base font-bold font-display text-white flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#8B5CF6] animate-pulse" />
             <span>{hasItinerary ? "Conversational Refinement" : "AI Trip Assistant"}</span>
           </h3>
-          <p className="text-xs text-gray-500 mt-0.5">
+          <p className="text-xs text-slate-400 mt-0.5">
             {hasItinerary
               ? "Ask your assistant to adjust days, start location, or category interests."
               : "Describe your ideal journey in natural language, or ask follow-up questions to customize your trip."}
@@ -96,7 +96,7 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
 
       {/* Suggested Quick Prompts */}
       <div className="space-y-1.5">
-        <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
           Suggested Prompts
         </span>
         <div className="flex flex-wrap gap-2">
@@ -107,7 +107,7 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
               disabled={isLoading}
               onClick={() => handleSuggestionClick(suggestion)}
               data-testid={`ai-suggestion-${index}`}
-              className="text-xs px-3.5 py-1.5 rounded-xl bg-gray-50 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/60 text-gray-700 dark:text-gray-300 hover:text-emerald-900 dark:hover:text-emerald-200 border border-gray-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors disabled:opacity-50 text-left cursor-pointer"
+              className="text-xs px-3.5 py-1.5 rounded-xl bg-[#172235] hover:bg-[#1E2D44] text-slate-300 hover:text-white border border-[#263244] hover:border-[#8B5CF6]/50 transition-colors disabled:opacity-50 text-left cursor-pointer"
             >
               &ldquo;{suggestion}&rdquo;
             </button>
@@ -119,7 +119,7 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
       {history.length > 0 && (
         <div
           data-testid="ai-chat-history"
-          className="space-y-3.5 max-h-80 overflow-y-auto p-3 rounded-2xl bg-gray-50/70 border border-gray-100"
+          className="space-y-3.5 max-h-80 overflow-y-auto p-3 rounded-2xl bg-[#0B1220] border border-[#263244]"
         >
           {history.map((turn, index) => {
             const isUser = turn.role === "user";
@@ -129,7 +129,7 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
                 className={`flex gap-2.5 ${isUser ? "justify-end" : "justify-start"}`}
               >
                 {!isUser && (
-                  <div className="w-7 h-7 rounded-full bg-emerald-700 text-white flex items-center justify-center shrink-0 text-xs shadow-xs mt-0.5">
+                  <div className="w-7 h-7 rounded-full bg-[#8B5CF6] text-white flex items-center justify-center shrink-0 text-xs shadow-xs mt-0.5">
                     <Bot size={14} />
                   </div>
                 )}
@@ -137,8 +137,8 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
                 <div
                   className={`max-w-[85%] sm:max-w-[75%] rounded-2xl p-3 text-xs leading-relaxed ${
                     isUser
-                      ? "bg-emerald-700 text-white shadow-2xs font-medium"
-                      : "bg-white text-gray-800 border border-gray-200 shadow-2xs"
+                      ? "bg-[#14B8A6] text-white shadow-2xs font-medium"
+                      : "bg-[#172235] text-slate-200 border border-[#263244] shadow-2xs"
                   }`}
                 >
                   <p className="whitespace-pre-wrap">{turn.message}</p>
@@ -147,13 +147,13 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
                   {!isUser && turn.response?.clarification && (
                     <div
                       data-testid="ai-clarification-box"
-                      className="mt-2.5 p-2.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-950 space-y-1"
+                      className="mt-2.5 p-2.5 rounded-xl bg-blue-950/70 border border-blue-800 text-blue-200 space-y-1"
                     >
-                      <div className="font-bold text-blue-900 flex items-center gap-1">
-                        <HelpCircle size={12} className="text-blue-700" />
+                      <div className="font-bold text-blue-300 flex items-center gap-1">
+                        <HelpCircle size={12} className="text-blue-400" />
                         <span>Clarification Needed:</span>
                       </div>
-                      <p className="text-blue-900 font-medium">{turn.response.clarification.question}</p>
+                      <p className="text-blue-200 font-medium">{turn.response.clarification.question}</p>
                     </div>
                   )}
 
@@ -161,20 +161,20 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
                   {!isUser && turn.response?.changed_constraints && (
                     <div
                       data-testid="ai-changed-constraints"
-                      className="mt-2 pt-2 border-t border-gray-100 flex flex-wrap gap-1.5 text-[10px]"
+                      className="mt-2 pt-2 border-t border-[#263244] flex flex-wrap gap-1.5 text-[10px]"
                     >
                       {turn.response.changed_constraints.days != null && (
-                        <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200">
+                        <span className="px-2 py-0.5 rounded-md bg-[#111827] text-teal-300 font-semibold border border-[#263244]">
                           Days: {turn.response.changed_constraints.days}
                         </span>
                       )}
                       {turn.response.changed_constraints.interests && (
-                        <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200">
+                        <span className="px-2 py-0.5 rounded-md bg-[#111827] text-teal-300 font-semibold border border-[#263244]">
                           {turn.response.changed_constraints.interests.join(", ")}
                         </span>
                       )}
                       {turn.response.changed_constraints.start && (
-                        <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200">
+                        <span className="px-2 py-0.5 rounded-md bg-[#111827] text-teal-300 font-semibold border border-[#263244]">
                           Start: {turn.response.changed_constraints.start}
                         </span>
                       )}
@@ -183,7 +183,7 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
                 </div>
 
                 {isUser && (
-                  <div className="w-7 h-7 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center shrink-0 text-xs shadow-xs mt-0.5">
+                  <div className="w-7 h-7 rounded-full bg-[#172235] text-slate-300 flex items-center justify-center shrink-0 text-xs shadow-xs mt-0.5 border border-[#263244]">
                     <User size={14} />
                   </div>
                 )}
@@ -196,7 +196,7 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
       {/* Input Message Box */}
       <form onSubmit={handleSubmit} className="space-y-3">
         <div>
-          <label htmlFor="ai-message-input" className="block text-xs font-semibold text-gray-700 mb-1.5">
+          <label htmlFor="ai-message-input" className="block text-xs font-semibold text-slate-300 mb-1.5">
             {hasItinerary ? "Refinement Request" : "Trip Request"}
           </label>
           <div className="relative">
@@ -212,7 +212,7 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
               value={message}
               disabled={isLoading}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full px-4 py-3 rounded-2xl border border-gray-300 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 disabled:bg-gray-100"
+              className="w-full px-4 py-3 rounded-2xl border border-[#334155] bg-[#0B1220] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#8B5CF6] disabled:bg-slate-900"
             />
           </div>
         </div>
@@ -222,7 +222,7 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
             type="submit"
             data-testid="ai-submit-button"
             disabled={isLoading || !message.trim()}
-            className="px-6 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-semibold shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer"
+            className="px-6 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-sm font-semibold shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer"
           >
             {isLoading && (
               <span className="w-3.5 h-3.5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
@@ -239,28 +239,28 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
       {aiResponse && (
         <div
           data-testid="ai-response-card"
-          className="p-4 sm:p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200 text-xs text-gray-800 space-y-3"
+          className="p-4 sm:p-5 rounded-2xl bg-[#172235] border border-[#263244] text-xs text-slate-200 space-y-3"
         >
-          <div className="flex items-center justify-between gap-2 border-b border-emerald-100 pb-2">
-            <span className="font-bold text-gray-900 flex items-center gap-1.5">
+          <div className="flex items-center justify-between gap-2 border-b border-[#263244] pb-2">
+            <span className="font-bold text-white flex items-center gap-1.5">
               <span>AI Trip Assistant</span>
             </span>
             {getStatusBadge(aiResponse.status)}
           </div>
 
-          <p data-testid="ai-grounded-message" className="text-gray-900 leading-relaxed text-sm">
+          <p data-testid="ai-grounded-message" className="text-white leading-relaxed text-sm">
             {aiResponse.message}
           </p>
 
           {aiResponse.clarification && (
             <div
               data-testid="ai-clarification-box"
-              className="p-3.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-950 space-y-1"
+              className="p-3.5 rounded-xl bg-blue-950/70 border border-blue-800 text-blue-200 space-y-1"
             >
-              <div className="font-semibold text-blue-900">Clarification Question:</div>
-              <p className="font-medium text-blue-900">{aiResponse.clarification.question}</p>
+              <div className="font-semibold text-blue-300">Clarification Question:</div>
+              <p className="font-medium text-blue-200">{aiResponse.clarification.question}</p>
               {aiResponse.clarification.reason && (
-                <p className="text-[11px] text-blue-700">
+                <p className="text-[11px] text-blue-400">
                   Reason: {aiResponse.clarification.reason}
                 </p>
               )}
@@ -270,28 +270,28 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
           {aiResponse.changed_constraints && (
             <div
               data-testid="ai-changed-constraints"
-              className="p-3.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-700 space-y-1"
+              className="p-3.5 rounded-xl bg-[#0B1220] border border-[#263244] text-slate-300 space-y-1"
             >
-              <div className="font-semibold text-gray-900">Updated Constraints:</div>
+              <div className="font-semibold text-white">Updated Constraints:</div>
               <div className="flex flex-wrap gap-2 text-xs">
                 {aiResponse.changed_constraints.days !== undefined &&
                   aiResponse.changed_constraints.days !== null && (
-                    <span className="px-2.5 py-1 rounded-lg bg-white border border-gray-200 font-medium">
+                    <span className="px-2.5 py-1 rounded-lg bg-[#172235] border border-[#263244] font-medium text-teal-300">
                       Days: {aiResponse.changed_constraints.days}
                     </span>
                   )}
                 {aiResponse.changed_constraints.interests && (
-                  <span className="px-2.5 py-1 rounded-lg bg-white border border-gray-200 font-medium">
+                  <span className="px-2.5 py-1 rounded-lg bg-[#172235] border border-[#263244] font-medium text-teal-300">
                     Interests: {aiResponse.changed_constraints.interests.join(", ")}
                   </span>
                 )}
                 {aiResponse.changed_constraints.start && (
-                  <span className="px-2.5 py-1 rounded-lg bg-white border border-gray-200 font-medium">
+                  <span className="px-2.5 py-1 rounded-lg bg-[#172235] border border-[#263244] font-medium text-teal-300">
                     Start: {aiResponse.changed_constraints.start}
                   </span>
                 )}
                 {aiResponse.changed_constraints.dates && (
-                  <span className="px-2.5 py-1 rounded-lg bg-white border border-gray-200 font-medium">
+                  <span className="px-2.5 py-1 rounded-lg bg-[#172235] border border-[#263244] font-medium text-teal-300">
                     Dates: {aiResponse.changed_constraints.dates.join(", ")}
                   </span>
                 )}

@@ -39,12 +39,18 @@ This is a project-state record, not general AI memory.
 
 ## 3. Quality Gate & Test Evidence
 
+### Historical Release Baseline (August 20, 2026):
 - **Backend Pytest**: **324 passed** / 0 failed across 26 test suites (`pytest backend/tests`).
 - **Frontend Vitest**: **167 passed** / 0 failed across 20 test files (`npm --prefix frontend test`).
 - **Production Build**: `npm --prefix frontend run build` completed with zero TypeScript/Vite errors (`dist/index.html` + css/js bundles).
 - **Backend Python Compilation**: `python -m compileall -q backend` completed with 0 errors.
 - **Git Diff Check**: `git diff --check` clean with 0 whitespace/conflict errors.
 - **Smoke Suite**: [scratch/full_smoke_suite.py](file:///c:/Users/smara/Desktop/o-travelz/scratch/full_smoke_suite.py) verified live API, importer idempotency, AI planning, and weather endpoints with 100% pass rate.
+
+### Current Post-Release Verification (August 21, 2026):
+- **Backend Pytest**: **324 passed** / 0 failed across 31 test files (`pytest backend/tests`).
+- **Frontend Vitest**: **188 total tests** across 23 test files (**183 passed**, **5 skipped**; the 5 skipped tests are live full-stack E2E scenarios in `tests/e2e_scenarios.test.ts` requiring a running backend on port 8000).
+- **Production Build**: `npm --prefix frontend run build` completed cleanly with zero TypeScript/Vite errors (`built in 12.18s`, output in `frontend/dist/`).
 
 ---
 

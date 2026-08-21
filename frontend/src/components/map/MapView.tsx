@@ -41,8 +41,6 @@ export const MapView: React.FC<MapViewProps> = ({
     projection?.features.filter((f) => f.geometry_status === "unavailable").length ?? 0;
   const relationshipsCount = projection?.relationships.length ?? 0;
 
-  // Features are consumed from backend map projection, or all verified places across Odisha,
-  // or a standalone selected place with verified coordinates when exploring a single spot
   const featuresToRender: MapFeature[] = useMemo(() => {
     if (projection && projection.features.length > 0) {
       return projection.features;
@@ -87,14 +85,14 @@ export const MapView: React.FC<MapViewProps> = ({
   return (
     <div data-testid="map-view-root" className="space-y-4">
       {/* Map Section Header */}
-      <div className="p-5 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 shadow-xs space-y-3">
-        <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-gray-100 dark:border-slate-800">
+      <div className="p-5 md:p-6 rounded-3xl bg-[#111827] border border-[#263244] shadow-xs space-y-3">
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#263244]">
           <div>
-            <h3 className="text-base font-bold font-display text-gray-900 dark:text-white flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <h3 className="text-base font-bold font-display text-white flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#14B8A6]" />
               Odisha Route &amp; Destination Map
             </h3>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+            <p className="text-xs text-slate-400 mt-0.5">
               Explore destinations, route connections, and transport stops across Odisha.
             </p>
           </div>
@@ -104,21 +102,21 @@ export const MapView: React.FC<MapViewProps> = ({
         {selectedPlace && (
           <div
             data-testid="map-selected-place-banner"
-            className="p-3.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-200 dark:border-emerald-800 flex flex-wrap items-center justify-between gap-3"
+            className="p-3.5 rounded-2xl bg-[#172235] border border-[#334155] flex flex-wrap items-center justify-between gap-3 text-white"
           >
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-emerald-700 text-white flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-xl bg-[#14B8A6] text-white flex items-center justify-center shrink-0">
                 <MapPin size={16} />
               </div>
               <div>
-                <div className="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <div className="text-xs font-bold text-white flex items-center gap-2">
                   <span>{selectedPlace.name}</span>
-                  <span className="px-2 py-0.5 rounded-full bg-emerald-200/80 dark:bg-emerald-900 text-emerald-900 dark:text-emerald-200 text-[10px] font-semibold uppercase">
+                  <span className="px-2 py-0.5 rounded-full bg-[#111827] text-teal-300 text-[10px] font-semibold uppercase border border-[#263244]">
                     {selectedPlace.category}
                   </span>
                 </div>
                 {selectedPlace.location && (
-                  <div className="text-[11px] text-gray-600 dark:text-gray-400">{selectedPlace.location}</div>
+                  <div className="text-[11px] text-slate-400">{selectedPlace.location}</div>
                 )}
               </div>
             </div>
@@ -128,7 +126,7 @@ export const MapView: React.FC<MapViewProps> = ({
                 <button
                   type="button"
                   onClick={() => onPlanTripWithPlace(selectedPlace)}
-                  className="px-3 py-1.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+                  className="px-3 py-1.5 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
                 >
                   <Compass size={13} />
                   <span>Plan Trip Here</span>
@@ -138,7 +136,7 @@ export const MapView: React.FC<MapViewProps> = ({
                 <button
                   type="button"
                   onClick={onClearSelectedPlace}
-                  className="w-7 h-7 rounded-lg text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-emerald-100 dark:hover:bg-emerald-900 flex items-center justify-center transition-colors"
+                  className="w-7 h-7 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 flex items-center justify-center transition-colors cursor-pointer"
                   aria-label="Clear selection"
                 >
                   <X size={14} />
@@ -151,17 +149,17 @@ export const MapView: React.FC<MapViewProps> = ({
         {/* Projection Statistics Counters */}
         {projection && (
           <div className="grid grid-cols-3 gap-2 text-xs pt-1">
-            <div className="p-2.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-900 text-center">
-              <span className="text-emerald-950 dark:text-emerald-200 font-bold block text-sm">{availableCount}</span>
-              <span className="text-emerald-800 dark:text-emerald-300 text-[11px]">Mapped Locations</span>
+            <div className="p-2.5 rounded-2xl bg-[#172235] border border-[#263244] text-center">
+              <span className="text-teal-300 font-bold block text-sm font-mono">{availableCount}</span>
+              <span className="text-slate-400 text-[11px]">Mapped Locations</span>
             </div>
-            <div className="p-2.5 rounded-2xl bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-900 text-center">
-              <span className="text-blue-950 dark:text-blue-200 font-bold block text-sm">{relationshipsCount}</span>
-              <span className="text-blue-800 dark:text-blue-300 text-[11px]">Travel Hops</span>
+            <div className="p-2.5 rounded-2xl bg-[#172235] border border-[#263244] text-center">
+              <span className="text-sky-300 font-bold block text-sm font-mono">{relationshipsCount}</span>
+              <span className="text-slate-400 text-[11px]">Travel Hops</span>
             </div>
-            <div className="p-2.5 rounded-2xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-center">
-              <span className="text-gray-950 dark:text-gray-200 font-bold block text-sm">{unavailableCount}</span>
-              <span className="text-gray-600 dark:text-gray-400 text-[11px]">Unmapped</span>
+            <div className="p-2.5 rounded-2xl bg-[#172235] border border-[#263244] text-center">
+              <span className="text-slate-300 font-bold block text-sm font-mono">{unavailableCount}</span>
+              <span className="text-slate-400 text-[11px]">Unmapped</span>
             </div>
           </div>
         )}
@@ -174,11 +172,11 @@ export const MapView: React.FC<MapViewProps> = ({
       {isLoading && (
         <div
           data-testid="map-loading-state"
-          className="p-8 text-center rounded-3xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 shadow-xs"
+          className="p-8 text-center rounded-3xl bg-[#111827] border border-[#263244] shadow-xs"
         >
-          <div className="w-8 h-8 mx-auto rounded-full border-2 border-emerald-200 border-t-emerald-600 animate-spin mb-3" />
-          <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200">Loading Map...</h4>
-          <p className="text-xs text-gray-400 mt-1">
+          <div className="w-8 h-8 mx-auto rounded-full border-2 border-[#263244] border-t-[#14B8A6] animate-spin mb-3" />
+          <h4 className="text-sm font-semibold text-white">Loading Map...</h4>
+          <p className="text-xs text-slate-400 mt-1">
             Connecting destination coordinates and route connections.
           </p>
         </div>
@@ -188,13 +186,13 @@ export const MapView: React.FC<MapViewProps> = ({
       {!isLoading && !hasMapContent && !error && (
         <div
           data-testid="map-empty-state"
-          className="p-8 sm:p-12 text-center rounded-3xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 shadow-xs space-y-3"
+          className="p-8 sm:p-12 text-center rounded-3xl bg-[#111827] border border-[#263244] shadow-xs space-y-3 text-white"
         >
-          <div className="w-12 h-12 mx-auto rounded-2xl bg-emerald-50 dark:bg-slate-800 text-emerald-700 dark:text-emerald-400 flex items-center justify-center font-bold text-xl border border-emerald-100 dark:border-slate-700">
+          <div className="w-12 h-12 mx-auto rounded-2xl bg-[#172235] text-[#14B8A6] flex items-center justify-center font-bold text-xl border border-[#263244]">
             <MapPin size={24} />
           </div>
-          <h4 className="text-base font-bold font-display text-gray-900 dark:text-white">Explore on the Map</h4>
-          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-sm mx-auto leading-relaxed">
+          <h4 className="text-base font-bold font-display text-white">Explore on the Map</h4>
+          <p className="text-xs sm:text-sm text-slate-400 max-w-sm mx-auto leading-relaxed">
             Plan a trip above or select any place in Discover or Destinations to explore its location and travel routes on the map.
           </p>
         </div>

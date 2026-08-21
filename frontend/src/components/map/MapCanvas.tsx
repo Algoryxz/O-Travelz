@@ -1,6 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import type { MapFeature, MapRelationship } from "../../types/api";
 import { getPlaceImageUrl, getPlaceRegion } from "../../utils/imageService";
+import {
+  Search,
+  Crosshair,
+  Layers as LayersIcon,
+  X,
+  Compass,
+  MapPin,
+  ZoomIn,
+  ZoomOut,
+  Maximize2,
+  AlertCircle,
+  Car,
+} from "lucide-react";
 
 interface MapCanvasProps {
   features: MapFeature[];
@@ -12,6 +25,20 @@ interface MapCanvasProps {
   onPlanTripWithPlace?: (place: { id?: string; name: string; category: string; location?: string }) => void;
   onViewDetails?: (place: { id?: string; name: string; category: string; location?: string }) => void;
 }
+
+export function getMarkerCategoryColor(category?: string | null): string {
+  const cat = (category || "").toLowerCase();
+  if (cat.includes("temple") || cat.includes("heritage") || cat.includes("culture")) return "#D97706";
+  if (cat.includes("beach") || cat.includes("lake") || cat.includes("coastal")) return "#0284C7";
+  if (cat.includes("nature") || cat.includes("wildlife") || cat.includes("waterfall") || cat.includes("park")) return "#10B981";
+  if (cat.includes("museum") || cat.includes("monument") || cat.includes("shopping")) return "#8B5CF6";
+  if (cat.includes("medical") || cat.includes("hospital")) return "#F43F5E";
+  if (cat.includes("food") || cat.includes("cafe") || cat.includes("hangout")) return "#F59E0B";
+  if (cat.includes("transit") || cat.includes("atm") || cat.includes("sport")) return "#06B6D4";
+  return "#14B8A6";
+}
+
+type MapLayerType = "dark" | "satellite";
 
 export const MapCanvas: React.FC<MapCanvasProps> = ({
   features,
@@ -25,30 +52,59 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 }) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const leafletMapRef = useRef<any>(null);
+  const baseTileLayerRef = useRef<any>(null);
   const markersLayerRef = useRef<any>(null);
   const routesLayerRef = useRef<any>(null);
+  const userLayerRef = useRef<any>(null);
+  const markerLookupRef = useRef<Map<string, any>>(new Map());
+
   const [isLeafletReady, setIsLeafletReady] = useState<boolean>(false);
+  const [currentZoom, setCurrentZoom] = useState<number>(7);
+  const [activeLayer, setActiveLayer] = useState<MapLayerType>("dark");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [isSearching, setIsSearching] = useState<boolean>(false);
+  const [clickedCoords, setClickedCoords] = useState<{ lat: number; lon: number } | null>(null);
+  const [geoError, setGeoError] = useState<string | null>(null);
+  const [isLocating, setIsLocating] = useState<boolean>(false);
+  const [isLayerMenuOpen, setIsLayerMenuOpen] = useState<boolean>(false);
+  const [activeUserPos, setActiveUserPos] = useState<{ lat: number; lon: number } | null>(userLocation || null);
 
   // Extract available Point features
-  const pointFeatures = features.filter(
-    (f): f is MapFeature & { geometry: { type: "Point"; coordinates: [number, number] } } =>
-      f.geometry_status === "available" &&
-      f.geometry !== null &&
-      f.geometry.type === "Point" &&
-      Array.isArray(f.geometry.coordinates) &&
-      f.geometry.coordinates.length === 2
-  );
+  const pointFeatures = useMemo(() => {
+    return features.filter(
+      (f): f is MapFeature & { geometry: { type: "Point"; coordinates: [number, number] } } =>
+        f.geometry_status === "available" &&
+        f.geometry !== null &&
+        f.geometry.type === "Point" &&
+        Array.isArray(f.geometry.coordinates) &&
+        f.geometry.coordinates.length === 2
+    );
+  }, [features]);
 
   // Extract available LineString features
-  const lineFeatures = features.filter(
-    (f): f is MapFeature & { geometry: { type: "LineString"; coordinates: Array<[number, number]> } } =>
-      f.geometry_status === "available" &&
-      f.geometry !== null &&
-      f.geometry.type === "LineString" &&
-      Array.isArray(f.geometry.coordinates)
-  );
+  const lineFeatures = useMemo(() => {
+    return features.filter(
+      (f): f is MapFeature & { geometry: { type: "LineString"; coordinates: Array<[number, number]> } } =>
+        f.geometry_status === "available" &&
+        f.geometry !== null &&
+        f.geometry.type === "LineString" &&
+        Array.isArray(f.geometry.coordinates)
+    );
+  }, [features]);
 
-  // Initialize Leaflet in browser
+  // Search filtered destinations
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const q = searchQuery.toLowerCase().trim();
+    return pointFeatures.filter((f) => {
+      const name = f.name?.toLowerCase() || "";
+      const cat = f.category?.toLowerCase() || "";
+      const reg = (f.region || "").toLowerCase();
+      return name.includes(q) || cat.includes(q) || reg.includes(q);
+    });
+  }, [searchQuery, pointFeatures]);
+
+  // 1. Initialize Leaflet
   useEffect(() => {
     if (typeof window === "undefined" || !mapContainerRef.current) return;
 
@@ -72,20 +128,33 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           zoom: 7,
           minZoom: 5,
           maxZoom: 18,
-          zoomControl: true,
+          zoomControl: false,
         });
 
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        const darkLayer = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+          subdomains: "abcd",
           maxZoom: 19,
         }).addTo(map);
 
+        baseTileLayerRef.current = darkLayer;
         markersLayerRef.current = L.layerGroup().addTo(map);
         routesLayerRef.current = L.layerGroup().addTo(map);
+        userLayerRef.current = L.layerGroup().addTo(map);
         leafletMapRef.current = map;
         setIsLeafletReady(true);
 
-        // Invalidate size once after slight tick to ensure correct dimensions
+        map.on("zoomend", () => {
+          setCurrentZoom(map.getZoom());
+        });
+
+        map.on("click", (e: any) => {
+          setClickedCoords({
+            lat: Number(e.latlng.lat.toFixed(4)),
+            lon: Number(e.latlng.lng.toFixed(4)),
+          });
+        });
+
         setTimeout(() => {
           if (leafletMapRef.current) {
             leafletMapRef.current.invalidateSize();
@@ -114,7 +183,40 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     };
   }, []);
 
-  // Update Markers & Routes
+  // 2. Switch Map Tile Layers (Dark Base vs Satellite)
+  useEffect(() => {
+    if (!leafletMapRef.current || !isLeafletReady || typeof window === "undefined") return;
+
+    import("leaflet").then((L) => {
+      const map = leafletMapRef.current;
+      if (!map) return;
+
+      if (baseTileLayerRef.current) {
+        map.removeLayer(baseTileLayerRef.current);
+      }
+
+      if (activeLayer === "satellite") {
+        baseTileLayerRef.current = L.tileLayer(
+          "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+          {
+            attribution: "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+            maxZoom: 18,
+          }
+        ).addTo(map);
+      } else {
+        baseTileLayerRef.current = L.tileLayer(
+          "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+          {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: "abcd",
+            maxZoom: 19,
+          }
+        ).addTo(map);
+      }
+    });
+  }, [activeLayer, isLeafletReady]);
+
+  // 3. Render Markers & Smart Clusters
   useEffect(() => {
     if (!leafletMapRef.current || !isLeafletReady || typeof window === "undefined") return;
 
@@ -125,15 +227,98 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
       if (!map || !markersLayer || !routesLayer) return;
 
-      // Invalidate size before calculating bounds
       map.invalidateSize();
-
       markersLayer.clearLayers();
       routesLayer.clearLayers();
+      markerLookupRef.current.clear();
 
       const bounds = L.latLngBounds([]);
+      const zoom = map.getZoom();
 
-      pointFeatures.forEach((feature, index) => {
+      const enableClustering = zoom <= 7 && pointFeatures.length > 15;
+
+      if (enableClustering) {
+        const clusterMap = new Map<string, { latSum: number; lonSum: number; items: typeof pointFeatures }>();
+        const gridSize = 1.0;
+
+        pointFeatures.forEach((feat) => {
+          const [lon, lat] = feat.geometry.coordinates;
+          const cellX = Math.floor(lon / gridSize);
+          const cellY = Math.floor(lat / gridSize);
+          const key = `${cellX}_${cellY}`;
+
+          if (!clusterMap.has(key)) {
+            clusterMap.set(key, { latSum: 0, lonSum: 0, items: [] });
+          }
+          const cluster = clusterMap.get(key)!;
+          cluster.latSum += lat;
+          cluster.lonSum += lon;
+          cluster.items.push(feat);
+        });
+
+        clusterMap.forEach((cluster) => {
+          const count = cluster.items.length;
+          const avgLat = cluster.latSum / count;
+          const avgLon = cluster.lonSum / count;
+          const clusterLatLng = L.latLng(avgLat, avgLon);
+          bounds.extend(clusterLatLng);
+
+          if (count > 1) {
+            const clusterHtml = `
+              <div style="
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #14B8A6, #0F766E);
+                border: 2.5px solid #ffffff;
+                box-shadow: 0 0 16px rgba(20, 184, 166, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #ffffff;
+                font-weight: 900;
+                font-size: 13px;
+                font-family: system-ui, sans-serif;
+                cursor: pointer;
+              ">
+                ${count}
+              </div>
+            `;
+
+            const clusterIcon = L.divIcon({
+              html: clusterHtml,
+              className: "custom-map-cluster",
+              iconSize: [38, 38],
+              iconAnchor: [19, 19],
+            });
+
+            const clusterMarker = L.marker(clusterLatLng, { icon: clusterIcon }).addTo(markersLayer);
+            clusterMarker.on("click", () => {
+              const clusterBounds = L.latLngBounds(
+                cluster.items.map((it) => [it.geometry.coordinates[1], it.geometry.coordinates[0]] as [number, number])
+              );
+              map.fitBounds(clusterBounds, { padding: [40, 40], maxZoom: 10 });
+            });
+            return;
+          }
+
+          const singleFeat = cluster.items[0];
+          renderSingleMarker(singleFeat, 0, L, map, markersLayer, bounds);
+        });
+      } else {
+        pointFeatures.forEach((feature, index) => {
+          renderSingleMarker(feature, index, L, map, markersLayer, bounds);
+        });
+      }
+
+      function renderSingleMarker(
+        feature: typeof pointFeatures[0],
+        index: number,
+        L: any,
+        map: any,
+        layer: any,
+        bnds: any
+      ) {
         const [lon, lat] = feature.geometry.coordinates;
         const featureId = (feature as any).id || feature.canonical_ref?.id || `feat-${index}`;
         const isSelected = selectedFeatureId === featureId;
@@ -142,83 +327,96 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         const category = feature.category || (feature as any).category_name || props?.category || "destination";
         const region = feature.region || props?.location || getPlaceRegion(placeName);
         const imageUrl = getPlaceImageUrl(placeName, category);
+        const pinColor = isSelected ? "#F59E0B" : getMarkerCategoryColor(category);
 
         const latLng = L.latLng(lat, lon);
-        bounds.extend(latLng);
+        bnds.extend(latLng);
+
+        const showLabel = zoom >= 10 || isSelected || pointFeatures.length <= 5;
 
         const iconHtml = `
           <div style="position: relative; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
             <div style="
-              width: ${isSelected ? "36px" : "30px"};
-              height: ${isSelected ? "36px" : "30px"};
+              width: ${isSelected ? "34px" : "28px"};
+              height: ${isSelected ? "34px" : "28px"};
               border-radius: 50%;
-              background: ${isSelected ? "#d97706" : "#059669"};
-              border: 3px solid #ffffff;
-              box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+              background: ${pinColor};
+              border: 2.5px solid #ffffff;
+              box-shadow: ${isSelected ? "0 0 16px rgba(245, 158, 11, 0.8), 0 4px 10px rgba(0,0,0,0.4)" : "0 2px 8px rgba(0,0,0,0.3)"};
               display: flex;
               align-items: center;
               justify-content: center;
               color: #ffffff;
               font-weight: 800;
-              font-size: ${isSelected ? "13px" : "11px"};
+              font-size: ${isSelected ? "12px" : "11px"};
               font-family: system-ui, sans-serif;
+              transition: transform 0.2s ease;
             ">
               ${index + 1}
             </div>
-            <div style="
-              margin-top: 4px;
-              padding: 2px 8px;
-              background: rgba(15, 23, 42, 0.85);
-              backdrop-filter: blur(4px);
-              border-radius: 6px;
-              color: #ffffff;
-              font-size: 10px;
-              font-weight: 700;
-              white-space: nowrap;
-              border: 1px solid rgba(255,255,255,0.15);
-            ">
-              ${placeName}
-            </div>
+            ${
+              showLabel
+                ? `<div style="
+                    margin-top: 3px;
+                    padding: 2px 7px;
+                    background: rgba(17, 24, 39, 0.92);
+                    backdrop-filter: blur(6px);
+                    border-radius: 6px;
+                    color: #F8FAFC;
+                    font-size: 10px;
+                    font-weight: 700;
+                    white-space: nowrap;
+                    border: 1px solid rgba(255,255,255,0.15);
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+                  ">
+                    ${placeName}
+                  </div>`
+                : ""
+            }
           </div>
         `;
 
         const customIcon = L.divIcon({
           html: iconHtml,
           className: "custom-map-pin",
-          iconSize: [120, 60],
-          iconAnchor: [60, isSelected ? 18 : 15],
-          popupAnchor: [0, -25],
+          iconSize: [120, showLabel ? 54 : 32],
+          iconAnchor: [60, isSelected ? 17 : 14],
+          popupAnchor: [0, -20],
         });
 
-        const marker = L.marker(latLng, { icon: customIcon }).addTo(markersLayer);
+        const marker = L.marker(latLng, { icon: customIcon, zIndexOffset: isSelected ? 500 : 10 }).addTo(layer);
+        markerLookupRef.current.set(featureId, marker);
+        markerLookupRef.current.set(placeName.toLowerCase(), marker);
 
         const popupContent = document.createElement("div");
-        popupContent.style.width = "220px";
+        popupContent.style.width = "230px";
         popupContent.style.fontFamily = "system-ui, sans-serif";
         popupContent.innerHTML = `
-          <div style="border-radius: 12px; overflow: hidden; margin-bottom: 8px;">
-            <img src="${imageUrl}" alt="${placeName}" style="width: 100%; height: 100px; object-fit: cover;" />
+          <div style="border-radius: 12px; overflow: hidden; margin-bottom: 8px; background: #0B1220;">
+            <img src="${imageUrl}" alt="${placeName}" style="width: 100%; height: 110px; object-fit: cover;" />
           </div>
           <div style="margin-bottom: 6px;">
-            <span style="font-size: 9px; font-weight: 800; text-transform: uppercase; background: #ecfdf5; color: #065f46; padding: 2px 6px; border-radius: 9999px;">${category}</span>
-            <span style="font-size: 10px; color: #6b7280; margin-left: 4px;">${region}</span>
-            <h4 style="font-size: 13px; font-weight: 800; color: #111827; margin: 4px 0 2px 0;">${placeName}</h4>
-            <p style="font-size: 11px; color: #4b5563; margin: 0;">${lon.toFixed(4)}°, ${lat.toFixed(4)}°</p>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 4px; margin-bottom: 4px;">
+              <span style="font-size: 9px; font-weight: 800; text-transform: uppercase; background: rgba(20, 184, 166, 0.15); color: #0F766E; padding: 2px 6px; border-radius: 9999px; border: 1px solid rgba(20, 184, 166, 0.3);">${category}</span>
+              <span style="font-size: 10px; color: #64748B; font-weight: 500;">${region}</span>
+            </div>
+            <h4 style="font-size: 13px; font-weight: 800; color: #0F172A; margin: 2px 0;">${placeName}</h4>
+            <p style="font-size: 10px; color: #64748B; margin: 0; font-family: monospace;">${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E</p>
           </div>
-          <div style="display: flex; gap: 4px; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 8px;">
-            <button id="popup-plan-${index}" style="flex: 1; padding: 6px 8px; background: #059669; color: #ffffff; border: none; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer;">Plan Trip</button>
-            <button id="popup-detail-${index}" style="padding: 6px 8px; background: #f3f4f6; color: #374151; border: none; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer;">Details</button>
+          <div style="display: flex; gap: 6px; margin-top: 8px; border-top: 1px solid #E2E8F0; padding-top: 8px;">
+            <button id="popup-plan-${featureId}" style="flex: 1; padding: 6px 10px; background: #14B8A6; color: #ffffff; border: none; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer;">Plan Trip</button>
+            <button id="popup-detail-${featureId}" style="padding: 6px 10px; background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer;">Details</button>
           </div>
         `;
 
         marker.bindPopup(popupContent);
 
         marker.on("popupopen", () => {
-          const planBtn = document.getElementById(`popup-plan-${index}`);
+          const planBtn = document.getElementById(`popup-plan-${featureId}`);
           if (planBtn && onPlanTripWithPlace) {
             planBtn.onclick = () => onPlanTripWithPlace({ id: featureId, name: placeName, category, location: region });
           }
-          const detailBtn = document.getElementById(`popup-detail-${index}`);
+          const detailBtn = document.getElementById(`popup-detail-${featureId}`);
           if (detailBtn && onViewDetails) {
             detailBtn.onclick = () => onViewDetails({ id: featureId, name: placeName, category, location: region });
           }
@@ -227,9 +425,9 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         marker.on("click", () => {
           if (onSelectFeature) onSelectFeature(feature);
         });
-      });
+      }
 
-      // Render only approved LineString geometries from backend features
+      // Render LineStrings
       lineFeatures.forEach((lineFeat) => {
         const lineCoords = lineFeat.geometry.coordinates.map(
           (c) => [c[1], c[0]] as [number, number]
@@ -237,7 +435,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         lineCoords.forEach((pt) => bounds.extend(L.latLng(pt[0], pt[1])));
 
         L.polyline(lineCoords, {
-          color: "#059669",
+          color: "#14B8A6",
           weight: 4,
           opacity: 0.9,
           lineCap: "round",
@@ -245,7 +443,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         }).addTo(routesLayer);
       });
 
-      // Render approved LineString geometries from multimodal relationship legs
+      // Render Multimodal Relationships
       relationships.forEach((rel) => {
         rel.legs?.forEach((leg) => {
           if (
@@ -262,10 +460,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
             const color =
               leg.mode === "train" || leg.mode === "rail"
-                ? "#4f46e5"
+                ? "#6366F1"
                 : leg.mode === "walk"
-                ? "#d97706"
-                : "#059669";
+                ? "#F59E0B"
+                : "#14B8A6";
 
             const dashArray = leg.mode === "walk" ? "4, 4" : undefined;
 
@@ -281,10 +479,38 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         });
       });
 
-      // Render distinct User Location Beacon if available
-      if (userLocation && userLocation.lat != null && userLocation.lon != null) {
-        const userLatLng = L.latLng(userLocation.lat, userLocation.lon);
-        bounds.extend(userLatLng);
+      if (pointFeatures.length > 1 || lineFeatures.length > 0) {
+        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
+      } else if (pointFeatures.length === 1) {
+        const [lon, lat] = pointFeatures[0].geometry.coordinates;
+        map.setView([lat, lon], 13);
+      } else {
+        map.setView([20.4625, 85.8828], 7);
+      }
+    });
+  }, [pointFeatures, lineFeatures, relationships, selectedFeatureId, isLeafletReady, currentZoom, onSelectFeature, onPlanTripWithPlace, onViewDetails]);
+
+  // 4. Render User Location Beacon Layer
+  useEffect(() => {
+    if (!leafletMapRef.current || !isLeafletReady || typeof window === "undefined") return;
+
+    import("leaflet").then((L) => {
+      const map = leafletMapRef.current;
+      const userLayer = userLayerRef.current;
+      if (!map || !userLayer) return;
+
+      userLayer.clearLayers();
+
+      if (activeUserPos && activeUserPos.lat != null && activeUserPos.lon != null) {
+        const userLatLng = L.latLng(activeUserPos.lat, activeUserPos.lon);
+
+        L.circle(userLatLng, {
+          radius: 300,
+          color: "#14B8A6",
+          fillColor: "#14B8A6",
+          fillOpacity: 0.15,
+          weight: 1.5,
+        }).addTo(userLayer);
 
         const userBeaconHtml = `
           <div style="position: relative; display: flex; flex-direction: column; align-items: center; pointer-events: auto;">
@@ -294,17 +520,17 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
               width: 44px;
               height: 44px;
               border-radius: 50%;
-              background: rgba(16, 185, 129, 0.28);
-              border: 1px solid rgba(52, 211, 153, 0.5);
-              box-shadow: 0 0 16px rgba(16, 185, 129, 0.6);
+              background: rgba(20, 184, 166, 0.25);
+              border: 1px solid rgba(45, 212, 191, 0.6);
+              box-shadow: 0 0 16px rgba(20, 184, 166, 0.6);
             "></div>
             <div style="
               width: 32px;
               height: 32px;
               border-radius: 50%;
-              background: linear-gradient(135deg, #059669, #0284c7);
+              background: linear-gradient(135deg, #14B8A6, #0284C7);
               border: 3px solid #ffffff;
-              box-shadow: 0 0 14px rgba(16, 185, 129, 0.9), 0 4px 10px rgba(0,0,0,0.4);
+              box-shadow: 0 0 14px rgba(20, 184, 166, 0.9), 0 4px 10px rgba(0,0,0,0.4);
               display: flex;
               align-items: center;
               justify-content: center;
@@ -317,10 +543,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
             <div style="
               margin-top: 5px;
               padding: 3px 8px;
-              background: #022c22;
-              border: 1px solid #10b981;
+              background: #0B1220;
+              border: 1px solid #14B8A6;
               border-radius: 9999px;
-              color: #6ee7b7;
+              color: #5EEAD4;
               font-size: 10px;
               font-weight: 800;
               font-family: monospace;
@@ -340,32 +566,94 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           popupAnchor: [0, -25],
         });
 
-        const userMarker = L.marker(userLatLng, { icon: userIcon, zIndexOffset: 1000 }).addTo(markersLayer);
+        const userMarker = L.marker(userLatLng, { icon: userIcon, zIndexOffset: 1000 }).addTo(userLayer);
         userMarker.bindPopup(`
           <div style="font-family: system-ui, sans-serif; padding: 4px; color: #111827;">
-            <div style="font-weight: 800; color: #065f46; font-size: 12px; display: flex; items-center; gap: 4px;">
+            <div style="font-weight: 800; color: #0F766E; font-size: 12px; display: flex; align-items: center; gap: 4px;">
               <span>📍 Your Live Position</span>
             </div>
-            <div style="font-size: 11px; color: #4b5563; margin-top: 2px;">${userLocation.lat.toFixed(4)}°N, ${userLocation.lon.toFixed(4)}°E</div>
-            <div style="font-size: 10px; color: #059669; font-weight: 700; margin-top: 4px;">Verified Location Service Active</div>
+            <div style="font-size: 11px; color: #4B5563; margin-top: 2px;">${activeUserPos.lat.toFixed(4)}°N, ${activeUserPos.lon.toFixed(4)}°E</div>
+            <div style="font-size: 10px; color: #14B8A6; font-weight: 700; margin-top: 4px;">Verified Location Service Active</div>
           </div>
         `);
       }
-
-      if (pointFeatures.length > 1 || lineFeatures.length > 0) {
-        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
-      } else if (pointFeatures.length === 1) {
-        const [lon, lat] = pointFeatures[0].geometry.coordinates;
-        map.setView([lat, lon], 13);
-      } else if (userLocation && userLocation.lat != null && userLocation.lon != null) {
-        map.setView([userLocation.lat, userLocation.lon], 13);
-      } else {
-        map.setView([20.4625, 85.8828], 7);
-      }
     });
-  }, [features, pointFeatures, lineFeatures, relationships, selectedFeatureId, userLocation, userLocationName, isLeafletReady, onSelectFeature, onPlanTripWithPlace, onViewDetails]);
+  }, [activeUserPos, userLocationName, isLeafletReady]);
 
+  // Handle Search Selection
+  const handleSelectSearchResult = (feature: typeof pointFeatures[0]) => {
+    const [lon, lat] = feature.geometry.coordinates;
+    const placeName = feature.name || "Destination";
+    setSearchQuery(placeName);
+    setIsSearching(false);
 
+    if (leafletMapRef.current) {
+      leafletMapRef.current.flyTo([lat, lon], 14, { duration: 1.2 });
+      const marker = markerLookupRef.current.get(placeName.toLowerCase());
+      if (marker) {
+        setTimeout(() => {
+          marker.openPopup();
+        }, 1300);
+      }
+    }
+  };
+
+  // Handle Locate Me Geolocation
+  const handleLocateMe = () => {
+    setGeoError(null);
+    setIsLocating(true);
+
+    if (typeof navigator === "undefined" || !navigator.geolocation) {
+      setGeoError("Geolocation is not supported by your browser.");
+      setIsLocating(false);
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setIsLocating(false);
+        const newCoords = {
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        };
+        setActiveUserPos(newCoords);
+        if (leafletMapRef.current) {
+          leafletMapRef.current.flyTo([newCoords.lat, newCoords.lon], 13, { duration: 1.2 });
+        }
+      },
+      (err) => {
+        setIsLocating(false);
+        if (err.code === err.PERMISSION_DENIED) {
+          setGeoError("Location permission denied. Please allow location access in your browser.");
+        } else if (err.code === err.TIMEOUT) {
+          setGeoError("Location request timed out. Please try again.");
+        } else {
+          setGeoError("Unable to retrieve live location coordinates.");
+        }
+      },
+      { timeout: 8000, enableHighAccuracy: true }
+    );
+  };
+
+  // Zoom controls
+  const handleZoomIn = () => {
+    if (leafletMapRef.current) leafletMapRef.current.zoomIn();
+  };
+  const handleZoomOut = () => {
+    if (leafletMapRef.current) leafletMapRef.current.zoomOut();
+  };
+  const handleResetBounds = () => {
+    if (leafletMapRef.current && pointFeatures.length > 0) {
+      import("leaflet").then((L) => {
+        const bounds = L.latLngBounds(
+          pointFeatures.map((p) => [p.geometry.coordinates[1], p.geometry.coordinates[0]] as [number, number])
+        );
+        leafletMapRef.current.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
+      });
+    }
+  };
+
+  // Static Projection Dimensions for Fallback SVG
   const WIDTH = 600;
   const HEIGHT = 380;
   const PADDING = 45;
@@ -406,7 +694,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   return (
     <div
       data-testid="map-canvas-container"
-      className="relative rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden shadow-inner w-full min-h-[420px] sm:min-h-[500px]"
+      className="relative rounded-3xl bg-[#0B1220] border border-[#263244] overflow-hidden shadow-inner w-full min-h-[480px] sm:min-h-[560px]"
     >
       <div className="sr-only">Interactive Map View</div>
 
@@ -414,11 +702,232 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         <div className="sr-only">No Location Coordinates Available</div>
       )}
 
+      {/* Floating Dark Map Search Bar */}
+      <div className="absolute top-4 left-4 z-20 w-72 sm:w-80 max-w-[calc(100%-110px)]">
+        <div className="relative">
+          <div className="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-[#0B1220]/95 backdrop-blur-md border border-[#263244] shadow-xl text-white">
+            <Search size={15} className="text-teal-400 shrink-0" />
+            <input
+              type="text"
+              data-testid="map-search-input"
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setIsSearching(true);
+              }}
+              onFocus={() => setIsSearching(true)}
+              placeholder="Search 81 destinations or districts..."
+              className="w-full bg-transparent text-xs text-white placeholder-slate-400 focus:outline-none"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery("");
+                  setIsSearching(false);
+                }}
+                className="text-slate-400 hover:text-white p-0.5"
+                aria-label="Clear search"
+              >
+                <X size={13} />
+              </button>
+            )}
+          </div>
+
+          {/* Search Autocomplete Dropdown */}
+          {isSearching && searchQuery.trim().length > 0 && (
+            <div
+              data-testid="map-search-dropdown"
+              className="absolute top-full mt-1.5 w-full rounded-2xl bg-[#111827]/98 backdrop-blur-xl border border-[#263244] shadow-2xl overflow-hidden z-30 max-h-56 overflow-y-auto divide-y divide-[#263244]"
+            >
+              {searchResults.length > 0 ? (
+                searchResults.slice(0, 6).map((res, idx) => (
+                  <button
+                    key={`${res.name}-${idx}`}
+                    type="button"
+                    data-testid={`map-search-result-${idx}`}
+                    onClick={() => handleSelectSearchResult(res)}
+                    className="w-full text-left px-3.5 py-2 text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center justify-between cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2">
+                      <MapPin size={13} className="text-teal-400 shrink-0" />
+                      <span className="font-semibold text-white truncate max-w-[170px]">{res.name}</span>
+                    </div>
+                    <span className="text-[10px] text-teal-300/80 uppercase font-mono px-1.5 py-0.5 rounded bg-teal-500/10 border border-teal-500/20">
+                      {res.category}
+                    </span>
+                  </button>
+                ))
+              ) : (
+                <div className="px-3.5 py-3 text-xs text-slate-400 text-center font-medium">
+                  No matching destinations found
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Floating Dark Controls Cluster (Top-Right) */}
+      <div className="absolute top-4 right-4 z-20 flex flex-col gap-2">
+        {/* Layer Selector Toggle */}
+        <div className="relative">
+          <button
+            type="button"
+            data-testid="map-layers-btn"
+            onClick={() => setIsLayerMenuOpen(!isLayerMenuOpen)}
+            title="Select map layer"
+            className="w-10 h-10 rounded-2xl bg-[#0B1220]/95 hover:bg-[#172235] backdrop-blur-md border border-[#263244] text-slate-200 hover:text-white shadow-xl flex items-center justify-center transition-colors cursor-pointer"
+          >
+            <LayersIcon size={16} className="text-teal-400" />
+          </button>
+
+          {isLayerMenuOpen && (
+            <div
+              data-testid="map-layers-menu"
+              className="absolute right-0 mt-2 w-52 bg-[#111827]/98 backdrop-blur-xl border border-[#263244] rounded-2xl shadow-2xl p-2 z-30 space-y-1"
+            >
+              <div className="px-2 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
+                Map Layers
+              </div>
+              <button
+                type="button"
+                data-testid="map-layer-dark"
+                onClick={() => {
+                  setActiveLayer("dark");
+                  setIsLayerMenuOpen(false);
+                }}
+                className={`w-full text-left px-2.5 py-1.5 rounded-xl text-xs flex items-center justify-between cursor-pointer transition-colors ${
+                  activeLayer === "dark" ? "bg-[#172235] text-teal-300 font-bold" : "text-slate-300 hover:bg-slate-800"
+                }`}
+              >
+                <span>O-Travelz Dark Base</span>
+                {activeLayer === "dark" && <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />}
+              </button>
+
+              <button
+                type="button"
+                data-testid="map-layer-satellite"
+                onClick={() => {
+                  setActiveLayer("satellite");
+                  setIsLayerMenuOpen(false);
+                }}
+                className={`w-full text-left px-2.5 py-1.5 rounded-xl text-xs flex items-center justify-between cursor-pointer transition-colors ${
+                  activeLayer === "satellite" ? "bg-[#172235] text-teal-300 font-bold" : "text-slate-300 hover:bg-slate-800"
+                }`}
+              >
+                <span>Esri World Satellite</span>
+                {activeLayer === "satellite" && <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />}
+              </button>
+
+              {/* Truthful Traffic Disabled Option */}
+              <div
+                data-testid="map-layer-traffic-disabled"
+                title="Traffic data unavailable — no live provider configured"
+                className="w-full text-left px-2.5 py-1.5 rounded-xl text-xs text-slate-500 opacity-60 flex items-center justify-between cursor-not-allowed border-t border-[#263244] mt-1 pt-1.5"
+              >
+                <div className="flex items-center gap-1.5">
+                  <Car size={12} />
+                  <span>Live Traffic</span>
+                </div>
+                <span className="text-[9px] uppercase font-mono text-slate-500">Unavailable</span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Locate Me Button */}
+        <button
+          type="button"
+          data-testid="map-locate-me-btn"
+          onClick={handleLocateMe}
+          disabled={isLocating}
+          title="Locate my current position"
+          className="w-10 h-10 rounded-2xl bg-[#0B1220]/95 hover:bg-[#172235] backdrop-blur-md border border-[#263244] text-slate-200 hover:text-white shadow-xl flex items-center justify-center transition-colors cursor-pointer"
+        >
+          <Crosshair size={16} className={`text-teal-400 ${isLocating ? "animate-spin" : ""}`} />
+        </button>
+
+        {/* Zoom In & Out */}
+        <div className="flex flex-col rounded-2xl bg-[#0B1220]/95 backdrop-blur-md border border-[#263244] shadow-xl overflow-hidden">
+          <button
+            type="button"
+            data-testid="map-zoom-in-btn"
+            onClick={handleZoomIn}
+            title="Zoom In"
+            className="w-10 h-9 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#172235] transition-colors cursor-pointer border-b border-[#263244]"
+          >
+            <ZoomIn size={15} />
+          </button>
+          <button
+            type="button"
+            data-testid="map-zoom-out-btn"
+            onClick={handleZoomOut}
+            title="Zoom Out"
+            className="w-10 h-9 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#172235] transition-colors cursor-pointer"
+          >
+            <ZoomOut size={15} />
+          </button>
+        </div>
+
+        {/* Reset / Fit All */}
+        <button
+          type="button"
+          data-testid="map-fit-bounds-btn"
+          onClick={handleResetBounds}
+          title="Fit all destinations"
+          className="w-10 h-10 rounded-2xl bg-[#0B1220]/95 hover:bg-[#172235] backdrop-blur-md border border-[#263244] text-slate-200 hover:text-white shadow-xl flex items-center justify-center transition-colors cursor-pointer"
+        >
+          <Maximize2 size={15} className="text-teal-400" />
+        </button>
+      </div>
+
+      {/* Click Coordinates / Geolocation Error Banner (Bottom-Left) */}
+      {(clickedCoords || geoError) && (
+        <div className="absolute bottom-4 left-4 z-20 flex flex-col gap-1.5 max-w-[calc(100%-32px)]">
+          {geoError && (
+            <div
+              data-testid="map-geo-error"
+              className="p-2.5 rounded-2xl bg-rose-950/90 backdrop-blur-md border border-rose-500/40 text-rose-200 text-xs flex items-center gap-2 shadow-xl"
+            >
+              <AlertCircle size={14} className="shrink-0 text-rose-400" />
+              <span>{geoError}</span>
+              <button
+                type="button"
+                onClick={() => setGeoError(null)}
+                className="ml-auto text-rose-400 hover:text-white"
+              >
+                <X size={12} />
+              </button>
+            </div>
+          )}
+
+          {clickedCoords && (
+            <div
+              data-testid="map-clicked-coords"
+              className="px-3 py-1.5 rounded-xl bg-[#0B1220]/90 backdrop-blur-md border border-[#263244] text-slate-300 text-[11px] font-mono flex items-center gap-2 shadow-xl"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+              <span>
+                Coordinates: {clickedCoords.lat}°N, {clickedCoords.lon}°E
+              </span>
+              <button
+                type="button"
+                onClick={() => setClickedCoords(null)}
+                className="text-slate-500 hover:text-white ml-1"
+              >
+                <X size={11} />
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Real Geographic Leaflet Map Container */}
       <div
         ref={mapContainerRef}
         data-testid="leaflet-map-element"
-        className="w-full h-[420px] sm:h-[500px] z-0"
+        className="w-full h-[480px] sm:h-[560px] z-0"
       />
 
       {/* Fallback SVG representation for SSR and tests */}
@@ -428,7 +937,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         data-testid="map-svg-canvas"
         aria-hidden="true"
       >
-        <rect width={WIDTH} height={HEIGHT} fill="#0f172a" />
+        <rect width={WIDTH} height={HEIGHT} fill="#0B1220" />
         {pointFeatures.map((feature, index) => {
           const [lon, lat] = feature.geometry.coordinates;
           const cx = projectLonToX(lon);
@@ -443,7 +952,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
               key={`map-pin-${featureId}-${index}`}
               data-testid={`map-pin-${(feature.name || (feature as any).display_name || props?.name || "destination").toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
             >
-              <circle cx={cx} cy={cy} r={isSelected ? 10 : 7} fill={isSelected ? "#fbbf24" : "#10b981"} />
+              <circle cx={cx} cy={cy} r={isSelected ? 10 : 7} fill={isSelected ? "#F59E0B" : "#14B8A6"} />
               <text x={cx} y={cy + 18} fill="#ffffff" fontSize="10" textAnchor="middle">
                 {label} ({lon.toFixed(4)}°, {lat.toFixed(4)}°)
               </text>

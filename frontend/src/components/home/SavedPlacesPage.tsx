@@ -54,7 +54,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
         };
       case "planned":
         return {
-          label: tripTitle ? `Planned: ${tripTitle}` : "Planned in Trip",
+          label: "Planned in Trip",
           color: "bg-teal-950/80 text-teal-300 border-teal-700/60",
           icon: Calendar,
         };
@@ -68,7 +68,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
       default:
         return {
           label: "Explored",
-          color: "bg-amber-950/80 text-amber-300 border-amber-700/60",
+          color: "bg-[#172235] text-amber-300 border-[#334155]",
           icon: History,
         };
     }
@@ -80,30 +80,30 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
       className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-in fade-in duration-300"
     >
       {/* Top Header Strip */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-emerald-900/40">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#263244]">
         <div className="flex items-center gap-3">
           <button
             type="button"
             data-testid="saved-back-button"
             onClick={onBackToDiscover}
-            className="w-10 h-10 rounded-2xl bg-[#09221b] border border-emerald-800/40 hover:bg-emerald-900/50 flex items-center justify-center text-emerald-300 shadow-xs transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-2xl bg-[#111827] border border-[#263244] hover:bg-[#172235] flex items-center justify-center text-slate-300 shadow-xs transition-colors cursor-pointer"
             aria-label="Back to Discover"
           >
             <ArrowLeft size={18} />
           </button>
           <div>
-            <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 font-mono">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-[#14B8A6] font-mono">
               YOUR PERSONAL TRAVEL SPACE
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-white tracking-tight flex items-center gap-2">
               {viewMode === "saved" ? (
                 <>
-                  <Bookmark size={24} className="text-emerald-400" />
+                  <Bookmark size={24} className="text-[#14B8A6]" />
                   <span>Saved Places</span>
                 </>
               ) : (
                 <>
-                  <History size={24} className="text-amber-400" />
+                  <History size={24} className="text-[#F59E0B]" />
                   <span>Revisit Places &amp; Memories</span>
                 </>
               )}
@@ -112,21 +112,21 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
         </div>
 
         {/* View Mode Switcher Pills */}
-        <div className="flex items-center p-1 rounded-2xl bg-[#081d17] border border-emerald-800/50 shadow-inner">
+        <div className="flex items-center p-1 rounded-2xl bg-[#111827] border border-[#263244] shadow-inner">
           <button
             type="button"
             data-testid="tab-saved-wishlist"
             onClick={() => setViewMode("saved")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
               viewMode === "saved"
-                ? "bg-emerald-600 text-white shadow-md"
-                : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
+                ? "bg-[#14B8A6] text-white shadow-md"
+                : "text-slate-300 hover:text-white hover:bg-slate-800"
             }`}
           >
             <Bookmark size={14} />
             <span>Saved Wishlist</span>
             {savedPlaces.length > 0 && (
-              <span className="ml-1 px-1.5 py-0.2 rounded-full bg-emerald-950 text-emerald-200 text-[10px]">
+              <span className="ml-1 px-1.5 py-0.2 rounded-full bg-rose-950 text-rose-200 text-[10px]">
                 {savedPlaces.length}
               </span>
             )}
@@ -138,8 +138,8 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
             onClick={() => setViewMode("revisit")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
               viewMode === "revisit"
-                ? "bg-amber-600 text-white shadow-md"
-                : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
+                ? "bg-[#F59E0B] text-slate-950 shadow-md font-extrabold"
+                : "text-slate-300 hover:text-white hover:bg-slate-800"
             }`}
           >
             <History size={14} />
@@ -156,13 +156,13 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
       {/* VIEW 1: REVISIT MEMORIES */}
       {viewMode === "revisit" && (
         <div className="space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-3 bg-gradient-to-r from-amber-950/40 via-emerald-950/30 to-slate-900 p-4 sm:p-5 rounded-3xl border border-amber-800/30">
+          <div className="flex flex-wrap items-center justify-between gap-3 bg-[#111827] p-4 sm:p-5 rounded-3xl border border-[#263244]">
             <div className="space-y-1">
               <h2 className="text-sm font-bold text-white flex items-center gap-2">
-                <Sparkles size={15} className="text-amber-400" />
+                <Sparkles size={15} className="text-[#F59E0B]" />
                 <span>Places You've Explored &amp; Planned</span>
               </h2>
-              <p className="text-xs text-gray-300 max-w-xl leading-relaxed">
+              <p className="text-xs text-slate-400 max-w-xl leading-relaxed">
                 O-Travelz remembers every destination you've viewed, mapped, or included in an itinerary.
                 Explore again, mark as visited, or jump straight into planning your next trip!
               </p>
@@ -182,21 +182,21 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
           {memories.length === 0 ? (
             <div
               data-testid="revisit-empty-state"
-              className="p-12 text-center rounded-3xl bg-[#09221b] border border-emerald-800/40 shadow-xl space-y-4"
+              className="p-12 text-center rounded-3xl bg-[#111827] border border-[#263244] shadow-xl space-y-4"
             >
-              <div className="w-14 h-14 mx-auto rounded-2xl bg-amber-950/60 border border-amber-700/50 text-amber-400 flex items-center justify-center font-bold text-2xl">
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-[#172235] border border-[#334155] text-amber-400 flex items-center justify-center font-bold text-2xl">
                 <History size={28} />
               </div>
               <div className="space-y-1">
                 <h3 className="text-lg font-bold text-white">No travel memories yet</h3>
-                <p className="text-xs sm:text-sm text-gray-300 max-w-md mx-auto leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
                   As you discover destinations in Odisha, open detail cards, view routes on the map, or build itineraries, they will appear here as your personal revisit list.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={onBackToDiscover}
-                className="px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs shadow-sm inline-flex items-center gap-2 transition-colors cursor-pointer"
+                className="px-5 py-2.5 rounded-xl bg-[#F59E0B] hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-sm inline-flex items-center gap-2 transition-colors cursor-pointer"
               >
                 <Compass size={14} />
                 <span>Discover Odisha Highlights</span>
@@ -217,10 +217,10 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                   <div
                     key={mem.id || mem.name}
                     data-testid={`revisit-card-${mem.id || mem.name}`}
-                    className="group relative rounded-3xl bg-[#0a241d] border border-emerald-800/40 hover:border-amber-500/50 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden"
+                    className="group relative rounded-3xl bg-[#111827] border border-[#263244] hover:border-amber-500/50 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden"
                   >
                     {/* Photo Header */}
-                    <div className="relative h-44 w-full bg-slate-900 overflow-hidden">
+                    <div className="relative h-44 w-full bg-[#0B1220] overflow-hidden">
                       <img
                         src={imageUrl}
                         alt={mem.name}
@@ -229,7 +229,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                           (e.target as HTMLImageElement).src = getPlaceImageUrl(mem.name, mem.category);
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a241d] via-transparent to-black/40" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-transparent to-black/40" />
 
                       {/* Top Badges */}
                       <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
@@ -254,7 +254,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                       {/* Bottom Image Info */}
                       <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between text-white">
                         <div>
-                          <span className="text-[10px] uppercase tracking-wider font-extrabold text-emerald-300 font-mono">
+                          <span className="text-[10px] uppercase tracking-wider font-extrabold text-teal-300 font-mono">
                             {mem.category}
                           </span>
                           <h3 className="font-display font-bold text-base text-white leading-tight drop-shadow-sm truncate max-w-[200px]">
@@ -274,23 +274,23 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                     {/* Card Content Body */}
                     <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
                       <div className="space-y-2">
-                        <div className="flex items-center justify-between text-xs text-gray-400">
-                          <span className="flex items-center gap-1 text-emerald-300/80">
+                        <div className="flex items-center justify-between text-xs text-slate-400">
+                          <span className="flex items-center gap-1 text-teal-300/90 font-medium">
                             <MapPin size={12} />
                             <span>{mem.location || getPlaceRegion(mem.name)}</span>
                           </span>
-                          <span className="font-mono text-[10px] text-gray-400">{timeAgo}</span>
+                          <span className="font-mono text-[10px] text-slate-400">{timeAgo}</span>
                         </div>
 
                         {mem.description && (
-                          <p className="text-xs text-gray-300 line-clamp-2 leading-relaxed">
+                          <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
                             {mem.description}
                           </p>
                         )}
                       </div>
 
                       {/* Action Buttons Strip */}
-                      <div className="pt-3 border-t border-emerald-900/40 flex items-center gap-2">
+                      <div className="pt-3 border-t border-[#263244] flex items-center gap-2">
                         <button
                           type="button"
                           data-testid={`revisit-explore-${mem.id || mem.name}`}
@@ -306,7 +306,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                               imageUrl: mem.imageUrl,
                             })
                           }
-                          className="flex-1 py-2 rounded-xl bg-[#09221b] border border-emerald-800/50 hover:bg-emerald-900/50 text-emerald-200 text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer"
+                          className="flex-1 py-2 rounded-xl bg-[#172235] border border-[#263244] hover:bg-[#1E2D44] text-slate-200 text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer"
                         >
                           <span>Explore Again</span>
                         </button>
@@ -325,7 +325,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                               });
                             }
                           }}
-                          className="flex-1 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold shadow-md transition-all flex items-center justify-center gap-1 cursor-pointer"
+                          className="flex-1 py-2 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white text-xs font-bold shadow-md transition-all flex items-center justify-center gap-1 cursor-pointer"
                         >
                           <Compass size={13} />
                           <span>Plan Trip</span>
@@ -344,7 +344,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                             })
                           }
                           title="Navigate on Map"
-                          className="w-8 h-8 rounded-xl bg-[#09221b] border border-emerald-800/40 hover:border-emerald-500/50 text-emerald-300 flex items-center justify-center transition-colors cursor-pointer"
+                          className="w-8 h-8 rounded-xl bg-[#172235] border border-[#263244] hover:border-[#14B8A6] text-slate-300 flex items-center justify-center transition-colors cursor-pointer"
                         >
                           <Navigation size={13} />
                         </button>
@@ -364,21 +364,21 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
           {savedPlaces.length === 0 ? (
             <div
               data-testid="saved-empty-state"
-              className="p-12 text-center rounded-3xl bg-[#09221b] border border-emerald-800/40 shadow-xl space-y-4"
+              className="p-12 text-center rounded-3xl bg-[#111827] border border-[#263244] shadow-xl space-y-4"
             >
-              <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-950 border border-emerald-700/50 text-rose-400 flex items-center justify-center font-bold text-2xl">
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-[#172235] border border-[#334155] text-rose-400 flex items-center justify-center font-bold text-2xl">
                 <Heart size={28} />
               </div>
               <div className="space-y-1">
                 <h3 className="text-lg font-bold text-white">Nothing saved yet</h3>
-                <p className="text-xs sm:text-sm text-gray-300 max-w-md mx-auto leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
                   When exploring destinations or discovering places in Odisha, tap the save icon to keep them here for quick planning.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={onBackToDiscover}
-                className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm inline-flex items-center gap-2 transition-colors cursor-pointer"
+                className="px-5 py-2.5 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white font-bold text-xs shadow-sm inline-flex items-center gap-2 transition-colors cursor-pointer"
               >
                 <Sparkles size={14} />
                 <span>Explore Odisha Destinations</span>
@@ -386,7 +386,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
             </div>
           ) : (
             <div className="space-y-4">
-              <div className="flex items-center justify-between text-xs text-gray-400 font-medium">
+              <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
                 <span>
                   Showing <span className="font-bold text-white">{savedPlaces.length}</span> saved{" "}
                   {savedPlaces.length === 1 ? "place" : "places"}.
@@ -396,7 +396,7 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                     type="button"
                     data-testid="saved-plan-all-cta"
                     onClick={() => onPlanWithSaved(savedPlaces)}
-                    className="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-xs flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="px-3.5 py-1.5 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white font-bold text-xs shadow-xs flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     <Compass size={13} />
                     <span>Plan Trip with All Saved</span>
@@ -418,10 +418,10 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                     <div
                       key={item.id || item.name}
                       data-testid={`saved-item-${item.id || item.name}`}
-                      className="group rounded-3xl bg-[#0a241d] border border-emerald-800/40 hover:border-emerald-500/50 shadow-md hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden"
+                      className="group rounded-3xl bg-[#111827] border border-[#263244] hover:border-[#14B8A6]/60 shadow-md hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden text-white"
                     >
                       {/* Photo Thumbnail */}
-                      <div className="relative h-36 w-full bg-slate-900 overflow-hidden">
+                      <div className="relative h-36 w-full bg-[#0B1220] overflow-hidden">
                         <img
                           src={imageUrl}
                           alt={item.name}
@@ -430,36 +430,35 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                             (e.target as HTMLImageElement).src = getPlaceImageUrl(item.name, item.category);
                           }}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a241d] via-transparent to-black/30" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-transparent to-black/30" />
 
                         <button
                           type="button"
                           data-testid={`remove-saved-${item.id || item.name}`}
                           onClick={() => removePlace(item.id || item.name)}
-                          className="absolute top-2.5 right-2.5 p-1.5 rounded-xl bg-black/60 text-gray-300 hover:text-rose-400 hover:bg-rose-950/70 transition-colors cursor-pointer"
+                          className="absolute top-2.5 right-2.5 p-1.5 rounded-xl bg-black/60 text-slate-300 hover:text-rose-400 hover:bg-rose-950/70 transition-colors cursor-pointer"
                           aria-label={`Remove ${item.name}`}
                         >
                           <Trash2 size={14} />
                         </button>
 
                         <div className="absolute bottom-2 left-3 right-3">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 font-mono">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-teal-300 font-mono">
                             {item.category}
                           </span>
                           <h3
-                            className="font-display font-bold text-sm text-white hover:text-emerald-300 transition-colors cursor-pointer truncate"
+                            className="font-display font-bold text-sm text-white hover:text-teal-300 transition-colors cursor-pointer truncate"
                             onClick={() =>
                               onSelectPlace?.({
                                 id: item.id,
                                 name: item.name,
                                 category: item.category,
-                                distance: item.distance,
-                                description: item.notes,
                                 location: item.location,
+                                description: item.description,
+                                distance: item.distance,
+                                notes: item.notes,
                                 tags: item.tags,
                                 interests: item.interests,
-                                lat: item.coordinates?.[1],
-                                lon: item.coordinates?.[0],
                               })
                             }
                           >
@@ -468,41 +467,59 @@ export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
                         </div>
                       </div>
 
-                      {/* Bottom Footer Actions */}
-                      <div className="p-3 border-t border-emerald-900/40 flex items-center justify-between text-xs text-gray-400">
-                        <button
-                          type="button"
-                          onClick={() =>
-                            onOpenMap({
-                              id: item.id,
-                              name: item.name,
-                              category: item.category,
-                              location: item.location,
-                              description: item.notes,
-                              interests: item.interests,
-                            })
-                          }
-                          className="flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-medium cursor-pointer"
-                        >
-                          <MapPin size={13} /> View on Map
-                        </button>
+                      {/* Content Body */}
+                      <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
+                        <div className="space-y-1">
+                          <div className="text-xs text-slate-400 flex items-center gap-1">
+                            <MapPin size={11} className="text-[#14B8A6]" />
+                            <span>{item.location || getPlaceRegion(item.name)}</span>
+                          </div>
+                          {item.description && (
+                            <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                              {item.description}
+                            </p>
+                          )}
+                        </div>
 
-                        {onPlanWithSinglePlace && (
+                        {/* Actions */}
+                        <div className="pt-2 border-t border-[#263244] flex items-center justify-between gap-2">
                           <button
                             type="button"
                             onClick={() =>
-                              onPlanWithSinglePlace({
+                              onOpenMap({
                                 id: item.id,
                                 name: item.name,
                                 category: item.category,
                                 location: item.location,
+                                description: item.description,
                               })
                             }
-                            className="text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1 cursor-pointer"
+                            className="text-xs text-slate-300 hover:text-white font-medium flex items-center gap-1 transition-colors cursor-pointer"
                           >
-                            <Compass size={13} /> Plan
+                            <MapPin size={12} className="text-[#14B8A6]" />
+                            <span>Map</span>
                           </button>
-                        )}
+
+                          <button
+                            type="button"
+                            data-testid={`plan-single-saved-${item.id || item.name}`}
+                            onClick={() => {
+                              if (onPlanWithSinglePlace) {
+                                onPlanWithSinglePlace({
+                                  id: item.id,
+                                  name: item.name,
+                                  category: item.category,
+                                  location: item.location,
+                                  description: item.description,
+                                });
+                              }
+                            }}
+                            className="px-3 py-1 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white text-xs font-bold shadow-2xs transition-colors flex items-center gap-1 cursor-pointer"
+                          >
+                            <Compass size={12} />
+                            <span>Plan</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   );

@@ -1,25 +1,33 @@
 import React from "react";
 import {
   Compass,
-  Search,
   MapPin,
-  Bot,
-  CalendarDays,
-  Heart,
-  X,
-  Sliders,
   Sparkles,
+  Bookmark,
+  X,
+  Bot,
+  Layers,
+  ChevronRight,
+  Sun,
+  Moon,
+  History,
+  CalendarDays,
+  Sliders,
+  Route,
 } from "lucide-react";
-import type { NavTab } from "./TopNav";
+import { useTheme } from "../../store/useTheme";
 
-interface MobileDrawerProps {
+export interface MobileDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  activeTab: NavTab;
-  onSelectTab: (tab: NavTab) => void;
+  activeTab: string;
+  onSelectTab: (tab: any) => void;
+  onToggleCopilot?: () => void;
   onOpenAI?: () => void;
   onOpenSettings?: () => void;
   savedCount?: number;
+  revisitCount?: number;
+  [key: string]: any;
 }
 
 export const MobileDrawer: React.FC<MobileDrawerProps> = ({
@@ -27,215 +35,251 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
   onClose,
   activeTab,
   onSelectTab,
-  onOpenAI,
+  onToggleCopilot,
   onOpenSettings,
   savedCount = 0,
+  revisitCount = 0,
 }) => {
+  const { toggleTheme, isDark } = useTheme();
   if (!isOpen) return null;
+
+  const navigateItems = [
+    { id: "discover", label: "Discover", icon: Compass, testId: "drawer-nav-discover" },
+    { id: "destinations", label: "All Destinations", icon: Layers, testId: "drawer-nav-destinations" },
+    { id: "map", label: "Interactive Map", icon: MapPin, testId: "drawer-nav-map" },
+    { id: "plan", label: "Plan a Trip", icon: Sparkles, testId: "drawer-nav-plan" },
+  ];
+
+  const spaceItems = [
+    { id: "saved", label: "Saved places", icon: Bookmark, testId: "drawer-nav-saved", badge: savedCount },
+    { id: "revisit", label: "Revisit Places", icon: History, testId: "drawer-nav-revisit", badge: revisitCount },
+    { id: "plan", label: "Planned Trips & Itineraries", icon: CalendarDays, testId: "drawer-nav-planned-trips" },
+  ];
+
+  const discoveryShortcuts = [
+    { id: "destinations", label: "All Destinations Index (81)", icon: Layers, testId: "drawer-nav-all-destinations" },
+    { id: "category", label: "Thematic Travel Circuits", icon: Route, testId: "drawer-nav-thematic-circuits" },
+  ];
 
   return (
     <div className="fixed inset-0 z-50 flex">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/70 backdrop-blur-xs transition-opacity"
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
 
       {/* Drawer Panel */}
-      <aside className="relative w-80 max-w-[85vw] bg-[#09221b] border-r border-emerald-900/60 h-full shadow-2xl flex flex-col p-6 text-gray-100 z-10 animate-in slide-in-from-left duration-200">
-        {/* Brand Header with Canonical Logo */}
-        <div className="flex items-center justify-between pb-6 border-b border-emerald-900/50">
-          <div className="flex items-center gap-3">
+      <div className="relative w-full max-w-xs bg-[#111827] h-full shadow-2xl flex flex-col z-10 border-r border-[#263244] animate-in slide-in-from-left duration-300">
+        {/* Drawer Header */}
+        <div className="p-5 border-b border-[#263244] flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
             <img
               src="/images/logo.png"
               alt="O-Travelz Logo"
-              className="h-11 w-auto rounded-xl object-contain shadow-xs border border-emerald-800/40"
+              className="w-7 h-7 rounded-xl object-contain shadow-xs shrink-0"
+              onError={(e) => {
+                (e.target as HTMLElement).style.display = 'none';
+              }}
             />
             <div>
-              <div className="font-display font-extrabold text-sm text-white tracking-tight">
+              <span className="font-display font-black text-base text-white tracking-tight">
                 O-Travelz
-              </div>
-              <div className="text-[10px] text-emerald-400 font-mono font-semibold">
-                safe • secure • smart
-              </div>
-              <div className="text-[9px] text-emerald-300/70 font-mono">
-                Odisha, in your rhythm. • by Algoryxz
-              </div>
+              </span>
+              <p className="text-xs text-teal-400 font-medium">Odisha, in your rhythm.</p>
             </div>
           </div>
+
           <button
             type="button"
-            data-testid="close-mobile-drawer"
             onClick={onClose}
-            className="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-emerald-950/70 transition-colors cursor-pointer"
-            aria-label="Close drawer"
+            className="w-8 h-8 rounded-xl bg-[#172235] text-slate-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+            aria-label="Close menu"
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
         {/* Navigation Items */}
-        <div className="flex-1 overflow-y-auto py-6 space-y-6">
-          <div>
-            <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-400/70 px-3 mb-2 font-mono">
-              Navigate &amp; Explore
+        <div className="p-4 space-y-4 flex-1 overflow-y-auto">
+          {/* Section 1: Navigate */}
+          <div className="space-y-1.5">
+            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-mono px-3 py-1">
+              Navigate
             </div>
-            <nav className="space-y-1">
-              <button
-                type="button"
-                data-testid="drawer-nav-discover"
-                onClick={() => {
-                  onSelectTab("discover");
-                  onClose();
-                }}
-                className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
-                  activeTab === "discover"
-                    ? "bg-emerald-950 text-emerald-200 border border-emerald-700/60 shadow-xs"
-                    : "text-gray-300 hover:bg-emerald-950/50 hover:text-white"
-                }`}
-              >
-                <Compass size={17} className="text-emerald-400" />
-                <span>Discover</span>
-              </button>
-
-              <button
-                type="button"
-                data-testid="drawer-nav-destinations"
-                onClick={() => {
-                  onSelectTab("destinations");
-                  onClose();
-                }}
-                className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
-                  activeTab === "destinations"
-                    ? "bg-emerald-950 text-emerald-200 border border-emerald-700/60 shadow-xs"
-                    : "text-gray-300 hover:bg-emerald-950/50 hover:text-white"
-                }`}
-              >
-                <Search size={17} className="text-emerald-400" />
-                <span>All Destinations</span>
-              </button>
-
-              <button
-                type="button"
-                data-testid="drawer-nav-map"
-                onClick={() => {
-                  onSelectTab("map");
-                  onClose();
-                }}
-                className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
-                  activeTab === "map"
-                    ? "bg-emerald-950 text-emerald-200 border border-emerald-700/60 shadow-xs"
-                    : "text-gray-300 hover:bg-emerald-950/50 hover:text-white"
-                }`}
-              >
-                <MapPin size={17} className="text-emerald-400" />
-                <span>Interactive Map</span>
-              </button>
-
-              <button
-                type="button"
-                data-testid="drawer-nav-plan"
-                onClick={() => {
-                  onSelectTab("plan");
-                  onClose();
-                }}
-                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
-                  activeTab === "plan"
-                    ? "bg-emerald-950 text-emerald-200 border border-emerald-700/60 shadow-xs"
-                    : "text-gray-300 hover:bg-emerald-950/50 hover:text-white"
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <CalendarDays size={17} className="text-emerald-400" />
-                  <span>Plan a Trip</span>
-                </div>
-              </button>
-            </nav>
+            {navigateItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  data-testid={item.testId}
+                  onClick={() => {
+                    onSelectTab(item.id);
+                    onClose();
+                  }}
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all cursor-pointer ${
+                    isActive
+                      ? "bg-[#14B8A6] text-white font-bold shadow-xs"
+                      : "text-slate-300 hover:bg-[#172235] hover:text-white"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon size={16} className={isActive ? "text-white" : "text-slate-400"} />
+                    <span>{item.label}</span>
+                  </div>
+                </button>
+              );
+            })}
           </div>
 
-          {/* Your Space: AI & Saved Trips */}
-          <div>
-            <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-400/70 px-3 mb-2 font-mono">
+          {/* Section 2: Your Space */}
+          <div className="space-y-1.5 pt-2 border-t border-[#263244]">
+            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-mono px-3 py-1">
               Your Space
             </div>
-            <nav className="space-y-1">
-              <button
-                type="button"
-                data-testid="drawer-nav-ai"
-                onClick={() => {
-                  onClose();
-                  onOpenAI?.();
-                }}
-                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-emerald-950/80 text-emerald-200 border border-emerald-800 hover:bg-emerald-900 transition-colors cursor-pointer"
-              >
-                <div className="flex items-center gap-3">
-                  <Bot size={17} className="text-emerald-400" />
-                  <span>AI Travel Assistant</span>
-                </div>
-                <Sparkles size={14} className="text-emerald-400" />
-              </button>
-
-              <button
-                type="button"
-                data-testid="drawer-nav-saved"
-                onClick={() => {
-                  onSelectTab("saved");
-                  onClose();
-                }}
-                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
-                  activeTab === "saved"
-                    ? "bg-emerald-950 text-emerald-200 border border-emerald-700/60 shadow-xs"
-                    : "text-gray-300 hover:bg-emerald-950/50 hover:text-white"
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <Heart size={17} className="text-rose-400" />
-                  <span>Saved places</span>
-                </div>
-                {savedCount > 0 && (
-                  <span className="w-5 h-5 rounded-full bg-rose-950 border border-rose-800 text-rose-300 text-[10px] font-bold flex items-center justify-center">
-                    {savedCount}
-                  </span>
-                )}
-              </button>
-            </nav>
+            {spaceItems.map((item, idx) => {
+              const Icon = item.icon;
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={`${item.id}-${idx}`}
+                  type="button"
+                  data-testid={item.testId}
+                  onClick={() => {
+                    onSelectTab(item.id);
+                    onClose();
+                  }}
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all cursor-pointer ${
+                    isActive
+                      ? "bg-[#14B8A6] text-white font-bold shadow-xs"
+                      : "text-slate-300 hover:bg-[#172235] hover:text-white"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon size={16} className={isActive ? "text-white" : "text-slate-400"} />
+                    <span>{item.label}</span>
+                  </div>
+                  {item.badge !== undefined && item.badge > 0 && (
+                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                      isActive ? "bg-white text-teal-800" : "bg-[#172235] text-teal-300 border border-[#263244]"
+                    }`}>
+                      {item.badge}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
 
-          {/* Settings & Quick Tools */}
-          <div>
-            <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-400/70 px-3 mb-2 font-mono">
-              Settings &amp; Tools
+          {/* Section 3: Discovery Shortcuts */}
+          <div className="space-y-1.5 pt-2 border-t border-[#263244]">
+            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-mono px-3 py-1">
+              Discovery Shortcuts
             </div>
+            {discoveryShortcuts.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  data-testid={item.testId}
+                  onClick={() => {
+                    onSelectTab(item.id);
+                    onClose();
+                  }}
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all cursor-pointer ${
+                    isActive
+                      ? "bg-[#14B8A6] text-white font-bold shadow-xs"
+                      : "text-slate-300 hover:bg-[#172235] hover:text-white"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon size={16} className={isActive ? "text-white" : "text-slate-400"} />
+                    <span>{item.label}</span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Section 4: Preferences & Tools */}
+          {onOpenSettings && (
+            <div className="space-y-1.5 pt-2 border-t border-[#263244]">
+              <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-mono px-3 py-1">
+                Preferences &amp; Tools
+              </div>
+              <button
+                type="button"
+                data-testid="drawer-nav-trip-preferences"
+                onClick={() => {
+                  onOpenSettings();
+                  onClose();
+                }}
+                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold text-slate-300 hover:bg-[#172235] hover:text-white transition-all cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <Sliders size={16} className="text-emerald-400" />
+                  <span>Trip Preferences</span>
+                </div>
+              </button>
+            </div>
+          )}
+
+          {/* AI Trip Copilot */}
+          {onToggleCopilot && (
+            <div className="pt-3 border-t border-[#263244]">
+              <button
+                type="button"
+                data-testid="drawer-nav-copilot"
+                onClick={() => {
+                  onToggleCopilot();
+                  onClose();
+                }}
+                className="w-full flex items-center justify-between px-3.5 py-3 rounded-2xl bg-[#8B5CF6]/15 hover:bg-[#8B5CF6]/25 border border-[#8B5CF6]/40 text-[#A78BFA] text-xs font-bold transition-colors cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <Bot size={16} />
+                  <span>AI Trip Copilot</span>
+                </div>
+                <ChevronRight size={14} />
+              </button>
+            </div>
+          )}
+
+          {/* Theme Mode Toggle */}
+          <div className="pt-3 border-t border-[#263244]">
             <button
               type="button"
-              data-testid="drawer-settings-btn"
-              onClick={() => {
-                onClose();
-                onOpenSettings?.();
-              }}
-              className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-[#0d2b23] border border-emerald-800/50 text-gray-200 hover:bg-emerald-950 transition-colors cursor-pointer"
+              data-testid="mobile-theme-toggle"
+              onClick={toggleTheme}
+              className="w-full flex items-center justify-between px-3.5 py-3 rounded-2xl bg-[#172235] hover:bg-slate-800 border border-[#263244] text-slate-200 text-xs font-semibold transition-colors cursor-pointer"
+              aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
             >
               <div className="flex items-center gap-3">
-                <Sliders size={16} className="text-emerald-400" />
-                <span>App Settings</span>
+                {isDark ? (
+                  <Sun size={16} className="text-[#F59E0B]" />
+                ) : (
+                  <Moon size={16} className="text-[#38BDF8]" />
+                )}
+                <span>{isDark ? "Dark Theme Active" : "Light Theme Active"}</span>
               </div>
+              <span className="text-[11px] text-teal-400 font-mono">
+                {isDark ? "Dark" : "Light"}
+              </span>
             </button>
           </div>
         </div>
 
-        {/* Status Footer */}
-        <div className="pt-4 border-t border-emerald-900/50 flex flex-col gap-1.5 text-[10px] text-emerald-300/70 font-mono">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              <span className="live-dot" /> <span className="font-semibold text-emerald-400">safe • secure • smart</span>
-            </div>
-            <span>Odisha</span>
-          </div>
-          <div className="text-[9px] text-emerald-400/50">
-            Built by Algoryxz
+        {/* Drawer Footer */}
+        <div className="p-4 border-t border-[#263244] bg-[#0B1220] text-center">
+          <div className="text-[10px] text-slate-400 font-mono">
+            O-Travelz · Verified Odisha Platform
           </div>
         </div>
-      </aside>
+      </div>
     </div>
   );
 };

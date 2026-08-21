@@ -89,8 +89,8 @@ directories are listed when they establish an ownership boundary.
 | `backend/app/geospatial/http_adapter.py` | Exact typed UUID binding, optional hop context, and backend-geometry adaptation for the map endpoint; V2 implementation complete | Rudra with map/core owners | 6A | Place/Stop/Route lookup, authorized backend refs, hop context forwarding, core invocation, structured map errors | Name/provider/GIS matching, client geometry, hop or RouteStop authority | Existing models, geometry primitives, projection core |
 | `backend/app/geospatial/projection.py` | Accepted endpoint-neutral Phase 6A projection core | Map/core owners | 6A | Deterministic feature and relationship serialization over authorized inputs | HTTP lookup, identity resolution, geometry inference | Map projection schemas |
 | `backend/app/transport/adapters/base.py` | Common transport adapter interface | Rudra | 3 | Provider-neutral adapter contract | Provider-specific facts not verified | Provider verification and transport model |
-| `backend/app/transport/adapters/` | Existing adapter package | Rudra | 3 | `TO CREATE`: verified provider adapters | Ranking, itinerary, or AI | `data/transport/`, database |
-| `backend/app/transport/graph/` | Existing empty graph package | Rudra | 3 | `TO CREATE`: stop/walking graph and pathfinding | Map UI or authoritative place ranking | Transport data and geospatial outputs |
+| `backend/app/transport/adapters/` | Existing adapter package | Rudra | 3 | Verified provider adapters (base, walking, road, static schedule, mock) | Ranking, itinerary, or AI | `data/transport/`, database |
+| `backend/app/transport/graph/` | Existing graph package | Rudra | 3 | Stop/walking network graph and Dijkstra pathfinding router | Map UI or authoritative place ranking | Transport data and geospatial outputs |
 | `backend/app/transport/` | Transport subsystem | Rudra | 3 | Adapters, graph, planning service | Core ranking, AI, complete frontend | Provider verification and database |
 | `backend/tests/` | Backend health, Phase 0 contract, Phase 2 database/import, and later subsystem tests | Relevant implementation owner | 0–7 | Unit, contract, migration, spatial, import, and integration tests | Test-only product behavior | Backend dependencies |
 | `backend/tests/test_ama_bus_adapter.py` | Corrected AMA Bus adapter tests | Smarak/Akriti | 2 | Schema validation, confirmed-slice filtering, timetable preservation, idempotency, rollback, and unresolved-state checks | Research fact changes | AMA handoff and transport models |
@@ -131,18 +131,18 @@ directories are listed when they establish an ownership boundary.
 | Path | Purpose | Owner | Phase | Belongs here | Does not belong here | Dependencies |
 |---|---|---|---|---|---|---|
 | `frontend/package.json` | React/Vite dependencies and scripts | Deeptiman | 0/6B | Approved frontend tooling | Backend or AI implementation | Frontend contracts |
-| `frontend/src/` | Phase 0 contract files and later frontend source tree | Deeptiman | 0/6B | Contract types and later complete frontend implementation | Ranking, itinerary logic, provider logic, authoritative geometry | API and map contracts |
-| `frontend/src/api/` | Frontend/backend boundary types | Deeptiman | 0/6B | `contracts.ts` and later API client/types | Backend route implementation | API contract |
+| `frontend/src/` | Complete frontend source tree | Deeptiman | 0/6B | Contract types, hooks, services, and complete user-facing application | Ranking, itinerary logic, provider logic, authoritative geometry | API and map contracts |
+| `frontend/src/api/` | Frontend/backend boundary types and client | Deeptiman | 0/6B | `contracts.ts`, API client, and endpoint bindings | Backend route implementation | API contract |
 | `frontend/src/api/contracts.ts` | TypeScript mirror of the Phase 0 itinerary/transport/API contract | Deeptiman | 0 | Shared frontend/backend types | UI components or business logic | Backend schemas |
-| `frontend/src/components/` | Existing empty component tree | Deeptiman | 6B | `TO CREATE`: approved user-facing components | Authoritative geospatial calculations | Frontend design and contracts |
-| `frontend/src/components/itinerary/` | Existing empty itinerary component directory | Deeptiman | 6B | Itinerary presentation | Itinerary generation | Itinerary contract |
-| `frontend/src/components/map/` | Map boundary record and later map integration | Deeptiman, integrating Susmita | 0/6A/6B | Boundary README and later presentation | Geometry calculation | Map contract |
+| `frontend/src/components/` | User-facing component tree | Deeptiman | 6B | Approved user-facing components across navigation, discovery, itinerary, map, place, and AI | Authoritative geospatial calculations | Frontend design and contracts |
+| `frontend/src/components/itinerary/` | Itinerary presentation component directory | Deeptiman | 6B | Itinerary presentation components (ConstraintForm, ItineraryView, ItineraryDaySection, ItineraryStopCard, ErrorAlert, InitialState, LoadingState) | Itinerary generation | Itinerary contract |
+| `frontend/src/components/map/` | Map integration and presentation components | Deeptiman, integrating Susmita | 0/6A/6B | Boundary README, MapCanvas (Leaflet with zoom-dependent labels), and MapView | Geometry calculation | Map contract |
 | `frontend/src/components/map/README.md` | Phase 0 map ownership and boundary record | Susmita/Deeptiman | 0 | Ownership and unresolved map contract | Map implementation | Architecture and map contract |
-| `frontend/src/components/transport/` | Existing empty transport component directory | Deeptiman | 6B | Transport-hop presentation | Transport planning | Transport contract |
-| `frontend/src/pages/` | Existing empty page directory | Deeptiman | 6B | Approved screens only | Unapproved screens | PRD |
-| `frontend/src/store/` | Existing empty state directory | Deeptiman | 6B | Approved presentation state | Database or AI state ownership | Frontend flow |
+| `frontend/src/components/transport/` | Transport presentation component directory | Deeptiman | 6B | Transport presentation components (TransportHopCard) | Transport planning | Transport contract |
+| `frontend/src/pages/` | Main application page directory | Deeptiman | 6B | Approved screens (ItineraryPlannerPage, DestinationsPage, CategoryExplorePage, SavedPlacesPage) | Unapproved screens | PRD |
+| `frontend/src/store/` | Presentation state and custom hooks | Deeptiman | 6B | Custom state hooks (usePlaces, useSavedPlaces, useRecentPlaces, useItineraryPlanner, useAIConversation, useMapProjection, useConversationHistory, useWeather) | Database or AI state ownership | Frontend flow |
 | `frontend/tests/fixtures/sample_itinerary.json` | Current frontend contract fixture | Deeptiman with Smarak/Rudra | 4/6B | Shared itinerary fixture data | Untracked alternate contract | Itinerary contract |
-| `frontend/tests/` | Fixture and Phase 0 contract tests | Deeptiman | 0/6B | Contract and later component tests | Backend implementation | Frontend dependencies |
+| `frontend/tests/` | Unit, component, flow, and E2E test suites | Deeptiman | 0/6B | 23 test files covering contracts, components, map flow, AI flow, whole-Odisha catalog, and real-world QA | Backend implementation | Frontend dependencies |
 | `frontend/tests/contracts.test.ts` | Phase 0 TypeScript contract tests | Deeptiman | 0 | Type-level fixture coverage | Product behavior tests | `frontend/src/api/contracts.ts` |
 
 ## Scripts and infrastructure

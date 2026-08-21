@@ -30,18 +30,18 @@ import {
 import type { PlanningConstraints } from "../../types/api";
 
 export const CANONICAL_INTERESTS: Array<{ id: string; label: string; icon: any; color: string }> = [
-  { id: "heritage", label: "Heritage", icon: Landmark, color: "text-amber-400 bg-amber-950/60 border-amber-800/60" },
-  { id: "spirituality", label: "Spirituality", icon: Sparkles, color: "text-emerald-400 bg-emerald-950/60 border-emerald-800/60" },
-  { id: "architecture", label: "Architecture", icon: Landmark, color: "text-indigo-400 bg-indigo-950/60 border-indigo-800/60" },
-  { id: "food", label: "Food & Cuisine", icon: Coffee, color: "text-rose-400 bg-rose-950/60 border-rose-800/60" },
-  { id: "culture", label: "Culture & Arts", icon: Heart, color: "text-purple-400 bg-purple-950/60 border-purple-800/60" },
-  { id: "nature", label: "Nature & Hills", icon: TreePine, color: "text-emerald-400 bg-emerald-950/60 border-emerald-800/60" },
-  { id: "beach", label: "Coastal Beaches", icon: Waves, color: "text-cyan-400 bg-cyan-950/60 border-cyan-800/60" },
-  { id: "wildlife", label: "Wildlife Safari", icon: TreePine, color: "text-yellow-400 bg-yellow-950/60 border-yellow-800/60" },
-  { id: "waterfall", label: "Waterfalls", icon: Waves, color: "text-teal-400 bg-teal-950/60 border-teal-800/60" },
-  { id: "relaxation", label: "Relaxation", icon: Coffee, color: "text-blue-400 bg-blue-950/60 border-blue-800/60" },
-  { id: "adventure", label: "Adventure & Treks", icon: Flame, color: "text-orange-400 bg-orange-950/60 border-orange-800/60" },
-  { id: "shopping", label: "Shopping & Crafts", icon: ShoppingBag, color: "text-pink-400 bg-pink-950/60 border-pink-800/60" },
+  { id: "heritage", label: "Heritage", icon: Landmark, color: "text-amber-300 bg-[#111827] border-[#263244]" },
+  { id: "spirituality", label: "Spirituality", icon: Sparkles, color: "text-teal-300 bg-[#111827] border-[#263244]" },
+  { id: "architecture", label: "Architecture", icon: Landmark, color: "text-indigo-300 bg-[#111827] border-[#263244]" },
+  { id: "food", label: "Food & Cuisine", icon: Coffee, color: "text-rose-300 bg-[#111827] border-[#263244]" },
+  { id: "culture", label: "Culture & Arts", icon: Heart, color: "text-purple-300 bg-[#111827] border-[#263244]" },
+  { id: "nature", label: "Nature & Hills", icon: TreePine, color: "text-teal-300 bg-[#111827] border-[#263244]" },
+  { id: "beach", label: "Coastal Beaches", icon: Waves, color: "text-cyan-300 bg-[#111827] border-[#263244]" },
+  { id: "wildlife", label: "Wildlife Safari", icon: TreePine, color: "text-yellow-300 bg-[#111827] border-[#263244]" },
+  { id: "waterfall", label: "Waterfalls", icon: Waves, color: "text-teal-300 bg-[#111827] border-[#263244]" },
+  { id: "relaxation", label: "Relaxation", icon: Coffee, color: "text-blue-300 bg-[#111827] border-[#263244]" },
+  { id: "adventure", label: "Adventure & Treks", icon: Flame, color: "text-orange-300 bg-[#111827] border-[#263244]" },
+  { id: "shopping", label: "Shopping & Crafts", icon: ShoppingBag, color: "text-pink-300 bg-[#111827] border-[#263244]" },
 ];
 
 export const POPULAR_ORIGIN_HUBS = [
@@ -82,7 +82,6 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
   const [travelersCount, setTravelersCount] = useState<number>(2);
   const [travelPace, setTravelPace] = useState<"relaxed" | "balanced" | "fast">("balanced");
   const [transportMode, setTransportMode] = useState<"road" | "rail" | "mixed">("road");
-  const [budgetTier, setBudgetTier] = useState<"budget" | "moderate" | "luxury">("moderate");
   const [openSections, setOpenSections] = useState<number[]>([1, 2, 3]);
 
   const isSectionOpen = (id: number) => openSections.includes(id);
@@ -134,32 +133,32 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
     <form
       data-testid="constraint-form"
       onSubmit={handleSubmit}
-      className="rounded-3xl bg-[#0a241d] border border-emerald-800/40 shadow-xl overflow-hidden space-y-0 text-white"
+      className="rounded-3xl bg-[#111827] border border-[#263244] shadow-xl overflow-hidden space-y-0 text-white"
     >
       {/* Top Banner Header */}
-      <div className="p-5 sm:p-6 bg-gradient-to-r from-[#062018] via-[#092920] to-[#0a241d] border-b border-emerald-900/50 flex flex-wrap items-center justify-between gap-3">
+      <div className="p-5 sm:p-6 bg-[#0B1220] border-b border-[#263244] flex flex-wrap items-center justify-between gap-3">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
-            <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 font-mono">
+            <span className="live-dot" />
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#14B8A6] font-mono">
               ODISHA ROUTE &amp; TRANSIT PLANNER
             </span>
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold font-display text-white tracking-tight">
             {isReplanning ? "Modify Constraints & Re-plan" : "Trip Constraints & Itinerary Planner"}
           </h2>
-          <p className="text-xs text-gray-300">
+          <p className="text-xs text-slate-400">
             Deterministic scheduling, transportation hop calculations, and verified destinations.
           </p>
         </div>
 
         {/* Quick Summary Pill */}
-        <div className="flex items-center gap-2 text-xs font-mono bg-emerald-950/80 px-3.5 py-1.5 rounded-2xl border border-emerald-700/60 shadow-xs">
-          <span className="text-emerald-300 font-bold">{days} Days</span>
-          <span className="text-gray-500">•</span>
-          <span className="text-emerald-300 font-bold">{startOrigin || "Any Origin"}</span>
-          <span className="text-gray-500">•</span>
-          <span className="text-emerald-300 font-bold">
+        <div className="flex items-center gap-2 text-xs font-mono bg-[#172235] px-3.5 py-1.5 rounded-2xl border border-[#263244] shadow-xs">
+          <span className="text-teal-300 font-bold">{days} Days</span>
+          <span className="text-slate-500">•</span>
+          <span className="text-teal-300 font-bold">{startOrigin || "Any Origin"}</span>
+          <span className="text-slate-500">•</span>
+          <span className="text-teal-300 font-bold">
             {selectedInterests.length > 0 ? `${selectedInterests.length} Themes` : "Surprise Me"}
           </span>
         </div>
@@ -167,32 +166,32 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
 
       <div className="p-5 sm:p-6 space-y-6">
         {/* SECTION 1: TRIP BASICS */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#061e17] border border-emerald-800/40 space-y-4">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#172235] border border-[#263244] space-y-4">
           <div
             className="flex items-center justify-between cursor-pointer select-none"
             onClick={() => toggleSection(1)}
           >
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-xl bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 flex items-center justify-center font-bold text-xs">
+              <div className="w-7 h-7 rounded-xl bg-[#14B8A6]/20 border border-[#14B8A6]/40 text-teal-300 flex items-center justify-center font-bold text-xs">
                 1
               </div>
               <div>
                 <h3 className="text-sm font-bold text-white flex items-center gap-2">
-                  <MapPin size={15} className="text-emerald-400" />
+                  <MapPin size={15} className="text-[#14B8A6]" />
                   <span>Trip Basics &amp; Starting Hub</span>
                 </h3>
-                <span className="text-[11px] text-gray-400">Duration, origin location, dates &amp; group size</span>
+                <span className="text-[11px] text-slate-400">Duration, origin location, dates &amp; group size</span>
               </div>
             </div>
-            {isSectionOpen(1) ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
+            {isSectionOpen(1) ? <ChevronUp size={16} className="text-slate-400" /> : <ChevronDown size={16} className="text-slate-400" />}
           </div>
 
           {isSectionOpen(1) && (
-            <div className="pt-3 border-t border-emerald-900/40 space-y-4 animate-in fade-in duration-200">
+            <div className="pt-3 border-t border-[#263244] space-y-4 animate-in fade-in duration-200">
               {/* Origin Hub & Popular Pills */}
               <div className="space-y-2">
-                <label htmlFor="start-input" className="block text-xs font-semibold text-gray-200">
-                  Starting City / Origin Hub <span className="text-emerald-400">*</span>
+                <label htmlFor="start-input" className="block text-xs font-semibold text-slate-300">
+                  Starting City / Origin Hub <span className="text-[#14B8A6]">*</span>
                 </label>
                 <div className="relative">
                   <input
@@ -203,14 +202,14 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                     value={startOrigin}
                     disabled={isLoading}
                     onChange={(e) => setStartOrigin(e.target.value)}
-                    className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-emerald-800/60 bg-[#0a271f] text-sm font-medium text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500"
+                    className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#334155] bg-[#111827] text-sm font-medium text-white placeholder-slate-500 focus:outline-none focus:border-[#14B8A6]"
                   />
-                  <MapPin size={15} className="absolute left-3 top-3 text-emerald-400" />
+                  <MapPin size={15} className="absolute left-3 top-3 text-[#14B8A6]" />
                 </div>
 
                 {/* Popular Origin Hub Pills */}
                 <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                  <span className="text-[10px] font-semibold text-gray-400 uppercase font-mono mr-1">
+                  <span className="text-[10px] font-semibold text-slate-400 uppercase font-mono mr-1">
                     Quick Hubs:
                   </span>
                   {POPULAR_ORIGIN_HUBS.map((hub) => {
@@ -224,8 +223,8 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                         onClick={() => setStartOrigin(hub)}
                         className={`px-2.5 py-1 rounded-xl text-xs font-medium transition-all cursor-pointer border ${
                           isSelected
-                            ? "bg-emerald-600 text-white border-emerald-500 font-bold shadow-xs"
-                            : "bg-[#0b2b22] text-gray-300 border-emerald-800/50 hover:bg-emerald-900/50 hover:text-white"
+                            ? "bg-[#14B8A6] text-white border-[#14B8A6] font-bold shadow-xs"
+                            : "bg-[#111827] text-slate-300 border-[#334155] hover:bg-slate-800 hover:text-white"
                         }`}
                       >
                         {hub}
@@ -239,8 +238,8 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
                 {/* Days Duration */}
                 <div className="space-y-1.5">
-                  <label htmlFor="days-input" className="block text-xs font-semibold text-gray-200">
-                    Trip Duration (Days) <span className="text-emerald-400">*</span>
+                  <label htmlFor="days-input" className="block text-xs font-semibold text-slate-300">
+                    Trip Duration (Days) <span className="text-[#14B8A6]">*</span>
                   </label>
                   <div className="flex items-center gap-1.5">
                     {[1, 2, 3, 5, 7].map((d) => (
@@ -250,8 +249,8 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                         onClick={() => setDays(d)}
                         className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all border ${
                           days === d
-                            ? "bg-emerald-600 text-white border-emerald-400 shadow-xs"
-                            : "bg-[#0a271f] text-gray-300 border-emerald-800/50 hover:bg-emerald-900/50"
+                            ? "bg-[#14B8A6] text-white border-[#14B8A6] shadow-xs"
+                            : "bg-[#111827] text-slate-300 border-[#334155] hover:bg-slate-800"
                         }`}
                       >
                         {d}d
@@ -267,13 +266,13 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                     value={days}
                     disabled={isLoading}
                     onChange={(e) => setDays(Math.max(1, parseInt(e.target.value, 10) || 1))}
-                    className="w-full px-3 py-1.5 rounded-xl border border-emerald-800/60 bg-[#0a271f] text-xs font-mono text-white mt-1"
+                    className="w-full px-3 py-1.5 rounded-xl border border-[#334155] bg-[#111827] text-xs font-mono text-white mt-1"
                   />
                 </div>
 
                 {/* Travel Date */}
                 <div className="space-y-1.5">
-                  <label htmlFor="date-input" className="block text-xs font-semibold text-gray-200">
+                  <label htmlFor="date-input" className="block text-xs font-semibold text-slate-300">
                     Travel Start Date
                   </label>
                   <div className="relative">
@@ -284,14 +283,14 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                       value={dateInput}
                       disabled={isLoading}
                       onChange={(e) => setDateInput(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-emerald-800/60 bg-[#0a271f] text-xs font-mono text-white focus:outline-none focus:border-emerald-500"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#334155] bg-[#111827] text-xs font-mono text-white focus:outline-none focus:border-[#14B8A6]"
                     />
                   </div>
                 </div>
 
                 {/* Travelers Count */}
                 <div className="space-y-1.5">
-                  <label className="block text-xs font-semibold text-gray-200">
+                  <label className="block text-xs font-semibold text-slate-300">
                     Travelers
                   </label>
                   <div className="flex items-center gap-1.5">
@@ -307,8 +306,8 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                         onClick={() => setTravelersCount(opt.count)}
                         className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all border ${
                           travelersCount === opt.count
-                            ? "bg-emerald-600 text-white border-emerald-400"
-                            : "bg-[#0a271f] text-gray-300 border-emerald-800/50 hover:bg-emerald-900/50"
+                            ? "bg-[#14B8A6] text-white border-[#14B8A6]"
+                            : "bg-[#111827] text-slate-300 border-[#334155] hover:bg-slate-800"
                         }`}
                       >
                         {opt.label}
@@ -322,35 +321,35 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
         </div>
 
         {/* SECTION 2: THEMES & INTERESTS */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#061e17] border border-emerald-800/40 space-y-4">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#172235] border border-[#263244] space-y-4">
           <div
             className="flex items-center justify-between cursor-pointer select-none"
             onClick={() => toggleSection(2)}
           >
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-xl bg-amber-600/30 border border-amber-500/40 text-amber-300 flex items-center justify-center font-bold text-xs">
+              <div className="w-7 h-7 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 flex items-center justify-center font-bold text-xs">
                 2
               </div>
               <div>
                 <h3 className="text-sm font-bold text-white flex items-center gap-2">
-                  <Sparkles size={15} className="text-amber-400" />
+                  <Sparkles size={15} className="text-[#F59E0B]" />
                   <span>Interests / Themes &amp; Experiences</span>
                 </h3>
-                <span className="text-[11px] text-gray-400">
+                <span className="text-[11px] text-slate-400">
                   {selectedInterests.length > 0 ? `${selectedInterests.length} selected themes` : "All themes (balanced plan)"}
                 </span>
               </div>
             </div>
-            {isSectionOpen(2) ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
+            {isSectionOpen(2) ? <ChevronUp size={16} className="text-slate-400" /> : <ChevronDown size={16} className="text-slate-400" />}
           </div>
 
           {isSectionOpen(2) && (
-            <div className="pt-3 border-t border-emerald-900/40 space-y-4 animate-in fade-in duration-200">
-              <p className="text-xs text-gray-300 leading-relaxed">
+            <div className="pt-3 border-t border-[#263244] space-y-4 animate-in fade-in duration-200">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 Choose the themes that match your travel vision. Leave blank for a curated whole-Odisha blend!
               </p>
 
-              {/* 12 Canonical Thematic Chips with Category Colors */}
+              {/* 12 Canonical Thematic Chips */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
                 {CANONICAL_INTERESTS.map((interest) => {
                   const active = selectedInterests.includes(interest.id);
@@ -365,11 +364,11 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                       onClick={() => toggleInterest(interest.id)}
                       className={`p-2.5 rounded-2xl text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer border text-left ${
                         active
-                          ? "bg-emerald-600 text-white border-emerald-400 shadow-md scale-[1.02]"
-                          : `${interest.color} text-gray-200 hover:scale-[1.01]`
+                          ? "bg-[#14B8A6] text-white border-[#14B8A6] shadow-md scale-[1.02] font-bold"
+                          : `${interest.color} text-slate-300 hover:border-slate-500`
                       }`}
                     >
-                      <Icon size={14} className={active ? "text-white" : "text-emerald-400"} />
+                      <Icon size={14} className={active ? "text-white" : "text-teal-400"} />
                       <span className="truncate">{interest.label}</span>
                     </button>
                   );
@@ -383,13 +382,13 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                   .map((interest) => (
                     <span
                       key={interest}
-                      className="inline-flex items-center gap-1 px-3 py-1 rounded-xl bg-emerald-950 text-emerald-300 text-xs font-medium border border-emerald-700"
+                      className="inline-flex items-center gap-1 px-3 py-1 rounded-xl bg-[#111827] text-teal-300 text-xs font-medium border border-[#263244]"
                     >
                       <span>{interest}</span>
                       <button
                         type="button"
                         onClick={() => removeInterest(interest)}
-                        className="text-emerald-400 hover:text-white font-bold ml-1 cursor-pointer"
+                        className="text-teal-400 hover:text-white font-bold ml-1 cursor-pointer"
                       >
                         ×
                       </button>
@@ -409,13 +408,13 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                         handleAddCustomInterest(e);
                       }
                     }}
-                    className="px-3.5 py-1.5 text-xs rounded-xl border border-emerald-800/60 bg-[#0a271f] text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
+                    className="px-3.5 py-1.5 text-xs rounded-xl border border-[#334155] bg-[#111827] text-white placeholder-slate-500 focus:outline-none focus:border-[#14B8A6]"
                   />
                   <button
                     type="button"
                     onClick={handleAddCustomInterest}
                     disabled={isLoading || !customInterestInput.trim()}
-                    className="px-3 py-1.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold transition-colors disabled:opacity-40 cursor-pointer"
+                    className="px-3 py-1.5 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white text-xs font-bold transition-colors disabled:opacity-40 cursor-pointer"
                   >
                     Add
                   </button>
@@ -426,32 +425,32 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
         </div>
 
         {/* SECTION 3: TRANSPORTATION & PACE */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#061e17] border border-emerald-800/40 space-y-4">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#172235] border border-[#263244] space-y-4">
           <div
             className="flex items-center justify-between cursor-pointer select-none"
             onClick={() => toggleSection(3)}
           >
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-xl bg-cyan-600/30 border border-cyan-500/40 text-cyan-300 flex items-center justify-center font-bold text-xs">
+              <div className="w-7 h-7 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 flex items-center justify-center font-bold text-xs">
                 3
               </div>
               <div>
                 <h3 className="text-sm font-bold text-white flex items-center gap-2">
-                  <Car size={15} className="text-cyan-400" />
+                  <Car size={15} className="text-[#38BDF8]" />
                   <span>Transportation &amp; Pace Intelligence</span>
                 </h3>
-                <span className="text-[11px] text-gray-400">Transit modes, daily travel pace &amp; budget preference</span>
+                <span className="text-[11px] text-slate-400">Transit modes, daily travel pace &amp; budget preference</span>
               </div>
             </div>
-            {isSectionOpen(3) ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
+            {isSectionOpen(3) ? <ChevronUp size={16} className="text-slate-400" /> : <ChevronDown size={16} className="text-slate-400" />}
           </div>
 
           {isSectionOpen(3) && (
-            <div className="pt-3 border-t border-emerald-900/40 space-y-4 animate-in fade-in duration-200">
+            <div className="pt-3 border-t border-[#263244] space-y-4 animate-in fade-in duration-200">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Pace Preference */}
                 <div className="space-y-1.5">
-                  <label className="block text-xs font-semibold text-gray-200">
+                  <label className="block text-xs font-semibold text-slate-300">
                     Travel Pace
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -466,12 +465,12 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                         onClick={() => setTravelPace(p.id as any)}
                         className={`p-2.5 rounded-xl text-center border transition-all ${
                           travelPace === p.id
-                            ? "bg-emerald-600 text-white border-emerald-400 shadow-xs font-bold"
-                            : "bg-[#0a271f] text-gray-300 border-emerald-800/50 hover:bg-emerald-900/50"
+                            ? "bg-[#14B8A6] text-white border-[#14B8A6] shadow-xs font-bold"
+                            : "bg-[#111827] text-slate-300 border-[#334155] hover:bg-slate-800"
                         }`}
                       >
                         <div className="text-xs">{p.label}</div>
-                        <div className="text-[10px] text-emerald-200/70">{p.sub}</div>
+                        <div className="text-[10px] text-slate-400">{p.sub}</div>
                       </button>
                     ))}
                   </div>
@@ -479,7 +478,7 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
 
                 {/* Transport Mode */}
                 <div className="space-y-1.5">
-                  <label className="block text-xs font-semibold text-gray-200">
+                  <label className="block text-xs font-semibold text-slate-300">
                     Transportation Mode
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -496,8 +495,8 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                           onClick={() => setTransportMode(m.id as any)}
                           className={`p-2.5 rounded-xl text-center border transition-all flex flex-col items-center gap-1 ${
                             transportMode === m.id
-                              ? "bg-emerald-600 text-white border-emerald-400 shadow-xs font-bold"
-                              : "bg-[#0a271f] text-gray-300 border-emerald-800/50 hover:bg-emerald-900/50"
+                              ? "bg-[#14B8A6] text-white border-[#14B8A6] shadow-xs font-bold"
+                              : "bg-[#111827] text-slate-300 border-[#334155] hover:bg-slate-800"
                           }`}
                         >
                           <Icon size={14} />
@@ -510,11 +509,11 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
               </div>
 
               {/* Transportation Intelligence Assurance */}
-              <div className="p-3 rounded-xl bg-emerald-950/40 border border-emerald-800/50 flex items-start gap-2.5 text-xs text-emerald-200">
-                <ShieldCheck size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+              <div className="p-3 rounded-xl bg-[#111827] border border-[#263244] flex items-start gap-2.5 text-xs text-slate-300">
+                <ShieldCheck size={16} className="text-[#14B8A6] shrink-0 mt-0.5" />
                 <div className="space-y-0.5">
                   <div className="font-bold text-white">Automated Hop Optimization</div>
-                  <p className="text-[11px] text-emerald-300/80 leading-relaxed">
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
                     Our routing engine automatically sequences destinations in geographical order to minimize backtracking and road transit hours.
                   </p>
                 </div>
@@ -525,9 +524,9 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
       </div>
 
       {/* Action Footer Button Strip */}
-      <div className="p-5 sm:p-6 bg-[#071f18] border-t border-emerald-900/50 flex flex-wrap items-center justify-between gap-3">
-        <div className="text-xs text-gray-300">
-          Ready to generate an optimized <span className="font-bold text-emerald-300">{days}-day</span> itinerary from{" "}
+      <div className="p-5 sm:p-6 bg-[#0B1220] border-t border-[#263244] flex flex-wrap items-center justify-between gap-3">
+        <div className="text-xs text-slate-400">
+          Ready to generate an optimized <span className="font-bold text-teal-300">{days}-day</span> itinerary from{" "}
           <span className="font-bold text-white">{startOrigin}</span>.
         </div>
 
@@ -538,7 +537,7 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
               data-testid="reset-button"
               disabled={isLoading}
               onClick={onReset}
-              className="px-4 py-2.5 rounded-xl border border-emerald-800/60 hover:bg-emerald-950/60 text-gray-300 text-xs font-semibold transition-colors disabled:opacity-50 cursor-pointer"
+              className="px-4 py-2.5 rounded-xl border border-[#334155] hover:bg-slate-800 text-slate-300 text-xs font-semibold transition-colors disabled:opacity-50 cursor-pointer"
             >
               Reset
             </button>
@@ -548,7 +547,7 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
             type="submit"
             data-testid="submit-plan-button"
             disabled={isLoading || days < 1}
-            className="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold shadow-lg hover:shadow-emerald-500/25 transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
+            className="px-6 py-3 rounded-2xl bg-[#14B8A6] hover:bg-[#0D9488] text-white text-xs sm:text-sm font-bold shadow-lg hover:shadow-teal-500/20 transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
           >
             {isLoading ? (
               <>
