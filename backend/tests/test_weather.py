@@ -16,6 +16,7 @@ client = TestClient(app)
 SAMPLE_OPEN_METEO_RESPONSE = {
     "latitude": 20.2961,
     "longitude": 85.8245,
+    "timezone": "Asia/Kolkata",
     "current": {
         "time": "2026-08-20T12:00",
         "temperature_2m": 29.5,
@@ -23,31 +24,49 @@ SAMPLE_OPEN_METEO_RESPONSE = {
         "apparent_temperature": 34.2,
         "precipitation": 0.0,
         "weather_code": 1,
+        "is_day": 1,
         "wind_speed_10m": 12.5,
+        "wind_direction_10m": 180,
+        "wind_gusts_10m": 18.0,
+        "cloud_cover": 25,
     },
     "daily": {
         "time": ["2026-08-20", "2026-08-21", "2026-08-22"],
         "temperature_2m_max": [31.0, 30.5, 29.8],
         "temperature_2m_min": [25.0, 24.5, 24.0],
+        "apparent_temperature_max": [35.0, 34.0, 33.0],
+        "apparent_temperature_min": [27.0, 26.0, 25.0],
+        "sunrise": ["2026-08-20T05:30", "2026-08-21T05:30", "2026-08-22T05:31"],
+        "sunset": ["2026-08-20T18:15", "2026-08-21T18:14", "2026-08-22T18:13"],
         "weather_code": [1, 61, 0],
         "precipitation_probability_max": [20, 80, 10],
         "precipitation_sum": [0.0, 12.4, 0.0],
+        "wind_speed_10m_max": [15.0, 22.0, 12.0],
     },
 }
 
 
 def test_wmo_code_mapping():
     cond, adv = _wmo_code_to_condition(0)
-    assert cond == "Clear"
+    assert cond == "Clear sky"
     assert "Ideal conditions" in adv
 
+    cond, adv = _wmo_code_to_condition(1)
+    assert cond == "Mainly clear"
+
     cond, adv = _wmo_code_to_condition(61)
-    assert cond == "Rain"
-    assert "rain gear" in adv
+    assert cond == "Slight rain"
+    assert "umbrella" in adv
+
+    cond, adv = _wmo_code_to_condition(65)
+    assert cond == "Heavy rain"
 
     cond, adv = _wmo_code_to_condition(95)
     assert cond == "Thunderstorm"
     assert "sheltered" in adv
+
+    cond, adv = _wmo_code_to_condition(96)
+    assert cond == "Thunderstorm with hail"
 
 
 def test_open_meteo_adapter_success():
@@ -66,12 +85,17 @@ def test_open_meteo_adapter_success():
         assert res.location_name == "Bhubaneswar"
         assert res.current.status == "available"
         assert res.current.temperature_c == 29.5
-        assert res.current.condition == "Mostly Clear"
+        assert res.current.condition == "Mainly clear"
+        assert res.current.is_day == 1
         assert res.current.humidity_pct == 78
         assert res.current.apparent_temperature_c == 34.2
         assert res.current.wind_speed_kmh == 12.5
+        assert res.current.wind_direction_deg == 180
+        assert res.current.cloud_cover_pct == 25
+        assert res.current.timezone == "Asia/Kolkata"
         assert len(res.forecast_daily) == 3
-        assert res.forecast_daily[1].condition == "Rain"
+        assert res.forecast_daily[1].condition == "Slight rain"
+        assert res.forecast_daily[1].apparent_temperature_max_c == 34.0
 
 
 def test_open_meteo_adapter_timeout_fallback():
@@ -82,6 +106,7 @@ def test_open_meteo_adapter_timeout_fallback():
 
         assert res.current.status == "unavailable"
         assert res.current.condition == "Unavailable"
+        assert res.current.temperature_c is None
         assert "temporarily unavailable" in res.current.advice
         assert "timed out" in (res.current.error_reason or "")
 
@@ -98,6 +123,7 @@ def test_open_meteo_adapter_http_error():
         res = adapter.fetch_weather(lat=20.2961, lon=85.8245, location_name="Bhubaneswar")
 
         assert res.current.status == "unavailable"
+        assert res.current.temperature_c is None
 
 
 def test_weather_service_hub_resolution():
@@ -110,7 +136,8 @@ def test_weather_service_hub_resolution():
             "lon": 85.8312,
             "observed_at": "2026-08-20T12:00:00Z",
             "temperature_c": 28.0,
-            "condition": "Clear",
+            "condition": "Clear sky",
+            "is_day": 1,
             "freshness_timestamp": "2026-08-20T12:00:00Z",
             "status": "available",
         },
@@ -141,10 +168,11 @@ def test_weather_api_endpoints():
                 "observed_at": "2026-08-20T12:00:00Z",
                 "temperature_c": 30.0,
                 "apparent_temperature_c": 33.0,
-                "condition": "Mostly Clear",
+                "condition": "Mainly clear",
                 "is_day": 0,
                 "humidity_pct": 70,
                 "wind_speed_kmh": 10.0,
+                "timezone": "Asia/Kolkata",
                 "advice": "Pleasant weather; great for heritage walks.",
                 "provider": "Open-Meteo",
                 "freshness_timestamp": "2026-08-20T12:00:00Z",
@@ -153,18 +181,27 @@ def test_weather_api_endpoints():
             forecast_daily=[],
         ),
     ):
-        res_curr = client.get("/weather/current?location_name=Bhubaneswar")
-        assert res_curr.status_code == 200
-        data_curr = res_curr.json()
-        assert data_curr["location_name"] == "Bhubaneswar"
-        assert data_curr["current"]["temperature_c"] == 30.0
-        assert data_curr["current"]["condition"] == "Mostly Clear"
-        assert data_curr["current"]["is_day"] == 0
+        # 1. Test ?location_name=Bhubaneswar
+        res_curr_loc = client.get("/weather/current?location_name=Bhubaneswar")
+        assert res_curr_loc.status_code == 200
+        data_curr_loc = res_curr_loc.json()
+        assert data_curr_loc["location_name"] == "Bhubaneswar"
+        assert data_curr_loc["current"]["temperature_c"] == 30.0
+        assert data_curr_loc["current"]["condition"] == "Mainly clear"
+        assert data_curr_loc["current"]["is_day"] == 0
 
-        res_fore = client.get("/weather/forecast?lat=20.2961&lon=85.8245")
-        assert res_fore.status_code == 200
-        data_fore = res_fore.json()
-        assert data_fore["current"]["status"] == "available"
+        # 2. Test ?hub=Bhubaneswar
+        res_curr_hub = client.get("/weather/current?hub=Bhubaneswar")
+        assert res_curr_hub.status_code == 200
+        data_curr_hub = res_curr_hub.json()
+        assert data_curr_hub["location_name"] == "Bhubaneswar"
+        assert data_curr_hub["current"]["temperature_c"] == 30.0
+
+        # 3. Test /weather/forecast?hub=Bhubaneswar
+        res_fore_hub = client.get("/weather/forecast?hub=Bhubaneswar")
+        assert res_fore_hub.status_code == 200
+        data_fore_hub = res_fore_hub.json()
+        assert data_fore_hub["current"]["status"] == "available"
 
 
 def test_open_meteo_adapter_is_day_night():
@@ -190,7 +227,7 @@ def test_open_meteo_adapter_is_day_night():
 
         res = adapter.fetch_weather(lat=20.2961, lon=85.8245, location_name="Bhubaneswar")
         assert res.current.is_day == 0
-        assert res.current.condition == "Clear"
+        assert res.current.condition == "Clear sky"
         assert res.current.temperature_c == 26.0
 
 

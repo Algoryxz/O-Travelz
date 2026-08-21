@@ -301,6 +301,10 @@ export interface WeatherObservation {
   precipitation_probability_pct?: number | null;
   precipitation_mm?: number | null;
   wind_speed_kmh?: number | null;
+  wind_direction_deg?: number | null;
+  wind_gusts_kmh?: number | null;
+  cloud_cover_pct?: number | null;
+  timezone?: string | null;
   advice?: string | null;
   provider: string;
   freshness_timestamp: string;
@@ -312,10 +316,15 @@ export interface DailyForecastItem {
   date: string;
   temperature_max_c: number;
   temperature_min_c: number;
+  apparent_temperature_max_c?: number | null;
+  apparent_temperature_min_c?: number | null;
   condition: string;
   condition_code?: number | null;
   precipitation_probability_pct?: number | null;
   precipitation_sum_mm?: number | null;
+  sunrise?: string | null;
+  sunset?: string | null;
+  wind_speed_max_kmh?: number | null;
 }
 
 export interface WeatherResponse {

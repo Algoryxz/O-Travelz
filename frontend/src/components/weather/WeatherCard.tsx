@@ -95,9 +95,9 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({
   const hasValidTemp = currentObs?.temperature_c != null && !Number.isNaN(currentObs.temperature_c);
   const temperature = hasValidTemp ? `${Math.round(currentObs.temperature_c!)}°C` : "—°C";
   const feelsLike = currentObs?.apparent_temperature_c != null ? `${Math.round(currentObs.apparent_temperature_c)}°C` : null;
-  const conditionDisplay = !isDay && currentObs?.condition === "Clear"
+  const conditionDisplay = !isDay && (currentObs?.condition === "Clear" || currentObs?.condition === "Clear sky")
     ? "Clear Night"
-    : !isDay && currentObs?.condition === "Mostly Clear"
+    : !isDay && (currentObs?.condition === "Mostly Clear" || currentObs?.condition === "Mainly clear")
     ? "Partly Cloudy Night"
     : (currentObs?.condition || theme.displayName);
   const provider = currentObs?.provider || "Open-Meteo";
