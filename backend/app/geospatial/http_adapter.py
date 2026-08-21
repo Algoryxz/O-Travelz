@@ -17,31 +17,7 @@ from app.schemas.map_projection import (
     MapProjectionResponse,
     PointGeometry,
 )
-
-
-def _determine_region(name: str | None) -> str | None:
-    if not name:
-        return None
-    name_lower = name.lower()
-    if any(k in name_lower for k in ["puri", "gundicha", "swargadwar"]):
-        return "Puri & Coastal"
-    if any(k in name_lower for k in ["konark", "chandrabhaga", "ramachandi"]):
-        return "Konark & Marine"
-    if any(k in name_lower for k in ["cuttack", "barabati", "chandi", "maritime", "netaji"]):
-        return "Cuttack & Mahanadi"
-    if any(k in name_lower for k in ["chilika", "kalijai", "mangalajodi", "gopalpur", "tara tarini"]):
-        return "Chilika & Southern Coast"
-    if any(k in name_lower for k in ["daringbadi", "midubanda", "coffee", "belghar", "kandhamal"]):
-        return "Kandhamal & Southern Hills"
-    if any(k in name_lower for k in ["hirakud", "samaleswari", "huma", "debrigarh", "sambalpur"]):
-        return "Sambalpur & Western Odisha"
-    if any(k in name_lower for k in ["rourkela", "hanuman vatika", "mandira", "khandadhar", "sundargarh"]):
-        return "Rourkela & Sundargarh"
-    if any(k in name_lower for k in ["similipal", "barehipani", "bhitarkanika", "chandipur", "balasore", "mayurbhanj"]):
-        return "Northern Odisha & Wildlife"
-    if any(k in name_lower for k in ["koraput", "deomali", "gupteswar", "duduma", "kolab", "rayagada", "majhigouri"]):
-        return "Koraput & Tribal Highlands"
-    return "Bhubaneswar & Central"
+from app.core.regions import get_region_for_place
 
 
 class MapProjectionHTTPError(Exception):
@@ -141,7 +117,9 @@ class MapProjectionHTTPAdapter:
         elif entity == "route":
             category = "route"
 
-        region = _determine_region(name) if entity == "place" else None
+        district = getattr(record, "district", None) if entity == "place" else None
+        place_ref = getattr(record, "research_id", None) or str(getattr(record, "id", ""))
+        region = get_region_for_place(district, place_ref) if entity == "place" else None
 
         raw_geometry = getattr(record, "geometry", None) if entity == "route" else getattr(record, "location", None)
         if raw_geometry is None:

@@ -15,7 +15,6 @@ import { ItineraryView } from "../components/itinerary/ItineraryView";
 import { AIConversationPanel } from "../components/ai/AIConversationPanel";
 import { AISidebar } from "../components/ai/AISidebar";
 import { SettingsModal, type UserTravelPreferences } from "../components/settings/SettingsModal";
-import { MapView } from "../components/map/MapView";
 import { TopNav, type NavTab } from "../components/nav/TopNav";
 import { MobileDrawer } from "../components/nav/MobileDrawer";
 import { FloatingNavigationDock } from "../components/nav/FloatingNavigationDock";
@@ -31,6 +30,11 @@ import {
 } from "../components/place/PlaceDetailsModal";
 import type { ApiClient } from "../services/api";
 import {
+  getTabFromHash,
+  getHashForTab,
+  normalizeHash,
+} from "../utils/navigation";
+import {
   Bot,
   CalendarDays,
   MapPin,
@@ -40,17 +44,92 @@ import {
   History,
 } from "lucide-react";
 
+import { LocationPermissionModal } from "../components/location/LocationPermissionModal";
+import { PrivacyPolicyPage } from "../components/legal/PrivacyPolicyPage";
+import { TermsConditionsPage } from "../components/legal/TermsConditionsPage";
+import { ContactGrievancePage } from "../components/legal/ContactGrievancePage";
+import { TermsConsentGate } from "../components/legal/TermsConsentGate";
+import { useTermsConsent } from "../store/useTermsConsent";
+
+// Code-split Leaflet map dependency boundary
+const MapView = React.lazy(() => import("../components/map/MapView"));
+
+const MapLoadingFallback: React.FC = () => (
+  <div
+    data-testid="map-loading-state"
+    className="p-8 text-center rounded-3xl bg-[#111827] border border-[#263244] shadow-xs"
+  >
+    <div className="w-8 h-8 mx-auto rounded-full border-2 border-[#263244] border-t-[#14B8A6] animate-spin mb-3" />
+    <h4 className="text-sm font-semibold text-white">Loading Map...</h4>
+    <p className="text-xs text-slate-400 mt-1">
+      Connecting destination coordinates and route connections.
+    </p>
+  </div>
+);
+
+const ODISHA_HUBS_FOR_DISTANCE: Array<{ name: string; lat: number; lon: number }> = [
+  { name: "Bhubaneswar", lat: 20.2961, lon: 85.8245 },
+  { name: "Puri", lat: 19.8135, lon: 85.8312 },
+  { name: "Konark", lat: 19.8876, lon: 86.0945 },
+  { name: "Cuttack", lat: 20.4625, lon: 85.8828 },
+  { name: "Chilika Lake", lat: 19.7042, lon: 85.3214 },
+  { name: "Daringbadi", lat: 19.9103, lon: 84.1311 },
+  { name: "Sambalpur", lat: 21.4669, lon: 83.9812 },
+  { name: "Koraput", lat: 18.8135, lon: 82.7123 },
+  { name: "Rourkela", lat: 22.2604, lon: 84.8536 },
+];
+
+function findClosestOdishaHub(lat: number, lon: number): { name: string; distanceKm: number } {
+  let closest = ODISHA_HUBS_FOR_DISTANCE[0];
+  let minDistance = Infinity;
+
+  for (const hub of ODISHA_HUBS_FOR_DISTANCE) {
+    const dLat = (hub.lat - lat) * (Math.PI / 180);
+    const dLon = (hub.lon - lon) * (Math.PI / 180);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat * (Math.PI / 180)) *
+        Math.cos(hub.lat * (Math.PI / 180)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const dist = 6371 * c;
+    if (dist < minDistance) {
+      minDistance = dist;
+      closest = hub;
+    }
+  }
+
+  return { name: closest.name, distanceKm: Math.round(minDistance) };
+}
+
 type PlanningMode = "structured" | "ai";
 type ResultViewTab = "itinerary" | "map";
-type AppView = NavTab | "category" | "settings";
+type AppView = NavTab | "category" | "settings" | "privacy" | "terms" | "contact";
 
 interface ItineraryPlannerPageProps {
   apiClient?: ApiClient;
   initialTab?: AppView;
+  initialConsentAccepted?: boolean;
 }
 
-export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiClient, initialTab }) => {
-  const [activeTab, setActiveTab] = useState<AppView>(initialTab || "discover");
+export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
+  apiClient,
+  initialTab,
+  initialConsentAccepted,
+}) => {
+  const { hasAccepted: hasAcceptedTerms, acceptConsent: handleAcceptTerms } =
+    useTermsConsent(initialConsentAccepted);
+
+  const getInitialTab = (): AppView => {
+    if (initialTab) return initialTab;
+    if (typeof window !== "undefined" && window.location.hash) {
+      return getTabFromHash(window.location.hash);
+    }
+    return "discover";
+  };
+
+  const [activeTab, setActiveTab] = useState<AppView>(getInitialTab);
   const [selectedCategory, setSelectedCategory] = useState<string>("Nature");
   const [selectedLocation, setSelectedLocation] = useState<string>("Bhubaneswar");
   const [userCoords, setUserCoords] = useState<{lat: number, lon: number} | null>(null);
@@ -60,6 +139,12 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [activeMode, setActiveMode] = useState<PlanningMode>("structured");
   const [activeResultTab, setActiveResultTab] = useState<ResultViewTab>("itinerary");
+
+  // Location consent states (Two-Step Permission Flow)
+  const [locationStatus, setLocationStatus] = useState<"granted" | "not_granted" | "denied" | "loading">("not_granted");
+  const [locationError, setLocationError] = useState<string | null>(null);
+  const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
+  const [locationText, setLocationText] = useState<string>("");
 
   // Selected place for modal information
   const [selectedPlaceForModal, setSelectedPlaceForModal] =
@@ -74,38 +159,47 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
   const { savedCount } = useSavedPlaces();
   const { addRecentPlace, count: revisitCount } = useRecentPlaces();
   const { places: allVerifiedPlaces, getPlaceByName } = usePlaces();
-  const [isLiveLocation, setIsLiveLocation] = useState<boolean>(true);
 
-  const fetchLiveLocation = () => {
-    if (typeof navigator !== "undefined" && navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setUserCoords({
-            lat: position.coords.latitude,
-            lon: position.coords.longitude,
-          });
-          setIsLiveLocation(true);
-        },
-        (error) => {
-          console.warn("Geolocation error:", error);
-          setIsLiveLocation(false);
+  // Two-Step Geolocation Handler
+  const handleOpenLocationPrompt = () => {
+    setIsLocationModalOpen(true);
+    setLocationError(null);
+  };
+
+  const handleAllowLocation = () => {
+    if (typeof navigator === "undefined" || !navigator.geolocation) {
+      setLocationError("Geolocation is not supported by your browser.");
+      setLocationStatus("denied");
+      return;
+    }
+
+    setLocationStatus("loading");
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const coords = {
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        };
+        setUserCoords(coords);
+        setLocationStatus("granted");
+        setLocationError(null);
+        setIsLocationModalOpen(false);
+
+        const closest = findClosestOdishaHub(coords.lat, coords.lon);
+        setLocationText(`${closest.name}, Odisha`);
+      },
+      (error) => {
+        console.warn("Geolocation permission error:", error);
+        setLocationStatus("denied");
+        if (error.code === error.PERMISSION_DENIED) {
+          setLocationError("Location access was denied in your browser settings.");
+        } else {
+          setLocationError("Unable to retrieve location coordinates at this time.");
         }
-      );
-    }
+      },
+      { timeout: 10000, enableHighAccuracy: true }
+    );
   };
-
-  const handleToggleLiveLocation = () => {
-    if (isLiveLocation) {
-      setIsLiveLocation(false);
-      setUserCoords(null);
-    } else {
-      fetchLiveLocation();
-    }
-  };
-
-  useEffect(() => {
-    fetchLiveLocation();
-  }, []);
 
   const {
     conversations,
@@ -163,6 +257,45 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
       resetMap();
     }
   }, [itinerary, activeTab, allVerifiedPlaces, fetchProjection, fetchPlacesProjection, resetMap, apiClient]);
+
+  // 1. Listen to browser hashchange and popstate events (Browser Back / Forward / Manual URL change)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleHashChange = () => {
+      const currentTab = getTabFromHash(window.location.hash);
+      setActiveTab((prev) => (prev !== currentTab ? currentTab : prev));
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    window.addEventListener("popstate", handleHashChange);
+
+    // Deep link or invalid hash correction on initial mount
+    if (window.location.hash) {
+      const resolvedTab = getTabFromHash(window.location.hash);
+      const targetHash = getHashForTab(resolvedTab);
+      if (normalizeHash(window.location.hash) !== normalizeHash(targetHash)) {
+        window.history.replaceState(null, "", targetHash);
+      }
+    }
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+      window.removeEventListener("popstate", handleHashChange);
+    };
+  }, []);
+
+  // 2. Synchronize activeTab changes to the browser URL hash
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const targetHash = getHashForTab(activeTab);
+    const currentNormalized = normalizeHash(window.location.hash);
+    const targetNormalized = normalizeHash(targetHash);
+
+    if (currentNormalized !== targetNormalized) {
+      window.history.pushState(null, "", targetHash);
+    }
+  }, [activeTab]);
 
   const handleTabChange = (tab: NavTab) => {
     setActiveTab(tab);
@@ -384,6 +517,11 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
     setActiveTab("destinations");
   };
 
+  // FIRST-LAUNCH CONSENT GATE: Main app is inaccessible until terms are accepted
+  if (!hasAcceptedTerms) {
+    return <TermsConsentGate onAccept={handleAcceptTerms} />;
+  }
+
   return (
     <div className="min-h-screen bg-[#0B1220] text-[#F8FAFC] flex flex-col font-sans antialiased selection:bg-[#14B8A6] selection:text-white transition-colors duration-200">
       {/* 1. Header Navigation */}
@@ -397,9 +535,9 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         onOpenSettings={() => setIsSettingsModalOpen(true)}
         savedCount={savedCount}
         revisitCount={revisitCount}
-        isLiveLocation={isLiveLocation}
-        onToggleLiveLocation={handleToggleLiveLocation}
-        onRefreshLocation={fetchLiveLocation}
+        locationStatus={locationStatus}
+        locationText={locationText}
+        onRequestLocation={handleOpenLocationPrompt}
       />
 
       {/* 2. Mobile Drawer */}
@@ -441,10 +579,8 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
               selectedLocation={selectedLocation}
               userCoords={userCoords}
               onNavigateToPlan={() => handleTabChange("plan")}
-              onNavigateToMap={(place?: SelectedPlaceInfo) => {
-                if (place) {
-                  setSelectedMapPlace(place);
-                }
+              onNavigateToMap={(highlightPlace) => {
+                if (highlightPlace) setSelectedMapPlace(highlightPlace);
                 handleTabChange("map");
               }}
               onNavigateToCopilot={() => setIsAISidebarOpen(true)}
@@ -459,87 +595,83 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
 
         {/* VIEW 2: ALL DESTINATIONS DIRECTORY */}
         {activeTab === "destinations" && (
-          <div className="animate-in fade-in duration-300">
-            <DestinationsPage
-              selectedLocation={selectedLocation}
-              onSelectPlace={(place) => setSelectedPlaceForModal(place)}
-              onPlanTrip={(place) => handlePlanTripWithSinglePlace(place)}
-              onViewOnMap={(place) => handleViewPlaceOnMap(place)}
-            />
-          </div>
+          <DestinationsPage
+            selectedLocation={selectedLocation}
+            initialSearch={destinationSearch}
+            onSelectPlace={(place) => setSelectedPlaceForModal(place)}
+            onViewOnMap={(place) => handleViewPlaceOnMap(place)}
+            onPlanTripWithPlace={(place) => handlePlanTripWithSinglePlace(place)}
+          />
         )}
 
-        {/* VIEW 3: CATEGORY EXPLORE PAGE */}
+        {/* VIEW 3: THEMATIC CIRCUITS / CATEGORY EXPLORATION */}
         {activeTab === "category" && (
-          <div className="animate-in fade-in duration-300">
-            <CategoryExplorePage
-              categoryName={selectedCategory}
-              onBack={() => setActiveTab("discover")}
-              onSelectPlace={handleSelectPlaceFromCategory}
-              onPlanWithSinglePlace={handlePlanTripWithSinglePlace}
-              onOpenMap={(place?: SelectedPlaceInfo) => {
-                if (place) {
-                  handleViewPlaceOnMap(place);
-                }
-              }}
-            />
-          </div>
+          <CategoryExplorePage
+            categoryName={selectedCategory}
+            selectedLocation={selectedLocation}
+            onBack={() => handleTabChange("discover")}
+            onSelectPlace={handleSelectPlaceFromCategory}
+            onPlanWithSinglePlace={handlePlanTripWithSinglePlace}
+            onOpenMap={(place) => place && handleViewPlaceOnMap(place)}
+            onPlanTripWithCategory={(cat) =>
+              handleStructuredPlan({
+                days: 2,
+                interests: [cat.toLowerCase()],
+                start: selectedLocation,
+              })
+            }
+          />
         )}
 
-        {/* VIEW 4: SAVED PLACES / WISHLIST / REVISIT */}
+        {/* VIEW 4: SAVED & REVISIT DESTINATIONS */}
         {(activeTab === "saved" || activeTab === "revisit") && (
-          <div className="animate-in fade-in duration-300">
-            <SavedPlacesPage
-              initialViewMode={activeTab === "revisit" ? "revisit" : "saved"}
-              onBackToDiscover={() => setActiveTab("discover")}
-              onPlanWithSaved={handlePlanWithSavedPlaces}
-              onPlanWithSinglePlace={handlePlanTripWithSinglePlace}
-              onOpenMap={(place) => {
-                if (place) {
-                  setSelectedMapPlace(place);
-                }
-                setActiveTab("map");
-              }}
-              onSelectPlace={(place) => setSelectedPlaceForModal(place)}
-            />
-          </div>
+          <SavedPlacesPage
+            initialViewMode={activeTab === "revisit" ? "revisit" : "saved"}
+            onBackToDiscover={() => handleTabChange("discover")}
+            onPlanWithSaved={handlePlanWithSavedPlaces}
+            onPlanWithSinglePlace={handlePlanTripWithSinglePlace}
+            onOpenMap={(place) => place && handleViewPlaceOnMap(place)}
+            onSelectPlace={(place) => setSelectedPlaceForModal(place)}
+          />
         )}
 
-        {/* VIEW 5: STANDALONE MAP TAB */}
+        {/* VIEW 5: INTERACTIVE MAP & ROUTE EXPLORER */}
         {activeTab === "map" && !itinerary && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 animate-in fade-in duration-300">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-gray-200 dark:border-slate-800">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#263244]">
               <div>
-                <span className="text-xs font-bold font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                <span className="text-xs font-bold font-mono text-[#14B8A6] uppercase tracking-wider">
                   Verified Geographical Explorer
                 </span>
-                <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 dark:text-white tracking-tight">
+                <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-white tracking-tight">
                   Odisha Interactive Map
                 </h1>
               </div>
               <button
                 type="button"
                 onClick={() => handleTabChange("plan")}
-                className="px-4 py-2 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer self-start sm:self-auto"
+                className="px-4 py-2 rounded-2xl bg-[#14B8A6] hover:bg-[#0D9488] text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer self-start sm:self-auto"
               >
                 <Compass size={15} />
                 <span>Build an Itinerary Route</span>
               </button>
             </div>
 
-            <MapView
-              projection={projection}
-              isLoading={isMapLoading}
-              error={mapError}
-              allPlaces={allVerifiedPlaces}
-              selectedPlace={selectedMapPlace}
-              userLocation={userCoords}
-              userLocationName={selectedLocation}
-              onClearSelectedPlace={handleClearSelectedMapPlace}
-              onPlanTripWithPlace={handlePlanTripWithSinglePlace}
-              onViewDetails={(p) => setSelectedPlaceForModal(p)}
-              onClearError={clearMapError}
-            />
+            <React.Suspense fallback={<MapLoadingFallback />}>
+              <MapView
+                projection={projection}
+                isLoading={isMapLoading}
+                error={mapError}
+                allPlaces={allVerifiedPlaces}
+                selectedPlace={selectedMapPlace}
+                userLocation={userCoords}
+                userLocationName={selectedLocation}
+                onClearSelectedPlace={handleClearSelectedMapPlace}
+                onPlanTripWithPlace={handlePlanTripWithSinglePlace}
+                onViewDetails={(p) => setSelectedPlaceForModal(p)}
+                onClearError={clearMapError}
+              />
+            </React.Suspense>
           </div>
         )}
 
@@ -739,21 +871,34 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
 
                 {/* Tab 2: Map Projection View */}
                 {activeResultTab === "map" && (
-                  <MapView
-                    projection={projection}
-                    isLoading={isMapLoading}
-                    error={mapError}
-                    allPlaces={allVerifiedPlaces}
-                    userLocation={userCoords}
-                    userLocationName={selectedLocation}
-                    onPlanTripWithPlace={handlePlanTripWithSinglePlace}
-                    onViewDetails={(p) => setSelectedPlaceForModal(p)}
-                    onClearError={clearMapError}
-                  />
+                  <React.Suspense fallback={<MapLoadingFallback />}>
+                    <MapView
+                      projection={projection}
+                      isLoading={isMapLoading}
+                      error={mapError}
+                      allPlaces={allVerifiedPlaces}
+                      userLocation={userCoords}
+                      userLocationName={selectedLocation}
+                      onPlanTripWithPlace={handlePlanTripWithSinglePlace}
+                      onViewDetails={(p) => setSelectedPlaceForModal(p)}
+                      onClearError={clearMapError}
+                    />
+                  </React.Suspense>
                 )}
               </div>
             )}
           </div>
+        )}
+
+        {/* VIEW 7: LEGAL & PRIVACY PAGES */}
+        {activeTab === "privacy" && (
+          <PrivacyPolicyPage onBack={() => handleTabChange("discover")} />
+        )}
+        {activeTab === "terms" && (
+          <TermsConditionsPage onBack={() => handleTabChange("discover")} />
+        )}
+        {activeTab === "contact" && (
+          <ContactGrievancePage onBack={() => handleTabChange("discover")} />
         )}
       </main>
 
@@ -767,7 +912,17 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         />
       )}
 
-      {/* 5. AI Copilot Side Drawer */}
+      {/* 5. Two-Step Geolocation Permission Explanation Modal */}
+      <LocationPermissionModal
+        isOpen={isLocationModalOpen}
+        onClose={() => setIsLocationModalOpen(false)}
+        onConfirm={handleAllowLocation}
+        isLoading={locationStatus === "loading"}
+        error={locationError}
+        onRetry={handleAllowLocation}
+      />
+
+      {/* 6. AI Copilot Side Drawer */}
       <AISidebar
         isOpen={isAISidebarOpen}
         onClose={() => setIsAISidebarOpen(false)}
@@ -777,7 +932,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         onSendMessage={handleAiPlan}
       />
 
-      {/* 6. Settings & Travel Preferences Modal */}
+      {/* 7. Settings & Travel Preferences Modal */}
       <SettingsModal
         isOpen={isSettingsModalOpen}
         onClose={() => setIsSettingsModalOpen(false)}
@@ -813,17 +968,20 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({ apiC
         </aside>
       )}
 
-      {/* Floating 21st.dev Navigation Dock */}
+      {/* Floating Navigation Dock */}
       <FloatingNavigationDock
         activeTab={activeTab === "category" ? "destinations" : (activeTab as NavTab)}
         onSelectTab={handleTabChange}
         savedCount={savedCount}
       />
 
-      {/* 7. Comprehensive Footer with Location-Aware Hub Intelligence */}
+      {/* 8. Comprehensive Footer with Legal Links & Location-Aware Hub Intelligence */}
       <Footer
         selectedLocation={selectedLocation}
         onNavigate={handleTabChange}
+        onOpenPrivacy={() => handleTabChange("privacy")}
+        onOpenTerms={() => handleTabChange("terms")}
+        onOpenContact={() => handleTabChange("contact")}
         onSelectCategory={(cat: string) => {
           setSelectedCategory(cat);
           setActiveTab("category");

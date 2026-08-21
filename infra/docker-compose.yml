@@ -6,7 +6,7 @@ services:
       POSTGRES_PASSWORD: otravelz
       POSTGRES_DB: otravelz
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT:-5433}:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U otravelz -d otravelz"]
       interval: 5s

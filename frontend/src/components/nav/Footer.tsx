@@ -7,6 +7,9 @@ export interface FooterProps {
   onNavigateToMap?: () => void;
   onNavigate?: (tab: any) => void;
   onSelectCategory?: (cat: any) => void;
+  onOpenPrivacy?: () => void;
+  onOpenTerms?: () => void;
+  onOpenContact?: () => void;
   [key: string]: any;
 }
 
@@ -14,7 +17,21 @@ export const Footer: React.FC<FooterProps> = ({
   selectedLocation = "Bhubaneswar",
   onNavigateToPlan,
   onNavigateToMap,
+  onNavigate,
+  onOpenPrivacy,
+  onOpenTerms,
+  onOpenContact,
 }) => {
+  const handleLegalClick = (tab: string, customFn?: () => void) => {
+    if (customFn) {
+      customFn();
+    } else if (onNavigate) {
+      onNavigate(tab);
+    } else if (typeof window !== "undefined") {
+      window.location.hash = `#${tab}`;
+    }
+  };
+
   return (
     <footer className="relative bg-[#080E1A] text-white border-t border-[#263244] overflow-hidden pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -40,25 +57,59 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
           </div>
 
-          {/* Hub Col */}
+          {/* Legal & Responsible Data Col */}
           <div className="space-y-2.5">
             <h4 className="text-xs font-bold font-mono uppercase tracking-wider text-teal-400">
-              Active Hub
+              Responsible Platform
             </h4>
-            <div className="flex items-center gap-1.5 text-xs text-slate-300">
-              <MapPin size={13} className="text-[#14B8A6]" />
-              <span>Exploring around {selectedLocation}</span>
-            </div>
+            <ul className="space-y-2 text-xs text-slate-300">
+              <li>
+                <button
+                  type="button"
+                  data-testid="footer-privacy-policy-link"
+                  onClick={() => handleLegalClick("privacy", onOpenPrivacy)}
+                  className="hover:text-teal-300 transition-colors text-left cursor-pointer"
+                >
+                  Privacy Policy
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  data-testid="footer-terms-conditions-link"
+                  onClick={() => handleLegalClick("terms", onOpenTerms)}
+                  className="hover:text-teal-300 transition-colors text-left cursor-pointer"
+                >
+                  Terms &amp; Conditions
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  data-testid="footer-contact-grievance-link"
+                  onClick={() => handleLegalClick("contact", onOpenContact)}
+                  className="hover:text-teal-300 transition-colors text-left cursor-pointer"
+                >
+                  Contact / Grievance
+                </button>
+              </li>
+            </ul>
           </div>
 
-          {/* Trust Col */}
+          {/* Active Hub & Trust Col */}
           <div className="space-y-2.5">
             <h4 className="text-xs font-bold font-mono uppercase tracking-wider text-teal-400">
-              Verified Platform
+              Odisha Hub &amp; Trust
             </h4>
-            <div className="flex items-center gap-1.5 text-xs text-slate-400">
-              <ShieldCheck size={14} className="text-[#14B8A6]" />
-              <span>Real verified coordinates</span>
+            <div className="space-y-2 text-xs text-slate-400">
+              <div className="flex items-center gap-1.5 text-slate-300">
+                <MapPin size={13} className="text-[#14B8A6]" />
+                <span>Exploring around {selectedLocation}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck size={14} className="text-[#14B8A6]" />
+                <span>DPDP Act 2023 aligned</span>
+              </div>
             </div>
           </div>
         </div>

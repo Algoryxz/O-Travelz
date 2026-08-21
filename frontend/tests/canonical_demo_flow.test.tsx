@@ -178,7 +178,7 @@ describe("Phase 6B UX Correction Tests", () => {
   });
 
   it("renders the interactive planner page with trip history sidebar and clean copy", () => {
-    const html = renderClean(<ItineraryPlannerPage initialTab="plan" />);
+    const html = renderClean(<ItineraryPlannerPage initialTab="plan" initialConsentAccepted={true} />);
     expect(html).toContain("Deterministic Travel Engine");
     expect(html).toContain("Odisha Itinerary Workspace");
     expect(html).toContain("Trip Duration (Days)");

@@ -97,6 +97,7 @@ def place_record():
         "category": "temple",
         "lat": 20.2,
         "lon": 85.8,
+        "district": "Khordha",
         "description": "A sourced test record.",
         "opening_hours": {"monday": "09:00-17:00"},
         "avg_visit_minutes": 60,

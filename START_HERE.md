@@ -7,18 +7,56 @@ conversation context.
 
 Read:
 
-1. [docs/AI_ENGINEERING_HANDOFF.md](docs/AI_ENGINEERING_HANDOFF.md) *(Authoritative Handoff & Technical Source of Truth)*
-2. [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) *(Render Deployment Guide & Infrastructure Spec)*
-3. [docs/PRD.md](docs/PRD.md)
-4. [docs/RULES.md](docs/RULES.md)
-5. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
-6. [docs/PHASES.md](docs/PHASES.md)
-7. [docs/MEMORY.md](docs/MEMORY.md)
-8. [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md)
+1. [docs/PRD.md](docs/PRD.md) *(Product Requirements & Scope)*
+2. [docs/RULES.md](docs/RULES.md) *(Canonical Rules & Factuality Constraints)*
+3. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) *(System Architecture & API Boundaries)*
+4. [docs/MEMORY.md](docs/MEMORY.md) *(Authoritative Current-State Ledger)*
+5. [docs/PHASES.md](docs/PHASES.md) *(Canonical Phase Order, Acceptance Gates & Evidence)*
+6. [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md) *(Repository Paths & Ownership)*
 
 These files are canonical. Supporting documents must not override them.
 
-## 2. Find your role
+## 2. Current Project State
+
+- **Phases 0–7 Complete & Validated**: Full-stack verification against live PostgreSQL/PostGIS, FastAPI backend, and React/Vite frontend completed with zero errors (**PHASE 7 STATUS: PASS**).
+- **Verified Dataset**: 81 canonical places with 100% verified WGS84 coordinates across all 30 districts of Odisha, 13 physical categories, 12 traveler interests, 206 M:N associations.
+- **Verified Test Counts**:
+  - Backend Unit: **329 passed, 2 deselected** (`python -m pytest backend/tests`)
+  - Backend Integration: **2 passed** (`python -m pytest -m integration`)
+  - Frontend: **248 passed across 29 test files** (`npm --prefix frontend test -- --run`)
+  - Production Build: `npm --prefix frontend run build` clean in ~7s with dynamic Leaflet code-splitting.
+- **Live Local Stack**:
+  - PostgreSQL 16 + PostGIS 3.4 on Docker host port `5433` (to avoid collision with host Windows Postgres on `5432`).
+  - FastAPI Backend at `http://127.0.0.1:8000`.
+  - Vite Frontend SPA at `http://localhost:5173`.
+
+## 3. Quick Start (Team Developer Workflow)
+
+### First-Time Machine Setup
+```powershell
+.\setup.ps1
+```
+*(Verifies prerequisites, creates Python `.venv`, installs dependencies, copies `.env`, starts Docker PostGIS on port 5433, applies migrations, and imports the 81 canonical places).*
+
+### Normal Development Startup
+```powershell
+.\start.ps1
+```
+*(Starts Docker DB if needed, launches FastAPI on 8000, Vite on 5173, and avoids duplicate processes).*
+
+### System Health & Diagnostics
+```powershell
+.\doctor.ps1
+```
+
+### Stop Development Stack
+```powershell
+.\stop.ps1
+```
+
+---
+
+## 4. Find your role
 
 Read your personal document:
 
@@ -41,59 +79,21 @@ Ownership is fixed:
 - Deeptiman — complete frontend and user experience.
 - Punam — documentation, context, phases, evidence, demo, presentation, release readiness.
 
-## 3. Check the current phase
+## 5. Test commands
 
-Read the current phase and status in `docs/MEMORY.md`. The canonical phase order and
-gates are in `docs/PHASES.md`.
+```powershell
+# Backend unit tests
+.\.venv\Scripts\python.exe -m pytest backend/tests
 
-Phase 2 engineering acceptance is complete and the live database/import evidence is
-recorded in `docs/PHASES.md` and `docs/phases/`. The final AMA Phase 6A research
-investigation is closed without a defensible cross-system GIS identity bridge; AMA
-coordinates and AMA route geometry remain excluded. Phases 0–5 are accepted within
-their explicit limits, Phase 6A implementation remains gated to a reduced verified-input
-scope, and Phase 6B has not started. Read the current decision record:
-`docs/handoffs/2026-08-18_SMARAK_PHASE6A_RESEARCH_CLOSURE_RECONCILIATION.md`.
+# Backend integration tests
+.\.venv\Scripts\python.exe -m pytest -m integration
 
-## 4. Start an AI session
+# Frontend tests
+npm --prefix frontend test -- --run
 
-Use [docs/handoffs/START_OF_SESSION_PROMPT.md](docs/handoffs/START_OF_SESSION_PROMPT.md).
-It tells the assistant what to read, what to report, and that it must not code until the
-user explicitly instructs it to proceed.
+# Frontend build
+npm --prefix frontend run build
 
-## 5. Work safely
-
-- Work only on files owned by your role and allowed by the current phase.
-- Reuse existing paths and abstractions from `docs/REPOSITORY_MAP.md`.
-- Do not add features, providers, dependencies, random files, or duplicate services.
-- Do not invent travel facts or provider capabilities.
-- Keep AI orchestration separate from deterministic services.
-- Keep Susmita's geospatial logic separate from Deeptiman's complete frontend.
-- Keep Smarak's ranking/itinerary semantics separate from Rudra's backend/provider work.
-- If the request conflicts with canonical documents, stop and report the conflict.
-
-## 6. Test your work
-
-```text
-Backend:  cd backend && pytest
-Frontend: cd frontend && npm test
+# Live stack audit
+$env:PYTHONPATH="backend;scripts"; .\.venv\Scripts\python.exe scripts/phase7_full_stack_audit.py
 ```
-
-If a test cannot run because an environment dependency is unavailable, report that
-limitation. Never claim a passing result that was not observed.
-
-For every meaningful task, create or update a Markdown task/session/phase report and a
-handoff for dependent owners. Record files, decisions, tests, blockers, unresolved
-questions, limitations, and the exact next action.
-
-## 7. Finish and hand off
-
-Use [docs/handoffs/END_OF_SESSION_PROMPT.md](docs/handoffs/END_OF_SESSION_PROMPT.md).
-Create a session handoff from [docs/handoffs/TEMPLATE.md](docs/handoffs/TEMPLATE.md).
-Update `docs/MEMORY.md` and `docs/REPOSITORY_MAP.md` only when actual project state or
-paths changed. Record contract, architecture, ownership, tests, blockers, and incomplete
-work honestly.
-
-## 8. What not to do
-
-Do not implement anything listed as out of scope in `docs/PRD.md`, anything forbidden
-by the current phase, or anything marked `OPEN DECISION` without explicit approval.

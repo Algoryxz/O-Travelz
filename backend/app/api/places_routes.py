@@ -11,6 +11,7 @@ from app.models.category import Category
 from app.models.place import Place
 from app.models.interest import Interest, PlaceInterest
 from app.schemas.image import PlaceImageResponse
+from app.core.regions import get_region_for_place
 
 router = APIRouter()
 
@@ -22,6 +23,8 @@ class PlaceDetailResponse(BaseModel):
     description: Optional[str] = None
     lat: Optional[float] = None
     lon: Optional[float] = None
+    district: Optional[str] = None
+    region: Optional[str] = None
     avg_visit_minutes: Optional[int] = None
     price_tier: Optional[str] = None
     interests: List[str] = []
@@ -42,6 +45,8 @@ def _extract_interests(place: Place) -> List[str]:
 def list_places(
     category: Optional[str] = Query(None, description="Filter by canonical category"),
     interest: Optional[str] = Query(None, description="Filter by canonical interest"),
+    district: Optional[str] = Query(None, description="Filter by administrative district"),
+    region: Optional[str] = Query(None, description="Filter by canonical travel region"),
     search: Optional[str] = Query(None, description="Search by place name or description"),
     db: Session = Depends(get_db),
 ) -> List[PlaceDetailResponse]:
@@ -57,9 +62,11 @@ def list_places(
         except Exception:
             pass
 
-
     if category:
         query = query.filter(Category.name.ilike(category.strip()))
+
+    if district:
+        query = query.filter(Place.district.ilike(district.strip()))
 
     if interest:
         interest_norm = interest.strip().casefold()
@@ -96,6 +103,12 @@ def list_places(
         except Exception:
             image_responses = []
 
+        place_region = get_region_for_place(place.district, place.research_id or str(place.id))
+
+        if region and region.strip().casefold() != "all regions".casefold():
+            if place_region.casefold() != region.strip().casefold():
+                continue
+
         places.append(
             PlaceDetailResponse(
                 id=str(place.id),
@@ -104,6 +117,8 @@ def list_places(
                 description=place.description,
                 lat=lat,
                 lon=lon,
+                district=place.district,
+                region=place_region,
                 avg_visit_minutes=place.avg_visit_minutes,
                 price_tier=place.price_tier,
                 interests=_extract_interests(place),
@@ -189,6 +204,8 @@ def get_place(
         description=place.description,
         lat=lat,
         lon=lon,
+        district=place.district,
+        region=get_region_for_place(place.district, place.research_id or str(place.id)),
         avg_visit_minutes=place.avg_visit_minutes,
         price_tier=place.price_tier,
         interests=_extract_interests(place),

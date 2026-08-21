@@ -29,6 +29,22 @@ from typing import Any, Callable, Iterable
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "places"
 BACKEND_DIR = DATA_DIR.parent.parent / "backend"
 
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
+
+try:
+    from app.core.regions import ODISHA_DISTRICTS, validate_district
+except ImportError:
+    ODISHA_DISTRICTS = frozenset({
+        "Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Boudh",
+        "Cuttack", "Deogarh", "Dhenkanal", "Gajapati", "Ganjam", "Jagatsinghpur",
+        "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal", "Kendrapara", "Keonjhar",
+        "Khordha", "Koraput", "Malkangiri", "Mayurbhanj", "Nabarangpur", "Nayagarh",
+        "Nuapada", "Puri", "Rayagada", "Sambalpur", "Subarnapur", "Sundargarh"
+    })
+    def validate_district(d):
+        return bool(d and d.strip().title() in ODISHA_DISTRICTS)
+
 _CATEGORY_FIELDS = frozenset({"id", "name", "description"})
 _INTEREST_FIELDS = frozenset({"id", "name", "description"})
 _PLACE_FIELDS = frozenset(
@@ -49,6 +65,7 @@ _PLACE_FIELDS = frozenset(
         "coordinate_audit_status",
         "audit_status",
         "verified_at",
+        "district",
         "_comment",
     }
 )
@@ -214,6 +231,7 @@ def _validate_places(
     records: Any,
     category_names: set[str],
     interest_names: set[str] | None = None,
+    require_district: bool = False,
 ) -> tuple[dict[str, Any], ...]:
     if not isinstance(records, list):
         raise ImportValidationError("places must be a JSON array")
@@ -284,6 +302,17 @@ def _validate_places(
             raise ImportValidationError(f"{label}.price_tier must be a string or null")
         _validate_verified_at(record.get("verified_at"), label)
 
+        district = record.get("district")
+        if district is not None:
+            if not isinstance(district, str) or not validate_district(district):
+                raise ImportValidationError(
+                    f"{label}.district {district!r} is not a valid Odisha administrative district"
+                )
+        elif require_district:
+            raise ImportValidationError(
+                f"{label} requires a non-empty district"
+            )
+
         # Validate interests if present
         raw_interests = record.get("interests")
         validated_interests: list[str] = []
@@ -332,13 +361,19 @@ def validate_input(
     categories: Any,
     places: Any,
     interests: Any = None,
+    require_district: bool = False,
 ) -> ValidatedInput:
     """Validate all source data before a session or database write is attempted."""
     validated_categories = _validate_categories(categories)
     category_names = {record["id"] for record in validated_categories}
     validated_interests = _validate_interests(interests) if interests is not None else ()
     interest_names = {record["id"] for record in validated_interests} if validated_interests else set()
-    validated_places = _validate_places(places, category_names, interest_names if interest_names else None)
+    validated_places = _validate_places(
+        places,
+        category_names,
+        interest_names if interest_names else None,
+        require_district=require_district,
+    )
     return ValidatedInput(validated_categories, validated_places, validated_interests)
 
 
@@ -517,6 +552,7 @@ def import_records(
                 "coordinate_verification": record.get("coordinate_verification"),
                 "coordinate_audit_status": record.get("coordinate_audit_status"),
                 "audit_status": record.get("audit_status"),
+                "district": record.get("district"),
             }
             existing = None
             if values["research_id"] is not None:
@@ -614,7 +650,8 @@ def main(argv: list[str] | None = None) -> int:
             places = load_places(places_file) if places_file.exists() else []
             interests = load_interests(interests_file) if interests_file.exists() else []
 
-        validated = validate_input(categories, places, interests)
+        require_district = (args.data_dir.resolve() == DATA_DIR.resolve())
+        validated = validate_input(categories, places, interests, require_district=require_district)
     except ImportValidationError as exc:
         print(f"ERROR: {exc}")
         return 1

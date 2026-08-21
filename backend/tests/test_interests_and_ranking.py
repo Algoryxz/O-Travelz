@@ -126,6 +126,7 @@ def test_determinism_repeated_calls_identical_order():
 
 
 # 2. Database Integration & Inventory Preservation
+@pytest.mark.integration
 def test_all_81_places_and_12_interests_in_database():
     db = SessionLocal()
     try:
@@ -158,6 +159,7 @@ def test_all_81_places_and_12_interests_in_database():
         db.close()
 
 
+@pytest.mark.integration
 def test_api_places_endpoint_returns_interests_and_filters_correctly():
     # 1. List places returns interests array
     res = client.get("/places")

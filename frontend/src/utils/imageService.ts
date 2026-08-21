@@ -7,6 +7,7 @@
  * Strictly enforces 1-to-1 semantic match between canonical destinations
  * and authentic destination photography. Never leaks photographs across destinations.
  */
+import { getRegionForPlace } from "./regionUtils";
 
 export interface PlaceImage {
   src: string;
@@ -5124,18 +5125,8 @@ export function getPlaceGallery(placeName?: string | null, category?: string | n
   }));
 }
 
-export function getPlaceRegion(placeName: string): string {
-  const name = placeName.toLowerCase();
-  if (name.includes("puri") || name.includes("gundicha") || name.includes("swargadwar")) return "Puri & Coastal";
-  if (name.includes("konark") || name.includes("chandrabhaga") || name.includes("ramachandi")) return "Konark & Marine";
-  if (name.includes("cuttack") || name.includes("barabati") || name.includes("chandi") || name.includes("maritime") || name.includes("netaji")) return "Cuttack & Mahanadi";
-  if (name.includes("chilika") || name.includes("kalijai") || name.includes("mangalajodi") || name.includes("gopalpur") || name.includes("tara tarini")) return "Chilika & Southern Coast";
-  if (name.includes("daringbadi") || name.includes("midubanda") || name.includes("coffee") || name.includes("belghar") || name.includes("kandhamal")) return "Kandhamal & Southern Hills";
-  if (name.includes("hirakud") || name.includes("samaleswari") || name.includes("huma") || name.includes("debrigarh") || name.includes("sambalpur")) return "Sambalpur & Western Odisha";
-  if (name.includes("rourkela") || name.includes("hanuman vatika") || name.includes("mandira") || name.includes("khandadhar") || name.includes("sundargarh")) return "Rourkela & Sundargarh";
-  if (name.includes("similipal") || name.includes("barehipani") || name.includes("bhitarkanika") || name.includes("chandipur") || name.includes("balasore") || name.includes("mayurbhanj")) return "Northern Odisha & Wildlife";
-  if (name.includes("koraput") || name.includes("deomali") || name.includes("gupteswar") || name.includes("duduma") || name.includes("kolab") || name.includes("rayagada") || name.includes("majhigouri")) return "Koraput & Tribal Highlands";
-  return "Bhubaneswar & Central";
+export function getPlaceRegion(districtOrPlaceId?: string, placeId?: string): string {
+  return getRegionForPlace(districtOrPlaceId, placeId);
 }
 
 export function getFeaturedOdishaDestinations(): FeaturedDestination[] {

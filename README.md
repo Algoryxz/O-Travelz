@@ -1,6 +1,6 @@
 # O-Travelz — Whole-Odisha Travel & Transit Platform
 
-O-Travelz is a transportation-aware destination exploration and trip-planning platform for the entire state of Odisha. It enables travelers, locals, students, and families to discover authentic destinations across all regions of Odisha and produce realistic single-day and multi-day itineraries with verified transportation hops, interactive maps, live weather context, and grounded conversational AI assistance.
+O-Travelz is a transportation-aware destination exploration and trip-planning platform covering all 30 districts of Odisha. It enables travelers, locals, students, and families to discover authentic destinations across all regions of Odisha and produce realistic single-day and multi-day itineraries with verified transportation hops, interactive maps, live weather context, and grounded conversational AI assistance.
 
 The foundational principle is:
 
@@ -10,13 +10,14 @@ The foundational principle is:
 
 ## Key Features
 
-- **Whole-Odisha Destination Catalog**: 81 verified places with 100% WGS84 coordinate coverage across 13 physical categories (`temple`, `monument`, `museum`, `market`, `park`, `lake`, `beach`, `nature`, `waterfall`, `wildlife`, `planetarium`, `sports_venue`, `science_center`).
-- **Normalized Thematic Exploration**: 12 canonical traveler interests (`heritage`, `spirituality`, `architecture`, `food`, `culture`, `nature`, `beach`, `wildlife`, `waterfall`, `relaxation`, `adventure`, `shopping`) with exact deterministic matching.
-- **Interactive Multi-Region Map**: Leaflet map canvas powered by backend-authoritative geospatial projection (`POST /map/v1/projection`) consuming PostGIS geometry.
-- **Deterministic Itinerary Planner**: Multi-day sequencing with verified transit hops (walking, Mo Bus, Mo E-Ride, road/rail) and explicit data confidence tiers.
+- **Whole-Odisha Destination Catalog**: 81 verified places with 100% WGS84 coordinate coverage across all 30 districts of Odisha and 13 physical categories (`temple`, `monument`, `museum`, `market`, `park`, `lake`, `beach`, `nature`, `waterfall`, `wildlife`, `planetarium`, `sports_venue`, `science_center`).
+- **Normalized Thematic Exploration**: 12 canonical traveler interests (`heritage`, `spirituality`, `architecture`, `food`, `culture`, `nature`, `beach`, `wildlife`, `waterfall`, `relaxation`, `adventure`, `shopping`) with 206 verified M:N associations and exact deterministic matching.
+- **Interactive Multi-Region Map**: Leaflet map canvas powered by backend-authoritative geospatial projection (`POST /map/v1/projection`) consuming PostGIS geometry, dynamically code-split on demand.
+- **URL Hash Navigation & Deep Links**: Direct URL hash routes (`/#discover`, `/#destinations`, `/#map`, `/#plan`, `/#saved`) with full browser Back/Forward synchronization and refresh state preservation.
+- **Deterministic Itinerary Planner**: Multi-day sequencing with verified transit hops (walking, Mo Bus, road/rail), explicit data confidence tiers (`static`, `scheduled`, `live`), and a max 3 stops/day invariant.
 - **Cumulative Transit Timeline**: Minute-by-minute schedule calculating arrivals, departures, visit durations, and transfer times starting at 09:00 baseline.
 - **Live Weather Integration**: Real-time temperature, condition, humidity, wind speed, and travel advice via isolated Open-Meteo backend service (`GET /weather/current`, `GET /weather/forecast`).
-- **Grounded AI Copilot**: Natural language intent extraction to deterministic constraints with dynamic contextual refinement suggestions (*"Extend trip to 3 days"*, *"Start from Puri"*).
+- **Grounded AI Copilot**: Natural language intent extraction to deterministic constraints with dynamic contextual refinement suggestions and zero hallucinated facts (`POST /ai/plan`).
 - **Client-Side Trip Persistence**: Instant trip archiving on *"New Trip"* and one-click restoration from *"Your Trips"* sidebar via `localStorage`.
 
 ---
@@ -27,70 +28,85 @@ The foundational principle is:
 2. [docs/RULES.md](docs/RULES.md) — Architectural rules and factuality constraints.
 3. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — Canonical system architecture and API boundaries.
 4. [docs/MEMORY.md](docs/MEMORY.md) — Current project-state ledger.
-5. [docs/RELEASE_READINESS_REPORT.md](docs/RELEASE_READINESS_REPORT.md) — Comprehensive release readiness audit.
-6. [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md) — Repository directory map and ownership.
+5. [docs/PHASES.md](docs/PHASES.md) — Canonical phase order, exit gates, and verification baseline.
+6. [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md) — Repository directory map and component ownership.
 
 ---
 
 ## Running the Application Locally
 
-### 1. Backend Setup (FastAPI + PostgreSQL/PostGIS)
-```bash
-# Activate virtual environment
-.\.venv\Scripts\activate
+### Recommended Team Workflow (Single-Command)
 
-# Run database migrations
-alembic upgrade head
+```powershell
+# 1. First-time setup (prerequisites, venv, dependencies, .env, docker db, migrations, places)
+.\setup.ps1
 
-# Import canonical places and transit graph
-python scripts/import_places.py
-python scripts/import_transport.py
+# 2. Normal development startup (launches backend 8000 + frontend 5173 with reuse check)
+.\start.ps1
 
-# Start FastAPI development server
-uvicorn app.main:app --app-dir backend --reload --port 8000
+# 3. System health & diagnostics
+.\doctor.ps1
+
+# 4. Stop development stack
+.\stop.ps1
 ```
 
-### 2. Frontend Setup (React + Vite)
-```bash
-cd frontend
+---
 
+### Manual Granular Setup
+
+#### 1. Database Setup (Docker PostGIS)
+```powershell
+# Start PostgreSQL 16 + PostGIS 3.4 container (port 5433)
+docker compose -f infra/docker-compose.yml -p infra up -d db
+```
+
+#### 2. Backend Setup (FastAPI + PostgreSQL/PostGIS)
+```powershell
+# Run database migrations
+$env:PYTHONPATH="backend"
+.\.venv\Scripts\python.exe -m alembic -c backend/alembic.ini upgrade head
+
+# Import canonical places and sync database images
+.\.venv\Scripts\python.exe scripts/import_places.py
+.\.venv\Scripts\python.exe scripts/sync_db_place_images.py
+
+# Start FastAPI backend server (port 8000)
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000
+```
+
+#### 3. Frontend Setup (React + Vite)
+```powershell
 # Install dependencies (if needed)
-npm install
+npm --prefix frontend install
 
-# Run Vitest test suite (167 tests)
-npm test
-
-# Build production bundle
-npm run build
-
-# Start Vite dev server
-npm run dev
+# Start Vite dev server (port 5173)
+npm --prefix frontend run dev
 ```
 
 ---
 
 ## Testing & Quality Gate
 
-```bash
-# Run backend test suite (324 tests)
-.venv\Scripts\pytest.exe backend/tests --basetemp=tmp/pytest_tmp -o cache_dir=tmp/pytest_cache
+```powershell
+# Run backend unit tests (329 passed)
+.\.venv\Scripts\python.exe -m pytest backend/tests
 
-# Run frontend test suite (167 tests)
-npm --prefix frontend test
+# Run backend integration tests (2 passed)
+.\.venv\Scripts\python.exe -m pytest -m integration
 
-# Run frontend production build
+# Run frontend test suite (248 passed across 29 test files)
+npm --prefix frontend test -- --run
+
+# Run frontend production build (clean chunking in ~7s)
 npm --prefix frontend run build
 
-# Run backend python compilation check
-python -m compileall -q backend
+# Run backend python compilation check (0 errors)
+.\.venv\Scripts\python.exe -m compileall backend scripts
+
+# Run full-stack live audit against running stack
+$env:PYTHONPATH="backend;scripts"; .\.venv\Scripts\python.exe scripts/phase7_full_stack_audit.py
 
 # Check git diff formatting
 git diff --check
 ```
-
----
-
-## Production Deployment
-
-- **Frontend**: Static bundle in `frontend/dist` deployable to Vercel, Netlify, or Cloudflare Pages (`VITE_API_BASE_URL` points to backend API).
-- **Backend**: Containerized via `backend/Dockerfile` and `infra/docker-compose.yml` deployable to Render, Fly.io, or AWS ECS (`DATABASE_URL`, `CORS_ORIGINS`, `WEATHER_PROVIDER=Open-Meteo`).

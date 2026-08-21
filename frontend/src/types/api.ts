@@ -268,6 +268,8 @@ export interface PlaceDetail {
   description?: string | null;
   lat?: number | null;
   lon?: number | null;
+  district?: string | null;
+  region?: string | null;
   avg_visit_minutes?: number | null;
   price_tier?: string | null;
   source?: string | null;
@@ -278,6 +280,8 @@ export interface PlaceDetail {
 
 export interface PlaceListParams {
   category?: string;
+  district?: string;
+  region?: string;
   search?: string;
 }
 

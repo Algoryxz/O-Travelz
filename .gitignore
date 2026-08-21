@@ -24,3 +24,7 @@ __pycache__/
 # Temporary files and artifacts
 tmp/
 scratch/
+.stack_pids.json
+*.log
+*.timestamp-*.mjs
+*.tsbuildinfo

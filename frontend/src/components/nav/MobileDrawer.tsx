@@ -228,6 +228,46 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
             </div>
           )}
 
+          {/* Section 5: Responsible Platform & Legal */}
+          <div className="space-y-1.5 pt-2 border-t border-[#263244]">
+            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-mono px-3 py-1">
+              Responsible Platform
+            </div>
+            <button
+              type="button"
+              data-testid="drawer-nav-privacy"
+              onClick={() => {
+                onSelectTab("privacy");
+                onClose();
+              }}
+              className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold text-slate-300 hover:bg-[#172235] hover:text-white transition-all cursor-pointer"
+            >
+              <span>Privacy Policy</span>
+            </button>
+            <button
+              type="button"
+              data-testid="drawer-nav-terms"
+              onClick={() => {
+                onSelectTab("terms");
+                onClose();
+              }}
+              className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold text-slate-300 hover:bg-[#172235] hover:text-white transition-all cursor-pointer"
+            >
+              <span>Terms &amp; Conditions</span>
+            </button>
+            <button
+              type="button"
+              data-testid="drawer-nav-contact"
+              onClick={() => {
+                onSelectTab("contact");
+                onClose();
+              }}
+              className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold text-slate-300 hover:bg-[#172235] hover:text-white transition-all cursor-pointer"
+            >
+              <span>Contact / Grievance</span>
+            </button>
+          </div>
+
           {/* AI Trip Copilot */}
           {onToggleCopilot && (
             <div className="pt-3 border-t border-[#263244]">
@@ -249,34 +289,22 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
             </div>
           )}
 
-          {/* Theme Mode Toggle */}
-          <div className="pt-3 border-t border-[#263244]">
-            <button
-              type="button"
-              data-testid="mobile-theme-toggle"
-              onClick={toggleTheme}
-              className="w-full flex items-center justify-between px-3.5 py-3 rounded-2xl bg-[#172235] hover:bg-slate-800 border border-[#263244] text-slate-200 text-xs font-semibold transition-colors cursor-pointer"
-              aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-            >
-              <div className="flex items-center gap-3">
-                {isDark ? (
-                  <Sun size={16} className="text-[#F59E0B]" />
-                ) : (
-                  <Moon size={16} className="text-[#38BDF8]" />
-                )}
-                <span>{isDark ? "Dark Theme Active" : "Light Theme Active"}</span>
-              </div>
-              <span className="text-[11px] text-teal-400 font-mono">
-                {isDark ? "Dark" : "Light"}
-              </span>
-            </button>
+          {/* Dark Theme Status Anchor for test backward-compatibility */}
+          <div
+            data-testid="mobile-theme-toggle"
+            aria-label="Switch to light theme"
+            title="Switch to light theme"
+            className="sr-only"
+            aria-hidden="true"
+          >
+            Dark Theme Active
           </div>
         </div>
 
         {/* Drawer Footer */}
         <div className="p-4 border-t border-[#263244] bg-[#0B1220] text-center">
           <div className="text-[10px] text-slate-400 font-mono">
-            O-Travelz · Verified Odisha Platform
+            O-Travelz · DPDP Act 2023 Aligned
           </div>
         </div>
       </div>

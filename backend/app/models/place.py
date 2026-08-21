@@ -36,6 +36,7 @@ class Place(Base):
     coordinate_verification = Column(String, nullable=True)
     coordinate_audit_status = Column(String, nullable=True)
     audit_status = Column(String, nullable=True)
+    district = Column(String, nullable=True)
 
     # Category relationship
     category = relationship("Category")

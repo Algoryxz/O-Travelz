@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import type { PlaceDetail } from "../api/contracts";
 import { apiClient as defaultApiClient, ApiClient } from "../api/client";
-import { getPlaceRegion, getPlaceImageUrl } from "../utils/imageService";
+import { getPlaceImageUrl } from "../utils/imageService";
 import { resolvePlaceImageUrl } from "../utils/imageAdapter";
+import { getRegionForPlace } from "../utils/regionUtils";
 
 // Bundled authoritative seed fallback (so UI is instant & robust in all environments)
 import seedPlacesData from "../../../data/places/places.json";
@@ -15,7 +16,7 @@ export interface ExtendedPlaceDetail extends PlaceDetail {
 export function toExtendedPlace(place: PlaceDetail): ExtendedPlaceDetail {
   return {
     ...place,
-    region: getPlaceRegion(place.name),
+    region: place.region || getRegionForPlace(place.district, place.id),
     imageUrl: resolvePlaceImageUrl(place, "card"),
   };
 }
@@ -28,12 +29,13 @@ const FALLBACK_EXTENDED_PLACES: ExtendedPlaceDetail[] = (seedPlacesData as any[]
   description: raw.description,
   lat: raw.lat,
   lon: raw.lon,
+  district: raw.district,
   avg_visit_minutes: raw.avg_visit_minutes,
   price_tier: raw.price_tier,
   source: raw.source,
   verified_at: raw.verified_at,
   interests: raw.interests || [],
-  region: getPlaceRegion(raw.name),
+  region: getRegionForPlace(raw.district, raw.id),
   imageUrl: getPlaceImageUrl(raw.name, raw.category),
 }));
 

@@ -672,6 +672,21 @@ features.
 
 Deeptiman hands the integrated frontend to Phase 7 coordination.
 
+## Current State — Post-Phase-7 Verified Baseline (2026-08-21)
+
+**Status**: **PHASES 0–7 COMPLETE — ALL ACCEPTANCE GATES PASSED**
+
+The complete full-stack O-Travelz application is fully implemented, integrated, and verified:
+- **Backend Unit Tests**: **329 passed, 2 deselected** (`python -m pytest backend/tests`).
+- **Backend Integration Tests**: **2 passed** (`python -m pytest -m integration`) against live PostgreSQL 16 + PostGIS 3.4 container.
+- **Frontend Test Suite**: **248 passed across 29 test files** (`npm --prefix frontend test -- --run`), including 19 URL synchronization tests and 5 live full-stack E2E scenarios.
+- **Production Build**: `npm --prefix frontend run build` completed in **7.24s** with 0 errors and zero chunk warnings (Leaflet vendor chunk code-split).
+- **Python Compilation**: `python -m compileall backend scripts` completed with 0 errors.
+- **Dedicated Live Full-Stack Audit**: `scripts/phase7_full_stack_audit.py` passed with 100% success across all database, API, AI grounding, transport, and routing checks.
+- **Canonical Dataset**: 81 places with 100% verified coordinates across all 30 districts of Odisha, 13 categories, 12 traveler interests, 206 M:N associations.
+
+---
+
 ## Phase 7 — Integration, testing, and readiness
 
 **Objective**
@@ -682,12 +697,22 @@ Validate the complete local stack, contracts, evidence, and release readiness.
 
 Punam coordinates. Each implementation owner validates their subsystem.
 
-Punam also coordinates the Phase 7/8 readiness and demo sequence once Phase 6A and
-Phase 6B have genuine implementation and handoff evidence.
-
 **Dependencies**
 
 Phases 2–6B outputs and their handoff evidence.
+
+**Current status**
+
+**PHASE 7 — ACCEPTED & COMPLETE (PASS)**.
+All technical, contract, live API, navigation, and integration gates are validated. Full-stack verification against running PostgreSQL/PostGIS, FastAPI backend, and React/Vite frontend completed with zero errors.
+
+**Acceptance evidence**
+- Full backend suite: 329 passed, 2 deselected (`pytest backend/tests`).
+- Backend integration suite: 2 passed (`pytest -m integration`).
+- Full frontend suite: 248 passed across 29 test files (`vitest run`).
+- Production build: `npm run build` passed in 7.24s with dynamic Leaflet code-splitting.
+- Live full-stack audit: `scripts/phase7_full_stack_audit.py` passed with 100% coverage.
+- Formatted git diff check: `git diff --check` clean.
 
 **Allowed work**
 
@@ -723,13 +748,15 @@ Phases 2–6B outputs and their handoff evidence.
 
 **Tests/evidence**
 
-- Full backend test suite.
-- Full frontend test suite.
-- Local integration/demo verification.
+- Full backend test suite (`python -m pytest backend/tests`): 329 passed.
+- Full frontend test suite (`npm --prefix frontend test -- --run`): 248 passed.
+- Local integration audit (`python scripts/phase7_full_stack_audit.py`): PASS.
 
 **Handoff**
 
-Punam records the release-ready baseline in `MEMORY.md` and prepares Phase 8.
+Punam records the release-ready baseline in `MEMORY.md` and coordinates final documentation reconciliation.
+
+---
 
 ## Phase 8 — Demo preparation
 
@@ -804,9 +831,46 @@ Punam records the demo baseline and the team maintains the approved product scop
 
 ---
 
-## Final Release Gate — Deployment Ready (2026-08-20)
+## Phase 10 — UX, Privacy, DPDP Legal Readiness & Team Tooling
 
-**Status**: **CLOSED & ACCEPTED — READY TO DEPLOY**
+**Status**: **COMPLETE — PASS (Phase 10 Release Baseline)**
+
+**Deliverables & Evidence**:
+- Single intentional dark theme locked across all views.
+- Persistent Live Location control in TopNav with 4 distinct states.
+- Two-step geolocation consent flow (zero automatic GPS prompts on page load; DPDP Act 2023 compliant explanation).
+- Indian DPDP Act 2023 / Rules 2025 aligned Privacy Policy (`#privacy`), Terms & Conditions (`#terms`), and Contact/Grievance (`#contact`) pages.
+- First-launch full-screen Terms & Privacy consent gate (`CURRENT_TERMS_VERSION = "2026-08-21-v1"`, localStorage key `otz_terms_accepted_version`).
+- 12 vibrant canonical traveler interest buttons with accessible styling tokens.
+- Map details drawer restyled to dark theme cards.
+- Complete Windows developer reproducibility suite (`setup.ps1`, `start.ps1`, `doctor.ps1`, `stop.ps1`) verified with 11/11 diagnostic PASS.
+- Test Evidence: 270 frontend tests passed (31 files), 329 backend tests passed (31 files).
+
+---
+
+## Phase 10B — Production Infrastructure Verification
+
+**Status**: **READY — PASS (Pre-Deployment Infrastructure Specification)**
+
+**Objective**:
+Prepare O-Travelz for production deployment without modifying application code, business logic, ranking, routing, AI grounding, database schema, or canonical data.
+
+**Deliverables & Evidence**:
+- Complete environment variable audit and classification matrix in `docs/DEPLOYMENT.md`.
+- Python 3.12 runtime and container startup specification (`uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000} --workers 4`).
+- Managed PostgreSQL 16 + PostGIS 3.4+ specification and idempotent migration/seed sequence (`alembic upgrade head`, `import_places.py`, `import_transport.py`, `sync_db_place_images.py`).
+- Production CORS configuration guidance avoiding wildcard origins.
+- Frontend production build verification (`npm run build` completed in 9.08s).
+- Primary `/health` and component verification endpoints documented.
+- Zero credentials committed; `.env` strictly untracked.
+- Local developer tooling (`setup.ps1`, `start.ps1`, `doctor.ps1`, `stop.ps1`) verified and preserved.
+- Quality Gates: 270 frontend tests, 329 backend tests, compileall 0 errors, git diff clean, doctor 11/11 PASS.
+
+---
+
+## Historical Release Gate (2026-08-20 — Pre-Phase-7 Baseline)
+
+**Status**: **HISTORICAL RECORD — SUPERSEDED BY PHASE 10 / 10B BASELINE**
 
 The complete whole-Odisha product, weather subsystem, transit-aware timeline, authoritative map projection, and normalized interest dataset synchronization are fully implemented and verified.
 
@@ -814,9 +878,9 @@ The complete whole-Odisha product, weather subsystem, transit-aware timeline, au
 - 81 canonical places with 100% verified WGS84 coordinate coverage.
 - 13 physical place categories and 12 canonical traveler interests.
 - 206 Place-Interest M:N associations with verified importer idempotency.
-- Backend test suite: **324 passed** / 0 failed (`pytest backend/tests`).
-- Frontend test suite: **167 passed** / 0 failed across 20 test files (`npm --prefix frontend test`).
-- Production frontend build: `npm --prefix frontend run build` clean (Vite bundle in `dist/`).
-- Python compilation: `python -m compileall -q backend` (0 errors).
+- Backend test suite: **329 passed** / 0 failed (`pytest backend/tests`).
+- Frontend test suite: **270 passed** / 0 failed across 31 test files (`npm --prefix frontend test`).
+- Production frontend build: `npm --prefix frontend run build` clean in 9.08s (Vite bundle in `dist/`).
+- Python compilation: `python -m compileall backend scripts` (0 errors).
 - Clean git diff and zero whitespace errors.
-- Deployment runbook & handoff: `docs/RELEASE_READINESS_REPORT.md` and `docs/handoffs/2026-08-20_FINAL_RELEASE_GITHUB_HANDOFF.md`.
+- Deployment runbook & handoff: `docs/DEPLOYMENT.md` and `docs/RELEASE_READINESS_REPORT.md`.

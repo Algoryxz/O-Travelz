@@ -18,7 +18,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "SCSTRTI Government of Odisha Campus, CRPF Square, Nayapalli",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_012",
@@ -39,7 +40,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Ministry of Environment & Forests (MoEFCC) RMNH Campus, Acharya Vihar",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_032",
@@ -60,7 +62,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Bhubaneswar Development Authority (BDA) Park, Niladri Vihar",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_031",
@@ -81,7 +84,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Bhubaneswar Development Authority (BDA) Park, Unit-2, AG Square",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_014",
@@ -99,7 +103,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Science & Technology Dept, Government of Odisha, Acharya Vihar",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_bbsr_008",
@@ -120,7 +125,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_bbsr_006",
@@ -142,7 +148,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_030",
@@ -160,7 +167,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "National Council of Science Museums (NCSM), Pandit Jawaharlal Nehru Marg",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_024",
@@ -182,7 +190,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Indira Gandhi National Centre for the Arts (IGNCA) / ASI Monument, Badu Sahi",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_019",
@@ -204,7 +213,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Archaeological Survey of India (ASI) Protected Monument, Tankapani Road",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_007",
@@ -226,7 +236,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Archaeological Survey of India (ASI) Protected Monument, Hirapur",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_029",
@@ -248,7 +259,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Odisha State Archaeology / IGNCA Heritage Site, Kapileswar",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_025",
@@ -270,7 +282,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Odisha Tourism / ASI Monument Precinct, Kedar Gouri Road",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_026",
@@ -292,7 +305,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Archaeological Survey of India (ASI) Protected Monument, Megheswar",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_027",
@@ -314,7 +328,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "IGNCA / ASI Archaeological Site, Subarneswar Lane, Old Town",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_puri_002",
@@ -336,7 +351,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Puri"
   },
   {
     "id": "place_005",
@@ -358,7 +374,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Archaeological Survey of India (ASI) Protected Monument, Old Town",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_022",
@@ -380,7 +397,8 @@
     "source_provenance_note": "Government of Odisha Hindu Religious Endowment Commission page directly identifies and describes Ram Mandir Temple in Bhubaneswar; the prior Wikimedia Commons URL was replaced because it was not the source supporting the retained place facts.",
     "coordinate_verification": "Government of Odisha Hindu Religious Endowments Commission, Janpath, Kharvel Nagar",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_021",
@@ -402,7 +420,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Archaeological Survey of India (ASI) Protected Monument, Mausi Maa, Old Town",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_028",
@@ -424,7 +443,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "IGNCA / ASI Archaeological Survey Site, Gosagareswar Precinct, Old Town",
     "coordinate_audit_status": "high",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "district": "Khordha"
   },
   {
     "id": "place_023",
@@ -446,7 +466,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "ASI/IGNCA identify Chitrakarini Temple; existing coordinate is supported by the cited heritage documentation and was previously cross-checked.",
     "coordinate_audit_status": "high",
-    "audit_status": "green"
+    "audit_status": "green",
+    "district": "Khordha"
   },
   {
     "id": "place_020",
@@ -468,7 +489,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Authoritative National Monuments Authority heritage-bye-law document gives GPS coordinates 20.244542 N, 85.852811 E for Bhaskareswar Temple.",
     "coordinate_audit_status": "high",
-    "audit_status": "green"
+    "audit_status": "green",
+    "district": "Khordha"
   },
   {
     "id": "place_018",
@@ -490,7 +512,8 @@
     "source_provenance_note": null,
     "coordinate_verification": "Exact coordinate reproduced in multiple geotagged Wikimedia Commons records; Government of India Incredible India confirms the exact temple.",
     "coordinate_audit_status": "high",
-    "audit_status": "green"
+    "audit_status": "green",
+    "district": "Khordha"
   },
   {
     "id": "place_bbsr_004",
@@ -513,7 +536,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_bbsr_005",
@@ -534,7 +558,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_bbsr_002",
@@ -556,7 +581,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_bbsr_012",
@@ -579,7 +605,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_bbsr_007",
@@ -600,7 +627,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_konark_003",
@@ -624,7 +652,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Puri"
   },
   {
     "id": "place_chilika_002",
@@ -646,7 +675,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_puri_003",
@@ -669,7 +699,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Puri"
   },
   {
     "id": "place_puri_001",
@@ -692,7 +723,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Puri"
   },
   {
     "id": "place_sambalpur_002",
@@ -714,7 +746,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Sambalpur"
   },
   {
     "id": "place_bbsr_011",
@@ -732,7 +765,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_puri_004",
@@ -755,7 +789,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Puri"
   },
   {
     "id": "place_cuttack_001",
@@ -775,7 +810,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Cuttack"
   },
   {
     "id": "place_rourkela_001",
@@ -796,7 +832,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Sundargarh"
   },
   {
     "id": "place_sambalpur_001",
@@ -816,7 +853,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Sambalpur"
   },
   {
     "id": "place_rourkela_003",
@@ -837,7 +875,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Sundargarh"
   },
   {
     "id": "place_konark_002",
@@ -859,7 +898,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Puri"
   },
   {
     "id": "place_koraput_001",
@@ -882,7 +922,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Koraput"
   },
   {
     "id": "place_mayurbhanj_002",
@@ -903,7 +944,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Mayurbhanj"
   },
   {
     "id": "place_chilika_003",
@@ -924,7 +966,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_kendrapara_001",
@@ -946,7 +989,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Kendrapara"
   },
   {
     "id": "place_koraput_005",
@@ -967,7 +1011,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Koraput"
   },
   {
     "id": "place_konark_001",
@@ -988,7 +1033,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Puri"
   },
   {
     "id": "place_ganjam_001",
@@ -1010,7 +1056,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Ganjam"
   },
   {
     "id": "place_cuttack_004",
@@ -1031,7 +1078,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Cuttack"
   },
   {
     "id": "place_sambalpur_003",
@@ -1053,7 +1101,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Sambalpur"
   },
   {
     "id": "place_ganjam_002",
@@ -1075,7 +1124,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Ganjam"
   },
   {
     "id": "place_konark_004",
@@ -1096,7 +1146,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Puri"
   },
   {
     "id": "place_daringbadi_003",
@@ -1117,7 +1168,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Kandhamal"
   },
   {
     "id": "place_mayurbhanj_001",
@@ -1138,7 +1190,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Mayurbhanj"
   },
   {
     "id": "place_koraput_003",
@@ -1160,7 +1213,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Koraput"
   },
   {
     "id": "place_chilika_001",
@@ -1182,7 +1236,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Puri"
   },
   {
     "id": "place_balasore_001",
@@ -1204,7 +1259,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Balasore"
   },
   {
     "id": "place_daringbadi_004",
@@ -1226,7 +1282,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Kandhamal"
   },
   {
     "id": "place_bbsr_009",
@@ -1247,7 +1304,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_sambalpur_004",
@@ -1268,7 +1326,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Bargarh"
   },
   {
     "id": "place_cuttack_003",
@@ -1289,7 +1348,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Cuttack"
   },
   {
     "id": "place_bbsr_010",
@@ -1311,7 +1371,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_cuttack_002",
@@ -1333,7 +1394,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Cuttack"
   },
   {
     "id": "place_koraput_004",
@@ -1354,7 +1416,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Koraput"
   },
   {
     "id": "place_koraput_002",
@@ -1375,7 +1438,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Koraput"
   },
   {
     "id": "place_rayagada_001",
@@ -1397,7 +1461,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Rayagada"
   },
   {
     "id": "place_bbsr_001",
@@ -1419,7 +1484,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_daringbadi_002",
@@ -1440,7 +1506,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Kandhamal"
   },
   {
     "id": "place_daringbadi_001",
@@ -1461,7 +1528,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Kandhamal"
   },
   {
     "id": "place_bbsr_003",
@@ -1482,7 +1550,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Khordha"
   },
   {
     "id": "place_rourkela_002",
@@ -1503,7 +1572,8 @@
     "source_provenance_note": null,
     "coordinate_verification": null,
     "coordinate_audit_status": null,
-    "audit_status": null
+    "audit_status": null,
+    "district": "Sundargarh"
   },
   {
     "id": "place_food_001",
@@ -1524,7 +1594,8 @@
     "coordinate_verification": "NH-16 Highway Corridor, Pahala, Bhubaneswar",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "verified_at": "2026-08-20T17:00:00Z"
+    "verified_at": "2026-08-20T17:00:00Z",
+    "district": "Khordha"
   },
   {
     "id": "place_food_002",
@@ -1545,7 +1616,8 @@
     "coordinate_verification": "Main Market Road, Nimapada, Puri District",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "verified_at": "2026-08-20T17:00:00Z"
+    "verified_at": "2026-08-20T17:00:00Z",
+    "district": "Puri"
   },
   {
     "id": "place_food_003",
@@ -1568,7 +1640,8 @@
     "coordinate_verification": "Grand Jagannath Temple Complex, Puri",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "verified_at": "2026-08-20T17:00:00Z"
+    "verified_at": "2026-08-20T17:00:00Z",
+    "district": "Puri"
   },
   {
     "id": "place_food_004",
@@ -1589,7 +1662,8 @@
     "coordinate_verification": "Choudhury Bazar, Cuttack Municipal Corporation",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "verified_at": "2026-08-20T17:00:00Z"
+    "verified_at": "2026-08-20T17:00:00Z",
+    "district": "Cuttack"
   },
   {
     "id": "place_food_005",
@@ -1611,7 +1685,8 @@
     "coordinate_verification": "State Highway 9A, Salepur, Cuttack District",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "verified_at": "2026-08-20T17:00:00Z"
+    "verified_at": "2026-08-20T17:00:00Z",
+    "district": "Cuttack"
   },
   {
     "id": "place_food_006",
@@ -1632,7 +1707,8 @@
     "coordinate_verification": "Rupali Square, Saheed Nagar, Bhubaneswar",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "verified_at": "2026-08-20T17:00:00Z"
+    "verified_at": "2026-08-20T17:00:00Z",
+    "district": "Khordha"
   },
   {
     "id": "place_food_007",
@@ -1653,7 +1729,8 @@
     "coordinate_verification": "Janpath, Bapuji Nagar, Bhubaneswar",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "verified_at": "2026-08-20T17:00:00Z"
+    "verified_at": "2026-08-20T17:00:00Z",
+    "district": "Khordha"
   },
   {
     "id": "place_food_008",
@@ -1675,7 +1752,8 @@
     "coordinate_verification": "Unit-4 Market, Bhouma Nagar, Bhubaneswar",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "verified_at": "2026-08-20T17:00:00Z"
+    "verified_at": "2026-08-20T17:00:00Z",
+    "district": "Khordha"
   },
   {
     "id": "place_food_009",
@@ -1696,7 +1774,8 @@
     "coordinate_verification": "OTDC Panthasala Complex, Konark Sun Temple Road",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "verified_at": "2026-08-20T17:00:00Z"
+    "verified_at": "2026-08-20T17:00:00Z",
+    "district": "Puri"
   },
   {
     "id": "place_food_010",
@@ -1718,7 +1797,8 @@
     "coordinate_verification": "Prachi River Bank, Kakatpur, Puri District",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "verified_at": "2026-08-20T17:00:00Z"
+    "verified_at": "2026-08-20T17:00:00Z",
+    "district": "Puri"
   },
   {
     "id": "place_food_011",
@@ -1739,6 +1819,7 @@
     "coordinate_verification": "Nandankanan Road, Raghunathpur, Bhubaneswar",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "verified_at": "2026-08-20T17:00:00Z"
+    "verified_at": "2026-08-20T17:00:00Z",
+    "district": "Khordha"
   }
 ]

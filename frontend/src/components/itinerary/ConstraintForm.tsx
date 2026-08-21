@@ -29,19 +29,110 @@ import {
 } from "lucide-react";
 import type { PlanningConstraints } from "../../types/api";
 
-export const CANONICAL_INTERESTS: Array<{ id: string; label: string; icon: any; color: string }> = [
-  { id: "heritage", label: "Heritage", icon: Landmark, color: "text-amber-300 bg-[#111827] border-[#263244]" },
-  { id: "spirituality", label: "Spirituality", icon: Sparkles, color: "text-teal-300 bg-[#111827] border-[#263244]" },
-  { id: "architecture", label: "Architecture", icon: Landmark, color: "text-indigo-300 bg-[#111827] border-[#263244]" },
-  { id: "food", label: "Food & Cuisine", icon: Coffee, color: "text-rose-300 bg-[#111827] border-[#263244]" },
-  { id: "culture", label: "Culture & Arts", icon: Heart, color: "text-purple-300 bg-[#111827] border-[#263244]" },
-  { id: "nature", label: "Nature & Hills", icon: TreePine, color: "text-teal-300 bg-[#111827] border-[#263244]" },
-  { id: "beach", label: "Coastal Beaches", icon: Waves, color: "text-cyan-300 bg-[#111827] border-[#263244]" },
-  { id: "wildlife", label: "Wildlife Safari", icon: TreePine, color: "text-yellow-300 bg-[#111827] border-[#263244]" },
-  { id: "waterfall", label: "Waterfalls", icon: Waves, color: "text-teal-300 bg-[#111827] border-[#263244]" },
-  { id: "relaxation", label: "Relaxation", icon: Coffee, color: "text-blue-300 bg-[#111827] border-[#263244]" },
-  { id: "adventure", label: "Adventure & Treks", icon: Flame, color: "text-orange-300 bg-[#111827] border-[#263244]" },
-  { id: "shopping", label: "Shopping & Crafts", icon: ShoppingBag, color: "text-pink-300 bg-[#111827] border-[#263244]" },
+export const CANONICAL_INTERESTS: Array<{
+  id: string;
+  label: string;
+  icon: any;
+  unselectedClass: string;
+  activeClass: string;
+  iconClass: string;
+}> = [
+  {
+    id: "heritage",
+    label: "Heritage",
+    icon: Landmark,
+    unselectedClass: "border-amber-500/30 text-amber-300 bg-amber-950/20 hover:bg-amber-900/30 hover:border-amber-400/60",
+    activeClass: "bg-gradient-to-r from-amber-500 to-amber-600 text-white border-amber-400 shadow-md shadow-amber-500/20 font-bold",
+    iconClass: "text-amber-400",
+  },
+  {
+    id: "spirituality",
+    label: "Spirituality",
+    icon: Sparkles,
+    unselectedClass: "border-orange-500/30 text-orange-300 bg-orange-950/20 hover:bg-orange-900/30 hover:border-orange-400/60",
+    activeClass: "bg-gradient-to-r from-orange-500 to-orange-600 text-white border-orange-400 shadow-md shadow-orange-500/20 font-bold",
+    iconClass: "text-orange-400",
+  },
+  {
+    id: "architecture",
+    label: "Architecture",
+    icon: Landmark,
+    unselectedClass: "border-indigo-500/30 text-indigo-300 bg-indigo-950/20 hover:bg-indigo-900/30 hover:border-indigo-400/60",
+    activeClass: "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-500/20 font-bold",
+    iconClass: "text-indigo-400",
+  },
+  {
+    id: "food",
+    label: "Food & Cuisine",
+    icon: Coffee,
+    unselectedClass: "border-rose-500/30 text-rose-300 bg-rose-950/20 hover:bg-rose-900/30 hover:border-rose-400/60",
+    activeClass: "bg-gradient-to-r from-rose-500 to-rose-600 text-white border-rose-400 shadow-md shadow-rose-500/20 font-bold",
+    iconClass: "text-rose-400",
+  },
+  {
+    id: "culture",
+    label: "Culture & Arts",
+    icon: Heart,
+    unselectedClass: "border-purple-500/30 text-purple-300 bg-purple-950/20 hover:bg-purple-900/30 hover:border-purple-400/60",
+    activeClass: "bg-gradient-to-r from-purple-500 to-purple-600 text-white border-purple-400 shadow-md shadow-purple-500/20 font-bold",
+    iconClass: "text-purple-400",
+  },
+  {
+    id: "nature",
+    label: "Nature & Hills",
+    icon: TreePine,
+    unselectedClass: "border-emerald-500/30 text-emerald-300 bg-emerald-950/20 hover:bg-emerald-900/30 hover:border-emerald-400/60",
+    activeClass: "bg-gradient-to-r from-emerald-500 to-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-500/20 font-bold",
+    iconClass: "text-emerald-400",
+  },
+  {
+    id: "beach",
+    label: "Coastal Beaches",
+    icon: Waves,
+    unselectedClass: "border-cyan-500/30 text-cyan-300 bg-cyan-950/20 hover:bg-cyan-900/30 hover:border-cyan-400/60",
+    activeClass: "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white border-cyan-400 shadow-md shadow-cyan-500/20 font-bold",
+    iconClass: "text-cyan-400",
+  },
+  {
+    id: "wildlife",
+    label: "Wildlife Safari",
+    icon: TreePine,
+    unselectedClass: "border-lime-500/30 text-lime-300 bg-lime-950/20 hover:bg-lime-900/30 hover:border-lime-400/60",
+    activeClass: "bg-gradient-to-r from-lime-600 to-lime-700 text-white border-lime-400 shadow-md shadow-lime-500/20 font-bold",
+    iconClass: "text-lime-400",
+  },
+  {
+    id: "waterfall",
+    label: "Waterfalls",
+    icon: Waves,
+    unselectedClass: "border-teal-500/30 text-teal-300 bg-teal-950/20 hover:bg-teal-900/30 hover:border-teal-400/60",
+    activeClass: "bg-gradient-to-r from-teal-500 to-teal-600 text-white border-teal-400 shadow-md shadow-teal-500/20 font-bold",
+    iconClass: "text-teal-400",
+  },
+  {
+    id: "relaxation",
+    label: "Relaxation",
+    icon: Coffee,
+    unselectedClass: "border-violet-500/30 text-violet-300 bg-violet-950/20 hover:bg-violet-900/30 hover:border-violet-400/60",
+    activeClass: "bg-gradient-to-r from-violet-500 to-violet-600 text-white border-violet-400 shadow-md shadow-violet-500/20 font-bold",
+    iconClass: "text-violet-400",
+  },
+  {
+    id: "adventure",
+    label: "Adventure & Treks",
+    icon: Flame,
+    unselectedClass: "border-red-500/30 text-red-300 bg-red-950/20 hover:bg-red-900/30 hover:border-red-400/60",
+    activeClass: "bg-gradient-to-r from-red-500 to-red-600 text-white border-red-400 shadow-md shadow-red-500/20 font-bold",
+    iconClass: "text-red-400",
+  },
+  {
+    id: "shopping",
+    label: "Shopping & Crafts",
+    icon: ShoppingBag,
+    unselectedClass: "border-pink-500/30 text-pink-300 bg-pink-950/20 hover:bg-pink-900/30 hover:border-pink-400/60",
+    activeClass: "bg-gradient-to-r from-pink-500 to-pink-600 text-white border-pink-400 shadow-md shadow-pink-500/20 font-bold",
+    iconClass: "text-pink-400",
+  },
 ];
 
 export const POPULAR_ORIGIN_HUBS = [
@@ -364,11 +455,11 @@ export const ConstraintForm: React.FC<ConstraintFormProps> = ({
                       onClick={() => toggleInterest(interest.id)}
                       className={`p-2.5 rounded-2xl text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer border text-left ${
                         active
-                          ? "bg-[#14B8A6] text-white border-[#14B8A6] shadow-md scale-[1.02] font-bold"
-                          : `${interest.color} text-slate-300 hover:border-slate-500`
+                          ? `${interest.activeClass} scale-[1.02]`
+                          : `${interest.unselectedClass}`
                       }`}
                     >
-                      <Icon size={14} className={active ? "text-white" : "text-teal-400"} />
+                      <Icon size={14} className={active ? "text-white" : interest.iconClass} />
                       <span className="truncate">{interest.label}</span>
                     </button>
                   );

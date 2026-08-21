@@ -64,7 +64,7 @@ describe("Phase 17 - Comprehensive UX Correction Regression Suite", () => {
   });
 
   it("3. verifies internal/developer strings are not present in rendered planner", () => {
-    const html = renderClean(<ItineraryPlannerPage />);
+    const html = renderClean(<ItineraryPlannerPage initialConsentAccepted={true} />);
 
     expect(html).not.toContain("WGS84");
     expect(html).not.toContain("SRID 4326");
