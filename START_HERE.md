@@ -8,12 +8,13 @@ conversation context.
 Read:
 
 1. [docs/AI_ENGINEERING_HANDOFF.md](docs/AI_ENGINEERING_HANDOFF.md) *(Authoritative Handoff & Technical Source of Truth)*
-2. [docs/PRD.md](docs/PRD.md)
-3. [docs/RULES.md](docs/RULES.md)
-4. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
-5. [docs/PHASES.md](docs/PHASES.md)
-6. [docs/MEMORY.md](docs/MEMORY.md)
-7. [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md)
+2. [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) *(Render Deployment Guide & Infrastructure Spec)*
+3. [docs/PRD.md](docs/PRD.md)
+4. [docs/RULES.md](docs/RULES.md)
+5. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+6. [docs/PHASES.md](docs/PHASES.md)
+7. [docs/MEMORY.md](docs/MEMORY.md)
+8. [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md)
 
 These files are canonical. Supporting documents must not override them.
 

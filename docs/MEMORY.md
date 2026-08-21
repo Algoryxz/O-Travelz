@@ -47,10 +47,12 @@ This is a project-state record, not general AI memory.
 - **Git Diff Check**: `git diff --check` clean with 0 whitespace/conflict errors.
 - **Smoke Suite**: [scratch/full_smoke_suite.py](file:///c:/Users/smara/Desktop/o-travelz/scratch/full_smoke_suite.py) verified live API, importer idempotency, AI planning, and weather endpoints with 100% pass rate.
 
-### Current Post-Release Verification (August 21, 2026):
+### Current Post-Release & Deployment Verification (August 21, 2026):
 - **Backend Pytest**: **324 passed** / 0 failed across 31 test files (`pytest backend/tests`).
-- **Frontend Vitest**: **188 total tests** across 23 test files (**183 passed**, **5 skipped**; the 5 skipped tests are live full-stack E2E scenarios in `tests/e2e_scenarios.test.ts` requiring a running backend on port 8000).
-- **Production Build**: `npm --prefix frontend run build` completed cleanly with zero TypeScript/Vite errors (`built in 12.18s`, output in `frontend/dist/`).
+- **Frontend Vitest**: **229 passed** / 0 failed across 28 test files (`npm run test`), including all 5 live full-stack E2E scenarios in `tests/e2e_scenarios.test.ts`.
+- **Production Build**: `npm run build` completed cleanly with zero TypeScript/Vite errors (`built in 12.14s`, output in `frontend/dist/`).
+- **Deployment Plan**: Standardized on **Render** (Managed PostgreSQL 16 + PostGIS, FastAPI Backend Web Service, React/Vite Static Site).
+- **Railway Blocker**: Railway evaluated but blocked due to lack of PostGIS extension in default Postgres service.
 
 ---
 
@@ -68,20 +70,26 @@ This is a project-state record, not general AI memory.
 
 ---
 
-## 5. Deployment Configuration
+## 5. Deployment Configuration (Render)
 
-- **Frontend**:
-  - Build command: `npm run build`
-  - Output: `frontend/dist`
-  - Target: Vercel / Netlify / Cloudflare Pages
-  - Routing: [frontend/vercel.json](file:///c:/Users/smara/Desktop/o-travelz/frontend/vercel.json)
+Refer to canonical guide: [docs/DEPLOYMENT.md](file:///c:/Users/smara/Desktop/o-travelz/docs/DEPLOYMENT.md).
+
+- **Frontend (Static Site)**:
+  - Root: `frontend`
+  - Build command: `npm ci && npm run build`
+  - Publish directory: `dist`
+  - SPA Rewrite: `/*` -> `/index.html` (Rewrite)
   - Env: `VITE_API_BASE_URL`
-- **Backend**:
-  - Command: `uvicorn app.main:app --host 0.0.0.0 --port 8000`
+- **Backend (Web Service)**:
+  - Root: `.`
   - Python: 3.12
-  - Target: Docker / Render / Fly.io / AWS ECS
-  - Env: `DATABASE_URL`, `ENVIRONMENT=production`, `CORS_ORIGINS`, `WEATHER_PROVIDER=Open-Meteo`, `WEATHER_BASE_URL=https://api.open-meteo.com/v1/forecast`
+  - Build: `pip install -r backend/requirements.txt`
+  - Start: `sh -c "alembic -c backend/alembic.ini upgrade head && python scripts/import_places.py && uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT"`
+  - Env: `DATABASE_URL`, `ENVIRONMENT=production`, `CORS_ORIGINS`, `STORAGE_BACKEND=local`, `LOCAL_STORAGE_BASE_PATH=./data/images`
   - Health Endpoint: `GET /health`
+- **Database (Managed PostgreSQL)**:
+  - Version: PostgreSQL 16
+  - Extensions: `postgis` (enabled automatically via `0001_initial_schema.py`)
 
 ---
 
@@ -89,3 +97,4 @@ This is a project-state record, not general AI memory.
 
 - Real-time GTFS transit vehicle positions are not modeled; transport hops utilize verified static/scheduled baseline speeds.
 - Administrative district boundary GIS polygons are not modeled; long transfers are accurately labeled as `"Long Journey"`.
+
