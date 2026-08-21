@@ -7,14 +7,15 @@ conversation context.
 
 Read:
 
-1. [docs/PRD.md](docs/PRD.md)
-2. [docs/RULES.md](docs/RULES.md)
-3. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
-4. [docs/PHASES.md](docs/PHASES.md)
-5. [docs/MEMORY.md](docs/MEMORY.md)
-6. [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md)
+1. [docs/AI_ENGINEERING_HANDOFF.md](docs/AI_ENGINEERING_HANDOFF.md) *(Authoritative Handoff & Technical Source of Truth)*
+2. [docs/PRD.md](docs/PRD.md)
+3. [docs/RULES.md](docs/RULES.md)
+4. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+5. [docs/PHASES.md](docs/PHASES.md)
+6. [docs/MEMORY.md](docs/MEMORY.md)
+7. [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md)
 
-These six files are canonical. Supporting documents must not override them.
+These files are canonical. Supporting documents must not override them.
 
 ## 2. Find your role
 
