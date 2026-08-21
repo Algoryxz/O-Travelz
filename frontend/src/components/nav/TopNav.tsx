@@ -136,40 +136,50 @@ export const TopNav: React.FC<TopNavProps> = ({
   return (
     <header className="sticky top-0 z-40 w-full bg-[#0B1220]/95 backdrop-blur-md border-b border-[#263244] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-18">
-          {/* Logo & Brand Lockup */}
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => onTabChange("discover")}>
-            <div className="relative flex items-center justify-center">
+        <div className="flex items-center justify-between h-16 md:h-17 gap-3 sm:gap-4">
+          {/* ZONE A: Logo & Brand Lockup */}
+          <div
+            className="flex items-center gap-2.5 cursor-pointer shrink-0 select-none"
+            onClick={() => onTabChange("discover")}
+          >
+            <div className="relative flex items-center justify-center shrink-0">
               <img
                 src="/logo.jpeg"
                 alt="O-Travelz Logo"
-                className="w-8 h-8 rounded-xl object-cover ring-1 ring-teal-500/40 shadow-xs shrink-0"
+                className="w-8 h-8 rounded-xl object-cover ring-1 ring-teal-500/30 shadow-xs shrink-0"
                 onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
+                  (e.target as HTMLElement).style.display = "none";
                 }}
               />
-              <svg className="w-8 h-8 text-[#14B8A6] hidden only-if-no-img" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="32" height="32" rx="8" fill="#111827" stroke="#263244" strokeWidth="1.5"/>
-                <circle cx="16" cy="16" r="8" stroke="#14B8A6" strokeWidth="2.5" strokeDasharray="36 12"/>
-                <circle cx="16" cy="16" r="3.5" fill="#F59E0B"/>
+              <svg
+                className="w-8 h-8 text-[#14B8A6] hidden only-if-no-img"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="32" height="32" rx="8" fill="#111827" stroke="#263244" strokeWidth="1.5" />
+                <circle cx="16" cy="16" r="8" stroke="#14B8A6" strokeWidth="2.5" strokeDasharray="36 12" />
+                <circle cx="16" cy="16" r="3.5" fill="#F59E0B" />
               </svg>
             </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-display font-black text-lg tracking-tight text-white">
+            <div className="flex flex-col justify-center">
+              <div className="flex items-center gap-1.5 leading-none">
+                <span className="font-display font-black text-base sm:text-lg tracking-tight text-white whitespace-nowrap">
                   O-Travelz
                 </span>
                 <span className="live-dot" />
               </div>
-              <p className="text-[10px] text-teal-400 font-medium tracking-wide">
+              <p className="text-[10px] text-teal-400 font-medium tracking-wide whitespace-nowrap mt-0.5 leading-none">
                 safe • secure • smart
               </p>
             </div>
           </div>
 
-
-          {/* Desktop Navigation Pills */}
-          <nav className="hidden md:flex items-center gap-1.5 bg-[#111827]/80 p-1.5 rounded-2xl border border-[#263244]">
+          {/* ZONE B: Primary Navigation Group */}
+          <nav
+            aria-label="Main navigation"
+            className="hidden md:flex items-center gap-1 bg-[#111827]/80 p-1 rounded-2xl border border-[#263244] shrink-0"
+          >
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeTab === item.id;
@@ -179,18 +189,22 @@ export const TopNav: React.FC<TopNavProps> = ({
                   type="button"
                   data-testid={item.testId}
                   onClick={() => onTabChange(item.id)}
-                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-150 cursor-pointer ${
                     isActive
-                      ? "bg-[#14B8A6] text-white shadow-xs font-bold"
-                      : "text-slate-300 hover:text-white hover:bg-slate-800"
+                      ? "bg-[#14B8A6] text-white shadow-xs font-bold px-3.5"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800/80"
                   }`}
                 >
-                  <Icon size={14} className={isActive ? "text-white" : "text-slate-400"} />
+                  <Icon size={14} className={isActive ? "text-white shrink-0" : "text-slate-400 shrink-0"} />
                   <span>{item.label}</span>
                   {item.badge !== undefined && item.badge > 0 && (
-                    <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-bold ${
-                      isActive ? "bg-white text-teal-800" : "bg-[#172235] text-teal-300 border border-[#263244]"
-                    }`}>
+                    <span
+                      className={`px-1.5 py-0.2 rounded-full text-[10px] font-bold shrink-0 ${
+                        isActive
+                          ? "bg-white text-teal-800"
+                          : "bg-[#172235] text-teal-300 border border-[#263244]"
+                      }`}
+                    >
                       {item.badge}
                     </span>
                   )}
@@ -207,15 +221,18 @@ export const TopNav: React.FC<TopNavProps> = ({
                 aria-expanded={isMoreMenuOpen}
                 aria-label="More navigation options"
                 onClick={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-150 cursor-pointer ${
                   isMoreMenuOpen || activeTab === "revisit" || activeTab === "category"
                     ? "bg-[#172235] text-[#14B8A6] border border-[#14B8A6]/40 font-bold"
-                    : "text-slate-300 hover:text-white hover:bg-slate-800"
+                    : "text-slate-300 hover:text-white hover:bg-slate-800/80"
                 }`}
               >
-                <MoreHorizontal size={14} />
+                <MoreHorizontal size={14} className="shrink-0" />
                 <span>More</span>
-                <ChevronDown size={12} className={`transition-transform duration-200 ${isMoreMenuOpen ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  size={12}
+                  className={`transition-transform duration-200 shrink-0 ${isMoreMenuOpen ? "rotate-180" : ""}`}
+                />
               </button>
 
               {/* Functional More Menu Dropdown Surface */}
@@ -239,7 +256,7 @@ export const TopNav: React.FC<TopNavProps> = ({
                       className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center justify-between cursor-pointer"
                     >
                       <div className="flex items-center gap-2.5">
-                        <Bookmark size={14} className="text-teal-400" />
+                        <Bookmark size={14} className="text-teal-400 shrink-0" />
                         <span>Saved Places</span>
                       </div>
                       {savedCount > 0 && (
@@ -257,7 +274,7 @@ export const TopNav: React.FC<TopNavProps> = ({
                       className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center justify-between cursor-pointer"
                     >
                       <div className="flex items-center gap-2.5">
-                        <History size={14} className="text-sky-400" />
+                        <History size={14} className="text-sky-400 shrink-0" />
                         <span>Revisit Places</span>
                       </div>
                       {revisitCount > 0 && (
@@ -274,7 +291,7 @@ export const TopNav: React.FC<TopNavProps> = ({
                       onClick={() => handleMoreItemClick(() => onTabChange("plan"))}
                       className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
-                      <CalendarDays size={14} className="text-amber-400" />
+                      <CalendarDays size={14} className="text-amber-400 shrink-0" />
                       <span>Planned Trips &amp; Itineraries</span>
                     </button>
                   </div>
@@ -291,7 +308,7 @@ export const TopNav: React.FC<TopNavProps> = ({
                       onClick={() => handleMoreItemClick(() => onTabChange("destinations"))}
                       className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
-                      <Layers size={14} className="text-teal-400" />
+                      <Layers size={14} className="text-teal-400 shrink-0" />
                       <span>All Destinations Index (81)</span>
                     </button>
 
@@ -302,7 +319,7 @@ export const TopNav: React.FC<TopNavProps> = ({
                       onClick={() => handleMoreItemClick(() => onTabChange("category"))}
                       className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
-                      <Route size={14} className="text-purple-400" />
+                      <Route size={14} className="text-purple-400 shrink-0" />
                       <span>Thematic Travel Circuits</span>
                     </button>
                   </div>
@@ -319,7 +336,7 @@ export const TopNav: React.FC<TopNavProps> = ({
                       onClick={() => handleMoreItemClick(() => onOpenSettings && onOpenSettings())}
                       className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
-                      <Sliders size={14} className="text-emerald-400" />
+                      <Sliders size={14} className="text-emerald-400 shrink-0" />
                       <span>Trip Preferences</span>
                     </button>
                   </div>
@@ -328,9 +345,9 @@ export const TopNav: React.FC<TopNavProps> = ({
             </div>
           </nav>
 
-          {/* Right Action Controls: Persistent Live Location + Hub Selector + Copilot + Mobile Menu */}
-          <div className="flex items-center gap-2">
-            {/* Persistent Live Location Control in Header */}
+          {/* ZONE C: Actions (Live Location + Hub Selector + Copilot + Mobile Hamburger) */}
+          <div className="flex items-center gap-2 shrink-0">
+            {/* Compact Live Location Control */}
             <button
               type="button"
               data-testid="header-live-location-control"
@@ -348,9 +365,9 @@ export const TopNav: React.FC<TopNavProps> = ({
                   ? "Location unavailable — Click to retry"
                   : locationStatus === "unsupported"
                   ? "Location not supported by browser"
-                  : "Use my live location"
+                  : "Use live location"
               }
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all cursor-pointer shadow-xs ${
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer shadow-xs ${
                 locationStatus === "granted" || locationStatus === "active"
                   ? "bg-[#172235] border-teal-500/50 text-teal-300 hover:border-teal-400"
                   : locationStatus === "denied"
@@ -364,7 +381,7 @@ export const TopNav: React.FC<TopNavProps> = ({
             >
               {/* Status Dot */}
               {locationStatus === "granted" || locationStatus === "active" ? (
-                <span className="relative flex h-2 w-2">
+                <span className="relative flex h-2 w-2 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500" />
                 </span>
@@ -378,12 +395,12 @@ export const TopNav: React.FC<TopNavProps> = ({
                 <span className="h-2 w-2 rounded-full bg-amber-400/80 shrink-0" />
               )}
 
-              {/* Status Text */}
-              <div className="flex items-center gap-1">
+              {/* Status Text (Single coherent line, no wrapping) */}
+              <div className="flex items-center gap-1 leading-none">
                 {locationStatus === "granted" || locationStatus === "active" ? (
                   <>
                     <span className="font-bold text-teal-200">LIVE Location</span>
-                    <span className="hidden lg:inline text-slate-400 font-normal">
+                    <span className="hidden xl:inline text-slate-400 font-normal">
                       · {locationText || selectedLocation}
                     </span>
                   </>
@@ -405,19 +422,17 @@ export const TopNav: React.FC<TopNavProps> = ({
               </div>
             </button>
 
-
-
             {/* Hub Selector Dropdown */}
             <div className="relative hidden sm:block" ref={locationMenuRef}>
               <button
                 type="button"
                 data-testid="location-selector"
                 onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#111827] border border-[#263244] hover:border-slate-500 text-xs font-semibold text-slate-200 transition-colors cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#111827] border border-[#263244] hover:border-slate-500 text-xs font-semibold text-slate-200 whitespace-nowrap transition-colors cursor-pointer"
               >
-                <MapPin size={13} className="text-[#14B8A6]" />
-                <span className="truncate max-w-[100px] sm:max-w-none">{selectedLocation}</span>
-                <ChevronDown size={13} className="text-slate-400" />
+                <MapPin size={13} className="text-[#14B8A6] shrink-0" />
+                <span className="truncate max-w-[90px] md:max-w-none">{selectedLocation}</span>
+                <ChevronDown size={13} className="text-slate-400 shrink-0" />
               </button>
 
               {locationDropdownOpen && (
@@ -464,9 +479,9 @@ export const TopNav: React.FC<TopNavProps> = ({
                 type="button"
                 data-testid="open-ai-sidebar-btn"
                 onClick={onToggleCopilot}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#8B5CF6]/15 hover:bg-[#8B5CF6]/25 border border-[#8B5CF6]/40 text-[#A78BFA] text-xs font-bold transition-colors cursor-pointer shadow-2xs"
+                className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#8B5CF6]/15 hover:bg-[#8B5CF6]/25 border border-[#8B5CF6]/40 text-[#A78BFA] text-xs font-bold whitespace-nowrap transition-colors cursor-pointer shadow-2xs"
               >
-                <Bot size={14} className="text-[#A78BFA]" />
+                <Bot size={14} className="text-[#A78BFA] shrink-0" />
                 <span>AI Copilot</span>
               </button>
             )}
@@ -476,12 +491,13 @@ export const TopNav: React.FC<TopNavProps> = ({
               type="button"
               data-testid="mobile-menu-button"
               onClick={onOpenMobileDrawer}
-              className="md:hidden p-2 rounded-xl bg-[#111827] border border-[#263244] text-slate-300 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+              className="md:hidden p-2 rounded-xl bg-[#111827] border border-[#263244] text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer"
               aria-label="Open mobile menu"
             >
               <Menu size={18} />
             </button>
           </div>
+
         </div>
       </div>
     </header>

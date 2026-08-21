@@ -78,7 +78,7 @@ class OpenMeteoWeatherAdapter:
         url = (
             f"{self.base_url}?"
             f"latitude={lat:.4f}&longitude={lon:.4f}&"
-            f"current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&"
+            f"current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,is_day&"
             f"daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max&"
             f"timezone=auto"
         )
@@ -123,12 +123,14 @@ class OpenMeteoWeatherAdapter:
         timestamp: str,
     ) -> WeatherResponse:
         current_data = data.get("current", {})
-        temp = float(current_data.get("temperature_2m", 28.0))
+        temp = float(current_data.get("temperature_2m", 28.0)) if current_data.get("temperature_2m") is not None else None
         apparent_temp = current_data.get("apparent_temperature")
         weather_code = int(current_data.get("weather_code", 0))
         humidity = current_data.get("relative_humidity_2m")
         precip = current_data.get("precipitation")
         wind_speed = current_data.get("wind_speed_10m")
+        is_day_raw = current_data.get("is_day")
+        is_day_val = int(is_day_raw) if is_day_raw is not None else 1
 
         condition, advice = _wmo_code_to_condition(weather_code)
 
@@ -141,6 +143,7 @@ class OpenMeteoWeatherAdapter:
             apparent_temperature_c=float(apparent_temp) if apparent_temp is not None else None,
             condition=condition,
             condition_code=weather_code,
+            is_day=is_day_val,
             humidity_pct=int(humidity) if humidity is not None else None,
             precipitation_probability_pct=None,
             precipitation_mm=float(precip) if precip is not None else None,
@@ -161,14 +164,15 @@ class OpenMeteoWeatherAdapter:
         daily_precip_prob = daily_data.get("precipitation_probability_max", [])
         daily_precip_sum = daily_data.get("precipitation_sum", [])
 
+        default_temp = temp if temp is not None else 28.0
         for i in range(min(len(dates), 7)):
             d_code = int(daily_codes[i]) if i < len(daily_codes) else 0
             d_cond, _ = _wmo_code_to_condition(d_code)
             daily_items.append(
                 DailyForecastItem(
                     date=dates[i],
-                    temperature_max_c=float(max_temps[i]) if i < len(max_temps) else temp,
-                    temperature_min_c=float(min_temps[i]) if i < len(min_temps) else temp - 5,
+                    temperature_max_c=float(max_temps[i]) if i < len(max_temps) else default_temp,
+                    temperature_min_c=float(min_temps[i]) if i < len(min_temps) else default_temp - 5,
                     condition=d_cond,
                     condition_code=d_code,
                     precipitation_probability_pct=int(daily_precip_prob[i]) if i < len(daily_precip_prob) and daily_precip_prob[i] is not None else None,
@@ -195,10 +199,11 @@ class OpenMeteoWeatherAdapter:
             lat=lat,
             lon=lon,
             observed_at=timestamp,
-            temperature_c=0.0,
+            temperature_c=None,
             apparent_temperature_c=None,
             condition="Unavailable",
             condition_code=None,
+            is_day=None,
             humidity_pct=None,
             precipitation_probability_pct=None,
             precipitation_mm=None,

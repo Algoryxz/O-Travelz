@@ -292,10 +292,11 @@ export interface WeatherObservation {
   lat: number;
   lon: number;
   observed_at: string;
-  temperature_c: number;
+  temperature_c?: number | null;
   apparent_temperature_c?: number | null;
   condition: string;
   condition_code?: number | null;
+  is_day?: number | null;
   humidity_pct?: number | null;
   precipitation_probability_pct?: number | null;
   precipitation_mm?: number | null;

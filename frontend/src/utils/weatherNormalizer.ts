@@ -17,9 +17,30 @@ export type NormalizedWeatherCondition =
   | "snow"
   | "unknown";
 
+export type WeatherIconType =
+  | "sun"
+  | "moon"
+  | "partly_cloudy"
+  | "partly_cloudy_night"
+  | "cloud"
+  | "cloud_night"
+  | "rain"
+  | "rain_night"
+  | "heavy_rain"
+  | "heavy_rain_night"
+  | "thunderstorm"
+  | "thunderstorm_night"
+  | "fog"
+  | "fog_night"
+  | "haze"
+  | "haze_night"
+  | "snow"
+  | "unknown";
+
 export interface WeatherVisualTheme {
   condition: NormalizedWeatherCondition;
   displayName: string;
+  isDay: boolean;
   accentColor: string;       // Primary hex accent (e.g. #F59E0B)
   secondaryAccent: string;   // Secondary accent (e.g. #D97706)
   cardBorderClass: string;   // Tailwind border class
@@ -28,7 +49,7 @@ export interface WeatherVisualTheme {
   badgeText: string;         // Badge text style
   glowColor: string;         // Radial glow color
   defaultAdvice: string;     // Default curated travel advice
-  iconType: "sun" | "partly_cloudy" | "cloud" | "rain" | "heavy_rain" | "thunderstorm" | "fog" | "haze" | "snow" | "unknown";
+  iconType: WeatherIconType;
   ariaLabel: string;
 }
 
@@ -133,13 +154,194 @@ export function normalizeWeatherCondition(
 }
 
 /**
- * Returns complete visual styling tokens for a given normalized weather condition
+ * Returns complete visual styling tokens for a given normalized weather condition and day/night state.
  */
-export function getWeatherVisualTheme(condition: NormalizedWeatherCondition): WeatherVisualTheme {
+export function getWeatherVisualTheme(
+  condition: NormalizedWeatherCondition,
+  isDay: boolean = true
+): WeatherVisualTheme {
+  // 1. NIGHTTIME VISUAL THEMES (when isDay === false)
+  if (!isDay) {
+    switch (condition) {
+      case "clear":
+        return {
+          condition: "clear",
+          isDay: false,
+          displayName: "Clear Night",
+          accentColor: "#818CF8",
+          secondaryAccent: "#6366F1",
+          cardBorderClass: "border-indigo-500/30 hover:border-indigo-500/50",
+          cardBgGradient: "from-[#0c1228] via-[#111827] to-[#141b33]",
+          badgeBg: "bg-indigo-500/15 border border-indigo-500/30",
+          badgeText: "text-indigo-300",
+          glowColor: "rgba(129, 140, 248, 0.15)",
+          defaultAdvice: "Clear starlit skies across Odisha. Pleasant for night temple illuminations and evening walks.",
+          iconType: "moon",
+          ariaLabel: "Clear night sky weather condition",
+        };
+
+      case "partly_cloudy":
+        return {
+          condition: "partly_cloudy",
+          isDay: false,
+          displayName: "Partly Cloudy Night",
+          accentColor: "#38BDF8",
+          secondaryAccent: "#0284C7",
+          cardBorderClass: "border-sky-500/30 hover:border-sky-500/50",
+          cardBgGradient: "from-[#0b1626] via-[#111827] to-[#0f2428]",
+          badgeBg: "bg-sky-500/15 border border-sky-500/30",
+          badgeText: "text-sky-300",
+          glowColor: "rgba(56, 189, 248, 0.12)",
+          defaultAdvice: "Passing clouds under evening skies. Comfortable for dinner and outdoor leisure.",
+          iconType: "partly_cloudy_night",
+          ariaLabel: "Partly cloudy night weather condition",
+        };
+
+      case "cloudy":
+        return {
+          condition: "cloudy",
+          isDay: false,
+          displayName: "Cloudy Night",
+          accentColor: "#94A3B8",
+          secondaryAccent: "#64748B",
+          cardBorderClass: "border-slate-500/30 hover:border-slate-500/50",
+          cardBgGradient: "from-[#111827] via-[#0b1220] to-[#172033]",
+          badgeBg: "bg-slate-500/15 border border-slate-500/30",
+          badgeText: "text-slate-300",
+          glowColor: "rgba(148, 163, 184, 0.12)",
+          defaultAdvice: "Overcast night skies. Mild ambient temperatures across the region.",
+          iconType: "cloud_night",
+          ariaLabel: "Cloudy night weather condition",
+        };
+
+      case "rain":
+        return {
+          condition: "rain",
+          isDay: false,
+          displayName: "Night Rain",
+          accentColor: "#06B6D4",
+          secondaryAccent: "#0284C7",
+          cardBorderClass: "border-cyan-500/30 hover:border-cyan-500/50",
+          cardBgGradient: "from-[#08222b] via-[#0b1220] to-[#0c1c2e]",
+          badgeBg: "bg-cyan-500/15 border border-cyan-500/30",
+          badgeText: "text-cyan-300",
+          glowColor: "rgba(6, 182, 212, 0.18)",
+          defaultAdvice: "Night rain showers active; keep rain protection ready for late travel.",
+          iconType: "rain_night",
+          ariaLabel: "Rainy night weather condition",
+        };
+
+      case "heavy_rain":
+        return {
+          condition: "heavy_rain",
+          isDay: false,
+          displayName: "Heavy Night Rain",
+          accentColor: "#3B82F6",
+          secondaryAccent: "#1D4ED8",
+          cardBorderClass: "border-blue-600/40 hover:border-blue-500/60",
+          cardBgGradient: "from-[#081a33] via-[#0b1220] to-[#0c1f3d]",
+          badgeBg: "bg-blue-600/20 border border-blue-500/40",
+          badgeText: "text-blue-300 font-bold",
+          glowColor: "rgba(59, 130, 246, 0.22)",
+          defaultAdvice: "Heavy nighttime downpour; stay in sheltered accommodations.",
+          iconType: "heavy_rain_night",
+          ariaLabel: "Heavy night rain weather condition",
+        };
+
+      case "thunderstorm":
+        return {
+          condition: "thunderstorm",
+          isDay: false,
+          displayName: "Night Thunderstorm",
+          accentColor: "#A855F7",
+          secondaryAccent: "#7E22CE",
+          cardBorderClass: "border-purple-500/40 hover:border-purple-400/60",
+          cardBgGradient: "from-[#1d1033] via-[#0b1220] to-[#250d38]",
+          badgeBg: "bg-purple-500/20 border border-purple-500/40",
+          badgeText: "text-purple-300 font-bold",
+          glowColor: "rgba(168, 85, 247, 0.25)",
+          defaultAdvice: "Active electrical thunderstorm at night; avoid open beach roads and ghats.",
+          iconType: "thunderstorm_night",
+          ariaLabel: "Night thunderstorm weather condition",
+        };
+
+      case "fog":
+        return {
+          condition: "fog",
+          isDay: false,
+          displayName: "Night Fog & Mist",
+          accentColor: "#CBD5E1",
+          secondaryAccent: "#94A3B8",
+          cardBorderClass: "border-slate-400/30 hover:border-slate-400/50",
+          cardBgGradient: "from-[#141d2b] via-[#0b1220] to-[#192436]",
+          badgeBg: "bg-slate-400/15 border border-slate-400/30",
+          badgeText: "text-slate-200",
+          glowColor: "rgba(203, 213, 225, 0.12)",
+          defaultAdvice: "Dense nocturnal fog/mist. Exercise extra caution on highways.",
+          iconType: "fog_night",
+          ariaLabel: "Night fog and mist weather condition",
+        };
+
+      case "haze":
+        return {
+          condition: "haze",
+          isDay: false,
+          displayName: "Night Haze",
+          accentColor: "#F97316",
+          secondaryAccent: "#EA580C",
+          cardBorderClass: "border-orange-500/30 hover:border-orange-500/50",
+          cardBgGradient: "from-[#1f1712] via-[#0b1220] to-[#1c1613]",
+          badgeBg: "bg-orange-500/15 border border-orange-500/30",
+          badgeText: "text-orange-300",
+          glowColor: "rgba(249, 115, 22, 0.15)",
+          defaultAdvice: "Night atmospheric haze present.",
+          iconType: "haze_night",
+          ariaLabel: "Night haze weather condition",
+        };
+
+      case "snow":
+        return {
+          condition: "snow",
+          isDay: false,
+          displayName: "Cold Night",
+          accentColor: "#E0F2FE",
+          secondaryAccent: "#38BDF8",
+          cardBorderClass: "border-sky-300/30 hover:border-sky-300/50",
+          cardBgGradient: "from-[#0f2438] via-[#0b1220] to-[#122b40]",
+          badgeBg: "bg-sky-300/15 border border-sky-300/30",
+          badgeText: "text-sky-200",
+          glowColor: "rgba(224, 242, 254, 0.15)",
+          defaultAdvice: "Cold highland night; dress warmly for outdoor visits.",
+          iconType: "snow",
+          ariaLabel: "Cold night weather condition",
+        };
+
+      case "unknown":
+      default:
+        return {
+          condition: "unknown",
+          isDay: false,
+          displayName: "Night Forecast",
+          accentColor: "#818CF8",
+          secondaryAccent: "#6366F1",
+          cardBorderClass: "border-[#263244] hover:border-[#334155]",
+          cardBgGradient: "from-[#0c1228] via-[#0b1220] to-[#172235]",
+          badgeBg: "bg-indigo-500/15 border border-indigo-500/30",
+          badgeText: "text-indigo-300",
+          glowColor: "rgba(129, 140, 248, 0.1)",
+          defaultAdvice: "Check real-time regional updates for optimal travel scheduling.",
+          iconType: "moon",
+          ariaLabel: "Night weather forecast status",
+        };
+    }
+  }
+
+  // 2. DAYTIME VISUAL THEMES (when isDay === true)
   switch (condition) {
     case "clear":
       return {
         condition: "clear",
+        isDay: true,
         displayName: "Clear & Sunny",
         accentColor: "#F59E0B",
         secondaryAccent: "#D97706",
@@ -156,6 +358,7 @@ export function getWeatherVisualTheme(condition: NormalizedWeatherCondition): We
     case "partly_cloudy":
       return {
         condition: "partly_cloudy",
+        isDay: true,
         displayName: "Partly Cloudy",
         accentColor: "#38BDF8",
         secondaryAccent: "#14B8A6",
@@ -172,6 +375,7 @@ export function getWeatherVisualTheme(condition: NormalizedWeatherCondition): We
     case "cloudy":
       return {
         condition: "cloudy",
+        isDay: true,
         displayName: "Cloudy & Overcast",
         accentColor: "#94A3B8",
         secondaryAccent: "#64748B",
@@ -188,6 +392,7 @@ export function getWeatherVisualTheme(condition: NormalizedWeatherCondition): We
     case "rain":
       return {
         condition: "rain",
+        isDay: true,
         displayName: "Rain & Showers",
         accentColor: "#06B6D4",
         secondaryAccent: "#0284C7",
@@ -204,6 +409,7 @@ export function getWeatherVisualTheme(condition: NormalizedWeatherCondition): We
     case "heavy_rain":
       return {
         condition: "heavy_rain",
+        isDay: true,
         displayName: "Heavy Rain",
         accentColor: "#3B82F6",
         secondaryAccent: "#1D4ED8",
@@ -220,6 +426,7 @@ export function getWeatherVisualTheme(condition: NormalizedWeatherCondition): We
     case "thunderstorm":
       return {
         condition: "thunderstorm",
+        isDay: true,
         displayName: "Thunderstorm",
         accentColor: "#A855F7",
         secondaryAccent: "#7E22CE",
@@ -236,6 +443,7 @@ export function getWeatherVisualTheme(condition: NormalizedWeatherCondition): We
     case "fog":
       return {
         condition: "fog",
+        isDay: true,
         displayName: "Fog & Mist",
         accentColor: "#CBD5E1",
         secondaryAccent: "#94A3B8",
@@ -252,6 +460,7 @@ export function getWeatherVisualTheme(condition: NormalizedWeatherCondition): We
     case "haze":
       return {
         condition: "haze",
+        isDay: true,
         displayName: "Haze & Dust",
         accentColor: "#F97316",
         secondaryAccent: "#EA580C",
@@ -268,6 +477,7 @@ export function getWeatherVisualTheme(condition: NormalizedWeatherCondition): We
     case "snow":
       return {
         condition: "snow",
+        isDay: true,
         displayName: "Cool / Frost",
         accentColor: "#E0F2FE",
         secondaryAccent: "#38BDF8",
@@ -285,6 +495,7 @@ export function getWeatherVisualTheme(condition: NormalizedWeatherCondition): We
     default:
       return {
         condition: "unknown",
+        isDay: true,
         displayName: "Live Forecast",
         accentColor: "#14B8A6",
         secondaryAccent: "#0D9488",

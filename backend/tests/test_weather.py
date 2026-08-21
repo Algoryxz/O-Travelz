@@ -142,6 +142,7 @@ def test_weather_api_endpoints():
                 "temperature_c": 30.0,
                 "apparent_temperature_c": 33.0,
                 "condition": "Mostly Clear",
+                "is_day": 0,
                 "humidity_pct": 70,
                 "wind_speed_kmh": 10.0,
                 "advice": "Pleasant weather; great for heritage walks.",
@@ -158,8 +159,47 @@ def test_weather_api_endpoints():
         assert data_curr["location_name"] == "Bhubaneswar"
         assert data_curr["current"]["temperature_c"] == 30.0
         assert data_curr["current"]["condition"] == "Mostly Clear"
+        assert data_curr["current"]["is_day"] == 0
 
         res_fore = client.get("/weather/forecast?lat=20.2961&lon=85.8245")
         assert res_fore.status_code == 200
         data_fore = res_fore.json()
         assert data_fore["current"]["status"] == "available"
+
+
+def test_open_meteo_adapter_is_day_night():
+    """Verify adapter correctly extracts is_day=0 (night) and is_day=1 (day)."""
+    adapter = OpenMeteoWeatherAdapter()
+
+    night_data = {
+        **SAMPLE_OPEN_METEO_RESPONSE,
+        "current": {
+            **SAMPLE_OPEN_METEO_RESPONSE["current"],
+            "weather_code": 0,
+            "is_day": 0,
+            "temperature_2m": 26.0,
+        },
+    }
+
+    with patch("urllib.request.urlopen") as mock_urlopen:
+        mock_response = MagicMock()
+        mock_response.status = 200
+        mock_response.read.return_value = json.dumps(night_data).encode("utf-8")
+        mock_response.__enter__.return_value = mock_response
+        mock_urlopen.return_value = mock_response
+
+        res = adapter.fetch_weather(lat=20.2961, lon=85.8245, location_name="Bhubaneswar")
+        assert res.current.is_day == 0
+        assert res.current.condition == "Clear"
+        assert res.current.temperature_c == 26.0
+
+
+def test_weather_unavailable_does_not_return_fake_temp():
+    """Verify unavailable status returns temperature_c=None instead of fake 0.0 or 28.0."""
+    adapter = OpenMeteoWeatherAdapter()
+
+    with patch("urllib.request.urlopen", side_effect=Exception("Network failure")):
+        res = adapter.fetch_weather(lat=20.2961, lon=85.8245, location_name="Bhubaneswar")
+        assert res.current.status == "unavailable"
+        assert res.current.temperature_c is None
+        assert res.current.is_day is None

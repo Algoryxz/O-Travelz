@@ -28,9 +28,10 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({
   const rawCondition = currentObs?.condition;
   const conditionCode = currentObs?.condition_code;
   const status = currentObs?.status;
+  const isDay = currentObs?.is_day === 0 ? false : true;
 
   const normalizedCondition = normalizeWeatherCondition(rawCondition, conditionCode, status);
-  const theme = getWeatherVisualTheme(normalizedCondition);
+  const theme = getWeatherVisualTheme(normalizedCondition, isDay);
 
   // Loading skeleton state
   if (isLoading && !weather) {
@@ -59,7 +60,7 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({
   }
 
   // Error / Unavailable state
-  if (error && !weather) {
+  if ((error && !weather) || status === "unavailable") {
     return (
       <div
         data-testid="weather-banner-error"
@@ -78,6 +79,7 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({
           {onRefresh && (
             <button
               type="button"
+              data-testid="weather-retry-btn"
               onClick={onRefresh}
               className="px-3.5 py-1.5 rounded-xl bg-[#172235] hover:bg-slate-800 text-slate-200 text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer"
             >
@@ -90,9 +92,14 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({
     );
   }
 
-  const temperature = currentObs?.temperature_c != null ? `${Math.round(currentObs.temperature_c)}°C` : "--°C";
+  const hasValidTemp = currentObs?.temperature_c != null && !Number.isNaN(currentObs.temperature_c);
+  const temperature = hasValidTemp ? `${Math.round(currentObs.temperature_c!)}°C` : "—°C";
   const feelsLike = currentObs?.apparent_temperature_c != null ? `${Math.round(currentObs.apparent_temperature_c)}°C` : null;
-  const conditionDisplay = currentObs?.condition || theme.displayName;
+  const conditionDisplay = !isDay && currentObs?.condition === "Clear"
+    ? "Clear Night"
+    : !isDay && currentObs?.condition === "Mostly Clear"
+    ? "Partly Cloudy Night"
+    : (currentObs?.condition || theme.displayName);
   const provider = currentObs?.provider || "Open-Meteo";
   const advice = currentObs?.advice || theme.defaultAdvice;
 
@@ -120,10 +127,12 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({
           >
             <AnimatedWeatherIcon
               condition={normalizedCondition}
+              isDay={isDay}
               size={48}
               ariaLabel={theme.ariaLabel}
             />
           </div>
+
 
           <div className="space-y-1">
             <div className="flex flex-wrap items-center gap-2">

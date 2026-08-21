@@ -14,10 +14,11 @@ class WeatherObservation(ContractModel):
     lat: float
     lon: float
     observed_at: str
-    temperature_c: float
+    temperature_c: float | None = None
     apparent_temperature_c: float | None = None
     condition: str
     condition_code: int | None = None
+    is_day: int | None = Field(default=1, description="1 if daytime, 0 if nighttime according to local solar position")
     humidity_pct: int | None = None
     precipitation_probability_pct: int | None = None
     precipitation_mm: float | None = None
@@ -27,6 +28,7 @@ class WeatherObservation(ContractModel):
     freshness_timestamp: str
     status: Literal["available", "unavailable"] = "available"
     error_reason: str | None = None
+
 
 
 class DailyForecastItem(ContractModel):

@@ -103,36 +103,53 @@ describe("Weather Dynamic Normalization & Visual System", () => {
   });
 
   describe("Animated Weather Icon Component", () => {
-    it("renders corresponding animated icon for each condition", () => {
-      const htmlSun = renderClean(<AnimatedWeatherIcon condition="clear" size={48} />);
+    it("renders corresponding animated icon for each daytime condition", () => {
+      const htmlSun = renderClean(<AnimatedWeatherIcon condition="clear" isDay={true} size={48} />);
       expect(htmlSun).toContain('data-testid="animated-weather-icon-sun"');
 
-      const htmlPartly = renderClean(<AnimatedWeatherIcon condition="partly_cloudy" size={48} />);
+      const htmlPartly = renderClean(<AnimatedWeatherIcon condition="partly_cloudy" isDay={true} size={48} />);
       expect(htmlPartly).toContain('data-testid="animated-weather-icon-partly-cloudy"');
 
-      const htmlCloud = renderClean(<AnimatedWeatherIcon condition="cloudy" size={48} />);
+      const htmlCloud = renderClean(<AnimatedWeatherIcon condition="cloudy" isDay={true} size={48} />);
       expect(htmlCloud).toContain('data-testid="animated-weather-icon-cloud"');
 
-      const htmlRain = renderClean(<AnimatedWeatherIcon condition="rain" size={48} />);
+      const htmlRain = renderClean(<AnimatedWeatherIcon condition="rain" isDay={true} size={48} />);
       expect(htmlRain).toContain('data-testid="animated-weather-icon-rain"');
 
-      const htmlHeavyRain = renderClean(<AnimatedWeatherIcon condition="heavy_rain" size={48} />);
+      const htmlHeavyRain = renderClean(<AnimatedWeatherIcon condition="heavy_rain" isDay={true} size={48} />);
       expect(htmlHeavyRain).toContain('data-testid="animated-weather-icon-heavy-rain"');
 
-      const htmlThunder = renderClean(<AnimatedWeatherIcon condition="thunderstorm" size={48} />);
+      const htmlThunder = renderClean(<AnimatedWeatherIcon condition="thunderstorm" isDay={true} size={48} />);
       expect(htmlThunder).toContain('data-testid="animated-weather-icon-thunderstorm"');
 
-      const htmlFog = renderClean(<AnimatedWeatherIcon condition="fog" size={48} />);
+      const htmlFog = renderClean(<AnimatedWeatherIcon condition="fog" isDay={true} size={48} />);
       expect(htmlFog).toContain('data-testid="animated-weather-icon-fog"');
 
-      const htmlHaze = renderClean(<AnimatedWeatherIcon condition="haze" size={48} />);
+      const htmlHaze = renderClean(<AnimatedWeatherIcon condition="haze" isDay={true} size={48} />);
       expect(htmlHaze).toContain('data-testid="animated-weather-icon-haze"');
 
-      const htmlSnow = renderClean(<AnimatedWeatherIcon condition="snow" size={48} />);
+      const htmlSnow = renderClean(<AnimatedWeatherIcon condition="snow" isDay={true} size={48} />);
       expect(htmlSnow).toContain('data-testid="animated-weather-icon-snow"');
 
-      const htmlDefault = renderClean(<AnimatedWeatherIcon condition="unknown" size={48} />);
+      const htmlDefault = renderClean(<AnimatedWeatherIcon condition="unknown" isDay={true} size={48} />);
       expect(htmlDefault).toContain('data-testid="animated-weather-icon-default"');
+    });
+
+    it("renders corresponding animated night icon for nighttime conditions (isDay=false)", () => {
+      const htmlMoon = renderClean(<AnimatedWeatherIcon condition="clear" isDay={false} size={48} />);
+      expect(htmlMoon).toContain('data-testid="animated-weather-icon-moon"');
+
+      const htmlPartlyNight = renderClean(<AnimatedWeatherIcon condition="partly_cloudy" isDay={false} size={48} />);
+      expect(htmlPartlyNight).toContain('data-testid="animated-weather-icon-partly-cloudy-night"');
+
+      const htmlCloudNight = renderClean(<AnimatedWeatherIcon condition="cloudy" isDay={false} size={48} />);
+      expect(htmlCloudNight).toContain('data-testid="animated-weather-icon-cloud-night"');
+
+      const htmlRainNight = renderClean(<AnimatedWeatherIcon condition="rain" isDay={false} size={48} />);
+      expect(htmlRainNight).toContain('data-testid="animated-weather-icon-rain-night"');
+
+      const htmlThunderNight = renderClean(<AnimatedWeatherIcon condition="thunderstorm" isDay={false} size={48} />);
+      expect(htmlThunderNight).toContain('data-testid="animated-weather-icon-thunderstorm-night"');
     });
   });
 
@@ -148,6 +165,7 @@ describe("Weather Dynamic Normalization & Visual System", () => {
         apparent_temperature_c: 36.2,
         condition: "Rain Showers",
         condition_code: 80,
+        is_day: 1,
         humidity_pct: 82,
         wind_speed_kmh: 18.5,
         precipitation_probability_pct: 75,
@@ -179,6 +197,77 @@ describe("Weather Dynamic Normalization & Visual System", () => {
       expect(html).toContain("Coastal showers active along golden beach.");
     });
 
+    it("renders truthful nighttime visual for midnight Bhubaneswar weather (is_day=0)", () => {
+      const midnightBbsr: WeatherResponse = {
+        location_name: "Bhubaneswar",
+        current: {
+          location_name: "Bhubaneswar",
+          lat: 20.2961,
+          lon: 85.8245,
+          observed_at: "2026-08-22T00:00:00Z",
+          temperature_c: 26.5,
+          apparent_temperature_c: 32.0,
+          condition: "Clear",
+          condition_code: 0,
+          is_day: 0,
+          humidity_pct: 95,
+          wind_speed_kmh: 8.0,
+          advice: "Clear starlit skies across Odisha.",
+          provider: "Open-Meteo",
+          freshness_timestamp: "2026-08-22T00:00:00Z",
+          status: "available",
+        },
+        forecast_daily: [],
+      };
+
+      const html = renderClean(
+        <WeatherCard
+          locationName="Bhubaneswar"
+          weather={midnightBbsr}
+          isLoading={false}
+          error={null}
+        />
+      );
+
+      expect(html).toContain("LOCAL WEATHER · BHUBANESWAR");
+      expect(html).toContain("27°C"); // 26.5 rounded
+      expect(html).toContain("Clear Night");
+      expect(html).toContain('data-testid="animated-weather-icon-moon"');
+      expect(html).not.toContain('data-testid="animated-weather-icon-sun"');
+    });
+
+    it("does NOT render fake 0°C when weather data is missing or unavailable", () => {
+      const missingTempWeather: WeatherResponse = {
+        location_name: "Cuttack",
+        current: {
+          location_name: "Cuttack",
+          lat: 20.4625,
+          lon: 85.8828,
+          observed_at: "2026-08-22T00:00:00Z",
+          temperature_c: null,
+          condition: "Unavailable",
+          is_day: null,
+          provider: "Open-Meteo",
+          freshness_timestamp: "2026-08-22T00:00:00Z",
+          status: "unavailable",
+        },
+        forecast_daily: [],
+      };
+
+      const html = renderClean(
+        <WeatherCard
+          locationName="Cuttack"
+          weather={missingTempWeather}
+          isLoading={false}
+          error={null}
+        />
+      );
+
+      expect(html).toContain('data-testid="weather-banner-error"');
+      expect(html).toContain("Weather Data Temporarily Unavailable");
+      expect(html).not.toContain("0°C");
+    });
+
     it("renders loading skeleton when loading", () => {
       const html = renderClean(
         <WeatherCard
@@ -191,6 +280,7 @@ describe("Weather Dynamic Normalization & Visual System", () => {
 
       expect(html).toContain('data-testid="weather-banner-loading"');
       expect(html).not.toContain("31°C");
+      expect(html).not.toContain("0°C");
     });
 
     it("renders error state on API failure", () => {
@@ -205,6 +295,7 @@ describe("Weather Dynamic Normalization & Visual System", () => {
 
       expect(html).toContain('data-testid="weather-banner-error"');
       expect(html).toContain("Weather Data Temporarily Unavailable");
+      expect(html).not.toContain("0°C");
     });
   });
 });
