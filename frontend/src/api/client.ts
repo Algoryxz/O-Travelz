@@ -10,17 +10,22 @@
  */
 
 import type {
+  AIConverseRequest,
   AIPlanRequest,
   AIResponse,
   APIErrorResponse,
+  GroundedConversationResponse,
   ItineraryPlanResponse,
   MapProjectionHTTPRequest,
   MapProjectionResponse,
   PlaceDetail,
   PlaceListParams,
   PlanningConstraints,
+  SearchSuggestion,
   WeatherResponse,
 } from "./contracts";
+
+
 
 export class ApiError extends Error {
   readonly status: number;
@@ -226,10 +231,29 @@ export class ApiClient {
     );
   }
 
+  async converseWithAi(request: AIConverseRequest): Promise<GroundedConversationResponse> {
+    return this.request<GroundedConversationResponse>(
+      "/ai/converse",
+      {
+        method: "POST",
+        body: JSON.stringify(request),
+      },
+      (data): data is GroundedConversationResponse => {
+        return (
+          isPlainObject(data) &&
+          typeof data.message === "string" &&
+          typeof data.status === "string" &&
+          typeof data.is_grounded === "boolean"
+        );
+      }
+    );
+  }
+
   // Alias for compatibility with components using sendAIPlan
   async sendAIPlan(request: AIPlanRequest): Promise<AIResponse> {
     return this.planWithAi(request);
   }
+
 
   async getMapProjection(request: MapProjectionHTTPRequest): Promise<MapProjectionResponse> {
     return this.request<MapProjectionResponse>(
@@ -258,7 +282,18 @@ export class ApiClient {
   async listPlaces(params: PlaceListParams = {}): Promise<PlaceDetail[]> {
     const query = new URLSearchParams();
     if (params.category) query.set("category", params.category);
+    if (params.interest) query.set("interest", params.interest);
+    if (params.district) query.set("district", params.district);
+    if (params.region) query.set("region", params.region);
     if (params.search) query.set("search", params.search);
+    if (params.verification_status) query.set("verification_status", params.verification_status);
+    if (params.is_medical != null) query.set("is_medical", params.is_medical ? "true" : "false");
+    if (params.is_transit != null) query.set("is_transit", params.is_transit ? "true" : "false");
+    if (params.near_lat != null) query.set("near_lat", params.near_lat.toString());
+    if (params.near_lon != null) query.set("near_lon", params.near_lon.toString());
+    if (params.radius_km != null) query.set("radius_km", params.radius_km.toString());
+    if (params.limit != null) query.set("limit", params.limit.toString());
+    if (params.offset != null) query.set("offset", params.offset.toString());
     const qs = query.toString() ? `?${query.toString()}` : "";
 
     return this.request<PlaceDetail[]>(
@@ -269,6 +304,7 @@ export class ApiClient {
       }
     );
   }
+
 
   async getPlace(placeId: string): Promise<PlaceDetail> {
     return this.request<PlaceDetail>(
@@ -297,6 +333,120 @@ export class ApiClient {
           isPlainObject(data.current)
         );
       }
+    );
+  }
+
+  async getSearchSuggestions(query: string, limit = 5): Promise<SearchSuggestion[]> {
+    const params = new URLSearchParams({ query, limit: String(limit) });
+    return this.request<SearchSuggestion[]>(
+      `/places/suggestions?${params.toString()}`,
+      { method: "GET" },
+      (data): data is SearchSuggestion[] => Array.isArray(data)
+    );
+  }
+
+  // =========================================================================
+  // Auth API Methods
+  // =========================================================================
+
+  async getAuthMe(): Promise<import("./contracts").AuthResponse> {
+    return this.request<import("./contracts").AuthResponse>(
+      "/auth/me",
+      { method: "GET", credentials: "include" },
+      (data): data is import("./contracts").AuthResponse =>
+        isPlainObject(data) && typeof data.authenticated === "boolean"
+    );
+  }
+
+  async logout(): Promise<{ authenticated: boolean }> {
+    return this.request<{ authenticated: boolean }>(
+      "/auth/logout",
+      { method: "POST", credentials: "include" },
+      (data): data is { authenticated: boolean } =>
+        isPlainObject(data) && typeof data.authenticated === "boolean"
+    );
+  }
+
+  // =========================================================================
+  // Cloud Synchronization API Methods
+  // =========================================================================
+
+  async getSyncedPlaces(): Promise<import("./contracts").SyncSavedPlacesResponse> {
+    return this.request<import("./contracts").SyncSavedPlacesResponse>(
+      "/api/v1/sync/saved-places",
+      { method: "GET", credentials: "include" },
+      (data): data is import("./contracts").SyncSavedPlacesResponse =>
+        isPlainObject(data) && typeof data.synced_count === "number" && Array.isArray(data.items)
+    );
+  }
+
+  async syncSavedPlaces(items: import("./contracts").SyncPlaceItem[]): Promise<import("./contracts").SyncSavedPlacesResponse> {
+    return this.request<import("./contracts").SyncSavedPlacesResponse>(
+      "/api/v1/sync/saved-places",
+      {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify({ items }),
+      },
+      (data): data is import("./contracts").SyncSavedPlacesResponse =>
+        isPlainObject(data) && typeof data.synced_count === "number" && Array.isArray(data.items)
+    );
+  }
+
+  async getSyncedTrips(): Promise<import("./contracts").SyncTripsResponse> {
+    return this.request<import("./contracts").SyncTripsResponse>(
+      "/api/v1/sync/trips",
+      { method: "GET", credentials: "include" },
+      (data): data is import("./contracts").SyncTripsResponse =>
+        isPlainObject(data) && typeof data.synced_count === "number" && Array.isArray(data.items)
+    );
+  }
+
+  async syncTrips(items: import("./contracts").SyncTripItem[]): Promise<import("./contracts").SyncTripsResponse> {
+    return this.request<import("./contracts").SyncTripsResponse>(
+      "/api/v1/sync/trips",
+      {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify({ items }),
+      },
+      (data): data is import("./contracts").SyncTripsResponse =>
+        isPlainObject(data) && typeof data.synced_count === "number" && Array.isArray(data.items)
+    );
+  }
+
+  // =========================================================================
+  // Trip Sharing & Read-Only Snapshot API Methods
+  // =========================================================================
+
+  async createSharedTrip(payload: import("../types/api").CreateShareTripRequest): Promise<import("../types/api").CreateShareTripResponse> {
+    return this.request<import("../types/api").CreateShareTripResponse>(
+      "/api/v1/trips/share",
+      {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify(payload),
+      },
+      (data): data is import("../types/api").CreateShareTripResponse =>
+        isPlainObject(data) &&
+        typeof data.share_id === "string" &&
+        typeof data.share_url === "string" &&
+        typeof data.created_at === "number"
+    );
+  }
+
+  async getSharedTrip(shareId: string): Promise<import("../types/api").PublicSharedTripResponse> {
+    return this.request<import("../types/api").PublicSharedTripResponse>(
+      `/api/v1/trips/shared/${encodeURIComponent(shareId)}`,
+      {
+        method: "GET",
+      },
+      (data): data is import("../types/api").PublicSharedTripResponse =>
+        isPlainObject(data) &&
+        typeof data.share_id === "string" &&
+        typeof data.title === "string" &&
+        isPlainObject(data.itinerary) &&
+        typeof data.created_at === "number"
     );
   }
 }

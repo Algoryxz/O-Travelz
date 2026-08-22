@@ -47,6 +47,7 @@ class MockPlacesDB:
             place = Place(
                 id=place_id,
                 name=p["name"],
+                district=p.get("district"),
                 category_id=cat.id if cat else uuid4(),
                 description=p.get("description"),
                 avg_visit_minutes=p.get("avg_visit_minutes", 60),
@@ -70,9 +71,13 @@ class MockQuery:
     def join(self, *args, **kwargs):
         return self
 
+    def options(self, *args, **kwargs):
+        return self
+
     def filter(self, *criteria):
         filtered = self.items
         for crit in criteria:
+            crit_str = str(crit).lower()
             if hasattr(crit, "left") and hasattr(crit, "right"):
                 col_name = getattr(crit.left, "name", None)
                 val = getattr(crit.right, "value", None)
@@ -82,11 +87,40 @@ class MockQuery:
                     filtered = [(p, c) for p, c in filtered if str(getattr(p, "research_id", "")) == str(val)]
                 elif col_name == "category_id":
                     filtered = [(p, c) for p, c in filtered if str(p.category_id) == str(val)]
-            else:
-                crit_str = str(crit).lower()
-                if "places.id" in crit_str or "place.id" in crit_str:
+                elif col_name == "district":
+                    val_clean = str(val).strip("%").lower() if val else ""
+                    filtered = [(p, c) for p, c in filtered if getattr(p, "district", "") and val_clean in getattr(p, "district", "").lower()]
+                elif col_name == "name" and "categories" in crit_str:
+                    val_clean = str(val).strip("%").lower() if val else ""
+                    filtered = [(p, c) for p, c in filtered if c and val_clean == c.name.lower()]
+            elif "categories.name" in crit_str:
+                try:
+                    val = str(crit.right.value).strip("%").lower()
+                    filtered = [(p, c) for p, c in filtered if c and val == c.name.lower()]
+                except Exception:
+                    pass
+            elif "places.district" in crit_str:
+                try:
+                    val = str(crit.right.value).strip("%").lower()
+                    filtered = [(p, c) for p, c in filtered if getattr(p, "district", "") and val in getattr(p, "district", "").lower()]
+                except Exception:
+                    pass
+            elif "places.name" in crit_str or "places.description" in crit_str:
+                try:
+                    terms = []
+                    for clause in getattr(crit, "clauses", [crit]):
+                        if hasattr(clause, "right") and hasattr(clause.right, "value"):
+                            terms.append(str(clause.right.value).strip("%").lower())
+                    if terms:
+                        term = terms[0]
+                        filtered = [
+                            (p, c) for p, c in filtered
+                            if term in p.name.lower() or (p.description and term in p.description.lower())
+                        ]
+                except Exception:
                     pass
         return MockQuery(filtered)
+
 
     def filter_by_category(self, cat_name: str):
         return MockQuery([
@@ -255,3 +289,36 @@ def test_ai_refinement_and_clarification_handling():
     res_no_ctx = adapter.parse_intent("Make it more food focused", None)
     assert res_no_ctx["kind"] == IntentKind.CLARIFICATION.value
     assert "Which existing itinerary should I refine?" in res_no_ctx["clarification"]["question"]
+
+
+def test_expanded_dataset_search_across_districts_medical_and_transit():
+    """Verify places API search and filtering across expanded 30-district dataset, hospitals, and transit hubs."""
+    # 1. Search by destination name in newly covered district
+
+    res_harishankar = client.get("/places?search=Harishankar")
+    assert res_harishankar.status_code == 200
+    names = [p["name"] for p in res_harishankar.json()]
+    assert any("Harishankar" in n for n in names)
+
+    # 2. Filter by newly added district
+    res_angul = client.get("/places?district=Angul")
+    assert res_angul.status_code == 200
+    angul_places = res_angul.json()
+    assert len(angul_places) >= 3
+    assert all(p["district"] == "Angul" for p in angul_places)
+
+    # 3. Filter by medical category (hospital)
+    res_hospitals = client.get("/places?category=hospital")
+    assert res_hospitals.status_code == 200
+    hospital_places = res_hospitals.json()
+    assert len(hospital_places) >= 10
+    assert any("AIIMS" in p["name"] for p in hospital_places)
+    assert any("SCB Medical" in p["name"] for p in hospital_places)
+
+    # 4. Filter by transit category (transit_hub)
+    res_transit = client.get("/places?category=transit_hub")
+    assert res_transit.status_code == 200
+    transit_places = res_transit.json()
+    assert len(transit_places) >= 10
+    assert any("Airport" in p["name"] for p in transit_places)
+    assert any("Railway Station" in p["name"] for p in transit_places)

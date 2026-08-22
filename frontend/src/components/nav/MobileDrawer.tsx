@@ -16,6 +16,7 @@ import {
   Route,
 } from "lucide-react";
 import { useTheme } from "../../store/useTheme";
+import { AuthStatusButton } from "../auth/AuthStatusButton";
 
 export interface MobileDrawerProps {
   isOpen: boolean;
@@ -57,9 +58,10 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
   ];
 
   const discoveryShortcuts = [
-    { id: "destinations", label: "All Destinations Index (81)", icon: Layers, testId: "drawer-nav-all-destinations" },
+    { id: "destinations", label: "All Destinations Index", icon: Layers, testId: "drawer-nav-all-destinations" },
     { id: "category", label: "Thematic Travel Circuits", icon: Route, testId: "drawer-nav-thematic-circuits" },
   ];
+
 
   return (
     <div className="fixed inset-0 z-50 flex">
@@ -102,6 +104,12 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
 
         {/* Navigation Items */}
         <div className="p-4 space-y-4 flex-1 overflow-y-auto">
+          {/* User Profile & Sync Status */}
+          <div className="pb-3 border-b border-[#263244] flex items-center justify-between">
+            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-mono">Account</span>
+            <AuthStatusButton />
+          </div>
+
           {/* Section 1: Navigate */}
           <div className="space-y-1.5">
             <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-mono px-3 py-1">

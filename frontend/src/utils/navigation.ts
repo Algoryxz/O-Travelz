@@ -19,7 +19,8 @@ export type AppNavTab =
   | "settings"
   | "privacy"
   | "terms"
-  | "contact";
+  | "contact"
+  | "shared";
 
 export const SUPPORTED_HASH_TABS: Record<string, AppNavTab> = {
   discover: "discover",
@@ -31,6 +32,7 @@ export const SUPPORTED_HASH_TABS: Record<string, AppNavTab> = {
   privacy: "privacy",
   terms: "terms",
   contact: "contact",
+  shared: "shared",
 };
 
 /**
@@ -56,10 +58,24 @@ export function normalizeHash(rawHash: string | null | undefined): string {
 }
 
 /**
+ * Extracts a shareable trip snapshot identifier from a URL hash string.
+ * Supports #trip/shared/{share_id} and #shared/{share_id}.
+ */
+export function extractShareIdFromHash(rawHash: string | null | undefined): string | null {
+  if (!rawHash) return null;
+  const clean = normalizeHash(rawHash);
+  const match = clean.match(/(?:trip\/)?shared\/([a-zA-Z0-9_-]+)/i);
+  return match ? match[1] : null;
+}
+
+/**
  * Resolves an application tab from a browser URL hash string.
  * Unsupported or malformed hashes safely fall back to "discover".
  */
 export function getTabFromHash(rawHash: string | null | undefined): AppNavTab {
+  if (extractShareIdFromHash(rawHash)) {
+    return "shared";
+  }
   const normalized = normalizeHash(rawHash);
   if (!normalized) return "discover";
 
@@ -93,6 +109,8 @@ export function getHashForTab(tab: AppNavTab | string): string {
       return "#terms";
     case "contact":
       return "#contact";
+    case "shared":
+      return "#shared";
     case "discover":
     default:
       return "#discover";
@@ -103,6 +121,7 @@ export function getHashForTab(tab: AppNavTab | string): string {
  * Checks whether a given raw hash corresponds to a valid, supported tab.
  */
 export function isValidTabHash(rawHash: string | null | undefined): boolean {
+  if (extractShareIdFromHash(rawHash)) return true;
   const normalized = normalizeHash(rawHash);
   return Boolean(normalized && SUPPORTED_HASH_TABS[normalized]);
 }

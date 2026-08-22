@@ -9,6 +9,9 @@ from app.api.ai_routes import router as ai_router
 from app.api.map_routes import router as map_router
 from app.api.places_routes import router as places_router
 from app.api.image_routes import router as image_router
+from app.api.auth_routes import router as auth_router
+from app.api.sync_routes import router as sync_router
+from app.api.share_routes import router as share_router
 from app.api.weather_routes import router as weather_router
 from app.geospatial.http_adapter import MapProjectionHTTPError
 from app.schemas.api import APIErrorDetail, APIErrorResponse
@@ -45,6 +48,9 @@ def health() -> dict:
     return {"status": "ok"}
 
 
+app.include_router(auth_router, prefix="/auth", tags=["auth"])
+app.include_router(sync_router, prefix="/api/v1/sync", tags=["sync"])
+app.include_router(share_router, tags=["share"])
 app.include_router(transport_router, prefix="/transport", tags=["transport"])
 app.include_router(itinerary_router, prefix="/itinerary", tags=["itinerary"])
 app.include_router(places_router, prefix="/places", tags=["places"])

@@ -20,11 +20,14 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import re
 import sys
+from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Iterable
+
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "places"
 BACKEND_DIR = DATA_DIR.parent.parent / "backend"
@@ -56,19 +59,29 @@ _PLACE_FIELDS = frozenset(
         "lon",
         "description",
         "opening_hours",
+        "opening_hours_source",
         "avg_visit_minutes",
         "price_tier",
+        "rating",
+        "rating_count",
+        "rating_source",
         "interests",
         "source",
+        "source_url",
         "source_provenance_note",
         "coordinate_verification",
         "coordinate_audit_status",
         "audit_status",
+        "verification_status",
         "verified_at",
         "district",
+        "contact_phone",
+        "emergency_phone",
+        "address",
         "_comment",
     }
 )
+
 
 
 class ImportValidationError(ValueError):
@@ -238,7 +251,9 @@ def _validate_places(
 
     validated: list[dict[str, Any]] = []
     seen: set[tuple[str, ...]] = set()
+    seen_names_by_district: dict[str, set[str]] = defaultdict(set)
     for index, record in enumerate(records):
+
         label = f"places[{index}]"
         if not isinstance(record, dict):
             raise ImportValidationError(f"{label} must be an object")
@@ -269,6 +284,12 @@ def _validate_places(
             "coordinate_verification",
             "coordinate_audit_status",
             "audit_status",
+            "rating_source",
+            "opening_hours_source",
+            "source_url",
+            "contact_phone",
+            "emergency_phone",
+            "address",
         ):
             value = record.get(field)
             if value is not None and not isinstance(value, str):
@@ -278,6 +299,41 @@ def _validate_places(
             raise ImportValidationError(
                 f"{label}.coordinate_audit_status must be high for non-null coordinates"
             )
+
+        verification_status = record.get("verification_status")
+        if verification_status is not None:
+            if not isinstance(verification_status, str) or verification_status not in (
+                "VERIFIED",
+                "UNVERIFIED",
+                "UNAVAILABLE",
+            ):
+                raise ImportValidationError(
+                    f"{label}.verification_status must be 'VERIFIED', 'UNVERIFIED', 'UNAVAILABLE', or null"
+                )
+
+        rating = record.get("rating")
+        if rating is not None:
+            if (
+                isinstance(rating, bool)
+                or not isinstance(rating, (int, float))
+                or not math.isfinite(float(rating))
+                or float(rating) < 0.0
+                or float(rating) > 5.0
+            ):
+                raise ImportValidationError(
+                    f"{label}.rating must be a finite number between 0.0 and 5.0 or null"
+                )
+
+        rating_count = record.get("rating_count")
+        if rating_count is not None:
+            if (
+                isinstance(rating_count, bool)
+                or not isinstance(rating_count, int)
+                or rating_count < 0
+            ):
+                raise ImportValidationError(
+                    f"{label}.rating_count must be a non-negative integer or null"
+                )
 
         source = _require_nonempty_string(record, "source", label)
         if source == "REQUIRED" or source.startswith("REQUIRED:"):
@@ -302,16 +358,12 @@ def _validate_places(
             raise ImportValidationError(f"{label}.price_tier must be a string or null")
         _validate_verified_at(record.get("verified_at"), label)
 
-        district = record.get("district")
-        if district is not None:
-            if not isinstance(district, str) or not validate_district(district):
-                raise ImportValidationError(
-                    f"{label}.district {district!r} is not a valid Odisha administrative district"
-                )
-        elif require_district:
-            raise ImportValidationError(
-                f"{label} requires a non-empty district"
-            )
+
+        if lat is not None and lon is not None:
+            if (80.0 <= lat <= 90.0) and (16.0 <= lon <= 25.0):
+                raise ImportValidationError(f"{label} has obviously swapped lat/lon coordinates ({lat}, {lon})")
+            if not (17.5 <= lat <= 22.8 and 81.2 <= lon <= 87.6):
+                raise ImportValidationError(f"{label} coordinates ({lat}, {lon}) outside Odisha envelope")
 
         # Validate interests if present
         raw_interests = record.get("interests")
@@ -342,6 +394,40 @@ def _validate_places(
                 f"{label} duplicates place identity (name, category, source)"
             )
         seen.add(identity)
+
+        district = record.get("district")
+        if district is not None:
+            if not isinstance(district, str) or not validate_district(district):
+                raise ImportValidationError(
+                    f"{label}.district {district!r} is not a valid Odisha administrative district"
+                )
+            norm_dist = district.strip().title()
+            norm_nm = name.strip().casefold()
+            if norm_nm in seen_names_by_district[norm_dist]:
+                raise ImportValidationError(
+                    f"{label} duplicates place name {name!r} within district {norm_dist!r}"
+                )
+            seen_names_by_district[norm_dist].add(norm_nm)
+        elif require_district:
+            raise ImportValidationError(
+                f"{label} requires a non-empty district"
+            )
+
+        # Medical & Transit strict domain validation
+        if category in ("hospital", "emergency_facility"):
+            if lat is None or lon is None:
+                raise ImportValidationError(f"{label} medical facility requires valid coordinates")
+            emer_ph = record.get("emergency_phone")
+            if emer_ph is not None and isinstance(emer_ph, str):
+                if re.match(r"^(0{4,}|1{4,}|9{8,}|1234567890|n/?a|none|null|tbd)$", emer_ph.strip(), re.I):
+                    raise ImportValidationError(f"{label} has invalid/synthetic emergency_phone {emer_ph!r}")
+
+        if category == "transit_hub":
+            if lat is None or lon is None:
+                raise ImportValidationError(f"{label} transit hub requires valid coordinates")
+            if district is None:
+                raise ImportValidationError(f"{label} transit hub requires a non-empty district")
+
         validated.append(
             {
                 **record,
@@ -544,16 +630,26 @@ def import_records(
                 "location": location,
                 "description": record.get("description"),
                 "opening_hours": record.get("opening_hours"),
+                "opening_hours_source": record.get("opening_hours_source"),
                 "avg_visit_minutes": record.get("avg_visit_minutes"),
                 "price_tier": record.get("price_tier"),
+                "rating": float(record["rating"]) if record.get("rating") is not None else None,
+                "rating_count": record.get("rating_count"),
+                "rating_source": record.get("rating_source"),
                 "source": record["source"],
+                "source_url": record.get("source_url"),
                 "verified_at": _parse_verified_at(record.get("verified_at")),
+                "verification_status": record.get("verification_status"),
                 "source_provenance_note": record.get("source_provenance_note"),
                 "coordinate_verification": record.get("coordinate_verification"),
                 "coordinate_audit_status": record.get("coordinate_audit_status"),
                 "audit_status": record.get("audit_status"),
                 "district": record.get("district"),
+                "contact_phone": record.get("contact_phone"),
+                "emergency_phone": record.get("emergency_phone"),
+                "address": record.get("address"),
             }
+
             existing = None
             if values["research_id"] is not None:
                 existing = _find_one(session, place_model, research_id=values["research_id"])

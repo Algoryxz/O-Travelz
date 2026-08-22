@@ -2,11 +2,12 @@
 import uuid
 
 from geoalchemy2 import Geography
-from sqlalchemy import Column, ForeignKey, Integer, String, JSON, DateTime, UniqueConstraint
+from sqlalchemy import Column, ForeignKey, Integer, Float, String, JSON, DateTime, UniqueConstraint, Index
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
-from app.db.base import Base
+from app.db.base_class import Base
+
 
 
 class Place(Base):
@@ -17,6 +18,10 @@ class Place(Base):
         UniqueConstraint(
             "name", "category_id", "source", name="uq_places_canonical_identity"
         ),
+        Index("ix_places_district", "district"),
+        Index("ix_places_name", "name"),
+        Index("ix_places_category_id", "category_id"),
+        Index("ix_places_verification_status", "verification_status"),
     )
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
@@ -28,15 +33,24 @@ class Place(Base):
     description = Column(String, nullable=True)
     # Structured opening hours; null when genuinely unknown -- never guessed.
     opening_hours = Column(JSON, nullable=True)
+    opening_hours_source = Column(String, nullable=True)
     avg_visit_minutes = Column(Integer, nullable=True)
     price_tier = Column(String, nullable=True)  # e.g. free / low / medium / high
+    rating = Column(Float, nullable=True)
+    rating_count = Column(Integer, nullable=True)
+    rating_source = Column(String, nullable=True)
     source = Column(String, nullable=False)  # URL or "on-the-ground, verified <date>"
+    source_url = Column(String, nullable=True)
     verified_at = Column(DateTime, nullable=True)
+    verification_status = Column(String, nullable=True)  # VERIFIED / UNVERIFIED / UNAVAILABLE
     source_provenance_note = Column(String, nullable=True)
     coordinate_verification = Column(String, nullable=True)
     coordinate_audit_status = Column(String, nullable=True)
     audit_status = Column(String, nullable=True)
     district = Column(String, nullable=True)
+    contact_phone = Column(String, nullable=True)
+    emergency_phone = Column(String, nullable=True)
+    address = Column(String, nullable=True)
 
     # Category relationship
     category = relationship("Category")

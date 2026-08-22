@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
-import type { PlaceDetail } from "../api/contracts";
+import type { PlaceDetail, PlaceListParams } from "../api/contracts";
 import { apiClient as defaultApiClient, ApiClient } from "../api/client";
+
 import { getPlaceImageUrl } from "../utils/imageService";
 import { resolvePlaceImageUrl } from "../utils/imageAdapter";
 import { getRegionForPlace } from "../utils/regionUtils";
@@ -101,5 +102,132 @@ export function usePlaces(client?: ApiClient): UsePlacesResult {
     refetch: fetchPlaces,
     getPlaceByName,
     getPlaceById,
+  };
+}
+
+export interface UsePlaceSearchResult {
+  places: ExtendedPlaceDetail[];
+  isLoading: boolean;
+  error: unknown | null;
+  refetch: () => Promise<void>;
+}
+
+export function usePlaceSearch(
+  params: PlaceListParams = {},
+  client?: ApiClient,
+  debounceMs: number = 200
+): UsePlaceSearchResult {
+  const [places, setPlaces] = useState<ExtendedPlaceDetail[]>(() => {
+    if (!params.search && !params.category && !params.district && !params.region && !params.interest) {
+      return FALLBACK_EXTENDED_PLACES;
+    }
+    return FALLBACK_EXTENDED_PLACES.filter((p) => {
+      if (params.district && p.district?.toLowerCase() !== params.district.toLowerCase()) return false;
+      if (params.category && p.category.toLowerCase() !== params.category.toLowerCase()) return false;
+      if (params.region && p.region.toLowerCase() !== params.region.toLowerCase()) return false;
+      if (params.interest && !(p.interests || []).map((i) => i.toLowerCase()).includes(params.interest.toLowerCase())) return false;
+      if (params.search) {
+        const q = params.search.toLowerCase().trim();
+        const matchName = p.name.toLowerCase().includes(q);
+        const matchDesc = (p.description || "").toLowerCase().includes(q);
+        const matchDist = (p.district || "").toLowerCase().includes(q);
+        const matchRegion = (p.region || "").toLowerCase().includes(q);
+        const matchCat = p.category.toLowerCase().includes(q);
+        const matchInt = (p.interests || []).some((i) => i.toLowerCase().includes(q));
+        if (!matchName && !matchDesc && !matchDist && !matchRegion && !matchCat && !matchInt) return false;
+      }
+      return true;
+    });
+  });
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<unknown | null>(null);
+
+  const fetchResults = useCallback(async () => {
+    const api = client ?? defaultApiClient;
+    setIsLoading(true);
+    setError(null);
+    try {
+      const data = await api.listPlaces(params);
+      if (Array.isArray(data)) {
+        setPlaces(data.map(toExtendedPlace));
+      }
+    } catch (err) {
+      setError(err);
+      // Filter bundled fallbacks locally on network error
+      const filtered = FALLBACK_EXTENDED_PLACES.filter((p) => {
+        if (params.district && p.district?.toLowerCase() !== params.district.toLowerCase()) return false;
+        if (params.category && p.category.toLowerCase() !== params.category.toLowerCase()) return false;
+        if (params.region && p.region.toLowerCase() !== params.region.toLowerCase()) return false;
+        if (params.interest && !(p.interests || []).map((i) => i.toLowerCase()).includes(params.interest.toLowerCase())) return false;
+        if (params.search) {
+          const q = params.search.toLowerCase().trim();
+          const matchName = p.name.toLowerCase().includes(q);
+          const matchDesc = (p.description || "").toLowerCase().includes(q);
+          const matchDist = (p.district || "").toLowerCase().includes(q);
+          const matchRegion = (p.region || "").toLowerCase().includes(q);
+          const matchCat = p.category.toLowerCase().includes(q);
+          const matchInt = (p.interests || []).some((i) => i.toLowerCase().includes(q));
+          if (!matchName && !matchDesc && !matchDist && !matchRegion && !matchCat && !matchInt) return false;
+        }
+        return true;
+      });
+      setPlaces(filtered);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [client, JSON.stringify(params)]);
+
+  useEffect(() => {
+    let isCancelled = false;
+    const timer = setTimeout(async () => {
+      const api = client ?? defaultApiClient;
+      setIsLoading(true);
+      setError(null);
+      try {
+        const data = await api.listPlaces(params);
+        if (!isCancelled && Array.isArray(data)) {
+          setPlaces(data.map(toExtendedPlace));
+        }
+      } catch (err) {
+        if (!isCancelled) {
+          setError(err);
+          const filtered = FALLBACK_EXTENDED_PLACES.filter((p) => {
+            if (params.district && p.district?.toLowerCase() !== params.district.toLowerCase()) return false;
+            if (params.category && p.category.toLowerCase() !== params.category.toLowerCase()) return false;
+            if (params.region && p.region.toLowerCase() !== params.region.toLowerCase()) return false;
+            if (params.interest && !(p.interests || []).map((i) => i.toLowerCase()).includes(params.interest.toLowerCase())) return false;
+            if (params.search) {
+              const q = params.search.toLowerCase().trim();
+              const matchName = p.name.toLowerCase().includes(q);
+              const matchDesc = (p.description || "").toLowerCase().includes(q);
+              const matchDist = (p.district || "").toLowerCase().includes(q);
+              const matchRegion = (p.region || "").toLowerCase().includes(q);
+              const matchCat = p.category.toLowerCase().includes(q);
+              const matchInt = (p.interests || []).some((i) => i.toLowerCase().includes(q));
+              if (!matchName && !matchDesc && !matchDist && !matchRegion && !matchCat && !matchInt) return false;
+            }
+            return true;
+          });
+          setPlaces(filtered);
+        }
+      } finally {
+        if (!isCancelled) {
+          setIsLoading(false);
+        }
+      }
+    }, debounceMs);
+
+    return () => {
+      isCancelled = true;
+      clearTimeout(timer);
+    };
+  }, [client, JSON.stringify(params), debounceMs]);
+
+  return {
+    places,
+    isLoading,
+    error,
+    refetch: fetchResults,
   };
 }

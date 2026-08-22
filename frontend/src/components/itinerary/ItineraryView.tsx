@@ -1,6 +1,9 @@
 import React, { useState, useCallback } from "react";
 import type { ItineraryPlanResponse } from "../../types/api";
 import { ItineraryDaySection } from "./ItineraryDaySection";
+import { ShareTripModal } from "./ShareTripModal";
+import { ItineraryExportModal } from "./ItineraryExportModal";
+import { PrintableItineraryView } from "./PrintableItineraryView";
 import { usePlaces } from "../../store/usePlaces";
 import {
   generateTravelerTripTitle,
@@ -17,6 +20,8 @@ import {
   Clock,
   Compass,
   Sparkles,
+  Share2,
+  FileDown,
 } from "lucide-react";
 
 interface ItineraryViewProps {
@@ -35,6 +40,8 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
 
   const [copied, setCopied] = useState<boolean>(false);
   const [copyError, setCopyError] = useState<string | null>(null);
+  const [isShareOpen, setIsShareOpen] = useState<boolean>(false);
+  const [isExportOpen, setIsExportOpen] = useState<boolean>(false);
 
   const totalStopsCount = days.reduce((acc, d) => acc + d.stops.length, 0);
   const totalTransitMinutes = calculateItineraryTotalTransitMinutes(itinerary);
@@ -107,8 +114,30 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
             )}
           </div>
 
-          {/* Action: Copy Itinerary Summary */}
-          <div className="flex items-center gap-2 shrink-0">
+          {/* Action Buttons: Export/Print, Share Trip & Copy Summary */}
+          <div className="flex items-center flex-wrap gap-2 shrink-0">
+            <button
+              type="button"
+              data-testid="export-itinerary-button"
+              onClick={() => setIsExportOpen(true)}
+              className="px-4 py-2.5 rounded-2xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border shadow-2xs bg-[#172235] text-slate-200 border-[#263244] hover:bg-[#1E2D44] hover:border-[#14B8A6]/40 hover:text-white"
+              aria-label="Export Itinerary"
+            >
+              <FileDown size={14} className="text-[#14B8A6]" />
+              <span>Export / Print</span>
+            </button>
+
+            <button
+              type="button"
+              data-testid="share-trip-button"
+              onClick={() => setIsShareOpen(true)}
+              className="px-4 py-2.5 rounded-2xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border shadow-2xs bg-[#14B8A6]/20 text-teal-300 border-[#14B8A6]/40 hover:bg-[#14B8A6]/30"
+              aria-label="Share Trip"
+            >
+              <Share2 size={14} className="text-[#14B8A6]" />
+              <span>Share Trip</span>
+            </button>
+
             <button
               type="button"
               data-testid="copy-itinerary-button"
@@ -234,6 +263,27 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
             requestedInterests={constraints?.interests || []}
           />
         ))}
+      </div>
+
+      {/* Share Trip Modal */}
+      <ShareTripModal
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
+        itinerary={itinerary}
+        tripTitle={tripTitle}
+      />
+
+      {/* Export & Print Modal */}
+      <ItineraryExportModal
+        isOpen={isExportOpen}
+        onClose={() => setIsExportOpen(false)}
+        itinerary={itinerary}
+        tripTitle={tripTitle}
+      />
+
+      {/* Dedicated Print-Only Representation for Native Browser Printing */}
+      <div className="print-only" aria-hidden="true">
+        <PrintableItineraryView itinerary={itinerary} tripTitle={tripTitle} />
       </div>
     </div>
   );

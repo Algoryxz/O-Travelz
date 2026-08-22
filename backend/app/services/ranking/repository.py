@@ -92,17 +92,22 @@ def _origin_matches(records: Sequence[VerifiedPlace], value: str) -> VerifiedPla
     return None
 
 
+NON_LEISURE_CATEGORIES: frozenset[str] = frozenset({"hospital", "emergency_facility", "transit_hub"})
+
+
 class InMemoryPlaceRepository:
     """Deterministic repository used by unit and service tests."""
 
     def __init__(self, places: Sequence[VerifiedPlace]):
         self._places = tuple(places)
 
-    def list_verified_places(self) -> Sequence[VerifiedPlace]:
-        return self._places
+    def list_verified_places(self, include_non_leisure: bool = False) -> Sequence[VerifiedPlace]:
+        if include_non_leisure:
+            return self._places
+        return tuple(p for p in self._places if p.category_id not in NON_LEISURE_CATEGORIES)
 
     def resolve_origin(self, value: str) -> VerifiedPlace | None:
-        return _origin_matches(self._places, value)
+        return _origin_matches(self.list_verified_places(include_non_leisure=True), value)
 
 
 class SQLAlchemyPlaceRepository:
@@ -111,20 +116,21 @@ class SQLAlchemyPlaceRepository:
     def __init__(self, session):
         self._session = session
 
-    def list_verified_places(self) -> Sequence[VerifiedPlace]:
+    def list_verified_places(self, include_non_leisure: bool = False) -> Sequence[VerifiedPlace]:
         from sqlalchemy.orm import joinedload
         from app.models.category import Category
         from app.models.place import Place
-        from app.models.interest import PlaceInterest
 
         query = (
             self._session.query(Place, Category)
             .join(Category, Place.category_id == Category.id)
             .filter(Place.verified_at.isnot(None))
         )
+        if not include_non_leisure:
+            query = query.filter(~Category.name.in_(NON_LEISURE_CATEGORIES))
+
         if hasattr(query, "options"):
             try:
-                from sqlalchemy.orm import joinedload
                 from app.models.interest import PlaceInterest
                 query = query.options(
                     joinedload(Place.interest_associations).joinedload(PlaceInterest.interest)
@@ -135,7 +141,7 @@ class SQLAlchemyPlaceRepository:
         return tuple(self._record(place, category) for place, category in rows)
 
     def resolve_origin(self, value: str) -> VerifiedPlace | None:
-        return _origin_matches(self.list_verified_places(), value)
+        return _origin_matches(self.list_verified_places(include_non_leisure=True), value)
 
     @staticmethod
     def _record(place, category) -> VerifiedPlace:

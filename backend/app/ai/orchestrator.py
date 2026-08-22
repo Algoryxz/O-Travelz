@@ -16,7 +16,7 @@ from app.ai.schemas import (
     PlanningConstraints,
 )
 from app.ai.schemas import ModelResponse
-from app.ai.tools import BuildItineraryTool, GetProviderStatusTool, PlanTransportHopTool, ToolStatus
+from app.ai.tools import BuildItineraryTool, GetProviderStatusTool, PlanTransportHopTool, SearchPlacesTool, ToolStatus
 
 
 class AIOrchestrator:
@@ -29,14 +29,17 @@ class AIOrchestrator:
         build_itinerary: BuildItineraryTool,
         plan_transport_hop: PlanTransportHopTool,
         get_provider_status: GetProviderStatusTool,
+        search_places: SearchPlacesTool | None = None,
         grounding: GroundingBoundary | None = None,
     ):
         self.model = model
-        self.tools = {
+        self.tools: dict[str, Any] = {
             "build_itinerary": build_itinerary,
             "plan_transport_hop": plan_transport_hop,
             "get_provider_status": get_provider_status,
         }
+        if search_places is not None:
+            self.tools["search_places"] = search_places
         self.grounding = grounding or GroundingBoundary()
 
     def orchestrate(
@@ -77,27 +80,30 @@ class AIOrchestrator:
         if constraint_error:
             return AIResponse(status=AIStatus.UNSUPPORTED, message=constraint_error)
 
-        if not any(call.name == "build_itinerary" for call in intent.tool_calls):
+        has_approved_tool = any(call.name in self.tools for call in intent.tool_calls)
+        if not has_approved_tool:
             return AIResponse(
                 status=AIStatus.CLARIFICATION,
-                message="I need a validated build_itinerary tool decision before I can plan this request.",
+                message="I need a validated tool decision before I can fulfill this request.",
                 clarification=Clarification(
-                    question="Should I build an itinerary from these supported constraints?",
-                    reason="The model did not select the approved itinerary tool.",
+                    question="Should I build an itinerary or search places with these supported constraints?",
+                    reason="The model did not select an approved tool.",
                 ),
             )
 
         for call in intent.tool_calls:
+            if call.name not in self.tools:
+                continue
             raw_args: Any = call.arguments
             if call.name == "build_itinerary":
-                # Canonicalize constraints at the orchestration boundary.  The
-                # model cannot smuggle itinerary facts or replace service logic.
+                # Canonicalize constraints at the orchestration boundary.
                 raw_args = {"constraints": effective.model_dump(mode="json"), "candidate_places": []}
             result = self.tools[call.name].execute(raw_args)
             context.record(result)
             if result.status in {ToolStatus.INVALID, ToolStatus.ERROR}:
                 status = AIStatus.CLARIFICATION if result.status is ToolStatus.INVALID else AIStatus.ERROR
                 return AIResponse(status=status, message=result.reason or "The deterministic planner could not complete the request.")
+
 
         try:
             raw_response = self.model.generate_response(context.snapshot())

@@ -171,7 +171,7 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder={`Find places near ${selectedLocation}...`}
                 className="w-full text-xs sm:text-sm text-white placeholder-slate-400 bg-transparent border-0 outline-hidden py-2"
-                aria-label="Search places"
+                aria-label="Search destinations in English, Odia, or Hindi"
               />
               <button
                 type="submit"
@@ -179,6 +179,10 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
               >
                 Search
               </button>
+            </div>
+            <div className="flex items-center gap-2 mt-2 px-1 text-[11px] text-slate-400 font-medium">
+              <span className="text-[#14B8A6] font-semibold">Multilingual:</span>
+              <span>English · ଓଡ଼ିଆ · हिन्दी</span>
             </div>
           </form>
 

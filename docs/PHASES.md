@@ -868,19 +868,678 @@ Prepare O-Travelz for production deployment without modifying application code, 
 
 ---
 
-## Historical Release Gate (2026-08-20 — Pre-Phase-7 Baseline)
+---
 
-**Status**: **HISTORICAL RECORD — SUPERSEDED BY PHASE 10 / 10B BASELINE**
+## Phase 11 — Odisha Knowledge Base Expansion & Whole-Odisha Scaling
 
-The complete whole-Odisha product, weather subsystem, transit-aware timeline, authoritative map projection, and normalized interest dataset synchronization are fully implemented and verified.
+### Phase 11 Step 1 — Whole-Codebase Learning, Capability Audit & Discovery
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Comprehensive discovery, invariant verification, and capability audit across all 34 system dimensions.
+- **Deliverables**: `docs/PHASE11_STEP1_AUDIT.md` (baseline metrics, 30-district matrix, model gaps, search, map/transit, weather midnight bug root causes, AI orchestrator design, live location, medical/transit strategy, branding, legal, performance, deployment, prioritized backlog).
 
-**Final Release Gate Evidence**:
-- 81 canonical places with 100% verified WGS84 coordinate coverage.
-- 13 physical place categories and 12 canonical traveler interests.
-- 206 Place-Interest M:N associations with verified importer idempotency.
-- Backend test suite: **329 passed** / 0 failed (`pytest backend/tests`).
-- Frontend test suite: **270 passed** / 0 failed across 31 test files (`npm --prefix frontend test`).
-- Production frontend build: `npm --prefix frontend run build` clean in 9.08s (Vite bundle in `dist/`).
-- Python compilation: `python -m compileall backend scripts` (0 errors).
-- Clean git diff and zero whitespace errors.
-- Deployment runbook & handoff: `docs/DEPLOYMENT.md` and `docs/RELEASE_READINESS_REPORT.md`.
+### Phase 11 Step 2 — Database Knowledge Foundation & Schema Expansion
+- **Status**: **COMPLETE — PASS**
+- **Objective**: PostgreSQL/PostGIS knowledge base schema expansion to support 30 districts, medical facilities, emergency facilities, transit hubs, provenance, operational hours, ratings, and scalable search without breaking existing contracts.
+- **Deliverables & Evidence**:
+  - Alembic Migration `0008_odisha_knowledge_base_expansion.py` (revises `0007_add_place_district`).
+  - Added nullable columns to `places`: `rating` (Float), `rating_count` (Integer), `rating_source` (String), `opening_hours_source` (String), `source_url` (String), `verification_status` (String: `VERIFIED`, `UNVERIFIED`, `UNAVAILABLE`), `contact_phone` (String), `emergency_phone` (String), `address` (String).
+  - Added query indexes: `ix_places_district`, `ix_places_name`, `ix_places_category_id`, `ix_places_verification_status`.
+  - Added canonical categories in `data/places/categories.json`: `hospital`, `emergency_facility`, `transit_hub`.
+  - Updated `scripts/import_places.py` for idempotent ingestion of new fields; validated non-negative ratings, rating counts, and status enum.
+  - Importer idempotency verified on live DB: runs repeatedly with 0 duplicates.
+  - Upgrade / Downgrade / Upgrade lifecycle verified on PostgreSQL container.
+  - Backward-compatible API response schema updates (`PlaceDetailResponse`, `PlaceDetail`).
+  - Strict privacy invariant preserved: zero GPS database columns or persistence.
+
+### Phase 11 Step 3 — Data Quality, Provenance & Ingestion Validation Foundation
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Build reusable dataset quality audit CLI, provenance validation, geographic bounding envelope checks, swapped coordinate protection, canonical 30-district registry, medical/transit safety validation, and automated regression tests.
+- **Deliverables & Evidence**:
+  - Reusable CLI auditor: `scripts/audit_data_quality.py` (`--json`, `--strict`) auditing identity, bounding envelope (`[17.5-22.8, 81.2-87.6]`), duplicate coordinates/names, categories, interests, provenance, ratings, hours, medical and transit facilities.
+  - Current Dataset Audit Baseline: **PASS (0 FAIL, 0 WARNING)** across all 81 canonical places.
+  - Canonical District Authority: `backend/app/data/odisha_districts.py` exposing all 30 districts and helper functions.
+  - Ingestion Validation: `scripts/import_places.py` upgraded with geographic envelope checks, swapped coordinate detection, and strict synthetic emergency phone rejection.
+  - Data Contract Specification: `docs/DATA_QUALITY.md` documenting required/optional fields, provenance, domain separation, and CI quality gates.
+  - Test Suite: **361 passed** in `pytest backend/tests` (including 17 new comprehensive data quality & validation framework tests in `test_data_quality_framework.py`).
+  - Frontend Test Suite: **290 passed** in `vitest`.
+  - Frontend Build: `npm run build` clean in **7.95s**.
+  - System Diagnostics: `.\doctor.ps1` 11/11 PASS (`RESULT: READY`).
+
+### Phase 11 Step 4 — Whole-Odisha Verified Knowledge Base Expansion
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Expand canonical knowledge base from 81 places to a comprehensive 161-place whole-Odisha dataset covering all 30 districts, medical facilities, transit hubs, and authentic provenance without breaking existing contracts.
+- **Deliverables & Evidence**:
+  - Expanded `data/places/places.json` to 161 verified records (136 tourist attractions, 13 medical facilities, 12 transit hubs) with 100% valid WGS84 coordinate coverage across all 30 districts of Odisha.
+  - Sourced from authentic official portals (Odisha Tourism, ASI, District NIC portals, MoHFW, AAI, ECoR, OSRTC).
+  - Medical Layer (`hospital`): 13 major medical colleges and district hospitals with verified `108` dispatch or verified casualty landlines. Isolated from leisure itinerary planning via `NON_LEISURE_CATEGORIES` ranking filter.
+  - Transit Layer (`transit_hub`): 12 operational airports, major railway junctions, and central bus terminals. Discoverable via search/maps and usable as trip starting origins.
+  - Data Quality Audit: `scripts/audit_data_quality.py` reports **PASS (0 FAIL, 0 WARNING)** with 30/30 districts represented and 0 missing districts.
+  - Importer Idempotency: `scripts/import_places.py` runs with 0 new additions on repeated execution.
+  - Documentation Deliverable: `docs/PHASE11_STEP4_DATA_EXPANSION.md`.
+  - Backend Test Suite: **362 passed, 2 deselected** in `pytest backend/tests`.
+  - Frontend Vitest Suite: **290 passed, 5 skipped** in `vitest run`.
+  - Frontend Production Build: `npm run build` clean in **7.83s**.
+  - System Diagnostics: `.\doctor.ps1` 11/11 PASS (`RESULT: READY`).
+
+### Phase 11 Step 5 — Whole-Odisha Search, Knowledge Retrieval & Data-Access Layer
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Build scalable search, deterministic ranking, intent extraction, verified alias mapping, geospatial proximity retrieval, domain separation (leisure vs. medical vs. transit), and structured AI retrieval abstraction across whole Odisha.
+- **Deliverables & Evidence**:
+  - `backend/app/services/search/`: `SearchService`, `SearchQueryParams`, `CompactKnowledgeRecord`, `calculate_place_score`, and `rank_candidates`.
+  - 8-tier deterministic relevance scoring: exact name (100) > alias (85) > prefix (70) > token match (50) > category/district (35) > description (15) > address (10) + filter bonuses + proximity boost.
+  - Verified local aliases & acronyms: `BBI`, `BBS`, `JRG`, `RRK`, `ROU`, `CTC`, `PURI`, `BAM`, `SBP`, `BLS`, `Silver City`, `Temple City`, `Ekamra Kshetra`, `Jagannath Dham`, `Kashmir of Odisha`.
+  - Strict domain separation: Medical facilities (`hospital`) and transit hubs (`transit_hub`) excluded from leisure holiday discovery unless explicitly requested.
+  - AI Retrieval Facade: `retrieve_places`, `retrieve_by_district`, `retrieve_by_category`, `retrieve_by_interest`, `retrieve_medical`, `retrieve_transit`, `retrieve_near_location`.
+  - Frontend Search: Debounced `usePlaceSearch` hook with loading, empty state, error fallback, and parameter serialization in `ApiClient.listPlaces`.
+  - Backend Test Suite: **379 passed, 2 deselected** in `pytest backend/tests` (including 17 comprehensive search, ranking, alias, and AI retrieval tests in `test_search_service.py`).
+  - Frontend Vitest Suite: **295 passed, 5 skipped** in `vitest run`.
+  - Frontend Production Build: `npm run build` clean in **9.68s**.
+  - System Diagnostics: `.\doctor.ps1` 11/11 PASS (`RESULT: READY`).
+
+### Phase 11 Step 6 — Grounded Odisha AI Assistant & System-Wide Integration
+- **Status**: **COMPLETE — PASS (Phase 11 Final Baseline)**
+- **Objective**: Integrate Grounded AI Orchestrator with SearchService knowledge retrieval, eliminating static place-name lists, dynamic 30-district intent resolution, anti-hallucination claim checks, medical/transit domain isolation, and final Phase 11 quality gate.
+- **Deliverables & Evidence**:
+  - `backend/app/ai/tools/search_places.py`: `SearchPlacesTool` adapter mapping AI arguments to `SearchService.retrieve_places`.
+  - `backend/app/ai/grounding.py`: `GroundingContext` records structured `search.place.{id}` and `search.results.count` facts.
+  - `backend/app/ai/orchestrator.py`: Orchestrator executes `SearchPlacesTool` and `BuildItineraryTool`.
+  - `backend/app/ai/model.py`: `RuleBasedModelAdapter` dynamically resolves start locations and themes across all 30 districts, verified aliases (`BBI`, `BBS`, `Silver City`, `Jagannath Dham`), and traveler themes.
+  - Cleaned circular import risk in `models/category.py` and `models/interest.py`.
+  - Removed historical "(81)" assumptions from `TopNav.tsx`, `MobileDrawer.tsx`, and tests.
+  - Backend Test Suite: **387 passed, 2 deselected** in `pytest backend/tests` (including 8 new AI grounded search tests in `test_ai_grounded_search.py`).
+  - Frontend Vitest Suite: **295 passed, 5 skipped** in `vitest run`.
+  - Frontend Production Build: `npm run build` clean in **6.90s**.
+  - Data Quality Audit: **PASS (0 FAIL, 0 WARNING, 30/30 districts)** (`audit_data_quality.py --json`).
+  - System Diagnostics: `.\doctor.ps1` 11/11 PASS (`RESULT: READY`).
+
+---
+
+## Phase 12 — Multilingual Odisha Knowledge Base, Search & Provider-Neutral Grounded AI
+
+### Phase 12 Discovery & Architecture Audit
+- **Status**: **COMPLETE — PASS (Phase 12 Roadmap Baseline)**
+- **Objective**: Comprehensive discovery and architecture audit for native Odia (ଓଡ଼ିଆ) and Hindi (हिन्दी) multilingual support, Indic Unicode search normalizer/ranker extensions, provider-neutral AI tool-calling adapter architecture, zero-fabrication guarantees, and test matrix.
+- **Deliverables & Evidence**: `docs/PHASE12_DISCOVERY_AUDIT.md` (baseline metrics, Unicode normalization gap analysis, taxonomy specifications, provider-neutral adapter design, risk mitigations, and 6-step roadmap).
+
+### Phase 12 Step 1 — Multilingual Architecture & Odia/Hindi Knowledge Model
+- **Status**: **COMPLETE — PASS (Phase 12 Step 1 Baseline)**
+- **Objective**: Establish `backend/app/data/multilingual_taxonomy.py` defining verified script crosswalks for all 30 districts, 16 physical categories, 12 traveler interests, and cultural aliases in native Odia, Hindi, and transliterations with zero data fabrication.
+- **Deliverables & Evidence**:
+  - `backend/app/data/multilingual_taxonomy.py`: Strongly typed `LocalizedTaxonomyRecord` for all 30 districts, 16 categories, 12 interests, and cultural aliases across English, Odia (`ଓଡ଼ିଆ`), and Hindi (`हिन्दी`).
+  - Unicode-aware normalization (`normalize_multilingual_text`) preserving Odia (`\u0B00-\u0B7F`) and Devanagari (`\u0900-\u097F`) characters while stripping punctuation.
+  - Zero-fabrication resolution helpers: `resolve_district`, `resolve_category`, `resolve_interest`, `resolve_alias`, `get_localized_district`, `get_localized_category`, `get_localized_interest`.
+  - Targeted Test Suite: **111 passed in 0.21s** in `backend/tests/test_multilingual_taxonomy.py`.
+  - Backend Test Suite: **498 passed, 2 deselected** in `pytest backend/tests`.
+  - Frontend Vitest Suite: **295 passed, 5 skipped** in `vitest run`.
+  - Frontend Production Build: `npm run build` clean in **7.65s**.
+  - Data Quality Audit: **PASS (0 FAIL, 0 WARNING, 30/30 districts)** (`audit_data_quality.py --json`).
+  - System Diagnostics: `.\doctor.ps1` 11/11 PASS (`RESULT: READY`).
+  - Documentation Deliverable: `docs/PHASE12_STEP1_MULTILINGUAL_KNOWLEDGE.md`.
+
+### Phase 12 Step 2 — Multilingual SearchNormalizer, SearchService & Ranking
+- **Status**: **COMPLETE — PASS (Phase 12 Step 2 Baseline)**
+- **Objective**: Extend `SearchNormalizer`, `SearchService`, and `SearchRanker` to support Indic Unicode text, multilingual tokenization, stop-words, alias expansions, pre-resolved localized query filters, and deterministic 8-tier ranking across English, Odia (`ଓଡ଼ିଆ`), and Hindi (`हिन्दी`).
+- **Deliverables & Evidence**:
+  - `backend/app/services/search/search_normalizer.py`: Unicode-safe normalization, Odia and Hindi stop-words, 3-gram/2-gram/1-gram sliding window intent extraction, and verified multilingual aliases.
+  - `backend/app/services/search/search_service.py`: Pre-resolution of localized query parameters (`district`, `category`, `interest`) and effective intent wiring to candidate scoring.
+  - `backend/app/services/search/search_ranker.py`: Clean typing imports and strict preservation of all 8 ranking tiers, filter bonuses, and deterministic tie-breaking.
+  - `backend/tests/test_search_normalizer_multilingual.py`: 19 targeted unit tests.
+  - `backend/tests/test_search_ranker_multilingual.py`: 7 targeted ranker tests.
+  - `backend/tests/test_multilingual_search_integration.py`: 20 end-to-end integration tests.
+  - Full Backend Pytest Suite: **552 passed, 2 deselected** across 38 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Documentation Deliverable: `docs/PHASE12_STEP2_MULTILINGUAL_SEARCH.md`.
+
+### Phase 12 Step 3 — Multilingual Frontend Discovery & Search UI Integration
+- **Status**: **COMPLETE — PASS (Phase 12 Step 3 Baseline)**
+- **Objective**: Align frontend multilingual taxonomy with backend canonical model, route Destinations free-text search to backend search pipeline via `usePlaceSearch`, establish accessible localized search guidance across `OdishaHero` and `DestinationsPage`, and preserve Indic typography.
+- **Deliverables & Evidence**:
+  - `frontend/src/types/multilingualTaxonomy.ts`: Strongly typed 1:1 crosswalk for 30 districts, 16 categories, and 12 interests in English, Odia (`ଓଡ଼ିଆ`), and Hindi (`हिन्दी`).
+  - `frontend/src/store/usePlaces.ts`: `usePlaceSearch` with race condition cancellation flag and initial fallback filtering.
+  - `frontend/src/components/home/DestinationsPage.tsx`: Live backend search integration, localized filter chips with Odia annotations, `aria-pressed` states, live result count (`role="status"`), and non-dead-end empty states.
+  - `frontend/src/components/home/OdishaHero.tsx`: Multilingual search guidance and language hint (`English · ଓଡ଼ିଆ · हिन्दी`).
+  - `frontend/tests/multilingual_taxonomy.test.ts`: 12 targeted unit tests.
+  - `frontend/tests/multilingual_destinations_search.test.tsx`: 12 targeted unit tests.
+  - `frontend/tests/client.test.ts`: 4 dedicated multilingual URL encoding tests.
+  - Full Frontend Vitest Suite: **323 passed, 5 skipped** across 37 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **8.21s** with 0 errors.
+  - Full Backend Pytest Suite: **552 passed, 2 deselected** across 38 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP3_FRONTEND_SEARCH.md`.
+
+### Phase 12 Step 4 — Provider-Neutral AI Tool-Calling Adapter Architecture
+- **Status**: **COMPLETE — PASS (Phase 12 Step 4 Baseline)**
+- **Objective**: Implement decoupled `AIProviderAdapter` protocol supporting pluggable LLM backends, JSON Schema tool declarations (`ToolDefinition`), canonical `ToolCall` and `ToolResult` contracts, strict allowlisting `ToolRegistry`, defensive `ToolExecutionBoundary`, and domain tool adapters with 0 external dependencies.
+- **Deliverables & Evidence**:
+  - `backend/app/ai/contracts.py`: Canonical `ToolDefinition`, `ToolCall`, `ToolResult`, `ChatMessage`, `AdapterResponse`, `FinishReason`, `ToolStatus`.
+  - `backend/app/ai/registry.py`: `ToolRegistry`, `BaseToolAdapter`, `FunctionalToolAdapter`, `DuplicateToolError`, `UnknownToolError`.
+  - `backend/app/ai/boundary.py`: `ToolExecutionBoundary` with defensive execution and allowlisting.
+  - `backend/app/ai/adapter.py`: `AIProviderAdapter` protocol and deterministic `MockProviderAdapter`.
+  - `backend/app/ai/tools/adapters.py`: Domain tool adapters (`SearchPlacesToolAdapter`, `BuildItineraryToolAdapter`, `PlanTransportHopToolAdapter`, `GetProviderStatusToolAdapter`, `create_default_tool_registry`).
+  - `backend/tests/test_ai_tool_adapter.py`: 25 targeted unit and integration tests.
+  - Full Backend Pytest Suite: **577 passed, 2 deselected** across 39 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Full Frontend Vitest Suite: **323 passed, 5 skipped** across 37 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **13.53s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP4_AI_TOOL_ADAPTER.md`.
+
+### Phase 12 Step 5 — Multilingual Grounded AI Conversations & Itinerary Integration
+- **Status**: **COMPLETE — PASS (Phase 12 Step 5 Baseline)**
+- **Objective**: Wire multilingual intent resolution and tool invocation into conversational AI planning for English, Odia, and Hindi queries with full anti-hallucination verification, multi-turn refinement, and provider-neutral execution.
+- **Deliverables & Evidence**:
+  - `backend/app/ai/multilingual.py`: Language detection, Indic numerals parsing, multilingual interests extraction, and localized grounded message generation.
+  - `backend/app/ai/conversation.py`: `GroundedConversationOrchestrator` and `GroundedConversationResponse` supporting multi-turn conversation and iterative refinement.
+  - `backend/app/ai/model.py`: Multilingual intent parsing and city hub resolution in `RuleBasedModelAdapter`.
+  - `backend/app/ai/tools/common.py`: Unified `ToolResult` and `ToolStatus` re-export from `app.ai.contracts`.
+  - `backend/app/api/ai_routes.py`: Provider-neutral `POST /ai/plan` and `POST /ai/converse` endpoints.
+  - `backend/tests/test_ai_grounded_conversation.py`: 16 comprehensive unit, integration, and security tests.
+  - Full Backend Pytest Suite: **593 passed, 2 deselected** across 40 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Full Frontend Vitest Suite: **323 passed, 5 skipped** across 37 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **8.66s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP5_MULTILINGUAL_GROUNDED_AI.md`.
+
+### Phase 12 Step 6 — External AI Provider Integration & Provider-Neutral Production Adapter
+- **Status**: **BLOCKED / PROVIDER DECISION REQUIRED**
+- **Objective**: Establish provider-neutral production infrastructure, environment-backed configuration, canonical provider error model, generic HTTP/OpenAI-compatible protocol adapter, factory resolution, and secret masking while preserving offline deterministic execution.
+- **Deliverables & Evidence**:
+  - `backend/app/core/config.py`: Provider-neutral configuration settings (`ai_provider`, `ai_model_name`, `ai_api_key`, `ai_api_base_url`, `ai_timeout_seconds`, `ai_max_retries`).
+  - `backend/app/ai/contracts.py`: Canonical `ProviderErrorCode` enum and `AIProviderError` exception hierarchy with automatic secret masking.
+  - `backend/app/ai/adapter.py`: Standardized `AIProviderAdapter` protocol with `get_status()`, `RuleBasedProviderAdapter`, `GenericHTTPProviderAdapter` (standard library urllib, 0 vendor SDKs), and `create_provider_adapter` factory.
+  - `backend/app/ai/conversation.py`: Grounded orchestrator protected against provider errors, oversized payloads, and tool loops.
+  - `backend/app/api/ai_routes.py`: Dependency injection of configured provider adapter into grounded orchestrator.
+  - `backend/tests/test_ai_provider_adapter.py`: 30 comprehensive unit and integration tests.
+  - Focused Step 6 Suite: **30 passed in 2.46s** (`pytest backend/tests/test_ai_provider_adapter.py`).
+  - All AI Test Suites: **122 passed in 3.87s** (`pytest backend/tests/test_ai_*.py`).
+  - Full Backend Pytest Suite: **623 passed, 2 deselected** across 41 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Full Frontend Vitest Suite: **323 passed, 5 skipped** across 37 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **8.08s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP6_AI_PROVIDER_INTEGRATION.md`.
+  - **Blocker**: Live commercial model integration remains blocked pending canonical provider authorization.
+
+### Phase 12 Step 7 — Frontend Grounded AI Conversation Integration & Multi-Turn Experience
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Connect the frontend AI conversation user experience with the provider-neutral, grounded multi-turn backend conversation contracts (`POST /ai/converse`), preserving grounding indicators, tool context badges, Indic typography, error recovery, and backward compatibility with `/ai/plan`.
+- **Deliverables & Evidence**:
+  - `frontend/src/types/api.ts`: Canonical TypeScript representations for `ChatRole`, `ToolCall`, `ToolResult`, `ChatMessage`, `AIConverseRequest`, and `GroundedConversationResponse`.
+  - `frontend/src/api/client.ts`: Added typed `converseWithAi(request: AIConverseRequest)` calling `POST /ai/converse` while preserving `planWithAi(request)`.
+  - `frontend/src/store/useAIConversation.ts`: Upgraded hook to manage multi-turn `ChatMessage[]` history, `isGrounded` state, `language`, and `retryLast` recovery.
+  - `frontend/src/components/ai/AIConversationPanel.tsx` & `AISidebar.tsx`: Verified shield grounded trust badges (*"Grounded in verified O-Travelz data"*), tool invocation badges, and Indic typography preservation (`font-sans`, `leading-relaxed`).
+  - `frontend/tests/ai_grounded_conversation.test.tsx`: 11 comprehensive unit, integration, and security tests.
+  - Focused Step 7 Vitest Suite: **11 passed in 25ms** (`npm --prefix frontend test -- tests/ai_grounded_conversation.test.tsx`).
+  - Full Frontend Vitest Suite: **334 passed, 5 skipped** across 38 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **8.37s** with 0 errors.
+  - Focused AI Backend Tests: **71 passed in 3.54s** (`pytest backend/tests/test_ai_*.py`).
+  - Full Backend Pytest Suite: **623 passed, 2 deselected** across 41 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP7_FRONTEND_GROUNDED_AI.md`.
+
+### Phase 12 Step 8 — Zero-Cost Multi-Provider AI Activation & Production Fallback
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Activate the provider-neutral AI architecture using an explicit zero-cost multi-provider priority strategy (Primary: Azure OpenAI, Secondary: Google Gemini, Tertiary: NVIDIA API, Mandatory Fallback: RuleBasedProviderAdapter) under an immutable ₹0 budget ceiling.
+- **Deliverables & Evidence**:
+  - `backend/app/core/config.py`: Added zero-cost safety flags (`ai_allow_external_provider=False`, `ai_allow_paid_provider=False`) and configuration parameters for Azure OpenAI, Gemini, and NVIDIA.
+  - `backend/app/ai/adapter.py`: Implemented `AzureOpenAIProviderAdapter`, `GeminiProviderAdapter`, `NVIDIAProviderAdapter`, and `MultiProviderFallbackAdapter` using standard library `urllib` (0 vendor SDK dependencies).
+  - `backend/tests/test_ai_external_providers.py`: 17 comprehensive unit/integration tests covering zero-cost guards, provider error normalization, tool call translation, and multilingual fallback.
+  - Focused Step 8 Suite: **17 passed in 1.52s** (`pytest backend/tests/test_ai_external_providers.py -v`).
+  - Total AI Backend Tests: **139 passed in 3.80s** (`pytest backend/tests/test_ai_*.py`).
+  - Full Backend Pytest Suite: **640 passed, 2 deselected** across 42 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Full Frontend Vitest Suite: **334 passed, 5 skipped** across 38 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **8.78s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP8_ZERO_COST_AI_PROVIDER_ACTIVATION.md` & updated `docs/PHASE12_PROVIDER_DECISION.md`.
+
+### Phase 12 Step 9 — Zero-Cost Live AI Provider Smoke Test & Activation Verification
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Implement a safe developer preflight and smoke test CLI (`python -m app.ai.provider_smoke_test`) to verify provider readiness, cost-safety policy enforcement, credential presence, and normalized error responses under an immutable ₹0 budget ceiling.
+- **Deliverables & Evidence**:
+  - `backend/app/ai/provider_health.py`: Preflight health inspection models (`ProviderHealthStatus`, `ProviderReadinessState`) and functions (`inspect_provider_health`, `inspect_all_providers`).
+  - `backend/app/ai/provider_smoke_test.py`: Single-shot smoke test CLI with zero retries, zero travel tool executions, and zero secret leakage.
+  - `backend/tests/test_ai_provider_smoke.py`: 18 unit/integration tests covering all preflight states, error codes, and safety invariants.
+  - Documentation Deliverable: `docs/PHASE11_STEP4_DATA_EXPANSION.md`.
+  - Backend Test Suite: **362 passed, 2 deselected** in `pytest backend/tests`.
+  - Frontend Vitest Suite: **290 passed, 5 skipped** in `vitest run`.
+  - Frontend Production Build: `npm run build` clean in **7.83s**.
+  - System Diagnostics: `.\doctor.ps1` 11/11 PASS (`RESULT: READY`).
+
+### Phase 11 Step 5 — Whole-Odisha Search, Knowledge Retrieval & Data-Access Layer
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Build scalable search, deterministic ranking, intent extraction, verified alias mapping, geospatial proximity retrieval, domain separation (leisure vs. medical vs. transit), and structured AI retrieval abstraction across whole Odisha.
+- **Deliverables & Evidence**:
+  - `backend/app/services/search/`: `SearchService`, `SearchQueryParams`, `CompactKnowledgeRecord`, `calculate_place_score`, and `rank_candidates`.
+  - 8-tier deterministic relevance scoring: exact name (100) > alias (85) > prefix (70) > token match (50) > category/district (35) > description (15) > address (10) + filter bonuses + proximity boost.
+  - Verified local aliases & acronyms: `BBI`, `BBS`, `JRG`, `RRK`, `ROU`, `CTC`, `PURI`, `BAM`, `SBP`, `BLS`, `Silver City`, `Temple City`, `Ekamra Kshetra`, `Jagannath Dham`, `Kashmir of Odisha`.
+  - Strict domain separation: Medical facilities (`hospital`) and transit hubs (`transit_hub`) excluded from leisure holiday discovery unless explicitly requested.
+  - AI Retrieval Facade: `retrieve_places`, `retrieve_by_district`, `retrieve_by_category`, `retrieve_by_interest`, `retrieve_medical`, `retrieve_transit`, `retrieve_near_location`.
+  - Frontend Search: Debounced `usePlaceSearch` hook with loading, empty state, error fallback, and parameter serialization in `ApiClient.listPlaces`.
+  - Backend Test Suite: **379 passed, 2 deselected** in `pytest backend/tests` (including 17 comprehensive search, ranking, alias, and AI retrieval tests in `test_search_service.py`).
+  - Frontend Vitest Suite: **295 passed, 5 skipped** in `vitest run`.
+  - Frontend Production Build: `npm run build` clean in **9.68s**.
+  - System Diagnostics: `.\doctor.ps1` 11/11 PASS (`RESULT: READY`).
+
+### Phase 11 Step 6 — Grounded Odisha AI Assistant & System-Wide Integration
+- **Status**: **COMPLETE — PASS (Phase 11 Final Baseline)**
+- **Objective**: Integrate Grounded AI Orchestrator with SearchService knowledge retrieval, eliminating static place-name lists, dynamic 30-district intent resolution, anti-hallucination claim checks, medical/transit domain isolation, and final Phase 11 quality gate.
+- **Deliverables & Evidence**:
+  - `backend/app/ai/tools/search_places.py`: `SearchPlacesTool` adapter mapping AI arguments to `SearchService.retrieve_places`.
+  - `backend/app/ai/grounding.py`: `GroundingContext` records structured `search.place.{id}` and `search.results.count` facts.
+  - `backend/app/ai/orchestrator.py`: Orchestrator executes `SearchPlacesTool` and `BuildItineraryTool`.
+  - `backend/app/ai/model.py`: `RuleBasedModelAdapter` dynamically resolves start locations and themes across all 30 districts, verified aliases (`BBI`, `BBS`, `Silver City`, `Jagannath Dham`), and traveler themes.
+  - Cleaned circular import risk in `models/category.py` and `models/interest.py`.
+  - Removed historical "(81)" assumptions from `TopNav.tsx`, `MobileDrawer.tsx`, and tests.
+  - Backend Test Suite: **387 passed, 2 deselected** in `pytest backend/tests` (including 8 new AI grounded search tests in `test_ai_grounded_search.py`).
+  - Frontend Vitest Suite: **295 passed, 5 skipped** in `vitest run`.
+  - Frontend Production Build: `npm run build` clean in **6.90s**.
+  - Data Quality Audit: **PASS (0 FAIL, 0 WARNING, 30/30 districts)** (`audit_data_quality.py --json`).
+  - System Diagnostics: `.\doctor.ps1` 11/11 PASS (`RESULT: READY`).
+
+---
+
+## Phase 12 — Multilingual Odisha Knowledge Base, Search & Provider-Neutral Grounded AI
+
+### Phase 12 Discovery & Architecture Audit
+- **Status**: **COMPLETE — PASS (Phase 12 Roadmap Baseline)**
+- **Objective**: Comprehensive discovery and architecture audit for native Odia (ଓଡ଼ିଆ) and Hindi (हिन्दी) multilingual support, Indic Unicode search normalizer/ranker extensions, provider-neutral AI tool-calling adapter architecture, zero-fabrication guarantees, and test matrix.
+- **Deliverables & Evidence**: `docs/PHASE12_DISCOVERY_AUDIT.md` (baseline metrics, Unicode normalization gap analysis, taxonomy specifications, provider-neutral adapter design, risk mitigations, and 6-step roadmap).
+
+### Phase 12 Step 1 — Multilingual Architecture & Odia/Hindi Knowledge Model
+- **Status**: **COMPLETE — PASS (Phase 12 Step 1 Baseline)**
+- **Objective**: Establish `backend/app/data/multilingual_taxonomy.py` defining verified script crosswalks for all 30 districts, 16 physical categories, 12 traveler interests, and cultural aliases in native Odia, Hindi, and transliterations with zero data fabrication.
+- **Deliverables & Evidence**:
+  - `backend/app/data/multilingual_taxonomy.py`: Strongly typed `LocalizedTaxonomyRecord` for all 30 districts, 16 categories, 12 interests, and cultural aliases across English, Odia (`ଓଡ଼ିଆ`), and Hindi (`हिन्दी`).
+  - Unicode-aware normalization (`normalize_multilingual_text`) preserving Odia (`\u0B00-\u0B7F`) and Devanagari (`\u0900-\u097F`) characters while stripping punctuation.
+  - Zero-fabrication resolution helpers: `resolve_district`, `resolve_category`, `resolve_interest`, `resolve_alias`, `get_localized_district`, `get_localized_category`, `get_localized_interest`.
+  - Targeted Test Suite: **111 passed in 0.21s** in `backend/tests/test_multilingual_taxonomy.py`.
+  - Backend Test Suite: **498 passed, 2 deselected** in `pytest backend/tests`.
+  - Frontend Vitest Suite: **295 passed, 5 skipped** in `vitest run`.
+  - Frontend Production Build: `npm run build` clean in **7.65s**.
+  - Data Quality Audit: **PASS (0 FAIL, 0 WARNING, 30/30 districts)** (`audit_data_quality.py --json`).
+  - System Diagnostics: `.\doctor.ps1` 11/11 PASS (`RESULT: READY`).
+  - Documentation Deliverable: `docs/PHASE12_STEP1_MULTILINGUAL_KNOWLEDGE.md`.
+
+### Phase 12 Step 2 — Multilingual SearchNormalizer, SearchService & Ranking
+- **Status**: **COMPLETE — PASS (Phase 12 Step 2 Baseline)**
+- **Objective**: Extend `SearchNormalizer`, `SearchService`, and `SearchRanker` to support Indic Unicode text, multilingual tokenization, stop-words, alias expansions, pre-resolved localized query filters, and deterministic 8-tier ranking across English, Odia (`ଓଡ଼ିଆ`), and Hindi (`हिन्दी`).
+- **Deliverables & Evidence**:
+  - `backend/app/services/search/search_normalizer.py`: Unicode-safe normalization, Odia and Hindi stop-words, 3-gram/2-gram/1-gram sliding window intent extraction, and verified multilingual aliases.
+  - `backend/app/services/search/search_service.py`: Pre-resolution of localized query parameters (`district`, `category`, `interest`) and effective intent wiring to candidate scoring.
+  - `backend/app/services/search/search_ranker.py`: Clean typing imports and strict preservation of all 8 ranking tiers, filter bonuses, and deterministic tie-breaking.
+  - `backend/tests/test_search_normalizer_multilingual.py`: 19 targeted unit tests.
+  - `backend/tests/test_search_ranker_multilingual.py`: 7 targeted ranker tests.
+  - `backend/tests/test_multilingual_search_integration.py`: 20 end-to-end integration tests.
+  - Full Backend Pytest Suite: **552 passed, 2 deselected** across 38 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Documentation Deliverable: `docs/PHASE12_STEP2_MULTILINGUAL_SEARCH.md`.
+
+### Phase 12 Step 3 — Multilingual Frontend Discovery & Search UI Integration
+- **Status**: **COMPLETE — PASS (Phase 12 Step 3 Baseline)**
+- **Objective**: Align frontend multilingual taxonomy with backend canonical model, route Destinations free-text search to backend search pipeline via `usePlaceSearch`, establish accessible localized search guidance across `OdishaHero` and `DestinationsPage`, and preserve Indic typography.
+- **Deliverables & Evidence**:
+  - `frontend/src/types/multilingualTaxonomy.ts`: Strongly typed 1:1 crosswalk for 30 districts, 16 categories, and 12 interests in English, Odia (`ଓଡ଼ିଆ`), and Hindi (`हिन्दी`).
+  - `frontend/src/store/usePlaces.ts`: `usePlaceSearch` with race condition cancellation flag and initial fallback filtering.
+  - `frontend/src/components/home/DestinationsPage.tsx`: Live backend search integration, localized filter chips with Odia annotations, `aria-pressed` states, live result count (`role="status"`), and non-dead-end empty states.
+  - `frontend/src/components/home/OdishaHero.tsx`: Multilingual search guidance and language hint (`English · ଓଡ଼ିଆ · हिन्दी`).
+  - `frontend/tests/multilingual_taxonomy.test.ts`: 12 targeted unit tests.
+  - `frontend/tests/multilingual_destinations_search.test.tsx`: 12 targeted unit tests.
+  - `frontend/tests/client.test.ts`: 4 dedicated multilingual URL encoding tests.
+  - Full Frontend Vitest Suite: **323 passed, 5 skipped** across 37 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **8.21s** with 0 errors.
+  - Full Backend Pytest Suite: **552 passed, 2 deselected** across 38 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP3_FRONTEND_SEARCH.md`.
+
+### Phase 12 Step 4 — Provider-Neutral AI Tool-Calling Adapter Architecture
+- **Status**: **COMPLETE — PASS (Phase 12 Step 4 Baseline)**
+- **Objective**: Implement decoupled `AIProviderAdapter` protocol supporting pluggable LLM backends, JSON Schema tool declarations (`ToolDefinition`), canonical `ToolCall` and `ToolResult` contracts, strict allowlisting `ToolRegistry`, defensive `ToolExecutionBoundary`, and domain tool adapters with 0 external dependencies.
+- **Deliverables & Evidence**:
+  - `backend/app/ai/contracts.py`: Canonical `ToolDefinition`, `ToolCall`, `ToolResult`, `ChatMessage`, `AdapterResponse`, `FinishReason`, `ToolStatus`.
+  - `backend/app/ai/registry.py`: `ToolRegistry`, `BaseToolAdapter`, `FunctionalToolAdapter`, `DuplicateToolError`, `UnknownToolError`.
+  - `backend/app/ai/boundary.py`: `ToolExecutionBoundary` with defensive execution and allowlisting.
+  - `backend/app/ai/adapter.py`: `AIProviderAdapter` protocol and deterministic `MockProviderAdapter`.
+  - `backend/app/ai/tools/adapters.py`: Domain tool adapters (`SearchPlacesToolAdapter`, `BuildItineraryToolAdapter`, `PlanTransportHopToolAdapter`, `GetProviderStatusToolAdapter`, `create_default_tool_registry`).
+  - `backend/tests/test_ai_tool_adapter.py`: 25 targeted unit and integration tests.
+  - Full Backend Pytest Suite: **577 passed, 2 deselected** across 39 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Full Frontend Vitest Suite: **323 passed, 5 skipped** across 37 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **13.53s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP4_AI_TOOL_ADAPTER.md`.
+
+### Phase 12 Step 5 — Multilingual Grounded AI Conversations & Itinerary Integration
+- **Status**: **COMPLETE — PASS (Phase 12 Step 5 Baseline)**
+- **Objective**: Wire multilingual intent resolution and tool invocation into conversational AI planning for English, Odia, and Hindi queries with full anti-hallucination verification, multi-turn refinement, and provider-neutral execution.
+- **Deliverables & Evidence**:
+  - `backend/app/ai/multilingual.py`: Language detection, Indic numerals parsing, multilingual interests extraction, and localized grounded message generation.
+  - `backend/app/ai/conversation.py`: `GroundedConversationOrchestrator` and `GroundedConversationResponse` supporting multi-turn conversation and iterative refinement.
+  - `backend/app/ai/model.py`: Multilingual intent parsing and city hub resolution in `RuleBasedModelAdapter`.
+  - `backend/app/ai/tools/common.py`: Unified `ToolResult` and `ToolStatus` re-export from `app.ai.contracts`.
+  - `backend/app/api/ai_routes.py`: Provider-neutral `POST /ai/plan` and `POST /ai/converse` endpoints.
+  - `backend/tests/test_ai_grounded_conversation.py`: 16 comprehensive unit, integration, and security tests.
+  - Full Backend Pytest Suite: **593 passed, 2 deselected** across 40 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Full Frontend Vitest Suite: **323 passed, 5 skipped** across 37 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **8.66s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP5_MULTILINGUAL_GROUNDED_AI.md`.
+
+### Phase 12 Step 6 — External AI Provider Integration & Provider-Neutral Production Adapter
+- **Status**: **BLOCKED / PROVIDER DECISION REQUIRED**
+- **Objective**: Establish provider-neutral production infrastructure, environment-backed configuration, canonical provider error model, generic HTTP/OpenAI-compatible protocol adapter, factory resolution, and secret masking while preserving offline deterministic execution.
+- **Deliverables & Evidence**:
+  - `backend/app/core/config.py`: Provider-neutral configuration settings (`ai_provider`, `ai_model_name`, `ai_api_key`, `ai_api_base_url`, `ai_timeout_seconds`, `ai_max_retries`).
+  - `backend/app/ai/contracts.py`: Canonical `ProviderErrorCode` enum and `AIProviderError` exception hierarchy with automatic secret masking.
+  - `backend/app/ai/adapter.py`: Standardized `AIProviderAdapter` protocol with `get_status()`, `RuleBasedProviderAdapter`, `GenericHTTPProviderAdapter` (standard library urllib, 0 vendor SDKs), and `create_provider_adapter` factory.
+  - `backend/app/ai/conversation.py`: Grounded orchestrator protected against provider errors, oversized payloads, and tool loops.
+  - `backend/app/api/ai_routes.py`: Dependency injection of configured provider adapter into grounded orchestrator.
+  - `backend/tests/test_ai_provider_adapter.py`: 30 comprehensive unit and integration tests.
+  - Focused Step 6 Suite: **30 passed in 2.46s** (`pytest backend/tests/test_ai_provider_adapter.py`).
+  - All AI Test Suites: **122 passed in 3.87s** (`pytest backend/tests/test_ai_*.py`).
+  - Full Backend Pytest Suite: **623 passed, 2 deselected** across 41 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Full Frontend Vitest Suite: **323 passed, 5 skipped** across 37 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **8.08s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP6_AI_PROVIDER_INTEGRATION.md`.
+  - **Blocker**: Live commercial model integration remains blocked pending canonical provider authorization.
+
+### Phase 12 Step 7 — Frontend Grounded AI Conversation Integration & Multi-Turn Experience
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Connect the frontend AI conversation user experience with the provider-neutral, grounded multi-turn backend conversation contracts (`POST /ai/converse`), preserving grounding indicators, tool context badges, Indic typography, error recovery, and backward compatibility with `/ai/plan`.
+- **Deliverables & Evidence**:
+  - `frontend/src/types/api.ts`: Canonical TypeScript representations for `ChatRole`, `ToolCall`, `ToolResult`, `ChatMessage`, `AIConverseRequest`, and `GroundedConversationResponse`.
+  - `frontend/src/api/client.ts`: Added typed `converseWithAi(request: AIConverseRequest)` calling `POST /ai/converse` while preserving `planWithAi(request)`.
+  - `frontend/src/store/useAIConversation.ts`: Upgraded hook to manage multi-turn `ChatMessage[]` history, `isGrounded` state, `language`, and `retryLast` recovery.
+  - `frontend/src/components/ai/AIConversationPanel.tsx` & `AISidebar.tsx`: Verified shield grounded trust badges (*"Grounded in verified O-Travelz data"*), tool invocation badges, and Indic typography preservation (`font-sans`, `leading-relaxed`).
+  - `frontend/tests/ai_grounded_conversation.test.tsx`: 11 comprehensive unit, integration, and security tests.
+  - Focused Step 7 Vitest Suite: **11 passed in 25ms** (`npm --prefix frontend test -- tests/ai_grounded_conversation.test.tsx`).
+  - Full Frontend Vitest Suite: **334 passed, 5 skipped** across 38 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **8.37s** with 0 errors.
+  - Focused AI Backend Tests: **71 passed in 3.54s** (`pytest backend/tests/test_ai_*.py`).
+  - Full Backend Pytest Suite: **623 passed, 2 deselected** across 41 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP7_FRONTEND_GROUNDED_AI.md`.
+
+### Phase 12 Step 8 — Zero-Cost Multi-Provider AI Activation & Production Fallback
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Activate the provider-neutral AI architecture using an explicit zero-cost multi-provider priority strategy (Primary: Azure OpenAI, Secondary: Google Gemini, Tertiary: NVIDIA API, Mandatory Fallback: RuleBasedProviderAdapter) under an immutable ₹0 budget ceiling.
+- **Deliverables & Evidence**:
+  - `backend/app/core/config.py`: Added zero-cost safety flags (`ai_allow_external_provider=False`, `ai_allow_paid_provider=False`) and configuration parameters for Azure OpenAI, Gemini, and NVIDIA.
+  - `backend/app/ai/adapter.py`: Implemented `AzureOpenAIProviderAdapter`, `GeminiProviderAdapter`, `NVIDIAProviderAdapter`, and `MultiProviderFallbackAdapter` using standard library `urllib` (0 vendor SDK dependencies).
+  - `backend/tests/test_ai_external_providers.py`: 17 comprehensive unit/integration tests covering zero-cost guards, provider error normalization, tool call translation, and multilingual fallback.
+  - Focused Step 8 Suite: **17 passed in 1.52s** (`pytest backend/tests/test_ai_external_providers.py -v`).
+  - Total AI Backend Tests: **139 passed in 3.80s** (`pytest backend/tests/test_ai_*.py`).
+  - Full Backend Pytest Suite: **640 passed, 2 deselected** across 42 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Full Frontend Vitest Suite: **334 passed, 5 skipped** across 38 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **8.78s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP8_ZERO_COST_AI_PROVIDER_ACTIVATION.md` & updated `docs/PHASE12_PROVIDER_DECISION.md`.
+
+### Phase 12 Step 9 — Zero-Cost Live AI Provider Smoke Test & Activation Verification
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Implement a safe developer preflight and smoke test CLI (`python -m app.ai.provider_smoke_test`) to verify provider readiness, cost-safety policy enforcement, credential presence, and normalized error responses under an immutable ₹0 budget ceiling.
+- **Deliverables & Evidence**:
+  - `backend/app/ai/provider_health.py`: Preflight health inspection models (`ProviderHealthStatus`, `ProviderReadinessState`) and functions (`inspect_provider_health`, `inspect_all_providers`).
+  - `backend/app/ai/provider_smoke_test.py`: Single-shot smoke test CLI with zero retries, zero travel tool executions, and zero secret leakage.
+  - `backend/tests/test_ai_provider_smoke.py`: 18 unit/integration tests covering all preflight states, error codes, and safety invariants.
+  - Focused Step 9 Suite: **18 passed in 1.05s** (`pytest backend/tests/test_ai_provider_smoke.py -v`).
+  - Total AI Backend Tests: **157 passed in 4.24s** (`pytest backend/tests/test_ai_*.py`).
+  - Full Backend Pytest Suite: **658 passed, 2 deselected** across 43 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Full Frontend Vitest Suite: **334 passed, 5 skipped** across 38 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **9.40s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP9_PROVIDER_SMOKE_TEST.md`.
+
+### Phase 12 Step 10 — AI Safety, Grounding Verification, Rate Limiting & Typo Correction
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Establish production safety, deterministic fact verification, in-process rate limiting, latency budget protection, circuit breaking, and typo tolerance for AI and destination search under an immutable ₹0 budget ceiling.
+- **Deliverables & Evidence**:
+  - `backend/app/ai/grounding_verifier.py`: Fast deterministic factual claim verification for places, itinerary sequences, transport hops, and detection of unverified assertions (phone numbers, opening hours).
+  - `backend/app/ai/rate_limit.py`: In-process sliding-window rate limiter with separate external provider limits and HTTP 429 semantics.
+  - `backend/app/ai/circuit_breaker.py`: Provider circuit breaker tracking failures, `CLOSED`/`OPEN`/`HALF_OPEN` states, and automatic fast failover.
+  - `backend/app/services/search/search_correction.py`: Typo suggestion engine resolving misspellings (`poori` -> `Puri`, `bhuvneshwar` -> `Bhubaneswar`, `konarkk` -> `Konark`) while preserving leisure domain isolation.
+  - `backend/app/api/places_routes.py`: Added `GET /places/suggestions` endpoint.
+  - `frontend/src/components/home/DestinationsPage.tsx` & `frontend/src/api/client.ts`: Integrated search suggestions and "Did you mean" chips for zero-match queries.
+  - `backend/tests/test_ai_grounding_verifier.py`, `backend/tests/test_ai_rate_limit.py`, `backend/tests/test_ai_latency_budget.py`, `backend/tests/test_search_correction.py`, `frontend/tests/search_correction.test.tsx`.
+  - Focused Step 10 Pytest Suites: **18 passed in 2.32s**.
+  - Total AI Backend Tests: **175 passed in 5.12s** (`pytest backend/tests/test_ai_*.py`).
+  - Full Backend Pytest Suite: **676 passed, 2 deselected** across 47 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend tests` with 0 errors.
+  - Full Frontend Vitest Suite: **336 passed, 5 skipped** across 39 test files (`npm test`).
+  - Frontend Production Build: `npm run build` clean in **9.71s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP10_AI_SAFETY_GROUNDING_RATE_LIMITS.md`.
+
+### Phase 12 Step 11 — Production AI Safety, Latency & Resilience Hardening
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Harden end-to-end latency budgeting, provider retry discipline, thread-safe rate limiting, circuit breaker probe storm prevention, adversarial grounding verification, and provider output safety under an immutable ₹0 budget ceiling.
+- **Deliverables & Evidence**:
+  - `backend/app/ai/adapter.py`: Dynamic end-to-end latency budget calculation (`AI_REQUEST_LATENCY_BUDGET_MS`), dynamic timeout shrinking across fallback providers, and oversized response payload protection (> 500KB).
+  - `backend/app/ai/rate_limit.py`: Thread-safe in-process sliding window rate limiter with `threading.Lock()` concurrency protection.
+  - `backend/app/ai/circuit_breaker.py`: Single-probe storm prevention in `HALF_OPEN` state and thread-safe failure counting.
+  - `backend/app/ai/grounding_verifier.py`: Adversarial prompt injection defenses, geographic bounding box envelope checks ($17.5 \le \text{lat} \le 23.0$, $81.0 \le \text{lon} \le 88.0$), and rejection of model-supplied boolean overrides.
+  - `backend/app/api/places_routes.py`: Added `max_length=100` constraints to `GET /places/suggestions`.
+  - `backend/tests/test_ai_latency_budget.py`, `backend/tests/test_ai_resilience.py`, `backend/tests/test_ai_grounding_adversarial.py`, `backend/tests/test_ai_rate_limit_concurrency.py`.
+  - Focused Step 11 Pytest Suites: **30 passed in 4.20s**.
+  - Total AI Backend Tests: **182 passed in 7.19s** (`pytest backend/tests/test_ai_*.py`).
+  - Full Backend Pytest Suite: **688 passed, 2 deselected** across 49 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Full Frontend Vitest Suite: **336 passed, 5 skipped** across 39 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **8.18s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - System Health Diagnostics: `doctor.ps1` **11/11 PASS (`RESULT: READY`)**.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP11_AI_RESILIENCE_HARDENING.md`.
+
+### Phase 12 Step 12 — End-to-End AI Production Readiness & Regression Verification
+- **Status**: **COMPLETE — PASS (Phase 12 Final Baseline)**
+- **Objective**: Conduct comprehensive end-to-end production readiness, benchmark empirical latency distributions, verify multi-turn multilingual conversation flows, validate ₹0 cost safety, confirm strict fail-closed fact grounding, and establish the final Phase 12 regression baseline.
+- **Deliverables & Evidence**:
+  - `backend/tests/test_ai_production_readiness.py`: 15 comprehensive E2E tests covering initial requests, multi-turn dialogue, English/Odia/Hindi/mixed queries, timeout recovery, auth failure recovery, circuit breaker state transitions, zero-cost network isolation, adversarial fact detection, and search suggestion isolation.
+  - Empirical Latency Benchmarks (200 iterations): `RuleBasedProviderAdapter` (p50: 0.041ms, p95: 0.089ms, p99: 0.219ms), `GroundingVerifier` (p50: 0.013ms, p95: 0.022ms, p99: 0.025ms), `SearchCorrectionService` (p50: 41.156ms, p95: 59.030ms, p99: 63.216ms), E2E Grounded Turn (p50: 203.768ms, p95: 273.025ms, p99: 410.968ms).
+  - Total AI Backend Tests: **197 passed in 8.34s** across 14 test suites (`pytest backend/tests/test_ai_*.py`).
+  - Full Backend Pytest Suite: **703 passed, 2 deselected** across 50 test files (`pytest backend/tests`).
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Full Frontend Vitest Suite: **336 passed, 5 skipped** across 39 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **7.25s** with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - System Health Diagnostics: `doctor.ps1` **11/11 PASS (`RESULT: READY`)**.
+  - Dependencies: 0 external dependencies added.
+  - Documentation Deliverable: `docs/PHASE12_STEP12_PRODUCTION_READINESS.md`.
+
+---
+
+## Phase 13 — Google OAuth, User Identity & Cloud Sync
+
+### Phase 13 Step 1 — Google OAuth Database & Secure Configuration
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Establish the database schema and security configuration foundation for Google OAuth, hashed sessions, and cloud synchronization without breaking existing anonymous functionality.
+- **Deliverables & Evidence**:
+  - `backend/alembic/versions/0009_google_oauth_user_identity.py`: Migration creating `user_sessions`, `user_saved_places`, and `user_saved_trips` tables with indexed foreign keys, constraints, and cascade deletion.
+  - `backend/app/models/user.py`: Extended `User` model with `provider`, `provider_subject`, `display_name`, `avatar_url`, and relationship cascade.
+  - `backend/app/models/session.py`: Implemented `UserSession` (hashed tokens only), `UserSavedPlace`, and `UserSavedTrip`.
+  - `backend/app/core/config.py`: Added OAuth/Session settings and fail-closed `validate_production_security()` validator.
+  - `backend/tests/test_auth_db_config.py`: 9 database schema, model relationship, and configuration security tests.
+
+### Phase 13 Step 2 — Backend Google OAuth, PKCE & Secure Session Management
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Implement a secure, production-grade Google OAuth 2.0 / OpenID Connect flow with PKCE (S256), HMAC signed state/nonce protection, hashed server-side sessions, logout/revocation, and strict authentication boundaries.
+- **Deliverables & Evidence**:
+  - `backend/app/services/auth/google_oauth.py`: PKCE code verifier / challenge generator, HMAC-SHA256 signed state cookies, authorization URL builder, code exchange, and Google ID token validation via tokeninfo with claim checks.
+  - `backend/app/services/auth/session_manager.py`: Cryptographically secure session token generation (`secrets.token_urlsafe(32)`), SHA-256 token hashing, session verification, expiration enforcement, revocation, and immutable Google subject (`provider_subject`) user resolution.
+  - `backend/app/api/auth_routes.py`: API routes for `/auth/google/start`, `/auth/google/callback`, `/auth/me`, and `/auth/logout`.
+  - `backend/tests/test_auth_google.py`, `backend/tests/test_auth_session.py`, `backend/tests/test_auth_security.py`: 24 unit, integration, and security tests.
+
+### Phase 13 Step 3 — Cloud Synchronization API
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Implement authenticated cloud synchronization for saved destinations and trips with canonical place validation, payload size limits, deterministic timestamp conflict resolution (`higher updated_at wins`), and tombstone preservation under an immutable ₹0 budget.
+- **Deliverables & Evidence**:
+  - `backend/app/schemas/sync.py`: Pydantic request and response models (`SyncPlaceItem`, `SyncSavedPlacesRequest`, `SyncSavedPlacesResponse`, `SyncTripItem`, `SyncTripsRequest`, `SyncTripsResponse`) with field types, timestamp constraints, and batch limits.
+  - `backend/app/api/sync_routes.py`: Authenticated routes for `GET/POST /api/v1/sync/saved-places` (max 100) and `GET/POST /api/v1/sync/trips` (max 50, max 50KB/trip) with canonical place resolution and in-process rate limiting (30 req/min/user).
+  - `backend/tests/test_auth_cloud_sync.py`: 12 comprehensive unit and integration tests covering 401 unauthenticated requests, cross-user isolation, fake place rejection (422), deterministic timestamp conflict resolution, tombstone propagation, batch size bounds, and rate limiting.
+
+### Phase 13 Step 4 — Frontend Authentication State, Cloud Sync Integration & UI
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Connect frontend authentication state (`useAuth`) and offline-first background cloud synchronization (`useCloudSync`) with the Step 3 backend API while preserving 100% of anonymous functionality and `localStorage` persistence.
+- **Deliverables & Evidence**:
+  - `frontend/src/types/api.ts`: Typed TypeScript interfaces for `AuthUser`, `AuthResponse`, `SyncStatus`, and sync payload contracts.
+  - `frontend/src/api/client.ts`: Added credentials transport and auth/sync methods (`getAuthMe()`, `logout()`, `getSyncedPlaces()`, `syncSavedPlaces()`, `getSyncedTrips()`, `syncTrips()`).
+  - `frontend/src/store/useAuth.ts`: Reactive authentication store with session verification and Google OAuth redirection.
+  - `frontend/src/store/useCloudSync.ts`: Offline-first background synchronization hook coordinating bidirectional reconciliation, 429 rate limit protection, online/offline network listeners, deterministic timestamp conflict resolution, and local tombstone tracking.
+  - `frontend/src/store/useSavedPlaces.ts` & `frontend/src/store/useConversationHistory.ts`: Enhanced deletion handlers to record tombstone timestamps for cross-device propagation.
+  - `frontend/src/components/auth/AuthStatusButton.tsx`: Responsive navigation button displaying login controls for anonymous visitors, and user avatar, display name, sync status ("Synced", "Syncing…", "Offline — saved locally"), manual sync trigger, and sign-out controls for authenticated travelers.
+  - `frontend/src/components/nav/TopNav.tsx` & `frontend/src/components/nav/MobileDrawer.tsx`: Integrated `<AuthStatusButton />`.
+  - `frontend/tests/auth_cloud_sync_frontend.test.tsx`: 10 unit and integration tests covering anonymous rendering, credential inclusion, offline localStorage persistence, tombstone recording, batch sync API contracts, and 429 rate limit handling.
+
+### Phase 13 Step 5 — End-to-End Verification, Security Audit & Documentation Closeout
+- **Status**: **COMPLETE — PASS (Phase 13 Final Baseline)**
+- **Objective**: Conduct full end-to-end integration verification, security audit for credential safety, rate-limit validation, offline-first behavior confirmation, anonymous compatibility validation, documentation alignment, and regression baseline establishment.
+- **Deliverables & Evidence**:
+  - Security Audit: 0 hardcoded secrets, 0 plaintext tokens stored client-side, 0 client `user_id` trust vulnerabilities, 0 external AI/sync SDKs.
+  - Full Backend Pytest Suite: **748 passed, 2 deselected** across 54 test files (`pytest backend/tests`).
+  - Total Auth & Sync Backend Tests: **45 passed in 5.08s** across 4 test suites (`test_auth_*.py`).
+  - Full Frontend Vitest Suite: **346 passed, 5 skipped** across 40 test files (`npm --prefix frontend test`).
+  - Frontend Production Build: `npm run build` clean in **10.78s** with 0 errors.
+  - Python Compilation: `python -m compileall backend scripts` with 0 errors.
+  - Git Diff Formatting: `git diff --check` clean.
+  - System Health Diagnostics: `doctor.ps1` **11/11 PASS (`RESULT: READY`)**.
+  - Budget & Architecture: Immutable ₹0 budget maintained; 0 vendor SDKs; anonymous visitors retain full offline-first functionality.
+
+---
+
+## Phase 14 — Trip Sharing, Export, PWA Offline Hardening & Production CI/CD Gate
+
+### Phase 14 Step 1 — Python 3.12 UTC Modernization & Auth/Sync Technical Debt Hardening
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Modernize all UTC timestamp usages across authentication, session management, and models to timezone-aware UTC (`datetime.now(timezone.utc)`), eliminate 143+ datetime deprecation warnings in pytest, and add runtime structural validation guards for incoming cloud-sync payloads without external dependencies.
+- **Deliverables & Evidence**:
+  - `backend/app/services/auth/session_manager.py`: Added `utc_now()` helper returning `datetime.now(timezone.utc)`; modernized `create_session`, `verify_session`, `revoke_session`, and `resolve_or_create_user`.
+  - `backend/app/models/session.py`, `backend/app/models/user.py`, `backend/app/models/place_image.py`: Modernized SQLAlchemy default and onupdate datetime callables to `lambda: datetime.now(timezone.utc)`.
+  - `backend/tests/test_auth_db_config.py`: Updated test session creation to use `datetime.now(timezone.utc)`.
+  - `frontend/src/store/useCloudSync.ts`: Implemented lightweight, dependency-free runtime type guards and sanitizers (`isValidSyncPlaceItem`, `sanitizeSyncPlaceItem`, `isValidSyncTripItem`, `sanitizeSyncTripItem`); integrated runtime validation checks into `reconcilePlaces` and `reconcileTrips` to reject malformed server records without crashing or corrupting local `localStorage` state.
+  - `frontend/tests/auth_cloud_sync_frontend.test.tsx`: Added 4 comprehensive unit tests verifying runtime type guards, sanitization fallbacks, and malformed payload rejection.
+  - Warning Elimination: Full pytest suite reports **0 datetime deprecation warnings** (reduced from 200 total warnings to 57 third-party httpx cookie warnings).
+  - Test Suite: **748 passed, 2 deselected** in `pytest backend/tests`; **350 passed, 5 skipped** in `vitest run`.
+  - Invariants: ₹0 budget ceiling preserved; 0 external dependencies added; 100% anonymous compatibility preserved.
+
+### Phase 14 Step 2 — Shareable Itinerary Deep-Linking & Public Read-Only Trip Snapshot API
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Implement secure, lightweight, read-only shareable itinerary snapshots allowing authenticated travelers to generate unguessable public URLs (`/#trip/shared/{share_id}`) accessible to anyone without login, while strictly isolating owner identity and preventing trip mutation.
+- **Deliverables & Evidence**:
+  - `backend/app/models/session.py` & `backend/app/models/user.py`: Added `SharedTripSnapshot` ORM model (`id`, `share_id`, `user_id`, `title`, `snapshot_data`, `created_at`, `expires_at`) with foreign key cascade to `User`.
+  - `backend/alembic/versions/0010_shared_trip_snapshots.py`: Applied migration creating `shared_trip_snapshots` table with unique index on `share_id` and index on `user_id`.
+  - `backend/app/schemas/share.py`: Created Pydantic schemas `CreateShareTripRequest`, `CreateShareTripResponse`, `PublicSharedTripResponse`.
+  - `backend/app/api/share_routes.py`: Implemented `POST /api/v1/trips/share` (authenticated, 20/hr/user rate limit, 50KB payload cap, 22-char unguessable URL-safe token) and `GET /api/v1/trips/shared/{share_id}` (public read-only, zero user/session metadata leakage, 404 on invalid/expired links, per-IP abuse rate limiter).
+  - `backend/app/ai/rate_limit.py`: Added `check_custom_limit(key, max_requests, window_seconds)` supporting feature-specific rate limits.
+  - `frontend/src/types/api.ts` & `frontend/src/api/client.ts`: Added typed contracts and methods (`createSharedTrip()`, `getSharedTrip()`).
+  - `frontend/src/store/useSharedTrip.ts`: Reactive public snapshot hook handling data fetching, 404/429/network errors.
+  - `frontend/src/components/itinerary/ShareTripModal.tsx`: Interactive modal with Google sign-in prompt for anonymous users, 1-click snapshot creation for authenticated users, and link copying.
+  - `frontend/src/components/itinerary/SharedItineraryPage.tsx`: Public read-only itinerary viewer displaying snapshot banner, timeline schedule, and "Plan Your Own Trip" CTA.
+  - `frontend/src/components/itinerary/ItineraryView.tsx`: Integrated "Share Trip" action button and modal.
+  - `frontend/src/utils/navigation.ts` & `frontend/src/pages/ItineraryPlannerPage.tsx`: Enhanced URL hash router to recognize `#trip/shared/{share_id}` and render public shared trips cleanly.
+  - Backend Test Suite: Added `backend/tests/test_auth_share_trips.py` (11 tests). Full backend pytest: **759 passed, 2 deselected** across 55 test files.
+  - Frontend Test Suite: Added `frontend/tests/shared_trip_flow.test.tsx` (10 tests). Full vitest suite: **360 passed, 5 skipped** across 41 test files.
+  - Verification Gates: Production build clean in 9.28s, compileall 0 errors, git diff clean, doctor.ps1 11/11 PASS (`RESULT: READY`).
+  - Strict Invariants: ₹0 budget ceiling, 0 external cloud storage dependencies, 0 client-side token exposure, 100% anonymous compatibility preserved. Steps 3–6 remain untouched.
+
+### Phase 14 Step 3 — Itinerary Export (PDF / Print-Optimized View / Markdown Summary)
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Provide client-side export capabilities enabling travelers to print/save high-contrast PDFs via browser native `window.print()` and download offline Markdown summary files without external servers, paid PDF generation APIs, or additional dependencies.
+- **Deliverables & Evidence**:
+  - `frontend/src/utils/itineraryExport.ts`: Implemented `generateItineraryMarkdown`, `generateSafeFilename`, `downloadItineraryMarkdown` (using native `Blob` and `URL.createObjectURL`), `triggerPrintItinerary` (native `window.print()`), and canonical `ODISHA_EMERGENCY_HELPLINES` registry.
+  - `frontend/src/components/itinerary/PrintableItineraryView.tsx`: Created high-contrast, paper-optimized layout using the canonical itinerary source data with sensible day page breaks (`break-inside-avoid`, `page-break-inside-avoid`), stop timelines, connecting hops, and emergency helplines.
+  - `frontend/src/components/itinerary/ItineraryExportModal.tsx`: Interactive modal presenting "Print / Save as PDF" and "Download Markdown (.md)" actions with trip metadata preview and ₹0 client-side security notice.
+  - `frontend/src/components/itinerary/ItineraryView.tsx`: Integrated "Export / Print" action button and embedded print-only `PrintableItineraryView`.
+  - `frontend/src/index.css`: Added `@media print` rules hiding interactive UI (topbar, buttons, modals, docks, map) while rendering clean black-and-white printable itinerary document.
+  - `frontend/src/types/api.ts`: Added optional `theme` to `ItineraryDay` and `duration_minutes` to `ItineraryStop`.
+  - `frontend/tests/itinerary_export_flow.test.tsx`: Added 15 comprehensive unit & component tests covering Markdown generation, helpline inclusion, safe filename sanitization, native Blob download, print invocation, modal behavior, empty itinerary safety, and zero token leakage.
+  - Verification Gates:
+    - Frontend Vitest: **375 passed, 5 skipped** across 42 test files.
+    - Frontend Production Build: **PASS** (built in 9.30s).
+    - Backend Pytest: **759 passed, 2 deselected** across 55 test files.
+    - Auth Pytest: **56 passed**.
+    - Compileall: 0 errors.
+  - Strict Scope Control: Steps 4–6 remain untouched. ₹0 budget invariant preserved. Anonymous compatibility preserved.
+
+### Phase 14 Step 4 — PWA Offline Hardening & Service Worker
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Implement standards-compliant Progressive Web App offline capabilities including web app manifest, maskable vector icons, lightweight native Service Worker caching application shell and static photography, strict API bypass for sensitive/mutable endpoints, stale cache eviction, and resilient client registration.
+- **Deliverables & Evidence**:
+  - `frontend/public/manifest.webmanifest`: Standards-compliant web app manifest with standalone display, dark theme `#0B1220`, and multi-resolution icons (`logo.jpeg`, `icon.svg`, `icon-maskable.svg`).
+  - `frontend/public/icon.svg` & `frontend/public/icon-maskable.svg`: Vector SVG icons representing O-Travelz temple chariot and compass star motif.
+  - `frontend/public/sw.js`: Native Service Worker with versioned static (`otravelz-static-v1.0.0`) and image (`otravelz-images-v1.0.0`) caches, pre-cached application shell, size-bounded image caching (max 80 entries), stale cache eviction on activation, and strict bypass for non-GET methods, auth (`/auth/*`), cloud sync (`/api/v1/sync/*`), share snapshot mutations (`/api/v1/trips/share`), and AI conversation routes (`/ai/*`).
+  - `frontend/index.html`: Linked `manifest.webmanifest`, SVG/Apple touch icons, and mobile web app meta tags.
+  - `frontend/src/utils/registerServiceWorker.ts` & `frontend/src/main.tsx`: Safe client-side service worker registration with update detection and graceful fallback for unsupported environments.
+  - `frontend/tests/pwa_service_worker.test.tsx`: 10 comprehensive tests verifying manifest JSON structure, icon availability, meta tags, SW caching rules, strict bypass enforcement, cache pruning, and registration/unregistration.
+  - Verification Gates:
+    - Frontend Vitest: **385 passed, 5 skipped** across 43 test files.
+    - Frontend Production Build: **PASS** (built in 9.24s).
+    - Backend Pytest: **759 passed, 2 deselected** across 55 test files.
+    - Auth Pytest: **56 passed**.
+  - Strict Scope Control: Steps 5–6 remain untouched. ₹0 budget ceiling preserved. Offline-first localStorage preserved.
+
+### Phase 14 Step 5 — GitHub Actions CI/CD Pipeline
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Create a robust, automated GitHub Actions CI pipeline validating repository integrity, backend Python compilation, Alembic migration chain, pytest suite with PostgreSQL/PostGIS service container, frontend Vitest tests, and production Vite bundle creation on every push and pull request to `main`.
+- **Deliverables & Evidence**:
+  - `.github/workflows/ci.yml`: Comprehensive GitHub Actions workflow with 3 parallel/staged jobs:
+    1. `repo-integrity`: Runs `git diff --check` on `ubuntu-latest` to fail on formatting/whitespace defects.
+    2. `backend-ci`: Sets up Python 3.12 (with pip cache), spins up `postgis/postgis:16-3.4` service container, runs `compileall`, validates migration history (`alembic heads`), applies migrations (`alembic upgrade head`), and executes the complete backend pytest suite and auth/security test suite.
+    3. `frontend-ci`: Sets up Node.js 20 (with npm cache), installs dependencies via `npm --prefix frontend ci`, executes full Vitest suite, and builds the production bundle via `npm --prefix frontend run build`.
+  - `backend/tests/test_ci_workflow.py`: Unit test validating `.github/workflows/ci.yml` syntax, trigger configuration (`push`, `pull_request` on `main`), pinned Python/Node versions (3.12, 20), required test commands, and zero deployment step invariants.
+  - Verification Gates:
+    - Backend Pytest: **760 passed, 2 deselected** across 56 test files.
+    - Auth Pytest: **56 passed**.
+    - Frontend Vitest: **385 passed, 5 skipped** across 43 test files.
+    - Frontend Production Build: **PASS** (built in 4.14s).
+    - Python Compileall: 0 errors.
+    - Git Diff: `git diff --check` clean.
+    - System Doctor: `doctor.ps1` **11/11 PASS (`RESULT: READY`)**.
+  - Strict Scope Control: Step 6 remains untouched. ₹0 budget invariant preserved. Zero production deployment steps added.
+
+### Phase 14 Step 6 — Production Deployment Readiness & Verification
+- **Status**: **COMPLETE — PASS**
+- **Objective**: Execute a comprehensive production-readiness audit and verification pass covering backend configuration, fail-closed production secrets, CORS origin policies, frontend bundle integrity, security invariants, Alembic migrations, PWA offline behavior, client-side export, and environment documentation.
+- **Deliverables & Evidence**:
+  - `backend/app/core/config.py`: Verified `validate_production_security()` enforcing fail-closed runtime checks (minimum 32-char high-entropy `AUTH_SESSION_SECRET` in production, required Google OAuth credentials when enabled).
+  - `backend/app/main.py`: Verified CORS policy isolating credentials to explicit allowed origins and blocking wildcard credential leakage.
+  - `frontend/src/api/client.ts`: Verified production API base URL resolution (`VITE_API_URL` / `VITE_API_BASE_URL` with relative fallback).
+  - `.env.example`: Enhanced template with explicit production classifications ([REQUIRED], [REQUIRED IN PROD], [OPTIONAL], dev-only).
+  - Security Audit: 0 `eval()`, 0 dynamic `new Function()`, 0 `dangerouslySetInnerHTML`, 0 `datetime.utcnow()`, 0 hardcoded credentials, 0 client-side token exposure.
+  - Database & Migrations: Verified single clean Alembic migration head (`0010_shared_trip_snapshots (head)`), 0 branches, matching PostgreSQL/PostGIS schema.
+  - GitHub Actions Status: Workflow `.github/workflows/ci.yml` locally and statically verified via PyYAML and unit test; remote execution pending initial push.
+  - Final Verification Gates:
+    - Backend Pytest: **760 passed, 2 deselected** across 56 test files.
+    - Auth Pytest: **56 passed**.
+    - Frontend Vitest: **385 passed, 5 skipped** across 43 test files.
+    - Frontend Production Build: **PASS** (built in 4.35s).
+    - Python Compileall: 0 errors.
+    - Git Diff: `git diff --check` clean.
+    - System Doctor: `doctor.ps1` **11/11 PASS (`RESULT: READY`)**.
+  - Deployment Status: **NO production deployment was performed** (readiness and verification only). ₹0 budget ceiling preserved. Phase 14 is 100% complete.

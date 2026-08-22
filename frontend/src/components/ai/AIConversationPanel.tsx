@@ -1,9 +1,23 @@
 import React, { useState } from "react";
-import type { AIResponse, PlanningConstraints } from "../../api/contracts";
+import type {
+  AIResponse,
+  GroundedConversationResponse,
+  PlanningConstraints,
+} from "../../api/contracts";
 import { ErrorAlert } from "../itinerary/ErrorAlert";
-import { Bot, Send, Sparkles, User, HelpCircle, CheckCircle2, AlertCircle } from "lucide-react";
+import {
+  Bot,
+  Send,
+  Sparkles,
+  User,
+  HelpCircle,
+  CheckCircle2,
+  AlertCircle,
+  ShieldCheck,
+  RotateCcw,
+  Wrench,
+} from "lucide-react";
 import type { ConversationTurn } from "../../store/useAIConversation";
-
 import { getRefinementSuggestions } from "../../utils/timelineService";
 
 interface AIConversationPanelProps {
@@ -11,10 +25,13 @@ interface AIConversationPanelProps {
   hasItinerary?: boolean;
   isLoading: boolean;
   error?: unknown | null;
-  aiResponse?: AIResponse | null;
+  aiResponse?: AIResponse | GroundedConversationResponse | null;
+  groundedResponse?: GroundedConversationResponse | null;
   history?: ConversationTurn[];
+  isGrounded?: boolean;
   onSend?: (message: string) => void;
   onSendMessage?: (message: string) => void;
+  onRetry?: () => void;
   onClearError?: () => void;
 }
 
@@ -24,9 +41,12 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
   isLoading,
   error = null,
   aiResponse = null,
+  groundedResponse = null,
   history = [],
+  isGrounded = true,
   onSend,
   onSendMessage,
+  onRetry,
   onClearError,
 }) => {
   const [message, setMessage] = useState<string>("");
@@ -74,6 +94,9 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
     }
   };
 
+  // Helper to get active response object
+  const activeResponse = groundedResponse || aiResponse;
+
   return (
     <div
       data-testid="ai-conversation-panel"
@@ -86,9 +109,9 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
             <span className="w-2.5 h-2.5 rounded-full bg-[#8B5CF6] animate-pulse" />
             <span>{hasItinerary ? "Conversational Refinement" : "AI Trip Assistant"}</span>
           </h3>
-          <p className="text-xs text-slate-400 mt-0.5">
+          <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">
             {hasItinerary
-              ? "Ask your assistant to adjust days, start location, or category interests."
+              ? "Ask your assistant to adjust days, starting location, or themes in English, ଓଡ଼ିଆ, or हिन्दी."
               : "Describe your ideal journey in natural language, or ask follow-up questions to customize your trip."}
           </p>
         </div>
@@ -119,10 +142,13 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
       {history.length > 0 && (
         <div
           data-testid="ai-chat-history"
-          className="space-y-3.5 max-h-80 overflow-y-auto p-3 rounded-2xl bg-[#0B1220] border border-[#263244]"
+          aria-live="polite"
+          aria-atomic="false"
+          className="space-y-3.5 max-h-80 overflow-y-auto p-3.5 rounded-2xl bg-[#0B1220] border border-[#263244]"
         >
           {history.map((turn, index) => {
             const isUser = turn.role === "user";
+            const turnIsGrounded = turn.is_grounded ?? true;
             return (
               <div
                 key={index}
@@ -141,7 +167,36 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
                       : "bg-[#172235] text-slate-200 border border-[#263244] shadow-2xs"
                   }`}
                 >
-                  <p className="whitespace-pre-wrap">{turn.message}</p>
+                  <p className="whitespace-pre-wrap leading-relaxed font-sans">{turn.message}</p>
+
+                  {/* Grounded Badge for Assistant Turns */}
+                  {!isUser && turnIsGrounded && (
+                    <div
+                      data-testid="ai-turn-grounded-badge"
+                      className="mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-950/80 text-emerald-300 border border-emerald-800/60 text-[10px] font-medium"
+                    >
+                      <ShieldCheck size={11} className="text-emerald-400 shrink-0" />
+                      <span>Grounded in verified O-Travelz data</span>
+                    </div>
+                  )}
+
+                  {/* Tool Invocations Context */}
+                  {!isUser && turn.tool_calls && turn.tool_calls.length > 0 && (
+                    <div
+                      data-testid="ai-turn-tool-calls"
+                      className="mt-2 pt-2 border-t border-[#263244] flex flex-wrap gap-1 text-[10px] text-slate-400"
+                    >
+                      {turn.tool_calls.map((tc, tcIdx) => (
+                        <span
+                          key={tcIdx}
+                          className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#0B1220] border border-[#263244] text-slate-300 font-mono"
+                        >
+                          <Wrench size={10} className="text-[#8B5CF6]" />
+                          <span>Tool: {tc.name}</span>
+                        </span>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Clarification prompt banner */}
                   {!isUser && turn.response?.clarification && (
@@ -206,8 +261,8 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
               type="text"
               placeholder={
                 hasItinerary
-                  ? "e.g. 'Add temples and make it 3 days' or 'Start from Daringbadi'"
-                  : "e.g. 'I want a 2 day heritage and food trip in Bhubaneswar'"
+                  ? "e.g. 'Add temples and make it 3 days' or 'ପୁରୀ ପାଇଁ ୩ ଦିନର ଯାତ୍ରା'"
+                  : "e.g. 'Plan a 2 day heritage trip in Puri' or 'पुरी के लिए 2 दिन का प्लान'"
               }
               value={message}
               disabled={isLoading}
@@ -232,11 +287,26 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
         </div>
       </form>
 
-      {/* Error alert */}
-      {error != null && <ErrorAlert error={error} onDismiss={onClearError} />}
+      {/* Error alert with retry */}
+      {error != null && (
+        <div className="space-y-2">
+          <ErrorAlert error={error} onDismiss={onClearError} />
+          {onRetry && (
+            <button
+              type="button"
+              data-testid="ai-retry-button"
+              onClick={onRetry}
+              className="px-3.5 py-1.5 rounded-xl bg-[#172235] hover:bg-[#1E2D44] text-slate-200 hover:text-white border border-[#263244] text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
+            >
+              <RotateCcw size={13} />
+              <span>Retry Request</span>
+            </button>
+          )}
+        </div>
+      )}
 
-      {/* Static Fallback card if aiResponse exists */}
-      {aiResponse && (
+      {/* Static Fallback card if activeResponse exists */}
+      {activeResponse && (
         <div
           data-testid="ai-response-card"
           className="p-4 sm:p-5 rounded-2xl bg-[#172235] border border-[#263244] text-xs text-slate-200 space-y-3"
@@ -245,54 +315,65 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
             <span className="font-bold text-white flex items-center gap-1.5">
               <span>AI Trip Assistant</span>
             </span>
-            {getStatusBadge(aiResponse.status)}
+            <div className="flex items-center gap-2">
+              {getStatusBadge(activeResponse.status)}
+              {isGrounded && (
+                <span
+                  data-testid="ai-grounded-indicator"
+                  className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-950/80 text-emerald-300 border border-emerald-800/60 inline-flex items-center gap-1"
+                >
+                  <ShieldCheck size={11} />
+                  <span>Grounded in verified O-Travelz data</span>
+                </span>
+              )}
+            </div>
           </div>
 
-          <p data-testid="ai-grounded-message" className="text-white leading-relaxed text-sm">
-            {aiResponse.message}
+          <p data-testid="ai-grounded-message" className="text-white leading-relaxed text-sm font-sans">
+            {activeResponse.message}
           </p>
 
-          {aiResponse.clarification && (
+          {activeResponse.clarification && (
             <div
               data-testid="ai-clarification-box"
               className="p-3.5 rounded-xl bg-blue-950/70 border border-blue-800 text-blue-200 space-y-1"
             >
               <div className="font-semibold text-blue-300">Clarification Question:</div>
-              <p className="font-medium text-blue-200">{aiResponse.clarification.question}</p>
-              {aiResponse.clarification.reason && (
+              <p className="font-medium text-blue-200">{activeResponse.clarification.question}</p>
+              {activeResponse.clarification.reason && (
                 <p className="text-[11px] text-blue-400">
-                  Reason: {aiResponse.clarification.reason}
+                  Reason: {activeResponse.clarification.reason}
                 </p>
               )}
             </div>
           )}
 
-          {aiResponse.changed_constraints && (
+          {activeResponse.changed_constraints && (
             <div
               data-testid="ai-changed-constraints"
               className="p-3.5 rounded-xl bg-[#0B1220] border border-[#263244] text-slate-300 space-y-1"
             >
               <div className="font-semibold text-white">Updated Constraints:</div>
               <div className="flex flex-wrap gap-2 text-xs">
-                {aiResponse.changed_constraints.days !== undefined &&
-                  aiResponse.changed_constraints.days !== null && (
+                {activeResponse.changed_constraints.days !== undefined &&
+                  activeResponse.changed_constraints.days !== null && (
                     <span className="px-2.5 py-1 rounded-lg bg-[#172235] border border-[#263244] font-medium text-teal-300">
-                      Days: {aiResponse.changed_constraints.days}
+                      Days: {activeResponse.changed_constraints.days}
                     </span>
                   )}
-                {aiResponse.changed_constraints.interests && (
+                {activeResponse.changed_constraints.interests && (
                   <span className="px-2.5 py-1 rounded-lg bg-[#172235] border border-[#263244] font-medium text-teal-300">
-                    Interests: {aiResponse.changed_constraints.interests.join(", ")}
+                    Interests: {activeResponse.changed_constraints.interests.join(", ")}
                   </span>
                 )}
-                {aiResponse.changed_constraints.start && (
+                {activeResponse.changed_constraints.start && (
                   <span className="px-2.5 py-1 rounded-lg bg-[#172235] border border-[#263244] font-medium text-teal-300">
-                    Start: {aiResponse.changed_constraints.start}
+                    Start: {activeResponse.changed_constraints.start}
                   </span>
                 )}
-                {aiResponse.changed_constraints.dates && (
+                {activeResponse.changed_constraints.dates && (
                   <span className="px-2.5 py-1 rounded-lg bg-[#172235] border border-[#263244] font-medium text-teal-300">
-                    Dates: {aiResponse.changed_constraints.dates.join(", ")}
+                    Dates: {activeResponse.changed_constraints.dates.join(", ")}
                   </span>
                 )}
               </div>

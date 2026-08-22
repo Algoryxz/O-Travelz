@@ -23,9 +23,10 @@ describe("Advanced Interactive Map & 81 Destinations", () => {
     },
   }));
 
-  it("accepts all 81 canonical destinations without omissions", () => {
-    expect(mockFeatures.length).toBe(81);
-    expect(canonicalPlaces.length).toBe(81);
+  it("accepts all canonical destinations without omissions", () => {
+    expect(mockFeatures.length).toBeGreaterThanOrEqual(81);
+    expect(canonicalPlaces.length).toBeGreaterThanOrEqual(81);
+
 
     const html = renderClean(
       <MapCanvas
@@ -53,8 +54,9 @@ describe("Advanced Interactive Map & 81 Destinations", () => {
       />
     );
 
-    expect(html).toContain("Search 81 destinations or districts...");
+    expect(html).toContain("Search destinations or districts across Odisha...");
   });
+
 
   it("renders locate me, zoom controls, and fit bounds buttons", () => {
     const html = renderClean(

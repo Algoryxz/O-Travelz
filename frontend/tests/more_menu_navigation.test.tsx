@@ -64,9 +64,10 @@ describe("More Menu & Navigation Integration", () => {
     // Section 3: Discovery Shortcuts
     expect(html).toContain("Discovery Shortcuts");
     expect(html).toContain('data-testid="drawer-nav-all-destinations"');
-    expect(html).toContain("All Destinations Index (81)");
+    expect(html).toContain("All Destinations Index");
     expect(html).toContain('data-testid="drawer-nav-thematic-circuits"');
     expect(html).toContain("Thematic Travel Circuits");
+
 
     // Section 4: Preferences & Tools
     expect(html).toContain("Preferences &amp; Tools");

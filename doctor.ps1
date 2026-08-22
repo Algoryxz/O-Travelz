@@ -220,11 +220,13 @@ except Exception as e:
 
         Report-Check "Database" "PostgreSQL / PostGIS Connection" $true "Connected on port 5433 ($pgVer)"
 
-        if ($pCount -eq 81 -and $cCount -eq 13 -and $iCount -eq 12 -and $aCount -eq 206) {
+        if (($pCount -eq 81 -or $pCount -eq 161) -and ($cCount -eq 13 -or $cCount -eq 16) -and $iCount -eq 12 -and ($aCount -eq 206 -or $aCount -eq 358)) {
             Report-Check "Database" "Canonical Dataset" $true "$pCount places, $cCount categories, $iCount interests, $aCount associations, $imgCount images"
         } else {
-            Report-Check "Database" "Canonical Dataset" $false "Found $pCount places (expected 81), $cCount cats (exp 13), $iCount ints (exp 12), $aCount assocs (exp 206)" "Run: .\.venv\Scripts\python.exe scripts\import_places.py"
+            Report-Check "Database" "Canonical Dataset" $false "Found $pCount places (expected 161), $cCount cats (exp 16), $iCount ints (exp 12), $aCount assocs (exp 358)" "Run: .\.venv\Scripts\python.exe scripts\import_places.py"
         }
+
+
     } else {
         Report-Check "Database" "PostgreSQL / PostGIS Connection" $false "$dbResult" "Ensure Docker DB container is running on port 5433: docker compose -f infra/docker-compose.yml up -d db"
     }

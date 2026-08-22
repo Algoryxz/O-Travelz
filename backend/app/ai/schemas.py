@@ -20,7 +20,17 @@ from app.schemas.transport import ProviderStatusContract, TransportHopContract
 class SearchPlacesArgs(ContractModel):
     interests: list[str] = Field(default_factory=list)
     area: str | None = None
-    constraints: PlanningConstraints
+    query: str | None = None
+    district: str | None = None
+    category: str | None = None
+    is_medical: bool | None = None
+    is_transit: bool | None = None
+    near_lat: float | None = None
+    near_lon: float | None = None
+    radius_km: float | None = None
+    limit: int = 10
+    constraints: PlanningConstraints | None = None
+
 
 
 class SearchPlacesResult(ContractModel):
@@ -105,8 +115,9 @@ class ConstraintUpdate(ContractModel):
 
 
 class ToolCall(ContractModel):
-    name: Literal["build_itinerary", "plan_transport_hop", "get_provider_status"]
+    name: Literal["build_itinerary", "plan_transport_hop", "get_provider_status", "search_places"]
     arguments: dict[str, Any] = Field(default_factory=dict)
+
 
 
 class AIIntent(ContractModel):

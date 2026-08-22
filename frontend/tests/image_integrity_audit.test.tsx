@@ -13,8 +13,8 @@ import {
 } from "../src/utils/imageService";
 import { resolvePlaceImageUrl, resolvePlaceGallery, resolvePlaceImage } from "../src/utils/imageAdapter";
 
-describe("81 Canonical Destinations — Complete Image Identity, Integrity & Ingestion Acceptance Suite", () => {
-  const all81Places = seedPlacesData as Array<{
+describe("Canonical Destinations Image Identity, Integrity & Ingestion Acceptance Suite", () => {
+  const allPlaces = seedPlacesData as Array<{
     id: string;
     name: string;
     category: string;
@@ -22,6 +22,7 @@ describe("81 Canonical Destinations — Complete Image Identity, Integrity & Ing
     lat: number;
     lon: number;
   }>;
+  const manifestPlaces = allPlaces.filter((p) => p.id in PLACE_IMAGE_MANIFEST);
 
   // Expected 32 newly ingested destination asset hashes
   const EXPECTED_32_INGESTED_HASHES: Record<string, string> = {
@@ -59,12 +60,13 @@ describe("81 Canonical Destinations — Complete Image Identity, Integrity & Ing
     "place_food_011": "cb1d3fcc1b6c",
   };
 
-  it("1. Exactly 81 canonical destinations exist in dataset", () => {
-    expect(all81Places.length).toBe(81);
+  it("1. Exactly 81 canonical manifest destinations exist with photography", () => {
+    expect(manifestPlaces.length).toBe(81);
+    expect(allPlaces.length).toBeGreaterThanOrEqual(81);
   });
 
-  it("2. All 81 canonical destinations resolve to authentic photography (81/81 authentic, 0 fallbacks)", () => {
-    const resolvedResults = all81Places.map((place) => {
+  it("2. All 81 manifest destinations resolve to authentic photography (81/81 authentic, 0 fallbacks)", () => {
+    const resolvedResults = manifestPlaces.map((place) => {
       const imageUrl = getPlaceImageUrl(place.id, place.category);
       const images = getPlaceImages(place.id, place.category);
       return {
@@ -93,7 +95,7 @@ describe("81 Canonical Destinations — Complete Image Identity, Integrity & Ing
 
   it("3. All 32 newly supplied destinations resolve to their exact intended asset hashes", () => {
     Object.entries(EXPECTED_32_INGESTED_HASHES).forEach(([placeId, expectedHash]) => {
-      const place = all81Places.find((p) => p.id === placeId);
+      const place = manifestPlaces.find((p) => p.id === placeId);
       expect(place).toBeDefined();
 
       const urlById = getPlaceImageUrl(placeId, place!.category);
@@ -107,10 +109,10 @@ describe("81 Canonical Destinations — Complete Image Identity, Integrity & Ing
     });
   });
 
-  it("4. Zero cross-destination photographic hash collisions across all 81 destinations", () => {
+  it("4. Zero cross-destination photographic hash collisions across all 81 manifest destinations", () => {
     const hashToPlaceMap: Record<string, { id: string; name: string }> = {};
 
-    all81Places.forEach((place) => {
+    manifestPlaces.forEach((place) => {
       const url = getPlaceImageUrl(place.id, place.category);
       // Extract hash part: /static/images/places/<id>/<hash>/...
       const match = url.match(/\/static\/images\/places\/[^/]+\/([a-f0-9]+)\//);
@@ -133,7 +135,7 @@ describe("81 Canonical Destinations — Complete Image Identity, Integrity & Ing
     const lingarajUrl = getPlaceImageUrl("place_bbsr_001", "temple");
     expect(lingarajUrl).toContain("place_bbsr_001");
 
-    all81Places.forEach((place) => {
+    manifestPlaces.forEach((place) => {
       if (place.id !== "place_bbsr_001") {
         const urlById = getPlaceImageUrl(place.id, place.category);
         const urlByName = getPlaceImageUrl(place.name, place.category);
@@ -147,7 +149,7 @@ describe("81 Canonical Destinations — Complete Image Identity, Integrity & Ing
     const konarkUrl = getPlaceImageUrl("place_konark_001", "monument");
     expect(konarkUrl).toContain("place_konark_001");
 
-    all81Places.forEach((place) => {
+    manifestPlaces.forEach((place) => {
       if (place.id !== "place_konark_001") {
         const urlById = getPlaceImageUrl(place.id, place.category);
         const urlByName = getPlaceImageUrl(place.name, place.category);
@@ -173,7 +175,7 @@ describe("81 Canonical Destinations — Complete Image Identity, Integrity & Ing
   });
 
   it("8. No double-extension (.webp.webp) URLs are ever generated or served", () => {
-    all81Places.forEach((place) => {
+    allPlaces.forEach((place) => {
       const url = getPlaceImageUrl(place.id, place.category);
       expect(url).not.toContain(".webp.webp");
       const gallery = getPlaceGallery(place.id, place.category);
@@ -184,14 +186,14 @@ describe("81 Canonical Destinations — Complete Image Identity, Integrity & Ing
   });
 
   it("9. Canonical place ID takes precedence over aliases in resolution", () => {
-    all81Places.forEach((place) => {
+    manifestPlaces.forEach((place) => {
       const url = getPlaceImageUrl(place.id, place.category);
       expect(url).toContain(`/static/images/places/${place.id}/`);
     });
   });
 
   it("10. Photo gallery resolution always returns hero.webp and never thumbnail.webp", () => {
-    all81Places.forEach((place) => {
+    manifestPlaces.forEach((place) => {
       const gallery = getPlaceGallery(place.id, place.category);
       expect(gallery.length).toBeGreaterThanOrEqual(1);
       gallery.forEach((item) => {
@@ -228,9 +230,18 @@ describe("81 Canonical Destinations — Complete Image Identity, Integrity & Ing
     expect(gallery[0].url).toContain("/hero.webp");
   });
 
-  it("12. Fallback SVG mechanism remains intact for unknown non-canonical categories", () => {
+  it("12. Fallback SVG mechanism remains intact for unmanifested or unknown categories", () => {
     const fallback = getCategoryFallback("unknown_category_xyz");
     expect(fallback.isFallback).toBe(true);
     expect(fallback.src).toContain("data:image/svg+xml");
+
+    // Unmanifested places gracefully return category fallback
+    const unmanifested = allPlaces.filter((p) => !(p.id in PLACE_IMAGE_MANIFEST));
+    expect(unmanifested.length).toBeGreaterThan(0);
+    unmanifested.forEach((p) => {
+      const img = getPlaceImages(p.id, p.category);
+      expect(img[0].isFallback).toBe(true);
+      expect(img[0].src).toBeDefined();
+    });
   });
 });

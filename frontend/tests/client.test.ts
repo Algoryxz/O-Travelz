@@ -297,4 +297,117 @@ describe("ApiClient", () => {
       );
     });
   });
+
+  describe("GET /places multilingual query construction & URL encoding", () => {
+    it("preserves and properly encodes Odia search, district, category, and interest queries", async () => {
+      const fetchFn = mockSuccessResponse([]);
+      const client = new ApiClient({ fetchFn });
+
+      // 1. Odia search queries
+      await client.listPlaces({ search: "ପୁରୀ" });
+      expect(fetchFn).toHaveBeenLastCalledWith(
+        `/places?search=${encodeURIComponent("ପୁରୀ")}`,
+        expect.objectContaining({ method: "GET" })
+      );
+
+      await client.listPlaces({ search: "ମନ୍ଦିର" });
+      expect(fetchFn).toHaveBeenLastCalledWith(
+        `/places?search=${encodeURIComponent("ମନ୍ଦିର")}`,
+        expect.objectContaining({ method: "GET" })
+      );
+
+      await client.listPlaces({ search: "ରୂପା ସହର" });
+      expect(fetchFn).toHaveBeenLastCalledWith(
+        `/places?search=${encodeURIComponent("ରୂପା ସହର").replace(/%20/g, "+")}`,
+        expect.objectContaining({ method: "GET" })
+      );
+
+      // 2. Odia district, category, and interest
+      await client.listPlaces({ district: "ପୁରୀ", category: "ମନ୍ଦିର", interest: "ଐତିହ୍ୟ" });
+      const lastCallUrl = (fetchFn as any).mock.calls[(fetchFn as any).mock.calls.length - 1][0];
+      const parsedUrl = new URL(`http://localhost${lastCallUrl}`);
+      expect(parsedUrl.searchParams.get("district")).toBe("ପୁରୀ");
+      expect(parsedUrl.searchParams.get("category")).toBe("ମନ୍ଦିର");
+      expect(parsedUrl.searchParams.get("interest")).toBe("ଐତିହ୍ୟ");
+    });
+
+    it("preserves and properly encodes Hindi search, district, category, and interest queries", async () => {
+      const fetchFn = mockSuccessResponse([]);
+      const client = new ApiClient({ fetchFn });
+
+      // 1. Hindi search queries
+      await client.listPlaces({ search: "पुरी" });
+      expect(fetchFn).toHaveBeenLastCalledWith(
+        `/places?search=${encodeURIComponent("पुरी")}`,
+        expect.objectContaining({ method: "GET" })
+      );
+
+      await client.listPlaces({ search: "मंदिर" });
+      expect(fetchFn).toHaveBeenLastCalledWith(
+        `/places?search=${encodeURIComponent("मंदिर")}`,
+        expect.objectContaining({ method: "GET" })
+      );
+
+      await client.listPlaces({ search: "चांदी का शहर" });
+      expect(fetchFn).toHaveBeenLastCalledWith(
+        `/places?search=${encodeURIComponent("चांदी का शहर").replace(/%20/g, "+")}`,
+        expect.objectContaining({ method: "GET" })
+      );
+
+      // 2. Hindi district, category, and interest
+      await client.listPlaces({ district: "पुरी", category: "मंदिर", interest: "विरासत" });
+      const lastCallUrl = (fetchFn as any).mock.calls[(fetchFn as any).mock.calls.length - 1][0];
+      const parsedUrl = new URL(`http://localhost${lastCallUrl}`);
+      expect(parsedUrl.searchParams.get("district")).toBe("पुरी");
+      expect(parsedUrl.searchParams.get("category")).toBe("मंदिर");
+      expect(parsedUrl.searchParams.get("interest")).toBe("विरासत");
+    });
+
+    it("supports canonical English and localized inputs as opaque query parameters", async () => {
+      const fetchFn = mockSuccessResponse([]);
+      const client = new ApiClient({ fetchFn });
+
+      // English canonical
+      await client.listPlaces({ district: "Puri", category: "temple", interest: "heritage" });
+      expect(fetchFn).toHaveBeenLastCalledWith(
+        "/places?category=temple&interest=heritage&district=Puri",
+        expect.objectContaining({ method: "GET" })
+      );
+
+      // Mixed / pagination parameters
+      await client.listPlaces({
+        search: "Temples in Puri",
+        district: "Puri",
+        category: "temple",
+        interest: "heritage",
+        limit: 10,
+        offset: 20,
+      });
+      const lastCallUrl = (fetchFn as any).mock.calls[(fetchFn as any).mock.calls.length - 1][0];
+      const parsedUrl = new URL(`http://localhost${lastCallUrl}`);
+      expect(parsedUrl.searchParams.get("search")).toBe("Temples in Puri");
+      expect(parsedUrl.searchParams.get("district")).toBe("Puri");
+      expect(parsedUrl.searchParams.get("category")).toBe("temple");
+      expect(parsedUrl.searchParams.get("interest")).toBe("heritage");
+      expect(parsedUrl.searchParams.get("limit")).toBe("10");
+      expect(parsedUrl.searchParams.get("offset")).toBe("20");
+    });
+
+    it("handles empty and optional parameter variations cleanly", async () => {
+      const fetchFn = mockSuccessResponse([]);
+      const client = new ApiClient({ fetchFn });
+
+      // Empty params
+      await client.listPlaces({});
+      expect(fetchFn).toHaveBeenLastCalledWith("/places", expect.objectContaining({ method: "GET" }));
+
+      // No params
+      await client.listPlaces();
+      expect(fetchFn).toHaveBeenLastCalledWith("/places", expect.objectContaining({ method: "GET" }));
+
+      // Only search
+      await client.listPlaces({ search: "Konark" });
+      expect(fetchFn).toHaveBeenLastCalledWith("/places?search=Konark", expect.objectContaining({ method: "GET" }));
+    });
+  });
 });

@@ -82,6 +82,18 @@ export function useSavedPlaces() {
   }, []);
 
   const removePlace = useCallback((placeIdOrName: string) => {
+    // Record tombstone for cloud sync
+    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
+      try {
+        const raw = localStorage.getItem("o_travelz_saved_places_tombstones");
+        const list = raw ? JSON.parse(raw) : [];
+        list.push({ id: placeIdOrName, updatedAt: Date.now() });
+        localStorage.setItem("o_travelz_saved_places_tombstones", JSON.stringify(list));
+      } catch {
+        // ignore
+      }
+    }
+
     setSavedPlaces((prev) => {
       const target = placeIdOrName.toLowerCase().trim();
       const updated = prev.filter(

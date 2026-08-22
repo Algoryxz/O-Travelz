@@ -16,7 +16,10 @@ import {
   CalendarDays,
   ChevronDown,
   ChevronUp,
+  ShieldCheck,
+  Wrench,
 } from "lucide-react";
+
 import type { AIResponse, PlanningConstraints, ItineraryPlanResponse } from "../../api/contracts";
 import type { ConversationTurn } from "../../store/useAIConversation";
 import type { SavedTripConversation } from "../../store/useConversationHistory";
@@ -317,9 +320,39 @@ export const AISidebar: React.FC<AISidebarProps> = ({
                         : "bg-[#172235] text-slate-200 border border-[#263244] shadow-2xs"
                     }`}
                   >
-                    <p className="whitespace-pre-wrap">{turn.message}</p>
+                    <p className="whitespace-pre-wrap leading-relaxed font-sans">{turn.message}</p>
+
+                    {/* Grounded Badge for Assistant Turns */}
+                    {!isUser && (turn.is_grounded ?? true) && (
+                      <div
+                        data-testid="sidebar-turn-grounded-badge"
+                        className="mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-950/80 text-emerald-300 border border-emerald-800/60 text-[10px] font-medium"
+                      >
+                        <ShieldCheck size={11} className="text-emerald-400 shrink-0" />
+                        <span>Grounded in verified O-Travelz data</span>
+                      </div>
+                    )}
+
+                    {/* Tool Invocations Context */}
+                    {!isUser && turn.tool_calls && turn.tool_calls.length > 0 && (
+                      <div
+                        data-testid="sidebar-turn-tool-calls"
+                        className="mt-2 pt-2 border-t border-[#263244] flex flex-wrap gap-1 text-[10px] text-slate-400"
+                      >
+                        {turn.tool_calls.map((tc, tcIdx) => (
+                          <span
+                            key={tcIdx}
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#0B1220] border border-[#263244] text-slate-300 font-mono"
+                          >
+                            <Wrench size={10} className="text-[#8B5CF6]" />
+                            <span>Tool: {tc.name}</span>
+                          </span>
+                        ))}
+                      </div>
+                    )}
 
                     {/* Clarification prompt banner */}
+
                     {!isUser && turn.response?.clarification && (
                       <div className="mt-2.5 p-2.5 rounded-xl bg-blue-950/70 border border-blue-800 text-blue-200 space-y-1">
                         <div className="font-bold text-blue-300 flex items-center gap-1 text-[11px]">

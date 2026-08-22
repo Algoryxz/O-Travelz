@@ -4,7 +4,18 @@ from __future__ import annotations
 import re
 from typing import Any
 
+from app.ai.multilingual import (
+    detect_language,
+    extract_multilingual_days,
+    extract_multilingual_interests,
+    is_refinement_query,
+    resolve_multilingual_location,
+)
 from app.ai.schemas import AIIntent, Clarification, IntentKind, PlanningConstraints
+from app.data.odisha_districts import ODISHA_DISTRICTS
+from app.services.search.search_normalizer import VERIFIED_ALIASES, extract_search_intent, normalize_text
+
+
 
 
 class ModelAdapter:
@@ -145,70 +156,107 @@ class RuleBasedModelAdapter(ModelAdapter):
                     if canonical_id not in found:
                         found.append(canonical_id)
                     break
+
+        # Also extract multilingual interests (Odia, Hindi, mixed)
+        for theme in extract_multilingual_interests(text):
+            if theme not in found:
+                found.append(theme)
+
         return found
 
+    def _resolve_start_location(self, text: str) -> str | None:
+        text_norm = normalize_text(text)
+
+        # 1. Exact canonical district match (all 30 districts)
+        for district in ODISHA_DISTRICTS:
+            pattern = r"\b" + re.escape(normalize_text(district)) + r"\b"
+            if re.search(pattern, text_norm):
+                return district
+
+        # 2. Check known places & aliases
+        for canonical_name, aliases in self._KNOWN_PLACES:
+            if any(re.search(r"\b" + re.escape(normalize_text(alias)) + r"\b", text_norm) for alias in aliases):
+                return canonical_name
+
+        # 3. Check dedicated multilingual location resolver
+        resolved = resolve_multilingual_location(text)
+        if resolved:
+            return resolved
+
+        # 4. Check known aliases
+        for alias_key, expansions in VERIFIED_ALIASES.items():
+            if normalize_text(alias_key) in text_norm:
+                return expansions[0]
+
+        return None
+
+
+
     def parse_intent(self, user_message: str, existing_constraints: PlanningConstraints | None = None) -> Any:
-        text = user_message.strip().lower()
+        text = user_message.strip()
+        text_lower = text.lower()
+        lang = detect_language(user_message)
 
         # Handle unsupported preferences
-        if "less walking" in text or "avoid walking" in text or ("walking" in text and "less" in text):
+        if "less walking" in text_lower or "avoid walking" in text_lower or ("walking" in text_lower and "less" in text_lower):
             return {
                 "kind": IntentKind.UNSUPPORTED.value,
                 "reason": "The current planner cannot optimize walking distance yet.",
             }
 
         # Resolve starting location if mentioned
-        detected_start: str | None = None
-        for canonical_name, aliases in self._KNOWN_PLACES:
-            if any(alias in text for alias in aliases):
-                detected_start = canonical_name
-                break
+        detected_start = self._resolve_start_location(text)
 
-        if ("start from" in text or "start at" in text or "hotel" in text) and not detected_start:
+        if ("start from" in text_lower or "start at" in text_lower or "hotel" in text_lower) and not detected_start:
             return {
                 "kind": IntentKind.CLARIFICATION.value,
                 "clarification": {
-                    "question": "Which verified hotel or Odisha location would you like to start from? (e.g. Bhubaneswar, Puri, Konark, Daringbadi, Sambalpur, Koraput)",
+                    "question": (
+                        "ଆପଣ କେଉଁ ଯାଞ୍ଚିତ ସ୍ଥାନରୁ ଯାତ୍ରା ଆରମ୍ଭ କରିବାକୁ ଚାହାଁନ୍ତି? (ଯଥା: ଭୁବନେଶ୍ୱର, ପୁରୀ, କୋଣାର୍କ, ଦାରିଙ୍ଗବାଡ଼ି, ସମ୍ବଲପୁର)"
+                        if lang == "or"
+                        else "आप किस सत्यापित स्थान से यात्रा शुरू करना चाहते हैं? (जैसे: भुवनेश्वर, पुरी, कोणार्क, दारिंगबाड़ी, संबलपुर)"
+                        if lang == "hi"
+                        else "Which verified hotel or Odisha location would you like to start from? (e.g. Bhubaneswar, Puri, Konark, Daringbadi, Sambalpur, Koraput)"
+                    ),
                     "reason": "The requested starting location could not be resolved to a verified place in our database.",
                 },
             }
 
-        day_match = re.search(r"(\d+)\s*[- ]?day", text)
+        detected_days = extract_multilingual_days(text)
         found_interests = self._extract_interests(text)
 
         refinement_words = (
-            "refine",
-            "more",
-            "add",
-            "focused",
-            "extend",
-            "change",
-            "switch",
-            "reduce",
-            "budget",
-            "less",
+            "refine", "more", "add", "focused", "extend", "change", "switch", "reduce", "budget", "less",
+            "ଆହୁରି", "ଯୋଡ଼ନ୍ତୁ", "ଯୋଡ଼", "ବଦଳାନ୍ତୁ", "ଅଧିକ",
+            "और", "जोड़ो", "बदलो", "अधिक", "शामिल",
         )
 
         # 1. Existing constraints present -> conversational refinement
         if existing_constraints is not None:
             # Check for general Q&A / ambiguous questions that are not modifications
-            if text in ("tell me about nature", "tell me about puri", "what is daringbadi", "help", "hello", "hi"):
+            if text_lower in ("tell me about nature", "tell me about puri", "what is daringbadi", "help", "hello", "hi"):
                 return {
                     "kind": IntentKind.CLARIFICATION.value,
                     "clarification": {
-                        "question": "How many days should I plan, and which Odisha region or themes (e.g. Puri, Konark, Chilika, Daringbadi, Sambalpur, Koraput, Heritage, Beaches, Nature) would you like to explore?",
+                        "question": (
+                            "ମୁଁ କେତେ ଦିନ ପାଇଁ ଯୋଜନା କରିବି, ଏବଂ ଆପଣ କେଉଁ ଅଞ୍ଚଳ କିମ୍ବା ଥିମ୍ ଦେଖିବାକୁ ଚାହାଁନ୍ତି?"
+                            if lang == "or"
+                            else "मुझे कितने दिनों के लिए योजना बनानी चाहिए, और आप कौन से क्षेत्र या थीम देखना चाहते हैं?"
+                            if lang == "hi"
+                            else "How many days should I plan, and which Odisha region or themes (e.g. Puri, Konark, Chilika, Daringbadi, Sambalpur, Koraput, Heritage, Beaches, Nature) would you like to explore?"
+                        ),
                         "reason": "The request does not include enough supported planning detail.",
                     },
                 }
 
             update_payload: dict[str, Any] = {}
-            if day_match:
-                update_payload["days"] = int(day_match.group(1))
+            if detected_days:
+                update_payload["days"] = detected_days
 
             if detected_start and detected_start != existing_constraints.start:
                 update_payload["start"] = detected_start
 
-            if "change" in text or "switch" in text or "only" in text:
+            if "change" in text_lower or "switch" in text_lower or "only" in text_lower or "ବଦଳାନ୍ତୁ" in text or "बदलो" in text:
                 if found_interests:
                     update_payload["interests"] = found_interests
             elif found_interests:
@@ -221,8 +269,9 @@ class RuleBasedModelAdapter(ModelAdapter):
             # If user explicitly used refinement words or modified parameters
             is_refinement = (
                 bool(update_payload)
-                or any(w in text for w in refinement_words)
-                or bool(day_match)
+                or any(w in text_lower for w in refinement_words)
+                or is_refinement_query(text)
+                or bool(detected_days)
                 or bool(detected_start)
             )
 
@@ -236,18 +285,24 @@ class RuleBasedModelAdapter(ModelAdapter):
                 }
 
         # 2. No existing constraints -> check if user is asking to refine without context
-        if any(w in text for w in refinement_words) and not day_match and not detected_start:
+        if (any(w in text_lower for w in refinement_words) or is_refinement_query(text)) and not detected_days and not detected_start:
             return {
                 "kind": IntentKind.CLARIFICATION.value,
                 "clarification": {
-                    "question": "Which existing itinerary should I refine?",
+                    "question": (
+                        "ମୁଁ କେଉଁ ପୂର୍ବ ଯାତ୍ରା ଯୋଜନାକୁ ସଂଶୋଧନ କରିବି?"
+                        if lang == "or"
+                        else "मैं किस मौजूदा यात्रा कार्यक्रम को संशोधित करूँ?"
+                        if lang == "hi"
+                        else "Which existing itinerary should I refine?"
+                    ),
                     "reason": "A refinement needs current constraints.",
                 },
             }
 
         # 3. New planning request from scratch
-        if day_match or detected_start or found_interests:
-            days = int(day_match.group(1)) if day_match else 2
+        if detected_days or detected_start or found_interests:
+            days = detected_days if detected_days else 2
             constraints: dict[str, Any] = {"days": days, "interests": found_interests}
             if detected_start:
                 constraints["start"] = detected_start
@@ -262,7 +317,13 @@ class RuleBasedModelAdapter(ModelAdapter):
         return {
             "kind": IntentKind.CLARIFICATION.value,
             "clarification": {
-                "question": "How many days should I plan, and which Odisha region or themes (e.g. Puri, Konark, Chilika, Daringbadi, Sambalpur, Koraput, Heritage, Beaches, Nature) would you like to explore?",
+                "question": (
+                    "ମୁଁ କେତେ ଦିନ ପାଇଁ ଯୋଜନା କରିବି, ଏବଂ ଆପଣ କେଉଁ ଅଞ୍ଚଳ କିମ୍ବା ଥିମ୍ (ଯଥା: ପୁରୀ, କୋଣାର୍କ, ଚିଲିକା, ଦାରିଙ୍ଗବାଡ଼ି, ସମ୍ବଲପୁର, କୋରାପୁଟ, ଐତିହ୍ୟ, ବେଳାଭୂମି, ପ୍ରକୃତି) ଦେଖିବାକୁ ଚାହାଁନ୍ତି?"
+                    if lang == "or"
+                    else "मुझे कितने दिनों के लिए योजना बनानी चाहिए, और आप ओडिशा के कौन से क्षेत्र या थीम (जैसे: पुरी, कोणार्क, चिल्का, दारिंगबाड़ी, संबलपुर, कोरापुट, विरासत, समुद्र तट, प्रकृति) देखना चाहते हैं?"
+                    if lang == "hi"
+                    else "How many days should I plan, and which Odisha region or themes (e.g. Puri, Konark, Chilika, Daringbadi, Sambalpur, Koraput, Heritage, Beaches, Nature) would you like to explore?"
+                ),
                 "reason": "The request does not include enough supported planning detail.",
             },
         }

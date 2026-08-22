@@ -146,6 +146,18 @@ export function useConversationHistory() {
   );
 
   const deleteConversation = useCallback((id: string) => {
+    // Record tombstone for cloud sync
+    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
+      try {
+        const raw = localStorage.getItem("o_travelz_conversations_tombstones");
+        const list = raw ? JSON.parse(raw) : [];
+        list.push({ id, updatedAt: Date.now() });
+        localStorage.setItem("o_travelz_conversations_tombstones", JSON.stringify(list));
+      } catch {
+        // ignore
+      }
+    }
+
     setConversations((prev) => {
       const updated = prev.filter((c) => c.id !== id);
       saveConversationsToStorage(updated);

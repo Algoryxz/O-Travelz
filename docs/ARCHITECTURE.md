@@ -88,6 +88,44 @@ This document describes the end-to-end architecture, layers, and boundaries of t
 ### 6. Image Proxy Boundary (`GET /static/images/{storage_key}`, `GET /api/v1/images/{storage_key}`)
 - Serves verified WebP destination and category photography directly from the local asset store or cloud object storage.
 
+### 7. Google OAuth & Session Management Boundary (`/auth/*`)
+- `GET /auth/google/start`: Initiates OAuth 2.0 with PKCE (`code_challenge` S256) and HMAC-SHA256 signed `oauth_state` cookie.
+- `GET /auth/google/callback`: Validates state signature, exchanges code, verifies ID token against Google tokeninfo, creates/updates user by immutable `provider_subject`, issues SHA-256 hashed session in `HttpOnly` cookie (`otravelz_session`).
+- `GET /auth/me`: Validates active server session and returns user identity.
+- `POST /auth/logout`: Revokes active server session and clears session cookie.
+
+### 8. Cloud Synchronization Boundary (`/api/v1/sync/*`)
+- `GET /api/v1/sync/saved-places` & `POST /api/v1/sync/saved-places`: Synchronizes user-saved destinations (max 100). Enforces user ownership via server session, verifies canonical destination presence, resolves conflicts via `higher updated_at wins`, and preserves tombstones.
+- `GET /api/v1/sync/trips` & `POST /api/v1/sync/trips`: Synchronizes saved multi-turn trip plans (max 50, max 50KB/trip).
+- Rate Limiting: 30 requests/minute/user enforced in-process with HTTP 429 and `Retry-After` header.
+- Offline-First: 100% additive; local `localStorage` persists data without authentication; logout preserves local records.
+
+### 9. Shareable Itinerary Deep-Linking Boundary (`/api/v1/trips/*`)
+- `POST /api/v1/trips/share`: Authenticated endpoint allowing travelers to create immutable read-only trip snapshots. Derives ownership strictly from server session (`current_user.id`), enforces payload size limit (50KB), generates an unguessable 22-char URL-safe token, and stores the snapshot in `shared_trip_snapshots`. Rate limited to 20 shares/hour/user.
+- `GET /api/v1/trips/shared/{share_id}`: Public read-only endpoint returning the immutable snapshot (title, itinerary, constraints, creation timestamp). Strictly excludes user IDs, emails, session tokens, and internal keys. 404 on missing or expired links. Rate limited per IP for abuse prevention.
+- Frontend Deep Link: SPA hash routing resolves `/#trip/shared/{share_id}` and `/#shared/{share_id}` directly into read-only itinerary view with zero authentication requirements.
+
+### 10. Client-Side Itinerary Export & Print Optimization Boundary
+- **Print / Save as PDF**: Pure browser-native `window.print()` rendering via dedicated `PrintableItineraryView` and `@media print` stylesheet. Strips non-essential interactive chrome (navbars, drawers, modals, map tiles, buttons) while enforcing sensible page breaks between days and high-contrast grayscale readability. 0 external PDF servers.
+- **Client-Side Markdown Export**: Pure browser-native `Blob` download of offline Markdown documents (`o-travelz-itinerary-{safe-title}.md`) featuring day-by-day stops, verified durations, connecting transit directions, and canonical Odisha emergency/tourist helplines. 0 login requirement, 0 tokens exposed, 0 network requests.
+
+### 11. Progressive Web App & Native Service Worker Boundary
+- **App Shell & Static Asset Caching**: Versioned `otravelz-static-v1.0.0` pre-caching core shell (`/`, `/index.html`, `/manifest.webmanifest`, icons) and cache-first static bundle serving (`.js`, `.css`, fonts).
+- **Destination & Category Photography Caching**: Size-bounded `otravelz-images-v1.0.0` (max 80 entries) with stale-while-revalidate strategy and automatic oldest-entry pruning.
+- **Strict API & Mutation Exclusion**: All non-GET requests and sensitive endpoints (`/auth/*`, `/api/v1/sync/*`, `/api/v1/trips/share`, `/ai/*`) bypass Service Worker caches completely and route directly to the backend.
+- **Lifecycle & Fallback**: Automatic stale cache purging on `activate`, instant activation via `skipWaiting()` and `clients.claim()`, and offline navigation fallback to cached `index.html`.
+
+### 12. Automated Continuous Integration Boundary (`.github/workflows/ci.yml`)
+- **Triggers**: Automated verification on all pushes and pull requests targeting the `main` branch.
+- **Job 1 (repo-integrity)**: Git diff whitespace & format checks preventing merge conflicts and formatting corruption.
+- **Job 2 (backend-ci)**: Python 3.12 environment with pip caching, PostgreSQL/PostGIS 16-3.4 service container, Python compilation (`compileall`), Alembic migration history & application (`alembic upgrade head`), and complete Pytest suite execution.
+- **Job 3 (frontend-ci)**: Node.js 20 environment with npm caching, clean dependency installation (`npm ci`), Vitest suite execution, and TypeScript production compilation (`tsc && vite build`).
+- **Security & Budget**: 0 deployment or publish hooks; 0 hardcoded secrets; 100% ₹0 GitHub-hosted runner execution.
+
+
+
+
+
 ---
 
 ## 30-District & Region Architecture

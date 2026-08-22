@@ -63,5 +63,20 @@
     "id": "science_center",
     "name": "science_center",
     "description": "Interactive science centers and galleries"
+  },
+  {
+    "id": "hospital",
+    "name": "hospital",
+    "description": "Verified hospitals, medical colleges, and healthcare institutions across Odisha"
+  },
+  {
+    "id": "emergency_facility",
+    "name": "emergency_facility",
+    "description": "Emergency response, trauma care centers, and 24x7 medical assistance facilities"
+  },
+  {
+    "id": "transit_hub",
+    "name": "transit_hub",
+    "description": "Major airports, railway junctions, and central bus terminals connecting Odisha"
   }
 ]

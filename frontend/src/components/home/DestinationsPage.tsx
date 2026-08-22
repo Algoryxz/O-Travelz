@@ -11,11 +11,16 @@ import {
   Filter,
 } from "lucide-react";
 import { useSavedPlaces } from "../../store/useSavedPlaces";
-import { usePlaces, type ExtendedPlaceDetail } from "../../store/usePlaces";
+import { usePlaceSearch, type ExtendedPlaceDetail } from "../../store/usePlaces";
+import { type ApiClient } from "../../api/client";
 import { getPlaceImageUrl } from "../../utils/imageService";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
 
-import { CANONICAL_CATEGORIES, CANONICAL_INTERESTS } from "../../types/api";
+import { CANONICAL_CATEGORIES, CANONICAL_INTERESTS, type PlaceListParams } from "../../types/api";
+import {
+  getLocalizedCategoryLabel,
+  getLocalizedInterestLabel,
+} from "../../types/multilingualTaxonomy";
 
 interface DestinationsPageProps {
   onSelectPlace: (place: SelectedPlaceInfo) => void;
@@ -24,6 +29,7 @@ interface DestinationsPageProps {
   onPlanTrip?: (place: SelectedPlaceInfo) => void;
   selectedLocation?: string;
   initialSearch?: string;
+  apiClient?: ApiClient;
 }
 
 const REGIONS = [
@@ -59,55 +65,69 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
   onPlanTrip,
   selectedLocation,
   initialSearch = "",
+  apiClient,
 }) => {
   const handlePlanTrip = onPlanTripWithPlace || onPlanTrip || (() => {});
-  const { places, isLoading } = usePlaces();
   const { isSaved, toggleSavePlace } = useSavedPlaces();
 
   const [selectedRegion, setSelectedRegion] = useState<string>("All Regions");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [selectedInterest, setSelectedInterest] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>(initialSearch);
+  const [suggestions, setSuggestions] = useState<Array<{ text: string; canonical_name: string }>>([]);
 
-  const filteredPlaces = useMemo(() => {
-    return places.filter((place) => {
-      // 1. Region filter
-      if (selectedRegion !== "All Regions" && place.region !== selectedRegion) {
-        return false;
-      }
-
-      // 2. Physical Category filter (exact/canonical)
-      if (selectedCategory !== "all") {
-        const cat = place.category.toLowerCase().trim();
-        if (cat !== selectedCategory) {
-          return false;
+  // Fetch search suggestions when query changes
+  React.useEffect(() => {
+    if (!searchQuery.trim() || searchQuery.trim().length < 2) {
+      setSuggestions([]);
+      return;
+    }
+    let cancelled = false;
+    const fetchSuggestions = async () => {
+      try {
+        if (apiClient) {
+          const res = await apiClient.getSearchSuggestions(searchQuery.trim());
+          if (!cancelled) {
+            setSuggestions(res);
+          }
+        }
+      } catch {
+        if (!cancelled) {
+          setSuggestions([]);
         }
       }
+    };
+    const timer = setTimeout(fetchSuggestions, 150);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [searchQuery, apiClient]);
 
-      // 3. Thematic Interest filter (exact match against place.interests)
-      if (selectedInterest !== "all") {
-        const placeInterests = (place.interests || []).map((i) => i.toLowerCase().trim());
-        if (!placeInterests.includes(selectedInterest)) {
-          return false;
-        }
-      }
+  // Construct structured API search/filter parameters
+  const searchParams: PlaceListParams = useMemo(() => {
+    const p: PlaceListParams = {};
+    if (searchQuery.trim()) {
+      p.search = searchQuery.trim();
+    }
+    if (selectedCategory !== "all") {
+      p.category = selectedCategory;
+    }
+    if (selectedInterest !== "all") {
+      p.interest = selectedInterest;
+    }
+    if (selectedRegion !== "All Regions") {
+      p.region = selectedRegion;
+    }
+    return p;
+  }, [searchQuery, selectedCategory, selectedInterest, selectedRegion]);
 
-      // 4. Search query filter
-      if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase().trim();
-        const matchesName = place.name.toLowerCase().includes(q);
-        const matchesDesc = (place.description || "").toLowerCase().includes(q);
-        const matchesRegion = place.region.toLowerCase().includes(q);
-        const matchesCategory = place.category.toLowerCase().includes(q);
-        const matchesInterest = (place.interests || []).some((i) => i.toLowerCase().includes(q));
-        if (!matchesName && !matchesDesc && !matchesRegion && !matchesCategory && !matchesInterest) {
-          return false;
-        }
-      }
+  const { places, isLoading, error } = usePlaceSearch(searchParams, apiClient, 200);
 
-      return true;
-    });
-  }, [places, selectedRegion, selectedCategory, selectedInterest, searchQuery]);
+  // When live search is active or filters are applied, use the places directly
+  // from the backend search/filter response, preserving deterministic ranking order.
+  const filteredPlaces = places;
+
 
   return (
     <main
@@ -136,26 +156,40 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
 
       {/* Search and Filters Strip */}
       <div className="space-y-4">
-        {/* Search input */}
-        <div className="flex items-center gap-3 p-2 pl-4 rounded-2xl bg-[#111827] border border-[#263244] shadow-xs max-w-lg focus-within:border-[#14B8A6] transition-colors">
-          <Search size={18} className="text-slate-400 shrink-0" />
-          <input
-            type="text"
-            data-testid="destinations-search-input"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search by destination name, town, or theme..."
-            className="w-full text-xs sm:text-sm text-white placeholder-slate-400 bg-transparent border-0 outline-hidden py-1"
-          />
-          {searchQuery && (
-            <button
-              type="button"
-              onClick={() => setSearchQuery("")}
-              className="text-xs text-slate-400 hover:text-white px-2 py-1 cursor-pointer"
-            >
-              Clear
-            </button>
-          )}
+        {/* Search input & Multilingual Hint */}
+        <div className="space-y-2">
+          <div className="flex items-center gap-3 p-2 pl-4 rounded-2xl bg-[#111827] border border-[#263244] shadow-xs max-w-lg focus-within:border-[#14B8A6] transition-colors">
+            <Search size={18} className="text-slate-400 shrink-0" />
+            <input
+              type="text"
+              data-testid="destinations-search-input"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search destinations, towns, or themes..."
+              aria-label="Search destinations in English, Odia, or Hindi"
+              className="w-full text-xs sm:text-sm text-white placeholder-slate-400 bg-transparent border-0 outline-hidden py-1 leading-normal"
+            />
+            {isLoading && (
+              <div
+                aria-hidden="true"
+                className="w-4 h-4 rounded-full border-2 border-[#263244] border-t-[#14B8A6] animate-spin shrink-0"
+              />
+            )}
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                aria-label="Clear search query"
+                className="text-xs text-slate-400 hover:text-white px-2 py-1 cursor-pointer"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          <div className="flex items-center gap-2 px-1 text-[11px] text-slate-400 font-medium">
+            <span className="text-[#14B8A6] font-semibold">Multilingual:</span>
+            <span>English · ଓଡ଼ିଆ · हिन्दी</span>
+          </div>
         </div>
 
         {/* Region Selector Pills */}
@@ -170,7 +204,8 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                 type="button"
                 data-testid={`region-filter-${region.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
                 onClick={() => setSelectedRegion(region)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer border shrink-0 ${
+                aria-pressed={selectedRegion === region}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer border shrink-0 leading-normal ${
                   selectedRegion === region
                     ? "bg-[#14B8A6] border-[#14B8A6] text-white shadow-sm font-bold"
                     : "bg-[#111827] border-[#263244] text-slate-300 hover:text-white hover:border-slate-500"
@@ -182,64 +217,87 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
           </div>
         </div>
 
-        {/* 13 Physical Category Filter Chips */}
+        {/* 13 Physical Category Filter Chips with Localized Annotations */}
         <div className="space-y-1.5">
           <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 font-mono">
             Filter by Category
           </div>
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none whitespace-nowrap">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat.id}
-                type="button"
-                data-testid={`cat-filter-${cat.id}`}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 ${
-                  selectedCategory === cat.id
-                    ? "bg-[#14B8A6] border-[#14B8A6] text-white shadow-sm font-bold"
-                    : "bg-[#111827] border-[#263244] text-slate-300 hover:text-white hover:border-slate-500"
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
+            {CATEGORIES.map((cat) => {
+              const localized = cat.id !== "all" ? getLocalizedCategoryLabel(cat.id, "or") : null;
+              return (
+                <button
+                  key={cat.id}
+                  type="button"
+                  data-testid={`cat-filter-${cat.id}`}
+                  onClick={() => setSelectedCategory(cat.id)}
+                  aria-pressed={selectedCategory === cat.id}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 flex items-center gap-1.5 leading-normal ${
+                    selectedCategory === cat.id
+                      ? "bg-[#14B8A6] border-[#14B8A6] text-white shadow-sm font-bold"
+                      : "bg-[#111827] border-[#263244] text-slate-300 hover:text-white hover:border-slate-500"
+                  }`}
+                >
+                  <span>{cat.label}</span>
+                  {localized && (
+                    <span className={`text-[10px] ${selectedCategory === cat.id ? "text-teal-100" : "text-slate-400"}`}>
+                      ({localized})
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* 12 Canonical Thematic Interest Filter Chips */}
+        {/* 12 Canonical Thematic Interest Filter Chips with Localized Annotations */}
         <div className="space-y-1.5">
           <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 font-mono flex items-center gap-1.5">
             <Sparkles size={13} className="text-[#F59E0B]" />
             <span>Filter by Experience / Theme</span>
           </div>
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none whitespace-nowrap">
-            {INTEREST_FILTERS.map((interest) => (
-              <button
-                key={interest.id}
-                type="button"
-                data-testid={`interest-filter-${interest.id}`}
-                onClick={() => setSelectedInterest(interest.id)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 ${
-                  selectedInterest === interest.id
-                    ? "bg-[#14B8A6] border-[#14B8A6] text-white shadow-sm font-bold"
-                    : "bg-[#111827] border-[#263244] text-slate-300 hover:text-white hover:border-slate-500"
-                }`}
-              >
-                {interest.label}
-              </button>
-            ))}
+            {INTEREST_FILTERS.map((interest) => {
+              const localized = interest.id !== "all" ? getLocalizedInterestLabel(interest.id, "or") : null;
+              return (
+                <button
+                  key={interest.id}
+                  type="button"
+                  data-testid={`interest-filter-${interest.id}`}
+                  onClick={() => setSelectedInterest(interest.id)}
+                  aria-pressed={selectedInterest === interest.id}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 flex items-center gap-1.5 leading-normal ${
+                    selectedInterest === interest.id
+                      ? "bg-[#14B8A6] border-[#14B8A6] text-white shadow-sm font-bold"
+                      : "bg-[#111827] border-[#263244] text-slate-300 hover:text-white hover:border-slate-500"
+                  }`}
+                >
+                  <span>{interest.label}</span>
+                  {localized && (
+                    <span className={`text-[10px] ${selectedInterest === interest.id ? "text-teal-100" : "text-slate-400"}`}>
+                      ({localized})
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
 
       {/* Results Header Count */}
       <div className="flex items-center justify-between gap-4 pt-2 border-b border-[#263244] pb-3">
-        <div className="text-xs text-slate-400 font-medium">
-          Showing <span className="font-bold text-white">{filteredPlaces.length}</span>{" "}
-          {filteredPlaces.length === 1 ? "destination" : "destinations"}
-          {selectedRegion !== "All Regions" && ` in ${selectedRegion}`}
-          {selectedCategory !== "all" && ` · ${CATEGORIES.find((c) => c.id === selectedCategory)?.label}`}
-          {selectedInterest !== "all" && ` · ${INTEREST_FILTERS.find((i) => i.id === selectedInterest)?.label}`}
+        <div className="text-xs text-slate-400 font-medium flex items-center gap-2" role="status" aria-atomic="true">
+          <span>
+            Showing <span className="font-bold text-white">{filteredPlaces.length}</span>{" "}
+            {filteredPlaces.length === 1 ? "destination" : "destinations"}
+            {selectedRegion !== "All Regions" && ` in ${selectedRegion}`}
+            {selectedCategory !== "all" && ` · ${CATEGORIES.find((c) => c.id === selectedCategory)?.label}`}
+            {selectedInterest !== "all" && ` · ${INTEREST_FILTERS.find((i) => i.id === selectedInterest)?.label}`}
+          </span>
+          {isLoading && (
+            <span className="text-[#14B8A6] text-[11px] animate-pulse">Searching...</span>
+          )}
         </div>
 
         {(selectedRegion !== "All Regions" || selectedCategory !== "all" || selectedInterest !== "all" || searchQuery) && (
@@ -252,6 +310,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
               setSelectedInterest("all");
               setSearchQuery("");
             }}
+            aria-label="Reset all destination filters and search"
             className="text-xs text-teal-400 hover:text-teal-300 font-bold transition-colors cursor-pointer"
           >
             Reset Filters
@@ -259,7 +318,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
         )}
       </div>
 
-      {/* Grid of Destination Cards */}
+      {/* Grid of Destination Cards or Empty State */}
       {filteredPlaces.length === 0 ? (
         <div
           data-testid="no-destinations-found"
@@ -269,23 +328,67 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
             <Compass size={24} />
           </div>
           <div className="space-y-1">
-            <h3 className="text-lg font-bold text-white">No destinations found</h3>
-            <p className="text-xs sm:text-sm text-slate-400 max-w-sm mx-auto">
-              No places matched your active filters or search terms. Try selecting a different region, category, or theme.
+            <h3 className="text-lg font-bold text-white">
+              {searchQuery.trim() ? "No destinations found" : "No destinations match these filters"}
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-400 max-w-sm mx-auto leading-relaxed">
+              {searchQuery.trim() ? (
+                <>
+                  No places matched &ldquo;{searchQuery}&rdquo;. Try another place, district, category, or search in English, ଓଡ଼ିଆ, or हिन्दी.
+                </>
+              ) : (
+                "No places matched your active category, region, or theme filters. Try adjusting or resetting your filter selections."
+              )}
             </p>
+            {suggestions.length > 0 && (
+              <div data-testid="search-suggestions-container" className="pt-2 pb-1 space-y-2">
+                <div className="text-xs text-slate-300 font-medium flex items-center justify-center gap-1.5">
+                  <Sparkles size={14} className="text-[#14B8A6]" />
+                  <span>Did you mean:</span>
+                </div>
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  {suggestions.map((s) => (
+                    <button
+                      key={s.canonical_name}
+                      type="button"
+                      data-testid={`search-suggestion-${s.canonical_name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+                      onClick={() => setSearchQuery(s.canonical_name)}
+                      className="px-3 py-1.5 rounded-xl bg-[#172235] hover:bg-[#1E2D44] border border-[#14B8A6]/40 hover:border-[#14B8A6] text-teal-300 hover:text-white text-xs font-bold transition-all cursor-pointer shadow-xs"
+                    >
+                      {s.canonical_name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
-          <button
-            type="button"
-            onClick={() => {
-              setSelectedRegion("All Regions");
-              setSelectedCategory("all");
-              setSelectedInterest("all");
-              setSearchQuery("");
-            }}
-            className="px-4 py-2 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white font-bold text-xs shadow-sm transition-colors cursor-pointer"
-          >
-            Clear All Filters
-          </button>
+          <div className="flex items-center justify-center gap-3 pt-2">
+
+
+            {searchQuery.trim() && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                aria-label="Clear search query"
+                className="px-4 py-2 rounded-xl bg-[#172235] hover:bg-[#1E2D44] border border-[#263244] text-white font-bold text-xs shadow-sm transition-colors cursor-pointer"
+              >
+                Clear Search
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedRegion("All Regions");
+                setSelectedCategory("all");
+                setSelectedInterest("all");
+                setSearchQuery("");
+              }}
+              aria-label="Reset all destination filters"
+              className="px-4 py-2 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white font-bold text-xs shadow-sm transition-colors cursor-pointer"
+            >
+              Reset Filters
+            </button>
+          </div>
         </div>
       ) : (
         <div

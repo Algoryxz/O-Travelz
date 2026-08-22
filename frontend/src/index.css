@@ -165,3 +165,70 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(20, 184, 166, 0.4);
 }
+
+/* ==========================================================================
+   Print Optimization & Offline Document Stylesheet
+   ========================================================================== */
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 1.2cm;
+    size: auto;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  /* Hide interactive, navigational, modal, and map elements */
+  .no-print,
+  header,
+  nav,
+  footer,
+  aside,
+  button,
+  .topbar,
+  .live-dot,
+  .leaflet-container,
+  [role="dialog"],
+  [data-testid="itinerary-view"] {
+    display: none !important;
+  }
+
+  /* Display only the dedicated printable representation */
+  .print-only {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .printable-itinerary {
+    display: block !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  /* Page break rules for clean multi-day printing */
+  .page-break-inside-avoid,
+  .break-inside-avoid,
+  .day-print-section {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: #000000 !important;
+  }
+}

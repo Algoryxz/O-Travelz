@@ -29,6 +29,7 @@ class GroundingContext:
     itinerary: ItineraryResponse | None = None
     transport_results: list[TransportHopContract] = field(default_factory=list)
     provider_status_results: list[ProviderStatusContract] = field(default_factory=list)
+    search_results: list[Any] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
     facts: dict[str, GroundingFact] = field(default_factory=dict)
 
@@ -55,6 +56,10 @@ class GroundingContext:
         elif isinstance(data, ProviderStatusContract):
             self.provider_status_results.append(data)
             self._record_provider(data)
+        elif isinstance(data, list):
+            self.search_results.extend(data)
+            self._record_search_results(data)
+
         reason = getattr(result, "reason", None)
         if reason and getattr(result, "status", None).value != "ok":
             self.warnings.append(reason)
@@ -113,6 +118,35 @@ class GroundingContext:
         if status.notes:
             rendered += f" {status.notes}"
         self.facts[fact_id] = GroundingFact(fact_id, value, rendered)
+
+    def _record_search_results(self, records: list[Any]) -> None:
+        self.facts["search.results.count"] = GroundingFact(
+            "search.results.count",
+            len(records),
+            f"Found {len(records)} verified place(s) matching your request.",
+        )
+        for idx, rec in enumerate(records):
+            rec_id = getattr(rec, "id", str(idx))
+            rec_name = getattr(rec, "name", "")
+            rec_district = getattr(rec, "district", "")
+            rec_cat = getattr(rec, "category", "")
+            rec_desc = getattr(rec, "description", "")
+            fact_id = f"search.place.{rec_id}"
+            details = [f"{rec_name} in {rec_district} ({rec_cat})"]
+            if rec_desc:
+                details.append(f"— {rec_desc}")
+            if getattr(rec, "contact_phone", None):
+                details.append(f"Contact: {rec.contact_phone}")
+            if getattr(rec, "emergency_phone", None):
+                details.append(f"Emergency: {rec.emergency_phone}")
+            if getattr(rec, "address", None):
+                details.append(f"Address: {rec.address}")
+            self.facts[fact_id] = GroundingFact(
+                fact_id,
+                rec.model_dump(mode="json") if hasattr(rec, "model_dump") else str(rec),
+                " ".join(details),
+            )
+
 
 
 def _canonical(value: Any) -> str:

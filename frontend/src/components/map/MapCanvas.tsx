@@ -716,8 +716,9 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                 setIsSearching(true);
               }}
               onFocus={() => setIsSearching(true)}
-              placeholder="Search 81 destinations or districts..."
+              placeholder="Search destinations or districts across Odisha..."
               className="w-full bg-transparent text-xs text-white placeholder-slate-400 focus:outline-none"
+
             />
             {searchQuery && (
               <button

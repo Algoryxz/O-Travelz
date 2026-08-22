@@ -23,6 +23,7 @@ import { HomeSections } from "../components/home/HomeSections";
 import { DestinationsPage } from "../components/home/DestinationsPage";
 import { CategoryExplorePage } from "../components/home/CategoryExplorePage";
 import { SavedPlacesPage } from "../components/home/SavedPlacesPage";
+import { SharedItineraryPage } from "../components/itinerary/SharedItineraryPage";
 import { Footer } from "../components/nav/Footer";
 import {
   PlaceDetailsModal,
@@ -33,6 +34,7 @@ import {
   getTabFromHash,
   getHashForTab,
   normalizeHash,
+  extractShareIdFromHash,
 } from "../utils/navigation";
 import {
   Bot,
@@ -106,7 +108,7 @@ function findClosestOdishaHub(lat: number, lon: number): { name: string; distanc
 
 type PlanningMode = "structured" | "ai";
 type ResultViewTab = "itinerary" | "map";
-type AppView = NavTab | "category" | "settings" | "privacy" | "terms" | "contact";
+type AppView = NavTab | "category" | "settings" | "privacy" | "terms" | "contact" | "shared";
 
 interface ItineraryPlannerPageProps {
   apiClient?: ApiClient;
@@ -131,6 +133,12 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
   };
 
   const [activeTab, setActiveTab] = useState<AppView>(getInitialTab);
+  const [currentShareId, setCurrentShareId] = useState<string | null>(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      return extractShareIdFromHash(window.location.hash);
+    }
+    return null;
+  });
   const [selectedCategory, setSelectedCategory] = useState<string>("Nature");
   const [selectedLocation, setSelectedLocation] = useState<string>("Bhubaneswar");
   const [destinationSearch, setDestinationSearch] = useState<string>("");
@@ -244,6 +252,8 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
 
     const handleHashChange = () => {
       const currentTab = getTabFromHash(window.location.hash);
+      const shareId = extractShareIdFromHash(window.location.hash);
+      setCurrentShareId(shareId);
       setActiveTab((prev) => (prev !== currentTab ? currentTab : prev));
     };
 
@@ -252,10 +262,15 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
 
     // Deep link or invalid hash correction on initial mount
     if (window.location.hash) {
-      const resolvedTab = getTabFromHash(window.location.hash);
-      const targetHash = getHashForTab(resolvedTab);
-      if (normalizeHash(window.location.hash) !== normalizeHash(targetHash)) {
-        window.history.replaceState(null, "", targetHash);
+      const shareId = extractShareIdFromHash(window.location.hash);
+      if (shareId) {
+        setCurrentShareId(shareId);
+      } else {
+        const resolvedTab = getTabFromHash(window.location.hash);
+        const targetHash = getHashForTab(resolvedTab);
+        if (normalizeHash(window.location.hash) !== normalizeHash(targetHash)) {
+          window.history.replaceState(null, "", targetHash);
+        }
       }
     }
 
@@ -268,6 +283,8 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
   // 2. Synchronize activeTab changes to the browser URL hash
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (activeTab === "shared") return; // preserve specific share link hash
+
     const targetHash = getHashForTab(activeTab);
     const currentNormalized = normalizeHash(window.location.hash);
     const targetNormalized = normalizeHash(targetHash);
@@ -506,7 +523,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
     <div className="min-h-screen bg-[#0B1220] text-[#F8FAFC] flex flex-col font-sans antialiased selection:bg-[#14B8A6] selection:text-white transition-colors duration-200">
       {/* 1. Header Navigation */}
       <TopNav
-        activeTab={activeTab === "category" ? "destinations" : (activeTab as NavTab)}
+        activeTab={activeTab === "category" ? "destinations" : activeTab === "shared" ? "plan" : (activeTab as NavTab)}
         onTabChange={handleTabChange}
         selectedLocation={selectedLocation}
         onLocationChange={setSelectedLocation}
@@ -525,7 +542,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
       <MobileDrawer
         isOpen={isMobileDrawerOpen}
         onClose={() => setIsMobileDrawerOpen(false)}
-        activeTab={activeTab === "category" ? "destinations" : (activeTab as NavTab)}
+        activeTab={activeTab === "category" ? "destinations" : activeTab === "shared" ? "plan" : (activeTab as NavTab)}
         onSelectTab={handleTabChange}
         onOpenAI={() => setIsAISidebarOpen(true)}
         onOpenSettings={() => setIsSettingsModalOpen(true)}
@@ -880,6 +897,24 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
         )}
         {activeTab === "contact" && (
           <ContactGrievancePage onBack={() => handleTabChange("discover")} />
+        )}
+
+        {/* VIEW 8: PUBLIC READ-ONLY SHARED TRIP */}
+        {activeTab === "shared" && (
+          <SharedItineraryPage
+            shareId={currentShareId}
+            onPlanOwnTrip={() => handleTabChange("plan")}
+            onOpenMap={() => handleTabChange("map")}
+            onViewPlaceDetails={(place) =>
+              setSelectedPlaceForModal({
+                id: place.id,
+                name: place.name,
+                category: place.category,
+                location: getPlaceRegion(place.name),
+                imageUrl: getPlaceImageUrl(place.name, place.category),
+              })
+            }
+          />
         )}
       </main>
 

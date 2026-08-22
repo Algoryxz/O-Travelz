@@ -17,6 +17,7 @@ import {
   Route,
 } from "lucide-react";
 import { useTheme } from "../../store/useTheme";
+import { AuthStatusButton } from "../auth/AuthStatusButton";
 
 export type NavTab =
   | "discover"
@@ -309,8 +310,9 @@ export const TopNav: React.FC<TopNavProps> = ({
                       className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
                       <Layers size={14} className="text-teal-400 shrink-0" />
-                      <span>All Destinations Index (81)</span>
+                      <span>All Destinations Index</span>
                     </button>
+
 
                     <button
                       type="button"
@@ -472,6 +474,9 @@ export const TopNav: React.FC<TopNavProps> = ({
             >
               Dark Theme Active
             </div>
+
+            {/* User Auth & Cloud Sync Status */}
+            <AuthStatusButton />
 
             {/* AI Trip Copilot Button */}
             {onToggleCopilot && (

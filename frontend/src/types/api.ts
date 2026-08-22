@@ -84,11 +84,13 @@ export interface ItineraryStop {
   place: PlaceSummary;
   planned_arrival?: string | null;
   planned_departure?: string | null;
+  duration_minutes?: number | null;
 }
 
 export interface ItineraryDay {
   day_number: number;
   date?: string | null;
+  theme?: string | null;
   stops: ItineraryStop[];
   hops: TransportHop[];
 }
@@ -135,6 +137,58 @@ export interface AIResponse {
   extracted_constraints?: PlanningConstraints | null;
   metadata?: Record<string, unknown>;
 }
+
+/* ================= Phase 12: Grounded AI Conversation Contracts ================= */
+
+export type ChatRole = "system" | "user" | "assistant" | "tool";
+
+export type ToolStatus = "ok" | "unavailable" | "unknown" | "invalid" | "error";
+
+export interface ToolCall {
+  id?: string;
+  name: string;
+  arguments: Record<string, unknown>;
+}
+
+export interface ToolResult {
+  tool_call_id?: string | null;
+  tool_name: string;
+  status: ToolStatus;
+  data?: unknown;
+  reason?: string | null;
+  error?: string | null;
+  warnings?: string[];
+}
+
+export interface ChatMessage {
+  role: ChatRole;
+  content?: string | null;
+  tool_calls?: ToolCall[];
+  tool_call_id?: string | null;
+  name?: string | null;
+}
+
+export interface AIConverseRequest {
+  messages: ChatMessage[];
+  constraints?: PlanningConstraints | null;
+}
+
+export interface GroundedConversationResponse {
+  message: string;
+  status: AIStatus;
+  language?: string;
+  itinerary?: ItineraryPlanResponse | null;
+  places?: unknown[];
+  transport?: TransportHop[];
+  provider_status?: unknown[];
+  tool_calls?: ToolCall[];
+  tool_results?: ToolResult[];
+  clarification?: Clarification | null;
+  changed_constraints?: PlanningConstraints | null;
+  is_grounded: boolean;
+  warnings?: string[];
+}
+
 
 /* ================= Phase 6A: Map Projection Contracts ================= */
 
@@ -261,6 +315,21 @@ export interface PlaceImageContract {
   is_primary?: boolean;
 }
 
+export const CANONICAL_MEDICAL_CATEGORIES = [
+  { id: "hospital", label: "Hospitals & Medical Colleges" },
+  { id: "emergency_facility", label: "Emergency & Trauma Care" },
+] as const;
+
+export const CANONICAL_TRANSIT_CATEGORIES = [
+  { id: "transit_hub", label: "Airports & Transit Hubs" },
+] as const;
+
+export const ALL_CANONICAL_CATEGORIES = [
+  ...CANONICAL_CATEGORIES,
+  ...CANONICAL_MEDICAL_CATEGORIES,
+  ...CANONICAL_TRANSIT_CATEGORIES,
+] as const;
+
 export interface PlaceDetail {
   id: string;
   name: string;
@@ -272,18 +341,38 @@ export interface PlaceDetail {
   region?: string | null;
   avg_visit_minutes?: number | null;
   price_tier?: string | null;
+  rating?: number | null;
+  rating_count?: number | null;
+  rating_source?: string | null;
+  opening_hours_source?: string | null;
   source?: string | null;
+  source_url?: string | null;
   verified_at?: string | null;
+  verification_status?: string | null;
+  contact_phone?: string | null;
+  emergency_phone?: string | null;
+  address?: string | null;
   images?: PlaceImageContract[];
   interests?: string[];
 }
 
+
 export interface PlaceListParams {
   category?: string;
+  interest?: string;
   district?: string;
   region?: string;
   search?: string;
+  verification_status?: string;
+  is_medical?: boolean;
+  is_transit?: boolean;
+  near_lat?: number;
+  near_lon?: number;
+  radius_km?: number;
+  limit?: number;
+  offset?: number;
 }
+
 
 /* ================= Weather Contracts ================= */
 
@@ -331,4 +420,89 @@ export interface WeatherResponse {
   location_name: string;
   current: WeatherObservation;
   forecast_daily: DailyForecastItem[];
+}
+
+export interface SearchSuggestion {
+  text: string;
+  canonical_name: string;
+  match_type: string;
+  confidence: number;
+}
+
+export interface AuthUser {
+  id: string;
+  email: string;
+  name: string;
+  display_name?: string | null;
+  avatar_url?: string | null;
+  provider: string;
+  email_verified?: boolean;
+}
+
+export interface AuthResponse {
+  authenticated: boolean;
+  user: AuthUser | null;
+}
+
+export type SyncStatus = "idle" | "syncing" | "synced" | "pending" | "error" | "offline";
+
+export interface SyncPlaceItem {
+  place_id: string;
+  place_name?: string | null;
+  place_data: Record<string, unknown>;
+  saved_at: number;
+  updated_at: number;
+  is_deleted: boolean;
+}
+
+export interface SyncSavedPlacesRequest {
+  items: SyncPlaceItem[];
+}
+
+export interface SyncSavedPlacesResponse {
+  synced_count: number;
+  items: SyncPlaceItem[];
+}
+
+export interface SyncTripItem {
+  id: string;
+  title: string;
+  history: Record<string, unknown>[];
+  constraints?: Record<string, unknown> | null;
+  itinerary?: Record<string, unknown> | null;
+  timestamp: number;
+  updated_at: number;
+  is_deleted: boolean;
+}
+
+export interface SyncTripsRequest {
+  items: SyncTripItem[];
+}
+
+export interface SyncTripsResponse {
+  synced_count: number;
+  items: SyncTripItem[];
+}
+
+/* ================= Phase 14: Shareable Trip Snapshot Contracts ================= */
+
+export interface CreateShareTripRequest {
+  title: string;
+  itinerary: Record<string, unknown>;
+  constraints?: Record<string, unknown> | null;
+}
+
+export interface CreateShareTripResponse {
+  share_id: string;
+  share_url: string;
+  created_at: number;
+}
+
+export interface PublicSharedTripResponse {
+  share_id: string;
+  title: string;
+  itinerary: ItineraryPlanResponse;
+  constraints?: Record<string, unknown> | null;
+  created_at: number;
+  expires_at?: number | null;
 }
