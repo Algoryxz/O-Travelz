@@ -14,7 +14,7 @@ def get_image_storage(app_settings: Optional[Settings] = None) -> ImageStorage:
     cfg = app_settings or settings
     backend = (cfg.storage_backend or "local").lower()
 
-    if backend == "azure":
+    if backend in ("azure", "azure_blob"):
         return AzureBlobImageStorage(
             connection_string=cfg.azure_storage_connection_string,
             account_name=cfg.azure_storage_account_name,

@@ -18,12 +18,24 @@ class LocalImageStorage(ImageStorage):
             Path("./data/images").resolve(),
             Path(base_path).resolve(),
         ]
-        resolved_path = Path(base_path).resolve()
+        seed_dir = None
         for c in candidates:
             if (c / "places").is_dir():
-                resolved_path = c
+                seed_dir = c
                 break
-        self.base_path = resolved_path
+
+        resolved_path = Path(base_path).resolve()
+        resolved_path.mkdir(parents=True, exist_ok=True)
+
+        # Bootstrap: If target storage path is missing places directory, copy bundled seed assets
+        if seed_dir and seed_dir != resolved_path and not (resolved_path / "places").is_dir():
+            import shutil
+            try:
+                shutil.copytree(seed_dir, resolved_path, dirs_exist_ok=True)
+            except Exception:
+                pass
+
+        self.base_path = resolved_path if (resolved_path / "places").is_dir() else (seed_dir or resolved_path)
         self.base_url = base_url.rstrip("/")
         self.base_path.mkdir(parents=True, exist_ok=True)
 
