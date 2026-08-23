@@ -63,8 +63,9 @@ services:
   # ---------------------------------------------------------------------------
   # 2. O-TRAVELZ FRONTEND STATIC SITE (React 18 + Vite + Tailwind 4)
   # ---------------------------------------------------------------------------
-  - type: static
+  - type: web
     name: otravelz-frontend
+    runtime: static
     rootDir: frontend
     buildCommand: npm ci && npm run build
     staticPublishPath: dist
