@@ -42,7 +42,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Heritage",
     icon: Landmark,
     unselectedClass: "border-amber-500/30 text-amber-300 bg-amber-950/20 hover:bg-amber-900/30 hover:border-amber-400/60",
-    activeClass: "bg-gradient-to-r from-amber-500 to-amber-600 text-white border-amber-400 shadow-md shadow-amber-500/20 font-bold",
+    activeClass: "bg-amber-600 text-white border-amber-400 shadow-xs font-bold",
     iconClass: "text-amber-400",
   },
   {
@@ -50,7 +50,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Spirituality",
     icon: Sparkles,
     unselectedClass: "border-orange-500/30 text-orange-300 bg-orange-950/20 hover:bg-orange-900/30 hover:border-orange-400/60",
-    activeClass: "bg-gradient-to-r from-orange-500 to-orange-600 text-white border-orange-400 shadow-md shadow-orange-500/20 font-bold",
+    activeClass: "bg-orange-600 text-white border-orange-400 shadow-xs font-bold",
     iconClass: "text-orange-400",
   },
   {
@@ -58,7 +58,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Architecture",
     icon: Landmark,
     unselectedClass: "border-indigo-500/30 text-indigo-300 bg-indigo-950/20 hover:bg-indigo-900/30 hover:border-indigo-400/60",
-    activeClass: "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-500/20 font-bold",
+    activeClass: "bg-indigo-600 text-white border-indigo-400 shadow-xs font-bold",
     iconClass: "text-indigo-400",
   },
   {
@@ -66,7 +66,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Food & Cuisine",
     icon: Coffee,
     unselectedClass: "border-rose-500/30 text-rose-300 bg-rose-950/20 hover:bg-rose-900/30 hover:border-rose-400/60",
-    activeClass: "bg-gradient-to-r from-rose-500 to-rose-600 text-white border-rose-400 shadow-md shadow-rose-500/20 font-bold",
+    activeClass: "bg-rose-600 text-white border-rose-400 shadow-xs font-bold",
     iconClass: "text-rose-400",
   },
   {
@@ -74,7 +74,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Culture & Arts",
     icon: Heart,
     unselectedClass: "border-purple-500/30 text-purple-300 bg-purple-950/20 hover:bg-purple-900/30 hover:border-purple-400/60",
-    activeClass: "bg-gradient-to-r from-purple-500 to-purple-600 text-white border-purple-400 shadow-md shadow-purple-500/20 font-bold",
+    activeClass: "bg-purple-600 text-white border-purple-400 shadow-xs font-bold",
     iconClass: "text-purple-400",
   },
   {
@@ -82,7 +82,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Nature & Hills",
     icon: TreePine,
     unselectedClass: "border-emerald-500/30 text-emerald-300 bg-emerald-950/20 hover:bg-emerald-900/30 hover:border-emerald-400/60",
-    activeClass: "bg-gradient-to-r from-emerald-500 to-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-500/20 font-bold",
+    activeClass: "bg-emerald-600 text-white border-emerald-400 shadow-xs font-bold",
     iconClass: "text-emerald-400",
   },
   {
@@ -90,7 +90,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Coastal Beaches",
     icon: Waves,
     unselectedClass: "border-cyan-500/30 text-cyan-300 bg-cyan-950/20 hover:bg-cyan-900/30 hover:border-cyan-400/60",
-    activeClass: "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white border-cyan-400 shadow-md shadow-cyan-500/20 font-bold",
+    activeClass: "bg-cyan-600 text-white border-cyan-400 shadow-xs font-bold",
     iconClass: "text-cyan-400",
   },
   {
@@ -98,7 +98,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Wildlife Safari",
     icon: TreePine,
     unselectedClass: "border-lime-500/30 text-lime-300 bg-lime-950/20 hover:bg-lime-900/30 hover:border-lime-400/60",
-    activeClass: "bg-gradient-to-r from-lime-600 to-lime-700 text-white border-lime-400 shadow-md shadow-lime-500/20 font-bold",
+    activeClass: "bg-lime-600 text-white border-lime-400 shadow-xs font-bold",
     iconClass: "text-lime-400",
   },
   {
@@ -106,7 +106,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Waterfalls",
     icon: Waves,
     unselectedClass: "border-teal-500/30 text-teal-300 bg-teal-950/20 hover:bg-teal-900/30 hover:border-teal-400/60",
-    activeClass: "bg-gradient-to-r from-teal-500 to-teal-600 text-white border-teal-400 shadow-md shadow-teal-500/20 font-bold",
+    activeClass: "bg-teal-600 text-white border-teal-400 shadow-xs font-bold",
     iconClass: "text-teal-400",
   },
   {
@@ -114,7 +114,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Relaxation",
     icon: Coffee,
     unselectedClass: "border-violet-500/30 text-violet-300 bg-violet-950/20 hover:bg-violet-900/30 hover:border-violet-400/60",
-    activeClass: "bg-gradient-to-r from-violet-500 to-violet-600 text-white border-violet-400 shadow-md shadow-violet-500/20 font-bold",
+    activeClass: "bg-violet-600 text-white border-violet-400 shadow-xs font-bold",
     iconClass: "text-violet-400",
   },
   {
@@ -122,7 +122,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Adventure & Treks",
     icon: Flame,
     unselectedClass: "border-red-500/30 text-red-300 bg-red-950/20 hover:bg-red-900/30 hover:border-red-400/60",
-    activeClass: "bg-gradient-to-r from-red-500 to-red-600 text-white border-red-400 shadow-md shadow-red-500/20 font-bold",
+    activeClass: "bg-red-600 text-white border-red-400 shadow-xs font-bold",
     iconClass: "text-red-400",
   },
   {
@@ -130,7 +130,7 @@ export const CANONICAL_INTERESTS: Array<{
     label: "Shopping & Crafts",
     icon: ShoppingBag,
     unselectedClass: "border-pink-500/30 text-pink-300 bg-pink-950/20 hover:bg-pink-900/30 hover:border-pink-400/60",
-    activeClass: "bg-gradient-to-r from-pink-500 to-pink-600 text-white border-pink-400 shadow-md shadow-pink-500/20 font-bold",
+    activeClass: "bg-pink-600 text-white border-pink-400 shadow-xs font-bold",
     iconClass: "text-pink-400",
   },
 ];

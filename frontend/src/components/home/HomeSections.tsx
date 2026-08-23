@@ -965,16 +965,12 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({
         />
       </section>
 
-      {/* 8. "MAKE A DAY OF IT" FULL V2 DESIGN */}
+      {/* 8. "MAKE A DAY OF IT" SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-testid="make-a-day-cta-section">
-        <div className="relative p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#111827] via-[#172235] to-[#0F172A] text-white border border-[#263244] shadow-2xl overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          {/* Ambient Glows */}
-          <div className="absolute right-0 top-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -left-10 -bottom-10 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
-
+        <div className="relative p-8 sm:p-12 rounded-3xl bg-[#111827] text-white border border-[#263244] shadow-xl overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           {/* Left Text */}
           <div className="relative z-10 space-y-3 max-w-xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111827] border border-[#334155] text-teal-300 text-xs font-mono font-bold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#172235] border border-[#263244] text-teal-300 text-xs font-mono font-bold">
               <Sparkles size={12} className="text-[#F59E0B]" />
               <span>MADE IN ODISHA · YOUR NEXT CHAPTER</span>
             </div>

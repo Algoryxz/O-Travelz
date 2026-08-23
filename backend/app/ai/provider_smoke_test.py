@@ -101,7 +101,7 @@ def execute_single_provider_smoke_test(
             api_base_url=getattr(cfg, "ai_api_base_url", None),
             api_key=getattr(cfg, "ai_api_key", None),
             deployment_name=getattr(cfg, "ai_azure_deployment_name", None) or getattr(cfg, "ai_model_name", None),
-            api_version=getattr(cfg, "ai_azure_api_version", "2024-02-15-preview"),
+            api_version=getattr(cfg, "ai_azure_api_version", "2024-12-01-preview"),
             timeout_seconds=min(10.0, getattr(cfg, "ai_timeout_seconds", 10.0)),
             max_retries=0,
         )

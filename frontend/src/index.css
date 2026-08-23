@@ -1,17 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+Oriya:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 @import 'leaflet/dist/leaflet.css';
 
 @theme {
-  /* Core Semantic Neutral Canvas & Surfaces */
+  /* Core Semantic Canvas & Solid Architectural Surfaces */
   --color-canvas-bg: #0B1220;
+  --color-canvas-light: #FAF8F5;
   --color-surface: #111827;
   --color-surface-elevated: #172235;
   --color-surface-hover: #1E2D44;
   --color-surface-card: #0F172A;
+
+  /* Hairline Borders */
   --color-border-subtle: #1F293D;
   --color-border-default: #263244;
   --color-border-strong: #334155;
+  --color-border-warm: #E2DDD5;
 
   /* Typography Colors */
   --color-text-primary: #F8FAFC;
@@ -19,7 +23,13 @@
   --color-text-muted: #64748B;
   --color-text-inverse: #0F172A;
 
-  /* Restrained Accents */
+  /* Signature Restrained Brand Accents (Odisha Coast, Sand & Stone) */
+  --color-brand-terracotta: #E06D44;
+  --color-brand-terracotta-dark: #C2532B;
+  --color-brand-terracotta-light: #F48B64;
+  --color-brand-sand: #D4AF37;
+  --color-brand-sand-light: #F3E5AB;
+
   --color-brand-teal: #14B8A6;
   --color-brand-teal-dark: #0F766E;
   --color-brand-teal-light: #2DD4BF;
@@ -46,7 +56,7 @@
   --color-brand-emerald: #14B8A6;
   --color-brand-obsidian: #0B1220;
 
-  /* Emerald Tonal Scale (Disciplined Teal/Emerald) */
+  /* Emerald Tonal Scale */
   --color-emerald-950: #06211C;
   --color-emerald-900: #0A372E;
   --color-emerald-800: #0F5E4E;
@@ -58,11 +68,12 @@
   --color-emerald-100: #CCFBF1;
   --color-emerald-50: #F0FDFA;
 
-  /* Typography */
+  /* Disciplined Typography Scale: Unified Primary Family */
   --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-serif: 'DM Serif Display', Georgia, serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'DM Mono', monospace;
+  --font-odia: 'Noto Sans Oriya', system-ui, sans-serif;
 }
 
 *, *::before, *::after {
@@ -81,10 +92,11 @@ body {
   color: #F8FAFC;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 html[data-theme="light"] body {
-  background: #F8FAFC;
+  background: #FAF8F5;
   color: #0F172A;
 }
 
@@ -101,6 +113,28 @@ button {
 button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
   outline: 2px solid #14B8A6;
   outline-offset: 2px;
+}
+
+/* Editorial Brand Elements */
+.font-brand-heading {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.font-editorial-serif {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+.font-data-mono {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+  font-feature-settings: "tnum" 1;
+}
+
+.font-odia {
+  font-family: var(--font-odia);
 }
 
 /* Subtle, Disciplined Status Animations */
@@ -131,7 +165,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -4px rgba(0, 0, 0, 0.25);
 }
 
-/* Top Navigation Bar */
+/* Top Navigation Bar: Solid, Restrained, Architectural */
 .topbar {
   position: sticky;
   top: 0;
@@ -140,11 +174,14 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
-  background: rgba(11, 18, 32, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: #0B1220;
   border-bottom: 1px solid #263244;
   transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+html[data-theme="light"] .topbar {
+  background: #FAF8F5;
+  border-bottom: 1px solid #E2DDD5;
 }
 
 /* Custom Minimal Scrollbar */

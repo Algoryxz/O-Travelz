@@ -52,8 +52,8 @@ Phase 12 Step 8 activates the O-Travelz provider-neutral AI architecture using a
 | `AI_FALLBACK_PROVIDER` | `"rule_based"` | Mandatory deterministic fallback adapter identifier |
 | `AI_API_BASE_URL` | `null` | Base endpoint URL for Azure OpenAI |
 | `AI_API_KEY` | `null` | API key for Azure OpenAI (redacted in status, logs, exceptions) |
-| `AI_AZURE_DEPLOYMENT_NAME` | `null` | Deployment model name for Azure OpenAI (e.g. `gpt-4o-mini`) |
-| `AI_AZURE_API_VERSION` | `"2024-02-15-preview"` | Azure REST API version |
+| `AI_AZURE_DEPLOYMENT_NAME` | `null` | Deployment model name for Azure OpenAI (e.g. `gpt-5-mini`) |
+| `AI_AZURE_API_VERSION` | `"2024-12-01-preview"` | Azure REST API version |
 | `AI_GEMINI_API_KEY` | `null` | API key for Google Gemini (redacted in status, logs, exceptions) |
 | `AI_GEMINI_MODEL_NAME` | `"gemini-1.5-flash"` | Gemini model identifier |
 | `AI_GEMINI_API_BASE_URL` | `"https://generativelanguage.googleapis.com/v1beta"` | Gemini REST base endpoint |
@@ -98,7 +98,8 @@ AI_ALLOW_EXTERNAL_PROVIDER=true
 AI_ALLOW_PAID_PROVIDER=false
 AI_API_BASE_URL=https://<your-azure-resource>.openai.azure.com
 AI_API_KEY=<your-azure-key>
-AI_AZURE_DEPLOYMENT_NAME=gpt-4o-mini
+AI_AZURE_DEPLOYMENT_NAME=gpt-5-mini
+AI_AZURE_API_VERSION=2024-12-01-preview
 AI_GEMINI_API_KEY=<your-gemini-key>
 AI_GEMINI_MODEL_NAME=gemini-1.5-flash
 ```

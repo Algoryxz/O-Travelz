@@ -135,7 +135,7 @@ export const TopNav: React.FC<TopNavProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#0B1220]/95 backdrop-blur-md border-b border-[#263244] transition-colors">
+    <header className="sticky top-0 z-40 w-full bg-[#0B1220] border-b border-[#263244] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-17 gap-3 sm:gap-4">
           {/* ZONE A: Logo & Brand Lockup */}
@@ -242,7 +242,7 @@ export const TopNav: React.FC<TopNavProps> = ({
                   data-testid="desktop-more-menu-dropdown"
                   role="menu"
                   aria-label="More options menu"
-                  className="absolute right-0 mt-2 w-72 bg-[#111827]/98 backdrop-blur-xl border border-[#263244] rounded-2xl shadow-2xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150 divide-y divide-[#263244]"
+                  className="absolute right-0 mt-2 w-72 bg-[#111827] border border-[#263244] rounded-2xl shadow-2xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150 divide-y divide-[#263244]"
                 >
                   {/* Section 1: YOUR SPACE */}
                   <div className="py-1.5 px-2">

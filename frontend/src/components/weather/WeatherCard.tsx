@@ -106,17 +106,8 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({
   return (
     <div
       data-testid="weather-banner-section"
-      className={`relative overflow-hidden rounded-3xl p-6 sm:p-7 bg-gradient-to-r ${theme.cardBgGradient} border ${theme.cardBorderClass} shadow-xl transition-all duration-500 ${className}`}
-      style={{
-        boxShadow: `0 8px 32px ${theme.glowColor}`,
-      }}
+      className={`relative overflow-hidden rounded-3xl p-6 sm:p-7 bg-[#111827] border ${theme.cardBorderClass} shadow-lg transition-all duration-300 ${className}`}
     >
-      {/* Decorative ambient background glow */}
-      <div
-        className="absolute -right-12 -top-12 w-48 h-48 rounded-full blur-3xl pointer-events-none opacity-40"
-        style={{ background: theme.accentColor }}
-      />
-
       <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         {/* Left: Weather Icon + Location + Condition */}
         <div className="flex items-center gap-5">

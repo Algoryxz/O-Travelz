@@ -83,7 +83,7 @@ class TestProviderPreflightDiagnostics:
             ai_allow_external_provider=False,
             ai_api_key="sk-azure-12345",
             ai_api_base_url="https://test.openai.azure.com",
-            ai_azure_deployment_name="gpt-4o-mini",
+            ai_azure_deployment_name="gpt-5-mini",
         )
         status = inspect_provider_health("azure_openai", settings)
         assert status.configured is True
@@ -132,7 +132,7 @@ class TestSmokeTestExecution:
             ai_allow_external_provider=True,
             ai_api_key="sk-azure-12345",
             ai_api_base_url="https://test.openai.azure.com",
-            ai_azure_deployment_name="gpt-4o-mini",
+            ai_azure_deployment_name="gpt-5-mini",
         )
         report = execute_single_provider_smoke_test("azure_openai", settings)
         assert report.status == SmokeTestResultCode.LIVE_SUCCESS
@@ -192,7 +192,7 @@ class TestSmokeTestExecution:
             ai_allow_external_provider=True,
             ai_api_key="bad-key",
             ai_api_base_url="https://test.openai.azure.com",
-            ai_azure_deployment_name="gpt-4o-mini",
+            ai_azure_deployment_name="gpt-5-mini",
         )
         report = execute_single_provider_smoke_test("azure_openai", settings)
         assert report.status == SmokeTestResultCode.AUTHENTICATION_FAILURE
@@ -213,7 +213,7 @@ class TestSmokeTestExecution:
             ai_allow_external_provider=True,
             ai_api_key="sk-key",
             ai_api_base_url="https://test.openai.azure.com",
-            ai_azure_deployment_name="gpt-4o-mini",
+            ai_azure_deployment_name="gpt-5-mini",
         )
         report = execute_single_provider_smoke_test("azure_openai", settings)
         assert report.status == SmokeTestResultCode.RATE_LIMITED
@@ -227,7 +227,7 @@ class TestSmokeTestExecution:
             ai_allow_external_provider=True,
             ai_api_key="sk-key",
             ai_api_base_url="https://test.openai.azure.com",
-            ai_azure_deployment_name="gpt-4o-mini",
+            ai_azure_deployment_name="gpt-5-mini",
         )
         report = execute_single_provider_smoke_test("azure_openai", settings)
         assert report.status == SmokeTestResultCode.TIMEOUT
@@ -241,7 +241,7 @@ class TestSmokeTestExecution:
             ai_allow_external_provider=True,
             ai_api_key="sk-key",
             ai_api_base_url="https://test.openai.azure.com",
-            ai_azure_deployment_name="gpt-4o-mini",
+            ai_azure_deployment_name="gpt-5-mini",
         )
         report = execute_single_provider_smoke_test("azure_openai", settings)
         assert report.status == SmokeTestResultCode.MALFORMED_RESPONSE
@@ -282,7 +282,7 @@ class TestSmokeTestSecurityInvariants:
             ai_allow_external_provider=True,
             ai_api_key=secret_token,
             ai_api_base_url="https://test.openai.azure.com",
-            ai_azure_deployment_name="gpt-4o-mini",
+            ai_azure_deployment_name="gpt-5-mini",
         )
         report = execute_single_provider_smoke_test("azure_openai", settings)
         assert secret_token not in report.error_message
@@ -303,7 +303,7 @@ class TestSmokeTestSecurityInvariants:
             ai_allow_external_provider=True,
             ai_api_key="sk-key",
             ai_api_base_url="https://test.openai.azure.com",
-            ai_azure_deployment_name="gpt-4o-mini",
+            ai_azure_deployment_name="gpt-5-mini",
             ai_max_retries=5,  # Global config has 5 retries, smoke test must override to 0
         )
         report = execute_single_provider_smoke_test("azure_openai", settings)

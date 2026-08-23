@@ -555,19 +555,19 @@ class AzureOpenAIProviderAdapter(GenericHTTPProviderAdapter):
         api_base_url: str | None = None,
         api_key: str | None = None,
         deployment_name: str | None = None,
-        api_version: str = "2024-02-15-preview",
+        api_version: str = "2024-12-01-preview",
         timeout_seconds: float = 30.0,
         max_retries: int = 2,
     ) -> None:
         super().__init__(
             api_base_url=api_base_url,
             api_key=api_key,
-            model_name=deployment_name or "gpt-4o-mini",
+            model_name=deployment_name or "gpt-5-mini",
             timeout_seconds=timeout_seconds,
             max_retries=max_retries,
             provider_identifier="azure_openai",
         )
-        self.deployment_name = deployment_name or "gpt-4o-mini"
+        self.deployment_name = deployment_name or "gpt-5-mini"
         self.api_version = api_version
 
     def _resolve_endpoint_url(self) -> str:
@@ -995,7 +995,7 @@ def create_provider_adapter(settings: Any | None = None) -> AIProviderAdapter:
         api_base_url=getattr(settings, "ai_api_base_url", None),
         api_key=getattr(settings, "ai_api_key", None),
         deployment_name=getattr(settings, "ai_azure_deployment_name", None) or getattr(settings, "ai_model_name", None),
-        api_version=getattr(settings, "ai_azure_api_version", "2024-02-15-preview"),
+        api_version=getattr(settings, "ai_azure_api_version", "2024-12-01-preview"),
         timeout_seconds=getattr(settings, "ai_timeout_seconds", 30.0),
         max_retries=getattr(settings, "ai_max_retries", 2),
     )

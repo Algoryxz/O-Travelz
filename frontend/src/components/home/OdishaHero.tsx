@@ -7,6 +7,8 @@ import {
   ChevronRight,
   Pause,
   Play,
+  Calendar,
+  Compass,
 } from "lucide-react";
 
 import { getPlaceImageUrl } from "../../utils/imageService";
@@ -40,36 +42,37 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
   onSelectCategory,
   onSelectPlace,
 }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(destinationSearch || "");
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [selectedDuration, setSelectedDuration] = useState("2-3 Days");
 
   const destinations = [
     {
-      name: "Daringbadi",
-      category: "Hills · Nature",
-      detail: "Cool climate · 280 km",
-      quote: "Monsoon air and mountain roads",
-      bgImage: getPlaceImageUrl("place_daringbadi_001"),
+      name: "Konark Sun Temple",
+      category: "Heritage · UNESCO",
+      detail: "13th Century · Open 6:00 AM",
+      quote: "Stone wheels, sacred geometry, and quiet coastal light",
+      bgImage: getPlaceImageUrl("place_konark_001"),
     },
     {
       name: "Chilika Lake",
       category: "Wildlife · Nature",
-      detail: "Dolphins · Flamingos",
-      quote: "Slow water, wide skies",
+      detail: "Dolphins · Slow Eco-Boats",
+      quote: "Slow water, wide skies, and migratory birds",
       bgImage: getPlaceImageUrl("place_chilika_001"),
     },
     {
-      name: "Konark Sun Temple",
-      category: "Heritage · UNESCO",
-      detail: "Open now · 6:00 PM",
-      quote: "Stone, shadow, and a coastline that makes history bigger",
-      bgImage: getPlaceImageUrl("place_konark_001"),
+      name: "Daringbadi",
+      category: "Hills · Nature",
+      detail: "Cool climate · Pine Valleys",
+      quote: "Monsoon air, coffee plantations, and mountain roads",
+      bgImage: getPlaceImageUrl("place_daringbadi_001"),
     },
     {
       name: "Puri Beach",
       category: "Beach · Coastal",
-      detail: "60 km · High season",
+      detail: "Blue Flag · Sunrise Walks",
       quote: "Salt air, long walks, and an easy coastal reset",
       bgImage: getPlaceImageUrl("place_puri_002"),
     },
@@ -83,7 +86,7 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
       if (typeof window !== "undefined") {
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (!reduced) {
-          setOffsetY(Math.min(window.scrollY * 0.18, 120));
+          setOffsetY(Math.min(window.scrollY * 0.14, 90));
         }
       }
     };
@@ -96,7 +99,7 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
     if (isPaused) return;
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % destinations.length);
-    }, 6500);
+    }, 7000);
     return () => clearInterval(timer);
   }, [isPaused, destinations.length]);
 
@@ -105,6 +108,8 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
     if (searchTerm.trim()) {
       onSearch?.(searchTerm.trim());
       onSearchChange?.(searchTerm.trim());
+    } else {
+      onViewAllDestinations?.();
     }
   };
 
@@ -112,7 +117,7 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
 
   return (
     <section className="relative overflow-hidden bg-[#0B1220] border-b border-[#263244]">
-      {/* Background Image Carousel with Parallax, Crossfade & Refined Vignette */}
+      {/* Background Image Carousel with Subtle Parallax & Clean Editorial Vignette */}
       <div
         className="absolute inset-0 will-change-transform pointer-events-none"
         style={{ transform: `translateY(${offsetY}px)` }}
@@ -129,149 +134,204 @@ export const OdishaHero: React.FC<OdishaHeroProps> = ({
       </div>
 
       {/* Sophisticated Dark Neutral Gradient Overlay preserving photograph visibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220]/90 via-[#0B1220]/35 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-black/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220]/94 via-[#0B1220]/65 to-[#0B1220]/30 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-black/30 pointer-events-none" />
 
       {/* Main Content Grid */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left Column: Headings, Search & Surprise Me */}
-        <div className="lg:col-span-7 space-y-6">
-          {/* Live location badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#111827]/90 border border-[#263244] text-slate-200 text-xs font-semibold backdrop-blur-md shadow-xs">
-            <span className="live-dot" />
-            <MapPin size={13} className="text-[#14B8A6]" />
-            <span>{selectedLocation} · Live Hub</span>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Confident Thesis, Editorial Narrative & Direct Search */}
+          <div className="lg:col-span-7 space-y-6">
+            {/* Live Location Hub Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#111827]/90 border border-[#263244] text-slate-200 text-xs font-semibold backdrop-blur-md shadow-xs">
+              <span className="live-dot" />
+              <MapPin size={13} className="text-[#14B8A6]" />
+              <span>{selectedLocation} · Live Hub</span>
+              <span className="text-slate-500 font-odia text-[11px] ml-1">ଓଡ଼ିଶା</span>
+            </div>
+
+            <div className="space-y-3">
+              <div className="text-[#14B8A6] text-xs font-bold uppercase tracking-wider font-mono">
+                ODISHA, YOUR WAY · TRAVEL INTELLIGENCE
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-brand-heading tracking-tight text-white leading-[1.08]">
+                Discover everything<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#14B8A6] via-[#2DD4BF] to-[#E06D44]">
+                  in Odisha.
+                </span>
+              </h1>
+
+              <p className="text-sm sm:text-base text-slate-300 font-normal max-w-xl leading-relaxed">
+                Temples · Beaches · Cafés · Nature · Shopping · Food · Heritage · Trails. Authentic route curation and verified travel intelligence for every traveler.
+              </p>
+            </div>
+
+            {/* Travel Search Console */}
+            <form
+              onSubmit={handleSearchSubmit}
+              className="p-2 sm:p-2.5 bg-[#111827]/95 border border-[#263244] rounded-2xl shadow-2xl backdrop-blur-xl space-y-2.5"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-2">
+                {/* Field 1: Destination input */}
+                <div className="sm:col-span-6 flex items-center gap-2.5 px-3 py-2 bg-[#0B1220] rounded-xl border border-[#263244] focus-within:border-[#14B8A6] transition-colors">
+                  <Search size={16} className="text-slate-400 shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <label className="block text-[10px] uppercase font-mono font-bold text-slate-400 tracking-wider">
+                      Where to?
+                    </label>
+                    <input
+                      type="text"
+                      value={searchTerm}
+                      onChange={(e) => {
+                        setSearchTerm(e.target.value);
+                        onSearchChange?.(e.target.value);
+                      }}
+                      placeholder={`Find places near ${selectedLocation}...`}
+                      className="w-full text-xs sm:text-sm text-white placeholder-slate-500 bg-transparent border-0 outline-hidden p-0 font-medium"
+                      aria-label="Search destinations in English, Odia, or Hindi"
+                    />
+                  </div>
+                </div>
+
+                {/* Field 2: Duration / When */}
+                <div className="sm:col-span-3 flex items-center gap-2 px-3 py-2 bg-[#0B1220] rounded-xl border border-[#263244]">
+                  <Calendar size={15} className="text-[#14B8A6] shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <label className="block text-[10px] uppercase font-mono font-bold text-slate-400 tracking-wider">
+                      Duration
+                    </label>
+                    <select
+                      value={selectedDuration}
+                      onChange={(e) => setSelectedDuration(e.target.value)}
+                      className="w-full text-xs text-slate-200 bg-transparent border-0 outline-hidden cursor-pointer font-medium"
+                    >
+                      <option value="1 Day" className="bg-[#111827] text-white">1 Day</option>
+                      <option value="2-3 Days" className="bg-[#111827] text-white">2–3 Days</option>
+                      <option value="4-5 Days" className="bg-[#111827] text-white">4–5 Days</option>
+                      <option value="1 Week" className="bg-[#111827] text-white">1 Week</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Field 3: Action Button */}
+                <div className="sm:col-span-3 flex">
+                  <button
+                    type="submit"
+                    className="w-full py-2.5 px-4 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white font-display font-bold text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                  >
+                    <Compass size={15} />
+                    <span>Search</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Quick tags bar */}
+              <div className="flex flex-wrap items-center justify-between gap-2 pt-1 px-1 border-t border-[#1F293D]/80">
+                <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
+                  <span className="text-teal-400 font-semibold font-mono text-[10px]">Multilingual:</span>
+                  <span>English · ଓଡ଼ିଆ · हिन्दी</span>
+                </div>
+
+                {/* Quick actions */}
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    data-testid="hero-surprise-me-button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      onSurpriseMe?.();
+                    }}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#172235] hover:bg-[#1E2D44] border border-[#263244] text-[11px] text-amber-300 font-medium transition-colors cursor-pointer"
+                  >
+                    <Sparkles size={12} className="text-amber-400" />
+                    <span>Surprise Me</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={onNavigateToPlan}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#14B8A6]/10 hover:bg-[#14B8A6]/20 border border-[#14B8A6]/30 text-[11px] text-teal-300 font-medium transition-colors cursor-pointer"
+                  >
+                    <span>Plan a Trip</span>
+                    <ArrowRight size={11} />
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
 
-          <div className="space-y-3">
-            <div className="text-[#14B8A6] text-xs font-bold uppercase tracking-wider font-mono">
-              ODISHA, YOUR WAY · TRAVEL INTELLIGENCE
+          {/* Right Column: Destination Cards Stack */}
+          <div className="lg:col-span-5 space-y-3">
+            <div className="flex items-center justify-between text-xs text-slate-400 px-1 font-mono uppercase tracking-wider">
+              <span>Featured Destinations</span>
+              <span className="text-teal-400">{String(activeSlide + 1).padStart(2, "0")} / 04</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight text-white leading-[1.08]">
-              Discover everything<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#14B8A6] via-[#2DD4BF] to-[#38BDF8]">
-                in Odisha.
-              </span>
-            </h1>
-            <p className="text-sm sm:text-base text-slate-300 font-normal">
-              Temples · Beaches · Cafés · Nature · Shopping · Food · Heritage · Trails
-            </p>
-            <p className="text-xs sm:text-sm text-slate-400 font-light">
-              Authentic route curation for tourists, locals, students, and explorers.
-            </p>
-          </div>
 
-          {/* Search Bar Pill */}
-          <form onSubmit={handleSearchSubmit} className="pt-2">
-            <div className="flex items-center gap-2 p-1.5 pl-4 bg-[#111827] rounded-2xl shadow-xl max-w-lg border border-[#263244] focus-within:border-[#14B8A6] transition-colors">
-              <Search size={18} className="text-slate-400 shrink-0" />
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder={`Find places near ${selectedLocation}...`}
-                className="w-full text-xs sm:text-sm text-white placeholder-slate-400 bg-transparent border-0 outline-hidden py-2"
-                aria-label="Search destinations in English, Odia, or Hindi"
-              />
-              <button
-                type="submit"
-                className="px-5 py-2.5 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white font-display font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all shrink-0 cursor-pointer"
-              >
-                Search
-              </button>
+            <div className="space-y-2.5">
+              {destinations.map((dest, idx) => {
+                const isActive = idx === activeSlide;
+                return (
+                  <div
+                    key={dest.name}
+                    onClick={() => {
+                      setActiveSlide(idx);
+                      onSelectDestination?.(dest.name);
+                    }}
+                    className={`w-full text-left p-3.5 rounded-2xl transition-all cursor-pointer flex items-center justify-between gap-4 ${
+                      isActive
+                        ? "bg-[#172235] border border-[#14B8A6] shadow-xl backdrop-blur-md translate-x-1"
+                        : "bg-[#111827]/90 hover:bg-[#172235]/70 border border-[#263244] backdrop-blur-sm"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3.5 min-w-0">
+                      <div
+                        className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                          isActive
+                            ? "bg-[#14B8A6]/20 text-teal-300 border border-[#14B8A6]/40"
+                            : "bg-slate-800 text-slate-300"
+                        }`}
+                      >
+                        <MapPin size={18} />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="font-display font-bold text-sm text-white truncate">
+                          {dest.name}
+                        </div>
+                        <div className="text-[11px] text-slate-300 truncate">
+                          {dest.category}
+                        </div>
+                        <div className="text-[10px] text-teal-400 font-mono flex items-center gap-1.5 mt-0.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#14B8A6]" />
+                          {dest.detail}
+                        </div>
+                      </div>
+                    </div>
+                    <ChevronRight
+                      size={16}
+                      className={`shrink-0 transition-transform ${
+                        isActive ? "text-[#14B8A6] translate-x-0.5" : "text-slate-500"
+                      }`}
+                    />
+                  </div>
+                );
+              })}
             </div>
-            <div className="flex items-center gap-2 mt-2 px-1 text-[11px] text-slate-400 font-medium">
-              <span className="text-[#14B8A6] font-semibold">Multilingual:</span>
-              <span>English · ଓଡ଼ିଆ · हिन्दी</span>
-            </div>
-          </form>
 
-          {/* Surprise Me Button & Subtext */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
             <button
               type="button"
-              data-testid="hero-surprise-me-button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                onSurpriseMe?.();
-              }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#172235] hover:bg-[#1E2D44] border border-[#263244] hover:border-[#14B8A6] text-white font-display font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer"
+              onClick={onViewAllDestinations}
+              className="w-full py-2.5 px-4 rounded-xl bg-[#111827] hover:bg-[#172235] border border-[#263244] hover:border-slate-600 text-slate-300 hover:text-white font-semibold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
-              <Sparkles size={16} className="text-[#F59E0B]" />
-              <span>Surprise Me</span>
-              <ArrowRight size={14} className="text-[#14B8A6]" />
+              <span>View all destinations</span>
+              <ArrowRight size={14} />
             </button>
-            <span className="text-xs text-slate-400">
-              Location-aware · open places near you
-            </span>
-          </div>
-        </div>
-
-        {/* Right Column: Destination Cards Stack */}
-        <div className="lg:col-span-5 space-y-3">
-          <div className="space-y-2.5">
-            {destinations.map((dest, idx) => {
-              const isActive = idx === activeSlide;
-              return (
-                <div
-                  key={dest.name}
-                  onClick={() => {
-                    setActiveSlide(idx);
-                    onSelectDestination?.(dest.name);
-                  }}
-                  className={`w-full text-left p-3.5 rounded-2xl transition-all cursor-pointer flex items-center justify-between gap-4 ${
-                    isActive
-                      ? "bg-[#172235] border border-[#14B8A6] shadow-xl backdrop-blur-md translate-x-1"
-                      : "bg-[#111827]/90 hover:bg-[#172235]/70 border border-[#263244] backdrop-blur-sm"
-                  }`}
-                >
-                  <div className="flex items-center gap-3.5 min-w-0">
-                    <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                        isActive
-                          ? "bg-[#14B8A6]/20 text-teal-300 border border-[#14B8A6]/40"
-                          : "bg-slate-800 text-slate-300"
-                      }`}
-                    >
-                      <MapPin size={18} />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="font-display font-bold text-sm text-white truncate">
-                        {dest.name}
-                      </div>
-                      <div className="text-[11px] text-slate-300 truncate">
-                        {dest.category}
-                      </div>
-                      <div className="text-[10px] text-teal-400 font-mono flex items-center gap-1.5 mt-0.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#14B8A6]" />
-                        {dest.detail}
-                      </div>
-                    </div>
-                  </div>
-                  <ChevronRight
-                    size={16}
-                    className={`shrink-0 transition-transform ${
-                      isActive ? "text-[#14B8A6] translate-x-0.5" : "text-slate-500"
-                    }`}
-                  />
-                </div>
-              );
-            })}
           </div>
 
-          <button
-            type="button"
-            onClick={onViewAllDestinations}
-            className="w-full py-2.5 px-4 rounded-xl bg-[#111827] hover:bg-[#172235] border border-[#263244] hover:border-slate-600 text-slate-300 hover:text-white font-semibold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
-          >
-            <span>View all destinations</span>
-            <ArrowRight size={14} />
-          </button>
         </div>
       </div>
 
-      {/* Hero Bottom Bar with Slide Counter & Caption */}
+      {/* Hero Bottom Bar with Slide Counter, Pause & Editorial Quote */}
       <div className="relative z-10 border-t border-[#263244] bg-[#080E1A]/80 backdrop-blur-md px-6 sm:px-8 py-3 flex items-center justify-between text-xs text-slate-400">
         <div className="truncate max-w-md">
           <span className="font-semibold text-slate-200">{current.name}</span> · {current.quote}

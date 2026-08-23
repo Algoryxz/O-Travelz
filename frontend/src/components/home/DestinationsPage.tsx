@@ -136,7 +136,6 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
     >
       {/* Header Banner */}
       <div className="p-6 sm:p-10 rounded-3xl bg-[#111827] text-white border border-[#263244] shadow-xl relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 space-y-3">
           <div className="flex items-center gap-2">
             <span className="live-dot" />

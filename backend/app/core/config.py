@@ -30,7 +30,7 @@ class Settings(BaseSettings):
     ai_max_retries: int = 2
 
     # Azure OpenAI Configuration (Primary Free-Tier Provider)
-    ai_azure_api_version: str = "2024-02-15-preview"
+    ai_azure_api_version: str = "2024-12-01-preview"
     ai_azure_deployment_name: Optional[str] = None
 
     # Google Gemini Configuration (Secondary Free-Tier Provider)
@@ -99,6 +99,7 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = ".env"
+        extra = "ignore"
 
 
 settings = Settings()

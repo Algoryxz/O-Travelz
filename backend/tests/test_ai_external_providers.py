@@ -100,11 +100,11 @@ class TestAzureOpenAIProviderAdapter:
         adapter = AzureOpenAIProviderAdapter(
             api_base_url="https://my-resource.openai.azure.com",
             api_key="azure-secret-key-123",
-            deployment_name="gpt-4o-mini-prod",
-            api_version="2024-02-15-preview",
+            deployment_name="gpt-5-mini-prod",
+            api_version="2024-12-01-preview",
         )
         url = adapter._resolve_endpoint_url()
-        assert url == "https://my-resource.openai.azure.com/openai/deployments/gpt-4o-mini-prod/chat/completions?api-version=2024-02-15-preview"
+        assert url == "https://my-resource.openai.azure.com/openai/deployments/gpt-5-mini-prod/chat/completions?api-version=2024-12-01-preview"
         headers = adapter._get_headers()
         assert headers["api-key"] == "azure-secret-key-123"
 
@@ -112,18 +112,24 @@ class TestAzureOpenAIProviderAdapter:
         adapter = AzureOpenAIProviderAdapter(
             api_base_url="https://my-resource.openai.azure.com",
             api_key="super-secret-azure-token",
-            deployment_name="gpt-4o-mini",
+            deployment_name="gpt-5-mini",
         )
         status = adapter.get_status()
         assert "super-secret" not in json.dumps(status)
         assert status["provider"] == "azure_openai"
         assert status["available"] is True
 
+    def test_azure_default_initialization(self):
+        adapter = AzureOpenAIProviderAdapter()
+        assert adapter.deployment_name == "gpt-5-mini"
+        assert adapter.api_version == "2024-12-01-preview"
+        assert adapter.model_name == "gpt-5-mini"
+
     @patch("urllib.request.urlopen")
     def test_azure_successful_text_generation(self, mock_urlopen):
         mock_data = {
             "id": "chatcmpl-azure-123",
-            "model": "gpt-4o-mini",
+            "model": "gpt-5-mini",
             "choices": [
                 {
                     "index": 0,
@@ -137,7 +143,7 @@ class TestAzureOpenAIProviderAdapter:
         adapter = AzureOpenAIProviderAdapter(
             api_base_url="https://my-resource.openai.azure.com",
             api_key="azure-secret",
-            deployment_name="gpt-4o-mini",
+            deployment_name="gpt-5-mini",
         )
         messages = [ChatMessage(role=ChatRole.USER, content="Hello")]
         resp = adapter.generate(messages)
@@ -176,7 +182,7 @@ class TestAzureOpenAIProviderAdapter:
         adapter = AzureOpenAIProviderAdapter(
             api_base_url="https://my-resource.openai.azure.com",
             api_key="azure-secret",
-            deployment_name="gpt-4o-mini",
+            deployment_name="gpt-5-mini",
         )
         messages = [ChatMessage(role=ChatRole.USER, content="Plan 3 days in Puri")]
         tools = [
@@ -197,7 +203,7 @@ class TestAzureOpenAIProviderAdapter:
     @patch("urllib.request.urlopen")
     def test_azure_auth_error_redacts_credentials(self, mock_urlopen):
         http_err = urllib.error.HTTPError(
-            url="https://my-resource.openai.azure.com/openai/deployments/gpt-4o-mini/chat/completions?api-version=2024-02-15-preview",
+            url="https://my-resource.openai.azure.com/openai/deployments/gpt-5-mini/chat/completions?api-version=2024-12-01-preview",
             code=401,
             msg="Unauthorized",
             hdrs={},
@@ -208,7 +214,7 @@ class TestAzureOpenAIProviderAdapter:
         adapter = AzureOpenAIProviderAdapter(
             api_base_url="https://my-resource.openai.azure.com",
             api_key="sk-azure-secret-token",
-            deployment_name="gpt-4o-mini",
+            deployment_name="gpt-5-mini",
             max_retries=0,
         )
 

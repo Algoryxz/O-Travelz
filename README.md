@@ -27,9 +27,22 @@ The foundational principle is:
 1. [docs/PRD.md](docs/PRD.md) — Product requirements and approved views.
 2. [docs/RULES.md](docs/RULES.md) — Architectural rules and factuality constraints.
 3. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — Canonical system architecture and API boundaries.
-4. [docs/MEMORY.md](docs/MEMORY.md) — Current project-state ledger.
-5. [docs/PHASES.md](docs/PHASES.md) — Canonical phase order, exit gates, and verification baseline.
-6. [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md) — Repository directory map and component ownership.
+4. [docs/design-system.md](docs/design-system.md) — Frontend Design System Specification & Token Source of Truth.
+5. [docs/design-guardrails.md](docs/design-guardrails.md) — Permanent Design Guardrails & Anti-Pattern Rules.
+6. [docs/frontend-architecture.md](docs/frontend-architecture.md) — React & TypeScript Frontend Architecture.
+7. [docs/travel-intelligence.md](docs/travel-intelligence.md) — Travel Intelligence Engine & Deterministic Logistics.
+8. [docs/ai-ux.md](docs/ai-ux.md) — AI UX Principles & Zero-Hallucination Boundaries.
+9. [docs/frontend-contributing.md](docs/frontend-contributing.md) — Contributing & Styling Guidelines.
+10. [docs/frontend-roadmap.md](docs/frontend-roadmap.md) — Frontend Feature Roadmap.
+11. [docs/frontend-technical-debt.md](docs/frontend-technical-debt.md) — Technical Debt Log.
+12. [docs/frontend-changelog.md](docs/frontend-changelog.md) — Frontend Evolution Changelog.
+13. [docs/ai-provider-matrix.md](docs/ai-provider-matrix.md) — Source-Reconciled AI Provider Matrix & Fallbacks.
+14. [docs/required-accounts.md](docs/required-accounts.md) — Mandatory vs Optional Accounts Matrix.
+15. [docs/production-environment.md](docs/production-environment.md) — Master Environment Variable Matrix.
+16. [docs/api-keys-and-services.md](docs/api-keys-and-services.md) — External Services & API Key Provisioning.
+17. [docs/deployment.md](docs/deployment.md) — Production Deployment Architecture & Commands.
+18. [docs/security.md](docs/security.md) — Security Audit & Hardening Guide.
+19. [docs/production-runbook.md](docs/production-runbook.md) — Operations Manual, Backups & Incident Triage.
 
 ---
 
