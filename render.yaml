@@ -20,7 +20,7 @@ services:
       - key: CORS_ORIGINS
         sync: false
       - key: AUTH_SESSION_SECRET
-        sync: false
+        generateValue: true
       - key: AUTH_COOKIE_SECURE
         value: "true"
       - key: AUTH_COOKIE_SAMESITE
