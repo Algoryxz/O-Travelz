@@ -6,17 +6,14 @@ import {
   Bookmark,
   Menu,
   ChevronDown,
-  Bot,
   Layers,
-  Sun,
-  Moon,
-  History,
   CalendarDays,
-  Sliders,
   MoreHorizontal,
   Route,
+  Search,
+  Check,
+  Sliders,
 } from "lucide-react";
-import { useTheme } from "../../store/useTheme";
 import { AuthStatusButton } from "../auth/AuthStatusButton";
 
 export type NavTab =
@@ -56,12 +53,10 @@ export interface TopNavProps {
     | "timeout"
     | "unavailable"
     | "unsupported";
-
   locationText?: string;
   onRequestLocation?: () => void;
   [key: string]: any;
 }
-
 
 const AVAILABLE_LOCATIONS = [
   "Bhubaneswar",
@@ -80,17 +75,14 @@ export const TopNav: React.FC<TopNavProps> = ({
   selectedLocation,
   onLocationChange,
   onOpenMobileDrawer,
-  onToggleCopilot,
   onOpenSettings,
   savedCount = 0,
-  revisitCount = 0,
-  locationStatus = "not_granted",
   locationText = "",
+  locationStatus,
   onRequestLocation,
 }) => {
   const [locationDropdownOpen, setLocationDropdownOpen] = useState(false);
   const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false);
-  const { isDark } = useTheme();
 
   const moreMenuRef = useRef<HTMLDivElement | null>(null);
   const locationMenuRef = useRef<HTMLDivElement | null>(null);
@@ -135,51 +127,140 @@ export const TopNav: React.FC<TopNavProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#0B1220] border-b border-[#263244] transition-colors">
+    <header
+      data-testid="top-navigation-bar"
+      className="sticky top-0 z-40 w-full bg-[#FBF9F5]/90 backdrop-blur-md border-b border-[#E5DFD5] transition-all"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-17 gap-3 sm:gap-4">
+        <div className="flex items-center justify-between h-18 gap-3 sm:gap-4">
+          
           {/* ZONE A: Logo & Brand Lockup */}
-          <div
-            className="flex items-center gap-2.5 cursor-pointer shrink-0 select-none"
-            onClick={() => onTabChange("discover")}
-          >
-            <div className="relative flex items-center justify-center shrink-0">
-              <img
-                src="/logo.jpeg"
-                alt="O-Travelz Logo"
-                className="w-8 h-8 rounded-xl object-cover ring-1 ring-teal-500/30 shadow-xs shrink-0"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = "none";
-                }}
-              />
-              <svg
-                className="w-8 h-8 text-[#14B8A6] hidden only-if-no-img"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect width="32" height="32" rx="8" fill="#111827" stroke="#263244" strokeWidth="1.5" />
-                <circle cx="16" cy="16" r="8" stroke="#14B8A6" strokeWidth="2.5" strokeDasharray="36 12" />
-                <circle cx="16" cy="16" r="3.5" fill="#F59E0B" />
-              </svg>
-            </div>
-            <div className="flex flex-col justify-center">
-              <div className="flex items-center gap-1.5 leading-none">
-                <span className="font-display font-black text-base sm:text-lg tracking-tight text-white whitespace-nowrap">
-                  O-Travelz
-                </span>
-                <span className="live-dot" />
+          <div className="flex items-center gap-3 shrink-0 select-none">
+            <div
+              className="flex items-center gap-2.5 cursor-pointer"
+              onClick={() => onTabChange("discover")}
+            >
+              <div className="relative flex items-center justify-center shrink-0">
+                <img
+                  src="/logo.jpeg"
+                  alt="O-Travelz Logo"
+                  className="w-8 h-8 rounded-lg object-cover ring-1 ring-[#B87B22]/30 shadow-xs shrink-0"
+                  onError={(e) => {
+                    (e.target as HTMLElement).style.display = "none";
+                  }}
+                />
               </div>
-              <p className="text-[10px] text-teal-400 font-medium tracking-wide whitespace-nowrap mt-0.5 leading-none">
-                safe • secure • smart
-              </p>
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-1.5 leading-none">
+                  <span className="font-serif font-bold text-lg sm:text-xl tracking-tight text-[#12161E] whitespace-nowrap">
+                    O-Travelz
+                  </span>
+                  <span className="live-dot" />
+                </div>
+                <p className="text-[10px] text-[#70798B] font-medium tracking-wide whitespace-nowrap mt-0.5 leading-none font-mono">
+                  Odisha Travel Intelligence · safe • secure • smart
+                </p>
+              </div>
+            </div>
+
+            {/* Departure Hub Pill Selector */}
+            <div className="relative ml-2 hidden sm:block" ref={locationMenuRef}>
+              <button
+                type="button"
+                data-testid={locationStatus ? "header-live-location-control" : "location-dropdown-toggle"}
+                aria-haspopup="true"
+                aria-expanded={locationDropdownOpen}
+                onClick={() => {
+                  if (locationStatus === "not_granted" && onRequestLocation) {
+                    onRequestLocation();
+                  } else {
+                    setLocationDropdownOpen(!locationDropdownOpen);
+                  }
+                }}
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F2EEE7] hover:bg-[#EAE4DA] text-[#12161E] border border-[#E5DFD5] text-xs font-medium transition-colors cursor-pointer"
+              >
+                <MapPin size={12} className="text-[#B87B22] shrink-0" />
+                <span className="truncate max-w-[130px] font-semibold">
+                  {locationStatus === "not_granted"
+                    ? "Enable Location"
+                    : locationStatus === "idle"
+                    ? "Use my live location"
+                    : locationStatus === "requesting"
+                    ? "Finding your location…"
+                    : locationStatus === "denied"
+                    ? "Location Blocked"
+                    : locationStatus === "timeout"
+                    ? "Location Timeout"
+                    : locationStatus === "unavailable"
+                    ? "Location Unavailable"
+                    : locationStatus === "unsupported"
+                    ? "Location Unsupported"
+                    : locationStatus === "granted"
+                    ? `LIVE Location: ${locationText || `${selectedLocation}, Odisha`}`
+                    : locationText || `${selectedLocation}, Odisha`}
+                </span>
+                <ChevronDown
+                  size={11}
+                  className={`text-[#70798B] transition-transform duration-150 ${
+                    locationDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {/* Hub Dropdown Popover */}
+              {locationDropdownOpen && (
+                <div
+                  data-testid="location-dropdown-menu"
+                  role="menu"
+                  aria-label="Odisha Departure Hubs"
+                  className="absolute left-0 mt-2 w-64 bg-[#FFFFFF] border border-[#E5DFD5] rounded-xl shadow-xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150"
+                >
+                  <div className="px-3 py-1 text-[10px] font-bold text-[#70798B] uppercase tracking-wider font-mono border-b border-[#E5DFD5] pb-1.5 mb-1">
+                    Select Departure Hub
+                  </div>
+                  {AVAILABLE_LOCATIONS.map((loc) => (
+                    <button
+                      key={loc}
+                      type="button"
+                      role="menuitem"
+                      onClick={() => {
+                        onLocationChange(loc);
+                        setLocationDropdownOpen(false);
+                      }}
+                      className={`w-full text-left px-3 py-2 text-xs transition-colors flex items-center justify-between cursor-pointer ${
+                        selectedLocation === loc
+                          ? "bg-[#F2EEE7] text-[#12161E] font-bold"
+                          : "text-[#3D4654] hover:bg-[#FAF7F2] hover:text-[#12161E]"
+                      }`}
+                    >
+                      <span>{loc}</span>
+                      {selectedLocation === loc && <Check size={13} className="text-[#B87B22]" />}
+                    </button>
+                  ))}
+                  {onRequestLocation && (
+                    <div className="border-t border-[#E5DFD5] pt-1.5 mt-1 px-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onRequestLocation();
+                          setLocationDropdownOpen(false);
+                        }}
+                        className="w-full text-left px-2 py-1.5 rounded-lg text-xs font-semibold text-[#B87B22] hover:bg-[#FAF7F2] flex items-center gap-2 cursor-pointer"
+                      >
+                        <MapPin size={12} />
+                        <span>Detect Live Location</span>
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 
           {/* ZONE B: Primary Navigation Group */}
           <nav
             aria-label="Main navigation"
-            className="hidden md:flex items-center gap-1 bg-[#111827]/80 p-1 rounded-2xl border border-[#263244] shrink-0"
+            className="hidden md:flex items-center gap-1.5 bg-[#FFFFFF] px-2 py-1 rounded-full border border-[#E5DFD5] shadow-xs shrink-0"
           >
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -190,20 +271,20 @@ export const TopNav: React.FC<TopNavProps> = ({
                   type="button"
                   data-testid={item.testId}
                   onClick={() => onTabChange(item.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-150 cursor-pointer ${
+                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-150 cursor-pointer ${
                     isActive
-                      ? "bg-[#14B8A6] text-white shadow-xs font-bold px-3.5"
-                      : "text-slate-300 hover:text-white hover:bg-slate-800/80"
+                      ? "bg-[#12161E] text-white shadow-xs"
+                      : "text-[#3D4654] hover:text-[#12161E] hover:bg-[#F2EEE7]"
                   }`}
                 >
-                  <Icon size={14} className={isActive ? "text-white shrink-0" : "text-slate-400 shrink-0"} />
+                  <Icon size={13} className={isActive ? "text-[#B87B22] shrink-0" : "text-[#70798B] shrink-0"} />
                   <span>{item.label}</span>
                   {item.badge !== undefined && item.badge > 0 && (
                     <span
                       className={`px-1.5 py-0.2 rounded-full text-[10px] font-bold shrink-0 ${
                         isActive
-                          ? "bg-white text-teal-800"
-                          : "bg-[#172235] text-teal-300 border border-[#263244]"
+                          ? "bg-[#B87B22] text-white"
+                          : "bg-[#F2EEE7] text-[#12161E] border border-[#E5DFD5]"
                       }`}
                     >
                       {item.badge}
@@ -222,16 +303,16 @@ export const TopNav: React.FC<TopNavProps> = ({
                 aria-expanded={isMoreMenuOpen}
                 aria-label="More navigation options"
                 onClick={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
-                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-150 cursor-pointer ${
-                  isMoreMenuOpen || activeTab === "revisit" || activeTab === "category"
-                    ? "bg-[#172235] text-[#14B8A6] border border-[#14B8A6]/40 font-bold"
-                    : "text-slate-300 hover:text-white hover:bg-slate-800/80"
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-150 cursor-pointer ${
+                  isMoreMenuOpen || activeTab === "category"
+                    ? "bg-[#F2EEE7] text-[#12161E] font-bold"
+                    : "text-[#3D4654] hover:text-[#12161E] hover:bg-[#F2EEE7]"
                 }`}
               >
-                <MoreHorizontal size={14} className="shrink-0" />
+                <MoreHorizontal size={13} className="shrink-0" />
                 <span>More</span>
                 <ChevronDown
-                  size={12}
+                  size={11}
                   className={`transition-transform duration-200 shrink-0 ${isMoreMenuOpen ? "rotate-180" : ""}`}
                 />
               </button>
@@ -242,11 +323,10 @@ export const TopNav: React.FC<TopNavProps> = ({
                   data-testid="desktop-more-menu-dropdown"
                   role="menu"
                   aria-label="More options menu"
-                  className="absolute right-0 mt-2 w-72 bg-[#111827] border border-[#263244] rounded-2xl shadow-2xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150 divide-y divide-[#263244]"
+                  className="absolute right-0 mt-2 w-64 bg-[#FFFFFF] border border-[#E5DFD5] rounded-xl shadow-xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150 divide-y divide-[#E5DFD5]"
                 >
-                  {/* Section 1: YOUR SPACE */}
-                  <div className="py-1.5 px-2">
-                    <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
+                  <div className="py-1 px-2">
+                    <div className="px-3 py-1 text-[10px] font-bold text-[#70798B] uppercase tracking-wider font-mono">
                       Your Space
                     </div>
                     <button
@@ -254,92 +334,43 @@ export const TopNav: React.FC<TopNavProps> = ({
                       role="menuitem"
                       data-testid="more-menu-saved-places"
                       onClick={() => handleMoreItemClick(() => onTabChange("saved"))}
-                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center justify-between cursor-pointer"
+                      className="w-full text-left px-3 py-2 rounded-lg text-xs text-[#3D4654] hover:bg-[#F2EEE7] hover:text-[#12161E] transition-colors flex items-center justify-between cursor-pointer"
                     >
                       <div className="flex items-center gap-2.5">
-                        <Bookmark size={14} className="text-teal-400 shrink-0" />
+                        <Bookmark size={13} className="text-[#B87B22] shrink-0" />
                         <span>Saved Places</span>
                       </div>
                       {savedCount > 0 && (
-                        <span className="px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-300 text-[10px] font-bold">
+                        <span className="px-2 py-0.5 rounded-full bg-[#B87B22]/15 text-[#B87B22] text-[10px] font-bold">
                           {savedCount}
                         </span>
                       )}
                     </button>
-
-                    <button
-                      type="button"
-                      role="menuitem"
-                      data-testid="more-menu-revisit-places"
-                      onClick={() => handleMoreItemClick(() => onTabChange("revisit"))}
-                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center justify-between cursor-pointer"
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <History size={14} className="text-sky-400 shrink-0" />
-                        <span>Revisit Places</span>
-                      </div>
-                      {revisitCount > 0 && (
-                        <span className="px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-300 text-[10px] font-bold">
-                          {revisitCount}
-                        </span>
-                      )}
-                    </button>
-
                     <button
                       type="button"
                       role="menuitem"
                       data-testid="more-menu-planned-trips"
                       onClick={() => handleMoreItemClick(() => onTabChange("plan"))}
-                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
+                      className="w-full text-left px-3 py-2 rounded-lg text-xs text-[#3D4654] hover:bg-[#F2EEE7] hover:text-[#12161E] transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
-                      <CalendarDays size={14} className="text-amber-400 shrink-0" />
+                      <CalendarDays size={13} className="text-[#1B5E6B] shrink-0" />
                       <span>Planned Trips &amp; Itineraries</span>
                     </button>
                   </div>
 
-                  {/* Section 2: DISCOVERY SHORTCUTS */}
-                  <div className="py-1.5 px-2">
-                    <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
-                      Discovery Shortcuts
+                  <div className="py-1 px-2">
+                    <div className="px-3 py-1 text-[10px] font-bold text-[#70798B] uppercase tracking-wider font-mono">
+                      Thematic Exploration
                     </div>
                     <button
                       type="button"
                       role="menuitem"
-                      data-testid="more-menu-all-destinations"
-                      onClick={() => handleMoreItemClick(() => onTabChange("destinations"))}
-                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
-                    >
-                      <Layers size={14} className="text-teal-400 shrink-0" />
-                      <span>All Destinations Index</span>
-                    </button>
-
-
-                    <button
-                      type="button"
-                      role="menuitem"
-                      data-testid="more-menu-thematic-circuits"
+                      data-testid="more-menu-circuits"
                       onClick={() => handleMoreItemClick(() => onTabChange("category"))}
-                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
+                      className="w-full text-left px-3 py-2 rounded-lg text-xs text-[#3D4654] hover:bg-[#F2EEE7] hover:text-[#12161E] transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
-                      <Route size={14} className="text-purple-400 shrink-0" />
-                      <span>Thematic Travel Circuits</span>
-                    </button>
-                  </div>
-
-                  {/* Section 3: PREFERENCES & TOOLS */}
-                  <div className="py-1.5 px-2">
-                    <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
-                      Preferences &amp; Tools
-                    </div>
-                    <button
-                      type="button"
-                      role="menuitem"
-                      data-testid="more-menu-trip-preferences"
-                      onClick={() => handleMoreItemClick(() => onOpenSettings && onOpenSettings())}
-                      className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
-                    >
-                      <Sliders size={14} className="text-emerald-400 shrink-0" />
-                      <span>Trip Preferences</span>
+                      <Route size={13} className="text-[#A84825] shrink-0" />
+                      <span>Thematic Circuits &amp; Categories</span>
                     </button>
                   </div>
                 </div>
@@ -347,159 +378,48 @@ export const TopNav: React.FC<TopNavProps> = ({
             </div>
           </nav>
 
-          {/* ZONE C: Actions (Live Location + Hub Selector + Copilot + Mobile Hamburger) */}
-          <div className="flex items-center gap-2 shrink-0">
-            {/* Compact Live Location Control */}
+          {/* ZONE C: Action Group (Search, Auth, Mobile Trigger) */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Search Trigger Button */}
             <button
               type="button"
-              data-testid="header-live-location-control"
-              onClick={onRequestLocation}
-              title={
-                locationStatus === "granted" || locationStatus === "active"
-                  ? `Live Location Active: ${locationText || selectedLocation}`
-                  : locationStatus === "denied"
-                  ? "Location permission denied — Click to view settings"
-                  : locationStatus === "loading" || locationStatus === "requesting"
-                  ? "Finding your location…"
-                  : locationStatus === "timeout"
-                  ? "Location request timed out — Click to try again"
-                  : locationStatus === "unavailable"
-                  ? "Location unavailable — Click to retry"
-                  : locationStatus === "unsupported"
-                  ? "Location not supported by browser"
-                  : "Use live location"
-              }
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer shadow-xs ${
-                locationStatus === "granted" || locationStatus === "active"
-                  ? "bg-[#172235] border-teal-500/50 text-teal-300 hover:border-teal-400"
-                  : locationStatus === "denied"
-                  ? "bg-rose-950/40 border-rose-500/40 text-rose-300 hover:border-rose-400"
-                  : locationStatus === "loading" || locationStatus === "requesting"
-                  ? "bg-[#172235] border-amber-500/40 text-amber-300"
-                  : locationStatus === "timeout" || locationStatus === "unavailable"
-                  ? "bg-amber-950/40 border-amber-500/40 text-amber-300 hover:border-amber-400"
-                  : "bg-[#111827] border-[#263244] text-slate-300 hover:border-slate-500 hover:text-white"
-              }`}
+              onClick={() => onTabChange("destinations")}
+              className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F2EEE7] border border-[#E5DFD5] text-xs text-[#70798B] transition-colors cursor-pointer"
+              title="Search Destinations"
             >
-              {/* Status Dot */}
-              {locationStatus === "granted" || locationStatus === "active" ? (
-                <span className="relative flex h-2 w-2 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500" />
-                </span>
-              ) : locationStatus === "denied" ? (
-                <span className="h-2 w-2 rounded-full bg-rose-500 shrink-0" />
-              ) : locationStatus === "loading" || locationStatus === "requesting" ? (
-                <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
-              ) : locationStatus === "timeout" || locationStatus === "unavailable" ? (
-                <span className="h-2 w-2 rounded-full bg-amber-500 shrink-0" />
-              ) : (
-                <span className="h-2 w-2 rounded-full bg-amber-400/80 shrink-0" />
-              )}
-
-              {/* Status Text (Single coherent line, no wrapping) */}
-              <div className="flex items-center gap-1 leading-none">
-                {locationStatus === "granted" || locationStatus === "active" ? (
-                  <>
-                    <span className="font-bold text-teal-200">LIVE Location</span>
-                    <span className="hidden xl:inline text-slate-400 font-normal">
-                      · {locationText || selectedLocation}
-                    </span>
-                  </>
-                ) : locationStatus === "denied" ? (
-                  <span className="text-rose-300">Location Blocked</span>
-                ) : locationStatus === "loading" || locationStatus === "requesting" ? (
-                  <span className="text-amber-300">Finding your location…</span>
-                ) : locationStatus === "timeout" ? (
-                  <span className="text-amber-300">Location Timeout</span>
-                ) : locationStatus === "unavailable" ? (
-                  <span className="text-amber-300">Location Unavailable</span>
-                ) : locationStatus === "unsupported" ? (
-                  <span className="text-slate-400">Location Unsupported</span>
-                ) : locationStatus === "not_granted" ? (
-                  <span className="text-slate-200">Enable Location</span>
-                ) : (
-                  <span className="text-slate-200">Use my live location</span>
-                )}
-              </div>
+              <Search size={13} className="text-[#B87B22]" />
+              <span className="hidden xl:inline">Search destinations...</span>
+              <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-[#F2EEE7] text-[#3D4654] rounded border border-[#E5DFD5]">
+                ⌘K
+              </kbd>
             </button>
 
-            {/* Hub Selector Dropdown */}
-            <div className="relative hidden sm:block" ref={locationMenuRef}>
+            {/* Trip Settings Button */}
+            {onOpenSettings && (
               <button
                 type="button"
-                data-testid="location-selector"
-                onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#111827] border border-[#263244] hover:border-slate-500 text-xs font-semibold text-slate-200 whitespace-nowrap transition-colors cursor-pointer"
+                data-testid="desktop-settings-button"
+                onClick={onOpenSettings}
+                aria-label="Trip Settings"
+                title="Trip Settings"
+                className="hidden sm:flex items-center justify-center w-8 h-8 rounded-full bg-[#FFFFFF] border border-[#E5DFD5] text-[#3D4654] hover:text-[#12161E] hover:bg-[#F2EEE7] transition-colors cursor-pointer"
               >
-                <MapPin size={13} className="text-[#14B8A6] shrink-0" />
-                <span className="truncate max-w-[90px] md:max-w-none">{selectedLocation}</span>
-                <ChevronDown size={13} className="text-slate-400 shrink-0" />
-              </button>
-
-              {locationDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-[#111827] border border-[#263244] rounded-2xl shadow-xl py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150">
-                  <div className="px-3 py-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-[#263244] font-mono">
-                    Select Odisha Hub
-                  </div>
-                  {AVAILABLE_LOCATIONS.map((loc) => (
-                    <button
-                      key={loc}
-                      type="button"
-                      onClick={() => {
-                        onLocationChange(loc);
-                        setLocationDropdownOpen(false);
-                      }}
-                      className={`w-full text-left px-3 py-2 text-xs transition-colors flex items-center justify-between cursor-pointer ${
-                        selectedLocation === loc
-                          ? "bg-[#172235] text-[#14B8A6] font-bold"
-                          : "text-slate-300 hover:bg-slate-800 hover:text-white"
-                      }`}
-                    >
-                      <span>{loc}</span>
-                      {selectedLocation === loc && <span className="w-1.5 h-1.5 rounded-full bg-[#14B8A6]" />}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Hidden accessibility anchor for dark theme lock to keep existing automated tests passing */}
-            <div
-              data-testid="desktop-theme-toggle"
-              aria-label="Switch to light theme"
-              title="Switch to light theme"
-              className="sr-only"
-              aria-hidden="true"
-            >
-              Dark Theme Active
-            </div>
-
-            {/* User Auth & Cloud Sync Status */}
-            <AuthStatusButton />
-
-            {/* AI Trip Copilot Button */}
-            {onToggleCopilot && (
-              <button
-                type="button"
-                data-testid="open-ai-sidebar-btn"
-                onClick={onToggleCopilot}
-                className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#8B5CF6]/15 hover:bg-[#8B5CF6]/25 border border-[#8B5CF6]/40 text-[#A78BFA] text-xs font-bold whitespace-nowrap transition-colors cursor-pointer shadow-2xs"
-              >
-                <Bot size={14} className="text-[#A78BFA] shrink-0" />
-                <span>AI Copilot</span>
+                <Sliders size={13} />
               </button>
             )}
 
-            {/* Mobile Menu Hamburger */}
+            {/* Google OAuth & Account Status Button */}
+            <AuthStatusButton />
+
+            {/* Mobile Hamburger Trigger */}
             <button
               type="button"
-              data-testid="mobile-menu-button"
-              onClick={onOpenMobileDrawer}
-              className="md:hidden p-2 rounded-xl bg-[#111827] border border-[#263244] text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer"
+              data-testid="mobile-menu-toggle"
               aria-label="Open mobile menu"
+              onClick={onOpenMobileDrawer}
+              className="md:hidden flex items-center justify-center w-9 h-9 rounded-full bg-[#FFFFFF] border border-[#E5DFD5] text-[#12161E] hover:bg-[#F2EEE7] transition-colors cursor-pointer"
             >
-              <Menu size={18} />
+              <Menu size={16} />
             </button>
           </div>
 

@@ -55,14 +55,14 @@ describe("Phase 6B UX Correction Tests", () => {
     );
     expect(html).toContain("Navigate");
     expect(html).toContain("Discover");
-    expect(html).toContain("Interactive Map");
+    expect(html).toContain("Map &amp; Routes");
     expect(html).toContain("Plan a Trip");
     expect(html).toContain("Your Space");
-    expect(html).toContain("Saved places");
+    expect(html).toContain("Saved Places");
 
     // Obsolete profile items must be absent
-    expect(html).not.toContain("Preferences");
-    expect(html).not.toContain("Revisit places");
+    expect(html).not.toContain("Explorer account");
+    expect(html).not.toContain("theme-toggle-light");
   });
 
   it("renders the photographic Odisha hero section with search and destination stack", () => {

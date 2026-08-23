@@ -4,9 +4,10 @@ import { ApiError, NetworkError, UnexpectedResponseError } from "../../api/clien
 interface ErrorAlertProps {
   error: unknown;
   onDismiss?: () => void;
+  onRetry?: () => void;
 }
 
-export const ErrorAlert: React.FC<ErrorAlertProps> = ({ error, onDismiss }) => {
+export const ErrorAlert: React.FC<ErrorAlertProps> = ({ error, onDismiss, onRetry }) => {
   if (!error) return null;
 
   let title = "An unexpected error occurred";
@@ -35,35 +36,35 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = ({ error, onDismiss }) => {
     <div
       data-testid="error-alert"
       role="alert"
-      className="p-5 rounded-2xl bg-red-50 border border-red-200 text-red-900 shadow-sm"
+      className="p-4 sm:p-5 rounded-xl bg-[#FFF7ED] border border-[#FDBA74] text-[#C2410C] shadow-xs"
     >
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <span className="w-5 h-5 rounded-full bg-red-200 text-red-800 flex items-center justify-center text-xs font-bold shrink-0">
+            <span className="w-5 h-5 rounded-full bg-[#EA580C] text-white flex items-center justify-center text-xs font-bold shrink-0 font-mono">
               !
             </span>
-            <h4 className="text-sm font-bold text-red-900">{title}</h4>
+            <h4 className="text-sm font-serif font-bold text-[#C2410C]">{title}</h4>
             {code && (
-              <span className="px-2 py-0.5 rounded bg-red-100 text-red-800 font-mono text-xs font-medium">
+              <span className="px-2 py-0.5 rounded bg-[#FFEDD5] text-[#C2410C] font-mono text-xs font-medium border border-[#FDBA74]">
                 {code}
               </span>
             )}
           </div>
-          <p className="mt-2 text-xs text-red-800 leading-relaxed">{message}</p>
+          <p className="mt-2 text-xs text-[#9A3412] leading-relaxed">{message}</p>
 
           {field && (
-            <p className="mt-1 text-xs text-red-700 font-mono">
+            <p className="mt-1 text-xs text-[#9A3412] font-mono">
               Affected field: <span className="font-semibold">{field}</span>
             </p>
           )}
 
           {details && details.length > 0 && (
-            <div className="mt-3 pt-2.5 border-t border-red-200/70 space-y-1">
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-red-700">
+            <div className="mt-3 pt-2.5 border-t border-[#FDBA74] space-y-1">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-[#9A3412] font-mono">
                 Validation Details
               </span>
-              <ul className="list-disc list-inside text-xs text-red-800 space-y-0.5">
+              <ul className="list-disc list-inside text-xs text-[#9A3412] space-y-0.5">
                 {details.map((detail, index) => (
                   <li key={index} className="leading-snug">
                     {detail.field ? (
@@ -75,6 +76,18 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = ({ error, onDismiss }) => {
               </ul>
             </div>
           )}
+
+          {onRetry && (
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={onRetry}
+                className="px-3.5 py-1.5 rounded-lg bg-[#EA580C] hover:bg-[#C2410C] text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer"
+              >
+                Retry Request
+              </button>
+            </div>
+          )}
         </div>
 
         {onDismiss && (
@@ -82,7 +95,7 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = ({ error, onDismiss }) => {
             type="button"
             onClick={onDismiss}
             aria-label="Dismiss error"
-            className="text-red-500 hover:text-red-700 text-lg leading-none p-1 rounded transition-colors"
+            className="text-[#C2410C] hover:text-[#7C2D12] text-lg leading-none p-1 rounded transition-colors cursor-pointer"
           >
             ×
           </button>

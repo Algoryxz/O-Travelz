@@ -55,7 +55,7 @@ describe("More Menu & Navigation Integration", () => {
     // Section 2: Your Space
     expect(html).toContain("Your Space");
     expect(html).toContain('data-testid="drawer-nav-saved"');
-    expect(html).toContain("Saved places");
+    expect(html).toContain("Saved Places");
     expect(html).toContain('data-testid="drawer-nav-revisit"');
     expect(html).toContain("Revisit Places");
     expect(html).toContain('data-testid="drawer-nav-planned-trips"');

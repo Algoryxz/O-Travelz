@@ -520,7 +520,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
   }
 
   return (
-    <div className="min-h-screen bg-[#0B1220] text-[#F8FAFC] flex flex-col font-sans antialiased selection:bg-[#14B8A6] selection:text-white transition-colors duration-200">
+    <div className="min-h-screen bg-[#FBF9F5] text-[#12161E] flex flex-col font-sans antialiased selection:bg-[#B87B22] selection:text-white transition-colors duration-200">
       {/* 1. Header Navigation */}
       <TopNav
         activeTab={activeTab === "category" ? "destinations" : activeTab === "shared" ? "plan" : (activeTab as NavTab)}
@@ -636,19 +636,19 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
         {/* VIEW 5: INTERACTIVE MAP & ROUTE EXPLORER */}
         {activeTab === "map" && !itinerary && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 animate-in fade-in duration-300">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#263244]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E5DFD5]">
               <div>
-                <span className="text-xs font-bold font-mono text-[#14B8A6] uppercase tracking-wider">
+                <span className="text-xs font-bold font-mono text-[#B87B22] uppercase tracking-wider">
                   Verified Geographical Explorer
                 </span>
-                <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-white tracking-tight">
+                <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#12161E] tracking-tight">
                   Odisha Interactive Map
                 </h1>
               </div>
               <button
                 type="button"
                 onClick={() => handleTabChange("plan")}
-                className="px-4 py-2 rounded-2xl bg-[#14B8A6] hover:bg-[#0D9488] text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer self-start sm:self-auto"
+                className="px-4 py-2 rounded-xl bg-[#B87B22] hover:bg-[#A0691B] text-white font-bold text-xs shadow-xs transition-all flex items-center gap-2 cursor-pointer self-start sm:self-auto"
               >
                 <Compass size={15} />
                 <span>Build an Itinerary Route</span>
@@ -666,7 +666,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
                 userLocationName={selectedLocation}
                 onClearSelectedPlace={handleClearSelectedMapPlace}
                 onPlanTripWithPlace={handlePlanTripWithSinglePlace}
-                onViewDetails={(p) => setSelectedPlaceForModal(p)}
+                onViewDetails={(p: SelectedPlaceInfo) => setSelectedPlaceForModal(p)}
                 onClearError={clearMapError}
               />
             </React.Suspense>
@@ -677,18 +677,18 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
         {(activeTab === "plan" || (activeTab === "map" && itinerary)) && (
           <div
             ref={plannerSectionRef}
-            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-in fade-in duration-300"
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-in fade-in duration-300 text-[#12161E]"
           >
             {/* Planner Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-gray-200 dark:border-slate-800">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E5DFD5]">
               <div>
-                <span className="text-xs font-bold font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                <span className="text-xs font-bold font-mono text-[#B87B22] uppercase tracking-wider">
                   Deterministic Travel Engine
                 </span>
-                <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-white tracking-tight">
+                <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#12161E] tracking-tight">
                   Odisha Itinerary Workspace
                 </h1>
-                <p className="text-xs text-gray-400 mt-1">
+                <p className="text-xs text-[#70798B] mt-1">
                   Verified routes, topological hops, and curated schedules across all Odisha destinations.
                 </p>
               </div>
@@ -697,7 +697,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
                 <button
                   type="button"
                   onClick={resetPlanner}
-                  className="px-3.5 py-1.5 rounded-xl border border-emerald-800/60 hover:border-emerald-600 bg-emerald-950/40 text-emerald-300 text-xs font-semibold flex items-center gap-1.5 transition-all self-start sm:self-auto cursor-pointer"
+                  className="px-3.5 py-1.5 rounded-lg border border-[#E5DFD5] hover:border-[#D1C8BA] bg-[#FFFFFF] text-[#12161E] text-xs font-semibold flex items-center gap-1.5 transition-all self-start sm:self-auto cursor-pointer shadow-xs"
                 >
                   <Plus size={14} />
                   <span>New Plan</span>
@@ -707,8 +707,8 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
 
             {/* Trip History Strip */}
             {conversations.length > 0 && (
-              <div className="p-4 rounded-2xl bg-[#071f18] border border-emerald-800/40 space-y-2">
-                <div className="flex items-center justify-between text-xs text-emerald-400 font-mono font-bold uppercase tracking-wider">
+              <div className="p-4 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] space-y-2">
+                <div className="flex items-center justify-between text-xs text-[#B87B22] font-mono font-bold uppercase tracking-wider">
                   <span className="flex items-center gap-1.5">
                     <History size={13} />
                     Saved Journeys ({conversations.length})
@@ -716,7 +716,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
                   <button
                     type="button"
                     onClick={startNewTrip}
-                    className="hover:text-emerald-200 text-[11px] underline cursor-pointer"
+                    className="hover:underline text-[11px] cursor-pointer text-[#B87B22]"
                   >
                     + New Journey
                   </button>
@@ -729,18 +729,18 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
                       <div
                         key={conv.id}
                         onClick={() => handleSelectSavedConversation(conv)}
-                        className={`group shrink-0 px-3 py-1.5 rounded-xl text-xs flex items-center gap-2 cursor-pointer transition-all border ${
+                        className={`group shrink-0 px-3 py-1.5 rounded-lg text-xs flex items-center gap-2 cursor-pointer transition-all border ${
                           isActive
-                            ? "bg-emerald-600 text-white border-emerald-500 shadow-md font-bold"
-                            : "bg-[#09221b] text-gray-300 border-emerald-800/50 hover:border-emerald-500/50 hover:bg-emerald-900/40"
+                            ? "bg-[#12161E] text-white border-[#12161E] shadow-xs font-bold"
+                            : "bg-[#FFFFFF] text-[#3D4654] border-[#E5DFD5] hover:border-[#B87B22]"
                         }`}
                       >
-                        <CalendarDays size={13} className={isActive ? "text-white" : "text-emerald-400"} />
+                        <CalendarDays size={13} className={isActive ? "text-[#B87B22]" : "text-[#70798B]"} />
                         <span className="truncate max-w-[160px]">{conv.title}</span>
                         <button
                           type="button"
                           onClick={(e) => handleDeleteSavedConversation(conv.id, e)}
-                          className="opacity-0 group-hover:opacity-100 hover:text-rose-400 text-gray-400 transition-opacity p-0.5 ml-1"
+                          className="opacity-0 group-hover:opacity-100 hover:text-[#A84825] text-[#70798B] transition-opacity p-0.5 ml-1"
                           aria-label="Delete trip"
                         >
                           <Trash2 size={12} />
@@ -753,15 +753,15 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
             )}
 
             {/* Mode Switcher: Structured Planner vs AI Copilot Full Panel */}
-            <div className="flex items-center p-1 rounded-2xl bg-[#081d17] border border-emerald-800/50 w-fit shadow-inner">
+            <div className="flex items-center p-1 rounded-full bg-[#FAF7F2] border border-[#E5DFD5] w-fit shadow-xs">
               <button
                 type="button"
                 data-testid="mode-tab-structured"
                 onClick={() => setActiveMode("structured")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
                   activeMode === "structured"
-                    ? "bg-emerald-600 text-white shadow-md"
-                    : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
+                    ? "bg-[#12161E] text-white shadow-xs"
+                    : "text-[#3D4654] hover:text-[#12161E]"
                 }`}
               >
                 <Compass size={14} />
@@ -772,10 +772,10 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
                 type="button"
                 data-testid="mode-tab-ai"
                 onClick={() => setActiveMode("ai")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
                   activeMode === "ai"
-                    ? "bg-emerald-600 text-white shadow-md"
-                    : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
+                    ? "bg-[#12161E] text-white shadow-xs"
+                    : "text-[#3D4654] hover:text-[#12161E]"
                 }`}
               >
                 <Bot size={14} />
@@ -816,18 +816,18 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
             {!isLoading && !itinerary && <InitialState />}
 
             {!isLoading && itinerary && (
-              <div className="space-y-6 pt-4 border-t border-emerald-900/40">
+              <div className="space-y-6 pt-4 border-t border-[#E5DFD5]">
                 {/* Result Tab Selector: Itinerary Timeline vs Map Route */}
                 <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center p-1 rounded-2xl bg-[#081d17] border border-emerald-800/50 shadow-inner">
+                  <div className="flex items-center p-1 rounded-full bg-[#FAF7F2] border border-[#E5DFD5] shadow-xs">
                     <button
                       type="button"
                       data-testid="result-tab-itinerary"
                       onClick={() => setActiveResultTab("itinerary")}
-                      className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                      className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
                         activeResultTab === "itinerary"
-                          ? "bg-emerald-600 text-white shadow-md"
-                          : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
+                          ? "bg-[#12161E] text-white shadow-xs"
+                          : "text-[#3D4654] hover:text-[#12161E]"
                       }`}
                     >
                       <CalendarDays size={14} />
@@ -838,10 +838,10 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
                       type="button"
                       data-testid="result-tab-map"
                       onClick={() => setActiveResultTab("map")}
-                      className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                      className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
                         activeResultTab === "map"
-                          ? "bg-emerald-600 text-white shadow-md"
-                          : "text-gray-300 hover:text-white hover:bg-emerald-950/40"
+                          ? "bg-[#12161E] text-white shadow-xs"
+                          : "text-[#3D4654] hover:text-[#12161E]"
                       }`}
                     >
                       <MapPin size={14} />
@@ -878,7 +878,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
                       userLocation={userCoords}
                       userLocationName={selectedLocation}
                       onPlanTripWithPlace={handlePlanTripWithSinglePlace}
-                      onViewDetails={(p) => setSelectedPlaceForModal(p)}
+                      onViewDetails={(p: SelectedPlaceInfo) => setSelectedPlaceForModal(p)}
                       onClearError={clearMapError}
                     />
                   </React.Suspense>

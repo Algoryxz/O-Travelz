@@ -14,7 +14,7 @@ export const ItineraryDaySection: React.FC<ItineraryDaySectionProps> = ({
   day,
   requestedInterests = [],
 }) => {
-  const { getPlaceByName, getPlaceById } = usePlaces();
+  const { getPlaceByName } = usePlaces();
 
   // Deterministically calculate the cumulative timeline for all stops on this day
   const timeline = calculateDayTimeline(day, (name) => {
@@ -38,21 +38,21 @@ export const ItineraryDaySection: React.FC<ItineraryDaySectionProps> = ({
   return (
     <section
       data-testid={`itinerary-day-${day.day_number}`}
-      className="p-5 md:p-6 rounded-3xl bg-[#111827] border border-[#263244] mb-6 last:mb-0 shadow-sm text-white"
+      className="p-5 md:p-6 rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] mb-6 last:mb-0 shadow-xs text-[#12161E]"
     >
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-[#263244]">
-        <h3 className="text-lg font-bold text-white flex items-center gap-2 font-display">
-          <span className="px-3 py-1 rounded-xl bg-[#14B8A6] text-white text-xs font-extrabold uppercase tracking-wider shadow-2xs">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-4 border-b border-[#E5DFD5]">
+        <h3 className="text-lg font-serif font-bold text-[#12161E] flex items-center gap-2">
+          <span className="px-2.5 py-0.5 rounded-md bg-[#12161E] text-white text-xs font-mono font-bold uppercase tracking-wider">
             {`Day ${day.day_number}`}
           </span>
           {day.date && (
-            <span className="text-xs font-semibold text-slate-400 font-mono">
+            <span className="text-xs font-semibold text-[#70798B] font-mono">
               {`(${day.date})`}
             </span>
           )}
         </h3>
-        <div className="text-xs text-slate-400 font-medium">
-          {`${day.stops.length} ${day.stops.length === 1 ? "Stop" : "Stops"} · ${day.hops.length} ${day.hops.length === 1 ? "Hop" : "Hops"}`}
+        <div className="text-xs text-[#70798B] font-mono">
+          {`${day.stops.length} ${day.stops.length === 1 ? "Stop" : "Stops"} · ${day.hops.length} ${day.hops.length === 1 ? "Transit Bridge" : "Transit Bridges"}`}
         </div>
       </div>
 

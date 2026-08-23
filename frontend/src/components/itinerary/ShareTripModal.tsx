@@ -30,7 +30,7 @@ export const ShareTripModal: React.FC<ShareTripModalProps> = ({
   const { isAuthenticated, loginWithGoogle } = useAuth();
 
   const [shareUrl, setShareUrl] = useState<string | null>(null);
-  const [shareId, setShareId] = useState<string | null>(null);
+  const [_shareId, setShareId] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -109,23 +109,23 @@ export const ShareTripModal: React.FC<ShareTripModalProps> = ({
   return (
     <div
       data-testid="share-trip-modal-overlay"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12161E]/60 backdrop-blur-xs animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
         data-testid="share-trip-modal"
-        className="relative w-full max-w-lg rounded-3xl bg-[#111827] border border-[#263244] p-6 text-white shadow-2xl space-y-6"
+        className="relative w-full max-w-lg rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] p-6 text-[#12161E] shadow-2xl space-y-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-[#263244]">
+        <div className="flex items-center justify-between pb-4 border-b border-[#E5DFD5]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#14B8A6]/20 text-[#14B8A6] flex items-center justify-center">
-              <Share2 size={20} />
+            <div className="w-10 h-10 rounded-xl bg-[#FAF7F2] text-[#B87B22] flex items-center justify-center border border-[#E5DFD5]">
+              <Share2 size={18} />
             </div>
             <div>
-              <h3 className="text-lg font-bold font-display text-white">Share Itinerary</h3>
-              <p className="text-xs text-slate-400">
+              <h3 className="text-lg font-serif font-bold text-[#12161E]">Share Itinerary</h3>
+              <p className="text-xs text-[#70798B]">
                 Generate a secure, public read-only link to this trip.
               </p>
             </div>
@@ -134,135 +134,130 @@ export const ShareTripModal: React.FC<ShareTripModalProps> = ({
             type="button"
             data-testid="close-share-modal-button"
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-[#1E2D44] transition-colors"
+            className="p-2 rounded-lg text-[#70798B] hover:text-[#12161E] hover:bg-[#F2EEE7] transition-colors cursor-pointer"
             aria-label="Close"
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
-        {/* Content */}
-        {!isAuthenticated ? (
-          /* Unauthenticated state */
-          <div data-testid="share-unauthenticated-state" className="space-y-4 py-2">
-            <div className="p-4 rounded-2xl bg-[#172235] border border-[#263244] space-y-3">
-              <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider font-mono">
-                <Lock size={14} />
-                <span>Account Required for Sharing</span>
-              </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Sign in with Google to create shareable links for your itineraries. Once generated, anyone with the link can view your itinerary without needing an account.
-              </p>
+        {/* Auth Barrier Notice if anonymous */}
+        {!isAuthenticated && (
+          <div
+            data-testid="share-auth-prompt"
+            className="p-4 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] space-y-3"
+          >
+            <div className="flex items-center gap-2 text-xs font-semibold text-[#12161E]">
+              <Lock size={14} className="text-[#B87B22]" />
+              <span>Account Required for Sharing</span>
             </div>
-
+            <p className="text-xs text-[#70798B] leading-relaxed">
+              Sign in with your Google account to create public share links, preserve trip snapshots, and sync across your devices.
+            </p>
             <button
               type="button"
-              data-testid="share-signin-button"
+              data-testid="share-google-login-button"
               onClick={loginWithGoogle}
-              className="w-full py-3 px-4 rounded-2xl bg-[#14B8A6] hover:bg-[#0D9488] text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-2.5 px-4 rounded-xl bg-[#12161E] hover:bg-[#263244] text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
             >
-              <Sparkles size={16} />
               <span>Sign in with Google to Share</span>
             </button>
           </div>
-        ) : (
-          /* Authenticated state */
-          <div data-testid="share-authenticated-state" className="space-y-4">
-            {/* Trip Preview Pill */}
-            <div className="p-3.5 rounded-2xl bg-[#172235] border border-[#263244] flex items-center justify-between">
-              <div className="min-w-0 pr-2">
-                <span className="text-[10px] uppercase font-bold text-slate-400 font-mono block">
-                  Trip Snapshot
-                </span>
-                <span className="text-sm font-semibold text-white truncate block">
-                  {tripTitle || "Odisha Trip Itinerary"}
-                </span>
-              </div>
-              <span className="px-2.5 py-1 rounded-full bg-[#14B8A6]/20 text-[#14B8A6] text-[11px] font-bold shrink-0">
-                {itinerary.days.length} {itinerary.days.length === 1 ? "Day" : "Days"}
+        )}
+
+        {/* Authenticated Sharing Controls */}
+        {isAuthenticated && (
+          <div className="space-y-4">
+            <div className="p-3.5 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] space-y-1">
+              <span className="text-[10px] uppercase tracking-wider font-bold text-[#70798B] font-mono">
+                Trip Snapshot Title
               </span>
+              <p className="text-xs font-bold text-[#12161E] font-serif truncate">
+                {tripTitle || "Odisha Travel Itinerary"}
+              </p>
             </div>
 
+            {/* Error Display */}
             {errorMessage && (
               <div
-                data-testid="share-error-alert"
-                className="p-3.5 rounded-2xl bg-rose-950/60 border border-rose-800 text-rose-200 text-xs font-medium flex items-center gap-2"
+                data-testid="share-error-message"
+                className="p-3 rounded-lg bg-[#FFF7ED] border border-[#FDBA74] text-[#C2410C] text-xs font-medium flex items-center gap-2"
               >
-                <AlertTriangle size={15} className="shrink-0 text-rose-400" />
+                <AlertTriangle size={14} className="shrink-0 text-[#C2410C]" />
                 <span>{errorMessage}</span>
               </div>
             )}
 
-            {!shareUrl ? (
-              <button
-                type="button"
-                data-testid="generate-share-link-button"
-                onClick={handleGenerateShare}
-                disabled={isGenerating}
-                className="w-full py-3.5 px-4 rounded-2xl bg-[#14B8A6] hover:bg-[#0D9488] disabled:opacity-50 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                {isGenerating ? (
-                  <>
-                    <Loader2 size={16} className="animate-spin text-white" />
-                    <span>Generating Secure Link...</span>
-                  </>
-                ) : (
-                  <>
-                    <Globe size={16} />
-                    <span>Generate Shareable Link</span>
-                  </>
-                )}
-              </button>
-            ) : (
-              <div data-testid="share-link-result" className="space-y-3">
-                <label className="text-xs font-bold text-slate-300 block">
-                  Public Share Link:
-                </label>
-                <div className="flex items-center gap-2">
+            {/* Generated Link Display */}
+            {shareUrl ? (
+              <div data-testid="share-url-container" className="space-y-3">
+                <div className="flex items-center justify-between text-xs text-[#70798B]">
+                  <span className="flex items-center gap-1.5 text-[#2F523E] font-bold">
+                    <Globe size={13} />
+                    <span>Public Link Ready</span>
+                  </span>
+                  <span className="font-mono text-[10px]">Read-Only &amp; Private</span>
+                </div>
+
+                <div className="flex items-center gap-2 p-2 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5]">
                   <input
                     type="text"
                     readOnly
-                    data-testid="share-url-input"
                     value={shareUrl}
-                    className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#0B1120] border border-[#263244] text-xs text-slate-200 font-mono selection:bg-[#14B8A6] focus:outline-hidden"
-                    onClick={(e) => (e.target as HTMLInputElement).select()}
+                    data-testid="share-url-input"
+                    className="flex-1 bg-transparent border-0 outline-hidden text-xs text-[#12161E] font-mono select-all truncate px-2"
                   />
                   <button
                     type="button"
                     data-testid="copy-share-url-button"
                     onClick={handleCopyLink}
-                    className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 border cursor-pointer ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs shrink-0 ${
                       copied
-                        ? "bg-[#14B8A6] text-white border-[#14B8A6]"
-                        : "bg-[#1E2D44] text-slate-200 border-[#263244] hover:bg-[#263855]"
+                        ? "bg-[#2F523E] text-white"
+                        : "bg-[#B87B22] text-white hover:bg-[#A0691B]"
                     }`}
                   >
                     {copied ? (
                       <>
-                        <Check size={14} className="text-white" />
+                        <Check size={13} />
                         <span>Copied!</span>
                       </>
                     ) : (
                       <>
-                        <Copy size={14} className="text-[#14B8A6]" />
+                        <Copy size={13} />
                         <span>Copy</span>
                       </>
                     )}
                   </button>
                 </div>
               </div>
-            )}
-
-            {/* Privacy notice */}
-            <div className="p-3 rounded-2xl bg-[#0B1120] border border-[#1E2D44] text-[11px] text-slate-400 space-y-1">
-              <div className="flex items-center gap-1.5 text-slate-300 font-semibold">
-                <Globe size={13} className="text-[#14B8A6]" />
-                <span>Read-Only & Private</span>
+            ) : (
+              /* Generate Action Button */
+              <div className="space-y-2">
+                <button
+                  type="button"
+                  data-testid="generate-share-link-button"
+                  disabled={isGenerating}
+                  onClick={handleGenerateShare}
+                  className="w-full py-3 px-4 rounded-xl bg-[#B87B22] hover:bg-[#A0691B] text-white text-xs font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                >
+                  {isGenerating ? (
+                    <>
+                      <Loader2 size={15} className="animate-spin" />
+                      <span>Creating Public Snapshot...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles size={15} />
+                      <span>Generate Shareable Link</span>
+                    </>
+                  )}
+                </button>
+                <p className="text-[11px] text-[#70798B] text-center font-mono">
+                  Read-Only &amp; Private
+                </p>
               </div>
-              <p className="leading-relaxed">
-                Anyone with this link can view the itinerary snapshot without logging in. Your email, personal account information, and private saved trips are never shared or modified.
-              </p>
-            </div>
+            )}
           </div>
         )}
       </div>

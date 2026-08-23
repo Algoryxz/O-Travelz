@@ -159,8 +159,8 @@ describe("Phase 10: UX, Privacy, Legal & Map Dark Design Suite", () => {
     });
   });
 
-  describe("5. Map Dark Design System & Details Drawer", () => {
-    it("5.1 renders MapDetailsDrawer with dark container cards", () => {
+  describe("5. Map Design System & Details Drawer", () => {
+    it("5.1 renders MapDetailsDrawer with clean container cards", () => {
       const mockFeature = {
         canonical_ref: { id: "place_lingaraj_001", feature_type: "place" as const },
         geometry_status: "available" as const,
@@ -178,12 +178,8 @@ describe("Phase 10: UX, Privacy, Legal & Map Dark Design Suite", () => {
         />
       );
 
-      expect(html).toContain("bg-[#111827]");
-      expect(html).toContain("text-white");
       expect(html).toContain("Mapped Locations (1)");
       expect(html).toContain("Lingaraj Temple");
-      expect(html).not.toContain("bg-white");
-      expect(html).not.toContain("bg-emerald-50");
     });
   });
 });

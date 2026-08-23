@@ -32,8 +32,6 @@ interface ItineraryViewProps {
 
 export const ItineraryView: React.FC<ItineraryViewProps> = ({
   itinerary,
-  onOpenMap,
-  onViewPlaceDetails,
 }) => {
   const { itinerary_id, constraints, days, explanation } = itinerary;
   const { getPlaceByName } = usePlaces();
@@ -82,32 +80,32 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
   return (
     <div data-testid="itinerary-view" className="space-y-6">
       {/* Traveler-Focused Header Card */}
-      <div className="p-5 md:p-7 rounded-3xl bg-[#111827] border border-[#263244] shadow-sm space-y-5 text-white">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#263244]">
+      <div className="p-5 md:p-7 rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] shadow-xs space-y-5 text-[#12161E]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#E5DFD5]">
           <div className="space-y-1.5 min-w-0">
             <div className="flex items-center gap-2">
               <span className="live-dot" />
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#14B8A6] font-mono">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#B87B22] font-mono">
                 Verified Odisha Itinerary
               </span>
               {itinerary_id && (
-                <span className="text-[10px] text-slate-400 font-mono">
+                <span className="text-[10px] text-[#70798B] font-mono">
                   (Ref: {itinerary_id})
                 </span>
               )}
             </div>
             <h2
               data-testid="itinerary-traveler-title"
-              className="text-xl sm:text-2xl font-extrabold font-display text-white tracking-tight"
+              className="text-xl sm:text-2xl font-serif font-bold text-[#12161E] tracking-tight"
             >
               {tripTitle}
             </h2>
             {explanation && (
               <div className="space-y-0.5 pt-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#70798B] font-mono">
                   Trip Overview
                 </span>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-[#3D4654] leading-relaxed">
                   {explanation}
                 </p>
               </div>
@@ -120,10 +118,10 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
               type="button"
               data-testid="export-itinerary-button"
               onClick={() => setIsExportOpen(true)}
-              className="px-4 py-2.5 rounded-2xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border shadow-2xs bg-[#172235] text-slate-200 border-[#263244] hover:bg-[#1E2D44] hover:border-[#14B8A6]/40 hover:text-white"
+              className="px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border bg-[#FFFFFF] text-[#12161E] border-[#E5DFD5] hover:bg-[#FAF7F2] shadow-xs"
               aria-label="Export Itinerary"
             >
-              <FileDown size={14} className="text-[#14B8A6]" />
+              <FileDown size={14} className="text-[#1B5E6B]" />
               <span>Export / Print</span>
             </button>
 
@@ -131,10 +129,10 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
               type="button"
               data-testid="share-trip-button"
               onClick={() => setIsShareOpen(true)}
-              className="px-4 py-2.5 rounded-2xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border shadow-2xs bg-[#14B8A6]/20 text-teal-300 border-[#14B8A6]/40 hover:bg-[#14B8A6]/30"
+              className="px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border bg-[#B87B22] text-white border-[#B87B22] hover:bg-[#A0691B] shadow-xs"
               aria-label="Share Trip"
             >
-              <Share2 size={14} className="text-[#14B8A6]" />
+              <Share2 size={14} className="text-white" />
               <span>Share Trip</span>
             </button>
 
@@ -142,10 +140,10 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
               type="button"
               data-testid="copy-itinerary-button"
               onClick={handleCopySummary}
-              className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border shadow-2xs ${
+              className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border shadow-xs ${
                 copied
-                  ? "bg-[#14B8A6] text-white border-[#14B8A6] shadow-sm"
-                  : "bg-[#172235] text-slate-200 border-[#263244] hover:bg-[#1E2D44]"
+                  ? "bg-[#2F523E] text-white border-[#2F523E]"
+                  : "bg-[#F2EEE7] text-[#12161E] border-[#E5DFD5] hover:bg-[#EAE4DA]"
               }`}
               aria-label="Copy Itinerary Summary"
             >
@@ -156,8 +154,8 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
                 </>
               ) : (
                 <>
-                  <Copy size={14} className="text-[#14B8A6]" />
-                  <span>Copy Itinerary Summary</span>
+                  <Copy size={14} className="text-[#70798B]" />
+                  <span>Copy Summary</span>
                 </>
               )}
             </button>
@@ -165,7 +163,7 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
         </div>
 
         {copyError && (
-          <div className="p-3 rounded-xl bg-amber-950/60 border border-amber-800 text-amber-200 text-xs font-medium">
+          <div className="p-3 rounded-lg bg-[#FFF7ED] border border-[#FDBA74] text-[#C2410C] text-xs font-medium">
             {copyError}
           </div>
         )}
@@ -175,57 +173,57 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
           data-testid="itinerary-metrics-strip"
           className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs"
         >
-          <div className="p-3 rounded-2xl bg-[#172235] border border-[#263244] flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-[#14B8A6]/20 text-teal-300 flex items-center justify-center shrink-0">
+          <div className="p-3 rounded-xl bg-[#F2EEE7] border border-[#E5DFD5] flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-[#FFFFFF] text-[#B87B22] flex items-center justify-center shrink-0 border border-[#E5DFD5]">
               <Calendar size={15} />
             </div>
             <div>
-              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+              <span className="text-[10px] text-[#70798B] font-bold uppercase tracking-wider block font-mono">
                 Duration
               </span>
-              <span className="text-white font-bold text-sm">
+              <span className="text-[#12161E] font-bold text-sm font-serif">
                 {days.length} {days.length === 1 ? "Day" : "Days"}
               </span>
             </div>
           </div>
 
-          <div className="p-3 rounded-2xl bg-[#172235] border border-[#263244] flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-blue-500/20 text-blue-300 flex items-center justify-center shrink-0">
+          <div className="p-3 rounded-xl bg-[#F2EEE7] border border-[#E5DFD5] flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-[#FFFFFF] text-[#1B5E6B] flex items-center justify-center shrink-0 border border-[#E5DFD5]">
               <MapPin size={15} />
             </div>
             <div>
-              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+              <span className="text-[10px] text-[#70798B] font-bold uppercase tracking-wider block font-mono">
                 Total Stops
               </span>
-              <span className="text-white font-bold text-sm">
+              <span className="text-[#12161E] font-bold text-sm font-serif">
                 {totalStopsCount} {totalStopsCount === 1 ? "Destination" : "Destinations"}
               </span>
             </div>
           </div>
 
-          <div className="p-3 rounded-2xl bg-[#172235] border border-[#263244] flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0">
+          <div className="p-3 rounded-xl bg-[#F2EEE7] border border-[#E5DFD5] flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-[#FFFFFF] text-[#A84825] flex items-center justify-center shrink-0 border border-[#E5DFD5]">
               <Clock size={15} />
             </div>
             <div>
-              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+              <span className="text-[10px] text-[#70798B] font-bold uppercase tracking-wider block font-mono">
                 Transit Time
               </span>
-              <span className="text-white font-bold text-sm font-mono">
+              <span className="text-[#12161E] font-bold text-sm font-mono">
                 ~{formatDurationHoursMins(totalTransitMinutes)}
               </span>
             </div>
           </div>
 
-          <div className="p-3 rounded-2xl bg-[#172235] border border-[#263244] flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center shrink-0">
+          <div className="p-3 rounded-xl bg-[#F2EEE7] border border-[#E5DFD5] flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-[#FFFFFF] text-[#2F523E] flex items-center justify-center shrink-0 border border-[#E5DFD5]">
               <Compass size={15} />
             </div>
             <div>
-              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+              <span className="text-[10px] text-[#70798B] font-bold uppercase tracking-wider block font-mono">
                 Origin Hub
               </span>
-              <span className="text-white font-bold text-sm truncate max-w-[110px] block">
+              <span className="text-[#12161E] font-bold text-sm truncate max-w-[110px] block">
                 {constraints?.start || "Bhubaneswar"}
               </span>
             </div>
@@ -235,7 +233,7 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
         {/* Selected Requested Interests Pills */}
         {constraints?.interests && constraints.interests.length > 0 && (
           <div className="flex flex-wrap items-center gap-1.5 pt-1">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono mr-1">
+            <span className="text-[10px] font-bold text-[#70798B] uppercase tracking-wider font-mono mr-1">
               Themes:
             </span>
             {constraints.interests.map((interestId) => {
@@ -243,9 +241,9 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
               return (
                 <span
                   key={interestId}
-                  className="px-2.5 py-0.5 rounded-full bg-[#172235] text-teal-300 border border-[#263244] text-[11px] font-semibold flex items-center gap-1"
+                  className="px-2.5 py-0.5 rounded-md bg-[#FAF7F2] text-[#B87B22] border border-[#E5DFD5] text-[11px] font-semibold flex items-center gap-1"
                 >
-                  <Sparkles size={11} className="text-[#14B8A6]" />
+                  <Sparkles size={11} className="text-[#B87B22]" />
                   <span>{label}</span>
                 </span>
               );

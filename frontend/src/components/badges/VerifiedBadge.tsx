@@ -1,14 +1,11 @@
-export function VerifiedBadge({ small, dark }: { small?: boolean; dark?: boolean }) {
+export function VerifiedBadge({ small }: { small?: boolean; dark?: boolean }) {
   return (
     <span
-      className={`inline-flex items-center gap-1 rounded-full font-semibold ${small ? "px-2 py-0.5 text-xs" : "px-2.5 py-1 text-xs"}`}
-      style={{
-        background: dark ? "rgba(5,150,105,0.15)" : "#ecfdf5",
-        color: dark ? "#34d399" : "#047857",
-        border: dark ? "1px solid rgba(52,211,153,0.25)" : "1px solid #a7f3d0",
-      }}
+      className={`inline-flex items-center gap-1 rounded-md font-medium tracking-tight bg-[#2F523E]/10 text-[#2F523E] border border-[#2F523E]/20 ${
+        small ? "px-1.5 py-0.5 text-[10px]" : "px-2.5 py-1 text-xs"
+      }`}
     >
-      ✓ VERIFIED
+      <span className="font-bold">✓</span> VERIFIED
     </span>
   );
 }

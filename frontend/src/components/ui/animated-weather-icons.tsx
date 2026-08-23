@@ -642,7 +642,7 @@ export const AnimatedRainNight: React.FC<AnimatedIconProps> = ({ size = 48, clas
         {/* Night Cloud Body */}
         <motion.path
           d="M14 24C11.24 24 9 21.76 9 19C9 16.45 10.91 14.35 13.42 14.04C14.19 9.79 17.89 6.5 22.33 6.5C27.32 6.5 31.4 10.33 31.9 15.25C34.49 15.59 36.5 17.8 36.5 20.5C36.5 23.54 34.04 26 31 26H14.5"
-          fill="#0B1220"
+          fill="#FAF7F2"
           stroke="#06B6D4"
           strokeWidth="1.8"
           animate={shouldReduceMotion ? {} : { y: [-1, 1, -1] }}

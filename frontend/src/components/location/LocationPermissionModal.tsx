@@ -23,11 +23,11 @@ export const LocationPermissionModal: React.FC<LocationPermissionModalProps> = (
   return (
     <div
       data-testid="location-permission-modal"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-md bg-[#111827] rounded-3xl border border-[#263244] shadow-2xl p-6 sm:p-7 space-y-5 text-white animate-in zoom-in-95 duration-200"
+        className="relative w-full max-w-md bg-[#FFFFFF] rounded-3xl border border-[#E5DFD5] shadow-2xl p-6 sm:p-7 space-y-5 text-[#12161E] animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -35,7 +35,7 @@ export const LocationPermissionModal: React.FC<LocationPermissionModalProps> = (
           type="button"
           data-testid="close-location-modal"
           onClick={onClose}
-          className="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors cursor-pointer"
+          className="absolute top-4 right-4 text-[#70798B] hover:text-[#12161E] p-1 rounded-xl hover:bg-[#F2EEE7] transition-colors cursor-pointer"
           aria-label="Close dialog"
         >
           <X size={18} />
@@ -43,30 +43,30 @@ export const LocationPermissionModal: React.FC<LocationPermissionModalProps> = (
 
         {/* Icon & Title Header */}
         <div className="flex items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/30 text-[#14B8A6] flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-[#1B5E6B]/10 border border-[#1B5E6B]/20 text-[#1B5E6B] flex items-center justify-center shrink-0">
             <MapPin size={24} />
           </div>
           <div>
-            <h3 className="text-lg font-bold font-display text-white">
+            <h3 className="text-lg font-bold font-display text-[#12161E]">
               Enable Live Location
             </h3>
-            <p className="text-xs text-teal-400 font-mono font-medium">
+            <p className="text-xs text-[#1B5E6B] font-mono font-medium">
               Client-Side Geospatial Discovery
             </p>
           </div>
         </div>
 
         {/* Informative Explanation Body */}
-        <div className="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed bg-[#0B1220] p-4 rounded-2xl border border-[#263244]">
+        <div className="space-y-3 text-xs sm:text-sm text-[#3D4654] leading-relaxed bg-[#FBF9F5] p-4 rounded-2xl border border-[#E5DFD5]">
           <p>
             O-Travelz can use your current location to show where you are on the map and improve nearby destination discovery.
           </p>
-          <p className="text-slate-400 text-xs">
+          <p className="text-[#70798B] text-xs">
             Your location is used only for these travel features. We will not use it for unrelated purposes.
           </p>
 
-          <div className="flex items-center gap-2 pt-1 text-[11px] text-teal-300 font-mono">
-            <ShieldCheck size={14} className="text-[#14B8A6] shrink-0" />
+          <div className="flex items-center gap-2 pt-1 text-[11px] text-[#1B5E6B] font-mono">
+            <ShieldCheck size={14} className="text-[#1B5E6B] shrink-0" />
             <span>Never logged · Processed on your device only</span>
           </div>
         </div>
@@ -75,12 +75,12 @@ export const LocationPermissionModal: React.FC<LocationPermissionModalProps> = (
         {error && (
           <div
             data-testid="location-modal-error"
-            className="p-3 rounded-2xl bg-rose-950/80 border border-rose-500/40 text-rose-200 text-xs flex items-start gap-2.5"
+            className="p-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-start gap-2.5"
           >
-            <AlertCircle size={15} className="text-rose-400 shrink-0 mt-0.5" />
+            <AlertCircle size={15} className="text-rose-600 shrink-0 mt-0.5" />
             <div className="space-y-1">
               <span className="font-semibold block">{error}</span>
-              <span className="text-[11px] text-rose-300 block">
+              <span className="text-[11px] text-rose-600 block">
                 If location was blocked, please enable permission in your browser's site settings.
               </span>
             </div>
@@ -93,7 +93,7 @@ export const LocationPermissionModal: React.FC<LocationPermissionModalProps> = (
             type="button"
             data-testid="location-cancel-btn"
             onClick={onClose}
-            className="px-4 py-2.5 rounded-xl bg-[#172235] hover:bg-[#1E2D44] text-slate-300 hover:text-white border border-[#263244] text-xs font-bold transition-colors cursor-pointer"
+            className="px-4 py-2.5 rounded-xl bg-[#FAF7F2] hover:bg-[#F2EEE7] text-[#3D4654] hover:text-[#12161E] border border-[#E5DFD5] text-xs font-bold transition-colors cursor-pointer"
           >
             Not Now
           </button>
@@ -104,7 +104,7 @@ export const LocationPermissionModal: React.FC<LocationPermissionModalProps> = (
               data-testid="location-retry-btn"
               onClick={onRetry}
               disabled={isLoading}
-              className="px-5 py-2.5 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white text-xs font-bold shadow-md hover:shadow-teal-500/20 transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
+              className="px-5 py-2.5 rounded-xl bg-[#B87B22] hover:bg-[#A0691B] text-white text-xs font-bold shadow-sm transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
             >
               {isLoading ? "Retrying..." : "Retry Permission"}
             </button>
@@ -114,7 +114,7 @@ export const LocationPermissionModal: React.FC<LocationPermissionModalProps> = (
               data-testid="location-allow-btn"
               onClick={onConfirm}
               disabled={isLoading}
-              className="px-5 py-2.5 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white text-xs font-bold shadow-md hover:shadow-teal-500/20 transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
+              className="px-5 py-2.5 rounded-xl bg-[#B87B22] hover:bg-[#A0691B] text-white text-xs font-bold shadow-sm transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
             >
               {isLoading ? (
                 <>

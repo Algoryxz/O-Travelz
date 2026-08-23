@@ -41,7 +41,7 @@ export const FloatingNavigationDock: React.FC<FloatingNavigationDockProps> = ({
     <aside
       data-testid="floating-nav-dock"
       aria-label="Quick Navigation Dock"
-      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-30 hidden md:flex items-center gap-1.5 p-2 rounded-2xl bg-[#0B1220]/90 backdrop-blur-xl border border-[#263244] shadow-2xl transition-all duration-300 ${className}`}
+      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 p-1.5 rounded-full bg-[#FFFFFF]/90 backdrop-blur-xl border border-[#E5DFD5] shadow-xl transition-all duration-300 md:hidden ${className}`}
     >
       {dockItems.map((item) => {
         const Icon = item.icon;
@@ -54,7 +54,7 @@ export const FloatingNavigationDock: React.FC<FloatingNavigationDockProps> = ({
             {isHovered && (
               <div
                 role="tooltip"
-                className="absolute -top-9 px-2.5 py-1 rounded-lg bg-[#111827] text-white text-[11px] font-bold border border-[#263244] shadow-xl whitespace-nowrap pointer-events-none animate-in fade-in zoom-in-95 duration-150"
+                className="absolute -top-9 px-2.5 py-1 rounded-lg bg-[#12161E] text-white text-[11px] font-medium border border-[#E5DFD5] shadow-xl whitespace-nowrap pointer-events-none animate-in fade-in zoom-in-95 duration-150"
               >
                 {item.label}
               </div>
@@ -71,10 +71,10 @@ export const FloatingNavigationDock: React.FC<FloatingNavigationDockProps> = ({
               onBlur={() => setHoveredTab(null)}
               aria-label={`Navigate to ${item.label}`}
               aria-current={isActive ? "page" : undefined}
-              className={`relative flex items-center justify-center w-11 h-11 rounded-xl transition-all duration-200 cursor-pointer ${
+              className={`relative flex items-center justify-center w-11 h-11 rounded-full transition-all duration-200 cursor-pointer ${
                 isActive
-                  ? "bg-[#14B8A6] text-white shadow-lg shadow-[#14B8A6]/25 scale-105"
-                  : "text-slate-400 hover:text-white hover:bg-[#172235] hover:scale-110 active:scale-95"
+                  ? "bg-[#12161E] text-[#B87B22] shadow-sm scale-105"
+                  : "text-[#70798B] hover:text-[#12161E] hover:bg-[#F2EEE7] active:scale-95"
               }`}
             >
               <Icon size={18} />
@@ -82,10 +82,10 @@ export const FloatingNavigationDock: React.FC<FloatingNavigationDockProps> = ({
               {/* Badge for Saved items */}
               {item.badge !== undefined && item.badge > 0 && (
                 <span
-                  className={`absolute -top-1 -right-1 flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full text-[9px] font-black leading-none ${
+                  className={`absolute -top-0.5 -right-0.5 flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full text-[9px] font-bold leading-none ${
                     isActive
-                      ? "bg-[#111827] text-[#14B8A6] border border-[#14B8A6]"
-                      : "bg-[#14B8A6] text-white"
+                      ? "bg-[#B87B22] text-white"
+                      : "bg-[#B87B22] text-white"
                   }`}
                 >
                   {item.badge}

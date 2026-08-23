@@ -87,9 +87,9 @@ describe("Pre-Deployment UI Corrections & QA Suite", () => {
     });
   });
 
-  // 2. Dark / Light Theme Controls
-  describe("Dark / Light Theme Control", () => {
-    it("renders desktop theme toggle button in TopNav", () => {
+  // 2. Unified Master Navigation Controls
+  describe("Unified Master Navigation", () => {
+    it("renders clean TopNav without dark/light mode toggle", () => {
       const html = renderClean(
         <TopNav
           activeTab="discover"
@@ -100,11 +100,11 @@ describe("Pre-Deployment UI Corrections & QA Suite", () => {
         />
       );
 
-      expect(html).toContain('data-testid="desktop-theme-toggle"');
-      expect(html).toContain("Switch to light theme");
+      expect(html).toContain('data-testid="top-navigation-bar"');
+      expect(html).not.toContain('data-testid="desktop-theme-toggle"');
     });
 
-    it("renders mobile theme toggle button in MobileDrawer", () => {
+    it("renders clean MobileDrawer without dark/light mode toggle", () => {
       const html = renderClean(
         <MobileDrawer
           isOpen={true}
@@ -114,8 +114,8 @@ describe("Pre-Deployment UI Corrections & QA Suite", () => {
         />
       );
 
-      expect(html).toContain('data-testid="mobile-theme-toggle"');
-      expect(html).toContain("Dark Theme Active");
+      expect(html).toContain('data-testid="drawer-nav-discover"');
+      expect(html).not.toContain('data-testid="mobile-theme-toggle"');
     });
   });
 
@@ -162,9 +162,9 @@ describe("Pre-Deployment UI Corrections & QA Suite", () => {
     });
   });
 
-  // 4. Emerald Branding Accents
-  describe("Restrained Emerald Branding", () => {
-    it("applies active emerald accent to selected TopNav item", () => {
+  // 4. Active Navigation Accents
+  describe("Active Navigation Styling", () => {
+    it("applies active accent to selected TopNav item", () => {
       const html = renderClean(
         <TopNav
           activeTab="discover"
@@ -175,7 +175,7 @@ describe("Pre-Deployment UI Corrections & QA Suite", () => {
         />
       );
 
-      expect(html).toContain("bg-[#14B8A6] text-white");
+      expect(html).toContain("bg-[#12161E] text-white");
     });
   });
 

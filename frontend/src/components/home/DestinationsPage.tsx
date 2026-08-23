@@ -6,12 +6,9 @@ import {
   Compass,
   CalendarDays,
   Sparkles,
-  Layers,
-  ChevronRight,
-  Filter,
 } from "lucide-react";
 import { useSavedPlaces } from "../../store/useSavedPlaces";
-import { usePlaceSearch, type ExtendedPlaceDetail } from "../../store/usePlaces";
+import { usePlaceSearch } from "../../store/usePlaces";
 import { type ApiClient } from "../../api/client";
 import { getPlaceImageUrl } from "../../utils/imageService";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
@@ -63,7 +60,6 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
   onViewOnMap,
   onPlanTripWithPlace,
   onPlanTrip,
-  selectedLocation,
   initialSearch = "",
   apiClient,
 }) => {
@@ -122,12 +118,9 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
     return p;
   }, [searchQuery, selectedCategory, selectedInterest, selectedRegion]);
 
-  const { places, isLoading, error } = usePlaceSearch(searchParams, apiClient, 200);
+  const { places, isLoading } = usePlaceSearch(searchParams, apiClient, 200);
 
-  // When live search is active or filters are applied, use the places directly
-  // from the backend search/filter response, preserving deterministic ranking order.
   const filteredPlaces = places;
-
 
   return (
     <main
@@ -135,18 +128,18 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-in fade-in duration-300"
     >
       {/* Header Banner */}
-      <div className="p-6 sm:p-10 rounded-3xl bg-[#111827] text-white border border-[#263244] shadow-xl relative overflow-hidden">
+      <div className="p-6 sm:p-10 rounded-2xl bg-[#FAF7F2] text-[#12161E] border border-[#E5DFD5] shadow-xs relative overflow-hidden">
         <div className="relative z-10 space-y-3">
           <div className="flex items-center gap-2">
             <span className="live-dot" />
-            <span className="text-xs font-bold uppercase tracking-wider text-[#14B8A6] font-mono">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#B87B22] font-mono">
               All Odisha Destinations ({places.length} Places)
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-white">
+          <h1 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-[#12161E]">
             Explore Destinations Across Odisha
           </h1>
-          <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#3D4654] max-w-2xl leading-relaxed">
             Discover historic heritage temples, golden coastlines, authentic culinary sweet hubs,
             misty hills of Daringbadi, and tribal highlands throughout all regions of Odisha.
           </p>
@@ -157,8 +150,8 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
       <div className="space-y-4">
         {/* Search input & Multilingual Hint */}
         <div className="space-y-2">
-          <div className="flex items-center gap-3 p-2 pl-4 rounded-2xl bg-[#111827] border border-[#263244] shadow-xs max-w-lg focus-within:border-[#14B8A6] transition-colors">
-            <Search size={18} className="text-slate-400 shrink-0" />
+          <div className="flex items-center gap-3 p-2 pl-4 rounded-xl bg-[#FFFFFF] border border-[#E5DFD5] shadow-xs max-w-lg focus-within:border-[#B87B22] transition-colors">
+            <Search size={18} className="text-[#70798B] shrink-0" />
             <input
               type="text"
               data-testid="destinations-search-input"
@@ -166,12 +159,12 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search destinations, towns, or themes..."
               aria-label="Search destinations in English, Odia, or Hindi"
-              className="w-full text-xs sm:text-sm text-white placeholder-slate-400 bg-transparent border-0 outline-hidden py-1 leading-normal"
+              className="w-full text-xs sm:text-sm text-[#12161E] placeholder-[#70798B] bg-transparent border-0 outline-hidden py-1 leading-normal"
             />
             {isLoading && (
               <div
                 aria-hidden="true"
-                className="w-4 h-4 rounded-full border-2 border-[#263244] border-t-[#14B8A6] animate-spin shrink-0"
+                className="w-4 h-4 rounded-full border-2 border-[#E5DFD5] border-t-[#B87B22] animate-spin shrink-0"
               />
             )}
             {searchQuery && (
@@ -179,21 +172,21 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                 type="button"
                 onClick={() => setSearchQuery("")}
                 aria-label="Clear search query"
-                className="text-xs text-slate-400 hover:text-white px-2 py-1 cursor-pointer"
+                className="text-xs text-[#70798B] hover:text-[#12161E] px-2 py-1 cursor-pointer"
               >
                 Clear
               </button>
             )}
           </div>
-          <div className="flex items-center gap-2 px-1 text-[11px] text-slate-400 font-medium">
-            <span className="text-[#14B8A6] font-semibold">Multilingual:</span>
+          <div className="flex items-center gap-2 px-1 text-[11px] text-[#70798B] font-medium">
+            <span className="text-[#B87B22] font-semibold">Multilingual:</span>
             <span>English · ଓଡ଼ିଆ · हिन्दी</span>
           </div>
         </div>
 
         {/* Region Selector Pills */}
         <div className="space-y-1.5">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 font-mono">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-[#70798B] font-mono">
             Filter by Region
           </div>
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none whitespace-nowrap">
@@ -204,10 +197,10 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                 data-testid={`region-filter-${region.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
                 onClick={() => setSelectedRegion(region)}
                 aria-pressed={selectedRegion === region}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer border shrink-0 leading-normal ${
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 leading-normal ${
                   selectedRegion === region
-                    ? "bg-[#14B8A6] border-[#14B8A6] text-white shadow-sm font-bold"
-                    : "bg-[#111827] border-[#263244] text-slate-300 hover:text-white hover:border-slate-500"
+                    ? "bg-[#12161E] border-[#12161E] text-white shadow-xs font-bold"
+                    : "bg-[#FFFFFF] border-[#E5DFD5] text-[#3D4654] hover:text-[#12161E] hover:border-[#D1C8BA]"
                 }`}
               >
                 {region}
@@ -218,7 +211,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
 
         {/* 13 Physical Category Filter Chips with Localized Annotations */}
         <div className="space-y-1.5">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 font-mono">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-[#70798B] font-mono">
             Filter by Category
           </div>
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none whitespace-nowrap">
@@ -231,15 +224,15 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                   data-testid={`cat-filter-${cat.id}`}
                   onClick={() => setSelectedCategory(cat.id)}
                   aria-pressed={selectedCategory === cat.id}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 flex items-center gap-1.5 leading-normal ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 flex items-center gap-1.5 leading-normal ${
                     selectedCategory === cat.id
-                      ? "bg-[#14B8A6] border-[#14B8A6] text-white shadow-sm font-bold"
-                      : "bg-[#111827] border-[#263244] text-slate-300 hover:text-white hover:border-slate-500"
+                      ? "bg-[#B87B22] border-[#B87B22] text-white shadow-xs font-bold"
+                      : "bg-[#FFFFFF] border-[#E5DFD5] text-[#3D4654] hover:text-[#12161E] hover:border-[#D1C8BA]"
                   }`}
                 >
                   <span>{cat.label}</span>
                   {localized && (
-                    <span className={`text-[10px] ${selectedCategory === cat.id ? "text-teal-100" : "text-slate-400"}`}>
+                    <span className={`text-[10px] ${selectedCategory === cat.id ? "text-amber-100" : "text-[#70798B]"}`}>
                       ({localized})
                     </span>
                   )}
@@ -251,8 +244,8 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
 
         {/* 12 Canonical Thematic Interest Filter Chips with Localized Annotations */}
         <div className="space-y-1.5">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 font-mono flex items-center gap-1.5">
-            <Sparkles size={13} className="text-[#F59E0B]" />
+          <div className="text-[11px] font-bold uppercase tracking-wider text-[#70798B] font-mono flex items-center gap-1.5">
+            <Sparkles size={13} className="text-[#B87B22]" />
             <span>Filter by Experience / Theme</span>
           </div>
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none whitespace-nowrap">
@@ -265,15 +258,15 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                   data-testid={`interest-filter-${interest.id}`}
                   onClick={() => setSelectedInterest(interest.id)}
                   aria-pressed={selectedInterest === interest.id}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 flex items-center gap-1.5 leading-normal ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer border shrink-0 flex items-center gap-1.5 leading-normal ${
                     selectedInterest === interest.id
-                      ? "bg-[#14B8A6] border-[#14B8A6] text-white shadow-sm font-bold"
-                      : "bg-[#111827] border-[#263244] text-slate-300 hover:text-white hover:border-slate-500"
+                      ? "bg-[#B87B22] border-[#B87B22] text-white shadow-xs font-bold"
+                      : "bg-[#FFFFFF] border-[#E5DFD5] text-[#3D4654] hover:text-[#12161E] hover:border-[#D1C8BA]"
                   }`}
                 >
                   <span>{interest.label}</span>
                   {localized && (
-                    <span className={`text-[10px] ${selectedInterest === interest.id ? "text-teal-100" : "text-slate-400"}`}>
+                    <span className={`text-[10px] ${selectedInterest === interest.id ? "text-amber-100" : "text-[#70798B]"}`}>
                       ({localized})
                     </span>
                   )}
@@ -285,17 +278,17 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
       </div>
 
       {/* Results Header Count */}
-      <div className="flex items-center justify-between gap-4 pt-2 border-b border-[#263244] pb-3">
-        <div className="text-xs text-slate-400 font-medium flex items-center gap-2" role="status" aria-atomic="true">
+      <div className="flex items-center justify-between gap-4 pt-2 border-b border-[#E5DFD5] pb-3">
+        <div className="text-xs text-[#70798B] font-medium flex items-center gap-2" role="status" aria-atomic="true">
           <span>
-            Showing <span className="font-bold text-white">{filteredPlaces.length}</span>{" "}
+            Showing <span className="font-bold text-[#12161E]">{filteredPlaces.length}</span>{" "}
             {filteredPlaces.length === 1 ? "destination" : "destinations"}
             {selectedRegion !== "All Regions" && ` in ${selectedRegion}`}
             {selectedCategory !== "all" && ` · ${CATEGORIES.find((c) => c.id === selectedCategory)?.label}`}
             {selectedInterest !== "all" && ` · ${INTEREST_FILTERS.find((i) => i.id === selectedInterest)?.label}`}
           </span>
           {isLoading && (
-            <span className="text-[#14B8A6] text-[11px] animate-pulse">Searching...</span>
+            <span className="text-[#B87B22] text-[11px] animate-pulse">Searching...</span>
           )}
         </div>
 
@@ -310,7 +303,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
               setSearchQuery("");
             }}
             aria-label="Reset all destination filters and search"
-            className="text-xs text-teal-400 hover:text-teal-300 font-bold transition-colors cursor-pointer"
+            className="text-xs text-[#B87B22] hover:text-[#A0691B] font-bold transition-colors cursor-pointer"
           >
             Reset Filters
           </button>
@@ -321,16 +314,16 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
       {filteredPlaces.length === 0 ? (
         <div
           data-testid="no-destinations-found"
-          className="p-12 text-center rounded-3xl bg-[#111827] border border-[#263244] shadow-md space-y-4"
+          className="p-12 text-center rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] shadow-sm space-y-4"
         >
-          <div className="w-12 h-12 mx-auto rounded-2xl bg-[#172235] text-slate-400 flex items-center justify-center">
+          <div className="w-12 h-12 mx-auto rounded-xl bg-[#F2EEE7] text-[#70798B] flex items-center justify-center">
             <Compass size={24} />
           </div>
           <div className="space-y-1">
-            <h3 className="text-lg font-bold text-white">
+            <h3 className="text-lg font-serif font-bold text-[#12161E]">
               {searchQuery.trim() ? "No destinations found" : "No destinations match these filters"}
             </h3>
-            <p className="text-xs sm:text-sm text-slate-400 max-w-sm mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#70798B] max-w-sm mx-auto leading-relaxed">
               {searchQuery.trim() ? (
                 <>
                   No places matched &ldquo;{searchQuery}&rdquo;. Try another place, district, category, or search in English, ଓଡ଼ିଆ, or हिन्दी.
@@ -341,8 +334,8 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
             </p>
             {suggestions.length > 0 && (
               <div data-testid="search-suggestions-container" className="pt-2 pb-1 space-y-2">
-                <div className="text-xs text-slate-300 font-medium flex items-center justify-center gap-1.5">
-                  <Sparkles size={14} className="text-[#14B8A6]" />
+                <div className="text-xs text-[#3D4654] font-medium flex items-center justify-center gap-1.5">
+                  <Sparkles size={14} className="text-[#B87B22]" />
                   <span>Did you mean:</span>
                 </div>
                 <div className="flex flex-wrap items-center justify-center gap-2">
@@ -352,7 +345,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                       type="button"
                       data-testid={`search-suggestion-${s.canonical_name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
                       onClick={() => setSearchQuery(s.canonical_name)}
-                      className="px-3 py-1.5 rounded-xl bg-[#172235] hover:bg-[#1E2D44] border border-[#14B8A6]/40 hover:border-[#14B8A6] text-teal-300 hover:text-white text-xs font-bold transition-all cursor-pointer shadow-xs"
+                      className="px-3 py-1.5 rounded-lg bg-[#FAF7F2] hover:bg-[#F2EEE7] border border-[#B87B22]/30 text-[#B87B22] text-xs font-bold transition-all cursor-pointer shadow-xs"
                     >
                       {s.canonical_name}
                     </button>
@@ -362,14 +355,12 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
             )}
           </div>
           <div className="flex items-center justify-center gap-3 pt-2">
-
-
             {searchQuery.trim() && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
                 aria-label="Clear search query"
-                className="px-4 py-2 rounded-xl bg-[#172235] hover:bg-[#1E2D44] border border-[#263244] text-white font-bold text-xs shadow-sm transition-colors cursor-pointer"
+                className="px-4 py-2 rounded-lg bg-[#F2EEE7] hover:bg-[#EAE4DA] border border-[#E5DFD5] text-[#12161E] font-bold text-xs transition-colors cursor-pointer"
               >
                 Clear Search
               </button>
@@ -383,7 +374,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                 setSearchQuery("");
               }}
               aria-label="Reset all destination filters"
-              className="px-4 py-2 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white font-bold text-xs shadow-sm transition-colors cursor-pointer"
+              className="px-4 py-2 rounded-lg bg-[#B87B22] hover:bg-[#A0691B] text-white font-bold text-xs shadow-xs transition-colors cursor-pointer"
             >
               Reset Filters
             </button>
@@ -418,19 +409,19 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                     interests: place.interests,
                   })
                 }
-                className="group rounded-3xl bg-[#111827] border border-[#263244] overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer hover:border-[#14B8A6]/60"
+                className="group rounded-xl bg-[#FFFFFF] border border-[#E5DFD5] overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer hover:border-[#D1C8BA]"
               >
                 {/* Image Container */}
-                <div className="relative h-48 w-full bg-[#172235] overflow-hidden">
+                <div className="relative h-48 w-full bg-[#F2EEE7] overflow-hidden">
                   <img
                     src={place.imageUrl}
                     alt={place.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-95"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = getPlaceImageUrl(place.name, place.category);
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
 
                   {/* Save Button */}
                   <button
@@ -447,35 +438,35 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                         interests: place.interests,
                       });
                     }}
-                    className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center backdrop-blur-md transition-all cursor-pointer ${
+                    className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition-all cursor-pointer ${
                       saved
-                        ? "bg-rose-600/90 text-white shadow-md border border-rose-500"
-                        : "bg-black/40 text-white hover:bg-black/60 border border-white/20"
+                        ? "bg-[#A84825] text-white shadow-md"
+                        : "bg-white/80 text-[#12161E] hover:bg-white border border-white/40"
                     }`}
                     aria-label={saved ? "Remove from saved" : "Save destination"}
                   >
-                    <Heart size={15} className={saved ? "fill-white" : ""} />
+                    <Heart size={14} className={saved ? "fill-white" : ""} />
                   </button>
 
                   {/* Badges on Image */}
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#111827]/85 border border-[#263244] text-teal-300 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">
+                    <span className="px-2 py-0.5 rounded-md bg-[#FFFFFF]/90 text-[#12161E] text-[10px] font-bold uppercase tracking-wider font-mono">
                       {place.category}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-black/50 text-slate-200 text-[10px] font-medium backdrop-blur-md flex items-center gap-1">
-                      <MapPin size={10} className="text-[#14B8A6]" />
+                    <span className="px-2 py-0.5 rounded-md bg-black/50 text-white text-[10px] font-medium backdrop-blur-md flex items-center gap-1">
+                      <MapPin size={10} className="text-[#B87B22]" />
                       <span>{place.region}</span>
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-2">
-                    <h3 className="text-base font-bold font-display text-white group-hover:text-teal-300 transition-colors line-clamp-1">
+                <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
+                  <div className="space-y-1.5">
+                    <h3 className="text-base font-serif font-bold text-[#12161E] group-hover:text-[#B87B22] transition-colors line-clamp-1">
                       {place.name}
                     </h3>
-                    <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-[#70798B] line-clamp-2 leading-relaxed">
                       {place.description || `Explore ${place.name} in ${place.region}, Odisha.`}
                     </p>
 
@@ -485,7 +476,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                         {place.interests.slice(0, 3).map((interestId) => (
                           <span
                             key={interestId}
-                            className="px-2 py-0.5 rounded-md bg-[#172235] text-slate-300 border border-[#263244] text-[10px] font-semibold capitalize"
+                            className="px-2 py-0.5 rounded-md bg-[#F2EEE7] text-[#3D4654] text-[10px] font-semibold capitalize"
                           >
                             {interestId}
                           </span>
@@ -495,7 +486,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                   </div>
 
                   {/* Actions Strip */}
-                  <div className="pt-2 border-t border-[#263244] flex items-center justify-between gap-2">
+                  <div className="pt-2 border-t border-[#E5DFD5] flex items-center justify-between gap-2">
                     <button
                       type="button"
                       data-testid={`view-map-${place.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
@@ -512,9 +503,9 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                           interests: place.interests,
                         });
                       }}
-                      className="px-3 py-1.5 rounded-xl bg-[#172235] hover:bg-[#1E2D44] text-slate-300 hover:text-white border border-[#263244] text-[11px] font-bold transition-colors flex items-center gap-1 cursor-pointer"
+                      className="px-3 py-1.5 rounded-lg bg-[#F2EEE7] hover:bg-[#EAE4DA] text-[#3D4654] hover:text-[#12161E] border border-[#E5DFD5] text-[11px] font-bold transition-colors flex items-center gap-1 cursor-pointer"
                     >
-                      <Compass size={12} className="text-[#14B8A6]" />
+                      <Compass size={12} className="text-[#B87B22]" />
                       <span>Map</span>
                     </button>
 
@@ -532,7 +523,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                           interests: place.interests,
                         });
                       }}
-                      className="px-3.5 py-1.5 rounded-xl bg-[#14B8A6] hover:bg-[#0D9488] text-white text-[11px] font-bold transition-colors flex items-center gap-1 cursor-pointer shadow-xs"
+                      className="px-3.5 py-1.5 rounded-lg bg-[#B87B22] hover:bg-[#A0691B] text-white text-[11px] font-bold transition-colors flex items-center gap-1 cursor-pointer shadow-xs"
                     >
                       <CalendarDays size={12} />
                       <span>Plan Trip</span>

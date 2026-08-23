@@ -3,8 +3,7 @@ import type { ItineraryStop } from "../../types/api";
 import { getPlaceImageUrl, getPlaceRegion } from "../../utils/imageService";
 import { usePlaces } from "../../store/usePlaces";
 import { CANONICAL_INTEREST_LABELS } from "../../utils/timelineService";
-import { MapPin, Clock, Timer, Sparkles } from "lucide-react";
-
+import { MapPin, Clock, Timer } from "lucide-react";
 import { resolvePlaceImageUrl } from "../../utils/imageAdapter";
 
 interface ItineraryStopCardProps {
@@ -33,23 +32,22 @@ export const ItineraryStopCard: React.FC<ItineraryStopCardProps> = ({
   const departureTime = stop.planned_departure || calculatedDeparture;
   const visitDuration = visitMinutes ?? placeDetail?.avg_visit_minutes ?? 60;
 
-  // Retrieve genuine canonical interests for this place
   const placeInterests = placeDetail?.interests || [];
   const normalizedRequested = requestedInterests.map((i) => i.toLowerCase().trim());
 
   return (
     <div
       data-testid={`itinerary-stop-${stop.sequence}`}
-      className="p-4 sm:p-5 rounded-2xl bg-[#172235] border border-[#263244] hover:border-[#14B8A6]/60 shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-white"
+      className="p-4 sm:p-5 rounded-xl bg-[#FFFFFF] border border-[#E5DFD5] hover:border-[#D1C8BA] shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[#12161E]"
     >
       <div className="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
         {/* Stop Number Badge */}
-        <div className="w-9 h-9 rounded-2xl bg-[#14B8A6] text-white font-extrabold flex items-center justify-center text-sm shadow-xs shrink-0 mt-0.5 sm:mt-0">
+        <div className="w-8 h-8 rounded-lg bg-[#12161E] text-white font-bold flex items-center justify-center text-xs shadow-xs shrink-0 mt-0.5 sm:mt-0 font-mono">
           {stop.sequence}
         </div>
 
         {/* Thumbnail Image */}
-        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-[#0B1220] shrink-0 border border-[#263244]">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden bg-[#F2EEE7] shrink-0 border border-[#E5DFD5]">
           <img
             src={imageUrl}
             alt={stop.place.name}
@@ -66,24 +64,24 @@ export const ItineraryStopCard: React.FC<ItineraryStopCardProps> = ({
           <div className="flex flex-wrap items-center gap-2">
             <span
               data-testid={`stop-category-${stop.sequence}`}
-              className="text-[10px] uppercase tracking-wider font-extrabold px-2.5 py-0.5 rounded-full bg-[#111827] text-teal-300 border border-[#263244]"
+              className="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-md bg-[#F2EEE7] text-[#12161E] border border-[#E5DFD5] font-mono"
             >
               {stop.place.category}
             </span>
 
-            <span className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
-              <MapPin size={10} className="text-[#14B8A6]" />
+            <span className="text-[11px] text-[#70798B] font-medium flex items-center gap-1">
+              <MapPin size={10} className="text-[#B87B22]" />
               <span>{region}</span>
             </span>
 
-            <span className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
-              <Timer size={10} className="text-teal-400" />
+            <span className="text-[11px] text-[#70798B] font-medium flex items-center gap-1">
+              <Timer size={10} className="text-[#1B5E6B]" />
               <span>~{visitDuration}m visit</span>
             </span>
           </div>
 
           {/* Destination Name */}
-          <h4 className="text-sm sm:text-base font-bold font-display text-white leading-snug truncate">
+          <h4 className="text-sm sm:text-base font-serif font-bold text-[#12161E] leading-snug truncate">
             {stop.place.name}
           </h4>
 
@@ -103,8 +101,8 @@ export const ItineraryStopCard: React.FC<ItineraryStopCardProps> = ({
                     data-testid={`stop-interest-${interestId}`}
                     className={`text-[10px] font-semibold px-2 py-0.5 rounded-md border transition-colors ${
                       isRequested
-                        ? "bg-[#14B8A6]/20 text-teal-300 border-[#14B8A6]/50 shadow-2xs font-bold"
-                        : "bg-[#111827] text-slate-400 border-[#263244]"
+                        ? "bg-[#B87B22]/10 text-[#B87B22] border-[#B87B22]/30 font-bold"
+                        : "bg-[#FAF7F2] text-[#70798B] border-[#E5DFD5]"
                     }`}
                   >
                     {label}
@@ -117,19 +115,19 @@ export const ItineraryStopCard: React.FC<ItineraryStopCardProps> = ({
       </div>
 
       {/* Timeline Schedule Indicator */}
-      <div className="flex items-center gap-2 sm:flex-col sm:items-end text-xs text-slate-400 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#263244] w-full sm:w-auto justify-between sm:justify-center">
+      <div className="flex items-center gap-2 sm:flex-col sm:items-end text-xs text-[#70798B] shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#E5DFD5] w-full sm:w-auto justify-between sm:justify-center">
         <div
           data-testid={`stop-arrival-${stop.sequence}`}
-          className="flex items-center gap-1.5 text-teal-300 font-bold bg-[#111827] px-3 py-1.5 rounded-xl border border-[#263244] shadow-2xs"
+          className="flex items-center gap-1.5 text-[#12161E] font-bold bg-[#F2EEE7] px-3 py-1 rounded-lg border border-[#E5DFD5]"
         >
-          <Clock size={13} className="text-[#14B8A6]" />
+          <Clock size={12} className="text-[#B87B22]" />
           <span className="font-mono text-sm tracking-tight">{arrivalTime}</span>
         </div>
 
         {departureTime && (
           <span
             data-testid={`stop-departure-${stop.sequence}`}
-            className="text-[11px] text-slate-400 font-medium font-mono"
+            className="text-[11px] text-[#70798B] font-medium font-mono"
           >
             Dep: {departureTime}
           </span>

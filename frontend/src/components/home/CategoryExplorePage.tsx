@@ -355,7 +355,7 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
             type="button"
             data-testid="category-plan-cta"
             onClick={() => onPlanTripWithCategory?.(activeCategoryName)}
-            className="px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-sm flex items-center gap-2 transition-colors cursor-pointer"
+            className="px-4 py-2.5 rounded-xl bg-[#B87B22] hover:bg-[#A0691B] text-white font-bold text-xs shadow-xs flex items-center gap-2 transition-colors cursor-pointer"
           >
             <Compass size={15} />
             <span>Plan with this category</span>
@@ -377,20 +377,20 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                 onOpenMap();
               }
             }}
-            className="px-4 py-2.5 rounded-xl bg-white border border-gray-200 hover:bg-gray-100 text-gray-700 font-bold text-xs shadow-xs flex items-center gap-2 transition-colors cursor-pointer"
+            className="px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#E5DFD5] hover:bg-[#FAF7F2] text-[#12161E] font-bold text-xs shadow-xs flex items-center gap-2 transition-colors cursor-pointer"
           >
-            <MapPin size={15} className="text-emerald-600" />
+            <MapPin size={15} className="text-[#B87B22]" />
             <span>View on Map</span>
           </button>
         </div>
       </div>
 
       {/* Description Summary Card */}
-      <div className="p-6 rounded-3xl bg-[#111827] text-white border border-[#263244] shadow-lg">
-        <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-3xl">
+      <div className="p-6 rounded-2xl bg-[#FAF7F2] text-[#12161E] border border-[#E5DFD5] shadow-xs">
+        <p className="text-sm sm:text-base text-[#3D4654] leading-relaxed max-w-3xl">
           {categoryData.description}
         </p>
-        <div className="text-xs text-[#14B8A6] font-mono mt-3">
+        <div className="text-xs text-[#B87B22] font-mono mt-3">
           Curated destinations and highlights around {selectedLocation} and connected regions.
         </div>
       </div>
@@ -403,7 +403,7 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
             <div
               key={place.id}
               data-testid={`category-place-${place.id}`}
-              className="p-6 rounded-3xl bg-[#111827] border border-[#263244] hover:border-[#14B8A6]/60 shadow-sm hover:shadow-md transition-all space-y-4 text-white"
+              className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] hover:border-[#D1C8BA] shadow-xs hover:shadow-md transition-all space-y-4 text-[#12161E]"
             >
               <div className="flex items-start justify-between gap-3">
                 <div
@@ -419,10 +419,10 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                     })
                   }
                 >
-                  <h3 className="font-display font-bold text-lg text-white hover:text-teal-300 transition-colors">
+                  <h3 className="font-serif font-bold text-lg text-[#12161E] hover:text-[#B87B22] transition-colors">
                     {place.name}
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">{place.subtitle}</p>
+                  <p className="text-xs text-[#70798B] mt-0.5">{place.subtitle}</p>
                 </div>
 
                 <button
@@ -437,33 +437,33 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                       tags: place.tags,
                     })
                   }
-                  className={`w-9 h-9 rounded-xl flex items-center justify-center transition-colors shrink-0 cursor-pointer ${
+                  className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors shrink-0 cursor-pointer ${
                     saved
-                      ? "bg-rose-950/80 text-rose-300 border border-rose-800/60"
-                      : "bg-[#172235] text-slate-400 hover:text-white border border-[#263244]"
+                      ? "bg-[#A84825] text-white"
+                      : "bg-[#FAF7F2] text-[#70798B] hover:text-[#12161E] border border-[#E5DFD5]"
                   }`}
                   aria-label={`Save ${place.name}`}
                 >
-                  <Heart size={18} fill={saved ? "currentColor" : "none"} />
+                  <Heart size={16} fill={saved ? "currentColor" : "none"} />
                 </button>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400">
-                <span className="font-semibold text-[#14B8A6] flex items-center gap-1 font-mono">
+              <div className="flex flex-wrap items-center gap-3 text-xs text-[#70798B]">
+                <span className="font-semibold text-[#B87B22] flex items-center gap-1 font-mono">
                   <MapPin size={13} /> {place.distance}
                 </span>
                 <span>·</span>
-                <span className="px-2 py-0.5 rounded-md bg-[#172235] text-teal-300 border border-[#263244] font-medium">
+                <span className="px-2 py-0.5 rounded-md bg-[#FAF7F2] text-[#12161E] border border-[#E5DFD5] font-medium font-mono text-[11px]">
                   {place.status}
                 </span>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-[#263244]">
+              <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-[#E5DFD5]">
                 <div className="flex flex-wrap gap-1.5">
                   {place.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-lg bg-[#172235] text-slate-300 border border-[#263244] text-[11px] font-medium"
+                      className="px-2.5 py-0.5 rounded-md bg-[#F2EEE7] text-[#3D4654] border border-[#E5DFD5] text-[11px] font-medium"
                     >
                       {tag}
                     </span>
@@ -482,9 +482,9 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
                         description: place.subtitle,
                       })
                     }
-                    className="text-xs text-[#14B8A6] hover:text-teal-200 font-semibold flex items-center gap-1 cursor-pointer"
+                    className="text-xs text-[#B87B22] hover:text-[#A0691B] font-semibold flex items-center gap-1 cursor-pointer font-mono"
                   >
-                    <MapPin size={12} /> Map
+                    <MapPin size={12} /> Map →
                   </button>
                 </div>
               </div>
@@ -495,3 +495,4 @@ export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
     </div>
   );
 };
+

@@ -392,20 +392,20 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         popupContent.style.width = "230px";
         popupContent.style.fontFamily = "system-ui, sans-serif";
         popupContent.innerHTML = `
-          <div style="border-radius: 12px; overflow: hidden; margin-bottom: 8px; background: #0B1220;">
+          <div style="border-radius: 12px; overflow: hidden; margin-bottom: 8px; background: #FBF9F5;">
             <img src="${imageUrl}" alt="${placeName}" style="width: 100%; height: 110px; object-fit: cover;" />
           </div>
           <div style="margin-bottom: 6px;">
             <div style="display: flex; align-items: center; justify-content: space-between; gap: 4px; margin-bottom: 4px;">
-              <span style="font-size: 9px; font-weight: 800; text-transform: uppercase; background: rgba(20, 184, 166, 0.15); color: #0F766E; padding: 2px 6px; border-radius: 9999px; border: 1px solid rgba(20, 184, 166, 0.3);">${category}</span>
-              <span style="font-size: 10px; color: #64748B; font-weight: 500;">${region}</span>
+              <span style="font-size: 9px; font-weight: 800; text-transform: uppercase; background: rgba(184, 123, 34, 0.12); color: #B87B22; padding: 2px 6px; border-radius: 9999px; border: 1px solid rgba(184, 123, 34, 0.25);">${category}</span>
+              <span style="font-size: 10px; color: #70798B; font-weight: 500;">${region}</span>
             </div>
-            <h4 style="font-size: 13px; font-weight: 800; color: #0F172A; margin: 2px 0;">${placeName}</h4>
-            <p style="font-size: 10px; color: #64748B; margin: 0; font-family: monospace;">${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E</p>
+            <h4 style="font-size: 13px; font-weight: 800; color: #12161E; margin: 2px 0;">${placeName}</h4>
+            <p style="font-size: 10px; color: #70798B; margin: 0; font-family: monospace;">${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E</p>
           </div>
-          <div style="display: flex; gap: 6px; margin-top: 8px; border-top: 1px solid #E2E8F0; padding-top: 8px;">
-            <button id="popup-plan-${featureId}" style="flex: 1; padding: 6px 10px; background: #14B8A6; color: #ffffff; border: none; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer;">Plan Trip</button>
-            <button id="popup-detail-${featureId}" style="padding: 6px 10px; background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer;">Details</button>
+          <div style="display: flex; gap: 6px; margin-top: 8px; border-top: 1px solid #E5DFD5; padding-top: 8px;">
+            <button id="popup-plan-${featureId}" style="flex: 1; padding: 6px 10px; background: #B87B22; color: #ffffff; border: none; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer;">Plan Trip</button>
+            <button id="popup-detail-${featureId}" style="padding: 6px 10px; background: #FBF9F5; color: #12161E; border: 1px solid #E5DFD5; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer;">Details</button>
           </div>
         `;
 
@@ -694,7 +694,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   return (
     <div
       data-testid="map-canvas-container"
-      className="relative rounded-3xl bg-[#0B1220] border border-[#263244] overflow-hidden shadow-inner w-full min-h-[480px] sm:min-h-[560px]"
+      className="relative rounded-3xl bg-[#FFFFFF] border border-[#E5DFD5] overflow-hidden shadow-sm w-full min-h-[480px] sm:min-h-[560px]"
     >
       <div className="sr-only">Interactive Map View</div>
 
@@ -702,11 +702,11 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         <div className="sr-only">No Location Coordinates Available</div>
       )}
 
-      {/* Floating Dark Map Search Bar */}
+      {/* Floating Map Search Bar */}
       <div className="absolute top-4 left-4 z-20 w-72 sm:w-80 max-w-[calc(100%-110px)]">
         <div className="relative">
-          <div className="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-[#0B1220]/95 backdrop-blur-md border border-[#263244] shadow-xl text-white">
-            <Search size={15} className="text-teal-400 shrink-0" />
+          <div className="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-[#FFFFFF]/95 backdrop-blur-md border border-[#E5DFD5] shadow-lg text-[#12161E]">
+            <Search size={15} className="text-[#B87B22] shrink-0" />
             <input
               type="text"
               data-testid="map-search-input"
@@ -717,8 +717,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
               }}
               onFocus={() => setIsSearching(true)}
               placeholder="Search destinations or districts across Odisha..."
-              className="w-full bg-transparent text-xs text-white placeholder-slate-400 focus:outline-none"
-
+              className="w-full bg-transparent text-xs text-[#12161E] placeholder-[#70798B] focus:outline-none"
             />
             {searchQuery && (
               <button
@@ -727,7 +726,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   setSearchQuery("");
                   setIsSearching(false);
                 }}
-                className="text-slate-400 hover:text-white p-0.5"
+                className="text-[#70798B] hover:text-[#12161E] p-0.5 cursor-pointer"
                 aria-label="Clear search"
               >
                 <X size={13} />
@@ -739,7 +738,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           {isSearching && searchQuery.trim().length > 0 && (
             <div
               data-testid="map-search-dropdown"
-              className="absolute top-full mt-1.5 w-full rounded-2xl bg-[#111827]/98 backdrop-blur-xl border border-[#263244] shadow-2xl overflow-hidden z-30 max-h-56 overflow-y-auto divide-y divide-[#263244]"
+              className="absolute top-full mt-1.5 w-full rounded-2xl bg-[#FFFFFF]/98 backdrop-blur-xl border border-[#E5DFD5] shadow-2xl overflow-hidden z-30 max-h-56 overflow-y-auto divide-y divide-[#E5DFD5]"
             >
               {searchResults.length > 0 ? (
                 searchResults.slice(0, 6).map((res, idx) => (
@@ -748,19 +747,19 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                     type="button"
                     data-testid={`map-search-result-${idx}`}
                     onClick={() => handleSelectSearchResult(res)}
-                    className="w-full text-left px-3.5 py-2 text-xs text-slate-200 hover:bg-[#172235] hover:text-white transition-colors flex items-center justify-between cursor-pointer"
+                    className="w-full text-left px-3.5 py-2 text-xs text-[#12161E] hover:bg-[#FAF7F2] hover:text-[#B87B22] transition-colors flex items-center justify-between cursor-pointer"
                   >
                     <div className="flex items-center gap-2">
-                      <MapPin size={13} className="text-teal-400 shrink-0" />
-                      <span className="font-semibold text-white truncate max-w-[170px]">{res.name}</span>
+                      <MapPin size={13} className="text-[#B87B22] shrink-0" />
+                      <span className="font-semibold text-[#12161E] truncate max-w-[170px]">{res.name}</span>
                     </div>
-                    <span className="text-[10px] text-teal-300/80 uppercase font-mono px-1.5 py-0.5 rounded bg-teal-500/10 border border-teal-500/20">
+                    <span className="text-[10px] text-[#B87B22] uppercase font-mono px-1.5 py-0.5 rounded bg-[#B87B22]/10 border border-[#B87B22]/20">
                       {res.category}
                     </span>
                   </button>
                 ))
               ) : (
-                <div className="px-3.5 py-3 text-xs text-slate-400 text-center font-medium">
+                <div className="px-3.5 py-3 text-xs text-[#70798B] text-center font-medium">
                   No matching destinations found
                 </div>
               )}
@@ -769,7 +768,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         </div>
       </div>
 
-      {/* Floating Dark Controls Cluster (Top-Right) */}
+      {/* Floating Controls Cluster (Top-Right) */}
       <div className="absolute top-4 right-4 z-20 flex flex-col gap-2">
         {/* Layer Selector Toggle */}
         <div className="relative">
@@ -778,17 +777,17 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
             data-testid="map-layers-btn"
             onClick={() => setIsLayerMenuOpen(!isLayerMenuOpen)}
             title="Select map layer"
-            className="w-10 h-10 rounded-2xl bg-[#0B1220]/95 hover:bg-[#172235] backdrop-blur-md border border-[#263244] text-slate-200 hover:text-white shadow-xl flex items-center justify-center transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-2xl bg-[#FFFFFF]/95 hover:bg-[#FAF7F2] backdrop-blur-md border border-[#E5DFD5] text-[#12161E] shadow-lg flex items-center justify-center transition-colors cursor-pointer"
           >
-            <LayersIcon size={16} className="text-teal-400" />
+            <LayersIcon size={16} className="text-[#B87B22]" />
           </button>
 
           {isLayerMenuOpen && (
             <div
               data-testid="map-layers-menu"
-              className="absolute right-0 mt-2 w-52 bg-[#111827]/98 backdrop-blur-xl border border-[#263244] rounded-2xl shadow-2xl p-2 z-30 space-y-1"
+              className="absolute right-0 mt-2 w-52 bg-[#FFFFFF]/98 backdrop-blur-xl border border-[#E5DFD5] rounded-2xl shadow-2xl p-2 z-30 space-y-1"
             >
-              <div className="px-2 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
+              <div className="px-2 py-1 text-[10px] font-bold text-[#70798B] uppercase tracking-wider font-mono">
                 Map Layers
               </div>
               <button
@@ -799,11 +798,11 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   setIsLayerMenuOpen(false);
                 }}
                 className={`w-full text-left px-2.5 py-1.5 rounded-xl text-xs flex items-center justify-between cursor-pointer transition-colors ${
-                  activeLayer === "dark" ? "bg-[#172235] text-teal-300 font-bold" : "text-slate-300 hover:bg-slate-800"
+                  activeLayer === "dark" ? "bg-[#FAF7F2] text-[#B87B22] font-bold" : "text-[#3D4654] hover:bg-[#F2EEE7]"
                 }`}
               >
-                <span>O-Travelz Dark Base</span>
-                {activeLayer === "dark" && <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />}
+                <span>O-Travelz Canvas</span>
+                {activeLayer === "dark" && <span className="w-1.5 h-1.5 rounded-full bg-[#B87B22]" />}
               </button>
 
               <button
@@ -814,24 +813,24 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   setIsLayerMenuOpen(false);
                 }}
                 className={`w-full text-left px-2.5 py-1.5 rounded-xl text-xs flex items-center justify-between cursor-pointer transition-colors ${
-                  activeLayer === "satellite" ? "bg-[#172235] text-teal-300 font-bold" : "text-slate-300 hover:bg-slate-800"
+                  activeLayer === "satellite" ? "bg-[#FAF7F2] text-[#B87B22] font-bold" : "text-[#3D4654] hover:bg-[#F2EEE7]"
                 }`}
               >
                 <span>Esri World Satellite</span>
-                {activeLayer === "satellite" && <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />}
+                {activeLayer === "satellite" && <span className="w-1.5 h-1.5 rounded-full bg-[#B87B22]" />}
               </button>
 
               {/* Truthful Traffic Disabled Option */}
               <div
                 data-testid="map-layer-traffic-disabled"
                 title="Traffic data unavailable — no live provider configured"
-                className="w-full text-left px-2.5 py-1.5 rounded-xl text-xs text-slate-500 opacity-60 flex items-center justify-between cursor-not-allowed border-t border-[#263244] mt-1 pt-1.5"
+                className="w-full text-left px-2.5 py-1.5 rounded-xl text-xs text-[#70798B] opacity-60 flex items-center justify-between cursor-not-allowed border-t border-[#E5DFD5] mt-1 pt-1.5"
               >
                 <div className="flex items-center gap-1.5">
                   <Car size={12} />
                   <span>Live Traffic</span>
                 </div>
-                <span className="text-[9px] uppercase font-mono text-slate-500">Unavailable</span>
+                <span className="text-[9px] uppercase font-mono text-[#70798B]">Unavailable</span>
               </div>
             </div>
           )}
@@ -844,19 +843,19 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           onClick={handleLocateMe}
           disabled={isLocating}
           title="Locate my current position"
-          className="w-10 h-10 rounded-2xl bg-[#0B1220]/95 hover:bg-[#172235] backdrop-blur-md border border-[#263244] text-slate-200 hover:text-white shadow-xl flex items-center justify-center transition-colors cursor-pointer"
+          className="w-10 h-10 rounded-2xl bg-[#FFFFFF]/95 hover:bg-[#FAF7F2] backdrop-blur-md border border-[#E5DFD5] text-[#12161E] shadow-lg flex items-center justify-center transition-colors cursor-pointer"
         >
-          <Crosshair size={16} className={`text-teal-400 ${isLocating ? "animate-spin" : ""}`} />
+          <Crosshair size={16} className={`text-[#B87B22] ${isLocating ? "animate-spin" : ""}`} />
         </button>
 
         {/* Zoom In & Out */}
-        <div className="flex flex-col rounded-2xl bg-[#0B1220]/95 backdrop-blur-md border border-[#263244] shadow-xl overflow-hidden">
+        <div className="flex flex-col rounded-2xl bg-[#FFFFFF]/95 backdrop-blur-md border border-[#E5DFD5] shadow-lg overflow-hidden">
           <button
             type="button"
             data-testid="map-zoom-in-btn"
             onClick={handleZoomIn}
             title="Zoom In"
-            className="w-10 h-9 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#172235] transition-colors cursor-pointer border-b border-[#263244]"
+            className="w-10 h-9 flex items-center justify-center text-[#3D4654] hover:text-[#12161E] hover:bg-[#FAF7F2] transition-colors cursor-pointer border-b border-[#E5DFD5]"
           >
             <ZoomIn size={15} />
           </button>
@@ -865,7 +864,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
             data-testid="map-zoom-out-btn"
             onClick={handleZoomOut}
             title="Zoom Out"
-            className="w-10 h-9 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#172235] transition-colors cursor-pointer"
+            className="w-10 h-9 flex items-center justify-center text-[#3D4654] hover:text-[#12161E] hover:bg-[#FAF7F2] transition-colors cursor-pointer"
           >
             <ZoomOut size={15} />
           </button>
@@ -877,9 +876,9 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           data-testid="map-fit-bounds-btn"
           onClick={handleResetBounds}
           title="Fit all destinations"
-          className="w-10 h-10 rounded-2xl bg-[#0B1220]/95 hover:bg-[#172235] backdrop-blur-md border border-[#263244] text-slate-200 hover:text-white shadow-xl flex items-center justify-center transition-colors cursor-pointer"
+          className="w-10 h-10 rounded-2xl bg-[#FFFFFF]/95 hover:bg-[#FAF7F2] backdrop-blur-md border border-[#E5DFD5] text-[#12161E] shadow-lg flex items-center justify-center transition-colors cursor-pointer"
         >
-          <Maximize2 size={15} className="text-teal-400" />
+          <Maximize2 size={15} className="text-[#B87B22]" />
         </button>
       </div>
 
@@ -889,14 +888,14 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           {geoError && (
             <div
               data-testid="map-geo-error"
-              className="p-2.5 rounded-2xl bg-rose-950/90 backdrop-blur-md border border-rose-500/40 text-rose-200 text-xs flex items-center gap-2 shadow-xl"
+              className="p-2.5 rounded-2xl bg-rose-50 backdrop-blur-md border border-rose-200 text-rose-800 text-xs flex items-center gap-2 shadow-lg"
             >
-              <AlertCircle size={14} className="shrink-0 text-rose-400" />
+              <AlertCircle size={14} className="shrink-0 text-rose-600" />
               <span>{geoError}</span>
               <button
                 type="button"
                 onClick={() => setGeoError(null)}
-                className="ml-auto text-rose-400 hover:text-white"
+                className="ml-auto text-rose-600 hover:text-rose-900 cursor-pointer"
               >
                 <X size={12} />
               </button>
@@ -906,16 +905,16 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           {clickedCoords && (
             <div
               data-testid="map-clicked-coords"
-              className="px-3 py-1.5 rounded-xl bg-[#0B1220]/90 backdrop-blur-md border border-[#263244] text-slate-300 text-[11px] font-mono flex items-center gap-2 shadow-xl"
+              className="px-3 py-1.5 rounded-xl bg-[#FFFFFF]/90 backdrop-blur-md border border-[#E5DFD5] text-[#12161E] text-[11px] font-mono flex items-center gap-2 shadow-lg"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B87B22]" />
               <span>
                 Coordinates: {clickedCoords.lat}°N, {clickedCoords.lon}°E
               </span>
               <button
                 type="button"
                 onClick={() => setClickedCoords(null)}
-                className="text-slate-500 hover:text-white ml-1"
+                className="text-[#70798B] hover:text-[#12161E] ml-1 cursor-pointer"
               >
                 <X size={11} />
               </button>
@@ -938,7 +937,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         data-testid="map-svg-canvas"
         aria-hidden="true"
       >
-        <rect width={WIDTH} height={HEIGHT} fill="#0B1220" />
+        <rect width={WIDTH} height={HEIGHT} fill="#FBF9F5" />
         {pointFeatures.map((feature, index) => {
           const [lon, lat] = feature.geometry.coordinates;
           const cx = projectLonToX(lon);
