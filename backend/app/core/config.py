@@ -5,6 +5,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     database_url: str = "postgresql://otravelz:otravelz@localhost:5432/otravelz"
     environment: str = "development"
+    cors_origins: str = "*"
 
     # Image Storage Configuration (provider-neutral)
     storage_backend: str = "local"

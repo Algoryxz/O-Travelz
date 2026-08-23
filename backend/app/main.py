@@ -13,6 +13,7 @@ from app.api.auth_routes import router as auth_router
 from app.api.sync_routes import router as sync_router
 from app.api.share_routes import router as share_router
 from app.api.weather_routes import router as weather_router
+from app.core.config import settings
 from app.geospatial.http_adapter import MapProjectionHTTPError
 from app.schemas.api import APIErrorDetail, APIErrorResponse
 from app.services.itinerary import ItineraryPlanningError
@@ -25,7 +26,7 @@ app = FastAPI(
     version="0.1.0",
 )
 
-cors_origins_raw = os.environ.get("CORS_ORIGINS", "*")
+cors_origins_raw = getattr(settings, "cors_origins", None) or os.environ.get("CORS_ORIGINS", "*")
 if cors_origins_raw.strip() == "*":
     cors_origins = ["*"]
     allow_credentials = False
