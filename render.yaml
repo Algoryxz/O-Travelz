@@ -5,20 +5,19 @@ services:
   - type: web
     name: otravelz-backend
     runtime: python
+    plan: free
     rootDir: backend
     buildCommand: pip install --no-cache-dir -r requirements.txt
     preDeployCommand: python -m alembic -c alembic.ini upgrade head
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
-    disk:
-      name: otravelz-images-disk
-      mountPath: /app/data/images
-      sizeGB: 1
     envVars:
       - key: ENVIRONMENT
         value: production
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: otravelz-db
+          property: connectionString
       - key: CORS_ORIGINS
         sync: false
       - key: AUTH_SESSION_SECRET
@@ -32,7 +31,7 @@ services:
       - key: STORAGE_BACKEND
         value: local
       - key: LOCAL_STORAGE_BASE_PATH
-        value: /app/data/images
+        value: ./data/images
       - key: AI_PROVIDER
         value: multi_provider
       - key: AI_ALLOW_EXTERNAL_PROVIDER
@@ -76,3 +75,12 @@ services:
     envVars:
       - key: VITE_API_URL
         sync: false
+
+databases:
+  # ---------------------------------------------------------------------------
+  # 3. O-TRAVELZ POSTGRESQL DATABASE (Free Tier)
+  # ---------------------------------------------------------------------------
+  - name: otravelz-db
+    plan: free
+    databaseName: otravelz
+    user: otravelz
