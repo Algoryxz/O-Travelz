@@ -5,6 +5,7 @@ import { apiClient as defaultApiClient, ApiClient } from "../api/client";
 import { getPlaceImageUrl } from "../utils/imageService";
 import { resolvePlaceImageUrl } from "../utils/imageAdapter";
 import { getRegionForPlace } from "../utils/regionUtils";
+import { getCanonicalPlaceUuid } from "../utils/canonicalPlaceIds";
 
 // Bundled authoritative seed fallback (so UI is instant & robust in all environments)
 import seedPlacesData from "../../../data/places/places.json";
@@ -15,30 +16,58 @@ export interface ExtendedPlaceDetail extends PlaceDetail {
 }
 
 export function toExtendedPlace(place: PlaceDetail): ExtendedPlaceDetail {
+  const canonicalId = getCanonicalPlaceUuid(place.id) || place.id;
   return {
     ...place,
+    id: canonicalId,
     region: place.region || getRegionForPlace(place.district, place.id),
     imageUrl: resolvePlaceImageUrl(place, "card"),
   };
 }
 
+const FALLBACK_EXTENDED_PLACES: ExtendedPlaceDetail[] = (seedPlacesData as any[]).map((raw, idx) => {
+  const rawId = raw.id || `seed_place_${idx + 1}`;
+  const canonicalId = getCanonicalPlaceUuid(rawId);
+  return {
+    id: canonicalId,
+    name: raw.name,
+    category: raw.category,
+    description: raw.description,
+    lat: raw.lat,
+    lon: raw.lon,
+    district: raw.district,
+    avg_visit_minutes: raw.avg_visit_minutes,
+    price_tier: raw.price_tier,
+    source: raw.source,
+    verified_at: raw.verified_at,
+    interests: raw.interests || [],
+    region: getRegionForPlace(raw.district, raw.id),
+    imageUrl: getPlaceImageUrl(raw.name, raw.category),
+  };
+});
 
-const FALLBACK_EXTENDED_PLACES: ExtendedPlaceDetail[] = (seedPlacesData as any[]).map((raw, idx) => ({
-  id: raw.id || `seed_place_${idx + 1}`,
-  name: raw.name,
-  category: raw.category,
-  description: raw.description,
-  lat: raw.lat,
-  lon: raw.lon,
-  district: raw.district,
-  avg_visit_minutes: raw.avg_visit_minutes,
-  price_tier: raw.price_tier,
-  source: raw.source,
-  verified_at: raw.verified_at,
-  interests: raw.interests || [],
-  region: getRegionForPlace(raw.district, raw.id),
-  imageUrl: getPlaceImageUrl(raw.name, raw.category),
-}));
+function filterPlacesList(places: ExtendedPlaceDetail[], params: PlaceListParams = {}): ExtendedPlaceDetail[] {
+  if (!params.search && !params.category && !params.district && !params.region && !params.interest) {
+    return places;
+  }
+  return places.filter((p) => {
+    if (params.district && p.district?.toLowerCase() !== params.district.toLowerCase()) return false;
+    if (params.category && params.category !== "all" && p.category.toLowerCase() !== params.category.toLowerCase()) return false;
+    if (params.region && params.region.toLowerCase() !== "all regions" && p.region.toLowerCase() !== params.region.toLowerCase()) return false;
+    if (params.interest && params.interest !== "all" && !(p.interests || []).map((i) => i.toLowerCase()).includes(params.interest.toLowerCase())) return false;
+    if (params.search) {
+      const q = params.search.toLowerCase().trim();
+      const matchName = p.name.toLowerCase().includes(q);
+      const matchDesc = (p.description || "").toLowerCase().includes(q);
+      const matchDist = (p.district || "").toLowerCase().includes(q);
+      const matchRegion = (p.region || "").toLowerCase().includes(q);
+      const matchCat = p.category.toLowerCase().includes(q);
+      const matchInt = (p.interests || []).some((i) => i.toLowerCase().includes(q));
+      if (!matchName && !matchDesc && !matchDist && !matchRegion && !matchCat && !matchInt) return false;
+    }
+    return true;
+  });
+}
 
 export interface UsePlacesResult {
   places: ExtendedPlaceDetail[];
@@ -90,7 +119,8 @@ export function usePlaces(client?: ApiClient): UsePlacesResult {
 
   const getPlaceById = useCallback(
     (id: string) => {
-      return places.find((p) => p.id === id);
+      const canonicalId = getCanonicalPlaceUuid(id);
+      return places.find((p) => p.id === id || p.id === canonicalId || p.name.toLowerCase() === id.toLowerCase());
     },
     [places]
   );
@@ -117,29 +147,7 @@ export function usePlaceSearch(
   client?: ApiClient,
   debounceMs: number = 200
 ): UsePlaceSearchResult {
-  const [places, setPlaces] = useState<ExtendedPlaceDetail[]>(() => {
-    if (!params.search && !params.category && !params.district && !params.region && !params.interest) {
-      return FALLBACK_EXTENDED_PLACES;
-    }
-    return FALLBACK_EXTENDED_PLACES.filter((p) => {
-      if (params.district && p.district?.toLowerCase() !== params.district.toLowerCase()) return false;
-      if (params.category && p.category.toLowerCase() !== params.category.toLowerCase()) return false;
-      if (params.region && p.region.toLowerCase() !== params.region.toLowerCase()) return false;
-      if (params.interest && !(p.interests || []).map((i) => i.toLowerCase()).includes(params.interest.toLowerCase())) return false;
-      if (params.search) {
-        const q = params.search.toLowerCase().trim();
-        const matchName = p.name.toLowerCase().includes(q);
-        const matchDesc = (p.description || "").toLowerCase().includes(q);
-        const matchDist = (p.district || "").toLowerCase().includes(q);
-        const matchRegion = (p.region || "").toLowerCase().includes(q);
-        const matchCat = p.category.toLowerCase().includes(q);
-        const matchInt = (p.interests || []).some((i) => i.toLowerCase().includes(q));
-        if (!matchName && !matchDesc && !matchDist && !matchRegion && !matchCat && !matchInt) return false;
-      }
-      return true;
-    });
-  });
-
+  const [places, setPlaces] = useState<ExtendedPlaceDetail[]>(() => filterPlacesList(FALLBACK_EXTENDED_PLACES, params));
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<unknown | null>(null);
 
@@ -149,29 +157,16 @@ export function usePlaceSearch(
     setError(null);
     try {
       const data = await api.listPlaces(params);
-      if (Array.isArray(data)) {
+      if (Array.isArray(data) && data.length > 0) {
         setPlaces(data.map(toExtendedPlace));
+      } else if (Array.isArray(data) && data.length === 0) {
+        // If API returned empty, filter fallback dataset to ensure consistent UX
+        const fallbackFiltered = filterPlacesList(FALLBACK_EXTENDED_PLACES, params);
+        setPlaces(fallbackFiltered);
       }
     } catch (err) {
       setError(err);
-      // Filter bundled fallbacks locally on network error
-      const filtered = FALLBACK_EXTENDED_PLACES.filter((p) => {
-        if (params.district && p.district?.toLowerCase() !== params.district.toLowerCase()) return false;
-        if (params.category && p.category.toLowerCase() !== params.category.toLowerCase()) return false;
-        if (params.region && p.region.toLowerCase() !== params.region.toLowerCase()) return false;
-        if (params.interest && !(p.interests || []).map((i) => i.toLowerCase()).includes(params.interest.toLowerCase())) return false;
-        if (params.search) {
-          const q = params.search.toLowerCase().trim();
-          const matchName = p.name.toLowerCase().includes(q);
-          const matchDesc = (p.description || "").toLowerCase().includes(q);
-          const matchDist = (p.district || "").toLowerCase().includes(q);
-          const matchRegion = (p.region || "").toLowerCase().includes(q);
-          const matchCat = p.category.toLowerCase().includes(q);
-          const matchInt = (p.interests || []).some((i) => i.toLowerCase().includes(q));
-          if (!matchName && !matchDesc && !matchDist && !matchRegion && !matchCat && !matchInt) return false;
-        }
-        return true;
-      });
+      const filtered = filterPlacesList(FALLBACK_EXTENDED_PLACES, params);
       setPlaces(filtered);
     } finally {
       setIsLoading(false);
@@ -186,29 +181,16 @@ export function usePlaceSearch(
       setError(null);
       try {
         const data = await api.listPlaces(params);
-        if (!isCancelled && Array.isArray(data)) {
+        if (!isCancelled && Array.isArray(data) && data.length > 0) {
           setPlaces(data.map(toExtendedPlace));
+        } else if (!isCancelled && Array.isArray(data) && data.length === 0) {
+          const fallbackFiltered = filterPlacesList(FALLBACK_EXTENDED_PLACES, params);
+          setPlaces(fallbackFiltered);
         }
       } catch (err) {
         if (!isCancelled) {
           setError(err);
-          const filtered = FALLBACK_EXTENDED_PLACES.filter((p) => {
-            if (params.district && p.district?.toLowerCase() !== params.district.toLowerCase()) return false;
-            if (params.category && p.category.toLowerCase() !== params.category.toLowerCase()) return false;
-            if (params.region && p.region.toLowerCase() !== params.region.toLowerCase()) return false;
-            if (params.interest && !(p.interests || []).map((i) => i.toLowerCase()).includes(params.interest.toLowerCase())) return false;
-            if (params.search) {
-              const q = params.search.toLowerCase().trim();
-              const matchName = p.name.toLowerCase().includes(q);
-              const matchDesc = (p.description || "").toLowerCase().includes(q);
-              const matchDist = (p.district || "").toLowerCase().includes(q);
-              const matchRegion = (p.region || "").toLowerCase().includes(q);
-              const matchCat = p.category.toLowerCase().includes(q);
-              const matchInt = (p.interests || []).some((i) => i.toLowerCase().includes(q));
-              if (!matchName && !matchDesc && !matchDist && !matchRegion && !matchCat && !matchInt) return false;
-            }
-            return true;
-          });
+          const filtered = filterPlacesList(FALLBACK_EXTENDED_PLACES, params);
           setPlaces(filtered);
         }
       } finally {

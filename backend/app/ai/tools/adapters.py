@@ -5,7 +5,7 @@ Multimodal Transport Routing, Provider Status) through provider-neutral BaseTool
 """
 from __future__ import annotations
 
-from typing import Any
+from typing import TYPE_CHECKING, Any
 from sqlalchemy.orm import Session
 
 from app.ai.contracts import ToolDefinition, ToolResult, ToolStatus
@@ -19,9 +19,11 @@ from app.ai.schemas import (
 from app.ai.tools.build_itinerary import BuildItineraryTool
 from app.ai.tools.plan_transport_hop import PlanTransportHopTool
 from app.ai.tools.provider_status import GetProviderStatusTool
-from app.services.itinerary import ItineraryService
 from app.services.search.search_models import SearchQueryParams
 from app.services.search.search_service import SearchService
+
+if TYPE_CHECKING:
+    from app.services.itinerary.service import ItineraryService
 
 
 class SearchPlacesToolAdapter(BaseToolAdapter):

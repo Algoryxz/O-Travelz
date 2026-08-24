@@ -43,14 +43,14 @@ export function useMapProjection(): MapProjectionHook {
     ): Promise<MapProjectionResponse | null> => {
       const client = customClient ?? defaultApiClient;
 
-      // Extract unique place IDs across all days and stops
+      // Extract unique place IDs across all days and stops that are valid canonical UUIDs
       const seenPlaceIds = new Set<string>();
       const requestedFeatures: MapProjectionFeatureRequest[] = [];
 
       for (const day of itinerary.days) {
         for (const stop of day.stops) {
           const placeId = stop.place?.id ? String(stop.place.id).trim() : "";
-          if (placeId && !seenPlaceIds.has(placeId)) {
+          if (placeId && isUUID(placeId) && !seenPlaceIds.has(placeId)) {
             seenPlaceIds.add(placeId);
             requestedFeatures.push({
               entity: "place",
@@ -69,6 +69,13 @@ export function useMapProjection(): MapProjectionHook {
             hop,
           });
         }
+      }
+
+      if (requestedFeatures.length === 0 && requestedHops.length === 0) {
+        setProjection(null);
+        setIsLoading(false);
+        setError(null);
+        return null;
       }
 
       setIsLoading(true);
@@ -100,9 +107,11 @@ export function useMapProjection(): MapProjectionHook {
     ): Promise<MapProjectionResponse | null> => {
       const client = customClient ?? defaultApiClient;
 
+      // Strictly filter to valid canonical UUID database identifiers
       const validPlaceIds = Array.from(new Set(placeIds))
         .map((id) => (typeof id === "string" ? id.trim() : ""))
-        .filter((id) => id.length > 0);
+        .filter((id) => id.length > 0 && isUUID(id));
+
       if (validPlaceIds.length === 0) {
         setProjection(null);
         setIsLoading(false);

@@ -1,11 +1,13 @@
 """Thin adapter for the existing deterministic itinerary service."""
 from __future__ import annotations
 
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from app.ai.schemas import BuildItineraryArgs
 from app.ai.tools.common import ToolResult, ToolStatus
-from app.services.itinerary import ItineraryPlanningError, ItineraryService
+
+if TYPE_CHECKING:
+    from app.services.itinerary.service import ItineraryService
 
 
 class BuildItineraryTool:
@@ -15,6 +17,8 @@ class BuildItineraryTool:
         self.service = service
 
     def execute(self, raw_args: Any) -> ToolResult:
+        from app.services.itinerary.service import ItineraryPlanningError
+
         try:
             args = BuildItineraryArgs.model_validate(raw_args)
             return ToolResult(tool_name=self.name, status=ToolStatus.OK, data=self.service.plan(args.constraints))

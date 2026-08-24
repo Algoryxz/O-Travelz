@@ -27,6 +27,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Iterable
+import uuid
 
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "places"
@@ -519,11 +520,14 @@ def import_categories(
         name = record["name"]
         category = _find_one(session, category_model, name=identifier)
         if category is None:
-            category = category_model(
-                name=identifier,
-                display_name=name,
-                description=record.get("description"),
-            )
+            kwargs = {
+                "name": identifier,
+                "display_name": name,
+                "description": record.get("description"),
+            }
+            if getattr(category_model, "__tablename__", None):
+                kwargs["id"] = uuid.uuid5(uuid.NAMESPACE_DNS, f"otravelz.category.{identifier}")
+            category = category_model(**kwargs)
             session.add(category)
             created += 1
         else:
@@ -553,11 +557,14 @@ def import_interests(
         name = record["name"]
         interest = _find_one(session, interest_model, name=identifier)
         if interest is None:
-            interest = interest_model(
-                name=identifier,
-                display_name=name,
-                description=record.get("description"),
-            )
+            kwargs = {
+                "name": identifier,
+                "display_name": name,
+                "description": record.get("description"),
+            }
+            if getattr(interest_model, "__tablename__", None):
+                kwargs["id"] = uuid.uuid5(uuid.NAMESPACE_DNS, f"otravelz.interest.{identifier}")
+            interest = interest_model(**kwargs)
             session.add(interest)
             created += 1
         else:
@@ -664,6 +671,8 @@ def import_records(
 
             place_instance = existing
             if place_instance is None:
+                if values.get("research_id") and getattr(place_model, "__tablename__", None):
+                    values["id"] = uuid.uuid5(uuid.NAMESPACE_DNS, f"otravelz.place.{values['research_id']}")
                 place_instance = place_model(**values)
                 session.add(place_instance)
                 place_count += 1

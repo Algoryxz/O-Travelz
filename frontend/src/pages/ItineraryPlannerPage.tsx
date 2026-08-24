@@ -596,6 +596,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
           <DestinationsPage
             selectedLocation={selectedLocation}
             initialSearch={destinationSearch}
+            apiClient={apiClient}
             onSelectPlace={(place) => setSelectedPlaceForModal(place)}
             onViewOnMap={(place) => handleViewPlaceOnMap(place)}
             onPlanTripWithPlace={(place) => handlePlanTripWithSinglePlace(place)}
