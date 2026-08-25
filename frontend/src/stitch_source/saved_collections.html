@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Saved Collections &amp; Trips Management Hub - O-Travelz</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: "#FBF9F5",
+                        card: "#FFFFFF",
+                        "secondary-surface": "#F2EEE7",
+                        "text-primary": "#12161E",
+                        "text-secondary": "#3D4654",
+                        "text-muted": "#70798B",
+                        "primary-accent": "#B87B22",
+                        "secondary-accent": "#1B5E6B",
+                        "mineral-earth": "#A84825",
+                        botanical: "#2F523E",
+                        hairline: "#E5DFD5",
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    fontFamily: {
+                        headline: ["Playfair Display", "serif"],
+                        display: ["Playfair Display", "serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                        label: ["Public Sans", "sans-serif"],
+                        mono: ["DM Mono", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.canvas');
+            color: theme('colors.text-primary');
+            font-family: theme('fontFamily.body');
+        }
+        .glass-nav {
+            background-color: rgba(251, 249, 245, 0.75);
+            backdrop-filter: blur(20px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-24">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-[#FBF9F5]/75 backdrop-blur-xl dark:bg-[#12161E]/75 border-b border-[#E5DFD5] dark:border-[#3D4654]">
+<div class="flex items-center gap-8">
+<a class="font-display text-2xl italic font-serif text-[#12161E] dark:text-[#FBF9F5]" href="#">O-Travelz</a>
+<div class="hidden md:flex items-center gap-6 font-body text-label-sm uppercase tracking-widest text-[#3D4654] dark:text-[#70798B]">
+<a class="hover:text-[#B87B22] transition-colors hover:opacity-80 transition-opacity duration-300" href="#">Discover</a>
+<a class="hover:text-[#B87B22] transition-colors hover:opacity-80 transition-opacity duration-300" href="#">Destinations</a>
+<a class="hover:text-[#B87B22] transition-colors hover:opacity-80 transition-opacity duration-300" href="#">Routes</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-4 text-[#3D4654]">
+<button class="hover:text-[#B87B22] transition-colors"><span class="material-symbols-outlined">search</span></button>
+<button class="hover:text-[#B87B22] transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="hover:text-[#B87B22] transition-colors"><span class="material-symbols-outlined">favorite</span></button>
+</div>
+<img alt="User Avatar" class="w-10 h-10 rounded-full object-cover border border-hairline" data-alt="User profile luxury traveler avatar. A sophisticated portrait of a young professional traveler wearing a stylish linen outfit, standing in front of softly blurred classical architecture, bathed in warm cinematic lighting with a shallow depth of field. Light mode aesthetic, warm earth tones, sharp focus on the face." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtRB1cI_P6bKlC7Gm4q0zAzEUdCfe4gA_oooUCU_jUloaSNxshyJqg-CZxb25yjU-hY9yAaQ48cpXziId54XksB0uN6FnMQ_qiaeBL9RLwUU3wNLT66FvD8a8ZORoxrD1acjoDDlJmpZQQCiOzzGwrM62fQ0SZvUvm4jH8O8o2jXQqOSfbpN4SL5PRNQUdXXlCKy49D3t1nqw_tgjm4MvyrvC6T2iOqlYnZqX4TtwMFoCgPjF765enJ__sBJIpuXIMZeYtyFgfYWs"/>
+</div>
+</nav>
+<main class="pt-32 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto">
+<!-- Editorial Header -->
+<header class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-2xl">
+<p class="font-body text-primary-accent uppercase tracking-widest text-xs font-semibold mb-3">Your Collection</p>
+<h1 class="font-headline text-5xl md:text-6xl text-text-primary leading-tight mb-4">Curated Sanctuaries <br/><span class="italic text-text-secondary">&amp; Saved Journeys</span></h1>
+<p class="font-body text-text-secondary text-lg leading-relaxed max-w-xl">A personalized archive of your most inspiring destinations and meticulously planned itineraries, ready for your next escape.</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-secondary-surface text-text-primary rounded-lg font-body text-sm hover:bg-hairline transition-colors">
+<span class="material-symbols-outlined text-[20px]">tune</span> Filter
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-secondary-surface text-text-primary rounded-lg font-body text-sm hover:bg-hairline transition-colors">
+<span class="material-symbols-outlined text-[20px]">share</span> Batch Share
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-text-primary text-card rounded-lg font-body text-sm hover:bg-text-secondary transition-colors">
+<span class="material-symbols-outlined text-[20px]">download</span> Export Archive
+                </button>
+</div>
+</header>
+<!-- Segmented Pill Switcher -->
+<div class="mb-12 border-b border-hairline pb-4 flex gap-8 overflow-x-auto no-scrollbar">
+<button class="text-primary-accent font-semibold border-b-2 border-primary-accent pb-4 -mb-[18px] whitespace-nowrap px-2 font-body text-sm tracking-wide">Saved Places (14)</button>
+<button class="text-text-muted hover:text-text-primary transition-colors pb-4 whitespace-nowrap px-2 font-body text-sm tracking-wide">Saved Itineraries &amp; Trips (4)</button>
+<button class="text-text-muted hover:text-text-primary transition-colors pb-4 whitespace-nowrap px-2 font-body text-sm tracking-wide">Archived Circuits (2)</button>
+</div>
+<!-- Saved Places Grid -->
+<section class="mb-24">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1: Konark Sun Temple -->
+<article class="group bg-card rounded-xl border border-hairline overflow-hidden hover:shadow-xl transition-all duration-500 ease-out flex flex-col h-full relative">
+<div class="relative h-64 overflow-hidden">
+<img alt="Konark Sun Temple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1UJDc3s2rXfcdfgh0MjYXjfP8ie0_DO7Fj6DtOI1jxN1NT5w5L1FuH7xOr297v_k2-BUyEq44qOacOXYFcXeueXdZg4_hKcOTG7ogznQQmkSnAUksJU8R9Galpbi-cN1rtBZBdA-A-ga92A2mtW_wN5WlPZMXxmszLL9e5YQJDb6ooyQkCt09GNymZyuDKxfOzEONVibDomhHlQ28Eg5bA9UFmQeGAMaLJdTYQdCpfsO5BQAtedD8nlMqY"/>
+<button class="absolute top-4 right-4 bg-canvas/80 backdrop-blur-md p-2 rounded-full text-primary-accent hover:text-mineral-earth transition-colors">
+<span class="material-symbols-outlined icon-fill">bookmark</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-canvas/90 backdrop-blur-md px-3 py-1 rounded-md text-xs font-mono font-medium text-text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary-accent icon-fill">star</span> 4.9
+                        </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-2xl text-text-primary">Konark Sun Temple</h3>
+</div>
+<p class="font-body text-text-secondary text-sm mb-4 line-clamp-2">A 13th-century CE sun temple at Konark about 35 kilometres northeast from Puri on the coastline of Odisha, India.</p>
+<div class="flex items-center gap-4 mb-6 font-mono text-xs text-text-muted mt-auto">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">groups</span> Moderate Crowd</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 2h avg</span>
+</div>
+<button class="w-full py-3 border border-primary-accent text-primary-accent rounded-lg font-body text-sm font-medium hover:bg-primary-accent hover:text-card transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span> Add to Trip
+                        </button>
+</div>
+</article>
+<!-- Card 2: Chilika Lake -->
+<article class="group bg-card rounded-xl border border-hairline overflow-hidden hover:shadow-xl transition-all duration-500 ease-out flex flex-col h-full relative">
+<div class="relative h-64 overflow-hidden">
+<img alt="Chilika Lake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1VLwdkiwQozIPC_CjWyELNtl51mfJhyHAzYF5-lkeK1HlLLByGmVKuKR3Qj4dGbDryJhVVdqdRuUMA0oAJPQedPVJrf34del2K8rah5FMalLa2lFSHSEaBam9K9mnjP6flOlGOiifYlO8TXoZQgXM9tme0QfCY8NcFVh5g1g8eEV3SloqEPSPrVkg4oweGiITSvzYdaRtxSyOxx2KBlbOtcAF8xsh-LWoWh12J6EBQPVEo-Ikh4cRNx6ls"/>
+<button class="absolute top-4 right-4 bg-canvas/80 backdrop-blur-md p-2 rounded-full text-primary-accent hover:text-mineral-earth transition-colors">
+<span class="material-symbols-outlined icon-fill">bookmark</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-canvas/90 backdrop-blur-md px-3 py-1 rounded-md text-xs font-mono font-medium text-text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary-accent icon-fill">star</span> 4.8
+                        </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-2xl text-text-primary">Chilika Lake Sanctuary</h3>
+</div>
+<p class="font-body text-text-secondary text-sm mb-4 line-clamp-2">Asia's largest brackish water lagoon, a haven for migratory birds and the endangered Irrawaddy dolphins.</p>
+<div class="flex items-center gap-4 mb-6 font-mono text-xs text-text-muted mt-auto">
+<span class="flex items-center gap-1 text-botanical"><span class="material-symbols-outlined text-[16px]">nature</span> Eco-Zone</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> Half Day</span>
+</div>
+<button class="w-full py-3 border border-hairline text-text-primary rounded-lg font-body text-sm font-medium hover:border-text-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check</span> In 'Coastal Route'
+                        </button>
+</div>
+</article>
+<!-- Card 3: Raghurajpur -->
+<article class="group bg-card rounded-xl border border-hairline overflow-hidden hover:shadow-xl transition-all duration-500 ease-out flex flex-col h-full relative">
+<div class="relative h-64 overflow-hidden">
+<img alt="Raghurajpur" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Cinematic, high-end travel photography of Raghurajpur heritage crafts village. Vibrant, colorful traditional houses adorned with Pattachitra murals. A local artisan is seen painting intricate details on a canvas outside. Luxury travel magazine aesthetic, soft diffused lighting, rich earthy colors #A84825 and ochre, sharp focus on the cultural textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4A7WAGG-tmjFsjQbXIXPAm9KsTTKR1TyzBHcT_5yPVfZw6DzCnf9ztf-g1NvaU7bc5J5s9l_c-BYVWNCRi3BPN6b5P5yJ_-2-uXRzT3jyoDInPFVJAYtaD82p0Ac24w4z3Mu4iPuQxuWD8BwLCu-pmvXOdO3MFwuKHyoQHtOG0E7OazxKQXJGdQLBylfJOQ2D8xg_QL1XIJYppwi4z4FpOHriZomj3pPoiSdRVDCmHTcIW0HL1sxLw16ncm5NoMBpiAlDTtHA7GA"/>
+<button class="absolute top-4 right-4 bg-canvas/80 backdrop-blur-md p-2 rounded-full text-primary-accent hover:text-mineral-earth transition-colors">
+<span class="material-symbols-outlined icon-fill">bookmark</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-canvas/90 backdrop-blur-md px-3 py-1 rounded-md text-xs font-mono font-medium text-text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary-accent icon-fill">star</span> 4.7
+                        </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-2xl text-text-primary">Raghurajpur Arts Village</h3>
+</div>
+<p class="font-body text-text-secondary text-sm mb-4 line-clamp-2">A heritage crafts village known for its master Pattachitra painters and traditional art forms deeply rooted in culture.</p>
+<div class="flex items-center gap-4 mb-6 font-mono text-xs text-text-muted mt-auto">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">palette</span> Cultural</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 3h avg</span>
+</div>
+<button class="w-full py-3 border border-primary-accent text-primary-accent rounded-lg font-body text-sm font-medium hover:bg-primary-accent hover:text-card transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span> Add to Trip
+                        </button>
+</div>
+</article>
+</div>
+</section>
+<!-- Saved Trips List -->
+<section>
+<h2 class="font-headline text-3xl mb-8 border-b border-hairline pb-4">Saved Itineraries &amp; Trips</h2>
+<div class="flex flex-col gap-6">
+<!-- Trip 1 -->
+<div class="bg-card border border-hairline rounded-xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-lg transition-shadow">
+<div class="flex items-start gap-6">
+<div class="w-16 h-16 rounded-lg bg-secondary-surface flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary-accent text-[32px]">route</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-headline text-xl text-text-primary">3-Day Coastal Golden Triangle</h3>
+<span class="bg-secondary-surface px-2 py-0.5 rounded text-[10px] font-mono text-text-secondary flex items-center gap-1 uppercase">
+<span class="material-symbols-outlined text-[12px]">cloud_done</span> Synced
+                                </span>
+</div>
+<p class="font-body text-sm text-text-secondary mb-3">Puri • Konark • Bhubaneswar • Chilika</p>
+<div class="flex gap-4 font-mono text-xs text-text-muted">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">map</span> 180 km</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">location_on</span> 6 Stops</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto mt-4 md:mt-0">
+<button class="flex-1 md:flex-none px-4 py-2 bg-secondary-surface text-text-primary rounded-lg font-body text-sm hover:bg-hairline transition-colors">Share</button>
+<button class="flex-1 md:flex-none px-6 py-2 bg-text-primary text-card rounded-lg font-body text-sm hover:bg-text-secondary transition-colors">Open Planner</button>
+</div>
+</div>
+<!-- Trip 2 -->
+<div class="bg-card border border-hairline rounded-xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-lg transition-shadow">
+<div class="flex items-start gap-6">
+<div class="w-16 h-16 rounded-lg bg-[#2F523E]/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-botanical text-[32px]">forest</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-headline text-xl text-text-primary">4-Day Eco-Tribal Odyssey</h3>
+<span class="bg-secondary-surface px-2 py-0.5 rounded text-[10px] font-mono text-text-secondary flex items-center gap-1 uppercase">
+<span class="material-symbols-outlined text-[12px]">cloud_done</span> Synced
+                                </span>
+</div>
+<p class="font-body text-sm text-text-secondary mb-3">Koraput • Jeypore • Gupteswar</p>
+<div class="flex gap-4 font-mono text-xs text-text-muted">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">map</span> 320 km</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">location_on</span> 8 Stops</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto mt-4 md:mt-0">
+<button class="flex-1 md:flex-none px-4 py-2 bg-secondary-surface text-text-primary rounded-lg font-body text-sm hover:bg-hairline transition-colors">Share</button>
+<button class="flex-1 md:flex-none px-6 py-2 bg-text-primary text-card rounded-lg font-body text-sm hover:bg-text-secondary transition-colors">Open Planner</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

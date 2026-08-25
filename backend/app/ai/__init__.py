@@ -1,0 +1,116 @@
+"""Provider-neutral AI grounding and orchestration package."""
+
+from app.ai.adapter import (
+    AIProviderAdapter,
+    AzureOpenAIProviderAdapter,
+    GeminiProviderAdapter,
+    GenericHTTPProviderAdapter,
+    MockProviderAdapter,
+    MultiProviderFallbackAdapter,
+    NVIDIAProviderAdapter,
+    RuleBasedProviderAdapter,
+    create_provider_adapter,
+)
+from app.ai.provider_health import (
+    ProviderHealthStatus,
+    ProviderReadinessState,
+    inspect_all_providers,
+    inspect_provider_health,
+)
+from app.ai.boundary import ToolExecutionBoundary
+
+from app.ai.contracts import (
+    AdapterResponse,
+    AIProviderError,
+    AuthenticationError,
+    ChatMessage,
+    ChatRole,
+    FinishReason,
+    MalformedProviderResponseError,
+    MissingConfigurationError,
+    ProviderErrorCode,
+    ProviderTimeoutError,
+    ProviderUnavailableError,
+    RateLimitExceededError,
+    ToolCall,
+    ToolDefinition,
+    ToolResult,
+    ToolStatus,
+    UnsupportedCapabilityError,
+)
+from app.ai.conversation import GroundedConversationOrchestrator, GroundedConversationResponse
+from app.ai.grounding import GroundingBoundary, GroundingContext, GroundingFact
+from app.ai.model import FakeModelAdapter, ModelAdapter, RuleBasedModelAdapter
+from app.ai.multilingual import (
+    detect_language,
+    extract_multilingual_days,
+    extract_multilingual_interests,
+    generate_grounded_itinerary_message,
+    generate_grounded_search_message,
+    resolve_multilingual_location,
+)
+from app.ai.orchestrator import AIOrchestrator
+from app.ai.registry import (
+    BaseToolAdapter,
+    DuplicateToolError,
+    FunctionalToolAdapter,
+    ToolRegistry,
+    ToolRegistryError,
+    UnknownToolError,
+)
+
+__all__ = [
+    "AIOrchestrator",
+    "AIProviderAdapter",
+    "AIProviderError",
+    "AdapterResponse",
+    "AuthenticationError",
+    "AzureOpenAIProviderAdapter",
+    "BaseToolAdapter",
+    "ChatMessage",
+    "ChatRole",
+    "DuplicateToolError",
+    "FakeModelAdapter",
+    "FinishReason",
+    "FunctionalToolAdapter",
+    "GeminiProviderAdapter",
+    "GenericHTTPProviderAdapter",
+    "GroundedConversationOrchestrator",
+    "GroundedConversationResponse",
+    "GroundingBoundary",
+    "GroundingContext",
+    "GroundingFact",
+    "MalformedProviderResponseError",
+    "MissingConfigurationError",
+    "MockProviderAdapter",
+    "ModelAdapter",
+    "MultiProviderFallbackAdapter",
+    "NVIDIAProviderAdapter",
+    "ProviderErrorCode",
+    "ProviderHealthStatus",
+    "ProviderReadinessState",
+    "ProviderTimeoutError",
+    "ProviderUnavailableError",
+    "RateLimitExceededError",
+    "RuleBasedModelAdapter",
+    "RuleBasedProviderAdapter",
+    "ToolCall",
+    "ToolDefinition",
+    "ToolExecutionBoundary",
+    "ToolRegistry",
+    "ToolRegistryError",
+    "ToolResult",
+    "ToolStatus",
+    "UnknownToolError",
+    "UnsupportedCapabilityError",
+    "create_provider_adapter",
+    "detect_language",
+    "extract_multilingual_days",
+    "extract_multilingual_interests",
+    "generate_grounded_itinerary_message",
+    "generate_grounded_search_message",
+    "inspect_all_providers",
+    "inspect_provider_health",
+    "resolve_multilingual_location",
+
+]

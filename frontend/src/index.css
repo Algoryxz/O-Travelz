@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Oriya:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+
+@theme {
+  /* Stitch Native Design Tokens */
+  --color-mineral-sand: #FBF9F5;
+  --color-pure-chalk: #FFFFFF;
+  --color-weathered-stone: #F2EEE7;
+  --color-calligraphy-ink: #12161E;
+  --color-river-slate: #3D4654;
+  --color-stone-muted: #70798B;
+  --color-kalinga-brass: #B87B22;
+  --color-chilika-teal: #1B5E6B;
+  --color-temple-clay: #A84825;
+  --color-sal-green: #2F523E;
+  --color-stone-neutral: #E5DFD5;
+
+  /* Core Semantic Canvas & Master Editorial Mineral Palette */
+  --color-canvas-bg: #FBF9F5;
+  --color-canvas-sand: #FAF7F2;
+  --color-canvas-light: #FBF9F5;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #F2EEE7;
+  --color-surface-hover: #EAE4DA;
+  --color-surface-card: #FFFFFF;
+
+  /* Hairline Architectural Dividers */
+  --color-border-subtle: #EFEAE2;
+  --color-border-default: #E5DFD5;
+  --color-border-strong: #D1C8BA;
+  --color-border-warm: #E5DFD5;
+
+  /* Deep Calligraphy Typography Hierarchy */
+  --color-text-primary: #12161E;
+  --color-text-secondary: #3D4654;
+  --color-text-muted: #70798B;
+  --color-text-inverse: #FBF9F5;
+
+  /* Signature Restrained Odishan Mineral Pigments */
+  --color-brand-brass: #B87B22;
+  --color-brand-brass-hover: #A0691B;
+  --color-brand-brass-light: #DF9B34;
+  --color-brand-brass-subtle: rgba(184, 123, 34, 0.12);
+
+  --color-brand-teal: #1B5E6B;
+  --color-brand-teal-dark: #12434D;
+  --color-brand-teal-light: #288494;
+  --color-brand-teal-subtle: rgba(27, 94, 107, 0.12);
+
+  --color-brand-clay: #A84825;
+  --color-brand-terracotta: #A84825;
+  --color-brand-terracotta-dark: #8F3B1D;
+  --color-brand-terracotta-light: #C25B34;
+
+  --color-brand-forest: #2F523E;
+  --color-brand-forest-light: #3D6A50;
+
+  --color-accent-saffron: #D9822B;
+  --color-accent-saffron-dark: #B86B1E;
+  --color-accent-coral: #E06D53;
+  --color-accent-sky: #2B7A8F;
+  --color-accent-violet: #6E5A8F;
+
+  /* Semantic Category Colors */
+  --color-cat-nature: #2F523E;
+  --color-cat-heritage: #A84825;
+  --color-cat-beach: #1B5E6B;
+  --color-cat-food: #B87B22;
+  --color-cat-shopping: #7C4A6F;
+  --color-cat-medical: #A83244;
+  --color-cat-transit: #1B5E6B;
+
+  /* Backward-compatible variables for existing components */
+  --color-brand-sand: #B87B22;
+  --color-brand-sand-light: #F2EEE7;
+  --color-brand-cream: #FBF9F5;
+  --color-brand-ink: #12161E;
+  --color-brand-emerald: #2F523E;
+  --color-brand-obsidian: #12161E;
+
+  /* Disciplined Typography Scale */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-odia: 'Noto Sans Oriya', system-ui, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #FBF9F5;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-body);
+  background: #FBF9F5;
+  color: #12161E;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Base Form & Interactive Typography */
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #B87B22;
+  outline-offset: 2px;
+}
+
+/* Editorial Brand Elements */
+.font-brand-heading {
+  font-family: var(--font-serif);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.font-editorial-serif {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+.font-data-mono {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+  font-feature-settings: "tnum" 1;
+}
+
+.font-odia {
+  font-family: var(--font-odia);
+}
+
+/* Subtle, Disciplined Status Animations */
+@keyframes livepulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.94); }
+}
+
+.live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2F523E;
+  animation: livepulse 2.5s ease-in-out infinite;
+}
+
+/* Selective Frosted Glass & Surface Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 20px -2px rgba(18, 22, 30, 0.05);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 223, 213, 0.9);
+  box-shadow: 0 2px 8px -1px rgba(18, 22, 30, 0.04);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #E5DFD5;
+}
+
+.card-editorial {
+  background: #FFFFFF;
+  border: 1px solid #E5DFD5;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px -2px rgba(18, 22, 30, 0.04);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.card-editorial:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(18, 22, 30, 0.08);
+  border-color: #D1C8BA;
+}
+
+/* Disciplined Elevation & Surfaces */
+.shadow-paper {
+  box-shadow: 0 1px 3px 0 rgba(18, 22, 30, 0.06), 0 1px 2px -1px rgba(18, 22, 30, 0.04);
+}
+
+.shadow-paper-lg {
+  box-shadow: 0 8px 20px -3px rgba(18, 22, 30, 0.08), 0 4px 6px -2px rgba(18, 22, 30, 0.04);
+}
+
+.shadow-paper-xl {
+  box-shadow: 0 16px 32px -4px rgba(18, 22, 30, 0.1), 0 8px 12px -4px rgba(18, 22, 30, 0.05);
+}
+
+/* Top Navigation Bar: Refined Frosted Glass & Architectural */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: rgba(251, 249, 245, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #E5DFD5;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(61, 70, 84, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(184, 123, 34, 0.4);
+}
+
+/* ==========================================================================
+   Print Optimization & Offline Document Stylesheet
+   ========================================================================== */
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 1.2cm;
+    size: auto;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  /* Hide interactive, navigational, modal, and map elements */
+  .no-print,
+  header,
+  nav,
+  footer,
+  aside,
+  button,
+  .topbar,
+  .live-dot,
+  .leaflet-container,
+  [role="dialog"],
+  [data-testid="itinerary-view"] {
+    display: none !important;
+  }
+
+  /* Display only the dedicated printable representation */
+  .print-only {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .printable-itinerary {
+    display: block !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  /* Page break rules for clean multi-day printing */
+  .page-break-inside-avoid,
+  .break-inside-avoid,
+  .day-print-section {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: #000000 !important;
+  }
+}
+
+/* Continuous Horizontal News Ticker / Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover,
+.hover\:pause-animation:hover {
+  animation-play-state: paused;
+}
+
+.mask-linear-fade {
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+}
+

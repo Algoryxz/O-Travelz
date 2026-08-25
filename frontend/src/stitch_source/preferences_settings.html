@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Expedition Preferences - O-Travelz</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: "#FBF9F5",
+                        card: "#FFFFFF",
+                        secondary: "#F2EEE7",
+                        ink: "#12161E",
+                        slate: "#3D4654",
+                        muted: "#70798B",
+                        accent: "#B87B22",
+                        teal: "#1B5E6B",
+                        clay: "#A84825",
+                        botanical: "#2F523E",
+                        hairline: "#E5DFD5",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        headline: ["Playfair Display", "serif"],
+                        display: ["Playfair Display", "serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                        mono: ["DM Mono", "monospace"]
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(18, 22, 30, 0.05)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-canvas text-ink font-body min-h-screen flex items-center justify-center p-4 antialiased">
+<!-- Modal Container -->
+<div class="w-full max-w-3xl bg-card rounded-xl border border-hairline shadow-soft overflow-hidden flex flex-col max-h-[921px]">
+<!-- Header -->
+<header class="px-8 py-6 border-b border-hairline flex items-center justify-between sticky top-0 bg-card/90 backdrop-blur-md z-10">
+<div>
+<h1 class="font-headline text-2xl font-semibold text-ink">Expedition Preferences &amp; Data Settings</h1>
+<p class="text-sm text-slate mt-1">Customize your luxury geographic experience.</p>
+</div>
+<button class="p-2 text-muted hover:text-ink transition-colors rounded-full hover:bg-secondary">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<!-- Scrollable Content -->
+<main class="p-8 overflow-y-auto space-y-10 flex-grow scrollbar-thin">
+<!-- 1. Dietary & Sacred Food Constraints -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-accent">restaurant</span>
+<h2 class="font-headline text-lg font-medium text-ink">Dietary &amp; Sacred Food Constraints</h2>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="px-4 py-2 rounded-full border border-accent bg-accent/10 text-accent font-medium text-sm transition-all shadow-sm">
+                        Vegetarian / Sattvik (No Onion/Garlic)
+                    </button>
+<button class="px-4 py-2 rounded-full border border-hairline text-slate hover:border-slate text-sm transition-all">
+                        Vegan
+                    </button>
+<button class="px-4 py-2 rounded-full border border-hairline text-slate hover:border-slate text-sm transition-all">
+                        Seafood Explorer
+                    </button>
+<button class="px-4 py-2 rounded-full border border-accent bg-accent/10 text-accent font-medium text-sm transition-all shadow-sm">
+                        Halal
+                    </button>
+<button class="px-4 py-2 rounded-full border border-hairline text-slate hover:border-slate text-sm transition-all">
+                        Gluten-Free
+                    </button>
+</div>
+</section>
+<!-- 2. Pacing & Accessibility -->
+<section class="grid md:grid-cols-2 gap-8">
+<!-- Pacing -->
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-teal">directions_walk</span>
+<h2 class="font-headline text-lg font-medium text-ink">Itinerary Pacing</h2>
+</div>
+<div class="space-y-3">
+<label class="flex items-start gap-3 p-3 rounded-lg border border-accent bg-accent/5 cursor-pointer">
+<input checked="" class="mt-1 text-accent focus:ring-accent border-hairline" name="pacing" type="radio"/>
+<div>
+<p class="text-sm font-medium text-ink">Relaxed / Cultural Immersion</p>
+<p class="text-xs text-muted mt-0.5">Approx. 2 stops per day</p>
+</div>
+</label>
+<label class="flex items-start gap-3 p-3 rounded-lg border border-hairline hover:bg-secondary cursor-pointer transition-colors">
+<input class="mt-1 text-accent focus:ring-accent border-hairline" name="pacing" type="radio"/>
+<div>
+<p class="text-sm font-medium text-ink">Moderate Explorer</p>
+<p class="text-xs text-muted mt-0.5">3-4 stops per day</p>
+</div>
+</label>
+<label class="flex items-start gap-3 p-3 rounded-lg border border-hairline hover:bg-secondary cursor-pointer transition-colors">
+<input class="mt-1 text-accent focus:ring-accent border-hairline" name="pacing" type="radio"/>
+<div>
+<p class="text-sm font-medium text-ink">High Velocity</p>
+<p class="text-xs text-muted mt-0.5">Maximize daily coverage</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Accessibility -->
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-clay">accessible</span>
+<h2 class="font-headline text-lg font-medium text-ink">Accessibility</h2>
+</div>
+<div class="space-y-4 bg-secondary/50 p-4 rounded-lg border border-hairline">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-medium text-ink">Wheelchair Friendly Routes</p>
+<p class="text-xs text-muted">Prioritize step-free access</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-hairline rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-teal"></div>
+</label>
+</div>
+<div class="w-full h-px bg-hairline"></div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-medium text-ink">Senior Citizen Assistance</p>
+<p class="text-xs text-muted">Request support at landmarks</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-hairline rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-teal"></div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Offline Asset Cache & Storage -->
+<section class="bg-canvas p-6 rounded-lg border border-hairline">
+<div class="flex items-center gap-2 mb-5">
+<span class="material-symbols-outlined text-slate">offline_pin</span>
+<h2 class="font-headline text-lg font-medium text-ink">Offline Asset Cache &amp; Storage</h2>
+</div>
+<div class="mb-5">
+<div class="flex justify-between text-sm mb-2">
+<span class="text-slate font-medium">Local Storage Usage</span>
+<span class="font-mono text-xs text-muted">42.8 MB / 250 MB used</span>
+</div>
+<div class="w-full bg-hairline rounded-full h-1.5 overflow-hidden">
+<div class="bg-teal h-1.5 rounded-full" style="width: 17%"></div>
+</div>
+<p class="text-xs text-muted mt-2 italic">(14 Offline Destination Packages Cached)</p>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-hairline">
+<button class="text-sm text-clay font-medium hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">delete</span>
+                        Clear Offline Cache
+                    </button>
+<div class="flex items-center gap-3">
+<span class="text-sm text-slate">Auto-download Route Maps on Wi-Fi</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-hairline rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-accent"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- 4. Currency & Language Localization -->
+<section class="grid sm:grid-cols-2 gap-6">
+<!-- Currency -->
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate">payments</span>
+<h2 class="font-headline text-md font-medium text-ink">Display Currency</h2>
+</div>
+<div class="inline-flex rounded-lg border border-hairline p-1 bg-secondary w-full">
+<button class="flex-1 py-1.5 px-3 rounded-md bg-card shadow-sm text-sm font-medium text-ink text-center">INR ₹</button>
+<button class="flex-1 py-1.5 px-3 rounded-md text-sm text-muted hover:text-ink transition-colors text-center">USD $</button>
+<button class="flex-1 py-1.5 px-3 rounded-md text-sm text-muted hover:text-ink transition-colors text-center">EUR €</button>
+<button class="flex-1 py-1.5 px-3 rounded-md text-sm text-muted hover:text-ink transition-colors text-center">GBP £</button>
+</div>
+</div>
+<!-- Language -->
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate">translate</span>
+<h2 class="font-headline text-md font-medium text-ink">Primary Language</h2>
+</div>
+<div class="relative">
+<select class="w-full appearance-none bg-card border border-hairline text-ink text-sm rounded-lg focus:ring-accent focus:border-accent block p-2.5 pr-8">
+<option>English</option>
+<option>Odia (ଓଡ଼ିଆ)</option>
+<option>Hindi (हिंदी)</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-muted">
+<span class="material-symbols-outlined" style="font-size: 18px;">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Actions -->
+<footer class="px-8 py-5 border-t border-hairline bg-secondary/30 flex items-center justify-between sticky bottom-0">
+<button class="text-sm text-muted hover:text-ink font-medium transition-colors">
+                Reset to Defaults
+            </button>
+<button class="bg-accent hover:bg-[#a3691b] text-white px-6 py-2.5 rounded-lg text-sm font-medium transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 18px;">save</span>
+                Save Preferences
+            </button>
+</footer>
+</div>
+</body></html>

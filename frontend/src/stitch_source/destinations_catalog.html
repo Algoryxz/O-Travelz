@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>O-Travelz - Destination Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: "#FBF9F5",
+                        card: "#FFFFFF",
+                        secondary: "#F2EEE7",
+                        primary: "#12161E",
+                        muted: "#70798B",
+                        accent: "#B87B22",
+                        "accent-teal": "#1B5E6B",
+                        earth: "#A84825",
+                        botanical: "#2F523E",
+                        border: "#E5DFD5"
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FBF9F5;
+            color: #12161E;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .asymmetric-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        @media (max-width: 1024px) {
+            .asymmetric-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-canvas text-primary antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/75 backdrop-blur-xl border-b border-border shadow-sm">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-full">
+<div class="text-2xl font-display font-bold text-primary italic">O-Travelz</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#3D4654] font-body hover:text-[#B87B22] transition-colors" href="#">Circuits</a>
+<a class="text-[#B87B22] border-b-2 border-[#B87B22] pb-1 font-semibold" href="#">Regions</a>
+<a class="text-[#3D4654] font-body hover:text-[#B87B22] transition-colors" href="#">Editorial</a>
+<a class="text-[#3D4654] font-body hover:text-[#B87B22] transition-colors" href="#">Plan</a>
+</div>
+<div class="flex gap-4 items-center">
+<button class="hover:bg-[#F2EEE7]/50 p-2 rounded-full transition-all duration-300 scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined text-[#3D4654]">map</span>
+</button>
+<button class="hover:bg-[#F2EEE7]/50 p-2 rounded-full transition-all duration-300 scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined text-[#3D4654]">person</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-canvas border-t border-border flex justify-around py-3">
+<button class="flex flex-col items-center gap-1 text-muted hover:text-primary transition-colors">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-accent font-bold">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px]">Circuits</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-muted hover:text-primary transition-colors">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px]">Explorer</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-muted hover:text-primary transition-colors">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px]">Journal</span>
+</button>
+</nav>
+<main class="pt-28 pb-32 px-8 max-w-[1600px] mx-auto">
+<!-- 1. Editorial Header & Filter Bar -->
+<header class="mb-12 border-b border-border pb-8">
+<h1 class="text-[44px] font-display text-primary leading-tight mb-4 tracking-tight">Odisha Destinations</h1>
+<p class="text-lg font-body text-muted max-w-3xl mb-8">81 verified cultural monuments, sacred shrines, coastal lagoons, and mountain sanctuaries.</p>
+<div class="flex flex-wrap gap-4 items-center font-body text-sm">
+<div class="flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-lg text-primary shadow-sm">
+<span class="material-symbols-outlined text-accent text-lg">location_on</span>
+<span class="font-medium">From: Puri Hub</span>
+<span class="material-symbols-outlined text-muted text-sm ml-2">expand_more</span>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-full border border-border hover:bg-secondary text-primary transition-colors">Central Heritage</button>
+<button class="px-4 py-2 rounded-full border border-border hover:bg-secondary text-primary transition-colors">Southern Coast</button>
+<button class="px-4 py-2 rounded-full border border-border hover:bg-secondary text-primary transition-colors">Western Highlands</button>
+</div>
+<div class="flex-grow"></div>
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted text-lg">search</span>
+<input class="w-full bg-card border border-border rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-accent focus:border-accent outline-none" placeholder="Search destinations ⌘K" type="text"/>
+</div>
+</div>
+</header>
+<!-- 2. Hero Featured Destination -->
+<section class="asymmetric-layout mb-16">
+<article class="bg-card border border-border rounded-xl overflow-hidden shadow-sm group">
+<div class="relative h-[400px] w-full overflow-hidden">
+<img alt="Konark Sun Temple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AEtjO1UJDc3s2rXfcdfgh0MjYXjfP8ie0_DO7Fj6DtOI1jxN1NT5w5L1FuH7xOr297v_k2-BUyEq44qOacOXYFcXeueXdZg4_hKcOTG7ogznQQmkSnAUksJU8R9Galpbi-cN1rtBZBdA-A-ga92A2mtW_wN5WlPZMXxmszLL9e5YQJDb6ooyQkCt09GNymZyuDKxfOzEONVibDomhHlQ28Eg5bA9UFmQeGAMaLJdTYQdCpfsO5BQAtedD8nlMqY"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-1 border border-border text-xs font-semibold">
+<span class="material-symbols-outlined text-accent-teal text-sm">verified</span>
+                        Verified Monument
+                    </div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="text-3xl font-display text-primary mb-2">Konark Sun Temple</h2>
+<p class="text-muted font-display italic">The 13th-Century Stone Chariot</p>
+</div>
+<div class="flex items-center gap-1 text-accent font-mono text-sm">
+<span>4.9</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+</div>
+<div class="flex gap-6 text-sm font-mono text-muted mb-8 border-t border-b border-border py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">schedule</span>
+                            90 min visit
+                        </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">map</span>
+                            Puri District
+                        </div>
+</div>
+<button class="flex items-center gap-2 text-accent font-semibold hover:text-primary transition-colors">
+                        Plan Trip Around Konark 
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Curated Context Card -->
+<aside class="flex flex-col gap-6">
+<div class="bg-secondary/50 border border-border p-8 rounded-xl h-full flex flex-col justify-center">
+<span class="material-symbols-outlined text-accent text-3xl mb-4">format_quote</span>
+<p class="font-display text-lg leading-relaxed text-primary italic mb-6">
+                        "Here the language of stone surpasses the language of human." 
+                        <span class="block text-sm font-body text-muted mt-4 not-italic">— Rabindranath Tagore</span>
+</p>
+<div class="h-[1px] w-12 bg-accent mb-6"></div>
+<p class="text-sm text-muted font-body leading-loose">
+                        A masterpiece of Orissan architecture, designed as a colossal chariot for the Sun God Surya, featuring 24 intricately carved wheels drawn by seven horses.
+                    </p>
+</div>
+</aside>
+</section>
+<!-- 3. Asymmetric 3-Column Editorial Grid -->
+<section class="mb-16">
+<div class="flex justify-between items-end mb-8 border-b border-border pb-4">
+<h3 class="text-2xl font-display text-primary">Curated Landmarks</h3>
+<button class="text-sm font-semibold text-muted hover:text-accent flex items-center gap-1 transition-colors">View All <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+<div class="editorial-grid">
+<!-- Card 1 -->
+<article class="bg-card border border-border rounded-lg overflow-hidden group hover:shadow-md transition-shadow">
+<div class="h-64 relative overflow-hidden bg-secondary">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Golden sand beach of Puri at sunrise, pristine coastline, gentle waves, cinematic wide shot, light ethereal morning mist, luxury editorial photography style, serene atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4HOBKmwb-TRzLRRTqTBIQ3NtCwRthDQCEKE1mR7wpBKpAvNf1mjkLmT6bP6lFKtUGDpb87kJFAtFUDwbMdWvGBcyrf-2nA9cLKDvraJAXciCkMIQJ28jtRFmPfKKZJ3oA7TubpweyJVSFRfzI78a7hlv0nXp3OS-W8RJCDdA8bvamIvMFV7m6HV-7fc471Y2AQvyYujyv9STeFFwWgbqpBbiuQr1HTaRZkuAM96lVLvYI2inA6DVeaTHhGgi0l149wMOtT6OcL2Y"/>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-display text-primary mb-1 group-hover:text-accent transition-colors">Puri Golden Beach</h4>
+<p class="text-xs text-muted mb-4">ପୁରୀ ସୁବର୍ଣ୍ଣ ବେଳାଭୂମି</p>
+<p class="font-mono text-xs text-muted mb-6">35 km · 45 min drive</p>
+<div class="flex justify-between items-center border-t border-border pt-4">
+<button class="text-sm font-semibold hover:text-accent transition-colors">Plan</button>
+<div class="flex gap-2">
+<button class="text-muted hover:text-accent transition-colors"><span class="material-symbols-outlined text-[20px]">map</span></button>
+<button class="text-muted hover:text-accent transition-colors"><span class="material-symbols-outlined text-[20px]">bookmark_border</span></button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-card border border-border rounded-lg overflow-hidden group hover:shadow-md transition-shadow">
+<div class="h-64 relative overflow-hidden bg-secondary">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Vast expanse of Chilika Lake with small fishing boats, migratory birds flying in formation, Mangalajodi wetlands, rich teal and earthly tones, calm water reflections, documentary style luxury travel photo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6QubO49fY_DrvKobH8YA_z2I5VbHn-Cl6m_Rvt8AdkapvZeznd7ILNo_kKFDo20Zt-jM7y74iBb9W3tV3271mAGigzAy83VwhHDMw2JJPGt_OhI4KAwE9nVk7_OoVKL6CrynDxSW5HN_UIMlSnG1-kTPAOcZkQnd8sl_8XZA4bBdX3LTrw4hSx6K3HpwkOBEIQMIBPEzZ0YGHaBZEdqALXXtLhmyei7S5cv3ufM1A1xUmnE5Z7TFnSopyygJ63hkyPtD7PSO6KTE"/>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-display text-primary mb-1 group-hover:text-accent transition-colors">Chilika Lake</h4>
+<p class="text-xs text-muted mb-4">ଚିଲିକା ହ୍ରଦ</p>
+<p class="font-mono text-xs text-muted mb-6">100 km · 2h 15m drive</p>
+<div class="flex justify-between items-center border-t border-border pt-4">
+<button class="text-sm font-semibold hover:text-accent transition-colors">Plan</button>
+<div class="flex gap-2">
+<button class="text-muted hover:text-accent transition-colors"><span class="material-symbols-outlined text-[20px]">map</span></button>
+<button class="text-muted hover:text-accent transition-colors"><span class="material-symbols-outlined text-[20px]">bookmark_border</span></button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-card border border-border rounded-lg overflow-hidden group hover:shadow-md transition-shadow">
+<div class="h-64 relative overflow-hidden bg-secondary">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Lush green pine valleys of Daringbadi, misty mountains in the background, winding road through the forest, botanical green and earthy colors, moody dramatic lighting, high end landscape photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP0C6XKhoZXJhKJ7drzZc-FD5B9dUtYn56QngVogSzoOtSAYIHQ4l8kSZ5tR784cKS5shGYYGZRIgPPm62MY-mPyIr23sQXURpvgzfX5SyVvMKT4VpTxN9Bj9VF8OhySDf3nFjB-OtlWOaxbyF2V4JGdx3tfGMGfdD5cQV11xyhSQgSQG-Q1soOGp30fkl9WLEEwREd0GoRizsc5JvHJxzqI-_MbwFpJIeeRZl8DY4m14Cs51UYzRk3sWbhcnlQG9djQ9X-GUve1w"/>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-display text-primary mb-1 group-hover:text-accent transition-colors">Daringbadi Pine Valleys</h4>
+<p class="text-xs text-muted mb-4">ଦାରିଙ୍ଗବାଡ଼ି</p>
+<p class="font-mono text-xs text-muted mb-6">250 km · 5h 30m drive</p>
+<div class="flex justify-between items-center border-t border-border pt-4">
+<button class="text-sm font-semibold hover:text-accent transition-colors">Plan</button>
+<div class="flex gap-2">
+<button class="text-muted hover:text-accent transition-colors"><span class="material-symbols-outlined text-[20px]">map</span></button>
+<button class="text-muted hover:text-accent transition-colors"><span class="material-symbols-outlined text-[20px]">bookmark_border</span></button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- 4. Horizontal Sliding Rail -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<h3 class="text-xl font-display text-primary italic">Hidden Coastal &amp; Highland Gems</h3>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-secondary text-muted"><span class="material-symbols-outlined text-sm">arrow_back</span></button>
+<button class="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-secondary text-primary"><span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar">
+<!-- Rail Item 1 -->
+<div class="min-w-[280px] w-[280px] snap-start">
+<div class="h-40 bg-secondary rounded-lg mb-3 overflow-hidden">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Gopalpur on sea, ruined colonial architecture near the beach, calm waves, sunset light casting warm ochre tones, nostalgic and serene travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmiwvwtPj9aglt2rd4NSzRV_Imj89YiC6wJ1Yoaq0nmoGWFx8_fgKhqTRFQrOKuVT6jYH72MupBLRbhgCHyDl13bKwWqnP6STMeksAwQGdimaFGQVc9drdv_EWWOotj_RGTW9pzkjagvLmKwktY7h5PEdM05qPNEb7mur5M0SymoSTZ7-CxT_3eGfj6rshD5iA_nohnjwSZiZciVCPQNwalsvrlPnlLrL0XDFoCCIiryUhT_l7D7rnWiPoiSJ1ENSGcN0o3UOVw7c"/>
+</div>
+<h5 class="font-display font-medium text-primary">Gopalpur-on-Sea</h5>
+<p class="text-xs text-muted font-mono mt-1">Ganjam Coast</p>
+</div>
+<!-- Rail Item 2 -->
+<div class="min-w-[280px] w-[280px] snap-start">
+<div class="h-40 bg-secondary rounded-lg mb-3 overflow-hidden">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Khandadhar waterfall cascading down rocky cliffs, dense green forest surrounding, slow shutter speed water effect, majestic and powerful nature, earthy clay and green tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6A3gRPkWHO76Ew81hKSczFXTxRZhw3GkrzAZP04oswJ6UIg6tI0ERkPjska2y3ZMBl8EhuEsosK1aOneGqUXmJh68kByDzBZCO9SvmfVDr5pPRW94-IgwWQyW3Z9D1-yLVkhs6bpfEbgMCwlNtczA0OZ4-Bjq_spOqEESVDnpRWH7U467DmrPoK6iaVTypz10Auvd1L5DN_hyebLr5uoDoRjCCt2tRkKSGzweuhrFEA2dHQ19Pyo1HqXIasqSL8iDrNc55JQ2vOo"/>
+</div>
+<h5 class="font-display font-medium text-primary">Khandadhar Falls</h5>
+<p class="text-xs text-muted font-mono mt-1">Sundargarh</p>
+</div>
+<!-- Rail Item 3 -->
+<div class="min-w-[280px] w-[280px] snap-start">
+<div class="h-40 bg-secondary rounded-lg mb-3 overflow-hidden">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Vibrant Pipili applique work displayed in a village street, colorful geometric patterns, local artisans, sunny day, culturally rich and textural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDX-mfqiOfrpyEQfyVHnML_7KU3BPbmDgQjWEmsICwlpOKsICjzRikN_tLEER393N8Bd3aiAsttoRG1fX025B4cFQEAcETjkbYf5VxLgEvo0PRg43E-OiWMzCv3NDPS7TvrhvNv9gOXDaZ48Zbo4lzv6Tg-He0ksNAFeNl-0f5vraN6ZrlD429FWGJikWVVlKrONtEJhUWEykSiGmpFWY811z5UiYQ_I3b6Z-hBb-duOF3lEidWzBdVO1FlC4xO1JJflxGeqoPX3Q"/>
+</div>
+<h5 class="font-display font-medium text-primary">Pipili Craft Village</h5>
+<p class="text-xs text-muted font-mono mt-1">Puri Heritage Corridor</p>
+</div>
+<!-- Rail Item 4 -->
+<div class="min-w-[280px] w-[280px] snap-start">
+<div class="h-40 bg-secondary rounded-lg mb-3 overflow-hidden">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Hirakud Dam massive concrete structure, vast reservoir water body, panoramic view from high angle, structural engineering, stark contrast between water and concrete." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOVyDH2uxmQpKurz30d9OuCKz17dp7Tg4WDKP2dySUlW4MwRHD92lzlZkYAaxWTR5ikg50HjOueUbLBQT_JoNPDxEZxmEXwx3XaKH8zpHsYr5aE6_Z5Ed8UAgpTJVVjLxCrAL7O0-Yt9rZEiz-scBaPFRzcla7Tkf4DfyfvzpoC7chbhFO_TDGuRzEqScJXkFQc5yv51txpwDh1cogmsUlKbfKHCKCtyNbgRmSr_ko6L5C8PYkmYIKrtwT3A2xAGYLomVrmqSfaks"/>
+</div>
+<h5 class="font-display font-medium text-primary">Hirakud Dam</h5>
+<p class="text-xs text-muted font-mono mt-1">Mahanadi River</p>
+</div>
+</div>
+<style>
+                .hide-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+                .hide-scrollbar {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+            </style>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#FBF9F5] w-full border-t border-[#E5DFD5] mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-8 w-full max-w-[1600px] mx-auto gap-4">
+<div class="font-display italic text-lg text-[#12161E]">O-Travelz</div>
+<div class="font-body text-xs uppercase tracking-widest text-[#70798B]">© 2024 O-Travelz. An Editorial Odyssey of Odisha.</div>
+<div class="flex gap-6">
+<a class="font-body text-xs uppercase tracking-widest text-[#70798B] hover:text-[#B87B22] transition-colors hover:opacity-80 opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-body text-xs uppercase tracking-widest text-[#70798B] hover:text-[#B87B22] transition-colors hover:opacity-80 opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="font-body text-xs uppercase tracking-widest text-[#70798B] hover:text-[#B87B22] transition-colors hover:opacity-80 opacity-100 transition-opacity" href="#">Press Inquiry</a>
+<a class="font-body text-xs uppercase tracking-widest text-[#70798B] hover:text-[#B87B22] transition-colors hover:opacity-80 opacity-100 transition-opacity" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

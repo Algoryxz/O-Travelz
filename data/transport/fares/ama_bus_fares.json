@@ -1,0 +1,10 @@
+{
+  "provider": "AMA Bus / Mo Bus",
+  "fare_type": "dynamic_rule",
+  "amount_inr": null,
+  "currency": "INR",
+  "status": "unknown_for_static_seed",
+  "source": "https://odishatransport.gov.in/content/Automatic-Revision-Mechanism/7",
+  "verification_note": "Official page confirms bus fares are subject to automatic revision and a current fare order exists; no single static city fare value is asserted here.",
+  "verified_on": "2026-08-17"
+}

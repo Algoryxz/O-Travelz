@@ -1,0 +1,1302 @@
+[
+  {
+    "place_id": "place_bbsr_001",
+    "place_name": "Lingaraj Temple",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Sushant (Bubby)",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Chandrasekhar%2C_Lingaraj_Temple%2C_Bhubaneswar%2C_Odisha%2C_India_%282021%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Chandrasekhar, Lingaraj Temple, Bhubaneswar, Odisha, India (2021).jpg",
+    "asset_hash": "06a456469886",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 182190,
+    "shannon_entropy": 8.96,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_bbsr_002",
+    "place_name": "Mukteswar Temple",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Anandbora2024",
+    "license": "CC0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/15%29Mukteshvara_Temple%2C_Bhubaneswar%2Codisa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:15)Mukteshvara Temple, Bhubaneswar,odisa.jpg",
+    "asset_hash": "bf6293b73157",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 250294,
+    "shannon_entropy": 8.99,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_bbsr_003",
+    "place_name": "Rajarani Temple",
+    "category": "monument",
+    "source": "Wikimedia Commons",
+    "creator": "Sourabh.biswas003",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/PXL_20250609_060643318.MP_Rajarani_Temple%2C_Bhubaneswar%2C_Odisha_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:PXL 20250609 060643318.MP Rajarani Temple, Bhubaneswar, Odisha 06.jpg",
+    "asset_hash": "0dd1f614ea63",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 373744,
+    "shannon_entropy": 9.23,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_bbsr_004",
+    "place_name": "Ananta Vasudeva Temple",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Prateek Pattanaik",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Ananta_Basudeba_Temple%2C_Bhubaneswar_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Ananta Basudeba Temple, Bhubaneswar 01.jpg",
+    "asset_hash": "b91e7a5f0092",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 276818,
+    "shannon_entropy": 9.0,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_bbsr_005",
+    "place_name": "Udayagiri and Khandagiri Caves",
+    "category": "monument",
+    "source": "Wikimedia Commons",
+    "creator": "Sourav Das from Santa Barbara, USA",
+    "license": "CC BY 2.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Looking_onto_the_Udayagiri_caves_from_Khandagiri%2C_in_Bhubaneswar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Looking onto the Udayagiri caves from Khandagiri, in Bhubaneswar.jpg",
+    "asset_hash": "87c823650f8a",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 277862,
+    "shannon_entropy": 9.19,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_bbsr_006",
+    "place_name": "Dhauli Shanti Stupa",
+    "category": "monument",
+    "source": "Wikimedia Commons",
+    "creator": "Debashis Pradhan",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Dhauli-Giri-Shanti-Stupa-Bhubaneswar-Orissa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Dhauli-Giri-Shanti-Stupa-Bhubaneswar-Orissa.jpg",
+    "asset_hash": "94ea88ae627b",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 207440,
+    "shannon_entropy": 9.32,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_bbsr_007",
+    "place_name": "Nandankanan Zoological Park",
+    "category": "park",
+    "source": "Wikimedia Commons",
+    "creator": "DrGSINGH",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/DUSK_AND_ANIMALS_-_NANDANKANAN_ZOOLOGICAL_PARK%2C_ODISHA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:DUSK AND ANIMALS - NANDANKANAN ZOOLOGICAL PARK, ODISHA.jpg",
+    "asset_hash": "83ddf7bcbca3",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 152750,
+    "shannon_entropy": 8.11,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_bbsr_008",
+    "place_name": "Odisha State Museum",
+    "category": "museum",
+    "source": "Wikimedia Commons",
+    "creator": "User:Tinucherian",
+    "license": "CC BY 3.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Bhubaneswar_State_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Bhubaneswar State Museum.jpg",
+    "asset_hash": "dc85cc5814e7",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 84656,
+    "shannon_entropy": 8.98,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_bbsr_009",
+    "place_name": "Odisha Crafts Museum Kala Bhoomi",
+    "category": "museum",
+    "source": "Wikimedia Commons",
+    "creator": "SUDEEP PRAMANIK",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Kala_Bhoomi_-_13.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Kala Bhoomi - 13.jpg",
+    "asset_hash": "d3fdc630c2d8",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 79094,
+    "shannon_entropy": 9.12,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_bbsr_010",
+    "place_name": "Ekamra Haat",
+    "category": "market",
+    "source": "Wikimedia Commons",
+    "creator": "Subhashish Panigrahi",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Earthen_pots_from_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Earthen pots from Odisha.jpg",
+    "asset_hash": "78c2ef783f40",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 200550,
+    "shannon_entropy": 9.0,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_bbsr_011",
+    "place_name": "Kalinga Stadium",
+    "category": "sports_venue",
+    "source": "Wikimedia Commons",
+    "creator": "Government of Odisha",
+    "license": "CC BY 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Aerial_view_of_Kalinga_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Aerial view of Kalinga Stadium.jpg",
+    "asset_hash": "36e8a9a95990",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 314208,
+    "shannon_entropy": 9.32,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_bbsr_012",
+    "place_name": "Bindu Sagar",
+    "category": "lake",
+    "source": "Wikimedia Commons",
+    "creator": "Jalmanav",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Bindu_Sagar_Bhubaneswar_Odisha_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Bindu Sagar Bhubaneswar Odisha India.jpg",
+    "asset_hash": "3e013f8a3fd2",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 206624,
+    "shannon_entropy": 8.96,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_puri_001",
+    "place_name": "Jagannath Temple, Puri",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Kabita.singh",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Jagannath_Temple%2C_Puri%2C_Odisha%2C_India_%282016%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Jagannath Temple, Puri, Odisha, India (2016).jpg",
+    "asset_hash": "02287867dc89",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 159340,
+    "shannon_entropy": 8.87,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_puri_002",
+    "place_name": "Puri Golden Beach",
+    "category": "beach",
+    "source": "Wikimedia Commons",
+    "creator": "Kritzolina",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/At_Puri_beach_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:At Puri beach 04.jpg",
+    "asset_hash": "8146170ae9b7",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 104514,
+    "shannon_entropy": 8.51,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_puri_003",
+    "place_name": "Gundicha Temple",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Government of Odisha",
+    "license": "CC BY 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Devi_Subhadra_Pahandi_from_Gundicha_Temple_on_2022_Bahuda_Jatra.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Devi Subhadra Pahandi from Gundicha Temple on 2022 Bahuda Jatra.jpg",
+    "asset_hash": "f14517383b2e",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 139592,
+    "shannon_entropy": 9.15,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_puri_004",
+    "place_name": "Swargadwar Beach",
+    "category": "beach",
+    "source": "Wikimedia Commons",
+    "creator": "Pinakpani",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Maa_Anandamayee_Ashram%2C_near_Swargadwar_Beach%2C_Puri_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Maa Anandamayee Ashram, near Swargadwar Beach, Puri 01.jpg",
+    "asset_hash": "292d580f6bc0",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 149652,
+    "shannon_entropy": 9.13,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_konark_001",
+    "place_name": "Konark Sun Temple",
+    "category": "monument",
+    "source": "Wikimedia Commons",
+    "creator": "Phadke09",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Chariot_Wheel_at_Sun_Temple%2C_Konark%2C-Konark-Odisha-IMG_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Chariot Wheel at Sun Temple, Konark,-Konark-Odisha-IMG 001.jpg",
+    "asset_hash": "03b959a8abef",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 381436,
+    "shannon_entropy": 9.29,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_konark_002",
+    "place_name": "Chandrabhaga Beach",
+    "category": "beach",
+    "source": "Wikimedia Commons",
+    "creator": "Kritzolina",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Beach_of_Konark_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Beach of Konark 01.jpg",
+    "asset_hash": "96b3058c4a4d",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 97774,
+    "shannon_entropy": 7.54,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_konark_003",
+    "place_name": "Ramachandi Beach & Temple",
+    "category": "beach",
+    "source": "Wikimedia Commons",
+    "creator": "Swapnil.sahoo",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Goddess_RamaChandi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Goddess RamaChandi.jpg",
+    "asset_hash": "05c33a10ed83",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 210970,
+    "shannon_entropy": 9.08,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_konark_004",
+    "place_name": "Konark Archaeological Museum",
+    "category": "museum",
+    "source": "Wikimedia Commons",
+    "creator": "Pinakpani",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Pictures_of_Konark_Museum_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Pictures of Konark Museum 01.jpg",
+    "asset_hash": "ea4b0bedaa44",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 401256,
+    "shannon_entropy": 9.4,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_cuttack_001",
+    "place_name": "Barabati Fort",
+    "category": "monument",
+    "source": "Wikimedia Commons",
+    "creator": "MysticStone",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Barabati_Fort_Gateway_of_Cuttack.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Barabati Fort Gateway of Cuttack.jpg",
+    "asset_hash": "02e40272a98d",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 262420,
+    "shannon_entropy": 9.22,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_cuttack_002",
+    "place_name": "Cuttack Chandi Temple",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Lipika Priyadarsini",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Chandi_mandira_bhoga_Cuttack_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Chandi mandira bhoga Cuttack Odisha.jpg",
+    "asset_hash": "14877b098df9",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 162792,
+    "shannon_entropy": 8.79,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_cuttack_003",
+    "place_name": "Odisha State Maritime Museum",
+    "category": "museum",
+    "source": "Wikimedia Commons",
+    "creator": "Soumendra Kumar Sahoo",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Identical_places_between_Odisha_and_Indonesia_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Identical places between Odisha and Indonesia 1.jpg",
+    "asset_hash": "78dff96a9c3a",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 125304,
+    "shannon_entropy": 8.55,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_cuttack_004",
+    "place_name": "Netaji Birth Place Museum",
+    "category": "museum",
+    "source": "Wikimedia Commons",
+    "creator": "Subhashish Panigrahi",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Azad_Hind_stamps_released_by_Indian_National_Army_in_display_at_Netaji_Birth_Place_Museum%2C_Cuttack%2C_Odisha%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Azad Hind stamps released by Indian National Army in display at Netaji Birth Place Museum, Cuttack, Odisha, India.jpg",
+    "asset_hash": "3d8ae5f82b5d",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 162400,
+    "shannon_entropy": 9.25,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_chilika_001",
+    "place_name": "Chilika Lake - Satapada",
+    "category": "lake",
+    "source": "Wikimedia Commons",
+    "creator": "Rangan Datta Wiki",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Satapada_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Satapada 12.jpg",
+    "asset_hash": "b5a796039cf9",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 98666,
+    "shannon_entropy": 8.87,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_chilika_002",
+    "place_name": "Kalijai Island Temple, Chilika",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Hellohappy",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Chilika_Lake_%2811144%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Chilika Lake (11144).jpg",
+    "asset_hash": "a4ae8ae04351",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 224440,
+    "shannon_entropy": 8.84,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_chilika_003",
+    "place_name": "Mangalajodi Bird Sanctuary",
+    "category": "wildlife",
+    "source": "Wikimedia Commons",
+    "creator": "Aditya Bhattacharjee",
+    "license": "CC BY 2.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Chilika_Lake_Mangalajodi_Wetlands_Odisha_India_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Chilika Lake Mangalajodi Wetlands Odisha India 2012.jpg",
+    "asset_hash": "3b306bfaf9fd",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 58734,
+    "shannon_entropy": 8.15,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_ganjam_001",
+    "place_name": "Gopalpur-on-Sea Beach",
+    "category": "beach",
+    "source": "Wikimedia Commons",
+    "creator": "Buddy.forever.985",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Gopalpur_Sea_Beach%2C_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Gopalpur Sea Beach, Odisha.jpg",
+    "asset_hash": "e3487587a075",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 244568,
+    "shannon_entropy": 9.22,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_ganjam_002",
+    "place_name": "Tara Tarini Temple",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Government of Odisha",
+    "license": "CC BY 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tara_Tarini_Temple_Ganjam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Tara Tarini Temple Ganjam.jpg",
+    "asset_hash": "87bc44f63b2d",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 131316,
+    "shannon_entropy": 8.66,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_daringbadi_001",
+    "place_name": "Daringbadi Hill Station",
+    "category": "nature",
+    "source": "Wikimedia Commons",
+    "creator": "\u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Black_pepper_creepers%2C_Daringbari.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Black pepper creepers, Daringbari.jpg",
+    "asset_hash": "49e608c2405f",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 238574,
+    "shannon_entropy": 8.76,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_daringbadi_002",
+    "place_name": "Midubanda Waterfall, Daringbadi",
+    "category": "waterfall",
+    "source": "Wikimedia Commons",
+    "creator": "\u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Madubanda_Waterfall%2C_Daringbari.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Madubanda Waterfall, Daringbari.jpg",
+    "asset_hash": "604241c8ef4d",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 334090,
+    "shannon_entropy": 9.23,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_daringbadi_003",
+    "place_name": "Coffee Gardens, Daringbadi",
+    "category": "nature",
+    "source": "Wikimedia Commons",
+    "creator": "\u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Coffee_garden%2C_Daringbari.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Coffee garden, Daringbari.JPG",
+    "asset_hash": "18724980adff",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 297690,
+    "shannon_entropy": 9.04,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_daringbadi_004",
+    "place_name": "Belghar Nature Camp",
+    "category": "nature",
+    "source": "Wikimedia Commons",
+    "creator": "\u09b8\u09a8\u09cd\u09a6\u09c0\u09aa \u09b8\u09b0\u0995\u09be\u09b0 at Bangla Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Kandamal_Zilla%2C_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Kandamal Zilla, Odisha.jpg",
+    "asset_hash": "c5ae233d3210",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 79570,
+    "shannon_entropy": 8.3,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_sambalpur_001",
+    "place_name": "Hirakud Dam & Reservoir",
+    "category": "monument",
+    "source": "Wikimedia Commons",
+    "creator": "Rajesh.unarkat",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Colours_of_Nature2_-_Mahanadi_River_near_Hirakund_Dam%2C.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Colours of Nature2 - Mahanadi River near Hirakund Dam,.jpg",
+    "asset_hash": "f9bd5d208c25",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 89520,
+    "shannon_entropy": 9.28,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_sambalpur_002",
+    "place_name": "Samaleswari Temple, Sambalpur",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Aditya Mahar",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Samaleswari_Temple%2C_Sambalpur.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Samaleswari Temple, Sambalpur.jpg",
+    "asset_hash": "34272df89ec2",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 124228,
+    "shannon_entropy": 9.21,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_sambalpur_003",
+    "place_name": "Huma Leaning Temple",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Jnanaranjan sahu",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Huma%2C_Sambalpur.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Huma, Sambalpur.jpg",
+    "asset_hash": "62ffb7d419a2",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 177384,
+    "shannon_entropy": 9.01,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_sambalpur_004",
+    "place_name": "Debrigarh Wildlife Sanctuary",
+    "category": "wildlife",
+    "source": "Wikimedia Commons",
+    "creator": "Amudha HariHaran",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Debrigarh_Wildlife_sanctuary_%2838509512300%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Debrigarh Wildlife sanctuary (38509512300).jpg",
+    "asset_hash": "22d5bc4545b0",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 412428,
+    "shannon_entropy": 8.7,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_rourkela_001",
+    "place_name": "Hanuman Vatika, Rourkela",
+    "category": "monument",
+    "source": "Wikimedia Commons",
+    "creator": "Akilola",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Hanuman_Vatika_Rourkela.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Hanuman Vatika Rourkela.JPG",
+    "asset_hash": "ae7eb1c0b708",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 98416,
+    "shannon_entropy": 5.92,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_rourkela_002",
+    "place_name": "Mandira Dam, Sundargarh",
+    "category": "lake",
+    "source": "Wikimedia Commons",
+    "creator": "Sidharthkochar",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/MANDIRA_DAM.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:MANDIRA DAM.jpg",
+    "asset_hash": "00793bab38cf",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 100276,
+    "shannon_entropy": 8.41,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_rourkela_003",
+    "place_name": "Khandadhar Waterfall, Sundargarh",
+    "category": "waterfall",
+    "source": "Wikimedia Commons",
+    "creator": "Harichandan kar",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/At_the_site_of_khandadhar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:At the site of khandadhar.jpg",
+    "asset_hash": "a8c814c32300",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 104958,
+    "shannon_entropy": 9.15,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_mayurbhanj_001",
+    "place_name": "Similipal National Park",
+    "category": "wildlife",
+    "source": "Wikimedia Commons",
+    "creator": "Government of Odisha",
+    "license": "CC BY 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Black_Tiger_resting_at_Simlipal_National_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Black Tiger resting at Simlipal National Park.jpg",
+    "asset_hash": "62ca826d15a0",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 202352,
+    "shannon_entropy": 9.13,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_mayurbhanj_002",
+    "place_name": "Barehipani & Joranda Falls",
+    "category": "waterfall",
+    "source": "Wikimedia Commons",
+    "creator": "Samarth Joel Ram",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Barehipani_Falls.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Barehipani Falls.jpg",
+    "asset_hash": "91f5f250ddfa",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 249248,
+    "shannon_entropy": 8.59,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_balasore_001",
+    "place_name": "Chandipur Beach",
+    "category": "beach",
+    "source": "Wikimedia Commons",
+    "creator": "B.Sunita M",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Beautiful_Sun_Set.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Beautiful Sun Set.jpg",
+    "asset_hash": "7b71840acce2",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 185256,
+    "shannon_entropy": 9.09,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_kendrapara_001",
+    "place_name": "Bhitarkanika National Park",
+    "category": "wildlife",
+    "source": "Wikimedia Commons",
+    "creator": "Devopam",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Bhitarkanika_Mangroves_Flora_and_Fauna_03.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Bhitarkanika Mangroves Flora and Fauna 03.JPG",
+    "asset_hash": "3c1227e192f9",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 177662,
+    "shannon_entropy": 8.32,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_koraput_001",
+    "place_name": "Gupteswar Cave Temple, Koraput",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Indopaedia",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Gupteshwara_Shiva-lingam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Gupteshwara Shiva-lingam.jpg",
+    "asset_hash": "ebdb01aa8cee",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 183002,
+    "shannon_entropy": 8.76,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_koraput_002",
+    "place_name": "Duduma Waterfall",
+    "category": "waterfall",
+    "source": "Wikimedia Commons",
+    "creator": "Parthapratim25",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Duduma_.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Duduma .jpg",
+    "asset_hash": "da596fb21308",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 224210,
+    "shannon_entropy": 9.18,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_koraput_003",
+    "place_name": "Deomali Peak, Koraput",
+    "category": "nature",
+    "source": "Wikimedia Commons",
+    "creator": "Priyadarshini 89",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/IMG-20220821-WA0004.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:IMG-20220821-WA0004.jpg",
+    "asset_hash": "d706510f47e0",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 124582,
+    "shannon_entropy": 9.23,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_koraput_004",
+    "place_name": "Tribal Museum, Koraput",
+    "category": "museum",
+    "source": "Wikimedia Commons",
+    "creator": "Subhashish Panigrahi",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/A_cowbell_in_the_Tribal_Museum%2C_Koraput.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:A cowbell in the Tribal Museum, Koraput.jpg",
+    "asset_hash": "a54c2ebd04a0",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 284664,
+    "shannon_entropy": 8.99,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_koraput_005",
+    "place_name": "Kolab Reservoir & Botanical Garden",
+    "category": "lake",
+    "source": "Wikimedia Commons",
+    "creator": "w",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Kolab_Dam_%26_Garden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Kolab Dam & Garden.jpg",
+    "asset_hash": "375b5f789f69",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 165916,
+    "shannon_entropy": 7.74,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  },
+  {
+    "place_id": "place_rayagada_001",
+    "place_name": "Maa Majhigouri Temple, Rayagada",
+    "category": "temple",
+    "source": "Wikimedia Commons",
+    "creator": "Hiranyabaahu",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Maa_Sri_Majhigauri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Maa Sri Majhigauri.jpg",
+    "asset_hash": "a863f4660940",
+    "hero_dimensions": [
+      1080,
+      720
+    ],
+    "card_dimensions": [
+      640,
+      360
+    ],
+    "thumbnail_dimensions": [
+      240,
+      160
+    ],
+    "hero_bytes": 173056,
+    "shannon_entropy": 9.45,
+    "verification_status": "VERIFIED_AUTHENTIC_PHOTOGRAPHY"
+  }
+]

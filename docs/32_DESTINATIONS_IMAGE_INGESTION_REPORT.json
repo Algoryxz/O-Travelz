@@ -1,0 +1,619 @@
+{
+  "generated_at": "2026-08-21T15:45:00Z",
+  "total_supplied": 32,
+  "total_verified": 32,
+  "total_rejected": 0,
+  "total_ambiguous": 0,
+  "rejected_assets": [],
+  "ambiguous_assets": [],
+  "assets": [
+    {
+      "place_id": "place_005",
+      "place_name": "Parasurameswar Temple",
+      "category": "temple",
+      "source_filename": "place_005_parasurameswar_hero.webp",
+      "installed_path": "/static/images/places/place_005/4e56a105e3a5/hero.webp",
+      "asset_dir": "data/images/places/place_005/4e56a105e3a5",
+      "raw_sha256": "4e56a105e3a566c94d7d0988002eccc3756f06e60274c681abba2444204591e2",
+      "asset_hash": "4e56a105e3a5",
+      "natural_dimensions": "678x452",
+      "description": "Authentic 7th-century Kalinga temple deula with stepped jagamohana roof",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_005/4e56a105e3a5/original.webp",
+        "hero": "/static/images/places/place_005/4e56a105e3a5/hero.webp",
+        "card": "/static/images/places/place_005/4e56a105e3a5/card.webp",
+        "thumbnail": "/static/images/places/place_005/4e56a105e3a5/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_007",
+      "place_name": "Chausathi Yogini Temple, Hirapur",
+      "category": "temple",
+      "source_filename": "place_007_chausathi_yogini_hero.webp",
+      "installed_path": "/static/images/places/place_007/6d8254429a6a/hero.webp",
+      "asset_dir": "data/images/places/place_007/6d8254429a6a",
+      "raw_sha256": "6d8254429a6ae6da298bb5faf9a49b2a3713758eab58f3b898c24d536deadf4a",
+      "asset_hash": "6d8254429a6a",
+      "natural_dimensions": "713x429",
+      "description": "Authentic 9th-century circular hypaethral sanctum wall of Chausathi Yogini Temple",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_007/6d8254429a6a/original.webp",
+        "hero": "/static/images/places/place_007/6d8254429a6a/hero.webp",
+        "card": "/static/images/places/place_007/6d8254429a6a/card.webp",
+        "thumbnail": "/static/images/places/place_007/6d8254429a6a/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_012",
+      "place_name": "Regional Museum of Natural History",
+      "category": "museum",
+      "source_filename": "place_012_rmnh_hero.webp",
+      "installed_path": "/static/images/places/place_012/a917c9873b59/hero.webp",
+      "asset_dir": "data/images/places/place_012/a917c9873b59",
+      "raw_sha256": "a917c9873b5909558a08395dcfa2b98fcfc229e309fae06844a2fcb3d5ae3c72",
+      "asset_hash": "a917c9873b59",
+      "natural_dimensions": "374x520",
+      "description": "Authentic Regional Museum of Natural History facade and grounds in Bhubaneswar",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_012/a917c9873b59/original.webp",
+        "hero": "/static/images/places/place_012/a917c9873b59/hero.webp",
+        "card": "/static/images/places/place_012/a917c9873b59/card.webp",
+        "thumbnail": "/static/images/places/place_012/a917c9873b59/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_013",
+      "place_name": "Museum of Tribal Arts and Artifacts",
+      "category": "museum",
+      "source_filename": "place_013_tribal_museum_hero.webp",
+      "installed_path": "/static/images/places/place_013/a2d24252c0ce/hero.webp",
+      "asset_dir": "data/images/places/place_013/a2d24252c0ce",
+      "raw_sha256": "a2d24252c0cecaa6817699219c4820f45dba00938f9888b8a5b9c41d5e212932",
+      "asset_hash": "a2d24252c0ce",
+      "natural_dimensions": "738x345",
+      "description": "Authentic Museum of Tribal Arts and Artifacts indigenous complex in Bhubaneswar",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_013/a2d24252c0ce/original.webp",
+        "hero": "/static/images/places/place_013/a2d24252c0ce/hero.webp",
+        "card": "/static/images/places/place_013/a2d24252c0ce/card.webp",
+        "thumbnail": "/static/images/places/place_013/a2d24252c0ce/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_014",
+      "place_name": "Pathani Samanta Planetarium",
+      "category": "planetarium",
+      "source_filename": "place_014_planetarium_hero.webp",
+      "installed_path": "/static/images/places/place_014/30f7ed6f5755/hero.webp",
+      "asset_dir": "data/images/places/place_014/30f7ed6f5755",
+      "raw_sha256": "30f7ed6f5755d7724ad248085446f232cbab2d8376453dadb124866cc05bfc48",
+      "asset_hash": "30f7ed6f5755",
+      "natural_dimensions": "275x183",
+      "description": "Authentic circular astronomical dome of Pathani Samanta Planetarium",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_014/30f7ed6f5755/original.webp",
+        "hero": "/static/images/places/place_014/30f7ed6f5755/hero.webp",
+        "card": "/static/images/places/place_014/30f7ed6f5755/card.webp",
+        "thumbnail": "/static/images/places/place_014/30f7ed6f5755/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_018",
+      "place_name": "Baitala Deula",
+      "category": "temple",
+      "source_filename": "place_018_baitala_deula_hero.webp",
+      "installed_path": "/static/images/places/place_018/3fdcd749885b/hero.webp",
+      "asset_dir": "data/images/places/place_018/3fdcd749885b",
+      "raw_sha256": "3fdcd749885b80f05b3ba59cf8377a8aaa85832968ea5dd40699107120561537",
+      "asset_hash": "3fdcd749885b",
+      "natural_dimensions": "800x638",
+      "description": "Authentic 8th-century Khakhara-style rectangular deula tower of Baitala Deula",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_018/3fdcd749885b/original.webp",
+        "hero": "/static/images/places/place_018/3fdcd749885b/hero.webp",
+        "card": "/static/images/places/place_018/3fdcd749885b/card.webp",
+        "thumbnail": "/static/images/places/place_018/3fdcd749885b/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_019",
+      "place_name": "Brahmeswar Temple",
+      "category": "temple",
+      "source_filename": "place_019_brahmeswar_hero.webp",
+      "installed_path": "/static/images/places/place_019/79d401a75a62/hero.webp",
+      "asset_dir": "data/images/places/place_019/79d401a75a62",
+      "raw_sha256": "79d401a75a6242522208161eb84865b192f7f878feed7ad4f74a666a82752e11",
+      "asset_hash": "79d401a75a62",
+      "natural_dimensions": "552x362",
+      "description": "Authentic 11th-century Somavamsi panchayatana rekha deula courtyard of Brahmeswar Temple",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_019/79d401a75a62/original.webp",
+        "hero": "/static/images/places/place_019/79d401a75a62/hero.webp",
+        "card": "/static/images/places/place_019/79d401a75a62/card.webp",
+        "thumbnail": "/static/images/places/place_019/79d401a75a62/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_020",
+      "place_name": "Bhaskareswar Temple",
+      "category": "temple",
+      "source_filename": "place_020_bhaskareswar_hero.webp",
+      "installed_path": "/static/images/places/place_020/eaedc027e860/hero.webp",
+      "asset_dir": "data/images/places/place_020/eaedc027e860",
+      "raw_sha256": "eaedc027e8601b0e01453b9b5ddf6876d207cfc92a55492170aca2e271e41b1d",
+      "asset_hash": "eaedc027e860",
+      "natural_dimensions": "678x452",
+      "description": "Authentic double-storied monolithic sandstone deula of Bhaskareswar Temple",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_020/eaedc027e860/original.webp",
+        "hero": "/static/images/places/place_020/eaedc027e860/hero.webp",
+        "card": "/static/images/places/place_020/eaedc027e860/card.webp",
+        "thumbnail": "/static/images/places/place_020/eaedc027e860/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_021",
+      "place_name": "Rameshwar Deula",
+      "category": "temple",
+      "source_filename": "place_021_rameshwar_deula_hero.webp",
+      "installed_path": "/static/images/places/place_021/40dbffdb3896/hero.webp",
+      "asset_dir": "data/images/places/place_021/40dbffdb3896",
+      "raw_sha256": "40dbffdb38967da7dcb61bd4e9a2e5d1777968f7a070c8a493ae871e8b28c6cb",
+      "asset_hash": "40dbffdb3896",
+      "natural_dimensions": "399x501",
+      "description": "Authentic Mausi Maa temple deula of Lingaraj deity in Old Town",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_021/40dbffdb3896/original.webp",
+        "hero": "/static/images/places/place_021/40dbffdb3896/hero.webp",
+        "card": "/static/images/places/place_021/40dbffdb3896/card.webp",
+        "thumbnail": "/static/images/places/place_021/40dbffdb3896/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_022",
+      "place_name": "Ram Mandir, Bhubaneswar",
+      "category": "temple",
+      "source_filename": "place_022_ram_mandir_hero.webp",
+      "installed_path": "/static/images/places/place_022/250c5fb998e6/hero.webp",
+      "asset_dir": "data/images/places/place_022/250c5fb998e6",
+      "raw_sha256": "250c5fb998e6c23f93bb6cf8cf1e1731a169c493fb02625d37d79c434e6f27ae",
+      "asset_hash": "250c5fb998e6",
+      "natural_dimensions": "640x480",
+      "description": "Authentic red spires and landscaped temple garden of Ram Mandir along Janpath",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_022/250c5fb998e6/original.webp",
+        "hero": "/static/images/places/place_022/250c5fb998e6/hero.webp",
+        "card": "/static/images/places/place_022/250c5fb998e6/card.webp",
+        "thumbnail": "/static/images/places/place_022/250c5fb998e6/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_023",
+      "place_name": "Chitrakarini Temple",
+      "category": "temple",
+      "source_filename": "place_023_chitrakarini_hero.webp",
+      "installed_path": "/static/images/places/place_023/993614bac0d4/hero.webp",
+      "asset_dir": "data/images/places/place_023/993614bac0d4",
+      "raw_sha256": "993614bac0d4513f9b4e040b5a678c70f7bb5849be272311ada87a3b37d4b0ed",
+      "asset_hash": "993614bac0d4",
+      "natural_dimensions": "387x516",
+      "description": "Authentic 13th-century carved sandstone rekha deula of Chitrakarini Temple",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_023/993614bac0d4/original.webp",
+        "hero": "/static/images/places/place_023/993614bac0d4/hero.webp",
+        "card": "/static/images/places/place_023/993614bac0d4/card.webp",
+        "thumbnail": "/static/images/places/place_023/993614bac0d4/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_024",
+      "place_name": "Bharati Matha Temple",
+      "category": "temple",
+      "source_filename": "place_024_bharati_matha_hero.webp",
+      "installed_path": "/static/images/places/place_024/c24a920d9ea5/hero.webp",
+      "asset_dir": "data/images/places/place_024/c24a920d9ea5",
+      "raw_sha256": "c24a920d9ea5c7e65af59458915a65634116edc4ffdbe0a7760e8f0a985ea693",
+      "asset_hash": "c24a920d9ea5",
+      "natural_dimensions": "452x678",
+      "description": "Authentic monastery entrance and historic monastic courtyard architecture in Old Town",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_024/c24a920d9ea5/original.webp",
+        "hero": "/static/images/places/place_024/c24a920d9ea5/hero.webp",
+        "card": "/static/images/places/place_024/c24a920d9ea5/card.webp",
+        "thumbnail": "/static/images/places/place_024/c24a920d9ea5/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_025",
+      "place_name": "Kedar Gouri Temple",
+      "category": "temple",
+      "source_filename": "place_025_kedar_gouri_hero.webp",
+      "installed_path": "/static/images/places/place_025/32de32c1a13d/hero.webp",
+      "asset_dir": "data/images/places/place_025/32de32c1a13d",
+      "raw_sha256": "32de32c1a13d810e2feb42f40c660fd406242d077cce4edb3d5bfcb237d7198b",
+      "asset_hash": "32de32c1a13d",
+      "natural_dimensions": "638x480",
+      "description": "Authentic twin deula spires and sacred natural spring tank at Kedar Gouri complex",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_025/32de32c1a13d/original.webp",
+        "hero": "/static/images/places/place_025/32de32c1a13d/hero.webp",
+        "card": "/static/images/places/place_025/32de32c1a13d/card.webp",
+        "thumbnail": "/static/images/places/place_025/32de32c1a13d/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_026",
+      "place_name": "Megheswar Temple",
+      "category": "temple",
+      "source_filename": "place_026_megheswar_hero.webp",
+      "installed_path": "/static/images/places/place_026/37aea0eff98c/hero.webp",
+      "asset_dir": "data/images/places/place_026/37aea0eff98c",
+      "raw_sha256": "37aea0eff98ce867dbea32f3783b55f2baa01e205fac589d602db83c17bb83be",
+      "asset_hash": "37aea0eff98c",
+      "natural_dimensions": "399x501",
+      "description": "Authentic 12th-century Ganga-era sandstone deula of Megheswar Temple",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_026/37aea0eff98c/original.webp",
+        "hero": "/static/images/places/place_026/37aea0eff98c/hero.webp",
+        "card": "/static/images/places/place_026/37aea0eff98c/card.webp",
+        "thumbnail": "/static/images/places/place_026/37aea0eff98c/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_027",
+      "place_name": "Nageshwar Temple",
+      "category": "temple",
+      "source_filename": "place_027_nageshwar_hero.webp",
+      "installed_path": "/static/images/places/place_027/17b31b2b4531/hero.webp",
+      "asset_dir": "data/images/places/place_027/17b31b2b4531",
+      "raw_sha256": "17b31b2b45312b66c88e90997bc750a2d2d8e932266ae77149880cafb066b16f",
+      "asset_hash": "17b31b2b4531",
+      "natural_dimensions": "638x480",
+      "description": "Authentic preserved miniature stone rekha deula of Nageshwar Temple",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_027/17b31b2b4531/original.webp",
+        "hero": "/static/images/places/place_027/17b31b2b4531/hero.webp",
+        "card": "/static/images/places/place_027/17b31b2b4531/card.webp",
+        "thumbnail": "/static/images/places/place_027/17b31b2b4531/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_028",
+      "place_name": "Talesvara Siva Temple",
+      "category": "temple",
+      "source_filename": "place_028_talesvara_hero.webp",
+      "installed_path": "/static/images/places/place_028/cd738a94a267/hero.webp",
+      "asset_dir": "data/images/places/place_028/cd738a94a267",
+      "raw_sha256": "cd738a94a2673d11a490c5346bc4742a08fa33a6b5be9cd9f13b11b1e045c49f",
+      "asset_hash": "cd738a94a267",
+      "natural_dimensions": "160x213",
+      "description": "Authentic 8th-century stone sanctum and entrance gate of Talesvara Siva Temple",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_028/cd738a94a267/original.webp",
+        "hero": "/static/images/places/place_028/cd738a94a267/hero.webp",
+        "card": "/static/images/places/place_028/cd738a94a267/card.webp",
+        "thumbnail": "/static/images/places/place_028/cd738a94a267/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_029",
+      "place_name": "Kapilesvara Siva Temple",
+      "category": "temple",
+      "source_filename": "place_029_kapilesvara_hero.webp",
+      "installed_path": "/static/images/places/place_029/4878025f4210/hero.webp",
+      "asset_dir": "data/images/places/place_029/4878025f4210",
+      "raw_sha256": "4878025f4210ad6bd9b4c64d1063c5406d3460c1534eddda31c79830b67afeae",
+      "asset_hash": "4878025f4210",
+      "natural_dimensions": "678x452",
+      "description": "Authentic 14th-century temple gate and stone deula at Manikarnika kunda",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_029/4878025f4210/original.webp",
+        "hero": "/static/images/places/place_029/4878025f4210/hero.webp",
+        "card": "/static/images/places/place_029/4878025f4210/card.webp",
+        "thumbnail": "/static/images/places/place_029/4878025f4210/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_030",
+      "place_name": "Regional Science Centre, Bhubaneswar",
+      "category": "science_center",
+      "source_filename": "place_030_science_centre_hero.webp",
+      "installed_path": "/static/images/places/place_030/dd18b0f33834/hero.webp",
+      "asset_dir": "data/images/places/place_030/dd18b0f33834",
+      "raw_sha256": "dd18b0f33834b200ef363b41ad02e326503bc40491aceaab93e8e1aa77b1bf00",
+      "asset_hash": "dd18b0f33834",
+      "natural_dimensions": "299x168",
+      "description": "Authentic Regional Science Centre pavilion and outdoor science park exhibits in Acharya Vihar",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_030/dd18b0f33834/original.webp",
+        "hero": "/static/images/places/place_030/dd18b0f33834/hero.webp",
+        "card": "/static/images/places/place_030/dd18b0f33834/card.webp",
+        "thumbnail": "/static/images/places/place_030/dd18b0f33834/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_031",
+      "place_name": "Indira Gandhi Park",
+      "category": "park",
+      "source_filename": "place_031_ig_park_hero.webp",
+      "installed_path": "/static/images/places/place_031/420159c383f2/hero.webp",
+      "asset_dir": "data/images/places/place_031/420159c383f2",
+      "raw_sha256": "420159c383f2f138d7504a1b9d8eb4c0a18f14cd04fdf9de0a42c3b4156a4e12",
+      "asset_hash": "420159c383f2",
+      "natural_dimensions": "637x313",
+      "description": "Authentic panoramic garden lawns and canopy trees of Indira Gandhi Park",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_031/420159c383f2/original.webp",
+        "hero": "/static/images/places/place_031/420159c383f2/hero.webp",
+        "card": "/static/images/places/place_031/420159c383f2/card.webp",
+        "thumbnail": "/static/images/places/place_031/420159c383f2/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_032",
+      "place_name": "Buddha Jayanti Park",
+      "category": "park",
+      "source_filename": "place_032_buddha_jayanti_park_hero.webp",
+      "installed_path": "/static/images/places/place_032/1b4f7e6f8b2e/hero.webp",
+      "asset_dir": "data/images/places/place_032/1b4f7e6f8b2e",
+      "raw_sha256": "1b4f7e6f8b2ea6c03c03659bb2ea81e4e74041c9d75e287e01ad5e1e4074e850",
+      "asset_hash": "1b4f7e6f8b2e",
+      "natural_dimensions": "638x480",
+      "description": "Authentic Buddha statue and landscaped peaceful garden walkways at Buddha Jayanti Park",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_032/1b4f7e6f8b2e/original.webp",
+        "hero": "/static/images/places/place_032/1b4f7e6f8b2e/hero.webp",
+        "card": "/static/images/places/place_032/1b4f7e6f8b2e/card.webp",
+        "thumbnail": "/static/images/places/place_032/1b4f7e6f8b2e/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_cuttack_002",
+      "place_name": "Cuttack Chandi Temple",
+      "category": "temple",
+      "source_filename": "place_cuttack_002_hero.webp.webp",
+      "installed_path": "/static/images/places/place_cuttack_002/57a31cc80182/hero.webp",
+      "asset_dir": "data/images/places/place_cuttack_002/57a31cc80182",
+      "raw_sha256": "57a31cc8018240ea2c3089cc27e214dd063ebb6f4c2ef3e9372439b8e958e1e2",
+      "asset_hash": "57a31cc80182",
+      "natural_dimensions": "387x516",
+      "description": "Authentic entrance facade of Cuttack Chandi Temple with deity archway and lion statues",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_cuttack_002/57a31cc80182/original.webp",
+        "hero": "/static/images/places/place_cuttack_002/57a31cc80182/hero.webp",
+        "card": "/static/images/places/place_cuttack_002/57a31cc80182/card.webp",
+        "thumbnail": "/static/images/places/place_cuttack_002/57a31cc80182/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_food_001",
+      "place_name": "Pahala Rasagola Sweet Hub",
+      "category": "market",
+      "source_filename": "place_food_001_pahala_rasagola_hero.webp",
+      "installed_path": "/static/images/places/place_food_001/e6fb3a71867e/hero.webp",
+      "asset_dir": "data/images/places/place_food_001/e6fb3a71867e",
+      "raw_sha256": "e6fb3a71867e756a36409b2cce15495e84a92c440e21d64cc634f4f8ec198e64",
+      "asset_hash": "e6fb3a71867e",
+      "natural_dimensions": "515x388",
+      "description": "Authentic traditional sweet stalls in Pahala steaming with fresh earthen pots of Rasagola",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_food_001/e6fb3a71867e/original.webp",
+        "hero": "/static/images/places/place_food_001/e6fb3a71867e/hero.webp",
+        "card": "/static/images/places/place_food_001/e6fb3a71867e/card.webp",
+        "thumbnail": "/static/images/places/place_food_001/e6fb3a71867e/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_food_002",
+      "place_name": "Nimapada Chhena Jhili Market",
+      "category": "market",
+      "source_filename": "place_food_002_nimapada_chhena_jhili_hero.webp",
+      "installed_path": "/static/images/places/place_food_002/e0850b09b5ca/hero.webp",
+      "asset_dir": "data/images/places/place_food_002/e0850b09b5ca",
+      "raw_sha256": "e0850b09b5ca14c4cc0a239cdbeba9675ff1f497a38d40fd41f1cbe40a3de5b7",
+      "asset_hash": "e0850b09b5ca",
+      "natural_dimensions": "480x640",
+      "description": "Authentic artisan sweet maker frying fresh golden Chhena Jhili in Nimapada market",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_food_002/e0850b09b5ca/original.webp",
+        "hero": "/static/images/places/place_food_002/e0850b09b5ca/hero.webp",
+        "card": "/static/images/places/place_food_002/e0850b09b5ca/card.webp",
+        "thumbnail": "/static/images/places/place_food_002/e0850b09b5ca/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_food_003",
+      "place_name": "Ananda Bazar, Puri",
+      "category": "market",
+      "source_filename": "place_food_003_ananda_bazar_hero.webp",
+      "installed_path": "/static/images/places/place_food_003/5a13e730e909/hero.webp",
+      "asset_dir": "data/images/places/place_food_003/5a13e730e909",
+      "raw_sha256": "5a13e730e90903924e54fb6d4d5c6b300e40a35494f761ab76e89d63d65ac538",
+      "asset_hash": "5a13e730e909",
+      "natural_dimensions": "515x388",
+      "description": "Authentic Ananda Bazar courtyard inside Jagannath Temple outer compound with Mahaprasad pots",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_food_003/5a13e730e909/original.webp",
+        "hero": "/static/images/places/place_food_003/5a13e730e909/hero.webp",
+        "card": "/static/images/places/place_food_003/5a13e730e909/card.webp",
+        "thumbnail": "/static/images/places/place_food_003/5a13e730e909/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_food_004",
+      "place_name": "Choudhury Bazar Dahibara Hub, Cuttack",
+      "category": "market",
+      "source_filename": "place_food_004_cuttack_dahibara_hero.webp",
+      "installed_path": "/static/images/places/place_food_004/4e765c230837/hero.webp",
+      "asset_dir": "data/images/places/place_food_004/4e765c230837",
+      "raw_sha256": "4e765c2308379f2ad6dfbd71adbb6842839fdb0f61a0868615f9db40564a20b0",
+      "asset_hash": "4e765c230837",
+      "natural_dimensions": "415x739",
+      "description": "Authentic leaf bowl serving of legendary Cuttack Dahibara Aloodum & Ghuguni",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_food_004/4e765c230837/original.webp",
+        "hero": "/static/images/places/place_food_004/4e765c230837/hero.webp",
+        "card": "/static/images/places/place_food_004/4e765c230837/card.webp",
+        "thumbnail": "/static/images/places/place_food_004/4e765c230837/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_food_005",
+      "place_name": "Bikalananda Kar Rasagola Hub, Salepur",
+      "category": "market",
+      "source_filename": "place_food_005_salepur_rasagola_hero.webp",
+      "installed_path": "/static/images/places/place_food_005/daeb11d5893b/hero.webp",
+      "asset_dir": "data/images/places/place_food_005/daeb11d5893b",
+      "raw_sha256": "daeb11d5893b87180f3b5c9ed4d4b747263e40f3f2e641a8dadfcd30bfe4926a",
+      "asset_hash": "daeb11d5893b",
+      "natural_dimensions": "399x501",
+      "description": "Authentic Bikalananda Kar heritage sweet showroom in Salepur",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_food_005/daeb11d5893b/original.webp",
+        "hero": "/static/images/places/place_food_005/daeb11d5893b/hero.webp",
+        "card": "/static/images/places/place_food_005/daeb11d5893b/card.webp",
+        "thumbnail": "/static/images/places/place_food_005/daeb11d5893b/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_food_006",
+      "place_name": "OTDC Nimantran Restaurant, Bhubaneswar",
+      "category": "market",
+      "source_filename": "place_food_006_nimantran_hero.webp",
+      "installed_path": "/static/images/places/place_food_006/88f959c50d0e/hero.webp",
+      "asset_dir": "data/images/places/place_food_006/88f959c50d0e",
+      "raw_sha256": "88f959c50d0eb15aaf20251cd73f893f8b668b4aff5e86499dcbf77cadcd93d6",
+      "asset_hash": "88f959c50d0e",
+      "natural_dimensions": "597x335",
+      "description": "Authentic OTDC Nimantran restaurant dining hall and authentic Odia cuisine presentation",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_food_006/88f959c50d0e/original.webp",
+        "hero": "/static/images/places/place_food_006/88f959c50d0e/hero.webp",
+        "card": "/static/images/places/place_food_006/88f959c50d0e/card.webp",
+        "thumbnail": "/static/images/places/place_food_006/88f959c50d0e/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_food_007",
+      "place_name": "Bapuji Nagar Food Corridor, Bhubaneswar",
+      "category": "market",
+      "source_filename": "place_food_007_bapuji_nagar_hero.webp",
+      "installed_path": "/static/images/places/place_food_007/a0a492f880a5/hero.webp",
+      "asset_dir": "data/images/places/place_food_007/a0a492f880a5",
+      "raw_sha256": "a0a492f880a5c598e59dd463b1241dc20f5bdd20020448a0d38c9dfd82bd3710",
+      "asset_hash": "a0a492f880a5",
+      "natural_dimensions": "480x640",
+      "description": "Authentic evening street food corridor and culinary stalls along Bapuji Nagar",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_food_007/a0a492f880a5/original.webp",
+        "hero": "/static/images/places/place_food_007/a0a492f880a5/hero.webp",
+        "card": "/static/images/places/place_food_007/a0a492f880a5/card.webp",
+        "thumbnail": "/static/images/places/place_food_007/a0a492f880a5/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_food_008",
+      "place_name": "Unit-4 Traditional Food & Fish Market, Bhubaneswar",
+      "category": "market",
+      "source_filename": "place_food_008_unit4_market_hero.webp",
+      "installed_path": "/static/images/places/place_food_008/35cde5e9e0e8/hero.webp",
+      "asset_dir": "data/images/places/place_food_008/35cde5e9e0e8",
+      "raw_sha256": "35cde5e9e0e8073c29dc1325fc621f073ea1bd9071e7078661632f6f55b1c81f",
+      "asset_hash": "35cde5e9e0e8",
+      "natural_dimensions": "597x335",
+      "description": "Authentic traditional food produce, spice, and fish market stalls in Unit-4 Market",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_food_008/35cde5e9e0e8/original.webp",
+        "hero": "/static/images/places/place_food_008/35cde5e9e0e8/hero.webp",
+        "card": "/static/images/places/place_food_008/35cde5e9e0e8/card.webp",
+        "thumbnail": "/static/images/places/place_food_008/35cde5e9e0e8/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_food_009",
+      "place_name": "OTDC Panthasala Odia Cuisine Centre, Konark",
+      "category": "market",
+      "source_filename": "place_food_009_konark_panthasala_hero.webp",
+      "installed_path": "/static/images/places/place_food_009/0b3143c9ea24/hero.webp",
+      "asset_dir": "data/images/places/place_food_009/0b3143c9ea24",
+      "raw_sha256": "0b3143c9ea24b8f7fd72af6b14134622b26a31e250f0527a72d432f6cd5d9e4b",
+      "asset_hash": "0b3143c9ea24",
+      "natural_dimensions": "408x306",
+      "description": "Authentic OTDC Panthasala cuisine center and tourist dining hub near Konark",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_food_009/0b3143c9ea24/original.webp",
+        "hero": "/static/images/places/place_food_009/0b3143c9ea24/hero.webp",
+        "card": "/static/images/places/place_food_009/0b3143c9ea24/card.webp",
+        "thumbnail": "/static/images/places/place_food_009/0b3143c9ea24/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_food_010",
+      "place_name": "Maa Mangala Temple Food & Pitha Precinct, Kakatpur",
+      "category": "temple",
+      "source_filename": "place_food_010_kakatpur_pitha_hero.webp",
+      "installed_path": "/static/images/places/place_food_010/abcf1ef01835/hero.webp",
+      "asset_dir": "data/images/places/place_food_010/abcf1ef01835",
+      "raw_sha256": "abcf1ef018358227c34b3c920ca5946ebea48692410e5b3988f6ddcfe1337893",
+      "asset_hash": "abcf1ef01835",
+      "natural_dimensions": "701x436",
+      "description": "Authentic Maa Mangala temple complex and sacred Pitha culinary precinct in Kakatpur",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_food_010/abcf1ef01835/original.webp",
+        "hero": "/static/images/places/place_food_010/abcf1ef01835/hero.webp",
+        "card": "/static/images/places/place_food_010/abcf1ef01835/card.webp",
+        "thumbnail": "/static/images/places/place_food_010/abcf1ef01835/thumbnail.webp"
+      }
+    },
+    {
+      "place_id": "place_food_011",
+      "place_name": "Raghunathpur Culinary Corner, Bhubaneswar",
+      "category": "market",
+      "source_filename": "place_food_011_raghunathpur_culinary_hero.webp",
+      "installed_path": "/static/images/places/place_food_011/cb1d3fcc1b6c/hero.webp",
+      "asset_dir": "data/images/places/place_food_011/cb1d3fcc1b6c",
+      "raw_sha256": "cb1d3fcc1b6c6dc6d09da8f7ab1a0f2bdeaedc129602f3f733e437f8e9164ae3",
+      "asset_hash": "cb1d3fcc1b6c",
+      "natural_dimensions": "408x544",
+      "description": "Authentic dining and culinary corridor along Raghunathpur Nandankanan corridor",
+      "status": "VERIFIED_CANONICAL",
+      "derivatives": {
+        "original": "/static/images/places/place_food_011/cb1d3fcc1b6c/original.webp",
+        "hero": "/static/images/places/place_food_011/cb1d3fcc1b6c/hero.webp",
+        "card": "/static/images/places/place_food_011/cb1d3fcc1b6c/card.webp",
+        "thumbnail": "/static/images/places/place_food_011/cb1d3fcc1b6c/thumbnail.webp"
+      }
+    }
+  ]
+}

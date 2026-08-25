@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>O-Travelz - Konark Sun Temple</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        mineral: {
+                            sand: '#FBF9F5',
+                            earth: '#A84825'
+                        },
+                        pure: {
+                            chalk: '#FFFFFF'
+                        },
+                        weathered: {
+                            stone: '#F2EEE7'
+                        },
+                        deep: {
+                            calligraphy: '#12161E'
+                        },
+                        river: {
+                            slate: '#3D4654'
+                        },
+                        stone: {
+                            muted: '#70798B',
+                            neutral: '#E5DFD5'
+                        },
+                        kalinga: {
+                            brass: '#B87B22'
+                        },
+                        chilika: {
+                            teal: '#1B5E6B'
+                        },
+                        sal: {
+                            canopy: '#2F523E'
+                        }
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        headline: ["Public Sans"],
+                        display: ["Playfair Display", "serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                        technical: ["JetBrains Mono", "monospace"],
+                        label: ["Public Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-surface {
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+        }
+        .drop-cap::first-letter {
+            font-size: 3.5rem;
+            line-height: 0.8;
+            float: left;
+            margin-right: 0.75rem;
+            margin-top: 0.2rem;
+            color: #12161E;
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-mineral-sand text-river-slate font-body antialiased selection:bg-kalinga-brass selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/75 backdrop-blur-xl border-b border-[#E5DFD5] shadow-sm flex justify-between items-center px-8 py-4 max-w-full">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-display font-bold text-[#12161E] italic" href="#">O-Travelz</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-[#3D4654] font-body hover:text-[#B87B22] transition-colors" href="#">Circuits</a>
+<a class="text-[#3D4654] font-body hover:text-[#B87B22] transition-colors" href="#">Regions</a>
+<a class="text-[#B87B22] border-b-2 border-[#B87B22] pb-1 font-semibold" href="#">Editorial</a>
+<a class="text-[#3D4654] font-body hover:text-[#B87B22] transition-colors" href="#">Plan</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#F2EEE7]/50 rounded-full transition-all duration-300 scale-95 hover:scale-100 ease-in-out">
+<span class="material-symbols-outlined text-[#12161E]">map</span>
+</button>
+<button class="p-2 hover:bg-[#F2EEE7]/50 rounded-full transition-all duration-300 scale-95 hover:scale-100 ease-in-out">
+<span class="material-symbols-outlined text-[#12161E]">person</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar (Mobile Bottom Nav Equivalent conceptually mapped out for desktop) -->
+<!-- Suppressed on Destination Detail as per Semantic Shell Mandate (Task-Focused / Linear exploration within Editorial) - Wait, it's a Top-level destination detail. Given the prompt requests 'SCREEN_4: Destination Detail Guide', I will suppress SideNav to prioritize the canvas as instructed for detailed sub-pages, focusing on the cinematic hero and editorial layout. -->
+<main class="pt-[73px] min-h-screen">
+<!-- CINEMATIC HERO -->
+<section class="relative w-full h-[70vh] min-h-[500px] flex flex-col justify-end">
+<img class="absolute inset-0 w-full h-full object-cover z-0" data-alt="A wide cinematic shot of the magnificent Konark Sun Temple at golden hour, its intricate sandstone carvings glowing warmly. The massive stone chariot wheels are prominent, casting long shadows. A small group of well-dressed visitors stands in awe, providing scale. The sky is a soft, clear gradient from warm ochre to pale blue. Luxury travel photography style, highly detailed and evocative." src="https://lh3.googleusercontent.com/aida/AEtjO1UJDc3s2rXfcdfgh0MjYXjfP8ie0_DO7Fj6DtOI1jxN1NT5w5L1FuH7xOr297v_k2-BUyEq44qOacOXYFcXeueXdZg4_hKcOTG7ogznQQmkSnAUksJU8R9Galpbi-cN1rtBZBdA-A-ga92A2mtW_wN5WlPZMXxmszLL9e5YQJDb6ooyQkCt09GNymZyuDKxfOzEONVibDomhHlQ28Eg5bA9UFmQeGAMaLJdTYQdCpfsO5BQAtedD8nlMqY"/>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-deep-calligraphy/90 via-deep-calligraphy/40 to-transparent z-10"></div>
+<!-- Photo Counter -->
+<div class="absolute top-8 right-8 z-20">
+<div class="glass-surface px-4 py-2 rounded-full border border-white/20 flex items-center gap-2 text-sm text-deep-calligraphy font-medium shadow-sm">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+<span>Photo 1 of 8</span>
+<span class="w-1 h-1 bg-river-slate rounded-full"></span>
+<span class="text-xs text-river-slate">Verified by O-Travelz Documentation</span>
+</div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-20 px-8 md:px-12 lg:px-24 pb-16 max-w-7xl mx-auto w-full">
+<div class="flex flex-wrap gap-3 mb-6">
+<span class="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-xs tracking-wider uppercase font-medium">13th-Century Kalinga Monument</span>
+<span class="px-3 py-1 bg-kalinga-brass/90 border border-kalinga-brass rounded-full text-white text-xs tracking-wider uppercase font-medium">UNESCO World Heritage</span>
+</div>
+<h1 class="font-display text-5xl md:text-6xl text-white font-bold leading-tight mb-2">Konark Sun Temple</h1>
+<h2 class="font-display text-2xl text-white/80 italic mb-4">କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର</h2>
+</div>
+</section>
+<!-- CONTENT GRID -->
+<section class="px-8 md:px-12 lg:px-24 py-16 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+<!-- EDITORIAL CONTENT (Left Column) -->
+<article class="lg:col-span-7 xl:col-span-8 flex flex-col gap-10">
+<div class="prose prose-lg prose-slate max-w-none text-river-slate font-body leading-relaxed">
+<p class="drop-cap text-lg mb-6">
+                        Conceived by the visionary King Narasimhadeva I of the Eastern Ganga dynasty in the 13th century, the Konark Sun Temple stands as a monumental chariot in stone, dedicated to the Sun God, Surya. This architectural masterpiece is not merely a temple; it is a profound poetic expression etched in sandstone, representing the apex of Kalinga architecture.
+                    </p>
+<p class="mb-8">
+                        The structure is conceived as a colossal chariot with twenty-four intricately carved wheels, drawn by seven spirited horses across the heavens. Each wheel, a sundial of immense precision, speaks to a deep astronomical understanding woven into religious devotion. The temple is famous for its intricate friezes, depicting everything from daily life and military campaigns to celestial dancers (Surasundaris) and mythical beasts, all rendered with astonishing vitality.
+                    </p>
+<h3 class="font-display text-3xl text-deep-calligraphy font-semibold mt-12 mb-6">The Architectural Wonder</h3>
+<p class="mb-6">
+                        The main temple complex originally consisted of the main sanctum (Vimana) with a towering curvilinear spire, which has sadly collapsed, and an audience hall (Jagamohana), which still stands majestically. The structural genius of Konark lies in its integration of immense scale with microscopic detail. Iron beams were used for structural support, a rarity in ancient Indian architecture, demonstrating advanced metallurgical knowledge.
+                    </p>
+<figure class="my-10">
+<img class="w-full h-[400px] object-cover rounded-lg" data-alt="A close-up shot of an intricately carved stone chariot wheel at the Konark Sun Temple. The sandstone texture is rough and ancient, illuminated by harsh, angled sunlight that highlights the deep relief carvings of dancers, animals, and geometric patterns within the wheel's spokes. The background is a soft, blurred stone texture, focusing all attention on the masterful Kalinga craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5sZ1rfbyhc2_mgibP5K7OzEG3SuLaEBy1XRBClogtRqSb1lIochvatuJRyC3EY3kPK-nbKbjBTcNJRfp6PZgwOHqiBBBY6sb2ZQ3-aj67dtICZ9MgZXiQS57XMepFtm2fOgZaJnAsMMWWo8kky-TxR1dxTqAqcs79oCuXSU_A6m3mgQ3NBdcv3wubHvK6wJ8iZU6ZnEfk_nSLweenzJZcOOc3zTOt0Gr6Q5YA0xjHN-1dPPow5b_1HvTTr7Kb6MXYcJngfEFWBAU"/>
+<figcaption class="text-sm text-stone-muted mt-3 italic font-body">The iconic stone chariot wheels act as precise sundials, a testament to ancient Indian astronomy.</figcaption>
+</figure>
+<h3 class="font-display text-3xl text-deep-calligraphy font-semibold mt-12 mb-6">Best Hours to Visit</h3>
+<p class="mb-6">
+                        To truly appreciate the ethereal beauty of Konark, one must arrive at dawn. As the first rays of the sun strike the principal entrance, the temple seems to awaken. The early morning light casts long, dramatic shadows that bring the intricate carvings to life, revealing depths and details often lost in the harsh midday sun. Alternatively, the golden hour just before sunset offers a serene, almost melancholic beauty to the ruins.
+                    </p>
+</div>
+</article>
+<!-- LOGISTICAL CARD (Right Column) -->
+<aside class="lg:col-span-5 xl:col-span-4 relative">
+<div class="sticky top-28 bg-pure-chalk border border-stone-neutral rounded-xl shadow-sm p-8 flex flex-col gap-6">
+<div class="flex justify-between items-center border-b border-stone-neutral pb-4">
+<h4 class="font-display text-xl text-deep-calligraphy font-semibold">Verified Logistical Intelligence</h4>
+<span class="material-symbols-outlined text-stone-muted" title="Information verified recently">verified</span>
+</div>
+<div class="flex flex-col gap-5">
+<!-- Visit Duration -->
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-weathered-stone flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-river-slate text-xl">hourglass_bottom</span>
+</div>
+<div>
+<span class="block text-xs uppercase tracking-wider text-stone-muted mb-1">Recommended Duration</span>
+<span class="font-technical text-deep-calligraphy font-medium">90 Minutes</span>
+</div>
+</div>
+<!-- Hours -->
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-weathered-stone flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-river-slate text-xl">schedule</span>
+</div>
+<div>
+<span class="block text-xs uppercase tracking-wider text-stone-muted mb-1">Visiting Hours</span>
+<div class="flex items-center gap-2">
+<span class="font-technical text-deep-calligraphy font-medium">06:00 AM – 08:30 PM</span>
+<span class="px-2 py-0.5 bg-sal-canopy/10 text-sal-canopy text-[10px] uppercase font-bold rounded-full tracking-wider">Open Today</span>
+</div>
+</div>
+</div>
+<!-- Fees -->
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-weathered-stone flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-river-slate text-xl">payments</span>
+</div>
+<div>
+<span class="block text-xs uppercase tracking-wider text-stone-muted mb-1">Entry Fee</span>
+<span class="font-technical text-deep-calligraphy font-medium">₹40 <span class="text-stone-muted text-sm font-body">(Indian Citizens)</span></span>
+</div>
+</div>
+<!-- Transit -->
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-weathered-stone flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-river-slate text-xl">directions_bus</span>
+</div>
+<div>
+<span class="block text-xs uppercase tracking-wider text-stone-muted mb-1">Transit Access</span>
+<span class="font-technical text-deep-calligraphy font-medium">Mo Bus Route 12</span>
+</div>
+</div>
+<!-- Weather -->
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-weathered-stone flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-river-slate text-xl">clear_day</span>
+</div>
+<div>
+<span class="block text-xs uppercase tracking-wider text-stone-muted mb-1">Current Conditions</span>
+<span class="font-technical text-deep-calligraphy font-medium">28°C · Clear Sky</span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-3">
+<button class="w-full bg-kalinga-brass hover:bg-kalinga-brass/90 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span>Plan Trip Around Konark</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<div class="flex gap-3">
+<button class="flex-1 bg-weathered-stone hover:bg-weathered-stone/80 text-deep-calligraphy font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">route</span>
+<span>View Spatial Route</span>
+</button>
+<button class="w-12 h-12 bg-weathered-stone hover:bg-weathered-stone/80 text-deep-calligraphy rounded-lg transition-colors flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+</section>
+<!-- NEARBY RAIL -->
+<section class="py-16 bg-pure-chalk border-t border-stone-neutral">
+<div class="px-8 md:px-12 lg:px-24 max-w-7xl mx-auto w-full mb-8 flex justify-between items-end">
+<div>
+<h3 class="font-display text-3xl text-deep-calligraphy font-semibold mb-2">Continue the Odyssey</h3>
+<p class="text-river-slate text-sm">Notable landmarks within your vicinity.</p>
+</div>
+<div class="hidden md:flex gap-2">
+<button class="w-10 h-10 rounded-full border border-stone-neutral flex items-center justify-center text-river-slate hover:bg-weathered-stone transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-stone-neutral flex items-center justify-center text-river-slate hover:bg-weathered-stone transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="w-full overflow-x-auto pb-8 hide-scrollbar">
+<div class="flex gap-6 px-8 md:px-12 lg:px-24 w-max">
+<!-- Card 1 -->
+<a class="group block w-72 shrink-0" href="#">
+<div class="relative w-full h-48 rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A tranquil, wide shot of Chandrabhaga Beach at sunrise. The golden sun is just peeking over the horizon of the Bay of Bengal, reflecting off the wet sand. Gentle waves are breaking on the shore. The scene is peaceful, empty, and serene, captured in a high-end landscape photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE31oMvGQgEHrnxrQxH3BhL73Je4zSBm1lN_K2lrZG6T_bGt41zB_3zfMfS71i0P4A3B6hMBYyAMrPIBuoucHmFkFF5X5uywYel8k9jNVSAEgmiwFCWvrWw3XFPWo_aySzCKQMvardP40G4ZFpQXKWlQZL8nf0HvoiECPXKFIQEIdYg_cz7ceu6RnCgAPuCsiexKkBRz8vKvHu2rGjznGVyJapqE0RrhOL7c8SfHUTp4bB_eWxGuE0mTm9QzAQKlqahn6nD1JocIw"/>
+</div>
+<h4 class="font-display text-lg text-deep-calligraphy font-medium mb-1 group-hover:text-kalinga-brass transition-colors">Chandrabhaga Beach</h4>
+<div class="flex items-center gap-1 text-sm text-stone-muted font-technical">
+<span class="material-symbols-outlined text-[16px]">distance</span>
+<span>3 km away</span>
+</div>
+</a>
+<!-- Card 2 -->
+<a class="group block w-72 shrink-0" href="#">
+<div class="relative w-full h-48 rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A serene view of Ramchandi Temple situated at the mouth of the Kushabhadra River. The small, ancient stone temple sits on a sandy bank, surrounded by lush green casuarina trees. The water is calm, reflecting the blue sky. The lighting suggests early morning, offering a peaceful, spiritual atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD59U0kgovGSXGyFj7HNLWZBsYEJUo4_AL1ovCNDW4M5R2YcwK11WIwxukHiPirs9dvZgpl_9YbrlqDTq3hE0rmK545SNsNjopFNUTdQT1pGjOOuoeH6stkarNu73R2hr6DC28UKvfi4CzRfLXTFZub2w7ROL8HfhY8YbXlEERctqJfiVPGuidWWbm5rsdLjaHab3Mviy8ZNl1ggj8iBNccJ9Miyhd7VuPnfeklQY_FJxHJIDHcI4bjIjZeNxFDjTX82Ht0Ja6mfBc"/>
+</div>
+<h4 class="font-display text-lg text-deep-calligraphy font-medium mb-1 group-hover:text-kalinga-brass transition-colors">Ramchandi Temple</h4>
+<div class="flex items-center gap-1 text-sm text-stone-muted font-technical">
+<span class="material-symbols-outlined text-[16px]">distance</span>
+<span>7 km away</span>
+</div>
+</a>
+<!-- Card 3 -->
+<a class="group block w-72 shrink-0" href="#">
+<div class="relative w-full h-48 rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant, colorful shot of Pipli Craft Village. The narrow street is lined with shops displaying bright, intricate applique work—umbrellas, wall hangings, and lanterns in bold reds, yellows, and greens. The scene is bustling but captured with a shallow depth of field to focus on the rich textures of the Odishan textile art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClD4zbbLLawacpeY1rvvvAsSeebBCdBy4sQF8dA5_oYSZZISPIWNkIzpvMsSb3NiZkLYn8iYnR5Xy_pXCmNaBQ4pwEbqBONwtED3C6XxSxxa8fK98NiZ0g6-2Qe1HHp1xy--KOKgAauzSSx6x0bIMx9vIbc_A17NeQHFfU_HiyzY_ml5XsH0SVczRaVceiqMYa2DyFNgWkEEgEnCGgkILhwnvwuY0GJuvnfoVjGTZn_5UUND3r_l0DqZhHAu5HVOcPGrMhfgT6ThI"/>
+</div>
+<h4 class="font-display text-lg text-deep-calligraphy font-medium mb-1 group-hover:text-kalinga-brass transition-colors">Pipili Craft Village</h4>
+<div class="flex items-center gap-1 text-sm text-stone-muted font-technical">
+<span class="material-symbols-outlined text-[16px]">distance</span>
+<span>28 km away</span>
+</div>
+</a>
+<!-- Card 4 -->
+<a class="group block w-72 shrink-0" href="#">
+<div class="relative w-full h-48 rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxurious, expansive view of Puri Golden Beach. The golden sand stretches far into the distance, meeting the deep blue waters of the ocean. A few distant figures can be seen walking along the shore. The sky is a clear, vibrant blue with a few wispy clouds. Clean, modern, and inviting aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdUMTqcfS4N8tQEKmj5eNrrdNPrmIc7OtH5Y7n4IWW0tChvcKfm-hLOSxj-EUlLqC7absr5Eu8-158CtgMUw7SquNR6Q36JkPVmCct_4GEsf_5Jc85PHjn72fmSDUZ74QulXT8GVsAKFthgB0ouGJOaFGMHOVWNqY32kN4V9XBNgsxSAchnJAU5Eb3JoyDkHwv9Tuad9PnTvqJOIDqMuNtmZ0MDt0j1K_3Ooc5bWiG_eDkvtzfLxJ6sxGrKRR5gkrEl3x1xYug10A"/>
+</div>
+<h4 class="font-display text-lg text-deep-calligraphy font-medium mb-1 group-hover:text-kalinga-brass transition-colors">Puri Golden Beach</h4>
+<div class="flex items-center gap-1 text-sm text-stone-muted font-technical">
+<span class="material-symbols-outlined text-[16px]">distance</span>
+<span>35 km away</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#FBF9F5] w-full border-t border-[#E5DFD5] mt-auto flex flex-col md:flex-row justify-between items-center px-12 py-8 w-full gap-6">
+<a class="font-display italic text-lg text-[#12161E]" href="#">O-Travelz</a>
+<div class="flex flex-wrap gap-6 justify-center">
+<a class="font-body text-xs uppercase tracking-widest text-[#70798B] hover:text-[#B87B22] transition-colors opacity-100 hover:opacity-80" href="#">Privacy Policy</a>
+<a class="font-body text-xs uppercase tracking-widest text-[#70798B] hover:text-[#B87B22] transition-colors opacity-100 hover:opacity-80" href="#">Terms of Service</a>
+<a class="font-body text-xs uppercase tracking-widest text-[#70798B] hover:text-[#B87B22] transition-colors opacity-100 hover:opacity-80" href="#">Press Inquiry</a>
+<a class="font-body text-xs uppercase tracking-widest text-[#70798B] hover:text-[#B87B22] transition-colors opacity-100 hover:opacity-80" href="#">Contact</a>
+</div>
+<p class="font-body text-xs uppercase tracking-widest text-[#70798B]">© 2024 O-Travelz. An Editorial Odyssey of Odisha.</p>
+</footer>
+<style>
+        /* Custom hide scrollbar utility for the horizontal rail */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

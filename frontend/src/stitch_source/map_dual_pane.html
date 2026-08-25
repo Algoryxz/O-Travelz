@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3-Day Heritage &amp; Coastal Odyssey - O-Travelz</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        mineralSand: "#FBF9F5",
+                        pureChalk: "#FFFFFF",
+                        weatheredStone: "#F2EEE7",
+                        deepCalligraphy: "#12161E",
+                        riverSlate: "#3D4654",
+                        stoneMuted: "#70798B",
+                        kalingaBrass: "#B87B22",
+                        chilikaTeal: "#1B5E6B",
+                        templeClay: "#A84825",
+                        salGreen: "#2F523E",
+                        stoneNeutral: "#E5DFD5"
+                    },
+                    fontFamily: {
+                        headline: ["Playfair Display", "serif"],
+                        display: ["Playfair Display", "serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                        label: ["Plus Jakarta Sans", "sans-serif"],
+                        technical: ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-surface {
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            bottom: -24px;
+            left: 11px;
+            width: 2px;
+            background-color: #E5DFD5;
+            z-index: 0;
+        }
+        .timeline-item:last-child .timeline-line::before {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-mineralSand text-deepCalligraphy font-body antialiased flex h-screen overflow-hidden">
+<!-- Left Pane: Itinerary Workspace -->
+<main class="w-full lg:w-1/2 flex flex-col h-full border-r border-stoneNeutral bg-mineralSand relative z-10">
+<!-- Top Toolbar -->
+<header class="flex-none px-8 py-6 border-b border-stoneNeutral bg-mineralSand/95 backdrop-blur-sm z-20">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h1 class="font-display font-semibold text-3xl text-deepCalligraphy mb-2">3-Day Heritage &amp; Coastal Odyssey</h1>
+<p class="font-body text-sm text-stoneMuted tracking-wide">
+<span class="material-symbols-outlined align-middle text-[18px]">location_on</span> Starting from: Bhubaneswar · 3 Days · 8 Stops · Multimodal Transit
+                    </p>
+</div>
+</div>
+<div class="flex flex-wrap gap-3 mt-4">
+<button class="glass-surface border border-stoneNeutral px-4 py-2 rounded-full text-sm font-medium text-riverSlate hover:text-kalingaBrass hover:bg-weatheredStone transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">share</span> Share Trip
+                </button>
+<button class="glass-surface border border-stoneNeutral px-4 py-2 rounded-full text-sm font-medium text-riverSlate hover:text-kalingaBrass hover:bg-weatheredStone transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span> Export PDF
+                </button>
+<button class="bg-kalingaBrass text-pureChalk px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span> Add Destination
+                </button>
+<button class="glass-surface border border-stoneNeutral px-4 py-2 rounded-full text-sm font-medium text-riverSlate hover:text-kalingaBrass hover:bg-weatheredStone transition-colors flex items-center gap-2 ml-auto">
+<span class="material-symbols-outlined text-[18px]">swap_vert</span> Reorder Stops
+                </button>
+</div>
+</header>
+<!-- Day Selector Strip -->
+<div class="flex-none px-8 py-4 border-b border-stoneNeutral bg-pureChalk flex gap-6 overflow-x-auto">
+<button class="text-kalingaBrass font-semibold border-b-2 border-kalingaBrass pb-1 whitespace-nowrap">Day 1</button>
+<button class="text-stoneMuted hover:text-deepCalligraphy font-medium pb-1 transition-colors whitespace-nowrap">Day 2</button>
+<button class="text-stoneMuted hover:text-deepCalligraphy font-medium pb-1 transition-colors whitespace-nowrap">Day 3</button>
+</div>
+<!-- Scrollable Timeline -->
+<div class="flex-grow overflow-y-auto px-8 py-8">
+<div class="space-y-6">
+<!-- Node 1 -->
+<div class="timeline-item relative flex gap-6 group">
+<div class="timeline-line relative flex-none w-6 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-kalingaBrass flex items-center justify-center text-pureChalk text-xs font-bold z-10 ring-4 ring-mineralSand shadow-sm">1</div>
+</div>
+<div class="flex-grow bg-pureChalk border border-stoneNeutral p-5 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-display font-semibold text-lg text-deepCalligraphy">Lingaraj Temple</h3>
+<span class="font-technical text-sm text-stoneMuted">08:30 AM</span>
+</div>
+<p class="font-body text-sm text-riverSlate mb-3">Visit: 90 min</p>
+<div class="h-32 w-full rounded-md overflow-hidden bg-weatheredStone mb-3">
+<img class="w-full h-full object-cover" data-alt="A grand view of the Lingaraj Temple in Bhubaneswar, showcasing its towering spire and intricate Kalinga architecture against a clear morning sky. Warm, golden sunlight hits the ancient stone, highlighting the detailed carvings. The scene is majestic and historical, shot in a high-end editorial travel style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA45jnPd7OLmCTXoD33xrYfxLkaiLzT0SkjsQJ5SUfXsoaHS_m1HbCSPP3MU0fMJN-Wtj4UoSXZnmj7qJi8F3Pfr2NB06N-bAXIHXU763RYKI78tWq6eTzcKSc9CjSzo_5ZIoY4jQ7p8IOlzfhig50CuJrVUiiBoW-NZ0nDBwzFbU7dCRLW9O5qRCX1Q85bqnGqOPf5lxWJw_blscUbvaCam7GP00rz_U_a0qOvu0V8oPUhu7rAMvswSt7HpWMiM0Vqr7vh1ihXuD8"/>
+</div>
+</div>
+</div>
+<!-- Transit 1 -->
+<div class="timeline-item relative flex gap-6">
+<div class="timeline-line relative flex-none w-6 flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-chilikaTeal z-10 mt-2 ring-4 ring-mineralSand"></div>
+</div>
+<div class="flex-grow py-2">
+<div class="inline-flex items-center gap-3 bg-weatheredStone/50 px-4 py-2 rounded-full border border-stoneNeutral/50 text-sm font-technical text-riverSlate">
+<span class="material-symbols-outlined text-chilikaTeal text-[18px]">directions_bus</span>
+<span>Mo Bus Route 10</span>
+<span class="text-stoneMuted">•</span>
+<span>15 min</span>
+<span class="text-stoneMuted">•</span>
+<span>₹20</span>
+</div>
+</div>
+</div>
+<!-- Node 2 -->
+<div class="timeline-item relative flex gap-6 group">
+<div class="timeline-line relative flex-none w-6 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-kalingaBrass flex items-center justify-center text-pureChalk text-xs font-bold z-10 ring-4 ring-mineralSand shadow-sm">2</div>
+</div>
+<div class="flex-grow bg-pureChalk border border-stoneNeutral p-5 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-display font-semibold text-lg text-deepCalligraphy">Mukteshvara Temple</h3>
+<span class="font-technical text-sm text-stoneMuted">10:15 AM</span>
+</div>
+<p class="font-body text-sm text-riverSlate">Visit: 60 min</p>
+</div>
+</div>
+<!-- Transit 2 -->
+<div class="timeline-item relative flex gap-6">
+<div class="timeline-line relative flex-none w-6 flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-salGreen z-10 mt-2 ring-4 ring-mineralSand"></div>
+</div>
+<div class="flex-grow py-2">
+<div class="inline-flex items-center gap-3 bg-weatheredStone/50 px-4 py-2 rounded-full border border-stoneNeutral/50 text-sm font-technical text-riverSlate">
+<span class="material-symbols-outlined text-salGreen text-[18px]">directions_walk</span>
+<span>Scenic Old Town Walk</span>
+<span class="text-stoneMuted">•</span>
+<span>8 min</span>
+</div>
+</div>
+</div>
+<!-- Node 3 -->
+<div class="timeline-item relative flex gap-6 group">
+<div class="timeline-line relative flex-none w-6 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-kalingaBrass flex items-center justify-center text-pureChalk text-xs font-bold z-10 ring-4 ring-mineralSand shadow-sm">3</div>
+</div>
+<div class="flex-grow bg-pureChalk border border-stoneNeutral p-5 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-display font-semibold text-lg text-deepCalligraphy">Bindu Sagar Lake &amp; Odia Food Hub</h3>
+<span class="font-technical text-sm text-stoneMuted">11:30 AM</span>
+</div>
+<p class="font-body text-sm text-riverSlate">Visit: 45 min</p>
+</div>
+</div>
+<!-- Transit 3 -->
+<div class="timeline-item relative flex gap-6">
+<div class="timeline-line relative flex-none w-6 flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-templeClay z-10 mt-2 ring-4 ring-mineralSand"></div>
+</div>
+<div class="flex-grow py-2">
+<div class="inline-flex items-center gap-3 bg-weatheredStone/50 px-4 py-2 rounded-full border border-stoneNeutral/50 text-sm font-technical text-riverSlate">
+<span class="material-symbols-outlined text-templeClay text-[18px]">directions_car</span>
+<span>Intercity Transit</span>
+<span class="text-stoneMuted">•</span>
+<span>45 min</span>
+</div>
+</div>
+</div>
+<!-- Node 4 -->
+<div class="timeline-item relative flex gap-6 group">
+<div class="timeline-line relative flex-none w-6 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-kalingaBrass flex items-center justify-center text-pureChalk text-xs font-bold z-10 ring-4 ring-mineralSand shadow-sm">4</div>
+</div>
+<div class="flex-grow bg-pureChalk border border-stoneNeutral p-5 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-display font-semibold text-lg text-deepCalligraphy">Dhauli Shanti Stupa</h3>
+<span class="font-technical text-sm text-stoneMuted">01:00 PM</span>
+</div>
+<p class="font-body text-sm text-riverSlate">Visit: 60 min</p>
+</div>
+</div>
+</div>
+<!-- AI Copilot Chips -->
+<div class="mt-10 pt-6 border-t border-stoneNeutral">
+<h4 class="font-body text-xs font-semibold text-stoneMuted uppercase tracking-wider mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span> Trip Suggestions
+                </h4>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-full border border-stoneNeutral bg-pureChalk text-xs font-medium text-riverSlate hover:border-kalingaBrass hover:text-kalingaBrass transition-colors">Make Day 1 more relaxed</button>
+<button class="px-3 py-1.5 rounded-full border border-stoneNeutral bg-pureChalk text-xs font-medium text-riverSlate hover:border-kalingaBrass hover:text-kalingaBrass transition-colors">Add sunset stop at Dhauli</button>
+<button class="px-3 py-1.5 rounded-full border border-stoneNeutral bg-pureChalk text-xs font-medium text-riverSlate hover:border-kalingaBrass hover:text-kalingaBrass transition-colors">Show budget travel options</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Right Pane: Interactive Map -->
+<aside class="hidden lg:block w-1/2 h-full relative bg-[#e5e3df] overflow-hidden">
+<!-- Map Background Placeholder (Simulated Map) -->
+<div class="absolute inset-0 bg-cover bg-center opacity-80" data-alt="A highly detailed, aesthetically pleasing digital map view of the region from Bhubaneswar to Puri and Konark in Odisha. The map style is minimalist and elegant, using soft muted tones like warm sands, subtle greens for parks, and pale blue for water bodies. Fine subtle lines denote major roads, creating a high-end luxury editorial aesthetic." data-location="Bhubaneswar to Puri" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAw_nX59TRvZolQIS6CQFV8csx3wdeN4wfZeD4kj9TkYAywT82vYFczU5qm8nZxDUcSRDYwjGgxvDH8HldDdRAZb3SRHWIXJWvL5X8_VJJ6QTqZSSfbK_rNSZQi--9ji2YGakGyxnpBgVpGV4LGivBVMSeV_ax03HfrSzC6TBGM6G69A98IpPpD2ge8KeqPhY0mAkFIaWPOzpYjXt-aevo0rt2FQi49XClzjlZ31YElZGQRmBH8kvpB1iKRMubN5iKDCncsDib_i7M')"></div>
+<!-- Simulated Route Overlay SVG -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-10" preserveaspectratio="xMidYMid slice" viewbox="0 0 1000 1000">
+<!-- Teal Bus Route -->
+<path d="M 300 200 Q 400 300 450 400" fill="none" stroke="#1B5E6B" stroke-linecap="round" stroke-width="4"></path>
+<!-- Green Walk Route -->
+<path d="M 450 400 Q 480 450 500 450" fill="none" stroke="#2F523E" stroke-dasharray="6,6" stroke-linecap="round" stroke-width="3"></path>
+<!-- Terracotta Highway Route -->
+<path d="M 500 450 Q 600 600 700 800" fill="none" stroke="#A84825" stroke-linecap="round" stroke-width="5"></path>
+</svg>
+<!-- Map Pins -->
+<div class="absolute z-20" style="top: 20%; left: 30%; transform: translate(-50%, -50%);">
+<div class="relative w-8 h-8">
+<div class="absolute inset-0 bg-kalingaBrass rounded-full animate-ping opacity-75"></div>
+<div class="relative w-8 h-8 bg-kalingaBrass border-2 border-pureChalk rounded-full shadow-lg flex items-center justify-center text-pureChalk font-bold text-sm">1</div>
+</div>
+</div>
+<div class="absolute z-20" style="top: 40%; left: 45%; transform: translate(-50%, -50%);">
+<div class="w-7 h-7 bg-kalingaBrass border-2 border-pureChalk rounded-full shadow-lg flex items-center justify-center text-pureChalk font-bold text-xs">2</div>
+</div>
+<div class="absolute z-20" style="top: 45%; left: 50%; transform: translate(-50%, -50%);">
+<div class="w-7 h-7 bg-kalingaBrass border-2 border-pureChalk rounded-full shadow-lg flex items-center justify-center text-pureChalk font-bold text-xs">3</div>
+</div>
+<div class="absolute z-20" style="top: 80%; left: 70%; transform: translate(-50%, -50%);">
+<div class="w-7 h-7 bg-kalingaBrass border-2 border-pureChalk rounded-full shadow-lg flex items-center justify-center text-pureChalk font-bold text-xs">4</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute top-6 right-6 z-30 flex flex-col gap-2">
+<div class="glass-surface border border-stoneNeutral rounded-lg shadow-sm flex flex-col overflow-hidden">
+<button class="p-3 text-riverSlate hover:text-kalingaBrass hover:bg-weatheredStone transition-colors border-b border-stoneNeutral flex items-center justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="p-3 text-riverSlate hover:text-kalingaBrass hover:bg-weatheredStone transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<button class="glass-surface border border-stoneNeutral rounded-lg p-3 shadow-sm text-riverSlate hover:text-kalingaBrass hover:bg-weatheredStone transition-colors flex items-center justify-center mt-2">
+<span class="material-symbols-outlined">layers</span>
+</button>
+<button class="glass-surface border border-stoneNeutral rounded-lg p-3 shadow-sm text-riverSlate hover:text-kalingaBrass hover:bg-weatheredStone transition-colors flex items-center justify-center mt-2">
+<span class="material-symbols-outlined">explore</span>
+</button>
+</div>
+<!-- Active Stop Preview Card -->
+<div class="absolute bottom-8 right-8 z-30 w-80">
+<div class="glass-surface border border-stoneNeutral rounded-xl p-4 shadow-lg">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-none">
+<img class="w-full h-full object-cover" data-alt="A close-up view of the intricate stone carvings on the walls of the Lingaraj Temple. The warm morning light casts soft shadows, highlighting the incredible detail of the ancient Kalinga craftsmanship. Shot in a high-end, editorial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGYcFhlTwScqXojTB0Zt2CcSWDuprGPprhm3lqFS5K80IVen5KylOcudBcT0QNnviCI8xaHIJDbmjYDfmhXwuIoJR9rjuHNaE3st9MPUlQXrmRAUUS9FqxMWkriK3Dfhw0Fy32epfTmhwhkWpq2vF0Q9VuLBll4dPd3TB7-edFyN4tVZjxOXfCHoH7FwtQClcKm1AEuWz0tbJ5b0IrRtgpi3-Ck5lDaD4KjRtGga_tAc_bTxNqUQRagM_l_ulbk455dXHIio5oFv0"/>
+</div>
+<div class="flex flex-col justify-center">
+<span class="text-xs font-bold text-kalingaBrass mb-1 uppercase tracking-wider">Current Stop</span>
+<h4 class="font-display font-semibold text-deepCalligraphy">Lingaraj Temple</h4>
+<p class="font-technical text-xs text-stoneMuted mt-1">90 min duration</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</body></html>

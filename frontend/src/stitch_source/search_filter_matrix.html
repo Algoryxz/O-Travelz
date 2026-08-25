@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>O-Travelz - Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: "#FBF9F5",
+                        card: "#FFFFFF",
+                        surface: "#F2EEE7",
+                        primary: "#12161E",
+                        secondary: "#3D4654",
+                        muted: "#70798B",
+                        accent: "#B87B22",
+                        teal: "#1B5E6B",
+                        clay: "#A84825",
+                        green: "#2F523E",
+                        border: "#E5DFD5",
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    fontFamily: {
+                        headline: ["Playfair Display", "serif"],
+                        display: ["Playfair Display", "serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                        label: ["Plus Jakarta Sans", "sans-serif"],
+                        mono: ["DM Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-canvas text-primary font-body antialiased selection:bg-accent/20 selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl border-b border-[#E5DFD5]/30">
+<div class="flex justify-between items-center px-12 h-20 max-w-screen-2xl mx-auto">
+<a class="font-display text-2xl font-bold text-[#12161E]" href="#">O-Travelz</a>
+<div class="hidden md:flex gap-8">
+<a class="font-body text-label-md tracking-wide text-[#3D4654] hover:text-[#B87B22] transition-colors" href="#">Circuits</a>
+<a class="font-body text-label-md tracking-wide text-[#3D4654] hover:text-[#B87B22] transition-colors" href="#">Regions</a>
+<a class="font-body text-label-md tracking-wide text-[#B87B22] font-semibold border-b-2 border-[#B87B22] pb-1" href="#">Editorial</a>
+<a class="font-body text-label-md tracking-wide text-[#3D4654] hover:text-[#B87B22] transition-colors" href="#">Plan</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary hover:bg-[#F2EEE7]/50 transition-all duration-300 p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-screen-2xl mx-auto">
+<!-- Search Header -->
+<header class="mb-12">
+<div class="relative max-w-3xl mx-auto mb-6">
+<input class="w-full bg-card border border-border rounded-full py-4 pl-14 pr-6 text-lg font-body shadow-sm focus:ring-2 focus:ring-accent focus:border-accent outline-none" placeholder="Search destinations, experiences..." type="text" value="Temples in Puri &amp; Coastal Heritage"/>
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-muted" data-icon="search">search</span>
+</div>
+<p class="text-center text-secondary font-body">Showing 18 destinations matching <span class="font-semibold text-primary">'Temples'</span></p>
+</header>
+<!-- Filter Matrix -->
+<section class="mb-12 space-y-6">
+<!-- Regions -->
+<div class="flex flex-wrap items-center gap-3">
+<span class="text-sm font-semibold text-muted uppercase tracking-wider mr-2">Region</span>
+<button class="px-4 py-1.5 rounded-full border border-border text-sm hover:bg-surface transition-colors">All Odisha</button>
+<button class="px-4 py-1.5 rounded-full border-accent bg-accent/10 text-accent font-medium text-sm">Puri &amp; Coastal Belt</button>
+<button class="px-4 py-1.5 rounded-full border border-border text-sm hover:bg-surface transition-colors">Konark &amp; Marine Drive</button>
+<button class="px-4 py-1.5 rounded-full border border-border text-sm hover:bg-surface transition-colors">Chilika Lake</button>
+</div>
+<!-- Categories -->
+<div class="flex flex-wrap items-center gap-3">
+<span class="text-sm font-semibold text-muted uppercase tracking-wider mr-2">Category</span>
+<button class="px-4 py-1.5 rounded-full border border-border text-sm hover:bg-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="account_balance">account_balance</span>
+                    Architectural Heritage
+                </button>
+<button class="px-4 py-1.5 rounded-full border border-border text-sm hover:bg-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="beach_access">beach_access</span>
+                    Beaches &amp; Coasts
+                </button>
+<button class="px-4 py-1.5 rounded-full border border-border text-sm hover:bg-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="forest">forest</span>
+                    Wildlife &amp; Eco
+                </button>
+</div>
+<!-- Toggles & Sort -->
+<div class="flex flex-wrap items-center justify-between border-t border-border pt-6">
+<div class="flex gap-4">
+<label class="flex items-center gap-2 cursor-pointer text-sm text-secondary">
+<input class="rounded border-border text-accent focus:ring-accent" type="checkbox"/>
+<span class="material-symbols-outlined text-[18px]" data-icon="accessible">accessible</span>
+                        Wheelchair Accessible
+                    </label>
+<label class="flex items-center gap-2 cursor-pointer text-sm text-secondary">
+<input class="rounded border-border text-accent focus:ring-accent" type="checkbox"/>
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+                        Open Now
+                    </label>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-sm text-muted">Sort by:</span>
+<select class="bg-transparent border-none text-sm font-medium text-primary cursor-pointer focus:ring-0 py-0 pr-8">
+<option>Curator's Choice</option>
+<option>Distance</option>
+<option>Popularity</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Results Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<article class="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Sun Temple Konark" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AEtjO1UJDc3s2rXfcdfgh0MjYXjfP8ie0_DO7Fj6DtOI1jxN1NT5w5L1FuH7xOr297v_k2-BUyEq44qOacOXYFcXeueXdZg4_hKcOTG7ogznQQmkSnAUksJU8R9Galpbi-cN1rtBZBdA-A-ga92A2mtW_wN5WlPZMXxmszLL9e5YQJDb6ooyQkCt09GNymZyuDKxfOzEONVibDomhHlQ28Eg5bA9UFmQeGAMaLJdTYQdCpfsO5BQAtedD8nlMqY"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 text-teal">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+                        Verified
+                    </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-xl font-semibold text-primary">Sun Temple, Konark</h3>
+<button class="text-muted hover:text-accent transition-colors"><span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span></button>
+</div>
+<p class="text-secondary text-sm mb-4 line-clamp-2">A 13th-century masterpiece of Kalinga architecture, designed as a colossal chariot for the Sun God.</p>
+<div class="mt-auto space-y-2 text-sm text-muted">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="group">group</span>
+<span>Low Crowds • 22% Peak</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+<span>35 km from Puri</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+<span class="font-mono text-xs">06:00 - 20:00</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Jagannath Temple Puri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AEtjO1VLwdkiwQozIPC_CjWyELNtl51mfJhyHAzYF5-lkeK1HlLLByGmVKuKR3Qj4dGbDryJhVVdqdRuUMA0oAJPQedPVJrf34del2K8rah5FMalLa2lFSHSEaBam9K9mnjP6flOlGOiifYlO8TXoZQgXM9tme0QfCY8NcFVh5g1g8eEV3SloqEPSPrVkg4oweGiITSvzYdaRtxSyOxx2KBlbOtcAF8xsh-LWoWh12J6EBQPVEo-Ikh4cRNx6ls"/>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-xl font-semibold text-primary">Shree Jagannath Temple</h3>
+<button class="text-muted hover:text-accent transition-colors"><span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span></button>
+</div>
+<p class="text-secondary text-sm mb-4 line-clamp-2">One of the Char Dham pilgrimage sites, known for its towering shikhara and vibrant festivals.</p>
+<div class="mt-auto space-y-2 text-sm text-muted">
+<div class="flex items-center gap-2 text-clay">
+<span class="material-symbols-outlined text-[16px]" data-icon="group">group</span>
+<span>High Crowds • 85% Peak</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+<span>2.1 km from Puri Station</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+<span class="font-mono text-xs">05:00 - 23:30</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Empty State Example -->
+<article class="bg-surface rounded-xl border border-border border-dashed p-8 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-4xl text-muted mb-4" data-icon="travel_explore">travel_explore</span>
+<h3 class="font-headline text-lg font-semibold text-primary mb-2">No matching sanctuaries found for 'Snow Mountain Retreat'</h3>
+<p class="text-sm text-secondary mb-6">We couldn't find any locations matching your exact search in this region.</p>
+<button class="px-6 py-2 bg-card border border-border rounded-full text-sm font-medium hover:text-accent transition-colors">
+                    Try: Konark Sun Temple
+                </button>
+</article>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-canvas border-t border-[#E5DFD5] w-full py-16 px-12 mt-12">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-display text-lg font-semibold text-[#12161E]">O-Travelz</div>
+<div class="flex gap-6">
+<a class="font-body text-sm text-[#70798B] hover:text-[#12161E] transition-all duration-200" href="#">Sustainability</a>
+<a class="font-body text-sm text-[#70798B] hover:text-[#12161E] transition-all duration-200" href="#">Contact</a>
+<a class="font-body text-sm text-[#70798B] hover:text-[#12161E] transition-all duration-200" href="#">Press</a>
+<a class="font-body text-sm text-[#70798B] hover:text-[#12161E] transition-all duration-200" href="#">Privacy</a>
+</div>
+<div class="font-body text-sm text-[#70798B]">© 2024 O-Travelz Odisha. All rights reserved.</div>
+</div>
+</footer>
+</body></html>

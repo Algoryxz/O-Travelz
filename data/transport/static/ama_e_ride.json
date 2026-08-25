@@ -1,0 +1,1018 @@
+{
+  "provider": "AMA E-Ride",
+  "mode": "e_rickshaw_feeder",
+  "stops": [
+    {
+      "name": "KIIT Campus",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "KIIT School of Law",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "KIIT Cricket Ground",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Shikharchandi Road",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "KIIT School of Law",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "BMC Ward Office",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Durga Mandap",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "OMFED",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Koel Campus",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Patia Square",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Patiagada Gate",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Jagannath Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Mausimaa Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Prime Residency",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "R K Medihub",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "LA Lawns",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Regal Pose",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Madhusudan Dev Degree College",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sri Sri Kalpeswar",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Mahadev Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Patia Station Road",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Nandankanan Road",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sai Enclave",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "New Sai Mandir Sq.",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Kailash Vihar",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Omfed",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Vivekananda Public School",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Kuntala Nivas",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Shree Residency",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Hanuman Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Dav School",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "VIIM Colony",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Tarmarind Ave",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Technology Corridor",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sum Hospital",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sum Hospital Sq.",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Gympkhana",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Palm Heights",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Shyampur",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Oxygen Park",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Mo Bus Depot",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sum Hospital Sq.",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sum Ultimate",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Medi Care",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "K8 Mid Lane",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "INMT",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "BDA Internal Road",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "BDA Market",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Park Road",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Campus 3, Sum Hospital",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Aspire Institute",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sum Hospital Road",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "ITER",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Hideaway",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Restro Cafe",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "ITER College",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "United Dental Clinic",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Baleswae Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Keysari Medical Store",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Ram Mandir Chhak",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "DN Oxy Park Aiginia",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Mahadev",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Orchid",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "NH-16",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Khandagiri Sq.",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Khandagiri Marg",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Pokhoriput",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Health Club Ground",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Vinayak Snacks",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Kokila Green & Groceries",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Anant Vihar Park",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "UPHC",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Lane- 7",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "OJEE Office Lane",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Jagamara - Sundarpada Road",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Infosys Back Gate",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Wipro",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Capgemini",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Maasys Tatwa/Vodafone",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "CSM",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sikhar Chandi Road",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "iHUB",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "KIIT Square",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Patia Station Road",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "CRUT Office",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Raja Madhusudan Dev College Square",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "UCHC",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Patia Station",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "AIIMS Hospital",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sijua",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "ORO Palace",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Santoshi Mandir",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Tarini Square",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "CRUT Depot",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Patrapada",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Viswanath Villa",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Patrapada",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Hanuman Mandir BQS",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sri Ganesh Tiles",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Tata Ariana",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Vipul Garden",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "K7 Kalyan Mandap",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Kalinga Nagar BQS",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "East Coast Railway Stadium",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "MCL Chowk",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sai Baba Temple Square",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Kendriya Vidyalaya",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Mahadev Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Kelucharan Park",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Damana High School",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Maa Tarini Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Damana Square",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "OMFED Square",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Jagamara Square",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Jagamara High School",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Vaisno Mansion",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Khameswari Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Sidhi Vihar",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Barabari Square",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Soubhagya Nagar Sqr",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Nilakantheswar Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Tipeisuni Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Tarini Service Center",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Baramunda",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Jagannath Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "DRDO office",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Rajadhani College",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Jagamara",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "Jagannath Temple",
+      "coordinate_status": "unresolved",
+      "external_ref": null,
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    }
+  ],
+  "routes": [
+    {
+      "name": "ER-01",
+      "route_name": "KIIT Campus To Prashanti Vihar",
+      "route_length_km": 1.3,
+      "stop_sequence": [
+        "KIIT Campus",
+        "KIIT School of Law",
+        "KIIT Cricket Ground",
+        "Shikharchandi Road",
+        "KIIT School of Law",
+        "BMC Ward Office",
+        "Durga Mandap",
+        "OMFED"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "ER-02",
+      "route_name": "Patiagada",
+      "route_length_km": 5.48,
+      "stop_sequence": [
+        "Koel Campus",
+        "Patia Square",
+        "Patiagada Gate",
+        "Jagannath Temple",
+        "Mausimaa Temple",
+        "Prime Residency",
+        "R K Medihub",
+        "LA Lawns",
+        "Regal Pose",
+        "Madhusudan Dev Degree College",
+        "Sri Sri Kalpeswar",
+        "Mahadev Temple",
+        "Patia Station Road",
+        "Nandankanan Road"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "name": "ER-03",
+      "route_name": "Sailashree Vihar",
+      "route_length_km": 2.74,
+      "stop_sequence": [
+        "Sai Enclave",
+        "New Sai Mandir Sq.",
+        "Kailash Vihar",
+        "Omfed",
+        "Vivekananda Public School",
+        "Kuntala Nivas",
+        "Shree Residency",
+        "Hanuman Temple",
+        "Dav School",
+        "VIIM Colony",
+        "Tarmarind Ave",
+        "Technology Corridor"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "name": "ER-04",
+      "route_name": "Sum Hospital",
+      "route_length_km": 1.72,
+      "stop_sequence": [
+        "Sum Hospital",
+        "Sum Hospital Sq.",
+        "Gympkhana",
+        "Palm Heights",
+        "Shyampur",
+        "Oxygen Park",
+        "Mo Bus Depot"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "name": "ER-05",
+      "route_name": "Sum K8 Hospital",
+      "route_length_km": 3.79,
+      "stop_sequence": [
+        "Sum Hospital Sq.",
+        "Sum Ultimate",
+        "Medi Care",
+        "K8 Mid Lane",
+        "INMT",
+        "BDA Internal Road",
+        "BDA Market",
+        "Park Road",
+        "Campus 3, Sum Hospital",
+        "Aspire Institute",
+        "Sum Hospital Road"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "name": "ER-06",
+      "route_name": "ITER",
+      "route_length_km": 4.9,
+      "stop_sequence": [
+        "ITER",
+        "Hideaway",
+        "Restro Cafe",
+        "ITER College",
+        "United Dental Clinic",
+        "Baleswae Temple",
+        "Keysari Medical Store",
+        "Ram Mandir Chhak",
+        "DN Oxy Park Aiginia",
+        "Mahadev",
+        "Orchid",
+        "NH-16",
+        "Khandagiri Sq.",
+        "Khandagiri Marg"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "name": "ER-07",
+      "route_name": "Pokhariput",
+      "route_length_km": 3.21,
+      "stop_sequence": [
+        "Pokhoriput",
+        "Health Club Ground",
+        "Vinayak Snacks",
+        "Kokila Green & Groceries",
+        "Anant Vihar Park",
+        "UPHC",
+        "Lane- 7",
+        "OJEE Office Lane",
+        "Jagamara - Sundarpada Road"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    },
+    {
+      "name": "ER-08",
+      "route_name": "Infocity (Loop)",
+      "route_length_km": 2.8,
+      "stop_sequence": [
+        "Infosys Back Gate",
+        "Wipro",
+        "Capgemini",
+        "Maasys Tatwa/Vodafone",
+        "CSM",
+        "Sikhar Chandi Road",
+        "iHUB"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "ER-09",
+      "route_name": "KIIT Square To Patia Station",
+      "route_length_km": 1.96,
+      "stop_sequence": [
+        "KIIT Square",
+        "Patia Station Road",
+        "CRUT Office",
+        "Raja Madhusudan Dev College Square",
+        "UCHC",
+        "Patia Station"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "ER-10",
+      "route_name": "Patrapada K9 To AIIMS Hospital",
+      "route_length_km": 3.4,
+      "stop_sequence": [
+        "AIIMS Hospital",
+        "Sijua",
+        "ORO Palace",
+        "Santoshi Mandir",
+        "Tarini Square",
+        "CRUT Depot",
+        "Patrapada",
+        "Viswanath Villa",
+        "Patrapada"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "ER-11",
+      "route_name": "Hanuman Mandir BQS To Kalinga Nagar BQS",
+      "route_length_km": 3.3,
+      "stop_sequence": [
+        "Hanuman Mandir BQS",
+        "Sri Ganesh Tiles",
+        "Tata Ariana",
+        "Vipul Garden",
+        "K7 Kalyan Mandap",
+        "Kalinga Nagar BQS"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "ER-12",
+      "route_name": "Damana Square To OMFED Square",
+      "route_length_km": 3.08,
+      "stop_sequence": [
+        "East Coast Railway Stadium",
+        "MCL Chowk",
+        "Sai Baba Temple Square",
+        "Kendriya Vidyalaya",
+        "Mahadev Temple",
+        "Kelucharan Park",
+        "Damana High School",
+        "Maa Tarini Temple",
+        "Damana Square",
+        "OMFED Square"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf"
+    },
+    {
+      "name": "ER-13",
+      "route_name": "Jagamara Jagannath Temple",
+      "route_length_km": 2.9,
+      "stop_sequence": [
+        "Jagamara Square",
+        "Jagamara High School",
+        "Vaisno Mansion",
+        "Khameswari Temple",
+        "Sidhi Vihar",
+        "Barabari Square",
+        "Soubhagya Nagar Sqr",
+        "Nilakantheswar Temple",
+        "Tipeisuni Temple",
+        "Tarini Service Center",
+        "Baramunda",
+        "Jagannath Temple",
+        "DRDO office",
+        "Rajadhani College",
+        "Jagamara",
+        "Jagannath Temple"
+      ],
+      "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Route_map_23052022_RP-1_to_RP-10.pdf"
+    }
+  ],
+  "source": "https://cms.bhubaneswarone.in/uploadDocuments/content/Mo_E-RIDE_Routes_Updated-1_removed.pdf",
+  "verified_on": "2026-08-17",
+  "coordinate_status": "unresolved"
+}

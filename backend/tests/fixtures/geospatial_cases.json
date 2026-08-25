@@ -1,0 +1,59 @@
+{
+  "fixture_scope": "Phase 6A preparation only; not a public map contract",
+  "known_place_point": {
+    "entity": "Lingaraj Temple",
+    "source_file": "data/places/places.json",
+    "source_status": "verified",
+    "lat": 20.238333,
+    "lon": 85.833611
+  },
+  "missing_place_point": {
+    "entity": "Rajarani Temple",
+    "source_file": "data/places/places.json",
+    "source_status": "verified place; exact location intentionally unknown",
+    "lat": null,
+    "lon": null
+  },
+  "missing_stop_point": {
+    "entity": "BHUBANESWAR RLY. STN.",
+    "source_file": "data/transport/static/ama_bus.json",
+    "source_status": "unresolved coordinate status",
+    "lat": null,
+    "lon": null
+  },
+  "missing_route_geometry": {
+    "entity": "AMA Bus route geometry",
+    "source_status": "no verified route geometry supplied",
+    "geometry": null
+  },
+  "synthetic_multimodal_hop": {
+    "fixture_status": "synthetic contract semantics; not a real route",
+    "contract": {
+      "from_sequence": 1,
+      "to_sequence": 2,
+      "mode": "walk+provider+walk",
+      "legs": [
+        {"mode": "walk", "detail": "synthetic first walking leg"},
+        {
+          "mode": "provider",
+          "provider": "contract-fixture-provider",
+          "route": "contract-fixture-route",
+          "detail": "synthetic provider leg"
+        },
+        {"mode": "walk", "detail": "synthetic final walking leg"}
+      ],
+      "data_tier": "static"
+    }
+  },
+  "synthetic_unavailable_hop": {
+    "fixture_status": "synthetic contract semantics; not a real route",
+    "contract": {
+      "from_sequence": 1,
+      "to_sequence": 2,
+      "mode": "unavailable",
+      "legs": [],
+      "data_tier": "unknown",
+      "reason": "No verified geometry or routing result is supplied by this fixture."
+    }
+  }
+}

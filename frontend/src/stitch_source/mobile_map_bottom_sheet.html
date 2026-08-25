@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>O-Travelz Map View</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "canvas": "#FBF9F5",
+                        "card": "#FFFFFF",
+                        "secondary-surface": "#F2EEE7",
+                        "text-primary": "#12161E",
+                        "text-secondary": "#3D4654",
+                        "text-muted": "#70798B",
+                        "primary-accent": "#B87B22",
+                        "secondary-accent": "#1B5E6B",
+                        "mineral-earth": "#A84825",
+                        "botanical": "#2F523E",
+                        "hairline": "#E5DFD5",
+                        "glass": "rgba(255, 255, 255, 0.75)"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans", "sans-serif"],
+                        "display": ["Public Sans", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Public Sans", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .map-bg {
+            background-color: #e5e3df; /* Fallback map color */
+            background-image: radial-gradient(#d5d3cf 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .bottom-sheet {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-canvas text-text-primary font-body antialiased h-screen overflow-hidden flex flex-col relative selection:bg-primary-accent selection:text-white">
+<!-- Top App Bar (Web - Hidden on Mobile) -->
+<header class="hidden md:flex justify-between items-center px-6 h-16 w-full bg-[#FBF9F5] border-b border-[#E5DFD5] shadow-sm z-40 relative">
+<div class="flex items-center gap-4">
+<button aria-label="Menu" class="p-2 hover:opacity-80 transition-opacity active:scale-95 duration-150 text-[#B87B22]">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-display italic text-2xl text-[#12161E]">O-Travelz</h1>
+</div>
+<nav class="flex gap-8">
+<a class="font-headline text-headline-sm tracking-tight text-[#3D4654] hover:opacity-80 transition-opacity" href="#">Discover</a>
+<a class="font-headline text-headline-sm tracking-tight text-[#B87B22] hover:opacity-80 transition-opacity font-bold" href="#">Map</a>
+<a class="font-headline text-headline-sm tracking-tight text-[#3D4654] hover:opacity-80 transition-opacity" href="#">Saved</a>
+<a class="font-headline text-headline-sm tracking-tight text-[#3D4654] hover:opacity-80 transition-opacity" href="#">Copilot</a>
+</nav>
+<div class="w-10 h-10 rounded-full bg-secondary-surface flex items-center justify-center text-primary-accent font-bold cursor-pointer">
+<span class="material-symbols-outlined">drive_file</span>
+</div>
+</header>
+<!-- Navigation Drawer (Web - Hidden on Mobile for this view) -->
+<aside class="hidden md:flex w-80 flex-col h-full bg-[#FBF9F5] divide-y divide-[#E5DFD5] shadow-2xl absolute left-0 top-16 bottom-0 z-30 transition-transform -translate-x-full" id="navDrawer">
+<div class="p-6 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-surface overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb1G15kaEbqq1ED1f4ah35g8BoPo7d0jPAl2ornJFX4JI60kan3Se3iQTu6ZEj0QlAzLVahMJ0gr11Bh6ut4NAPukIJFe0LRJ422_IBXeqSo4O-NXKofvfKWjvfYJuUFDdbQqv2l9uIFEiSigB3GJf9nE3Nq6tkABELvrOREKDZRW4nuGRdBDqfoB-GOe4VCGxDWQuIlnSkL9mQMBS6aPD_8RUw_PdmE7-xZ1TBp6NwlEoMTHJmbjceZM7DYwMzW6L2xAkI-3EBIQ"/>
+</div>
+<div>
+<h2 class="font-display text-xl text-[#B87B22] font-bold">Explorer</h2>
+<p class="font-body text-body-md text-text-muted text-sm">Odisha Gold Member</p>
+</div>
+</div>
+<nav class="flex-1 py-4 flex flex-col gap-1">
+<a class="flex items-center gap-4 px-6 py-3 font-body text-body-md text-[#3D4654] hover:bg-[#F2EEE7] transition-colors" href="#">
+<span class="material-symbols-outlined text-text-muted">auto_stories</span>
+                Curated Journeys
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 font-body text-body-md text-[#3D4654] hover:bg-[#F2EEE7] transition-colors" href="#">
+<span class="material-symbols-outlined text-text-muted">temple_hindu</span>
+                Heritage Sites
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 font-body text-body-md text-[#3D4654] hover:bg-[#F2EEE7] transition-colors" href="#">
+<span class="material-symbols-outlined text-text-muted">palette</span>
+                Artisan Trails
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 font-body text-body-md text-[#3D4654] hover:bg-[#F2EEE7] transition-colors" href="#">
+<span class="material-symbols-outlined text-text-muted">diamond</span>
+                Luxury Stays
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 font-body text-body-md text-[#3D4654] hover:bg-[#F2EEE7] transition-colors" href="#">
+<span class="material-symbols-outlined text-text-muted">support_agent</span>
+                Travel Concierge
+            </a>
+</nav>
+</aside>
+<!-- Main Content Area: Map Canvas -->
+<main class="flex-1 relative w-full h-full" data-location="Odisha, India">
+<!-- Abstract Map Representation (Full Bleed) -->
+<div aria-hidden="true" class="absolute inset-0 map-bg z-0 flex items-center justify-center opacity-80">
+<!-- Simulated Map Elements (Rivers/Roads) -->
+<svg class="absolute inset-0 stroke-secondary-accent/20 fill-none" height="100%" preserveaspectratio="none" width="100%">
+<path d="M0,100 C150,200 300,50 500,150 S800,300 1000,200" stroke-dasharray="10, 5" stroke-width="4"></path>
+<path class="stroke-primary-accent/10" d="M200,0 Q300,400 600,800" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Floating Map Controls (Top Right) -->
+<div class="absolute top-6 right-6 md:top-24 flex flex-col gap-3 z-10">
+<button aria-label="My Location" class="w-12 h-12 bg-white/90 backdrop-blur-md rounded-full shadow-lg flex items-center justify-center text-text-primary hover:text-primary-accent transition-colors border border-hairline">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+<button aria-label="Map Layers" class="w-12 h-12 bg-white/90 backdrop-blur-md rounded-full shadow-lg flex items-center justify-center text-text-primary hover:text-primary-accent transition-colors border border-hairline">
+<span class="material-symbols-outlined">layers</span>
+</button>
+</div>
+<!-- Custom Map Markers -->
+<!-- Marker: Konark Sun Temple (Active) -->
+<div class="absolute top-[40%] left-[30%] -translate-x-1/2 -translate-y-full z-20 cursor-pointer group">
+<div class="relative flex flex-col items-center">
+<div class="bg-primary-accent text-white px-3 py-1.5 rounded-full shadow-md font-body text-xs font-semibold whitespace-nowrap mb-1 opacity-100 transition-opacity">
+                    Konark Sun Temple
+                </div>
+<div class="w-8 h-8 bg-primary-accent rounded-full flex items-center justify-center shadow-lg border-2 border-white relative z-10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-sm">temple_hindu</span>
+</div>
+<!-- Pin shadow/tail -->
+<div class="w-2 h-2 bg-primary-accent rotate-45 -mt-2 z-0"></div>
+</div>
+</div>
+<!-- Marker: Puri (Inactive) -->
+<div class="absolute top-[60%] left-[65%] -translate-x-1/2 -translate-y-full z-10 cursor-pointer group">
+<div class="relative flex flex-col items-center">
+<div class="bg-white text-text-primary px-3 py-1.5 rounded-full shadow-md font-body text-xs font-semibold whitespace-nowrap mb-1 opacity-0 group-hover:opacity-100 transition-opacity border border-hairline">
+                    Jagannath Temple, Puri
+                </div>
+<div class="w-7 h-7 bg-white text-text-secondary rounded-full flex items-center justify-center shadow-md border border-hairline relative z-10 group-hover:border-primary-accent group-hover:text-primary-accent transition-colors">
+<span class="material-symbols-outlined text-xs">temple_hindu</span>
+</div>
+</div>
+</div>
+<!-- Marker: Chilika Lake (Inactive) -->
+<div class="absolute top-[75%] left-[20%] -translate-x-1/2 -translate-y-full z-10 cursor-pointer group">
+<div class="relative flex flex-col items-center">
+<div class="w-7 h-7 bg-white text-secondary-accent rounded-full flex items-center justify-center shadow-md border border-hairline relative z-10 group-hover:border-secondary-accent transition-colors">
+<span class="material-symbols-outlined text-xs">water</span>
+</div>
+</div>
+</div>
+<!-- Draggable Bottom Sheet Card -->
+<div class="absolute bottom-24 md:bottom-8 left-4 right-4 md:left-8 md:right-auto md:w-[400px] z-30 bottom-sheet translate-y-0" id="landmarkDetails">
+<div class="bg-card rounded-2xl shadow-2xl border border-hairline overflow-hidden flex flex-col">
+<!-- Image Header -->
+<div class="relative h-40 w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A striking wide-angle photograph of the Konark Sun Temple chariot wheel in warm golden hour light, high contrast, detailed stone carvings, rich textural luxury travel editorial style." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<!-- Close button for mobile -->
+<button aria-label="Close details" class="absolute top-3 right-3 w-8 h-8 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white md:hidden">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<!-- Floating Pill -->
+<div class="absolute bottom-3 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-botanical animate-pulse"></span>
+<span class="font-mono text-[10px] text-text-primary uppercase tracking-wider font-medium">Open Now</span>
+</div>
+</div>
+<!-- Content Area -->
+<div class="p-5 flex flex-col gap-4">
+<!-- Title & Meta -->
+<div>
+<h2 class="font-serif text-2xl text-text-primary leading-tight mb-2">Konark Sun Temple</h2>
+<div class="flex items-center gap-3 text-xs">
+<div class="flex items-center gap-1 text-mineral-earth bg-mineral-earth/10 px-2 py-1 rounded-md font-medium">
+<span class="material-symbols-outlined text-[14px]">groups</span>
+                                22% Peak
+                            </div>
+<div class="flex items-center gap-1 text-text-secondary font-mono">
+<span class="material-symbols-outlined text-[14px]">directions_car</span>
+                                3.2 km
+                            </div>
+<div class="flex items-center gap-1 text-text-secondary font-mono">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                45 min
+                            </div>
+</div>
+</div>
+<!-- Description Snippet -->
+<p class="font-body text-sm text-text-muted leading-relaxed line-clamp-2">
+                        A monumental representation of the sun god Surya's chariot; its 24 wheels are decorated with symbolic designs and it is led by a team of six horses.
+                    </p>
+<!-- Actions -->
+<div class="flex items-center gap-3 mt-2">
+<button class="flex-1 bg-primary-accent text-white py-3 rounded-xl font-headline text-sm tracking-wide font-semibold hover:bg-primary-accent/90 transition-colors shadow-md shadow-primary-accent/20 flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Add to Day 1
+                        </button>
+<button aria-label="Save location" class="w-12 h-12 border border-hairline text-text-secondary rounded-xl flex items-center justify-center hover:bg-secondary-surface transition-colors">
+<span class="material-symbols-outlined">bookmark_border</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center h-20 max-w-md mx-auto bg-white/75 dark:bg-[#12161E]/75 backdrop-blur-xl rounded-full mb-6 mx-4 border border-[#E5DFD5]/50 shadow-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-[#70798B] hover:text-[#B87B22] transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">explore</span>
+<span class="font-label text-[10px] uppercase tracking-widest mt-1">Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#B87B22] font-bold translate-y-[-2px] duration-300 group" href="#">
+<span class="material-symbols-outlined filled">map</span>
+<span class="font-label text-[10px] uppercase tracking-widest mt-1 font-bold">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#70798B] hover:text-[#B87B22] transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">bookmark</span>
+<span class="font-label text-[10px] uppercase tracking-widest mt-1">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#70798B] hover:text-[#B87B22] transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">auto_awesome</span>
+<span class="font-label text-[10px] uppercase tracking-widest mt-1">Copilot</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#70798B] hover:text-[#B87B22] transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">person</span>
+<span class="font-label text-[10px] uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

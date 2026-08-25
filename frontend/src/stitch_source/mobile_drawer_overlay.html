@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>O-Travelz - Navigation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: "#FBF9F5",
+                        card: "#FFFFFF",
+                        secondary: "#F2EEE7",
+                        textPrimary: "#12161E",
+                        textSecondary: "#3D4654",
+                        textMuted: "#70798B",
+                        accentPrimary: "#B87B22",
+                        accentSecondary: "#1B5E6B",
+                        mineralEarth: "#A84825",
+                        botanical: "#2F523E",
+                        hairline: "#E5DFD5",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        headline: ["Public Sans", "sans-serif"],
+                        display: ["Playfair Display", "serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                        label: ["Public Sans", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black/50 w-full h-screen font-body flex font-body">
+<!-- Navigation Drawer -->
+<aside class="w-80 flex flex-col h-full bg-[#FBF9F5] dark:bg-[#12161E] rounded-r-xl shadow-2xl overflow-y-auto">
+<!-- Header / Profile Section -->
+<div class="p-8 pb-6 border-b border-[#E5DFD5]">
+<div class="flex items-center gap-4 mb-6">
+<div class="relative w-16 h-16 rounded-full border-2 border-[#B87B22] p-1 flex-shrink-0">
+<img class="w-full h-full rounded-full object-cover" data-alt="A detailed, high-resolution portrait of a sophisticated modern traveler in warm lighting, embodying a luxury editorial style against a neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv95H9KmK7UHsRSQMqy58q660eLy3TU1_ZA7ZfcqHSAHwlpsTaMVxF7LCQnuYPCBtt8luaLf67_W0vppl2DZPABDg8N6mUDA9TjPzU36yK0sqTrBMtzlQhkJ3Tps5fEj4cY2amNY47dbaK7yPwbkdqFgolZBNuoyeY_0N_bzE4_7GZi0i5rY9z9i6ir3FLQDFmxC6jwlzEuRUtXOYnp1zBDn_nO2IkcFOR-o_OSrEtwngTWMC5cFH5F8wjvBFfY3OL0EEPXRUG1fE"/>
+</div>
+<div>
+<h2 class="font-display text-xl text-[#B87B22]">Debasish M.</h2>
+<p class="font-body text-sm text-[#70798B] mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cloud_done</span>
+                        Cloud Synced • 12 Places
+                    </p>
+</div>
+</div>
+<div class="flex justify-between items-center text-sm font-label uppercase tracking-widest text-[#B87B22]">
+<span>O-Travelz</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity">close</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 overflow-y-auto py-4 divide-y divide-[#E5DFD5]">
+<a class="flex items-center gap-4 px-8 py-5 text-[#B87B22] font-semibold bg-[#F2EEE7] hover:bg-[#F2EEE7] transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-body text-body-md">Curated Journeys</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-5 text-[#3D4654] hover:bg-[#F2EEE7] transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">temple_hindu</span>
+<span class="font-body text-body-md">Heritage Sites</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-5 text-[#3D4654] hover:bg-[#F2EEE7] transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">palette</span>
+<span class="font-body text-body-md">Artisan Trails</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-5 text-[#3D4654] hover:bg-[#F2EEE7] transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">diamond</span>
+<span class="font-body text-body-md">Luxury Stays</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-5 text-[#3D4654] hover:bg-[#F2EEE7] transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">support_agent</span>
+<span class="font-body text-body-md">Travel Concierge</span>
+</a>
+</nav>
+<!-- Bottom Quick Settings -->
+<div class="p-8 border-t border-[#E5DFD5] space-y-6">
+<h3 class="font-label text-xs uppercase tracking-widest text-[#70798B] mb-4">Preferences</h3>
+<div class="flex justify-between items-center group cursor-pointer">
+<div class="flex items-center gap-3 text-[#3D4654] group-hover:text-[#B87B22] transition-colors">
+<span class="material-symbols-outlined text-xl">payments</span>
+<span class="font-body text-sm">Currency</span>
+</div>
+<span class="font-mono text-xs text-[#70798B] bg-[#F2EEE7] px-2 py-1 rounded">INR</span>
+</div>
+<div class="flex justify-between items-center group cursor-pointer">
+<div class="flex items-center gap-3 text-[#3D4654] group-hover:text-[#B87B22] transition-colors">
+<span class="material-symbols-outlined text-xl">language</span>
+<span class="font-body text-sm">Language</span>
+</div>
+<span class="font-mono text-xs text-[#70798B] bg-[#F2EEE7] px-2 py-1 rounded">ENG/OD</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3 text-[#3D4654]">
+<span class="material-symbols-outlined text-xl">wifi_off</span>
+<span class="font-body text-sm">Offline Mode</span>
+</div>
+<!-- Toggle Switch -->
+<button class="w-10 h-6 bg-[#E5DFD5] rounded-full relative cursor-pointer focus:outline-none transition-colors duration-300 hover:bg-[#70798B]">
+<span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 shadow-sm"></span>
+</button>
+</div>
+<div class="pt-6 mt-6 border-t border-[#E5DFD5] flex justify-between items-center text-[#70798B] text-xs">
+<span>v 2.4.1</span>
+<a class="hover:text-[#B87B22] transition-colors" href="#">Privacy &amp; Terms</a>
+</div>
+</div>
+</aside>
+</body></html>

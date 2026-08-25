@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>O-Travelz - The Golden Triangle of Odisha</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Public+Sans:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: '#FBF9F5',
+                        card: '#FFFFFF',
+                        surface: '#F2EEE7',
+                        textPrimary: '#12161E',
+                        textSecondary: '#3D4654',
+                        textMuted: '#70798B',
+                        primaryAccent: '#B87B22',
+                        secondaryAccent: '#1B5E6B',
+                        mineralEarth: '#A84825',
+                        botanical: '#2F523E',
+                        hairline: '#E5DFD5'
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        headline: ["Public Sans"],
+                        display: ["Playfair Display"],
+                        body: ["Plus Jakarta Sans"],
+                        label: ["Public Sans"],
+                        tech: ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.canvas');
+            color: theme('colors.textPrimary');
+            font-family: theme('fontFamily.body');
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .hairline-b { border-bottom: 1px solid theme('colors.hairline'); }
+        .hairline-t { border-top: 1px solid theme('colors.hairline'); }
+        .hairline-r { border-right: 1px solid theme('colors.hairline'); }
+        .hairline-l { border-left: 1px solid theme('colors.hairline'); }
+        .hairline-all { border: 1px solid theme('colors.hairline'); }
+    </style>
+</head>
+<body class="antialiased min-h-screen selection:bg-primaryAccent selection:text-white pb-24 md:pb-12">
+<!-- Top Navigation (Hidden on Mobile) -->
+<nav class="hidden md:flex justify-between items-center px-8 py-3 fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-xl bg-white/75 backdrop-blur-md shadow-xl border border-[#E5DFD5]/50 z-50 transition-transform scale-95 hover:scale-100">
+<div class="font-display font-serif text-2xl font-bold text-[#12161E]">O-Travelz</div>
+<div class="flex items-center space-x-6">
+<a class="text-[#3D4654] hover:text-[#B87B22] transition-colors font-body font-medium" href="#">Destinations</a>
+<a class="text-[#B87B22] font-semibold border-b border-[#B87B22] font-body font-medium" href="#">Itineraries</a>
+<a class="text-[#3D4654] hover:text-[#B87B22] transition-colors font-body font-medium" href="#">Stories</a>
+<a class="text-[#3D4654] hover:text-[#B87B22] transition-colors font-body font-medium" href="#">Journal</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-[#3D4654] hover:text-[#B87B22] transition-colors flex items-center justify-center p-2 rounded-lg hover:bg-[#F2EEE7]/50 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-[#3D4654] hover:text-[#B87B22] transition-colors flex items-center justify-center p-2 rounded-lg hover:bg-[#F2EEE7]/50 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- Side Nav (Hidden on Mobile, Visible on Web if needed, but often replaced by top nav for content pages. Given the instructions, we suppress standard nav shells for highly focused content, but this is a top-level shared itinerary. We'll rely on the TopNavBar as defined in the JSON for the primary Web nav, and omit BottomNavBar on mobile to focus on the content canvas as it's a 'shared' page - akin to a deep link or specific content view, but we must respect platform & layout rules. Let's include standard mobile nav for a 'browsing' feel, or suppress if it's a focused reading experience. Let's suppress to prioritize the editorial canvas.) -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 md:pt-32 pb-16">
+<!-- Hero Section -->
+<header class="mb-12 md:mb-20 text-center max-w-4xl mx-auto">
+<div class="inline-flex items-center space-x-2 text-primaryAccent font-tech text-xs tracking-widest uppercase mb-6 hairline-b border-primaryAccent/30 pb-2">
+<span>Curated Itinerary</span>
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+</div>
+<h1 class="font-display text-4xl md:text-6xl text-textPrimary leading-tight mb-6">
+                The Golden Triangle of Odisha <br/>
+<span class="text-textSecondary italic text-3xl md:text-5xl">3-Day Heritage &amp; Coastal Circuit</span>
+</h1>
+<div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 text-textSecondary font-body text-sm mt-8">
+<div class="flex items-center space-x-3 bg-surface px-4 py-2 rounded-full hairline-all">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A close-up portrait of an Indian male travel writer in his late 30s. He is wearing a simple linen shirt and smiling warmly. The lighting is soft and natural, suggesting outdoor sunlight. The background is a slightly blurred, warm-toned stone texture, evoking the mineral sand and pure chalk aesthetic of a luxury travel magazine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5km7lC7DkzyU1-66ZFfBYjRq8V3kTH5anZokVK48a-LDntp6x41XiQv9MN8So3qZmVZufCzxEF7njI_MSruwmKjA8HFUSUejfM5xumP6JfI3tIITUcad1qeSKzov4oEohLR8WAOyNNRS4THuCWoTgE9QosTZktT0XoU9wNjX5S_3FfqWPLYrCqgP_LFbcqDkXk5jgH7_VHTEdKFSLCjAvFKMVeu0I_I2zfMbtGDrtT-GvbFksXjsDMbbq4_1DbI_h3dN3fmrBinw"/>
+<span class="font-medium text-textPrimary">Debasish Mohapatra</span>
+<span class="material-symbols-outlined text-primaryAccent text-lg" title="Verified Explorer">verified</span>
+</div>
+<div class="hidden sm:block w-1 h-1 rounded-full bg-hairline"></div>
+<div class="flex items-center space-x-2 font-tech text-xs tracking-wider">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+<span>Last updated: Oct 24, 2023</span>
+</div>
+</div>
+</header>
+<!-- Route Summary Bar -->
+<div class="glass-panel rounded-xl p-4 md:p-6 mb-12 shadow-sm hairline-all relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute inset-0 bg-gradient-to-r from-surface/30 to-transparent pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
+<div class="flex-1 w-full">
+<h3 class="font-label text-xs tracking-widest text-textMuted uppercase mb-3">Route Overview</h3>
+<div class="flex flex-wrap items-center gap-y-2 text-textPrimary font-body">
+<span class="font-semibold flex items-center"><span class="material-symbols-outlined mr-1 text-primaryAccent">location_on</span> Bhubaneswar</span>
+<span class="material-symbols-outlined mx-2 text-hairline">arrow_right_alt</span>
+<span class="font-semibold flex items-center"><span class="material-symbols-outlined mr-1 text-primaryAccent">location_on</span> Puri</span>
+<span class="material-symbols-outlined mx-2 text-hairline">arrow_right_alt</span>
+<span class="font-semibold flex items-center"><span class="material-symbols-outlined mr-1 text-primaryAccent">location_on</span> Konark</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-4 md:gap-8 lg:hairline-l lg:pl-8">
+<div class="text-center">
+<div class="font-tech text-xl text-textPrimary">184<span class="text-xs text-textMuted ml-1">km</span></div>
+<div class="font-label text-[10px] tracking-widest uppercase text-textMuted mt-1">Distance</div>
+</div>
+<div class="text-center">
+<div class="font-tech text-xl text-textPrimary">3<span class="text-xs text-textMuted ml-1">Days</span></div>
+<div class="font-label text-[10px] tracking-widest uppercase text-textMuted mt-1">Duration</div>
+</div>
+<div class="text-center">
+<div class="font-tech text-xl text-textPrimary">8</div>
+<div class="font-label text-[10px] tracking-widest uppercase text-textMuted mt-1">Landmarks</div>
+</div>
+</div>
+<div class="w-full lg:w-auto flex flex-col sm:flex-row gap-3 mt-4 lg:mt-0">
+<button class="bg-primaryAccent hover:bg-opacity-90 text-white font-body font-medium px-6 py-3 rounded-lg shadow-sm transition-all flex items-center justify-center space-x-2 w-full sm:w-auto">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+<span>Save to My Trips</span>
+</button>
+<div class="flex gap-2 w-full sm:w-auto">
+<button class="bg-card hover:bg-surface text-textPrimary hairline-all px-4 py-3 rounded-lg transition-colors flex-1 sm:flex-none flex justify-center items-center" title="Print &amp; PDF Export">
+<span class="material-symbols-outlined text-lg">print</span>
+</button>
+<button class="bg-card hover:bg-surface text-textPrimary hairline-all px-4 py-3 rounded-lg transition-colors flex-1 sm:flex-none flex justify-center items-center" title="Open Interactive Map">
+<span class="material-symbols-outlined text-lg">map</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
+<!-- Main Content Area (Timeline) -->
+<div class="lg:col-span-8 space-y-16">
+<!-- Day 1 -->
+<article class="relative">
+<div class="absolute -left-[27px] top-0 bottom-0 w-[2px] bg-hairline hidden md:block"></div>
+<div class="absolute -left-[35px] top-2 w-4 h-4 rounded-full bg-canvas border-2 border-primaryAccent hidden md:block z-10 shadow-sm"></div>
+<div class="flex items-center space-x-4 mb-6">
+<span class="font-display italic text-3xl text-primaryAccent">Day 1</span>
+<div class="h-px bg-hairline flex-1"></div>
+<span class="font-tech text-sm text-textMuted">Bhubaneswar</span>
+</div>
+<h2 class="font-display text-3xl md:text-4xl text-textPrimary mb-4">Temples of Ekamra Kshetra</h2>
+<p class="font-body text-textSecondary leading-relaxed mb-8 text-lg">
+                        Begin your journey in the 'Temple City of India'. The ancient Ekamra Kshetra is home to hundreds of sandstone temples surrounding the sacred Bindusagar Lake. The architectural grandeur speaks volumes of the Kalinga dynasty's craftsmanship.
+                    </p>
+<!-- Bento Grid for Day 1 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+<div class="bg-card rounded-xl p-6 hairline-all shadow-sm hover:shadow-md transition-shadow col-span-1 md:col-span-2 relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-32 h-32 bg-primaryAccent/5 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div>
+<h4 class="font-label font-bold text-textPrimary text-lg">Lingaraj Temple</h4>
+<span class="font-tech text-xs text-textMuted uppercase tracking-wider">Morning Exploration</span>
+</div>
+<span class="material-symbols-outlined text-primaryAccent">tour</span>
+</div>
+<p class="font-body text-sm text-textSecondary relative z-10">
+                                A magnificent 11th-century temple dedicated to Harihara. Note the exquisite carvings on the vimana (main spire) which rises to 55 meters. Non-Hindus can view the complex from the specially erected viewing platform.
+                            </p>
+</div>
+<div class="bg-card rounded-xl overflow-hidden hairline-all shadow-sm group">
+<img class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-end editorial photograph of the Mukteswara Temple arch in Bhubaneswar, India. The image captures the intricately carved stone archway (Torana) in sharp detail against a clear, soft blue sky. The warm Ochre and Kalinga Brass tones of the ancient sandstone are highlighted by gentle, natural sunlight. The composition is balanced and elegant, fitting for a luxury travel publication. No people are visible, focusing entirely on the architectural heritage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZC19o6xGItzwvY1v7pANxeP8Gak-htv_BY5QgU421wXgIAm4DlQ7wheUhepSG0K3XNLg4jCcTLRzwmRzhlUNuzBX9ln0kcLQ-HM0PwUFD9BiWi_AZUOYGM94sVBERMZqoS2ieLznTTcWZJkLy4z6rtbJo1Yeummg550wCpoimCHIoKlse9GU2ysk6JfR98ho6GGyUBW0se7r7g0l28KGk--ImO4zIGAzaW28r7IKTz02SKRPxx31GahxzlKfOn6y9RKBX7jgC4Fc"/>
+<div class="p-4 bg-card">
+<h4 class="font-label font-bold text-textPrimary">Mukteswara Temple</h4>
+<p class="font-tech text-xs text-textMuted mt-1">The 'Gem of Odisha Architecture'</p>
+</div>
+</div>
+<div class="bg-card rounded-xl p-6 hairline-all shadow-sm flex flex-col justify-center">
+<div class="flex items-center space-x-3 mb-4">
+<span class="material-symbols-outlined text-mineralEarth">restaurant</span>
+<h4 class="font-label font-bold text-textPrimary">Curator's Dining Pick</h4>
+</div>
+<p class="font-body text-sm text-textSecondary mb-4">
+                                For lunch, experience authentic Odia thali at Dalma. Don't miss the Dalma (lentil and vegetable stew) and Chhena Poda for dessert.
+                            </p>
+<a class="text-primaryAccent font-body text-sm font-medium hover:underline inline-flex items-center" href="#">
+                                View Menu <span class="material-symbols-outlined text-xs ml-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Day 2 -->
+<article class="relative">
+<div class="absolute -left-[27px] top-0 bottom-0 w-[2px] bg-hairline hidden md:block"></div>
+<div class="absolute -left-[35px] top-2 w-4 h-4 rounded-full bg-canvas border-2 border-secondaryAccent hidden md:block z-10 shadow-sm"></div>
+<div class="flex items-center space-x-4 mb-6">
+<span class="font-display italic text-3xl text-secondaryAccent">Day 2</span>
+<div class="h-px bg-hairline flex-1"></div>
+<span class="font-tech text-sm text-textMuted">Puri &amp; Raghurajpur</span>
+</div>
+<h2 class="font-display text-3xl md:text-4xl text-textPrimary mb-4">Holy Shore &amp; Artisan Heritage</h2>
+<p class="font-body text-textSecondary leading-relaxed mb-8 text-lg">
+                        Travel south to the coastal city of Puri. After receiving blessings at the mighty Jagannath Temple, we retreat inland to a village where every house is an art studio, keeping ancient traditions alive.
+                    </p>
+<!-- Feature Image Layout -->
+<div class="mb-8 rounded-xl overflow-hidden shadow-sm relative group hairline-all">
+<div class="aspect-[1.79] w-full relative">
+<!-- Using the specified coastal image -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida/AEtjO1VLwdkiwQozIPC_CjWyELNtl51mfJhyHAzYF5-lkeK1HlLLByGmVKuKR3Qj4dGbDryJhVVdqdRuUMA0oAJPQedPVJrf34del2K8rah5FMalLa2lFSHSEaBam9K9mnjP6flOlGOiifYlO8TXoZQgXM9tme0QfCY8NcFVh5g1g8eEV3SloqEPSPrVkg4oweGiITSvzYdaRtxSyOxx2KBlbOtcAF8xsh-LWoWh12J6EBQPVEo-Ikh4cRNx6ls');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 md:p-8 w-full">
+<span class="bg-white/20 backdrop-blur-md text-white font-tech text-xs px-3 py-1 rounded-full border border-white/30 mb-3 inline-block">Coastal Calm</span>
+<h3 class="font-display text-2xl md:text-3xl text-white mb-2">Chilika Environs</h3>
+<p class="font-body text-white/80 max-w-lg text-sm">The brackish water lagoon provides a serene counterpoint to the bustling temple towns. A brief morning detour before heading to Puri.</p>
+</div>
+</div>
+</div>
+<div class="bg-card rounded-xl p-6 hairline-all shadow-sm">
+<div class="flex items-start space-x-4">
+<div class="bg-surface p-3 rounded-lg text-secondaryAccent">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<div>
+<h4 class="font-label font-bold text-textPrimary text-lg mb-2">Raghurajpur Heritage Village</h4>
+<p class="font-body text-textSecondary text-sm mb-4">
+                                    Spend the afternoon wandering through this idyllic village. Interact with master craftsmen creating Pattachitra (palm leaf scroll paintings) and intricate stone carvings directly on their front porches.
+                                </p>
+<div class="bg-canvas p-4 rounded-lg hairline-all text-sm font-tech text-textMuted flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">lightbulb</span>
+<span>Tip: Purchase directly from artisans to support the local economy.</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Day 3 -->
+<article class="relative">
+<!-- Stop the timeline line here -->
+<div class="absolute -left-[35px] top-2 w-4 h-4 rounded-full bg-canvas border-2 border-mineralEarth hidden md:block z-10 shadow-sm"></div>
+<div class="flex items-center space-x-4 mb-6">
+<span class="font-display italic text-3xl text-mineralEarth">Day 3</span>
+<div class="h-px bg-hairline flex-1"></div>
+<span class="font-tech text-sm text-textMuted">Konark</span>
+</div>
+<h2 class="font-display text-3xl md:text-4xl text-textPrimary mb-4">Sun Temple &amp; Chandrabhaga Dawn</h2>
+<p class="font-body text-textSecondary leading-relaxed mb-8 text-lg">
+                        The climax of the triangle. Arrive before dawn to witness the sun rising over the Bay of Bengal, illuminating the colossal chariot temple of Surya, the Sun God.
+                    </p>
+<!-- Large Feature Image -->
+<div class="mb-8">
+<div class="rounded-xl overflow-hidden shadow-sm relative group hairline-all">
+<!-- Using the specified Sun Temple image -->
+<img class="w-full aspect-[1.49] object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Cinematic, high-end travel photography of the Konark Sun Temple at golden hour, editorial style, luxury travel magazine aesthetic, warm lighting, architectural detail." src="https://lh3.googleusercontent.com/aida/AEtjO1UJDc3s2rXfcdfgh0MjYXjfP8ie0_DO7Fj6DtOI1jxN1NT5w5L1FuH7xOr297v_k2-BUyEq44qOacOXYFcXeueXdZg4_hKcOTG7ogznQQmkSnAUksJU8R9Galpbi-cN1rtBZBdA-A-ga92A2mtW_wN5WlPZMXxmszLL9e5YQJDb6ooyQkCt09GNymZyuDKxfOzEONVibDomhHlQ28Eg5bA9UFmQeGAMaLJdTYQdCpfsO5BQAtedD8nlMqY"/>
+<div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded text-xs font-tech text-textPrimary shadow flex items-center space-x-2">
+<span class="material-symbols-outlined text-[14px]">camera</span>
+<span>UNESCO World Heritage</span>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
+<div class="sm:col-span-2">
+<h4 class="font-label font-bold text-textPrimary text-lg mb-2">The Stone Chariot</h4>
+<p class="font-body text-textSecondary text-sm">
+                                     Designed as a massive chariot with 24 carved wheels pulled by seven horses, the temple is a masterpiece of proportions and carving. Pay special attention to the wheels, which function as sundials capable of calculating time to the minute.
+                                 </p>
+</div>
+<div class="bg-surface p-4 rounded-lg hairline-all flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-mineralEarth text-3xl mb-2">wb_twilight</span>
+<span class="font-tech text-xs text-textPrimary font-semibold mb-1">Sunrise at Chandrabhaga</span>
+<span class="font-tech text-[10px] text-textMuted">Suggested Start: 05:15 AM</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Sidebar (Metadata & Interactive Map Hook) -->
+<aside class="lg:col-span-4 space-y-8">
+<!-- Interactive Map Placeholder / CTA -->
+<div class="bg-card rounded-xl p-1 shadow-sm hairline-all relative overflow-hidden group h-64 flex flex-col justify-end">
+<div class="absolute inset-0 bg-cover bg-center opacity-60 grayscale group-hover:grayscale-0 transition-all duration-500" data-location="Odisha" style="">
+<!-- Simulated map background. Using a placeholder image styled to look like a map for the aesthetic -->
+<img class="w-full h-full object-cover" data-alt="A stylized, minimalist topographical map illustration of the eastern coast of India, specifically focusing on the state of Odisha. The map uses a very subtle, muted color palette of Mineral Sand and pale greys, with delicate hairline borders marking routes between Bhubaneswar, Puri, and Konark. The aesthetic is clean, modern, and resembles a high-end luxury editorial infograph. No text labels, just the abstract geography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKBt0KviFu2cfBWeO9-VyYu4x6w1bS1-AQTobMkNOcEKXl2eWEJ7XIAqdVpV9dbTg9L-p8IC8Og8kADD9L8oQuOivDHqszZ_rqBHlX490jdHGaPu9996uixxF63K7vN9I8P53XfLNJVWET4msOY4vMPklKqIFt6miZf8xEAMap31yUhiA9EKJ94ZAwH7n11GB9WtBO5sYGaEKhPh2rTrO0VhkkbiGZj9G-KIhblfrvwDUd9gXeGdIIq-SrXFS5soc0US3Xl4p4awc"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/50 to-transparent"></div>
+<div class="relative z-10 p-5 bg-card/80 backdrop-blur-sm m-2 rounded-lg hairline-all text-center group-hover:bg-card transition-colors">
+<h4 class="font-label font-bold text-textPrimary mb-1">Explore the Route</h4>
+<p class="font-tech text-xs text-textMuted mb-3">Interactive Map View</p>
+<button class="w-full bg-surface hover:bg-hairline text-textPrimary font-body text-sm py-2 rounded transition-colors flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-sm">map</span>
+<span>Open Map</span>
+</button>
+</div>
+</div>
+<!-- Practical Information Bento -->
+<div class="bg-card rounded-xl p-6 hairline-all shadow-sm">
+<h3 class="font-label font-bold text-textPrimary text-lg mb-6 flex items-center">
+<span class="material-symbols-outlined mr-2 text-primaryAccent">info</span>
+                        Practicalities
+                    </h3>
+<ul class="space-y-6">
+<li class="flex items-start">
+<span class="material-symbols-outlined text-textMuted mr-3 mt-0.5">flight_land</span>
+<div>
+<h5 class="font-tech text-xs text-textMuted uppercase tracking-wider mb-1">Arrival</h5>
+<p class="font-body text-sm text-textPrimary font-medium">Biju Patnaik Airport (BBI)</p>
+<p class="font-body text-xs text-textSecondary mt-0.5">Bhubaneswar</p>
+</div>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined text-textMuted mr-3 mt-0.5">directions_car</span>
+<div>
+<h5 class="font-tech text-xs text-textMuted uppercase tracking-wider mb-1">Transit</h5>
+<p class="font-body text-sm text-textPrimary font-medium">Private Chauffeur Recommended</p>
+<p class="font-body text-xs text-textSecondary mt-0.5">Approx. ₹3,500/day for sedan</p>
+</div>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined text-textMuted mr-3 mt-0.5">thermostat</span>
+<div>
+<h5 class="font-tech text-xs text-textMuted uppercase tracking-wider mb-1">Best Time to Visit</h5>
+<p class="font-body text-sm text-textPrimary font-medium">October to March</p>
+<p class="font-body text-xs text-textSecondary mt-0.5">Pleasant coastal breezes, cool evenings.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Curated Stay Suggestion -->
+<div class="bg-surface rounded-xl p-6 hairline-all border-l-4 border-l-botanical shadow-sm relative overflow-hidden">
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-[100px] text-canvas/50 pointer-events-none transform -rotate-12">hotel</span>
+<h5 class="font-tech text-xs text-botanical uppercase tracking-wider mb-2">Curator's Accommodation</h5>
+<h4 class="font-display text-xl text-textPrimary mb-2">Mayfair Lagoon, Bhubaneswar</h4>
+<p class="font-body text-sm text-textSecondary mb-4 relative z-10">
+                        An oasis of luxury amidst the city. Featuring expansive villas, multiple dining options, and architecture that pays homage to Odia heritage.
+                    </p>
+<a class="text-botanical font-body text-sm font-medium hover:underline inline-flex items-center relative z-10" href="#">
+                        View Property <span class="material-symbols-outlined text-xs ml-1">open_in_new</span>
+</a>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer minimal -->
+<footer class="mt-20 border-t border-hairline py-8 bg-canvas text-center">
+<div class="font-display font-serif text-xl font-bold text-[#12161E] mb-2 opacity-50">O-Travelz</div>
+<p class="font-tech text-xs text-textMuted">© 2023 Spatial Intelligence Travel Design. All rights reserved.</p>
+</footer>
+</body></html>

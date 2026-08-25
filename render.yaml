@@ -1,0 +1,98 @@
+services:
+  # ---------------------------------------------------------------------------
+  # 1. O-TRAVELZ BACKEND WEB SERVICE (FastAPI + PostGIS + Python 3.12)
+  # ---------------------------------------------------------------------------
+  - type: web
+    name: otravelz-backend
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install --no-cache-dir -r requirements.txt
+    startCommand: python start.py
+    healthCheckPath: /health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: otravelz-db
+          property: connectionString
+      - key: CORS_ORIGINS
+        sync: false
+      - key: AUTH_SESSION_SECRET
+        generateValue: true
+      - key: AUTH_COOKIE_SECURE
+        value: "true"
+      - key: AUTH_COOKIE_SAMESITE
+        value: lax
+      - key: AUTH_FRONTEND_REDIRECT_URL
+        sync: false
+      - key: STORAGE_BACKEND
+        value: local
+      - key: LOCAL_STORAGE_BASE_PATH
+        value: ./data/images
+      - key: AI_PROVIDER
+        value: multi_provider
+      - key: AI_ALLOW_EXTERNAL_PROVIDER
+        value: "true"
+      - key: AI_ALLOW_PAID_PROVIDER
+        value: "false"
+      - key: AI_FALLBACK_PROVIDER
+        value: rule_based
+      - key: GOOGLE_OAUTH_ENABLED
+        value: "false"
+      - key: GOOGLE_OAUTH_CLIENT_ID
+        sync: false
+      - key: GOOGLE_OAUTH_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_OAUTH_REDIRECT_URI
+        sync: false
+      - key: AI_API_KEY
+        sync: false
+      - key: AI_API_BASE_URL
+        sync: false
+      - key: AI_AZURE_DEPLOYMENT_NAME
+        value: gpt-4o-mini
+      - key: AI_GEMINI_API_KEY
+        sync: false
+      - key: AI_NVIDIA_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: WEATHER_PROVIDER
+        value: Open-Meteo
+      - key: WEATHER_BASE_URL
+        value: https://api.open-meteo.com/v1/forecast
+
+  # ---------------------------------------------------------------------------
+  # 2. O-TRAVELZ FRONTEND STATIC SITE (React 18 + Vite + Tailwind 4)
+  # ---------------------------------------------------------------------------
+  - type: web
+    name: otravelz-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache, no-store, must-revalidate
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    envVars:
+      - key: VITE_API_URL
+        sync: false
+
+databases:
+  # ---------------------------------------------------------------------------
+  # 3. O-TRAVELZ POSTGRESQL DATABASE (Free Tier)
+  # ---------------------------------------------------------------------------
+  - name: otravelz-db
+    plan: free
+    databaseName: otravelz
+    user: otravelz

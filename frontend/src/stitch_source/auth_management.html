@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>O-Travelz - Sign In &amp; Account</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: "#FBF9F5",
+                        card: "#FFFFFF",
+                        secondary: "#F2EEE7",
+                        textPrimary: "#12161E",
+                        textSecondary: "#3D4654",
+                        textMuted: "#70798B",
+                        primaryAccent: "#B87B22",
+                        secondaryAccent: "#1B5E6B",
+                        mineralEarth: "#A84825",
+                        botanical: "#2F523E",
+                        hairline: "#E5DFD5",
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-canvas font-body text-textPrimary antialiased overflow-x-hidden min-h-screen relative">
+<!-- Background Image with Heavy Blur -->
+<div class="fixed inset-0 z-0 pointer-events-none">
+<div class="w-full h-full bg-cover bg-center absolute inset-0" data-alt="A breathtaking, cinematic photograph of the Konark Sun Temple at dawn, bathed in soft, warm golden hour light. The scene is shot with a high-end editorial lens, emphasizing the intricate stone carvings and monumental scale. The overall aesthetic is bright, luxurious, and airy, utilizing a palette of warm ochres, soft mineral sand whites, and deep architectural shadows. The image acts as a sophisticated, immersive backdrop." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDL9z8CLqqktgw-6G4bm48rWH7Si48H9HpnJ4sDD7RNNLl8lWOijrSvuzPKNgfciO8Sj1hFR4JvrTJB3HT8B_IWn297AE71PdaUJ3a5lZIaEctB57vaPaTCoCz4H6DbMgSiacpeufZ2k0FDm0zqHOFuhRf2RP6rbmi8sw-FkwbRFVY-bQL8N3-srp1XnnlBGvm5GGwW8jS_A69YnAf9lQMyNw_besb73U_2nmpO0MUpPQQCyjo6uBD4QdYoDrbJC8M14Qg5FoDx7WU')"></div>
+<div class="absolute inset-0 bg-[#FBF9F5]/85 backdrop-blur-2xl"></div>
+</div>
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#FBF9F5]/75 backdrop-blur-md border-b border-[#E5DFD5] shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-screen-2xl mx-auto">
+<!-- Brand -->
+<a class="text-2xl font-display italic text-[#12161E] hover:opacity-80 transition-opacity" href="#">
+                O-Travelz
+            </a>
+<!-- Links (Hidden on Mobile) -->
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-body text-[#3D4654] hover:text-[#B87B22] transition-colors pb-1" href="#">Discover</a>
+<a class="font-body text-[#3D4654] hover:text-[#B87B22] transition-colors pb-1" href="#">Destinations</a>
+<a class="font-body text-[#3D4654] hover:text-[#B87B22] transition-colors pb-1" href="#">Routes</a>
+<a class="font-body text-[#3D4654] hover:text-[#B87B22] transition-colors pb-1" href="#">Plan Trip</a>
+</div>
+<!-- Profile Action -->
+<div class="flex items-center">
+<button class="relative p-1 rounded-full hover:bg-secondary transition-colors group cursor-pointer active:scale-95">
+<!-- Avatar with Brass Ring -->
+<div class="w-10 h-10 rounded-full border-2 border-primaryAccent p-[2px]">
+<img alt="User profile" class="w-full h-full rounded-full object-cover" data-alt="A high-quality, professional headshot of a traveler, softly lit with a warm, editorial aesthetic. The subject is smiling slightly, set against a clean, neutral mineral sand background. The image is cropped in a tight circle, suitable for a luxury travel app profile avatar. The overall tone is inviting, sophisticated, and polished." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxAXK_RU65jeEWIGosydLTDZx2rlNaoJ3gqHwXmxvmq73a0wPbzOsRYzdGQZNWO7i0r5FY5K3LI7raCtLFpU8VI3R0Z2EaJJ6Xvgo3GecxPS2t9JhpGAMD8pXAbBYW2V22tJdofHUmoSRk6RroBxPYZfmIBxkTbIUfEVo6pM8CaJoU4mC0iEK4SydEjLTi_TK7ldBVG70RCOK1bwuXcenmVHihL-NYiwNHxbIz08uoCPRNA99Ia5YnF5vcGRnqoGNgLZNn2YrJA4k"/>
+</div>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="relative z-10 pt-24 pb-12 px-6 lg:px-8 max-w-screen-2xl mx-auto min-h-screen flex flex-col lg:flex-row gap-12 items-start justify-center">
+<!-- Left/Center: Authentication Modal Overlay (simulated relative for layout) -->
+<div class="w-full max-w-md mt-12 lg:mt-24">
+<div class="bg-card rounded-xl border border-hairline shadow-lg overflow-hidden flex flex-col">
+<div class="p-8">
+<!-- Header -->
+<div class="text-center mb-8">
+<span class="material-symbols-outlined text-primaryAccent text-4xl mb-4 icon-fill">temple_hindu</span>
+<h1 class="font-display text-3xl font-semibold text-textPrimary mb-3">Access Your Odishan Journey</h1>
+<p class="text-textSecondary text-sm leading-relaxed">Sync saved temples, custom routes, and offline itineraries across all devices.</p>
+</div>
+<!-- Error Alert Banner (simulated state) -->
+<div class="mb-6 p-4 rounded-lg bg-mineralEarth/10 border border-mineralEarth/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-mineralEarth text-xl mt-0.5">error</span>
+<div class="flex-1">
+<h3 class="text-sm font-medium text-mineralEarth">Authentication Error</h3>
+<p class="text-xs text-textSecondary mt-1">Google session expired. Re-authenticate to sync your cloud trips.</p>
+</div>
+</div>
+<!-- Actions -->
+<div class="space-y-4">
+<button class="w-full flex items-center justify-center gap-3 py-3 px-4 bg-white border border-hairline rounded-lg text-textPrimary font-medium hover:bg-secondary transition-colors shadow-sm relative overflow-hidden group">
+<!-- Simulated Google G -->
+<svg class="w-5 h-5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span>Continue with Google</span>
+</button>
+<!-- Loading State Example Button -->
+<button class="w-full flex items-center justify-center gap-3 py-3 px-4 bg-secondary border border-hairline rounded-lg text-textMuted font-medium cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined animate-spin">progress_activity</span>
+<span>Authenticating...</span>
+</button>
+</div>
+<div class="mt-8 text-center">
+<p class="text-xs text-textMuted">By continuing, you agree to our <a class="text-secondaryAccent hover:underline" href="#">Terms of Service</a> and <a class="text-secondaryAccent hover:underline" href="#">Privacy Policy</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: User Account & Cloud Sync Panel (Side Drawer Style) -->
+<div class="w-full lg:w-96 mt-12 lg:mt-0 flex-shrink-0">
+<div class="bg-card/90 backdrop-blur-xl rounded-2xl border border-hairline shadow-sm overflow-hidden sticky top-28 h-[calc(100vh-140px)] flex flex-col">
+<!-- Profile Header -->
+<div class="p-6 border-b border-hairline bg-canvas/50">
+<div class="flex items-start gap-4">
+<div class="w-16 h-16 rounded-full border-2 border-primaryAccent p-0.5 flex-shrink-0 relative">
+<img alt="Debasish Mohapatra" class="w-full h-full rounded-full object-cover" data-alt="A bright, editorial portrait of a traveler against a blurred background of a heritage site. The lighting is warm and natural, casting soft shadows. The image is cropped in a tight circle with a sophisticated, professional travel aesthetic. Used as the main profile avatar for the account panel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzxyoS4vaLwyaDjESGkl46zB8dy5bzGCntTBhhN51NKhyObLqhDMcX8fRscAn205u3pbSwqkg_JD3Czm_Ci6vhfeXuX6qPMWu6e7e3BxTQSVqtz6KnvHhQjpq62Rxt_3ExnijIgotcoVgKeLR4FXg-3euK_3R9cPFUXm8cpnbnKic_CUjecCB6r68xjsonpPpOzLrOBA-kCgCD13WxmzMHKG5sUTleBGQ0KcugZBNoYVq4ErUHU6BJMGWc3BtKPvNjWSJQvrYrDhE"/>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-botanical rounded-full border-2 border-card flex items-center justify-center" title="Online"></div>
+</div>
+<div>
+<h2 class="font-display text-xl font-semibold text-textPrimary">Debasish Mohapatra</h2>
+<p class="text-sm text-textSecondary font-mono mt-1">debasish@example.com</p>
+<div class="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary text-xs font-medium text-textPrimary">
+<span class="material-symbols-outlined text-[14px] text-primaryAccent icon-fill">verified</span>
+                                Verified Traveler • Puri &amp; Konark Specialist
+                            </div>
+</div>
+</div>
+</div>
+<!-- Sync Status -->
+<div class="px-6 py-4 border-b border-hairline bg-secondaryAccent/5">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondaryAccent opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondaryAccent"></span>
+</span>
+<span class="text-sm font-medium text-textPrimary">Synced with Cloud</span>
+</div>
+<span class="material-symbols-outlined text-textMuted text-sm">cloud_done</span>
+</div>
+<p class="text-xs text-textSecondary">12 Saved Places, 3 Custom Itineraries</p>
+</div>
+<!-- Navigation Tabs/List -->
+<div class="flex-1 overflow-y-auto p-4 space-y-1">
+<button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-secondary transition-colors group text-left">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-textSecondary group-hover:text-primaryAccent transition-colors">bookmark</span>
+<span class="text-sm font-medium text-textPrimary">Saved Places (12)</span>
+</div>
+<span class="material-symbols-outlined text-textMuted text-sm">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-secondary transition-colors group text-left">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-textSecondary group-hover:text-primaryAccent transition-colors">route</span>
+<span class="text-sm font-medium text-textPrimary">Saved Trips (3)</span>
+</div>
+<span class="material-symbols-outlined text-textMuted text-sm">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-secondary transition-colors group text-left">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-textSecondary group-hover:text-primaryAccent transition-colors">tune</span>
+<span class="text-sm font-medium text-textPrimary">Preferences &amp; Dietary Filters</span>
+</div>
+<span class="material-symbols-outlined text-textMuted text-sm">chevron_right</span>
+</button>
+<div class="my-4 border-t border-hairline mx-3"></div>
+<div class="p-3">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-textSecondary">offline_bolt</span>
+<span class="text-sm font-medium text-textPrimary">Offline Cache</span>
+</div>
+<span class="text-xs font-mono text-textMuted">42 MB</span>
+</div>
+<p class="text-xs text-textSecondary pl-9">Maps and guides available without internet.</p>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="p-4 border-t border-hairline bg-canvas">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-mineralEarth hover:bg-mineralEarth/10 transition-colors font-medium text-sm">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+                        Sign Out
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "temple",
+    "name": "temple",
+    "description": "Religious temples, shrines, and sacred architecture"
+  },
+  {
+    "id": "monument",
+    "name": "monument",
+    "description": "Historic monuments, forts, caves, and peace pagodas"
+  },
+  {
+    "id": "museum",
+    "name": "museum",
+    "description": "Museums, galleries, and heritage collections"
+  },
+  {
+    "id": "market",
+    "name": "market",
+    "description": "Handicrafts, handlooms, and traditional markets"
+  },
+  {
+    "id": "park",
+    "name": "park",
+    "description": "Zoological parks, botanical gardens, and urban recreation"
+  },
+  {
+    "id": "lake",
+    "name": "lake",
+    "description": "Lakes, reservoirs, and inland water bodies"
+  },
+  {
+    "id": "beach",
+    "name": "beach",
+    "description": "Coastal beaches, golden sands, and marine shores"
+  },
+  {
+    "id": "nature",
+    "name": "nature",
+    "description": "Hill stations, valleys, coffee gardens, and nature reserves"
+  },
+  {
+    "id": "waterfall",
+    "name": "waterfall",
+    "description": "Scenic waterfalls, cascades, and river gorges"
+  },
+  {
+    "id": "wildlife",
+    "name": "wildlife",
+    "description": "National parks, bird sanctuaries, and tiger reserves"
+  },
+  {
+    "id": "planetarium",
+    "name": "planetarium",
+    "description": "Astronomy education and planetariums"
+  },
+  {
+    "id": "sports_venue",
+    "name": "sports_venue",
+    "description": "International stadiums and sports complexes"
+  },
+  {
+    "id": "science_center",
+    "name": "science_center",
+    "description": "Interactive science centers and galleries"
+  },
+  {
+    "id": "hospital",
+    "name": "hospital",
+    "description": "Verified hospitals, medical colleges, and healthcare institutions across Odisha"
+  },
+  {
+    "id": "emergency_facility",
+    "name": "emergency_facility",
+    "description": "Emergency response, trauma care centers, and 24x7 medical assistance facilities"
+  },
+  {
+    "id": "transit_hub",
+    "name": "transit_hub",
+    "description": "Major airports, railway junctions, and central bus terminals connecting Odisha"
+  }
+]

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>O-Travelz | Progressive Trip Planner &amp; Contextual AI Copilot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: "#FBF9F5",
+                        card: "#FFFFFF",
+                        secondarySurface: "#F2EEE7",
+                        textPrimary: "#12161E",
+                        textSecondary: "#3D4654",
+                        textMuted: "#70798B",
+                        primaryAccent: "#B87B22",
+                        secondaryAccent: "#1B5E6B",
+                        mineralEarth: "#A84825",
+                        botanical: "#2F523E",
+                        hairline: "#E5DFD5",
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    fontFamily: {
+                        headline: ["Playfair Display", "serif"],
+                        display: ["Playfair Display", "serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                        label: ["Plus Jakarta Sans", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #FBF9F5;
+            color: #12161E;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6, .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col pt-20">
+<!-- TopNavBar (from Shared Components JSON) -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl border-b border-[#E5DFD5]/30">
+<div class="flex justify-between items-center px-12 h-20 max-w-screen-2xl mx-auto">
+<!-- Brand -->
+<div class="font-display text-2xl font-bold text-[#12161E] dark:text-white">
+                O-Travelz
+            </div>
+<!-- Navigation Links (Web only for this implementation scope, handling "Plan" as active based on page context) -->
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body text-label-md tracking-wide text-[#3D4654] hover:text-[#B87B22] transition-colors hover:bg-[#F2EEE7]/50 py-2 px-3 rounded-md transition-all duration-300" href="#">Circuits</a>
+<a class="font-body text-label-md tracking-wide text-[#3D4654] hover:text-[#B87B22] transition-colors hover:bg-[#F2EEE7]/50 py-2 px-3 rounded-md transition-all duration-300" href="#">Regions</a>
+<a class="font-body text-label-md tracking-wide text-[#3D4654] hover:text-[#B87B22] transition-colors hover:bg-[#F2EEE7]/50 py-2 px-3 rounded-md transition-all duration-300" href="#">Editorial</a>
+<a class="font-body text-label-md tracking-wide text-[#B87B22] font-semibold border-b-2 border-[#B87B22] pb-1 hover:bg-[#F2EEE7]/50 py-2 px-3 rounded-md transition-all duration-300 opacity-80 scale-95 transition-transform" href="#">Plan</a>
+</div>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-4">
+<button class="text-[#B87B22] hover:bg-[#F2EEE7]/50 p-2 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-screen-xl mx-auto w-full px-6 md:px-12 py-12 space-y-16">
+<!-- Hero Header -->
+<header class="max-w-3xl">
+<h1 class="text-4xl md:text-5xl font-display text-textPrimary leading-tight mb-4">Design Your Odisha Journey</h1>
+<p class="text-lg text-textSecondary font-body leading-relaxed">
+                Tell us your starting point and travel desires. Our deterministic engine maps the perfect circuit.
+            </p>
+</header>
+<!-- Progress Indicator -->
+<div class="flex justify-center md:justify-start">
+<div class="inline-flex bg-card border border-hairline rounded-full px-6 py-3 shadow-sm items-center gap-6">
+<span class="font-body text-sm font-semibold text-primaryAccent flex items-center gap-2">
+<span class="bg-primaryAccent/10 text-primaryAccent w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span> Starting Hub
+                </span>
+<span class="text-textMuted">•</span>
+<span class="font-body text-sm text-textMuted flex items-center gap-2">
+<span class="bg-secondarySurface text-textMuted w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span> Duration
+                </span>
+<span class="text-textMuted">•</span>
+<span class="font-body text-sm text-textMuted flex items-center gap-2">
+<span class="bg-secondarySurface text-textMuted w-6 h-6 rounded-full flex items-center justify-center text-xs">3</span> Passions
+                </span>
+</div>
+</div>
+<!-- Planning Section (Bento Style) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Step 1: Hub (Spans 2 cols on large) -->
+<div class="lg:col-span-2 bg-card rounded-xl border border-hairline p-8 shadow-sm">
+<h3 class="font-display text-xl mb-6 text-textPrimary">Select Starting Hub</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Selected -->
+<button class="relative rounded-lg overflow-hidden border-2 border-primaryAccent bg-secondarySurface text-left transition-all">
+<img alt="Bhubaneswar" class="w-full h-32 object-cover opacity-80" data-alt="A cinematic, high-quality editorial shot of Lingaraj Temple in Bhubaneswar at sunrise, golden hour lighting highlighting the sandstone carvings, modern luxury travel aesthetic, serene mood, clear sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe49mA0mm7Qpx5MT7y5Djc1elkDXFDsaNpmLpJ4PY6IgMjNj2zKrp8HaiUzLv0qaau1kssmLlGV_cMihm9Fe4_1yjjN3xBmz3ce-Qm4SC_oKAN8QUDWJ3fx_gXOc2oKzW-dxlJyIROyw2USQwWfx4-YboARQzxLieWAoRy__qL4Jnz968ztd8rV3fItXe9pUNk9oKT35gvx_wASv-SpZRJGWv-AEwHOUuaT67zAwPFqjxh8ed6Ckh-2jw7eySKtp1okPgYLyc5Kms"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<p class="font-body font-semibold text-sm">Bhubaneswar</p>
+</div>
+<div class="absolute top-2 right-2 bg-primaryAccent text-white rounded-full w-5 h-5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</button>
+<!-- Unselected -->
+<button class="relative rounded-lg overflow-hidden border border-hairline bg-card hover:border-primaryAccent/50 text-left transition-all group">
+<img alt="Puri" class="w-full h-32 object-cover opacity-60 group-hover:opacity-80 transition-opacity" data-alt="A beautiful, editorial shot of Jagannath Temple in Puri, daytime, clear blue sky, luxury travel style, bustling but clean aesthetic, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX9t5xDnxhIlK3OKNGhyuOS73-1dAaksAFQQG_pMNb3CeRJYrdIV52fSNjxCwpm5iWiVwMIOTQXgUtjezNwOEj-IS3ysi7TasX98BsKC3cBLZBa26cpCBbXhLn0mVFSKHaMjWGTA2cbE7ZJftd49rZYbyWgJllFl6Nf7-rTyfDWLBxdBSGqarYv0Ay8lJ_SUK8OthnJ8c2zJWsx_-ehHOJhObOwcEPlaj9AJMvLx_WHzbsY38-o3lG-mgsq7UIn-1EXddvACeNm0Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<p class="font-body font-medium text-sm">Puri</p>
+</div>
+</button>
+<button class="relative rounded-lg overflow-hidden border border-hairline bg-card hover:border-primaryAccent/50 text-left transition-all group">
+<img alt="Konark" class="w-full h-32 object-cover opacity-60 group-hover:opacity-80 transition-opacity" data-alt="A stunning view of the Konark Sun Temple wheel, intricately carved stone, warm sunlight, luxurious travel photography style, historical and grand." src="https://lh3.googleusercontent.com/aida/AEtjO1UJDc3s2rXfcdfgh0MjYXjfP8ie0_DO7Fj6DtOI1jxN1NT5w5L1FuH7xOr297v_k2-BUyEq44qOacOXYFcXeueXdZg4_hKcOTG7ogznQQmkSnAUksJU8R9Galpbi-cN1rtBZBdA-A-ga92A2mtW_wN5WlPZMXxmszLL9e5YQJDb6ooyQkCt09GNymZyuDKxfOzEONVibDomhHlQ28Eg5bA9UFmQeGAMaLJdTYQdCpfsO5BQAtedD8nlMqY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<p class="font-body font-medium text-sm">Konark</p>
+</div>
+</button>
+<button class="relative rounded-lg overflow-hidden border border-hairline bg-card hover:border-primaryAccent/50 text-left transition-all group">
+<img alt="Chilika" class="w-full h-32 object-cover opacity-60 group-hover:opacity-80 transition-opacity" data-alt="A serene, wide shot of Chilika Lake, fishing boats in the distance, calm waters, soft morning light, editorial travel photography, peaceful mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBncciVZ_jB169hv_MKF44YxFY_wzB-0nEJAi6vrAnpeouErvxxKFxom7VZ-7VH9-vNrDKxN8ByHJmV0fSwpDCvfWJimHI98mDrHhdQnuSK-QwL88IBCAMCSVoaVGRLgl5O7mtGsbvpmBuHP6F7yMkUsDNRu85F9aKH8KliiglC5e8ZyAzkBtt2vd3fxyF1_cC1PJSxaPskidx5Q5U3hRBdUeDZoLNEobb-CVjWhJsGiP4yU1xS39ATAVvK4PfVW7q626KW5dHZYu0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<p class="font-body font-medium text-sm">Chilika</p>
+</div>
+</button>
+</div>
+</div>
+<!-- Step 2 & 3: Duration & Passions (Stacked in 1 col) -->
+<div class="space-y-8">
+<!-- Step 2: Duration -->
+<div class="bg-card rounded-xl border border-hairline p-8 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-display text-xl text-textPrimary">Duration</h3>
+<span class="font-mono text-sm text-primaryAccent font-medium">3 Days Odyssey</span>
+</div>
+<!-- Custom Slider Visual -->
+<div class="relative w-full h-2 bg-secondarySurface rounded-full mt-4">
+<div class="absolute top-0 left-0 h-full bg-primaryAccent rounded-full" style="width: 42%;"></div>
+<div class="absolute top-1/2 -translate-y-1/2 left-[42%] w-5 h-5 bg-card border-2 border-primaryAccent rounded-full shadow-md cursor-pointer hover:scale-110 transition-transform"></div>
+</div>
+<div class="flex justify-between mt-3 text-xs font-mono text-textMuted">
+<span>1</span>
+<span>7+</span>
+</div>
+</div>
+<!-- Step 3: Passions -->
+<div class="bg-card rounded-xl border border-hairline p-8 shadow-sm flex-grow">
+<h3 class="font-display text-xl mb-6 text-textPrimary">Passions</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full border border-primaryAccent bg-primaryAccent/5 text-primaryAccent font-body text-sm hover:bg-primaryAccent/10 transition-colors">Heritage &amp; Temples</button>
+<button class="px-4 py-2 rounded-full border border-hairline bg-card text-textSecondary font-body text-sm hover:border-primaryAccent/50 transition-colors">Coastal Waters</button>
+<button class="px-4 py-2 rounded-full border border-hairline bg-card text-textSecondary font-body text-sm hover:border-primaryAccent/50 transition-colors">Forest Wildlife</button>
+<button class="px-4 py-2 rounded-full border border-primaryAccent bg-primaryAccent/5 text-primaryAccent font-body text-sm hover:bg-primaryAccent/10 transition-colors">Odia Culinary</button>
+<button class="px-4 py-2 rounded-full border border-hairline bg-card text-textSecondary font-body text-sm hover:border-primaryAccent/50 transition-colors">Waterfalls</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="flex justify-center py-4">
+<button class="bg-primaryAccent text-white font-body text-lg font-medium py-4 px-10 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-3">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+                Generate Curated 3-Day Odisha Itinerary
+                <span class="material-symbols-outlined text-xl">arrow_right_alt</span>
+</button>
+</div>
+<!-- AI Copilot Integration -->
+<div class="mt-20 border-t border-hairline pt-12 relative">
+<!-- Copilot Header -->
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-secondarySurface flex items-center justify-center text-primaryAccent border border-hairline">
+<span class="material-symbols-outlined">psychiatry</span>
+</div>
+<div>
+<h3 class="font-display text-2xl text-textPrimary flex items-center gap-3">
+                        Odisha Travel Copilot
+                        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-botanical/10 text-botanical text-xs font-body font-medium border border-botanical/20">
+<span class="material-symbols-outlined text-[14px]">verified</span> Verified Grounded
+                        </span>
+</h3>
+</div>
+</div>
+<!-- Narrative -->
+<p class="font-body text-textSecondary text-lg max-w-4xl leading-relaxed mb-8 border-l-2 border-primaryAccent/30 pl-4 py-1">
+                "I have shaped a 3-day circuit optimizing road travel along the Golden Triangle corridor. Here are 3 tailored enhancements based on your pace:"
+            </p>
+<!-- Recommendation Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<!-- Card 1 -->
+<div class="bg-card rounded-xl border border-hairline p-6 hover:shadow-md transition-shadow group flex flex-col justify-between h-full">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="p-2 bg-secondarySurface rounded-md text-secondaryAccent">
+<span class="material-symbols-outlined">sailing</span>
+</div>
+<span class="text-xs font-mono text-textMuted bg-canvas px-2 py-1 rounded">Day 2</span>
+</div>
+<h4 class="font-display text-lg text-textPrimary mb-2">Puri Beach Sunset &amp; Marine Drive Cruise</h4>
+<p class="text-sm text-textSecondary font-body mb-4 line-clamp-2">Experience the golden hour along the coastline with a private boat ride.</p>
+</div>
+<button class="w-full py-2.5 rounded-md border border-hairline text-textPrimary font-body text-sm font-medium hover:bg-secondarySurface hover:border-primaryAccent/30 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span> Add to Day 2
+                    </button>
+</div>
+<!-- Card 2 -->
+<div class="bg-card rounded-xl border border-hairline p-6 hover:shadow-md transition-shadow group flex flex-col justify-between h-full">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="p-2 bg-secondarySurface rounded-md text-mineralEarth">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<span class="text-xs font-mono text-textMuted bg-canvas px-2 py-1 rounded">Day 1</span>
+</div>
+<h4 class="font-display text-lg text-textPrimary mb-2">Authentic Chhena Poda &amp; Dalma Food Trail</h4>
+<p class="text-sm text-textSecondary font-body mb-4 line-clamp-2">A curated tasting tour of Bhubaneswar's legendary sweet shops and eateries.</p>
+</div>
+<button class="w-full py-2.5 rounded-md border border-hairline text-textPrimary font-body text-sm font-medium hover:bg-secondarySurface hover:border-primaryAccent/30 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span> Add to Day 1
+                    </button>
+</div>
+<!-- Card 3 -->
+<div class="bg-card rounded-xl border border-hairline p-6 hover:shadow-md transition-shadow group flex flex-col justify-between h-full">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="p-2 bg-secondarySurface rounded-md text-primaryAccent">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<span class="text-xs font-mono text-textMuted bg-canvas px-2 py-1 rounded">Day 3</span>
+</div>
+<h4 class="font-display text-lg text-textPrimary mb-2">Raghurajpur Heritage Crafts Village Detour</h4>
+<p class="text-sm text-textSecondary font-body mb-4 line-clamp-2">Visit master Pattachitra painters in their homes just outside Puri.</p>
+</div>
+<button class="w-full py-2.5 rounded-md border border-hairline text-textPrimary font-body text-sm font-medium hover:bg-secondarySurface hover:border-primaryAccent/30 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span> Add to Day 3
+                    </button>
+</div>
+</div>
+<!-- Quick Action Chips -->
+<div class="flex flex-wrap gap-3">
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondarySurface hover:bg-hairline text-textSecondary font-body text-sm transition-colors border border-transparent hover:border-textMuted/30">
+<span class="material-symbols-outlined text-[16px] text-primaryAccent">auto_awesome</span> Make this trip more relaxed
+                </button>
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondarySurface hover:bg-hairline text-textSecondary font-body text-sm transition-colors border border-transparent hover:border-textMuted/30">
+<span class="material-symbols-outlined text-[16px] text-primaryAccent">auto_awesome</span> Avoid driving during midday heat
+                </button>
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondarySurface hover:bg-hairline text-textSecondary font-body text-sm transition-colors border border-transparent hover:border-textMuted/30">
+<span class="material-symbols-outlined text-[16px] text-primaryAccent">auto_awesome</span> Prioritize public transit (Mo Bus)
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer (from Shared Components JSON) -->
+<footer class="w-full py-16 px-12 bg-[#FBF9F5] dark:bg-[#12161E] border-t border-[#E5DFD5]">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
+<!-- Brand & Copyright -->
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-display text-lg font-semibold text-[#12161E]">O-Travelz</span>
+<span class="font-body text-sm text-[#70798B]">© 2024 O-Travelz Odisha. All rights reserved.</span>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-body text-sm text-[#70798B] hover:text-[#12161E] hover:opacity-75 transition-all duration-200" href="#">Sustainability</a>
+<a class="font-body text-sm text-[#70798B] hover:text-[#12161E] hover:opacity-75 transition-all duration-200" href="#">Contact</a>
+<a class="font-body text-sm text-[#70798B] hover:text-[#12161E] hover:opacity-75 transition-all duration-200" href="#">Press</a>
+<a class="font-body text-sm text-[#70798B] hover:text-[#12161E] hover:opacity-75 transition-all duration-200" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>

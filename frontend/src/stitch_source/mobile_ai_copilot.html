@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>O-Travelz - AI Copilot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+                "mineral-sand": "#FBF9F5",
+                "pure-chalk": "#FFFFFF",
+                "weathered-stone": "#F2EEE7",
+                "deep-ink": "#12161E",
+                "river-slate": "#3D4654",
+                "stone-muted": "#70798B",
+                "kalinga-brass": "#B87B22",
+                "chilika-teal": "#1B5E6B",
+                "temple-clay": "#A84825",
+                "sal-green": "#2F523E",
+                "stone-neutral": "#E5DFD5"
+            },
+            borderRadius: {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            fontFamily: {
+                    "headline": ["Public Sans", "sans-serif"],
+                    "display": ["Public Sans", "sans-serif"],
+                    "body": ["Plus Jakarta Sans", "sans-serif"],
+                    "label": ["Public Sans", "sans-serif"],
+                    "serif": ["Playfair Display", "serif"],
+                    "mono": ["JetBrains Mono", "monospace"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.mineral-sand');
+            color: theme('colors.deep-ink');
+            font-family: theme('fontFamily.body');
+        }
+        .slide-up {
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-[#FBF9F5] text-[#B87B22] font-headline text-headline-sm tracking-tight docked full-width top-0 border-b border-[#E5DFD5] flat no shadows flex justify-between items-center px-6 h-16 w-full z-40 relative">
+<button class="flex items-center justify-center hover:opacity-80 transition-opacity active:scale-95 duration-150 text-[#3D4654]">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-display italic text-2xl text-[#12161E]">
+            O-Travelz
+        </div>
+<button class="flex items-center justify-center hover:opacity-80 transition-opacity active:scale-95 duration-150 text-[#3D4654]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</header>
+<!-- Main Canvas (Background map/blurred content concept) -->
+<main class="flex-grow relative z-0">
+<!-- Abstract representation of the background before sheet opens -->
+<div class="absolute inset-0 bg-[url('placeholder')] bg-cover bg-center opacity-30 filter blur-sm transition-all duration-700" data-alt="A highly detailed aerial view of a serene lake at sunrise with small fishing boats scattered across the calm water, soft golden light illuminating the mist, a peaceful and natural setting in light mode with warm ochre and teal accents."></div>
+<div class="absolute inset-0 bg-gradient-to-b from-mineral-sand/40 to-mineral-sand/90"></div>
+</main>
+<!-- Slide-Up AI Copilot Sheet -->
+<div class="absolute inset-x-0 bottom-0 z-30 pt-10 px-4 pb-28 sm:pb-8 max-w-md mx-auto slide-up">
+<!-- Sheet Container -->
+<div class="bg-pure-chalk rounded-t-3xl shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)] border border-stone-neutral border-b-0 p-6 flex flex-col gap-6 relative">
+<!-- Drag Handle -->
+<div class="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-stone-neutral rounded-full"></div>
+<!-- Header -->
+<div class="flex items-center gap-3 mt-2">
+<div class="w-10 h-10 rounded-full bg-weathered-stone flex items-center justify-center text-kalinga-brass">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h2 class="font-serif text-xl text-deep-ink font-semibold">Travel Concierge</h2>
+<p class="text-xs text-stone-muted font-body">Always ready to assist</p>
+</div>
+</div>
+<!-- Prompt Suggestion Chips -->
+<div class="flex flex-nowrap overflow-x-auto pb-2 -mx-2 px-2 gap-3 no-scrollbar scroll-smooth">
+<button class="shrink-0 flex items-center gap-2 px-4 py-2 rounded-full border border-stone-neutral bg-weathered-stone/50 hover:bg-weathered-stone transition-colors text-sm text-river-slate font-medium">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+                    Find vegan prasad near Jagannath Temple
+                </button>
+<button class="shrink-0 flex items-center gap-2 px-4 py-2 rounded-full border border-stone-neutral bg-weathered-stone/50 hover:bg-weathered-stone transition-colors text-sm text-river-slate font-medium">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+                    Best photography spot at sunrise in Konark
+                </button>
+<button class="shrink-0 flex items-center gap-2 px-4 py-2 rounded-full border border-stone-neutral bg-weathered-stone/50 hover:bg-weathered-stone transition-colors text-sm text-river-slate font-medium">
+<span class="material-symbols-outlined text-[18px]">directions_walk</span>
+                    Quiet beaches near Puri
+                </button>
+</div>
+<!-- AI Response Card -->
+<div class="bg-mineral-sand rounded-xl p-5 border border-stone-neutral/50 flex flex-col gap-4">
+<p class="font-serif text-lg leading-relaxed text-deep-ink">
+                    For capturing the perfect sunrise at the <span class="text-kalinga-brass font-semibold">Konark Sun Temple</span>, position yourself near the eastern gateway (Bhogamandapa). The first rays of light align perfectly with the main entrance, casting a magnificent golden glow over the intricate stone carvings of the chariot wheels.
+                </p>
+<div class="flex items-center justify-between mt-2 pt-4 border-t border-stone-neutral">
+<div class="flex items-center gap-2 text-river-slate text-sm font-mono">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                        Arrive by 5:15 AM
+                    </div>
+<button class="flex items-center gap-2 px-4 py-2 bg-deep-ink text-pure-chalk rounded-lg hover:bg-kalinga-brass transition-colors text-sm font-semibold tracking-wide">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Add to Itinerary
+                    </button>
+</div>
+</div>
+<!-- Input Area -->
+<div class="relative mt-2">
+<input class="w-full bg-weathered-stone border-none rounded-full py-4 pl-6 pr-14 text-sm text-deep-ink placeholder-stone-muted focus:ring-2 focus:ring-kalinga-brass/50 transition-shadow" placeholder="Ask your concierge..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-kalinga-brass text-pure-chalk hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="bg-white/75 backdrop-blur-xl font-label text-[10px] uppercase tracking-widest rounded-full mx-4 mb-6 border border-[#E5DFD5]/50 shadow-xl fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center h-20 max-w-md md:mx-auto hidden sm:flex">
+<button class="flex flex-col items-center justify-center text-[#70798B] hover:text-[#B87B22] transition-colors w-16">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span>Discover</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#70798B] hover:text-[#B87B22] transition-colors w-16">
+<span class="material-symbols-outlined mb-1">map</span>
+<span>Map</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#70798B] hover:text-[#B87B22] transition-colors w-16">
+<span class="material-symbols-outlined mb-1">bookmark</span>
+<span>Saved</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#B87B22] font-bold hover:text-[#B87B22] transition-colors active:translate-y-[-2px] duration-300 w-16">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>Copilot</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#70798B] hover:text-[#B87B22] transition-colors w-16">
+<span class="material-symbols-outlined mb-1">person</span>
+<span>Profile</span>
+</button>
+</nav>
+<!-- Mobile BottomNav (Visible only on very small screens if needed, otherwise hidden by CSS to favor the sheet) -->
+<nav class="sm:hidden bg-white/90 backdrop-blur-md border-t border-stone-neutral fixed bottom-0 left-0 right-0 z-40 flex justify-around items-center h-16 pb-safe">
+<button class="flex flex-col items-center justify-center text-[#70798B] w-16">
+<span class="material-symbols-outlined">explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#B87B22] w-16">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#70798B] w-16">
+<span class="material-symbols-outlined">person</span>
+</button>
+</nav>
+</body></html>

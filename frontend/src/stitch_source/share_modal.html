@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>O-Travelz - Share Itinerary</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Public+Sans:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: '#FBF9F5',
+                        card: '#FFFFFF',
+                        surface: '#F2EEE7',
+                        text: {
+                            primary: '#12161E',
+                            secondary: '#3D4654',
+                            muted: '#70798B'
+                        },
+                        accent: {
+                            primary: '#B87B22',
+                            secondary: '#1B5E6B'
+                        },
+                        earth: '#A84825',
+                        botanical: '#2F523E',
+                        border: '#E5DFD5'
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans", "sans-serif"],
+                        "display": ["Public Sans", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Public Sans", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-canvas text-text-primary font-body antialiased relative h-screen w-screen overflow-hidden">
+<!-- Background: Blurred Itinerary Page Placeholder -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-multiply" data-alt="A sweeping, cinematic landscape photograph of a sun-drenched Indian temple complex built from warm red sandstone. The sky is a clear, brilliant blue. The scene embodies a luxury travel editorial aesthetic, shot from a low angle to emphasize grandeur. Light mode, high-key lighting, soft shadows, pristine and atmospheric." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANYeM2VQUB4oxKNEFQCca1a3pP6UeWhLAVkgsgVogPL_tvxER_oAVHOXrmCxR5LtMNDh8gzpgDGoAsFZcqgDZ6YBPgqU0ljWxZxjxkwdYzVOlc0ZIesEUbv0IV6KszD_XKSWNqdpEWYeu6UhiTXt1803-2cLHiuLqXcXMoaKtbXgqzNeTe6KhYcPSnsA6B_AIq8eCa7wEwwjRZeRRKlU5cyTkXj1BlG2JzT9llLXTqtr2f5A8UBFA5n0AKjEYfP3E0NRKjGGQ4oIk')"></div>
+<div class="absolute inset-0 backdrop-blur-xl bg-canvas/30"></div>
+</div>
+<!-- Modal Overlay -->
+<div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+<!-- Modal Card -->
+<div class="bg-card w-full max-w-lg rounded-xl shadow-2xl border border-border overflow-hidden flex flex-col">
+<!-- Header -->
+<div class="px-8 py-6 border-b border-border flex justify-between items-center bg-card">
+<h2 class="font-serif text-2xl font-semibold text-text-primary">Share Your Odishan Itinerary</h2>
+<button class="text-text-muted hover:text-text-primary transition-colors p-2 rounded-full hover:bg-surface">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Content Area -->
+<div class="p-8 space-y-8 bg-card flex-grow overflow-y-auto">
+<!-- Privacy Toggle & Link Input -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-text-secondary">Link Visibility</label>
+<div class="flex items-center space-x-2 bg-surface p-1 rounded-lg">
+<button class="px-3 py-1.5 text-xs font-medium bg-card text-text-primary rounded shadow-sm">Public</button>
+<button class="px-3 py-1.5 text-xs font-medium text-text-muted hover:text-text-primary transition-colors rounded">Unlisted</button>
+</div>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-text-muted text-lg">link</span>
+<input class="w-full pl-10 pr-24 py-3 bg-surface border border-border rounded-lg text-sm font-mono text-text-secondary focus:outline-none focus:ring-1 focus:ring-accent-primary focus:border-accent-primary" readonly="" type="text" value="https://o-travelz.com/i/orissa-heritage-7a9f"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-1.5 bg-text-primary text-card text-xs font-medium rounded-lg hover:bg-text-secondary transition-colors">
+                            Copy Link
+                        </button>
+</div>
+</div>
+<!-- Divider -->
+<div class="flex items-center space-x-4">
+<div class="h-px bg-border flex-grow"></div>
+<span class="text-xs text-text-muted font-medium uppercase tracking-wider">Or share via</span>
+<div class="h-px bg-border flex-grow"></div>
+</div>
+<!-- QR Code & Social Actions Grid -->
+<div class="grid grid-cols-2 gap-6">
+<!-- QR Code Card -->
+<div class="border border-border rounded-xl p-4 flex flex-col items-center justify-center bg-canvas space-y-3 group cursor-pointer hover:border-accent-primary transition-colors">
+<div class="bg-card p-2 rounded-lg border border-border shadow-sm">
+<img class="w-24 h-24 object-contain" data-alt="A clean, minimalist black and white QR code design. The QR code is perfectly square, crisp, and high contrast, ready for scanning. It sits on a pure white background. The style is strictly functional and technical, adhering to a modern digital interface aesthetic without any distracting decorative elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN-kMyArZwB-gth6bKhZDXsoe2FzM78XUPxf2epGde3TMmQIoPF_4ao3mEqgpprDIdBORtpS6AUAbr8W8hYSSy0p3074-vTghG9VG55ye7WAa1FOac-fICKD3jHuqZrB7XiKITj1tDdFojE-A2t_sMfrDUm7sE1uYV4e-33XSHXWier1XBx4r--OK6K23Y6eIPXU4DLQ4YYmHUfuR9OhZkRGW4-W9ks6fBA2NQQKVGSHqe4DmqFLIUYpaRGagxCdwTqsFK42PVmiU"/>
+</div>
+<span class="text-xs font-medium text-text-secondary group-hover:text-accent-primary transition-colors">Scan to open on mobile</span>
+</div>
+<!-- Social Actions -->
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center p-3 rounded-xl border border-border hover:bg-surface hover:border-text-secondary transition-all group">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-text-primary text-2xl mb-2">forum</span>
+<span class="text-[10px] font-medium text-text-muted group-hover:text-text-primary">WhatsApp</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-xl border border-border hover:bg-surface hover:border-text-secondary transition-all group">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-text-primary text-2xl mb-2">mail</span>
+<span class="text-[10px] font-medium text-text-muted group-hover:text-text-primary">Email</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-xl border border-border hover:bg-surface hover:border-text-secondary transition-all group">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-text-primary text-2xl mb-2">alternate_email</span>
+<span class="text-[10px] font-medium text-text-muted group-hover:text-text-primary">Twitter/X</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-xl border border-border hover:bg-surface hover:border-text-secondary transition-all group">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-text-primary text-2xl mb-2">account_balance_wallet</span>
+<span class="text-[10px] font-medium text-text-muted group-hover:text-text-primary">Apple Wallet</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
