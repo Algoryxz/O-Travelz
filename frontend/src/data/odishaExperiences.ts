@@ -226,9 +226,149 @@ export function getExperiencesByType(type?: ExperienceType): OdishaExperience[] 
   return ODISHA_EXPERIENCES.filter(e => e.type === type);
 }
 
-export function getFoodExperiencesForRegion(region: string): OdishaExperience[] {
-  return ODISHA_EXPERIENCES.filter(e =>
-    (e.type === 'food_experience' || e.type === 'restaurant') &&
-    (e.region.toLowerCase().includes(region.toLowerCase()) || region.toLowerCase().includes(e.region.toLowerCase()))
+export function getFoodExperiencesForRegion(regionOrDistrict: string): OdishaExperience[] {
+  const norm = regionOrDistrict.toLowerCase().trim();
+  return ODISHA_EXPERIENCES.filter(e => {
+    if (e.type !== 'food_experience' && e.type !== 'restaurant') return false;
+    const expDist = (e.district || '').toLowerCase();
+    const expReg = (e.region || '').toLowerCase();
+    const expLoc = (e.locality || '').toLowerCase();
+    return (
+      expDist.includes(norm) ||
+      norm.includes(expDist) ||
+      expReg.includes(norm) ||
+      norm.includes(expReg) ||
+      expLoc.includes(norm) ||
+      norm.includes(expLoc)
+    );
+  });
+}
+
+/**
+ * Deterministic multi-day culinary schedule builder.
+ * Guarantees that no culinary experience is repeated across days in the entire generated itinerary.
+ * Strictly enforces geographic eligibility: distant experiences are never assigned merely to fill a slot.
+ * If no geographically eligible experience is available for a day, that day receives no entry (slot omitted).
+ */
+export function buildItineraryCulinarySchedule(
+  days: Array<{ day_number: number; stops?: Array<{ place?: { id?: string | null; name?: string | null; district?: string | null; region?: string | null; lat?: number | null; lon?: number | null } }> }>,
+  placesCatalog?: Array<{ id?: string | null; name?: string | null; district?: string | null; region?: string | null; lat?: number | null; lon?: number | null }>
+): Map<number, OdishaExperience> {
+  const schedule = new Map<number, OdishaExperience>();
+  const usedIds = new Set<string>();
+  const usedNormalizedNames = new Set<string>();
+
+  const allFoodExperiences = ODISHA_EXPERIENCES.filter(
+    e => e.type === 'food_experience' || e.type === 'restaurant'
   );
+
+  // Compact Haversine helper
+  const haversineKm = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
+    const R = 6371;
+    const dLat = ((lat2 - lat1) * Math.PI) / 180;
+    const dLon = ((lon2 - lon1) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos((lat1 * Math.PI) / 180) *
+        Math.cos((lat2 * Math.PI) / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  };
+
+  for (const day of days) {
+    // 1. Gather districts & regions and coordinates from all stops on this day
+    const dayLocations = new Set<string>();
+    const dayCoords: Array<{ lat: number; lon: number }> = [];
+
+    if (day.stops) {
+      for (const stop of day.stops) {
+        if (!stop.place) continue;
+        if (stop.place.district) dayLocations.add(stop.place.district.toLowerCase().trim());
+        if (stop.place.region) dayLocations.add(stop.place.region.toLowerCase().trim());
+
+        if (stop.place.lat != null && stop.place.lon != null) {
+          dayCoords.push({ lat: stop.place.lat, lon: stop.place.lon });
+        }
+
+        // Look up stop in catalog for richer location info
+        if (placesCatalog && placesCatalog.length > 0) {
+          const matched = placesCatalog.find(
+            p => p.id === stop.place?.id || (p.name && stop.place?.name && p.name.toLowerCase().trim() === stop.place.name.toLowerCase().trim())
+          );
+          if (matched) {
+            if (matched.district) dayLocations.add(matched.district.toLowerCase().trim());
+            if (matched.region) dayLocations.add(matched.region.toLowerCase().trim());
+            if (matched.lat != null && matched.lon != null) {
+              dayCoords.push({ lat: matched.lat, lon: matched.lon });
+            }
+          }
+        }
+      }
+    }
+
+    // 2. Score candidates based on geographic proximity
+    const scoredCandidates: Array<{ exp: OdishaExperience; score: number; minDistanceKm: number }> = [];
+
+    for (const exp of allFoodExperiences) {
+      const normName = exp.name.toLowerCase().trim();
+      if (usedIds.has(exp.id) || usedNormalizedNames.has(normName)) {
+        continue; // Strictly skip already used experiences
+      }
+
+      const expDist = (exp.district || '').toLowerCase().trim();
+      const expReg = (exp.region || '').toLowerCase().trim();
+
+      let score = 0;
+      let minDistanceKm = 9999;
+
+      if (dayCoords.length > 0 && exp.lat != null && exp.lon != null) {
+        for (const coord of dayCoords) {
+          const d = haversineKm(coord.lat, coord.lon, exp.lat, exp.lon);
+          if (!isNaN(d) && d < minDistanceKm) {
+            minDistanceKm = d;
+          }
+        }
+      }
+
+      // Check district & regional match
+      for (const loc of dayLocations) {
+        if (expDist && (expDist === loc || expDist.includes(loc) || loc.includes(expDist))) {
+          score += 20;
+        } else if (expReg && (expReg === loc || expReg.includes(loc) || loc.includes(expReg))) {
+          score += 8;
+        }
+      }
+
+      // Distance-based bonus or disqualification
+      if (minDistanceKm <= 35) {
+        score += 15;
+      } else if (minDistanceKm <= 75) {
+        score += 5;
+      } else if (minDistanceKm > 95 && score < 20) {
+        // Distant place in another region/district (>95 km): disqualify completely
+        score = 0;
+      }
+
+      // ONLY include candidates that actually have positive geographic relevance
+      if (score > 0) {
+        scoredCandidates.push({ exp, score, minDistanceKm });
+      }
+    }
+
+    // Sort descending by score, then nearest distance
+    scoredCandidates.sort((a, b) => b.score - a.score || a.minDistanceKm - b.minDistanceKm);
+
+    // 3. Assign the top eligible candidate ONLY if score > 0
+    if (scoredCandidates.length > 0 && scoredCandidates[0].score > 0) {
+      const chosen = scoredCandidates[0].exp;
+      usedIds.add(chosen.id);
+      usedNormalizedNames.add(chosen.name.toLowerCase().trim());
+      schedule.set(day.day_number, chosen);
+    }
+    // If no candidate has score > 0, no schedule entry is added (slot remains clean/empty)
+  }
+
+  return schedule;
 }

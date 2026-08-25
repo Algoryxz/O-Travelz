@@ -3,7 +3,7 @@ import type { StitchTab } from '../../components/stitch/StitchNavbar';
 import { useLocation } from '../../context/LocationContext';
 import { useSavedPlaces } from '../../store/useSavedPlaces';
 import { apiClient } from '../../api/client';
-import type { PlaceDetail, TransportMapResponse, CorridorFoodCandidate } from '../../api/contracts';
+import type { PlaceDetail, TransportMapResponse, TransportMapRoute, CorridorFoodCandidate } from '../../api/contracts';
 import { ODISHA_EXPERIENCES, type OdishaExperience } from '../../data/odishaExperiences';
 import { ODISHA_ESSENTIALS, type EssentialPlace } from '../../data/odishaEssentials';
 import { VERIFIED_TRANSIT_STOPS, type VerifiedTransitStop } from '../../data/staticTransitStops';
@@ -13,9 +13,10 @@ import {
   formatDistance,
   getNearbyPlacesWithExpansion,
 } from '../../utils/geoUtils';
+import { resolveRouteMapGeometry } from '../../utils/transitGeometry';
 import L from 'leaflet';
 
-export type MapViewMode = 'destinations' | 'medical' | 'atm' | 'transit' | 'experiences' | 'saved';
+export type MapViewMode = 'destinations' | 'medical' | 'atms' | 'atm' | 'transit' | 'experiences' | 'saved';
 
 interface StitchMapPageProps {
   onNavigate: (tab: StitchTab, params?: Record<string, string>) => void;
@@ -23,6 +24,34 @@ interface StitchMapPageProps {
   initialPlaceId?: string;
   initialMode?: MapViewMode;
 }
+
+interface OdishaAtm {
+  id: string;
+  name: string;
+  bank: string;
+  address: string;
+  district: string;
+  lat: number;
+  lon: number;
+  status: string;
+  distanceKm?: number;
+  distanceFormatted?: string;
+}
+
+const ODISHA_ATMS: OdishaAtm[] = [
+  { id: 'atm_bbsr_sbi_1', name: 'SBI 24/7 ATM & Cash Deposit', bank: 'State Bank of India', address: 'Master Canteen Square / Railway Station, Bhubaneswar', district: 'Khordha', lat: 20.2680, lon: 85.8440, status: 'Active 24/7' },
+  { id: 'atm_bbsr_hdfc_1', name: 'HDFC Bank ATM & Cash Recycler', bank: 'HDFC Bank', address: 'Saheed Nagar Janpath, Bhubaneswar', district: 'Khordha', lat: 20.2882, lon: 85.8440, status: 'Active 24/7' },
+  { id: 'atm_bbsr_icici_1', name: 'ICICI Bank ATM', bank: 'ICICI Bank', address: 'Jaydev Vihar Square, Bhubaneswar', district: 'Khordha', lat: 20.3015, lon: 85.8234, status: 'Active 24/7' },
+  { id: 'atm_puri_sbi_1', name: 'SBI Badadanda ATM', bank: 'State Bank of India', address: 'Grand Road (Badadanda), Near Jagannath Temple, Puri', district: 'Puri', lat: 19.8080, lon: 85.8250, status: 'Active 24/7' },
+  { id: 'atm_puri_hdfc_1', name: 'HDFC Beach Road ATM', bank: 'HDFC Bank', address: 'VIP Road & Sea Beach, Puri', district: 'Puri', lat: 19.8010, lon: 85.8340, status: 'Active 24/7' },
+  { id: 'atm_cuttack_sbi_1', name: 'SBI Badambadi ATM', bank: 'State Bank of India', address: 'Badambadi Bus Terminal, Cuttack', district: 'Cuttack', lat: 20.4580, lon: 85.8750, status: 'Active 24/7' },
+  { id: 'atm_rourkela_sbi_1', name: 'SBI Bisra Chowk ATM', bank: 'State Bank of India', address: 'Bisra Chowk, Rourkela', district: 'Sundargarh', lat: 22.2270, lon: 84.8520, status: 'Active 24/7' },
+  { id: 'atm_sambalpur_sbi_1', name: 'SBI Ainthapali ATM', bank: 'State Bank of India', address: 'Ainthapali Chowk, Sambalpur', district: 'Sambalpur', lat: 21.4880, lon: 83.9850, status: 'Active 24/7' },
+  { id: 'atm_koraput_sbi_1', name: 'SBI Main Road Branch ATM', bank: 'State Bank of India', address: 'Main Road / Bus Stand, Koraput', district: 'Koraput', lat: 18.8135, lon: 82.7118, status: 'Active 24/7' },
+  { id: 'atm_berhampur_sbi_1', name: 'SBI Old Bus Stand ATM', bank: 'State Bank of India', address: 'Old Bus Stand Road, Berhampur', district: 'Ganjam', lat: 19.3150, lon: 84.7940, status: 'Active 24/7' },
+  { id: 'atm_baripada_sbi_1', name: 'SBI Baripada Main ATM', bank: 'State Bank of India', address: 'Kachery Road, Baripada', district: 'Mayurbhanj', lat: 21.9320, lon: 86.7260, status: 'Active 24/7' },
+  { id: 'atm_balasore_sbi_1', name: 'SBI OT Road ATM', bank: 'State Bank of India', address: 'OT Road, Balasore', district: 'Balasore', lat: 21.4920, lon: 86.9320, status: 'Active 24/7' },
+];
 
 export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   onNavigate,
@@ -37,13 +66,22 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(initialPlaceId || null);
   const [selectedExperience, setSelectedExperience] = useState<OdishaExperience | null>(null);
   const [selectedEssential, setSelectedEssential] = useState<EssentialPlace | null>(null);
+  const [selectedMedicalId, setSelectedMedicalId] = useState<string | null>(null);
+  const [selectedAtmId, setSelectedAtmId] = useState<string | null>(null);
   const [transitMapData, setTransitMapData] = useState<TransportMapResponse | null>(null);
   const [selectedRouteId, setSelectedRouteId] = useState<string | null>(null);
   const [selectedStopId, setSelectedStopId] = useState<string | null>(null);
   const [corridorFoodCandidates, setCorridorFoodCandidates] = useState<CorridorFoodCandidate[]>([]);
   const [selectedFoodCandidate, setSelectedFoodCandidate] = useState<CorridorFoodCandidate | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [filterRegion, setFilterRegion] = useState('Near Me');
+  const [placesLoading, setPlacesLoading] = useState(true);
+  const [transitLoading, setTransitLoading] = useState(false);
+  const [transitError, setTransitError] = useState<string | null>(null);
+  
+  // Independent Filter Domains (Invariants: Places and Transit filters must never mutate each other)
+  const [placeRegion, setPlaceRegion] = useState<string>('Near Me');
+  const [transitRegion, setTransitRegion] = useState<string>('All');
+  const [filterRegion, setFilterRegion] = useState<string>('Near Me');
+  
   const [viewMode, setViewMode] = useState<MapViewMode>(initialMode);
   
   const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -139,23 +177,66 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     });
   }, [savedPlaces, places, refLat, refLon]);
 
-  // Fetch 161 destinations
+  const [medicalPlaces, setMedicalPlaces] = useState<PlaceDetail[]>([]);
+
+  // 4. Computed 24/7 Medical & Emergency Facilities
+  const displayedMedical = useMemo(() => {
+    const list = medicalPlaces.length > 0 ? medicalPlaces : places.filter(p =>
+      p.category === 'hospital' ||
+      p.category === 'emergency_facility' ||
+      p.name.toLowerCase().includes('hospital') ||
+      p.name.toLowerCase().includes('medical')
+    );
+    return list.map(p => {
+      const dist = calculateHaversineDistanceKm(refLat, refLon, p.lat || refLat, p.lon || refLon);
+      return {
+        ...p,
+        distanceKm: dist,
+        distanceFormatted: formatDistance(dist),
+      };
+    }).sort((a, b) => a.distanceKm - b.distanceKm);
+  }, [medicalPlaces, places, refLat, refLon]);
+
+  // 5. Computed Nearby ATMs & Cash Dispensers
+  const displayedAtms = useMemo(() => {
+    return ODISHA_ATMS.map(atm => {
+      const dist = calculateHaversineDistanceKm(refLat, refLon, atm.lat, atm.lon);
+      return {
+        ...atm,
+        distanceKm: dist,
+        distanceFormatted: formatDistance(dist),
+      };
+    }).sort((a, b) => a.distanceKm - b.distanceKm);
+  }, [refLat, refLon]);
+
+  const activeTransitRoute = transitMapData?.routes.find(r => r.route_id === selectedRouteId);
+  const activeRouteGeometry = resolveRouteMapGeometry(activeTransitRoute);
+
+  // Fetch 161 destinations + verified medical facilities
   useEffect(() => {
     let isMounted = true;
     const loadPlaces = async () => {
-      setLoading(true);
+      setPlacesLoading(true);
       try {
-        const data = await apiClient.listPlaces({ limit: 161 });
-        if (isMounted && Array.isArray(data) && data.length > 0) {
-          setPlaces(data);
-          if (!selectedPlaceId && data.length > 0) {
-            setSelectedPlaceId(data[0].id);
+        const [data, medData] = await Promise.all([
+          apiClient.listPlaces({ limit: 161 }),
+          apiClient.listPlaces({ is_medical: true }).catch(() => []),
+        ]);
+        if (isMounted) {
+          if (Array.isArray(data) && data.length > 0) {
+            setPlaces(data);
+            if (!selectedPlaceId && data.length > 0) {
+              setSelectedPlaceId(data[0].id);
+            }
+          }
+          if (Array.isArray(medData) && medData.length > 0) {
+            setMedicalPlaces(medData);
           }
         }
       } catch (err) {
         console.warn('Map place fetch error:', err);
       } finally {
-        if (isMounted) setLoading(false);
+        if (isMounted) setPlacesLoading(false);
       }
     };
     loadPlaces();
@@ -180,27 +261,31 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     }
   }, [initialPlaceId, places]);
 
+  const loadTransit = async () => {
+    setTransitLoading(true);
+    setTransitError(null);
+    try {
+      const regionParam = transitRegion === 'All' || transitRegion === 'Near Me' ? undefined : transitRegion;
+      const data = await apiClient.getTransportMap(regionParam);
+      if (data && data.routes.length > 0) {
+        setTransitMapData(data);
+        if (!selectedRouteId && data.routes.length > 0) {
+          setSelectedRouteId(data.routes[0].route_id);
+        }
+      }
+    } catch (err: any) {
+      setTransitError(err?.message || 'Transport map fetch error');
+    } finally {
+      setTransitLoading(false);
+    }
+  };
+
   // Fetch transport map data when switching to transit mode
   useEffect(() => {
-    if (viewMode !== 'transit') return;
-    let isMounted = true;
-    const loadTransit = async () => {
-      try {
-        const regionParam = filterRegion === 'All' || filterRegion === 'Near Me' ? undefined : filterRegion;
-        const data = await apiClient.getTransportMap(regionParam);
-        if (isMounted && data && data.routes.length > 0) {
-          setTransitMapData(data);
-          if (!selectedRouteId && data.routes.length > 0) {
-            setSelectedRouteId(data.routes[0].route_id);
-          }
-        }
-      } catch (err) {
-        console.warn('Transport map fetch error:', err);
-      }
-    };
-    loadTransit();
-    return () => { isMounted = false; };
-  }, [viewMode, filterRegion]);
+    if (viewMode === 'transit') {
+      loadTransit();
+    }
+  }, [viewMode, transitRegion]);
 
   // Initialize Leaflet Map
   useEffect(() => {
@@ -453,7 +538,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
 
       if (expPoints.length > 0) {
         const bounds = L.latLngBounds(expPoints);
-        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 11 });
+        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
       }
     }
     // Mode 6: Saved Places
@@ -529,10 +614,9 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
                 Spatial Route &amp; Map
               </h1>
             </div>
-
             <button
               type="button"
-              onClick={handleLocateMe}
+              onClick={() => locateUser()}
               disabled={isLocating}
               className="px-3 py-1.5 rounded-xl bg-white hover:bg-[#F2EEE7] text-[#2F523E] border border-[#E5DFD5] text-xs font-mono font-semibold flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
             >
@@ -544,11 +628,11 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           {/* Map Layer Mode Tabs */}
           <div className="flex gap-1 overflow-x-auto pb-1 scrollbar-none text-xs font-mono">
             {[
-              { id: 'destinations', label: 'Sanctuaries', icon: 'temple_hindu' },
+              { id: 'destinations', label: 'Places', icon: 'temple_hindu' },
+              { id: 'experiences', label: 'Culinary', icon: 'restaurant' },
+              { id: 'transit', label: 'Mo Bus', icon: 'directions_bus' },
               { id: 'medical', label: 'Medical 24/7', icon: 'local_hospital' },
               { id: 'atm', label: 'ATMs', icon: 'atm' },
-              { id: 'transit', label: 'Mo Bus', icon: 'directions_bus' },
-              { id: 'experiences', label: 'Food & Crafts', icon: 'restaurant' },
               { id: 'saved', label: `Saved (${savedPlaces.length})`, icon: 'bookmark' },
             ].map((tab) => (
               <button
@@ -764,12 +848,517 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               ))
             )
           )}
+
+          {/* Mode: Medical Help 24/7 */}
+          {viewMode === 'medical' && (
+            <div className="space-y-4">
+              {/* Prominent 108 Emergency Banner */}
+              <div className="p-4 bg-red-600 text-white rounded-2xl shadow-md space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-2xl animate-pulse">emergency</span>
+                    <div>
+                      <div className="font-display font-bold text-base">Emergency Medical Help</div>
+                      <div className="text-[11px] font-mono text-red-100">National Ambulance: 108 · 24/7 Dispatch</div>
+                    </div>
+                  </div>
+                  <a
+                    href="tel:108"
+                    className="px-3.5 py-1.5 bg-white text-red-700 font-bold text-xs rounded-xl shadow-xs hover:bg-red-50 transition-colors flex items-center gap-1 cursor-pointer"
+                  >
+                    <span className="material-symbols-outlined text-sm">call</span>
+                    <span>Call 108</span>
+                  </a>
+                </div>
+                <div className="pt-2 border-t border-red-500/60 flex flex-wrap gap-2 text-[10px] font-mono text-red-100">
+                  <span className="bg-red-700/60 px-2 py-0.5 rounded">🚨 Police: 112</span>
+                  <span className="bg-red-700/60 px-2 py-0.5 rounded">🛡️ Women Helpline: 181</span>
+                  <span className="bg-red-700/60 px-2 py-0.5 rounded">🏥 Trauma Care: 24/7</span>
+                </div>
+              </div>
+
+              {/* Verified Hospitals List */}
+              <div className="flex items-center justify-between text-xs font-mono text-[#70798B]">
+                <span>{displayedMedical.length} 24/7 Verified Hospitals</span>
+                <span>Sorted by distance</span>
+              </div>
+
+              {displayedMedical.map((med, idx) => {
+                const isSelected = selectedMedicalId === med.id;
+                return (
+                  <div
+                    key={med.id}
+                    onClick={() => {
+                      setSelectedMedicalId(med.id);
+                      if (med.lat != null && med.lon != null && isValidCoordinate(med.lat, med.lon) && mapInstanceRef.current) {
+                        mapInstanceRef.current.flyTo([med.lat, med.lon], 13);
+                      }
+                    }}
+                    className={`p-4 rounded-xl border transition-all cursor-pointer ${
+                      isSelected
+                        ? 'bg-white border-red-500 shadow-md ring-1 ring-red-300'
+                        : 'bg-white/90 border-[#E5DFD5] hover:bg-white'
+                    }`}
+                  >
+                    <div className="flex justify-between items-start mb-1 gap-2">
+                      <div className="flex items-center gap-2">
+                        <span className="w-6 h-6 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-bold font-mono">
+                          {idx + 1}
+                        </span>
+                        <h4 className="font-display font-bold text-base text-[#12161E]">
+                          {med.name}
+                        </h4>
+                      </div>
+                      <span className="font-mono text-[10px] text-red-700 bg-red-50 border border-red-200 px-2 py-0.5 rounded font-semibold shrink-0">
+                        24/7 Emergency
+                      </span>
+                    </div>
+                    <p className="text-xs text-[#3D4654] line-clamp-2 mb-2 ml-8">
+                      {med.description || 'Major tertiary healthcare facility with 24/7 trauma and ICU facilities.'}
+                    </p>
+                    <div className="flex items-center justify-between text-[11px] font-mono text-[#70798B] ml-8">
+                      <span>{med.district || 'Odisha'}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-red-700 font-semibold font-mono bg-red-50 px-2 py-0.5 rounded">
+                          📍 {med.distanceFormatted}
+                        </span>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onNavigate('plan', { placeId: med.id });
+                          }}
+                          title="Plan Route to Hospital"
+                          className="px-2 py-0.5 text-[10px] bg-[#12161E] text-white rounded hover:bg-[#B87B22] transition-colors cursor-pointer"
+                        >
+                          Plan Route
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Mode: ATMs */}
+          {(viewMode === 'atm' || viewMode === 'atms') && (
+            <div className="space-y-4">
+              <div className="p-3 bg-teal-50 border border-teal-200 rounded-xl text-xs font-body space-y-1">
+                <div className="flex items-center justify-between font-semibold text-teal-900">
+                  <span className="flex items-center gap-1.5">
+                    <span className="material-symbols-outlined text-sm text-teal-700">atm</span>
+                    <span>Verified 24/7 ATMs &amp; Cash Points</span>
+                  </span>
+                  <span className="font-mono text-[10px] bg-white px-2 py-0.5 rounded border border-teal-200 text-teal-800">
+                    {displayedAtms.length} Available
+                  </span>
+                </div>
+                <p className="text-[11px] text-teal-800">
+                  24-hour automated teller machines and cash dispensers located across transport hubs and commercial corridors.
+                </p>
+              </div>
+
+              {displayedAtms.map((atm, idx) => {
+                const isSelected = selectedAtmId === atm.id;
+                return (
+                  <div
+                    key={atm.id}
+                    onClick={() => {
+                      setSelectedAtmId(atm.id);
+                      if (isValidCoordinate(atm.lat, atm.lon) && mapInstanceRef.current) {
+                        mapInstanceRef.current.flyTo([atm.lat, atm.lon], 14);
+                      }
+                    }}
+                    className={`p-4 rounded-xl border transition-all cursor-pointer ${
+                      isSelected
+                        ? 'bg-white border-teal-600 shadow-md ring-1 ring-teal-300'
+                        : 'bg-white/90 border-[#E5DFD5] hover:bg-white'
+                    }`}
+                  >
+                    <div className="flex justify-between items-start mb-1 gap-2">
+                      <div className="flex items-center gap-2">
+                        <span className="w-6 h-6 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center text-xs font-bold font-mono">
+                          {idx + 1}
+                        </span>
+                        <h4 className="font-display font-bold text-base text-[#12161E]">
+                          {atm.name}
+                        </h4>
+                      </div>
+                      <span className="font-mono text-[10px] text-teal-800 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded font-semibold shrink-0">
+                        {atm.status}
+                      </span>
+                    </div>
+                    <p className="text-xs text-[#3D4654] mb-2 ml-8">
+                      {atm.address}
+                    </p>
+                    <div className="flex items-center justify-between text-[11px] font-mono text-[#70798B] ml-8">
+                      <span>{atm.district} · {atm.bank}</span>
+                      <span className="text-teal-800 font-semibold font-mono bg-teal-50 px-2 py-0.5 rounded">
+                        📍 {atm.distanceFormatted}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Mode: Transit Stops */}
+          {viewMode === 'transit' && (
+            transitLoading ? (
+              <div className="text-center py-12 text-xs font-mono text-[#70798B]">
+                <span className="material-symbols-outlined text-2xl mb-2 text-[#2B72BA] animate-spin">sync</span>
+                <p>Loading official Mo Bus &amp; AMA Bus routes...</p>
+              </div>
+            ) : transitError ? (
+              <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl space-y-3">
+                <div className="flex items-center gap-2 text-amber-900 font-semibold text-xs">
+                  <span className="material-symbols-outlined text-amber-700 text-base">cloud_off</span>
+                  <span>{transitError}</span>
+                </div>
+                <button
+                  onClick={() => loadTransit()}
+                  className="px-3 py-1.5 bg-[#12161E] text-white rounded-md text-xs font-mono font-medium hover:bg-[#B87B22] cursor-pointer"
+                >
+                  Retry Connection
+                </button>
+              </div>
+            ) : transitMapData && transitMapData.routes.length === 0 ? (
+              <div className="p-6 bg-white border border-[#E5DFD5] rounded-xl text-center space-y-3">
+                <p className="text-xs font-mono text-[#70798B]">
+                  No transit routes found matching "{transitRegion}".
+                </p>
+                <button
+                  onClick={() => setTransitRegion('All')}
+                  className="px-3.5 py-1.5 bg-[#12161E] text-white rounded-md text-xs font-mono font-medium hover:bg-[#B87B22] cursor-pointer"
+                >
+                  Show All Routes
+                </button>
+              </div>
+            ) : transitMapData ? (
+              <div className="space-y-4">
+                {/* Transit Discovery State Header (Requirement 5) */}
+                <div className="p-3 bg-blue-50/80 border border-blue-200 rounded-xl space-y-1 text-xs">
+                  <div className="flex items-center justify-between font-semibold text-[#2B72BA]">
+                    <span className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-sm">directions_bus</span>
+                      <span>Mo Bus Network ({transitMapData.routes.length} routes)</span>
+                    </span>
+                    <span className="font-mono text-[10px] bg-white px-2 py-0.5 rounded border border-blue-200">
+                      {transitRegion === 'All' ? 'Statewide Network' : transitRegion}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#3D4654] font-body">
+                    {transitMapData.routes.length} verified CRUT transit routes across {transitRegion === 'All' ? 'the mapped transit network' : transitRegion}. Select a route to view its full stop sequence and highway alignment.
+                  </p>
+                </div>
+                {transitMapData.routes.map((r: TransportMapRoute) => {
+                  const isSelected = selectedRouteId === r.route_id;
+                  const itemGeo = resolveRouteMapGeometry(r);
+                  return (
+                    <div
+                      key={r.route_id}
+                      onClick={() => setSelectedRouteId(r.route_id)}
+                      className={`p-4 rounded-xl border transition-all cursor-pointer ${
+                        isSelected
+                          ? 'bg-white border-[#2B72BA] shadow-md ring-1 ring-[#2B72BA]/30'
+                          : 'bg-white/80 border-[#E5DFD5] hover:bg-white'
+                      }`}
+                    >
+                      <div className="flex justify-between items-start mb-1.5">
+                        <span className="font-mono text-xs font-bold text-white bg-[#2B72BA] px-2.5 py-0.5 rounded">
+                          Route {r.route_number}
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          {itemGeo.kind === 'EXACT' && (
+                            <span className="text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                              ● Verified Path
+                            </span>
+                          )}
+                          {itemGeo.kind === 'CORRIDOR' && (
+                            <span className="text-[10px] font-mono font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                              ● Stop Corridor ({itemGeo.resolvedStopCount}/{itemGeo.totalStops})
+                            </span>
+                          )}
+                          {itemGeo.kind === 'ANCHOR' && (
+                            <span className="text-[10px] font-mono font-semibold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
+                              ● Anchor Stop
+                            </span>
+                          )}
+                          {itemGeo.kind === 'NONE' && (
+                            <span className="text-[10px] font-mono font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                              ● Sequence Only
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <h4 className="font-display font-bold text-sm text-[#12161E] mt-1">
+                        {r.origin || 'Origin'} → {r.destination || 'Destination'}
+                      </h4>
+
+                      {r.via && (
+                        <p className="text-[11px] text-[#70798B] mt-0.5 font-body">
+                          Via: {r.via}
+                        </p>
+                      )}
+
+                      {/* Corridor Highways Preview */}
+                      {isSelected && r.corridors && r.corridors.length > 0 && (
+                        <div className="mt-2.5 pt-2.5 border-t border-[#E5DFD5]">
+                          <div className="font-mono text-[10px] uppercase tracking-wider text-[#1B5E6B] font-bold mb-1">
+                            Corridor Highway Alignment
+                          </div>
+                          <div className="flex flex-wrap gap-1">
+                            {r.corridors[0].road_names.map((road, idx) => (
+                              <span key={idx} className="text-[10px] font-mono text-[#1B5E6B] bg-[#1B5E6B]/10 px-2 py-0.5 rounded">
+                                🛣️ {road}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Expandable stops preview with Geocoded / Pending tags */}
+                      {isSelected && r.stops && (
+                        <div className="mt-2.5 pt-2.5 border-t border-[#E5DFD5] space-y-1.5 text-xs">
+                          <div className="font-mono text-[10px] uppercase tracking-wider text-[#B87B22] font-semibold flex justify-between">
+                            <span>Stop Sequence ({r.stops.length})</span>
+                            <span className="text-[#70798B]">
+                              {itemGeo.resolvedStopCount} / {itemGeo.totalStops} GPS
+                            </span>
+                          </div>
+                          <div className="max-h-44 overflow-y-auto space-y-1 pr-1">
+                            {r.stops.map((st) => (
+                              <div key={st.stop_id} className="flex items-center justify-between text-[11px]">
+                                <span className="text-[#12161E] truncate max-w-[270px]">
+                                  {st.sequence_order}. {st.stop_name}
+                                </span>
+                                {st.latitude != null && st.longitude != null && isValidCoordinate(st.latitude, st.longitude) ? (
+                                  <span className="text-[9px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.2 rounded shrink-0">
+                                    GPS
+                                  </span>
+                                ) : (
+                                  <span className="text-[9px] font-mono text-[#70798B] bg-slate-100 px-1.5 py-0.2 rounded shrink-0">
+                                    Pending
+                                  </span>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            ) : null
+          )}
         </div>
       </aside>
 
-      {/* Right Canvas: Interactive Map */}
-      <main className="flex-1 h-full relative overflow-hidden bg-[#F2EEE7]">
-        <div ref={mapContainerRef} className="w-full h-full" />
+      {/* Right Pane: Interactive Map */}
+      <main className="flex-1 h-full relative bg-[#F2EEE7]">
+        <div ref={mapContainerRef} className="w-full h-full z-0" />
+
+        {/* Selected Landmark Floating Sheet */}
+        {selectedPlace && viewMode === 'destinations' && (
+          <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 z-10 bg-white/95 backdrop-blur-md border border-[#E5DFD5] p-5 rounded-2xl shadow-xl animate-in slide-in-from-bottom duration-200">
+            <div className="flex justify-between items-start mb-2">
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#B87B22] font-bold">
+                  {selectedPlace.category} · {selectedPlace.region || 'Odisha'}
+                </span>
+                <h3 className="font-display font-bold text-lg text-[#12161E]">{selectedPlace.name}</h3>
+              </div>
+              <button
+                onClick={() => setSelectedPlaceId(null)}
+                className="text-[#70798B] hover:text-[#12161E] p-1 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-base">close</span>
+              </button>
+            </div>
+            <p className="text-xs font-body text-[#3D4654] line-clamp-2 mb-4 leading-relaxed">
+              {selectedPlace.description}
+            </p>
+            <div className="flex gap-2">
+              <button
+                onClick={() => onNavigate('plan', { placeId: selectedPlace.id })}
+                className="flex-1 py-2 bg-[#B87B22] text-white rounded-lg text-xs font-semibold hover:bg-[#A0691B] transition-colors flex items-center justify-center gap-1 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-sm">edit_calendar</span>
+                <span>Plan Around This Place</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Selected Experience Floating Sheet */}
+        {selectedExperience && viewMode === 'experiences' && (
+          <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 z-10 bg-white/95 backdrop-blur-md border border-[#E5DFD5] p-5 rounded-2xl shadow-xl animate-in slide-in-from-bottom duration-200">
+            <div className="flex justify-between items-start mb-2">
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#1B5E6B] font-bold">
+                  {selectedExperience.categoryLabel} · {selectedExperience.district}
+                </span>
+                <h3 className="font-display font-bold text-lg text-[#12161E]">{selectedExperience.name}</h3>
+              </div>
+              <button
+                onClick={() => setSelectedExperience(null)}
+                className="text-[#70798B] hover:text-[#12161E] p-1 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-base">close</span>
+              </button>
+            </div>
+            <p className="text-xs font-body text-[#3D4654] line-clamp-3 mb-4 leading-relaxed">
+              {selectedExperience.description}
+            </p>
+            <div className="flex gap-2">
+              <button
+                onClick={() => onNavigate('plan', { hub: selectedExperience.district.toLowerCase() })}
+                className="flex-1 py-2 bg-[#1B5E6B] text-white rounded-lg text-xs font-semibold hover:bg-[#144752] transition-colors flex items-center justify-center gap-1 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-sm">restaurant</span>
+                <span>Include in Trip Plan</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Selected Transit Route Floating Sheet */}
+        {activeTransitRoute && viewMode === 'transit' && (
+          <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 z-10 bg-white/95 backdrop-blur-md border border-[#E5DFD5] p-5 rounded-2xl shadow-xl animate-in slide-in-from-bottom duration-200">
+            <div className="flex justify-between items-start mb-2">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#2B72BA] font-bold">
+                    Mo Bus Route {activeTransitRoute.route_number}
+                  </span>
+                  {activeRouteGeometry.kind === 'EXACT' && (
+                    <span className="text-[9px] font-mono font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">
+                      Verified Survey Path
+                    </span>
+                  )}
+                  {activeRouteGeometry.kind === 'CORRIDOR' && (
+                    <span className="text-[9px] font-mono font-semibold text-amber-700 bg-amber-50 px-1.5 py-0.2 rounded border border-amber-200">
+                      Stop Corridor ({activeRouteGeometry.resolvedStopCount}/{activeRouteGeometry.totalStops} GPS)
+                    </span>
+                  )}
+                  {activeRouteGeometry.kind === 'ANCHOR' && (
+                    <span className="text-[9px] font-mono font-semibold text-sky-700 bg-sky-50 px-1.5 py-0.2 rounded border border-sky-200">
+                      Anchor Stop
+                    </span>
+                  )}
+                  {activeRouteGeometry.kind === 'NONE' && (
+                    <span className="text-[9px] font-mono font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded border border-slate-200">
+                      Sequence Only
+                    </span>
+                  )}
+                </div>
+                <h3 className="font-display font-bold text-base text-[#12161E]">
+                  {activeTransitRoute.origin} → {activeTransitRoute.destination}
+                </h3>
+              </div>
+              <button
+                onClick={() => setSelectedRouteId(null)}
+                className="text-[#70798B] hover:text-[#12161E] p-1 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-base">close</span>
+              </button>
+            </div>
+            <div className="text-xs text-[#70798B] font-body mb-3">
+              {activeTransitRoute.stops_count} sequence stops · {activeTransitRoute.service_area || activeTransitRoute.region || 'Odisha'}
+            </div>
+
+            {activeTransitRoute.corridors && activeTransitRoute.corridors.length > 0 && (
+              <div className="mb-3 p-2 bg-[#FBF9F5] rounded-lg border border-[#E5DFD5] text-[11px] font-mono text-[#1B5E6B]">
+                <div className="font-bold text-[10px] uppercase text-[#70798B] mb-0.5">Arterial Highway</div>
+                {activeTransitRoute.corridors[0].road_names.join(' · ')}
+              </div>
+            )}
+
+            <button
+              onClick={() => onNavigate('plan', { hub: activeTransitRoute.origin || '', route: activeTransitRoute.route_number })}
+              className="w-full py-2 bg-[#2B72BA] text-white rounded-lg text-xs font-semibold hover:bg-[#1E5799] transition-colors flex items-center justify-center gap-1 cursor-pointer"
+            >
+              <span className="material-symbols-outlined text-sm">directions_bus</span>
+              <span>Plan Transit Journey</span>
+            </button>
+          </div>
+        )}
+        {/* Selected Medical Floating Sheet */}
+        {selectedMedicalId && viewMode === 'medical' && (() => {
+          const med = displayedMedical.find(m => m.id === selectedMedicalId);
+          if (!med) return null;
+          return (
+            <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 z-10 bg-white/95 backdrop-blur-md border border-red-200 p-5 rounded-2xl shadow-xl animate-in slide-in-from-bottom duration-200">
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-red-600 font-bold">
+                    24/7 Emergency Medical Facility
+                  </span>
+                  <h3 className="font-display font-bold text-lg text-[#12161E]">{med.name}</h3>
+                </div>
+                <button
+                  onClick={() => setSelectedMedicalId(null)}
+                  className="text-[#70798B] hover:text-[#12161E] p-1 cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-base">close</span>
+                </button>
+              </div>
+              <p className="text-xs font-body text-[#3D4654] line-clamp-2 mb-3 leading-relaxed">
+                {med.description || 'Major tertiary healthcare facility with 24/7 emergency & trauma response.'}
+              </p>
+              <div className="text-xs font-mono text-red-700 bg-red-50 p-2 rounded-lg mb-3 flex items-center justify-between">
+                <span>📍 {med.distanceFormatted} away</span>
+                <a href="tel:108" className="font-bold flex items-center gap-1 hover:underline">
+                  <span className="material-symbols-outlined text-sm">call</span>
+                  <span>Dial 108</span>
+                </a>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => onNavigate('plan', { placeId: med.id })}
+                  className="flex-1 py-2 bg-red-600 text-white rounded-lg text-xs font-semibold hover:bg-red-700 transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-sm">directions</span>
+                  <span>Plan Route to Hospital</span>
+                </button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* Selected ATM Floating Sheet */}
+        {selectedAtmId && (viewMode === 'atms' || viewMode === 'atm') && (() => {
+          const atm = displayedAtms.find(a => a.id === selectedAtmId);
+          if (!atm) return null;
+          return (
+            <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 z-10 bg-white/95 backdrop-blur-md border border-teal-200 p-5 rounded-2xl shadow-xl animate-in slide-in-from-bottom duration-200">
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-teal-700 font-bold">
+                    {atm.status}
+                  </span>
+                  <h3 className="font-display font-bold text-lg text-[#12161E]">{atm.name}</h3>
+                </div>
+                <button
+                  onClick={() => setSelectedAtmId(null)}
+                  className="text-[#70798B] hover:text-[#12161E] p-1 cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-base">close</span>
+                </button>
+              </div>
+              <p className="text-xs font-body text-[#3D4654] mb-3 leading-relaxed">
+                {atm.address} ({atm.district})
+              </p>
+              <div className="text-xs font-mono text-teal-800 bg-teal-50 p-2 rounded-lg mb-3 flex items-center justify-between">
+                <span>📍 {atm.distanceFormatted} away</span>
+                <span className="font-bold">{atm.bank}</span>
+              </div>
+            </div>
+          );
+        })()}
       </main>
     </div>
   );

@@ -42,9 +42,11 @@ class ItineraryService:
 
     def plan(self, constraints: PlanningConstraints) -> ItineraryResponse:
         all_places = self.repository.list_verified_places()
+        start = self._resolve_start(constraints.start)
         ranked = self.ranking_service.rank(
             constraints,
             all_places,
+            start=start,
         )
         eligible = self._unique_coordinate_places(ranked)
         selected = eligible[: constraints.days * self.MAX_STOPS_PER_DAY]
@@ -53,7 +55,11 @@ class ItineraryService:
             all_coords = [p for p in all_places if p.coordinate is not None]
             if all_coords:
                 from app.services.ranking import RankedPlace
-                fallback_ranked = tuple(RankedPlace(place=p, relevance=0) for p in all_coords)
+                fallback_ranked = self.ranking_service.rank(
+                    PlanningConstraints(days=constraints.days, interests=[], start=constraints.start),
+                    all_coords,
+                    start=start,
+                )
                 eligible = self._unique_coordinate_places(fallback_ranked)
                 selected = eligible[: constraints.days * self.MAX_STOPS_PER_DAY]
 
@@ -62,8 +68,6 @@ class ItineraryService:
                 "no_feasible_candidates",
                 "No verified coordinate-bearing places are available for a routed itinerary.",
             )
-
-        start = self._resolve_start(constraints.start)
         days = [
             ItineraryDayContract(
                 day_number=day_number,
