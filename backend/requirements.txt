@@ -4,6 +4,7 @@ sqlalchemy==2.0.35
 alembic==1.13.2
 psycopg2-binary==2.9.9
 geoalchemy2==0.15.2
+shapely>=2.0.4
 pydantic==2.9.2
 pydantic-settings==2.5.2
 pytest==8.3.3

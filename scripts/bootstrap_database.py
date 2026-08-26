@@ -82,9 +82,9 @@ def bootstrap_database() -> int:
         )
 
         # ---------------------------------------------------------------------
-        # 3. Import Official Odisha Transit Network (3 providers, 154 routes...)
+        # 3. Import Official Odisha Transit Network & Intelligence Layer
         # ---------------------------------------------------------------------
-        print("\n[3/4] Importing official Odisha transit network...")
+        print("\n[3/5] Importing official Odisha transit network...")
         from app.transport.importer import OfficialTransitImporter
         transit_importer = OfficialTransitImporter(db)
         transit_summary = transit_importer.run_import()
@@ -97,10 +97,22 @@ def bootstrap_database() -> int:
             f"{transit_summary.schedules_upserted} schedule groups."
         )
 
+        print("\n[4/5] Importing Phase 6A transit intelligence research layer...")
+        from app.transport.research_importer import TransitIntelligenceImporter
+        intel_importer = TransitIntelligenceImporter(db)
+        intel_report = intel_importer.import_all()
+        print(
+            f"      Transit intelligence import complete: "
+            f"{intel_report.routes_count} routes, "
+            f"{intel_report.corridors_count} corridors, "
+            f"{intel_report.stops_count} stop records, "
+            f"{intel_report.evidence_count} citations."
+        )
+
         # ---------------------------------------------------------------------
         # 4. Synchronize Place Images (50 canonical records from manifest)
         # ---------------------------------------------------------------------
-        print("\n[4/4] Synchronizing database PlaceImage records...")
+        print("\n[5/5] Synchronizing database PlaceImage records...")
         manifest_path = WORKSPACE_ROOT / "data" / "images" / "sources" / "manifest.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
 
@@ -154,18 +166,35 @@ def bootstrap_database() -> int:
         total_departures = sum(len(g.departure_times_chronological or []) for g in all_groups)
         total_images = db.query(PlaceImage).count()
 
-        print(f"  Places:           {total_places:<6} (Expected: 204 = 161 sanctuaries + 43 food)")
-        print(f"  Categories:       {total_categories:<6} (Expected: >= 19)")
-        print(f"  Interests:        {total_interests:<6} (Expected: 12)")
-        print(f"  Providers:        {total_providers:<6} (Expected: 3)")
-        print(f"  Routes:           {total_routes:<6} (Expected: 154)")
-        print(f"  Stops:            {total_stops:<6} (Expected: 1,430)")
-        print(f"  Geocoded Stops:   {geocoded_stops:<6} (Expected: 41)")
-        print(f"  Unresolved Stops: {unresolved_stops:<6} (Expected: 1,389)")
-        print(f"  Route-Stops:      {total_route_stops:<6} (Expected: 1,487)")
-        print(f"  Schedule Groups:  {total_schedules:<6} (Expected: 302)")
-        print(f"  Departures:       {total_departures:<6} (Expected: 5,553)")
-        print(f"  Place Images:     {total_images:<6} (Expected: >= 50)")
+        from app.models.transit_intelligence import (
+            EvidenceCitation,
+            RouteIntelligence,
+            RouteCorridorIntelligence,
+            StopIntelligence,
+        )
+        total_route_intel = db.query(RouteIntelligence).count()
+        total_corridor_intel = db.query(RouteCorridorIntelligence).count()
+        total_stop_intel = db.query(StopIntelligence).count()
+        total_evidence = db.query(EvidenceCitation).count()
+        exact_routes = db.query(RouteIntelligence).filter(RouteIntelligence.geometry_status == "EXACT").count()
+
+        print(f"  Places:             {total_places:<6} (Expected: 204 = 161 sanctuaries + 43 food)")
+        print(f"  Categories:         {total_categories:<6} (Expected: >= 19)")
+        print(f"  Interests:          {total_interests:<6} (Expected: 12)")
+        print(f"  Providers:          {total_providers:<6} (Expected: 3)")
+        print(f"  Routes:             {total_routes:<6} (Expected: 154)")
+        print(f"  Stops:              {total_stops:<6} (Expected: 1,430)")
+        print(f"  Geocoded Stops:     {geocoded_stops:<6} (Expected: 41)")
+        print(f"  Unresolved Stops:   {unresolved_stops:<6} (Expected: 1,389)")
+        print(f"  Route-Stops:        {total_route_stops:<6} (Expected: 1,487)")
+        print(f"  Schedule Groups:    {total_schedules:<6} (Expected: 302)")
+        print(f"  Departures:         {total_departures:<6} (Expected: 5,553)")
+        print(f"  Place Images:       {total_images:<6} (Expected: >= 50)")
+        print(f"  Route Intelligence: {total_route_intel:<6} (Expected: 154)")
+        print(f"  Corridors:          {total_corridor_intel:<6} (Expected: 154)")
+        print(f"  Stop Intelligence:  {total_stop_intel:<6} (Expected: 1487)")
+        print(f"  Evidence Citations: {total_evidence:<6} (Expected: >= 10)")
+        print(f"  EXACT Routes:       {exact_routes:<6} (Expected: >= 1)")
 
         # Invariant Assertions
         assert total_places == 204, f"FAIL: Expected 204 places, found {total_places}"
@@ -180,6 +209,11 @@ def bootstrap_database() -> int:
         assert total_schedules == 302, f"FAIL: Expected 302 schedule groups, found {total_schedules}"
         assert total_departures == 5553, f"FAIL: Expected 5553 departures, found {total_departures}"
         assert total_images >= 50, f"FAIL: Expected >= 50 place images, found {total_images}"
+        assert total_route_intel == 154, f"FAIL: Expected 154 route intelligence records, found {total_route_intel}"
+        assert total_corridor_intel == 154, f"FAIL: Expected 154 corridors, found {total_corridor_intel}"
+        assert total_stop_intel == 1487, f"FAIL: Expected 1487 stop intelligence records, found {total_stop_intel}"
+        assert total_evidence >= 10, f"FAIL: Expected >= 10 evidence citations, found {total_evidence}"
+        assert exact_routes >= 1, f"FAIL: Expected >= 1 EXACT route, found {exact_routes}"
 
         print("\n[SUCCESS] ALL AUTHORITATIVE DATABASE INVARIANTS VERIFIED!")
         print("=" * 70)
