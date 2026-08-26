@@ -1,0 +1,750 @@
+{
+  "total_stops": 1066,
+  "geocoded": 17,
+  "unresolved": 48,
+  "skipped_generic": 35,
+  "results": [
+    {
+      "stop_name": "MAHATMA GANDHI STADIUM",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "MAHATMA GANDHI STADIUM, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "BERHAMPUR RAILWAY STATION",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "BERHAMPUR RAILWAY STATION, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "NIST COLLEGE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'NIST COLLEGE' without sufficient locality context"
+    },
+    {
+      "stop_name": "SUM HOSPITAL",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'SUM HOSPITAL' without sufficient locality context"
+    },
+    {
+      "stop_name": "PARALA MAHARAJA COLLEGE",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "PARALA MAHARAJA COLLEGE, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "DUDUMA COLONY BUS STAND",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "DUDUMA COLONY BUS STAND, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "SAI TEMPLE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'SAI TEMPLE' without sufficient locality context"
+    },
+    {
+      "stop_name": "GOPALPUR BUS STAND",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "GOPALPUR BUS STAND, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "RALABA",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "RALABA, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "SONAPUR BEACH",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "SONAPUR BEACH, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "AINTHAPALI BUS TERMINAL",
+      "city": "Sambalpur",
+      "latitude": 21.495385,
+      "longitude": 83.983956,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "AINTHAPALI BUS TERMINAL, Sambalpur, Odisha, India",
+      "display_name": "Ainthapali Bus Terminal, NH53, Sambalpur, Odisha, 768150, India"
+    },
+    {
+      "stop_name": "DHANUPALI CHOWK",
+      "city": "Sambalpur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'DHANUPALI CHOWK' without sufficient locality context"
+    },
+    {
+      "stop_name": "BURLA HOSPITAL",
+      "city": "Sambalpur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'BURLA HOSPITAL' without sufficient locality context"
+    },
+    {
+      "stop_name": "JAMADARPALI DYKE",
+      "city": "Sambalpur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "JAMADARPALI DYKE, Sambalpur, Odisha, India"
+    },
+    {
+      "stop_name": "BELPAHAR",
+      "city": "Sambalpur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "BELPAHAR, Sambalpur, Odisha, India"
+    },
+    {
+      "stop_name": "KUCHINDA",
+      "city": "Sambalpur",
+      "latitude": 21.747739,
+      "longitude": 84.35064,
+      "status": "geocoded",
+      "confidence": "low",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "KUCHINDA, Sambalpur, Odisha, India",
+      "display_name": "Kuchinda, Kochinda, Sambalpur, Odisha, 768222, India"
+    },
+    {
+      "stop_name": "PADIABAHAL",
+      "city": "Sambalpur",
+      "latitude": 21.449496,
+      "longitude": 84.155208,
+      "status": "geocoded",
+      "confidence": "low",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "PADIABAHAL, Sambalpur, Odisha, India",
+      "display_name": "PHC, Padiabahal, NH53, Sadar, Sambalpur, Odisha, 768105, India"
+    },
+    {
+      "stop_name": "VEDVYAS",
+      "city": "Rourkela",
+      "latitude": 22.23752,
+      "longitude": 84.778653,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "VEDVYAS, Rourkela, Odisha, India",
+      "display_name": "Vyas Residency, Vedvyas Chowk, NH143, Rourkela, Brahmani Tarang, Sundargarh, Odisha, 769041, India"
+    },
+    {
+      "stop_name": "JHIRPANI",
+      "city": "Rourkela",
+      "latitude": 22.268472,
+      "longitude": 84.90068,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "JHIRPANI, Rourkela, Odisha, India",
+      "display_name": "Jhirpani, Rourkela, Sundargarh, Odisha, 769042, India"
+    },
+    {
+      "stop_name": "ROURKELA NEW BUS STAND",
+      "city": "Rourkela",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "ROURKELA NEW BUS STAND, Rourkela, Odisha, India"
+    },
+    {
+      "stop_name": "TETERKELA",
+      "city": "Rourkela",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "TETERKELA, Rourkela, Odisha, India"
+    },
+    {
+      "stop_name": "SHAKTI NAGAR",
+      "city": "Rourkela",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'SHAKTI NAGAR' without sufficient locality context"
+    },
+    {
+      "stop_name": "TARAPUR FILTER HOUSE",
+      "city": "Rourkela",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "TARAPUR FILTER HOUSE, Rourkela, Odisha, India"
+    },
+    {
+      "stop_name": "DAMANA SQUARE",
+      "city": "Bhubaneswar",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'DAMANA SQUARE' without sufficient locality context"
+    },
+    {
+      "stop_name": "KIIT SQUARE",
+      "city": "Bhubaneswar",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'KIIT SQUARE' without sufficient locality context"
+    },
+    {
+      "stop_name": "BHUBANESWAR RAILWAY STATION",
+      "city": "Bhubaneswar",
+      "latitude": 20.266777,
+      "longitude": 85.843559,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "BHUBANESWAR RAILWAY STATION, Bhubaneswar, Odisha, India",
+      "display_name": "Bhubaneswar, Lane number 1, Budheswari Colony, Ward 42, South East Zone, Bhubaneswar Municipal Corpo"
+    },
+    {
+      "stop_name": "SHREE MANDIRA PARKING, PURI",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "SHREE MANDIRA PARKING, PURI, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "IGKC MULTISPECIALTY HOSPITAL",
+      "city": "Bhubaneswar",
+      "latitude": 20.274059,
+      "longitude": 85.764331,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "IGKC MULTISPECIALTY HOSPITAL, Bhubaneswar, Odisha, India",
+      "display_name": "IGKC Multispecialty Hospital, Plot No:- G1-43/1695, Khandagiri - Chandaka Road, Khandagiri, Ward 23,"
+    },
+    {
+      "stop_name": "PATIA",
+      "city": "Bhubaneswar",
+      "latitude": 20.36045,
+      "longitude": 85.824766,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "PATIA, Bhubaneswar, Odisha, India",
+      "display_name": "Patia, North Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751024"
+    },
+    {
+      "stop_name": "BHUBANESWAR AIRPORT",
+      "city": "Bhubaneswar",
+      "latitude": 20.252295,
+      "longitude": 85.813485,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "BHUBANESWAR AIRPORT, Bhubaneswar, Odisha, India",
+      "display_name": "Biju Patnaik International Airport, Capital hospital road, Unit-6, Ward 46, South West Zone, Bhubane"
+    },
+    {
+      "stop_name": "MAULANA AZAD NATIONAL URDU UNIVERSITY",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "MAULANA AZAD NATIONAL URDU UNIVERSITY, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "TRISHULIA BUS STAND",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "TRISHULIA BUS STAND, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "NANDANKANAN",
+      "city": "Bhubaneswar",
+      "latitude": 20.360027,
+      "longitude": 85.828222,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "NANDANKANAN, Bhubaneswar, Odisha, India",
+      "display_name": "Nandankanan Road, Ward 3, North Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khor"
+    },
+    {
+      "stop_name": "NANDANKANAN BOTANICAL GARDEN",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "NANDANKANAN BOTANICAL GARDEN, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "LINGIPUR",
+      "city": "Bhubaneswar",
+      "latitude": 20.213789,
+      "longitude": 85.853611,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "LINGIPUR, Bhubaneswar, Odisha, India",
+      "display_name": "Lingipur Chowk, Cuttack - Puri Bypass Road, Sisupalgarh, Bhubaneswar, Bhubaneswar (M.Corp.), Khordha"
+    },
+    {
+      "stop_name": "DHAULI",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "DHAULI, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "KALINGA VIHAR",
+      "city": "Bhubaneswar",
+      "latitude": 20.261627,
+      "longitude": 85.760884,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "KALINGA VIHAR, Bhubaneswar, Odisha, India",
+      "display_name": "Kalinga Vihar Road, K7, Kalinga Nagar, Ward 23, South West Zone, Shreekhetra Vihar, Khandagiri, Khor"
+    },
+    {
+      "stop_name": "CUTTACK NETAJI BUS TERMINUS (CNBT)",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "CUTTACK NETAJI BUS TERMINUS (CNBT), Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "UTKAL HOSPITAL",
+      "city": "Bhubaneswar",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'UTKAL HOSPITAL' without sufficient locality context"
+    },
+    {
+      "stop_name": "SALIA SAHI",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "SALIA SAHI, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "SRI SRI UNIVERSITY, KATAKA",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "SRI SRI UNIVERSITY, KATAKA, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "BIJU PATNAIK INTERNATIONAL AIRPORT, BBSR",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "BIJU PATNAIK INTERNATIONAL AIRPORT, BBSR, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "BARABATI STADIUM, CUTTACK",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "BARABATI STADIUM, CUTTACK, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "BARAMUNDA BSABT",
+      "city": "Bhubaneswar",
+      "latitude": 20.273141,
+      "longitude": 85.79227,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "BARAMUNDA BSABT, Bhubaneswar, Odisha, India",
+      "display_name": "Baramunda Bus Stand, New bustand road (one way), Ward 49, South West Zone, Bhubaneswar Municipal Cor"
+    },
+    {
+      "stop_name": "JAGATPUR",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "JAGATPUR, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "AIIMS",
+      "city": "Bhubaneswar",
+      "latitude": 20.236178,
+      "longitude": 85.778299,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "AIIMS, Bhubaneswar, Odisha, India",
+      "display_name": "AIIMS Hospital Road, Ward 65, South West Zone, Shreekhetra Vihar, Khandagiri, Khordha, Odisha, 75101"
+    },
+    {
+      "stop_name": "OMP SQUARE-MAHANADI VIHAR",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "OMP SQUARE-MAHANADI VIHAR, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "KHORDHA NEW BUS STAND",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "KHORDHA NEW BUS STAND, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "KHORDHA ROAD STATION",
+      "city": "Bhubaneswar",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "KHORDHA ROAD STATION, Bhubaneswar, Odisha, India"
+    },
+    {
+      "stop_name": "JATANI GATE",
+      "city": "Bhubaneswar",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'JATANI GATE' without sufficient locality context"
+    },
+    {
+      "stop_name": "DUDUMA COLONY",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "DUDUMA COLONY, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "NEW BUS STAND",
+      "city": "Berhampur",
+      "latitude": 19.312894,
+      "longitude": 84.802658,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "NEW BUS STAND, Berhampur, Odisha, India",
+      "display_name": "New Bus Stand Road, Dharma Nagar, Brahmapur, Rangeilunda, Ganjam, Odisha, 760001, India"
+    },
+    {
+      "stop_name": "FIRST GATE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'FIRST GATE' without sufficient locality context"
+    },
+    {
+      "stop_name": "HARIDAKHANDI CHAKA",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'HARIDAKHANDI CHAKA' without sufficient locality context"
+    },
+    {
+      "stop_name": "KATHA MANTU CHAKA",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "KATHA MANTU CHAKA, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "GANESH NAGAR",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'GANESH NAGAR' without sufficient locality context"
+    },
+    {
+      "stop_name": "MENTU CHAKA",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'MENTU CHAKA' without sufficient locality context"
+    },
+    {
+      "stop_name": "RAJA RANI APARTMENT",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "RAJA RANI APARTMENT, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "AMBA MARKET",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'AMBA MARKET' without sufficient locality context"
+    },
+    {
+      "stop_name": "HOUSING BOARD COLONY",
+      "city": "Berhampur",
+      "latitude": 19.306641,
+      "longitude": 84.779801,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "HOUSING BOARD COLONY, Berhampur, Odisha, India",
+      "display_name": "Housing Board Colony, Dharma Nagar, Brahmapur, Rangeilunda, Ganjam, Odisha, 760002, India"
+    },
+    {
+      "stop_name": "SHIVASHAKIT HALL",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "SHIVASHAKIT HALL, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "PREM NAGAR SQUARE",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "PREM NAGAR SQUARE, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "REGISTER OFFICE",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "REGISTER OFFICE, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "GANDHI NAGAR",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'GANDHI NAGAR' without sufficient locality context"
+    },
+    {
+      "stop_name": "CONGRESS BHABAN",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "CONGRESS BHABAN, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "KHALLIKOTE COLLEGE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'KHALLIKOTE COLLEGE' without sufficient locality context"
+    },
+    {
+      "stop_name": "CHURCH SQUARE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'CHURCH SQUARE' without sufficient locality context"
+    },
+    {
+      "stop_name": "BIJIPUR SQUARE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'BIJIPUR SQUARE' without sufficient locality context"
+    },
+    {
+      "stop_name": "GOSANINUGAA SANTOSHI",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "GOSANINUGAA SANTOSHI, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "TEMPLE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'TEMPLE' without sufficient locality context"
+    },
+    {
+      "stop_name": "BIJIPUR STATE BANK",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "BIJIPUR STATE BANK, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "GOKUL DHAAM",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "GOKUL DHAAM, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "GOSANINUGAA POLICE STATION",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "GOSANINUGAA POLICE STATION, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "UTARESWARA TEMPLE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'UTARESWARA TEMPLE' without sufficient locality context"
+    },
+    {
+      "stop_name": "RAJ DHOBA STREET",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "RAJ DHOBA STREET, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "ANDHPASARA SQUARE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'ANDHPASARA SQUARE' without sufficient locality context"
+    },
+    {
+      "stop_name": "NALINI NAGAR",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'NALINI NAGAR' without sufficient locality context"
+    },
+    {
+      "stop_name": "HALDIAPADAR OVER BRIDGE",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "HALDIAPADAR OVER BRIDGE, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "HALDIAPADAR VILLAGE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'HALDIAPADAR VILLAGE' without sufficient locality context"
+    },
+    {
+      "stop_name": "HALDIAPADAR NEW BUS STAND",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "HALDIAPADAR NEW BUS STAND, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "MADANMOHANPUR",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "MADANMOHANPUR, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "SIHNALA ROAD",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'SIHNALA ROAD' without sufficient locality context"
+    },
+    {
+      "stop_name": "KANISI HATA",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "KANISI HATA, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "KANISI VILLAGE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'KANISI VILLAGE' without sufficient locality context"
+    },
+    {
+      "stop_name": "AMIT HOSPITAL",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'AMIT HOSPITAL' without sufficient locality context"
+    },
+    {
+      "stop_name": "RANDHA CHOWK",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'RANDHA CHOWK' without sufficient locality context"
+    },
+    {
+      "stop_name": "GANDHI COLLEGE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'GANDHI COLLEGE' without sufficient locality context"
+    },
+    {
+      "stop_name": "ISANESWAR TEMPLE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'ISANESWAR TEMPLE' without sufficient locality context"
+    },
+    {
+      "stop_name": "GOLANTHRA VILLAGE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'GOLANTHRA VILLAGE' without sufficient locality context"
+    },
+    {
+      "stop_name": "BHAIRAVI CHATTI",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "BHAIRAVI CHATTI, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "GOVIND NAGAR",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'GOVIND NAGAR' without sufficient locality context"
+    },
+    {
+      "stop_name": "DUDUMA COLONY NEW BUS STAND",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "DUDUMA COLONY NEW BUS STAND, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "TATA BENZ SQUARE",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "TATA BENZ SQUARE, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "KAMAPALLI",
+      "city": "Berhampur",
+      "latitude": 19.307031,
+      "longitude": 84.805822,
+      "status": "geocoded",
+      "confidence": "high",
+      "coordinate_source": "nominatim_osm",
+      "query_used": "KAMAPALLI, Berhampur, Odisha, India",
+      "display_name": "Kamapalli - Goilundi Road, Brahmapur, Rangeilunda, Ganjam, Odisha, 760004, India"
+    },
+    {
+      "stop_name": "COURTPETA SQUARE",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'COURTPETA SQUARE' without sufficient locality context"
+    },
+    {
+      "stop_name": "MKCG STATE BANK",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "MKCG STATE BANK, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "MKCG MEDICAL COLLEGE SQUARE",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "MKCG MEDICAL COLLEGE SQUARE, Berhampur, Odisha, India"
+    },
+    {
+      "stop_name": "GAJAPATI NAGAR",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'GAJAPATI NAGAR' without sufficient locality context"
+    },
+    {
+      "stop_name": "JAYAPRAKASH NAGAR",
+      "city": "Berhampur",
+      "status": "skipped_too_generic",
+      "reason": "Generic name 'JAYAPRAKASH NAGAR' without sufficient locality context"
+    },
+    {
+      "stop_name": "ENGINEERING SCHOOL CHOWK BERHAMPUR",
+      "city": "Berhampur",
+      "status": "unresolved",
+      "reason": "no_geocoding_result",
+      "query_used": "ENGINEERING SCHOOL CHOWK BERHAMPUR, Berhampur, Odisha, India"
+    }
+  ],
+  "remaining_ungeocoded": 1049,
+  "summary": {
+    "total_attempted": 100,
+    "geocoded": 17,
+    "unresolved": 48,
+    "skipped_generic": 35,
+    "remaining_stops": 966,
+    "note": "Geocoded a priority sample of 100 stops. Remaining stops can be geocoded in a follow-up batch."
+  }
+}

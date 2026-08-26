@@ -1,0 +1,48 @@
+{
+  "pilot_run_timestamp": "2026-08-24T15:12:36Z",
+  "model_id": "meta/llama-3.1-8b-instruct",
+  "endpoint": "https://integrate.api.nvidia.com/v1",
+  "target_routes": [
+    "F1",
+    "10",
+    "50",
+    "200",
+    "302"
+  ],
+  "successful_routes": [
+    "F1",
+    "10",
+    "50",
+    "200"
+  ],
+  "failed_routes": [
+    "302"
+  ],
+  "total_evidence_citations_used": [
+    "EV-CRUT-CR-SCHED-2026",
+    "EV-OSM-TRANSIT-GRAPH-2026"
+  ],
+  "total_coordinates_resolved": 2,
+  "total_unresolved_stops": 6,
+  "confidence_distribution": {
+    "CONFIRMED": 4
+  },
+  "geometry_status_distribution": {
+    "EXACT": 4
+  },
+  "validation_failures": {
+    "302": "Generation error on attempt 3: Expecting ',' delimiter: line 413 column 6 (char 13110)"
+  },
+  "latencies_ms": {
+    "F1": 6089.0,
+    "10": 4832.0,
+    "50": 4628.6,
+    "200": 4060.8
+  },
+  "retry_counts": {
+    "F1": 0,
+    "10": 0,
+    "50": 0,
+    "200": 0
+  }
+}

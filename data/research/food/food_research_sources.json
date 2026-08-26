@@ -1,0 +1,52 @@
+{
+  "sources": [
+    {
+      "source_id": "SRC_OTDC_2026",
+      "name": "Odisha Tourism Development Corporation (OTDC) Regional Culinary Register",
+      "type": "official_government",
+      "url": "https://www.otdc.in/cuisine",
+      "authority": "high",
+      "coverage": "Statewide (Nimantran, Panthasala, Pakhala Divas documentation)"
+    },
+    {
+      "source_id": "SRC_GI_REGISTRY_INDIA",
+      "name": "Geographical Indications Registry of India - Odisha Food Products",
+      "type": "legal_registry",
+      "url": "https://ipindia.gov.in/gi.htm",
+      "authority": "high",
+      "coverage": "Odisha Rasagola (GI-612), Kai Chutney Mayurbhanj, Nayagarh Kanteimundi Brinjal, Koraput Kalajeera Rice"
+    },
+    {
+      "source_id": "SRC_DISTRICT_PORTALS_ODISHA",
+      "name": "Odisha District Administration Portal & Tourism Gazettes",
+      "type": "official_district",
+      "url": "https://odisha.gov.in/districts",
+      "authority": "high",
+      "coverage": "All 30 Odisha District Official Portals (Culinary Heritage & Major Markets)"
+    },
+    {
+      "source_id": "SRC_CRUT_TRANSIT_HUBS",
+      "name": "Capital Region Urban Transport (CRUT) Corridor Commercial Survey",
+      "type": "transit_authority",
+      "url": "https://www.capitalregiontransport.in/",
+      "authority": "high",
+      "coverage": "Transit-adjacent food markets in Bhubaneswar, Cuttack, Puri, Rourkela, Sambalpur, Berhampur"
+    },
+    {
+      "source_id": "SRC_NHAI_CORRIDOR_SURVEY",
+      "name": "National Highways Authority of India (NHAI) Odisha Corridors Guide",
+      "type": "highway_infrastructure",
+      "url": "https://nhai.gov.in",
+      "authority": "medium",
+      "coverage": "NH-16, NH-316, NH-55, NH-49, NH-26 Way-side food clusters & dhabas"
+    },
+    {
+      "source_id": "SRC_FSSAI_ODISHA_DIRECTORY",
+      "name": "Food Safety and Standards Authority of India (FSSAI) Clean Street Food Hubs",
+      "type": "statutory_food_safety",
+      "url": "https://www.fssai.gov.in",
+      "authority": "high",
+      "coverage": "Verified clean food streets & sweet clusters (Pahala, Choudhury Bazar, Master Canteen, Grand Road Puri)"
+    }
+  ]
+}

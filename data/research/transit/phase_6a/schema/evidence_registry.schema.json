@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OTravelzEvidenceRegistry",
+  "description": "Master evidence registry schema for all transit research claims in Phase 6A.",
+  "type": "object",
+  "required": [
+    "project",
+    "phase",
+    "total_evidence_items",
+    "evidence"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "project": {
+      "type": "string",
+      "enum": ["O-TRAVELZ"]
+    },
+    "phase": {
+      "type": "string",
+      "enum": ["6A"]
+    },
+    "total_evidence_items": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "is_synthetic_test_fixture": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": ["string", "object", "null"]
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "source",
+          "source_type",
+          "claim",
+          "reliability"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "OFFICIAL_DOCUMENT",
+              "OFFICIAL_MAP",
+              "OSM",
+              "RESEARCH",
+              "INFERENCE"
+            ]
+          },
+          "document": {
+            "type": ["string", "null"]
+          },
+          "page": {
+            "type": ["string", "integer", "null"]
+          },
+          "url": {
+            "type": ["string", "null"]
+          },
+          "claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reliability": {
+            "type": "string",
+            "enum": ["HIGH", "MEDIUM", "LOW"]
+          },
+          "accessed_at": {
+            "type": ["string", "null"]
+          },
+          "notes": {
+            "type": ["string", "null"]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "temple",
+    "name": "Temple",
+    "description": "Religious and temple sites"
+  },
+  {
+    "id": "museum",
+    "name": "Museum",
+    "description": "Museums and heritage collections"
+  },
+  {
+    "id": "market",
+    "name": "Market",
+    "description": "Traditional and craft markets"
+  },
+  {
+    "id": "park",
+    "name": "Park",
+    "description": "Parks and zoological/recreation spaces"
+  },
+  {
+    "id": "monument",
+    "name": "Monument",
+    "description": "Historic, archaeological and civic monuments"
+  },
+  {
+    "id": "lake",
+    "name": "Lake",
+    "description": "Lakes and notable water bodies"
+  },
+  {
+    "id": "planetarium",
+    "name": "Planetarium",
+    "description": "Astronomy and science/planetarium attractions"
+  },
+  {
+    "id": "sports_venue",
+    "name": "Sports Venue",
+    "description": "Stadiums and major sports complexes"
+  },
+  {
+    "id": "science_center",
+    "name": "Science Centre",
+    "description": "Science education and public science centres"
+  }
+]

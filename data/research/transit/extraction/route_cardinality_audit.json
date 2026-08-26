@@ -1,0 +1,408 @@
+{
+  "existing_db_corrected": {
+    "total_existing_routes": 14,
+    "routes": [
+      {
+        "source": "ama_bus.json",
+        "route_number": "12",
+        "route_name": "Bhubaneswar Railway Station ↔ Nandankanan (via Jaydev Vihar)"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-01",
+        "route_name": "KIIT Campus To Prashanti Vihar"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-02",
+        "route_name": "Patiagada"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-03",
+        "route_name": "Sailashree Vihar"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-04",
+        "route_name": "Sum Hospital"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-05",
+        "route_name": "Sum K8 Hospital"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-06",
+        "route_name": "ITER"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-07",
+        "route_name": "Pokhariput"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-08",
+        "route_name": "Infocity (Loop)"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-09",
+        "route_name": "KIIT Square To Patia Station"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-10",
+        "route_name": "Patrapada K9 To AIIMS Hospital"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-11",
+        "route_name": "Hanuman Mandir BQS To Kalinga Nagar BQS"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-12",
+        "route_name": "Damana Square To OMFED Square"
+      },
+      {
+        "source": "ama_e_ride.json",
+        "route_number": "ER-13",
+        "route_name": "Jagamara Jagannath Temple"
+      }
+    ],
+    "note": "Previous report said 'Existing DB = 1' — this was measuring only ama_bus.json routes. Actual count: 14 routes (1 Mo Bus/AMA Bus + 13 E-Ride)"
+  },
+  "extracted_routes": {
+    "total": 153,
+    "by_region": {
+      "Capital Region": 95,
+      "Rourkela": 25,
+      "Berhampur": 10,
+      "Sambalpur": 17,
+      "Keonjhar": 6
+    },
+    "by_network": {
+      "AMA Bus": 153
+    }
+  },
+  "duplicate_check": [],
+  "direction_variants": [
+    {
+      "base_route": "13",
+      "variants": [
+        {
+          "route_number": "13",
+          "suffix": "",
+          "route_name": "Nandankanan Botanical Garden –Lingipur (via AG Square)",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "13E",
+          "suffix": "E",
+          "route_name": "Nandankanan Botanical Garden – Dhauli(via AG Square)",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "15",
+      "variants": [
+        {
+          "route_number": "15",
+          "suffix": "",
+          "route_name": "Cuttack Netaji Bus Terminus (CNBT) – Utkal Hospital (Via Judicial Square,",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "15E",
+          "suffix": "E",
+          "route_name": "Cuttack Netaji Bus Terminus (CNBT) – Salia Sahi (Via Judicial Square,",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "22",
+      "variants": [
+        {
+          "route_number": "22A",
+          "suffix": "A",
+          "route_name": "Bhubaneswar Railway Station - Khordha Road Station",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "22B",
+          "suffix": "B",
+          "route_name": "Jatani Gate- Khordha New Bus Stand (via Jatani)",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "24",
+      "variants": [
+        {
+          "route_number": "24",
+          "suffix": "",
+          "route_name": "Kalinga Vihar- Sai Temple",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "24E",
+          "suffix": "E",
+          "route_name": "Kalinga Vihar- Bainchua (via-Sai Temple)",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "29",
+      "variants": [
+        {
+          "route_number": "29",
+          "suffix": "",
+          "route_name": "Bhagwanpur – Sai Mandir",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "29E",
+          "suffix": "E",
+          "route_name": "Bhagwanpur – SBI Colony Via(Sai Mandir)",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "34",
+      "variants": [
+        {
+          "route_number": "34",
+          "suffix": "",
+          "route_name": "Bhubaneswar Railway Station – Balakati (Sai Hospital)",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "34E",
+          "suffix": "E",
+          "route_name": "Bhubaneswar Railway Station - Trahi Achyut(Via-Balakati)",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "43",
+      "variants": [
+        {
+          "route_number": "43",
+          "suffix": "",
+          "route_name": "Baramunda BSABT – Banamalipur (via Rasulgarh ,Kalapana Sqr)",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "43E",
+          "suffix": "E",
+          "route_name": "Baramunda BSABT – Abhyamukhi (via Rasulgarh ,Kalapana Sqr,Banamalipur)",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "56",
+      "variants": [
+        {
+          "route_number": "56",
+          "suffix": "",
+          "route_name": "Khordha New Bus Stand – Puri Bus Stand (via Jatani,Pipili)",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "56E",
+          "suffix": "E",
+          "route_name": "Puri Bus Stand - Khordha Road Station (via Jatani,Pipili)",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "80",
+      "variants": [
+        {
+          "route_number": "80",
+          "suffix": "",
+          "route_name": "Naraj Police Outpost – Agrahat, Charbatia (via NLU, Badambadi, SCB Medical)",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "80E",
+          "suffix": "E",
+          "route_name": "Naraj Police Outpost – Mangarajpur (via NLU, Badambadi, SCB Medical)",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "83",
+      "variants": [
+        {
+          "route_number": "83",
+          "suffix": "",
+          "route_name": "Dhabaleswar - Kandarpur (via 42 Mouza)",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "83A",
+          "suffix": "A",
+          "route_name": "CDA9 - Nuapatana",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "87",
+      "variants": [
+        {
+          "route_number": "87",
+          "suffix": "",
+          "route_name": "Biju Patanaik Park – Mahanadi Vihar (Via CDA, Judicial Square, Link Road)",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "87E",
+          "suffix": "E",
+          "route_name": "Judicial Academy– Nuapada(Via Barabati,SCB)",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "89",
+      "variants": [
+        {
+          "route_number": "89",
+          "suffix": "",
+          "route_name": "SCB Medical – Jagadguru Krupalu University (JKU)",
+          "region": "Capital Region"
+        },
+        {
+          "route_number": "89A",
+          "suffix": "A",
+          "route_name": "SCB Medical – Judicial Square",
+          "region": "Capital Region"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "101",
+      "variants": [
+        {
+          "route_number": "101",
+          "suffix": "",
+          "route_name": "Rourkela New Bus Stand - Laukera (via Udit Nagar, Hanuman Vatika Chowk, Chhend, Airport)",
+          "region": "Rourkela"
+        },
+        {
+          "route_number": "101E",
+          "suffix": "E",
+          "route_name": "Rourkela New Bus Stand – Panposh Station(",
+          "region": "Rourkela"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "303",
+      "variants": [
+        {
+          "route_number": "303",
+          "suffix": "",
+          "route_name": "Duduma Colony Bus Stand – Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+          "region": "Berhampur"
+        },
+        {
+          "route_number": "303E",
+          "suffix": "E",
+          "route_name": "Duduma Colony Bus stand – Dhabaleswar (Via- Railway station P.F-4, Lanjipali Village, Ankuli ,ARMY",
+          "region": "Berhampur"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "304",
+      "variants": [
+        {
+          "route_number": "304",
+          "suffix": "",
+          "route_name": "Berhampur Railway Station -D.patapur",
+          "region": "Berhampur"
+        },
+        {
+          "route_number": "304E",
+          "suffix": "E",
+          "route_name": "Berhampur Railway Station - Ralaba",
+          "region": "Berhampur"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    },
+    {
+      "base_route": "213",
+      "variants": [
+        {
+          "route_number": "213",
+          "suffix": "",
+          "route_name": "Ainthapali Bus Terminal – Belpahar",
+          "region": "Sambalpur"
+        },
+        {
+          "route_number": "213A",
+          "suffix": "A",
+          "route_name": "Ainthapali Bus Terminal – Belpahar",
+          "region": "Sambalpur"
+        }
+      ],
+      "note": "Extended route variant (e.g., 13 and 13E are different routes with different destinations)",
+      "genuinely_distinct": true
+    }
+  ],
+  "schedule_variants": [],
+  "genuinely_distinct": 153,
+  "summary": {
+    "existing_routes_corrected": 14,
+    "extracted_routes": 153,
+    "duplicates_found": 0,
+    "genuinely_distinct_routes": 153,
+    "extended_variants": 16,
+    "verdict": "All 153 routes are genuinely distinct. Extended variants (E suffix) are separate routes with different destinations."
+  }
+}

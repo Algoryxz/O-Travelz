@@ -1,0 +1,59 @@
+[
+  {
+    "category_id": "cat_medical_help",
+    "category_key": "medical help",
+    "aliases": [
+      "medical help",
+      "hospitals"
+    ],
+    "title": "Hospitals & Medical Services",
+    "alt_text": "AIIMS Bhubaneswar modern hospital and medical emergency healthcare campus in Odisha",
+    "asset_hash": "bf5d0fc229ac",
+    "content_sha256": "bf5d0fc229acf57a19ccc46897ed2dce732014ef6b492230ff7041e375c292f6",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/AIIMS_Bhubaneswar%2C_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:AIIMS Bhubaneswar, Odisha.jpg",
+    "creator": "Debiprasad",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by Debiprasad via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "card_path": "/static/images/categories/cat_medical_help/bf5d0fc229ac/card.webp",
+    "hero_path": "/static/images/categories/cat_medical_help/bf5d0fc229ac/hero.webp"
+  },
+  {
+    "category_id": "cat_atms",
+    "category_key": "atms",
+    "aliases": [
+      "atms",
+      "banking"
+    ],
+    "title": "Banking & ATM Services",
+    "alt_text": "State Bank 24/7 ATM cash dispenser kiosk and banking service in India",
+    "asset_hash": "76647d302131",
+    "content_sha256": "76647d302131365c16592ddbc5aa52ef2b996c2b68356889e5f0566aa9747ee0",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/State_Bank_of_India_ATM%2C_Khankul.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:State Bank of India ATM, Khankul.jpg",
+    "creator": "WikiForRay",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photo by WikiForRay via Wikimedia Commons, licensed under CC BY-SA 4.0",
+    "card_path": "/static/images/categories/cat_atms/76647d302131/card.webp",
+    "hero_path": "/static/images/categories/cat_atms/76647d302131/hero.webp"
+  },
+  {
+    "category_id": "cat_hangout_chill",
+    "category_key": "hangout & chill",
+    "aliases": [
+      "hangout & chill",
+      "cafes"
+    ],
+    "title": "Cafes, Lounges & Social Spaces",
+    "alt_text": "Traditional tea stall, open-air caf\u00e9 lounge and social hangout in Odisha",
+    "asset_hash": "840313660e7c",
+    "content_sha256": "840313660e7c402f6f7404cececbf194ff399a1a06de52b8dd0118c0447ae595",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Village_Tea_Stall_-_Sasapasi_-_Dhenkanal_2018-01-25_9733.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wikimedia_file": "File:Village Tea Stall - Sasapasi - Dhenkanal 2018-01-25 9733.JPG",
+    "creator": "Biswarup Ganguly",
+    "license": "CC BY 3.0",
+    "attribution": "Photo by Biswarup Ganguly via Wikimedia Commons, licensed under CC BY 3.0",
+    "card_path": "/static/images/categories/cat_hangout_chill/840313660e7c/card.webp",
+    "hero_path": "/static/images/categories/cat_hangout_chill/840313660e7c/hero.webp"
+  }
+]

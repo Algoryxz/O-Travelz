@@ -1,0 +1,2945 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "Phase 6B",
+  "total_routes_evaluated": 154,
+  "total_routes_improved": 73,
+  "status_transitions": {
+    "PARTIAL -> EXACT": 6,
+    "PARTIAL -> CORRIDOR": 27,
+    "PARTIAL -> PARTIAL": 48,
+    "CORRIDOR -> PARTIAL": 17,
+    "CORRIDOR -> CORRIDOR": 17,
+    "NONE -> EXACT": 2,
+    "NONE -> PARTIAL": 16,
+    "NONE -> NONE": 18,
+    "EXACT -> EXACT": 3
+  },
+  "routes": [
+    {
+      "route_number": "08",
+      "route_id": "route-08",
+      "region": "Capital Region",
+      "origin": "IGKC Multispecialty Hospital",
+      "destination": "Sum Hospital",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "EXACT",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> EXACT"
+    },
+    {
+      "route_number": "09",
+      "route_id": "route-09",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Patia",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "10",
+      "route_id": "route-10",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Airport",
+      "destination": "Maulana Azad National Urdu University",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "100",
+      "route_id": "route-100",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Birsa Munda Hockey Stadium",
+      "total_stops": 5,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "101",
+      "route_id": "route-101",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Laukera",
+      "total_stops": 6,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 2
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "101E",
+      "route_id": "route-101E",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Panposh Station",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "EXACT",
+        "new_anchors_gained": 2
+      },
+      "improved": true,
+      "transition": "NONE -> EXACT"
+    },
+    {
+      "route_number": "102",
+      "route_id": "route-102",
+      "region": "Rourkela",
+      "origin": "Vedvyas",
+      "destination": "Jhirpani",
+      "total_stops": 5,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 3,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "103",
+      "route_id": "route-103",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Panposh",
+      "total_stops": 5,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 2
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "104",
+      "route_id": "route-104",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Jhirpani",
+      "total_stops": 5,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "105",
+      "route_id": "route-105",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Rajgangpur",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "106",
+      "route_id": "route-106",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Birmitrapur",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "107",
+      "route_id": "route-107",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Teterkela",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "108",
+      "route_id": "route-108",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Nuagaon",
+      "total_stops": 5,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "109",
+      "route_id": "route-109",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Lathikata",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "11",
+      "route_id": "route-11",
+      "region": "Capital Region",
+      "origin": "Trishulia Bus Stand",
+      "destination": "Bhubaneswar Railway Station",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "110",
+      "route_id": "route-110",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Kalunga",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "111",
+      "route_id": "route-111",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Bonaigarh",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "112",
+      "route_id": "route-112",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Lahunipara",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "113",
+      "route_id": "route-113",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Ushra",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "114",
+      "route_id": "route-114",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Nuagaon",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "115",
+      "route_id": "route-115",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Potab",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "116",
+      "route_id": "route-116",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Loram",
+      "total_stops": 6,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "117",
+      "route_id": "route-117",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Jaraikela",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "118",
+      "route_id": "route-118",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Salangabahal",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "119",
+      "route_id": "route-119",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Kutra",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "12",
+      "route_id": "route-12",
+      "region": "Capital Region",
+      "origin": "Nandankanan",
+      "destination": "Bhubaneswar Railway Station",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "120",
+      "route_id": "route-120",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Gurundia",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "121",
+      "route_id": "route-121",
+      "region": "Rourkela",
+      "origin": "DAV POND",
+      "destination": "Radio Station",
+      "total_stops": 5,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "122",
+      "route_id": "route-122",
+      "region": "Rourkela",
+      "origin": "Shakti Nagar",
+      "destination": "Tarapur Filter House",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "124",
+      "route_id": "route-124",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Hamirpur",
+      "total_stops": 6,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "13",
+      "route_id": "route-13",
+      "region": "Capital Region",
+      "origin": "Nandankanan Botanical Garden",
+      "destination": "Lingipur",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 3,
+        "geometry_status": "EXACT",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> EXACT"
+    },
+    {
+      "route_number": "13E",
+      "route_id": "route-13E",
+      "region": "Capital Region",
+      "origin": "Nandankanan Botanical Garden",
+      "destination": "Dhauli",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 3,
+        "geometry_status": "EXACT",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> EXACT"
+    },
+    {
+      "route_number": "14",
+      "route_id": "route-14",
+      "region": "Capital Region",
+      "origin": "Kalinga Vihar",
+      "destination": "Bhubaneswar Railway Station",
+      "total_stops": 6,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "15",
+      "route_id": "route-15",
+      "region": "Capital Region",
+      "origin": "Cuttack Netaji Bus Terminus (CNBT)",
+      "destination": "Utkal Hospital",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "15E",
+      "route_id": "route-15E",
+      "region": "Capital Region",
+      "origin": "Cuttack Netaji Bus Terminus (CNBT)",
+      "destination": "Salia Sahi",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "16",
+      "route_id": "route-16",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Sri Sri University, Kataka",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "17",
+      "route_id": "route-17",
+      "region": "Capital Region",
+      "origin": "Biju Patnaik International Airport, BBSR",
+      "destination": "Barabati Stadium, Cuttack",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "18",
+      "route_id": "route-18",
+      "region": "Capital Region",
+      "origin": "Baramunda BSABT",
+      "destination": "Jagatpur",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "19",
+      "route_id": "route-19",
+      "region": "Capital Region",
+      "origin": "AIIMS",
+      "destination": "OMP Square-Mahanadi Vihar",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "20",
+      "route_id": "route-20",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Khordha New Bus Stand",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "200",
+      "route_id": "route-200",
+      "region": "Sambalpur",
+      "origin": "Khetrajpur Railway station",
+      "destination": "City Railway station",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "201",
+      "route_id": "route-201",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Ghanteswari Temple",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "202",
+      "route_id": "route-202",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Atal Chowk",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "203",
+      "route_id": "route-203",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Hirakud Dam",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "204",
+      "route_id": "route-204",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Maneswar",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "205",
+      "route_id": "route-205",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Nuajamda",
+      "total_stops": 73,
+      "baseline": {
+        "geocoded_stops": 3,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 3,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "206",
+      "route_id": "route-206",
+      "region": "Sambalpur",
+      "origin": "Samaleswari Temple",
+      "destination": "Ghanteswari Temple",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "207",
+      "route_id": "route-207",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Dhama",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "208",
+      "route_id": "route-208",
+      "region": "Sambalpur",
+      "origin": "Dhanupali Chowk",
+      "destination": "Burla Hospital",
+      "total_stops": 112,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "209",
+      "route_id": "route-209",
+      "region": "Sambalpur",
+      "origin": "Khetrajpur Rly. Station",
+      "destination": "Osou Sambalpur",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "21",
+      "route_id": "route-21",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Khordha New Bus Stand",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "210",
+      "route_id": "route-210",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Jamadarpali Dyke",
+      "total_stops": 20,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "211",
+      "route_id": "route-211",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Jharsuguda",
+      "total_stops": 73,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "212",
+      "route_id": "route-212",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Baragarh",
+      "total_stops": 59,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "213",
+      "route_id": "route-213",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Belpahar",
+      "total_stops": 56,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "213A",
+      "route_id": "route-213A",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Belpahar",
+      "total_stops": 63,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "214",
+      "route_id": "route-214",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Kuchinda",
+      "total_stops": 76,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "215",
+      "route_id": "route-215",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Padiabahal",
+      "total_stops": 62,
+      "baseline": {
+        "geocoded_stops": 6,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 6,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "22A",
+      "route_id": "route-22A",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Khordha Road Station",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "22B",
+      "route_id": "route-22B",
+      "region": "Capital Region",
+      "origin": "Jatani Gate",
+      "destination": "Khordha New Bus Stand",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "23",
+      "route_id": "route-23",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Sum Hospital-IGKC",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "24",
+      "route_id": "route-24",
+      "region": "Capital Region",
+      "origin": "Kalinga Vihar",
+      "destination": "Sai Temple",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "24E",
+      "route_id": "route-24E",
+      "region": "Capital Region",
+      "origin": "Kalinga Vihar",
+      "destination": "Bainchua",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "25",
+      "route_id": "route-25",
+      "region": "Capital Region",
+      "origin": "Dumduma",
+      "destination": "Gadakana",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "26",
+      "route_id": "route-26",
+      "region": "Capital Region",
+      "origin": "Dumduma (Jadupur)",
+      "destination": "Rokat, Rajdhani Engineering College",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "27",
+      "route_id": "route-27",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Bhagwanpur",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "28",
+      "route_id": "route-28",
+      "region": "Capital Region",
+      "origin": "Master Canteen",
+      "destination": "Kalinga Nagar",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "29",
+      "route_id": "route-29",
+      "region": "Capital Region",
+      "origin": "Bhagwanpur",
+      "destination": "Sai Mandir",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "29E",
+      "route_id": "route-29E",
+      "region": "Capital Region",
+      "origin": "Bhagwanpur",
+      "destination": "SBI Colony",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "30",
+      "route_id": "route-30",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Chhatabar -Mahatma Gandhi Academy of",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "300",
+      "route_id": "route-300",
+      "region": "Berhampur",
+      "origin": "NIST college",
+      "destination": "Duduma Colony Bus stand",
+      "total_stops": 46,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 3,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "301",
+      "route_id": "route-301",
+      "region": "Berhampur",
+      "origin": "Berhampur Rail Stn.",
+      "destination": "Parala maharaja college",
+      "total_stops": 35,
+      "baseline": {
+        "geocoded_stops": 4,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 6,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 2
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "302",
+      "route_id": "route-302",
+      "region": "Berhampur",
+      "origin": "Berhampur Railway Station",
+      "destination": "Regidi",
+      "total_stops": 82,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 4,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 3
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "303",
+      "route_id": "route-303",
+      "region": "Berhampur",
+      "origin": "Duduma Colony Bus Stand",
+      "destination": "Gopalpur Bus Stand",
+      "total_stops": 57,
+      "baseline": {
+        "geocoded_stops": 8,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 8,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "303E",
+      "route_id": "route-303E",
+      "region": "Berhampur",
+      "origin": "Duduma Colony Bus stand",
+      "destination": "Dhabaleswar",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "304",
+      "route_id": "route-304",
+      "region": "Berhampur",
+      "origin": "Berhampur Railway Station",
+      "destination": "D.patapur",
+      "total_stops": 98,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 5,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 4
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "304E",
+      "route_id": "route-304E",
+      "region": "Berhampur",
+      "origin": "Berhampur Railway Station",
+      "destination": "Ralaba",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "305",
+      "route_id": "route-305",
+      "region": "Berhampur",
+      "origin": "Haladiapadar Bus Stand",
+      "destination": "Chatrapur",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "306",
+      "route_id": "route-306",
+      "region": "Berhampur",
+      "origin": "Mahatma Gandhi Stadium",
+      "destination": "Sonapur beach",
+      "total_stops": 47,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "307",
+      "route_id": "route-307",
+      "region": "Berhampur",
+      "origin": "Duduma Colony Bus stand",
+      "destination": "Engg.School",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "31",
+      "route_id": "route-31",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Hi-Tech Hospital",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "32",
+      "route_id": "route-32",
+      "region": "Capital Region",
+      "origin": "Baramunda BSABT",
+      "destination": "Lingaraj Temple",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 3,
+        "geometry_status": "EXACT"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 3,
+        "geometry_status": "EXACT",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "EXACT -> EXACT"
+    },
+    {
+      "route_number": "33",
+      "route_id": "route-33",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Pipili",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "34",
+      "route_id": "route-34",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Balakati",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "34E",
+      "route_id": "route-34E",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Trahi Achyut",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "35",
+      "route_id": "route-35",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Rly. Stn.",
+      "destination": "Udaynath College, Adaspur",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "36",
+      "route_id": "route-36",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Mundali",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "37",
+      "route_id": "route-37",
+      "region": "Capital Region",
+      "origin": "Baramunda BSABT",
+      "destination": "Naraj Railway Station",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "38",
+      "route_id": "route-38",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Trimal",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "39",
+      "route_id": "route-39",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "AIIMS",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "40",
+      "route_id": "route-40",
+      "region": "Capital Region",
+      "origin": "AIIMS",
+      "destination": "Sai Mandir",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "400",
+      "route_id": "route-400",
+      "region": "Keonjhar",
+      "origin": null,
+      "destination": null,
+      "total_stops": 33,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "401",
+      "route_id": "route-401",
+      "region": "Keonjhar",
+      "origin": null,
+      "destination": null,
+      "total_stops": 20,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "402",
+      "route_id": "route-402",
+      "region": "Keonjhar",
+      "origin": null,
+      "destination": null,
+      "total_stops": 20,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "403",
+      "route_id": "route-403",
+      "region": "Keonjhar",
+      "origin": null,
+      "destination": null,
+      "total_stops": 23,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "404",
+      "route_id": "route-404",
+      "region": "Keonjhar",
+      "origin": null,
+      "destination": null,
+      "total_stops": 11,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "405",
+      "route_id": "route-405",
+      "region": "Keonjhar",
+      "origin": null,
+      "destination": null,
+      "total_stops": 27,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "41",
+      "route_id": "route-41",
+      "region": "Capital Region",
+      "origin": "Baramunda BSABT",
+      "destination": "Tangi",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "42",
+      "route_id": "route-42",
+      "region": "Capital Region",
+      "origin": "Baramunda BSABT",
+      "destination": "Nandankanan",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "43",
+      "route_id": "route-43",
+      "region": "Capital Region",
+      "origin": "Baramunda BSABT",
+      "destination": "Banamalipur",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "43E",
+      "route_id": "route-43E",
+      "region": "Capital Region",
+      "origin": "Baramunda BSABT",
+      "destination": "Abhyamukhi",
+      "total_stops": 5,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "44",
+      "route_id": "route-44",
+      "region": "Capital Region",
+      "origin": "Baramunda BSABT",
+      "destination": "SVNIRTAR,Olatpur",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "45",
+      "route_id": "route-45",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Jayadev Pitha",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "46",
+      "route_id": "route-46",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Nandankanan",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "47",
+      "route_id": "route-47",
+      "region": "Capital Region",
+      "origin": "Sum Hospital",
+      "destination": "SCB Medical,Cuttack",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "48",
+      "route_id": "route-48",
+      "region": "Capital Region",
+      "origin": "Khordha New Bus Stand",
+      "destination": "Jagatpur,Cuttack",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "49",
+      "route_id": "route-49",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Delanga Hata",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "50",
+      "route_id": "route-50",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Puri Bus Stand",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "EXACT",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> EXACT"
+    },
+    {
+      "route_number": "51",
+      "route_id": "route-51",
+      "region": "Capital Region",
+      "origin": "Baramunda BSABT",
+      "destination": "Puri Bus Stand",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 3,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 2
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "52",
+      "route_id": "route-52",
+      "region": "Capital Region",
+      "origin": "Puri Bus Stand",
+      "destination": "Mangalahata",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "53",
+      "route_id": "route-53",
+      "region": "Capital Region",
+      "origin": "Malatipatpur Bus Stand",
+      "destination": "Shree Mandira",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "54",
+      "route_id": "route-54",
+      "region": "Capital Region",
+      "origin": "NLU, Cuttack",
+      "destination": "Puri Bus Stand",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 2
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "56",
+      "route_id": "route-56",
+      "region": "Capital Region",
+      "origin": "Khordha New Bus Stand",
+      "destination": "Puri Bus Stand",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "56E",
+      "route_id": "route-56E",
+      "region": "Capital Region",
+      "origin": "Puri Bus Stand",
+      "destination": "Khordha Road Station",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> PARTIAL"
+    },
+    {
+      "route_number": "57",
+      "route_id": "route-57",
+      "region": "Capital Region",
+      "origin": "Puri Bus Stand",
+      "destination": "Astaranga",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "58",
+      "route_id": "route-58",
+      "region": "Capital Region",
+      "origin": "Jagatpur,Cuttack",
+      "destination": "Puri Bus Stand",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 2
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "59",
+      "route_id": "route-59",
+      "region": "Capital Region",
+      "origin": "Mahanadi Vihar,Cuttack",
+      "destination": "Puri Bus Stand",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 2
+      },
+      "improved": true,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "61",
+      "route_id": "route-61",
+      "region": "Capital Region",
+      "origin": "Puri Bus Stand",
+      "destination": "Satapada Bus Stand",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "62",
+      "route_id": "route-62",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Suando",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "63",
+      "route_id": "route-63",
+      "region": "Capital Region",
+      "origin": "BSABT",
+      "destination": "Madhabananda Temple, Niali",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "64",
+      "route_id": "route-64",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Jatani Gate",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "65",
+      "route_id": "route-65",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Wonderla Amusement Park",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "66",
+      "route_id": "route-66",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Pathargadia Square",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "70",
+      "route_id": "route-70",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Konark",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "EXACT"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "EXACT",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "EXACT -> EXACT"
+    },
+    {
+      "route_number": "71",
+      "route_id": "route-71",
+      "region": "Capital Region",
+      "origin": "Baramunda ISBT",
+      "destination": "Konark",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 3,
+        "geometry_status": "EXACT",
+        "new_anchors_gained": 2
+      },
+      "improved": true,
+      "transition": "PARTIAL -> EXACT"
+    },
+    {
+      "route_number": "72",
+      "route_id": "route-72",
+      "region": "Capital Region",
+      "origin": "Shree Mandira",
+      "destination": "Madhabnanda Temple, Niali",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "73",
+      "route_id": "route-73",
+      "region": "Capital Region",
+      "origin": "Puri Bus Stand",
+      "destination": "Talabania",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "74",
+      "route_id": "route-74",
+      "region": "Capital Region",
+      "origin": "Puri Railway Station",
+      "destination": "Shree Mandira",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 3,
+        "geometry_status": "EXACT",
+        "new_anchors_gained": 2
+      },
+      "improved": true,
+      "transition": "PARTIAL -> EXACT"
+    },
+    {
+      "route_number": "75",
+      "route_id": "route-75",
+      "region": "Capital Region",
+      "origin": "Shree Mandira",
+      "destination": "Kakatpur",
+      "total_stops": 6,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 3,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "76",
+      "route_id": "route-76",
+      "region": "Capital Region",
+      "origin": "Puri Bus Stand",
+      "destination": "Sakhigopal Temple",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "77",
+      "route_id": "route-77",
+      "region": "Capital Region",
+      "origin": "Puri Bus Stand",
+      "destination": "Nimapada Bus Stand",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "78",
+      "route_id": "route-78",
+      "region": "Capital Region",
+      "origin": "Puri Bus Stand",
+      "destination": "Alarnath",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "79",
+      "route_id": "route-79",
+      "region": "Capital Region",
+      "origin": "Shree Mandira",
+      "destination": "Light House",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "80",
+      "route_id": "route-80",
+      "region": "Capital Region",
+      "origin": "Naraj Police Outpost",
+      "destination": "Agrahat, Charbatia",
+      "total_stops": 5,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "80E",
+      "route_id": "route-80E",
+      "region": "Capital Region",
+      "origin": "Naraj Police Outpost",
+      "destination": "Mangarajpur",
+      "total_stops": 5,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "81",
+      "route_id": "route-81",
+      "region": "Capital Region",
+      "origin": "Barabati Stadium",
+      "destination": "Jagannath Temple, Salepur",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "NONE -> PARTIAL"
+    },
+    {
+      "route_number": "82",
+      "route_id": "route-82",
+      "region": "Capital Region",
+      "origin": "AIRPORT",
+      "destination": "MASTER CANTEEN - SCB Medical",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 1
+      },
+      "improved": true,
+      "transition": "PARTIAL -> CORRIDOR"
+    },
+    {
+      "route_number": "83",
+      "route_id": "route-83",
+      "region": "Capital Region",
+      "origin": "Dhabaleswar",
+      "destination": "Kandarpur",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "83A",
+      "route_id": "route-83A",
+      "region": "Capital Region",
+      "origin": "CDA9",
+      "destination": "Nuapatana",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "84",
+      "route_id": "route-84",
+      "region": "Capital Region",
+      "origin": "Biju pattanaik Park,CDA",
+      "destination": "Madhabananda Temple, Niali",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "85",
+      "route_id": "route-85",
+      "region": "Capital Region",
+      "origin": "Cuttack Netaji Bus Terminal",
+      "destination": "Gadama",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "86",
+      "route_id": "route-86",
+      "region": "Capital Region",
+      "origin": "CDA 9 OD terminal",
+      "destination": "Driems,Tangi",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "87",
+      "route_id": "route-87",
+      "region": "Capital Region",
+      "origin": "Biju Patanaik Park",
+      "destination": "Mahanadi Vihar",
+      "total_stops": 5,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "87E",
+      "route_id": "route-87E",
+      "region": "Capital Region",
+      "origin": "Judicial Academy",
+      "destination": "Nuapada",
+      "total_stops": 4,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "88",
+      "route_id": "route-88",
+      "region": "Capital Region",
+      "origin": "National Law University (O)",
+      "destination": "SCB Hospital",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "89",
+      "route_id": "route-89",
+      "region": "Capital Region",
+      "origin": "SCB Medical",
+      "destination": "Jagadguru Krupalu University",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "89A",
+      "route_id": "route-89A",
+      "region": "Capital Region",
+      "origin": "SCB Medical",
+      "destination": "Judicial Square",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "90",
+      "route_id": "route-90",
+      "region": "Capital Region",
+      "origin": "Khordha New Bus Stand",
+      "destination": "Jagatpur, Cuttack",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "CORRIDOR",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "CORRIDOR -> CORRIDOR"
+    },
+    {
+      "route_number": "91",
+      "route_id": "route-91",
+      "region": "Capital Region",
+      "origin": "Baramunda BSABT",
+      "destination": "Biju Patnaik Park, Cuttack",
+      "total_stops": 3,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "92",
+      "route_id": "route-92",
+      "region": "Capital Region",
+      "origin": "IGKC",
+      "destination": "Sai Temple",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "93",
+      "route_id": "route-93",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Biju Patnaik Park, CDA",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 1,
+        "geometry_status": "PARTIAL",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "PARTIAL -> PARTIAL"
+    },
+    {
+      "route_number": "94",
+      "route_id": "route-94",
+      "region": "Capital Region",
+      "origin": "Babasaheb Bhimrao Ambedkar Bus Terminal (BSABT)",
+      "destination": "SIEP, JATNI",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "NONE -> NONE"
+    },
+    {
+      "route_number": "DD1",
+      "route_id": "route-DD1",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Shree Mandira Parking, Puri",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 2,
+        "geometry_status": "EXACT"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "EXACT",
+        "new_anchors_gained": 0
+      },
+      "improved": false,
+      "transition": "EXACT -> EXACT"
+    },
+    {
+      "route_number": "F1",
+      "route_id": "route-F1",
+      "region": "Capital Region",
+      "origin": "Damana Square",
+      "destination": "KIIT Square",
+      "total_stops": 2,
+      "baseline": {
+        "geocoded_stops": 0,
+        "geometry_status": "NONE"
+      },
+      "phase_6b_proposed": {
+        "geocoded_stops": 2,
+        "geometry_status": "EXACT",
+        "new_anchors_gained": 2
+      },
+      "improved": true,
+      "transition": "NONE -> EXACT"
+    }
+  ]
+}

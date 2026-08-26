@@ -1,0 +1,288 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "6A",
+  "baseline_commit": "e1e9fdf",
+  "total_routes_analyzed": 154,
+  "shared_corridors": [
+    {
+      "corridor_name": "Janpath Arterial Corridor (Bhubaneswar)",
+      "roads": [
+        "Janpath Road",
+        "Master Canteen Square",
+        "Ram Mandir Square",
+        "Vani Vihar Square"
+      ],
+      "routes_serving": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "16",
+        "20",
+        "21",
+        "23",
+        "24"
+      ],
+      "frequency_rank": 1,
+      "key_junctions": [
+        "Master Canteen",
+        "Rajmahal",
+        "Ram Mandir",
+        "Vani Vihar"
+      ],
+      "notes": "Central urban transit corridor connecting Bhubaneswar Railway Station with major commercial, academic, and administrative districts."
+    },
+    {
+      "corridor_name": "NH-16 Twin City Expressway Corridor (Bhubaneswar-Cuttack)",
+      "roads": [
+        "NH-16 Expressway",
+        "Bhubaneswar-Cuttack Highway",
+        "Link Road Cuttack"
+      ],
+      "junctions": [
+        "Baramunda BSABT",
+        "Rasulgarh Square",
+        "Pahala",
+        "Phulnakhara",
+        "Badambadi",
+        "OMP Square"
+      ],
+      "routes_serving": [
+        "16",
+        "17",
+        "18",
+        "19",
+        "24",
+        "25",
+        "50"
+      ],
+      "frequency_rank": 2,
+      "key_junctions": [
+        "Baramunda BSABT",
+        "Rasulgarh Square",
+        "Link Road"
+      ],
+      "notes": "High-speed arterial expressway spine connecting Bhubaneswar and Cuttack metropolitan areas."
+    },
+    {
+      "corridor_name": "NH-316 Jagannath Dham Highway Corridor (Bhubaneswar-Puri)",
+      "roads": [
+        "NH-316",
+        "Bhubaneswar-Puri Highway",
+        "Grand Road Puri"
+      ],
+      "routes_serving": [
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "DD1"
+      ],
+      "frequency_rank": 3,
+      "key_junctions": [
+        "Uttara Square",
+        "Pipili Bypass",
+        "Chandanpur",
+        "Shree Mandira Parking"
+      ],
+      "notes": "Primary pilgrimage and tourism corridor connecting Capital Region with Puri Jagannath Temple."
+    },
+    {
+      "corridor_name": "Infocity / Patia IT Corridor (Bhubaneswar)",
+      "roads": [
+        "Nandankanan Road",
+        "Infocity Avenue",
+        "Patia Main Road"
+      ],
+      "routes_serving": [
+        "10",
+        "11",
+        "13",
+        "23",
+        "33",
+        "F1"
+      ],
+      "frequency_rank": 4,
+      "key_junctions": [
+        "Jayadev Vihar",
+        "Damana Square",
+        "KIIT Square",
+        "Nandankanan"
+      ],
+      "notes": "Key technology, university, and northern residential transport corridor."
+    },
+    {
+      "corridor_name": "Burla / VIMSAR Highway Corridor (Sambalpur)",
+      "roads": [
+        "Sambalpur-Burla Highway",
+        "VIMSAR Medical Avenue"
+      ],
+      "routes_serving": [
+        "200",
+        "201",
+        "205",
+        "208",
+        "215"
+      ],
+      "frequency_rank": 5,
+      "key_junctions": [
+        "Ainthapali ISBT",
+        "Dhanupali Chowk",
+        "Burla Hospital"
+      ],
+      "notes": "Primary Western Odisha medical, educational, and transit spine."
+    }
+  ],
+  "transfer_hubs": [
+    {
+      "hub_key": "HUB_MASTER_CANTEEN",
+      "hub_name": "Master Canteen / Bhubaneswar Railway Station Hub",
+      "city": "Bhubaneswar",
+      "district": "Khordha",
+      "representative_stop_name": "BHUBANESWAR RAILWAY STATION",
+      "representative_lat": 20.266777,
+      "representative_lon": 85.843559,
+      "member_stop_names": [
+        "BHUBANESWAR RAILWAY STATION",
+        "MASTER CANTEEN",
+        "MASTER CANTEEN - SCB MEDICAL"
+      ],
+      "routes_intersecting": [
+        "09",
+        "10",
+        "11",
+        "12",
+        "14",
+        "16",
+        "20",
+        "21",
+        "50",
+        "DD1"
+      ]
+    },
+    {
+      "hub_key": "HUB_BARAMUNDA_BSABT",
+      "hub_name": "Baramunda BSABT / ISBT Interchange Terminal",
+      "city": "Bhubaneswar",
+      "district": "Khordha",
+      "representative_stop_name": "BARAMUNDA BSABT",
+      "representative_lat": 20.273141,
+      "representative_lon": 85.79227,
+      "member_stop_names": [
+        "BARAMUNDA BSABT",
+        "BARAMUNDA ISBT",
+        "BARAMUNDA"
+      ],
+      "routes_intersecting": [
+        "16",
+        "17",
+        "18",
+        "20",
+        "22",
+        "23",
+        "24",
+        "25",
+        "27",
+        "28",
+        "32",
+        "50"
+      ]
+    },
+    {
+      "hub_key": "HUB_BHUBANESWAR_AIRPORT",
+      "hub_name": "Biju Patnaik International Airport Hub",
+      "city": "Bhubaneswar",
+      "district": "Khordha",
+      "representative_stop_name": "BHUBANESWAR AIRPORT",
+      "representative_lat": 20.252295,
+      "representative_lon": 85.813485,
+      "member_stop_names": [
+        "BHUBANESWAR AIRPORT",
+        "AIRPORT",
+        "BIJU PATNAIK INTERNATIONAL AIRPORT, BBSR",
+        "BIJU PATNAIK INTERNATIONAL AIRPORT"
+      ],
+      "routes_intersecting": [
+        "17",
+        "27"
+      ]
+    },
+    {
+      "hub_key": "HUB_SCB_MEDICAL",
+      "hub_name": "SCB Medical College & Hospital Cuttack",
+      "city": "Cuttack",
+      "district": "Cuttack",
+      "representative_stop_name": "SCB MEDICAL",
+      "representative_lat": 20.4725,
+      "representative_lon": 85.8864,
+      "member_stop_names": [
+        "SCB MEDICAL",
+        "SCB MEDICAL,CUTTACK"
+      ],
+      "routes_intersecting": [
+        "18",
+        "24",
+        "30",
+        "31"
+      ]
+    },
+    {
+      "hub_key": "HUB_AINTHAPALI_ISBT",
+      "hub_name": "Ainthapali Inter State Bus Terminal (Sambalpur)",
+      "city": "Sambalpur",
+      "district": "Sambalpur",
+      "representative_stop_name": "AINTHAPALI BUS TERMINAL",
+      "representative_lat": 21.4882,
+      "representative_lon": 83.9875,
+      "member_stop_names": [
+        "AINTHAPALI BUS TERMINAL",
+        "AINTHAPALI CHOWK"
+      ],
+      "routes_intersecting": [
+        "200",
+        "201",
+        "202",
+        "205",
+        "208",
+        "215"
+      ]
+    }
+  ],
+  "stop_aliases": [
+    {
+      "primary_name": "BHUBANESWAR AIRPORT",
+      "alias_name": "BIJU PATNAIK INTERNATIONAL AIRPORT, BBSR",
+      "city": "Bhubaneswar",
+      "alias_type": "naming_variant",
+      "confidence": "CONFIRMED",
+      "evidence_id": "EV-CANONICAL-HUBS-REGISTRY",
+      "notes": "Semantic alias consolidated in canonical hub domain model."
+    },
+    {
+      "primary_name": "BARAMUNDA BSABT",
+      "alias_name": "BARAMUNDA ISBT",
+      "city": "Bhubaneswar",
+      "alias_type": "naming_variant",
+      "confidence": "CONFIRMED",
+      "evidence_id": "EV-CANONICAL-HUBS-REGISTRY",
+      "notes": "Modern Babasaheb Ambedkar Bus Terminal naming variant."
+    },
+    {
+      "primary_name": "SCB MEDICAL",
+      "alias_name": "SCB MEDICAL,CUTTACK",
+      "city": "Cuttack",
+      "alias_type": "naming_variant",
+      "confidence": "CONFIRMED",
+      "evidence_id": "EV-CANONICAL-HUBS-REGISTRY",
+      "notes": "Regional city suffix variation in timetable gazette."
+    }
+  ],
+  "conflicts": [],
+  "geometry_readiness_summary": {
+    "EXACT": 1,
+    "CORRIDOR": 21,
+    "PARTIAL": 62,
+    "NONE": 70
+  }
+}

@@ -1,0 +1,581 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "Phase 6C",
+  "generation_mode": "offline",
+  "research_engine": "deterministic_domain_rules",
+  "batch_size": 25,
+  "status_distribution": {
+    "VERIFIED": 17,
+    "AMBIGUOUS": 3,
+    "CANDIDATE": 5
+  },
+  "validation_records": [
+    {
+      "canonical_stop_name": "KHORDHA NEW BUS STAND",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.1834,
+      "longitude": 85.6212,
+      "candidate_name": "Khordha New Bus Stand (Khordha Town)",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-KHORDHA-NEW-BUS-STAN-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Capital Region Network Directory 2026",
+          "source_type": "official",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Inter-district bus terminus in Khordha district headquarters."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Central bus terminal for Khordha town connecting Bhubaneswar and Puri."
+    },
+    {
+      "canonical_stop_name": "DUDUMA COLONY BUS STAND",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 19.3241,
+      "longitude": 84.7892,
+      "candidate_name": "Duduma Colony Bus Stand",
+      "candidate_region": "Berhampur",
+      "evidence_ids": [
+        "EV-P6C-DUDUMA-COLONY-BUS-ST-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Berhampur AMA Bus Stoppage Details 2026",
+          "source_type": "official",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Terminal stoppage for Berhampur town routes."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "AMA Bus terminus in northern Berhampur residential area."
+    },
+    {
+      "canonical_stop_name": "NH",
+      "status": "AMBIGUOUS",
+      "confidence": "LOW",
+      "latitude": null,
+      "longitude": null,
+      "evidence_ids": [
+        "EV-CRUT-NETMAP-2026"
+      ],
+      "provenance": null,
+      "validation_errors": [],
+      "promotion_rationale": "Model identified multiple plausible locations; preserved ambiguous."
+    },
+    {
+      "canonical_stop_name": "BHAGWANPUR",
+      "status": "CANDIDATE",
+      "confidence": "MEDIUM",
+      "latitude": 20.2482,
+      "longitude": 85.7612,
+      "candidate_name": "Bhagwanpur Industrial Area",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-BHAGWANPUR-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Mo Bus Route 20 & 21 Route Schedule",
+          "source_type": "transit_provider",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Industrial estate near Patrapada, Bhubaneswar."
+        }
+      ],
+      "provenance": "research_approximate",
+      "validation_errors": [],
+      "promotion_rationale": "Plausible candidate resolution with medium confidence; retained as candidate pending field check.",
+      "ambiguity_notes": "Industrial hub in southwest Bhubaneswar."
+    },
+    {
+      "canonical_stop_name": "KHORDHA ROAD STATION",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.1582,
+      "longitude": 85.7042,
+      "candidate_name": "Khurda Road Junction Railway Station",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-KHORDHA-ROAD-STATION-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "East Coast Railway & CRUT Multi-Modal Interchange Register",
+          "source_type": "official",
+          "url": "https://eastcoastrail.indianrailways.gov.in",
+          "supports": "Major East Coast Railway divisional junction at Jatni."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Primary rail junction serving Khordha, Jatni, and Bhubaneswar bypass."
+    },
+    {
+      "canonical_stop_name": "AINTHAPALI CHOWK",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 21.4682,
+      "longitude": 83.9841,
+      "candidate_name": "Ainthapali Chowk / Overbridge",
+      "candidate_region": "Sambalpur",
+      "evidence_ids": [
+        "EV-P6C-AINTHAPALI-CHOWK-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Sambalpur AMA Bus Route Directory 2026",
+          "source_type": "official",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Intersection of NH-53 and city arterial in Ainthapali."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "High-density transit interchange on NH-53 in Sambalpur."
+    },
+    {
+      "canonical_stop_name": "SAI TEMPLE",
+      "status": "AMBIGUOUS",
+      "confidence": "LOW",
+      "latitude": null,
+      "longitude": null,
+      "evidence_ids": [
+        "EV-CRUT-NETMAP-2026"
+      ],
+      "provenance": null,
+      "validation_errors": [],
+      "promotion_rationale": "Model identified multiple plausible locations; preserved ambiguous."
+    },
+    {
+      "canonical_stop_name": "SAI MANDIR",
+      "status": "AMBIGUOUS",
+      "confidence": "LOW",
+      "latitude": null,
+      "longitude": null,
+      "evidence_ids": [
+        "EV-CRUT-NETMAP-2026"
+      ],
+      "provenance": null,
+      "validation_errors": [],
+      "promotion_rationale": "Model identified multiple plausible locations; preserved ambiguous."
+    },
+    {
+      "canonical_stop_name": "BIJU PATNAIK INTERNATIONAL AIRPORT, BBSR",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.2526,
+      "longitude": 85.8178,
+      "candidate_name": "Biju Patnaik International Airport (BPIA)",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-BIJU-PATNAIK-INTERNA-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "Airports Authority of India & Odisha Tourism GIS",
+          "source_type": "official",
+          "url": "https://www.aai.aero",
+          "supports": "International civil aviation airport terminal plaza."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Civil aviation entry plaza and Mo Bus feeder bus bay."
+    },
+    {
+      "canonical_stop_name": "BIJU PATNAIK PARK, CDA",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.4792,
+      "longitude": 85.8341,
+      "candidate_name": "Biju Patnaik Park CDA",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-BIJU-PATNAIK-PARK,-C-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "Cuttack Development Authority & CRUT Network Guide",
+          "source_type": "municipal",
+          "url": "https://cda.nic.in",
+          "supports": "CDA public park stoppage."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "CDA transit node."
+    },
+    {
+      "canonical_stop_name": "BIJU PATNAIK PARK, CUTTACK",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.4792,
+      "longitude": 85.8341,
+      "candidate_name": "Biju Patnaik Park (Cuttack)",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-BIJU-PATNAIK-PARK,-C-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "Cuttack Development Authority & CRUT Network Guide",
+          "source_type": "municipal",
+          "url": "https://cda.nic.in",
+          "supports": "Public park transit node in CDA Sector 9-10 area."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Key recreation and residential transit waypoint in CDA Cuttack."
+    },
+    {
+      "canonical_stop_name": "CHURCH SQUARE",
+      "status": "CANDIDATE",
+      "confidence": "MEDIUM",
+      "latitude": 19.3142,
+      "longitude": 84.7912,
+      "candidate_name": "Church Square (Berhampur)",
+      "candidate_region": "Berhampur",
+      "evidence_ids": [
+        "EV-P6C-CHURCH-SQUARE-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Berhampur AMA Bus Network Plan",
+          "source_type": "transit_provider",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Centennial Church intersection on Giri Road, Berhampur."
+        }
+      ],
+      "provenance": "research_approximate",
+      "validation_errors": [],
+      "promotion_rationale": "Plausible candidate resolution with medium confidence; retained as candidate pending field check.",
+      "ambiguity_notes": "Commercial intersection near Giri Market."
+    },
+    {
+      "canonical_stop_name": "JAGATPUR,CUTTACK",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.5124,
+      "longitude": 85.9241,
+      "candidate_name": "Jagatpur Industrial Estate Square",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-JAGATPUR,CUTTACK-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Capital Region Schedule 2026",
+          "source_type": "official",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Industrial and commercial hub across Mahanadi river."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Northern industrial node of Cuttack on NH-16."
+    },
+    {
+      "canonical_stop_name": "JATANI GATE",
+      "status": "CANDIDATE",
+      "confidence": "MEDIUM",
+      "latitude": 20.1624,
+      "longitude": 85.7121,
+      "candidate_name": "Jatani Railway Gate / Town Center",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-JATANI-GATE-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Capital Region Mo Bus Schedule",
+          "source_type": "transit_provider",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Commercial entrance to Jatni municipality near Khurda Road."
+        }
+      ],
+      "provenance": "research_approximate",
+      "validation_errors": [],
+      "promotion_rationale": "Plausible candidate resolution with medium confidence; retained as candidate pending field check.",
+      "ambiguity_notes": "Jatni municipal node."
+    },
+    {
+      "canonical_stop_name": "MADHABANANDA TEMPLE, NIALI",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.1412,
+      "longitude": 86.0612,
+      "candidate_name": "Sobhaneswar / Madhabananda Temple (Niali)",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-MADHABANANDA-TEMPLE,-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "Odisha State Archaeology & CRUT Regional Route",
+          "source_type": "official",
+          "url": "https://odishatourism.gov.in",
+          "supports": "Ancient heritage Vishnu temple and pilgrim terminus in Niali block, Cuttack."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Eastern heritage terminus in Prachi valley."
+    },
+    {
+      "canonical_stop_name": "NARAJ POLICE OUTPOST",
+      "status": "CANDIDATE",
+      "confidence": "MEDIUM",
+      "latitude": 20.4812,
+      "longitude": 85.7541,
+      "candidate_name": "Naraj Police Outpost / Barrage Road",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-NARAJ-POLICE-OUTPOST-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Cuttack Feeder Route Schedule",
+          "source_type": "transit_provider",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Police outpost near Naraj barrage, Cuttack."
+        }
+      ],
+      "provenance": "research_approximate",
+      "validation_errors": [],
+      "promotion_rationale": "Plausible candidate resolution with medium confidence; retained as candidate pending field check.",
+      "ambiguity_notes": "Way station on Cuttack-Banki route."
+    },
+    {
+      "canonical_stop_name": "BHUBANESWAR RLY. STN.",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.2662,
+      "longitude": 85.8436,
+      "candidate_name": "Bhubaneswar Railway Station",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-BHUBANESWAR-RLY-STN-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Mo Bus Route Network 2026",
+          "source_type": "official",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Central railway terminus at Master Canteen."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Master Canteen multi-modal hub."
+    },
+    {
+      "canonical_stop_name": "NARAJ RAILWAY STATION",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.4721,
+      "longitude": 85.7612,
+      "candidate_name": "Naraj Marthapur Railway Station",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-NARAJ-RAILWAY-STATIO-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "East Coast Railway & CRUT Transit Guide",
+          "source_type": "official",
+          "url": "https://eastcoastrail.indianrailways.gov.in",
+          "supports": "Passenger railway station on Cuttack-Talcher rail line."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Naraj passenger station near Mahanadi barrage."
+    },
+    {
+      "canonical_stop_name": "PIPILI",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.1142,
+      "longitude": 85.8312,
+      "candidate_name": "Pipili Applique Village / Bus Stand",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-PIPILI-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Route 33 & 34 Timetable and Odisha Tourism GIS",
+          "source_type": "official",
+          "url": "https://odishatourism.gov.in",
+          "supports": "Applique heritage craft town on Bhubaneswar-Puri Highway (NH-316)."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Famous applique heritage center on NH-316."
+    },
+    {
+      "canonical_stop_name": "BELPAHAR",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 21.8142,
+      "longitude": 83.8641,
+      "candidate_name": "Belpahar Town Bus Stand",
+      "candidate_region": "Sambalpur",
+      "evidence_ids": [
+        "EV-P6C-BELPAHAR-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Sambalpur Western Transit Network 2026",
+          "source_type": "official",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Industrial refractory town transit stop in Jharsuguda/Sambalpur periphery."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Western industrial transit node on NH-49."
+    },
+    {
+      "canonical_stop_name": "DHABALESWAR",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.5012,
+      "longitude": 85.7891,
+      "candidate_name": "Dhabaleswar Island Temple / Ghat",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-DHABALESWAR-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "Odisha Tourism GIS Portal",
+          "source_type": "official",
+          "url": "https://odishatourism.gov.in",
+          "supports": "Historic Shiva island shrine on Mahanadi river, Athagarh/Cuttack."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Renowned island temple reached via suspension bridge / ferry."
+    },
+    {
+      "canonical_stop_name": "GHANTESWARI TEMPLE",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 21.3412,
+      "longitude": 83.9241,
+      "candidate_name": "Maa Ghanteswari Temple (Chiplima)",
+      "candidate_region": "Sambalpur",
+      "evidence_ids": [
+        "EV-P6C-GHANTESWARI-TEMPLE-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "Odisha Tourism GIS & CRUT Sambalpur Tourism Feeder",
+          "source_type": "official",
+          "url": "https://odishatourism.gov.in",
+          "supports": "Renowned bell temple pilgrimage destination at Chiplima, Sambalpur."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Mahanadi river pilgrimage and tourism terminus."
+    },
+    {
+      "canonical_stop_name": "NUAGAON",
+      "status": "CANDIDATE",
+      "confidence": "MEDIUM",
+      "latitude": 22.2582,
+      "longitude": 84.7741,
+      "candidate_name": "Nuagaon Chowk (Rourkela)",
+      "candidate_region": "Rourkela",
+      "evidence_ids": [
+        "EV-P6C-NUAGAON-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Rourkela Mo Bus Route 100 Directory",
+          "source_type": "transit_provider",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Northwestern township junction on SH-10."
+        }
+      ],
+      "provenance": "research_approximate",
+      "validation_errors": [],
+      "promotion_rationale": "Plausible candidate resolution with medium confidence; retained as candidate pending field check.",
+      "ambiguity_notes": "Western commercial junction in Sundargarh."
+    },
+    {
+      "canonical_stop_name": "BERHAMPUR RAIL STN.",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 19.315,
+      "longitude": 84.7941,
+      "candidate_name": "Berhampur Railway Station",
+      "candidate_region": "Berhampur",
+      "evidence_ids": [
+        "EV-P6C-BERHAMPUR-RAIL-STN-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "East Coast Railway & CRUT AMA Bus Directory",
+          "source_type": "official",
+          "url": "https://eastcoastrail.indianrailways.gov.in",
+          "supports": "Main railway station of Berhampur."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Berhampur main rail terminus."
+    },
+    {
+      "canonical_stop_name": "CDA 9 OD TERMINAL",
+      "status": "VERIFIED",
+      "confidence": "HIGH",
+      "latitude": 20.4841,
+      "longitude": 85.8284,
+      "candidate_name": "CDA Sector 9 Origin-Destination Terminal",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-CDA-9-OD-TERMINAL-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "Cuttack Development Authority & CRUT Schedule",
+          "source_type": "official",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Modern OD bus terminus in CDA Sector 9."
+        }
+      ],
+      "provenance": "official_source",
+      "validation_errors": [],
+      "promotion_rationale": "High-confidence model resolution backed by verified official evidence and valid spatial bounds.",
+      "ambiguity_notes": "Origin/destination terminus for Mo Bus urban routes in Cuttack CDA."
+    }
+  ]
+}

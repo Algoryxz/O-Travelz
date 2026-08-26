@@ -1,0 +1,1178 @@
+{
+  "metadata": {
+    "generated_at": "2026-08-24T09:50:30.323292",
+    "source_directory": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\research\\transit\\official",
+    "total_documents": 9,
+    "extraction_tools": [
+      "pdfplumber",
+      "pymupdf"
+    ]
+  },
+  "documents": [
+    {
+      "filename": "01dd4cef-b9c3-4a5a-8b3d-00a80578469d_Rourkela-Updated-Route-w.e.f-11.04.26.pdf",
+      "clean_name": "Rourkela Updated Route w.e.f 11.04.26",
+      "file_size_bytes": 6562435,
+      "file_size_mb": 6.26,
+      "page_count": 28,
+      "document_title": "Rourkela Updated Route w.e.f 11.04.26",
+      "operator": "unknown",
+      "network_type": "unknown",
+      "geographic_coverage": {
+        "cities": [
+          "Rourkela"
+        ],
+        "districts": []
+      },
+      "document_types": [
+        "route_details",
+        "route_update"
+      ],
+      "apparent_date": "11.04.26",
+      "extraction_type": "mixed_text_and_image",
+      "extraction_engine": "pymupdf",
+      "total_text_chars": 3971,
+      "pages_with_text": 6,
+      "total_images": 22,
+      "tables_extracted": 12,
+      "page_details": [
+        {
+          "page_number": 1,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 2,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 3,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 4,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 952,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 5,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 6,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 232,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 7,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 8,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 9,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 10,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 475,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 11,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 537,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 12,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 13,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 14,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 15,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 16,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 17,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 18,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 19,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 20,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 21,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 22,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 23,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 24,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 25,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 26,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 987,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 27,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 788,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 28,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        }
+      ],
+      "text_preview": "--- PAGE 1 --- |  |  |  | --- PAGE 2 --- |  |  |  | --- PAGE 3 --- |  |  |  | --- PAGE 4 --- |  | VEDVYAS | JHIRPANI | ROUTE NO. | 102 | MADHUSUDAN BHAWANT | JJ MARKET | VSS MARKET | CHHEND CHOWK | PLUTONE MALL | SOS VILLAGE | ABHIGYAN CHOWK | SPACE CHOWK | SECTOR 13 | SECTOR 9 | SECTOR 8 | SECTOR 15 | SECTOR 7 OR 15 CHOWK | SECTOR 7 OR 17 CHOWK | TELEPHONE BHAWAN | BHANJA BHAWAN | AMBAGAN CHOWK | ISPAT NEHRU PARK | ISPAT GENERAL HOSPITAL | RSP ISPAT BHAWAN | ISPAT NEHRU PARK CHOWK | AMBAGAN CHOWK | ISPAT LIBRARY | SECTOR 19 | SECTOR 20 | ROURKELA CLUB | HILL TOP CHOWK | KOEL NAGAR D",
+      "raw_text_file": "raw_text\\01dd4cef-b9c3-4a5a-8b3d-00a80578469d_Rourkela-Updated-Route-w.e.f-11.04.26.txt",
+      "tables_file": "raw_text\\01dd4cef-b9c3-4a5a-8b3d-00a80578469d_Rourkela-Updated-Route-w.e.f-11.04.26_tables.json"
+    },
+    {
+      "filename": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
+      "clean_name": "Updated Berhampur Detailed stoppages 24april2026",
+      "file_size_bytes": 2027278,
+      "file_size_mb": 1.93,
+      "page_count": 14,
+      "document_title": "Updated Berhampur Detailed stoppages 24april2026",
+      "operator": "unknown",
+      "network_type": "unknown",
+      "geographic_coverage": {
+        "cities": [
+          "Berhampur"
+        ],
+        "districts": []
+      },
+      "document_types": [
+        "route_details",
+        "stop_list",
+        "route_update"
+      ],
+      "apparent_date": "24april2026",
+      "extraction_type": "text_based",
+      "extraction_engine": "pymupdf",
+      "total_text_chars": 10484,
+      "pages_with_text": 14,
+      "total_images": 0,
+      "tables_extracted": 28,
+      "page_details": [
+        {
+          "page_number": 1,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 804,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 2,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 891,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 3,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 557,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 4,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 871,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 5,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 989,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 6,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 807,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 7,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 642,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 8,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 921,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 9,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 802,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 10,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 918,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 11,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 397,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 12,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 372,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 13,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 743,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        },
+        {
+          "page_number": 14,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 770,
+          "has_text": true,
+          "image_count": 0,
+          "table_count": 2
+        }
+      ],
+      "text_preview": "--- PAGE 1 --- |  | DUDUMA COLONY   | NEW BUS STAND | FIRST GATE | HARIDAKHANDI CHAKA | KATHA MANTU CHAKA | GANESH NAGAR | MENTU CHAKA | RAJA RANI APARTMENT  | AMBA MARKET  | HOUSING BOARD COLONY | SHIVASHAKIT HALL | PREM NAGAR SQUARE | REGISTER OFFICE | MAHATMA GANDHI STADIUM | GANDHI NAGAR | CONGRESS BHABAN | KHALLIKOTE COLLEGE | CHURCH SQUARE | BIJIPUR SQUARE | BERHAMPUR RAILWAY STATION | BIJIPUR SQUARE | GOSANINUGAA SANTOSHI  | TEMPLE | BIJIPUR STATE BANK | GOKUL DHAAM | GOSANINUGAA POLICE STATION | UTARESWARA TEMPLE | RAJ DHOBA STREET | ANDHPASARA S",
+      "raw_text_file": "raw_text\\15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.txt",
+      "tables_file": "raw_text\\15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026_tables.json"
+    },
+    {
+      "filename": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "clean_name": "06 Brahmapur Schedule wef 01.06.26",
+      "file_size_bytes": 215919,
+      "file_size_mb": 0.21,
+      "page_count": 3,
+      "document_title": "06 Brahmapur Schedule wef 01.06.26",
+      "operator": "CRUT",
+      "network_type": "AMA Bus",
+      "geographic_coverage": {
+        "cities": [
+          "Berhampur"
+        ],
+        "districts": []
+      },
+      "document_types": [
+        "schedule",
+        "route_details",
+        "network_map"
+      ],
+      "apparent_date": "01.06.26",
+      "extraction_type": "text_based",
+      "extraction_engine": "pymupdf",
+      "total_text_chars": 5385,
+      "pages_with_text": 3,
+      "total_images": 3,
+      "tables_extracted": 11,
+      "page_details": [
+        {
+          "page_number": 1,
+          "width": 612.0,
+          "height": 792.0,
+          "text_length": 2304,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 4
+        },
+        {
+          "page_number": 2,
+          "width": 612.0,
+          "height": 792.0,
+          "text_length": 1232,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 5
+        },
+        {
+          "page_number": 3,
+          "width": 612.0,
+          "height": 792.0,
+          "text_length": 1849,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 2
+        }
+      ],
+      "text_preview": "--- PAGE 1 --- |  | Schedule for AMA Bus Operations in Brahmapur w.e.f. 01.06.2026 | Route - 300: NIST college - Duduma Colony Bus stand | Duduma Colony Bus | stand | 04:25(AC) 04:50(AC) 05:15(AC) 05:40(AC) 06:05(AC) 06:20(AC) 06:45(AC) | 07:15(AC) 07:40(AC) 08:05(AC) 08:30(AC) 08:55(AC) 09:20(AC) 09:45(AC) | 10:10(AC) 10:40(AC) 11:10(AC) 11:35(AC) 12:00(AC) 12:25(AC) 12:50(AC) | 13:15(AC) 14:40(AC) 15:10(AC) 15:40(AC) 16:05(AC) 16:30(AC) 16:55(AC) | 17:20(AC) 17:45(AC) 18:10(AC) 18:40(AC) 19:10(AC) 19:35(AC) 20:00",
+      "raw_text_file": "raw_text\\2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.txt",
+      "tables_file": "raw_text\\2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26_tables.json"
+    },
+    {
+      "filename": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "clean_name": "RKL   Schedule w.e.f.11.04.26  New ",
+      "file_size_bytes": 469621,
+      "file_size_mb": 0.45,
+      "page_count": 5,
+      "document_title": "RKL   Schedule w.e.f.11.04.26  New ",
+      "operator": "CRUT",
+      "network_type": "AMA Bus",
+      "geographic_coverage": {
+        "cities": [
+          "Rourkela"
+        ],
+        "districts": []
+      },
+      "document_types": [
+        "schedule",
+        "route_details"
+      ],
+      "apparent_date": "11.04.26",
+      "extraction_type": "text_based",
+      "extraction_engine": "pymupdf",
+      "total_text_chars": 9615,
+      "pages_with_text": 5,
+      "total_images": 5,
+      "tables_extracted": 25,
+      "page_details": [
+        {
+          "page_number": 1,
+          "width": 612.0,
+          "height": 792.0,
+          "text_length": 1799,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 4
+        },
+        {
+          "page_number": 2,
+          "width": 612.0,
+          "height": 792.0,
+          "text_length": 2515,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 4
+        },
+        {
+          "page_number": 3,
+          "width": 612.0,
+          "height": 792.0,
+          "text_length": 2447,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 7
+        },
+        {
+          "page_number": 4,
+          "width": 612.0,
+          "height": 792.0,
+          "text_length": 1586,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 7
+        },
+        {
+          "page_number": 5,
+          "width": 612.0,
+          "height": 792.0,
+          "text_length": 1268,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 3
+        }
+      ],
+      "text_preview": "--- PAGE 1 --- |  |   | Schedule for Ama Bus Operations in Rourkela w.e.f. 11.04.2026  |   | Route 100: Rourkela New Bus Stand - Birsa Munda Hockey Stadium (via Ring Road, IGH, Chend Colony)  | Rourkela New  | Bus Stand  | 07:00(AC) 07:45(AC) 08:30(AC) 09:35(AC) 10:20(AC) 11:00(AC) 11:55(AC) 12:40(AC)  | 13:35(AC) 14:45(AC) 15:35(AC) 16:20(AC) 17:15(AC) 18:00(AC) 18:45(AC) 19:40(AC)  | 20:20(AC)  | Airport  | 08:20(AC) 09:05(AC) 09:50(AC) 10:45(AC) 11:30(AC) 12:10(AC) 13:20(AC) 14:25(AC)  | 15:15(AC) 16:10(AC) 16:50(AC) ",
+      "raw_text_file": "raw_text\\3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.txt",
+      "tables_file": "raw_text\\3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-_tables.json"
+    },
+    {
+      "filename": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "clean_name": "07 New Schedule CR  w.e.f 21.08.2026",
+      "file_size_bytes": 234037,
+      "file_size_mb": 0.22,
+      "page_count": 20,
+      "document_title": "07 New Schedule CR  w.e.f 21.08.2026",
+      "operator": "CRUT",
+      "network_type": "AMA Bus",
+      "geographic_coverage": {
+        "cities": [
+          "Bhubaneswar",
+          "Cuttack",
+          "Puri"
+        ],
+        "districts": []
+      },
+      "document_types": [
+        "schedule",
+        "route_details"
+      ],
+      "apparent_date": "21.08.2026",
+      "extraction_type": "text_based",
+      "extraction_engine": "pymupdf",
+      "total_text_chars": 42199,
+      "pages_with_text": 20,
+      "total_images": 21,
+      "tables_extracted": 96,
+      "page_details": [
+        {
+          "page_number": 1,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2519,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 3
+        },
+        {
+          "page_number": 2,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2749,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 3
+        },
+        {
+          "page_number": 3,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2721,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 3
+        },
+        {
+          "page_number": 4,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 1943,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 4
+        },
+        {
+          "page_number": 5,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2633,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 3
+        },
+        {
+          "page_number": 6,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2278,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 4
+        },
+        {
+          "page_number": 7,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2669,
+          "has_text": true,
+          "image_count": 2,
+          "table_count": 4
+        },
+        {
+          "page_number": 8,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2094,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 5
+        },
+        {
+          "page_number": 9,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2679,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 4
+        },
+        {
+          "page_number": 10,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 1887,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 6
+        },
+        {
+          "page_number": 11,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2034,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 6
+        },
+        {
+          "page_number": 12,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 1643,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 7
+        },
+        {
+          "page_number": 13,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2096,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 5
+        },
+        {
+          "page_number": 14,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 1160,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 7
+        },
+        {
+          "page_number": 15,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 1941,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 6
+        },
+        {
+          "page_number": 16,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 1765,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 6
+        },
+        {
+          "page_number": 17,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2471,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 4
+        },
+        {
+          "page_number": 18,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 2124,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 5
+        },
+        {
+          "page_number": 19,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 1582,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 6
+        },
+        {
+          "page_number": 20,
+          "width": 595.3,
+          "height": 841.9,
+          "text_length": 1211,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 5
+        }
+      ],
+      "text_preview": "--- PAGE 1 --- |  | Schedule for Regular Ama Bus Operations in Capital Region w.e.f. 21.08.2026 | Route – F1: Damana Square - KIIT Square | Damana | Square | 06:00(AC) 06:10(AC) 06:20(AC) 06:30(AC) 06:40(AC) 06:50(AC) 07:00(AC) 07:10(AC) | 07:20(AC) 07:30(AC) 07:40(AC) 07:50(AC) 08:00(AC) 08:10(AC) 08:20(AC) 08:30(AC) | 08:40(AC) 08:50(AC) 09:00(AC) 09:10(AC) 09:20(AC) 09:30(AC) 09:40(AC) 09:50(AC) | 10:00(AC) 10:10(AC) 10:20(AC) 10:30(AC) 10:40(AC) 10:50(AC) 11:00(AC) 11:10(AC) | 11:20(AC) 11:30(AC) 11:45(AC) 12:0",
+      "raw_text_file": "raw_text\\6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.txt",
+      "tables_file": "raw_text\\6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026_tables.json"
+    },
+    {
+      "filename": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "clean_name": "Ama Bus Sambalpur Schedule   w.e.f.01.07 2026",
+      "file_size_bytes": 51385,
+      "file_size_mb": 0.05,
+      "page_count": 4,
+      "document_title": "Ama Bus Sambalpur Schedule   w.e.f.01.07 2026",
+      "operator": "CRUT",
+      "network_type": "AMA Bus",
+      "geographic_coverage": {
+        "cities": [
+          "Sambalpur",
+          "Jharsuguda"
+        ],
+        "districts": []
+      },
+      "document_types": [
+        "schedule",
+        "route_details"
+      ],
+      "apparent_date": null,
+      "extraction_type": "text_based",
+      "extraction_engine": "pymupdf",
+      "total_text_chars": 8687,
+      "pages_with_text": 4,
+      "total_images": 4,
+      "tables_extracted": 17,
+      "page_details": [
+        {
+          "page_number": 1,
+          "width": 595.5,
+          "height": 842.0,
+          "text_length": 2377,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 3
+        },
+        {
+          "page_number": 2,
+          "width": 595.5,
+          "height": 842.0,
+          "text_length": 2683,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 4
+        },
+        {
+          "page_number": 3,
+          "width": 595.5,
+          "height": 842.0,
+          "text_length": 2019,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 5
+        },
+        {
+          "page_number": 4,
+          "width": 595.5,
+          "height": 842.0,
+          "text_length": 1608,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 5
+        }
+      ],
+      "text_preview": "--- PAGE 1 --- |  | AMA BUS OPERATION IN SAMBALPUR w.e.f 1 -7-2026 | Route -200 [Khetrajpur Railway station - City Railway station] | Khetrajpur Rly. | Station | 05:30 05:45 (AC) 06:00 06:20 06:40 (AC) 07:00 07:20 (AC) 07:40 08:00 08:20 (AC) | 08:40 09:00 (AC) 09:20 09:40 10:00 (AC) 10:20 10:40 (AC) 11:00 11:20 11:40 (AC) | 12:00 12:30 (AC) 13:00 13:30 14:00 14:30 (AC) 15:00 15:20 (AC) 15:40 16:00 | 16:20 (AC) 16:40 17:00 (AC) 17:20 17:40 18:00 (AC) 18:20 18:40 (AC) 19:00 19:20 | 19:40 (AC) 20:00 20:20 (AC) 20:40 2",
+      "raw_text_file": "raw_text\\8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.txt",
+      "tables_file": "raw_text\\8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026_tables.json"
+    },
+    {
+      "filename": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "clean_name": "Sambalpur Ama Bus Stoppage Details 5 7 2026",
+      "file_size_bytes": 2509378,
+      "file_size_mb": 2.39,
+      "page_count": 12,
+      "document_title": "Sambalpur Ama Bus Stoppage Details 5 7 2026",
+      "operator": "CRUT",
+      "network_type": "AMA Bus",
+      "geographic_coverage": {
+        "cities": [
+          "Sambalpur",
+          "Jharsuguda"
+        ],
+        "districts": []
+      },
+      "document_types": [
+        "route_details",
+        "stop_list"
+      ],
+      "apparent_date": null,
+      "extraction_type": "text_based",
+      "extraction_engine": "pymupdf",
+      "total_text_chars": 11099,
+      "pages_with_text": 12,
+      "total_images": 12,
+      "tables_extracted": 35,
+      "page_details": [
+        {
+          "page_number": 1,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 597,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 3
+        },
+        {
+          "page_number": 2,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 567,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 4
+        },
+        {
+          "page_number": 3,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 1270,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 3
+        },
+        {
+          "page_number": 4,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 1252,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 3
+        },
+        {
+          "page_number": 5,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 412,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 3
+        },
+        {
+          "page_number": 6,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 1262,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 4
+        },
+        {
+          "page_number": 7,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 994,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 4
+        },
+        {
+          "page_number": 8,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 995,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 2
+        },
+        {
+          "page_number": 9,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 1150,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 2
+        },
+        {
+          "page_number": 10,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 1314,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 2
+        },
+        {
+          "page_number": 11,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 687,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 3
+        },
+        {
+          "page_number": 12,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 599,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 2
+        }
+      ],
+      "text_preview": "--- PAGE 1 --- |  | AINTHAPALI BUS TERMINAL | NUAJAMADA | ROUTE NO. | 205 | UP | (VIA - HIRAKUD  COLLEGE, VSS CHOWK, DURGA MANDIR CHOWK) | AINTHAPALI BUS TERMINAL | AINTHAPALI CHOWK | TPWODL CHOWK | PANCHAGOCHHIA | VIKASH SCHOOL  | BAREIPALI | TRUCK ASSOCIATION | RMC OFFICE | GOPALPALI | REMED CHOWK | BHANGAMUNDA | TIKIRAPADA | SAINATH COLONY | RK RICE MILL | LARPANK | RAJA PADA | HIRAKUD  COLLEGE | NUAGUJATAL | NUAJAMADA CHOWK | GUNDURUPADA | ALIND CHOWK | SMELTER MAIN GATE | DURGA MANDIR CHOWK | IDC CHOWK | SAMALESWARI TEMPLE, HIRAKUD | ITI COLONY | VSS CHOWK | ",
+      "raw_text_file": "raw_text\\a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.txt",
+      "tables_file": "raw_text\\a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026_tables.json"
+    },
+    {
+      "filename": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "clean_name": "Keonjhar Detailed Stoppages",
+      "file_size_bytes": 22268686,
+      "file_size_mb": 21.24,
+      "page_count": 6,
+      "document_title": "Keonjhar Detailed Stoppages",
+      "operator": "unknown",
+      "network_type": "unknown",
+      "geographic_coverage": {
+        "cities": [
+          "Keonjhar"
+        ],
+        "districts": []
+      },
+      "document_types": [
+        "route_details",
+        "stop_list"
+      ],
+      "apparent_date": null,
+      "extraction_type": "text_based",
+      "extraction_engine": "pymupdf",
+      "total_text_chars": 2783,
+      "pages_with_text": 6,
+      "total_images": 6,
+      "tables_extracted": 12,
+      "page_details": [
+        {
+          "page_number": 1,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 667,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 2
+        },
+        {
+          "page_number": 2,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 464,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 2
+        },
+        {
+          "page_number": 3,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 444,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 2
+        },
+        {
+          "page_number": 4,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 435,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 2
+        },
+        {
+          "page_number": 5,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 306,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 2
+        },
+        {
+          "page_number": 6,
+          "width": 1080.0,
+          "height": 1080.0,
+          "text_length": 467,
+          "has_text": true,
+          "image_count": 1,
+          "table_count": 2
+        }
+      ],
+      "text_preview": "--- PAGE 1 --- |  | GOVT HOSPITAL, SUAKATI | RIMULI HIGHWAY | (VIA - SANAGHAGHARA, DISTRICT HOSPITAL, COLLECTORATE CIRCLE, RTO OFFICE, NARANPUR) | ROUTE NO. | 400 | JAIL ROAD | BSNL CHOWK | BIJU PATTANAIK CHOWK | COLLECTORATE CIRCLE | LABANYA BUS STAND | NEW COURT CHOWK | RTO OFFICE | GOVT. WOMENS COLLEGE | MANDUA | TASAR SILK PARK | TANGARPALSA | NARANPUR RAAILWAY STN. ROAD | NARANPUR | NARANPUR DUBURI JN. | NARANPUR HIGH SCHOOL | KISS CAMPUS | RIMULI HIGHWAY CHOWK | GOVT HOSPITAL, SUAKATI | SUAKATI SQUARE | JAMUDIA | SARUKUDARA CHOWK | BADA GHAGHAR",
+      "raw_text_file": "raw_text\\cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.txt",
+      "tables_file": "raw_text\\cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages_tables.json"
+    },
+    {
+      "filename": "Latest_MO_BUS_Full_Network_Final_English_2_For_Odia_and_English_compressed.pdf",
+      "clean_name": "Latest MO BUS Full Network Final English 2 For Odia and English compressed",
+      "file_size_bytes": 3243293,
+      "file_size_mb": 3.09,
+      "page_count": 2,
+      "document_title": "Latest MO BUS Full Network Final English 2 For Odia and English compressed",
+      "operator": "CRUT",
+      "network_type": "Mo Bus",
+      "geographic_coverage": {
+        "cities": [],
+        "districts": []
+      },
+      "document_types": [
+        "other"
+      ],
+      "apparent_date": null,
+      "extraction_type": "image_based_ocr_required",
+      "extraction_engine": "pymupdf",
+      "total_text_chars": 0,
+      "pages_with_text": 0,
+      "total_images": 2,
+      "tables_extracted": 0,
+      "page_details": [
+        {
+          "page_number": 1,
+          "width": 595.0,
+          "height": 842.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        },
+        {
+          "page_number": 2,
+          "width": 595.0,
+          "height": 842.0,
+          "text_length": 0,
+          "has_text": false,
+          "image_count": 1,
+          "table_count": 0
+        }
+      ],
+      "text_preview": "--- PAGE 1 --- |  |  |  | --- PAGE 2 ---",
+      "raw_text_file": "raw_text\\Latest_MO_BUS_Full_Network_Final_English_2_For_Odia_and_English_compressed.txt",
+      "tables_file": null
+    }
+  ],
+  "summary": {
+    "total_documents": 9,
+    "total_pages": 94,
+    "total_size_mb": 35.84,
+    "text_based_docs": 7,
+    "image_based_docs": 1,
+    "mixed_docs": 1,
+    "docs_with_tables": 8,
+    "operators_found": [
+      "unknown",
+      "CRUT"
+    ],
+    "networks_found": [
+      "unknown",
+      "Mo Bus",
+      "AMA Bus"
+    ],
+    "cities_found": [
+      "Bhubaneswar",
+      "Rourkela",
+      "Cuttack",
+      "Keonjhar",
+      "Puri",
+      "Sambalpur",
+      "Jharsuguda",
+      "Berhampur"
+    ]
+  }
+}

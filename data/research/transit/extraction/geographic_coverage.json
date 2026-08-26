@@ -1,0 +1,57 @@
+{
+  "regions": {
+    "Capital Region": {
+      "routes": 95,
+      "stops": 0,
+      "schedules": 195
+    },
+    "Rourkela": {
+      "routes": 25,
+      "stops": 0,
+      "schedules": 51
+    },
+    "Berhampur": {
+      "routes": 10,
+      "stops": 0,
+      "schedules": 22
+    },
+    "Sambalpur": {
+      "routes": 17,
+      "stops": 0,
+      "schedules": 34
+    },
+    "Keonjhar": {
+      "routes": 6,
+      "stops": 0,
+      "schedules": 0
+    }
+  },
+  "cities": {
+    "Berhampur": {
+      "stops": 294
+    },
+    "Sambalpur": {
+      "stops": 366
+    },
+    "Keonjhar": {
+      "stops": 105
+    },
+    "Rourkela": {
+      "stops": 192
+    },
+    "Bhubaneswar": {
+      "stops": 109
+    }
+  },
+  "districts_represented": [
+    "Khordha",
+    "Cuttack",
+    "Puri",
+    "Sundargarh",
+    "Sambalpur",
+    "Jharsuguda",
+    "Ganjam",
+    "Keonjhar"
+  ],
+  "note": "District assignments are based on known city-district mappings, not from the PDFs directly."
+}

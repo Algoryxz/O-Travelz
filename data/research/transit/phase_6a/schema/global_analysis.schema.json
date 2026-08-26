@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OTravelzGlobalAnalysis",
+  "description": "Schema for the global network analysis artifact in Phase 6A.",
+  "type": "object",
+  "required": [
+    "project",
+    "phase",
+    "baseline_commit",
+    "total_routes_analyzed",
+    "shared_corridors",
+    "transfer_hubs",
+    "stop_aliases",
+    "conflicts",
+    "geometry_readiness_summary"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "project": { "type": "string", "enum": ["O-TRAVELZ"] },
+    "phase": { "type": "string", "enum": ["6A"] },
+    "baseline_commit": { "type": "string" },
+    "total_routes_analyzed": { "type": "integer", "minimum": 154, "maximum": 154 },
+    "is_synthetic_test_fixture": { "type": "boolean" },
+    "notes": { "type": ["string", "object", "null"] },
+    "shared_corridors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["corridor_name", "roads", "routes_serving", "frequency_rank"],
+        "additionalProperties": false,
+        "properties": {
+          "corridor_name": { "type": "string", "minLength": 1 },
+          "roads": { "type": "array", "items": { "type": "string" } },
+          "routes_serving": { "type": "array", "items": { "type": "string" } },
+          "frequency_rank": { "type": "integer", "minimum": 1 },
+          "key_junctions": { "type": "array", "items": { "type": "string" } },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "transfer_hubs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hub_key", "hub_name", "city", "routes_intersecting"],
+        "additionalProperties": false,
+        "properties": {
+          "hub_key": { "type": "string", "minLength": 1 },
+          "hub_name": { "type": "string", "minLength": 1 },
+          "city": { "type": "string", "minLength": 1 },
+          "district": { "type": ["string", "null"] },
+          "representative_stop_name": { "type": ["string", "null"] },
+          "representative_lat": { "type": ["number", "null"] },
+          "representative_lon": { "type": ["number", "null"] },
+          "member_stop_names": { "type": "array", "items": { "type": "string" } },
+          "routes_intersecting": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "stop_aliases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["primary_name", "alias_name", "city", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "primary_stop_id": { "type": ["string", "null"] },
+          "primary_name": { "type": "string", "minLength": 1 },
+          "alias_stop_id": { "type": ["string", "null"] },
+          "alias_name": { "type": "string", "minLength": 1 },
+          "city": { "type": "string", "minLength": 1 },
+          "alias_type": { "type": "string", "enum": ["same_location", "naming_variant", "spelling_variation", "uncertain"] },
+          "confidence": { "type": "string", "enum": ["CONFIRMED", "SUPPORTED", "INFERRED", "UNKNOWN"] },
+          "evidence_id": { "type": ["string", "null"] },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["route_number", "conflict_type", "database_value", "external_value", "source", "recommended_action", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "route_number": { "type": "string", "minLength": 1 },
+          "conflict_type": { "type": "string", "minLength": 1 },
+          "database_value": { "type": ["string", "number", "array", "object", "null"] },
+          "external_value": { "type": ["string", "number", "array", "object", "null"] },
+          "source": { "type": "string", "minLength": 1 },
+          "recommended_action": { "type": "string", "minLength": 1 },
+          "confidence": { "type": "string", "enum": ["CONFIRMED", "SUPPORTED", "INFERRED", "UNKNOWN"] },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "geometry_readiness_summary": {
+      "type": "object",
+      "required": ["EXACT", "CORRIDOR", "PARTIAL", "NONE"],
+      "additionalProperties": false,
+      "properties": {
+        "EXACT": { "type": "integer", "minimum": 0 },
+        "CORRIDOR": { "type": "integer", "minimum": 0 },
+        "PARTIAL": { "type": "integer", "minimum": 0 },
+        "NONE": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

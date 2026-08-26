@@ -1,0 +1,51 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "6A",
+  "baseline_commit": "e1e9fdf",
+  "is_synthetic_test_fixture": true,
+  "notes": "SYNTHETIC FIXTURE ONLY - NOT AUTHORITATIVE RESEARCH",
+  "total_routes_analyzed": 154,
+  "shared_corridors": [
+    {
+      "corridor_name": "[SYNTHETIC_TEST_CORRIDOR]",
+      "roads": [
+        "[SYNTHETIC_ROAD]"
+      ],
+      "routes_serving": [
+        "10",
+        "11"
+      ],
+      "frequency_rank": 1,
+      "key_junctions": [
+        "[SYNTHETIC_JUNCTION]"
+      ],
+      "notes": "[SYNTHETIC_CORRIDOR_ANALYSIS]"
+    }
+  ],
+  "transfer_hubs": [
+    {
+      "hub_key": "SYNTHETIC_TEST_HUB",
+      "hub_name": "[SYNTHETIC_TRANSFER_HUB]",
+      "city": "Bhubaneswar",
+      "district": "Khordha",
+      "representative_stop_name": "BHUBANESWAR RAILWAY STATION",
+      "representative_lat": null,
+      "representative_lon": null,
+      "member_stop_names": [
+        "BHUBANESWAR RAILWAY STATION"
+      ],
+      "routes_intersecting": [
+        "10",
+        "11"
+      ]
+    }
+  ],
+  "stop_aliases": [],
+  "conflicts": [],
+  "geometry_readiness_summary": {
+    "EXACT": 0,
+    "CORRIDOR": 0,
+    "PARTIAL": 0,
+    "NONE": 154
+  }
+}

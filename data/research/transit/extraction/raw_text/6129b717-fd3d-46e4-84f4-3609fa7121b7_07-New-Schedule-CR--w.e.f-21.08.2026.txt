@@ -1,0 +1,1223 @@
+SOURCE: 6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf
+EXTRACTED WITH: pymupdf
+PAGES: 20
+============================================================
+
+
+--- PAGE 1 ---
+
+Schedule for Regular Ama Bus Operations in Capital Region w.e.f. 21.08.2026
+Route – F1: Damana Square - KIIT Square
+Damana
+Square
+06:00(AC) 06:10(AC) 06:20(AC) 06:30(AC) 06:40(AC) 06:50(AC) 07:00(AC) 07:10(AC)
+07:20(AC) 07:30(AC) 07:40(AC) 07:50(AC) 08:00(AC) 08:10(AC) 08:20(AC) 08:30(AC)
+08:40(AC) 08:50(AC) 09:00(AC) 09:10(AC) 09:20(AC) 09:30(AC) 09:40(AC) 09:50(AC)
+10:00(AC) 10:10(AC) 10:20(AC) 10:30(AC) 10:40(AC) 10:50(AC) 11:00(AC) 11:10(AC)
+11:20(AC) 11:30(AC) 11:45(AC) 12:00(AC) 12:15(AC) 12:30(AC) 12:45(AC) 13:00(AC)
+13:15(AC) 13:30(AC) 13:45(AC) 14:00(AC) 14:15(AC) 14:25(AC) 14:35(AC) 14:45(AC)
+14:55(AC) 15:05(AC) 15:15(AC) 15:25(AC) 15:35(AC) 15:45(AC) 15:55(AC) 16:05(AC)
+16:15(AC) 16:25(AC) 16:35(AC) 16:45(AC) 16:55(AC) 17:05(AC) 17:15(AC) 17:25(AC)
+17:35(AC) 17:45(AC) 17:55(AC) 18:05(AC) 18:15(AC) 18:25(AC) 18:35(AC) 18:45(AC)
+18:55(AC) 19:05(AC) 19:15(AC) 19:25(AC) 19:35(AC) 19:45(AC) 19:55(AC) 20:05(AC)
+KIIT
+Square
+06:40(AC) 06:50(AC) 07:00(AC) 07:10(AC) 07:20(AC) 07:30(AC) 07:40(AC) 07:50(AC)
+08:00(AC) 08:10(AC) 08:20(AC) 08:30(AC) 08:40(AC) 08:50(AC) 09:00(AC) 09:10(AC)
+09:20(AC) 09:30(AC) 09:40(AC) 09:50(AC) 10:00(AC) 10:10(AC) 10:20(AC) 10:30(AC)
+10:40(AC) 10:50(AC) 11:00(AC) 11:10(AC) 11:20(AC) 11:30(AC) 11:40(AC) 11:50(AC)
+12:00(AC) 12:10(AC) 12:20(AC) 12:35(AC) 12:50(AC) 13:05(AC) 13:20(AC) 13:35(AC)
+13:55(AC) 14:10(AC) 14:25(AC) 14:40(AC) 14:55(AC) 15:05(AC) 15:15(AC) 15:25(AC)
+15:35(AC) 15:45(AC) 15:55(AC) 16:05(AC) 16:15(AC) 16:25(AC) 16:35(AC) 16:45(AC)
+16:55(AC) 17:05(AC) 17:15(AC) 17:25(AC) 17:35(AC) 17:45(AC) 17:55(AC) 18:05(AC)
+18:15(AC) 18:25(AC) 18:35(AC) 18:45(AC) 18:55(AC) 19:05(AC) 19:15(AC) 19:25(AC)
+19:35(AC) 19:45(AC) 19:55(AC) 20:05(AC) 20:15(AC) 20:25(AC) 20:35(AC) 20:45(AC)
+Route – DD1: Bhubaneswar Railway Station – Shree Mandira Parking, Puri (Via
+Kalpana Square)
+Bhubaneswar Railway
+Station
+07:00(AC) 09:30(AC) 15:30(AC) 18:15(AC)
+Shree Mandira
+Parking
+07:00(AC) 10:30(AC) 15:30(AC) 18:50(AC)
+Route 08: IGKC Multispecialty Hospital – Sum Hospital (Campus -2) (via Sum Hospital
+– 1, ID Market, JaydevVihar, Rasulgarh)
+IGKC Hospital
+06:15(AC) 06:50(AC) 07:20(AC) 07:50(AC) 08:20(AC) 08:55(AC)
+09:30(AC) 10:00(AC) 10:30(AC) 11:00(AC) 13:15(AC) 13:50(AC)
+14:25(AC) 14:55(AC) 15:25(AC) 15:55(AC) 16:30(AC) 17:00(AC)
+17:30(AC) 18:00(AC)
+Sum Hospital - 2
+07:35(AC) 08:10(AC) 08:40(AC) 09:10(AC) 09:40(AC) 10:15(AC)
+10:50(AC) 11:20(AC) 11:50(AC) 12:20(AC) 14:35(AC) 15:10(AC)
+15:45(AC) 16:15(AC) 16:45(AC) 17:15(AC) 17:50(AC) 18:20(AC)
+18:50(AC) 19:20(AC)
+
+
+--- PAGE 2 ---
+
+Route 09: Bhubaneswar Railway Station - Patia (via Niladri Vihar)
+Bhubaneswar
+Railway
+Station
+06:00(AC) 06:25(AC) 06:50(AC) 07:15(AC) 07:40(AC) 08:00(AC) 08:25(AC)
+08:45(AC) 09:05(AC) 09:30(AC) 09:55(AC) 10:20(AC) 10:40(AC) 11:00(AC)
+11:25(AC) 11:50(AC) 12:15(AC) 12:50(AC) 13:25(AC) 14:00(AC) 14:35(AC)
+15:15(AC) 15:45(AC) 16:10(AC) 16:35(AC) 17:00(AC) 17:25(AC) 17:50(AC)
+18:05(AC) 18:20(AC) 18:45(AC) 19:10(AC) 19:35(AC) 19:55(AC) 20:15(AC)
+20:35(AC) 20:55(AC) 21:20(AC) 21:45(AC)
+Patia
+04:45(AC) 05:10(AC) 05:35(AC) 06:00(AC) 06:25(AC) 06:45(AC) 07:05(AC)
+07:25(AC) 07:45(AC) 08:10(AC) 08:35(AC) 09:00(AC) 09:20(AC) 09:40(AC)
+10:00(AC) 10:20(AC) 10:45(AC) 11:15(AC) 11:45(AC) 12:15(AC) 12:45(AC)
+13:25(AC) 14:05(AC) 14:45(AC) 15:10(AC) 15:35(AC) 15:55(AC) 16:15(AC)
+16:35(AC) 16:55(AC) 17:20(AC) 17:45(AC) 18:10(AC) 18:30(AC) 18:50(AC)
+19:10(AC) 19:30(AC) 19:55(AC) 20:20(AC)
+Route 10: Bhubaneswar Airport – Maulana Azad National Urdu University,
+Cuttack (Via Jaydev Vihar, KIIT Square, Biju Pattnaik Park)
+Airport, BBSR
+06:00 06:25(AC) 06:50 07:10(AC) 07:35 08:00(AC) 08:25(AC)
+08:50(AC) 09:15(AC) 09:40(AC) 10:05(AC) 10:30 10:55(AC) 11:20
+11:45(AC) 12:10 12:45(AC) 13:20(AC) 13:55(AC) 14:20(AC)
+14:45(AC) 15:10(AC) 15:45 16:20(AC) 16:45 17:10(AC) 17:35
+18:00(AC) 18:25(AC) 18:50(AC) 19:15(AC) 19:40(AC) 20:05(AC)
+MANU University
+06:15(AC) 06:40(AC) 07:05(AC) 07:30(AC) 07:55(AC) 08:20
+08:45(AC) 09:10 09:35(AC) 10:00 10:25(AC) 11:15(AC)
+11:40(AC)12:05(AC) 12:40(AC) 13:05(AC) 13:25 13:50(AC) 14:15
+14:40(AC)15:05 15:40(AC) 16:10(AC) 16:45(AC) 17:10(AC)
+17:35(AC)18:00(AC) 18:35 18:50(AC) 19:05 19:25(AC) 19:45
+20:05(AC)
+Route 11: Trishulia Bus Stand – Bhubaneswar Railway Station(via Nandankana, Acharya
+Vihar,)
+Trisulia Bus
+Stand
+05:20(AC) 05:30(AC) 05:45(AC) 06:00(AC) 06:15(AC) 06:30(AC) 06:45 07:00(AC)
+07:15(AC) 07:30(AC) 07:45(AC) 08:00(AC) 08:20 08:35(AC) 08:50(AC) 09:05(AC)
+09:20(AC) 09:35(AC) 09:50(AC) 10:05(AC) 10:20(AC) 10:40 11:05(AC) 11:30(AC)
+13:10(AC) 13:35(AC) 11:55(AC) 12:20 12:45(AC) 14:25(AC) 14:50(AC) 15:10(AC)
+15:45(AC) 14:10(AC) 16:00(AC) 16:30(AC) 15:30 16:45(AC) 16:15(AC) 17:15(AC)
+17:35(AC) 17:00(AC) 17:50 18:05(AC) 18:20(AC) 18:50(AC) 19:05(AC) 19:35(AC)
+18:35(AC) 19:20 20:00(AC)
+Bhubaneswar
+Railway Station
+06:00(AC) 06:20 06:40(AC) 07:00(AC) 07:15(AC) 07:30(AC) 07:45(AC) 08:00(AC)
+08:15(AC) 08:30(AC) 08:45 09:00(AC) 09:15(AC) 09:30(AC) 09:45(AC) 10:00(AC)
+10:20 10:40(AC) 11:00(AC) 11:20(AC) 11:40(AC) 12:00(AC) 12:20(AC) 12:45(AC)
+13:10(AC) 13:35 14:00(AC) 14:25(AC) 14:50(AC) 15:15(AC) 15:40(AC) 15:55
+16:10(AC) 16:25(AC) 16:55(AC) 17:10(AC) 17:40(AC) 16:40(AC) 17:55(AC)
+18:25(AC) 17:25 18:40(AC) 18:10(AC) 19:10(AC) 19:25(AC) 18:55(AC) 19:40
+19:55(AC) 20:10(AC) 20:35(AC) 20:55(AC) 21:25(AC) 20:25(AC)
+
+
+--- PAGE 3 ---
+
+Route -12: Nandankanan - Bhubaneswar Railway Station (via Jaydev Vihar)
+Nandankanan
+05:55(AC) 06:30(AC) 06:45(AC) 07:00(AC) 07:15(AC) 07:30(AC) 07:45(AC)
+08:00(AC) 08:15(AC) 08:30(AC) 08:45(AC) 09:00(AC) 09:15(AC) 09:30(AC)
+09:45(AC) 10:00(AC) 10:15(AC) 10:30(AC) 10:45(AC) 11:00(AC) 11:15(AC)
+12:30(AC) 12:05(AC) 11:40(AC) 12:55(AC) 13:55(AC) 13:35(AC) 13:15(AC)
+14:50(AC) 15:20(AC) 15:05(AC) 15:45(AC) 14:15(AC) 14:35(AC) 16:10(AC)
+17:00(AC) 17:10(AC) 17:30(AC) 17:20(AC) 16:35(AC) 18:05(AC) 18:35(AC)
+18:20(AC) 18:50(AC) 17:40(AC) 17:50(AC) 19:05(AC) 19:35(AC) 19:50(AC)
+19:20(AC)
+Bhubaneswar
+Railway
+Station
+06:20(AC) 06:35(AC) 06:50(AC) 07:05(AC) 07:20(AC) 07:35(AC) 07:50(AC)
+08:05(AC) 08:20(AC) 08:35(AC) 08:50(AC) 09:05(AC) 09:20(AC) 09:35(AC)
+09:50(AC) 10:05(AC) 10:20(AC) 10:35(AC) 10:50(AC) 11:05(AC) 11:20(AC)
+11:45(AC) 12:10(AC) 13:25(AC) 14:15(AC) 12:35(AC) 13:50(AC) 13:00(AC)
+15:05(AC) 15:30(AC) 16:00(AC) 15:45(AC) 14:40(AC) 16:45(AC) 17:15(AC)
+17:00(AC) 17:30(AC) 16:15(AC) 16:30(AC) 17:45(AC) 18:15(AC) 18:25(AC)
+18:55(AC) 18:40(AC) 18:00(AC) 19:40(AC) 20:10(AC) 19:55(AC) 20:25(AC)
+19:10(AC) 19:25(AC) 20:40(AC)
+Route -13: Nandankanan Botanical Garden –Lingipur (via AG Square)
+Botanical
+Garden
+06:00(AC) 06:20(AC) 06:40(AC) 07:00(AC) 07:20 07:40(AC) 08:00(AC) 08:20(AC)
+08:40(AC) 09:00(AC) 09:20(AC) 09:40 10:00(AC) 10:20(AC) 10:40(AC) 11:05(AC)
+12:50(AC) 11:30 11:55(AC) 13:40(AC) 12:25(AC) 13:15(AC) 14:40(AC) 15:10(AC)
+14:10 15:50(AC) 16:10(AC) 15:30(AC) 17:10(AC) 17:30(AC) 16:30 18:10(AC)
+17:50(AC) 16:50(AC) 18:30(AC) 19:00(AC) 19:15(AC) 18:45 19:50(AC) 19:30(AC)
+Lingipur
+06:30(AC) 06:55(AC) 07:20 07:45(AC) 08:05(AC) 08:25(AC) 08:45(AC) 09:05(AC)
+09:25 09:45(AC) 10:05(AC) 10:25(AC) 10:45(AC) 11:05(AC) 11:30(AC) 11:55
+12:20(AC) 12:45(AC) 13:10(AC) 13:35(AC) 15:30(AC) 14:00 14:25(AC) 15:50(AC)
+14:50(AC) 15:15(AC) 16:40(AC) 17:05(AC) 16:15 17:55(AC) 18:15(AC) 17:30(AC)
+19:15(AC) 19:35(AC) 18:35 20:15(AC) 19:55(AC) 18:55(AC) 20:35(AC) 20:55(AC)
+21:10(AC) 20:45(AC) 21:45(AC) 21:25(AC)
+Route -13E: Nandankanan Botanical Garden – Dhauli(via AG Square)
+Botanical
+Garden
+06:00(AC) 06:20(AC) 06:40(AC) 07:00(AC) 07:20 07:40(AC) 08:00(AC)
+08:20(AC) 08:40(AC) 09:00(AC) 09:20(AC) 09:40 10:00(AC) 10:20(AC)
+10:40(AC) 11:05(AC) 12:50(AC) 11:30 11:55(AC) 13:40(AC) 12:25(AC)
+13:15(AC) 14:40(AC) 15:10(AC) 14:10 15:50(AC) 16:10(AC) 15:30(AC)
+17:10(AC) 17:30(AC) 16:30 18:10(AC) 17:50(AC) 16:50(AC) 18:30(AC)
+19:00(AC) 19:15(AC) 18:45 19:50(AC) 19:30(AC)
+Dhauli
+07:55(AC) 08:35(AC) 08:55(AC) 09:35(AC) 09:55(AC) 10:35(AC) 10:55(AC)
+11:20(AC) 12:10(AC) 12:35(AC) 13:25(AC) 15:20(AC) 14:15(AC) 15:40(AC)
+15:05(AC) 16:30(AC) 16:55(AC) 17:45(AC) 18:05(AC) 19:05(AC) 19:25(AC)
+20:05(AC) 19:45(AC) 20:25(AC)
+
+
+--- PAGE 4 ---
+
+Route 14:Kalinga Vihar – Bhubaneswar Railway Station (Via Sum Ultimate,BSABT,OUAT,AG)
+Kalinga Vihar
+06:00 06:30 07:00 07:30 08:55 09:25 09:55 10:35 12:30 12:55 13:30
+14:15 15:55 16:30 17:00 17:40 19:10 19:50
+Bhubaneswar Railway
+Station
+07:25 07:55 08:25 08:55 10:35 11:00 11:45 12:40 14:20 14:55 15:25
+16:00 17:30 18:10 18:40 19:15 20:40 21:20
+Route 15: Cuttack Netaji Bus Terminus (CNBT) – Utkal Hospital (Via Judicial Square,
+KIIT Square, Infocity, Sailashree Vihar)
+CNBT
+06:00 06:30 07:00 07:30 08:40 09:30 09:40 10:30 13:00 13:50 14:30
+15:00 15:40 16:30 17:30 17:40
+Utkal Hospital
+07:20 08:10 08:20 09:10 10:00 10:50 11:00 11:50 14:20 15:10 16:10
+16:20 17:20 17:50 18:50 19:00
+Route 15E: Cuttack Netaji Bus Terminus (CNBT) – Salia Sahi (Via Judicial Square,
+KIIT Square, Infocity, Sailashree Vihar,Utkal hospital)
+CNBT
+06:30 07:30 14:30 15:40
+Salia Sahi
+08:00 09:00 16:00 17:10
+Route -16: Bhubaneswar Railway Station – Sri Sri University, Kataka (via NH)
+Bhubaneswar
+Railway Station
+06:10 06:30(AC) 06:50 07:10(AC) 07:30 07:50(AC) 08:05 08:20(AC)
+08:35(AC)
+08:50(AC)
+09:10(AC)
+09:30(AC)
+09:50(AC)
+10:10(AC)
+10:25(AC)
+10:40(AC)
+10:55(AC)
+11:15(AC)
+11:35
+11:55(AC)
+12:15
+12:35(AC)
+12:55
+13:15(AC)
+13:35
+13:55(AC)
+14:25(AC)
+14:40(AC)
+15:05(AC)
+15:25(AC)
+15:40(AC)
+16:00(AC)
+16:20(AC)
+16:40(AC)
+17:00(AC) 17:20(AC) 17:40 18:00(AC) 18:20 18:35(AC) 18:55 19:15(AC)
+{Master Canteen to Naraj- 20:10,20:25,20:40,20:55,21:10,21:25}
+Sri Sri University,
+Kataka
+06:00(AC)
+06:20(AC)
+06:40(AC)
+07:00(AC)
+07:20(AC)
+07:35(AC)
+07:50(AC)
+08:05(AC)
+08:20(AC)
+08:35(AC)
+08:50
+09:10(AC)
+09:30
+09:50(AC) 10:10 10:30(AC) 10:50 11:10(AC) 11:55(AC) 12:10(AC)
+12:30(AC)
+12:50(AC)
+13:10(AC)
+13:30(AC)
+13:50(AC)
+14:10(AC)
+14:30(AC) 14:50(AC) 15:10 15:30(AC) 15:50 16:05(AC) 16:25 16:45(AC)
+17:05 17:25(AC) 17:45(AC) 18:00(AC) 18:15(AC) 18:35(AC)
+{20:10 20:30(AC) – Patia Depot,
+Naraj to Patia Depot-20:30,20:45,21:05,21:25}
+Naraj to Master Canteen-19:00(AC),19:15(AC)
+
+
+--- PAGE 5 ---
+
+Route -17: Biju Patnaik International Airport, BBSR- Barabati Stadium, Cuttack (via NH)
+Biju Patnaik
+International Airport,
+BBSR
+06:45 07:25(AC) 08:05 08:35(AC) 08:50 09:15(AC) 09:35(AC) 10:15
+10:55(AC) 11:40 12:25(AC) 13:10 13:55 14:40(AC) 15:25 16:05(AC)
+16:45 17:25(AC) 18:05 18:25 18:45(AC) 19:20(AC)
+Barabati Stadium,
+Cuttack
+06:20(AC) 07:00(AC) 07:40 08:20(AC) 09:00 09:40(AC) 10:20 11:05
+11:50(AC) 12:35 13:20(AC) 14:05 14:50(AC) 15:35 16:15 16:30(AC)
+16:50(AC) 17:05(AC) 17:40(AC) 18:20(AC) 19:00 19:40(AC)
+{20:20 21:00 (till Acharya Vihar)}
+Route -18: Baramunda BSABT – Jagatpur (via Nandankanan)
+Baramunda
+BSABT
+06:00 06:12(AC) 06:24 06:36(AC) 06:48 07:00(AC) 07:12 07:24(AC) 07:36 07:48(AC)
+08:00 08:12(AC) 08:24 08:36(AC) 08:48 09:00(AC) 09:12 09:24(AC) 09:36 09:48(AC)
+10:00 10:12(AC) 10:24 10:36(AC) 10:48 11:00(AC) 11:12 11:24(AC) 11:36 11:48(AC)
+12:00 12:12(AC) 12:30 12:48(AC) 13:06 13:24(AC) 13:34 13:44(AC) 13:56 14:08(AC)
+14:20 14:32(AC) 14:44 14:56(AC) 15:08 15:20(AC) 15:32 15:44(AC) 15:56 16:08(AC)
+16:20 16:32(AC) 16:44 16:56(AC) 17:08 17:20(AC) 17:30 17:40(AC) 17:50 18:00(AC)
+18:12 18:24(AC) 18:36 18:48(AC) 19:00 19:15(AC) 19:27 19:39(AC) 19:54 20:07(AC)
+Jagatpur
+06:00 06:12(AC) 06:24 06:36(AC) 06:48 07:00(AC) 07:12 07:24(AC) 07:36 07:48(AC)
+08:00 08:12(AC) 08:24 08:36(AC) 08:48 09:00(AC) 09:12 09:24(AC) 09:36 09:48(AC)
+10:00 10:12(AC) 10:24 10:36(AC) 10:48 11:00(AC) 11:12 11:24(AC) 11:36 11:48(AC)
+12:00 12:12(AC) 12:24 12:36(AC) 12:50 13:04(AC) 13:18 13:32(AC) 13:46 14:00(AC)
+14:14 14:28(AC) 14:42 14:56(AC) 15:08 15:20(AC) 15:32 15:44(AC) 15:54 16:04(AC)
+16:14 16:24(AC) 16:34 16:44(AC) 16:56 17:08(AC) 17:20 17:32(AC) 17:44 17:56(AC)
+18:06 18:16(AC) 18:26 18:36(AC) 18:47 19:03(AC) 19:17 19:33(AC) 19:49 20:04(AC)
+20:10 20:22(AC) 20:44 20:53(AC) 21:05 21:20(AC) 21:22 21:34(AC) 21:49 22:02(AC)
+(till Kiit Square)
+Route -19: AIIMS - OMP Square-Mahanadi Vihar (via NH)
+AIIMS
+06:00 06:20(AC) 06:40 06:50(AC) 07:10 07:30(AC) 07:50 08:10(AC) 08:20(AC)
+08:30 08:40(AC) 08:50(AC) 09:10 09:30(AC) 09:50 10:10(AC) 10:30 10:50(AC)
+11:10 11:35(AC) 12:00 12:25(AC) 12:50 13:15(AC) 13:40 13:50(AC) 14:05(AC)
+14:30 15:00(AC) 15:15(AC) 15:30 15:50(AC) 16:10 16:30(AC) 16:50 17:10(AC)
+17:30 17:50(AC) 18:10 18:30(AC) 18:50 19:10(AC) 19:30(AC)
+Mahanadi
+Vihar
+06:00(AC) 06:20(AC) 06:40 07:00(AC) 07:20 07:40(AC) 08:00 08:20(AC) 08:40
+09:00(AC) 09:20 09:40(AC) 10:00 10:20(AC) 10:40 11:00(AC) 11:20 11:45(AC)
+11:55(AC) 12:10 12:40(AC) 12:55(AC) 13:10 13:35(AC) 14:00 14:25(AC) 14:50
+15:15(AC) 15:35 15:55(AC) 16:15 16:35(AC) 16:55 17:15(AC) 17:30(AC) 17:40
+17:55(AC) 18:15 18:35(AC) 18:55 19:15(AC) 19:35 19:55(AC)
+
+
+--- PAGE 6 ---
+
+Route -20: Bhubaneswar Railway Station – Khordha New Bus Stand (via Vani Vihar)
+Bhubaneswar railway
+station
+05:25(AC) 05:40(AC) 06:00 06:25(AC) 06:50 07:15(AC) 07:40(AC)
+08:05(AC)
+08:30(AC)
+08:55(AC)
+09:20
+09:45(AC)
+10:10(AC)
+10:35(AC) 11:00 11:35(AC) 12:10 12:45(AC) 13:20(AC) 13:55(AC)
+14:30(AC) 15:05(AC) 15:30 15:55(AC) 16:20 16:45(AC) 17:10(AC)
+17:35 18:00(AC) 18:25(AC) 18:50(AC) 19:15(AC)
+Khordha New Bus Stand
+06:30
+06:55(AC)
+07:20(AC)
+07:45(AC)
+08:10
+08:35(AC)
+09:00
+09:25(AC)
+09:50(AC)
+10:15(AC)
+10:40(AC)
+11:05(AC)
+11:40
+12:15(AC) 12:50(AC) 13:25(AC) 14:00 14:35(AC) 15:10 15:35(AC)
+16:00(AC) 16:25(AC) 16:50(AC) 17:15(AC) 17:40 18:05(AC) 18:30
+18:50(AC)
+19:15(AC)
+19:40
+20:05(AC)
+20:30(AC)
+20:55(AC)
+21:20(AC)
+Route -21: Bhubaneswar Railway Station - Khordha New Bus Stand (via OUAT)
+Bhubaneswar
+Railway Station
+06:50 07:30 07:50 08:10 08:50(AC) 09:20 09:40(AC) 10:25 10:40 11:00
+11:45 12:30 13:15 14:05(AC) 15:00 15:20 15:50 16:10 16:25(AC) 16:40
+17:10 17:45(AC) 18:25 19:00 19:30 20:00
+Khordha New Bus Stand
+06:50(AC) 07:20 07:55(AC) 08:35 09:10 09:50 10:20 10:50(AC) 11:15
+11:40(AC) 12:25 13:10 13:25 13:55 14:45 15:15 15:55(AC) 16:30 17:10
+17:40 18:10 18:40 19:15 19:30(AC) 19:50(AC) 20:45
+Route -22 A: Bhubaneswar Railway Station - Khordha Road Station
+Bhubaneswar Railway
+Station
+05:30(AC) 05:50 06:10(AC) 06:30 06:50(AC) 07:05 07:20(AC) 07:35
+07:50(AC) 08:10 08:30 08:50(AC) 09:10 09:30(AC) 09:50 10:10(AC) 10:30
+10:50(AC) 11:10 11:40(AC) 12:10 12:40 13:00(AC) 13:30 13:50 14:10(AC)
+14:30 14:50(AC) 15:10 15:30(AC) 15:50 16:10 16:30(AC)16:50 17:10
+17:30(AC) 17:50 18:10(AC) 18:30 18:50(AC) 19:10 19:30(AC) 19:50
+Khordha Road Station,
+Jatani
+07:00(AC) 07:20 07:40(AC) 08:00 08:30(AC) 08:45 09:00(AC) 09:15
+09:30(AC) 09:50 10:10 10:30(AC) 10:50 11:10(AC) 11:30 11:50(AC) 12:10
+12:30(AC) 12:50 13:20(AC) 13:50 14:20 14:40 15:10(AC) 15:30 15:50(AC)
+16:10 16:30(AC) 16:50 17:10(AC) 17:30 17:50 18:10(AC) 18:30 18:50
+19:10(AC) 19:30 19:50(AC) 20:10 20:25(AC) 20:45 21:05(AC) 21:20
+Route -22 B: Jatani Gate- Khordha New Bus Stand (via Jatani)
+Jatani Gate
+7:00 8:00 9:00 10:00 11:10 12:10 13:30 14:50 15:50 16:50 17:50
+18:50
+19:50
+{ 21:00 22:00 22:50 (till Patrapada)}
+Khordha New Bus
+Stand
+8:20 9:30 10:30 11:40 13:00 14:20 15:20 16:20 17:20 18:20 19:20
+20:20
+21:20
+
+
+--- PAGE 7 ---
+
+Route -23: Bhubaneswar Railway Station – Sum Hospital-IGKC
+Bhubaneswar
+Railway
+Station
+05:45(AC) 06:00(AC) 06:15 06:30(AC) 06:45(AC) 07:00 07:15(AC) 07:30(AC)
+07:45 08:00(AC) 08:15(AC) 08:30 08:45(AC) 09:00(AC) 09:15 09:30(AC)
+09:50(AC) 10:00 10:15(AC) 10:30(AC) 10:45 11:05(AC) 11:30(AC) 11:45
+12:00(AC) 12:25(AC) 12:50 13:20 13:40(AC) 14:05(AC) 14:30 14:55(AC)
+15:10(AC) 15:25 15:40(AC) 15:55(AC) 16:08 16:22(AC) 16:36(AC) 16:50
+17:04(AC) 17:18(AC) 17:32 17:46(AC) 18:00(AC) 18:15 18:30(AC) 18:50(AC)
+19:05 19:20(AC) 19:35(AC) 19:50 20:05(AC) 20:20(AC) 20:34 20:48(AC)
+21:02(AC) 21:16 21:31(AC) 21:46(AC) 22:16(AC)
+IGKC
+05:40(AC) 05:54 06:08(AC) 06:22(AC) 06:36 06:51(AC) 07:06(AC) 07:21
+07:36(AC) 07:51(AC) 08:06 08:21(AC) 08:36(AC) 08:51 09:06(AC) 09:21(AC)
+09:36 09:51(AC) 10:06(AC) 10:21 10:36(AC) 10:51(AC) 11:06 11:21(AC)
+11:41(AC) 12:01 12:21(AC) 12:41(AC) 13:01 13:21(AC) 13:41(AC) 14:01 14:31
+14:51(AC) 15:11(AC) 15:31 15:51(AC) 16:11(AC) 16:26 16:41(AC) 16:56(AC)
+17:11 17:26(AC) 17:41(AC) 17:56 18:11(AC) 18:26(AC) 18:41 18:56(AC)
+19:11(AC) 19:26 19:41(AC) 19:56(AC) 20:11 20:26(AC) 20:41(AC) 20:56
+21:11(AC) 21:26(AC) 21:56(AC)
+Route -24: Kalinga Vihar- Sai Temple
+Kalinga Vihar
+05:35(AC) 06:00 06:25 06:50(AC) 07:15 07:40 08:05 08:30 08:55
+09:00(AC) 09:25 09:45 10:05 10:30(AC) 11:00 11:40 12:20 13:00
+13:40 14:25 14:40 15:05 15:35 16:00 16:30(AC) 16:45 17:15(AC)
+17:30 18:00 18:20 18:50 19:10
+Sai Temple
+07:10(AC) 07:40 08:10 08:40(AC) 09:10 09:40 10:10 10:40 11:10
+11:35(AC) 11:55 12:15 12:40 13:10(AC) 13:40 14:10 14:45 15:15
+15:45 16:15 16:45 17:05 17:35 18:05 18:35(AC) 18:50 19:05(AC)
+19:35 19:55 20:15 20:55 20:35
+Route -24E: Kalinga Vihar- Bainchua (via-Sai Temple)
+Kalinga Vihar
+06:25 08:05 10:30(AC) 11:40 15:05 15:35 17:30
+Sai Temple (Ranga
+Bazar)
+08:00 10:00 13:00(AC) 14:00 16:55(AC) 17:25(AC) 19:25
+Route -25: Dumduma – Gadakana (Via – Mastercanteen, Mancheswar)
+Dumduma
+06:00(AC) 06:20 06:40 07:00(AC) 07:15 07:30(AC) 07:45 08:00(AC) 08:15
+08:30(AC) 08:45 09:00 09:15 09:30(AC) 09:45 10:00 10:15(AC) 10:30 10:45(AC)
+11:00 11:15(AC) 11:30 11:55(AC) 12:20 12:45 13:10 13:30 13:55 14:20(AC) 14:45
+15:10 15:35(AC) 15:50 16:05 16:20(AC) 16:35 16:50(AC) 17:05 17:20(AC) 17:40
+17:55 18:10(AC) 18:25 18:40 18:55(AC) 19:10 19:25 19:40(AC) 20:15(AC) 20:35(AC)
+Gadakana
+06:10(AC) 06:40(AC) 07:00(AC) 07:35(AC) 07:55 08:15 08:35(AC) 08:50 09:05(AC)
+09:20 09:35(AC) 09:50 10:10(AC) 10:25 10:40 10:55 11:10(AC) 11:35 12:00 12:25(AC)
+12:50 13:15 13:40 14:05 14:30(AC) 14:55 15:10(AC) 15:25 15:30 15:40(AC) 15:50
+16:10(AC) 16:30 16:50 17:10(AC) 17:25 17:45 18:00(AC) 18:20 18:40(AC) 19:00(AC)
+19:15 19:30 19:45 20:00(AC) 20:15 20:30 20:45(AC) 21:00 21:15
+
+
+--- PAGE 8 ---
+
+Route -26: Dumduma (Jadupur) – Rokat, Rajdhani Engineering College (Via Chaikeisiani)
+Dumduma (Jadupur)
+05:15 05:45 06:15(AC) 06:45 07:15(AC) 07:45 08:15(AC) 08:45 09:20
+09:50(AC) 10:25 10:55(AC) 11:30 12:00(AC) 12:45 13:30 14:55(AC)
+14:10 16:40(AC) 15:35 17:10(AC) 16:05 17:40 18:40(AC) 18:10
+20:10(AC) 19:10
+Rokat, Rajdhani
+Engineering College
+07:00 07:35 08:05(AC) 08:40 09:10(AC) 09:45 10:15(AC) 10:50 11:35
+13:00(AC) 12:20 15:00(AC) 13:40 15:30(AC) 14:20 16:00 17:00(AC)
+16:30 18:25(AC) 17:25 18:55(AC) 17:55 19:25 19:55 20:55
+Route -27: Bhubaneswar Railway Station – Bhagwanpur (via AIIMS)
+Bhubaneswar Railway
+Station
+05:30(AC) 05:45(AC) 06:25(AC) 07:05(AC) 07:45(AC) 08:05(AC)
+08:45(AC) 09:35(AC) 10:25(AC) 10:50(AC) 11:40(AC) 14:25(AC)
+15:15(AC) 16:05(AC) 16:40(AC) 17:20(AC) 18:10(AC) 19:25(AC)
+Bhagwanpur
+05:55(AC)06:35(AC) 06:55(AC) 07:40(AC) 08:20(AC) 09:00(AC)
+09:20(AC) 10:10(AC) 11:00(AC) 11:50(AC) 12:10(AC) 13:05(AC)
+15:45(AC) 16:40(AC) 17:30(AC)18:00(AC) 18:40(AC) 19:35(AC)
+20:15(AC) 20:35(AC)
+Route -28: Master Canteen - Kalinga Nagar (Trident)
+Master Canteen
+05:05(AC) 05:25(AC) 06:00(AC) 06:45(AC) 07:00(AC) 07:40(AC) 08:00
+08:20(AC) 09:05(AC) 09:30(AC) 10:55(AC) 10:30 11:20(AC) 12:30(AC)
+13:40(AC) 15:00(AC) 14:20 15:55(AC) 16:20(AC) 17:00(AC) 17:40(AC)
+17:20 18:25(AC) 18:50(AC) 19:30(AC) 20:10(AC) 19:50 20:50(AC)
+21:15(AC)
+Kalinga
+Nagar
+(Trident Galaxy)
+06:00(AC) 06:30(AC) 06:50 07:10(AC) 07:55(AC) 08:20(AC) 09:00(AC)
+09:20 09:40(AC) 10:20(AC) 10:50(AC) 12:20(AC) 11:45 12:55(AC)
+14:05(AC) 15:25(AC) 16:20(AC) 15:55 17:10(AC) 17:35(AC) 18:15(AC)
+18:55(AC) 18:35 19:40(AC) 20:05(AC) 20:45(AC) 21:05
+Route -29: Bhagwanpur – Sai Mandir
+Bhagwanpur
+6:30 7:05 7:40 8:15 8:45 9:15 9:45 10:20 10:50 11:20 12:10 13:00
+13:50
+14:40 15:15 15:45 16:20 16:55 17:25 17:55 18:30 19:00 19:30
+Sai Mandir
+8:20 9:00 9:35 10:10 10:40 11:05 11:40 12:30 13:20 14:10 15:05
+15:35
+16:10 16:40 17:15 17:45 18:15 18:50 19:20 19:50 20:20 20:50 21:20
+Route -29E: Bhagwanpur – SBI Colony Via(Sai Mandir)
+Bhagwanpur
+7:05 8:15 9:45 14:40 15:45 16:55
+(SBI Colony)
+8:55 10:05 11:35 16:30 17:35 18:45
+
+
+--- PAGE 9 ---
+
+Route -30: Bhubaneswar Railway Station – Chhatabar -Mahatma Gandhi Academy of
+Prisons (via Sum Hospital)
+Bhubaneswar railway
+Station
+06:25(AC)
+07:05
+07:35(AC)
+08:10
+08:45(AC)
+09:45(AC)
+09:20
+10:25(AC)10:55 11:25(AC) 12:20 13:15 14:10(AC) 15:05(AC) 15:35
+16:05(AC) 16:35 17:10 17:40(AC) 18:10(AC) 18:45(AC) 19:20 19:55
+Mahatma Gandhi
+Academy of Prisons
+07:00(AC)
+07:15(AC)
+07:45
+08:15(AC)
+08:55
+09:25(AC)
+10:00
+10:35(AC)
+11:35(AC)
+11:10
+12:25(AC)
+13:10
+13:55(AC)
+14:40
+15:2516:10(AC) 16:55(AC) 17:25 17:50(AC) 18:20 18:55 19:25(AC)
+19:55(AC) 20:30(AC)
+Route -31: Bhubaneswar Railway Station – Hi-Tech Hospital (via Toshali Bhawan,
+Laxmi Sagar)
+Bhubaneswar Railway
+Station
+06:30 07:00 07:30 08:20 08:50 09:20 10:10 10:40 11:10 12:30 13:00
+13:30 14:20 14:50 15:20 16:05 17:05 18:05 17:55 18:55 19:55
+Hi-Tech Hospital
+07:25 07:55 08:25 09:15 09:45 10:15 11:05 11:35 12:05 13:25 13:55
+14:25 15:10 16:10 17:10 17:00 18:00 19:00 18:50 19:50 20:50
+Route -32: Baramunda BSABT – Lingaraj Temple (Via Bhubaneswar Railway Station)
+BSABT
+05:00(AC) 05:15(AC) 05:30(AC) 05:45(AC) 06:00(AC) 06:15 06:30(AC) 06:45
+07:00(AC)
+07:10
+07:25(AC)
+07:35
+07:50
+08:00(AC)
+08:15(AC)
+08:25(AC)
+08:40(AC) 08:50(AC) 09:05 09:20(AC) 09:30 09:45(AC) 09:55 10:10(AC) 10:25
+10:35 10:45(AC) 11:00(AC) 11:15(AC) 11:35(AC) 11:55(AC) 12:15 12:35(AC)
+12:55 13:15(AC) 13:35 13:55(AC) 14:15 14:35 14:55(AC) 15:15 15:30(AC)
+15:45(AC)16:00 16:15(AC) 16:30 16:45 17:00(AC) 17:15 17:30(AC) 17:40(AC)
+17:50(AC) 18:00 18:10(AC) 18:20(AC) 18:25(AC) 18:40 18:55(AC)19:10 19:25
+19:40(AC) 19:55 20:10(AC) 20:30(AC) 20:50(AC)
+Lingaraj
+Temple
+06:20(AC) 06:35(AC) 06:50(AC) 07:05(AC) 07:20(AC) 07:35 07:50(AC) 08:05
+08:20(AC)
+08:30
+08:45(AC)
+08:55
+09:10
+09:25(AC)
+09:35(AC)
+09:45(AC)
+10:00(AC) 10:10(AC) 10:25 10:40(AC) 10:50 11:05(AC) 11:15 11:30(AC) 11:45
+11:55 12:10(AC) 12:20(AC) 12:35(AC) 12:55(AC) 13:15(AC) 13:35 13:55(AC)
+14:15 14:35(AC) 14:55 15:15(AC) 15:35 15:55 16:10(AC) 16:35 16:50(AC)
+17:05(AC)17:20 17:35(AC) 17:50 18:05 18:20(AC) 18:35 18:50(AC) 19:00(AC)
+19:10(AC) 19:20 19:30(AC) 19:40(AC) 19:50(AC) 20:00 20:15(AC) 20:30 20:45
+21:00(AC) 21:15 21:30(AC) 21:50(AC) 22:10(AC)
+Route -33: Bhubaneswar Railway Station – Pipili
+Bhubaneswar Railway
+Statiom
+06:20 06:45(AC) 07:10 07:30(AC) 07:55(AC) 08:20 08:45 09:10(AC)
+09:35 10:00(AC) 10:25(AC) 10:50 11:25 12:55(AC) 12:10 14:25(AC)
+14:50(AC) 13:40 15:15 16:05(AC) 15:40 16:55(AC) 17:20(AC) 16:30
+17:50 18:50(AC) 18:30 19:10
+Pipili
+(Dandamukundapur)
+07:30 07:55(AC) 08:20 08:45(AC) 09:10(AC) 09:35 10:05 10:30(AC)
+10:55 11:20(AC) 11:45(AC) 12:10 12:45 14:15(AC) 13:30 15:45(AC)
+16:10(AC) 15:00 16:40 17:30(AC) 17:05 18:20(AC) 18:45(AC) 17:55
+19:15 20:05(AC) 19:40 20:30
+
+
+--- PAGE 10 ---
+
+Route -34: Bhubaneswar Railway Station – Balakati (Sai Hospital)
+Bhubaneswar Railway
+Station
+05:50(AC)
+06:10(AC)
+06:50(AC) 07:50(AC)
+08:00(AC) 08:20(AC)
+09:00(AC) 10:00(AC)
+10:20(AC)
+10:40(AC) 11:00(AC) 13:40(AC)
+14:10(AC)
+14:20
+14:40(AC)
+15:20(AC)
+15:40(AC)
+16:40(AC)
+17:00(AC) 17:40(AC) 18:00(AC) 19:00(AC) 19:20(AC) 20:00(AC)
+Balakati
+(Sai Hospital)
+06:55(AC)
+07:15(AC) 07:55(AC)
+08:55(AC)
+09:05(AC) 09:25(AC)
+10:05(AC)
+11:05(AC)
+11:25(AC)
+11:45(AC)12:35(AC)
+14:40(AC)
+15:35(AC) 15:55(AC) 16:35(AC)
+16:55(AC) 17:55(AC) 18:15(AC)
+18:3518:55(AC) 19:15(AC) 20:15(AC) 20:35(AC) 21:15(AC)
+Route -34E : Bhubaneswar Railway Station - Trahi Achyut(Via-Balakati)
+Bhubaneswar Railway Station
+07:00 10:30 15:00 18:30
+Trahi Achyut(Via-Balakati)
+08:45 12:20 16:50 19:35
+Route -35/35E: Bhubaneswar Railway Station – Adaspur (via Jayadev Pitha)
+Bhubaneswar Railway
+Station
+7:00 07:50 09:40 10:40 11:30 15:30 16:50 17:50 18:40
+Sudhananda Group
+08:50 10:30 12:30 16:40 18:50
+Adaspur
+08:50 09:50 11:30 15:00 16:00 17:00 18:30 19:40 20:20
+Route -36: Bhubaneswar Railway Station – Mundali (via Judicial Academy)
+Bhubaneswar Railway
+Station
+08:00 (AC) 15:00 (AC)
+Mundali
+10:05(AC) 17:05 (AC)
+Route -37: Baramunda BSABT – Naraj Railway Station (via Trisulia Square, OMFED Dairy)
+Naraj Railway
+Station
+05:25(AC) 06:10(AC) 06:45(AC) 07:30(AC) 08:15(AC) 08:10(AC)
+08:50(AC) 09:35(AC) 10:20(AC) 11:05(AC) 11:50(AC) 13:30(AC)
+14:15(AC) 15:00(AC) 15:45(AC) 16:30(AC) 17:15(AC) 21:00(AC)
+Baramunda BSABT
+06:20(AC) 07:00(AC) 07:45(AC) 08:30(AC) 09:15(AC) 10:00(AC)
+11:40(AC) 10:45(AC) 12:00(AC) 12:10(AC) 12:55(AC) 13:40(AC)
+17:00(AC) 16:05(AC) 16:30(AC) 17:35(AC) 18:20(AC) 19:05(AC)
+Route -38: Bhubaneswar Railway Station – Trimal (via Khordha Bypass, IIT)
+Bhubaneswar Railway Station
+06:05(AC) 07:05(AC) 11:45(AC) 12:45(AC) 16:20(AC)
+17:25(AC)
+Trimal
+08:20(AC) 09:20(AC) 13:40(AC) 14:45(AC) 18:20(AC)
+19:25(AC)
+
+
+--- PAGE 11 ---
+
+Route -39: Bhubaneswar Railway Station - AIIMS (via Capital Hospital, Bhimtangi)
+Bhubaneswar Railway
+Station
+06:00(AC) 06:20(AC) 06:40(AC) 07:00 07:20(AC) 07:40 08:05(AC)
+08:30(AC) 08:55(AC) 09:20 09:45(AC) 10:10 10:35(AC) 11:00(AC)
+11:35(AC)
+12:10
+12:45(AC)
+13:20
+14:30
+15:05(AC)
+15:30(AC)
+16:00(AC) 16:25(AC) 16:45 17:10(AC) 17:35(AC) 17:55(AC) 18:15
+18:35(AC) 18:5519:20(AC) 19:45(AC) 20:05(AC) 20:25
+AIIMS
+07:00(AC) 07:25(AC) 07:45(AC) 08:05 08:25(AC) 08:45 09:10(AC)
+09:35(AC)10:00(AC) 10:25 10:50(AC) 11:15 11:40(AC) 12:05(AC)
+12:40(AC) 13:15 13:50(AC) 14:25 15:35 16:10 16:35 17:00 17:35(AC)
+17:55
+18:20(AC)
+18:45(AC)
+19:05(AC)
+19:25
+19:45(AC)
+20:05
+20:30(AC) 20:55(AC) 21:15(AC) 21:35
+Route -40: AIIMS - Sai Mandir (Kesora) (via Capital Hospital, Badagada Brit Colony)
+AIIMS
+06:05(AC) 06:35 07:05(AC) 07:35 08:05(AC) 09:05(AC)
+09:35
+10:05(AC)
+10:35
+11:05(AC)
+12:05(AC)
+12:35
+15:15(AC) 15:45 16:15 17:05(AC) 18:05(AC) 19:05(AC)
+19:55(AC)
+Sai Mandir (Kesora)
+07:30(AC) 08:00 08:30(AC) 09:00 09:30(AC) 10:30(AC)
+11:00
+11:30(AC)
+12:00
+12:30(AC)
+13:30(AC)
+14:00
+16:40(AC) 17:10 17:45 18:30(AC) 19:30(AC) 20:30(AC)
+21:20(AC)
+Route -41: Baramunda BSABT – Tangi (via NH)
+Baramunda BSABT
+06:00(AC)
+07:00
+07:30(AC)
+08:00
+08:45(AC)
+12:00(AC)
+11:40
+15:20(AC) 14:30 16:00(AC) 18:05(AC) 16:45
+Tangi
+08:15(AC)
+09:15
+09:45(AC)
+10:15
+11:00(AC)
+14:15(AC)
+14:30
+17:40(AC) 16:45 18:20(AC) 20:15(AC) 19:00
+Route -42: Baramunda BSABT – Nandankanan (via Chandaka)
+Baramunda BSABT
+06:15(AC) 07:00 07:45(AC) 08:45(AC) 09:30 10:20(AC)
+11:20(AC) 12:45 14:20(AC) 15:15(AC) 15:55 16:50(AC)
+17:40(AC) 18:20
+Nandankanan
+07:25(AC) 08:10 09:00(AC) 10:00(AC) 10:45 11:35(AC)
+14:00(AC) 14:40 15:35(AC) 16:25(AC) 17:05 18:00(AC)
+18:50(AC) 19:30
+Route -43: Baramunda BSABT – Banamalipur (via Rasulgarh ,Kalapana Sqr)
+Baramunda BSABT
+05:30 06:00 10:05 11:35 16:30 18:15
+Banamalipur
+07:40 08:40 14:20 16:10 19:10 20:15
+Route -43E: Baramunda BSABT – Abhyamukhi (via Rasulgarh ,Kalapana Sqr,Banamalipur)
+Baramunda BSABT
+06:00 11:35 16:30
+Abhyamukhi
+08:25 15:55 18:55
+
+
+--- PAGE 12 ---
+
+Route -44: Baramunda BSABT - SVNIRTAR,Olatpur (via Master Canteen, ,Kalapana
+Sqr,Nakhara)
+Baramunda BSABT
+07:00 07:45 08:45(AC) 11:10 12:35 15:45(AC) 16:30 17:15
+SVNIRTAR, Olatpur
+09:05 09:50 10:50(AC) 13:50 15:05 18:10(AC) 18:40 19:25
+Route -45: Bhubaneswar Railway Station - Jayadev Pitha (via Brahman Sarangi,Khamanga)
+Bhubaneswar Railway
+Station
+07:20(AC) 10:35(AC) 16:00(AC)
+Jayadev Pitha
+08:45(AC) 11:55(AC) 17:20(AC)
+Route -46: Bhubaneswar Railway Station - Nandankanan (via Kalayanpur,Gandarpur)
+Bhubaneswar Railway
+Station
+7:10 10:35 15:00 18:15
+Nandankanan
+08:55 12:15 16:40 19:45
+Route -47: Sum Hospital - SCB Medical,Cuttack (via Ekamra Kanan,Mayfair)
+Sum Hospital
+06:00 07:00 07:30 08:00 08:30 10:00 11:00 11:30 12:00 12:30
+15:00 16:00 16:30 17:00 17:30
+SCB Medical,Cuttack
+08:00 09:00 09:30 10:00 10:30 12:35 13:35 14:05 14:35 15:05
+17:00 18:00 18:30 19:00 19:30
+Route -48: Khordha New Bus Stand - Jagatpur,Cuttack (via Pitapalli, Chandaka)
+Khordha New Bus
+Stand
+07:25 08:50 10:30 12:30 14:15 16:05 17:45
+{19:10 20:50 – Till Patrapada Depot}
+Jagatpur,Cuttack
+06:25 08:05 09:45 11:10 13:30 15:20 17:10 18:25
+Route -49: Bhubaneswar Railway Station – Delanga Hata (via Pipili)
+Bhubaneswar Railway
+Station
+7:20 11:35 16:15
+Delanga Hata
+09:25 14:00 18:20
+Route -50: Bhubaneswar Railway Station - Puri Bus Stand
+Bhubaneswar Railway
+Station
+05:45(AC) 06:30(AC) 07:30(AC) 08:30(AC) 09:00(AC)
+10:30(AC) 11:45(AC) 12:50(AC) 11:10(AC) 14:00(AC)
+15:30(AC) 16:10(AC) 16:50(AC) 17:35(AC)
+Puri Bus Stand
+06:57(AC) 07:27(AC) 10:09(AC) 09:09(AC) 09:27(AC)
+10:45(AC) 12:03(AC) 14:07(AC) 13:27(AC) 17:21(AC)
+15:02(AC) 15:57(AC) 16:57(AC) 17:51(AC)
+
+
+--- PAGE 13 ---
+
+Route -51: Baramunda BSABT - Puri Bus Stand (via Vani Vihar,Rasulgarh Square)
+Baramunda BSABT
+7:17 8:32 (AC) 12:57 14:39(AC)
+Puri Bus Stand
+10:21 11:39(AC) 16:21 18:09(AC)
+Route -52: Puri Bus Stand – Mangalahata (Via Puri Railway Station,Beach
+Road,Baliapanda)
+Puri Bus Stand
+05:50(AC) 06:15(AC) 06:40(AC) 07:05(AC) 07:30(AC)07:55(AC)
+08:20(AC) 08:45(AC) 09:10(AC) 09:35(AC)09:55(AC) 10:20(AC)
+10:45(AC) 11:10(AC) 11:35(AC)11:55(AC) 12:20(AC) 12:45(AC)
+13:10(AC) 13:35(AC)13:55(AC) 14:20(AC) 14:45(AC) 15:50(AC)
+16:15(AC)16:35(AC)17:00(AC)17:25(AC)17:50(AC)18:15(AC)18:35(AC)
+19:00(AC) 19:25(AC) 19:50(AC) 20:15(AC)
+Mangalahata
+06:05(AC) 06:30(AC) 06:55(AC) 07:20(AC) 07:45(AC)08:10(AC)
+08:35(AC) 08:55(AC) 09:20(AC) 09:45(AC)10:10(AC) 10:35(AC)
+10:55(AC) 11:20(AC) 11:45(AC)12:10(AC) 12:35(AC) 12:55(AC)
+13:20(AC) 13:45(AC)14:50(AC) 15:15(AC) 15:35(AC) 16:00(AC)
+16:25(AC)16:50(AC)17:15(AC)17:35(AC)18:00(AC)18:25(AC)18:50(AC)
+19:15(AC) 19:35(AC) 20:00(AC) 20:25(AC)
+Route -53: Malatipatpur Bus Stand – Shree Mandira (via Puri Bus Stand)
+Malatipatpur
+Bus Stand
+06:15(AC) 06:40(AC) 07:05(AC) 07:30(AC) 07:50(AC) 08:10(AC) 08:35(AC)
+09:00(AC) 09:20(AC) 09:40(AC) 10:05(AC) 10:30(AC) 10:50(AC) 11:10(AC)
+11:35(AC) 12:00(AC) 12:20(AC) 12:40(AC) 13:05(AC) 13:30(AC) 13:50(AC)
+15:30(AC) 15:55(AC) 15:00(AC) 16:40(AC) 17:00(AC) 17:25(AC) 17:50(AC)
+18:10(AC) 18:30(AC)
+18:55(AC) 19:20(AC) 19:40(AC) 20:00(AC) 20:25(AC) 20:50(AC) 21:10(AC)
+21:30(AC)
+Shree
+Mandira
+07:00(AC) 07:25(AC) 07:50(AC) 08:15(AC) 08:35(AC) 08:55(AC) 09:20(AC)
+09:45(AC) 10:05(AC) 10:25(AC) 10:50(AC) 11:15(AC) 11:35(AC) 11:55(AC)
+12:20(AC) 12:45(AC) 13:05(AC) 14:45(AC) 15:10(AC) 14:15(AC) 15:55(AC)
+16:15(AC) 16:40(AC) 17:05(AC) 17:25(AC) 17:45(AC) 18:10(AC) 18:35(AC)
+18:55(AC) 19:15(AC)
+19:40(AC) 20:05(AC) 20:25(AC) 20:45(AC)
+Route -54: NLU, Cuttack - Puri Bus Stand (via Badambadi, Puri Bypass)
+NLU, Cuttack
+06:40 08:40 09:40 13:10 15:30 16:30
+Puri Bus Stand
+09:45 11:45 12:45 16:21 18:35 19:40
+Route -56: Khordha New Bus Stand – Puri Bus Stand (via Jatani,Pipili)
+Khordha New Bus
+Stand
+7:00 16:00
+Puri Bus Stand
+09:45 18:20
+
+
+--- PAGE 14 ---
+
+Route -56E: Puri Bus Stand - Khordha Road Station (via Jatani,Pipili)
+Puri Bus Stand
+07:45(AC) 09:00(AC) 14:30(AC) 16:30(AC)
+Khordha Road
+Station
+09:45(AC) 10:55(AC) 16:30(AC) 18:30(AC)
+Route -57 : Puri Bus Stand - Astaranga
+Puri Bus Stand
+07:30(AC) 08:30(AC) 13:35(AC) 14:20(AC)
+Astaranga
+09:45(AC) 10:45(AC) 15:50(AC) 16:35(AC)
+Route -58: Jagatpur,Cuttack – Puri Bus Stand (via Badambadi,Link Road)
+Jagatpur,Cuttack
+07:30 15:00
+Puri Bus Stand
+10:25 18:00
+Route -59: Mahanadi Vihar,Cuttack – Puri Bus Stand (via Badambadi,Link Road)
+Mahanadi
+Vihar,Cuttack
+08:10(AC) 16:10(AC)
+Puri Bus Stand
+11:15(AC) 18:50(AC)
+Route- 61: Puri Bus Stand – Satapada Bus Stand
+Puri Bus Stand
+07:00(AC) 07:35(AC) 14:20(AC) 15:40(AC)
+Satapada Bus Stand
+09:30(AC) 10:00(AC) 16:30(AC) 18:00(AC)
+Route-62:Bhubaneswar Railway Station – Suando (via-Kalpana Square, Pipili Bypass,
+Pattanaikia)
+Bhubaneswar
+Railway Station
+07:00(AC) 11:40(AC) 16:10(AC)
+Suando
+08:35(AC) 13:25(AC) 17:40(AC)
+Route 63: BSABT -Madhabananda Temple, Niali (Via-Vani Vihar, Master Canteen,
+Rasulgarh, Makhara, Adaspur
+BSABT
+07:00 08:00 11:40 15:00 17:20
+Madhabananda
+Temple,Niali
+09:30 10:30 15:00 17:30 19:45
+
+
+--- PAGE 15 ---
+
+Route-64:
+Bhubaneswar Railway Station – Jatani Gate (via-Vani vihar, Gohiria square,
+Madanpur, Bagchi Sri Shankara Hospital)
+Bhubaneswar
+Railway Station
+05:45(AC) 06:20 06:55 07:30 08:05(AC) 08:40 09:15 11:00(AC) 09:50
+10:25 11:40 13:00(AC) 12:20 13:40 16:10(AC) 14:20 15:00 15:35
+17:55(AC) 16:45 17:20 18:20 19:00
+Jatani Gate
+07:30(AC) 08:05 08:40 09:15 09:50(AC) 10:25 11:00 13:00(AC) 11:40
+12:20 13:40 15:00(AC) 14:20 15:35 18:00(AC) 16:10 16:50 17:45
+19:45(AC) 18:35 19:10 20:10 20:50
+Route -65: Bhubaneswar Railway Station – Wonderla Amusement Park (Via - Vani Vihar)
+Bhubaneswar
+Railway Station
+08:50(AC) 09:30(AC) 10:10(AC) 14:40(AC) 15:10(AC)
+15:40(AC)
+Wonderla
+Amusement Park
+10:05(AC) 10:45(AC) 11:25(AC) 11:20(AC) 12:00(AC)
+12:40(AC) 15:55(AC) 16:25(AC) 16:55(AC) 17:15(AC)
+17:45(AC) 18:10(AC)
+Khordha New Bus
+Stand
+10:45(AC) 11:25(AC) 12:05(AC) 16:40(AC) 17:10(AC)
+17:35(AC)
+Route -66: Bhubaneswar Railway Station - Pathargadia Square (Via- Kiss College, Kelucharan
+Park,Vani Vihar)
+Pathargadia Square
+06:00(AC) 06:30(AC) 07:00(AC) 09:00(AC) 09:30(AC) 10:00(AC)
+13:35(AC) 15:00(AC) 16:00(AC) 16:50(AC) 18:00(AC) 19:00(AC)
+Bhubaneswar Railway
+Station
+07:30(AC) 08:00(AC) 08:30(AC) 10:45(AC) 11:00(AC) 11:30(AC)
+15:20(AC) 16:30(AC) 17:30(AC) 18:35(AC) 19:30(AC) 20:30(AC)
+Route -70: Bhubaneswar Railway Station - Konark
+Bhubaneswar Railway
+Station
+6:10 6:50(AC) 7:30 8:20(AC) 9:10 10:45 11:40(AC) 12:25
+14:15(AC)15:20 16:30 17:35(AC)
+Konark
+8:15 9:00(AC) 9:45 10:50(AC) 11:50 14:00 15:15(AC)
+16:15 17:15(AC) 18:00 18:40 19:45(AC)
+Route -71: Baramunda ISBT – Konark (via Rasulgarh Square)
+Baramunda
+05:05 06:40(AC) 07:40 11:00 12:45(AC) 15:20 16:30 18:15(AC)
+Konark
+07:50 09:30(AC) 10:30 13:50 15:30(AC) 18:05 19:15 20:55(AC)
+Route -72: Shree Mandira – Madhabnanda Temple, Niali
+Shree Mandira
+06:15(AC) 07:15(AC) 08:15(AC) 13:45(AC) 15:00(AC)
+16:15(AC)
+Madhabnanda
+Temple
+08:30(AC) 09:30(AC) 10:30(AC) 16:00(AC) 17:15(AC)
+18:30(AC)
+
+
+--- PAGE 16 ---
+
+Route -73: Puri Bus Stand – Talabania
+Puri Bus Stand
+06:15(AC) 07:45(AC) 09:15(AC) 10:45(AC) 14:05(AC) 15:35(AC)
+17:05(AC) 18:35(AC)
+Sanskrit University
+07:00(AC) 08:30(AC) 10:00(AC) 11:30(AC) 14:50(AC) 16:20(AC)
+17:50(AC) 19:20(AC)
+Route -74: Puri Railway Station – Shree Mandira (Via – Puri Bus Stand)
+Puri Railway Station
+06:30(AC) 07:05(AC) 07:40(AC) 08:15(AC) 08:40(AC) 09:15(AC)
+09:40(AC) 10:15(AC) 10:40(AC) 11:15(AC) 11:40(AC) 12:15(AC)
+12:40(AC) 13:15(AC) 15:30(AC) 16:05(AC) 16:30(AC) 17:05(AC)
+17:30(AC) 18:05(AC) 18:30(AC) 19:05(AC) 19:30(AC) 20:05(AC)
+20:30(AC)21:05(AC)
+Shree Mandira
+06:00(AC) 06:35(AC) 07:10(AC) 07:45(AC) 08:10(AC) 08:45(AC)
+09:10(AC) 09:45(AC) 10:10(AC) 10:45(AC) 11:10(AC) 11:45(AC)
+12:10(AC) 12:45(AC) 15:00(AC) 15:35(AC) 16:00(AC) 16:35(AC)
+17:00(AC) 17:35(AC) 18:00(AC) 18:35(AC) 19:00(AC) 19:35(AC)
+20:00(AC)20:35(AC)
+Route -75: Shree Mandira – Kakatpur (Via Puri Bus Stand, Balighai, Marine Drive, Konark)
+Shree Mandira
+05:45(AC) 06:45(AC) 09:45(AC) 11:35(AC) 12:35(AC) 15:35(AC)
+16:45(AC)
+Kakatpur
+08:10(AC) 09:00(AC) 12:00(AC) 14:00(AC) 14:50(AC) 17:50(AC)
+19:15(AC)
+Route -76: Puri Bus Stand – Sakhigopal Temple
+Puri Bus Stand
+07:30(AC) 08:30(AC) 09:20(AC) 10:20(AC) 11:15(AC)
+12:15(AC) 15:00(AC) 15:50(AC) 16:50(AC) 17:40(AC)
+18:40(AC)
+Sakhigopal Temple
+08:25(AC) 09:25(AC) 10:15(AC) 11:15(AC) 12:10(AC)
+13:10(AC) 15:55(AC) 16:45(AC) 17:45(AC) 18:35(AC)
+19:35(AC)
+Route -77: Puri Bus Stand – Nimapada Bus Stand
+Puri Bus Stand
+06:30(AC) 09:30(AC) 12:20(AC) 15:05(AC)
+Nimapada Bus Stand
+08:35(AC) 11:35(AC) 14:25(AC) 17:10(AC) 19:45(AC)
+Route -78:Puri Bus Stand– Alarnath (Brahamgiri New Bus Stand)
+Puri Bus Stand
+07:10(AC) 09:10(AC) 11:10(AC) 14:45(AC) 16:45(AC)
+Alarnath
+08:10(AC) 10:10(AC) 12:15(AC) 15:45(AC) 17:45(AC)
+
+
+--- PAGE 17 ---
+
+Route -79: Shree Mandira – Light House (Via Police line, SCS College, Kacheri,
+Swarga Dwar)
+Shree Mandira
+06:00(AC) 06:25(AC) 07:10(AC) 07:40(AC) 08:10(AC) 08:50(AC)
+09:20(AC) 09:50(AC) 10:30(AC) 11:00(AC) 11:30(AC) 12:10(AC)
+12:40(AC) 13:10(AC) 13:50(AC) 15:30(AC) 16:00(AC) 16:40(AC)
+17:10(AC) 17:40(AC) 18:20(AC) 18:50(AC) 19:20(AC) 20:00(AC)
+Light House
+06:50(AC) 07:15(AC) 08:00(AC) 08:30(AC) 09:00(AC) 09:40(AC)
+10:10(AC) 10:40(AC) 11:20(AC) 11:50(AC) 12:20(AC) 13:00(AC)
+14:40(AC) 15:10(AC) 15:50(AC) 16:20(AC) 16:50(AC) 17:30(AC)
+18:00(AC) 18:30(AC) 19:10(AC) 19:40(AC) 20:10(AC) 20:50(AC)
+Route -80: Naraj Police Outpost – Agrahat, Charbatia (via NLU, Badambadi, SCB Medical)
+Naraj Police Outpost
+05:30(AC) 06:00(AC) 06:30(AC) 07:00(AC) 07:30(AC) 08:00(AC)
+08:30(AC) 09:00(AC) 09:30(AC) 10:00(AC) 10:30(AC) 11:00(AC)
+11:30(AC) 12:00(AC) 12:30(AC) 13:00(AC) 13:30(AC) 14:00(AC)
+14:30(AC) 15:00(AC) 15:30(AC) 16:00(AC) 16:30(AC) 17:00(AC)
+17:30(AC) 18:00(AC) 18:30(AC) 19:00(AC)19:30(AC)
+Agarhata , Charbatia
+08:05(AC) 08:35(AC) 09:05(AC) 09:35(AC) 10:05(AC) 10:35(AC)
+11:05(AC) 11:35(AC) 12:05(AC) 12:35(AC) 13:05(AC) 13:35(AC)
+14:05(AC) 14:35(AC) 15:05(AC) 15:35(AC) 16:05(AC) 16:35(AC)
+17:05(AC) 17:35(AC) 17:25(AC) 17:55(AC) 18:25(AC) 18:55(AC)
+19:25(AC) 19:55(AC) 20:25(AC) 20:55(AC) 21:25(AC)
+Route -80E: Naraj Police Outpost – Mangarajpur (via NLU, Badambadi, SCB Medical)
+Naraj Police Outpost
+05:30(AC) 06:00(AC) 06:30(AC) 07:30(AC) 08:00(AC) 09:00(AC)
+10:00(AC) 13:00(AC) 13:30(AC) 14:00(AC) 15:00(AC)
+Mangarajpur
+07:45(AC) 08:15(AC) 08:45(AC) 09:45(AC) 10:15(AC) 11:15(AC)
+15:15(AC) 15:45(AC) 16:15(AC) 17:15(AC)
+Route -81: Barabati Stadium – Jagannath Temple, Salepur (via SCB Medical, OMP
+Square, Jagatpur)
+Barabati
+Stadium
+05:30(AC) 05:50(AC) 06:10(AC) 06:30(AC) 06:40(AC) 07:00(AC) 07:20(AC)
+07:40(AC) 08:00(AC) 08:20(AC) 08:40(AC) 09:00(AC) 09:20(AC) 09:40(AC)
+10:00(AC) 10:20(AC) 10:40(AC) 11:10(AC) 11:40(AC) 12:20(AC) 13:05(AC)
+13:40(AC) 14:10(AC) 14:40(AC) 15:15(AC) 15:35(AC) 15:55(AC) 16:15(AC)
+16:35(AC) 16:55(AC) 17:25(AC) 17:55(AC) 18:15(AC) 18:35(AC) 18:55(AC)
+19:15(AC)
+Salepur
+07:00(AC) 07:20(AC) 07:40(AC) 08:00(AC) 08:20(AC) 08:40(AC) 09:00(AC)
+09:20(AC) 09:40(AC) 10:00(AC) 10:20(AC) 10:40(AC) 11:05(AC) 11:30(AC)
+11:55(AC) 12:20(AC) 12:45(AC) 13:15(AC) 13:45(AC) 14:15(AC) 14:50(AC)
+15:20(AC) 15:50(AC) 16:25(AC) 16:55(AC) 17:15(AC) 17:35(AC) 17:55(AC)
+18:15(AC) 18:35(AC) 19:05(AC) 19:35(AC) 19:55(AC) 20:15(AC) 20:35(AC)
+20:55(AC)
+
+
+--- PAGE 18 ---
+
+Route -82: AIRPORT - MASTER CANTEEN - SCB Medical (Settlement Office) (via NH)
+AIRPORT
+06:52(AC) 07:12(AC) 07:32(AC) 07:52(AC) 08:12(AC) 08:32(AC) 08:52(AC)
+09:12(AC) 09:32(AC) 09:52(AC) 10:12(AC) 10:32(AC) 10:57(AC) 11:22(AC)
+11:47(AC) 12:12(AC) 12:42(AC) 13:12(AC) 13:42(AC) 14:12(AC) 14:42(AC)
+15:12(AC) 15:42(AC) 16:12(AC) 16:37(AC) 17:02(AC) 17:27(AC) 17:52(AC)
+18:17(AC) 18:42(AC) 19:07(AC) 19:32(AC) 19:57(AC) 20:22(AC) 20:47(AC)
+21:12(AC)
+MASTER
+CANTEEN - SCB
+Medical (Settlement
+office)
+07:20(AC) 07:40(AC) 08:00(AC) 08:20(AC) 08:40(AC) 09:00(AC) 09:20(AC)
+09:40(AC) 10:00(AC) 10:20(AC) 10:40(AC) 11:00(AC) 11:25(AC) 11:50(AC)
+12:15(AC) 12:40(AC) 13:10(AC) 13:40(AC) 14:10(AC) 14:40(AC) 15:10(AC)
+15:40(AC) 16:10(AC) 16:40(AC) 17:05(AC) 17:30(AC) 17:55(AC) 18:20(AC)
+18:45(AC) 19:10(AC) 19:35(AC) 20:00(AC) 20:25(AC) 20:50(AC) 21:15(AC)
+21:40(AC)
+SCB Medical
+05:20(AC) 05:40(AC) 05:55(AC) 06:15(AC) 06:30(AC) 06:45(AC) 07:05(AC)
+07:25(AC) 07:45(AC) 08:05(AC) 08:25(AC) 08:45(AC) 09:10(AC) 09:35(AC)
+10:00(AC) 10:25(AC) 10:55(AC) 11:25(AC) 11:55(AC) 12:25(AC) 12:55(AC)
+13:25(AC) 13:55(AC) 14:25(AC) 14:50(AC) 15:15(AC) 15:40(AC) 16:05(AC)
+16:30(AC) 16:55(AC) 17:20(AC) 17:45(AC) 18:10(AC) 18:35(AC) 19:00(AC)
+19:25(AC)
+Route -83: Dhabaleswar - Kandarpur (via 42 Mouza)
+Dhabaleswar
+06:30(AC) 07:45(AC) 08:50(AC) 13:00(AC) 16:00(AC) 18:00(AC)
+Kandarpur
+08:50(AC) 10:05(AC) 11:10(AC) 16:00(AC) 18:20(AC) 20:20(AC)
+Route -83A: CDA9 - Nuapatana
+Nuapatana
+07:00(AC) 08:20(AC) 09:40(AC) 11:00(AC) 12:20(AC) 15:00(AC)
+16:20(AC) 17:40(AC)
+CDA9
+07:40(AC) 09:00(AC) 10:20(AC) 11:40(AC) 14:20(AC) 15:40(AC)
+17:00(AC) 18:20(AC)
+Route -84: Biju pattanaik Park,CDA – Madhabananda Temple, Niali (via
+Badambadi,Link Road, SVNIRTAR,Olatpur)
+Biju pattanaik Park,CDA
+08:00 14:00
+Madhabananda Temple
+11:10 16:50
+Route -85: Cuttack Netaji Bus Terminal - Gadama (via OMP, Kandarpur)
+CNBT
+06:30(AC)
+07:05(AC)
+08:05(AC)
+09:10(AC)
+09:45(AC)
+10:55(AC)
+14:00(AC)
+14:35(AC)
+15:45(AC)
+16:45(AC)
+17:15(AC) 18:25(AC)
+Kandarpur
+07:50(AC)
+08:25(AC)
+09:35(AC)
+10:30(AC)
+11:05(AC)
+12:15(AC)
+15:20(AC)
+15:55(AC)
+17:05(AC)
+18:05(AC)
+18:40(AC) 19:50(AC)
+
+
+--- PAGE 19 ---
+
+Route -86: CDA 9 OD terminal – Driems,Tangi
+Driems,Tangi
+07:15(AC) 08:00(AC) 08:45(AC) 11:15(AC) 13:20(AC) 14:05(AC)
+16:35(AC) 17:20(AC) 18:05(AC)
+CDA 9 OD terminal
+09:15(AC) 10:00(AC) 10:45(AC) 13:15(AC) 15:20(AC) 16:05(AC)
+18:35(AC) 19:20(AC) 20:05(AC)
+Route -87: Biju Patanaik Park – Mahanadi Vihar (Via CDA, Judicial Square, Link Road)
+Biju Patanaik Park
+07:00(AC) 08:50(AC) 10:40(AC) 13:10(AC) 15:10(AC)
+17:00(AC)
+Mahanadi Vihar
+07:55(AC) 09:45(AC) 11:35(AC) 14:05(AC) 16:05(AC)
+17:55(AC)
+Route -87E: Judicial Academy– Nuapada(Via Barabati,SCB)
+Judicial Academy
+07:00(AC) 09:20(AC) 13:10(AC) 15:30(AC) 17:50(AC)
+Nuapada
+08:10(AC) 10:30(AC) 14:20(AC) 16:40(AC) 19:00(AC)
+Route -88: National Law University (O) – SCB Hospital (Via CDA, Raj Kishor Marg,
+CDA Sector -6, Judicial Square, Dolamundai, Professorpada)
+NLU (O)
+07:15(AC)
+08:15(AC)
+08:45(AC)
+09:45(AC)
+10:45(AC)
+11:15(AC)
+13:05(AC)
+13:45(AC)
+14:05(AC)
+15:35(AC)
+16:35(AC) 17:05(AC) 18:05(AC) 19:05(AC) 19:35(AC)
+SCB Hospital
+08:30(AC)
+09:30(AC)
+10:00(AC)
+11:00(AC)
+12:00(AC)
+12:30(AC)
+14:20(AC)
+15:00(AC)
+15:20(AC)
+16:50(AC)
+17:50(AC) 18:20(AC) 19:20(AC) 20:20(AC) 20:50(AC)
+Route -89: SCB Medical – Jagadguru Krupalu University (JKU)
+SCB Medical
+07:00(AC) 07:45(AC) 10:30(AC) 11:15(AC) 15:20(AC)
+16:25(AC) 18:50(AC) 22:15(AC)
+JKU
+08:45(AC) 09:30(AC) 12:15(AC) 14:40(AC) 17:05(AC)
+18:10(AC) 20:35(AC)
+Route -89A: SCB Medical – Judicial Square
+SCB Medical
+06:30(AC) 08:15(AC) 10:00(AC) 11:45(AC) 13:25(AC)
+16:55(AC) 18:30(AC) 20:05(AC)
+Judicial Square
+07:20(AC) 09:05(AC) 10:50(AC) 12:35(AC) 15:25(AC)
+17:45(AC) 19:20(AC)
+
+
+--- PAGE 20 ---
+
+Route -90: Khordha New Bus Stand – Jagatpur, Cuttack (Via NH)
+Khordha New Bus Stand
+07:00 09:15 10:05 12:15 15:00 17:45 18:35
+{20:20 till Jaydev Vihar)
+Jagatpur
+06:50 07:40 09:20 12:25 15:00 15:50 17:45
+{20:25 21:15 till Achrya Vihar)
+Route -91: Baramunda BSABT – Biju Patnaik Park, Cuttack (Via NH)
+BSABT
+07:00 08:00 08:30 09:00 11:30 12:40 13:30 14:00 16:30 17:25
+17:50 18:20
+Biju Patnaik Park
+09:10 10:10 10:40 11:10 14:20 15:15 15:40 16:10 18:35 19:30
+19:55 20:25
+Route -92: IGKC – Sai Temple (Via Khandagiri, Lingraj Station, Bhim Tangi,
+Capital Hospital, Kalpana)
+IGKC
+06:00 06:40 07:20 08:00 08:40 09:20 10:00 10:40 11:20 12:05 12:50 13:40 14:30
+15:20 16:00 16:40 17:20 18:00 18:40 19:20
+Sai Temple
+07:40 08:20 09:00 09:40 10:20 11:00 11:45 12:30 13:20 14:10 14:55 15:40 16:20
+17:00 17:40 18:20 19:00 19:40 20:20 21:00
+Route -93: Bhubaneswar Railway Station – Biju Patnaik Park, CDA (Via Fire
+Station, Sum Hospital, Kateni)
+Bhubaneswar Railway
+Station
+06:00 07:30 08:00 10:30 12:10 13:20 15:45 17:30
+Biju Patnaik Park
+08:10 09:50 10:20 13:25 15:05 16:10 18:05 19:50
+Route -94: Babasaheb Bhimrao Ambedkar Bus Terminal (BSABT) – SIEP, JATNI
+BSABT, Baramunda
+08:30 08:30 15:40
+SIEP, JATNI
+10:10 13:40 17:10

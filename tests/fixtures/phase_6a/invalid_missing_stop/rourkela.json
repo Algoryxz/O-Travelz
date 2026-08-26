@@ -1,0 +1,3326 @@
+{
+  "region": "Rourkela",
+  "provider_id": "prov-crut-synthetic",
+  "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+  "is_synthetic_test_fixture": true,
+  "notes": "SYNTHETIC FIXTURE ONLY - NOT AUTHORITATIVE RESEARCH",
+  "route_count": 25,
+  "routes": [
+    {
+      "route_id": "route-syn-uuid-100",
+      "route_number": "100",
+      "route_code": "rourkela-100",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Birsa Munda Hockey Stadium",
+      "via": "Ring Road, IGH, Chend Colony",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 5,
+      "stop_count_research": 5,
+      "stops": [
+        {
+          "stop_id": "stop-syn-100-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_100]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-100-2",
+          "stop_name": "RING ROAD",
+          "normalized_name": "Ring Road",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_100]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-100-3",
+          "stop_name": "IGH",
+          "normalized_name": "Igh",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_100]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-100-4",
+          "stop_name": "CHEND COLONY",
+          "normalized_name": "Chend Colony",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_100]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-100-5",
+          "stop_name": "BIRSA MUNDA HOCKEY STADIUM",
+          "normalized_name": "Birsa Munda Hockey Stadium",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_100]",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-100-1",
+          "to_stop_id": "stop-syn-100-5",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Birsa Munda Hockey Stadium",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-101",
+      "route_number": "101",
+      "route_code": "rourkela-101",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Laukera",
+      "via": "Udit Nagar, Hanuman Vatika Chowk, Chhend, Airport",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": true,
+      "stop_count_database": 6,
+      "stop_count_research": 6,
+      "stops": [
+        {
+          "stop_id": "stop-syn-101-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_101]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-101-2",
+          "stop_name": "UDIT NAGAR",
+          "normalized_name": "Udit Nagar",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_101]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-101-3",
+          "stop_name": "HANUMAN VATIKA CHOWK",
+          "normalized_name": "Hanuman Vatika Chowk",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_101]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-101-4",
+          "stop_name": "CHHEND",
+          "normalized_name": "Chhend",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_101]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-101-5",
+          "stop_name": "AIRPORT",
+          "normalized_name": "Airport",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_101]",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Bhubaneswar",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-101-6",
+          "stop_name": "LAUKERA",
+          "normalized_name": "Laukera",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_101]",
+          "sequence_order": 6,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-101-1",
+          "to_stop_id": "stop-syn-101-6",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Laukera",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-101E",
+      "route_number": "101E",
+      "route_code": "rourkela-101E",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Panposh Station",
+      "via": null,
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 2,
+      "stop_count_research": 2,
+      "stops": [
+        {
+          "stop_id": "stop-syn-101E-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_101E]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-101E-2",
+          "stop_name": "PANPOSH STATION",
+          "normalized_name": "Panposh Station",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_101E]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-101E-1",
+          "to_stop_id": "stop-syn-101E-2",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Panposh Station",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-102",
+      "route_number": "102",
+      "route_code": "rourkela-102",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Vedvyas",
+      "destination": "Jhirpani",
+      "via": "Panposh,Chhend Chowk, Koel Nagar",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 5,
+      "stop_count_research": 5,
+      "stops": [
+        {
+          "stop_id": "stop-syn-102-1",
+          "stop_name": "VEDVYAS",
+          "normalized_name": "Vedvyas",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_102]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-102-2",
+          "stop_name": "PANPOSH",
+          "normalized_name": "Panposh",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_102]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-102-3",
+          "stop_name": "CHHEND CHOWK",
+          "normalized_name": "Chhend Chowk",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_102]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-102-4",
+          "stop_name": "KOEL NAGAR",
+          "normalized_name": "Koel Nagar",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_102]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-102-5",
+          "stop_name": "JHIRPANI",
+          "normalized_name": "Jhirpani",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_102]",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-102-1",
+          "to_stop_id": "stop-syn-102-5",
+          "from_label": "Vedvyas",
+          "to_label": "Jhirpani",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-103",
+      "route_number": "103",
+      "route_code": "rourkela-103",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Panposh",
+      "via": "Uditnagar,Hanuman Vatika Chowk,Chhend)",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 5,
+      "stop_count_research": 5,
+      "stops": [
+        {
+          "stop_id": "stop-syn-103-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_103]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-103-2",
+          "stop_name": "UDITNAGAR",
+          "normalized_name": "Uditnagar",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_103]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-103-3",
+          "stop_name": "HANUMAN VATIKA CHOWK",
+          "normalized_name": "Hanuman Vatika Chowk",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_103]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-103-4",
+          "stop_name": "CHHEND",
+          "normalized_name": "Chhend",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_103]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-103-5",
+          "stop_name": "PANPOSH",
+          "normalized_name": "Panposh",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_103]",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-103-1",
+          "to_stop_id": "stop-syn-103-5",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Panposh",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-104",
+      "route_number": "104",
+      "route_code": "rourkela-104",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Jhirpani",
+      "via": "Sector-2,Nit,Jagda Chowk",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 5,
+      "stop_count_research": 5,
+      "stops": [
+        {
+          "stop_id": "stop-syn-104-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_104]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-104-2",
+          "stop_name": "SECTOR-2",
+          "normalized_name": "Sector-2",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_104]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-104-3",
+          "stop_name": "NIT",
+          "normalized_name": "Nit",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_104]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-104-4",
+          "stop_name": "JAGDA CHOWK",
+          "normalized_name": "Jagda Chowk",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_104]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-104-5",
+          "stop_name": "JHIRPANI",
+          "normalized_name": "Jhirpani",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_104]",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-104-1",
+          "to_stop_id": "stop-syn-104-5",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Jhirpani",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-105",
+      "route_number": "105",
+      "route_code": "rourkela-105",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Rajgangpur",
+      "via": "NH",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 3,
+      "stop_count_research": 3,
+      "stops": [
+        {
+          "stop_id": "stop-syn-105-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_105]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-105-2",
+          "stop_name": "NH",
+          "normalized_name": "Nh",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_105]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Bhubaneswar",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-105-3",
+          "stop_name": "RAJGANGPUR",
+          "normalized_name": "Rajgangpur",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_105]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-105-1",
+          "to_stop_id": "stop-syn-105-3",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Rajgangpur",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-106",
+      "route_number": "106",
+      "route_code": "rourkela-106",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Birmitrapur",
+      "via": "Ring Road, NH",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 4,
+      "stop_count_research": 4,
+      "stops": [
+        {
+          "stop_id": "stop-syn-106-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_106]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-106-2",
+          "stop_name": "RING ROAD",
+          "normalized_name": "Ring Road",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_106]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-106-3",
+          "stop_name": "NH",
+          "normalized_name": "Nh",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_106]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Bhubaneswar",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-106-4",
+          "stop_name": "BIRMITRAPUR",
+          "normalized_name": "Birmitrapur",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_106]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-106-1",
+          "to_stop_id": "stop-syn-106-4",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Birmitrapur",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-107",
+      "route_number": "107",
+      "route_code": "rourkela-107",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Teterkela",
+      "via": "Bondamunda",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 3,
+      "stop_count_research": 3,
+      "stops": [
+        {
+          "stop_id": "stop-syn-107-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_107]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-107-2",
+          "stop_name": "BONDAMUNDA",
+          "normalized_name": "Bondamunda",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_107]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-107-3",
+          "stop_name": "TETERKELA",
+          "normalized_name": "Teterkela",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_107]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-107-1",
+          "to_stop_id": "stop-syn-107-3",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Teterkela",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-108",
+      "route_number": "108",
+      "route_code": "rourkela-108",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Nuagaon",
+      "via": "Jagda Chowk, Jhirpani, Khuntagaon",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 5,
+      "stop_count_research": 5,
+      "stops": [
+        {
+          "stop_id": "stop-syn-108-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_108]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-108-2",
+          "stop_name": "JAGDA CHOWK",
+          "normalized_name": "Jagda Chowk",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_108]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-108-3",
+          "stop_name": "JHIRPANI",
+          "normalized_name": "Jhirpani",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_108]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-108-4",
+          "stop_name": "KHUNTAGAON",
+          "normalized_name": "Khuntagaon",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_108]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-108-5",
+          "stop_name": "NUAGAON",
+          "normalized_name": "Nuagaon",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_108]",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-108-1",
+          "to_stop_id": "stop-syn-108-5",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Nuagaon",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-109",
+      "route_number": "109",
+      "route_code": "rourkela-109",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Lathikata",
+      "via": "NH",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 3,
+      "stop_count_research": 3,
+      "stops": [
+        {
+          "stop_id": "stop-syn-109-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_109]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-109-2",
+          "stop_name": "NH",
+          "normalized_name": "Nh",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_109]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Bhubaneswar",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-109-3",
+          "stop_name": "LATHIKATA",
+          "normalized_name": "Lathikata",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_109]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-109-1",
+          "to_stop_id": "stop-syn-109-3",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Lathikata",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-110",
+      "route_number": "110",
+      "route_code": "rourkela-110",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Kalunga",
+      "via": "Raghunathpali",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 3,
+      "stop_count_research": 3,
+      "stops": [
+        {
+          "stop_id": "stop-syn-110-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_110]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-110-2",
+          "stop_name": "RAGHUNATHPALI",
+          "normalized_name": "Raghunathpali",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_110]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-110-3",
+          "stop_name": "KALUNGA",
+          "normalized_name": "Kalunga",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_110]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-110-1",
+          "to_stop_id": "stop-syn-110-3",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Kalunga",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-111",
+      "route_number": "111",
+      "route_code": "rourkela-111",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Bonaigarh",
+      "via": null,
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 2,
+      "stop_count_research": 2,
+      "stops": [
+        {
+          "stop_id": "stop-syn-111-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_111]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-111-2",
+          "stop_name": "BONAIGARH",
+          "normalized_name": "Bonaigarh",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_111]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-111-1",
+          "to_stop_id": "stop-syn-111-2",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Bonaigarh",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-112",
+      "route_number": "112",
+      "route_code": "rourkela-112",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Lahunipara",
+      "via": null,
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 2,
+      "stop_count_research": 2,
+      "stops": [
+        {
+          "stop_id": "stop-syn-112-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_112]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-112-2",
+          "stop_name": "LAHUNIPARA",
+          "normalized_name": "Lahunipara",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_112]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-112-1",
+          "to_stop_id": "stop-syn-112-2",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Lahunipara",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-113",
+      "route_number": "113",
+      "route_code": "rourkela-113",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Ushra",
+      "via": "NH",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 3,
+      "stop_count_research": 3,
+      "stops": [
+        {
+          "stop_id": "stop-syn-113-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_113]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-113-2",
+          "stop_name": "NH",
+          "normalized_name": "Nh",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_113]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Bhubaneswar",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-113-3",
+          "stop_name": "USHRA",
+          "normalized_name": "Ushra",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_113]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-113-1",
+          "to_stop_id": "stop-syn-113-3",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Ushra",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-114",
+      "route_number": "114",
+      "route_code": "rourkela-114",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Nuagaon",
+      "via": "Hatibari",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 3,
+      "stop_count_research": 3,
+      "stops": [
+        {
+          "stop_id": "stop-syn-114-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_114]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-114-2",
+          "stop_name": "HATIBARI",
+          "normalized_name": "Hatibari",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_114]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-114-3",
+          "stop_name": "NUAGAON",
+          "normalized_name": "Nuagaon",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_114]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-114-1",
+          "to_stop_id": "stop-syn-114-3",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Nuagaon",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-115",
+      "route_number": "115",
+      "route_code": "rourkela-115",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Potab",
+      "via": "Hatibari",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 3,
+      "stop_count_research": 3,
+      "stops": [
+        {
+          "stop_id": "stop-syn-115-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_115]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-115-2",
+          "stop_name": "HATIBARI",
+          "normalized_name": "Hatibari",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_115]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-115-3",
+          "stop_name": "POTAB",
+          "normalized_name": "Potab",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_115]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-115-1",
+          "to_stop_id": "stop-syn-115-3",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Potab",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-116",
+      "route_number": "116",
+      "route_code": "rourkela-116",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Loram",
+      "via": "NIT, Jagda Chowk, Khutagaon, Sorda",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": true,
+      "stop_count_database": 6,
+      "stop_count_research": 6,
+      "stops": [
+        {
+          "stop_id": "stop-syn-116-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_116]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-116-2",
+          "stop_name": "NIT",
+          "normalized_name": "Nit",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_116]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-116-3",
+          "stop_name": "JAGDA CHOWK",
+          "normalized_name": "Jagda Chowk",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_116]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-116-4",
+          "stop_name": "KHUTAGAON",
+          "normalized_name": "Khutagaon",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_116]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-116-5",
+          "stop_name": "SORDA",
+          "normalized_name": "Sorda",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_116]",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-116-6",
+          "stop_name": "LORAM",
+          "normalized_name": "Loram",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_116]",
+          "sequence_order": 6,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-116-1",
+          "to_stop_id": "stop-syn-116-6",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Loram",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-117",
+      "route_number": "117",
+      "route_code": "rourkela-117",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Jaraikela",
+      "via": "Bondamunda, Bisra",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 4,
+      "stop_count_research": 4,
+      "stops": [
+        {
+          "stop_id": "stop-syn-117-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_117]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-117-2",
+          "stop_name": "BONDAMUNDA",
+          "normalized_name": "Bondamunda",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_117]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-117-3",
+          "stop_name": "BISRA",
+          "normalized_name": "Bisra",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_117]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-117-4",
+          "stop_name": "JARAIKELA",
+          "normalized_name": "Jaraikela",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_117]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-117-1",
+          "to_stop_id": "stop-syn-117-4",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Jaraikela",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-118",
+      "route_number": "118",
+      "route_code": "rourkela-118",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Salangabahal",
+      "via": "Kuarmunda,Biramitrapur",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 4,
+      "stop_count_research": 4,
+      "stops": [
+        {
+          "stop_id": "stop-syn-118-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_118]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-118-2",
+          "stop_name": "KUARMUNDA",
+          "normalized_name": "Kuarmunda",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_118]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-118-3",
+          "stop_name": "BIRAMITRAPUR",
+          "normalized_name": "Biramitrapur",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_118]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-118-4",
+          "stop_name": "SALANGABAHAL",
+          "normalized_name": "Salangabahal",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_118]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-118-1",
+          "to_stop_id": "stop-syn-118-4",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Salangabahal",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-119",
+      "route_number": "119",
+      "route_code": "rourkela-119",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Kutra",
+      "via": "Rajgangpur Bypass",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 3,
+      "stop_count_research": 3,
+      "stops": [
+        {
+          "stop_id": "stop-syn-119-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_119]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-119-2",
+          "stop_name": "RAJGANGPUR BYPASS",
+          "normalized_name": "Rajgangpur Bypass",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_119]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-119-3",
+          "stop_name": "KUTRA",
+          "normalized_name": "Kutra",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_119]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-119-1",
+          "to_stop_id": "stop-syn-119-3",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Kutra",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-120",
+      "route_number": "120",
+      "route_code": "rourkela-120",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Gurundia",
+      "via": "Disco Chowk,Soldega",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 4,
+      "stop_count_research": 4,
+      "stops": [
+        {
+          "stop_id": "stop-syn-120-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_120]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-120-2",
+          "stop_name": "DISCO CHOWK",
+          "normalized_name": "Disco Chowk",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_120]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-120-3",
+          "stop_name": "SOLDEGA",
+          "normalized_name": "Soldega",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_120]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-120-4",
+          "stop_name": "GURUNDIA",
+          "normalized_name": "Gurundia",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_120]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-120-1",
+          "to_stop_id": "stop-syn-120-4",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Gurundia",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-121",
+      "route_number": "121",
+      "route_code": "rourkela-121",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "DAV POND",
+      "destination": "Radio Station",
+      "via": "Basanti Colony, New Bus Stand, NIT",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 5,
+      "stop_count_research": 5,
+      "stops": [
+        {
+          "stop_id": "stop-syn-121-1",
+          "stop_name": "DAV POND",
+          "normalized_name": "Dav Pond",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_121]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-121-2",
+          "stop_name": "BASANTI COLONY",
+          "normalized_name": "Basanti Colony",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_121]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-121-3",
+          "stop_name": "NEW BUS STAND",
+          "normalized_name": "New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_121]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Berhampur",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-121-4",
+          "stop_name": "NIT",
+          "normalized_name": "Nit",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_121]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-121-5",
+          "stop_name": "RADIO STATION",
+          "normalized_name": "Radio Station",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_121]",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-121-1",
+          "to_stop_id": "stop-syn-121-5",
+          "from_label": "DAV POND",
+          "to_label": "Radio Station",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-122",
+      "route_number": "122",
+      "route_code": "rourkela-122",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Shakti Nagar",
+      "destination": "Tarapur Filter House",
+      "via": null,
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": false,
+      "stop_count_database": 2,
+      "stop_count_research": 2,
+      "stops": [
+        {
+          "stop_id": "stop-syn-122-1",
+          "stop_name": "SHAKTI NAGAR",
+          "normalized_name": "Shakti Nagar",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_122]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-122-2",
+          "stop_name": "TARAPUR FILTER HOUSE",
+          "normalized_name": "Tarapur Filter House",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_122]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-122-1",
+          "to_stop_id": "stop-syn-122-2",
+          "from_label": "Shakti Nagar",
+          "to_label": "Tarapur Filter House",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    },
+    {
+      "route_id": "route-syn-uuid-124",
+      "route_number": "124",
+      "route_code": "rourkela-124",
+      "provider_id": "prov-crut-synthetic",
+      "provider_name": "CRUT / Mo Bus [SYNTHETIC TEST PROVIDER]",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Hamirpur",
+      "via": "Malgodown, Basanti Colony, Chennd Colony, IGH",
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": true,
+      "stop_count_database": 6,
+      "stop_count_research": 6,
+      "stops": [
+        {
+          "stop_id": "stop-syn-124-1",
+          "stop_name": "ROURKELA NEW BUS STAND",
+          "normalized_name": "Rourkela New Bus Stand",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_124]",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-124-2",
+          "stop_name": "MALGODOWN",
+          "normalized_name": "Malgodown",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_124]",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-124-3",
+          "stop_name": "BASANTI COLONY",
+          "normalized_name": "Basanti Colony",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_124]",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-124-4",
+          "stop_name": "CHENND COLONY",
+          "normalized_name": "Chennd Colony",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_124]",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-124-5",
+          "stop_name": "IGH",
+          "normalized_name": "Igh",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_124]",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        },
+        {
+          "stop_id": "stop-syn-124-6",
+          "stop_name": "HAMIRPUR",
+          "normalized_name": "Hamirpur",
+          "route_context": "[SYNTHETIC_ROUTE_CONTEXT_124]",
+          "sequence_order": 6,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": "[SYNTHETIC_TEST_LOCALITY]",
+          "landmark": "[SYNTHETIC_TEST_LANDMARK]",
+          "city": "Rourkela",
+          "district": "Rourkela",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_STOP_RECORD]"
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-syn-124-1",
+          "to_stop_id": "stop-syn-124-6",
+          "from_label": "Rourkela New Bus Stand",
+          "to_label": "Hamirpur",
+          "road_names": [
+            "[SYNTHETIC_TEST_CORRIDOR_ROAD]"
+          ],
+          "major_junctions": [
+            "[SYNTHETIC_TEST_JUNCTION]"
+          ],
+          "landmarks": [
+            "[SYNTHETIC_TEST_LANDMARK]"
+          ],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+          ],
+          "notes": "[SYNTHETIC_TEST_CORRIDOR_DATA]"
+        }
+      ],
+      "route_level_evidence": [
+        "SYNTHETIC-EV-OFFICIAL-HIGH-01"
+      ],
+      "conflicts": [],
+      "notes": {
+        "is_synthetic_test_fixture": true,
+        "do_not_use_for_routing": true
+      }
+    }
+  ]
+}

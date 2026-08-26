@@ -1,0 +1,153 @@
+{
+  "package": "O-Travelz_Phase1_FINAL_RECHECKED_2026-08-17",
+  "verification_date": "2026-08-17",
+  "engineering_ready": false,
+  "file_count": 29,
+  "files": [
+    {
+      "path": "FINAL_RECHECK_QA.json",
+      "sha256": "cd74884c6ee6b6c0e6fc11892d10854cd34d4039f2fb247c01de9855aef19644",
+      "bytes": 1701
+    },
+    {
+      "path": "FINAL_RECHECK_REPORT.md",
+      "sha256": "35b5f4c46043d201c0b7942619836a045f8dea2074e3a7ee69e53357748b5992",
+      "bytes": 1889
+    },
+    {
+      "path": "README.md",
+      "sha256": "1cb806f278f38e7c0243783c9ab405c237c81142a55c5c3c2d674024befdc1a1",
+      "bytes": 539
+    },
+    {
+      "path": "data/README.md",
+      "sha256": "a7da51a8081c537c538f0545f78de259e52ce6acd64c1cb6bb5418e6b58d5595",
+      "bytes": 835
+    },
+    {
+      "path": "data/places/categories.json",
+      "sha256": "acf36fbd7ff77b2bcfdb3e728fc8f1b3ba812674a6e550ab573f2d5687f643e1",
+      "bytes": 1017
+    },
+    {
+      "path": "data/places/places.json",
+      "sha256": "59b5a5f7b16323a837d446e3b4b41b8dc697e39af335690680c700f5638e8e41",
+      "bytes": 22847
+    },
+    {
+      "path": "data/research/Sambalpur_AMA_Bus_route_stop_extraction_v1.csv",
+      "sha256": "bd0bc999e3fcf7a39fede85a500d658b9a3440b4da85fc71cccb9dfd32409e27",
+      "bytes": 88388
+    },
+    {
+      "path": "data/research/ama_bus_source_register_2026-08-17.json",
+      "sha256": "961873612cf731f5a643245e99658bf37cf101768835244fce5d24a5dbbd265f",
+      "bytes": 1922
+    },
+    {
+      "path": "data/research/final_correction_note_2026-08-17.md",
+      "sha256": "3a378680cd150772116d1eaf055fe926050789325b3e68f61bffda7e04d88d15",
+      "bytes": 615
+    },
+    {
+      "path": "data/research/final_handoff_recheck_2026-08-17.md",
+      "sha256": "89de515816d9036d89231c0b8eb215810885918b7e423095eabcf3e56e49fa59",
+      "bytes": 1053
+    },
+    {
+      "path": "data/research/phase1_final_handoff_status_2026-08-17.md",
+      "sha256": "bb44ff2119f092583063fc41bf4328453fe2e2b42b810f59de815159b5388d2f",
+      "bytes": 2372
+    },
+    {
+      "path": "data/research/places_final_audit_report.md",
+      "sha256": "c3e072934dd984bb155bee11e17735c0249699aaea9157b9476c3806077edc43",
+      "bytes": 1543
+    },
+    {
+      "path": "data/research/places_research_notes.md",
+      "sha256": "0069b96fa3bd3c5b7fbd2d556bdb650b18fe4232e810bcf61a92022082548c79",
+      "bytes": 2035
+    },
+    {
+      "path": "data/transport/capital_region/ama_bus_evidence_register.csv",
+      "sha256": "e55f5dc24d210c0b24a014cb5eb23e898464448146aa14832368ce25484aa423",
+      "bytes": 1982
+    },
+    {
+      "path": "data/transport/capital_region/ama_bus_route12_ordered_stop_extraction.csv",
+      "sha256": "4f87f2053613aa5f4c562ea8d6205d38918055298a96a2c66b8f2ae70d541b87",
+      "bytes": 9512
+    },
+    {
+      "path": "data/transport/capital_region/ama_bus_stop_candidates_reconciled.csv",
+      "sha256": "401517170355802dc6f51a3eb2d9abd1c6a3ac3a3818029307f37b271147a21c",
+      "bytes": 7320
+    },
+    {
+      "path": "data/transport/capital_region/capital_region_current_source_status.json",
+      "sha256": "8297c583f2ed62bde9af5ec9bafc7caa3b257b5233771db3ce54116021853b4b",
+      "bytes": 1140
+    },
+    {
+      "path": "data/transport/fares/ama_bus_fares.json",
+      "sha256": "f325ae9f20025d420cc2b905ba78d066c2ea8d84d22954b729307364580224fe",
+      "bytes": 1341
+    },
+    {
+      "path": "data/transport/regional/ama_bus_regional_ordered_stops_berhampur_keonjhar.csv",
+      "sha256": "674960f54c8bc340608c701fe0bbe8a914865803f9e28dbb6f4ca92e404d35f3",
+      "bytes": 62770
+    },
+    {
+      "path": "data/transport/regional/ama_bus_regional_route_summary.csv",
+      "sha256": "ad43ec6164da6468ae12f5ceb5311f2207c6e5dd5eda92075c69f007fb73c6c7",
+      "bytes": 599
+    },
+    {
+      "path": "data/transport/regional/ama_bus_regional_stop_candidates.csv",
+      "sha256": "9aab2471507c5699ad52e322daac6106f45fe3fd943949ce5186d629de8f07d7",
+      "bytes": 43234
+    },
+    {
+      "path": "data/transport/static/README.md",
+      "sha256": "6ce9e1e2ae24b99a54e73e81b9f141db8ec89f14cf47d92a2357c1c9243e5b87",
+      "bytes": 1062
+    },
+    {
+      "path": "data/transport/static/ama_bus.json",
+      "sha256": "6f654ce1c41a3fdea2589b5b3b2dd2fccc6f43bbb1fcf4f59970bd72cb585db1",
+      "bytes": 11581
+    },
+    {
+      "path": "data/transport/static/ama_bus_bqs_inventory_83.csv",
+      "sha256": "f5f8fa0ba6039f5068e1b6dc3c802a61d8d64a924d3b06417a1d2ad6972bd1ae",
+      "bytes": 10879
+    },
+    {
+      "path": "data/transport/static/ama_bus_schedule.json",
+      "sha256": "96f598d337a260c379530964dc2a92cbe6a8b783e530e9002e0cec9c86641cc9",
+      "bytes": 2720
+    },
+    {
+      "path": "data/transport/static/ama_bus_stop_reconciliation.csv",
+      "sha256": "145df926e4ff2fdf58308fb1982ee33648720bd43226eb885c83ec66b4ec663a",
+      "bytes": 10544
+    },
+    {
+      "path": "docs/team/AKRITI.md",
+      "sha256": "36778b45fb4200529587cd844d95cad44655cf075378cac50e67bb1a5649ba04",
+      "bytes": 4619
+    },
+    {
+      "path": "docs/transportation/00-transport-model.md",
+      "sha256": "6dc8b612a57c2cb3fd47d157326795c31c35c05e75fedb8ae1456f99830021bd",
+      "bytes": 4503
+    },
+    {
+      "path": "docs/transportation/01-providers.md",
+      "sha256": "cb1dd7ae2cfb89da9914abc193c111e217103b205ecc0c9576e3fd9772bc3175",
+      "bytes": 9387
+    }
+  ]
+}

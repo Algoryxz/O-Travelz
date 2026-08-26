@@ -1,0 +1,19 @@
+{
+  "region": "Capital Region",
+  "verification_date": "2026-08-17",
+  "official_source": "https://linktr.ee/crut_bbsr",
+  "primary_topology_source": {
+    "title": "AMA Bus Detailed Stoppages, Capital Region w.e.f 16th March, 2026",
+    "status": "LOCATED_ON_LIVE_OFFICIAL_SOURCE_CONTENT_NOT_EXTRACTED",
+    "note": "CRUT currently lists this document on its official Linktree, but the document payload is not exposed through the available retrieval interface."
+  },
+  "current_schedule_source": {
+    "title": "AMA Bus time Schedule, Capital Region w.e.f. 1st June, 2026",
+    "effective_date": "2026-06-01",
+    "status": "CURRENT_OFFICIAL_REFERENCE_CONTENT_NOT_EXTRACTED",
+    "note": "The live CRUT Linktree currently lists the June 1, 2026 schedule. No departure times are imported without the primary PDF payload."
+  },
+  "previous_august_claim": "REJECTED_AFTER_LIVE_SOURCE_RECHECK",
+  "engineering_status": "NOT_ENGINEERING_READY",
+  "reason": "Complete March 16, 2026 Capital Region detailed-stoppages PDF content has not been extracted; therefore complete route-stop topology, canonical IDs, and coordinates cannot be claimed."
+}

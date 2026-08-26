@@ -1,0 +1,288 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OTravelzRegionalRoutes",
+  "description": "Schema for regional transit route intelligence files in Phase 6A.",
+  "type": "object",
+  "required": [
+    "region",
+    "provider_id",
+    "provider_name",
+    "route_count",
+    "routes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "region": {
+      "type": "string",
+      "enum": [
+        "Capital Region",
+        "Rourkela",
+        "Berhampur",
+        "Sambalpur",
+        "Keonjhar"
+      ]
+    },
+    "provider_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "route_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "is_synthetic_test_fixture": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": ["string", "object", "null"]
+    },
+    "routes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/RouteIntelligence"
+      }
+    }
+  },
+  "definitions": {
+    "RouteIntelligence": {
+      "type": "object",
+      "required": [
+        "route_id",
+        "route_number",
+        "route_code",
+        "provider_id",
+        "provider_name",
+        "region",
+        "origin",
+        "destination",
+        "overall_confidence",
+        "geometry_status",
+        "has_detailed_stops",
+        "stop_count_database",
+        "stop_count_research",
+        "stops",
+        "corridors",
+        "route_level_evidence",
+        "conflicts"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "route_id": { "type": "string", "minLength": 1 },
+        "route_number": { "type": "string", "minLength": 1 },
+        "route_code": { "type": "string", "minLength": 1 },
+        "provider_id": { "type": "string", "minLength": 1 },
+        "provider_name": { "type": "string", "minLength": 1 },
+        "region": {
+          "type": "string",
+          "enum": [
+            "Capital Region",
+            "Rourkela",
+            "Berhampur",
+            "Sambalpur",
+            "Keonjhar"
+          ]
+        },
+        "origin": { "type": "string", "minLength": 1 },
+        "destination": { "type": "string", "minLength": 1 },
+        "via": { "type": ["string", "null"] },
+        "direction": { "type": "string", "default": "bidirectional" },
+        "overall_confidence": {
+          "type": "string",
+          "enum": ["CONFIRMED", "SUPPORTED", "INFERRED", "UNKNOWN"]
+        },
+        "geometry_status": {
+          "type": "string",
+          "enum": ["EXACT", "CORRIDOR", "PARTIAL", "NONE"]
+        },
+        "has_detailed_stops": { "type": "boolean" },
+        "stop_count_database": { "type": "integer", "minimum": 0 },
+        "stop_count_research": { "type": "integer", "minimum": 0 },
+        "stops": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StopIntelligence"
+          }
+        },
+        "corridors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CorridorSegment"
+          }
+        },
+        "route_level_evidence": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RouteConflict"
+          }
+        },
+        "notes": {
+          "type": ["object", "string", "null"]
+        }
+      }
+    },
+    "StopIntelligence": {
+      "type": "object",
+      "required": [
+        "stop_id",
+        "stop_name",
+        "sequence_order",
+        "geographic_status",
+        "resolved_latitude",
+        "resolved_longitude",
+        "coordinate_provenance",
+        "confidence",
+        "evidence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "stop_id": { "type": "string", "minLength": 1 },
+        "stop_name": { "type": "string", "minLength": 1 },
+        "normalized_name": { "type": ["string", "null"] },
+        "route_context": { "type": ["string", "null"] },
+        "sequence_order": { "type": "integer", "minimum": 1 },
+        "geographic_status": {
+          "type": "string",
+          "enum": [
+            "verified",
+            "approximate",
+            "identified_no_coordinate",
+            "unresolved"
+          ]
+        },
+        "resolved_latitude": {
+          "type": ["number", "null"],
+          "minimum": -90.0,
+          "maximum": 90.0
+        },
+        "resolved_longitude": {
+          "type": ["number", "null"],
+          "minimum": -180.0,
+          "maximum": 180.0
+        },
+        "coordinate_provenance": {
+          "type": ["string", "null"],
+          "enum": [
+            "official_source",
+            "geocoded",
+            "osm_verified",
+            "research_approximate",
+            null
+          ]
+        },
+        "road": { "type": ["string", "null"] },
+        "locality": { "type": ["string", "null"] },
+        "landmark": { "type": ["string", "null"] },
+        "city": { "type": ["string", "null"] },
+        "district": { "type": ["string", "null"] },
+        "confidence": {
+          "type": "string",
+          "enum": ["CONFIRMED", "SUPPORTED", "INFERRED", "UNKNOWN"]
+        },
+        "evidence": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "notes": { "type": ["string", "object", "null"] }
+      }
+    },
+    "CorridorSegment": {
+      "type": "object",
+      "required": [
+        "sequence",
+        "from_label",
+        "to_label",
+        "road_names",
+        "major_junctions",
+        "landmarks",
+        "status",
+        "geometry_eligible",
+        "confidence",
+        "evidence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "sequence": { "type": "integer", "minimum": 1 },
+        "from_stop_id": { "type": ["string", "null"] },
+        "to_stop_id": { "type": ["string", "null"] },
+        "from_label": { "type": "string", "minLength": 1 },
+        "to_label": { "type": "string", "minLength": 1 },
+        "road_names": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "major_junctions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "landmarks": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "VERIFIED_GEOGRAPHY",
+            "STRONGLY_INFERRED",
+            "WEAKLY_INFERRED",
+            "UNKNOWN"
+          ]
+        },
+        "geometry_eligible": { "type": "boolean" },
+        "confidence": {
+          "type": "string",
+          "enum": ["CONFIRMED", "SUPPORTED", "INFERRED", "UNKNOWN"]
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "notes": { "type": ["string", "object", "null"] }
+      }
+    },
+    "RouteConflict": {
+      "type": "object",
+      "required": [
+        "conflict_type",
+        "description",
+        "database_value",
+        "external_value",
+        "source",
+        "recommended_action",
+        "confidence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "conflict_type": {
+          "type": "string",
+          "enum": [
+            "sequence_conflict",
+            "terminal_conflict",
+            "stop_omission",
+            "stop_naming",
+            "route_variant",
+            "other"
+          ]
+        },
+        "description": { "type": "string", "minLength": 1 },
+        "database_value": { "type": ["string", "number", "array", "object", "null"] },
+        "external_value": { "type": ["string", "number", "array", "object", "null"] },
+        "source": { "type": "string", "minLength": 1 },
+        "recommended_action": { "type": "string", "minLength": 1 },
+        "confidence": {
+          "type": "string",
+          "enum": ["CONFIRMED", "SUPPORTED", "INFERRED", "UNKNOWN"]
+        }
+      }
+    }
+  }
+}

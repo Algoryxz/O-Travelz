@@ -1,0 +1,22 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "6A",
+  "is_synthetic_test_fixture": true,
+  "notes": "SYNTHETIC FIXTURE ONLY - NOT AUTHORITATIVE RESEARCH",
+  "total_unresolved": 1389,
+  "unresolved_stops": [
+    {
+      "stop_id": "stop-syn-unres-001",
+      "stop_name": "DUDUMA COLONY",
+      "city": "Berhampur",
+      "district": "Ganjam",
+      "geographic_status": "unresolved",
+      "reason_unresolved": "[SYNTHETIC TEST REASON] Synthetic fixture placeholder entry",
+      "query_attempted": "[SYNTHETIC_QUERY]",
+      "potential_corridor": "[SYNTHETIC_CORRIDOR]",
+      "serving_routes": [
+        "300"
+      ]
+    }
+  ]
+}

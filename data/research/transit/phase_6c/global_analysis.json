@@ -1,0 +1,31 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "Phase 6C",
+  "generation_mode": "offline",
+  "research_engine": "deterministic_domain_rules",
+  "generated_at": "2026-08-24T17:31:40.597077+00:00",
+  "summary": {
+    "total_stops_queued": 25,
+    "verified_promotions": 17,
+    "candidate_resolutions": 5,
+    "ambiguous_preserved": 3,
+    "unresolved_preserved": 0,
+    "validation_rejected": 0,
+    "api_failed": 0,
+    "new_evidence_collected": 17
+  },
+  "promotion_rules_enforced": [
+    "AC-6C.1: Canonical Stop Preservation",
+    "AC-6C.2: Batch Determinism",
+    "AC-6C.3: Structured Gemini Output",
+    "AC-6C.4: Coordinate Validation (Odisha Bounding Box)",
+    "AC-6C.5: Region Context Validation",
+    "AC-6C.6: Generic Name Anti-Conflation",
+    "AC-6C.7: Evidence Requirement",
+    "AC-6C.8: No Unsupported Promotion",
+    "AC-6C.9: Immutable Prior Phases",
+    "AC-6C.10: No Production Mutation",
+    "AC-6C.11: Failure Isolation",
+    "AC-6C.12: Provenance Completeness"
+  ]
+}

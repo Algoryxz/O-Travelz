@@ -1,0 +1,77 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "Phase 6B",
+  "total_evidence_items": 10,
+  "evidence": [
+    {
+      "evidence_id": "EV-CANONICAL-HUBS-REGISTRY",
+      "source": "Odisha Multi-Modal Transit Hubs & Termini Registry 2026",
+      "source_type": "official_transit_registry",
+      "reliability": "HIGH",
+      "claim": "Authoritative GPS coordinates for primary railway stations, airport terminals, and ISBT depots in Odisha."
+    },
+    {
+      "evidence_id": "EV-CRUT-NETMAP-2026",
+      "source": "CRUT Mo Bus Official Network Map & BQS Station Directory 2026",
+      "source_type": "official_transit_map",
+      "reliability": "HIGH",
+      "claim": "Official route alignment, major junction connectivity, and bus queue shelter directory."
+    },
+    {
+      "evidence_id": "EV-ODISHA-TOURISM-GIS-2026",
+      "source": "Government of Odisha Tourism GIS & Heritage Sites Portal",
+      "source_type": "government_gis",
+      "reliability": "HIGH",
+      "claim": "Surveyed coordinates for major civic monuments, temples, parks, and stadiums."
+    },
+    {
+      "evidence_id": "EV-OSM-TRANSIT-GRAPH-2026",
+      "source": "OpenStreetMap Odisha Public Transport & Highway Graph Extract 2026",
+      "source_type": "osm_verified",
+      "reliability": "HIGH",
+      "claim": "Verified arterial highway alignments (NH-16, NH-53, SH-10), flyover junctions, and highway waypoints."
+    },
+    {
+      "evidence_id": "EV-AMA-BQS-REGISTRY-2026",
+      "source": "AMA Bus Regional Urban Transport Shelter Inventory 2026",
+      "source_type": "official_transit_registry",
+      "reliability": "HIGH",
+      "claim": "Verified stop names and shelter positions for regional AMA Bus networks in Rourkela, Berhampur, Sambalpur, and Keonjhar."
+    },
+    {
+      "evidence_id": "EV-CRUT-CR-SCHED-2026",
+      "source": "CRUT Capital Region Mo Bus Official Schedule 2026",
+      "source_type": "official_transit_schedule",
+      "reliability": "HIGH",
+      "claim": "Official Capital Region route stops, termini, and operational timetable."
+    },
+    {
+      "evidence_id": "EV-AMA-ROURKELA-STOP-2026",
+      "source": "CRUT Rourkela Mo Bus Official Stoppage Details 2026",
+      "source_type": "official_transit_document",
+      "reliability": "HIGH",
+      "claim": "Official Rourkela Mo Bus stoppage lists and route sequences."
+    },
+    {
+      "evidence_id": "EV-AMA-BERHAMPUR-STOP-2026",
+      "source": "CRUT Berhampur AMA Bus Stoppage Directory 2026",
+      "source_type": "official_transit_document",
+      "reliability": "HIGH",
+      "claim": "Official Berhampur AMA Bus stoppage lists and route sequences."
+    },
+    {
+      "evidence_id": "EV-AMA-SAMBALPUR-STOP-2026",
+      "source": "CRUT Sambalpur AMA Bus Stoppage Directory 2026",
+      "source_type": "official_transit_document",
+      "reliability": "HIGH",
+      "claim": "Official Sambalpur AMA Bus stoppage lists and route sequences."
+    },
+    {
+      "evidence_id": "EV-AMA-KEONJHAR-STOP-2026",
+      "source": "CRUT Keonjhar AMA Bus Detailed Stoppages 2026",
+      "source_type": "official_transit_document",
+      "reliability": "HIGH",
+      "claim": "Official Keonjhar AMA Bus stoppage lists and route sequences."
+    }
+  ]
+}

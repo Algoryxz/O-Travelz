@@ -1,0 +1,1157 @@
+{
+  "matches": [],
+  "updates": [
+    {
+      "route_number": "12",
+      "existing_name": "Bhubaneswar Railway Station ↔ Nandankanan (via Jaydev Vihar)",
+      "new_name": "Nandankanan - Bhubaneswar Railway Station (via Jaydev Vihar)",
+      "existing_source": "https://smarteduguide.com/wp-content/uploads/2026/07/MO-BUS-Bhubaneswar-Routes-and-Numbers.html",
+      "new_source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "updated",
+      "change_type": "route_name_changed"
+    }
+  ],
+  "conflicts": [],
+  "duplicates": [],
+  "new_records": [
+    {
+      "route_number": "F1",
+      "route_name": "Damana Square - KIIT Square",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "DD1",
+      "route_name": "Bhubaneswar Railway Station – Shree Mandira Parking, Puri (Via",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "08",
+      "route_name": "IGKC Multispecialty Hospital – Sum Hospital (Campus -2) (via Sum Hospital",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "09",
+      "route_name": "Bhubaneswar Railway Station - Patia (via Niladri Vihar)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "10",
+      "route_name": "Bhubaneswar Airport – Maulana Azad National Urdu University,",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "11",
+      "route_name": "Trishulia Bus Stand – Bhubaneswar Railway Station(via Nandankana, Acharya",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "13",
+      "route_name": "Nandankanan Botanical Garden –Lingipur (via AG Square)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "13E",
+      "route_name": "Nandankanan Botanical Garden – Dhauli(via AG Square)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "14",
+      "route_name": "Kalinga Vihar – Bhubaneswar Railway Station (Via Sum Ultimate,BSABT,OUAT,AG)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "15",
+      "route_name": "Cuttack Netaji Bus Terminus (CNBT) – Utkal Hospital (Via Judicial Square,",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "15E",
+      "route_name": "Cuttack Netaji Bus Terminus (CNBT) – Salia Sahi (Via Judicial Square,",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "16",
+      "route_name": "Bhubaneswar Railway Station – Sri Sri University, Kataka (via NH)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "17",
+      "route_name": "Biju Patnaik International Airport, BBSR- Barabati Stadium, Cuttack (via NH)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "18",
+      "route_name": "Baramunda BSABT – Jagatpur (via Nandankanan)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "19",
+      "route_name": "AIIMS - OMP Square-Mahanadi Vihar (via NH)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "20",
+      "route_name": "Bhubaneswar Railway Station – Khordha New Bus Stand (via Vani Vihar)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "21",
+      "route_name": "Bhubaneswar Railway Station - Khordha New Bus Stand (via OUAT)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "22A",
+      "route_name": "Bhubaneswar Railway Station - Khordha Road Station",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "22B",
+      "route_name": "Jatani Gate- Khordha New Bus Stand (via Jatani)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "23",
+      "route_name": "Bhubaneswar Railway Station – Sum Hospital-IGKC",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "24",
+      "route_name": "Kalinga Vihar- Sai Temple",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "24E",
+      "route_name": "Kalinga Vihar- Bainchua (via-Sai Temple)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "25",
+      "route_name": "Dumduma – Gadakana (Via – Mastercanteen, Mancheswar)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "26",
+      "route_name": "Dumduma (Jadupur) – Rokat, Rajdhani Engineering College (Via Chaikeisiani)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "27",
+      "route_name": "Bhubaneswar Railway Station – Bhagwanpur (via AIIMS)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "28",
+      "route_name": "Master Canteen - Kalinga Nagar (Trident)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "29",
+      "route_name": "Bhagwanpur – Sai Mandir",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "29E",
+      "route_name": "Bhagwanpur – SBI Colony Via(Sai Mandir)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "30",
+      "route_name": "Bhubaneswar Railway Station – Chhatabar -Mahatma Gandhi Academy of",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "31",
+      "route_name": "Bhubaneswar Railway Station – Hi-Tech Hospital (via Toshali Bhawan,",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "32",
+      "route_name": "Baramunda BSABT – Lingaraj Temple (Via Bhubaneswar Railway Station)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "33",
+      "route_name": "Bhubaneswar Railway Station – Pipili",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "34",
+      "route_name": "Bhubaneswar Railway Station – Balakati (Sai Hospital)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "34E",
+      "route_name": "Bhubaneswar Railway Station - Trahi Achyut(Via-Balakati)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "36",
+      "route_name": "Bhubaneswar Railway Station – Mundali (via Judicial Academy)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "37",
+      "route_name": "Baramunda BSABT – Naraj Railway Station (via Trisulia Square, OMFED Dairy)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "38",
+      "route_name": "Bhubaneswar Railway Station – Trimal (via Khordha Bypass, IIT)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "39",
+      "route_name": "Bhubaneswar Railway Station - AIIMS (via Capital Hospital, Bhimtangi)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "40",
+      "route_name": "AIIMS - Sai Mandir (Kesora) (via Capital Hospital, Badagada Brit Colony)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "41",
+      "route_name": "Baramunda BSABT – Tangi (via NH)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "42",
+      "route_name": "Baramunda BSABT – Nandankanan (via Chandaka)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "43",
+      "route_name": "Baramunda BSABT – Banamalipur (via Rasulgarh ,Kalapana Sqr)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "43E",
+      "route_name": "Baramunda BSABT – Abhyamukhi (via Rasulgarh ,Kalapana Sqr,Banamalipur)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "44",
+      "route_name": "Baramunda BSABT - SVNIRTAR,Olatpur (via Master Canteen, ,Kalapana",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "45",
+      "route_name": "Bhubaneswar Railway Station - Jayadev Pitha (via Brahman Sarangi,Khamanga)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "46",
+      "route_name": "Bhubaneswar Railway Station - Nandankanan (via Kalayanpur,Gandarpur)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "47",
+      "route_name": "Sum Hospital - SCB Medical,Cuttack (via Ekamra Kanan,Mayfair)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "48",
+      "route_name": "Khordha New Bus Stand - Jagatpur,Cuttack (via Pitapalli, Chandaka)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "49",
+      "route_name": "Bhubaneswar Railway Station – Delanga Hata (via Pipili)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "50",
+      "route_name": "Bhubaneswar Railway Station - Puri Bus Stand",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "51",
+      "route_name": "Baramunda BSABT - Puri Bus Stand (via Vani Vihar,Rasulgarh Square)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "52",
+      "route_name": "Puri Bus Stand – Mangalahata (Via Puri Railway Station,Beach",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "53",
+      "route_name": "Malatipatpur Bus Stand – Shree Mandira (via Puri Bus Stand)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "54",
+      "route_name": "NLU, Cuttack - Puri Bus Stand (via Badambadi, Puri Bypass)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "56",
+      "route_name": "Khordha New Bus Stand – Puri Bus Stand (via Jatani,Pipili)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "56E",
+      "route_name": "Puri Bus Stand - Khordha Road Station (via Jatani,Pipili)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "57",
+      "route_name": "Puri Bus Stand - Astaranga",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "58",
+      "route_name": "Jagatpur,Cuttack – Puri Bus Stand (via Badambadi,Link Road)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "59",
+      "route_name": "Mahanadi Vihar,Cuttack – Puri Bus Stand (via Badambadi,Link Road)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "61",
+      "route_name": "Puri Bus Stand – Satapada Bus Stand",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "62",
+      "route_name": "Bhubaneswar Railway Station – Suando (via-Kalpana Square, Pipili Bypass,",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "63",
+      "route_name": "BSABT -Madhabananda Temple, Niali (Via-Vani Vihar, Master Canteen,",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "64",
+      "route_name": "Bhubaneswar Railway Station – Jatani Gate (via-Vani vihar, Gohiria square,",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "65",
+      "route_name": "Bhubaneswar Railway Station – Wonderla Amusement Park (Via - Vani Vihar)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "66",
+      "route_name": "Bhubaneswar Railway Station - Pathargadia Square (Via- Kiss College, Kelucharan",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "70",
+      "route_name": "Bhubaneswar Railway Station - Konark",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "71",
+      "route_name": "Baramunda ISBT – Konark (via Rasulgarh Square)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "72",
+      "route_name": "Shree Mandira – Madhabnanda Temple, Niali",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "73",
+      "route_name": "Puri Bus Stand – Talabania",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "74",
+      "route_name": "Puri Railway Station – Shree Mandira (Via – Puri Bus Stand)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "75",
+      "route_name": "Shree Mandira – Kakatpur (Via Puri Bus Stand, Balighai, Marine Drive, Konark)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "76",
+      "route_name": "Puri Bus Stand – Sakhigopal Temple",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "77",
+      "route_name": "Puri Bus Stand – Nimapada Bus Stand",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "78",
+      "route_name": "Puri Bus Stand– Alarnath (Brahamgiri New Bus Stand)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "79",
+      "route_name": "Shree Mandira – Light House (Via Police line, SCS College, Kacheri,",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "80",
+      "route_name": "Naraj Police Outpost – Agrahat, Charbatia (via NLU, Badambadi, SCB Medical)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "80E",
+      "route_name": "Naraj Police Outpost – Mangarajpur (via NLU, Badambadi, SCB Medical)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "81",
+      "route_name": "Barabati Stadium – Jagannath Temple, Salepur (via SCB Medical, OMP",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "82",
+      "route_name": "AIRPORT - MASTER CANTEEN - SCB Medical (Settlement Office) (via NH)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "83",
+      "route_name": "Dhabaleswar - Kandarpur (via 42 Mouza)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "83A",
+      "route_name": "CDA9 - Nuapatana",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "84",
+      "route_name": "Biju pattanaik Park,CDA – Madhabananda Temple, Niali (via",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "85",
+      "route_name": "Cuttack Netaji Bus Terminal - Gadama (via OMP, Kandarpur)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "86",
+      "route_name": "CDA 9 OD terminal – Driems,Tangi",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "87",
+      "route_name": "Biju Patanaik Park – Mahanadi Vihar (Via CDA, Judicial Square, Link Road)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "87E",
+      "route_name": "Judicial Academy– Nuapada(Via Barabati,SCB)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "88",
+      "route_name": "National Law University (O) – SCB Hospital (Via CDA, Raj Kishor Marg,",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "89",
+      "route_name": "SCB Medical – Jagadguru Krupalu University (JKU)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "89A",
+      "route_name": "SCB Medical – Judicial Square",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "90",
+      "route_name": "Khordha New Bus Stand – Jagatpur, Cuttack (Via NH)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "91",
+      "route_name": "Baramunda BSABT – Biju Patnaik Park, Cuttack (Via NH)",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "92",
+      "route_name": "IGKC – Sai Temple (Via Khandagiri, Lingraj Station, Bhim Tangi,",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "93",
+      "route_name": "Bhubaneswar Railway Station – Biju Patnaik Park, CDA (Via Fire",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "94",
+      "route_name": "Babasaheb Bhimrao Ambedkar Bus Terminal (BSABT) – SIEP, JATNI",
+      "region": "Capital Region",
+      "source": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "100",
+      "route_name": "Rourkela New Bus Stand - Birsa Munda Hockey Stadium (via Ring Road, IGH, Chend Colony)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "101",
+      "route_name": "Rourkela New Bus Stand - Laukera (via Udit Nagar, Hanuman Vatika Chowk, Chhend, Airport)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "101E",
+      "route_name": "Rourkela New Bus Stand – Panposh Station(",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "102",
+      "route_name": "Vedvyas - Jhirpani (via Panposh,Chhend Chowk, Koel Nagar)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "103",
+      "route_name": "Rourkela New Bus Stand – Panposh( Via-Uditnagar,Hanuman Vatika Chowk,Chhend)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "104",
+      "route_name": "Rourkela New Bus Stand - Jhirpani(via Sector-2,Nit,Jagda Chowk)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "105",
+      "route_name": "Rourkela New Bus Stand - Rajgangpur (via NH)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "106",
+      "route_name": "Rourkela New Bus Stand - Birmitrapur (via Ring Road, NH)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "107",
+      "route_name": "Rourkela New Bus Stand - Teterkela (via Bondamunda)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "108",
+      "route_name": "Rourkela New Bus Stand – Nuagaon (via Jagda Chowk, Jhirpani, Khuntagaon)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "109",
+      "route_name": "Rourkela New Bus Stand – Lathikata (via NH)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "110",
+      "route_name": "Rourkela New Bus Stand – Kalunga (via Raghunathpali)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "111",
+      "route_name": "Rourkela New Bus Stand – Bonaigarh",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "112",
+      "route_name": "Rourkela New Bus Stand – Lahunipara",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "113",
+      "route_name": "Rourkela New Bus Stand – Ushra (via NH)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "114",
+      "route_name": "Rourkela New Bus Stand - Nuagaon (via Hatibari)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "115",
+      "route_name": "Rourkela New Bus Stand – Potab (via Hatibari)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "116",
+      "route_name": "Rourkela New Bus Stand – Loram (via NIT, Jagda Chowk, Khutagaon, Sorda)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "117",
+      "route_name": "Rourkela New Bus Stand – Jaraikela (via Bondamunda, Bisra)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "118",
+      "route_name": "Rourkela New Bus Stand – Salangabahal (via Kuarmunda,Biramitrapur)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "119",
+      "route_name": "Rourkela New Bus Stand – Kutra (via Rajgangpur Bypass)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "120",
+      "route_name": "Rourkela New Bus Stand – Gurundia (via Disco Chowk,Soldega)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "121",
+      "route_name": "DAV POND – Radio Station (Kantajhor) (via Basanti Colony, New Bus Stand, NIT)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "122",
+      "route_name": "Shakti Nagar – Tarapur Filter House (Laxmi Market)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "124",
+      "route_name": "Rourkela New Bus Stand – Hamirpur (via Malgodown, Basanti Colony, Chennd Colony, IGH)",
+      "region": "Rourkela",
+      "source": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "300",
+      "route_name": "NIST college - Duduma Colony Bus stand",
+      "region": "Berhampur",
+      "source": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "301",
+      "route_name": "Berhampur Rail Stn. - Parala maharaja college (Via- MKCG Medical, Engineering",
+      "region": "Berhampur",
+      "source": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "302",
+      "route_name": "Berhampur Railway Station – Regidi",
+      "region": "Berhampur",
+      "source": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "303",
+      "route_name": "Duduma Colony Bus Stand – Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+      "region": "Berhampur",
+      "source": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "303E",
+      "route_name": "Duduma Colony Bus stand – Dhabaleswar (Via- Railway station P.F-4, Lanjipali Village, Ankuli ,ARMY",
+      "region": "Berhampur",
+      "source": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "304",
+      "route_name": "Berhampur Railway Station -D.patapur",
+      "region": "Berhampur",
+      "source": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "304E",
+      "route_name": "Berhampur Railway Station - Ralaba",
+      "region": "Berhampur",
+      "source": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "305",
+      "route_name": "Haladiapadar Bus Stand– Chatrapur",
+      "region": "Berhampur",
+      "source": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "306",
+      "route_name": "Mahatma Gandhi Stadium - Sonapur beach (Via- Railway Station,Haldiapadar New Bus Stand,Kanisi Hata,Sidhha",
+      "region": "Berhampur",
+      "source": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "307",
+      "route_name": "Duduma Colony Bus stand - Engg.School",
+      "region": "Berhampur",
+      "source": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "200",
+      "route_name": "Khetrajpur Railway station - City Railway station",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "201",
+      "route_name": "Ainthapali Bus Terminal – Ghanteswari Temple",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "202",
+      "route_name": "Ainthapali Bus Terminal – Atal Chowk",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "203",
+      "route_name": "Ainthapali Bus Terminal - Hirakud Dam",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "204",
+      "route_name": "Ainthapali Bus Terminal - Maneswar",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "205",
+      "route_name": "Ainthapali Bus Terminal - Nuajamda",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "206",
+      "route_name": "Samaleswari Temple - Ghanteswari Temple",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "207",
+      "route_name": "Ainthapali Bus Terminal – Dhama",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "208",
+      "route_name": "Dhanupali Chowk – Burla Hospital",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "209",
+      "route_name": "Khetrajpur Rly. Station – Osou Sambalpur",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "210",
+      "route_name": "Ainthapali Bus Terminal – Jamadarpali Dyke",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "211",
+      "route_name": "Ainthapali Bus Terminal – Jharsuguda",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "212",
+      "route_name": "Ainthapali Bus Terminal – Baragarh",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "213",
+      "route_name": "Ainthapali Bus Terminal – Belpahar",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "213A",
+      "route_name": "Ainthapali Bus Terminal – Belpahar",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "214",
+      "route_name": "Ainthapali Bus Terminal – Kuchinda",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "215",
+      "route_name": "Ainthapali Bus Terminal – Padiabahal",
+      "region": "Sambalpur",
+      "source": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "400",
+      "route_name": null,
+      "region": "Keonjhar",
+      "source": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "401",
+      "route_name": null,
+      "region": "Keonjhar",
+      "source": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "402",
+      "route_name": null,
+      "region": "Keonjhar",
+      "source": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "403",
+      "route_name": null,
+      "region": "Keonjhar",
+      "source": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "404",
+      "route_name": null,
+      "region": "Keonjhar",
+      "source": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "status": "new_route"
+    },
+    {
+      "route_number": "405",
+      "route_name": null,
+      "region": "Keonjhar",
+      "source": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "status": "new_route"
+    }
+  ],
+  "existing_only": [],
+  "stops_comparison": {
+    "existing_stops_count": 36,
+    "extracted_stops_count": 1066,
+    "matching_stops": 4,
+    "new_stops": 1062,
+    "existing_only_stops": 32,
+    "matching_stop_names": [
+      "DAMANA SQUARE",
+      "KIIT SQUARE",
+      "MASTER CANTEEN",
+      "NANDANKANAN"
+    ],
+    "new_stop_names_sample": [
+      "A.KATAPALI",
+      "ABHIGYAN CHOWK",
+      "ABHYAMUKHI",
+      "ADARSHA VIDYALA",
+      "ADITYA ALUMINIUM",
+      "AGNISHWAR MAHADEV TEMPLE",
+      "AGRAHAT, CHARBATIA",
+      "AIIMS",
+      "AINTHAPALI BUS TERMINAL",
+      "AINTHAPALI CHOWK",
+      "AIRPORT",
+      "ALARNATH",
+      "ALIND CHOWK",
+      "AMBA MARKET",
+      "AMBA PADA",
+      "AMBAGAN CHOWK",
+      "AMBAPADA",
+      "AMBAPUA",
+      "AMBEDKAR CHOWK",
+      "AMBEDKAR ITI"
+    ],
+    "existing_only_stop_names": [
+      "AG COLONY",
+      "BHUBANESWAR RLY. STN.",
+      "CHANDRASHEKHARPUR P.S.",
+      "DULADEI TEMPLE",
+      "EXHIBITION GROUND",
+      "FORTUNE TOWER",
+      "HOUSING BOARD SQUARE",
+      "JANATA MAIDAN",
+      "JAYDEV VIHAR SQUARE",
+      "KALINGA HOSPITAL SQUARE",
+      "KALINGA STADIUM GATE- 2",
+      "KALINGA STADIUM GATE- 8",
+      "KANAN VIHAR PHASE- 2",
+      "KOEL CAMPUS",
+      "MANI TRIBHUVAN",
+      "MAYFAIR ROAD",
+      "NANDAN VIHAR",
+      "NANDANKANAN HIGH SCHOOL",
+      "NILADRI VIHAR SQUARE",
+      "OMFED SQUARE",
+      "PAL HEIGHTS",
+      "PATIA SQUARE",
+      "RAGHUNATHPUR",
+      "RAGHUNATHPUR VILLAGE",
+      "RAIL SADAN",
+      "RAM MANDIR",
+      "ROYAL LAGOON",
+      "SHASTRI NAGAR SQUARE",
+      "SIKHARCHANDI VIHAR",
+      "SRIYA SQUARE",
+      "THE WORLD",
+      "XAVIER SQUARE"
+    ]
+  },
+  "sequence_comparison": {},
+  "e_ride_comparison": {
+    "existing_e_ride_routes": 13,
+    "note": "E-Ride data is not in the official PDFs being processed. Existing E-Ride data preserved as-is."
+  }
+}

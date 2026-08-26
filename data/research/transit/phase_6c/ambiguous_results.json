@@ -1,0 +1,48 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "Phase 6C",
+  "generation_mode": "offline",
+  "research_engine": "deterministic_domain_rules",
+  "total_ambiguous": 3,
+  "resolutions": [
+    {
+      "canonical_stop_name": "NH",
+      "status": "AMBIGUOUS",
+      "confidence": "LOW",
+      "latitude": null,
+      "longitude": null,
+      "evidence_ids": [
+        "EV-CRUT-NETMAP-2026"
+      ],
+      "provenance": null,
+      "validation_errors": [],
+      "promotion_rationale": "Model identified multiple plausible locations; preserved ambiguous."
+    },
+    {
+      "canonical_stop_name": "SAI TEMPLE",
+      "status": "AMBIGUOUS",
+      "confidence": "LOW",
+      "latitude": null,
+      "longitude": null,
+      "evidence_ids": [
+        "EV-CRUT-NETMAP-2026"
+      ],
+      "provenance": null,
+      "validation_errors": [],
+      "promotion_rationale": "Model identified multiple plausible locations; preserved ambiguous."
+    },
+    {
+      "canonical_stop_name": "SAI MANDIR",
+      "status": "AMBIGUOUS",
+      "confidence": "LOW",
+      "latitude": null,
+      "longitude": null,
+      "evidence_ids": [
+        "EV-CRUT-NETMAP-2026"
+      ],
+      "provenance": null,
+      "validation_errors": [],
+      "promotion_rationale": "Model identified multiple plausible locations; preserved ambiguous."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OTravelzRouteIndex",
+  "description": "Master index of all 154 O-TRAVELZ transit routes in Phase 6A research.",
+  "type": "object",
+  "required": [
+    "project",
+    "phase",
+    "baseline_commit",
+    "total_routes",
+    "regional_distribution",
+    "routes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "project": {
+      "type": "string",
+      "enum": ["O-TRAVELZ"]
+    },
+    "phase": {
+      "type": "string",
+      "enum": ["6A"]
+    },
+    "baseline_commit": {
+      "type": "string"
+    },
+    "total_routes": {
+      "type": "integer",
+      "minimum": 154,
+      "maximum": 154
+    },
+    "is_synthetic_test_fixture": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": ["string", "object", "null"]
+    },
+    "regional_distribution": {
+      "type": "object",
+      "required": [
+        "Capital Region",
+        "Rourkela",
+        "Berhampur",
+        "Sambalpur",
+        "Keonjhar"
+      ],
+      "properties": {
+        "Capital Region": { "type": "integer", "minimum": 1 },
+        "Rourkela": { "type": "integer", "minimum": 1 },
+        "Berhampur": { "type": "integer", "minimum": 1 },
+        "Sambalpur": { "type": "integer", "minimum": 1 },
+        "Keonjhar": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "routes": {
+      "type": "array",
+      "minItems": 154,
+      "maxItems": 154,
+      "items": {
+        "type": "object",
+        "required": [
+          "route_id",
+          "route_number",
+          "route_code",
+          "region",
+          "file_path",
+          "origin",
+          "destination",
+          "overall_confidence",
+          "geometry_status",
+          "stop_count"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "route_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "route_number": {
+            "type": "string",
+            "minLength": 1
+          },
+          "route_code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "region": {
+            "type": "string",
+            "enum": [
+              "Capital Region",
+              "Rourkela",
+              "Berhampur",
+              "Sambalpur",
+              "Keonjhar"
+            ]
+          },
+          "file_path": {
+            "type": "string",
+            "enum": [
+              "capital_region.json",
+              "rourkela.json",
+              "berhampur.json",
+              "sambalpur.json",
+              "keonjhar.json"
+            ]
+          },
+          "origin": {
+            "type": "string",
+            "minLength": 1
+          },
+          "destination": {
+            "type": "string",
+            "minLength": 1
+          },
+          "via": {
+            "type": ["string", "null"]
+          },
+          "overall_confidence": {
+            "type": "string",
+            "enum": ["CONFIRMED", "SUPPORTED", "INFERRED", "UNKNOWN"]
+          },
+          "geometry_status": {
+            "type": "string",
+            "enum": ["EXACT", "CORRIDOR", "PARTIAL", "NONE"]
+          },
+          "stop_count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  }
+}

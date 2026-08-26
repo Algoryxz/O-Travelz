@@ -1,0 +1,94 @@
+{
+  "route_id": "route-F1",
+  "route_number": "F1",
+  "route_code": "ROUTE-F1",
+  "provider_id": "crut-capital-region",
+  "provider_name": "Capital Region Urban Transport (CRUT)",
+  "region": "Capital Region",
+  "origin": "Damana Square",
+  "destination": "KIIT Square",
+  "via": null,
+  "direction": "bidirectional",
+  "overall_confidence": "CONFIRMED",
+  "geometry_status": "EXACT",
+  "has_detailed_stops": true,
+  "stop_count_database": 2,
+  "stop_count_research": 2,
+  "stops": [
+    {
+      "stop_id": "stop-capital-region-f1-1",
+      "stop_name": "Damana Square",
+      "normalized_name": "DAMANA SQUARE",
+      "route_context": "Origin terminus",
+      "sequence_order": 1,
+      "geographic_status": "verified",
+      "resolved_latitude": null,
+      "resolved_longitude": null,
+      "coordinate_provenance": null,
+      "road": "Nandankanan Road",
+      "locality": "Damana",
+      "landmark": "Damana Square",
+      "city": "Bhubaneswar",
+      "district": "Khordha",
+      "confidence": "CONFIRMED",
+      "evidence": [
+        "EV-CRUT-CR-SCHED-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ]
+    },
+    {
+      "stop_id": "stop-capital-region-f1-2",
+      "stop_name": "KIIT Square",
+      "normalized_name": "KIIT SQUARE",
+      "route_context": "Terminus",
+      "sequence_order": 2,
+      "geographic_status": "verified",
+      "resolved_latitude": null,
+      "resolved_longitude": null,
+      "coordinate_provenance": null,
+      "road": "Infocity Avenue",
+      "locality": "KIIT",
+      "landmark": "KIIT University",
+      "city": "Bhubaneswar",
+      "district": "Khordha",
+      "confidence": "CONFIRMED",
+      "evidence": [
+        "EV-CRUT-CR-SCHED-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ]
+    }
+  ],
+  "corridors": [
+    {
+      "sequence": 1,
+      "from_stop_id": "stop-capital-region-f1-1",
+      "to_stop_id": "stop-capital-region-f1-2",
+      "from_label": "Damana Square",
+      "to_label": "KIIT Square",
+      "road_names": [
+        "Nandankanan Road",
+        "Infocity Avenue"
+      ],
+      "major_junctions": [
+        "Damana Square",
+        "KIIT Square"
+      ],
+      "landmarks": [
+        "KIIT University",
+        "Infocity"
+      ],
+      "status": "VERIFIED_GEOGRAPHY",
+      "geometry_eligible": false,
+      "confidence": "CONFIRMED",
+      "evidence": [
+        "EV-CRUT-CR-SCHED-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ]
+    }
+  ],
+  "route_level_evidence": [
+    "EV-CRUT-CR-SCHED-2026",
+    "EV-OSM-TRANSIT-GRAPH-2026"
+  ],
+  "conflicts": []
+}

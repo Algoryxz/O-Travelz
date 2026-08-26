@@ -1,0 +1,139 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "6A",
+  "total_evidence_items": 11,
+  "evidence": [
+    {
+      "evidence_id": "EV-CRUT-CR-SCHED-2026",
+      "source": "CRUT Official Capital Region Schedule (w.e.f 21.08.2026)",
+      "source_type": "OFFICIAL_DOCUMENT",
+      "document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "page": "1-16",
+      "url": null,
+      "claim": "Official route definitions, terminals, via alignments, and scheduled departures for Capital Region Mo Bus network (Routes F1, DD1, 08-94).",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "Authoritative primary document published by Capital Region Urban Transport (CRUT), Govt of Odisha."
+    },
+    {
+      "evidence_id": "EV-CRUT-NETMAP-2026",
+      "source": "Latest Mo Bus Full Network Map (English)",
+      "source_type": "OFFICIAL_MAP",
+      "document": "Latest_MO_BUS_Full_Network_Final_English_2_For_Odia_and_English_compressed.pdf",
+      "page": "1",
+      "url": null,
+      "claim": "Official geographic system diagram showing route alignments, transfer interchanges, and major road corridors in Capital Region.",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "Primary cartographic diagram published by CRUT."
+    },
+    {
+      "evidence_id": "EV-AMA-ROURKELA-STOP-2026",
+      "source": "AMA Bus Rourkela Detailed Stoppages Document (w.e.f 11.04.2026)",
+      "source_type": "OFFICIAL_DOCUMENT",
+      "document": "01dd4cef-b9c3-4a5a-8b3d-00a80578469d_Rourkela-Updated-Route-w.e.f-11.04.26.pdf",
+      "page": "1",
+      "url": null,
+      "claim": "Official stoppage sequence order, route names, and terminal points for Rourkela city transit network (Routes 100-124).",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "Primary stoppage gazette for Sundargarh / Rourkela Urban Transport."
+    },
+    {
+      "evidence_id": "EV-AMA-ROURKELA-SCHED-2026",
+      "source": "AMA Bus Rourkela Timetable & Schedule (w.e.f 11.04.2026)",
+      "source_type": "OFFICIAL_DOCUMENT",
+      "document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "page": "1",
+      "url": null,
+      "claim": "Official departure frequency, headway, and terminal timings for Rourkela routes 100-124.",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "Primary operating schedule."
+    },
+    {
+      "evidence_id": "EV-AMA-BERHAMPUR-STOP-2026",
+      "source": "Updated Berhampur Detailed Stoppages Gazette (24.04.2026)",
+      "source_type": "OFFICIAL_DOCUMENT",
+      "document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
+      "page": "1",
+      "url": null,
+      "claim": "Official stoppage sequence order, route names, and terminal points for Berhampur Silk City transit network (Routes 300-307).",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "Primary stoppage gazette for Ganjam / Berhampur Urban Transport."
+    },
+    {
+      "evidence_id": "EV-AMA-BERHAMPUR-SCHED-2026",
+      "source": "AMA Bus Brahmapur Timetable (w.e.f 01.06.2026)",
+      "source_type": "OFFICIAL_DOCUMENT",
+      "document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "page": "1",
+      "url": null,
+      "claim": "Official operating schedule and departure timestamps for Brahmapur routes 300-307.",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "Primary operating schedule for Berhampur."
+    },
+    {
+      "evidence_id": "EV-AMA-SAMBALPUR-STOP-2026",
+      "source": "Sambalpur AMA Bus Stoppage Details (05.07.2026)",
+      "source_type": "OFFICIAL_DOCUMENT",
+      "document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "page": "1",
+      "url": null,
+      "claim": "Official stoppage sequence order and route alignment for Sambalpur-Burla-Hirakud network (Routes 200-215).",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "Primary stoppage gazette for Sambalpur Urban Transport."
+    },
+    {
+      "evidence_id": "EV-AMA-SAMBALPUR-SCHED-2026",
+      "source": "AMA Bus Sambalpur Schedule (w.e.f 01.07.2026)",
+      "source_type": "OFFICIAL_DOCUMENT",
+      "document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "page": "1",
+      "url": null,
+      "claim": "Official operating timetable and trip frequencies for Sambalpur routes 200-215.",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "Primary operating schedule."
+    },
+    {
+      "evidence_id": "EV-AMA-KEONJHAR-STOP-2026",
+      "source": "Keonjhar AMA Bus Detailed Stoppages Gazette",
+      "source_type": "OFFICIAL_DOCUMENT",
+      "document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "page": "1",
+      "url": null,
+      "claim": "Official stoppage sequence order and route alignments for Keonjhar district transit network (Routes 400-405).",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "Primary stoppage document for Keonjhar district."
+    },
+    {
+      "evidence_id": "EV-OSM-TRANSIT-GRAPH-2026",
+      "source": "OpenStreetMap Odisha Road & Transit Network",
+      "source_type": "OSM",
+      "document": null,
+      "page": null,
+      "url": "https://www.openstreetmap.org",
+      "claim": "Verified highway alignments (NH-16, NH-316, NH-53, NH-143, NH-20), major arterial roads (Janpath, Bidyut Marg, Ring Road), and canonical public transport infrastructure.",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "Global crowdsourced geospatial database with direct highway classification tags."
+    },
+    {
+      "evidence_id": "EV-CANONICAL-HUBS-REGISTRY",
+      "source": "O-TRAVELZ Canonical Transit Hub Domain Model",
+      "source_type": "RESEARCH",
+      "document": "backend/app/transport/hubs.py",
+      "page": "L46-L177",
+      "url": null,
+      "claim": "Curated canonical interchange hubs (Bhubaneswar Airport, Master Canteen, Baramunda BSABT, AIIMS, Nandankanan, SCB Medical, MKCG Medical) with verified representative anchor coordinates.",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "Ground-truth cross-system aliasing registry."
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "route_id": "route-200",
+  "route_number": "200",
+  "route_code": "ROUTE-200",
+  "provider_id": null,
+  "provider_name": "Capital Region Urban Transport (CRUT)",
+  "region": "Sambalpur",
+  "origin": "Khetrajpur Railway station",
+  "destination": "City Railway station",
+  "via": null,
+  "direction": "bidirectional",
+  "overall_confidence": "CONFIRMED",
+  "geometry_status": "EXACT",
+  "has_detailed_stops": true,
+  "stop_count_database": 2,
+  "stop_count_research": 2,
+  "stops": [
+    {
+      "stop_id": "stop-sambalpur-200-1",
+      "stop_name": "KHETRAJPUR RAILWAY STATION",
+      "normalized_name": "KHETRAJPUR RAILWAY STATION",
+      "route_context": "Origin terminus",
+      "sequence_order": 1,
+      "geographic_status": "verified",
+      "resolved_latitude": null,
+      "resolved_longitude": null,
+      "coordinate_provenance": null,
+      "road": null,
+      "locality": null,
+      "landmark": "Khetrajpur Railway station",
+      "city": "Sambalpur",
+      "district": null,
+      "confidence": "CONFIRMED",
+      "evidence": [
+        "EV-CRUT-CR-SCHED-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ]
+    },
+    {
+      "stop_id": "stop-sambalpur-200-2",
+      "stop_name": "CITY RAILWAY STATION",
+      "normalized_name": "CITY RAILWAY STATION",
+      "route_context": "Terminus",
+      "sequence_order": 2,
+      "geographic_status": "verified",
+      "resolved_latitude": null,
+      "resolved_longitude": null,
+      "coordinate_provenance": null,
+      "road": null,
+      "locality": null,
+      "landmark": "City Railway station",
+      "city": "Sambalpur",
+      "district": null,
+      "confidence": "CONFIRMED",
+      "evidence": [
+        "EV-CRUT-CR-SCHED-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ]
+    }
+  ],
+  "corridors": [
+    {
+      "sequence": 1,
+      "from_stop_id": "stop-sambalpur-200-1",
+      "to_stop_id": "stop-sambalpur-200-2",
+      "from_label": "KHETRAJPUR RAILWAY STATION",
+      "to_label": "CITY RAILWAY STATION",
+      "road_names": [
+        "NH-6"
+      ],
+      "major_junctions": [
+        "Khetrajpur",
+        "City"
+      ],
+      "landmarks": [
+        "Khetrajpur Railway station",
+        "City Railway station"
+      ],
+      "status": "VERIFIED_GEOGRAPHY",
+      "geometry_eligible": false,
+      "confidence": "CONFIRMED",
+      "evidence": [
+        "EV-CRUT-CR-SCHED-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ]
+    }
+  ],
+  "route_level_evidence": [
+    "EV-CRUT-CR-SCHED-2026",
+    "EV-OSM-TRANSIT-GRAPH-2026"
+  ],
+  "conflicts": []
+}

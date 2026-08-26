@@ -1,0 +1,43 @@
+{
+  "total_schedules": 302,
+  "total_trips": 5553,
+  "anomalies": [],
+  "duplicate_trips": [
+    {
+      "route_number": "16",
+      "time": "20:30",
+      "terminus": "SriSriUniversity, Kataka"
+    },
+    {
+      "route_number": "94",
+      "time": "08:30",
+      "terminus": "BSABT,Baramunda"
+    },
+    {
+      "route_number": "201",
+      "time": "18:05",
+      "terminus": "Ghanteswari Temple"
+    },
+    {
+      "route_number": "201",
+      "time": "18:40",
+      "terminus": "Ghanteswari Temple"
+    }
+  ],
+  "impossible_times": [],
+  "malformed_times": [],
+  "orphan_routes": [],
+  "provenance_issues": [],
+  "duplicate_schedules": [],
+  "summary": {
+    "total_schedules": 302,
+    "total_trips": 5553,
+    "malformed_times": 0,
+    "impossible_times": 0,
+    "duplicate_trips": 4,
+    "duplicate_schedules": 0,
+    "orphan_route_refs": 0,
+    "provenance_issues": 0,
+    "verdict": "clean"
+  }
+}

@@ -1,0 +1,722 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "Phase 6C",
+  "batch_size": 25,
+  "generated_at": "2026-08-24T17:31:40.577718+00:00",
+  "queue": [
+    {
+      "queue_index": 1,
+      "canonical_stop_name": "KHORDHA NEW BUS STAND",
+      "aliases": [
+        "KHORDHA NEW BUS STAND"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "20",
+        "21",
+        "22B",
+        "48",
+        "56",
+        "90"
+      ],
+      "route_count": 6,
+      "terminus_status": true,
+      "terminus_count": 6,
+      "origin_destination_context": [
+        "Route 20: Bhubaneswar Railway Station -> Khordha New Bus Stand",
+        "Route 21: Bhubaneswar Railway Station -> Khordha New Bus Stand",
+        "Route 22B: Jatani Gate -> Khordha New Bus Stand"
+      ],
+      "neighboring_route_stops": [
+        "JATANI",
+        "NH",
+        "OUAT",
+        "PITAPALLI",
+        "VANI VIHAR"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 1,
+      "priority_score": 250,
+      "reason_for_priority": "Terminus for 6 route(s) | Transfer interchange serving 6 route(s) | Intercity / Regional Bus Terminal"
+    },
+    {
+      "queue_index": 2,
+      "canonical_stop_name": "DUDUMA COLONY BUS STAND",
+      "aliases": [
+        "DUDUMA COLONY BUS STAND"
+      ],
+      "service_region": "Berhampur",
+      "route_ids": [
+        "300",
+        "302",
+        "303",
+        "303E",
+        "307"
+      ],
+      "route_count": 5,
+      "terminus_status": true,
+      "terminus_count": 4,
+      "origin_destination_context": [
+        "Route 300: NIST college -> Duduma Colony Bus stand",
+        "Route 302: Berhampur Railway Station -> Regidi",
+        "Route 303: Duduma Colony Bus Stand -> Gopalpur Bus Stand"
+      ],
+      "neighboring_route_stops": [
+        "DHABALESWAR",
+        "DUDUMA COLONY NEW BUS STAND",
+        "ENGG.SCHOOL",
+        "FIRST GATE",
+        "HARADAKHANDI SQARE"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 2,
+      "priority_score": 185,
+      "reason_for_priority": "Terminus for 4 route(s) | Transfer interchange serving 5 route(s) | Intercity / Regional Bus Terminal"
+    },
+    {
+      "queue_index": 3,
+      "canonical_stop_name": "NH",
+      "aliases": [
+        "NH"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "105",
+        "106",
+        "109",
+        "113",
+        "16",
+        "17",
+        "19",
+        "41",
+        "82",
+        "90",
+        "91"
+      ],
+      "route_count": 11,
+      "terminus_status": false,
+      "terminus_count": 0,
+      "origin_destination_context": [
+        "Route 105: Rourkela New Bus Stand -> Rajgangpur",
+        "Route 106: Rourkela New Bus Stand -> Birmitrapur",
+        "Route 109: Rourkela New Bus Stand -> Lathikata"
+      ],
+      "neighboring_route_stops": [
+        "AIIMS",
+        "AIRPORT",
+        "BARABATI STADIUM, CUTTACK",
+        "BARAMUNDA BSABT",
+        "BHUBANESWAR RAILWAY STATION"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 3,
+      "priority_score": 120,
+      "reason_for_priority": "Transfer interchange serving 11 route(s)"
+    },
+    {
+      "queue_index": 4,
+      "canonical_stop_name": "BHAGWANPUR",
+      "aliases": [
+        "BHAGWANPUR"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "27",
+        "29",
+        "29E"
+      ],
+      "route_count": 3,
+      "terminus_status": true,
+      "terminus_count": 3,
+      "origin_destination_context": [
+        "Route 27: Bhubaneswar Railway Station -> Bhagwanpur",
+        "Route 29: Bhagwanpur -> Sai Mandir",
+        "Route 29E: Bhagwanpur -> SBI Colony"
+      ],
+      "neighboring_route_stops": [
+        "AIIMS",
+        "SAI MANDIR"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 4,
+      "priority_score": 115,
+      "reason_for_priority": "Terminus for 3 route(s) | Transfer interchange serving 3 route(s)"
+    },
+    {
+      "queue_index": 5,
+      "canonical_stop_name": "KHORDHA ROAD STATION",
+      "aliases": [
+        "KHORDHA ROAD STATION"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "22A",
+        "56E"
+      ],
+      "route_count": 2,
+      "terminus_status": true,
+      "terminus_count": 2,
+      "origin_destination_context": [
+        "Route 22A: Bhubaneswar Railway Station -> Khordha Road Station",
+        "Route 56E: Puri Bus Stand -> Khordha Road Station"
+      ],
+      "neighboring_route_stops": [
+        "BHUBANESWAR RAILWAY STATION",
+        "PIPILI"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 5,
+      "priority_score": 115,
+      "reason_for_priority": "Terminus for 2 route(s) | Transfer interchange serving 2 route(s) | Railway Transit Hub"
+    },
+    {
+      "queue_index": 6,
+      "canonical_stop_name": "AINTHAPALI CHOWK",
+      "aliases": [
+        "AINTHAPALI CHOWK"
+      ],
+      "service_region": "Sambalpur",
+      "route_ids": [
+        "205",
+        "208",
+        "210",
+        "211",
+        "212",
+        "213",
+        "213A",
+        "214",
+        "215"
+      ],
+      "route_count": 9,
+      "terminus_status": false,
+      "terminus_count": 0,
+      "origin_destination_context": [
+        "Route 205: Ainthapali Bus Terminal -> Nuajamda",
+        "Route 208: Dhanupali Chowk -> Burla Hospital",
+        "Route 210: Ainthapali Bus Terminal -> Jamadarpali Dyke"
+      ],
+      "neighboring_route_stops": [
+        "AINTHAPALI BUS TERMINAL",
+        "BARGARH",
+        "BELAPAHAR",
+        "BIRSA MUNDA CHOWK",
+        "BIRSA MUNDA CHOWK, AINTHAPALI"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 6,
+      "priority_score": 110,
+      "reason_for_priority": "Transfer interchange serving 9 route(s) | High-traffic Commercial Square / Intersection"
+    },
+    {
+      "queue_index": 7,
+      "canonical_stop_name": "SAI TEMPLE",
+      "aliases": [
+        "SAI TEMPLE"
+      ],
+      "service_region": "Berhampur",
+      "route_ids": [
+        "24",
+        "24E",
+        "303",
+        "92"
+      ],
+      "route_count": 4,
+      "terminus_status": true,
+      "terminus_count": 2,
+      "origin_destination_context": [
+        "Route 24: Kalinga Vihar -> Sai Temple",
+        "Route 24E: Kalinga Vihar -> Bainchua",
+        "Route 303: Duduma Colony Bus Stand -> Gopalpur Bus Stand"
+      ],
+      "neighboring_route_stops": [
+        "BAINCHUA",
+        "IGKC",
+        "KALINGA VIHAR",
+        "MANDIAPALLI JUNCTION",
+        "PREM OFFICE"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 7,
+      "priority_score": 95,
+      "reason_for_priority": "Terminus for 2 route(s) | Transfer interchange serving 4 route(s)"
+    },
+    {
+      "queue_index": 8,
+      "canonical_stop_name": "SAI MANDIR",
+      "aliases": [
+        "SAI MANDIR"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "29",
+        "29E",
+        "40"
+      ],
+      "route_count": 3,
+      "terminus_status": true,
+      "terminus_count": 2,
+      "origin_destination_context": [
+        "Route 29: Bhagwanpur -> Sai Mandir",
+        "Route 29E: Bhagwanpur -> SBI Colony",
+        "Route 40: AIIMS -> Sai Mandir"
+      ],
+      "neighboring_route_stops": [
+        "BADAGADA BRIT COLONY",
+        "BHAGWANPUR",
+        "SBI COLONY"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 8,
+      "priority_score": 90,
+      "reason_for_priority": "Terminus for 2 route(s) | Transfer interchange serving 3 route(s)"
+    },
+    {
+      "queue_index": 9,
+      "canonical_stop_name": "BIJU PATNAIK INTERNATIONAL AIRPORT, BBSR",
+      "aliases": [
+        "BIJU PATNAIK INTERNATIONAL AIRPORT, BBSR"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "17"
+      ],
+      "route_count": 1,
+      "terminus_status": true,
+      "terminus_count": 1,
+      "origin_destination_context": [
+        "Route 17: Biju Patnaik International Airport, BBSR -> Barabati Stadium, Cuttack"
+      ],
+      "neighboring_route_stops": [
+        "NH"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 9,
+      "priority_score": 85,
+      "reason_for_priority": "Terminus for 1 route(s) | Aviation Hub / Airport"
+    },
+    {
+      "queue_index": 10,
+      "canonical_stop_name": "BIJU PATNAIK PARK, CDA",
+      "aliases": [
+        "BIJU PATNAIK PARK, CDA"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "93"
+      ],
+      "route_count": 1,
+      "terminus_status": true,
+      "terminus_count": 1,
+      "origin_destination_context": [
+        "Route 93: Bhubaneswar Railway Station -> Biju Patnaik Park, CDA"
+      ],
+      "neighboring_route_stops": [
+        "BHUBANESWAR RAILWAY STATION"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 10,
+      "priority_score": 85,
+      "reason_for_priority": "Terminus for 1 route(s) | Aviation Hub / Airport"
+    },
+    {
+      "queue_index": 11,
+      "canonical_stop_name": "BIJU PATNAIK PARK, CUTTACK",
+      "aliases": [
+        "BIJU PATNAIK PARK, CUTTACK"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "91"
+      ],
+      "route_count": 1,
+      "terminus_status": true,
+      "terminus_count": 1,
+      "origin_destination_context": [
+        "Route 91: Baramunda BSABT -> Biju Patnaik Park, Cuttack"
+      ],
+      "neighboring_route_stops": [
+        "NH"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 11,
+      "priority_score": 85,
+      "reason_for_priority": "Terminus for 1 route(s) | Aviation Hub / Airport"
+    },
+    {
+      "queue_index": 12,
+      "canonical_stop_name": "CHURCH SQUARE",
+      "aliases": [
+        "CHURCH SQUARE"
+      ],
+      "service_region": "Berhampur",
+      "route_ids": [
+        "300",
+        "301",
+        "302",
+        "303",
+        "304",
+        "306"
+      ],
+      "route_count": 6,
+      "terminus_status": false,
+      "terminus_count": 0,
+      "origin_destination_context": [
+        "Route 300: NIST college -> Duduma Colony Bus stand",
+        "Route 301: Berhampur Rail Stn. -> Parala maharaja college",
+        "Route 302: Berhampur Railway Station -> Regidi"
+      ],
+      "neighboring_route_stops": [
+        "BIJIPUR SQUARE",
+        "KHALLIKOTE COLLEGE",
+        "TATA BENZ SQUARE"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 12,
+      "priority_score": 80,
+      "reason_for_priority": "Transfer interchange serving 6 route(s) | High-traffic Commercial Square / Intersection"
+    },
+    {
+      "queue_index": 13,
+      "canonical_stop_name": "JAGATPUR,CUTTACK",
+      "aliases": [
+        "JAGATPUR,CUTTACK"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "48",
+        "58"
+      ],
+      "route_count": 2,
+      "terminus_status": true,
+      "terminus_count": 2,
+      "origin_destination_context": [
+        "Route 48: Khordha New Bus Stand -> Jagatpur,Cuttack",
+        "Route 58: Jagatpur,Cuttack -> Puri Bus Stand"
+      ],
+      "neighboring_route_stops": [
+        "BADAMBADI",
+        "CHANDAKA"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 13,
+      "priority_score": 80,
+      "reason_for_priority": "Terminus for 2 route(s) | Transfer interchange serving 2 route(s)"
+    },
+    {
+      "queue_index": 14,
+      "canonical_stop_name": "JATANI GATE",
+      "aliases": [
+        "JATANI GATE"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "22B",
+        "64"
+      ],
+      "route_count": 2,
+      "terminus_status": true,
+      "terminus_count": 2,
+      "origin_destination_context": [
+        "Route 22B: Jatani Gate -> Khordha New Bus Stand",
+        "Route 64: Bhubaneswar Railway Station -> Jatani Gate"
+      ],
+      "neighboring_route_stops": [
+        "BHUBANESWAR RAILWAY STATION",
+        "JATANI"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 14,
+      "priority_score": 80,
+      "reason_for_priority": "Terminus for 2 route(s) | Transfer interchange serving 2 route(s)"
+    },
+    {
+      "queue_index": 15,
+      "canonical_stop_name": "MADHABANANDA TEMPLE, NIALI",
+      "aliases": [
+        "MADHABANANDA TEMPLE, NIALI"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "63",
+        "84"
+      ],
+      "route_count": 2,
+      "terminus_status": true,
+      "terminus_count": 2,
+      "origin_destination_context": [
+        "Route 63: BSABT -> Madhabananda Temple, Niali",
+        "Route 84: Biju pattanaik Park,CDA -> Madhabananda Temple, Niali"
+      ],
+      "neighboring_route_stops": [
+        "BIJU PATTANAIK PARK,CDA",
+        "BSABT"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 15,
+      "priority_score": 80,
+      "reason_for_priority": "Terminus for 2 route(s) | Transfer interchange serving 2 route(s)"
+    },
+    {
+      "queue_index": 16,
+      "canonical_stop_name": "NARAJ POLICE OUTPOST",
+      "aliases": [
+        "NARAJ POLICE OUTPOST"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "80",
+        "80E"
+      ],
+      "route_count": 2,
+      "terminus_status": true,
+      "terminus_count": 2,
+      "origin_destination_context": [
+        "Route 80: Naraj Police Outpost -> Agrahat, Charbatia",
+        "Route 80E: Naraj Police Outpost -> Mangarajpur"
+      ],
+      "neighboring_route_stops": [
+        "NLU"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 16,
+      "priority_score": 80,
+      "reason_for_priority": "Terminus for 2 route(s) | Transfer interchange serving 2 route(s)"
+    },
+    {
+      "queue_index": 17,
+      "canonical_stop_name": "BHUBANESWAR RLY. STN.",
+      "aliases": [
+        "BHUBANESWAR RLY. STN."
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "35"
+      ],
+      "route_count": 1,
+      "terminus_status": true,
+      "terminus_count": 1,
+      "origin_destination_context": [
+        "Route 35: Bhubaneswar Rly. Stn. -> Udaynath College, Adaspur"
+      ],
+      "neighboring_route_stops": [
+        "JAYADEV PITHA"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 17,
+      "priority_score": 80,
+      "reason_for_priority": "Terminus for 1 route(s) | Railway Transit Hub"
+    },
+    {
+      "queue_index": 18,
+      "canonical_stop_name": "NARAJ RAILWAY STATION",
+      "aliases": [
+        "NARAJ RAILWAY STATION"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "37"
+      ],
+      "route_count": 1,
+      "terminus_status": true,
+      "terminus_count": 1,
+      "origin_destination_context": [
+        "Route 37: Baramunda BSABT -> Naraj Railway Station"
+      ],
+      "neighboring_route_stops": [
+        "OMFED DAIRY"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 18,
+      "priority_score": 80,
+      "reason_for_priority": "Terminus for 1 route(s) | Railway Transit Hub"
+    },
+    {
+      "queue_index": 19,
+      "canonical_stop_name": "PIPILI",
+      "aliases": [
+        "PIPILI"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "33",
+        "49",
+        "56",
+        "56E"
+      ],
+      "route_count": 4,
+      "terminus_status": true,
+      "terminus_count": 1,
+      "origin_destination_context": [
+        "Route 33: Bhubaneswar Railway Station -> Pipili",
+        "Route 49: Bhubaneswar Railway Station -> Delanga Hata",
+        "Route 56: Khordha New Bus Stand -> Puri Bus Stand"
+      ],
+      "neighboring_route_stops": [
+        "BHUBANESWAR RAILWAY STATION",
+        "DELANGA HATA",
+        "JATANI",
+        "KHORDHA ROAD STATION",
+        "PURI BUS STAND"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 19,
+      "priority_score": 75,
+      "reason_for_priority": "Terminus for 1 route(s) | Transfer interchange serving 4 route(s)"
+    },
+    {
+      "queue_index": 20,
+      "canonical_stop_name": "BELPAHAR",
+      "aliases": [
+        "BELPAHAR"
+      ],
+      "service_region": "Sambalpur",
+      "route_ids": [
+        "213",
+        "213A"
+      ],
+      "route_count": 2,
+      "terminus_status": true,
+      "terminus_count": 2,
+      "origin_destination_context": [
+        "Route 213: Ainthapali Bus Terminal -> Belpahar",
+        "Route 213A: Ainthapali Bus Terminal -> Belpahar"
+      ],
+      "neighboring_route_stops": [
+        "MAUSI MANDIR BUS STOP"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 20,
+      "priority_score": 75,
+      "reason_for_priority": "Terminus for 2 route(s) | Transfer interchange serving 2 route(s)"
+    },
+    {
+      "queue_index": 21,
+      "canonical_stop_name": "DHABALESWAR",
+      "aliases": [
+        "DHABALESWAR"
+      ],
+      "service_region": "Berhampur",
+      "route_ids": [
+        "303E",
+        "83"
+      ],
+      "route_count": 2,
+      "terminus_status": true,
+      "terminus_count": 2,
+      "origin_destination_context": [
+        "Route 303E: Duduma Colony Bus stand -> Dhabaleswar",
+        "Route 83: Dhabaleswar -> Kandarpur"
+      ],
+      "neighboring_route_stops": [
+        "42 MOUZA",
+        "DUDUMA COLONY BUS STAND"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 21,
+      "priority_score": 75,
+      "reason_for_priority": "Terminus for 2 route(s) | Transfer interchange serving 2 route(s)"
+    },
+    {
+      "queue_index": 22,
+      "canonical_stop_name": "GHANTESWARI TEMPLE",
+      "aliases": [
+        "GHANTESWARI TEMPLE"
+      ],
+      "service_region": "Sambalpur",
+      "route_ids": [
+        "201",
+        "206"
+      ],
+      "route_count": 2,
+      "terminus_status": true,
+      "terminus_count": 2,
+      "origin_destination_context": [
+        "Route 201: Ainthapali Bus Terminal -> Ghanteswari Temple",
+        "Route 206: Samaleswari Temple -> Ghanteswari Temple"
+      ],
+      "neighboring_route_stops": [
+        "AINTHAPALI BUS TERMINAL",
+        "SAMALESWARI TEMPLE"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 22,
+      "priority_score": 75,
+      "reason_for_priority": "Terminus for 2 route(s) | Transfer interchange serving 2 route(s)"
+    },
+    {
+      "queue_index": 23,
+      "canonical_stop_name": "NUAGAON",
+      "aliases": [
+        "NUAGAON"
+      ],
+      "service_region": "Rourkela",
+      "route_ids": [
+        "108",
+        "114"
+      ],
+      "route_count": 2,
+      "terminus_status": true,
+      "terminus_count": 2,
+      "origin_destination_context": [
+        "Route 108: Rourkela New Bus Stand -> Nuagaon",
+        "Route 114: Rourkela New Bus Stand -> Nuagaon"
+      ],
+      "neighboring_route_stops": [
+        "HATIBARI",
+        "KHUNTAGAON"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 23,
+      "priority_score": 75,
+      "reason_for_priority": "Terminus for 2 route(s) | Transfer interchange serving 2 route(s)"
+    },
+    {
+      "queue_index": 24,
+      "canonical_stop_name": "BERHAMPUR RAIL STN.",
+      "aliases": [
+        "BERHAMPUR RAIL STN."
+      ],
+      "service_region": "Berhampur",
+      "route_ids": [
+        "301"
+      ],
+      "route_count": 1,
+      "terminus_status": true,
+      "terminus_count": 1,
+      "origin_destination_context": [
+        "Route 301: Berhampur Rail Stn. -> Parala maharaja college"
+      ],
+      "neighboring_route_stops": [
+        "SUM HOSPITAL - PARALA MAHARAJA COLLEGE"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 24,
+      "priority_score": 75,
+      "reason_for_priority": "Terminus for 1 route(s) | Railway Transit Hub"
+    },
+    {
+      "queue_index": 25,
+      "canonical_stop_name": "CDA 9 OD TERMINAL",
+      "aliases": [
+        "CDA 9 OD TERMINAL"
+      ],
+      "service_region": "Capital Region",
+      "route_ids": [
+        "86"
+      ],
+      "route_count": 1,
+      "terminus_status": true,
+      "terminus_count": 1,
+      "origin_destination_context": [
+        "Route 86: CDA 9 OD terminal -> Driems,Tangi"
+      ],
+      "neighboring_route_stops": [
+        "DRIEMS,TANGI"
+      ],
+      "phase_6b_status": "UNRESOLVED",
+      "priority_rank": 25,
+      "priority_score": 75,
+      "reason_for_priority": "Terminus for 1 route(s) | Intercity / Regional Bus Terminal"
+    }
+  ]
+}

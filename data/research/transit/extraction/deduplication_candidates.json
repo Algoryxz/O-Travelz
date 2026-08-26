@@ -1,0 +1,974 @@
+{
+  "total_unique_canonical_names": 1066,
+  "cross_city_same_name": [],
+  "within_city_near_duplicates": [
+    {
+      "stop_a": "ANKULI",
+      "stop_b": "ANKULI BYPASS",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BATAO CHHATRAPUR",
+      "stop_b": "BATAO CHHATRAPUR MAIN ROAD",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BERHAMPUR",
+      "stop_b": "BERHAMPUR FIRST GATE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BERHAMPUR",
+      "stop_b": "BERHAMPUR NEW BUS STAND",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BERHAMPUR",
+      "stop_b": "BERHAMPUR RADIO STATION",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BERHAMPUR",
+      "stop_b": "BERHAMPUR RAIL STN.",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BERHAMPUR RAILWAY",
+      "stop_b": "BERHAMPUR RAILWAY STATION",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BISWANATHPUR",
+      "stop_b": "BISWANATHPUR VILLAGE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "CHANDIPADAR CHOWK",
+      "stop_b": "CHOWK",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "CHATRAPUR",
+      "stop_b": "CHATRAPUR BUS STAND",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "CHOWK",
+      "stop_b": "CHOWK BERHAMPUR",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "CHOWK",
+      "stop_b": "CHURCH CHOWK",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "CITY COLLEGE SQUARE",
+      "stop_b": "CITY COLLEGE SQUARE BERHAMPUR",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "CITY COLLEGE SQUARE",
+      "stop_b": "COLLEGE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "CITY COLLEGE SQUARE BERHAMPUR",
+      "stop_b": "COLLEGE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "COLLEGE",
+      "stop_b": "COLLEGE CHAKA",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "COLLEGE",
+      "stop_b": "COLLEGE CHOWK",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "D PATAPUR",
+      "stop_b": "D PATAPUR VILLAGE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "D.PATAPUR",
+      "stop_b": "D.PATAPUR VILLAGE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "DUDUMA COLONY",
+      "stop_b": "DUDUMA COLONY BUS STAND",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "DUDUMA COLONY",
+      "stop_b": "DUDUMA COLONY NEW BUS STAND",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "ENGINEERING SCHOOL",
+      "stop_b": "ENGINEERING SCHOOL CHOWK",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "ENGINEERING SCHOOL",
+      "stop_b": "ENGINEERING SCHOOL CHOWK BERHAMPUR",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "ENGINEERING SCHOOL CHOWK",
+      "stop_b": "ENGINEERING SCHOOL CHOWK BERHAMPUR",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "GOLABANDHA",
+      "stop_b": "GOLABANDHA CHURCH",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "GOSANINUGAA",
+      "stop_b": "GOSANINUGAA POLICE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "GOSANINUGAA",
+      "stop_b": "GOSANINUGAA POLICE STATION",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "GOSANINUGAA",
+      "stop_b": "GOSANINUGAA SANTOSHI",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "GOSANINUGAA POLICE",
+      "stop_b": "GOSANINUGAA POLICE STATION",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "GOVINDPUR",
+      "stop_b": "GOVINDPUR SQUARE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "HALDIAPADAR NEW",
+      "stop_b": "HALDIAPADAR NEW BUS STAND",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "KARAPALLI",
+      "stop_b": "KARAPALLI VILLAGE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "LOCHAPADA HANUMAN MANDIR",
+      "stop_b": "LOCHAPADA HANUMAN MANDIR SQUARE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "MANDIAPALLI",
+      "stop_b": "MANDIAPALLI JUNCTION",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "MANDIAPALLI",
+      "stop_b": "MANDIAPALLI VILLAGE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "MKCG MEDICAL",
+      "stop_b": "MKCG MEDICAL COLLEGE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "MKCG MEDICAL",
+      "stop_b": "MKCG MEDICAL COLLEGE SQUARE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "MKCG MEDICAL COLLEGE",
+      "stop_b": "MKCG MEDICAL COLLEGE SQUARE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "NIMAKHANDI RI OFFICE",
+      "stop_b": "OFFICE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "OUAT COLLEGE",
+      "stop_b": "OUAT COLLEGE OF FISHERY",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "POLICE STATION,",
+      "stop_b": "POLICE STATION,GOSANINUAGAON",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "REGIDI",
+      "stop_b": "REGIDI CHOWK",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SHRI GANGADHARESHWAR",
+      "stop_b": "SHRI GANGADHARESHWAR TEMPLE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SUM HOSPITAL",
+      "stop_b": "SUM HOSPITAL - PARALA MAHARAJA COLLEGE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "TEMPLE",
+      "stop_b": "UTARESWARA TEMPLE",
+      "city": "Berhampur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BADMAL",
+      "stop_b": "BADMAL POLICE STATION",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BARAGARH",
+      "stop_b": "BARAGARH GOVT. BUS STAND",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BHALUBAHAL",
+      "stop_b": "BHALUBAHALA",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BIRSA MUNDA CHOWK",
+      "stop_b": "BIRSA MUNDA CHOWK, AINTHAPALI",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BTM BYPASS",
+      "stop_b": "BTM BYPASS OVERBRIDGE",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BURLA HOSPITAL",
+      "stop_b": "BURLA HOSPITAL BACK GATE",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "CITY RAILWAY STATION",
+      "stop_b": "CITY RAILWAY STATION SQUARE",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "CITY RAILWAY STATION",
+      "stop_b": "CITY RAILWAY STATION, AINTHAPALI BUS TERMINAL, REMED)",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "FCI",
+      "stop_b": "FCI WEREHOUSE",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "GODBHAGA",
+      "stop_b": "GODBHAGA CHOWK",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "GODBHAGA",
+      "stop_b": "GODBHAGA RAILWAY STATION",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "GOVT. HIGH SCHOOL,",
+      "stop_b": "GOVT. HIGH SCHOOL, CHARPALI",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "GUMULOI",
+      "stop_b": "GUMULOI FOREST OFFICE",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "HANUMAN TEMPLE,",
+      "stop_b": "HANUMAN TEMPLE, DHANKAUDA",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "HANUMAN TEMPLE,",
+      "stop_b": "HANUMAN TEMPLE, RENGALI",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "HANUMAN TEMPLE,",
+      "stop_b": "HANUMAN TEMPLE, ROAD",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "HANUMAN TEMPLE,",
+      "stop_b": "HANUMAN TEMPLE,DHANKAUDA",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "HIRAKUD P.S",
+      "stop_b": "HIRAKUD P.S.",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JHANKARPALI",
+      "stop_b": "JHANKARPALI VILLAGE",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JHARSUGUDA",
+      "stop_b": "JHARSUGUDA BYPASS",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JHARSUGUDA",
+      "stop_b": "JHARSUGUDA NEW BUS STAND BYPASS",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JHARSUGUDA",
+      "stop_b": "JHARSUGUDA NEW BUS TERMINAL",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JUNADIHI",
+      "stop_b": "JUNADIHI CHOWK",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "KHINDA",
+      "stop_b": "KHINDAPADA VILLAGE",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "KUCHINDA",
+      "stop_b": "KUCHINDA BUS STAND",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "KUCHINDA",
+      "stop_b": "KUCHINDA BUS STAND UP",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "KUCHINDA",
+      "stop_b": "KUCHINDA COLLEGE",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "KUCHINDA BUS STAND",
+      "stop_b": "KUCHINDA BUS STAND UP",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "KUDOPALI",
+      "stop_b": "KUDOPALI ROAD",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "LAIDA",
+      "stop_b": "LAIDA ROAD",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "LANGABAHAL",
+      "stop_b": "LANGABAHAL VILLAGE",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "NSCB COLLEGE",
+      "stop_b": "NSCB COLLEGE BYPASS",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "NUAGUJATAL",
+      "stop_b": "NUAGUJATAL VILLAGE ROAD",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "NUAGUJATAL",
+      "stop_b": "NUAGUJATALA",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "NUAJAMADA",
+      "stop_b": "NUAJAMADA CHOWK",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "PADIABAHAL",
+      "stop_b": "PADIABAHAL CHOWK",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "PARDHIAPALI",
+      "stop_b": "PARDHIAPALI ROAD",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SAHAPADA",
+      "stop_b": "SAHAPADA ROAD",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SAMALESWARI TEMPLE",
+      "stop_b": "SAMALESWARI TEMPLE, HIRAKUD",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SARANDAMAL",
+      "stop_b": "SARANDAMAL CHOWK",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SATKHAMA",
+      "stop_b": "SATKHAMA U.P SCHOOL",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SHIV MANDIR",
+      "stop_b": "SHIV MANDIR CHOWK",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "THELKOLOI",
+      "stop_b": "THELKOLOI HIGH SCHOOL",
+      "city": "Sambalpur",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "CHAKA",
+      "stop_b": "CHAKA NUA SAHI",
+      "city": "Keonjhar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JHUMPURA",
+      "stop_b": "JHUMPURA BLOCK CHOWK",
+      "city": "Keonjhar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JHUMPURA",
+      "stop_b": "JHUMPURA BUS STAND",
+      "city": "Keonjhar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JHUMPURA",
+      "stop_b": "JHUMPURA BYPASS",
+      "city": "Keonjhar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JHUMPURA",
+      "stop_b": "JHUMPURA MARKET",
+      "city": "Keonjhar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "NARANPUR",
+      "stop_b": "NARANPUR DUBURI JN.",
+      "city": "Keonjhar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "NARANPUR",
+      "stop_b": "NARANPUR HIGH SCHOOL",
+      "city": "Keonjhar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "NARANPUR",
+      "stop_b": "NARANPUR RAAILWAY STN. ROAD",
+      "city": "Keonjhar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "RAISUN",
+      "stop_b": "RAISUN COLLEGE",
+      "city": "Keonjhar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "RIMULI HIGHWAY",
+      "stop_b": "RIMULI HIGHWAY CHOWK",
+      "city": "Keonjhar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BIRAMITRAPUR",
+      "stop_b": "BIRAMITRAPUR GOVT. BUS STAND",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BIRAMITRAPUR",
+      "stop_b": "BIRAMITRAPUR HANUMAN TEMPLE",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BIRAMITRAPUR",
+      "stop_b": "BIRAMITRAPUR P.S",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BISRA",
+      "stop_b": "BISRA BLOCK OFFICE",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BISRA",
+      "stop_b": "BISRA TAHASIL",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BNDM SEC-C",
+      "stop_b": "BNDM SEC-C MARKET",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BRAHMANI TARANG",
+      "stop_b": "BRAHMANI TARANG POLICE",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BRAHMANI TARANG",
+      "stop_b": "BRAHMANI TARANG POLICE STATION",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BRAHMANI TARANG POLICE",
+      "stop_b": "BRAHMANI TARANG POLICE STATION",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "DARAIKELA",
+      "stop_b": "DARAIKELA PANCHAYAT",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "FERTILIZER",
+      "stop_b": "FERTILIZER B BLOCK",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "ISPAT NEHRU PARK",
+      "stop_b": "ISPAT NEHRU PARK CHOWK",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JAMUNANKI",
+      "stop_b": "JAMUNANKI GANESH MANDIRA",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JHIRPANI",
+      "stop_b": "JHIRPANI MARKET",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JHIRPANI",
+      "stop_b": "JHIRPANI POLICE STATION",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "MADHUSUDAN BHAWAN",
+      "stop_b": "MADHUSUDAN BHAWANT",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "NAC MARKET",
+      "stop_b": "NAC MARKET KOEL NAGAR",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "PANPOSH",
+      "stop_b": "PANPOSH CHOWK",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "PANPOSH",
+      "stop_b": "PANPOSH STATION",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SANTOSHPUR",
+      "stop_b": "SANTOSHPUR GP",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SECTOR",
+      "stop_b": "SECTOR 2 OR 3 CHOWK",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SECTOR",
+      "stop_b": "SECTOR 22 HOSPITAL",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SECTOR",
+      "stop_b": "SECTOR 7 OR 15 CHOWK",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SECTOR",
+      "stop_b": "SECTOR 7 OR 17 CHOWK",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "TETERKELA",
+      "stop_b": "TETERKELA BRIDGE",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "TILAK NAGAR",
+      "stop_b": "TILAK NAGAR UPHC",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "VEDVYAS",
+      "stop_b": "VEDVYAS AAHAR KENDRA",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "VEDVYAS",
+      "stop_b": "VEDVYAS CHOWK",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "VEDVYAS",
+      "stop_b": "VEDVYAS GOSHALA",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "VEDVYAS",
+      "stop_b": "VEDVYAS GURU DWARA",
+      "city": "Rourkela",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "BARABATI STADIUM",
+      "stop_b": "BARABATI STADIUM, CUTTACK",
+      "city": "Bhubaneswar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "DUMDUMA",
+      "stop_b": "DUMDUMA (JADUPUR)",
+      "city": "Bhubaneswar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "IGKC",
+      "stop_b": "IGKC MULTISPECIALTY HOSPITAL",
+      "city": "Bhubaneswar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JAGATPUR",
+      "stop_b": "JAGATPUR, CUTTACK",
+      "city": "Bhubaneswar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "JAGATPUR",
+      "stop_b": "JAGATPUR,CUTTACK",
+      "city": "Bhubaneswar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "MAHANADI VIHAR",
+      "stop_b": "MAHANADI VIHAR,CUTTACK",
+      "city": "Bhubaneswar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "MASTER CANTEEN",
+      "stop_b": "MASTER CANTEEN - SCB MEDICAL",
+      "city": "Bhubaneswar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "NANDANKANAN",
+      "stop_b": "NANDANKANAN BOTANICAL GARDEN",
+      "city": "Bhubaneswar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SCB MEDICAL",
+      "stop_b": "SCB MEDICAL,CUTTACK",
+      "city": "Bhubaneswar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    },
+    {
+      "stop_a": "SHREE MANDIRA",
+      "stop_b": "SHREE MANDIRA PARKING, PURI",
+      "city": "Bhubaneswar",
+      "similarity_type": "substring",
+      "recommendation": "review"
+    }
+  ],
+  "numbered_variants": [],
+  "multi_source_stops": []
+}

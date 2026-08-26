@@ -1,0 +1,1457 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "state": "Odisha",
+    "collection_type": "manual_stage",
+    "total_images": 76,
+    "identity_verified_count": 76,
+    "provenance_verified_count": 0,
+    "provenance_rule": "Strict non-fabrication: source_url/photographer left null until verified."
+  },
+  "images": [
+    {
+      "filename": "food_angul_001.webp",
+      "research_id": "food_angul_001",
+      "place_name": "Bantala Mati Handi Desi Meat & Thali Junction",
+      "district": "Angul",
+      "category": "highway_stop",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 1360,
+        "height": 765
+      },
+      "format": "WEBP",
+      "size_bytes": 62706,
+      "sha256": "febe7cb673830f95e28cce91b8d24d9f33e49698bd28fbe1d7394d08fde2c07f",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_balasore_001.webp",
+      "research_id": "food_balasore_001",
+      "place_name": "Sahadevkhunta Coastal Seafood Market & Dhaba Hub",
+      "district": "Balasore",
+      "category": "highway_stop",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 2000,
+        "height": 1500
+      },
+      "format": "WEBP",
+      "size_bytes": 500904,
+      "sha256": "a773248e7b8b58cae85664b37d056d13d64be866f0d012e46eb1fcd00da13179",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_bhadrak_001.webp",
+      "research_id": "food_bhadrak_001",
+      "place_name": "Puruna Bazar Palua Ladoo Heritage Confectionery",
+      "district": "Bhadrak",
+      "category": "heritage_sweet_stall",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 574,
+        "height": 1020
+      },
+      "format": "WEBP",
+      "size_bytes": 100944,
+      "sha256": "0d528ec704e4e2936af31a8ab04da46ad71b2b20592599884c457587ba726182",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_bolangir_001.webp",
+      "research_id": "food_bolangir_001",
+      "place_name": "Balangir Daily Market Chaula Bara & Mithai Corner",
+      "district": "Balangir",
+      "category": "street_food_market",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 817,
+        "height": 1020
+      },
+      "format": "WEBP",
+      "size_bytes": 74740,
+      "sha256": "cbecfdd945dcc4c24cfc040120d0772957da36f50e82b6bcd4461f6249ae4937",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_boudh_001.webp",
+      "research_id": "food_boudh_001",
+      "place_name": "Boudh Mahanadi Ghat Traditional Chhena Gaja Corner",
+      "district": "Boudh",
+      "category": "heritage_sweet_stall",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 687,
+        "height": 476
+      },
+      "format": "WEBP",
+      "size_bytes": 37838,
+      "sha256": "66acb2d3e3a65cce3b0f5d1cec3923f767916279666b3a96560d1f0b7f969004",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_cuttack_002.webp",
+      "research_id": "food_cuttack_002",
+      "place_name": "Bikalananda Kar Rasagola Heritage Confectionery",
+      "district": "Cuttack",
+      "category": "heritage_sweet_stall",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 360,
+        "height": 640
+      },
+      "format": "WEBP",
+      "size_bytes": 37160,
+      "sha256": "4486fbce2fafd0d129ac3734a849814044bdb99f53ad4a7bff9fda49c52a28b9",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_cuttack_003.webp",
+      "research_id": "food_cuttack_003",
+      "place_name": "Barabati Fort Bidanasi Dahibara Hub",
+      "district": "Cuttack",
+      "category": "street_food_market",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 176,
+        "height": 126
+      },
+      "format": "WEBP",
+      "size_bytes": 9352,
+      "sha256": "167bb6410c86e426b7a660d4ad041aacad5e7ecee95613c7ade0749ff1194d2b",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_deogarh_001.webp",
+      "research_id": "food_deogarh_001",
+      "place_name": "Pradhanpat Waterfalls Approach Traditional Tiffin Hub",
+      "district": "Deogarh",
+      "category": "local_food_experience",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 279,
+        "height": 79
+      },
+      "format": "WEBP",
+      "size_bytes": 7864,
+      "sha256": "9b39c2b0f958d7e8966cd2bd95f04a011c0d2833aac317a8f474e3c5c8afa65e",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_dhenkanal_001.webp",
+      "research_id": "food_dhenkanal_001",
+      "place_name": "Dhenkanal Bara & Magji Ladoo Heritage Hub",
+      "district": "Dhenkanal",
+      "category": "regional_speciality",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 1032,
+        "height": 581
+      },
+      "format": "WEBP",
+      "size_bytes": 132692,
+      "sha256": "539465aa6da5a59d88fc11d67789030ea17849ea5bcc41960b5f6b1f94e809fa",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_gajapati_001.webp",
+      "research_id": "food_gajapati_001",
+      "place_name": "Paralakhemundi Maharaja Palace Street Tiffin & Sweet Hub",
+      "district": "Gajapati",
+      "category": "heritage_sweet_stall",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 736,
+        "height": 416
+      },
+      "format": "WEBP",
+      "size_bytes": 72152,
+      "sha256": "90ddd2df2fa8fa4f62738af4a509741d018f4da4047b082bfd7c7fb4e9060af6",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_ganjam_001.webp",
+      "research_id": "food_ganjam_001",
+      "place_name": "Berhampur Girija Square Tiffin & Dosa Hub",
+      "district": "Ganjam",
+      "category": "street_food_market",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 110,
+        "height": 82
+      },
+      "format": "WEBP",
+      "size_bytes": 3366,
+      "sha256": "3ff9c6b83751e14823c0d18d6e1f661e7694ec1f663e74cbcb1d0ed6855a2ad8",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_ganjam_002.webp",
+      "research_id": "food_ganjam_002",
+      "place_name": "Old Bus Stand Achar & Papad Bajar, Berhampur",
+      "district": "Ganjam",
+      "category": "regional_speciality",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 165,
+        "height": 220
+      },
+      "format": "WEBP",
+      "size_bytes": 12426,
+      "sha256": "1bde0da8c35cec390ac04f1dd6987ad198ae851292178b96b02e557c0d271fcf",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_jagatsinghpur_001.webp",
+      "research_id": "food_jagatsinghpur_001",
+      "place_name": "Paradeep Port Fish Harbour & Coastal Kitchens",
+      "district": "Jagatsinghpur",
+      "category": "local_food_experience",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 335,
+        "height": 597
+      },
+      "format": "WEBP",
+      "size_bytes": 54124,
+      "sha256": "8df95c9c2a3785a3319e17c94c60556f632e686a9722b399657e845e8b2fe915",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_jajpur_001.webp",
+      "research_id": "food_jajpur_001",
+      "place_name": "Chandikhole Mahavinayak Rasagola & Highway Dhaba Junction",
+      "district": "Jajpur",
+      "category": "highway_stop",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 129,
+        "height": 129
+      },
+      "format": "WEBP",
+      "size_bytes": 5686,
+      "sha256": "4a6df0cf6febc61dfd22bf87c451695206ebd3079f19b10b6af45b11369a71e5",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_jharsuguda_001.webp",
+      "research_id": "food_jharsuguda_001",
+      "place_name": "Jharsuguda Marwari Para Traditional Chaat & Thali Hub",
+      "district": "Jharsuguda",
+      "category": "street_food_market",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 1359,
+        "height": 1020
+      },
+      "format": "WEBP",
+      "size_bytes": 223712,
+      "sha256": "6bf956449b3cf32a947a3b8437f2e25f2783c3a86076ac85951a6765a9fff215",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_kalahandi_001.webp",
+      "research_id": "food_kalahandi_001",
+      "place_name": "Bhawanipatna Main Road Ragi & Traditional Thali Centre",
+      "district": "Kalahandi",
+      "category": "restaurant",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 165,
+        "height": 220
+      },
+      "format": "WEBP",
+      "size_bytes": 11780,
+      "sha256": "46ce9b521ae69c84239e6997cdbe9aca1d4099fe43c44da68b3b78534c3b7419",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_kandhamal_001.webp",
+      "research_id": "food_kandhamal_001",
+      "place_name": "Daringbadi Hill Station Organic Coffee & Spice Kitchen",
+      "district": "Kandhamal",
+      "category": "local_food_experience",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 92,
+        "height": 92
+      },
+      "format": "WEBP",
+      "size_bytes": 2822,
+      "sha256": "c69d15df0058f3abe7cf2a53646462e3483ce9c0d36bcdd35cb172c86f888851",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_kendrapara_001.webp",
+      "research_id": "food_kendrapara_001",
+      "place_name": "Kendrapara Baladevjew Rasabali Confectionery Hub",
+      "district": "Kendrapara",
+      "category": "heritage_sweet_stall",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 294,
+        "height": 220
+      },
+      "format": "WEBP",
+      "size_bytes": 18606,
+      "sha256": "f2920e0fa0f39275e208f6faa65d30e041e75209214d081dece120b31e37e43a",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_keonjhar_001.webp",
+      "research_id": "food_keonjhar_001",
+      "place_name": "Keonjhar Phula Badi Heritage Artisan Market",
+      "district": "Kendujhar",
+      "category": "regional_speciality",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 735,
+        "height": 735
+      },
+      "format": "WEBP",
+      "size_bytes": 67878,
+      "sha256": "e8c114572d1cf76790707fa968ad5186bd8cc1ed0529e08b01954846e56ed8cf",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_keonjhar_002.webp",
+      "research_id": "food_keonjhar_002",
+      "place_name": "Ghatgaon Maa Tarini Pitha & Prasad Stall Precinct",
+      "district": "Kendujhar",
+      "category": "traditional_temple_food",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 399,
+        "height": 501
+      },
+      "format": "WEBP",
+      "size_bytes": 30260,
+      "sha256": "16f2c978d00badb8fcb5b672dd437d20cafec7c12bad47e0bde14a2527e51a38",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_khurda_001.webp",
+      "research_id": "food_khurda_001",
+      "place_name": "Pahala Rasagola & Chhena Gaja Sweet Cluster",
+      "district": "Khordha",
+      "category": "heritage_sweet_stall",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 700,
+        "height": 933
+      },
+      "format": "WEBP",
+      "size_bytes": 43952,
+      "sha256": "3767146683a725493162a5714e9936c27d760fd37f315cd4b407ee219ffeefce",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_khurda_002.webp",
+      "research_id": "food_khurda_002",
+      "place_name": "OTDC Nimantran Authentic Odia Cuisine Centre",
+      "district": "Khordha",
+      "category": "restaurant",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 399,
+        "height": 501
+      },
+      "format": "WEBP",
+      "size_bytes": 61040,
+      "sha256": "0e3eedb0f1c0f2c48167a3d94099f7b3d38cf14b7a610206114f9242d2fa302c",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_khurda_003.webp",
+      "research_id": "food_khurda_003",
+      "place_name": "Bapuji Nagar Food & Tiffin Corridor",
+      "district": "Khordha",
+      "category": "street_food_market",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 387,
+        "height": 516
+      },
+      "format": "WEBP",
+      "size_bytes": 35508,
+      "sha256": "96421db16fc7531475a04e295a7dc44b7238208e78dce04e76e2073ba661990c",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_khurda_004.webp",
+      "research_id": "food_khurda_004",
+      "place_name": "Old Town Lingaraj Temple Kora Khai Hub",
+      "district": "Khordha",
+      "category": "traditional_temple_food",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 259,
+        "height": 194
+      },
+      "format": "WEBP",
+      "size_bytes": 10718,
+      "sha256": "5b3f8eb2222594eb4047740c95b61b5ea94d8c951a879b8d975a89f689fca412",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_koraput_001.webp",
+      "research_id": "food_koraput_001",
+      "place_name": "Koraput Tribal Coffee Experience & Mandia Tiffin Hub",
+      "district": "Koraput",
+      "category": "local_food_experience",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 294,
+        "height": 220
+      },
+      "format": "WEBP",
+      "size_bytes": 13962,
+      "sha256": "a7d11f4365ea96a1bb0ca6b3034d9036ae032d305a995d6daf925a879e03589d",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_malkangiri_001.webp",
+      "research_id": "food_malkangiri_001",
+      "place_name": "Malkangiri Tribal Hatpada Millet & Forest Kitchen",
+      "district": "Malkangiri",
+      "category": "local_food_experience",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 1365,
+        "height": 768
+      },
+      "format": "WEBP",
+      "size_bytes": 222344,
+      "sha256": "3f64f2f544ede49676635392ceeecd7aabbbaa5365c83588b14fbb31b3cd1a0b",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_mayurbhanj_001.webp",
+      "research_id": "food_mayurbhanj_001",
+      "place_name": "Baripada Mudhi Mansa Traditional Food Hub",
+      "district": "Mayurbhanj",
+      "category": "local_food_experience",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 892,
+        "height": 492
+      },
+      "format": "WEBP",
+      "size_bytes": 43604,
+      "sha256": "5d78eb066696db540520acf5e3220195669928dc0d360d950feedab6c0f97629",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_nabarangpur_001.webp",
+      "research_id": "food_nabarangpur_001",
+      "place_name": "Nabarangpur Lac & Grain Corridor Traditional Tiffin Centre",
+      "district": "Nabarangpur",
+      "category": "restaurant",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 294,
+        "height": 220
+      },
+      "format": "WEBP",
+      "size_bytes": 10896,
+      "sha256": "40047800b3fc25e716eccf8b4205aec2e4435dcf0adaef6344a02b208d6f2076",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_nayagarh_001.webp",
+      "research_id": "food_nayagarh_001",
+      "place_name": "Nayagarh Khandapada Chhena Poda Birthplace Confectionery",
+      "district": "Nayagarh",
+      "category": "heritage_sweet_stall",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 466,
+        "height": 747
+      },
+      "format": "WEBP",
+      "size_bytes": 19862,
+      "sha256": "0b985fb80836777fb95bcd6f3134988603dd15fcb1c73d9f113a125a56a7c75c",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_nuapada_001.webp",
+      "research_id": "food_nuapada_001",
+      "place_name": "Khariar Road Highway Tiffin & Chaula Bara Hub",
+      "district": "Nuapada",
+      "category": "highway_stop",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 166,
+        "height": 250
+      },
+      "format": "WEBP",
+      "size_bytes": 10700,
+      "sha256": "fe58e976f1ba841bd0cbf0b472e2b757e8e6850774e89d1dbc1a97f52f98019b",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_puri_001.webp",
+      "research_id": "food_puri_001",
+      "place_name": "Ananda Bazar Sacred Mahaprasad Food Court",
+      "district": "Puri",
+      "category": "traditional_temple_food",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 781,
+        "height": 557
+      },
+      "format": "WEBP",
+      "size_bytes": 78556,
+      "sha256": "7b4b9c49b6e650d153e0c451e48fcb621df06ccef8f19bb98f51f75d18605c7c",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_rayagada_001.webp",
+      "research_id": "food_rayagada_001",
+      "place_name": "Rayagada Station Road Andhra-Odia Confluence Tiffin Hub",
+      "district": "Rayagada",
+      "category": "street_food_market",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 294,
+        "height": 220
+      },
+      "format": "WEBP",
+      "size_bytes": 19232,
+      "sha256": "e0099d11d13e56bbf52240669f020ca2537bbf730def5a783cfc55ef6886f3ff",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_sambalpur_001.webp",
+      "research_id": "food_sambalpur_001",
+      "place_name": "Golbazar Chaula Bara & Tiffin Corner, Sambalpur",
+      "district": "Sambalpur",
+      "category": "street_food_market",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 596,
+        "height": 335
+      },
+      "format": "WEBP",
+      "size_bytes": 51730,
+      "sha256": "cad74c5516472c051d7617577af65f124f701387f8f7108e0cd59c9f43bd1a55",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_sambalpur_002.webp",
+      "research_id": "food_sambalpur_002",
+      "place_name": "Ainthapali Transit Food Corridor, Sambalpur",
+      "district": "Sambalpur",
+      "category": "highway_stop",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 360,
+        "height": 360
+      },
+      "format": "WEBP",
+      "size_bytes": 19996,
+      "sha256": "12e7e75b82cf6646b1b47c424feef7fd733ecbcc087e8284d8a9e0ed4bf69766",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_subarnapur_001.webp",
+      "research_id": "food_subarnapur_001",
+      "place_name": "Sonepur Suvarnameru Sweets & Pitha Heritage Stall",
+      "district": "Subarnapur",
+      "category": "heritage_sweet_stall",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 250,
+        "height": 250
+      },
+      "format": "WEBP",
+      "size_bytes": 17786,
+      "sha256": "1cf9e9a5443ca95fa3d5f0825d33203dbddcb33acb1407c40c8c63be44f84d89",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "food_sundargarh_001.webp",
+      "research_id": "food_sundargarh_001",
+      "place_name": "Sector-5 Commercial Food Hub, Rourkela",
+      "district": "Sundargarh",
+      "category": "street_food_market",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 596,
+        "height": 335
+      },
+      "format": "WEBP",
+      "size_bytes": 35738,
+      "sha256": "244bc486feca19a9655f67300dc146d26f11a6b3c7b42918bcf69ffaf2496bb0",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_balasore_002.webp",
+      "research_id": "place_balasore_002",
+      "place_name": "Talasari Beach & Palm Fringes",
+      "district": "Balasore",
+      "category": "beach",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 638,
+        "height": 480
+      },
+      "format": "WEBP",
+      "size_bytes": 36940,
+      "sha256": "97ff66a32370c12a12da9da1111b9f2f626af7d02d3311d29cdc7deeea0ce939",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_balasore_003.webp",
+      "research_id": "place_balasore_003",
+      "place_name": "Panchalingeswar Temple & Springs",
+      "district": "Balasore",
+      "category": "temple",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 335,
+        "height": 597
+      },
+      "format": "WEBP",
+      "size_bytes": 52348,
+      "sha256": "5e18a2265f98d66baeb46d444ad070a87a00e9db4a8eb67f9adab2bdd7325578",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_bhadrak_001.webp",
+      "research_id": "place_bhadrak_001",
+      "place_name": "Maa Akhandalamani Temple (Aradi)",
+      "district": "Bhadrak",
+      "category": "temple",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 528,
+        "height": 626
+      },
+      "format": "WEBP",
+      "size_bytes": 28058,
+      "sha256": "6a6a6d63f08652aa9f52502e12df753ea1bd51437f1fe2bd33f19430f00fa7a9",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_bhadrak_002.webp",
+      "research_id": "place_bhadrak_002",
+      "place_name": "Dhamra Port & Marine Estuary",
+      "district": "Bhadrak",
+      "category": "beach",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 736,
+        "height": 416
+      },
+      "format": "WEBP",
+      "size_bytes": 31852,
+      "sha256": "afd3f1ae5806fe68ef4ed98dda3e15e1262279929baf8f3da751062e179491f5",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_bolangir_001.webp",
+      "research_id": "place_balangir_001",
+      "place_name": "Harishankar Temple & Stream",
+      "district": "Balangir",
+      "category": "temple",
+      "mapping_method": "canonical_place_catalog_match",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 246,
+        "height": 158
+      },
+      "format": "WEBP",
+      "size_bytes": 7468,
+      "sha256": "709b8a31658a46143909abc27a5a5a04843e1b47b9507355b331fcefdaba7b18",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_bolangir_002.webp",
+      "research_id": "place_balangir_002",
+      "place_name": "Ranipur Jharial 64 Yogini Temple",
+      "district": "Balangir",
+      "category": "monument",
+      "mapping_method": "canonical_place_catalog_match",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 399,
+        "height": 501
+      },
+      "format": "WEBP",
+      "size_bytes": 73350,
+      "sha256": "58e8b21e61493ce097006224bd0e7ca34635d7028810e4dbe04bd3934f019bb7",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_boudh_001.webp",
+      "research_id": "place_boudh_001",
+      "place_name": "Boudh Colossal Buddha Statues",
+      "district": "Boudh",
+      "category": "monument",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 680,
+        "height": 680
+      },
+      "format": "WEBP",
+      "size_bytes": 58018,
+      "sha256": "9fa30fad77e05e20efd0dac2ff8d8d18b7f21b2ef7134da7bfa0f6d09a3cb4de",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_boudh_002.webp",
+      "research_id": "place_boudh_002",
+      "place_name": "Rameswar Temple Complex",
+      "district": "Boudh",
+      "category": "temple",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 399,
+        "height": 501
+      },
+      "format": "WEBP",
+      "size_bytes": 44002,
+      "sha256": "80d0d4c3700e1de5d9a89a5d1c43e1b9f5c759ddc3d2faf7010d8cc6c4b13443",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_deogarh_001.webp",
+      "research_id": "place_deogarh_001",
+      "place_name": "Pradhanpat Waterfall",
+      "district": "Deogarh",
+      "category": "waterfall",
+      "mapping_method": "canonical_place_catalog_match",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 399,
+        "height": 501
+      },
+      "format": "WEBP",
+      "size_bytes": 30788,
+      "sha256": "1a3eead0641401da0ef35a2d79f237d1d32f5da557a6669e9a3db9243087aa37",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_dhenkanal_001.webp",
+      "research_id": "place_dhenkanal_001",
+      "place_name": "Kapilash Temple & Sanctuary",
+      "district": "Dhenkanal",
+      "category": "temple",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      },
+      "format": "WEBP",
+      "size_bytes": 148304,
+      "sha256": "53bcf763b219f33e91ab4525a9201a590e91c67560d1ccc89addbf991f459b85",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_dhenkanal_003.webp",
+      "research_id": "place_dhenkanal_003",
+      "place_name": "Saptasajya Hill Sanctuary",
+      "district": "Dhenkanal",
+      "category": "nature",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 335,
+        "height": 597
+      },
+      "format": "WEBP",
+      "size_bytes": 44778,
+      "sha256": "72b2bcecc3d0cf67512726aaec4481cb3baae2fb749ad0893185aecd9263a8b5",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_gajapati_002.webp",
+      "research_id": "place_gajapati_002",
+      "place_name": "Khasada Waterfall (Chandragiri)",
+      "district": "Gajapati",
+      "category": "waterfall",
+      "mapping_method": "canonical_place_catalog_match",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 736,
+        "height": 416
+      },
+      "format": "WEBP",
+      "size_bytes": 72152,
+      "sha256": "90ddd2df2fa8fa4f62738af4a509741d018f4da4047b082bfd7c7fb4e9060af6",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_ganjam_003.webp",
+      "research_id": "place_ganjam_003",
+      "place_name": "Maa Tara Tarini Shakti Peetha",
+      "district": "Ganjam",
+      "category": "temple",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 399,
+        "height": 501
+      },
+      "format": "WEBP",
+      "size_bytes": 49736,
+      "sha256": "b6e11d1a601f41d2a698afccadca89119106ae3ea86fcad35143c5b9eb02fa6d",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_jagatsinghpur_001.webp",
+      "research_id": "place_jagatsinghpur_001",
+      "place_name": "Maa Sarala Temple (Jhankad)",
+      "district": "Jagatsinghpur",
+      "category": "temple",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 516,
+        "height": 387
+      },
+      "format": "WEBP",
+      "size_bytes": 56996,
+      "sha256": "791cd6a1b377ca3af41c201aeee5e9262fac5ad84a0e85c4088394d1539a4bed",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_jagatsinghpur_002.webp",
+      "research_id": "place_jagatsinghpur_002",
+      "place_name": "Paradip Sea Beach & Lighthouse",
+      "district": "Jagatsinghpur",
+      "category": "beach",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 447,
+        "height": 447
+      },
+      "format": "WEBP",
+      "size_bytes": 42814,
+      "sha256": "c3ccb0237d06c92fe0a3330d305ca5146eab364f5952bb3767e728e4b2ad91de",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_jagatsinghpur_003.webp",
+      "research_id": "place_jagatsinghpur_003",
+      "place_name": "Siali Sea Beach",
+      "district": "Jagatsinghpur",
+      "category": "beach",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 638,
+        "height": 480
+      },
+      "format": "WEBP",
+      "size_bytes": 43646,
+      "sha256": "b8b0aabaa3717a7d70721e31c0cd06de24f6102d5dab232cf09f2eec551971fe",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_jharsuguda_002.webp",
+      "research_id": "place_jharsuguda_002",
+      "place_name": "Bikramkhol Prehistoric Rock Art",
+      "district": "Jharsuguda",
+      "category": "monument",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 335,
+        "height": 597
+      },
+      "format": "WEBP",
+      "size_bytes": 60544,
+      "sha256": "9e7bbce052cb636c46162543342ec3c6855d9ac1976fb6a63e8e2626f2657cb7",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_kalahandi_002.webp",
+      "research_id": "place_kalahandi_002",
+      "place_name": "Asurgarh Ancient Fortified City",
+      "district": "Kalahandi",
+      "category": "monument",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 738,
+        "height": 414
+      },
+      "format": "WEBP",
+      "size_bytes": 59192,
+      "sha256": "75a2915026602dc1b2a9ffcc6bc2ee099d96c5f36734df7b9aa742243bafd81c",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_kendrapara_002.webp",
+      "research_id": "place_kendrapara_002",
+      "place_name": "Baladevjew Temple (Ichhapur)",
+      "district": "Kendrapara",
+      "category": "temple",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 596,
+        "height": 335
+      },
+      "format": "WEBP",
+      "size_bytes": 31918,
+      "sha256": "abbec35c2bdfc9fed8ddb367ce77c5bd9bb52576e2f9644b9d21296a4d6e0cb0",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_koraput_003.webp",
+      "research_id": "place_koraput_003",
+      "place_name": "Deomali Peak, Koraput",
+      "district": "Koraput",
+      "category": "nature",
+      "mapping_method": "canonical_place_catalog_match",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 693,
+        "height": 442
+      },
+      "format": "WEBP",
+      "size_bytes": 36630,
+      "sha256": "bb5d4394cc81273773a053f8af864e669c498db5eb7a35d5fa5e7b51fd4e6379",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_koraput_005.webp",
+      "research_id": "place_koraput_005",
+      "place_name": "Kolab Reservoir & Botanical Garden",
+      "district": "Koraput",
+      "category": "lake",
+      "mapping_method": "canonical_place_catalog_match",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 447,
+        "height": 447
+      },
+      "format": "WEBP",
+      "size_bytes": 47144,
+      "sha256": "9a192837a91f07a696b41d94e699c19369e459ea690f02e1b102f2b5f0757da0",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_malkangiri_001.webp",
+      "research_id": "place_malkangiri_001",
+      "place_name": "Balimela Dam & Hydro Reservoir",
+      "district": "Malkangiri",
+      "category": "lake",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 597,
+        "height": 335
+      },
+      "format": "WEBP",
+      "size_bytes": 22294,
+      "sha256": "2ca597ca9762e58524612cb1c6f9482dd10cb2eea776cf7eda60a7ef9dbe01f6",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_malkangiri_003.webp",
+      "research_id": "place_malkangiri_003",
+      "place_name": "Ammakunda Natural Pool",
+      "district": "Malkangiri",
+      "category": "nature",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 736,
+        "height": 416
+      },
+      "format": "WEBP",
+      "size_bytes": 88622,
+      "sha256": "9fce8d5b3acc383807d2aa7afadb38a70e8e71b331ed51f7ec106e4916692508",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_med_001.webp",
+      "research_id": "place_med_001",
+      "place_name": "All India Institute of Medical Sciences (AIIMS) Bhubaneswar",
+      "district": "Khordha",
+      "category": "hospital",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 640,
+        "height": 380
+      },
+      "format": "WEBP",
+      "size_bytes": 27926,
+      "sha256": "3bcc215e5721cd6bb04515bf4cdb95c7f485bca8bd9dd809bd2a621ad1238516",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_med_004.webp",
+      "research_id": "place_med_004",
+      "place_name": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences)",
+      "district": "Sambalpur",
+      "category": "hospital",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 678,
+        "height": 452
+      },
+      "format": "WEBP",
+      "size_bytes": 68284,
+      "sha256": "07bb56e4cd1d072e6151cefb2213b06738fc31dededf4d718f8f13fd57e847ae",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_med_005.webp",
+      "research_id": "place_med_005",
+      "place_name": "Capital Hospital Bhubaneswar",
+      "district": "Khordha",
+      "category": "hospital",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 638,
+        "height": 480
+      },
+      "format": "WEBP",
+      "size_bytes": 64974,
+      "sha256": "c19cb8c355e9de8c0084368c11e397b55a136c7ab69b6482f27c24db53c28cca",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_med_008.webp",
+      "research_id": "place_med_008",
+      "place_name": "PRM Medical College & Hospital Baripada",
+      "district": "Mayurbhanj",
+      "category": "hospital",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 578,
+        "height": 388
+      },
+      "format": "WEBP",
+      "size_bytes": 34608,
+      "sha256": "2c5cb910bcfef1e8ec4008581f825f446f41c1a6ae3d77bf8d4c438c85a0ebe5",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_med_010.webp",
+      "research_id": "place_med_010",
+      "place_name": "Fakir Mohan Medical College & Hospital",
+      "district": "Balasore",
+      "category": "hospital",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 738,
+        "height": 246
+      },
+      "format": "WEBP",
+      "size_bytes": 14654,
+      "sha256": "9d8103c090f320e902355bf4e179fbad7617eab942616caa270034c42a56a529",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_nabarangpur_001.webp",
+      "research_id": "place_nabarangpur_001",
+      "place_name": "Shahid Minar Papadahandi",
+      "district": "Nabarangpur",
+      "category": "monument",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 387,
+        "height": 516
+      },
+      "format": "WEBP",
+      "size_bytes": 63658,
+      "sha256": "bf8dfd84581df37959172cc2253251c94eb5b012efc54176848a92906db42cef",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_nabarangpur_002.webp",
+      "research_id": "place_nabarangpur_002",
+      "place_name": "Chandandhara Waterfall",
+      "district": "Nabarangpur",
+      "category": "waterfall",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 387,
+        "height": 516
+      },
+      "format": "WEBP",
+      "size_bytes": 58418,
+      "sha256": "1742f16e96f9db7355bade85581d3288a7b06930d96387db71bd632815bd0b45",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_nayagarh_001.webp",
+      "research_id": "place_nayagarh_001",
+      "place_name": "Kantilo Nilamadhaba Temple",
+      "district": "Nayagarh",
+      "category": "temple",
+      "mapping_method": "canonical_place_catalog_match",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 335,
+        "height": 597
+      },
+      "format": "WEBP",
+      "size_bytes": 37788,
+      "sha256": "c79c031e8926f13578f1f253189471cf59bc2d8510977a0de926dfe48500ed35",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_nayagarh_002.webp",
+      "research_id": "place_nayagarh_002",
+      "place_name": "Sarankul Ladubaba Temple",
+      "district": "Nayagarh",
+      "category": "temple",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 246,
+        "height": 179
+      },
+      "format": "WEBP",
+      "size_bytes": 10468,
+      "sha256": "c693229f045d60e72c16c7e9e04f9c8536697d68dab05d7c05495f709361d132",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_nayagarh_003.webp",
+      "research_id": "place_nayagarh_003",
+      "place_name": "Baisipalli Wildlife Sanctuary",
+      "district": "Nayagarh",
+      "category": "wildlife",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 654,
+        "height": 305
+      },
+      "format": "WEBP",
+      "size_bytes": 69094,
+      "sha256": "46a9086650570dc71d8f61309a948cad6e8c861a05f565ffa6147ac4a5cb9f03",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_nuapada_002.webp",
+      "research_id": "place_nuapada_002",
+      "place_name": "Maraguda Valley Archaeological Site",
+      "district": "Nuapada",
+      "category": "monument",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 547,
+        "height": 365
+      },
+      "format": "WEBP",
+      "size_bytes": 53622,
+      "sha256": "1efcb2ede57a1a79feaca22717a521e443fb99fa3b4d7892e001b8aa2863e147",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_rayagada_002.webp",
+      "research_id": "place_rayagada_002",
+      "place_name": "Chatikona Waterfall & Hanging Bridge",
+      "district": "Rayagada",
+      "category": "waterfall",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 638,
+        "height": 480
+      },
+      "format": "WEBP",
+      "size_bytes": 85164,
+      "sha256": "84e42931b1cd8531f280a3586ca5aa3348039b168e225e133e0b6a8f950294ef",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_subarnapur_001.webp",
+      "research_id": "place_subarnapur_001",
+      "place_name": "Maa Sureswari Temple (Sonepur)",
+      "district": "Subarnapur",
+      "category": "temple",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 736,
+        "height": 416
+      },
+      "format": "WEBP",
+      "size_bytes": 60158,
+      "sha256": "e593cf591b0461d3c913966b770588fba92ba9623a435ddc3a1cb0aa40228794",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_transit_001.webp",
+      "research_id": "place_transit_001",
+      "place_name": "Biju Patnaik International Airport (BBI)",
+      "district": "Khordha",
+      "category": "transit_hub",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 554,
+        "height": 554
+      },
+      "format": "WEBP",
+      "size_bytes": 42110,
+      "sha256": "39222d8a2f0d0579b0388047e6c9982b1a20086510bc59b8f3a625f663394d29",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_transit_004.webp",
+      "research_id": "place_transit_004",
+      "place_name": "Bhubaneswar Railway Station (BBS)",
+      "district": "Khordha",
+      "category": "transit_hub",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 515,
+        "height": 388
+      },
+      "format": "WEBP",
+      "size_bytes": 42022,
+      "sha256": "44ee772256a3c8270b0a9c1c1248f59ac4ee420ca758b557939e39254d885aee",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_transit_006.webp",
+      "research_id": "place_transit_006",
+      "place_name": "Puri Railway Station (PURI)",
+      "district": "Puri",
+      "category": "transit_hub",
+      "mapping_method": "canonical_place_catalog_match",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 499,
+        "height": 375
+      },
+      "format": "WEBP",
+      "size_bytes": 28250,
+      "sha256": "f4bb554eed60f2c4145e8279bd0133a607f9c52b8fa8706ca35ba1e61c3725a5",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    },
+    {
+      "filename": "place_transit_011.webp",
+      "research_id": "place_transit_011",
+      "place_name": "Baramunda Inter State Bus Terminal (ISBT)",
+      "district": "Khordha",
+      "category": "transit_hub",
+      "mapping_method": "exact_requested_research_id",
+      "metadata_status": "identity_verified",
+      "dimensions": {
+        "width": 592,
+        "height": 337
+      },
+      "format": "WEBP",
+      "size_bytes": 32046,
+      "sha256": "41af6091f6963e133df678837cc9dea2707993aa0d62c7324302989cff3e3ffb",
+      "source_url": null,
+      "source_type": "manual_collection",
+      "provenance_verified": false
+    }
+  ]
+}

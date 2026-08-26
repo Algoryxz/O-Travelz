@@ -1,0 +1,135 @@
+SOURCE: 2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf
+EXTRACTED WITH: pymupdf
+PAGES: 3
+============================================================
+
+
+--- PAGE 1 ---
+
+Schedule for AMA Bus Operations in Brahmapur w.e.f. 01.06.2026
+Route - 300: NIST college - Duduma Colony Bus stand
+Duduma Colony Bus
+stand
+04:25(AC) 04:50(AC) 05:15(AC) 05:40(AC) 06:05(AC) 06:20(AC) 06:45(AC)
+07:15(AC) 07:40(AC) 08:05(AC) 08:30(AC) 08:55(AC) 09:20(AC) 09:45(AC)
+10:10(AC) 10:40(AC) 11:10(AC) 11:35(AC) 12:00(AC) 12:25(AC) 12:50(AC)
+13:15(AC) 14:40(AC) 15:10(AC) 15:40(AC) 16:05(AC) 16:30(AC) 16:55(AC)
+17:20(AC) 17:45(AC) 18:10(AC) 18:40(AC) 19:10(AC) 19:35(AC) 20:00(AC)
+20:25(AC) 20:50(AC) 21:15(AC) 21:40(AC) 22:10(AC)
+NIST College
+06:00(AC) 06:25(AC) 06:50(AC) 07:15(AC) 07:40(AC) 08:10(AC) 08:35(AC)
+09:05(AC) 09:30(AC) 09:55(AC) 10:20(AC) 10:45(AC) 11:10(AC) 11:40(AC)
+13:00(AC) 13:30(AC) 14:00(AC) 14:25(AC) 14:50(AC) 15:15(AC) 15:40(AC)
+16:05(AC) 16:30(AC) 17:00(AC) 17:30(AC) 17:55(AC) 18:20(AC) 18:45(AC)
+19:10(AC) 19:35(AC) 20:00(AC) 20:30(AC)
+Route – 301: Berhampur Rail Stn. - Parala maharaja college (Via- MKCG Medical, Engineering
+School,Ambapua,SUM Hospital)
+Berhampur Railway
+Station
+07:00(AC) 07:30(AC) 08:00(AC) 09:40(AC) 10:10(AC) 10:40(AC)
+12:20(AC) 14:30(AC) 15:15(AC) 16:40(AC) 17:10(AC)
+17:55(AC)
+Parala
+08:20(AC) 08:50(AC) 09:20(AC) 11:00(AC) 11:30(AC) 12:00(AC)
+Maharaja
+College
+13:40(AC) 15:50(AC) 16:35(AC) 18:00(AC) 18:30(AC)
+19:15(AC)
+Route - 302: Berhampur Railway Station – Regidi
+Berhampur Railway
+Station
+06:00(AC) 06:40(AC) 07:30(AC) 09:20(AC) 10:00(AC) 10:50(AC)
+13:40(AC) 14:20(AC) 15:10(AC) 16:50(AC) 17:40(AC) 18:30(AC)
+20:10(AC)
+Regidi
+7:20(AC) 08:00(AC) 08:50(AC) 10:40(AC) 11:20(AC) 12:10(AC)
+15:00(AC) 15:40(AC) 16:30(AC) 18:10(AC) 19:00(AC) 19:50(AC)
+21:30(AC)
+Route - 303: Duduma Colony Bus Stand – Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta
+Square,Ambapua,Mandiapalli Junction,Berhampur University)
+Duduma Colony
+Bus stand
+06:30(AC) 06:55(AC) 07:20(AC) 07:45(AC) 08:10(AC) 08:35(AC) 09:50(AC)
+10:15(AC) 10:40(AC) 11:05(AC) 11:30(AC) 11:55(AC) 14:30(AC) 14:55(AC)
+15:20(AC) 15:45(AC) 16:10(AC) 16:35(AC) 17:50(AC) 18:15(AC) 18:40(AC)
+19:05(AC) 19:30(AC) 19:55(AC)
+Gopalpur Bus
+Stand
+08:10(AC) 08:35(AC) 09:00(AC) 09:25(AC) 09:50(AC) 10:15(AC) 11:30(AC)
+11:55(AC) 12:20(AC) 12:45(AC) 13:10(AC) 13:35(AC) 16:10(AC) 16:35(AC)
+17:00(AC) 17:25(AC) 17:50(AC) 18:15(AC) 19:25(AC) 19:50(AC) 20:15(AC)
+20:40(AC) 21:05(AC) 21:30(AC)
+
+
+--- PAGE 2 ---
+
+Route – 303E: Duduma Colony Bus stand – Dhabaleswar (Via- Railway station P.F-4, Lanjipali Village, Ankuli ,ARMY
+AD,Kamalapur
+Duduma Colony Bus
+stand
+07:00(AC) 08:00(AC) 10:40(AC) 13:00(AC) 16:10(AC) 17:35(AC)
+Dhabaleswar
+08:50(AC) 09:50(AC) 12:30(AC) 15:35(AC) 18:00(AC) 19:20(AC)
+Route - 304: Berhampur Railway Station -D.patapur
+Berhampur
+RailwayStation
+05:45(AC) 06:25(AC) 07:05(AC) 09:00(AC) 09:40(AC) 10:20(AC)
+13:25(AC) 14:05(AC) 14:45(AC) 16:40(AC) 17:20(AC) 18:00(AC)
+D.patapur
+07:10(AC) 07:50(AC) 08:30(AC) 10:25(AC) 11:05(AC) 11:45(AC)
+14:50(AC) 15:30(AC) 16:10(AC) 18:05(AC) 18:45(AC) 19:25(AC)
+Route – 304E: Berhampur Railway Station - Ralaba
+Berhampur RailwayStation
+07:25(AC) 11:20(AC) 16:15(AC)
+Ralaba
+09:00(AC) 12:55(AC) 17:50(AC)
+Route - 305: Haladiapadar Bus Stand– Chatrapur
+Haladiapadar Bus
+Stand
+06:45(AC) 07:45(AC) 12:15(AC) 15:30(AC) 17:45(AC)
+Chatrapur
+09:05(AC) 10:05(AC) 14:35(AC) 17:50(AC) 20:05(AC)
+Route - 306: Mahatma Gandhi Stadium - Sonapur beach (Via- Railway Station,Haldiapadar New Bus Stand,Kanisi Hata,Sidhha
+Bhairavi Temple,Govindpur)
+Mahatma Gandhi Stadium
+05:30(AC) 07:30(AC) 09:35(AC) 12:55(AC) 15:30(AC) 17:10 (AC)
+Sonapur beach
+07:35(AC) 09:35(AC) 11:40(AC) 15:00(AC) 17:35(AC) 19:15(AC)
+
+
+--- PAGE 3 ---
+
+Route - 307: Duduma Colony Bus stand - Engg.School
+Duduma Colony
+Bus stand
+06:00(AC) 06:25(AC) 06:50(AC) 07:15(AC) 07:40(AC) 08:00(AC) 08:20(AC)
+08:45(AC) 09:10(AC) 09:35(AC) 09:55(AC) 10:15(AC) 10:40(AC) 11:05(AC)
+11:30(AC) 11:50(AC) 12:10(AC) 12:35(AC) 13:00(AC) 13:25(AC) 14:55(AC)
+15:15 (AC) 15:40(AC) 16:05(AC) 16:30(AC) 16:50(AC) 17:10(AC) 17:35(AC)
+18:00(AC) 18:25(AC) 18:45(AC) 19:05(AC) 19:30(AC) 19:55(AC) 20:20(AC)
+20:40(AC) 21:00(AC)
+Engg.School
+06:55(AC) 07:20(AC) 07:45(AC) 08:10(AC) 08:35(AC) 08:55(AC) 09:15(AC)
+09:40(AC) 10:05(AC) 10:30(AC) 10:50(AC) 11:10(AC) 11:35(AC) 12:00(AC)
+12:25(AC) 12:45(AC) 13:05(AC) 13:30(AC) 13:55(AC) 14:20(AC) 15:50(AC)
+16:10(AC) 16:35(AC) 17:00(AC) 17:25(AC) 17:45(AC) 18:05(AC) 18:30(AC)
+18:55(AC) 19:20(AC) 19:40(AC) 20:00(AC) 20:25(AC) 20:50(AC) 21:15(AC)
+21:35(AC) 21:55(AC)
+Route -308 Duduma Colony New Bus Stand – Railway Station
+Duduma
+Colony New Bus
+Stand
+06:10(AC) 06:25(AC) 06:45(AC) 07:00(AC) 07:20(AC) 07:35(AC) 07:55(AC) 08:10(AC)
+08:30(AC) 08:45(AC) 09:05(AC) 09:20(AC) 09:40(AC) 09:55(AC) 10:15(AC) 10:30(AC)
+10:50(AC) 11:05(AC) 11:25(AC) 11:40(AC) 12:00(AC) 12:15(AC) 12:35(AC) 12:50(AC)
+13:10(AC) 14:55(AC) 15:15(AC) 15:30(AC) 15:45(AC) 16:00(AC) 16:20(AC) 16:35(AC)
+16:55(AC) 17:10(AC) 17:30(AC) 17:45(AC) 18:05(AC) 18:20(AC) 18:40(AC) 18:55(AC)
+19:15(AC) 19:30(AC) 19:50(AC) 20:05(AC) 20:25(AC) 20:40(AC) 21:00(AC) 21:15(AC)
+Railway
+Station
+06:40(AC) 06:55(AC) 07:15(AC) 07:30(AC) 07:50(AC) 08:05(AC) 08:25(AC) 08:40(AC)
+09:00(AC) 09:15(AC) 09:35(AC) 09:50(AC) 10:10(AC) 10:25(AC) 10:45(AC) 11:00(AC)
+11:20(AC) 11:35(AC) 11:55(AC) 12:10(AC) 12:30(AC) 14:20(AC) 14:40(AC) 14:55(AC)
+15:15(AC) 15:25(AC) 15:45(AC) 16:00(AC) 16:15(AC) 16:30(AC) 16:50(AC) 17:05(AC)
+17:25(AC) 17:40(AC) 18:00(AC) 18:15(AC) 18:35(AC) 18:50(AC) 19:10(AC) 19:25(AC)
+19:45(AC) 20:00(AC) 20:20(AC) 20:35(AC)

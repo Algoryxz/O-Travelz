@@ -1,0 +1,129 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "Phase 6C",
+  "generation_mode": "offline",
+  "research_engine": "deterministic_domain_rules",
+  "total_candidates": 5,
+  "resolutions": [
+    {
+      "canonical_stop_name": "BHAGWANPUR",
+      "status": "CANDIDATE",
+      "confidence": "MEDIUM",
+      "latitude": 20.2482,
+      "longitude": 85.7612,
+      "candidate_name": "Bhagwanpur Industrial Area",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-BHAGWANPUR-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Mo Bus Route 20 & 21 Route Schedule",
+          "source_type": "transit_provider",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Industrial estate near Patrapada, Bhubaneswar."
+        }
+      ],
+      "provenance": "research_approximate",
+      "validation_errors": [],
+      "promotion_rationale": "Plausible candidate resolution with medium confidence; retained as candidate pending field check.",
+      "ambiguity_notes": "Industrial hub in southwest Bhubaneswar."
+    },
+    {
+      "canonical_stop_name": "CHURCH SQUARE",
+      "status": "CANDIDATE",
+      "confidence": "MEDIUM",
+      "latitude": 19.3142,
+      "longitude": 84.7912,
+      "candidate_name": "Church Square (Berhampur)",
+      "candidate_region": "Berhampur",
+      "evidence_ids": [
+        "EV-P6C-CHURCH-SQUARE-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Berhampur AMA Bus Network Plan",
+          "source_type": "transit_provider",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Centennial Church intersection on Giri Road, Berhampur."
+        }
+      ],
+      "provenance": "research_approximate",
+      "validation_errors": [],
+      "promotion_rationale": "Plausible candidate resolution with medium confidence; retained as candidate pending field check.",
+      "ambiguity_notes": "Commercial intersection near Giri Market."
+    },
+    {
+      "canonical_stop_name": "JATANI GATE",
+      "status": "CANDIDATE",
+      "confidence": "MEDIUM",
+      "latitude": 20.1624,
+      "longitude": 85.7121,
+      "candidate_name": "Jatani Railway Gate / Town Center",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-JATANI-GATE-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Capital Region Mo Bus Schedule",
+          "source_type": "transit_provider",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Commercial entrance to Jatni municipality near Khurda Road."
+        }
+      ],
+      "provenance": "research_approximate",
+      "validation_errors": [],
+      "promotion_rationale": "Plausible candidate resolution with medium confidence; retained as candidate pending field check.",
+      "ambiguity_notes": "Jatni municipal node."
+    },
+    {
+      "canonical_stop_name": "NARAJ POLICE OUTPOST",
+      "status": "CANDIDATE",
+      "confidence": "MEDIUM",
+      "latitude": 20.4812,
+      "longitude": 85.7541,
+      "candidate_name": "Naraj Police Outpost / Barrage Road",
+      "candidate_region": "Capital Region",
+      "evidence_ids": [
+        "EV-P6C-NARAJ-POLICE-OUTPOST-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Cuttack Feeder Route Schedule",
+          "source_type": "transit_provider",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Police outpost near Naraj barrage, Cuttack."
+        }
+      ],
+      "provenance": "research_approximate",
+      "validation_errors": [],
+      "promotion_rationale": "Plausible candidate resolution with medium confidence; retained as candidate pending field check.",
+      "ambiguity_notes": "Way station on Cuttack-Banki route."
+    },
+    {
+      "canonical_stop_name": "NUAGAON",
+      "status": "CANDIDATE",
+      "confidence": "MEDIUM",
+      "latitude": 22.2582,
+      "longitude": 84.7741,
+      "candidate_name": "Nuagaon Chowk (Rourkela)",
+      "candidate_region": "Rourkela",
+      "evidence_ids": [
+        "EV-P6C-NUAGAON-1"
+      ],
+      "evidence_items": [
+        {
+          "source_name": "CRUT Rourkela Mo Bus Route 100 Directory",
+          "source_type": "transit_provider",
+          "url": "https://www.capitalregiontransport.in",
+          "supports": "Northwestern township junction on SH-10."
+        }
+      ],
+      "provenance": "research_approximate",
+      "validation_errors": [],
+      "promotion_rationale": "Plausible candidate resolution with medium confidence; retained as candidate pending field check.",
+      "ambiguity_notes": "Western commercial junction in Sundargarh."
+    }
+  ]
+}

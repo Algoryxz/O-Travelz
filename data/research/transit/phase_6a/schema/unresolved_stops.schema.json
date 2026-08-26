@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OTravelzUnresolvedStops",
+  "description": "Schema for documenting unresolved and identified-no-coordinate stops in Phase 6A.",
+  "type": "object",
+  "required": [
+    "project",
+    "phase",
+    "total_unresolved",
+    "unresolved_stops"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "project": { "type": "string", "enum": ["O-TRAVELZ"] },
+    "phase": { "type": "string", "enum": ["6A"] },
+    "total_unresolved": { "type": "integer", "minimum": 0 },
+    "is_synthetic_test_fixture": { "type": "boolean" },
+    "notes": { "type": ["string", "object", "null"] },
+    "unresolved_stops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "stop_name",
+          "city",
+          "reason_unresolved",
+          "geographic_status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "stop_id": { "type": ["string", "null"] },
+          "stop_name": { "type": "string", "minLength": 1 },
+          "city": { "type": ["string", "null"] },
+          "district": { "type": ["string", "null"] },
+          "geographic_status": {
+            "type": "string",
+            "enum": ["identified_no_coordinate", "unresolved"]
+          },
+          "reason_unresolved": { "type": "string", "minLength": 1 },
+          "query_attempted": { "type": ["string", "null"] },
+          "potential_corridor": { "type": ["string", "null"] },
+          "serving_routes": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

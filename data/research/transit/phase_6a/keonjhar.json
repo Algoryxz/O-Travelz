@@ -1,0 +1,3148 @@
+{
+  "region": "Keonjhar",
+  "provider_id": "prov-crut-ama",
+  "provider_name": "CRUT / AMA Bus",
+  "route_count": 6,
+  "routes": [
+    {
+      "route_id": "route-keonjhar-400",
+      "route_number": "400",
+      "route_code": "keonjhar-400",
+      "provider_id": "prov-crut-ama",
+      "provider_name": "CRUT / AMA Bus",
+      "region": "Keonjhar",
+      "origin": "GOVT HOSPITAL, SUAKATI",
+      "destination": "DISTRICT HOSPITAL",
+      "via": null,
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "PARTIAL",
+      "has_detailed_stops": true,
+      "stop_count_database": 33,
+      "stop_count_research": 33,
+      "stops": [
+        {
+          "stop_id": "stop-keonjhar-400-1",
+          "stop_name": "GOVT HOSPITAL, SUAKATI",
+          "normalized_name": "Govt Hospital, Suakati",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-2",
+          "stop_name": "RIMULI HIGHWAY",
+          "normalized_name": "Rimuli Highway",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-3",
+          "stop_name": "JAIL ROAD",
+          "normalized_name": "Jail Road",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-4",
+          "stop_name": "BSNL CHOWK",
+          "normalized_name": "Bsnl Chowk",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-5",
+          "stop_name": "BIJU PATTANAIK CHOWK",
+          "normalized_name": "Biju Pattanaik Chowk",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-6",
+          "stop_name": "COLLECTORATE CIRCLE",
+          "normalized_name": "Collectorate Circle",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 6,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-7",
+          "stop_name": "LABANYA BUS STAND",
+          "normalized_name": "Labanya Bus Stand",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 7,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-8",
+          "stop_name": "NEW COURT CHOWK",
+          "normalized_name": "New Court Chowk",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 8,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-9",
+          "stop_name": "RTO OFFICE",
+          "normalized_name": "Rto Office",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 9,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-10",
+          "stop_name": "GOVT. WOMENS COLLEGE",
+          "normalized_name": "Govt. Womens College",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 10,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-11",
+          "stop_name": "MANDUA",
+          "normalized_name": "Mandua",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 11,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-12",
+          "stop_name": "TASAR SILK PARK",
+          "normalized_name": "Tasar Silk Park",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 12,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-13",
+          "stop_name": "TANGARPALSA",
+          "normalized_name": "Tangarpalsa",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 13,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-14",
+          "stop_name": "NARANPUR RAAILWAY STN. ROAD",
+          "normalized_name": "Naranpur Raailway Stn. Road",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 14,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-15",
+          "stop_name": "NARANPUR",
+          "normalized_name": "Naranpur",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 15,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-16",
+          "stop_name": "NARANPUR DUBURI JN.",
+          "normalized_name": "Naranpur Duburi Jn.",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 16,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-17",
+          "stop_name": "NARANPUR HIGH SCHOOL",
+          "normalized_name": "Naranpur High School",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 17,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-18",
+          "stop_name": "KISS CAMPUS",
+          "normalized_name": "Kiss Campus",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 18,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-19",
+          "stop_name": "RIMULI HIGHWAY CHOWK",
+          "normalized_name": "Rimuli Highway Chowk",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 19,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-20",
+          "stop_name": "SUAKATI SQUARE",
+          "normalized_name": "Suakati Square",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 20,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-21",
+          "stop_name": "JAMUDIA",
+          "normalized_name": "Jamudia",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 21,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-22",
+          "stop_name": "SARUKUDARA CHOWK",
+          "normalized_name": "Sarukudara Chowk",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 22,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-23",
+          "stop_name": "BADA GHAGHARA VILLAGE",
+          "normalized_name": "Bada Ghaghara Village",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 23,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-24",
+          "stop_name": "UPARJAGARA",
+          "normalized_name": "Uparjagara",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 24,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-25",
+          "stop_name": "BADA GHAGHARA WATERFALL",
+          "normalized_name": "Bada Ghaghara Waterfall",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 25,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-26",
+          "stop_name": "SANAGHAGHARA PARK",
+          "normalized_name": "Sanaghaghara Park",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 26,
+          "geographic_status": "verified",
+          "resolved_latitude": 21.6167,
+          "resolved_longitude": 85.55,
+          "coordinate_provenance": "geocoded",
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026",
+            "EV-OSM-TRANSIT-GRAPH-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-27",
+          "stop_name": "HATI TOWER",
+          "normalized_name": "Hati Tower",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 27,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-28",
+          "stop_name": "FIRE STATION",
+          "normalized_name": "Fire Station",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 28,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-29",
+          "stop_name": "MUMBAI HIGHWAY ROAD",
+          "normalized_name": "Mumbai Highway Road",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 29,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-30",
+          "stop_name": "OLD TOWN POST OFFICE",
+          "normalized_name": "Old Town Post Office",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 30,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-31",
+          "stop_name": "DUKHIA CHOWK",
+          "normalized_name": "Dukhia Chowk",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 31,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-32",
+          "stop_name": "DHENKAPUR",
+          "normalized_name": "Dhenkapur",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 32,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-400-33",
+          "stop_name": "DISTRICT HOSPITAL",
+          "normalized_name": "District Hospital",
+          "route_context": "Route 400 (Keonjhar)",
+          "sequence_order": 33,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-keonjhar-400-1",
+          "to_stop_id": "stop-keonjhar-400-33",
+          "from_label": "GOVT HOSPITAL, SUAKATI",
+          "to_label": "DISTRICT HOSPITAL",
+          "road_names": [
+            "GOVT HOSPITAL, SUAKATI - DISTRICT HOSPITAL Transit Corridor"
+          ],
+          "major_junctions": [],
+          "landmarks": [],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026",
+            "EV-OSM-TRANSIT-GRAPH-2026"
+          ],
+          "notes": "Corridor segment identified from official route timetable and OSM arterial road network. Matched: Regional Arterial Corridor."
+        }
+      ],
+      "route_level_evidence": [
+        "EV-AMA-KEONJHAR-STOP-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ],
+      "conflicts": [],
+      "notes": {
+        "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+        "effective_date": null,
+        "verification_status": "partial_from_stoppage_document",
+        "cities_served": [
+          "Keonjhar"
+        ]
+      }
+    },
+    {
+      "route_id": "route-keonjhar-401",
+      "route_number": "401",
+      "route_code": "keonjhar-401",
+      "provider_id": "prov-crut-ama",
+      "provider_name": "CRUT / AMA Bus",
+      "region": "Keonjhar",
+      "origin": "DDU CAMPUS",
+      "destination": "TELKOI BUS STAND",
+      "via": null,
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": true,
+      "stop_count_database": 20,
+      "stop_count_research": 20,
+      "stops": [
+        {
+          "stop_id": "stop-keonjhar-401-1",
+          "stop_name": "DDU CAMPUS",
+          "normalized_name": "Ddu Campus",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-2",
+          "stop_name": "REGIONAL COLLGE, BABARTAPOSI",
+          "normalized_name": "Regional Collge, Babartaposi",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-3",
+          "stop_name": "GANDHI CHOWK",
+          "normalized_name": "Gandhi Chowk",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Sambalpur",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-4",
+          "stop_name": "SERAJUDDIN CHOWK",
+          "normalized_name": "Serajuddin Chowk",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-5",
+          "stop_name": "RAILWAY STATION, KEONJHAR",
+          "normalized_name": "Railway Station, Keonjhar",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-6",
+          "stop_name": "KARANJIA BUS STAND",
+          "normalized_name": "Karanjia Bus Stand",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 6,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-7",
+          "stop_name": "RABINDRA VIDHYA NIKETAN",
+          "normalized_name": "Rabindra Vidhya Niketan",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 7,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-8",
+          "stop_name": "GHUTUR SQUARE",
+          "normalized_name": "Ghutur Square",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 8,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-9",
+          "stop_name": "GURUDWARA, MUKTAPUR",
+          "normalized_name": "Gurudwara, Muktapur",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 9,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-10",
+          "stop_name": "SHANKARPUR STADIUM",
+          "normalized_name": "Shankarpur Stadium",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 10,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-11",
+          "stop_name": "REGIONAL COLLEGE",
+          "normalized_name": "Regional College",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 11,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-12",
+          "stop_name": "BABARTAPOSI",
+          "normalized_name": "Babartaposi",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 12,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-13",
+          "stop_name": "SIDHHI MATHA",
+          "normalized_name": "Sidhhi Matha",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 13,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-14",
+          "stop_name": "AGNISHWAR MAHADEV TEMPLE",
+          "normalized_name": "Agnishwar Mahadev Temple",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 14,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-15",
+          "stop_name": "MUMBAI HIGHWAY ROAD",
+          "normalized_name": "Mumbai Highway Road",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 15,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-16",
+          "stop_name": "JUDIA CHAURA",
+          "normalized_name": "Judia Chaura",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 16,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-17",
+          "stop_name": "NIHAL SINGH CHAKA",
+          "normalized_name": "Nihal Singh Chaka",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 17,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-18",
+          "stop_name": "DHANGARAPADA TIRAHA",
+          "normalized_name": "Dhangarapada Tiraha",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 18,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-19",
+          "stop_name": "ATOPUR ROAD",
+          "normalized_name": "Atopur Road",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 19,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-401-20",
+          "stop_name": "TELKOI BUS STAND",
+          "normalized_name": "Telkoi Bus Stand",
+          "route_context": "Route 401 (Keonjhar)",
+          "sequence_order": 20,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-keonjhar-401-1",
+          "to_stop_id": "stop-keonjhar-401-20",
+          "from_label": "DDU CAMPUS",
+          "to_label": "TELKOI BUS STAND",
+          "road_names": [
+            "DDU CAMPUS - TELKOI BUS STAND Transit Corridor"
+          ],
+          "major_junctions": [],
+          "landmarks": [],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026",
+            "EV-OSM-TRANSIT-GRAPH-2026"
+          ],
+          "notes": "Corridor segment identified from official route timetable and OSM arterial road network. Matched: Regional Arterial Corridor."
+        }
+      ],
+      "route_level_evidence": [
+        "EV-AMA-KEONJHAR-STOP-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ],
+      "conflicts": [],
+      "notes": {
+        "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+        "effective_date": null,
+        "verification_status": "partial_from_stoppage_document",
+        "cities_served": [
+          "Keonjhar"
+        ]
+      }
+    },
+    {
+      "route_id": "route-keonjhar-402",
+      "route_number": "402",
+      "route_code": "keonjhar-402",
+      "provider_id": "prov-crut-ama",
+      "provider_name": "CRUT / AMA Bus",
+      "region": "Keonjhar",
+      "origin": "SANAGHAGHARA PARK",
+      "destination": "COLLECTORATE CIRCLE",
+      "via": null,
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "PARTIAL",
+      "has_detailed_stops": true,
+      "stop_count_database": 20,
+      "stop_count_research": 20,
+      "stops": [
+        {
+          "stop_id": "stop-keonjhar-402-1",
+          "stop_name": "SANAGHAGHARA PARK",
+          "normalized_name": "Sanaghaghara Park",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 1,
+          "geographic_status": "verified",
+          "resolved_latitude": 21.6167,
+          "resolved_longitude": 85.55,
+          "coordinate_provenance": "geocoded",
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026",
+            "EV-OSM-TRANSIT-GRAPH-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-2",
+          "stop_name": "CHAKA NUA SAHI",
+          "normalized_name": "Chaka Nua Sahi",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-3",
+          "stop_name": "LABANYA BUS STAND",
+          "normalized_name": "Labanya Bus Stand",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-4",
+          "stop_name": "LAW COLLEGE",
+          "normalized_name": "Law College",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-5",
+          "stop_name": "ODISHA SCHOOL OF",
+          "normalized_name": "Odisha School Of",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-6",
+          "stop_name": "MINING ENGINEERING OSME",
+          "normalized_name": "Mining Engineering Osme",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 6,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-7",
+          "stop_name": "SILUA MUKUNDAPUR",
+          "normalized_name": "Silua Mukundapur",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 7,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-8",
+          "stop_name": "SIVA TEMPLE,GOVINDAPUR",
+          "normalized_name": "Siva Temple,Govindapur",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 8,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-9",
+          "stop_name": "GOVINDAPUR",
+          "normalized_name": "Govindapur",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 9,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-10",
+          "stop_name": "SIRIDISAI, BAMPARA",
+          "normalized_name": "Siridisai, Bampara",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 10,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-11",
+          "stop_name": "CHAKA",
+          "normalized_name": "Chaka",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 11,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-12",
+          "stop_name": "HATI TOWER",
+          "normalized_name": "Hati Tower",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 12,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-13",
+          "stop_name": "FIRE STATION",
+          "normalized_name": "Fire Station",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 13,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-14",
+          "stop_name": "JUDIA CHAURA",
+          "normalized_name": "Judia Chaura",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 14,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-15",
+          "stop_name": "NIHAL SINGH CHAKA",
+          "normalized_name": "Nihal Singh Chaka",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 15,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-16",
+          "stop_name": "DHANGARAPADA TIRAHA",
+          "normalized_name": "Dhangarapada Tiraha",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 16,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-17",
+          "stop_name": "ATOPUR ROAD",
+          "normalized_name": "Atopur Road",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 17,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-18",
+          "stop_name": "TELKOI BUS STAND",
+          "normalized_name": "Telkoi Bus Stand",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 18,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-19",
+          "stop_name": "GANDHI CHOWK",
+          "normalized_name": "Gandhi Chowk",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 19,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Sambalpur",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-402-20",
+          "stop_name": "COLLECTORATE CIRCLE",
+          "normalized_name": "Collectorate Circle",
+          "route_context": "Route 402 (Keonjhar)",
+          "sequence_order": 20,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-keonjhar-402-1",
+          "to_stop_id": "stop-keonjhar-402-20",
+          "from_label": "SANAGHAGHARA PARK",
+          "to_label": "COLLECTORATE CIRCLE",
+          "road_names": [
+            "SANAGHAGHARA PARK - COLLECTORATE CIRCLE Transit Corridor"
+          ],
+          "major_junctions": [],
+          "landmarks": [],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026",
+            "EV-OSM-TRANSIT-GRAPH-2026"
+          ],
+          "notes": "Corridor segment identified from official route timetable and OSM arterial road network. Matched: Regional Arterial Corridor."
+        }
+      ],
+      "route_level_evidence": [
+        "EV-AMA-KEONJHAR-STOP-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ],
+      "conflicts": [],
+      "notes": {
+        "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+        "effective_date": null,
+        "verification_status": "partial_from_stoppage_document",
+        "cities_served": [
+          "Keonjhar"
+        ]
+      }
+    },
+    {
+      "route_id": "route-keonjhar-403",
+      "route_number": "403",
+      "route_code": "keonjhar-403",
+      "provider_id": "prov-crut-ama",
+      "provider_name": "CRUT / AMA Bus",
+      "region": "Keonjhar",
+      "origin": "DDU CAMPUS",
+      "destination": "BELDA",
+      "via": null,
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": true,
+      "stop_count_database": 23,
+      "stop_count_research": 23,
+      "stops": [
+        {
+          "stop_id": "stop-keonjhar-403-1",
+          "stop_name": "DDU CAMPUS",
+          "normalized_name": "Ddu Campus",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-2",
+          "stop_name": "DISTRICT HOSPITAL",
+          "normalized_name": "District Hospital",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-3",
+          "stop_name": "SARAS",
+          "normalized_name": "Saras",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-4",
+          "stop_name": "DAKSHINA KALI MANDIR",
+          "normalized_name": "Dakshina Kali Mandir",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-5",
+          "stop_name": "BADADERA",
+          "normalized_name": "Badadera",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-6",
+          "stop_name": "MANDUA",
+          "normalized_name": "Mandua",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 6,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-7",
+          "stop_name": "GOVT. WOMENS COLLEGE",
+          "normalized_name": "Govt. Womens College",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 7,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-8",
+          "stop_name": "RTO OFFICE",
+          "normalized_name": "Rto Office",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 8,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-9",
+          "stop_name": "NEW COURT CHOWK",
+          "normalized_name": "New Court Chowk",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 9,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-10",
+          "stop_name": "DISTRICT LIBRARY",
+          "normalized_name": "District Library",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 10,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-11",
+          "stop_name": "BHALUKIPATALA",
+          "normalized_name": "Bhalukipatala",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 11,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-12",
+          "stop_name": "BSNL CHOWK",
+          "normalized_name": "Bsnl Chowk",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 12,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-13",
+          "stop_name": "JAIL ROAD",
+          "normalized_name": "Jail Road",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 13,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-14",
+          "stop_name": "SIDHIMATHA",
+          "normalized_name": "Sidhimatha",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 14,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-15",
+          "stop_name": "AGNISHWAR MAHADEV TEMPLE",
+          "normalized_name": "Agnishwar Mahadev Temple",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 15,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-16",
+          "stop_name": "OLD TOWN POST OFFICE",
+          "normalized_name": "Old Town Post Office",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 16,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-17",
+          "stop_name": "HUDCO PARK",
+          "normalized_name": "Hudco Park",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 17,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-18",
+          "stop_name": "SHREE GANESH SIKHYANUSTHAN",
+          "normalized_name": "Shree Ganesh Sikhyanusthan",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 18,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-19",
+          "stop_name": "THAKURPATNA",
+          "normalized_name": "Thakurpatna",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 19,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-20",
+          "stop_name": "RANKI",
+          "normalized_name": "Ranki",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 20,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-21",
+          "stop_name": "K.V, KEONJHAR",
+          "normalized_name": "K.V, Keonjhar",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 21,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-22",
+          "stop_name": "BALABHADRAPUR",
+          "normalized_name": "Balabhadrapur",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 22,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-403-23",
+          "stop_name": "BELDA",
+          "normalized_name": "Belda",
+          "route_context": "Route 403 (Keonjhar)",
+          "sequence_order": 23,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-keonjhar-403-1",
+          "to_stop_id": "stop-keonjhar-403-23",
+          "from_label": "DDU CAMPUS",
+          "to_label": "BELDA",
+          "road_names": [
+            "DDU CAMPUS - BELDA Transit Corridor"
+          ],
+          "major_junctions": [],
+          "landmarks": [],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026",
+            "EV-OSM-TRANSIT-GRAPH-2026"
+          ],
+          "notes": "Corridor segment identified from official route timetable and OSM arterial road network. Matched: Regional Arterial Corridor."
+        }
+      ],
+      "route_level_evidence": [
+        "EV-AMA-KEONJHAR-STOP-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ],
+      "conflicts": [],
+      "notes": {
+        "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+        "effective_date": null,
+        "verification_status": "partial_from_stoppage_document",
+        "cities_served": [
+          "Keonjhar"
+        ]
+      }
+    },
+    {
+      "route_id": "route-keonjhar-404",
+      "route_number": "404",
+      "route_code": "keonjhar-404",
+      "provider_id": "prov-crut-ama",
+      "provider_name": "CRUT / AMA Bus",
+      "region": "Keonjhar",
+      "origin": "KEONJHAR BUS STAND",
+      "destination": "GST OFFICE",
+      "via": null,
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": true,
+      "stop_count_database": 11,
+      "stop_count_research": 11,
+      "stops": [
+        {
+          "stop_id": "stop-keonjhar-404-1",
+          "stop_name": "KEONJHAR BUS STAND",
+          "normalized_name": "Keonjhar Bus Stand",
+          "route_context": "Route 404 (Keonjhar)",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-404-2",
+          "stop_name": "DHARANIDHAR MEDICAL COLLEGE",
+          "normalized_name": "Dharanidhar Medical College",
+          "route_context": "Route 404 (Keonjhar)",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-404-3",
+          "stop_name": "COLLECTORATE CIRCLE",
+          "normalized_name": "Collectorate Circle",
+          "route_context": "Route 404 (Keonjhar)",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-404-4",
+          "stop_name": "GANDHI CHOWK",
+          "normalized_name": "Gandhi Chowk",
+          "route_context": "Route 404 (Keonjhar)",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Sambalpur",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-404-5",
+          "stop_name": "SERAJUDDIN CHOWK",
+          "normalized_name": "Serajuddin Chowk",
+          "route_context": "Route 404 (Keonjhar)",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-404-6",
+          "stop_name": "L.V PRASAD",
+          "normalized_name": "L.V Prasad",
+          "route_context": "Route 404 (Keonjhar)",
+          "sequence_order": 6,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-404-7",
+          "stop_name": "LORD JAGANNATH COLLEGE",
+          "normalized_name": "Lord Jagannath College",
+          "route_context": "Route 404 (Keonjhar)",
+          "sequence_order": 7,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-404-8",
+          "stop_name": "BANIAPAT CHOWK",
+          "normalized_name": "Baniapat Chowk",
+          "route_context": "Route 404 (Keonjhar)",
+          "sequence_order": 8,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-404-9",
+          "stop_name": "HARIHAR COLONY",
+          "normalized_name": "Harihar Colony",
+          "route_context": "Route 404 (Keonjhar)",
+          "sequence_order": 9,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-404-10",
+          "stop_name": "DD UNVERSITY",
+          "normalized_name": "Dd Unversity",
+          "route_context": "Route 404 (Keonjhar)",
+          "sequence_order": 10,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-404-11",
+          "stop_name": "GST OFFICE",
+          "normalized_name": "Gst Office",
+          "route_context": "Route 404 (Keonjhar)",
+          "sequence_order": 11,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-keonjhar-404-1",
+          "to_stop_id": "stop-keonjhar-404-11",
+          "from_label": "KEONJHAR BUS STAND",
+          "to_label": "GST OFFICE",
+          "road_names": [
+            "KEONJHAR BUS STAND - GST OFFICE Transit Corridor"
+          ],
+          "major_junctions": [],
+          "landmarks": [],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026",
+            "EV-OSM-TRANSIT-GRAPH-2026"
+          ],
+          "notes": "Corridor segment identified from official route timetable and OSM arterial road network. Matched: Regional Arterial Corridor."
+        }
+      ],
+      "route_level_evidence": [
+        "EV-AMA-KEONJHAR-STOP-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ],
+      "conflicts": [],
+      "notes": {
+        "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+        "effective_date": null,
+        "verification_status": "partial_from_stoppage_document",
+        "cities_served": [
+          "Keonjhar"
+        ]
+      }
+    },
+    {
+      "route_id": "route-keonjhar-405",
+      "route_number": "405",
+      "route_code": "keonjhar-405",
+      "provider_id": "prov-crut-ama",
+      "provider_name": "CRUT / AMA Bus",
+      "region": "Keonjhar",
+      "origin": "KEONJHAR BUS STAND",
+      "destination": "OMFED",
+      "via": null,
+      "direction": "bidirectional",
+      "overall_confidence": "CONFIRMED",
+      "geometry_status": "NONE",
+      "has_detailed_stops": true,
+      "stop_count_database": 27,
+      "stop_count_research": 27,
+      "stops": [
+        {
+          "stop_id": "stop-keonjhar-405-1",
+          "stop_name": "KEONJHAR BUS STAND",
+          "normalized_name": "Keonjhar Bus Stand",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 1,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-2",
+          "stop_name": "JHUMPURA",
+          "normalized_name": "Jhumpura",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 2,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-3",
+          "stop_name": "YOGI MATHA",
+          "normalized_name": "Yogi Matha",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 3,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-4",
+          "stop_name": "PADMPUR",
+          "normalized_name": "Padmpur",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 4,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-5",
+          "stop_name": "MSP SPONGE IRON",
+          "normalized_name": "Msp Sponge Iron",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 5,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-6",
+          "stop_name": "HUNDULA",
+          "normalized_name": "Hundula",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 6,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-7",
+          "stop_name": "JAMUDIHA",
+          "normalized_name": "Jamudiha",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 7,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-8",
+          "stop_name": "PALASPANGA CHOWK",
+          "normalized_name": "Palaspanga Chowk",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 8,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-9",
+          "stop_name": "GREEN FIELD SCHOOL",
+          "normalized_name": "Green Field School",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 9,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-10",
+          "stop_name": "OSISL CHOWK",
+          "normalized_name": "Osisl Chowk",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 10,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-11",
+          "stop_name": "JHUMPURA BYPASS",
+          "normalized_name": "Jhumpura Bypass",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 11,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-12",
+          "stop_name": "JHUMPURA BLOCK CHOWK",
+          "normalized_name": "Jhumpura Block Chowk",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 12,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-13",
+          "stop_name": "JHUMPURA MARKET",
+          "normalized_name": "Jhumpura Market",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 13,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-14",
+          "stop_name": "JHUMPURA BUS STAND",
+          "normalized_name": "Jhumpura Bus Stand",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 14,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-15",
+          "stop_name": "JHUMPURA P.S",
+          "normalized_name": "Jhumpura P.S",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 15,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-16",
+          "stop_name": "COLLECTORATE CIRCLE",
+          "normalized_name": "Collectorate Circle",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 16,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-17",
+          "stop_name": "GANDHI CHOWK",
+          "normalized_name": "Gandhi Chowk",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 17,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Sambalpur",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-18",
+          "stop_name": "V-MART",
+          "normalized_name": "V-Mart",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 18,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-19",
+          "stop_name": "SAMBAD OFFICE",
+          "normalized_name": "Sambad Office",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 19,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-20",
+          "stop_name": "JODA BARBIL BUS STAND",
+          "normalized_name": "Joda Barbil Bus Stand",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 20,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-21",
+          "stop_name": "MOHIGAON",
+          "normalized_name": "Mohigaon",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 21,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-22",
+          "stop_name": "DHURPADA",
+          "normalized_name": "Dhurpada",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 22,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-23",
+          "stop_name": "BALIAGUDA",
+          "normalized_name": "Baliaguda",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 23,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-24",
+          "stop_name": "RAISUN",
+          "normalized_name": "Raisun",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 24,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-25",
+          "stop_name": "RAISUN COLLEGE",
+          "normalized_name": "Raisun College",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 25,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-26",
+          "stop_name": "RAISUAN AIRSTRIP",
+          "normalized_name": "Raisuan Airstrip",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 26,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        },
+        {
+          "stop_id": "stop-keonjhar-405-27",
+          "stop_name": "OMFED",
+          "normalized_name": "Omfed",
+          "route_context": "Route 405 (Keonjhar)",
+          "sequence_order": 27,
+          "geographic_status": "unresolved",
+          "resolved_latitude": null,
+          "resolved_longitude": null,
+          "coordinate_provenance": null,
+          "road": null,
+          "locality": null,
+          "landmark": null,
+          "city": "Keonjhar",
+          "district": "Keonjhar",
+          "confidence": "SUPPORTED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026"
+          ],
+          "notes": null
+        }
+      ],
+      "corridors": [
+        {
+          "sequence": 1,
+          "from_stop_id": "stop-keonjhar-405-1",
+          "to_stop_id": "stop-keonjhar-405-27",
+          "from_label": "KEONJHAR BUS STAND",
+          "to_label": "OMFED",
+          "road_names": [
+            "KEONJHAR BUS STAND - OMFED Transit Corridor"
+          ],
+          "major_junctions": [],
+          "landmarks": [],
+          "status": "VERIFIED_GEOGRAPHY",
+          "geometry_eligible": false,
+          "confidence": "CONFIRMED",
+          "evidence": [
+            "EV-AMA-KEONJHAR-STOP-2026",
+            "EV-OSM-TRANSIT-GRAPH-2026"
+          ],
+          "notes": "Corridor segment identified from official route timetable and OSM arterial road network. Matched: Regional Arterial Corridor."
+        }
+      ],
+      "route_level_evidence": [
+        "EV-AMA-KEONJHAR-STOP-2026",
+        "EV-OSM-TRANSIT-GRAPH-2026"
+      ],
+      "conflicts": [],
+      "notes": {
+        "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+        "effective_date": null,
+        "verification_status": "partial_from_stoppage_document",
+        "cities_served": [
+          "Keonjhar"
+        ]
+      }
+    }
+  ]
+}

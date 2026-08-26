@@ -1,0 +1,33 @@
+{
+  "project": "O-TRAVELZ",
+  "phase": "6A",
+  "is_synthetic_test_fixture": true,
+  "notes": "SYNTHETIC FIXTURE ONLY - NOT AUTHORITATIVE RESEARCH",
+  "total_evidence_items": 2,
+  "evidence": [
+    {
+      "evidence_id": "SYNTHETIC-EV-OFFICIAL-HIGH-01",
+      "source": "Synthetic Official Schedule Doc [NON-AUTHORITATIVE TEST FIXTURE]",
+      "source_type": "OFFICIAL_DOCUMENT",
+      "document": "synthetic_official_schedule.pdf",
+      "page": "1",
+      "url": null,
+      "claim": "[SYNTHETIC TEST CLAIM] High reliability evidence for schema validation test",
+      "reliability": "HIGH",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "SYNTHETIC FIXTURE EVIDENCE - DO NOT USE FOR TRANSIT ROUTING"
+    },
+    {
+      "evidence_id": "SYNTHETIC-EV-RESEARCH-LOW-02",
+      "source": "Synthetic Blog Reference [NON-AUTHORITATIVE TEST FIXTURE]",
+      "source_type": "RESEARCH",
+      "document": null,
+      "page": null,
+      "url": "https://synthetic-fixture.invalid/test",
+      "claim": "[SYNTHETIC TEST CLAIM] Low reliability claim for confidence gating tests",
+      "reliability": "LOW",
+      "accessed_at": "2026-08-24T00:00:00Z",
+      "notes": "SYNTHETIC FIXTURE EVIDENCE - DO NOT USE FOR TRANSIT ROUTING"
+    }
+  ]
+}

@@ -1,0 +1,1254 @@
+{
+  "routes_with_via_info": [
+    {
+      "route_number": "09",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Patia",
+      "via": "Niladri Vihar",
+      "via_stops": [
+        "Niladri Vihar"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "12",
+      "origin": "Nandankanan",
+      "destination": "Bhubaneswar Railway Station",
+      "via": "Jaydev Vihar",
+      "via_stops": [
+        "Jaydev Vihar"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "13",
+      "origin": "Nandankanan Botanical Garden",
+      "destination": "Lingipur",
+      "via": "AG Square",
+      "via_stops": [
+        "AG Square"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "13E",
+      "origin": "Nandankanan Botanical Garden",
+      "destination": "Dhauli",
+      "via": "AG Square",
+      "via_stops": [
+        "AG Square"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "14",
+      "origin": "Kalinga Vihar",
+      "destination": "Bhubaneswar Railway Station",
+      "via": "Sum Ultimate,BSABT,OUAT,AG",
+      "via_stops": [
+        "Sum Ultimate",
+        "BSABT",
+        "OUAT",
+        "AG"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "16",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Sri Sri University, Kataka",
+      "via": "NH",
+      "via_stops": [
+        "NH"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "17",
+      "origin": "Biju Patnaik International Airport, BBSR",
+      "destination": "Barabati Stadium, Cuttack",
+      "via": "NH",
+      "via_stops": [
+        "NH"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "18",
+      "origin": "Baramunda BSABT",
+      "destination": "Jagatpur",
+      "via": "Nandankanan",
+      "via_stops": [
+        "Nandankanan"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "19",
+      "origin": "AIIMS",
+      "destination": "OMP Square-Mahanadi Vihar",
+      "via": "NH",
+      "via_stops": [
+        "NH"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "20",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Khordha New Bus Stand",
+      "via": "Vani Vihar",
+      "via_stops": [
+        "Vani Vihar"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "21",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Khordha New Bus Stand",
+      "via": "OUAT",
+      "via_stops": [
+        "OUAT"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "22B",
+      "origin": "Jatani Gate",
+      "destination": "Khordha New Bus Stand",
+      "via": "Jatani",
+      "via_stops": [
+        "Jatani"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "24E",
+      "origin": "Kalinga Vihar",
+      "destination": "Bainchua",
+      "via": "Sai Temple",
+      "via_stops": [
+        "Sai Temple"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "25",
+      "origin": "Dumduma",
+      "destination": "Gadakana",
+      "via": "Mastercanteen, Mancheswar",
+      "via_stops": [
+        "Mastercanteen",
+        "Mancheswar"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "26",
+      "origin": "Dumduma (Jadupur)",
+      "destination": "Rokat, Rajdhani Engineering College",
+      "via": "Chaikeisiani",
+      "via_stops": [
+        "Chaikeisiani"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "27",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Bhagwanpur",
+      "via": "AIIMS",
+      "via_stops": [
+        "AIIMS"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "29E",
+      "origin": "Bhagwanpur",
+      "destination": "SBI Colony",
+      "via": "(Sai Mandir)",
+      "via_stops": [
+        "(Sai Mandir)"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "32",
+      "origin": "Baramunda BSABT",
+      "destination": "Lingaraj Temple",
+      "via": "Bhubaneswar Railway Station",
+      "via_stops": [
+        "Bhubaneswar Railway Station"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "34E",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Trahi Achyut",
+      "via": "Balakati",
+      "via_stops": [
+        "Balakati"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "36",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Mundali",
+      "via": "Judicial Academy",
+      "via_stops": [
+        "Judicial Academy"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "37",
+      "origin": "Baramunda BSABT",
+      "destination": "Naraj Railway Station",
+      "via": "Trisulia Square, OMFED Dairy",
+      "via_stops": [
+        "Trisulia Square",
+        "OMFED Dairy"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "38",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Trimal",
+      "via": "Khordha Bypass, IIT",
+      "via_stops": [
+        "Khordha Bypass",
+        "IIT"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "39",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "AIIMS",
+      "via": "Capital Hospital, Bhimtangi",
+      "via_stops": [
+        "Capital Hospital",
+        "Bhimtangi"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "40",
+      "origin": "AIIMS",
+      "destination": "Sai Mandir",
+      "via": "Capital Hospital, Badagada Brit Colony",
+      "via_stops": [
+        "Capital Hospital",
+        "Badagada Brit Colony"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "41",
+      "origin": "Baramunda BSABT",
+      "destination": "Tangi",
+      "via": "NH",
+      "via_stops": [
+        "NH"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "42",
+      "origin": "Baramunda BSABT",
+      "destination": "Nandankanan",
+      "via": "Chandaka",
+      "via_stops": [
+        "Chandaka"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "43",
+      "origin": "Baramunda BSABT",
+      "destination": "Banamalipur",
+      "via": "Rasulgarh ,Kalapana Sqr",
+      "via_stops": [
+        "Rasulgarh",
+        "Kalapana Sqr"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "43E",
+      "origin": "Baramunda BSABT",
+      "destination": "Abhyamukhi",
+      "via": "Rasulgarh ,Kalapana Sqr,Banamalipur",
+      "via_stops": [
+        "Rasulgarh",
+        "Kalapana Sqr",
+        "Banamalipur"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "45",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Jayadev Pitha",
+      "via": "Brahman Sarangi,Khamanga",
+      "via_stops": [
+        "Brahman Sarangi",
+        "Khamanga"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "46",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Nandankanan",
+      "via": "Kalayanpur,Gandarpur",
+      "via_stops": [
+        "Kalayanpur",
+        "Gandarpur"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "47",
+      "origin": "Sum Hospital",
+      "destination": "SCB Medical,Cuttack",
+      "via": "Ekamra Kanan,Mayfair",
+      "via_stops": [
+        "Ekamra Kanan",
+        "Mayfair"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "48",
+      "origin": "Khordha New Bus Stand",
+      "destination": "Jagatpur,Cuttack",
+      "via": "Pitapalli, Chandaka",
+      "via_stops": [
+        "Pitapalli",
+        "Chandaka"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "49",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Delanga Hata",
+      "via": "Pipili",
+      "via_stops": [
+        "Pipili"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "51",
+      "origin": "Baramunda BSABT",
+      "destination": "Puri Bus Stand",
+      "via": "Vani Vihar,Rasulgarh Square",
+      "via_stops": [
+        "Vani Vihar",
+        "Rasulgarh Square"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "53",
+      "origin": "Malatipatpur Bus Stand",
+      "destination": "Shree Mandira",
+      "via": "Puri Bus Stand",
+      "via_stops": [
+        "Puri Bus Stand"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "54",
+      "origin": "NLU, Cuttack",
+      "destination": "Puri Bus Stand",
+      "via": "Badambadi, Puri Bypass",
+      "via_stops": [
+        "Badambadi",
+        "Puri Bypass"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "56",
+      "origin": "Khordha New Bus Stand",
+      "destination": "Puri Bus Stand",
+      "via": "Jatani,Pipili",
+      "via_stops": [
+        "Jatani",
+        "Pipili"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "56E",
+      "origin": "Puri Bus Stand",
+      "destination": "Khordha Road Station",
+      "via": "Jatani,Pipili",
+      "via_stops": [
+        "Jatani",
+        "Pipili"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "58",
+      "origin": "Jagatpur,Cuttack",
+      "destination": "Puri Bus Stand",
+      "via": "Badambadi,Link Road",
+      "via_stops": [
+        "Badambadi",
+        "Link Road"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "59",
+      "origin": "Mahanadi Vihar,Cuttack",
+      "destination": "Puri Bus Stand",
+      "via": "Badambadi,Link Road",
+      "via_stops": [
+        "Badambadi",
+        "Link Road"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "65",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Wonderla Amusement Park",
+      "via": "Vani Vihar",
+      "via_stops": [
+        "Vani Vihar"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "71",
+      "origin": "Baramunda ISBT",
+      "destination": "Konark",
+      "via": "Rasulgarh Square",
+      "via_stops": [
+        "Rasulgarh Square"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "74",
+      "origin": "Puri Railway Station",
+      "destination": "Shree Mandira",
+      "via": "Puri Bus Stand",
+      "via_stops": [
+        "Puri Bus Stand"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "75",
+      "origin": "Shree Mandira",
+      "destination": "Kakatpur",
+      "via": "Puri Bus Stand, Balighai, Marine Drive, Konark",
+      "via_stops": [
+        "Puri Bus Stand",
+        "Balighai",
+        "Marine Drive",
+        "Konark"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "80",
+      "origin": "Naraj Police Outpost",
+      "destination": "Agrahat, Charbatia",
+      "via": "NLU, Badambadi, SCB Medical",
+      "via_stops": [
+        "NLU",
+        "Badambadi",
+        "SCB Medical"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "80E",
+      "origin": "Naraj Police Outpost",
+      "destination": "Mangarajpur",
+      "via": "NLU, Badambadi, SCB Medical",
+      "via_stops": [
+        "NLU",
+        "Badambadi",
+        "SCB Medical"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "82",
+      "origin": "AIRPORT",
+      "destination": "MASTER CANTEEN - SCB Medical",
+      "via": "NH",
+      "via_stops": [
+        "NH"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "83",
+      "origin": "Dhabaleswar",
+      "destination": "Kandarpur",
+      "via": "42 Mouza",
+      "via_stops": [
+        "42 Mouza"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "85",
+      "origin": "Cuttack Netaji Bus Terminal",
+      "destination": "Gadama",
+      "via": "OMP, Kandarpur",
+      "via_stops": [
+        "OMP",
+        "Kandarpur"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "87",
+      "origin": "Biju Patanaik Park",
+      "destination": "Mahanadi Vihar",
+      "via": "CDA, Judicial Square, Link Road",
+      "via_stops": [
+        "CDA",
+        "Judicial Square",
+        "Link Road"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "87E",
+      "origin": "Judicial Academy",
+      "destination": "Nuapada",
+      "via": "Barabati,SCB",
+      "via_stops": [
+        "Barabati",
+        "SCB"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "90",
+      "origin": "Khordha New Bus Stand",
+      "destination": "Jagatpur, Cuttack",
+      "via": "NH",
+      "via_stops": [
+        "NH"
+      ],
+      "sequence_status": "partial_from_via"
+    },
+    {
+      "route_number": "91",
+      "origin": "Baramunda BSABT",
+      "destination": "Biju Patnaik Park, Cuttack",
+      "via": "NH",
+      "via_stops": [
+        "NH"
+      ],
+      "sequence_status": "partial_from_via"
+    }
+  ],
+  "routes_without_via_info": [
+    {
+      "route_number": "F1",
+      "origin": "Damana Square",
+      "destination": "KIIT Square",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "DD1",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Shree Mandira Parking, Puri",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "08",
+      "origin": "IGKC Multispecialty Hospital",
+      "destination": "Sum Hospital",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "10",
+      "origin": "Bhubaneswar Airport",
+      "destination": "Maulana Azad National Urdu University",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "11",
+      "origin": "Trishulia Bus Stand",
+      "destination": "Bhubaneswar Railway Station",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "15",
+      "origin": "Cuttack Netaji Bus Terminus (CNBT)",
+      "destination": "Utkal Hospital",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "15E",
+      "origin": "Cuttack Netaji Bus Terminus (CNBT)",
+      "destination": "Salia Sahi",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "22A",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Khordha Road Station",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "23",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Sum Hospital-IGKC",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "24",
+      "origin": "Kalinga Vihar",
+      "destination": "Sai Temple",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "28",
+      "origin": "Master Canteen",
+      "destination": "Kalinga Nagar",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "29",
+      "origin": "Bhagwanpur",
+      "destination": "Sai Mandir",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "30",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Chhatabar -Mahatma Gandhi Academy of",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "31",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Hi-Tech Hospital",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "33",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Pipili",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "34",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Balakati",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "44",
+      "origin": "Baramunda BSABT",
+      "destination": "SVNIRTAR,Olatpur",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "50",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Puri Bus Stand",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "52",
+      "origin": "Puri Bus Stand",
+      "destination": "Mangalahata",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "57",
+      "origin": "Puri Bus Stand",
+      "destination": "Astaranga",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "61",
+      "origin": "Puri Bus Stand",
+      "destination": "Satapada Bus Stand",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "62",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Suando",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "63",
+      "origin": "BSABT",
+      "destination": "Madhabananda Temple, Niali",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "64",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Jatani Gate",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "66",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Pathargadia Square",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "70",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Konark",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "72",
+      "origin": "Shree Mandira",
+      "destination": "Madhabnanda Temple, Niali",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "73",
+      "origin": "Puri Bus Stand",
+      "destination": "Talabania",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "76",
+      "origin": "Puri Bus Stand",
+      "destination": "Sakhigopal Temple",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "77",
+      "origin": "Puri Bus Stand",
+      "destination": "Nimapada Bus Stand",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "78",
+      "origin": "Puri Bus Stand",
+      "destination": "Alarnath",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "79",
+      "origin": "Shree Mandira",
+      "destination": "Light House",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "81",
+      "origin": "Barabati Stadium",
+      "destination": "Jagannath Temple, Salepur",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "83A",
+      "origin": "CDA9",
+      "destination": "Nuapatana",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "84",
+      "origin": "Biju pattanaik Park,CDA",
+      "destination": "Madhabananda Temple, Niali",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "86",
+      "origin": "CDA 9 OD terminal",
+      "destination": "Driems,Tangi",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "88",
+      "origin": "National Law University (O)",
+      "destination": "SCB Hospital",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "89",
+      "origin": "SCB Medical",
+      "destination": "Jagadguru Krupalu University",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "89A",
+      "origin": "SCB Medical",
+      "destination": "Judicial Square",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "92",
+      "origin": "IGKC",
+      "destination": "Sai Temple",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "93",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Biju Patnaik Park, CDA",
+      "sequence_status": "unresolved"
+    },
+    {
+      "route_number": "94",
+      "origin": "Babasaheb Bhimrao Ambedkar Bus Terminal (BSABT)",
+      "destination": "SIEP, JATNI",
+      "sequence_status": "unresolved"
+    }
+  ],
+  "intermediate_stops_from_via": [
+    {
+      "stop_name": "Niladri Vihar",
+      "route_number": "09",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Jaydev Vihar",
+      "route_number": "12",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "AG Square",
+      "route_number": "13",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "AG Square",
+      "route_number": "13E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Sum Ultimate",
+      "route_number": "14",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "BSABT",
+      "route_number": "14",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "OUAT",
+      "route_number": "14",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "AG",
+      "route_number": "14",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "NH",
+      "route_number": "16",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "NH",
+      "route_number": "17",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Nandankanan",
+      "route_number": "18",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "NH",
+      "route_number": "19",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Vani Vihar",
+      "route_number": "20",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "OUAT",
+      "route_number": "21",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Jatani",
+      "route_number": "22B",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Sai Temple",
+      "route_number": "24E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Mastercanteen",
+      "route_number": "25",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Mancheswar",
+      "route_number": "25",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Chaikeisiani",
+      "route_number": "26",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "AIIMS",
+      "route_number": "27",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "(Sai Mandir)",
+      "route_number": "29E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Bhubaneswar Railway Station",
+      "route_number": "32",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Balakati",
+      "route_number": "34E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Judicial Academy",
+      "route_number": "36",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Trisulia Square",
+      "route_number": "37",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "OMFED Dairy",
+      "route_number": "37",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Khordha Bypass",
+      "route_number": "38",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "IIT",
+      "route_number": "38",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Capital Hospital",
+      "route_number": "39",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Bhimtangi",
+      "route_number": "39",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Capital Hospital",
+      "route_number": "40",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Badagada Brit Colony",
+      "route_number": "40",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "NH",
+      "route_number": "41",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Chandaka",
+      "route_number": "42",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Rasulgarh",
+      "route_number": "43",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Kalapana Sqr",
+      "route_number": "43",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Rasulgarh",
+      "route_number": "43E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Kalapana Sqr",
+      "route_number": "43E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Banamalipur",
+      "route_number": "43E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Brahman Sarangi",
+      "route_number": "45",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Khamanga",
+      "route_number": "45",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Kalayanpur",
+      "route_number": "46",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Gandarpur",
+      "route_number": "46",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Ekamra Kanan",
+      "route_number": "47",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Mayfair",
+      "route_number": "47",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Pitapalli",
+      "route_number": "48",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Chandaka",
+      "route_number": "48",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Pipili",
+      "route_number": "49",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Vani Vihar",
+      "route_number": "51",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Rasulgarh Square",
+      "route_number": "51",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Puri Bus Stand",
+      "route_number": "53",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Badambadi",
+      "route_number": "54",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Puri Bypass",
+      "route_number": "54",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Jatani",
+      "route_number": "56",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Pipili",
+      "route_number": "56",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Jatani",
+      "route_number": "56E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Pipili",
+      "route_number": "56E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Badambadi",
+      "route_number": "58",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Link Road",
+      "route_number": "58",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Badambadi",
+      "route_number": "59",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Link Road",
+      "route_number": "59",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Vani Vihar",
+      "route_number": "65",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Rasulgarh Square",
+      "route_number": "71",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Puri Bus Stand",
+      "route_number": "74",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Puri Bus Stand",
+      "route_number": "75",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Balighai",
+      "route_number": "75",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Marine Drive",
+      "route_number": "75",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Konark",
+      "route_number": "75",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "NLU",
+      "route_number": "80",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Badambadi",
+      "route_number": "80",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "SCB Medical",
+      "route_number": "80",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "NLU",
+      "route_number": "80E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Badambadi",
+      "route_number": "80E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "SCB Medical",
+      "route_number": "80E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "NH",
+      "route_number": "82",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "42 Mouza",
+      "route_number": "83",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "OMP",
+      "route_number": "85",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Kandarpur",
+      "route_number": "85",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "CDA",
+      "route_number": "87",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Judicial Square",
+      "route_number": "87",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Link Road",
+      "route_number": "87",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "Barabati",
+      "route_number": "87E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "SCB",
+      "route_number": "87E",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "NH",
+      "route_number": "90",
+      "role": "via_point"
+    },
+    {
+      "stop_name": "NH",
+      "route_number": "91",
+      "role": "via_point"
+    }
+  ],
+  "summary": {
+    "total_cr_routes": 95,
+    "routes_with_via": 53,
+    "routes_without_via": 42,
+    "unique_via_stops": 56,
+    "note": "The Capital Region schedule document provides departure times from both termini but does NOT list intermediate stops. Via information in route names provides partial sequence data. Full intermediate stop sequences would require dedicated stoppage documents or the Mo Bus network map route-stop mapping."
+  }
+}
