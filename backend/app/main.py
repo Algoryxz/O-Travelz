@@ -72,18 +72,26 @@ def ready() -> JSONResponse:
 
 
 app.include_router(auth_router, prefix="/auth", tags=["auth"])
+app.include_router(auth_router, prefix="/api/auth", tags=["auth"])
 app.include_router(sync_router, prefix="/api/v1/sync", tags=["sync"])
 app.include_router(share_router, tags=["share"])
+app.include_router(share_router, prefix="/api", tags=["share"])
 app.include_router(transport_router, prefix="/transport", tags=["transport"])
 app.include_router(transport_router, prefix="/api/transport", tags=["transport"])
 app.include_router(itinerary_router, prefix="/itinerary", tags=["itinerary"])
+app.include_router(itinerary_router, prefix="/api/itinerary", tags=["itinerary"])
 app.include_router(places_router, prefix="/places", tags=["places"])
+app.include_router(places_router, prefix="/api/places", tags=["places"])
 app.include_router(ai_router, prefix="/ai", tags=["ai"])
+app.include_router(ai_router, prefix="/api/ai", tags=["ai"])
 app.include_router(map_router, prefix="/map/v1", tags=["map"])
+app.include_router(map_router, prefix="/api/map/v1", tags=["map"])
 app.include_router(image_router, prefix="/api/v1/images", tags=["images"])
 app.include_router(image_router, prefix="/static/images", tags=["images"])
 app.include_router(weather_router, prefix="/weather", tags=["weather"])
+app.include_router(weather_router, prefix="/api/weather", tags=["weather"])
 app.include_router(location_router, prefix="/location", tags=["location"])
+app.include_router(location_router, prefix="/api/location", tags=["location"])
 
 
 
