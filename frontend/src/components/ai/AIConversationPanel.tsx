@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import type { ConversationTurn } from "../../store/useAIConversation";
 import { getRefinementSuggestions } from "../../utils/timelineService";
+import { CopilotItineraryCard } from "./CopilotItineraryCard";
 
 interface AIConversationPanelProps {
   currentConstraints?: PlanningConstraints | null;
@@ -207,6 +208,13 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
                           </div>
                         )}
 
+                        {turn.response && "itinerary" in turn.response && turn.response.itinerary && turn.response.itinerary.days && turn.response.itinerary.days.length > 0 && (
+                          <CopilotItineraryCard
+                            itinerary={turn.response.itinerary}
+                            language={turn.language || (turn.response as any).language || "en"}
+                          />
+                        )}
+
                         {turn.is_grounded !== false && (
                           <div className="text-[10px] text-[#70798B] font-mono flex items-center gap-1 mt-1 pt-1 border-t border-[#E5DFD5]">
                             <ShieldCheck size={11} className="text-[#2F523E]" />
@@ -258,6 +266,13 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
           <p className="text-xs sm:text-sm text-[#12161E] leading-relaxed">
             {activeResponse.message}
           </p>
+
+          {activeResponse.itinerary && activeResponse.itinerary.days && activeResponse.itinerary.days.length > 0 && (
+            <CopilotItineraryCard
+              itinerary={activeResponse.itinerary}
+              language={(activeResponse as any).language || "en"}
+            />
+          )}
 
           {activeResponse.changed_constraints && (
             <div className="p-3 rounded-lg bg-[#FFFFFF] border border-[#E5DFD5] text-xs font-mono text-[#3D4654] space-y-0.5">

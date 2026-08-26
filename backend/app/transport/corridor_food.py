@@ -164,6 +164,68 @@ class CorridorFoodCandidate:
         }
 
 
+def resolve_route_entity(session: Session, route_identifier: str) -> Optional[Route]:
+    """
+    Safely resolves a Route database model from various identifier representations:
+    1. UUID primary key (if valid UUID)
+    2. Exact route_code (e.g. 'capital-region-10', 'rt_10')
+    3. Exact route name (e.g. '10', '28', '13')
+    4. Exact route_name (e.g. 'Bhubaneswar Airport ⇄ Nandankanan')
+    5. Normalized public aliases (e.g. 'rt_10' -> '10', 'route_10' -> '10', 'route-10' -> '10')
+    6. Canonical slug (e.g. 'capital-region-10', 'rt_10')
+    """
+    if not route_identifier or not isinstance(route_identifier, str):
+        return None
+
+    clean = route_identifier.strip()
+    if not clean:
+        return None
+
+    # 1. UUID primary key
+    try:
+        r_uuid = UUID(clean)
+        r = session.query(Route).filter(Route.id == r_uuid).first()
+        if r:
+            return r
+    except ValueError:
+        pass
+
+    # 2. Exact route_code, name, or route_name
+    r = session.query(Route).filter(
+        or_(
+            Route.route_code == clean,
+            Route.name == clean,
+            Route.route_name == clean,
+        )
+    ).first()
+    if r:
+        return r
+
+    # 3. Normalized public aliases
+    lower = clean.lower()
+    if lower.startswith("rt_"):
+        code_num = lower[3:].strip()
+    elif lower.startswith("route_"):
+        code_num = lower[6:].strip()
+    elif lower.startswith("route-"):
+        code_num = lower[6:].strip()
+    else:
+        code_num = lower
+
+    r = session.query(Route).filter(
+        or_(
+            Route.name == code_num,
+            Route.name == code_num.upper(),
+            Route.name == f"0{code_num}",
+            Route.route_code == code_num,
+            Route.route_code == f"capital-region-{code_num}",
+            Route.route_code == f"rt_{code_num}",
+            Route.route_code.ilike(f"%-{code_num}"),
+        )
+    ).first()
+    return r
+
+
 class CorridorFoodService:
     def __init__(self, session: Session):
         self.session = session
@@ -179,14 +241,9 @@ class CorridorFoodService:
     ) -> dict[str, Any]:
         """
         Discover verified food places along an existing transit route's verified coordinate corridor.
-        Never fabricates coordinates or geometry.
+        Never fabricates coordinates or geometry. Accepts UUIDs or public route identifiers (e.g. 'rt_10').
         """
-        try:
-            r_uuid = UUID(route_id)
-        except ValueError:
-            raise ValueError(f"Invalid route_id UUID format: '{route_id}'")
-
-        route = self.session.query(Route).filter(Route.id == r_uuid).first()
+        route = resolve_route_entity(self.session, route_id)
         if not route:
             raise LookupError(f"Route with ID '{route_id}' not found")
 

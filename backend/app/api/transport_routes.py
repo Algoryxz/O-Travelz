@@ -128,7 +128,7 @@ from app.transport.corridor_food import CorridorFoodService
 
 @router.get("/corridor-food")
 def get_corridor_food(
-    route_id: str = Query(..., description="Target transit route UUID"),
+    route_id: str = Query(..., description="Target transit route ID (e.g. 'rt_10', '10', or UUID)"),
     max_distance_m: float = Query(8000.0, ge=100.0, le=8000.0, description="Maximum corridor search envelope in meters (max 8000m)"),
     food_category: Optional[str] = Query(None, description="Filter by food category"),
     dietary_tag: Optional[str] = Query(None, description="Filter by dietary tag (e.g. 'vegetarian', 'seafood')"),

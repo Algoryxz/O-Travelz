@@ -16,6 +16,7 @@ import type { ConversationTurn } from "../../store/useAIConversation";
 import type { SavedTripConversation } from "../../store/useConversationHistory";
 import { ErrorAlert } from "../itinerary/ErrorAlert";
 import { getRefinementSuggestions } from "../../utils/timelineService";
+import { CopilotItineraryCard } from "./CopilotItineraryCard";
 
 export interface AISidebarProps {
   isOpen: boolean;
@@ -297,11 +298,18 @@ export const AISidebar: React.FC<AISidebarProps> = ({
                   <div className="w-7 h-7 rounded-full bg-[#B87B22] text-white flex items-center justify-center shrink-0">
                     <Sparkles size={13} />
                   </div>
-                  <div className="max-w-[85%] p-3 rounded-xl bg-[#FAF7F2] text-xs text-[#12161E] border border-[#E5DFD5] space-y-1">
+                  <div className="max-w-[90%] sm:max-w-[85%] p-3 rounded-xl bg-[#FAF7F2] text-xs text-[#12161E] border border-[#E5DFD5] space-y-1">
                     <div className="font-bold text-[10px] text-[#B87B22] uppercase tracking-wider font-mono">
                       Travel Copilot
                     </div>
                     <p className="leading-relaxed">{turn.message || (turn.response ? String(turn.response.message) : "")}</p>
+                    {turn.response && "itinerary" in turn.response && turn.response.itinerary && turn.response.itinerary.days && turn.response.itinerary.days.length > 0 && (
+                      <CopilotItineraryCard
+                        itinerary={turn.response.itinerary}
+                        language={turn.language || (turn.response as any).language || language}
+                        onViewItineraryTab={onViewItineraryTab}
+                      />
+                    )}
                   </div>
                 </div>
               )}

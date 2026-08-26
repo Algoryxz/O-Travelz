@@ -151,16 +151,16 @@ def test_insufficient_geometry_route_returns_explicit_status():
 
 
 def test_corridor_food_http_endpoint_contracts():
-    """Test HTTP endpoint GET /transport/corridor-food."""
+    """Test HTTP endpoint GET /transport/corridor-food with UUIDs and public route IDs."""
     db: Session = SessionLocal()
     try:
-        route = db.query(Route).filter(Route.name.in_(["09", "12", "30"])).first()
+        route = db.query(Route).filter(Route.name.in_(["09", "10", "12", "13", "28", "30"])).first()
         assert route is not None
         route_id = str(route.id)
     finally:
         db.close()
 
-    # Valid query
+    # 1. Valid query with route UUID
     resp = client.get(f"/transport/corridor-food?route_id={route_id}&max_distance_m=5000&limit=5")
     assert resp.status_code == 200
     data = resp.json()
@@ -168,13 +168,46 @@ def test_corridor_food_http_endpoint_contracts():
     assert "corridor_geometry_info" in data
     assert isinstance(data["candidates"], list)
 
-    # 404 on non-existent route UUID
-    fake_uuid = str(uuid4())
-    resp_404 = client.get(f"/transport/corridor-food?route_id={fake_uuid}")
-    assert resp_404.status_code == 404
+    # 2. Valid query with public route code rt_10
+    resp_rt10 = client.get("/transport/corridor-food?route_id=rt_10&max_distance_m=2500&limit=5")
+    assert resp_rt10.status_code == 200
+    data_rt10 = resp_rt10.json()
+    assert "corridor_geometry_info" in data_rt10
+    assert isinstance(data_rt10["candidates"], list)
 
-    # 422 on invalid UUID string
-    resp_422 = client.get("/transport/corridor-food?route_id=not-a-uuid")
+    # 3. Valid query with public route code rt_28
+    resp_rt28 = client.get("/transport/corridor-food?route_id=rt_28&max_distance_m=2500&limit=5")
+    assert resp_rt28.status_code == 200
+    data_rt28 = resp_rt28.json()
+    assert "corridor_geometry_info" in data_rt28
+    assert isinstance(data_rt28["candidates"], list)
+
+    # 4. Valid query with public route code rt_13
+    resp_rt13 = client.get("/transport/corridor-food?route_id=rt_13&max_distance_m=2500&limit=5")
+    assert resp_rt13.status_code == 200
+    data_rt13 = resp_rt13.json()
+    assert "corridor_geometry_info" in data_rt13
+    assert isinstance(data_rt13["candidates"], list)
+
+    # 5. Valid query with public route number 10
+    resp_10 = client.get("/transport/corridor-food?route_id=10&max_distance_m=2500&limit=5")
+    assert resp_10.status_code == 200
+    assert isinstance(resp_10.json()["candidates"], list)
+
+    # 6. Compatibility with /api/transport/corridor-food prefix
+    resp_api = client.get("/api/transport/corridor-food?route_id=rt_10&max_distance_m=2500&limit=5")
+    assert resp_api.status_code == 200
+
+    # 7. 404 on non-existent route UUID or unknown route identifier
+    fake_uuid = str(uuid4())
+    resp_404_uuid = client.get(f"/transport/corridor-food?route_id={fake_uuid}")
+    assert resp_404_uuid.status_code == 404
+
+    resp_404_str = client.get("/transport/corridor-food?route_id=unknown-route-xyz")
+    assert resp_404_str.status_code == 404
+
+    # 8. 422 on invalid query constraints (e.g. max_distance_m below ge=100 bound)
+    resp_422 = client.get("/transport/corridor-food?route_id=rt_10&max_distance_m=50")
     assert resp_422.status_code == 422
 
 
