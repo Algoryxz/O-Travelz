@@ -7,9 +7,8 @@ import {
   Trash2,
   History,
   User,
-  Compass,
-  ChevronDown,
-  ChevronUp,
+  RotateCcw,
+  Languages,
 } from "lucide-react";
 
 import type { AIResponse, ItineraryPlanResponse } from "../../api/contracts";
@@ -18,7 +17,7 @@ import type { SavedTripConversation } from "../../store/useConversationHistory";
 import { ErrorAlert } from "../itinerary/ErrorAlert";
 import { getRefinementSuggestions } from "../../utils/timelineService";
 
-interface AISidebarProps {
+export interface AISidebarProps {
   isOpen: boolean;
   onClose: () => void;
   isLoading: boolean;
@@ -28,6 +27,7 @@ interface AISidebarProps {
   onSend?: (message: string) => void;
   onSendMessage?: (message: string) => void;
   onClearError?: () => void;
+  onRetry?: () => void;
   hasItinerary?: boolean;
   activeItinerary?: ItineraryPlanResponse | null;
   conversations?: SavedTripConversation[];
@@ -36,6 +36,10 @@ interface AISidebarProps {
   onNewTrip?: () => void;
   onDeleteConversation?: (id: string) => void;
   onViewItineraryTab?: () => void;
+  activeContextLabel?: string | null;
+  contextualPrompts?: string[];
+  onClearContext?: () => void;
+  language?: string;
 }
 
 export const AISidebar: React.FC<AISidebarProps> = ({
@@ -48,6 +52,7 @@ export const AISidebar: React.FC<AISidebarProps> = ({
   onSend,
   onSendMessage,
   onClearError,
+  onRetry,
   hasItinerary = false,
   activeItinerary = null,
   conversations = [],
@@ -56,6 +61,10 @@ export const AISidebar: React.FC<AISidebarProps> = ({
   onNewTrip = () => {},
   onDeleteConversation = () => {},
   onViewItineraryTab,
+  activeContextLabel = null,
+  contextualPrompts = [],
+  onClearContext,
+  language = "en",
 }) => {
   const [inputMessage, setInputMessage] = useState<string>("");
   const sendMessage = onSend || onSendMessage || (() => {});
@@ -63,10 +72,10 @@ export const AISidebar: React.FC<AISidebarProps> = ({
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const refinementPrompts = getRefinementSuggestions(
-    activeItinerary?.constraints,
-    hasItinerary
-  );
+  // Dynamic prompts derived from context, or fallback to timeline refinement suggestions
+  const activeSuggestions = contextualPrompts.length > 0
+    ? contextualPrompts
+    : getRefinementSuggestions(activeItinerary?.constraints, hasItinerary);
 
   // Auto-scroll to bottom of conversation
   useEffect(() => {
@@ -82,6 +91,17 @@ export const AISidebar: React.FC<AISidebarProps> = ({
     }
   }, [isOpen]);
 
+  // Keyboard shortcut: close on Escape
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -94,6 +114,12 @@ export const AISidebar: React.FC<AISidebarProps> = ({
   const handleSuggestion = (prompt: string) => {
     if (isLoading) return;
     sendMessage(prompt);
+  };
+
+  const getLanguageLabel = (code?: string) => {
+    if (code === "or" || code === "odia") return "ଓଡ଼ିଆ";
+    if (code === "hi" || code === "hindi") return "हिन्दी";
+    return "English";
   };
 
   return (
@@ -121,10 +147,15 @@ export const AISidebar: React.FC<AISidebarProps> = ({
               <Sparkles size={16} />
             </div>
             <div>
-              <span className="font-serif font-bold text-base text-[#12161E] tracking-tight">
-                Travel Copilot
-              </span>
-              <p className="text-xs text-[#70798B] font-mono">Multilingual Odisha Copilot</p>
+              <div className="flex items-center gap-1.5">
+                <span className="font-serif font-bold text-base text-[#12161E] tracking-tight">
+                  Travel Copilot
+                </span>
+                <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#B87B22]/10 text-[#B87B22]">
+                  {getLanguageLabel(language)}
+                </span>
+              </div>
+              <p className="text-xs text-[#70798B] font-mono">Global Multilingual Assistant</p>
             </div>
           </div>
 
@@ -203,6 +234,30 @@ export const AISidebar: React.FC<AISidebarProps> = ({
           </div>
         )}
 
+        {/* Active Page Context Pill */}
+        {activeContextLabel && (
+          <div
+            data-testid="sidebar-active-context-chip"
+            className="px-4 py-2 bg-[#B87B22]/10 border-b border-[#E5DFD5] flex items-center justify-between text-xs text-[#B87B22] animate-in fade-in duration-200"
+          >
+            <div className="flex items-center gap-1.5 font-medium truncate">
+              <span className="material-symbols-outlined text-sm shrink-0">explore</span>
+              <span className="truncate">{activeContextLabel}</span>
+            </div>
+            {onClearContext && (
+              <button
+                type="button"
+                onClick={onClearContext}
+                className="p-0.5 rounded hover:bg-[#B87B22]/20 text-[#B87B22] hover:text-[#12161E] cursor-pointer shrink-0 transition-colors"
+                title="Clear Context"
+                aria-label="Clear active context"
+              >
+                <X size={13} />
+              </button>
+            )}
+          </div>
+        )}
+
         {/* Message Stream */}
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {/* Welcome Message */}
@@ -212,10 +267,10 @@ export const AISidebar: React.FC<AISidebarProps> = ({
             </div>
             <div className="max-w-[85%] p-3 rounded-xl bg-[#FAF7F2] text-xs text-[#12161E] border border-[#E5DFD5] space-y-1">
               <div className="font-bold text-[10px] text-[#B87B22] uppercase tracking-wider font-mono">
-                O-Travelz Assistant
+                O-Travelz Copilot
               </div>
               <p className="leading-relaxed">
-                Namaskar! I can help you plan, optimize, and discover destinations across Odisha. Where would you like to travel?
+                Namaskar! I am your AI travel companion across Odisha. Ask me anything in English, हिन्दी, or ଓଡ଼ିଆ.
               </p>
             </div>
           </div>
@@ -246,24 +301,37 @@ export const AISidebar: React.FC<AISidebarProps> = ({
                     <div className="font-bold text-[10px] text-[#B87B22] uppercase tracking-wider font-mono">
                       Travel Copilot
                     </div>
-                    <p className="leading-relaxed">{turn.message || turn.response?.message}</p>
+                    <p className="leading-relaxed">{turn.message || (turn.response ? String(turn.response.message) : "")}</p>
                   </div>
                 </div>
               )}
             </div>
           ))}
 
+
+          {/* Error Alert Display */}
+          {Boolean(error) && (
+            <div className="pt-2">
+              <ErrorAlert
+                error={error}
+                onDismiss={onClearError}
+                onRetry={onRetry}
+              />
+            </div>
+          )}
+
+
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Quick Suggestion Chips */}
-        {refinementPrompts.length > 0 && (
+        {/* Dynamic Contextual Quick Suggestions */}
+        {activeSuggestions.length > 0 && (
           <div className="p-3 bg-[#FAF7F2] border-t border-[#E5DFD5] space-y-1.5">
             <span className="text-[10px] font-bold text-[#70798B] uppercase tracking-wider font-mono">
               Quick Suggestions
             </span>
             <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-              {refinementPrompts.slice(0, 4).map((prompt, idx) => (
+              {activeSuggestions.slice(0, 4).map((prompt, idx) => (
                 <button
                   key={idx}
                   type="button"
@@ -289,7 +357,7 @@ export const AISidebar: React.FC<AISidebarProps> = ({
               value={inputMessage}
               disabled={isLoading}
               onChange={(e) => setInputMessage(e.target.value)}
-              placeholder="Ask anything about Odisha..."
+              placeholder="Ask anything in English, हिन्दी, or ଓଡ଼ିଆ..."
               className="flex-1 bg-transparent border-0 outline-hidden text-xs text-[#12161E] placeholder-[#70798B] font-medium"
             />
             <button

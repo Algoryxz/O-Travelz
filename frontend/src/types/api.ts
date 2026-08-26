@@ -174,10 +174,58 @@ export interface ChatMessage {
   name?: string | null;
 }
 
+export interface AppDestinationContext {
+  id?: string | null;
+  name?: string | null;
+  category?: string | null;
+  district?: string | null;
+  region?: string | null;
+}
+
+export interface AppMapContext {
+  mode?: string | null;
+  selected_place?: AppDestinationContext | null;
+  selected_route_id?: string | null;
+  selected_route_name?: string | null;
+  selected_stop_id?: string | null;
+  selected_stop_name?: string | null;
+  region?: string | null;
+}
+
+export interface AppPlannerContext {
+  days?: number | null;
+  start?: string | null;
+  interests?: string[];
+  anchor_place?: AppDestinationContext | null;
+}
+
+export interface AppLocationContext {
+  locality?: string | null;
+  city?: string | null;
+  district?: string | null;
+  location_type?: string | null;
+}
+
+export interface AppSavedSummaryContext {
+  saved_count?: number;
+  sample_places?: string[];
+}
+
+export interface AppContextPayload {
+  page?: string | null;
+  destination?: AppDestinationContext | null;
+  map?: AppMapContext | null;
+  planner?: AppPlannerContext | null;
+  location?: AppLocationContext | null;
+  saved?: AppSavedSummaryContext | null;
+}
+
 export interface AIConverseRequest {
   messages: ChatMessage[];
   constraints?: PlanningConstraints | null;
+  context?: AppContextPayload | null;
 }
+
 
 export interface GroundedConversationResponse {
   message: string;

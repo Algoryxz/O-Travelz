@@ -4,6 +4,7 @@ import type {
   AIConverseRequest,
   AIPlanRequest,
   AIResponse,
+  AppContextPayload,
   ChatMessage,
   ChatRole,
   GroundedConversationResponse,
@@ -38,16 +39,19 @@ export interface AIConversationHook {
   converse: (
     userMessage: string,
     currentConstraints?: PlanningConstraints | null,
-    customClient?: ApiClient
+    customClient?: ApiClient,
+    appContext?: AppContextPayload | null
   ) => Promise<GroundedConversationResponse | null>;
   sendAiPlan: (
     userMessage: string,
     currentConstraints?: PlanningConstraints | null,
-    customClient?: ApiClient
+    customClient?: ApiClient,
+    appContext?: AppContextPayload | null
   ) => Promise<AIResponse | null>;
   retryLast: (
     currentConstraints?: PlanningConstraints | null,
-    customClient?: ApiClient
+    customClient?: ApiClient,
+    appContext?: AppContextPayload | null
   ) => Promise<GroundedConversationResponse | null>;
   clearError: () => void;
   reset: () => void;
@@ -67,7 +71,8 @@ export function useAIConversation(): AIConversationHook {
     async (
       userMessage: string,
       currentConstraints?: PlanningConstraints | null,
-      customClient?: ApiClient
+      customClient?: ApiClient,
+      appContext?: AppContextPayload | null
     ): Promise<GroundedConversationResponse | null> => {
       const trimmed = userMessage.trim();
       if (!trimmed) return null;
@@ -97,6 +102,7 @@ export function useAIConversation(): AIConversationHook {
         const payload: AIConverseRequest = {
           messages,
           constraints: currentConstraints ?? null,
+          context: appContext ?? null,
         };
 
         const response = await client.converseWithAi(payload);
@@ -144,9 +150,10 @@ export function useAIConversation(): AIConversationHook {
     async (
       userMessage: string,
       currentConstraints?: PlanningConstraints | null,
-      customClient?: ApiClient
+      customClient?: ApiClient,
+      appContext?: AppContextPayload | null
     ): Promise<AIResponse | null> => {
-      const res = await converse(userMessage, currentConstraints, customClient);
+      const res = await converse(userMessage, currentConstraints, customClient, appContext);
       if (!res) return null;
       return {
         message: res.message,
@@ -163,14 +170,16 @@ export function useAIConversation(): AIConversationHook {
   const retryLast = useCallback(
     async (
       currentConstraints?: PlanningConstraints | null,
-      customClient?: ApiClient
+      customClient?: ApiClient,
+      appContext?: AppContextPayload | null
     ): Promise<GroundedConversationResponse | null> => {
       const lastUserTurn = [...history].reverse().find((t) => t.role === "user");
       if (!lastUserTurn) return null;
-      return converse(lastUserTurn.message, currentConstraints, customClient);
+      return converse(lastUserTurn.message, currentConstraints, customClient, appContext);
     },
     [converse, history]
   );
+
 
   const clearError = useCallback(() => {
     setError(null);

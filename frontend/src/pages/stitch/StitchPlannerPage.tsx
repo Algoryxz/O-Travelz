@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import type { StitchTab } from '../../components/stitch/StitchNavbar';
 import { apiClient } from '../../api/client';
+import { useRegisterAIContext } from '../../context/AIContext';
 import type { ItineraryPlanResponse, PlaceDetail } from '../../api/contracts';
 import { getFoodExperiencesForRegion, ODISHA_EXPERIENCES, type OdishaExperience } from '../../data/odishaExperiences';
 import { getCategoryFallbackSvg } from '../../utils/imageRegistry';
@@ -12,6 +13,7 @@ import {
   getNearbyPlacesWithExpansion,
 } from '../../utils/geoUtils';
 import { resolveCanonicalPlace } from '../../utils/placeIdentity';
+
 
 export interface PlanningAnchor {
   placeId: string;
@@ -143,7 +145,30 @@ export const StitchPlannerPage: React.FC<StitchPlannerPageProps> = ({
   const [routeCoverage, setRouteCoverage] = useState<RouteCoverageTier>('fully_routed');
   const [plannerError, setPlannerError] = useState<string | null>(null);
 
+  useRegisterAIContext(
+    useMemo(
+      () => ({
+        page: 'planner',
+        planner: {
+          days,
+          start: selectedHub,
+          interests: selectedPassions,
+          anchor_place: planningAnchor
+            ? {
+                id: planningAnchor.placeId,
+                name: planningAnchor.placeName,
+                category: planningAnchor.category,
+                district: planningAnchor.district,
+              }
+            : null,
+        },
+      }),
+      [days, selectedHub, selectedPassions, planningAnchor]
+    )
+  );
+
   // AI State
+
   const [aiPrompt, setAiPrompt] = useState('');
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [aiLoading, setAiLoading] = useState(false);

@@ -43,6 +43,7 @@ from app.ai.schemas import (
     AIPlanRequest,
     AIResponse,
     AIStatus,
+    AppContextPayload,
     Clarification,
     IntentKind,
     PlanningConstraints,
@@ -98,9 +99,10 @@ class GroundedConversationOrchestrator:
         messages: List[ChatMessage],
         existing_constraints: Optional[PlanningConstraints] = None,
         max_tool_turns: int = 5,
+        app_context: Optional[AppContextPayload] = None,
     ) -> GroundedConversationResponse:
         """
-        Execute a full grounded conversation turn with optional multi-step tool calling.
+        Execute a full grounded conversation turn with optional multi-step tool calling and page context.
         """
         if not messages:
             return GroundedConversationResponse(
@@ -127,12 +129,24 @@ class GroundedConversationOrchestrator:
                 is_grounded=True,
             )
 
+        # Resolve initial constraints from planner app_context if not explicitly passed
+        if existing_constraints is None and app_context is not None and app_context.planner is not None:
+            planner = app_context.planner
+            if planner.days or planner.start or planner.interests:
+                existing_constraints = PlanningConstraints(
+                    days=planner.days or 2,
+                    start=planner.start,
+                    interests=planner.interests or [],
+                )
+
         detected_lang = detect_language(last_user_msg)
 
         # 1. Parse intent through model adapter or provider adapter
         try:
-            raw_intent = self.model_adapter.parse_intent(last_user_msg, existing_constraints)
+            raw_intent = self.model_adapter.parse_intent(last_user_msg, existing_constraints, app_context=app_context)
             intent = AIIntent.model_validate(raw_intent)
+
+
         except AIProviderError as p_err:
             logger.warning(f"AI Provider error during intent parsing: {p_err}")
             return GroundedConversationResponse(

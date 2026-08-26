@@ -19,7 +19,12 @@ from app.services.search.search_normalizer import VERIFIED_ALIASES, extract_sear
 
 
 class ModelAdapter:
-    def parse_intent(self, user_message: str, existing_constraints: PlanningConstraints | None = None) -> Any:
+    def parse_intent(
+        self,
+        user_message: str,
+        existing_constraints: PlanningConstraints | None = None,
+        app_context: Any = None,
+    ) -> Any:
         raise NotImplementedError
 
     def generate_response(self, context: Any) -> Any:
@@ -49,11 +54,17 @@ class FakeModelAdapter(ModelAdapter):
             ],
         })
 
-    def parse_intent(self, user_message: str, existing_constraints: PlanningConstraints | None = None) -> Any:
+    def parse_intent(
+        self,
+        user_message: str,
+        existing_constraints: PlanningConstraints | None = None,
+        app_context: Any = None,
+    ) -> Any:
         return self.raw_intent
 
     def generate_response(self, context: Any) -> Any:
         return self.raw_response
+
 
 
 class RuleBasedModelAdapter(ModelAdapter):
@@ -192,10 +203,51 @@ class RuleBasedModelAdapter(ModelAdapter):
 
 
 
-    def parse_intent(self, user_message: str, existing_constraints: PlanningConstraints | None = None) -> Any:
+    def parse_intent(
+        self,
+        user_message: str,
+        existing_constraints: PlanningConstraints | None = None,
+        app_context: Any = None,
+    ) -> Any:
         text = user_message.strip()
         text_lower = text.lower()
         lang = detect_language(user_message)
+
+        # Extract untrusted context hints safely
+        ctx_dest = None
+        ctx_map = None
+        ctx_planner = None
+        ctx_loc = None
+        ctx_saved = None
+        if app_context is not None:
+            if hasattr(app_context, "destination"):
+                ctx_dest = app_context.destination
+                ctx_map = app_context.map
+                ctx_planner = app_context.planner
+                ctx_loc = app_context.location
+                ctx_saved = app_context.saved
+            elif isinstance(app_context, dict):
+                ctx_dest = app_context.get("destination")
+                ctx_map = app_context.get("map")
+                ctx_planner = app_context.get("planner")
+                ctx_loc = app_context.get("location")
+                ctx_saved = app_context.get("saved")
+
+        dest_name = (getattr(ctx_dest, "name", None) or (ctx_dest.get("name") if isinstance(ctx_dest, dict) else None)) if ctx_dest else None
+        dest_district = (getattr(ctx_dest, "district", None) or (ctx_dest.get("district") if isinstance(ctx_dest, dict) else None)) if ctx_dest else None
+        dest_cat = (getattr(ctx_dest, "category", None) or (ctx_dest.get("category") if isinstance(ctx_dest, dict) else None)) if ctx_dest else None
+
+        loc_city = (getattr(ctx_loc, "city", None) or (ctx_loc.get("city") if isinstance(ctx_loc, dict) else None)) if ctx_loc else None
+        loc_district = (getattr(ctx_loc, "district", None) or (ctx_loc.get("district") if isinstance(ctx_loc, dict) else None)) if ctx_loc else None
+
+        map_mode = (getattr(ctx_map, "mode", None) or (ctx_map.get("mode") if isinstance(ctx_map, dict) else None)) if ctx_map else None
+        map_route_name = (getattr(ctx_map, "selected_route_name", None) or (ctx_map.get("selected_route_name") if isinstance(ctx_map, dict) else None)) if ctx_map else None
+
+        planner_days = (getattr(ctx_planner, "days", None) or (ctx_planner.get("days") if isinstance(ctx_planner, dict) else None)) if ctx_planner else None
+        planner_start = (getattr(ctx_planner, "start", None) or (ctx_planner.get("start") if isinstance(ctx_planner, dict) else None)) if ctx_planner else None
+        planner_interests = (getattr(ctx_planner, "interests", None) or (ctx_planner.get("interests") if isinstance(ctx_planner, dict) else None)) if ctx_planner else []
+
+        saved_sample_places = (getattr(ctx_saved, "sample_places", None) or (ctx_saved.get("sample_places") if isinstance(ctx_saved, dict) else None)) if ctx_saved else []
 
         # Handle unsupported preferences
         if "less walking" in text_lower or "avoid walking" in text_lower or ("walking" in text_lower and "less" in text_lower):
@@ -204,8 +256,74 @@ class RuleBasedModelAdapter(ModelAdapter):
                 "reason": "The current planner cannot optimize walking distance yet.",
             }
 
+        # Context-aware: Medical / Emergency query or Medical map mode
+        is_medical_query = any(w in text_lower for w in ("hospital", "emergency", "medical", "doctor", "ambulance", "ଡାକ୍ତରଖାନା", "ଚିକିତ୍ସା", "ଅସ୍ପତାଲ", "अस्पताल", "इमरजेंसी", "चिकित्सा"))
+        if is_medical_query or map_mode == "medical":
+            med_query = dest_district or loc_city or loc_district or "Puri"
+            return {
+                "kind": IntentKind.PLANNING.value,
+                "constraints": {"days": 1, "interests": []},
+                "tool_calls": [
+                    {
+                        "name": "search_places",
+                        "arguments": {
+                            "query": med_query,
+                            "district": dest_district or loc_district,
+                            "is_medical": True,
+                            "limit": 5,
+                        },
+                    }
+                ],
+            }
+
+        # Context-aware: Transit / Bus query
+        is_transit_query = any(w in text_lower for w in ("explain this route", "mo bus", "bus route", "bus timetable", "nearest stop", "transit", "ରୁଟ", "ବସ", "ରୁଟ୍", "बस", "रूट", "समय सारिणी"))
+        if is_transit_query or map_mode == "transit":
+            return {
+                "kind": IntentKind.PLANNING.value,
+                "constraints": {"days": 1, "interests": []},
+                "tool_calls": [
+                    {
+                        "name": "get_provider_status",
+                        "arguments": {"provider_id": "ama-bus"},
+                    }
+                ],
+            }
+
+        # Context-aware: Nearby Places query ("What is nearby?", "Explore nearby", "ପାଖରେ କ’ଣ ଅଛି?")
+        is_nearby_query = any(w in text_lower for w in ("nearby", "near by", "near here", "around here", "explore nearby", "what is nearby", "what is near me", "near me", "what's nearby", "ପାଖରେ", "ଆଖପାଖ", "ଏଠାରେ ପାଖରେ", "पास में", "आस-पास", "निकट"))
+        if is_nearby_query:
+            search_target = dest_name or dest_district or loc_city or loc_district or "Bhubaneswar"
+            return {
+                "kind": IntentKind.PLANNING.value,
+                "constraints": {"days": 1, "interests": []},
+                "tool_calls": [
+                    {
+                        "name": "search_places",
+                        "arguments": {
+                            "query": search_target,
+                            "district": dest_district or loc_district,
+                            "limit": 6,
+                        },
+                    }
+                ],
+            }
+
         # Resolve starting location if mentioned
         detected_start = self._resolve_start_location(text)
+
+        # Contextual fallback for starting location if not explicitly stated in query
+        if not detected_start:
+            if dest_name:
+                detected_start = self._resolve_start_location(dest_name) or dest_name
+            elif dest_district:
+                detected_start = self._resolve_start_location(dest_district) or dest_district
+            elif planner_start:
+                detected_start = self._resolve_start_location(planner_start) or planner_start
+            elif loc_city:
+                detected_start = self._resolve_start_location(loc_city) or loc_city
+            elif saved_sample_places:
+                detected_start = self._resolve_start_location(saved_sample_places[0]) or saved_sample_places[0]
 
         if ("start from" in text_lower or "start at" in text_lower or "hotel" in text_lower) and not detected_start:
             return {
@@ -226,10 +344,19 @@ class RuleBasedModelAdapter(ModelAdapter):
         found_interests = self._extract_interests(text)
 
         refinement_words = (
-            "refine", "more", "add", "focused", "extend", "change", "switch", "reduce", "budget", "less",
-            "ଆହୁରି", "ଯୋଡ଼ନ୍ତୁ", "ଯୋଡ଼", "ବଦଳାନ୍ତୁ", "ଅଧିକ",
-            "और", "जोड़ो", "बदलो", "अधिक", "शामिल",
+            "refine", "more", "add", "focused", "extend", "change", "switch", "reduce", "budget", "less", "optimize",
+            "ଆହୁରି", "ଯୋଡ଼ନ୍ତୁ", "ଯୋଡ଼", "ବଦଳାନ୍ତୁ", "ଅଧିକ", "ସଂଶୋଧନ",
+            "और", "जोड़ो", "बदलो", "अधिक", "शामिल", "संशोधन",
         )
+
+        # If existing_constraints is None but planner_ctx is present and user asks for refinement
+        if existing_constraints is None and (planner_days or planner_start or planner_interests):
+            if any(w in text_lower for w in refinement_words) or is_refinement_query(text):
+                existing_constraints = PlanningConstraints(
+                    days=planner_days or 2,
+                    start=planner_start or "Bhubaneswar",
+                    interests=planner_interests or [],
+                )
 
         # 1. Existing constraints present -> conversational refinement
         if existing_constraints is not None:
@@ -300,7 +427,7 @@ class RuleBasedModelAdapter(ModelAdapter):
                 },
             }
 
-        # 3. New planning request from scratch
+        # 3. New planning request from scratch (or via context)
         if detected_days or detected_start or found_interests:
             days = detected_days if detected_days else 2
             constraints: dict[str, Any] = {"days": days, "interests": found_interests}
@@ -327,6 +454,7 @@ class RuleBasedModelAdapter(ModelAdapter):
                 "reason": "The request does not include enough supported planning detail.",
             },
         }
+
 
     def generate_response(self, context: Any) -> Any:
         claims = [{"fact_id": fact_id, "value": fact.value} for fact_id, fact in context.facts.items()]

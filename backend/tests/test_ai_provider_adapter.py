@@ -646,6 +646,74 @@ class TestRuleBasedProviderAdapter:
 class TestHTTPAIRoutesIntegration:
     """Verify /ai/plan and /ai/converse work with provider-neutral factory and orchestrator."""
 
+    @pytest.fixture(autouse=True)
+    def setup_app_orchestrator(self):
+        from app.ai.boundary import ToolExecutionBoundary
+        from app.ai.conversation import GroundedConversationOrchestrator
+        from app.ai.model import RuleBasedModelAdapter
+        from app.ai.registry import ToolRegistry
+        from app.ai.tools.adapters import (
+            BuildItineraryToolAdapter,
+            GetProviderStatusToolAdapter,
+            PlanTransportHopToolAdapter,
+        )
+        from app.api.ai_routes import get_grounded_orchestrator
+        from app.schemas.transport import DataTier, ProviderStatusContract, TransportHopContract
+        from app.services.itinerary import ItineraryService
+        from app.services.ranking import InMemoryPlaceRepository, VerifiedPlace
+        from app.transport.adapters.walking import Coordinate
+
+        class MockTransport:
+            def plan_transport_hop(self, args):
+                return TransportHopContract(
+                    from_sequence=getattr(args, "from_sequence", 0),
+                    to_sequence=getattr(args, "to_sequence", 1),
+                    mode="walk",
+                    estimated_minutes=15,
+                    data_tier=DataTier.STATIC,
+                )
+
+            def get_provider_status(self, args):
+                return ProviderStatusContract(
+                    provider_id=getattr(args, "provider_id", "ama-bus"),
+                    data_tier=DataTier.STATIC,
+                )
+
+        verified = [
+            VerifiedPlace(
+                database_id="p1",
+                category_id="temple",
+                name="Jagannath Temple",
+                coordinate=Coordinate(19.8080, 85.8250),
+                interests=("heritage", "spirituality"),
+            ),
+            VerifiedPlace(
+                database_id="p2",
+                category_id="beach",
+                name="Puri Beach",
+                coordinate=Coordinate(19.8010, 85.8340),
+                interests=("beach", "relaxation"),
+            ),
+        ]
+        repo = InMemoryPlaceRepository(verified)
+        trans = MockTransport()
+        itin_svc = ItineraryService(repo, trans)
+
+        reg = ToolRegistry()
+        reg.register(BuildItineraryToolAdapter(itin_svc))
+        reg.register(PlanTransportHopToolAdapter(trans))
+        reg.register(GetProviderStatusToolAdapter(trans))
+
+        orch = GroundedConversationOrchestrator(
+            registry=reg,
+            boundary=ToolExecutionBoundary(reg),
+            model_adapter=RuleBasedModelAdapter(),
+        )
+
+        app.dependency_overrides[get_grounded_orchestrator] = lambda: orch
+        yield
+        app.dependency_overrides.clear()
+
     def test_ai_plan_endpoint(self):
         client = TestClient(app)
         res = client.post("/ai/plan", json={"message": "Plan 2 days in Puri with temples"})

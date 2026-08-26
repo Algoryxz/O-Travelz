@@ -204,69 +204,69 @@ The AI orchestration pipeline translates natural language requests into structur
 
 ---
 
+## Quick Start (One-Command Development Setup)
+
+Run the entire full-stack application from a fresh clone with a single command:
+
+### Windows (PowerShell)
+```powershell
+git clone https://github.com/Smarak-padhi/O-Travelz.git
+cd o-travelz
+.\run.ps1
+```
+
+### macOS / Linux / Cross-Platform
+```bash
+git clone https://github.com/Smarak-padhi/O-Travelz.git
+cd o-travelz
+python scripts/run_dev.py
+```
+
+The single command automatically:
+1. **Preflight Checks**: Verifies Python (>=3.10), Node.js (>=18), npm, and port availability (8000 & 5173).
+2. **Python Environment**: Creates `.venv` if missing, installs/updates backend requirements, and validates imports.
+3. **Frontend Environment**: Installs/synchronizes `frontend/node_modules` via `npm`.
+4. **Configuration**: Initializes `.env` from `.env.example` safely without overwriting existing settings.
+5. **Database Bootstrap**: Starts Docker PostGIS container if available and idempotently seeds 204 places, 154 transit routes, 1,430 stops, 302 schedules, and 50 canonical images.
+6. **Concurrent Stack Launch**: Starts FastAPI (`http://127.0.0.1:8000`) and Vite (`http://localhost:5173`) with live multiplexed logs (`[BACKEND]` and `[FRONTEND]`).
+7. **Readiness Check**: Probes `/health` and prints ready URLs.
+
+Press `Ctrl+C` at any time to gracefully stop all development processes.
+
+#### Useful Flags
+```powershell
+.\run.ps1 -SkipBootstrap  # Skip database migrations and seed (fast restart)
+.\run.ps1 -BackendOnly    # Run only the FastAPI backend service
+.\run.ps1 -FrontendOnly   # Run only the Vite frontend dev server
+.\run.ps1 -Test           # Run full pytest suite, vitest suite & production build
+```
+
+---
+
 ## Getting Started
 
 ### Prerequisites
+* **Python**: 3.10+ (recommended 3.11 or 3.12) & `pip` / `venv`
 * **Node.js**: v18.0+ & `npm`
-* **Python**: 3.10+ & `pip` / `venv`
-* **Docker & Docker Compose**: (For local PostgreSQL + PostGIS database)
+* **Docker & Docker Compose**: (Optional; for local PostgreSQL + PostGIS database container on port 5433)
 
----
+### Service URLs
+* **Frontend Web App**: `http://localhost:5173`
+* **Backend REST API**: `http://127.0.0.1:8000`
+* **Interactive OpenAPI Docs**: `http://127.0.0.1:8000/docs`
+* **Health Endpoint**: `http://127.0.0.1:8000/health`
 
-### Quick Start (Single-Command Setup)
+### Optional AI Provider Keys
+O-Travelz includes deterministic rule-based grounding that operates completely free with zero external API dependencies. If you wish to enable generative AI providers, copy `.env.example` to `.env` and configure:
+* `AI_GEMINI_API_KEY`: Google Gemini API key (Free Tier)
+* `AZURE_OPENAI_API_KEY`: Azure OpenAI API key & endpoint
+* `AI_GROQ_API_KEY`: Groq high-speed inference API key
 
-For Windows PowerShell environments, automated lifecycle scripts are provided:
+### Troubleshooting Occupied Ports
+If port 8000 or 5173 is in use:
+* If the port is occupied by an existing O-Travelz instance, `.\run.ps1` safely detects and reuses the running service.
+* If occupied by an unrelated application, `.\run.ps1` reports the conflict and pauses safely without killing unrelated processes. Free the port or use `-BackendOnly` / `-FrontendOnly`.
 
-```powershell
-# 1. Initialize environment, install dependencies, spin up database & run migrations
-.\setup.ps1
-
-# 2. Launch development servers (Backend on :8000, Frontend on :5173)
-.\start.ps1
-
-# 3. Run comprehensive diagnostic health check
-.\doctor.ps1
-
-# 4. Gracefully stop all development processes and containers
-.\stop.ps1
-```
-
----
-
-### Manual Granular Setup
-
-#### 1. Clone the Repository
-```bash
-git clone https://github.com/Smarak-padhi/O-Travelz.git
-cd O-Travelz
-```
-
-#### 2. Start Spatial Database Container
-```bash
-docker compose -f infra/docker-compose.yml -p infra up -d db
-```
-
-#### 3. Backend Setup
-```bash
-# Create and activate Python virtual environment
-python -m venv .venv
-# Windows PowerShell:
-.venv\Scripts\Activate.ps1
-# Linux / macOS:
-source .venv/bin/activate
-
-# Install dependencies
-pip install -r backend/requirements.txt
-
-# Run database migrations
-python -m alembic -c backend/alembic.ini upgrade head
-
-# Import canonical places and seed database
-python scripts/import_places.py
-
-# Start FastAPI development server
-uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --reload
-```
 
 #### 4. Frontend Setup
 ```bash

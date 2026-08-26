@@ -441,35 +441,40 @@ def test_plan_with_ai_backward_compatibility(test_orchestrator):
     assert len(ai_res.itinerary.days) == 2
 
 
-def test_api_routes_integration():
-    client = TestClient(app)
+def test_api_routes_integration(test_orchestrator):
+    from app.api.ai_routes import get_grounded_orchestrator
+    app.dependency_overrides[get_grounded_orchestrator] = lambda: test_orchestrator
+    try:
+        client = TestClient(app)
 
-    # 1. POST /ai/plan (English)
-    resp_en = client.post("/ai/plan", json={"message": "Plan a 2 day trip to Puri with heritage"})
-    assert resp_en.status_code == 200
-    data_en = resp_en.json()
-    assert data_en["status"] == "success"
-    assert "message" in data_en
-    assert data_en["itinerary"] is not None
+        # 1. POST /ai/plan (English)
+        resp_en = client.post("/ai/plan", json={"message": "Plan a 2 day trip to Puri with heritage"})
+        assert resp_en.status_code == 200
+        data_en = resp_en.json()
+        assert data_en["status"] == "success"
+        assert "message" in data_en
+        assert data_en["itinerary"] is not None
 
-    # 2. POST /ai/plan (Odia)
-    resp_or = client.post("/ai/plan", json={"message": "ପୁରୀ ପାଇଁ ୨ ଦିନର ଯାତ୍ରା ଯୋଜନା କର"})
-    assert resp_or.status_code == 200
-    data_or = resp_or.json()
-    assert data_or["status"] == "success"
-    assert data_or["itinerary"] is not None
+        # 2. POST /ai/plan (Odia)
+        resp_or = client.post("/ai/plan", json={"message": "ପୁରୀ ପାଇଁ ୨ ଦିନର ଯାତ୍ରା ଯୋଜନା କର"})
+        assert resp_or.status_code == 200
+        data_or = resp_or.json()
+        assert data_or["status"] == "success"
+        assert data_or["itinerary"] is not None
 
-    # 3. POST /ai/converse (Multi-turn request)
-    conv_payload = {
-        "messages": [
-            {"role": "user", "content": "ପୁରୀ ପାଇଁ ୩ ଦିନର ଯାତ୍ରା ଯୋଜନା କର"}
-        ]
-    }
-    resp_conv = client.post("/ai/converse", json=conv_payload)
-    assert resp_conv.status_code == 200
-    data_conv = resp_conv.json()
-    assert data_conv["status"] == "success"
-    assert data_conv["language"] == "or"
-    assert data_conv["is_grounded"] is True
-    assert data_conv["itinerary"] is not None
-    assert len(data_conv["itinerary"]["days"]) == 3
+        # 3. POST /ai/converse (Multi-turn request)
+        conv_payload = {
+            "messages": [
+                {"role": "user", "content": "ପୁରୀ ପାଇଁ ୩ ଦିନର ଯାତ୍ରା ଯୋଜନା କର"}
+            ]
+        }
+        resp_conv = client.post("/ai/converse", json=conv_payload)
+        assert resp_conv.status_code == 200
+        data_conv = resp_conv.json()
+        assert data_conv["status"] == "success"
+        assert data_conv["language"] == "or"
+        assert data_conv["is_grounded"] is True
+        assert data_conv["itinerary"] is not None
+        assert len(data_conv["itinerary"]["days"]) == 3
+    finally:
+        app.dependency_overrides.clear()

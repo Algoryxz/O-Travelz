@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import type { StitchTab } from '../../components/stitch/StitchNavbar';
 import { useSavedPlaces } from '../../store/useSavedPlaces';
+import { useRegisterAIContext } from '../../context/AIContext';
 import { resolveDestinationImage, getCategoryFallbackSvg } from '../../utils/imageRegistry';
 
 interface StitchSavedPageProps {
@@ -15,6 +16,20 @@ export const StitchSavedPage: React.FC<StitchSavedPageProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState<'places' | 'journeys'>('places');
   const { savedPlaces, removePlace } = useSavedPlaces();
+
+  useRegisterAIContext(
+    useMemo(
+      () => ({
+        page: 'saved',
+        saved: {
+          saved_count: savedPlaces.length,
+          sample_places: savedPlaces.slice(0, 5).map((p) => p.name),
+        },
+      }),
+      [savedPlaces]
+    )
+  );
+
   const [savedTrips] = useState<Array<{ id: string; title: string; date: string; stopsCount: number }>>(() => {
     try {
       const raw = localStorage.getItem('o_travelz_saved_itineraries');

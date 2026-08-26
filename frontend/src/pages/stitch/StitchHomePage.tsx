@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import type { StitchTab } from '../../components/stitch/StitchNavbar';
 import { useLocation } from '../../context/LocationContext';
+import { useRegisterAIContext } from '../../context/AIContext';
 import { MANUAL_IMAGE_OVERRIDES } from '../../utils/imageRegistry';
 import { getFeaturedOdishaDestinations } from '../../utils/imageService';
 import { CoverflowCarousel, type CoverflowItem } from '../../components/gallery/CoverflowCarousel';
@@ -24,6 +25,21 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
 }) => {
   const [searchInput, setSearchInput] = useState('');
   const { locationName, isLive } = useLocation();
+
+  useRegisterAIContext(
+    useMemo(
+      () => ({
+        page: 'home',
+        location: {
+          city: locationName,
+          district: locationName,
+          location_type: isLive ? 'LIVE_GPS' : 'USER_SELECTION',
+        },
+      }),
+      [locationName, isLive]
+    )
+  );
+
 
   const discoveryCarouselItems: CoverflowItem[] = useMemo(() => {
     const featured = getFeaturedOdishaDestinations();

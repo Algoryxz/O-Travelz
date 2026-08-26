@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import type { StitchTab } from '../../components/stitch/StitchNavbar';
 import { useLocation } from '../../context/LocationContext';
 import { useSavedPlaces } from '../../store/useSavedPlaces';
+import { useRegisterAIContext } from '../../context/AIContext';
 import { apiClient } from '../../api/client';
 import type { PlaceDetail, TransportMapResponse, TransportMapRoute, CorridorFoodCandidate } from '../../api/contracts';
 import { ODISHA_EXPERIENCES, type OdishaExperience } from '../../data/odishaExperiences';
@@ -83,6 +84,43 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   const [filterRegion, setFilterRegion] = useState<string>('Near Me');
   
   const [viewMode, setViewMode] = useState<MapViewMode>(initialMode);
+
+  // Register Map Context with Global AI Copilot
+  const activeMapPlace = useMemo(() => places.find(p => p.id === selectedPlaceId), [places, selectedPlaceId]);
+  const activeMapRoute = useMemo(
+    () => transitMapData?.routes?.find(r => r.route_id === selectedRouteId),
+    [transitMapData, selectedRouteId]
+  );
+
+  useRegisterAIContext(
+    useMemo(
+      () => ({
+        page: 'map',
+        map: {
+          mode: viewMode,
+          selected_place: activeMapPlace
+            ? {
+                id: activeMapPlace.id,
+                name: activeMapPlace.name,
+                category: typeof activeMapPlace.category === 'string' ? activeMapPlace.category : (activeMapPlace.category as any)?.name,
+                district: activeMapPlace.district,
+              }
+            : null,
+          selected_route_id: selectedRouteId,
+          selected_route_name: activeMapRoute ? (activeMapRoute.route_number || activeMapRoute.route_name) : null,
+          region: filterRegion !== 'All' ? filterRegion : null,
+        },
+        location: {
+          city: locationName,
+          district: locationName,
+          location_type: isLive ? 'LIVE_GPS' : 'USER_SELECTION',
+        },
+      }),
+      [viewMode, activeMapPlace, selectedRouteId, activeMapRoute, filterRegion, locationName, isLive]
+    )
+  );
+
+
   
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);

@@ -8,7 +8,7 @@ from app.ai.conversation import GroundedConversationOrchestrator, GroundedConver
 from app.ai.model import RuleBasedModelAdapter
 from app.ai.orchestrator import AIOrchestrator
 from app.ai.rate_limit import rate_limiter
-from app.ai.schemas import AIPlanRequest, AIResponse, PlanningConstraints
+from app.ai.schemas import AIPlanRequest, AIResponse, AppContextPayload, PlanningConstraints
 from app.ai.tools import BuildItineraryTool, GetProviderStatusTool, PlanTransportHopTool, SearchPlacesTool
 from app.ai.tools.adapters import create_default_tool_registry
 from app.core.config import settings
@@ -24,6 +24,7 @@ router = APIRouter()
 class AIConversationRequest(BaseModel):
     messages: list[ChatMessage]
     constraints: PlanningConstraints | None = None
+    context: AppContextPayload | None = None
 
 
 def get_ai_orchestrator(db: Session = Depends(get_db)) -> AIOrchestrator:
@@ -75,4 +76,4 @@ def converse_with_ai(
     client_ip = req.client.host if req.client else "127.0.0.1"
     is_ext = getattr(settings, "ai_allow_external_provider", False) and getattr(settings, "ai_provider", "") not in ("mock", "rule_based")
     rate_limiter.enforce_rate_limit(client_ip, is_external_request=is_ext, settings=settings)
-    return orchestrator.converse(request.messages, request.constraints)
+    return orchestrator.converse(request.messages, request.constraints, app_context=request.context)

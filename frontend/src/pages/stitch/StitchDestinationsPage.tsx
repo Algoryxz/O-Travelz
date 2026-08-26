@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import type { StitchTab } from '../../components/stitch/StitchNavbar';
 import { apiClient } from '../../api/client';
 import type { PlaceDetail } from '../../api/contracts';
+import { useRegisterAIContext } from '../../context/AIContext';
 import { StitchDestinationDetailModal } from '../../components/stitch/StitchDestinationDetailModal';
 import { resolveDestinationImage, getCategoryFallbackSvg } from '../../utils/imageRegistry';
 import { ODISHA_EXPERIENCES, type OdishaExperience } from '../../data/odishaExperiences';
@@ -26,6 +27,24 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [loading, setLoading] = useState(true);
   const [selectedPlaceForModal, setSelectedPlaceForModal] = useState<PlaceDetail | null>(null);
+
+  useRegisterAIContext(
+    useMemo(
+      () => ({
+        page: selectedPlaceForModal ? 'destination_detail' : 'destinations',
+        destination: selectedPlaceForModal
+          ? {
+              id: selectedPlaceForModal.id,
+              name: selectedPlaceForModal.name,
+              category: typeof selectedPlaceForModal.category === 'string' ? selectedPlaceForModal.category : (selectedPlaceForModal.category as any)?.name,
+              district: selectedPlaceForModal.district,
+            }
+          : null,
+      }),
+      [selectedPlaceForModal]
+    )
+  );
+
 
   useEffect(() => {
     let isMounted = true;

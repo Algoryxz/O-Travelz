@@ -184,3 +184,49 @@ class ModelResponse(ContractModel):
     framing: ResponseFraming = ResponseFraming.GROUNDED_RESULT
     message: str | None = None
     claims: list[ModelClaim] = Field(default_factory=list)
+
+
+class AppDestinationContext(ContractModel):
+    id: str | None = Field(default=None, max_length=100)
+    name: str | None = Field(default=None, max_length=200)
+    category: str | None = Field(default=None, max_length=100)
+    district: str | None = Field(default=None, max_length=100)
+    region: str | None = Field(default=None, max_length=100)
+
+
+class AppMapContext(ContractModel):
+    mode: str | None = Field(default=None, max_length=50)
+    selected_place: AppDestinationContext | None = None
+    selected_route_id: str | None = Field(default=None, max_length=100)
+    selected_route_name: str | None = Field(default=None, max_length=200)
+    selected_stop_id: str | None = Field(default=None, max_length=100)
+    selected_stop_name: str | None = Field(default=None, max_length=200)
+    region: str | None = Field(default=None, max_length=100)
+
+
+class AppPlannerContext(ContractModel):
+    days: int | None = Field(default=None, ge=1, le=30)
+    start: str | None = Field(default=None, max_length=200)
+    interests: list[str] = Field(default_factory=list)
+    anchor_place: AppDestinationContext | None = None
+
+
+class AppLocationContext(ContractModel):
+    locality: str | None = Field(default=None, max_length=200)
+    city: str | None = Field(default=None, max_length=100)
+    district: str | None = Field(default=None, max_length=100)
+    location_type: str | None = Field(default=None, max_length=50)
+
+
+class AppSavedSummaryContext(ContractModel):
+    saved_count: int = Field(default=0, ge=0)
+    sample_places: list[str] = Field(default_factory=list)
+
+
+class AppContextPayload(ContractModel):
+    page: str | None = Field(default=None, max_length=100)
+    destination: AppDestinationContext | None = None
+    map: AppMapContext | None = None
+    planner: AppPlannerContext | None = None
+    location: AppLocationContext | None = None
+    saved: AppSavedSummaryContext | None = None
