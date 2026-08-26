@@ -857,4 +857,33 @@ export interface JourneyPlanResponse {
   warnings: string[];
 }
 
+// =========================================================================
+// Image Identification & Visual Landmark Discovery Contracts
+// =========================================================================
+
+export type ConfidenceTier = "Likely Match" | "Possible Match" | "Could not confidently identify this place" | "Uncertain";
+
+export interface PlaceMatchCandidate {
+  place_id: string;
+  name: string;
+  district: string;
+  category: string;
+  confidence: number;
+  confidence_tier: ConfidenceTier;
+  reason: string;
+  lat?: number | null;
+  lon?: number | null;
+  image_url?: string | null;
+}
+
+export interface ImageIdentifyResponse {
+  query_type: "image";
+  status: "success" | "uncertain" | "no_match";
+  message: string;
+  top_match: PlaceMatchCandidate | null;
+  candidates: PlaceMatchCandidate[];
+  confidence_summary?: string;
+}
+
+
 

@@ -192,3 +192,35 @@ export function getNearbyPlacesWithExpansion<T extends { lat?: number | null; lo
     isExpanded: activeRadius > radii[0],
   };
 }
+
+/**
+ * Calculates estimated driving time based on road distance factor (~1.2x straight line)
+ * and an average urban/highway speed of ~42 km/h.
+ */
+export function calculateDriveTimeMinutes(distKm: number): number {
+  if (!Number.isFinite(distKm) || distKm <= 0) return 0;
+  const roadDist = distKm * 1.25;
+  const speedKmH = distKm > 30 ? 55 : 38;
+  return Math.max(2, Math.round((roadDist / speedKmH) * 60));
+}
+
+/**
+ * Calculates estimated walking time based on an average speed of 4.8 km/h.
+ */
+export function calculateWalkTimeMinutes(distKm: number): number {
+  if (!Number.isFinite(distKm) || distKm <= 0) return 0;
+  return Math.max(1, Math.round((distKm / 4.8) * 60));
+}
+
+/**
+ * Format duration in minutes to human readable string (e.g. "18 mins", "1 hr 25 mins").
+ */
+export function formatDuration(mins: number): string {
+  if (!Number.isFinite(mins) || mins <= 0) return "1 min";
+  if (mins < 60) return `${mins} mins`;
+  const hrs = Math.floor(mins / 60);
+  const remainingMins = mins % 60;
+  if (remainingMins === 0) return `${hrs} hr${hrs > 1 ? "s" : ""}`;
+  return `${hrs} hr ${remainingMins} min${remainingMins > 1 ? "s" : ""}`;
+}
+

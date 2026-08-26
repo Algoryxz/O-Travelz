@@ -162,6 +162,39 @@ def list_places(
     return [_to_place_detail_response(c.place, c.category_name) for c in candidates]
 
 
+@router.get("/nearby", response_model=List[PlaceDetailResponse])
+def get_nearby_places(
+    response: Response,
+    latitude: Optional[float] = Query(None, alias="lat", ge=17.0, le=23.5, description="Reference latitude"),
+    longitude: Optional[float] = Query(None, alias="lon", ge=81.0, le=88.0, description="Reference longitude"),
+    category: Optional[str] = Query(None, description="Category filter (e.g. restaurant, petrol, police, medical, atm)"),
+    radius_km: float = Query(25.0, gt=0, le=500.0, description="Search radius in km"),
+    limit: int = Query(50, ge=1, le=200, description="Maximum results"),
+    db: Session = Depends(get_db),
+) -> List[PlaceDetailResponse]:
+    """Retrieve verified places near a specified geographic coordinate."""
+    lat = latitude or 20.2667
+    lon = longitude or 85.8436
+
+    is_med = True if category in ("medical", "hospital", "pharmacy") else None
+    is_tran = True if category in ("transit", "bus_stop", "terminal") else None
+
+    params = SearchQueryParams(
+        category=category if category not in ("medical", "transit") else None,
+        is_medical=is_med,
+        is_transit=is_tran,
+        near_lat=lat,
+        near_lon=lon,
+        radius_km=radius_km,
+        limit=limit,
+    )
+
+    candidates, total_count = SearchService.search_places(db, params)
+    response.headers["X-Total-Count"] = str(total_count)
+    return [_to_place_detail_response(c.place, c.category_name) for c in candidates]
+
+
+
 
 @router.get("/suggestions", response_model=List[dict])
 def get_search_suggestions(

@@ -9,6 +9,8 @@ import { ODISHA_EXPERIENCES } from '../../data/odishaExperiences';
 import { StitchWeatherSection } from '../../components/stitch/StitchWeatherSection';
 import { StitchTransitSection } from '../../components/stitch/StitchTransitSection';
 import { SurpriseMeButton } from '../../components/discovery/SurpriseMeButton';
+import { ImageIdentifyButton } from '../../components/discovery/ImageIdentifyButton';
+import { ImageIdentifyModal } from '../../components/discovery/ImageIdentifyModal';
 import { CircuitsTicker } from '../../components/home/CircuitsTicker';
 import { EssentialsSection } from '../../components/home/EssentialsSection';
 
@@ -24,6 +26,9 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
   onOpenOnboarding,
 }) => {
   const [searchInput, setSearchInput] = useState('');
+  const [imageModalOpen, setImageModalOpen] = useState(false);
+  const [selectedImageData, setSelectedImageData] = useState<string | null>(null);
+  const [selectedImageName, setSelectedImageName] = useState<string | null>(null);
   const { locationName, isLive } = useLocation();
 
   useRegisterAIContext(
@@ -162,7 +167,7 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
               A luxury editorial exploration of Odisha. 161 verified sanctuaries, authentic culinary traditions, and spatial route planning.
             </p>
 
-            {/* Editorial Search Pod with Dice "Surprise Me" Button */}
+            {/* Editorial Search Pod with Image Scan & Surprise Me Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 max-w-3xl">
               <form
                 onSubmit={handleSearchSubmit}
@@ -172,12 +177,32 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
                   <span className="material-symbols-outlined text-[#B87B22] text-xl shrink-0">search</span>
                   <input
                     type="text"
-                    placeholder="Where in Odisha? (e.g. Konark, Chilika, Daringbadi, Pahala)..."
+                    placeholder="Search destinations, places, experiences..."
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
                     className="w-full bg-transparent text-[#12161E] placeholder-[#70798B] font-body text-xs sm:text-sm focus:outline-none truncate"
                   />
                 </div>
+
+                {/* Camera Image Scan / Upload Button [ 📷 ] */}
+                <ImageIdentifyButton
+                  onImageSelected={(base64, name) => {
+                    setSelectedImageData(base64);
+                    setSelectedImageName(name);
+                    setImageModalOpen(true);
+                  }}
+                />
+
+                {/* Surprise Me Dice Button [ 🎲 ] */}
+                <SurpriseMeButton
+                  variant="hero"
+                  onNavigateToMap={(id, lat, lon) => {
+                    onNavigate('map', { placeId: id, lat: lat ? String(lat) : '', lon: lon ? String(lon) : '' });
+                  }}
+                  onPlanTrip={(name) => {
+                    onNavigate('plan', { query: name });
+                  }}
+                />
 
                 <button
                   type="submit"
@@ -187,17 +212,6 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
                 </button>
               </form>
-
-              {/* Surprise Me Dice Button [ 🎲 ] */}
-              <SurpriseMeButton
-                variant="hero"
-                onNavigateToMap={(id, lat, lon) => {
-                  onNavigate('map', { placeId: id, lat: lat ? String(lat) : '', lon: lon ? String(lon) : '' });
-                }}
-                onPlanTrip={(name) => {
-                  onNavigate('plan', { query: name });
-                }}
-              />
             </div>
           </div>
 
@@ -325,6 +339,9 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
         onOpenMedical={() => onNavigate('map', { mode: 'medical' })}
         onOpenATM={() => onNavigate('map', { mode: 'atm' })}
         onOpenTransit={() => onNavigate('map', { mode: 'transit' })}
+        onOpenCulinary={() => onNavigate('map', { mode: 'culinary' })}
+        onOpenPetrol={() => onNavigate('map', { mode: 'petrol' })}
+        onOpenPolice={() => onNavigate('map', { mode: 'police' })}
       />
 
       {/* 5. TRAVEL PERSONALITY ONBOARDING CALLOUT */}
@@ -520,6 +537,15 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
 
       {/* 9. FULL-WIDTH EDITORIAL WEATHER SECTION */}
       <StitchWeatherSection />
+
+      {/* 10. IMAGE IDENTIFICATION / CAMERA SCAN DISCOVERY MODAL */}
+      <ImageIdentifyModal
+        isOpen={imageModalOpen}
+        onClose={() => setImageModalOpen(false)}
+        imageData={selectedImageData}
+        fileName={selectedImageName}
+        onNavigate={onNavigate}
+      />
     </div>
   );
 };

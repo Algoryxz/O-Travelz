@@ -15,6 +15,7 @@ import type {
   AIResponse,
   APIErrorResponse,
   GroundedConversationResponse,
+  ImageIdentifyResponse,
   ItineraryPlanResponse,
   MapProjectionHTTPRequest,
   MapProjectionResponse,
@@ -376,6 +377,26 @@ export class ApiClient {
       `/places/suggestions?${params.toString()}`,
       { method: "GET" },
       (data): data is SearchSuggestion[] => Array.isArray(data)
+    );
+  }
+
+  async identifyPlaceByImage(base64Image: string, fileName?: string): Promise<ImageIdentifyResponse> {
+    return this.request<ImageIdentifyResponse>(
+      "/ai/identify-place",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          image_data: base64Image,
+          file_name: fileName || "upload.jpg",
+        }),
+      },
+      (data): data is ImageIdentifyResponse => {
+        return (
+          isPlainObject(data) &&
+          data.query_type === "image" &&
+          Array.isArray(data.candidates)
+        );
+      }
     );
   }
 

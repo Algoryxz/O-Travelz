@@ -129,6 +129,7 @@ export function useSavedPlaces() {
     savePlace,
     removePlace,
     toggleSavePlace,
+    toggleSave: toggleSavePlace,
     clearSavedPlaces,
     clearAllSaved: clearSavedPlaces,
   };

@@ -13,11 +13,39 @@ import {
   calculateHaversineDistanceKm,
   formatDistance,
   getNearbyPlacesWithExpansion,
+  calculateDriveTimeMinutes,
+  calculateWalkTimeMinutes,
+  formatDuration,
 } from '../../utils/geoUtils';
 import { resolveRouteMapGeometry } from '../../utils/transitGeometry';
 import L from 'leaflet';
 
+<<<<<<< HEAD
 export type MapViewMode = 'destinations' | 'medical' | 'atms' | 'atm' | 'transit' | 'experiences' | 'saved';
+=======
+export type MapViewMode =
+  | 'destinations'
+  | 'medical'
+  | 'atm'
+  | 'transit'
+  | 'culinary'
+  | 'petrol'
+  | 'police'
+  | 'experiences'
+  | 'saved';
+
+interface ActiveRouteTarget {
+  name: string;
+  categoryLabel: string;
+  address?: string;
+  lat: number;
+  lon: number;
+  distKm: number;
+  distanceFormatted: string;
+  drivingMins: number;
+  walkingMins: number;
+}
+>>>>>>> 15ff233 (feat: expand Essentials Near You (6 categories), 9 map modes with route line HUD, and visual landmark image discovery)
 
 interface StitchMapPageProps {
   onNavigate: (tab: StitchTab, params?: Record<string, string>) => void;
@@ -61,7 +89,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   initialMode = 'destinations',
 }) => {
   const { currentPosition, isLive, locateUser, locationName, isLoading: isLocating } = useLocation();
-  const { savedPlaces } = useSavedPlaces();
+  const { savedPlaces, toggleSave, isSaved } = useSavedPlaces();
 
   const [places, setPlaces] = useState<PlaceDetail[]>([]);
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(initialPlaceId || null);
@@ -72,6 +100,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   const [transitMapData, setTransitMapData] = useState<TransportMapResponse | null>(null);
   const [selectedRouteId, setSelectedRouteId] = useState<string | null>(null);
   const [selectedStopId, setSelectedStopId] = useState<string | null>(null);
+<<<<<<< HEAD
   const [corridorFoodCandidates, setCorridorFoodCandidates] = useState<CorridorFoodCandidate[]>([]);
   const [selectedFoodCandidate, setSelectedFoodCandidate] = useState<CorridorFoodCandidate | null>(null);
   const [placesLoading, setPlacesLoading] = useState(true);
@@ -122,6 +151,13 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
 
 
   
+=======
+  const [loading, setLoading] = useState(true);
+  const [filterRegion, setFilterRegion] = useState('Near Me');
+  const [viewMode, setViewMode] = useState<MapViewMode>(initialMode);
+  const [activeRouteTarget, setActiveRouteTarget] = useState<ActiveRouteTarget | null>(null);
+
+>>>>>>> 15ff233 (feat: expand Essentials Near You (6 categories), 9 map modes with route line HUD, and visual landmark image discovery)
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
@@ -145,11 +181,11 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     if (filterRegion === 'Near Me') {
       return nearbyData.places;
     }
-    const filtered = places.filter(p => {
+    const filtered = places.filter((p) => {
       if (filterRegion !== 'All' && p.region !== filterRegion) return false;
       return isValidCoordinate(p.lat, p.lon);
     });
-    return filtered.map(p => {
+    return filtered.map((p) => {
       const dist = calculateHaversineDistanceKm(refLat, refLon, p.lat!, p.lon!);
       return {
         ...p,
@@ -159,18 +195,24 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     });
   }, [filterRegion, nearbyData.places, places, refLat, refLon]);
 
-  // 3. Proximity-sorted Essentials (Medical & ATMs)
+  // 3. Proximity-sorted Essentials (Medical, ATMs, Restaurants, Petrol, Police)
   const displayedEssentials = useMemo(() => {
     let pool = ODISHA_ESSENTIALS;
     if (viewMode === 'medical') {
-      pool = pool.filter(e => e.category === 'hospital' || e.category === 'pharmacy');
+      pool = pool.filter((e) => e.category === 'hospital' || e.category === 'pharmacy');
     } else if (viewMode === 'atm') {
-      pool = pool.filter(e => e.category === 'atm' || e.category === 'bank');
+      pool = pool.filter((e) => e.category === 'atm' || e.category === 'bank');
+    } else if (viewMode === 'culinary') {
+      pool = pool.filter((e) => e.category === 'restaurant');
+    } else if (viewMode === 'petrol') {
+      pool = pool.filter((e) => e.category === 'petrol');
+    } else if (viewMode === 'police') {
+      pool = pool.filter((e) => e.category === 'police');
     } else {
       return [];
     }
 
-    const scored = pool.map(item => {
+    const scored = pool.map((item) => {
       const dist = calculateHaversineDistanceKm(refLat, refLon, item.lat, item.lon);
       return {
         ...item,
@@ -185,7 +227,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
 
   // 4. Proximity-sorted Static Transit Stops Fallback
   const fallbackTransitStops = useMemo(() => {
-    return VERIFIED_TRANSIT_STOPS.map(st => {
+    return VERIFIED_TRANSIT_STOPS.map((st) => {
       const dist = calculateHaversineDistanceKm(refLat, refLon, st.latitude, st.longitude);
       const walkingMins = Math.max(1, Math.ceil((dist * 1000) / 80));
       return {
@@ -199,8 +241,8 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
 
   // 5. Proximity-sorted Saved Places
   const displayedSavedPlaces = useMemo(() => {
-    return savedPlaces.map(sp => {
-      const target = places.find(p => p.id === sp.id || p.name.toLowerCase() === sp.name.toLowerCase());
+    return savedPlaces.map((sp) => {
+      const target = places.find((p) => p.id === sp.id || p.name.toLowerCase() === sp.name.toLowerCase());
       const lat = target?.lat ?? sp.coordinates?.[0];
       const lon = target?.lon ?? sp.coordinates?.[1];
       const hasCoords = isValidCoordinate(lat, lon);
@@ -278,7 +320,9 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
       }
     };
     loadPlaces();
-    return () => { isMounted = false; };
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // Update initial viewMode / initialPlaceId if provided
@@ -292,7 +336,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   useEffect(() => {
     if (initialPlaceId) {
       setSelectedPlaceId(initialPlaceId);
-      const target = places.find(p => p.id === initialPlaceId);
+      const target = places.find((p) => p.id === initialPlaceId);
       if (target && isValidCoordinate(target.lat, target.lon) && mapInstanceRef.current) {
         mapInstanceRef.current.flyTo([target.lat!, target.lon!], 13, { duration: 0.8 });
       }
@@ -320,10 +364,34 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
 
   // Fetch transport map data when switching to transit mode
   useEffect(() => {
+<<<<<<< HEAD
     if (viewMode === 'transit') {
       loadTransit();
     }
   }, [viewMode, transitRegion]);
+=======
+    if (viewMode !== 'transit') return;
+    let isMounted = true;
+    const loadTransit = async () => {
+      try {
+        const regionParam = filterRegion === 'All' || filterRegion === 'Near Me' ? undefined : filterRegion;
+        const data = await apiClient.getTransportMap(regionParam);
+        if (isMounted && data && data.routes.length > 0) {
+          setTransitMapData(data);
+          if (!selectedRouteId && data.routes.length > 0) {
+            setSelectedRouteId(data.routes[0].route_id);
+          }
+        }
+      } catch (err) {
+        console.warn('Transport map fetch error:', err);
+      }
+    };
+    loadTransit();
+    return () => {
+      isMounted = false;
+    };
+  }, [viewMode, filterRegion]);
+>>>>>>> 15ff233 (feat: expand Essentials Near You (6 categories), 9 map modes with route line HUD, and visual landmark image discovery)
 
   // Initialize Leaflet Map
   useEffect(() => {
@@ -361,9 +429,11 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     if (currentPosition && isValidCoordinate(currentPosition.lat, currentPosition.lon)) {
       const userIcon = L.divIcon({
         className: 'user-live-gps-pin',
-        html: `<div style="background-color: #2F523E; width: 18px; height: 18px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 12px rgba(47,82,62,0.9); ${isLive ? 'animation: pulse 2s infinite;' : ''}"></div>`,
-        iconSize: [18, 18],
-        iconAnchor: [9, 9],
+        html: `<div style="background-color: #2F523E; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 12px rgba(47,82,62,0.9); ${
+          isLive ? 'animation: pulse 2s infinite;' : ''
+        }"></div>`,
+        iconSize: [20, 20],
+        iconAnchor: [10, 10],
       });
 
       const marker = L.marker([currentPosition.lat, currentPosition.lon], { icon: userIcon });
@@ -379,12 +449,71 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     }
   }, [currentPosition, isLive, locationName]);
 
+  // Route drawing handler
+  const handleDrawRoute = (target: {
+    name: string;
+    categoryLabel: string;
+    address?: string;
+    lat: number;
+    lon: number;
+  }) => {
+    if (!isValidCoordinate(target.lat, target.lon)) return;
+    const dist = calculateHaversineDistanceKm(refLat, refLon, target.lat, target.lon);
+    const driveMins = calculateDriveTimeMinutes(dist);
+    const walkMins = calculateWalkTimeMinutes(dist);
+
+    const routeTarget: ActiveRouteTarget = {
+      name: target.name,
+      categoryLabel: target.categoryLabel,
+      address: target.address,
+      lat: target.lat,
+      lon: target.lon,
+      distKm: dist,
+      distanceFormatted: formatDistance(dist),
+      drivingMins: driveMins,
+      walkingMins: walkMins,
+    };
+
+    setActiveRouteTarget(routeTarget);
+
+    if (mapInstanceRef.current && routeLineLayerRef.current) {
+      routeLineLayerRef.current.clearLayers();
+      const polyline = L.polyline(
+        [
+          [refLat, refLon],
+          [target.lat, target.lon],
+        ],
+        {
+          color: '#B87B22',
+          weight: 4,
+          dashArray: '8, 8',
+          opacity: 0.9,
+        }
+      );
+      routeLineLayerRef.current.addLayer(polyline);
+      const bounds = L.latLngBounds([
+        [refLat, refLon],
+        [target.lat, target.lon],
+      ]);
+      mapInstanceRef.current.fitBounds(bounds, { padding: [60, 60], maxZoom: 14 });
+    }
+  };
+
+  const handleClearRoute = () => {
+    setActiveRouteTarget(null);
+    if (routeLineLayerRef.current) {
+      routeLineLayerRef.current.clearLayers();
+    }
+  };
+
   // Main Markers & Geometry Layer Rendering
   useEffect(() => {
     if (!mapInstanceRef.current || !markersLayerRef.current || !routeLineLayerRef.current) return;
 
     markersLayerRef.current.clearLayers();
-    routeLineLayerRef.current.clearLayers();
+    if (!activeRouteTarget) {
+      routeLineLayerRef.current.clearLayers();
+    }
 
     // Mode 1: Sanctuaries / Destinations
     if (viewMode === 'destinations') {
@@ -394,7 +523,13 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         const isSelected = selectedPlaceId === p.id;
         const customIcon = L.divIcon({
           className: 'custom-stitch-map-pin',
-          html: `<div style="background-color: ${isSelected ? '#12161E' : '#B87B22'}; color: #FFFFFF; width: ${isSelected ? '32px' : '26px'}; height: ${isSelected ? '32px' : '26px'}; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'JetBrains Mono', monospace; font-size: 11px; border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.35); transition: all 0.2s;">${index + 1}</div>`,
+          html: `<div style="background-color: ${isSelected ? '#12161E' : '#B87B22'}; color: #FFFFFF; width: ${
+            isSelected ? '32px' : '26px'
+          }; height: ${
+            isSelected ? '32px' : '26px'
+          }; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'JetBrains Mono', monospace; font-size: 11px; border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.35); transition: all 0.2s;">${
+            index + 1
+          }</div>`,
           iconSize: [32, 32],
           iconAnchor: [16, 16],
         });
@@ -409,7 +544,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           });
 
           marker.bindPopup(`
-            <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 210px;">
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 220px;">
               <div style="font-size: 10px; font-family: monospace; color: #B87B22; font-weight: bold;">
                 #${index + 1} ${p.distanceFormatted ? `· ${p.distanceFormatted}` : ''}
               </div>
@@ -422,25 +557,32 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         }
       });
 
-      if (selectedPlaceId) {
-        const current = displayedDestinations.find(p => p.id === selectedPlaceId) || places.find(p => p.id === selectedPlaceId);
+      if (selectedPlaceId && !activeRouteTarget) {
+        const current =
+          displayedDestinations.find((p) => p.id === selectedPlaceId) || places.find((p) => p.id === selectedPlaceId);
         if (current && current.lat != null && current.lon != null && isValidCoordinate(current.lat, current.lon)) {
           mapInstanceRef.current.flyTo([current.lat, current.lon], 12, { duration: 0.8 });
         }
-      } else if (points.length > 0) {
+      } else if (points.length > 0 && !activeRouteTarget) {
         const bounds = L.latLngBounds(points);
         mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
       }
-    } 
+    }
     // Mode 2: Medical Help 24/7
     else if (viewMode === 'medical') {
       const medPoints: [number, number][] = [];
-      displayedEssentials.forEach((item, index) => {
+      displayedEssentials.forEach((item) => {
         medPoints.push([item.lat, item.lon]);
         const isSelected = selectedEssential?.id === item.id;
         const medIcon = L.divIcon({
           className: 'custom-med-pin',
-          html: `<div style="background-color: ${isSelected ? '#12161E' : '#9E2A2B'}; color: #FFFFFF; width: ${isSelected ? '32px' : '26px'}; height: ${isSelected ? '32px' : '26px'}; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(158,42,43,0.4);">${item.category === 'hospital' ? '🏥' : '💊'}</div>`,
+          html: `<div style="background-color: ${isSelected ? '#12161E' : '#9E2A2B'}; color: #FFFFFF; width: ${
+            isSelected ? '32px' : '26px'
+          }; height: ${
+            isSelected ? '32px' : '26px'
+          }; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(158,42,43,0.4);">${
+            item.category === 'hospital' ? '🏥' : '💊'
+          }</div>`,
           iconSize: [32, 32],
           iconAnchor: [16, 16],
         });
@@ -464,7 +606,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         markersLayerRef.current?.addLayer(marker);
       });
 
-      if (medPoints.length > 0) {
+      if (medPoints.length > 0 && !activeRouteTarget) {
         const bounds = L.latLngBounds(medPoints);
         mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
       }
@@ -477,7 +619,11 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         const isSelected = selectedEssential?.id === item.id;
         const atmIcon = L.divIcon({
           className: 'custom-atm-pin',
-          html: `<div style="background-color: ${isSelected ? '#12161E' : '#B87B22'}; color: #FFFFFF; width: ${isSelected ? '32px' : '26px'}; height: ${isSelected ? '32px' : '26px'}; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(184,123,34,0.4);">🏧</div>`,
+          html: `<div style="background-color: ${isSelected ? '#12161E' : '#B87B22'}; color: #FFFFFF; width: ${
+            isSelected ? '32px' : '26px'
+          }; height: ${
+            isSelected ? '32px' : '26px'
+          }; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(184,123,34,0.4);">🏧</div>`,
           iconSize: [32, 32],
           iconAnchor: [16, 16],
         });
@@ -500,7 +646,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         markersLayerRef.current?.addLayer(marker);
       });
 
-      if (atmPoints.length > 0) {
+      if (atmPoints.length > 0 && !activeRouteTarget) {
         const bounds = L.latLngBounds(atmPoints);
         mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
       }
@@ -508,7 +654,8 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     // Mode 4: Mo Bus & Transit
     else if (viewMode === 'transit') {
       const stopPoints: [number, number][] = [];
-      const activeStops = transitMapData && transitMapData.stops.length > 0 ? transitMapData.stops : fallbackTransitStops;
+      const activeStops =
+        transitMapData && transitMapData.stops.length > 0 ? transitMapData.stops : fallbackTransitStops;
 
       activeStops.forEach((st) => {
         const lat = 'latitude' in st ? st.latitude : undefined;
@@ -519,7 +666,11 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           const isSelected = selectedStopId === st.stop_id;
           const busIcon = L.divIcon({
             className: 'custom-transit-pin',
-            html: `<div style="background-color: ${isSelected ? '#12161E' : '#1B5E6B'}; color: #FFFFFF; width: ${isSelected ? '30px' : '24px'}; height: ${isSelected ? '30px' : '24px'}; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; border: 2px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.35);">🚌</div>`,
+            html: `<div style="background-color: ${isSelected ? '#12161E' : '#1B5E6B'}; color: #FFFFFF; width: ${
+              isSelected ? '30px' : '24px'
+            }; height: ${
+              isSelected ? '30px' : '24px'
+            }; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; border: 2px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.35);">🚌</div>`,
             iconSize: [28, 28],
             iconAnchor: [14, 14],
           });
@@ -541,12 +692,135 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         }
       });
 
-      if (stopPoints.length > 0) {
+      if (stopPoints.length > 0 && !activeRouteTarget) {
         const bounds = L.latLngBounds(stopPoints);
         mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
       }
     }
-    // Mode 5: Culinary & Craft Experiences
+    // Mode 5: Restaurants & Culinary
+    else if (viewMode === 'culinary') {
+      const foodPoints: [number, number][] = [];
+      displayedEssentials.forEach((item) => {
+        foodPoints.push([item.lat, item.lon]);
+        const isSelected = selectedEssential?.id === item.id;
+        const foodIcon = L.divIcon({
+          className: 'custom-culinary-pin',
+          html: `<div style="background-color: ${isSelected ? '#12161E' : '#C05621'}; color: #FFFFFF; width: ${
+            isSelected ? '32px' : '26px'
+          }; height: ${
+            isSelected ? '32px' : '26px'
+          }; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(192,86,33,0.4);">🍲</div>`,
+          iconSize: [32, 32],
+          iconAnchor: [16, 16],
+        });
+
+        const marker = L.marker([item.lat, item.lon], { icon: foodIcon });
+        marker.on('click', () => {
+          setSelectedEssential(item);
+        });
+
+        marker.bindPopup(`
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 240px;">
+            <div style="font-size: 10px; font-family: monospace; color: #C05621; font-weight: bold;">
+              AUTHENTIC DINING · ${item.distanceFormatted}
+            </div>
+            <strong style="font-size: 13px; color: #12161E;">${item.name}</strong>
+            <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${item.cuisine || item.locality}</p>
+            ${item.rating ? `<span style="font-size: 10px; background: #C05621; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; margin-top: 4px; display: inline-block;">★ ${item.rating}</span>` : ''}
+          </div>
+        `);
+
+        markersLayerRef.current?.addLayer(marker);
+      });
+
+      if (foodPoints.length > 0 && !activeRouteTarget) {
+        const bounds = L.latLngBounds(foodPoints);
+        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
+      }
+    }
+    // Mode 6: Petrol Pumps & Fuel
+    else if (viewMode === 'petrol') {
+      const fuelPoints: [number, number][] = [];
+      displayedEssentials.forEach((item) => {
+        fuelPoints.push([item.lat, item.lon]);
+        const isSelected = selectedEssential?.id === item.id;
+        const petrolIcon = L.divIcon({
+          className: 'custom-petrol-pin',
+          html: `<div style="background-color: ${isSelected ? '#12161E' : '#DD6B20'}; color: #FFFFFF; width: ${
+            isSelected ? '32px' : '26px'
+          }; height: ${
+            isSelected ? '32px' : '26px'
+          }; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(221,107,32,0.4);">⛽</div>`,
+          iconSize: [32, 32],
+          iconAnchor: [16, 16],
+        });
+
+        const marker = L.marker([item.lat, item.lon], { icon: petrolIcon });
+        marker.on('click', () => {
+          setSelectedEssential(item);
+        });
+
+        marker.bindPopup(`
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 230px;">
+            <div style="font-size: 10px; font-family: monospace; color: #DD6B20; font-weight: bold;">
+              24/7 FUEL STATION · ${item.distanceFormatted}
+            </div>
+            <strong style="font-size: 13px; color: #12161E;">${item.name}</strong>
+            <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${item.locality}</p>
+            ${item.evCharging ? `<span style="font-size: 10px; background: #2F523E; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; margin-top: 4px; display: inline-block;">⚡ EV Fast Charger</span>` : ''}
+          </div>
+        `);
+
+        markersLayerRef.current?.addLayer(marker);
+      });
+
+      if (fuelPoints.length > 0 && !activeRouteTarget) {
+        const bounds = L.latLngBounds(fuelPoints);
+        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
+      }
+    }
+    // Mode 7: Police & Safety
+    else if (viewMode === 'police') {
+      const policePoints: [number, number][] = [];
+      displayedEssentials.forEach((item) => {
+        policePoints.push([item.lat, item.lon]);
+        const isSelected = selectedEssential?.id === item.id;
+        const policeIcon = L.divIcon({
+          className: 'custom-police-pin',
+          html: `<div style="background-color: ${isSelected ? '#12161E' : '#2B6CB0'}; color: #FFFFFF; width: ${
+            isSelected ? '32px' : '26px'
+          }; height: ${
+            isSelected ? '32px' : '26px'
+          }; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(43,108,176,0.4);">🛡️</div>`,
+          iconSize: [32, 32],
+          iconAnchor: [16, 16],
+        });
+
+        const marker = L.marker([item.lat, item.lon], { icon: policeIcon });
+        marker.on('click', () => {
+          setSelectedEssential(item);
+        });
+
+        marker.bindPopup(`
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 230px;">
+            <div style="font-size: 10px; font-family: monospace; color: #2B6CB0; font-weight: bold;">
+              24/7 POLICE STATION · ${item.distanceFormatted}
+            </div>
+            <strong style="font-size: 13px; color: #12161E;">${item.name}</strong>
+            <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${item.locality}</p>
+            <p style="font-size: 11px; color: #2B6CB0; font-weight: bold; margin-top: 4px;">📞 Emergency: 112</p>
+          </div>
+        `);
+
+        markersLayerRef.current?.addLayer(marker);
+      });
+
+      if (policePoints.length > 0 && !activeRouteTarget) {
+        const bounds = L.latLngBounds(policePoints);
+        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
+      }
+    }
+    // Mode 8: Culinary & Craft Experiences
     else if (viewMode === 'experiences') {
       const expPoints: [number, number][] = [];
       ODISHA_EXPERIENCES.forEach((exp) => {
@@ -554,7 +828,11 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         const isSelected = selectedExperience?.id === exp.id;
         const customIcon = L.divIcon({
           className: 'custom-stitch-exp-pin',
-          html: `<div style="background-color: ${isSelected ? '#12161E' : '#B87B22'}; color: #FFFFFF; width: ${isSelected ? '32px' : '26px'}; height: ${isSelected ? '32px' : '26px'}; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.35);">🍴</div>`,
+          html: `<div style="background-color: ${isSelected ? '#12161E' : '#B87B22'}; color: #FFFFFF; width: ${
+            isSelected ? '32px' : '26px'
+          }; height: ${
+            isSelected ? '32px' : '26px'
+          }; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.35);">🍴</div>`,
           iconSize: [32, 32],
           iconAnchor: [16, 16],
         });
@@ -574,12 +852,12 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         markersLayerRef.current?.addLayer(marker);
       });
 
-      if (expPoints.length > 0) {
+      if (expPoints.length > 0 && !activeRouteTarget) {
         const bounds = L.latLngBounds(expPoints);
         mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
       }
     }
-    // Mode 6: Saved Places
+    // Mode 9: Saved Places
     else if (viewMode === 'saved') {
       const savedPoints: [number, number][] = [];
       displayedSavedPlaces.forEach((sp) => {
@@ -604,7 +882,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         }
       });
 
-      if (savedPoints.length > 0) {
+      if (savedPoints.length > 0 && !activeRouteTarget) {
         const bounds = L.latLngBounds(savedPoints);
         mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
       }
@@ -619,12 +897,11 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     transitMapData,
     selectedRouteId,
     selectedStopId,
-    corridorFoodCandidates,
-    selectedFoodCandidate,
     displayedDestinations,
     displayedEssentials,
     fallbackTransitStops,
     displayedSavedPlaces,
+    activeRouteTarget,
   ]);
 
   const handleLocateMe = async () => {
@@ -634,14 +911,12 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     }
   };
 
-  const selectedPlace = displayedDestinations.find(p => p.id === selectedPlaceId) || places.find(p => p.id === selectedPlaceId);
-
   return (
     <div className="w-full pt-16 sm:pt-18 h-screen flex flex-col md:flex-row overflow-hidden bg-[#FBF9F5]">
       {/* Left Workspace Pane */}
-      <aside className="w-full md:w-[450px] lg:w-[480px] flex flex-col h-full border-r border-[#E5DFD5] bg-[#FBF9F5] z-10 shrink-0">
+      <aside className="w-full md:w-[450px] lg:w-[490px] flex flex-col h-full border-r border-[#E5DFD5] bg-[#FBF9F5] z-10 shrink-0">
         {/* Top Header */}
-        <header className="px-5 py-4 border-b border-[#E5DFD5] bg-white/90 backdrop-blur-md">
+        <header className="px-5 py-4 border-b border-[#E5DFD5] bg-white/95 backdrop-blur-md">
           <div className="flex justify-between items-start mb-2.5">
             <div>
               <div className="inline-flex items-center gap-1.5 bg-[#B87B22]/10 text-[#B87B22] px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold mb-1">
@@ -663,7 +938,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
             </button>
           </div>
 
-          {/* Map Layer Mode Tabs */}
+          {/* Map Layer Mode Tabs (All 9 Modes) */}
           <div className="flex gap-1 overflow-x-auto pb-1 scrollbar-none text-xs font-mono">
             {[
               { id: 'destinations', label: 'Places', icon: 'temple_hindu' },
@@ -671,12 +946,24 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               { id: 'transit', label: 'Mo Bus', icon: 'directions_bus' },
               { id: 'medical', label: 'Medical 24/7', icon: 'local_hospital' },
               { id: 'atm', label: 'ATMs', icon: 'atm' },
+<<<<<<< HEAD
+=======
+              { id: 'transit', label: 'Mo Bus', icon: 'directions_bus' },
+              { id: 'culinary', label: 'Dining', icon: 'restaurant' },
+              { id: 'petrol', label: 'Petrol & EV', icon: 'local_gas_station' },
+              { id: 'police', label: 'Police 112', icon: 'local_police' },
+              { id: 'experiences', label: 'Food & Crafts', icon: 'storefront' },
+>>>>>>> 15ff233 (feat: expand Essentials Near You (6 categories), 9 map modes with route line HUD, and visual landmark image discovery)
               { id: 'saved', label: `Saved (${savedPlaces.length})`, icon: 'bookmark' },
             ].map((tab) => (
               <button
                 key={tab.id}
                 type="button"
-                onClick={() => setViewMode(tab.id as MapViewMode)}
+                data-testid={`map-tab-${tab.id}`}
+                onClick={() => {
+                  setViewMode(tab.id as MapViewMode);
+                  setActiveRouteTarget(null);
+                }}
                 className={`px-3 py-1.5 rounded-lg font-semibold transition-all whitespace-nowrap cursor-pointer flex items-center gap-1 ${
                   viewMode === tab.id
                     ? 'bg-[#12161E] text-white shadow-xs'
@@ -693,7 +980,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         {/* Dynamic Sidebar Content Based on View Mode */}
         <div className="flex-1 overflow-y-auto p-4 space-y-3 scrollbar-thin">
           {/* Mode: Destinations */}
-          {viewMode === 'destinations' && (
+          {viewMode === 'destinations' &&
             displayedDestinations.map((p, idx) => (
               <div
                 key={p.id}
@@ -715,25 +1002,47 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
                       #{idx + 1} {p.distanceFormatted ? `• ${p.distanceFormatted}` : ''}
                     </span>
                     <h3 className="font-display font-bold text-base text-[#12161E]">{p.name}</h3>
-                    <p className="text-xs text-[#70798B] mt-0.5">{p.district || p.region} • {p.category}</p>
+                    <p className="text-xs text-[#70798B] mt-0.5">
+                      {p.district || p.region} • {p.category}
+                    </p>
                   </div>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onNavigate('plan', { placeId: p.id });
-                    }}
-                    className="px-2.5 py-1 rounded-lg bg-[#B87B22] hover:bg-[#A0691B] text-white text-xs font-semibold shrink-0 cursor-pointer shadow-xs"
-                  >
-                    Plan Trip
-                  </button>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (p.lat && p.lon) {
+                          handleDrawRoute({
+                            name: p.name,
+                            categoryLabel: p.category,
+                            address: p.district || '',
+                            lat: p.lat,
+                            lon: p.lon,
+                          });
+                        }
+                      }}
+                      className="px-2.5 py-1 rounded-lg bg-[#F2EEE7] hover:bg-[#E5DFD5] text-[#12161E] text-xs font-semibold cursor-pointer shadow-xs flex items-center gap-1"
+                    >
+                      <span className="material-symbols-outlined text-xs">directions</span>
+                      <span>Route</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onNavigate('plan', { placeId: p.id });
+                      }}
+                      className="px-2.5 py-1 rounded-lg bg-[#B87B22] hover:bg-[#A0691B] text-white text-xs font-semibold cursor-pointer shadow-xs"
+                    >
+                      Plan Trip
+                    </button>
+                  </div>
                 </div>
               </div>
-            ))
-          )}
+            ))}
 
           {/* Mode: Medical Help 24/7 */}
-          {viewMode === 'medical' && (
+          {viewMode === 'medical' &&
             displayedEssentials.map((item) => (
               <div
                 key={item.id}
@@ -762,13 +1071,29 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
                       </p>
                     )}
                   </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDrawRoute({
+                        name: item.name,
+                        categoryLabel: 'Hospital 24/7',
+                        address: item.address,
+                        lat: item.lat,
+                        lon: item.lon,
+                      });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-[#9E2A2B]/10 hover:bg-[#9E2A2B]/20 text-[#9E2A2B] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
+                  >
+                    <span className="material-symbols-outlined text-xs">directions</span>
+                    <span>Route</span>
+                  </button>
                 </div>
               </div>
-            ))
-          )}
+            ))}
 
           {/* Mode: ATMs */}
-          {viewMode === 'atm' && (
+          {viewMode === 'atm' &&
             displayedEssentials.map((item) => (
               <div
                 key={item.id}
@@ -784,58 +1109,255 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
                     : 'bg-white hover:bg-[#FBF8F2]/60 border-[#E5DFD5]'
                 }`}
               >
-                <span className="text-[10px] font-mono font-bold uppercase text-[#B87B22] bg-[#B87B22]/10 px-2 py-0.5 rounded-full">
-                  🏧 24/7 ATM • {item.distanceFormatted}
-                </span>
-                <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{item.name}</h3>
-                <p className="text-xs text-[#70798B] mt-0.5">{item.address}</p>
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono font-bold uppercase text-[#B87B22] bg-[#B87B22]/10 px-2 py-0.5 rounded-full">
+                      🏧 24/7 ATM • {item.distanceFormatted}
+                    </span>
+                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{item.name}</h3>
+                    <p className="text-xs text-[#70798B] mt-0.5">{item.address}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDrawRoute({
+                        name: item.name,
+                        categoryLabel: '24/7 ATM',
+                        address: item.address,
+                        lat: item.lat,
+                        lon: item.lon,
+                      });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-[#B87B22]/10 hover:bg-[#B87B22]/20 text-[#B87B22] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
+                  >
+                    <span className="material-symbols-outlined text-xs">directions</span>
+                    <span>Route</span>
+                  </button>
+                </div>
               </div>
-            ))
-          )}
+            ))}
 
           {/* Mode: Transit Stops */}
-          {viewMode === 'transit' && (
-            (transitMapData?.stops && transitMapData.stops.length > 0 ? transitMapData.stops : fallbackTransitStops).map((st) => (
+          {viewMode === 'transit' &&
+            (transitMapData?.stops && transitMapData.stops.length > 0 ? transitMapData.stops : fallbackTransitStops).map(
+              (st) => {
+                const lat = 'latitude' in st ? st.latitude : undefined;
+                const lon = 'longitude' in st ? st.longitude : undefined;
+                return (
+                  <div
+                    key={st.stop_id}
+                    onClick={() => {
+                      setSelectedStopId(st.stop_id);
+                      if (lat && lon && mapInstanceRef.current) {
+                        mapInstanceRef.current.flyTo([lat, lon], 14, { duration: 0.8 });
+                      }
+                    }}
+                    className={`p-4 rounded-2xl border transition-all cursor-pointer ${
+                      selectedStopId === st.stop_id
+                        ? 'bg-[#F2F8F9] border-[#1B5E6B] shadow-md ring-1 ring-[#1B5E6B]/30'
+                        : 'bg-white hover:bg-[#F2F8F9]/50 border-[#E5DFD5]'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <span className="text-[10px] font-mono font-bold uppercase text-[#1B5E6B] bg-[#1B5E6B]/10 px-2 py-0.5 rounded-full">
+                          🚌 Mo Bus Stop {'distanceFormatted' in st ? `• ${st.distanceFormatted}` : ''}
+                        </span>
+                        <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{st.name}</h3>
+                        <p className="text-xs text-[#70798B] mt-0.5">{st.city || 'Odisha'} Terminal</p>
+                      </div>
+                      {lat && lon && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDrawRoute({
+                              name: st.name,
+                              categoryLabel: 'Mo Bus Terminal',
+                              lat,
+                              lon,
+                            });
+                          }}
+                          className="px-2.5 py-1 rounded-lg bg-[#1B5E6B]/10 hover:bg-[#1B5E6B]/20 text-[#1B5E6B] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
+                        >
+                          <span className="material-symbols-outlined text-xs">directions</span>
+                          <span>Route</span>
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                );
+              }
+            )}
+
+          {/* Mode: Restaurants & Culinary */}
+          {viewMode === 'culinary' &&
+            displayedEssentials.map((item) => (
               <div
-                key={st.stop_id}
+                key={item.id}
                 onClick={() => {
-                  setSelectedStopId(st.stop_id);
-                  const lat = 'latitude' in st ? st.latitude : undefined;
-                  const lon = 'longitude' in st ? st.longitude : undefined;
-                  if (lat && lon && mapInstanceRef.current) {
-                    mapInstanceRef.current.flyTo([lat, lon], 14, { duration: 0.8 });
+                  setSelectedEssential(item);
+                  if (mapInstanceRef.current) {
+                    mapInstanceRef.current.flyTo([item.lat, item.lon], 14, { duration: 0.8 });
                   }
                 }}
                 className={`p-4 rounded-2xl border transition-all cursor-pointer ${
-                  selectedStopId === st.stop_id
-                    ? 'bg-[#F2F8F9] border-[#1B5E6B] shadow-md ring-1 ring-[#1B5E6B]/30'
-                    : 'bg-white hover:bg-[#F2F8F9]/50 border-[#E5DFD5]'
+                  selectedEssential?.id === item.id
+                    ? 'bg-[#FDF6F0] border-[#C05621] shadow-md ring-1 ring-[#C05621]/30'
+                    : 'bg-white hover:bg-[#FDF6F0]/60 border-[#E5DFD5]'
                 }`}
               >
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <span className="text-[10px] font-mono font-bold uppercase text-[#1B5E6B] bg-[#1B5E6B]/10 px-2 py-0.5 rounded-full">
-                      🚌 Mo Bus Stop {'distanceFormatted' in st ? `• ${st.distanceFormatted}` : ''}
+                    <span className="text-[10px] font-mono font-bold uppercase text-[#C05621] bg-[#C05621]/10 px-2 py-0.5 rounded-full">
+                      🍲 Dining &amp; Cuisine • {item.distanceFormatted}
                     </span>
-                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{st.name}</h3>
-                    <p className="text-xs text-[#70798B] mt-0.5">{st.city || 'Odisha'} Terminal</p>
-                    {'routes_serving_stop' in st && Array.isArray((st as any).routes_serving_stop) && (
+                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{item.name}</h3>
+                    <p className="text-xs text-[#70798B] mt-0.5">{item.cuisine || item.address}</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      {item.rating && (
+                        <span className="text-[10px] font-bold text-white bg-[#C05621] px-2 py-0.5 rounded">
+                          ★ {item.rating}
+                        </span>
+                      )}
+                      {item.priceTier && (
+                        <span className="text-[10px] font-mono uppercase text-[#70798B] bg-[#FAF7F2] border border-[#E5DFD5] px-2 py-0.5 rounded">
+                          {item.priceTier}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDrawRoute({
+                        name: item.name,
+                        categoryLabel: 'Authentic Dining',
+                        address: item.address,
+                        lat: item.lat,
+                        lon: item.lon,
+                      });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-[#C05621]/10 hover:bg-[#C05621]/20 text-[#C05621] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
+                  >
+                    <span className="material-symbols-outlined text-xs">directions</span>
+                    <span>Route</span>
+                  </button>
+                </div>
+              </div>
+            ))}
+
+          {/* Mode: Petrol & EV Fuel */}
+          {viewMode === 'petrol' &&
+            displayedEssentials.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => {
+                  setSelectedEssential(item);
+                  if (mapInstanceRef.current) {
+                    mapInstanceRef.current.flyTo([item.lat, item.lon], 14, { duration: 0.8 });
+                  }
+                }}
+                className={`p-4 rounded-2xl border transition-all cursor-pointer ${
+                  selectedEssential?.id === item.id
+                    ? 'bg-[#FFF9F2] border-[#DD6B20] shadow-md ring-1 ring-[#DD6B20]/30'
+                    : 'bg-white hover:bg-[#FFF9F2]/60 border-[#E5DFD5]'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono font-bold uppercase text-[#DD6B20] bg-[#DD6B20]/10 px-2 py-0.5 rounded-full">
+                      ⛽ 24/7 Fuel Station • {item.distanceFormatted}
+                    </span>
+                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{item.name}</h3>
+                    <p className="text-xs text-[#70798B] mt-0.5">{item.address}</p>
+                    {item.fuelTypes && (
                       <div className="flex flex-wrap gap-1 mt-2">
-                        {(st as any).routes_serving_stop.map((r: { route_number: string }, i: number) => (
-                          <span key={i} className="px-2 py-0.5 rounded bg-[#FAF7F2] border border-[#E5DFD5] text-[10px] font-mono font-bold text-[#12161E]">
-                            Route {r.route_number}
+                        {item.fuelTypes.map((f, i) => (
+                          <span
+                            key={i}
+                            className="text-[10px] font-mono text-[#DD6B20] bg-[#DD6B20]/10 px-1.5 py-0.5 rounded"
+                          >
+                            {f}
                           </span>
                         ))}
                       </div>
                     )}
                   </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDrawRoute({
+                        name: item.name,
+                        categoryLabel: '24/7 Fuel & EV',
+                        address: item.address,
+                        lat: item.lat,
+                        lon: item.lon,
+                      });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-[#DD6B20]/10 hover:bg-[#DD6B20]/20 text-[#DD6B20] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
+                  >
+                    <span className="material-symbols-outlined text-xs">directions</span>
+                    <span>Route</span>
+                  </button>
                 </div>
               </div>
-            ))
-          )}
+            ))}
+
+          {/* Mode: Police & Safety */}
+          {viewMode === 'police' &&
+            displayedEssentials.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => {
+                  setSelectedEssential(item);
+                  if (mapInstanceRef.current) {
+                    mapInstanceRef.current.flyTo([item.lat, item.lon], 14, { duration: 0.8 });
+                  }
+                }}
+                className={`p-4 rounded-2xl border transition-all cursor-pointer ${
+                  selectedEssential?.id === item.id
+                    ? 'bg-[#F2F6FA] border-[#2B6CB0] shadow-md ring-1 ring-[#2B6CB0]/30'
+                    : 'bg-white hover:bg-[#F2F6FA]/60 border-[#E5DFD5]'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono font-bold uppercase text-[#2B6CB0] bg-[#2B6CB0]/10 px-2 py-0.5 rounded-full">
+                      🛡️ 24/7 Security • {item.distanceFormatted}
+                    </span>
+                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{item.name}</h3>
+                    <p className="text-xs text-[#70798B] mt-0.5">{item.address}</p>
+                    <p className="text-xs font-mono font-semibold text-[#2B6CB0] mt-2">
+                      📞 Police Helpline: 112
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDrawRoute({
+                        name: item.name,
+                        categoryLabel: 'Police Station',
+                        address: item.address,
+                        lat: item.lat,
+                        lon: item.lon,
+                      });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-[#2B6CB0]/10 hover:bg-[#2B6CB0]/20 text-[#2B6CB0] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
+                  >
+                    <span className="material-symbols-outlined text-xs">directions</span>
+                    <span>Route</span>
+                  </button>
+                </div>
+              </div>
+            ))}
 
           {/* Mode: Experiences */}
-          {viewMode === 'experiences' && (
+          {viewMode === 'experiences' &&
             ODISHA_EXPERIENCES.map((exp) => (
               <div
                 key={exp.id}
@@ -851,18 +1373,37 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
                     : 'bg-white hover:bg-[#FAF7F2] border-[#E5DFD5]'
                 }`}
               >
-                <span className="text-[10px] font-mono font-bold uppercase text-[#B87B22]">
-                  {exp.categoryLabel} • {exp.district}
-                </span>
-                <h3 className="font-display font-bold text-base text-[#12161E] mt-1">{exp.name}</h3>
-                <p className="text-xs text-[#3D4654] line-clamp-2 mt-1">{exp.description}</p>
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono font-bold uppercase text-[#B87B22]">
+                      {exp.categoryLabel} • {exp.district}
+                    </span>
+                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1">{exp.name}</h3>
+                    <p className="text-xs text-[#3D4654] line-clamp-2 mt-1">{exp.description}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDrawRoute({
+                        name: exp.name,
+                        categoryLabel: exp.categoryLabel,
+                        lat: exp.lat,
+                        lon: exp.lon,
+                      });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-[#B87B22]/10 hover:bg-[#B87B22]/20 text-[#B87B22] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
+                  >
+                    <span className="material-symbols-outlined text-xs">directions</span>
+                    <span>Route</span>
+                  </button>
+                </div>
               </div>
-            ))
-          )}
+            ))}
 
           {/* Mode: Saved */}
-          {viewMode === 'saved' && (
-            displayedSavedPlaces.length === 0 ? (
+          {viewMode === 'saved' &&
+            (displayedSavedPlaces.length === 0 ? (
               <div className="p-8 text-center bg-white rounded-2xl border border-[#E5DFD5]">
                 <p className="text-xs text-[#70798B]">No saved places on this device yet.</p>
               </div>
@@ -877,13 +1418,36 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
                   }}
                   className="p-4 rounded-2xl bg-white border border-[#E5DFD5] hover:border-[#2F523E] transition-all cursor-pointer"
                 >
-                  <span className="text-[10px] font-mono font-bold uppercase text-[#2F523E]">
-                    🔖 Saved Landmark {sp.distanceFormatted ? `• ${sp.distanceFormatted}` : ''}
-                  </span>
-                  <h3 className="font-display font-bold text-base text-[#12161E] mt-1">{sp.name}</h3>
-                  <p className="text-xs text-[#70798B] mt-0.5">{sp.district || sp.category}</p>
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <span className="text-[10px] font-mono font-bold uppercase text-[#2F523E]">
+                        🔖 Saved Landmark {sp.distanceFormatted ? `• ${sp.distanceFormatted}` : ''}
+                      </span>
+                      <h3 className="font-display font-bold text-base text-[#12161E] mt-1">{sp.name}</h3>
+                      <p className="text-xs text-[#70798B] mt-0.5">{sp.district || sp.category}</p>
+                    </div>
+                    {sp.lat && sp.lon && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDrawRoute({
+                            name: sp.name,
+                            categoryLabel: sp.category || 'Saved Place',
+                            lat: sp.lat!,
+                            lon: sp.lon!,
+                          });
+                        }}
+                        className="px-2.5 py-1 rounded-lg bg-[#2F523E]/10 hover:bg-[#2F523E]/20 text-[#2F523E] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
+                      >
+                        <span className="material-symbols-outlined text-xs">directions</span>
+                        <span>Route</span>
+                      </button>
+                    )}
+                  </div>
                 </div>
               ))
+<<<<<<< HEAD
             )
           )}
 
@@ -1258,10 +1822,90 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               >
                 <span className="material-symbols-outlined text-sm">restaurant</span>
                 <span>Include in Trip Plan</span>
+=======
+            ))}
+        </div>
+      </aside>
+
+      {/* Right Canvas: Interactive Map */}
+      <main className="flex-1 h-full relative overflow-hidden bg-[#F2EEE7]">
+        <div ref={mapContainerRef} className="w-full h-full" />
+
+        {/* Floating Route & Directions HUD Panel */}
+        {activeRouteTarget && (
+          <div
+            data-testid="directions-hud-overlay"
+            className="absolute bottom-6 left-6 right-6 md:right-auto md:w-96 bg-white/95 backdrop-blur-md rounded-2xl p-4.5 border border-[#E5DFD5] shadow-xl z-[1000] space-y-3 transition-all animate-in fade-in slide-in-from-bottom-4 duration-300"
+          >
+            <div className="flex items-start justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#B87B22] animate-pulse"></span>
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#B87B22]">
+                  Live Route Guidance
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={handleClearRoute}
+                className="w-6 h-6 rounded-full bg-[#F2EEE7] hover:bg-[#E5DFD5] text-[#70798B] flex items-center justify-center cursor-pointer transition-colors"
+                title="Clear route"
+              >
+                <span className="material-symbols-outlined text-sm">close</span>
+              </button>
+            </div>
+
+            <div>
+              <h4 className="font-display font-bold text-base text-[#12161E] leading-tight">
+                {activeRouteTarget.name}
+              </h4>
+              <p className="text-xs text-[#70798B] mt-0.5">{activeRouteTarget.categoryLabel}</p>
+            </div>
+
+            {/* Travel Time & Distance Pills */}
+            <div className="grid grid-cols-3 gap-2 pt-1">
+              <div className="p-2 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] text-center">
+                <span className="text-[10px] font-mono uppercase text-[#70798B] block">Distance</span>
+                <span className="font-mono font-bold text-xs text-[#12161E]">
+                  {activeRouteTarget.distanceFormatted}
+                </span>
+              </div>
+              <div className="p-2 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] text-center">
+                <span className="text-[10px] font-mono uppercase text-[#70798B] block">🚗 Drive</span>
+                <span className="font-mono font-bold text-xs text-[#B87B22]">
+                  {formatDuration(activeRouteTarget.drivingMins)}
+                </span>
+              </div>
+              <div className="p-2 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] text-center">
+                <span className="text-[10px] font-mono uppercase text-[#70798B] block">🚶 Walk</span>
+                <span className="font-mono font-bold text-xs text-[#2F523E]">
+                  {formatDuration(activeRouteTarget.walkingMins)}
+                </span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex items-center gap-2 pt-1">
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&origin=${refLat},${refLon}&destination=${activeRouteTarget.lat},${activeRouteTarget.lon}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-2 px-3 rounded-xl bg-[#12161E] hover:bg-[#2A3241] text-white text-xs font-semibold text-center flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+              >
+                <span className="material-symbols-outlined text-sm">navigation</span>
+                <span>Open in Maps</span>
+              </a>
+              <button
+                type="button"
+                onClick={handleClearRoute}
+                className="py-2 px-3 rounded-xl bg-[#F2EEE7] hover:bg-[#E5DFD5] text-[#3D4654] text-xs font-semibold transition-colors cursor-pointer"
+              >
+                Clear
+>>>>>>> 15ff233 (feat: expand Essentials Near You (6 categories), 9 map modes with route line HUD, and visual landmark image discovery)
               </button>
             </div>
           </div>
         )}
+<<<<<<< HEAD
 
         {/* Selected Transit Route Floating Sheet */}
         {activeTransitRoute && viewMode === 'transit' && (
