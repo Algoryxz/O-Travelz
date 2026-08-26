@@ -34,7 +34,25 @@ export const PLACE_IMAGE_OVERRIDES: Record<string, string> = {
   "place_bbsr_001": "https://lh3.googleusercontent.com/aida-public/AB6AXuBe49mA0mm7Qpx5MT7y5Djc1elkDXFDsaNpmLpJ4PY6IgMjNj2zKrp8HaiUzLv0qaau1kssmLlGV_cMihm9Fe4_1yjjN3xBmz3ce-Qm4SC_oKAN8QUDWJ3fx_gXOc2oKzW-dxlJyIROyw2USQwWfx4-YboARQzxLieWAoRy__qL4Jnz968ztd8rV3fItXe9pUNk9oKT35gvx_wASv-SpZRJGWv-AEwHOUuaT67zAwPFqjxh8ed6Ckh-2jw7eySKtp1okPgYLyc5Kms", // Lingaraj Temple Bhubaneswar Heritage Precinct
   "place_chilika_001": "https://lh3.googleusercontent.com/aida-public/AB6AXuBncciVZ_jB169hv_MKF44YxFY_wzB-0nEJAi6vrAnpeouErvxxKFxom7VZ-7VH9-vNrDKxN8ByHJmV0fSwpDCvfWJimHI98mDrHhdQnuSK-QwL88IBCAMCSVoaVGRLgl5O7mtGsbvpmBuHP6F7yMkUsDNRu85F9aKH8KliiglC5e8ZyAzkBtt2vd3fxyF1_cC1PJSxaPskidx5Q5U3hRBdUeDZoLNEobb-CVjWhJsGiP4yU1xS39ATAVvK4PfVW7q626KW5dHZYu0", // Chilika Marine Lagoon
   "exp_ekamra_haat": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1080&auto=format&fit=crop&q=80", // Ekamra Haat Traditional Craft Hub
-  "Boyanika Sambalpuri Handloom Emporium": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1080&auto=format&fit=crop&q=80", // Boyanika Sambalpuri Handloom Emporium
+  "Ekamra Haat Urban Craft & Food Village": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1080&auto=format&fit=crop&q=80",
+  "exp_boyanika_handloom": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1080&auto=format&fit=crop&q=80", // Boyanika Sambalpuri Handloom Emporium
+  "Boyanika Sambalpuri Handloom Emporium": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1080&auto=format&fit=crop&q=80",
+  "exp_pahala_rasgulla": "/images/manual/food_khurda_001.webp", // Pahala Rasgulla & Chhena Gaja Trail (NH-16 Corridor)
+  "Pahala Rasgulla & Chhena Gaja Trail": "/images/manual/food_khurda_001.webp",
+  "exp_puri_mahaprasad": "/images/manual/food_puri_001.webp", // Ananda Bazaar Mahaprasad Experience (Puri Temple Complex)
+  "Ananda Bazaar Mahaprasad Experience": "/images/manual/food_puri_001.webp",
+  "exp_cuttack_dahibara": "/images/manual/food_cuttack_003.webp", // Cuttack Barabati Dahibara Aloodum (Barabati Bidanasi Hub)
+  "Cuttack Barabati Dahibara Aloodum": "/images/manual/food_cuttack_003.webp",
+  "exp_nayagarh_chhenapoda": "/images/manual/food_nayagarh_001.webp", // Nayagarh Authentic Chhena Poda (Nayagarh Birthplace Hub)
+  "Nayagarh Authentic Chhena Poda": "/images/manual/food_nayagarh_001.webp",
+  "exp_chilika_seafood": "/images/manual/food_jagatsinghpur_001.webp", // Satapada Fresh Lagoon Crab & Tiger Prawns (Chilika Coastal Kitchens)
+  "Satapada Fresh Lagoon Crab & Tiger Prawns": "/images/manual/food_jagatsinghpur_001.webp",
+  "exp_raghurajpur_craft": "https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=1080&auto=format&fit=crop&q=80", // Raghurajpur Heritage Pattachitra Village
+  "Raghurajpur Heritage Pattachitra Village": "https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=1080&auto=format&fit=crop&q=80",
+  "exp_pipili_applique": "https://images.unsplash.com/photo-1590736969955-71cc94801759?w=1080&auto=format&fit=crop&q=80", // Pipili Applique Artisan Bazaar
+  "Pipili Applique Artisan Bazaar": "https://images.unsplash.com/photo-1590736969955-71cc94801759?w=1080&auto=format&fit=crop&q=80",
+  "exp_esplanade_one": "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=1080&auto=format&fit=crop&q=80", // Esplanade One Shopping & Entertainment
+  "Esplanade One Shopping & Entertainment": "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=1080&auto=format&fit=crop&q=80",
 
   // 2. Phase 4 Ingested Authentic Manual Assets (Local Static Serving)
   "food_angul_001": "/images/manual/food_angul_001.webp", // Bantala Mati Handi Desi Meat & Thali Junction (Angul, highway_stop)
