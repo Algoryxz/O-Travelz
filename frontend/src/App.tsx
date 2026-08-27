@@ -4,7 +4,6 @@ import { AIProvider, useAI } from './context/AIContext';
 import { StitchNavbar, type StitchTab } from './components/stitch/StitchNavbar';
 import { StitchFooter } from './components/stitch/StitchFooter';
 import { StitchMobileDrawer } from './components/stitch/StitchMobileDrawer';
-import { StitchAuthModal } from './components/stitch/StitchAuthModal';
 import { StitchPreferencesModal } from './components/stitch/StitchPreferencesModal';
 import { StitchShareModal } from './components/stitch/StitchShareModal';
 import { StitchOnboardingModal, type TravelerPreferences } from './components/stitch/StitchOnboardingModal';
@@ -18,15 +17,23 @@ import { StitchPlannerPage } from './pages/stitch/StitchPlannerPage';
 import { StitchSavedPage } from './pages/stitch/StitchSavedPage';
 import { StitchResiliencePage } from './pages/stitch/StitchResiliencePage';
 import { StitchLegalPage } from './pages/stitch/StitchLegalPage';
+import { StitchSignInPage } from './pages/stitch/StitchSignInPage';
+import { getTabFromHash, getHashForTab } from './utils/navigation';
 
 export const AppContent: React.FC = () => {
-  const [currentTab, setCurrentTab] = useState<StitchTab>('discover');
+  const [currentTab, setCurrentTab] = useState<StitchTab>(() => {
+    try {
+      const hashTab = getTabFromHash(window.location.hash);
+      return (hashTab as StitchTab) || 'discover';
+    } catch {
+      return 'discover';
+    }
+  });
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   // Modals & Drawer State
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [isPreferencesOpen, setIsPreferencesOpen] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
@@ -68,11 +75,35 @@ export const AppContent: React.FC = () => {
     }
   }, []);
 
+  // Listen for browser hash navigation (e.g. #sign-in, #plan, #map, back/forward)
+  useEffect(() => {
+    const handleHashChange = () => {
+      try {
+        const resolved = getTabFromHash(window.location.hash);
+        if (resolved) {
+          setCurrentTab(resolved as StitchTab);
+        }
+      } catch {
+        // ignore
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const handleNavigate = (tab: StitchTab, params?: Record<string, string>) => {
     setCurrentTab(tab);
     setNavParams(params || {});
     if (params?.query) setSearchQuery(params.query);
     if (params?.category) setSelectedCategory(params.category);
+    try {
+      const targetHash = getHashForTab(tab);
+      if (window.location.hash !== targetHash) {
+        window.history.pushState(null, '', `${window.location.pathname}${window.location.search}${targetHash}`);
+      }
+    } catch {
+      // ignore
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -86,7 +117,7 @@ export const AppContent: React.FC = () => {
       <StitchNavbar
         currentTab={currentTab}
         onSelectTab={(tab) => handleNavigate(tab)}
-        onOpenAuth={() => setIsAuthOpen(true)}
+        onOpenAuth={() => handleNavigate('signin')}
         onOpenPreferences={() => setIsPreferencesOpen(true)}
         onOpenOnboarding={() => setIsOnboardingOpen(true)}
         onToggleMobileMenu={() => setIsMobileMenuOpen(prev => !prev)}
@@ -98,7 +129,7 @@ export const AppContent: React.FC = () => {
         onClose={() => setIsMobileMenuOpen(false)}
         currentTab={currentTab}
         onSelectTab={(tab) => handleNavigate(tab)}
-        onOpenAuth={() => setIsAuthOpen(true)}
+        onOpenAuth={() => handleNavigate('signin')}
         onOpenPreferences={() => setIsPreferencesOpen(true)}
       />
 
@@ -156,6 +187,12 @@ export const AppContent: React.FC = () => {
             onNavigate={handleNavigate}
           />
         )}
+
+        {currentTab === 'signin' && (
+          <StitchSignInPage
+            onNavigate={handleNavigate}
+          />
+        )}
       </main>
 
       {/* Persistent Floating AI Copilot Trigger [ ✦ AI ] */}
@@ -195,11 +232,6 @@ export const AppContent: React.FC = () => {
       <StitchFooter onSelectTab={(tab) => handleNavigate(tab)} />
 
       {/* Dialogs & Overlays */}
-      <StitchAuthModal
-        isOpen={isAuthOpen}
-        onClose={() => setIsAuthOpen(false)}
-      />
-
       <StitchPreferencesModal
         isOpen={isPreferencesOpen}
         onClose={() => setIsPreferencesOpen(false)}

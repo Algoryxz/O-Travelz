@@ -20,7 +20,8 @@ export type AppNavTab =
   | "privacy"
   | "terms"
   | "contact"
-  | "shared";
+  | "shared"
+  | "signin";
 
 export const SUPPORTED_HASH_TABS: Record<string, AppNavTab> = {
   discover: "discover",
@@ -33,6 +34,10 @@ export const SUPPORTED_HASH_TABS: Record<string, AppNavTab> = {
   terms: "terms",
   contact: "contact",
   shared: "shared",
+  signin: "signin",
+  "sign-in": "signin",
+  auth: "signin",
+  login: "signin",
 };
 
 /**
@@ -111,6 +116,8 @@ export function getHashForTab(tab: AppNavTab | string): string {
       return "#contact";
     case "shared":
       return "#shared";
+    case "signin":
+      return "#sign-in";
     case "discover":
     default:
       return "#discover";

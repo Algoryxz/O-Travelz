@@ -4,6 +4,7 @@ import { renderToString } from "react-dom/server";
 import { AuthStatusButton } from "../src/components/auth/AuthStatusButton";
 import { StitchNavbar } from "../src/components/stitch/StitchNavbar";
 import { StitchAuthModal } from "../src/components/stitch/StitchAuthModal";
+import { StitchSignInPage } from "../src/pages/stitch/StitchSignInPage";
 import { LocationProvider } from "../src/context/LocationContext";
 import { useAuth, setAuthStateForTesting } from "../src/store/useAuth";
 import {
@@ -134,6 +135,41 @@ describe("Frontend Authentication & Cloud Sync Suite", () => {
       expect(html).toContain("Jagannath");
       expect(html).toContain("jagannath@odisha.in");
       expect(html).toContain("Google Cloud Connected");
+      expect(html).toContain("Sign Out");
+    });
+
+    it("StitchSignInPage renders unauthenticated dedicated sign-in view with value proposition and Google CTA", () => {
+      setAuthStateForTesting({ user: null, isAuthenticated: false, isLoading: false });
+      const html = renderClean(
+        <StitchSignInPage onNavigate={vi.fn()} />
+      );
+      expect(html).toContain("Sign in to O-Travelz");
+      expect(html).toContain("Continue with Google");
+      expect(html).toContain("Cloud Sync Across Devices");
+      expect(html).toContain("Offline-First Resilience");
+      expect(html).toContain("Back to Expedition Explorer");
+    });
+
+    it("StitchSignInPage renders authenticated traveler profile with Open Trip Planner and Sign Out actions", () => {
+      setAuthStateForTesting({
+        user: {
+          id: "user-999",
+          email: "traveler999@odisha.in",
+          name: "Puri Explorer",
+          display_name: "Puri Explorer",
+          provider: "google",
+        },
+        isAuthenticated: true,
+        isLoading: false,
+      });
+      const html = renderClean(
+        <StitchSignInPage onNavigate={vi.fn()} />
+      );
+      expect(html).toContain("Your Traveler Profile");
+      expect(html).toContain("Puri Explorer");
+      expect(html).toContain("traveler999@odisha.in");
+      expect(html).toContain("Open Trip Planner");
+      expect(html).toContain("Sync Now");
       expect(html).toContain("Sign Out");
     });
 

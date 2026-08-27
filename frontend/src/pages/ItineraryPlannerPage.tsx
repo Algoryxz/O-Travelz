@@ -108,7 +108,7 @@ function findClosestOdishaHub(lat: number, lon: number): { name: string; distanc
 
 type PlanningMode = "structured" | "ai";
 type ResultViewTab = "itinerary" | "map";
-type AppView = NavTab | "category" | "settings" | "privacy" | "terms" | "contact" | "shared";
+type AppView = NavTab | "category" | "settings" | "privacy" | "terms" | "contact" | "shared" | "signin";
 
 interface ItineraryPlannerPageProps {
   apiClient?: ApiClient;

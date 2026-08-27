@@ -3,7 +3,7 @@ import { useLocation, CANONICAL_ODISHA_HUBS, type CanonicalHub } from '../../con
 import { useSavedPlaces } from '../../store/useSavedPlaces';
 import { AuthStatusButton } from '../auth/AuthStatusButton';
 
-export type StitchTab = 'discover' | 'destinations' | 'map' | 'plan' | 'saved' | 'resilience' | 'legal';
+export type StitchTab = 'discover' | 'destinations' | 'map' | 'plan' | 'saved' | 'resilience' | 'legal' | 'signin';
 
 interface StitchNavbarProps {
   currentTab: StitchTab;
@@ -24,6 +24,7 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
   weatherSummary = "Bhubaneswar: 32°C, Sunny",
   onOpenOnboarding,
 }) => {
+  const handleAuthAction = onOpenAuth || (() => onSelectTab('signin'));
   const {
     locationName,
     city,
@@ -305,7 +306,7 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
 
           {/* Desktop Auth Control */}
           <div className="hidden md:flex items-center">
-            <AuthStatusButton onOpenAuth={onOpenAuth} />
+            <AuthStatusButton onOpenAuth={handleAuthAction} />
           </div>
 
           {/* Mobile Drawer Trigger */}
