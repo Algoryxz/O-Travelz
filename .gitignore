@@ -22,6 +22,7 @@ __pycache__/
 !.env.example
 
 # Temporary files and artifacts
+artifacts/
 data/images/
 tmp/
 scratch/

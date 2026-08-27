@@ -134,7 +134,7 @@ export const AppContent: React.FC = () => {
       />
 
       {/* Main View Container */}
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full pt-16 sm:pt-18">
         {currentTab === 'discover' && (
           <StitchHomePage
             onNavigate={handleNavigate}
@@ -228,8 +228,10 @@ export const AppContent: React.FC = () => {
         }}
       />
 
-      {/* Footer */}
-      <StitchFooter onSelectTab={(tab) => handleNavigate(tab)} />
+      {/* Footer (Hidden on dedicated Map application screen) */}
+      {currentTab !== 'map' && (
+        <StitchFooter onSelectTab={(tab) => handleNavigate(tab)} />
+      )}
 
       {/* Dialogs & Overlays */}
       <StitchPreferencesModal

@@ -203,6 +203,7 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
           {/* Clean Single-Line Navigation Links (No Duplicate Saved Journey) */}
           <div className="flex items-center gap-3.5 lg:gap-5 xl:gap-6 font-body text-xs lg:text-sm font-medium">
             <button
+              data-testid="nav-tab-discover"
               onClick={() => onSelectTab('discover')}
               className={`whitespace-nowrap transition-colors focus:outline-none cursor-pointer pb-0.5 border-b-2 ${
                 currentTab === 'discover'
@@ -213,6 +214,7 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
               Discover
             </button>
             <button
+              data-testid="nav-tab-destinations"
               onClick={() => onSelectTab('destinations')}
               className={`whitespace-nowrap transition-colors focus:outline-none cursor-pointer pb-0.5 border-b-2 ${
                 currentTab === 'destinations'
@@ -223,6 +225,7 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
               Destinations
             </button>
             <button
+              data-testid="nav-tab-map"
               onClick={() => onSelectTab('map')}
               className={`whitespace-nowrap transition-colors focus:outline-none cursor-pointer pb-0.5 border-b-2 ${
                 currentTab === 'map'
@@ -233,6 +236,7 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
               Map &amp; Routes
             </button>
             <button
+              data-testid="nav-tab-plan"
               onClick={() => onSelectTab('plan')}
               className={`whitespace-nowrap transition-colors focus:outline-none cursor-pointer pb-0.5 border-b-2 ${
                 currentTab === 'plan'

@@ -243,6 +243,7 @@ export const PlaceInfoCard: React.FC<PlaceInfoCardProps> = ({
         <div className="flex gap-2 pt-2 border-t border-[#F0EBE1]">
           {onDrawRoute && place.lat != null && place.lon != null && (
             <button
+              data-testid="place-card-route-btn"
               onClick={() =>
                 onDrawRoute({
                   lat: place.lat!,
