@@ -11,10 +11,13 @@ from __future__ import annotations
 import datetime
 from datetime import timezone
 import hashlib
+import logging
 import secrets
 import uuid
 from typing import Optional, Tuple
 from sqlalchemy.orm import Session, joinedload
+
+logger = logging.getLogger(__name__)
 
 from app.models.session import UserSession
 from app.models.user import User
@@ -68,14 +71,22 @@ def verify_session(
     Rejects missing, expired, or revoked sessions.
     """
     if not session_token:
+        logger.warning("[SESSION_VERIFY] No token provided — unauthenticated")
         return None
 
     clean_token = session_token.strip().strip('"')
     if len(clean_token) < 16:
+        logger.warning("[SESSION_VERIFY] Token too short (len=%d) — rejecting", len(clean_token))
         return None
 
     token_hash = hash_session_token(clean_token)
     now = utc_now()
+
+    logger.warning(
+        "[SESSION_VERIFY] Looking up session: token_len=%d hash_prefix=%s",
+        len(clean_token),
+        token_hash[:8],
+    )
 
     session_record = (
         db.query(UserSession)
@@ -87,7 +98,16 @@ def verify_session(
         .first()
     )
 
-    if not session_record or not session_record.user:
+    if not session_record:
+        logger.warning("[SESSION_VERIFY] No matching session record found for hash_prefix=%s", token_hash[:8])
+        return None
+
+    if not session_record.user:
+        logger.error(
+            "[SESSION_VERIFY] Session found (id=%s) but user relationship is None — user_id=%s",
+            session_record.id,
+            session_record.user_id,
+        )
         return None
 
     # Timezone-safe timestamp comparison across PostgreSQL naive timestamps and SQLite
@@ -96,8 +116,20 @@ def verify_session(
         if record_expires.tzinfo is None:
             record_expires = record_expires.replace(tzinfo=timezone.utc)
         if record_expires <= now:
+            logger.warning(
+                "[SESSION_VERIFY] Session expired: session_id=%s expired_at=%s now=%s",
+                session_record.id,
+                record_expires,
+                now,
+            )
             return None
 
+    logger.warning(
+        "[SESSION_VERIFY] Session OK: session_id=%s user_id=%s email=%s",
+        session_record.id,
+        session_record.user_id,
+        session_record.user.email,
+    )
     return session_record.user
 
 
