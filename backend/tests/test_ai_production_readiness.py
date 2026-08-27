@@ -37,10 +37,54 @@ from app.main import app
 from app.ai.schemas import AIStatus
 from app.schemas.common import PlanningConstraints
 
+from app.ai.boundary import ToolExecutionBoundary
+from app.ai.adapter import create_provider_adapter
+from app.api.ai_routes import get_grounded_orchestrator
+from app.services.ranking import InMemoryPlaceRepository, VerifiedPlace
+from app.transport.adapters.walking import Coordinate
+from app.services.itinerary import ItineraryService
+from app.transport.service import TransportService
 from app.services.search.search_correction import SearchCorrectionService
 
-
 client = TestClient(app)
+
+
+@pytest.fixture(autouse=True)
+def setup_ai_grounding_fixture():
+    places = [
+        VerifiedPlace("puri", "district", "Puri", coordinate=Coordinate(19.8049, 85.8179)),
+        VerifiedPlace("bhubaneswar", "district", "Bhubaneswar", coordinate=Coordinate(20.2961, 85.8245)),
+        VerifiedPlace("konark", "district", "Konark", coordinate=Coordinate(19.8876, 86.0945)),
+        VerifiedPlace("puri-golden-beach", "beach", "Puri Golden Beach", coordinate=Coordinate(19.7983, 85.8249)),
+        VerifiedPlace("jagannath-temple", "heritage", "Jagannath Temple, Puri", coordinate=Coordinate(19.8049, 85.8179)),
+        VerifiedPlace("konark-sun-temple", "heritage", "Konark Sun Temple", coordinate=Coordinate(19.8876, 86.0945)),
+        VerifiedPlace("chandrabhaga-beach", "beach", "Chandrabhaga Beach", coordinate=Coordinate(19.8667, 86.1167)),
+        VerifiedPlace("swargadwar-beach", "beach", "Swargadwar Beach", coordinate=Coordinate(19.7950, 85.8150)),
+        VerifiedPlace("gundicha-temple", "heritage", "Gundicha Temple, Puri", coordinate=Coordinate(19.8220, 85.8350)),
+        VerifiedPlace("lingaraj-temple", "heritage", "Lingaraj Temple", coordinate=Coordinate(20.2382, 85.8338)),
+        VerifiedPlace("mukteswar-temple", "heritage", "Mukteswar Temple", coordinate=Coordinate(20.2420, 85.8360)),
+        VerifiedPlace("rajarani-temple", "heritage", "Rajarani Temple", coordinate=Coordinate(20.2510, 85.8420)),
+        VerifiedPlace("dhauli-stupa", "heritage", "Dhauli Shanti Stupa", coordinate=Coordinate(20.1920, 85.8390)),
+        VerifiedPlace("khandagiri-caves", "heritage", "Udayagiri and Khandagiri Caves", coordinate=Coordinate(20.2590, 85.7870)),
+    ]
+    repo = InMemoryPlaceRepository(places)
+    coords_map = {p.database_id: p.coordinate for p in places}
+    from app.transport.service import MappingPlaceResolver
+    resolver = MappingPlaceResolver(coords_map)
+    transport = TransportService(resolver, adapters=[])
+    itin_service = ItineraryService(repo, transport)
+    registry = create_default_tool_registry(None, itin_service, transport)
+    boundary = ToolExecutionBoundary(registry)
+    provider_adapter = create_provider_adapter(Settings())
+    orch = GroundedConversationOrchestrator(
+        registry=registry,
+        boundary=boundary,
+        provider_adapter=provider_adapter,
+        model_adapter=RuleBasedModelAdapter(),
+    )
+    app.dependency_overrides[get_grounded_orchestrator] = lambda: orch
+    yield
+    app.dependency_overrides.pop(get_grounded_orchestrator, None)
 
 
 class TestE2EProductionReadiness:

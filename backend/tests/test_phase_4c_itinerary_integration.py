@@ -17,10 +17,11 @@ Comprehensive validation covering:
 13. Zero fabricated schedule values.
 """
 import json
-from uuid import UUID
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
+
+pytestmark = pytest.mark.integration
 
 from app.db.session import SessionLocal
 from app.main import app

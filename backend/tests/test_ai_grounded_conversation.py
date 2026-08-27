@@ -442,7 +442,15 @@ def test_plan_with_ai_backward_compatibility(test_orchestrator):
 
 
 def test_api_routes_integration(test_orchestrator):
-    from app.api.ai_routes import get_grounded_orchestrator
+    from app.api.ai_routes import get_ai_orchestrator, get_grounded_orchestrator
+    
+    class MockAIOrchestrator:
+        def __init__(self, orch):
+            self.orch = orch
+        def orchestrate(self, message, constraints=None):
+            return self.orch.plan_with_ai(message, constraints)
+
+    app.dependency_overrides[get_ai_orchestrator] = lambda: MockAIOrchestrator(test_orchestrator)
     app.dependency_overrides[get_grounded_orchestrator] = lambda: test_orchestrator
     try:
         client = TestClient(app)

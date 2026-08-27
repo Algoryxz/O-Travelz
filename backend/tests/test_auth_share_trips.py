@@ -26,12 +26,8 @@ def reset_rate_limiters():
 
 
 @pytest.fixture
-def db_session():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+def db_session(unit_db: Session):
+    yield unit_db
 
 
 @pytest.fixture

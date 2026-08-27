@@ -14,6 +14,8 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
+pytestmark = pytest.mark.integration
+
 from app.db.session import SessionLocal
 from app.main import app
 from app.models.transport import Route, RouteStop, ScheduledTripGroup, Stop, TransportProvider

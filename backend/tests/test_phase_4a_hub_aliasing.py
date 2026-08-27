@@ -16,10 +16,11 @@ Verifies:
 12. Coordinate invariants (41 geocoded, 1389 unresolved).
 """
 import json
-from uuid import UUID
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
+
+pytestmark = pytest.mark.integration
 
 from app.db.session import SessionLocal
 from app.main import app

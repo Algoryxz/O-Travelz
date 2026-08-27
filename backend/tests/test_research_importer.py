@@ -11,6 +11,8 @@ Verifies:
 import pytest
 from sqlalchemy.orm import Session
 
+pytestmark = pytest.mark.integration
+
 from app.db.session import SessionLocal
 from app.models.transport import Route, Stop, RouteStop
 from app.models.transit_intelligence import (

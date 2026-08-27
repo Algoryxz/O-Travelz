@@ -709,7 +709,15 @@ class TestHTTPAIRoutesIntegration:
             boundary=ToolExecutionBoundary(reg),
             model_adapter=RuleBasedModelAdapter(),
         )
+        from app.api.ai_routes import get_ai_orchestrator, get_grounded_orchestrator
 
+        class MockAIOrchestrator:
+            def __init__(self, o):
+                self.o = o
+            def orchestrate(self, message, constraints=None):
+                return self.o.plan_with_ai(message, constraints)
+
+        app.dependency_overrides[get_ai_orchestrator] = lambda: MockAIOrchestrator(orch)
         app.dependency_overrides[get_grounded_orchestrator] = lambda: orch
         yield
         app.dependency_overrides.clear()

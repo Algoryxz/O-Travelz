@@ -16,10 +16,11 @@ K. Coordinate safety: 1,389 unresolved stops retain location=NULL and coordinate
 L. Exact graph invariants: 3 providers, 154 routes, 1,430 stops, 1,487 links, 302 schedules, 5,553 departures.
 """
 import json
-from uuid import UUID
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
+
+pytestmark = pytest.mark.integration
 
 from app.db.session import SessionLocal
 from app.main import app

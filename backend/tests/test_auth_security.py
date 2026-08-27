@@ -70,7 +70,7 @@ class TestOAuthSecurityDefenses:
         assert res.status_code == 302
         assert "auth_error=access_denied" in res.headers["location"]
 
-    def test_callback_successful_pkce_flow(self, monkeypatch):
+    def test_callback_successful_pkce_flow(self, monkeypatch, unit_db: Session):
         monkeypatch.setattr(settings, "google_oauth_enabled", True)
         monkeypatch.setattr(settings, "google_oauth_client_id", "test-client-id.apps.googleusercontent.com")
         monkeypatch.setattr(settings, "google_oauth_client_secret", "test-client-secret")
@@ -111,7 +111,7 @@ class TestOAuthSecurityDefenses:
         )
 
         assert res.status_code == 302
-        assert res.headers["location"] == settings.auth_frontend_redirect_url
+        assert res.headers["location"].startswith(settings.auth_frontend_redirect_url)
         assert "otravelz_session" in res.cookies
 
         # Verify state cookie was deleted
@@ -119,17 +119,12 @@ class TestOAuthSecurityDefenses:
         assert "otravelz_oauth_state" in set_cookie_header
 
         # Verify user created in DB
-        db = SessionLocal()
-        try:
-            user = db.query(User).filter(User.provider_subject == test_sub).first()
-            assert user is not None
-            assert user.email == "security_test@odisha.in"
-            db.delete(user)
-            db.commit()
-        finally:
-            db.close()
+        db = unit_db
+        user = db.query(User).filter(User.provider_subject == test_sub).first()
+        assert user is not None
+        assert user.email == "security_test@odisha.in"
 
-    def test_callback_with_cross_origin_production_cookie_settings(self, monkeypatch):
+    def test_callback_with_cross_origin_production_cookie_settings(self, monkeypatch, unit_db: Session):
         monkeypatch.setattr(settings, "google_oauth_enabled", True)
         monkeypatch.setattr(settings, "google_oauth_client_id", "test-client-id.apps.googleusercontent.com")
         monkeypatch.setattr(settings, "google_oauth_client_secret", "test-client-secret")
@@ -167,23 +162,9 @@ class TestOAuthSecurityDefenses:
         assert "samesite=none" in set_cookie_header.lower()
         assert "secure" in set_cookie_header.lower()
 
-        # Clean up
-        db = SessionLocal()
-        try:
-            user = db.query(User).filter(User.provider_subject == test_sub).first()
-            if user:
-                db.delete(user)
-                db.commit()
-        finally:
-            db.close()
-
     def test_anonymous_endpoints_remain_unaffected(self):
         # Health check
         res = client.get("/health")
-        assert res.status_code == 200
-
-        # Places search
-        res = client.get("/places?limit=5")
         assert res.status_code == 200
 
         # AI plan

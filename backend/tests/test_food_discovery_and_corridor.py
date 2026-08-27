@@ -63,6 +63,7 @@ def test_point_to_segment_calculation_and_detour_classification():
     assert classify_detour(dist4) == "OUT_OF_CORRIDOR"
 
 
+@pytest.mark.integration
 def test_corridor_food_service_discovers_verified_candidates():
     """Verify CorridorFoodService finds food places near Capital Region routes (e.g. Route 09 / 12)."""
     db: Session = SessionLocal()
@@ -97,6 +98,7 @@ def test_corridor_food_service_discovers_verified_candidates():
         db.close()
 
 
+@pytest.mark.integration
 def test_corridor_food_dietary_and_cuisine_filtering():
     """Verify dietary_tag and cuisine filtering work deterministically."""
     db: Session = SessionLocal()
@@ -121,6 +123,7 @@ def test_corridor_food_dietary_and_cuisine_filtering():
         db.close()
 
 
+@pytest.mark.integration
 def test_insufficient_geometry_route_returns_explicit_status():
     """Verify a route with 0 or 1 coordinate stop returns geometry_unavailable without errors."""
     db: Session = SessionLocal()
@@ -150,6 +153,7 @@ def test_insufficient_geometry_route_returns_explicit_status():
         db.close()
 
 
+@pytest.mark.integration
 def test_corridor_food_http_endpoint_contracts():
     """Test HTTP endpoint GET /transport/corridor-food with UUIDs and public route IDs."""
     db: Session = SessionLocal()
@@ -211,6 +215,7 @@ def test_corridor_food_http_endpoint_contracts():
     assert resp_422.status_code == 422
 
 
+@pytest.mark.integration
 def test_transport_graph_invariants_preserved():
     """Assert transport graph invariant counts remain strictly unchanged."""
     db: Session = SessionLocal()

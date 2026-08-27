@@ -84,62 +84,55 @@ class TestAuthDatabaseAndModels:
         assert trip.title == "3-Day Puri & Konark Tour"
         assert trip.is_deleted is False
 
-    def test_database_persistence_and_relationships(self):
-        db: Session = SessionLocal()
+    def test_database_persistence_and_relationships(self, unit_db: Session):
+        db = unit_db
         test_sub = f"test-sub-{uuid.uuid4()}"
         test_email = f"test_{uuid.uuid4()}@example.com"
-        try:
-            # 1. Create user
-            user = User(
-                id=uuid.uuid4(),
-                email=test_email,
-                name="Persistence Test User",
-                provider="google",
-                provider_subject=test_sub,
-            )
-            db.add(user)
-            db.commit()
+        # 1. Create user
+        user = User(
+            id=uuid.uuid4(),
+            email=test_email,
+            name="Persistence Test User",
+            provider="google",
+            provider_subject=test_sub,
+        )
+        db.add(user)
+        db.commit()
 
-            # 2. Add session, saved place, and trip
-            session = UserSession(
-                id=uuid.uuid4(),
-                user_id=user.id,
-                session_token_hash=f"hash-{uuid.uuid4()}",
-                expires_at=datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=7),
-            )
-            saved_place = UserSavedPlace(
-                id=uuid.uuid4(),
-                user_id=user.id,
-                place_id="konark_sun_temple",
-                place_name="Konark Sun Temple",
-                place_data={"district": "Puri"},
-                saved_at=1700000000000,
-                updated_at=1700000000000,
-            )
-            saved_trip = UserSavedTrip(
-                id=f"trip_{uuid.uuid4()}",
-                user_id=user.id,
-                title="Konark Heritage Tour",
-                history=[],
-                timestamp=1700000000000,
-                updated_at=1700000000000,
-            )
-            db.add_all([session, saved_place, saved_trip])
-            db.commit()
+        # 2. Add session, saved place, and trip
+        session = UserSession(
+            id=uuid.uuid4(),
+            user_id=user.id,
+            session_token_hash=f"hash-{uuid.uuid4()}",
+            expires_at=datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=7),
+        )
+        saved_place = UserSavedPlace(
+            id=uuid.uuid4(),
+            user_id=user.id,
+            place_id="konark_sun_temple",
+            place_name="Konark Sun Temple",
+            place_data={"district": "Puri"},
+            saved_at=1700000000000,
+            updated_at=1700000000000,
+        )
+        saved_trip = UserSavedTrip(
+            id=f"trip_{uuid.uuid4()}",
+            user_id=user.id,
+            title="Konark Heritage Tour",
+            history=[],
+            timestamp=1700000000000,
+            updated_at=1700000000000,
+        )
+        db.add_all([session, saved_place, saved_trip])
+        db.commit()
 
-            # 3. Query back and verify relationships
-            loaded_user = db.query(User).filter(User.id == user.id).first()
-            assert loaded_user is not None
-            assert len(loaded_user.sessions) == 1
-            assert len(loaded_user.saved_places) == 1
-            assert len(loaded_user.saved_trips) == 1
-            assert loaded_user.saved_places[0].place_name == "Konark Sun Temple"
-
-            # 4. Clean up
-            db.delete(loaded_user)
-            db.commit()
-        finally:
-            db.close()
+        # 3. Query back and verify relationships
+        loaded_user = db.query(User).filter(User.id == user.id).first()
+        assert loaded_user is not None
+        assert len(loaded_user.sessions) == 1
+        assert len(loaded_user.saved_places) == 1
+        assert len(loaded_user.saved_trips) == 1
+        assert loaded_user.saved_places[0].place_name == "Konark Sun Temple"
 
 
 class TestSecureConfiguration:

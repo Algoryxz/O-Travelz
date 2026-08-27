@@ -49,6 +49,7 @@ def test_reverse_geocode_coordinates_no_raw_coordinates():
         assert res["country"] == "India"
 
 
+@pytest.mark.integration
 def test_place_detail_response_includes_research_id():
     """Verify PlaceDetailResponse includes research_id field."""
     response = client.get("/places")
@@ -69,6 +70,7 @@ def test_place_detail_response_includes_research_id():
     assert "category" in detail_data
 
 
+@pytest.mark.integration
 def test_nearby_stops_api_contract():
     """Verify /transport/stops/nearby returns verified geocoded stops."""
     # Near Master Canteen Bhubaneswar
@@ -87,6 +89,7 @@ def test_nearby_stops_api_contract():
     assert "routes_serving_stop" in first_stop
 
 
+@pytest.mark.integration
 def test_transport_map_api_contract():
     """Verify /transport/map returns stops and verified route geometries."""
     response = client.get("/transport/map")
@@ -100,6 +103,7 @@ def test_transport_map_api_contract():
     assert data["total_stops"] == 1430
 
 
+@pytest.mark.integration
 def test_multimodal_journey_planning_api_contract():
     """Verify multimodal journey planning endpoint returns valid JSON structure."""
     payload = {
@@ -120,6 +124,7 @@ def test_multimodal_journey_planning_api_contract():
     assert "total_estimated_duration_minutes" in journey
 
 
+@pytest.mark.integration
 def test_database_invariants_post_phase_4():
     """Verify authoritative database invariants."""
     db = SessionLocal()

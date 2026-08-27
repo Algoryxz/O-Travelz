@@ -16,12 +16,12 @@ Comprehensive validation covering:
 12. Exact graph invariance (3 providers, 154 routes, 1430 stops, 1487 links, 302 schedules, 5553 departures, 41 geocoded, 1389 unresolved).
 13. Required indexes presence (idx_stops_location, ix_route_stops_route_id, ix_route_stops_stop_id).
 """
-import json
-from unittest.mock import patch
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import text
 from sqlalchemy.orm import Session
+
+pytestmark = pytest.mark.integration
 
 from app.core.config import settings
 from app.db.session import SessionLocal, engine

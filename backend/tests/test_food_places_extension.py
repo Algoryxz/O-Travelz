@@ -105,6 +105,7 @@ def test_place_model_food_columns():
     assert hasattr(Place, "food_category")
 
 
+@pytest.mark.integration
 def test_food_place_serialization_and_null_safety():
     """Verify serializer includes food fields for food places and handles non-food places safely."""
     db: Session = SessionLocal()
@@ -134,6 +135,7 @@ def test_food_place_serialization_and_null_safety():
         db.close()
 
 
+@pytest.mark.integration
 def test_transport_graph_invariants_preserved():
     """Verify transport database has exactly 3 providers, 154 routes, 1,430 stops, 1,487 links."""
     db: Session = SessionLocal()

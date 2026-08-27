@@ -60,12 +60,12 @@ def get_grounded_orchestrator(db: Session = Depends(get_db)) -> GroundedConversa
 def plan_with_ai(
     request: AIPlanRequest,
     req: Request,
-    orchestrator: GroundedConversationOrchestrator = Depends(get_grounded_orchestrator),
+    orchestrator: AIOrchestrator = Depends(get_ai_orchestrator),
 ) -> AIResponse:
     client_ip = req.client.host if req.client else "127.0.0.1"
     is_ext = getattr(settings, "ai_allow_external_provider", False) and getattr(settings, "ai_provider", "") not in ("mock", "rule_based")
     rate_limiter.enforce_rate_limit(client_ip, is_external_request=is_ext, settings=settings)
-    return orchestrator.plan_with_ai(request.message, request.constraints)
+    return orchestrator.orchestrate(request.message, request.constraints)
 
 
 @router.post("/converse", response_model=GroundedConversationResponse)

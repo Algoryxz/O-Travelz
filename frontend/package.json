@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "test": "vitest run",
     "validate:data": "node scripts/validate_data.js",
+    "coverage:data": "node scripts/generate_coverage_report.cjs",
     "preview": "vite preview"
   },
   "dependencies": {
