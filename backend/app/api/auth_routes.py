@@ -58,6 +58,13 @@ def get_current_user(
         if auth_header and auth_header.startswith("Bearer "):
             session_token = auth_header[7:].strip()
 
+    logger.warning(
+        "[AUTH_TRACE] cookie_present=%s cookie_len=%s authorization_present=%s",
+        bool(session_token),
+        len(session_token) if session_token else 0,
+        bool(request.headers.get("Authorization")),
+    )
+
     if not session_token:
         return None
     return verify_session(db, session_token)
