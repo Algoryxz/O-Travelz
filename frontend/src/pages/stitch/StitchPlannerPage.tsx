@@ -2,7 +2,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import type { StitchTab } from '../../components/stitch/StitchNavbar';
 import { apiClient } from '../../api/client';
 import { useRegisterAIContext } from '../../context/AIContext';
-import type { ItineraryPlanResponse, PlaceDetail } from '../../api/contracts';
+import type { ItineraryPlanResponse, PlaceDetail, GroundedConversationResponse } from '../../api/contracts';
+import { CopilotItineraryCard } from '../../components/ai/CopilotItineraryCard';
 import { getFoodExperiencesForRegion, ODISHA_EXPERIENCES, type OdishaExperience } from '../../data/odishaExperiences';
 import { getCategoryFallbackSvg } from '../../utils/imageRegistry';
 import { getPlaceImageUrl } from '../../utils/imageService';
@@ -171,6 +172,7 @@ export const StitchPlannerPage: React.FC<StitchPlannerPageProps> = ({
 
   const [aiPrompt, setAiPrompt] = useState('');
   const [aiResponse, setAiResponse] = useState<string | null>(null);
+  const [aiResponseData, setAiResponseData] = useState<GroundedConversationResponse | null>(null);
   const [aiLoading, setAiLoading] = useState(false);
   const [aiError, setAiError] = useState<string | null>(null);
   const [lastFailedPrompt, setLastFailedPrompt] = useState<string | null>(null);
@@ -490,7 +492,12 @@ export const StitchPlannerPage: React.FC<StitchPlannerPageProps> = ({
       });
       if (res && res.message) {
         setAiResponse(res.message);
+        setAiResponseData(res);
         setLastFailedPrompt(null);
+        if (res.itinerary && res.itinerary.days && res.itinerary.days.length > 0) {
+          setGeneratedItinerary(res.itinerary);
+          setRouteCoverage('fully_routed');
+        }
       } else {
         throw new Error('Empty AI response received.');
       }
@@ -966,12 +973,29 @@ export const StitchPlannerPage: React.FC<StitchPlannerPageProps> = ({
               )}
             </div>
           ) : (
-            <p className="font-body text-[#3D4654] text-base leading-relaxed border-l-2 border-[#B87B22] pl-4 py-1">
-              {aiResponse ||
-                (planningAnchor
-                  ? `"I have structured a ${days}-day circuit anchored around ${planningAnchor.placeName} in ${planningAnchor.district}. Nearby verified highlights, scenic roads, and authentic culinary stops have been integrated."`
-                  : `"I have aligned a ${days}-day circuit starting from ${selectedHub} tailored around ${selectedPassions.join(', ')}. Key recommendations: Start early for Lingaraj to beat temple queues, stop at Pahala for fresh hot Rasgulla on the Cuttack-Bhubaneswar corridor, and explore local Odia delicacies in Pipili."`)}
-            </p>
+            <div>
+              <p className="font-body text-[#3D4654] text-base leading-relaxed border-l-2 border-[#B87B22] pl-4 py-1">
+                {aiResponse ||
+                  (planningAnchor
+                    ? `"I have structured a ${days}-day circuit anchored around ${planningAnchor.placeName} in ${planningAnchor.district}. Nearby verified highlights, scenic roads, and authentic culinary stops have been integrated."`
+                    : `"I have aligned a ${days}-day circuit starting from ${selectedHub} tailored around ${selectedPassions.join(', ')}. Key recommendations: Start early for Lingaraj to beat temple queues, stop at Pahala for fresh hot Rasgulla on the Cuttack-Bhubaneswar corridor, and explore local Odia delicacies in Pipili."`)}
+              </p>
+              {aiResponseData?.itinerary && aiResponseData.itinerary.days && aiResponseData.itinerary.days.length > 0 && (
+                <div className="mt-4 pt-3 border-t border-[#E5DFD5]">
+                  <CopilotItineraryCard
+                    itinerary={aiResponseData.itinerary}
+                    language={aiResponseData.language || "en"}
+                    onViewItineraryTab={() => {
+                      if (aiResponseData.itinerary) {
+                        setGeneratedItinerary(aiResponseData.itinerary);
+                      }
+                      const el = document.getElementById('itinerary-timeline-section');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  />
+                </div>
+              )}
+            </div>
           )}
 
           {/* Prompt input */}

@@ -79,12 +79,82 @@ def seed_database_if_empty() -> None:
                     import_food_research()
                 except Exception as food_exc:
                     print(f"[STARTUP WARNING] Food research import note: {food_exc}", flush=True)
-            else:
-                print(
-                    f"[STARTUP] Database verified: {place_count} places and {cat_count} categories present. "
-                    f"Skipping seed (non-destructive guarantee).",
-                    flush=True,
-                )
+
+            # Check if transit routes and stops are present
+            from app.models.transport import Route
+            route_count = db.query(Route).count()
+            if route_count == 0:
+                print("[STARTUP] Transit routes not detected. Running official transit dataset import...", flush=True)
+                try:
+                    from app.transport.importer import OfficialTransitImporter
+                    transit_importer = OfficialTransitImporter(db)
+                    transit_summary = transit_importer.run_import()
+                    print(
+                        f"[STARTUP] Transit network import complete: "
+                        f"{transit_summary.routes_upserted} routes, "
+                        f"{transit_summary.stops_upserted} stops.",
+                        flush=True,
+                    )
+                except Exception as transit_exc:
+                    print(f"[STARTUP WARNING] Transit import note: {transit_exc}", flush=True)
+
+                try:
+                    from app.transport.research_importer import TransitIntelligenceImporter
+                    intel_importer = TransitIntelligenceImporter(db)
+                    intel_report = intel_importer.import_all()
+                    print(
+                        f"[STARTUP] Transit intelligence import complete: "
+                        f"{intel_report.routes_count} routes, "
+                        f"{intel_report.corridors_count} corridors.",
+                        flush=True,
+                    )
+                except Exception as intel_exc:
+                    print(f"[STARTUP WARNING] Transit intelligence import note: {intel_exc}", flush=True)
+
+            # Check if place images are mapped
+            from app.models.place_image import PlaceImage
+            img_count = db.query(PlaceImage).count()
+            if img_count == 0:
+                manifest_path = WORKSPACE_ROOT / "data" / "images" / "sources" / "manifest.json"
+                if manifest_path.exists():
+                    import json
+                    try:
+                        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+                        synced = 0
+                        for m in manifest:
+                            pid = m.get("place_id")
+                            place = db.query(Place).filter(Place.research_id == pid).first()
+                            if not place and m.get("place_name"):
+                                place = db.query(Place).filter(Place.name.ilike(m["place_name"].strip())).first()
+                            if place:
+                                img = PlaceImage(
+                                    place_id=place.id,
+                                    storage_key=f"{pid}/{m['asset_hash']}",
+                                    url=f"/static/images/places/{pid}/{m['asset_hash']}/hero.webp",
+                                    card_url=f"/static/images/places/{pid}/{m['asset_hash']}/card.webp",
+                                    thumbnail_url=f"/static/images/places/{pid}/{m['asset_hash']}/thumbnail.webp",
+                                    content_sha256=m.get("content_sha256", ""),
+                                    source_name=m.get("source_name", "Curated"),
+                                    source_url=m.get("source_url", ""),
+                                    creator=m.get("creator", ""),
+                                    license=m.get("license", ""),
+                                    attribution=m.get("attribution", ""),
+                                    title=m.get("title", ""),
+                                    alt_text=m.get("alt_text", ""),
+                                    is_primary=True,
+                                )
+                                db.add(img)
+                                synced += 1
+                        db.commit()
+                        print(f"[STARTUP] Place images synced: {synced} records.", flush=True)
+                    except Exception as img_exc:
+                        print(f"[STARTUP WARNING] PlaceImage sync note: {img_exc}", flush=True)
+
+            print(
+                f"[STARTUP] Database verified: {place_count} places, {cat_count} categories, {route_count} routes. "
+                f"Seed verification complete.",
+                flush=True,
+            )
         except Exception as exc:
             db.rollback()
             print(

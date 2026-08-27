@@ -371,4 +371,30 @@ describe('Grounded AI Itinerary Visual Rendering', () => {
     expect(html).toContain('Travel details unverified');
     expect(html).not.toContain('Mo Bus');
   });
+
+  it('8. Embedded StitchPlannerPage AI Copilot renders visual day-by-day itinerary upon receiving response', () => {
+    const html = renderClean(
+      <div>
+        <div className="bg-white border border-[#E5DFD5] rounded-xl p-6 shadow-xs mb-6">
+          <p className="font-body text-[#3D4654] text-base leading-relaxed border-l-2 border-[#B87B22] pl-4 py-1">
+            ମୁଁ Cuttack ରୁ ଆରମ୍ଭ ହୋଇ 2-ଦିନର ଏକ ଯାଞ୍ଚିତ ଯାତ୍ରା ଯୋଜନା ପ୍ରସ୍ତୁତ କରିଛି।
+          </p>
+          <div className="mt-4 pt-3 border-t border-[#E5DFD5]">
+            <CopilotItineraryCard
+              itinerary={sampleItineraryOdia}
+              language="or"
+              onViewItineraryTab={() => {}}
+            />
+          </div>
+        </div>
+      </div>
+    );
+
+    expect(html).toContain('ମୁଁ Cuttack ରୁ ଆରମ୍ଭ ହୋଇ 2-ଦିନର ଏକ ଯାଞ୍ଚିତ ଯାତ୍ରା ଯୋଜନା ପ୍ରସ୍ତୁତ କରିଛି।');
+    expect(html).toContain('ଦିବସ ୧');
+    expect(html).toContain('ଦିବସ ୨');
+    expect(html).toContain('ଶ୍ରୀ ଜଗନ୍ନାଥ ମନ୍ଦିର');
+    expect(html).toContain('କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର');
+    expect(html).toContain('ଟ୍ରିପ୍ ପ୍ଲାନର୍‌ରେ ଦେଖନ୍ତୁ');
+  });
 });

@@ -208,12 +208,18 @@ export const AIConversationPanel: React.FC<AIConversationPanelProps> = ({
                           </div>
                         )}
 
-                        {turn.response && "itinerary" in turn.response && turn.response.itinerary && turn.response.itinerary.days && turn.response.itinerary.days.length > 0 && (
-                          <CopilotItineraryCard
-                            itinerary={turn.response.itinerary}
-                            language={turn.language || (turn.response as any).language || "en"}
-                          />
-                        )}
+                        {(() => {
+                          const turnItinerary = (turn.response as any)?.itinerary || (turn as any)?.itinerary;
+                          if (turnItinerary && turnItinerary.days && turnItinerary.days.length > 0) {
+                            return (
+                              <CopilotItineraryCard
+                                itinerary={turnItinerary}
+                                language={turn.language || (turn.response as any)?.language || "en"}
+                              />
+                            );
+                          }
+                          return null;
+                        })()}
 
                         {turn.is_grounded !== false && (
                           <div className="text-[10px] text-[#70798B] font-mono flex items-center gap-1 mt-1 pt-1 border-t border-[#E5DFD5]">
