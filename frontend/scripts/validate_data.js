@@ -98,26 +98,72 @@ if (fs.existsSync(AMA_BUS_SCHEDULE_JSON)) {
 // 3. Audit staticTransitStops.ts
 if (fs.existsSync(TRANSIT_STOPS_TS)) {
   const content = fs.readFileSync(TRANSIT_STOPS_TS, 'utf-8');
-  const match = content.match(/id:\s*['"]([^'"]+)['"]/g);
-  stats.transitStopsCount = match ? match.length : 0;
-  console.log(`✅ Audited staticTransitStops.ts: ~${stats.transitStopsCount} transit stop records`);
+  const jsonMatch = content.match(/export const VERIFIED_TRANSIT_STOPS:\s*VerifiedTransitStop\[\]\s*=\s*(\[[\s\S]*\]);/);
+  if (jsonMatch) {
+    try {
+      const stops = JSON.parse(jsonMatch[1]);
+      stats.transitStopsCount = stops.length;
+      const seenStopIds = new Set();
+      stops.forEach(st => {
+        if (seenStopIds.has(st.stop_id)) {
+          console.error(`❌ [staticTransitStops.ts] Duplicate stop_id: ${st.stop_id}`);
+          totalErrors++;
+        }
+        seenStopIds.add(st.stop_id);
+        if (!isValidOdishaCoord(st.latitude, st.longitude)) {
+          console.error(`❌ [staticTransitStops.ts] Invalid coordinate for ${st.name}: (${st.latitude}, ${st.longitude})`);
+          totalErrors++;
+          stats.invalidCoordinates++;
+        }
+      });
+      console.log(`✅ Audited staticTransitStops.ts: ${stats.transitStopsCount} verified transit stop records`);
+    } catch (e) {
+      console.error('❌ Error parsing staticTransitStops.ts JSON:', e);
+      totalErrors++;
+    }
+  }
 }
 
 // 4. Audit odishaEssentials.ts
 if (fs.existsSync(ESSENTIALS_TS)) {
   const content = fs.readFileSync(ESSENTIALS_TS, 'utf-8');
-  const idMatches = content.match(/id:\s*['"]([^'"]+)['"]/g) || [];
-  stats.essentialsCount = idMatches.length;
+  const jsonMatch = content.match(/export const ODISHA_ESSENTIALS:\s*EssentialPlace\[\]\s*=\s*(\[[\s\S]*\]);/);
+  if (jsonMatch) {
+    try {
+      const essentials = JSON.parse(jsonMatch[1]);
+      stats.essentialsCount = essentials.length;
+      const seenIds = new Set();
+      
+      const categories = ['hospital', 'pharmacy', 'atm', 'bank', 'restaurant', 'petrol', 'police', 'hotel'];
+      categories.forEach(cat => {
+        stats.essentialsByCategory[cat] = 0;
+      });
 
-  const categories = ['hospital', 'pharmacy', 'atm', 'bank', 'restaurant', 'petrol', 'police', 'hotel'];
-  categories.forEach(cat => {
-    const reg = new RegExp(`category:\\s*['"]${cat}['"]`, 'g');
-    const count = (content.match(reg) || []).length;
-    stats.essentialsByCategory[cat] = count;
-  });
+      essentials.forEach(e => {
+        if (seenIds.has(e.id)) {
+          console.error(`❌ [odishaEssentials.ts] Duplicate ID: ${e.id}`);
+          totalErrors++;
+        }
+        seenIds.add(e.id);
 
-  console.log(`✅ Audited odishaEssentials.ts: ${stats.essentialsCount} total records`);
-  console.log('   Categories:', JSON.stringify(stats.essentialsByCategory));
+        if (!isValidOdishaCoord(e.lat, e.lon)) {
+          console.error(`❌ [odishaEssentials.ts] Invalid coordinate for ${e.name}: (${e.lat}, ${e.lon})`);
+          totalErrors++;
+          stats.invalidCoordinates++;
+        }
+
+        if (stats.essentialsByCategory[e.category] != null) {
+          stats.essentialsByCategory[e.category]++;
+        }
+      });
+
+      console.log(`✅ Audited odishaEssentials.ts: ${stats.essentialsCount} total records`);
+      console.log('   Categories:', JSON.stringify(stats.essentialsByCategory));
+    } catch (e) {
+      console.error('❌ Error parsing odishaEssentials.ts JSON:', e);
+      totalErrors++;
+    }
+  }
 }
 
 console.log('----------------------------------------------------');

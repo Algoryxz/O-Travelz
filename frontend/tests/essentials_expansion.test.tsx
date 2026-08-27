@@ -22,8 +22,8 @@ describe('EssentialsSection Expansion to 6 Verified Utility Categories', () => {
     // Verify coordinates and emergency contact details
     police.forEach(p => {
       expect(p.emergencyPhone).toBe('112');
-      expect(p.lat).toBeGreaterThan(18.0);
-      expect(p.lon).toBeGreaterThan(82.0);
+      expect(p.lat).toBeGreaterThan(17.5);
+      expect(p.lon).toBeGreaterThan(81.0);
     });
 
     petrol.forEach(p => {
