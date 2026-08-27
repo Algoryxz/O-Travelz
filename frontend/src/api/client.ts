@@ -52,13 +52,23 @@ export class ApiError extends Error {
   }
 }
 
+import {
+  getApiBaseUrl,
+  normalizeBaseUrl,
+  buildApiUrlWithBase,
+  diagnoseFetchError,
+  type NetworkDiagnostic,
+} from "./config";
+
 export class NetworkError extends Error {
   readonly causeError?: unknown;
+  readonly diagnostic?: NetworkDiagnostic;
 
-  constructor(message: string, causeError?: unknown) {
+  constructor(message: string, causeError?: unknown, diagnostic?: NetworkDiagnostic) {
     super(message);
     this.name = "NetworkError";
     this.causeError = causeError;
+    this.diagnostic = diagnostic;
   }
 }
 
@@ -79,14 +89,6 @@ export interface ApiClientConfig {
   fetchFn?: typeof fetch;
 }
 
-function getDefaultBaseUrl(): string {
-  if (typeof import.meta !== "undefined" && import.meta.env) {
-    if (import.meta.env.VITE_API_URL) return import.meta.env.VITE_API_URL;
-    if (import.meta.env.VITE_API_BASE_URL) return import.meta.env.VITE_API_BASE_URL;
-  }
-  return "";
-}
-
 function isPlainObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
@@ -103,8 +105,7 @@ export class ApiClient {
   private readonly fetchFn: typeof fetch;
 
   constructor(config: ApiClientConfig = {}) {
-    const rawUrl = config.baseUrl !== undefined ? config.baseUrl : getDefaultBaseUrl();
-    this.baseUrl = rawUrl.endsWith("/") ? rawUrl.slice(0, -1) : rawUrl;
+    this.baseUrl = config.baseUrl !== undefined ? normalizeBaseUrl(config.baseUrl) : getApiBaseUrl();
     this.fetchFn = config.fetchFn ?? globalThis.fetch.bind(globalThis);
   }
 
@@ -113,23 +114,41 @@ export class ApiClient {
     options: RequestInit,
     validateFn: (data: unknown) => data is T
   ): Promise<T> {
-    const cleanEndpoint = endpoint.startsWith("/") ? endpoint : `/${endpoint}`;
-    const url = this.baseUrl ? `${this.baseUrl}${cleanEndpoint}` : cleanEndpoint;
+    const cleanEndpoint = `/${(endpoint || "").trim().replace(/^\/+/, "")}`;
+    const url = buildApiUrlWithBase(this.baseUrl, cleanEndpoint);
 
-    let response: Response;
-    try {
-      response = await this.fetchFn(url, {
-        ...options,
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          ...options.headers,
-        },
-      });
-    } catch (err) {
+    let response: Response | null = null;
+    const isIdempotentGet = !options.method || options.method.toUpperCase() === "GET";
+    const maxAttempts = isIdempotentGet ? 2 : 1;
+    let lastErr: unknown;
+
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      try {
+        response = await this.fetchFn(url, {
+          ...options,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            ...options.headers,
+          },
+        });
+        lastErr = undefined;
+        break;
+      } catch (err) {
+        lastErr = err;
+        if (attempt < maxAttempts) {
+          // Render free-tier cold starts or transient DNS resolution lag: brief backoff retry
+          await new Promise((resolve) => setTimeout(resolve, 800));
+        }
+      }
+    }
+
+    if (!response || lastErr !== undefined) {
+      const diagnostic = diagnoseFetchError(lastErr, url);
       throw new NetworkError(
-        `Failed to communicate with O-Travelz API at ${url}. Please check your connection.`,
-        err
+        diagnostic.message,
+        lastErr,
+        diagnostic
       );
     }
 

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { apiClient } from "../api/client";
+import { buildApiUrl } from "../api/config";
 import type { AuthUser } from "../types/api";
 
 interface AuthState {
@@ -69,8 +70,7 @@ export function useAuth() {
   const loginWithGoogle = useCallback(() => {
     // Navigate to Google OAuth start endpoint, respecting cross-domain API URL
     if (typeof window !== "undefined") {
-      const apiBase = (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_URL) || "";
-      window.location.href = `${apiBase}/auth/google/start`;
+      window.location.href = buildApiUrl("/auth/google/start");
     }
   }, []);
 

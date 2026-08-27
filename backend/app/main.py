@@ -33,7 +33,7 @@ if cors_origins_raw.strip() == "*":
     cors_origins = ["*"]
     allow_credentials = False
 else:
-    cors_origins = [o.strip() for o in cors_origins_raw.split(",") if o.strip()]
+    cors_origins = [o.strip().rstrip("/") for o in cors_origins_raw.split(",") if o.strip()]
     allow_credentials = True
 
 app.add_middleware(
@@ -43,6 +43,18 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/")
+def root() -> dict:
+    """Root endpoint verifying backend service availability."""
+    return {
+        "service": "O-Travelz API",
+        "status": "running",
+        "version": "0.1.0",
+        "docs": "/docs",
+        "health": "/health",
+    }
 
 
 @app.get("/health")

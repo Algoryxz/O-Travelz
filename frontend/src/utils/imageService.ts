@@ -8,13 +8,10 @@
  * and authentic destination photography. Never leaks photographs across destinations.
  */
 import { getRegionForPlace } from "./regionUtils";
+import { getApiBaseUrl, buildApiUrl } from "../api/config";
 
 export function getBackendBaseUrl(): string {
-  if (typeof import.meta !== "undefined" && import.meta.env) {
-    const raw = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || "";
-    return typeof raw === "string" ? raw.trim().replace(/\/+$/, "") : "";
-  }
-  return "";
+  return getApiBaseUrl();
 }
 
 export function getBackendAssetUrl(storageKeyOrPath?: string | null): string {

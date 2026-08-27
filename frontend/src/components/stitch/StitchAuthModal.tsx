@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiClient } from '../../api/client';
+import { buildApiUrl } from '../../api/config';
 import type { UserResponse } from '../../types/api';
 
 interface StitchAuthModalProps {
@@ -50,8 +51,7 @@ export const StitchAuthModal: React.FC<StitchAuthModalProps> = ({
 
   const handleGoogleLogin = () => {
     // Redirect to backend OAuth 2.0 PKCE flow, respecting cross-domain API URL
-    const apiBase = (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_URL) || "";
-    window.location.href = `${apiBase}/auth/google/start`;
+    window.location.href = buildApiUrl("/auth/google/start");
   };
 
   const handleLogout = async () => {
