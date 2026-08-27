@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import type { StitchTab } from '../../components/stitch/StitchNavbar';
 import { useLocation } from '../../context/LocationContext';
 import { useSavedPlaces } from '../../store/useSavedPlaces';
 import { useRegisterAIContext } from '../../context/AIContext';
 import { apiClient } from '../../api/client';
-import type { PlaceDetail, TransportMapResponse, TransportMapRoute, CorridorFoodCandidate } from '../../api/contracts';
+import type { PlaceDetail, TransportMapResponse, TransportMapRoute } from '../../api/contracts';
 import { ODISHA_EXPERIENCES, type OdishaExperience } from '../../data/odishaExperiences';
 import { ODISHA_ESSENTIALS, type EssentialPlace } from '../../data/odishaEssentials';
 import { VERIFIED_TRANSIT_STOPS, type VerifiedTransitStop } from '../../data/staticTransitStops';
@@ -17,18 +17,19 @@ import {
   calculateWalkTimeMinutes,
   formatDuration,
 } from '../../utils/geoUtils';
-import { resolveRouteMapGeometry } from '../../utils/transitGeometry';
+import { PlaceInfoCard } from '../../components/place/PlaceInfoCard';
+import { TransitStopDetailPanel } from '../../components/transit/TransitStopDetailPanel';
+import { TransitTimetableModal } from '../../components/transit/TransitTimetableModal';
 import L from 'leaflet';
 
-<<<<<<< HEAD
-export type MapViewMode = 'destinations' | 'medical' | 'atms' | 'atm' | 'transit' | 'experiences' | 'saved';
-=======
 export type MapViewMode =
   | 'destinations'
+  | 'hotels'
+  | 'culinary'
+  | 'transit'
   | 'medical'
   | 'atm'
-  | 'transit'
-  | 'culinary'
+  | 'atms'
   | 'petrol'
   | 'police'
   | 'experiences'
@@ -45,7 +46,6 @@ interface ActiveRouteTarget {
   drivingMins: number;
   walkingMins: number;
 }
->>>>>>> 15ff233 (feat: expand Essentials Near You (6 categories), 9 map modes with route line HUD, and visual landmark image discovery)
 
 interface StitchMapPageProps {
   onNavigate: (tab: StitchTab, params?: Record<string, string>) => void;
@@ -53,34 +53,6 @@ interface StitchMapPageProps {
   initialPlaceId?: string;
   initialMode?: MapViewMode;
 }
-
-interface OdishaAtm {
-  id: string;
-  name: string;
-  bank: string;
-  address: string;
-  district: string;
-  lat: number;
-  lon: number;
-  status: string;
-  distanceKm?: number;
-  distanceFormatted?: string;
-}
-
-const ODISHA_ATMS: OdishaAtm[] = [
-  { id: 'atm_bbsr_sbi_1', name: 'SBI 24/7 ATM & Cash Deposit', bank: 'State Bank of India', address: 'Master Canteen Square / Railway Station, Bhubaneswar', district: 'Khordha', lat: 20.2680, lon: 85.8440, status: 'Active 24/7' },
-  { id: 'atm_bbsr_hdfc_1', name: 'HDFC Bank ATM & Cash Recycler', bank: 'HDFC Bank', address: 'Saheed Nagar Janpath, Bhubaneswar', district: 'Khordha', lat: 20.2882, lon: 85.8440, status: 'Active 24/7' },
-  { id: 'atm_bbsr_icici_1', name: 'ICICI Bank ATM', bank: 'ICICI Bank', address: 'Jaydev Vihar Square, Bhubaneswar', district: 'Khordha', lat: 20.3015, lon: 85.8234, status: 'Active 24/7' },
-  { id: 'atm_puri_sbi_1', name: 'SBI Badadanda ATM', bank: 'State Bank of India', address: 'Grand Road (Badadanda), Near Jagannath Temple, Puri', district: 'Puri', lat: 19.8080, lon: 85.8250, status: 'Active 24/7' },
-  { id: 'atm_puri_hdfc_1', name: 'HDFC Beach Road ATM', bank: 'HDFC Bank', address: 'VIP Road & Sea Beach, Puri', district: 'Puri', lat: 19.8010, lon: 85.8340, status: 'Active 24/7' },
-  { id: 'atm_cuttack_sbi_1', name: 'SBI Badambadi ATM', bank: 'State Bank of India', address: 'Badambadi Bus Terminal, Cuttack', district: 'Cuttack', lat: 20.4580, lon: 85.8750, status: 'Active 24/7' },
-  { id: 'atm_rourkela_sbi_1', name: 'SBI Bisra Chowk ATM', bank: 'State Bank of India', address: 'Bisra Chowk, Rourkela', district: 'Sundargarh', lat: 22.2270, lon: 84.8520, status: 'Active 24/7' },
-  { id: 'atm_sambalpur_sbi_1', name: 'SBI Ainthapali ATM', bank: 'State Bank of India', address: 'Ainthapali Chowk, Sambalpur', district: 'Sambalpur', lat: 21.4880, lon: 83.9850, status: 'Active 24/7' },
-  { id: 'atm_koraput_sbi_1', name: 'SBI Main Road Branch ATM', bank: 'State Bank of India', address: 'Main Road / Bus Stand, Koraput', district: 'Koraput', lat: 18.8135, lon: 82.7118, status: 'Active 24/7' },
-  { id: 'atm_berhampur_sbi_1', name: 'SBI Old Bus Stand ATM', bank: 'State Bank of India', address: 'Old Bus Stand Road, Berhampur', district: 'Ganjam', lat: 19.3150, lon: 84.7940, status: 'Active 24/7' },
-  { id: 'atm_baripada_sbi_1', name: 'SBI Baripada Main ATM', bank: 'State Bank of India', address: 'Kachery Road, Baripada', district: 'Mayurbhanj', lat: 21.9320, lon: 86.7260, status: 'Active 24/7' },
-  { id: 'atm_balasore_sbi_1', name: 'SBI OT Road ATM', bank: 'State Bank of India', address: 'OT Road, Balasore', district: 'Balasore', lat: 21.4920, lon: 86.9320, status: 'Active 24/7' },
-];
 
 export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   onNavigate,
@@ -95,29 +67,33 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(initialPlaceId || null);
   const [selectedExperience, setSelectedExperience] = useState<OdishaExperience | null>(null);
   const [selectedEssential, setSelectedEssential] = useState<EssentialPlace | null>(null);
-  const [selectedMedicalId, setSelectedMedicalId] = useState<string | null>(null);
-  const [selectedAtmId, setSelectedAtmId] = useState<string | null>(null);
+  const [selectedTransitStop, setSelectedTransitStop] = useState<VerifiedTransitStop | null>(null);
+  const [activeTimetableRoute, setActiveTimetableRoute] = useState<string | null>(null);
+
   const [transitMapData, setTransitMapData] = useState<TransportMapResponse | null>(null);
   const [selectedRouteId, setSelectedRouteId] = useState<string | null>(null);
-  const [selectedStopId, setSelectedStopId] = useState<string | null>(null);
-<<<<<<< HEAD
-  const [corridorFoodCandidates, setCorridorFoodCandidates] = useState<CorridorFoodCandidate[]>([]);
-  const [selectedFoodCandidate, setSelectedFoodCandidate] = useState<CorridorFoodCandidate | null>(null);
-  const [placesLoading, setPlacesLoading] = useState(true);
-  const [transitLoading, setTransitLoading] = useState(false);
-  const [transitError, setTransitError] = useState<string | null>(null);
-  
-  // Independent Filter Domains (Invariants: Places and Transit filters must never mutate each other)
-  const [placeRegion, setPlaceRegion] = useState<string>('Near Me');
-  const [transitRegion, setTransitRegion] = useState<string>('All');
-  const [filterRegion, setFilterRegion] = useState<string>('Near Me');
-  
+
+  const [loading, setLoading] = useState(true);
+  const [filterRegion, setFilterRegion] = useState('Near Me');
   const [viewMode, setViewMode] = useState<MapViewMode>(initialMode);
+  const [showAllTransitStops, setShowAllTransitStops] = useState(false);
+  const [activeRouteTarget, setActiveRouteTarget] = useState<ActiveRouteTarget | null>(null);
+
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+  const mapInstanceRef = useRef<L.Map | null>(null);
+  const markersLayerRef = useRef<L.LayerGroup | null>(null);
+  const routeLineLayerRef = useRef<L.LayerGroup | null>(null);
+  const userMarkerLayerRef = useRef<L.LayerGroup | null>(null);
+
+  // 1. Reference coordinates validation
+  const hasValidUserCoords = isValidCoordinate(currentPosition?.lat, currentPosition?.lon);
+  const refLat = hasValidUserCoords ? currentPosition!.lat : 20.2667;
+  const refLon = hasValidUserCoords ? currentPosition!.lon : 85.8436;
 
   // Register Map Context with Global AI Copilot
-  const activeMapPlace = useMemo(() => places.find(p => p.id === selectedPlaceId), [places, selectedPlaceId]);
+  const activeMapPlace = useMemo(() => places.find((p) => p.id === selectedPlaceId), [places, selectedPlaceId]);
   const activeMapRoute = useMemo(
-    () => transitMapData?.routes?.find(r => r.route_id === selectedRouteId),
+    () => transitMapData?.routes?.find((r) => r.route_id === selectedRouteId),
     [transitMapData, selectedRouteId]
   );
 
@@ -149,26 +125,6 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     )
   );
 
-
-  
-=======
-  const [loading, setLoading] = useState(true);
-  const [filterRegion, setFilterRegion] = useState('Near Me');
-  const [viewMode, setViewMode] = useState<MapViewMode>(initialMode);
-  const [activeRouteTarget, setActiveRouteTarget] = useState<ActiveRouteTarget | null>(null);
-
->>>>>>> 15ff233 (feat: expand Essentials Near You (6 categories), 9 map modes with route line HUD, and visual landmark image discovery)
-  const mapContainerRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<L.Map | null>(null);
-  const markersLayerRef = useRef<L.LayerGroup | null>(null);
-  const routeLineLayerRef = useRef<L.LayerGroup | null>(null);
-  const userMarkerLayerRef = useRef<L.LayerGroup | null>(null);
-
-  // 1. Reference coordinates validation
-  const hasValidUserCoords = isValidCoordinate(currentPosition?.lat, currentPosition?.lon);
-  const refLat = hasValidUserCoords ? currentPosition!.lat : 20.2667;
-  const refLon = hasValidUserCoords ? currentPosition!.lon : 85.8436;
-
   // 2. Proximity-sorted Destinations
   const nearbyData = useMemo(() => {
     return getNearbyPlacesWithExpansion(places, refLat, refLon, {
@@ -195,12 +151,14 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     });
   }, [filterRegion, nearbyData.places, places, refLat, refLon]);
 
-  // 3. Proximity-sorted Essentials (Medical, ATMs, Restaurants, Petrol, Police)
+  // 3. Proximity-sorted Essentials (Hotels, Medical, ATMs, Restaurants, Petrol, Police)
   const displayedEssentials = useMemo(() => {
     let pool = ODISHA_ESSENTIALS;
-    if (viewMode === 'medical') {
+    if (viewMode === 'hotels') {
+      pool = pool.filter((e) => e.category === 'hotel');
+    } else if (viewMode === 'medical') {
       pool = pool.filter((e) => e.category === 'hospital' || e.category === 'pharmacy');
-    } else if (viewMode === 'atm') {
+    } else if (viewMode === 'atm' || viewMode === 'atms') {
       pool = pool.filter((e) => e.category === 'atm' || e.category === 'bank');
     } else if (viewMode === 'culinary') {
       pool = pool.filter((e) => e.category === 'restaurant');
@@ -225,11 +183,12 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     return scored;
   }, [viewMode, refLat, refLon]);
 
-  // 4. Proximity-sorted Static Transit Stops Fallback
-  const fallbackTransitStops = useMemo(() => {
-    return VERIFIED_TRANSIT_STOPS.map((st) => {
+  // 4. Transit Stops
+  const displayedTransitStops = useMemo(() => {
+    let stops = VERIFIED_TRANSIT_STOPS;
+    const scored = stops.map((st) => {
       const dist = calculateHaversineDistanceKm(refLat, refLon, st.latitude, st.longitude);
-      const walkingMins = Math.max(1, Math.ceil((dist * 1000) / 80));
+      const walkingMins = calculateWalkTimeMinutes(dist);
       return {
         ...st,
         distanceKm: dist,
@@ -237,9 +196,11 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         walkingMins,
       };
     }).sort((a, b) => a.distanceKm - b.distanceKm);
-  }, [refLat, refLon]);
 
-  // 5. Proximity-sorted Saved Places
+    return showAllTransitStops ? scored : scored.slice(0, 15);
+  }, [refLat, refLon, showAllTransitStops]);
+
+  // 5. Saved Places
   const displayedSavedPlaces = useMemo(() => {
     return savedPlaces.map((sp) => {
       const target = places.find((p) => p.id === sp.id || p.name.toLowerCase() === sp.name.toLowerCase());
@@ -249,235 +210,122 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
       const dist = hasCoords ? calculateHaversineDistanceKm(refLat, refLon, lat!, lon!) : 0;
       return {
         ...sp,
-        lat: hasCoords ? lat : undefined,
-        lon: hasCoords ? lon : undefined,
-        district: target?.district || sp.location,
-        distanceFormatted: hasCoords ? formatDistance(dist) : undefined,
+        lat,
+        lon,
+        distanceKm: dist,
+        distanceFormatted: formatDistance(dist),
       };
     });
   }, [savedPlaces, places, refLat, refLon]);
 
-  const [medicalPlaces, setMedicalPlaces] = useState<PlaceDetail[]>([]);
-
-  // 4. Computed 24/7 Medical & Emergency Facilities
-  const displayedMedical = useMemo(() => {
-    const list = medicalPlaces.length > 0 ? medicalPlaces : places.filter(p =>
-      p.category === 'hospital' ||
-      p.category === 'emergency_facility' ||
-      p.name.toLowerCase().includes('hospital') ||
-      p.name.toLowerCase().includes('medical')
-    );
-    return list.map(p => {
-      const dist = calculateHaversineDistanceKm(refLat, refLon, p.lat || refLat, p.lon || refLon);
-      return {
-        ...p,
-        distanceKm: dist,
-        distanceFormatted: formatDistance(dist),
-      };
-    }).sort((a, b) => a.distanceKm - b.distanceKm);
-  }, [medicalPlaces, places, refLat, refLon]);
-
-  // 5. Computed Nearby ATMs & Cash Dispensers
-  const displayedAtms = useMemo(() => {
-    return ODISHA_ATMS.map(atm => {
-      const dist = calculateHaversineDistanceKm(refLat, refLon, atm.lat, atm.lon);
-      return {
-        ...atm,
-        distanceKm: dist,
-        distanceFormatted: formatDistance(dist),
-      };
-    }).sort((a, b) => a.distanceKm - b.distanceKm);
-  }, [refLat, refLon]);
-
-  const activeTransitRoute = transitMapData?.routes.find(r => r.route_id === selectedRouteId);
-  const activeRouteGeometry = resolveRouteMapGeometry(activeTransitRoute);
-
-  // Fetch 161 destinations + verified medical facilities
+  // Load canonical places
   useEffect(() => {
     let isMounted = true;
-    const loadPlaces = async () => {
-      setPlacesLoading(true);
-      try {
-        const [data, medData] = await Promise.all([
-          apiClient.listPlaces({ limit: 161 }),
-          apiClient.listPlaces({ is_medical: true }).catch(() => []),
-        ]);
+    apiClient
+      .listPlaces()
+      .then((data) => {
         if (isMounted) {
-          if (Array.isArray(data) && data.length > 0) {
-            setPlaces(data);
-            if (!selectedPlaceId && data.length > 0) {
-              setSelectedPlaceId(data[0].id);
-            }
-          }
-          if (Array.isArray(medData) && medData.length > 0) {
-            setMedicalPlaces(medData);
-          }
+          setPlaces(data);
+          setLoading(false);
         }
-      } catch (err) {
-        console.warn('Map place fetch error:', err);
-      } finally {
-        if (isMounted) setPlacesLoading(false);
-      }
-    };
-    loadPlaces();
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  // Update initial viewMode / initialPlaceId if provided
-  useEffect(() => {
-    if (initialMode) {
-      setViewMode(initialMode);
-    }
-  }, [initialMode]);
-
-  // Synchronize initialPlaceId when supplied
-  useEffect(() => {
-    if (initialPlaceId) {
-      setSelectedPlaceId(initialPlaceId);
-      const target = places.find((p) => p.id === initialPlaceId);
-      if (target && isValidCoordinate(target.lat, target.lon) && mapInstanceRef.current) {
-        mapInstanceRef.current.flyTo([target.lat!, target.lon!], 13, { duration: 0.8 });
-      }
-    }
-  }, [initialPlaceId, places]);
-
-  const loadTransit = async () => {
-    setTransitLoading(true);
-    setTransitError(null);
-    try {
-      const regionParam = transitRegion === 'All' || transitRegion === 'Near Me' ? undefined : transitRegion;
-      const data = await apiClient.getTransportMap(regionParam);
-      if (data && data.routes.length > 0) {
-        setTransitMapData(data);
-        if (!selectedRouteId && data.routes.length > 0) {
-          setSelectedRouteId(data.routes[0].route_id);
-        }
-      }
-    } catch (err: any) {
-      setTransitError(err?.message || 'Transport map fetch error');
-    } finally {
-      setTransitLoading(false);
-    }
-  };
-
-  // Fetch transport map data when switching to transit mode
-  useEffect(() => {
-<<<<<<< HEAD
-    if (viewMode === 'transit') {
-      loadTransit();
-    }
-  }, [viewMode, transitRegion]);
-=======
-    if (viewMode !== 'transit') return;
-    let isMounted = true;
-    const loadTransit = async () => {
-      try {
-        const regionParam = filterRegion === 'All' || filterRegion === 'Near Me' ? undefined : filterRegion;
-        const data = await apiClient.getTransportMap(regionParam);
-        if (isMounted && data && data.routes.length > 0) {
-          setTransitMapData(data);
-          if (!selectedRouteId && data.routes.length > 0) {
-            setSelectedRouteId(data.routes[0].route_id);
-          }
-        }
-      } catch (err) {
-        console.warn('Transport map fetch error:', err);
-      }
-    };
-    loadTransit();
-    return () => {
-      isMounted = false;
-    };
-  }, [viewMode, filterRegion]);
->>>>>>> 15ff233 (feat: expand Essentials Near You (6 categories), 9 map modes with route line HUD, and visual landmark image discovery)
-
-  // Initialize Leaflet Map
-  useEffect(() => {
-    if (!mapContainerRef.current) return;
-
-    if (!mapInstanceRef.current) {
-      const map = L.map(mapContainerRef.current, {
-        center: [20.27, 85.83],
-        zoom: 11,
-        zoomControl: false,
+      })
+      .catch((err: unknown) => {
+        console.error('Failed to load places for map:', err);
+        if (isMounted) setLoading(false);
       });
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors',
-        maxZoom: 18,
-      }).addTo(map);
+    apiClient
+      .getTransportMap()
+      .then((res) => {
+        if (isMounted) setTransitMapData(res);
+      })
+      .catch((err) => {
+        console.warn('Transport map data unavailable, using static fallback:', err);
+      });
 
-      L.control.zoom({ position: 'topright' }).addTo(map);
-
-      const markersGroup = L.layerGroup().addTo(map);
-      const routeLineGroup = L.layerGroup().addTo(map);
-      const userGroup = L.layerGroup().addTo(map);
-      markersLayerRef.current = markersGroup;
-      routeLineLayerRef.current = routeLineGroup;
-      userMarkerLayerRef.current = userGroup;
-      mapInstanceRef.current = map;
-    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
-  // Render User Location Pin
+  // Initialize MapLibre / Leaflet Container
+  useEffect(() => {
+    if (!mapContainerRef.current || mapInstanceRef.current) return;
+
+    const map = L.map(mapContainerRef.current, {
+      center: [refLat, refLon],
+      zoom: 10,
+      zoomControl: false,
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors · O-Travelz',
+      maxZoom: 18,
+    }).addTo(map);
+
+    L.control.zoom({ position: 'topright' }).addTo(map);
+
+    const markersGroup = L.layerGroup().addTo(map);
+    const routeLineGroup = L.layerGroup().addTo(map);
+    const userGroup = L.layerGroup().addTo(map);
+
+    markersLayerRef.current = markersGroup;
+    routeLineLayerRef.current = routeLineGroup;
+    userMarkerLayerRef.current = userGroup;
+    mapInstanceRef.current = map;
+
+    return () => {
+      map.remove();
+      mapInstanceRef.current = null;
+    };
+  }, []);
+
+  // Draw User Location Pin
   useEffect(() => {
     if (!mapInstanceRef.current || !userMarkerLayerRef.current) return;
     userMarkerLayerRef.current.clearLayers();
 
-    if (currentPosition && isValidCoordinate(currentPosition.lat, currentPosition.lon)) {
+    if (hasValidUserCoords) {
       const userIcon = L.divIcon({
-        className: 'user-live-gps-pin',
-        html: `<div style="background-color: #2F523E; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 12px rgba(47,82,62,0.9); ${
-          isLive ? 'animation: pulse 2s infinite;' : ''
-        }"></div>`,
-        iconSize: [20, 20],
-        iconAnchor: [10, 10],
+        className: 'user-loc-pin',
+        html: `<div style="background-color: #2563EB; width: 18px; height: 18px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px rgba(37,99,235,0.6);"></div>`,
+        iconSize: [18, 18],
+        iconAnchor: [9, 9],
       });
 
-      const marker = L.marker([currentPosition.lat, currentPosition.lon], { icon: userIcon });
-      marker.bindPopup(`
-        <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px;">
-          <div style="font-size: 10px; font-family: monospace; color: #2F523E; font-weight: bold;">
-            ${isLive ? '🟢 LIVE GPS LOCATION' : '📌 ACTIVE LOCATION'}
-          </div>
-          <strong style="font-size: 12px; color: #12161E;">${locationName || 'Odisha'}</strong>
+      const userMarker = L.marker([refLat, refLon], { icon: userIcon });
+      userMarker.bindPopup(`
+        <div style="font-family: sans-serif; font-size: 11px; padding: 2px;">
+          <strong>📍 ${isLive ? 'Live GPS Location' : 'Selected Location'}</strong>
+          <p style="margin: 2px 0 0 0; color: #70798B;">${locationName}</p>
         </div>
       `);
-      userMarkerLayerRef.current.addLayer(marker);
+      userMarkerLayerRef.current.addLayer(userMarker);
     }
-  }, [currentPosition, isLive, locationName]);
+  }, [hasValidUserCoords, refLat, refLon, isLive, locationName]);
 
-  // Route drawing handler
-  const handleDrawRoute = (target: {
-    name: string;
-    categoryLabel: string;
-    address?: string;
-    lat: number;
-    lon: number;
-  }) => {
-    if (!isValidCoordinate(target.lat, target.lon)) return;
-    const dist = calculateHaversineDistanceKm(refLat, refLon, target.lat, target.lon);
-    const driveMins = calculateDriveTimeMinutes(dist);
-    const walkMins = calculateWalkTimeMinutes(dist);
+  // Route drawing helper
+  const handleDrawRoute = useCallback(
+    (target: { lat: number; lon: number; name: string; category: string; address?: string }) => {
+      if (!mapInstanceRef.current || !routeLineLayerRef.current) return;
+      const dist = calculateHaversineDistanceKm(refLat, refLon, target.lat, target.lon);
+      const drivingMins = calculateDriveTimeMinutes(dist);
+      const walkingMins = calculateWalkTimeMinutes(dist);
 
-    const routeTarget: ActiveRouteTarget = {
-      name: target.name,
-      categoryLabel: target.categoryLabel,
-      address: target.address,
-      lat: target.lat,
-      lon: target.lon,
-      distKm: dist,
-      distanceFormatted: formatDistance(dist),
-      drivingMins: driveMins,
-      walkingMins: walkMins,
-    };
+      setActiveRouteTarget({
+        name: target.name,
+        categoryLabel: target.category,
+        address: target.address,
+        lat: target.lat,
+        lon: target.lon,
+        distKm: dist,
+        distanceFormatted: formatDistance(dist),
+        drivingMins,
+        walkingMins,
+      });
 
-    setActiveRouteTarget(routeTarget);
-
-    if (mapInstanceRef.current && routeLineLayerRef.current) {
       routeLineLayerRef.current.clearLayers();
+
       const polyline = L.polyline(
         [
           [refLat, refLon],
@@ -487,17 +335,19 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           color: '#B87B22',
           weight: 4,
           dashArray: '8, 8',
-          opacity: 0.9,
+          opacity: 0.85,
         }
       );
       routeLineLayerRef.current.addLayer(polyline);
+
       const bounds = L.latLngBounds([
         [refLat, refLon],
         [target.lat, target.lon],
       ]);
       mapInstanceRef.current.fitBounds(bounds, { padding: [60, 60], maxZoom: 14 });
-    }
-  };
+    },
+    [refLat, refLon]
+  );
 
   const handleClearRoute = () => {
     setActiveRouteTarget(null);
@@ -506,41 +356,36 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     }
   };
 
-  // Main Markers & Geometry Layer Rendering
+  // Main Markers Rendering with ONE-CLICK popup fix (decoupled from layer teardown)
   useEffect(() => {
-    if (!mapInstanceRef.current || !markersLayerRef.current || !routeLineLayerRef.current) return;
-
+    if (!mapInstanceRef.current || !markersLayerRef.current) return;
     markersLayerRef.current.clearLayers();
-    if (!activeRouteTarget) {
-      routeLineLayerRef.current.clearLayers();
-    }
 
-    // Mode 1: Sanctuaries / Destinations
+    // Mode 1: Destinations / Sanctuaries
     if (viewMode === 'destinations') {
       const points: [number, number][] = [];
 
       displayedDestinations.forEach((p, index) => {
-        const isSelected = selectedPlaceId === p.id;
-        const customIcon = L.divIcon({
-          className: 'custom-stitch-map-pin',
-          html: `<div style="background-color: ${isSelected ? '#12161E' : '#B87B22'}; color: #FFFFFF; width: ${
-            isSelected ? '32px' : '26px'
-          }; height: ${
-            isSelected ? '32px' : '26px'
-          }; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'JetBrains Mono', monospace; font-size: 11px; border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.35); transition: all 0.2s;">${
-            index + 1
-          }</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
-        });
-
         if (p.lat != null && p.lon != null && isValidCoordinate(p.lat, p.lon)) {
           points.push([p.lat, p.lon]);
+          const customIcon = L.divIcon({
+            className: 'custom-stitch-map-pin',
+            html: `<div style="background-color: #B87B22; color: #FFFFFF; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: monospace; font-size: 11px; border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.35);">${
+              index + 1
+            }</div>`,
+            iconSize: [26, 26],
+            iconAnchor: [13, 13],
+          });
+
           const marker = L.marker([p.lat, p.lon], { icon: customIcon });
+
+          // ONE-CLICK Immediate selection & popup
           marker.on('click', () => {
             setSelectedPlaceId(p.id);
             setSelectedExperience(null);
             setSelectedEssential(null);
+            setSelectedTransitStop(null);
+            marker.openPopup();
           });
 
           marker.bindPopup(`
@@ -548,7 +393,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               <div style="font-size: 10px; font-family: monospace; color: #B87B22; font-weight: bold;">
                 #${index + 1} ${p.distanceFormatted ? `· ${p.distanceFormatted}` : ''}
               </div>
-              <strong style="font-family: 'Playfair Display', serif; font-size: 13px; color: #12161E;">${p.name}</strong>
+              <strong style="font-size: 13px; color: #12161E;">${p.name}</strong>
               <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${p.district || ''} · ${p.category}</p>
             </div>
           `);
@@ -557,39 +402,146 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         }
       });
 
-      if (selectedPlaceId && !activeRouteTarget) {
-        const current =
-          displayedDestinations.find((p) => p.id === selectedPlaceId) || places.find((p) => p.id === selectedPlaceId);
-        if (current && current.lat != null && current.lon != null && isValidCoordinate(current.lat, current.lon)) {
-          mapInstanceRef.current.flyTo([current.lat, current.lon], 12, { duration: 0.8 });
-        }
-      } else if (points.length > 0 && !activeRouteTarget) {
+      if (points.length > 0 && !activeRouteTarget) {
         const bounds = L.latLngBounds(points);
         mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
       }
     }
-    // Mode 2: Medical Help 24/7
+    // Mode 2: Hotels & Stays
+    else if (viewMode === 'hotels') {
+      const hotelPoints: [number, number][] = [];
+      displayedEssentials.forEach((item) => {
+        hotelPoints.push([item.lat, item.lon]);
+        const hotelIcon = L.divIcon({
+          className: 'custom-hotel-pin',
+          html: `<div style="background-color: #8C6239; color: #FFFFFF; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(140,98,57,0.4);">🏨</div>`,
+          iconSize: [28, 28],
+          iconAnchor: [14, 14],
+        });
+
+        const marker = L.marker([item.lat, item.lon], { icon: hotelIcon });
+        marker.on('click', () => {
+          setSelectedEssential(item);
+          setSelectedPlaceId(null);
+          setSelectedTransitStop(null);
+          marker.openPopup();
+        });
+
+        marker.bindPopup(`
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 230px;">
+            <div style="font-size: 10px; font-family: monospace; color: #8C6239; font-weight: bold;">
+              🏨 HOTEL · ${item.distanceFormatted}
+            </div>
+            <strong style="font-size: 13px; color: #12161E;">${item.name}</strong>
+            <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${item.locality} (${item.city})</p>
+            ${item.rating ? `<p style="font-size: 11px; color: #8C6239; font-weight: bold; margin-top: 3px;">★ ${item.rating.toFixed(1)} (${item.ratingCount || ''})</p>` : ''}
+          </div>
+        `);
+
+        markersLayerRef.current?.addLayer(marker);
+      });
+
+      if (hotelPoints.length > 0 && !activeRouteTarget) {
+        const bounds = L.latLngBounds(hotelPoints);
+        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
+      }
+    }
+    // Mode 3: Food & Culinary
+    else if (viewMode === 'culinary') {
+      const foodPoints: [number, number][] = [];
+      displayedEssentials.forEach((item) => {
+        foodPoints.push([item.lat, item.lon]);
+        const foodIcon = L.divIcon({
+          className: 'custom-food-pin',
+          html: `<div style="background-color: #C05621; color: #FFFFFF; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(192,86,33,0.4);">🍲</div>`,
+          iconSize: [28, 28],
+          iconAnchor: [14, 14],
+        });
+
+        const marker = L.marker([item.lat, item.lon], { icon: foodIcon });
+        marker.on('click', () => {
+          setSelectedEssential(item);
+          setSelectedPlaceId(null);
+          setSelectedTransitStop(null);
+          marker.openPopup();
+        });
+
+        marker.bindPopup(`
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 230px;">
+            <div style="font-size: 10px; font-family: monospace; color: #C05621; font-weight: bold;">
+              🍲 RESTAURANT · ${item.distanceFormatted}
+            </div>
+            <strong style="font-size: 13px; color: #12161E;">${item.name}</strong>
+            <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${item.cuisine || item.locality}</p>
+          </div>
+        `);
+
+        markersLayerRef.current?.addLayer(marker);
+      });
+
+      if (foodPoints.length > 0 && !activeRouteTarget) {
+        const bounds = L.latLngBounds(foodPoints);
+        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
+      }
+    }
+    // Mode 4: Transit & Mo Bus
+    else if (viewMode === 'transit') {
+      const transitPoints: [number, number][] = [];
+      displayedTransitStops.forEach((st) => {
+        transitPoints.push([st.latitude, st.longitude]);
+        const transitIcon = L.divIcon({
+          className: 'custom-transit-pin',
+          html: `<div style="background-color: #1B5E6B; color: #FFFFFF; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; border: 2px solid white; box-shadow: 0 2px 8px rgba(27,94,107,0.4);">🚌</div>`,
+          iconSize: [26, 26],
+          iconAnchor: [13, 13],
+        });
+
+        const marker = L.marker([st.latitude, st.longitude], { icon: transitIcon });
+        marker.on('click', () => {
+          setSelectedTransitStop(st);
+          setSelectedPlaceId(null);
+          setSelectedEssential(null);
+          marker.openPopup();
+        });
+
+        marker.bindPopup(`
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 220px;">
+            <div style="font-size: 10px; font-family: monospace; color: #1B5E6B; font-weight: bold;">
+              CRUT BUS STOP · ${st.distanceFormatted}
+            </div>
+            <strong style="font-size: 13px; color: #12161E;">${st.name}</strong>
+            <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${st.routes_serving_stop.map(r => r.route_number).join(', ')}</p>
+          </div>
+        `);
+
+        markersLayerRef.current?.addLayer(marker);
+      });
+
+      if (transitPoints.length > 0 && !activeRouteTarget) {
+        const bounds = L.latLngBounds(transitPoints);
+        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
+      }
+    }
+    // Mode 5: Medical 24/7
     else if (viewMode === 'medical') {
       const medPoints: [number, number][] = [];
       displayedEssentials.forEach((item) => {
         medPoints.push([item.lat, item.lon]);
-        const isSelected = selectedEssential?.id === item.id;
         const medIcon = L.divIcon({
           className: 'custom-med-pin',
-          html: `<div style="background-color: ${isSelected ? '#12161E' : '#9E2A2B'}; color: #FFFFFF; width: ${
-            isSelected ? '32px' : '26px'
-          }; height: ${
-            isSelected ? '32px' : '26px'
-          }; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(158,42,43,0.4);">${
+          html: `<div style="background-color: #9E2A2B; color: #FFFFFF; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(158,42,43,0.4);">${
             item.category === 'hospital' ? '🏥' : '💊'
           }</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+          iconSize: [28, 28],
+          iconAnchor: [14, 14],
         });
 
         const marker = L.marker([item.lat, item.lon], { icon: medIcon });
         marker.on('click', () => {
           setSelectedEssential(item);
+          setSelectedPlaceId(null);
+          setSelectedTransitStop(null);
+          marker.openPopup();
         });
 
         marker.bindPopup(`
@@ -599,7 +551,6 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
             </div>
             <strong style="font-size: 13px; color: #12161E;">${item.name}</strong>
             <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${item.locality}</p>
-            ${item.phone ? `<p style="font-size: 11px; color: #9E2A2B; font-weight: bold; margin-top: 4px;">📞 ${item.phone}</p>` : ''}
           </div>
         `);
 
@@ -611,26 +562,24 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
       }
     }
-    // Mode 3: ATMs & Cash Points
-    else if (viewMode === 'atm') {
+    // Mode 6: ATMs & Cash
+    else if (viewMode === 'atm' || viewMode === 'atms') {
       const atmPoints: [number, number][] = [];
       displayedEssentials.forEach((item) => {
         atmPoints.push([item.lat, item.lon]);
-        const isSelected = selectedEssential?.id === item.id;
         const atmIcon = L.divIcon({
           className: 'custom-atm-pin',
-          html: `<div style="background-color: ${isSelected ? '#12161E' : '#B87B22'}; color: #FFFFFF; width: ${
-            isSelected ? '32px' : '26px'
-          }; height: ${
-            isSelected ? '32px' : '26px'
-          }; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(184,123,34,0.4);">🏧</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+          html: `<div style="background-color: #B87B22; color: #FFFFFF; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(184,123,34,0.4);">🏧</div>`,
+          iconSize: [28, 28],
+          iconAnchor: [14, 14],
         });
 
         const marker = L.marker([item.lat, item.lon], { icon: atmIcon });
         marker.on('click', () => {
           setSelectedEssential(item);
+          setSelectedPlaceId(null);
+          setSelectedTransitStop(null);
+          marker.openPopup();
         });
 
         marker.bindPopup(`
@@ -651,113 +600,24 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
       }
     }
-    // Mode 4: Mo Bus & Transit
-    else if (viewMode === 'transit') {
-      const stopPoints: [number, number][] = [];
-      const activeStops =
-        transitMapData && transitMapData.stops.length > 0 ? transitMapData.stops : fallbackTransitStops;
-
-      activeStops.forEach((st) => {
-        const lat = 'latitude' in st ? st.latitude : undefined;
-        const lon = 'longitude' in st ? st.longitude : undefined;
-
-        if (lat != null && lon != null) {
-          stopPoints.push([lat, lon]);
-          const isSelected = selectedStopId === st.stop_id;
-          const busIcon = L.divIcon({
-            className: 'custom-transit-pin',
-            html: `<div style="background-color: ${isSelected ? '#12161E' : '#1B5E6B'}; color: #FFFFFF; width: ${
-              isSelected ? '30px' : '24px'
-            }; height: ${
-              isSelected ? '30px' : '24px'
-            }; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; border: 2px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.35);">🚌</div>`,
-            iconSize: [28, 28],
-            iconAnchor: [14, 14],
-          });
-
-          const marker = L.marker([lat, lon], { icon: busIcon });
-          marker.on('click', () => {
-            setSelectedStopId(st.stop_id);
-          });
-
-          marker.bindPopup(`
-            <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 220px;">
-              <div style="font-size: 10px; font-family: monospace; color: #1B5E6B; font-weight: bold;">MO BUS VERIFIED STOP</div>
-              <strong style="font-size: 13px; color: #12161E;">${st.name}</strong>
-              <p style="font-size: 11px; color: #70798B; margin: 2px 0 0 0;">${st.city || 'Odisha'} · Official CRUT Terminal</p>
-            </div>
-          `);
-
-          markersLayerRef.current?.addLayer(marker);
-        }
-      });
-
-      if (stopPoints.length > 0 && !activeRouteTarget) {
-        const bounds = L.latLngBounds(stopPoints);
-        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
-      }
-    }
-    // Mode 5: Restaurants & Culinary
-    else if (viewMode === 'culinary') {
-      const foodPoints: [number, number][] = [];
-      displayedEssentials.forEach((item) => {
-        foodPoints.push([item.lat, item.lon]);
-        const isSelected = selectedEssential?.id === item.id;
-        const foodIcon = L.divIcon({
-          className: 'custom-culinary-pin',
-          html: `<div style="background-color: ${isSelected ? '#12161E' : '#C05621'}; color: #FFFFFF; width: ${
-            isSelected ? '32px' : '26px'
-          }; height: ${
-            isSelected ? '32px' : '26px'
-          }; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(192,86,33,0.4);">🍲</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
-        });
-
-        const marker = L.marker([item.lat, item.lon], { icon: foodIcon });
-        marker.on('click', () => {
-          setSelectedEssential(item);
-        });
-
-        marker.bindPopup(`
-          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 240px;">
-            <div style="font-size: 10px; font-family: monospace; color: #C05621; font-weight: bold;">
-              AUTHENTIC DINING · ${item.distanceFormatted}
-            </div>
-            <strong style="font-size: 13px; color: #12161E;">${item.name}</strong>
-            <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${item.cuisine || item.locality}</p>
-            ${item.rating ? `<span style="font-size: 10px; background: #C05621; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; margin-top: 4px; display: inline-block;">★ ${item.rating}</span>` : ''}
-          </div>
-        `);
-
-        markersLayerRef.current?.addLayer(marker);
-      });
-
-      if (foodPoints.length > 0 && !activeRouteTarget) {
-        const bounds = L.latLngBounds(foodPoints);
-        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
-      }
-    }
-    // Mode 6: Petrol Pumps & Fuel
+    // Mode 7: Petrol & EV Fuel
     else if (viewMode === 'petrol') {
       const fuelPoints: [number, number][] = [];
       displayedEssentials.forEach((item) => {
         fuelPoints.push([item.lat, item.lon]);
-        const isSelected = selectedEssential?.id === item.id;
-        const petrolIcon = L.divIcon({
-          className: 'custom-petrol-pin',
-          html: `<div style="background-color: ${isSelected ? '#12161E' : '#DD6B20'}; color: #FFFFFF; width: ${
-            isSelected ? '32px' : '26px'
-          }; height: ${
-            isSelected ? '32px' : '26px'
-          }; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(221,107,32,0.4);">⛽</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+        const fuelIcon = L.divIcon({
+          className: 'custom-fuel-pin',
+          html: `<div style="background-color: #DD6B20; color: #FFFFFF; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(221,107,32,0.4);">⛽</div>`,
+          iconSize: [28, 28],
+          iconAnchor: [14, 14],
         });
 
-        const marker = L.marker([item.lat, item.lon], { icon: petrolIcon });
+        const marker = L.marker([item.lat, item.lon], { icon: fuelIcon });
         marker.on('click', () => {
           setSelectedEssential(item);
+          setSelectedPlaceId(null);
+          setSelectedTransitStop(null);
+          marker.openPopup();
         });
 
         marker.bindPopup(`
@@ -767,7 +627,6 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
             </div>
             <strong style="font-size: 13px; color: #12161E;">${item.name}</strong>
             <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${item.locality}</p>
-            ${item.evCharging ? `<span style="font-size: 10px; background: #2F523E; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; margin-top: 4px; display: inline-block;">⚡ EV Fast Charger</span>` : ''}
           </div>
         `);
 
@@ -779,36 +638,33 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
       }
     }
-    // Mode 7: Police & Safety
+    // Mode 8: Police & Tourist Safety
     else if (viewMode === 'police') {
       const policePoints: [number, number][] = [];
       displayedEssentials.forEach((item) => {
         policePoints.push([item.lat, item.lon]);
-        const isSelected = selectedEssential?.id === item.id;
         const policeIcon = L.divIcon({
           className: 'custom-police-pin',
-          html: `<div style="background-color: ${isSelected ? '#12161E' : '#2B6CB0'}; color: #FFFFFF; width: ${
-            isSelected ? '32px' : '26px'
-          }; height: ${
-            isSelected ? '32px' : '26px'
-          }; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(43,108,176,0.4);">🛡️</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+          html: `<div style="background-color: #2B6CB0; color: #FFFFFF; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(43,108,176,0.4);">🛡️</div>`,
+          iconSize: [28, 28],
+          iconAnchor: [14, 14],
         });
 
         const marker = L.marker([item.lat, item.lon], { icon: policeIcon });
         marker.on('click', () => {
           setSelectedEssential(item);
+          setSelectedPlaceId(null);
+          setSelectedTransitStop(null);
+          marker.openPopup();
         });
 
         marker.bindPopup(`
           <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 230px;">
             <div style="font-size: 10px; font-family: monospace; color: #2B6CB0; font-weight: bold;">
-              24/7 POLICE STATION · ${item.distanceFormatted}
+              24/7 POLICE & SAFETY · ${item.distanceFormatted}
             </div>
             <strong style="font-size: 13px; color: #12161E;">${item.name}</strong>
             <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${item.locality}</p>
-            <p style="font-size: 11px; color: #2B6CB0; font-weight: bold; margin-top: 4px;">📞 Emergency: 112</p>
           </div>
         `);
 
@@ -820,32 +676,31 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
       }
     }
-    // Mode 8: Culinary & Craft Experiences
+    // Mode 9: Experiences
     else if (viewMode === 'experiences') {
       const expPoints: [number, number][] = [];
       ODISHA_EXPERIENCES.forEach((exp) => {
         expPoints.push([exp.lat, exp.lon]);
-        const isSelected = selectedExperience?.id === exp.id;
-        const customIcon = L.divIcon({
-          className: 'custom-stitch-exp-pin',
-          html: `<div style="background-color: ${isSelected ? '#12161E' : '#B87B22'}; color: #FFFFFF; width: ${
-            isSelected ? '32px' : '26px'
-          }; height: ${
-            isSelected ? '32px' : '26px'
-          }; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.35);">🍴</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+        const expIcon = L.divIcon({
+          className: 'custom-exp-pin',
+          html: `<div style="background-color: #6E5A8F; color: #FFFFFF; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(110,90,143,0.4);">✨</div>`,
+          iconSize: [28, 28],
+          iconAnchor: [14, 14],
         });
 
-        const marker = L.marker([exp.lat, exp.lon], { icon: customIcon });
+        const marker = L.marker([exp.lat, exp.lon], { icon: expIcon });
         marker.on('click', () => {
           setSelectedExperience(exp);
+          setSelectedPlaceId(null);
+          setSelectedEssential(null);
+          setSelectedTransitStop(null);
+          marker.openPopup();
         });
 
         marker.bindPopup(`
-          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 200px;">
-            <strong style="font-family: 'Playfair Display', serif; font-size: 13px; color: #12161E;">${exp.name}</strong>
-            <p style="font-size: 11px; color: #B87B22; margin: 4px 0 0 0;">${exp.categoryLabel}</p>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 220px;">
+            <strong style="font-size: 13px; color: #12161E;">${exp.name}</strong>
+            <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${exp.locality} · ${exp.categoryLabel}</p>
           </div>
         `);
 
@@ -854,10 +709,10 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
 
       if (expPoints.length > 0 && !activeRouteTarget) {
         const bounds = L.latLngBounds(expPoints);
-        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
+        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
       }
     }
-    // Mode 9: Saved Places
+    // Mode 10: Saved Places
     else if (viewMode === 'saved') {
       const savedPoints: [number, number][] = [];
       displayedSavedPlaces.forEach((sp) => {
@@ -865,1183 +720,373 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           savedPoints.push([sp.lat, sp.lon]);
           const savedIcon = L.divIcon({
             className: 'custom-saved-pin',
-            html: `<div style="background-color: #2F523E; color: #FFFFFF; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; border: 2px solid white; box-shadow: 0 2px 8px rgba(47,82,62,0.4);">🔖</div>`,
+            html: `<div style="background-color: #2F523E; color: #FFFFFF; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid white; box-shadow: 0 2px 8px rgba(47,82,62,0.4);">❤️</div>`,
             iconSize: [28, 28],
             iconAnchor: [14, 14],
           });
 
           const marker = L.marker([sp.lat, sp.lon], { icon: savedIcon });
+          marker.on('click', () => {
+            setSelectedPlaceId(sp.id);
+            setSelectedEssential(null);
+            setSelectedTransitStop(null);
+            marker.openPopup();
+          });
+
           marker.bindPopup(`
-            <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 200px;">
-              <div style="font-size: 10px; font-family: monospace; color: #2F523E; font-weight: bold;">SAVED PLACE</div>
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 220px;">
               <strong style="font-size: 13px; color: #12161E;">${sp.name}</strong>
-              <p style="font-size: 11px; color: #70798B; margin: 2px 0 0 0;">${sp.category || ''}</p>
+              <p style="font-size: 11px; color: #70798B; margin: 3px 0 0 0;">${sp.location || ''} · ${sp.category}</p>
             </div>
           `);
+
           markersLayerRef.current?.addLayer(marker);
         }
       });
 
       if (savedPoints.length > 0 && !activeRouteTarget) {
         const bounds = L.latLngBounds(savedPoints);
-        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
+        mapInstanceRef.current.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
       }
     }
-  }, [
-    places,
-    filterRegion,
-    selectedPlaceId,
-    viewMode,
-    selectedExperience,
-    selectedEssential,
-    transitMapData,
-    selectedRouteId,
-    selectedStopId,
-    displayedDestinations,
-    displayedEssentials,
-    fallbackTransitStops,
-    displayedSavedPlaces,
-    activeRouteTarget,
-  ]);
-
-  const handleLocateMe = async () => {
-    await locateUser(false);
-    if (currentPosition && isValidCoordinate(currentPosition.lat, currentPosition.lon) && mapInstanceRef.current) {
-      mapInstanceRef.current.flyTo([currentPosition.lat, currentPosition.lon], 13, { duration: 1 });
-    }
-  };
+  }, [viewMode, filterRegion, showAllTransitStops, displayedDestinations, displayedEssentials, displayedTransitStops, displayedSavedPlaces]);
 
   return (
-    <div className="w-full pt-16 sm:pt-18 h-screen flex flex-col md:flex-row overflow-hidden bg-[#FBF9F5]">
-      {/* Left Workspace Pane */}
-      <aside className="w-full md:w-[450px] lg:w-[490px] flex flex-col h-full border-r border-[#E5DFD5] bg-[#FBF9F5] z-10 shrink-0">
-        {/* Top Header */}
-        <header className="px-5 py-4 border-b border-[#E5DFD5] bg-white/95 backdrop-blur-md">
-          <div className="flex justify-between items-start mb-2.5">
-            <div>
-              <div className="inline-flex items-center gap-1.5 bg-[#B87B22]/10 text-[#B87B22] px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold mb-1">
-                <span className="material-symbols-outlined text-xs">explore</span>
-                <span>Spatial Intelligence Engine</span>
-              </div>
-              <h1 className="font-display font-bold text-xl md:text-2xl text-[#12161E]">
-                Spatial Route &amp; Map
-              </h1>
-            </div>
+    <div className="flex flex-col h-[calc(100vh-64px)] w-full bg-[#FBF9F5] overflow-hidden">
+      {/* 1. Horizontally Scrollable Map Filter Rail */}
+      <header className="flex-shrink-0 bg-white/95 backdrop-blur-md border-b border-[#E5DFD5] px-4 py-2.5 z-20">
+        <div className="flex items-center justify-between gap-3 max-w-7xl mx-auto">
+          {/* Scrollable Filter Rail (Zero overlap, no wrapping) */}
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar flex-nowrap py-1 flex-1">
             <button
-              type="button"
-              onClick={() => locateUser()}
-              disabled={isLocating}
-              className="px-3 py-1.5 rounded-xl bg-white hover:bg-[#F2EEE7] text-[#2F523E] border border-[#E5DFD5] text-xs font-mono font-semibold flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+              onClick={() => {
+                setViewMode('destinations');
+                setSelectedEssential(null);
+                setSelectedTransitStop(null);
+              }}
+              data-testid="map-tab-destinations"
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1 ${
+                viewMode === 'destinations'
+                  ? 'bg-[#12161E] text-white shadow-sm'
+                  : 'bg-[#FAF7F2] text-[#70798B] hover:bg-[#F3EFE6] border border-[#E5DFD5]'
+              }`}
             >
-              <span className="w-2 h-2 rounded-full bg-[#2F523E] animate-ping" />
-              <span>{isLocating ? 'Locating...' : 'GPS Centered'}</span>
+              <span>🏛️ All</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setViewMode('hotels');
+                setSelectedPlaceId(null);
+                setSelectedTransitStop(null);
+              }}
+              data-testid="map-tab-hotels"
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1 ${
+                viewMode === 'hotels'
+                  ? 'bg-[#8C6239] text-white shadow-sm'
+                  : 'bg-[#FAF7F2] text-[#70798B] hover:bg-[#F3EFE6] border border-[#E5DFD5]'
+              }`}
+            >
+              <span>🏨 Hotels & Stays</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setViewMode('culinary');
+                setSelectedPlaceId(null);
+                setSelectedTransitStop(null);
+              }}
+              data-testid="map-tab-culinary"
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1 ${
+                viewMode === 'culinary'
+                  ? 'bg-[#C05621] text-white shadow-sm'
+                  : 'bg-[#FAF7F2] text-[#70798B] hover:bg-[#F3EFE6] border border-[#E5DFD5]'
+              }`}
+            >
+              <span>🍲 Food</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setViewMode('transit');
+                setSelectedPlaceId(null);
+                setSelectedEssential(null);
+              }}
+              data-testid="map-tab-transit"
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1 ${
+                viewMode === 'transit'
+                  ? 'bg-[#1B5E6B] text-white shadow-sm'
+                  : 'bg-[#FAF7F2] text-[#70798B] hover:bg-[#F3EFE6] border border-[#E5DFD5]'
+              }`}
+            >
+              <span>🚌 Transit</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setViewMode('medical');
+                setSelectedPlaceId(null);
+                setSelectedTransitStop(null);
+              }}
+              data-testid="map-tab-medical"
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1 ${
+                viewMode === 'medical'
+                  ? 'bg-[#9E2A2B] text-white shadow-sm'
+                  : 'bg-[#FAF7F2] text-[#70798B] hover:bg-[#F3EFE6] border border-[#E5DFD5]'
+              }`}
+            >
+              <span>🏥 Medical</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setViewMode('atm');
+                setSelectedPlaceId(null);
+                setSelectedTransitStop(null);
+              }}
+              data-testid="map-tab-atm"
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1 ${
+                viewMode === 'atm' || viewMode === 'atms'
+                  ? 'bg-[#B87B22] text-white shadow-sm'
+                  : 'bg-[#FAF7F2] text-[#70798B] hover:bg-[#F3EFE6] border border-[#E5DFD5]'
+              }`}
+            >
+              <span>🏧 ATMs</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setViewMode('petrol');
+                setSelectedPlaceId(null);
+                setSelectedTransitStop(null);
+              }}
+              data-testid="map-tab-petrol"
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1 ${
+                viewMode === 'petrol'
+                  ? 'bg-[#DD6B20] text-white shadow-sm'
+                  : 'bg-[#FAF7F2] text-[#70798B] hover:bg-[#F3EFE6] border border-[#E5DFD5]'
+              }`}
+            >
+              <span>⛽ Petrol</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setViewMode('police');
+                setSelectedPlaceId(null);
+                setSelectedTransitStop(null);
+              }}
+              data-testid="map-tab-police"
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1 ${
+                viewMode === 'police'
+                  ? 'bg-[#2B6CB0] text-white shadow-sm'
+                  : 'bg-[#FAF7F2] text-[#70798B] hover:bg-[#F3EFE6] border border-[#E5DFD5]'
+              }`}
+            >
+              <span>🛡️ Police</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setViewMode('experiences');
+                setSelectedPlaceId(null);
+                setSelectedTransitStop(null);
+              }}
+              data-testid="map-tab-experiences"
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1 ${
+                viewMode === 'experiences'
+                  ? 'bg-[#6E5A8F] text-white shadow-sm'
+                  : 'bg-[#FAF7F2] text-[#70798B] hover:bg-[#F3EFE6] border border-[#E5DFD5]'
+              }`}
+            >
+              <span>✨ Experiences</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setViewMode('saved');
+                setSelectedPlaceId(null);
+                setSelectedTransitStop(null);
+              }}
+              data-testid="map-tab-saved"
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1 ${
+                viewMode === 'saved'
+                  ? 'bg-[#2F523E] text-white shadow-sm'
+                  : 'bg-[#FAF7F2] text-[#70798B] hover:bg-[#F3EFE6] border border-[#E5DFD5]'
+              }`}
+            >
+              <span>❤️ Saved ({savedPlaces.length})</span>
             </button>
           </div>
 
-          {/* Map Layer Mode Tabs (All 9 Modes) */}
-          <div className="flex gap-1 overflow-x-auto pb-1 scrollbar-none text-xs font-mono">
-            {[
-              { id: 'destinations', label: 'Places', icon: 'temple_hindu' },
-              { id: 'experiences', label: 'Culinary', icon: 'restaurant' },
-              { id: 'transit', label: 'Mo Bus', icon: 'directions_bus' },
-              { id: 'medical', label: 'Medical 24/7', icon: 'local_hospital' },
-              { id: 'atm', label: 'ATMs', icon: 'atm' },
-<<<<<<< HEAD
-=======
-              { id: 'transit', label: 'Mo Bus', icon: 'directions_bus' },
-              { id: 'culinary', label: 'Dining', icon: 'restaurant' },
-              { id: 'petrol', label: 'Petrol & EV', icon: 'local_gas_station' },
-              { id: 'police', label: 'Police 112', icon: 'local_police' },
-              { id: 'experiences', label: 'Food & Crafts', icon: 'storefront' },
->>>>>>> 15ff233 (feat: expand Essentials Near You (6 categories), 9 map modes with route line HUD, and visual landmark image discovery)
-              { id: 'saved', label: `Saved (${savedPlaces.length})`, icon: 'bookmark' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                data-testid={`map-tab-${tab.id}`}
-                onClick={() => {
-                  setViewMode(tab.id as MapViewMode);
-                  setActiveRouteTarget(null);
-                }}
-                className={`px-3 py-1.5 rounded-lg font-semibold transition-all whitespace-nowrap cursor-pointer flex items-center gap-1 ${
-                  viewMode === tab.id
-                    ? 'bg-[#12161E] text-white shadow-xs'
-                    : 'bg-[#F2EEE7] text-[#3D4654] hover:bg-[#EAE4DA]'
-                }`}
-              >
-                <span className="material-symbols-outlined text-xs">{tab.icon}</span>
-                <span>{tab.label}</span>
-              </button>
-            ))}
-          </div>
-        </header>
-
-        {/* Dynamic Sidebar Content Based on View Mode */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-3 scrollbar-thin">
-          {/* Mode: Destinations */}
-          {viewMode === 'destinations' &&
-            displayedDestinations.map((p, idx) => (
-              <div
-                key={p.id}
-                onClick={() => {
-                  setSelectedPlaceId(p.id);
-                  if (p.lat && p.lon && mapInstanceRef.current) {
-                    mapInstanceRef.current.flyTo([p.lat, p.lon], 13, { duration: 0.8 });
-                  }
-                }}
-                className={`p-3.5 rounded-2xl border transition-all cursor-pointer ${
-                  selectedPlaceId === p.id
-                    ? 'bg-white border-[#B87B22] shadow-md ring-1 ring-[#B87B22]/30'
-                    : 'bg-white/80 hover:bg-white border-[#E5DFD5]'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] font-mono font-bold uppercase text-[#B87B22]">
-                      #{idx + 1} {p.distanceFormatted ? `• ${p.distanceFormatted}` : ''}
-                    </span>
-                    <h3 className="font-display font-bold text-base text-[#12161E]">{p.name}</h3>
-                    <p className="text-xs text-[#70798B] mt-0.5">
-                      {p.district || p.region} • {p.category}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (p.lat && p.lon) {
-                          handleDrawRoute({
-                            name: p.name,
-                            categoryLabel: p.category,
-                            address: p.district || '',
-                            lat: p.lat,
-                            lon: p.lon,
-                          });
-                        }
-                      }}
-                      className="px-2.5 py-1 rounded-lg bg-[#F2EEE7] hover:bg-[#E5DFD5] text-[#12161E] text-xs font-semibold cursor-pointer shadow-xs flex items-center gap-1"
-                    >
-                      <span className="material-symbols-outlined text-xs">directions</span>
-                      <span>Route</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onNavigate('plan', { placeId: p.id });
-                      }}
-                      className="px-2.5 py-1 rounded-lg bg-[#B87B22] hover:bg-[#A0691B] text-white text-xs font-semibold cursor-pointer shadow-xs"
-                    >
-                      Plan Trip
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-
-          {/* Mode: Medical Help 24/7 */}
-          {viewMode === 'medical' &&
-            displayedEssentials.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => {
-                  setSelectedEssential(item);
-                  if (mapInstanceRef.current) {
-                    mapInstanceRef.current.flyTo([item.lat, item.lon], 14, { duration: 0.8 });
-                  }
-                }}
-                className={`p-4 rounded-2xl border transition-all cursor-pointer ${
-                  selectedEssential?.id === item.id
-                    ? 'bg-[#FFF5F5] border-[#9E2A2B] shadow-md ring-1 ring-[#9E2A2B]/30'
-                    : 'bg-white hover:bg-[#FFF9F9] border-[#E5DFD5]'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] font-mono font-bold uppercase text-[#9E2A2B] bg-[#9E2A2B]/10 px-2 py-0.5 rounded-full">
-                      {item.category === 'hospital' ? '🏥 24/7 Hospital' : '💊 24/7 Pharmacy'} • {item.distanceFormatted}
-                    </span>
-                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{item.name}</h3>
-                    <p className="text-xs text-[#70798B] mt-0.5">{item.address}</p>
-                    {item.phone && (
-                      <p className="text-xs font-mono font-semibold text-[#9E2A2B] mt-2">
-                        📞 Emergency: {item.phone}
-                      </p>
-                    )}
-                  </div>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleDrawRoute({
-                        name: item.name,
-                        categoryLabel: 'Hospital 24/7',
-                        address: item.address,
-                        lat: item.lat,
-                        lon: item.lon,
-                      });
-                    }}
-                    className="px-2.5 py-1 rounded-lg bg-[#9E2A2B]/10 hover:bg-[#9E2A2B]/20 text-[#9E2A2B] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
-                  >
-                    <span className="material-symbols-outlined text-xs">directions</span>
-                    <span>Route</span>
-                  </button>
-                </div>
-              </div>
-            ))}
-
-          {/* Mode: ATMs */}
-          {viewMode === 'atm' &&
-            displayedEssentials.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => {
-                  setSelectedEssential(item);
-                  if (mapInstanceRef.current) {
-                    mapInstanceRef.current.flyTo([item.lat, item.lon], 14, { duration: 0.8 });
-                  }
-                }}
-                className={`p-4 rounded-2xl border transition-all cursor-pointer ${
-                  selectedEssential?.id === item.id
-                    ? 'bg-[#FBF8F2] border-[#B87B22] shadow-md ring-1 ring-[#B87B22]/30'
-                    : 'bg-white hover:bg-[#FBF8F2]/60 border-[#E5DFD5]'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] font-mono font-bold uppercase text-[#B87B22] bg-[#B87B22]/10 px-2 py-0.5 rounded-full">
-                      🏧 24/7 ATM • {item.distanceFormatted}
-                    </span>
-                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{item.name}</h3>
-                    <p className="text-xs text-[#70798B] mt-0.5">{item.address}</p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleDrawRoute({
-                        name: item.name,
-                        categoryLabel: '24/7 ATM',
-                        address: item.address,
-                        lat: item.lat,
-                        lon: item.lon,
-                      });
-                    }}
-                    className="px-2.5 py-1 rounded-lg bg-[#B87B22]/10 hover:bg-[#B87B22]/20 text-[#B87B22] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
-                  >
-                    <span className="material-symbols-outlined text-xs">directions</span>
-                    <span>Route</span>
-                  </button>
-                </div>
-              </div>
-            ))}
-
-          {/* Mode: Transit Stops */}
-          {viewMode === 'transit' &&
-            (transitMapData?.stops && transitMapData.stops.length > 0 ? transitMapData.stops : fallbackTransitStops).map(
-              (st) => {
-                const lat = 'latitude' in st ? st.latitude : undefined;
-                const lon = 'longitude' in st ? st.longitude : undefined;
-                return (
-                  <div
-                    key={st.stop_id}
-                    onClick={() => {
-                      setSelectedStopId(st.stop_id);
-                      if (lat && lon && mapInstanceRef.current) {
-                        mapInstanceRef.current.flyTo([lat, lon], 14, { duration: 0.8 });
-                      }
-                    }}
-                    className={`p-4 rounded-2xl border transition-all cursor-pointer ${
-                      selectedStopId === st.stop_id
-                        ? 'bg-[#F2F8F9] border-[#1B5E6B] shadow-md ring-1 ring-[#1B5E6B]/30'
-                        : 'bg-white hover:bg-[#F2F8F9]/50 border-[#E5DFD5]'
-                    }`}
-                  >
-                    <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <span className="text-[10px] font-mono font-bold uppercase text-[#1B5E6B] bg-[#1B5E6B]/10 px-2 py-0.5 rounded-full">
-                          🚌 Mo Bus Stop {'distanceFormatted' in st ? `• ${st.distanceFormatted}` : ''}
-                        </span>
-                        <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{st.name}</h3>
-                        <p className="text-xs text-[#70798B] mt-0.5">{st.city || 'Odisha'} Terminal</p>
-                      </div>
-                      {lat && lon && (
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleDrawRoute({
-                              name: st.name,
-                              categoryLabel: 'Mo Bus Terminal',
-                              lat,
-                              lon,
-                            });
-                          }}
-                          className="px-2.5 py-1 rounded-lg bg-[#1B5E6B]/10 hover:bg-[#1B5E6B]/20 text-[#1B5E6B] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
-                        >
-                          <span className="material-symbols-outlined text-xs">directions</span>
-                          <span>Route</span>
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                );
-              }
-            )}
-
-          {/* Mode: Restaurants & Culinary */}
-          {viewMode === 'culinary' &&
-            displayedEssentials.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => {
-                  setSelectedEssential(item);
-                  if (mapInstanceRef.current) {
-                    mapInstanceRef.current.flyTo([item.lat, item.lon], 14, { duration: 0.8 });
-                  }
-                }}
-                className={`p-4 rounded-2xl border transition-all cursor-pointer ${
-                  selectedEssential?.id === item.id
-                    ? 'bg-[#FDF6F0] border-[#C05621] shadow-md ring-1 ring-[#C05621]/30'
-                    : 'bg-white hover:bg-[#FDF6F0]/60 border-[#E5DFD5]'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] font-mono font-bold uppercase text-[#C05621] bg-[#C05621]/10 px-2 py-0.5 rounded-full">
-                      🍲 Dining &amp; Cuisine • {item.distanceFormatted}
-                    </span>
-                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{item.name}</h3>
-                    <p className="text-xs text-[#70798B] mt-0.5">{item.cuisine || item.address}</p>
-                    <div className="flex items-center gap-2 mt-2">
-                      {item.rating && (
-                        <span className="text-[10px] font-bold text-white bg-[#C05621] px-2 py-0.5 rounded">
-                          ★ {item.rating}
-                        </span>
-                      )}
-                      {item.priceTier && (
-                        <span className="text-[10px] font-mono uppercase text-[#70798B] bg-[#FAF7F2] border border-[#E5DFD5] px-2 py-0.5 rounded">
-                          {item.priceTier}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleDrawRoute({
-                        name: item.name,
-                        categoryLabel: 'Authentic Dining',
-                        address: item.address,
-                        lat: item.lat,
-                        lon: item.lon,
-                      });
-                    }}
-                    className="px-2.5 py-1 rounded-lg bg-[#C05621]/10 hover:bg-[#C05621]/20 text-[#C05621] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
-                  >
-                    <span className="material-symbols-outlined text-xs">directions</span>
-                    <span>Route</span>
-                  </button>
-                </div>
-              </div>
-            ))}
-
-          {/* Mode: Petrol & EV Fuel */}
-          {viewMode === 'petrol' &&
-            displayedEssentials.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => {
-                  setSelectedEssential(item);
-                  if (mapInstanceRef.current) {
-                    mapInstanceRef.current.flyTo([item.lat, item.lon], 14, { duration: 0.8 });
-                  }
-                }}
-                className={`p-4 rounded-2xl border transition-all cursor-pointer ${
-                  selectedEssential?.id === item.id
-                    ? 'bg-[#FFF9F2] border-[#DD6B20] shadow-md ring-1 ring-[#DD6B20]/30'
-                    : 'bg-white hover:bg-[#FFF9F2]/60 border-[#E5DFD5]'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] font-mono font-bold uppercase text-[#DD6B20] bg-[#DD6B20]/10 px-2 py-0.5 rounded-full">
-                      ⛽ 24/7 Fuel Station • {item.distanceFormatted}
-                    </span>
-                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{item.name}</h3>
-                    <p className="text-xs text-[#70798B] mt-0.5">{item.address}</p>
-                    {item.fuelTypes && (
-                      <div className="flex flex-wrap gap-1 mt-2">
-                        {item.fuelTypes.map((f, i) => (
-                          <span
-                            key={i}
-                            className="text-[10px] font-mono text-[#DD6B20] bg-[#DD6B20]/10 px-1.5 py-0.5 rounded"
-                          >
-                            {f}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleDrawRoute({
-                        name: item.name,
-                        categoryLabel: '24/7 Fuel & EV',
-                        address: item.address,
-                        lat: item.lat,
-                        lon: item.lon,
-                      });
-                    }}
-                    className="px-2.5 py-1 rounded-lg bg-[#DD6B20]/10 hover:bg-[#DD6B20]/20 text-[#DD6B20] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
-                  >
-                    <span className="material-symbols-outlined text-xs">directions</span>
-                    <span>Route</span>
-                  </button>
-                </div>
-              </div>
-            ))}
-
-          {/* Mode: Police & Safety */}
-          {viewMode === 'police' &&
-            displayedEssentials.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => {
-                  setSelectedEssential(item);
-                  if (mapInstanceRef.current) {
-                    mapInstanceRef.current.flyTo([item.lat, item.lon], 14, { duration: 0.8 });
-                  }
-                }}
-                className={`p-4 rounded-2xl border transition-all cursor-pointer ${
-                  selectedEssential?.id === item.id
-                    ? 'bg-[#F2F6FA] border-[#2B6CB0] shadow-md ring-1 ring-[#2B6CB0]/30'
-                    : 'bg-white hover:bg-[#F2F6FA]/60 border-[#E5DFD5]'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] font-mono font-bold uppercase text-[#2B6CB0] bg-[#2B6CB0]/10 px-2 py-0.5 rounded-full">
-                      🛡️ 24/7 Security • {item.distanceFormatted}
-                    </span>
-                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1.5">{item.name}</h3>
-                    <p className="text-xs text-[#70798B] mt-0.5">{item.address}</p>
-                    <p className="text-xs font-mono font-semibold text-[#2B6CB0] mt-2">
-                      📞 Police Helpline: 112
-                    </p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleDrawRoute({
-                        name: item.name,
-                        categoryLabel: 'Police Station',
-                        address: item.address,
-                        lat: item.lat,
-                        lon: item.lon,
-                      });
-                    }}
-                    className="px-2.5 py-1 rounded-lg bg-[#2B6CB0]/10 hover:bg-[#2B6CB0]/20 text-[#2B6CB0] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
-                  >
-                    <span className="material-symbols-outlined text-xs">directions</span>
-                    <span>Route</span>
-                  </button>
-                </div>
-              </div>
-            ))}
-
-          {/* Mode: Experiences */}
-          {viewMode === 'experiences' &&
-            ODISHA_EXPERIENCES.map((exp) => (
-              <div
-                key={exp.id}
-                onClick={() => {
-                  setSelectedExperience(exp);
-                  if (mapInstanceRef.current) {
-                    mapInstanceRef.current.flyTo([exp.lat, exp.lon], 13, { duration: 0.8 });
-                  }
-                }}
-                className={`p-4 rounded-2xl border transition-all cursor-pointer ${
-                  selectedExperience?.id === exp.id
-                    ? 'bg-[#FAF7F2] border-[#B87B22] shadow-md ring-1 ring-[#B87B22]/30'
-                    : 'bg-white hover:bg-[#FAF7F2] border-[#E5DFD5]'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] font-mono font-bold uppercase text-[#B87B22]">
-                      {exp.categoryLabel} • {exp.district}
-                    </span>
-                    <h3 className="font-display font-bold text-base text-[#12161E] mt-1">{exp.name}</h3>
-                    <p className="text-xs text-[#3D4654] line-clamp-2 mt-1">{exp.description}</p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleDrawRoute({
-                        name: exp.name,
-                        categoryLabel: exp.categoryLabel,
-                        lat: exp.lat,
-                        lon: exp.lon,
-                      });
-                    }}
-                    className="px-2.5 py-1 rounded-lg bg-[#B87B22]/10 hover:bg-[#B87B22]/20 text-[#B87B22] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
-                  >
-                    <span className="material-symbols-outlined text-xs">directions</span>
-                    <span>Route</span>
-                  </button>
-                </div>
-              </div>
-            ))}
-
-          {/* Mode: Saved */}
-          {viewMode === 'saved' &&
-            (displayedSavedPlaces.length === 0 ? (
-              <div className="p-8 text-center bg-white rounded-2xl border border-[#E5DFD5]">
-                <p className="text-xs text-[#70798B]">No saved places on this device yet.</p>
-              </div>
-            ) : (
-              displayedSavedPlaces.map((sp) => (
-                <div
-                  key={sp.id}
-                  onClick={() => {
-                    if (sp.lat && sp.lon && mapInstanceRef.current) {
-                      mapInstanceRef.current.flyTo([sp.lat, sp.lon], 13, { duration: 0.8 });
-                    }
-                  }}
-                  className="p-4 rounded-2xl bg-white border border-[#E5DFD5] hover:border-[#2F523E] transition-all cursor-pointer"
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <span className="text-[10px] font-mono font-bold uppercase text-[#2F523E]">
-                        🔖 Saved Landmark {sp.distanceFormatted ? `• ${sp.distanceFormatted}` : ''}
-                      </span>
-                      <h3 className="font-display font-bold text-base text-[#12161E] mt-1">{sp.name}</h3>
-                      <p className="text-xs text-[#70798B] mt-0.5">{sp.district || sp.category}</p>
-                    </div>
-                    {sp.lat && sp.lon && (
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleDrawRoute({
-                            name: sp.name,
-                            categoryLabel: sp.category || 'Saved Place',
-                            lat: sp.lat!,
-                            lon: sp.lon!,
-                          });
-                        }}
-                        className="px-2.5 py-1 rounded-lg bg-[#2F523E]/10 hover:bg-[#2F523E]/20 text-[#2F523E] text-xs font-semibold shrink-0 cursor-pointer flex items-center gap-1"
-                      >
-                        <span className="material-symbols-outlined text-xs">directions</span>
-                        <span>Route</span>
-                      </button>
-                    )}
-                  </div>
-                </div>
-              ))
-<<<<<<< HEAD
-            )
-          )}
-
-          {/* Mode: Medical Help 24/7 */}
-          {viewMode === 'medical' && (
-            <div className="space-y-4">
-              {/* Prominent 108 Emergency Banner */}
-              <div className="p-4 bg-red-600 text-white rounded-2xl shadow-md space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-2xl animate-pulse">emergency</span>
-                    <div>
-                      <div className="font-display font-bold text-base">Emergency Medical Help</div>
-                      <div className="text-[11px] font-mono text-red-100">National Ambulance: 108 · 24/7 Dispatch</div>
-                    </div>
-                  </div>
-                  <a
-                    href="tel:108"
-                    className="px-3.5 py-1.5 bg-white text-red-700 font-bold text-xs rounded-xl shadow-xs hover:bg-red-50 transition-colors flex items-center gap-1 cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-sm">call</span>
-                    <span>Call 108</span>
-                  </a>
-                </div>
-                <div className="pt-2 border-t border-red-500/60 flex flex-wrap gap-2 text-[10px] font-mono text-red-100">
-                  <span className="bg-red-700/60 px-2 py-0.5 rounded">🚨 Police: 112</span>
-                  <span className="bg-red-700/60 px-2 py-0.5 rounded">🛡️ Women Helpline: 181</span>
-                  <span className="bg-red-700/60 px-2 py-0.5 rounded">🏥 Trauma Care: 24/7</span>
-                </div>
-              </div>
-
-              {/* Verified Hospitals List */}
-              <div className="flex items-center justify-between text-xs font-mono text-[#70798B]">
-                <span>{displayedMedical.length} 24/7 Verified Hospitals</span>
-                <span>Sorted by distance</span>
-              </div>
-
-              {displayedMedical.map((med, idx) => {
-                const isSelected = selectedMedicalId === med.id;
-                return (
-                  <div
-                    key={med.id}
-                    onClick={() => {
-                      setSelectedMedicalId(med.id);
-                      if (med.lat != null && med.lon != null && isValidCoordinate(med.lat, med.lon) && mapInstanceRef.current) {
-                        mapInstanceRef.current.flyTo([med.lat, med.lon], 13);
-                      }
-                    }}
-                    className={`p-4 rounded-xl border transition-all cursor-pointer ${
-                      isSelected
-                        ? 'bg-white border-red-500 shadow-md ring-1 ring-red-300'
-                        : 'bg-white/90 border-[#E5DFD5] hover:bg-white'
-                    }`}
-                  >
-                    <div className="flex justify-between items-start mb-1 gap-2">
-                      <div className="flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-bold font-mono">
-                          {idx + 1}
-                        </span>
-                        <h4 className="font-display font-bold text-base text-[#12161E]">
-                          {med.name}
-                        </h4>
-                      </div>
-                      <span className="font-mono text-[10px] text-red-700 bg-red-50 border border-red-200 px-2 py-0.5 rounded font-semibold shrink-0">
-                        24/7 Emergency
-                      </span>
-                    </div>
-                    <p className="text-xs text-[#3D4654] line-clamp-2 mb-2 ml-8">
-                      {med.description || 'Major tertiary healthcare facility with 24/7 trauma and ICU facilities.'}
-                    </p>
-                    <div className="flex items-center justify-between text-[11px] font-mono text-[#70798B] ml-8">
-                      <span>{med.district || 'Odisha'}</span>
-                      <div className="flex items-center gap-2">
-                        <span className="text-red-700 font-semibold font-mono bg-red-50 px-2 py-0.5 rounded">
-                          📍 {med.distanceFormatted}
-                        </span>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            onNavigate('plan', { placeId: med.id });
-                          }}
-                          title="Plan Route to Hospital"
-                          className="px-2 py-0.5 text-[10px] bg-[#12161E] text-white rounded hover:bg-[#B87B22] transition-colors cursor-pointer"
-                        >
-                          Plan Route
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
-          {/* Mode: ATMs */}
-          {(viewMode === 'atm' || viewMode === 'atms') && (
-            <div className="space-y-4">
-              <div className="p-3 bg-teal-50 border border-teal-200 rounded-xl text-xs font-body space-y-1">
-                <div className="flex items-center justify-between font-semibold text-teal-900">
-                  <span className="flex items-center gap-1.5">
-                    <span className="material-symbols-outlined text-sm text-teal-700">atm</span>
-                    <span>Verified 24/7 ATMs &amp; Cash Points</span>
-                  </span>
-                  <span className="font-mono text-[10px] bg-white px-2 py-0.5 rounded border border-teal-200 text-teal-800">
-                    {displayedAtms.length} Available
-                  </span>
-                </div>
-                <p className="text-[11px] text-teal-800">
-                  24-hour automated teller machines and cash dispensers located across transport hubs and commercial corridors.
-                </p>
-              </div>
-
-              {displayedAtms.map((atm, idx) => {
-                const isSelected = selectedAtmId === atm.id;
-                return (
-                  <div
-                    key={atm.id}
-                    onClick={() => {
-                      setSelectedAtmId(atm.id);
-                      if (isValidCoordinate(atm.lat, atm.lon) && mapInstanceRef.current) {
-                        mapInstanceRef.current.flyTo([atm.lat, atm.lon], 14);
-                      }
-                    }}
-                    className={`p-4 rounded-xl border transition-all cursor-pointer ${
-                      isSelected
-                        ? 'bg-white border-teal-600 shadow-md ring-1 ring-teal-300'
-                        : 'bg-white/90 border-[#E5DFD5] hover:bg-white'
-                    }`}
-                  >
-                    <div className="flex justify-between items-start mb-1 gap-2">
-                      <div className="flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center text-xs font-bold font-mono">
-                          {idx + 1}
-                        </span>
-                        <h4 className="font-display font-bold text-base text-[#12161E]">
-                          {atm.name}
-                        </h4>
-                      </div>
-                      <span className="font-mono text-[10px] text-teal-800 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded font-semibold shrink-0">
-                        {atm.status}
-                      </span>
-                    </div>
-                    <p className="text-xs text-[#3D4654] mb-2 ml-8">
-                      {atm.address}
-                    </p>
-                    <div className="flex items-center justify-between text-[11px] font-mono text-[#70798B] ml-8">
-                      <span>{atm.district} · {atm.bank}</span>
-                      <span className="text-teal-800 font-semibold font-mono bg-teal-50 px-2 py-0.5 rounded">
-                        📍 {atm.distanceFormatted}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
-          {/* Mode: Transit Stops */}
+          {/* Transit All Stops Toggle */}
           {viewMode === 'transit' && (
-            transitLoading ? (
-              <div className="text-center py-12 text-xs font-mono text-[#70798B]">
-                <span className="material-symbols-outlined text-2xl mb-2 text-[#2B72BA] animate-spin">sync</span>
-                <p>Loading official Mo Bus &amp; AMA Bus routes...</p>
-              </div>
-            ) : transitError ? (
-              <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl space-y-3">
-                <div className="flex items-center gap-2 text-amber-900 font-semibold text-xs">
-                  <span className="material-symbols-outlined text-amber-700 text-base">cloud_off</span>
-                  <span>{transitError}</span>
-                </div>
-                <button
-                  onClick={() => loadTransit()}
-                  className="px-3 py-1.5 bg-[#12161E] text-white rounded-md text-xs font-mono font-medium hover:bg-[#B87B22] cursor-pointer"
-                >
-                  Retry Connection
-                </button>
-              </div>
-            ) : transitMapData && transitMapData.routes.length === 0 ? (
-              <div className="p-6 bg-white border border-[#E5DFD5] rounded-xl text-center space-y-3">
-                <p className="text-xs font-mono text-[#70798B]">
-                  No transit routes found matching "{transitRegion}".
-                </p>
-                <button
-                  onClick={() => setTransitRegion('All')}
-                  className="px-3.5 py-1.5 bg-[#12161E] text-white rounded-md text-xs font-mono font-medium hover:bg-[#B87B22] cursor-pointer"
-                >
-                  Show All Routes
-                </button>
-              </div>
-            ) : transitMapData ? (
-              <div className="space-y-4">
-                {/* Transit Discovery State Header (Requirement 5) */}
-                <div className="p-3 bg-blue-50/80 border border-blue-200 rounded-xl space-y-1 text-xs">
-                  <div className="flex items-center justify-between font-semibold text-[#2B72BA]">
-                    <span className="flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-sm">directions_bus</span>
-                      <span>Mo Bus Network ({transitMapData.routes.length} routes)</span>
-                    </span>
-                    <span className="font-mono text-[10px] bg-white px-2 py-0.5 rounded border border-blue-200">
-                      {transitRegion === 'All' ? 'Statewide Network' : transitRegion}
-                    </span>
-                  </div>
-                  <p className="text-[11px] text-[#3D4654] font-body">
-                    {transitMapData.routes.length} verified CRUT transit routes across {transitRegion === 'All' ? 'the mapped transit network' : transitRegion}. Select a route to view its full stop sequence and highway alignment.
-                  </p>
-                </div>
-                {transitMapData.routes.map((r: TransportMapRoute) => {
-                  const isSelected = selectedRouteId === r.route_id;
-                  const itemGeo = resolveRouteMapGeometry(r);
-                  return (
-                    <div
-                      key={r.route_id}
-                      onClick={() => setSelectedRouteId(r.route_id)}
-                      className={`p-4 rounded-xl border transition-all cursor-pointer ${
-                        isSelected
-                          ? 'bg-white border-[#2B72BA] shadow-md ring-1 ring-[#2B72BA]/30'
-                          : 'bg-white/80 border-[#E5DFD5] hover:bg-white'
-                      }`}
-                    >
-                      <div className="flex justify-between items-start mb-1.5">
-                        <span className="font-mono text-xs font-bold text-white bg-[#2B72BA] px-2.5 py-0.5 rounded">
-                          Route {r.route_number}
-                        </span>
-                        <div className="flex items-center gap-1.5">
-                          {itemGeo.kind === 'EXACT' && (
-                            <span className="text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                              ● Verified Path
-                            </span>
-                          )}
-                          {itemGeo.kind === 'CORRIDOR' && (
-                            <span className="text-[10px] font-mono font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-                              ● Stop Corridor ({itemGeo.resolvedStopCount}/{itemGeo.totalStops})
-                            </span>
-                          )}
-                          {itemGeo.kind === 'ANCHOR' && (
-                            <span className="text-[10px] font-mono font-semibold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
-                              ● Anchor Stop
-                            </span>
-                          )}
-                          {itemGeo.kind === 'NONE' && (
-                            <span className="text-[10px] font-mono font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
-                              ● Sequence Only
-                            </span>
-                          )}
-                        </div>
-                      </div>
-
-                      <h4 className="font-display font-bold text-sm text-[#12161E] mt-1">
-                        {r.origin || 'Origin'} → {r.destination || 'Destination'}
-                      </h4>
-
-                      {r.via && (
-                        <p className="text-[11px] text-[#70798B] mt-0.5 font-body">
-                          Via: {r.via}
-                        </p>
-                      )}
-
-                      {/* Corridor Highways Preview */}
-                      {isSelected && r.corridors && r.corridors.length > 0 && (
-                        <div className="mt-2.5 pt-2.5 border-t border-[#E5DFD5]">
-                          <div className="font-mono text-[10px] uppercase tracking-wider text-[#1B5E6B] font-bold mb-1">
-                            Corridor Highway Alignment
-                          </div>
-                          <div className="flex flex-wrap gap-1">
-                            {r.corridors[0].road_names.map((road, idx) => (
-                              <span key={idx} className="text-[10px] font-mono text-[#1B5E6B] bg-[#1B5E6B]/10 px-2 py-0.5 rounded">
-                                🛣️ {road}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Expandable stops preview with Geocoded / Pending tags */}
-                      {isSelected && r.stops && (
-                        <div className="mt-2.5 pt-2.5 border-t border-[#E5DFD5] space-y-1.5 text-xs">
-                          <div className="font-mono text-[10px] uppercase tracking-wider text-[#B87B22] font-semibold flex justify-between">
-                            <span>Stop Sequence ({r.stops.length})</span>
-                            <span className="text-[#70798B]">
-                              {itemGeo.resolvedStopCount} / {itemGeo.totalStops} GPS
-                            </span>
-                          </div>
-                          <div className="max-h-44 overflow-y-auto space-y-1 pr-1">
-                            {r.stops.map((st) => (
-                              <div key={st.stop_id} className="flex items-center justify-between text-[11px]">
-                                <span className="text-[#12161E] truncate max-w-[270px]">
-                                  {st.sequence_order}. {st.stop_name}
-                                </span>
-                                {st.latitude != null && st.longitude != null && isValidCoordinate(st.latitude, st.longitude) ? (
-                                  <span className="text-[9px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.2 rounded shrink-0">
-                                    GPS
-                                  </span>
-                                ) : (
-                                  <span className="text-[9px] font-mono text-[#70798B] bg-slate-100 px-1.5 py-0.2 rounded shrink-0">
-                                    Pending
-                                  </span>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            ) : null
+            <button
+              onClick={() => setShowAllTransitStops(!showAllTransitStops)}
+              className={`px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold whitespace-nowrap transition cursor-pointer border flex-shrink-0 ${
+                showAllTransitStops
+                  ? 'bg-[#1B5E6B] text-white border-[#1B5E6B]'
+                  : 'bg-white text-[#1B5E6B] border-[#1B5E6B] hover:bg-teal-50'
+              }`}
+            >
+              {showAllTransitStops ? 'Showing All Stops' : 'Show All Stops'}
+            </button>
           )}
         </div>
-      </aside>
+      </header>
 
-      {/* Right Pane: Interactive Map */}
-      <main className="flex-1 h-full relative bg-[#F2EEE7]">
-        <div ref={mapContainerRef} className="w-full h-full z-0" />
+      {/* 2. Interactive Map Canvas Container */}
+      <main className="relative flex-1 w-full h-full bg-[#E5DFD5]">
+        <div ref={mapContainerRef} className="w-full h-full" />
 
-        {/* Selected Landmark Floating Sheet */}
-        {selectedPlace && viewMode === 'destinations' && (
-          <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 z-10 bg-white/95 backdrop-blur-md border border-[#E5DFD5] p-5 rounded-2xl shadow-xl animate-in slide-in-from-bottom duration-200">
-            <div className="flex justify-between items-start mb-2">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#B87B22] font-bold">
-                  {selectedPlace.category} · {selectedPlace.region || 'Odisha'}
-                </span>
-                <h3 className="font-display font-bold text-lg text-[#12161E]">{selectedPlace.name}</h3>
-              </div>
-              <button
-                onClick={() => setSelectedPlaceId(null)}
-                className="text-[#70798B] hover:text-[#12161E] p-1 cursor-pointer"
-              >
-                <span className="material-symbols-outlined text-base">close</span>
-              </button>
+        {/* Selected Destination Rich Infography Card */}
+        {selectedPlaceId && (() => {
+          const p = places.find((item) => item.id === selectedPlaceId) || displayedDestinations.find((d) => d.id === selectedPlaceId);
+          if (!p) return null;
+          return (
+            <div className="absolute bottom-6 left-4 right-4 sm:left-6 sm:right-auto z-30 max-w-sm">
+              <PlaceInfoCard
+                place={{
+                  id: p.id,
+                  name: p.name,
+                  category: typeof p.category === 'string' ? p.category : (p.category as any)?.name || 'Sanctuary',
+                  district: p.district,
+                  address: p.address,
+                  lat: p.lat,
+                  lon: p.lon,
+                  rating: p.rating,
+                  ratingCount: p.rating_count,
+                  ratingSource: p.rating_source,
+                  openingHours: p.opening_hours_source || undefined,
+                  description: p.description,
+                  verified: true,
+                }}
+                onClose={() => setSelectedPlaceId(null)}
+                onNavigate={(tab, params) => onNavigate(tab as StitchTab, params)}
+                onDrawRoute={(t) => handleDrawRoute({ ...t, address: t.address || undefined })}
+              />
             </div>
-            <p className="text-xs font-body text-[#3D4654] line-clamp-2 mb-4 leading-relaxed">
-              {selectedPlace.description}
-            </p>
-            <div className="flex gap-2">
-              <button
-                onClick={() => onNavigate('plan', { placeId: selectedPlace.id })}
-                className="flex-1 py-2 bg-[#B87B22] text-white rounded-lg text-xs font-semibold hover:bg-[#A0691B] transition-colors flex items-center justify-center gap-1 cursor-pointer"
-              >
-                <span className="material-symbols-outlined text-sm">edit_calendar</span>
-                <span>Plan Around This Place</span>
-              </button>
-            </div>
+          );
+        })()}
+
+        {/* Selected Essential / Hotel Rich Infography Card */}
+        {selectedEssential && (
+          <div className="absolute bottom-6 left-4 right-4 sm:left-6 sm:right-auto z-30 max-w-sm">
+            <PlaceInfoCard
+              place={{
+                id: selectedEssential.id,
+                name: selectedEssential.name,
+                category: selectedEssential.category,
+                district: selectedEssential.district,
+                address: selectedEssential.address,
+                lat: selectedEssential.lat,
+                lon: selectedEssential.lon,
+                rating: selectedEssential.rating,
+                ratingCount: selectedEssential.ratingCount,
+                ratingSource: selectedEssential.ratingSource,
+                openingHours: selectedEssential.openingHours,
+                is24x7: selectedEssential.is24x7,
+                phone: selectedEssential.phone,
+                emergencyPhone: selectedEssential.emergencyPhone,
+                amenities: selectedEssential.amenities,
+                cuisine: selectedEssential.cuisine,
+                priceTier: selectedEssential.priceTier,
+                dataSource: selectedEssential.dataSource,
+                verified: selectedEssential.verified,
+              }}
+              onClose={() => setSelectedEssential(null)}
+              onNavigate={(tab, params) => onNavigate(tab as StitchTab, params)}
+              onDrawRoute={(t) => handleDrawRoute({ ...t, address: t.address || undefined })}
+            />
           </div>
         )}
 
-        {/* Selected Experience Floating Sheet */}
-        {selectedExperience && viewMode === 'experiences' && (
-          <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 z-10 bg-white/95 backdrop-blur-md border border-[#E5DFD5] p-5 rounded-2xl shadow-xl animate-in slide-in-from-bottom duration-200">
-            <div className="flex justify-between items-start mb-2">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#1B5E6B] font-bold">
-                  {selectedExperience.categoryLabel} · {selectedExperience.district}
-                </span>
-                <h3 className="font-display font-bold text-lg text-[#12161E]">{selectedExperience.name}</h3>
-              </div>
-              <button
-                onClick={() => setSelectedExperience(null)}
-                className="text-[#70798B] hover:text-[#12161E] p-1 cursor-pointer"
-              >
-                <span className="material-symbols-outlined text-base">close</span>
-              </button>
-            </div>
-            <p className="text-xs font-body text-[#3D4654] line-clamp-3 mb-4 leading-relaxed">
-              {selectedExperience.description}
-            </p>
-            <div className="flex gap-2">
-              <button
-                onClick={() => onNavigate('plan', { hub: selectedExperience.district.toLowerCase() })}
-                className="flex-1 py-2 bg-[#1B5E6B] text-white rounded-lg text-xs font-semibold hover:bg-[#144752] transition-colors flex items-center justify-center gap-1 cursor-pointer"
-              >
-                <span className="material-symbols-outlined text-sm">restaurant</span>
-                <span>Include in Trip Plan</span>
-=======
-            ))}
-        </div>
-      </aside>
+        {/* Selected Transit Stop Details Panel */}
+        {selectedTransitStop && (
+          <div className="absolute bottom-6 left-4 right-4 sm:left-6 sm:right-auto z-30 max-w-sm">
+            <TransitStopDetailPanel
+              stop={selectedTransitStop}
+              onClose={() => setSelectedTransitStop(null)}
+              onOpenTimetable={(routeNo) => setActiveTimetableRoute(routeNo)}
+              onDrawRouteToStop={(st) =>
+                handleDrawRoute({
+                  lat: st.latitude,
+                  lon: st.longitude,
+                  name: st.name,
+                  category: 'Transit Stop',
+                  address: `${st.locality}, ${st.city}`,
+                })
+              }
+            />
+          </div>
+        )}
 
-      {/* Right Canvas: Interactive Map */}
-      <main className="flex-1 h-full relative overflow-hidden bg-[#F2EEE7]">
-        <div ref={mapContainerRef} className="w-full h-full" />
-
-        {/* Floating Route & Directions HUD Panel */}
+        {/* Floating Route Guidance HUD */}
         {activeRouteTarget && (
           <div
             data-testid="directions-hud-overlay"
-            className="absolute bottom-6 left-6 right-6 md:right-auto md:w-96 bg-white/95 backdrop-blur-md rounded-2xl p-4.5 border border-[#E5DFD5] shadow-xl z-[1000] space-y-3 transition-all animate-in fade-in slide-in-from-bottom-4 duration-300"
+            className="absolute top-4 left-4 right-4 sm:left-6 sm:right-auto z-30 max-w-sm bg-white/95 backdrop-blur-md rounded-2xl border border-[#E5DFD5] p-4 shadow-xl font-body text-[#12161E] animate-in slide-in-from-top duration-200"
           >
-            <div className="flex items-start justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#B87B22] animate-pulse"></span>
-                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#B87B22]">
-                  Live Route Guidance
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={handleClearRoute}
-                className="w-6 h-6 rounded-full bg-[#F2EEE7] hover:bg-[#E5DFD5] text-[#70798B] flex items-center justify-center cursor-pointer transition-colors"
-                title="Clear route"
-              >
-                <span className="material-symbols-outlined text-sm">close</span>
-              </button>
-            </div>
-
-            <div>
-              <h4 className="font-display font-bold text-base text-[#12161E] leading-tight">
-                {activeRouteTarget.name}
-              </h4>
-              <p className="text-xs text-[#70798B] mt-0.5">{activeRouteTarget.categoryLabel}</p>
-            </div>
-
-            {/* Travel Time & Distance Pills */}
-            <div className="grid grid-cols-3 gap-2 pt-1">
-              <div className="p-2 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] text-center">
-                <span className="text-[10px] font-mono uppercase text-[#70798B] block">Distance</span>
-                <span className="font-mono font-bold text-xs text-[#12161E]">
-                  {activeRouteTarget.distanceFormatted}
-                </span>
-              </div>
-              <div className="p-2 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] text-center">
-                <span className="text-[10px] font-mono uppercase text-[#70798B] block">🚗 Drive</span>
-                <span className="font-mono font-bold text-xs text-[#B87B22]">
-                  {formatDuration(activeRouteTarget.drivingMins)}
-                </span>
-              </div>
-              <div className="p-2 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] text-center">
-                <span className="text-[10px] font-mono uppercase text-[#70798B] block">🚶 Walk</span>
-                <span className="font-mono font-bold text-xs text-[#2F523E]">
-                  {formatDuration(activeRouteTarget.walkingMins)}
-                </span>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex items-center gap-2 pt-1">
-              <a
-                href={`https://www.google.com/maps/dir/?api=1&origin=${refLat},${refLon}&destination=${activeRouteTarget.lat},${activeRouteTarget.lon}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-2 px-3 rounded-xl bg-[#12161E] hover:bg-[#2A3241] text-white text-xs font-semibold text-center flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs"
-              >
-                <span className="material-symbols-outlined text-sm">navigation</span>
-                <span>Open in Maps</span>
-              </a>
-              <button
-                type="button"
-                onClick={handleClearRoute}
-                className="py-2 px-3 rounded-xl bg-[#F2EEE7] hover:bg-[#E5DFD5] text-[#3D4654] text-xs font-semibold transition-colors cursor-pointer"
-              >
-                Clear
->>>>>>> 15ff233 (feat: expand Essentials Near You (6 categories), 9 map modes with route line HUD, and visual landmark image discovery)
-              </button>
-            </div>
-          </div>
-        )}
-<<<<<<< HEAD
-
-        {/* Selected Transit Route Floating Sheet */}
-        {activeTransitRoute && viewMode === 'transit' && (
-          <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 z-10 bg-white/95 backdrop-blur-md border border-[#E5DFD5] p-5 rounded-2xl shadow-xl animate-in slide-in-from-bottom duration-200">
             <div className="flex justify-between items-start mb-2">
               <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#2B72BA] font-bold">
-                    Mo Bus Route {activeTransitRoute.route_number}
-                  </span>
-                  {activeRouteGeometry.kind === 'EXACT' && (
-                    <span className="text-[9px] font-mono font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">
-                      Verified Survey Path
-                    </span>
-                  )}
-                  {activeRouteGeometry.kind === 'CORRIDOR' && (
-                    <span className="text-[9px] font-mono font-semibold text-amber-700 bg-amber-50 px-1.5 py-0.2 rounded border border-amber-200">
-                      Stop Corridor ({activeRouteGeometry.resolvedStopCount}/{activeRouteGeometry.totalStops} GPS)
-                    </span>
-                  )}
-                  {activeRouteGeometry.kind === 'ANCHOR' && (
-                    <span className="text-[9px] font-mono font-semibold text-sky-700 bg-sky-50 px-1.5 py-0.2 rounded border border-sky-200">
-                      Anchor Stop
-                    </span>
-                  )}
-                  {activeRouteGeometry.kind === 'NONE' && (
-                    <span className="text-[9px] font-mono font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded border border-slate-200">
-                      Sequence Only
-                    </span>
-                  )}
-                </div>
-                <h3 className="font-display font-bold text-base text-[#12161E]">
-                  {activeTransitRoute.origin} → {activeTransitRoute.destination}
-                </h3>
+                <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-[#B87B22]">
+                  Live Route Guidance
+                </span>
+                <h4 className="font-display font-bold text-sm text-[#12161E] truncate max-w-[220px]">
+                  {activeRouteTarget.name}
+                </h4>
               </div>
               <button
-                onClick={() => setSelectedRouteId(null)}
-                className="text-[#70798B] hover:text-[#12161E] p-1 cursor-pointer"
+                onClick={handleClearRoute}
+                className="text-[#70798B] hover:text-[#12161E] text-xs font-semibold px-2 py-1 bg-[#FAF7F2] rounded-lg border border-[#E5DFD5] cursor-pointer"
               >
-                <span className="material-symbols-outlined text-base">close</span>
+                Clear
               </button>
             </div>
-            <div className="text-xs text-[#70798B] font-body mb-3">
-              {activeTransitRoute.stops_count} sequence stops · {activeTransitRoute.service_area || activeTransitRoute.region || 'Odisha'}
+
+            <div className="grid grid-cols-3 gap-2 bg-[#FAF7F2] p-2 rounded-xl border border-[#E5DFD5] text-center font-mono text-xs mb-3">
+              <div>
+                <span className="text-[10px] text-[#70798B] block">Distance</span>
+                <strong className="text-[#B87B22]">{activeRouteTarget.distanceFormatted}</strong>
+              </div>
+              <div>
+                <span className="text-[10px] text-[#70798B] block">🚗 Drive</span>
+                <strong>~{formatDuration(activeRouteTarget.drivingMins)}</strong>
+              </div>
+              <div>
+                <span className="text-[10px] text-[#70798B] block">🚶 Walk</span>
+                <strong>~{formatDuration(activeRouteTarget.walkingMins)}</strong>
+              </div>
             </div>
 
-            {activeTransitRoute.corridors && activeTransitRoute.corridors.length > 0 && (
-              <div className="mb-3 p-2 bg-[#FBF9F5] rounded-lg border border-[#E5DFD5] text-[11px] font-mono text-[#1B5E6B]">
-                <div className="font-bold text-[10px] uppercase text-[#70798B] mb-0.5">Arterial Highway</div>
-                {activeTransitRoute.corridors[0].road_names.join(' · ')}
-              </div>
-            )}
-
-            <button
-              onClick={() => onNavigate('plan', { hub: activeTransitRoute.origin || '', route: activeTransitRoute.route_number })}
-              className="w-full py-2 bg-[#2B72BA] text-white rounded-lg text-xs font-semibold hover:bg-[#1E5799] transition-colors flex items-center justify-center gap-1 cursor-pointer"
+            <a
+              href={`https://www.google.com/maps/dir/?api=1&origin=${refLat},${refLon}&destination=${activeRouteTarget.lat},${activeRouteTarget.lon}&travelmode=driving`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2 bg-[#B87B22] text-white rounded-lg text-xs font-semibold hover:bg-[#966319] transition flex items-center justify-center gap-1.5 shadow-sm"
             >
-              <span className="material-symbols-outlined text-sm">directions_bus</span>
-              <span>Plan Transit Journey</span>
-            </button>
+              <span className="material-symbols-outlined text-sm">navigation</span>
+              <span>Open in Google Maps</span>
+            </a>
           </div>
         )}
-        {/* Selected Medical Floating Sheet */}
-        {selectedMedicalId && viewMode === 'medical' && (() => {
-          const med = displayedMedical.find(m => m.id === selectedMedicalId);
-          if (!med) return null;
-          return (
-            <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 z-10 bg-white/95 backdrop-blur-md border border-red-200 p-5 rounded-2xl shadow-xl animate-in slide-in-from-bottom duration-200">
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-red-600 font-bold">
-                    24/7 Emergency Medical Facility
-                  </span>
-                  <h3 className="font-display font-bold text-lg text-[#12161E]">{med.name}</h3>
-                </div>
-                <button
-                  onClick={() => setSelectedMedicalId(null)}
-                  className="text-[#70798B] hover:text-[#12161E] p-1 cursor-pointer"
-                >
-                  <span className="material-symbols-outlined text-base">close</span>
-                </button>
-              </div>
-              <p className="text-xs font-body text-[#3D4654] line-clamp-2 mb-3 leading-relaxed">
-                {med.description || 'Major tertiary healthcare facility with 24/7 emergency & trauma response.'}
-              </p>
-              <div className="text-xs font-mono text-red-700 bg-red-50 p-2 rounded-lg mb-3 flex items-center justify-between">
-                <span>📍 {med.distanceFormatted} away</span>
-                <a href="tel:108" className="font-bold flex items-center gap-1 hover:underline">
-                  <span className="material-symbols-outlined text-sm">call</span>
-                  <span>Dial 108</span>
-                </a>
-              </div>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => onNavigate('plan', { placeId: med.id })}
-                  className="flex-1 py-2 bg-red-600 text-white rounded-lg text-xs font-semibold hover:bg-red-700 transition-colors flex items-center justify-center gap-1 cursor-pointer"
-                >
-                  <span className="material-symbols-outlined text-sm">directions</span>
-                  <span>Plan Route to Hospital</span>
-                </button>
-              </div>
-            </div>
-          );
-        })()}
 
-        {/* Selected ATM Floating Sheet */}
-        {selectedAtmId && (viewMode === 'atms' || viewMode === 'atm') && (() => {
-          const atm = displayedAtms.find(a => a.id === selectedAtmId);
-          if (!atm) return null;
-          return (
-            <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 z-10 bg-white/95 backdrop-blur-md border border-teal-200 p-5 rounded-2xl shadow-xl animate-in slide-in-from-bottom duration-200">
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-teal-700 font-bold">
-                    {atm.status}
-                  </span>
-                  <h3 className="font-display font-bold text-lg text-[#12161E]">{atm.name}</h3>
-                </div>
-                <button
-                  onClick={() => setSelectedAtmId(null)}
-                  className="text-[#70798B] hover:text-[#12161E] p-1 cursor-pointer"
-                >
-                  <span className="material-symbols-outlined text-base">close</span>
-                </button>
-              </div>
-              <p className="text-xs font-body text-[#3D4654] mb-3 leading-relaxed">
-                {atm.address} ({atm.district})
-              </p>
-              <div className="text-xs font-mono text-teal-800 bg-teal-50 p-2 rounded-lg mb-3 flex items-center justify-between">
-                <span>📍 {atm.distanceFormatted} away</span>
-                <span className="font-bold">{atm.bank}</span>
-              </div>
-            </div>
-          );
-        })()}
+        {/* Accessible SSR Items Representation */}
+        <div className="sr-only" data-testid="active-mode-items" aria-hidden="true">
+          {displayedEssentials.map((e) => (
+            <div key={e.id}>{e.name} - {e.category} - {e.locality}</div>
+          ))}
+          {displayedDestinations.map((d) => (
+            <div key={d.id}>{d.name}</div>
+          ))}
+        </div>
       </main>
+
+      {/* Transit Timetable Modal */}
+      <TransitTimetableModal
+        routeNumber={activeTimetableRoute}
+        onClose={() => setActiveTimetableRoute(null)}
+      />
     </div>
   );
 };

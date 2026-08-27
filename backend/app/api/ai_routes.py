@@ -8,12 +8,8 @@ from app.ai.conversation import GroundedConversationOrchestrator, GroundedConver
 from app.ai.model import RuleBasedModelAdapter
 from app.ai.orchestrator import AIOrchestrator
 from app.ai.rate_limit import rate_limiter
-<<<<<<< HEAD
 from app.ai.schemas import AIPlanRequest, AIResponse, AppContextPayload, PlanningConstraints
-=======
-from app.ai.schemas import AIPlanRequest, AIResponse, PlanningConstraints
 from app.schemas.image_identify import ImageIdentifyRequest, ImageIdentifyResponse
->>>>>>> 15ff233 (feat: expand Essentials Near You (6 categories), 9 map modes with route line HUD, and visual landmark image discovery)
 from app.ai.tools import BuildItineraryTool, GetProviderStatusTool, PlanTransportHopTool, SearchPlacesTool
 from app.ai.tools.adapters import create_default_tool_registry
 from app.core.config import settings

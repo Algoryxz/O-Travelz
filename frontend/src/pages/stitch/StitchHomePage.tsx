@@ -336,6 +336,7 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
 
       {/* 4. ESSENTIALS NEAR YOU SECTION */}
       <EssentialsSection
+        onOpenHotels={() => onNavigate('map', { mode: 'hotels' })}
         onOpenMedical={() => onNavigate('map', { mode: 'medical' })}
         onOpenATM={() => onNavigate('map', { mode: 'atm' })}
         onOpenTransit={() => onNavigate('map', { mode: 'transit' })}

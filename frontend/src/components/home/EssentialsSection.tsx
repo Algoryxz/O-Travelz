@@ -5,6 +5,7 @@ interface EssentialsSectionProps {
   onOpenMedical: () => void;
   onOpenATM: () => void;
   onOpenTransit: () => void;
+  onOpenHotels?: () => void;
   onOpenCulinary?: () => void;
   onOpenPetrol?: () => void;
   onOpenPolice?: () => void;
@@ -14,6 +15,7 @@ export const EssentialsSection: React.FC<EssentialsSectionProps> = ({
   onOpenMedical,
   onOpenATM,
   onOpenTransit,
+  onOpenHotels,
   onOpenCulinary,
   onOpenPetrol,
   onOpenPolice,
@@ -38,7 +40,7 @@ export const EssentialsSection: React.FC<EssentialsSectionProps> = ({
               Essentials Near You
             </h3>
             <p className="text-xs sm:text-sm font-body text-[#70798B] mt-0.5">
-              Instant verified emergency, cash points, dining, fuel, and security assistance centered around{" "}
+              Instant verified hotels, emergency care, cash points, dining, fuel, and security assistance centered around{" "}
               <span className="font-semibold text-[#12161E]">{currentLabel}</span>
               {isLive && (
                 <span className="ml-1.5 inline-flex items-center gap-1 text-[#2F523E] font-mono text-xs">
@@ -54,9 +56,43 @@ export const EssentialsSection: React.FC<EssentialsSectionProps> = ({
           </span>
         </div>
 
-        {/* 6 Prominent Utility Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
-          {/* Card 1: Medical Help 24/7 */}
+        {/* Prominent Utility Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5">
+          {/* Card 1: Hotels & Stays */}
+          <button
+            type="button"
+            data-testid="essential-card-hotels"
+            onClick={onOpenHotels || onOpenMedical}
+            className="group text-left p-5 rounded-2xl bg-white hover:bg-[#FDF9F5] border border-[#E5DFD5] hover:border-[#8C6239]/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between cursor-pointer"
+          >
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="w-10 h-10 rounded-xl bg-[#8C6239]/10 group-hover:bg-[#8C6239]/15 text-[#8C6239] flex items-center justify-center transition-colors">
+                  <span className="material-symbols-outlined text-2xl">hotel</span>
+                </div>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#8C6239] bg-[#8C6239]/10 px-2 py-0.5 rounded-full">
+                  Stays &amp; OTDC
+                </span>
+              </div>
+              <div>
+                <h4 className="font-display font-bold text-base text-[#12161E] group-hover:text-[#8C6239] transition-colors leading-snug">
+                  Hotels &amp; Stays
+                </h4>
+                <p className="text-xs font-body text-[#70798B] mt-1 leading-relaxed line-clamp-2">
+                  Verified luxury resorts, heritage stays, and OTDC Panthanivas with source-backed ratings.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-[#E5DFD5]/60 flex items-center justify-between text-xs font-mono font-semibold text-[#8C6239]">
+              <span>Explore Stays on Map</span>
+              <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
+                arrow_forward
+              </span>
+            </div>
+          </button>
+
+          {/* Card 2: Medical Help 24/7 */}
           <button
             type="button"
             data-testid="essential-card-medical"
@@ -90,7 +126,7 @@ export const EssentialsSection: React.FC<EssentialsSectionProps> = ({
             </div>
           </button>
 
-          {/* Card 2: ATMs & Cash Points */}
+          {/* Card 3: ATMs & Cash Points */}
           <button
             type="button"
             data-testid="essential-card-atm"
@@ -124,7 +160,7 @@ export const EssentialsSection: React.FC<EssentialsSectionProps> = ({
             </div>
           </button>
 
-          {/* Card 3: Mo Bus & Transit */}
+          {/* Card 4: Mo Bus & Transit */}
           <button
             type="button"
             data-testid="essential-card-transit"
@@ -158,7 +194,7 @@ export const EssentialsSection: React.FC<EssentialsSectionProps> = ({
             </div>
           </button>
 
-          {/* Card 4: Restaurants & Food */}
+          {/* Card 5: Restaurants & Food */}
           <button
             type="button"
             data-testid="essential-card-culinary"
@@ -192,7 +228,7 @@ export const EssentialsSection: React.FC<EssentialsSectionProps> = ({
             </div>
           </button>
 
-          {/* Card 5: Petrol Pumps & EV Fuel */}
+          {/* Card 6: Petrol Pumps & EV Fuel */}
           <button
             type="button"
             data-testid="essential-card-petrol"
@@ -226,7 +262,7 @@ export const EssentialsSection: React.FC<EssentialsSectionProps> = ({
             </div>
           </button>
 
-          {/* Card 6: Police Stations & 112 Help */}
+          {/* Card 7: Police Stations & 112 Help */}
           <button
             type="button"
             data-testid="essential-card-police"
