@@ -14,7 +14,7 @@ import hashlib
 import secrets
 import uuid
 from typing import Optional, Tuple
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from app.models.session import UserSession
 from app.models.user import User
@@ -28,7 +28,7 @@ def utc_now() -> datetime.datetime:
 
 def hash_session_token(raw_token: str) -> str:
     """Compute SHA-256 hex digest of raw session token."""
-    return hashlib.sha256(raw_token.encode("utf-8")).hexdigest()
+    return hashlib.sha256(raw_token.strip().strip('"').encode("utf-8")).hexdigest()
 
 
 def create_session(
@@ -67,24 +67,36 @@ def verify_session(
     Verify raw session token against database hash and return active User or None.
     Rejects missing, expired, or revoked sessions.
     """
-    if not session_token or len(session_token) < 16:
+    if not session_token:
         return None
 
-    token_hash = hash_session_token(session_token)
+    clean_token = session_token.strip().strip('"')
+    if len(clean_token) < 16:
+        return None
+
+    token_hash = hash_session_token(clean_token)
     now = utc_now()
 
     session_record = (
         db.query(UserSession)
+        .options(joinedload(UserSession.user))
         .filter(
             UserSession.session_token_hash == token_hash,
             UserSession.revoked_at.is_(None),
-            UserSession.expires_at > now,
         )
         .first()
     )
 
     if not session_record or not session_record.user:
         return None
+
+    # Timezone-safe timestamp comparison across PostgreSQL naive timestamps and SQLite
+    record_expires = session_record.expires_at
+    if record_expires is not None:
+        if record_expires.tzinfo is None:
+            record_expires = record_expires.replace(tzinfo=timezone.utc)
+        if record_expires <= now:
+            return None
 
     return session_record.user
 

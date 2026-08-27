@@ -237,3 +237,53 @@ class TestAuthAPIEndpoints:
         assert "secure" in set_cookie_header.lower()
         assert "httponly" in set_cookie_header.lower()
 
+    def test_get_me_with_bearer_authorization_header(self):
+        db: Session = SessionLocal()
+        try:
+            user = User(
+                id=uuid.uuid4(),
+                email=f"bearer_{uuid.uuid4()}@example.com",
+                name="Bearer User",
+                provider="google",
+                provider_subject=f"sub-{uuid.uuid4()}",
+            )
+            db.add(user)
+            db.commit()
+
+            raw_token, _ = create_session(db, user, expire_days=7)
+            res = client.get("/auth/me", headers={"Authorization": f"Bearer {raw_token}"})
+            assert res.status_code == 200
+            data = res.json()
+            assert data["authenticated"] is True
+            assert data["user"]["email"] == user.email
+
+            db.delete(user)
+            db.commit()
+        finally:
+            db.close()
+
+    def test_verify_session_with_quoted_and_whitespace_token(self):
+        db: Session = SessionLocal()
+        try:
+            user = User(
+                id=uuid.uuid4(),
+                email=f"clean_{uuid.uuid4()}@example.com",
+                name="Clean Token User",
+                provider="google",
+                provider_subject=f"sub-{uuid.uuid4()}",
+            )
+            db.add(user)
+            db.commit()
+
+            raw_token, _ = create_session(db, user, expire_days=7)
+            # Quoted token from some browser cookie formats
+            resolved = verify_session(db, f'  "{raw_token}"  ')
+            assert resolved is not None
+            assert resolved.id == user.id
+
+            db.delete(user)
+            db.commit()
+        finally:
+            db.close()
+
+

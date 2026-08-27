@@ -49,9 +49,15 @@ def get_current_user(
 ) -> Optional[User]:
     """
     FastAPI dependency yielding authenticated User or None.
+    Extracts session from HttpOnly session cookie or Authorization Bearer header.
     Does not raise HTTP exceptions for anonymous visitors.
     """
     session_token = request.cookies.get(settings.auth_session_cookie_name)
+    if not session_token:
+        auth_header = request.headers.get("Authorization")
+        if auth_header and auth_header.startswith("Bearer "):
+            session_token = auth_header[7:].strip()
+
     if not session_token:
         return None
     return verify_session(db, session_token)
