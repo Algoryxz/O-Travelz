@@ -103,10 +103,19 @@ function isAPIErrorResponse(data: unknown): data is APIErrorResponse {
 export class ApiClient {
   private readonly baseUrl: string;
   private readonly fetchFn: typeof fetch;
+  private bearerToken: string | null = null;
 
   constructor(config: ApiClientConfig = {}) {
     this.baseUrl = config.baseUrl !== undefined ? normalizeBaseUrl(config.baseUrl) : getApiBaseUrl();
     this.fetchFn = config.fetchFn ?? globalThis.fetch.bind(globalThis);
+  }
+
+  setBearerToken(token: string | null): void {
+    this.bearerToken = token;
+  }
+
+  getBearerToken(): string | null {
+    return this.bearerToken;
   }
 
   private async request<T>(
@@ -116,6 +125,11 @@ export class ApiClient {
   ): Promise<T> {
     const cleanEndpoint = `/${(endpoint || "").trim().replace(/^\/+/, "")}`;
     const url = buildApiUrlWithBase(this.baseUrl, cleanEndpoint);
+
+    const authHeaders: Record<string, string> = {};
+    if (this.bearerToken) {
+      authHeaders["Authorization"] = `Bearer ${this.bearerToken}`;
+    }
 
     let response: Response | null = null;
     const isIdempotentGet = !options.method || options.method.toUpperCase() === "GET";
@@ -129,6 +143,7 @@ export class ApiClient {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
+            ...authHeaders,
             ...options.headers,
           },
         });
@@ -368,6 +383,23 @@ export class ApiClient {
   // Auth API Methods
   // =========================================================================
 
+  async exchangeAuthTicket(ticket: string): Promise<import("./contracts").AuthResponse> {
+    const res = await this.request<import("./contracts").AuthResponse & { session_token?: string }>(
+      "/auth/session/exchange",
+      {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify({ ticket }),
+      },
+      (data): data is import("./contracts").AuthResponse & { session_token?: string } =>
+        isPlainObject(data) && typeof data.authenticated === "boolean"
+    );
+    if (res.authenticated && res.session_token) {
+      this.setBearerToken(res.session_token);
+    }
+    return res;
+  }
+
   async getAuthMe(): Promise<import("./contracts").AuthResponse> {
     return this.request<import("./contracts").AuthResponse>(
       "/auth/me",
@@ -378,6 +410,7 @@ export class ApiClient {
   }
 
   async logout(): Promise<{ authenticated: boolean }> {
+    this.setBearerToken(null);
     return this.request<{ authenticated: boolean }>(
       "/auth/logout",
       { method: "POST", credentials: "include" },

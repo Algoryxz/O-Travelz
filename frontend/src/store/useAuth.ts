@@ -40,8 +40,49 @@ export function useAuth() {
 
   const checkAuth = useCallback(async () => {
     updateAuthState({ isLoading: true, error: null });
+
+    // 1. Check if an auth_ticket exists in URL fragment or search params (post-OAuth redirect)
+    let ticket: string | null = null;
+    if (typeof window !== "undefined") {
+      try {
+        const hash = window.location.hash;
+        if (hash && hash.includes("auth_ticket=")) {
+          const hashParams = new URLSearchParams(hash.replace(/^#\/?/, ""));
+          ticket = hashParams.get("auth_ticket");
+        }
+        if (!ticket && window.location.search.includes("auth_ticket=")) {
+          const searchParams = new URLSearchParams(window.location.search);
+          ticket = searchParams.get("auth_ticket");
+        }
+
+        // Immediately scrub the ticket from the URL to keep history clean and prevent leakage
+        if (ticket) {
+          let cleanHash = window.location.hash;
+          if (cleanHash.includes("auth_ticket=")) {
+            const params = new URLSearchParams(cleanHash.replace(/^#\/?/, ""));
+            params.delete("auth_ticket");
+            const remaining = params.toString();
+            cleanHash = remaining ? `#${remaining}` : "";
+          }
+          const searchParams = new URLSearchParams(window.location.search);
+          searchParams.delete("auth_ticket");
+          const remainingSearch = searchParams.toString() ? `?${searchParams.toString()}` : "";
+          const cleanUrl = `${window.location.pathname}${remainingSearch}${cleanHash}`;
+          window.history.replaceState(null, "", cleanUrl || window.location.pathname);
+        }
+      } catch {
+        // ignore URL scrubbing errors
+      }
+    }
+
     try {
-      const res = await apiClient.getAuthMe();
+      let res;
+      if (ticket) {
+        res = await apiClient.exchangeAuthTicket(ticket);
+      } else {
+        res = await apiClient.getAuthMe();
+      }
+
       if (res.authenticated && res.user) {
         updateAuthState({
           user: res.user,

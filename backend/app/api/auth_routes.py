@@ -5,6 +5,7 @@ import logging
 from typing import Any, Dict, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, Request, Response
 from fastapi.responses import JSONResponse, RedirectResponse
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from app.ai.rate_limit import rate_limiter
@@ -14,11 +15,13 @@ from app.models.user import User
 from app.services.auth.google_oauth import (
     GoogleOAuthError,
     build_authorization_url,
+    create_auth_exchange_ticket,
     exchange_code_for_tokens,
     generate_nonce,
     generate_oauth_state,
     generate_pkce_pair,
     sign_oauth_state_cookie,
+    verify_and_burn_auth_exchange_ticket,
     verify_and_decode_oauth_state_cookie,
     verify_google_id_token,
 )
@@ -244,9 +247,24 @@ def google_auth_callback(
             expire_days=settings.auth_session_expire_days,
         )
 
-        # 6. Set session cookie and clear state cookie
+        # 6. Create short-lived single-use exchange ticket for cross-origin handshake
+        exchange_ticket = create_auth_exchange_ticket(
+            user_id=str(user.id),
+            raw_session_token=raw_token,
+            secret=settings.auth_session_secret,
+            ttl_seconds=60,
+        )
+
+        # Build redirect URL with auth_ticket in URL fragment (#) or search query
+        base_redirect = settings.auth_frontend_redirect_url.rstrip("/")
+        if "#" in base_redirect:
+            redirect_url = f"{base_redirect}&auth_ticket={exchange_ticket}"
+        else:
+            redirect_url = f"{base_redirect}#auth_ticket={exchange_ticket}"
+
+        # 7. Set session cookie and clear state cookie
         success_redirect = RedirectResponse(
-            url=settings.auth_frontend_redirect_url,
+            url=redirect_url,
             status_code=302,
         )
         success_redirect.set_cookie(
@@ -277,6 +295,63 @@ def google_auth_callback(
         )
         _delete_cookie_safe(fail_redirect, settings.auth_oauth_state_cookie_name)
         return fail_redirect
+
+
+class ExchangeTicketRequest(BaseModel):
+    ticket: str
+
+
+@router.post("/session/exchange")
+def exchange_auth_ticket(
+    payload: ExchangeTicketRequest,
+    response: Response,
+    db: Session = Depends(get_db),
+) -> Dict[str, Any]:
+    """
+    Exchange a single-use, 60-second cross-site auth ticket for an active session.
+    Burns the ticket immediately and returns user profile and in-memory session token.
+    """
+    data = verify_and_burn_auth_exchange_ticket(
+        ticket=payload.ticket,
+        secret=settings.auth_session_secret,
+    )
+    if not data:
+        raise HTTPException(
+            status_code=400,
+            detail={"error": "invalid_ticket", "message": "Invalid, expired, or already used auth ticket."},
+        )
+
+    raw_session_token = data.get("raw_session_token")
+    user = verify_session(db, raw_session_token)
+    if not user:
+        raise HTTPException(
+            status_code=401,
+            detail={"error": "session_not_found", "message": "Session could not be verified."},
+        )
+
+    # Also set HttpOnly cookie on response for browsers that support it in subresource POST
+    response.set_cookie(
+        key=settings.auth_session_cookie_name,
+        value=raw_session_token,
+        max_age=settings.auth_session_expire_days * 86400,
+        httponly=True,
+        samesite=settings.auth_cookie_samesite,
+        secure=settings.auth_cookie_secure,
+        path="/",
+    )
+
+    return {
+        "authenticated": True,
+        "user": {
+            "id": str(user.id),
+            "email": user.email,
+            "name": user.name,
+            "display_name": user.display_name or user.name,
+            "avatar_url": user.avatar_url,
+            "provider": user.provider,
+        },
+        "session_token": raw_session_token,
+    }
 
 
 @router.get("/me")

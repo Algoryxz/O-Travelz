@@ -11,11 +11,13 @@ from app.services.auth.google_oauth import (
     _base64url_decode,
     _base64url_encode,
     build_authorization_url,
+    create_auth_exchange_ticket,
     exchange_code_for_tokens,
     generate_nonce,
     generate_oauth_state,
     generate_pkce_pair,
     sign_oauth_state_cookie,
+    verify_and_burn_auth_exchange_ticket,
     verify_and_decode_oauth_state_cookie,
     verify_google_id_token,
 )
@@ -78,6 +80,32 @@ class TestGoogleOAuthCore:
         # Create cookie expired in past
         cookie_val = sign_oauth_state_cookie("state1", "nonce1", "verifier1", secret, max_age_seconds=-10)
         assert verify_and_decode_oauth_state_cookie(cookie_val, secret) is None
+
+    def test_auth_exchange_ticket_lifecycle_and_single_use_burn(self):
+        secret = "super-secret-key-32-chars-long-secure!!"
+        user_id = "00000000-0000-0000-0000-000000000001"
+        raw_token = "mock_raw_session_token_1234567890abcdef"
+
+        ticket = create_auth_exchange_ticket(user_id, raw_token, secret, ttl_seconds=60)
+        assert "." in ticket
+
+        # First verification succeeds
+        data = verify_and_burn_auth_exchange_ticket(ticket, secret)
+        assert data is not None
+        assert data["user_id"] == user_id
+        assert data["raw_session_token"] == raw_token
+
+        # Second verification (replay) MUST FAIL due to atomic nonce burn
+        replayed = verify_and_burn_auth_exchange_ticket(ticket, secret)
+        assert replayed is None
+
+        # Tampered ticket must fail
+        tampered_ticket = ticket[:-4] + "wxyz"
+        assert verify_and_burn_auth_exchange_ticket(tampered_ticket, secret) is None
+
+        # Expired ticket must fail
+        expired_ticket = create_auth_exchange_ticket(user_id, raw_token, secret, ttl_seconds=-10)
+        assert verify_and_burn_auth_exchange_ticket(expired_ticket, secret) is None
 
 
 class TestGoogleIDTokenValidation:
