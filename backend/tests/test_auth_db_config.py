@@ -144,7 +144,7 @@ class TestAuthDatabaseAndModels:
 
 class TestSecureConfiguration:
     def test_default_config_is_safe_for_anonymous_dev(self):
-        cfg = Settings(environment="development")
+        cfg = Settings(_env_file=None, environment="development", google_oauth_enabled=False)
         assert cfg.google_oauth_enabled is False
         assert cfg.auth_cookie_secure is False
         assert cfg.auth_session_expire_days == 30
@@ -189,3 +189,36 @@ class TestSecureConfiguration:
             google_oauth_client_secret="valid-google-client-secret-xyz",
         )
         cfg.validate_production_security()
+
+    def test_auth_cookie_samesite_normalization_and_validation(self):
+        cfg_lax = Settings(auth_cookie_samesite="  LAX  ")
+        assert cfg_lax.auth_cookie_samesite == "lax"
+
+        cfg_strict = Settings(auth_cookie_samesite="Strict")
+        assert cfg_strict.auth_cookie_samesite == "strict"
+
+        cfg_none = Settings(auth_cookie_samesite="None", auth_cookie_secure=True)
+        assert cfg_none.auth_cookie_samesite == "none"
+
+        with pytest.raises(ValueError, match="Invalid AUTH_COOKIE_SAMESITE"):
+            Settings(auth_cookie_samesite="invalid_mode")
+
+    def test_samesite_none_without_secure_fails_validation(self):
+        cfg = Settings(
+            auth_cookie_samesite="none",
+            auth_cookie_secure=False,
+        )
+        with pytest.raises(RuntimeError, match="requires AUTH_COOKIE_SECURE to be True"):
+            cfg.validate_production_security()
+
+    def test_production_cross_origin_cookie_configuration(self):
+        cfg = Settings(
+            environment="production",
+            auth_session_secret="a-very-secure-random-high-entropy-production-secret-key-32chars+",
+            auth_cookie_samesite="none",
+            auth_cookie_secure=True,
+        )
+        cfg.validate_production_security()
+        assert cfg.auth_cookie_samesite == "none"
+        assert cfg.auth_cookie_secure is True
+

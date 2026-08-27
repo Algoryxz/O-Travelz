@@ -2,6 +2,9 @@ import React from "react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { renderToString } from "react-dom/server";
 import { AuthStatusButton } from "../src/components/auth/AuthStatusButton";
+import { StitchNavbar } from "../src/components/stitch/StitchNavbar";
+import { StitchAuthModal } from "../src/components/stitch/StitchAuthModal";
+import { LocationProvider } from "../src/context/LocationContext";
 import { useAuth, setAuthStateForTesting } from "../src/store/useAuth";
 import {
   useCloudSync,
@@ -61,6 +64,77 @@ describe("Frontend Authentication & Cloud Sync Suite", () => {
       const html = renderClean(<AuthStatusButton />);
       expect(html).toContain("Sign In");
       expect(html).toContain("Sign in with Google");
+    });
+
+    it("StitchNavbar visibly renders desktop auth controls when unauthenticated", () => {
+      setAuthStateForTesting({ user: null, isAuthenticated: false, isLoading: false });
+      const html = renderClean(
+        <LocationProvider>
+          <StitchNavbar
+            currentTab="discover"
+            onSelectTab={vi.fn()}
+            onOpenAuth={vi.fn()}
+          />
+        </LocationProvider>
+      );
+      expect(html).toContain("Sign In");
+    });
+
+    it("StitchNavbar renders authenticated traveler profile pill when user is logged in", () => {
+      setAuthStateForTesting({
+        user: {
+          id: "user-456",
+          email: "explorer@odisha.in",
+          name: "Konark Explorer",
+          display_name: "Explorer",
+          provider: "google",
+        },
+        isAuthenticated: true,
+        isLoading: false,
+      });
+      const html = renderClean(
+        <LocationProvider>
+          <StitchNavbar
+            currentTab="discover"
+            onSelectTab={vi.fn()}
+            onOpenAuth={vi.fn()}
+          />
+        </LocationProvider>
+      );
+      expect(html).toContain("Explorer");
+    });
+
+    it("StitchAuthModal consumes central auth state and renders login prompt without redundant network calls", () => {
+      setAuthStateForTesting({ user: null, isAuthenticated: false, isLoading: false });
+      const html = renderClean(
+        <StitchAuthModal isOpen={true} onClose={vi.fn()} />
+      );
+      expect(html).toContain("Sign in to O-Travelz");
+      expect(html).toContain("Continue with Google");
+      expect(html).toContain("Traveler Profile &amp; Cloud Sync");
+    });
+
+    it("StitchAuthModal renders authenticated user details from central auth store", () => {
+      setAuthStateForTesting({
+        user: {
+          id: "user-789",
+          email: "jagannath@odisha.in",
+          name: "Jagannath Das",
+          display_name: "Jagannath",
+          provider: "google",
+          avatar_url: "https://lh3.googleusercontent.com/avatar.jpg",
+        },
+        isAuthenticated: true,
+        isLoading: false,
+      });
+      const html = renderClean(
+        <StitchAuthModal isOpen={true} onClose={vi.fn()} />
+      );
+      expect(html).toContain("Your Account");
+      expect(html).toContain("Jagannath");
+      expect(html).toContain("jagannath@odisha.in");
+      expect(html).toContain("Google Cloud Connected");
+      expect(html).toContain("Sign Out");
     });
 
     it("apiClient getAuthMe fetches /auth/me with credentials included", async () => {

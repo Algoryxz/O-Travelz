@@ -1,4 +1,5 @@
-from typing import Optional
+from typing import Any, Optional
+from pydantic import field_validator
 from pydantic_settings import BaseSettings
 
 
@@ -96,8 +97,27 @@ class Settings(BaseSettings):
     share_rate_limit_window_seconds: int = 3600
     share_max_payload_bytes: int = 51200  # 50 KB
 
+    @field_validator("auth_cookie_samesite", mode="before")
+    @classmethod
+    def normalize_auth_cookie_samesite(cls, v: Any) -> str:
+        if isinstance(v, str):
+            val = v.strip().lower()
+            if val not in ("lax", "strict", "none"):
+                raise ValueError(
+                    f"Invalid AUTH_COOKIE_SAMESITE: '{v}'. Must be one of 'lax', 'strict', 'none'."
+                )
+            return val
+        return "lax"
+
     def validate_production_security(self) -> None:
         """Fail closed if insecure secrets or misconfigurations exist in production."""
+        # Validate that SameSite=None always requires Secure=True regardless of environment
+        if self.auth_cookie_samesite.lower() == "none" and not self.auth_cookie_secure:
+            raise RuntimeError(
+                "FATAL: AUTH_COOKIE_SAMESITE is set to 'none', which requires AUTH_COOKIE_SECURE to be True "
+                "(browsers reject SameSite=None without Secure)."
+            )
+
         if self.environment.lower() == "production":
             if (
                 not self.auth_session_secret

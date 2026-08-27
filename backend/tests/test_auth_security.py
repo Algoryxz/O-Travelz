@@ -114,6 +114,10 @@ class TestOAuthSecurityDefenses:
         assert res.headers["location"] == settings.auth_frontend_redirect_url
         assert "otravelz_session" in res.cookies
 
+        # Verify state cookie was deleted
+        set_cookie_header = res.headers.get("set-cookie", "")
+        assert "otravelz_oauth_state" in set_cookie_header
+
         # Verify user created in DB
         db = SessionLocal()
         try:
@@ -122,6 +126,54 @@ class TestOAuthSecurityDefenses:
             assert user.email == "security_test@odisha.in"
             db.delete(user)
             db.commit()
+        finally:
+            db.close()
+
+    def test_callback_with_cross_origin_production_cookie_settings(self, monkeypatch):
+        monkeypatch.setattr(settings, "google_oauth_enabled", True)
+        monkeypatch.setattr(settings, "google_oauth_client_id", "test-client-id.apps.googleusercontent.com")
+        monkeypatch.setattr(settings, "google_oauth_client_secret", "test-client-secret")
+        monkeypatch.setattr(settings, "auth_cookie_samesite", "none")
+        monkeypatch.setattr(settings, "auth_cookie_secure", True)
+
+        state = generate_oauth_state()
+        nonce = "secure-nonce-prod"
+        verifier, _ = generate_pkce_pair()
+        cookie_val = sign_oauth_state_cookie(state, nonce, verifier, settings.auth_session_secret)
+
+        monkeypatch.setattr("app.api.auth_routes.exchange_code_for_tokens", lambda *args, **kwargs: {"id_token": "mock.jwt"})
+        from app.services.auth.google_oauth import GoogleProfile
+        test_sub = f"google-sub-prod-{uuid.uuid4()}"
+        monkeypatch.setattr(
+            "app.api.auth_routes.verify_google_id_token",
+            lambda *args, **kwargs: GoogleProfile(
+                sub=test_sub,
+                email="prod_test@odisha.in",
+                name="Prod Test",
+                display_name="Prod",
+                avatar_url=None,
+                email_verified=True,
+            ),
+        )
+
+        res = client.get(
+            f"/auth/google/callback?code=valid_code&state={state}",
+            cookies={"otravelz_oauth_state": cookie_val},
+            follow_redirects=False,
+        )
+        assert res.status_code == 302
+        set_cookie_header = res.headers.get("set-cookie", "")
+        assert "otravelz_session" in set_cookie_header
+        assert "samesite=none" in set_cookie_header.lower()
+        assert "secure" in set_cookie_header.lower()
+
+        # Clean up
+        db = SessionLocal()
+        try:
+            user = db.query(User).filter(User.provider_subject == test_sub).first()
+            if user:
+                db.delete(user)
+                db.commit()
         finally:
             db.close()
 
@@ -137,3 +189,4 @@ class TestOAuthSecurityDefenses:
         # AI plan
         res = client.post("/ai/converse", json={"messages": [{"role": "user", "content": "Hi"}]})
         assert res.status_code == 200
+

@@ -71,6 +71,17 @@ def get_required_user(
     return current_user
 
 
+def _delete_cookie_safe(resp: Response, key: str) -> None:
+    """Consistently delete an auth cookie using matching path, samesite, secure, and httponly attributes."""
+    resp.delete_cookie(
+        key=key,
+        path="/",
+        samesite=settings.auth_cookie_samesite,
+        secure=settings.auth_cookie_secure,
+        httponly=True,
+    )
+
+
 @router.get("/google/start")
 def google_auth_start(
     request: Request,
@@ -165,7 +176,7 @@ def google_auth_callback(
             url=f"{settings.auth_frontend_redirect_url}?auth_error={error}",
             status_code=302,
         )
-        fail_redirect.delete_cookie(settings.auth_oauth_state_cookie_name, path="/")
+        _delete_cookie_safe(fail_redirect, settings.auth_oauth_state_cookie_name)
         return fail_redirect
 
     if not code or not state:
@@ -183,7 +194,7 @@ def google_auth_callback(
             status_code=400,
             content={"error": "invalid_state", "message": "Invalid or expired OAuth state."},
         )
-        fail_resp.delete_cookie(settings.auth_oauth_state_cookie_name, path="/")
+        _delete_cookie_safe(fail_resp, settings.auth_oauth_state_cookie_name)
         return fail_resp
 
     code_verifier = cookie_data["code_verifier"]
@@ -234,7 +245,7 @@ def google_auth_callback(
             secure=settings.auth_cookie_secure,
             path="/",
         )
-        success_redirect.delete_cookie(settings.auth_oauth_state_cookie_name, path="/")
+        _delete_cookie_safe(success_redirect, settings.auth_oauth_state_cookie_name)
         return success_redirect
 
     except GoogleOAuthError as e:
@@ -243,7 +254,7 @@ def google_auth_callback(
             url=f"{settings.auth_frontend_redirect_url}?auth_error=authentication_failed",
             status_code=302,
         )
-        fail_redirect.delete_cookie(settings.auth_oauth_state_cookie_name, path="/")
+        _delete_cookie_safe(fail_redirect, settings.auth_oauth_state_cookie_name)
         return fail_redirect
     except Exception as e:
         logger.exception("Unexpected error during Google OAuth callback: %s", str(e))
@@ -251,7 +262,7 @@ def google_auth_callback(
             url=f"{settings.auth_frontend_redirect_url}?auth_error=server_error",
             status_code=302,
         )
-        fail_redirect.delete_cookie(settings.auth_oauth_state_cookie_name, path="/")
+        _delete_cookie_safe(fail_redirect, settings.auth_oauth_state_cookie_name)
         return fail_redirect
 
 
@@ -295,7 +306,7 @@ def logout(
     if session_token:
         revoke_session(db, session_token)
 
-    response.delete_cookie(settings.auth_session_cookie_name, path="/")
+    _delete_cookie_safe(response, settings.auth_session_cookie_name)
     return {
         "authenticated": False,
         "message": "Logged out successfully.",

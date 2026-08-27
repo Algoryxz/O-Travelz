@@ -11,7 +11,11 @@ import {
 import { useAuth } from "../../store/useAuth";
 import { useCloudSync } from "../../store/useCloudSync";
 
-export const AuthStatusButton: React.FC = () => {
+interface AuthStatusButtonProps {
+  onOpenAuth?: () => void;
+}
+
+export const AuthStatusButton: React.FC<AuthStatusButtonProps> = ({ onOpenAuth }) => {
   const { user, isAuthenticated, isLoading, loginWithGoogle, logout } = useAuth();
   const { status: syncStatus, syncNow } = useCloudSync();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -39,9 +43,17 @@ export const AuthStatusButton: React.FC = () => {
   }
 
   if (!isAuthenticated || !user) {
+    const handleSignIn = () => {
+      if (onOpenAuth) {
+        onOpenAuth();
+      } else {
+        loginWithGoogle();
+      }
+    };
+
     return (
       <button
-        onClick={loginWithGoogle}
+        onClick={handleSignIn}
         className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-[#12161E] hover:bg-[#263244] text-white text-xs font-semibold transition-all duration-150 shadow-xs cursor-pointer"
         title="Sign in with Google to sync your saved places and trips across devices"
       >

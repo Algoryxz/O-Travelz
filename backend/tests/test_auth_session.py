@@ -213,8 +213,27 @@ class TestAuthAPIEndpoints:
             # Session is revoked in database
             assert verify_session(db, raw_token) is None
 
+            # Verify cookie clearing header
+            set_cookie_header = res.headers.get("set-cookie", "")
+            assert "otravelz_session" in set_cookie_header
+            assert 'max-age=0' in set_cookie_header.lower() or 'expires=' in set_cookie_header.lower()
+
             # Clean up
             db.delete(user)
             db.commit()
         finally:
             db.close()
+
+    def test_logout_with_cross_origin_production_cookie_settings(self, monkeypatch):
+        from app.core.config import settings
+        monkeypatch.setattr(settings, "auth_cookie_samesite", "none")
+        monkeypatch.setattr(settings, "auth_cookie_secure", True)
+
+        res = client.post("/auth/logout")
+        assert res.status_code == 200
+        set_cookie_header = res.headers.get("set-cookie", "")
+        assert "otravelz_session" in set_cookie_header
+        assert "samesite=none" in set_cookie_header.lower()
+        assert "secure" in set_cookie_header.lower()
+        assert "httponly" in set_cookie_header.lower()
+

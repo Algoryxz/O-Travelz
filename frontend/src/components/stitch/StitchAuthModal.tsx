@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { apiClient } from '../../api/client';
-import { buildApiUrl } from '../../api/config';
-import type { UserResponse } from '../../types/api';
+import React from 'react';
+import { useAuth } from '../../store/useAuth';
+import type { AuthUser, UserResponse } from '../../types/api';
 
 interface StitchAuthModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onLoginSuccess?: (user: UserResponse) => void;
+  onLoginSuccess?: (user: AuthUser | UserResponse) => void;
   onLogoutSuccess?: () => void;
 }
 
@@ -16,54 +15,16 @@ export const StitchAuthModal: React.FC<StitchAuthModalProps> = ({
   onLoginSuccess,
   onLogoutSuccess,
 }) => {
-  const [currentUser, setCurrentUser] = useState<UserResponse | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  // Check current session on open
-  useEffect(() => {
-    if (!isOpen) return;
-
-    let isMounted = true;
-    const checkSession = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const user = await apiClient.getCurrentUser();
-        if (isMounted && user) {
-          setCurrentUser(user);
-          if (onLoginSuccess) onLoginSuccess(user);
-        }
-      } catch (err) {
-        if (isMounted) {
-          setCurrentUser(null);
-        }
-      } finally {
-        if (isMounted) setLoading(false);
-      }
-    };
-
-    checkSession();
-    return () => { isMounted = false; };
-  }, [isOpen, onLoginSuccess]);
+  const { user, isAuthenticated, isLoading, error, loginWithGoogle, logout } = useAuth();
 
   if (!isOpen) return null;
 
-  const handleGoogleLogin = () => {
-    // Redirect to backend OAuth 2.0 PKCE flow, respecting cross-domain API URL
-    window.location.href = buildApiUrl("/auth/google/start");
-  };
-
   const handleLogout = async () => {
-    setLoading(true);
     try {
-      await apiClient.logout();
-      setCurrentUser(null);
+      await logout();
       if (onLogoutSuccess) onLogoutSuccess();
     } catch (err) {
       console.warn('Logout note:', err);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -84,7 +45,7 @@ export const StitchAuthModal: React.FC<StitchAuthModalProps> = ({
               Traveler Profile &amp; Cloud Sync
             </span>
             <h3 className="text-2xl font-display font-bold text-[#12161E] mt-0.5">
-              {currentUser ? 'Your Account' : 'Sign in to O-Travelz'}
+              {user ? 'Your Account' : 'Sign in to O-Travelz'}
             </h3>
           </div>
           <button
@@ -101,31 +62,31 @@ export const StitchAuthModal: React.FC<StitchAuthModalProps> = ({
           </div>
         )}
 
-        {loading ? (
+        {isLoading ? (
           <div className="py-12 text-center text-xs font-mono text-[#70798B]">
             Synchronizing authentication state...
           </div>
-        ) : currentUser ? (
+        ) : user ? (
           /* Authenticated User Profile View */
           <div className="space-y-6">
             <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-[#E5DFD5] shadow-xs">
-              {currentUser.avatar_url ? (
+              {user.avatar_url ? (
                 <img
-                  src={currentUser.avatar_url}
-                  alt={currentUser.display_name || 'User Avatar'}
+                  src={user.avatar_url}
+                  alt={user.display_name || user.name || 'User Avatar'}
                   className="w-14 h-14 rounded-full object-cover border border-[#E5DFD5]"
                 />
               ) : (
                 <div className="w-14 h-14 rounded-full bg-[#B87B22]/10 text-[#B87B22] flex items-center justify-center font-display font-bold text-xl border border-[#B87B22]/20">
-                  {currentUser.display_name ? currentUser.display_name[0].toUpperCase() : 'U'}
+                  {user.display_name ? user.display_name[0].toUpperCase() : user.name ? user.name[0].toUpperCase() : 'U'}
                 </div>
               )}
               <div className="flex-1 overflow-hidden">
                 <h4 className="font-display font-bold text-base text-[#12161E] truncate">
-                  {currentUser.display_name || 'Odisha Explorer'}
+                  {user.display_name || user.name || 'Odisha Explorer'}
                 </h4>
                 <p className="font-body text-xs text-[#70798B] truncate">
-                  {currentUser.email}
+                  {user.email}
                 </p>
                 <div className="inline-flex items-center gap-1 text-[11px] font-mono text-[#2F523E] mt-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#2F523E]"></span>
@@ -164,7 +125,7 @@ export const StitchAuthModal: React.FC<StitchAuthModalProps> = ({
             </p>
 
             <button
-              onClick={handleGoogleLogin}
+              onClick={loginWithGoogle}
               className="w-full flex items-center justify-center gap-3 bg-white hover:bg-[#F2EEE7] text-[#12161E] border border-[#E5DFD5] p-3.5 rounded-xl font-body text-sm font-semibold transition-all shadow-xs hover:shadow-md cursor-pointer"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">

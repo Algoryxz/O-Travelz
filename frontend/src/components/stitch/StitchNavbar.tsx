@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation, CANONICAL_ODISHA_HUBS, type CanonicalHub } from '../../context/LocationContext';
 import { useSavedPlaces } from '../../store/useSavedPlaces';
+import { AuthStatusButton } from '../auth/AuthStatusButton';
 
 export type StitchTab = 'discover' | 'destinations' | 'map' | 'plan' | 'saved' | 'resilience' | 'legal';
 
@@ -17,6 +18,7 @@ interface StitchNavbarProps {
 export const StitchNavbar: React.FC<StitchNavbarProps> = ({
   currentTab,
   onSelectTab,
+  onOpenAuth,
   onOpenPreferences,
   onToggleMobileMenu,
   weatherSummary = "Bhubaneswar: 32°C, Sunny",
@@ -300,6 +302,11 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
               </span>
             )}
           </button>
+
+          {/* Desktop Auth Control */}
+          <div className="hidden md:flex items-center">
+            <AuthStatusButton onOpenAuth={onOpenAuth} />
+          </div>
 
           {/* Mobile Drawer Trigger */}
           {onToggleMobileMenu && (
