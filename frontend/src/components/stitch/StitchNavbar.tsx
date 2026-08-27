@@ -245,34 +245,16 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
           </div>
         </div>
 
-        {/* RIGHT ZONE: Unified Saved Places & Utility Controls (No Overcrowding) */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        {/* RIGHT ZONE: Unified Saved Places & Utility Controls */}
+        <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 shrink-0">
           {onOpenOnboarding && (
             <button
               onClick={onOpenOnboarding}
               title="Traveler Persona & Preferences"
-              className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-[#F2EEE7] rounded-full text-xs font-mono text-[#3D4654] border border-[#E5DFD5] transition-all cursor-pointer shadow-xs whitespace-nowrap"
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-[#F2EEE7] rounded-full text-xs font-mono text-[#3D4654] border border-[#E5DFD5] transition-all cursor-pointer shadow-xs whitespace-nowrap"
             >
               <span className="material-symbols-outlined text-sm text-[#B87B22]">psychology</span>
               <span>Preferences</span>
-            </button>
-          )}
-
-          <button
-            onClick={() => onSelectTab('map')}
-            title="Interactive Spatial Map"
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/80 hover:bg-[#F2EEE7] border border-[#E5DFD5] flex items-center justify-center text-[#3D4654] hover:text-[#B87B22] transition-colors focus:outline-none cursor-pointer"
-          >
-            <span className="material-symbols-outlined text-lg">map</span>
-          </button>
-
-          {onOpenPreferences && (
-            <button
-              onClick={onOpenPreferences}
-              title="Unit & Settings Controls"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/80 hover:bg-[#F2EEE7] border border-[#E5DFD5] flex items-center justify-center text-[#3D4654] hover:text-[#B87B22] transition-colors focus:outline-none cursor-pointer"
-            >
-              <span className="material-symbols-outlined text-lg">tune</span>
             </button>
           )}
 
@@ -280,7 +262,7 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
           <button
             onClick={() => onSelectTab('saved')}
             title="Saved Sanctuaries & Landmarks"
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono border transition-all focus:outline-none cursor-pointer whitespace-nowrap shadow-xs ${
+            className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono border transition-all focus:outline-none cursor-pointer whitespace-nowrap shadow-xs ${
               currentTab === 'saved'
                 ? 'bg-[#B87B22] text-white border-[#B87B22]'
                 : 'bg-[#F2EEE7] hover:bg-[#EAE4DA] text-[#12161E] border-[#E5DFD5]'
@@ -304,8 +286,8 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
             )}
           </button>
 
-          {/* Desktop Auth Control */}
-          <div className="hidden md:flex items-center">
+          {/* Desktop & Tablet Auth Control */}
+          <div className="flex items-center shrink-0">
             <AuthStatusButton onOpenAuth={handleAuthAction} />
           </div>
 

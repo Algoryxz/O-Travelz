@@ -54,7 +54,7 @@ export const AuthStatusButton: React.FC<AuthStatusButtonProps> = ({ onOpenAuth }
     return (
       <button
         onClick={handleSignIn}
-        className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-[#12161E] hover:bg-[#263244] text-white text-xs font-semibold transition-all duration-150 shadow-xs cursor-pointer"
+        className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#12161E] hover:bg-[#263244] text-white text-xs font-mono font-semibold transition-all duration-150 shadow-xs border border-[#12161E] hover:border-[#B87B22] cursor-pointer whitespace-nowrap select-none"
         title="Sign in with Google to sync your saved places and trips across devices"
       >
         <LogIn className="w-3.5 h-3.5 text-[#B87B22]" />
