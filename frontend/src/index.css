@@ -338,3 +338,38 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
 }
 
+/* Leaflet Interactive Canvas & Marker Styling */
+.leaflet-container {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  cursor: grab !important;
+  outline: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.leaflet-grab {
+  cursor: grab !important;
+}
+
+.leaflet-dragging .leaflet-grab,
+.leaflet-dragging .leaflet-container,
+.leaflet-drag-target {
+  cursor: grabbing !important;
+}
+
+.leaflet-marker-icon {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 14px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #E5DFD5 !important;
+}
+
+.leaflet-popup-content {
+  margin: 10px 12px !important;
+  line-height: 1.3 !important;
+}
+

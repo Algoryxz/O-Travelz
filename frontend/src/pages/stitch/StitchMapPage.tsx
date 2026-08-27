@@ -65,15 +65,12 @@ function escapeHtml(text: string): string {
     .replace(/'/g, '&#039;');
 }
 
-const createSafePopupOptions = (customOffset: L.Point = L.point(0, -10)): L.PopupOptions => ({
-  autoPan: true,
-  autoPanPaddingTopLeft: L.point(20, 20),
-  autoPanPaddingBottomRight: L.point(20, 20),
-  keepInView: true,
+const lightweightPopupOptions: L.PopupOptions = {
+  autoPan: false,
   closeButton: true,
-  offset: customOffset,
-  className: 'stitch-safe-map-popup',
-});
+  offset: typeof L.point === 'function' ? L.point(0, -12) : ([0, -12] as any),
+  className: 'stitch-lightweight-map-popup',
+};
 
 export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   onNavigate,
@@ -94,14 +91,12 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   const [transitMapData, setTransitMapData] = useState<TransportMapResponse | null>(null);
   const [selectedRouteId, setSelectedRouteId] = useState<string | null>(null);
 
-  const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState<MapViewMode>(initialMode);
   const [showAllTransitStops, setShowAllTransitStops] = useState(false);
   const [activeRouteTarget, setActiveRouteTarget] = useState<ActiveRouteTarget | null>(null);
 
-  // Search & "Search This Area" Map Bounds State
+  // Search & "Search This Area"
   const [searchQuery, setSearchQuery] = useState('');
-  const [mapCenter, setMapCenter] = useState<[number, number] | null>(null);
   const [showSearchThisArea, setShowSearchThisArea] = useState(false);
   const [isSearchingArea, setIsSearchingArea] = useState(false);
   const lastQueriedCenterRef = useRef<[number, number] | null>(null);
@@ -112,7 +107,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   const routeLineLayerRef = useRef<L.LayerGroup | null>(null);
   const userMarkerLayerRef = useRef<L.LayerGroup | null>(null);
 
-  // Reference coordinates validation
+  // Reference coordinates
   const hasValidUserCoords = isValidCoordinate(currentPosition?.lat, currentPosition?.lon);
   const refLat = hasValidUserCoords ? currentPosition!.lat : 20.2667;
   const refLon = hasValidUserCoords ? currentPosition!.lon : 85.8436;
@@ -184,7 +179,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
       .sort((a, b) => a.distanceKm - b.distanceKm);
   }, [places, nearbyData.places, refLat, refLon, searchQuery]);
 
-  // Proximity-sorted Essentials (Hotels, Medical, ATMs, Restaurants, Petrol, Police)
+  // Proximity-sorted Essentials
   const displayedEssentials = useMemo(() => {
     let pool = ODISHA_ESSENTIALS;
     if (viewMode === 'hotels') {
@@ -255,7 +250,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
       })
       .sort((a, b) => a.distanceKm - b.distanceKm);
 
-    return showAllTransitStops || searchQuery.trim() ? scored : scored.slice(0, 20);
+    return showAllTransitStops || searchQuery.trim() ? scored : scored.slice(0, 25);
   }, [refLat, refLon, showAllTransitStops, searchQuery]);
 
   // Saved Places
@@ -284,12 +279,10 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
       .then((data) => {
         if (isMounted) {
           setPlaces(data);
-          setLoading(false);
         }
       })
       .catch((err: unknown) => {
         console.error('Failed to load places for map:', err);
-        if (isMounted) setLoading(false);
       });
 
     apiClient
@@ -306,27 +299,28 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     };
   }, []);
 
-  // Initialize Map with resilient sizing and Odisha spatial bounds
+  // Initialize Leaflet Map with full, unrestricted physics
   useEffect(() => {
     if (!mapContainerRef.current || mapInstanceRef.current) return;
-
-    const odishaBounds = L.latLngBounds([17.0, 81.0], [23.5, 88.5]);
 
     const map = L.map(mapContainerRef.current, {
       center: [refLat, refLon],
       zoom: 12,
-      minZoom: 7,
+      minZoom: 6,
       maxZoom: 18,
-      maxBounds: odishaBounds,
-      maxBoundsViscosity: 0.8,
       zoomControl: false,
+      scrollWheelZoom: true,
+      dragging: true,
+      doubleClickZoom: true,
+      touchZoom: true,
+      boxZoom: true,
+      keyboard: true,
     });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors · O-Travelz',
-      minZoom: 7,
+      minZoom: 6,
       maxZoom: 18,
-      noWrap: true,
     }).addTo(map);
 
     L.control.zoom({ position: 'topright' }).addTo(map);
@@ -346,39 +340,30 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     requestAnimationFrame(() => {
       map.invalidateSize();
     });
-    const timer = setTimeout(() => {
-      map.invalidateSize();
-    }, 250);
 
     const resizeObserver = new ResizeObserver(() => {
       map.invalidateSize();
     });
     resizeObserver.observe(mapContainerRef.current);
 
-    map.on('zoomend', () => {
-      setCurrentZoom(map.getZoom());
-    });
-
     map.on('moveend', () => {
       const c = map.getCenter();
-      setMapCenter([c.lat, c.lng]);
       if (lastQueriedCenterRef.current) {
         const d = calculateHaversineDistanceKm(lastQueriedCenterRef.current[0], lastQueriedCenterRef.current[1], c.lat, c.lng);
-        if (d > 2.5) {
+        if (d > 3.0) {
           setShowSearchThisArea(true);
         }
       }
     });
 
     return () => {
-      clearTimeout(timer);
       resizeObserver.disconnect();
       map.remove();
       mapInstanceRef.current = null;
     };
   }, []);
 
-  // Draw User Location Pin
+  // Draw User Location Marker
   useEffect(() => {
     if (!mapInstanceRef.current || !userMarkerLayerRef.current) return;
     userMarkerLayerRef.current.clearLayers();
@@ -386,23 +371,26 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     if (hasValidUserCoords) {
       const userIcon = L.divIcon({
         className: 'user-loc-pin',
-        html: `<div style="background-color: #2563EB; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 12px rgba(37,99,235,0.7); display: flex; align-items: center; justify-content: center;"><div style="width: 6px; height: 6px; background-color: white; border-radius: 50%;"></div></div>`,
-        iconSize: [20, 20],
-        iconAnchor: [10, 10],
+        html: `<div style="background-color: #2563EB; width: 22px; height: 22px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 14px rgba(37,99,235,0.7); display: flex; align-items: center; justify-content: center; pointer-events: auto;"><div style="width: 7px; height: 7px; background-color: white; border-radius: 50%;"></div></div>`,
+        iconSize: [22, 22],
+        iconAnchor: [11, 11],
       });
 
-      const userMarker = L.marker([refLat, refLon], { icon: userIcon });
+      const userMarker = L.marker([refLat, refLon], {
+        icon: userIcon,
+        zIndexOffset: -100,
+      });
       userMarker.bindPopup(`
         <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; padding: 4px;">
-          <div style="font-weight: bold; color: #2563EB; margin-bottom: 2px;">📍 ${isLive ? 'Live GPS Location' : 'Selected Location'}</div>
-          <div style="color: #3D4654;">${locationName}</div>
+          <div style="font-weight: bold; color: #2563EB; margin-bottom: 2px;">📍 ${isLive ? 'Live GPS Location' : 'Active Hub'}</div>
+          <div style="color: #3D4654;">${escapeHtml(locationName)}</div>
         </div>
-      `, createSafePopupOptions());
+      `, lightweightPopupOptions);
       userMarkerLayerRef.current.addLayer(userMarker);
     }
   }, [hasValidUserCoords, refLat, refLon, isLive, locationName]);
 
-  // Route drawing helper
+  // Route drawing handler
   const handleDrawRoute = useCallback(
     (target: { lat: number; lon: number; name: string; category: string; address?: string }) => {
       if (!mapInstanceRef.current || !routeLineLayerRef.current) return;
@@ -442,7 +430,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         [refLat, refLon],
         [target.lat, target.lon],
       ]);
-      mapInstanceRef.current.fitBounds(bounds, { padding: [60, 60], maxZoom: 14 });
+      mapInstanceRef.current.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
     },
     [refLat, refLon]
   );
@@ -454,22 +442,65 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     }
   };
 
-  // Safe DOM Event Delegation for Popup Clicks
+  // Safe DOM Event Delegation for Marker and Popup Action Clicks
   useEffect(() => {
     const container = mapContainerRef.current;
     if (!container) return;
 
     const handleClick = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest('[data-map-action]');
-      if (!target) return;
-      const action = target.getAttribute('data-map-action');
-      const id = target.getAttribute('data-id') || '';
-      const type = target.getAttribute('data-type') || '';
-      const lat = parseFloat(target.getAttribute('data-lat') || '0');
-      const lon = parseFloat(target.getAttribute('data-lon') || '0');
-      const name = target.getAttribute('data-name') || '';
-      const category = target.getAttribute('data-category') || '';
-      const address = target.getAttribute('data-address') || '';
+      const target = e.target as HTMLElement;
+
+      // Check for marker click delegation
+      const markerEl = target.closest('[data-marker-id]');
+      if (markerEl) {
+        const id = markerEl.getAttribute('data-marker-id');
+        const type = markerEl.getAttribute('data-marker-type');
+        if (id) {
+          if (type === 'destination') {
+            setSelectedPlaceId(id);
+            setSelectedEssential(null);
+            setSelectedTransitStop(null);
+            setSelectedExperience(null);
+          } else if (type === 'essential') {
+            const item = ODISHA_ESSENTIALS.find((it) => it.id === id);
+            if (item) {
+              setSelectedEssential(item);
+              setSelectedPlaceId(null);
+              setSelectedTransitStop(null);
+              setSelectedExperience(null);
+            }
+          } else if (type === 'transit') {
+            const st = VERIFIED_TRANSIT_STOPS.find((s) => s.stop_id === id);
+            if (st) {
+              setSelectedTransitStop(st);
+              setSelectedPlaceId(null);
+              setSelectedEssential(null);
+              setSelectedExperience(null);
+            }
+          } else if (type === 'experience') {
+            const exp = ODISHA_EXPERIENCES.find((x) => x.id === id);
+            if (exp) {
+              setSelectedExperience(exp);
+              setSelectedPlaceId(null);
+              setSelectedEssential(null);
+              setSelectedTransitStop(null);
+            }
+          }
+        }
+        return;
+      }
+
+      // Check for popup button action
+      const actionEl = target.closest('[data-map-action]');
+      if (!actionEl) return;
+      const action = actionEl.getAttribute('data-map-action');
+      const id = actionEl.getAttribute('data-id') || '';
+      const type = actionEl.getAttribute('data-type') || '';
+      const lat = parseFloat(actionEl.getAttribute('data-lat') || '0');
+      const lon = parseFloat(actionEl.getAttribute('data-lon') || '0');
+      const name = actionEl.getAttribute('data-name') || '';
+      const category = actionEl.getAttribute('data-category') || '';
+      const address = actionEl.getAttribute('data-address') || '';
 
       if (action === 'route' && lat && lon) {
         handleDrawRoute({ lat, lon, name, category, address });
@@ -478,12 +509,14 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           setSelectedPlaceId(id);
           setSelectedEssential(null);
           setSelectedTransitStop(null);
+          setSelectedExperience(null);
         } else if (type === 'essential') {
-          const item = ODISHA_ESSENTIALS.find((e) => e.id === id);
+          const item = ODISHA_ESSENTIALS.find((it) => it.id === id);
           if (item) {
             setSelectedEssential(item);
             setSelectedPlaceId(null);
             setSelectedTransitStop(null);
+            setSelectedExperience(null);
           }
         } else if (type === 'transit') {
           const st = VERIFIED_TRANSIT_STOPS.find((s) => s.stop_id === id);
@@ -491,18 +524,8 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
             setSelectedTransitStop(st);
             setSelectedPlaceId(null);
             setSelectedEssential(null);
+            setSelectedExperience(null);
           }
-        }
-      } else if (action === 'save' && id) {
-        const p = places.find((item) => item.id === id);
-        if (p) {
-          toggleSave({
-            id: p.id,
-            name: p.name,
-            category: typeof p.category === 'string' ? p.category : (p.category as any)?.name || 'Landmark',
-            location: p.district || undefined,
-            coordinates: p.lat != null && p.lon != null ? [p.lat, p.lon] : undefined,
-          });
         }
       }
     };
@@ -511,7 +534,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     return () => {
       container.removeEventListener('click', handleClick);
     };
-  }, [places, toggleSave, handleDrawRoute]);
+  }, [handleDrawRoute]);
 
   // "Search This Area" Action
   const handleSearchThisArea = useCallback(() => {
@@ -525,10 +548,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     }, 400);
   }, []);
 
-  // Track Map Zoom for Dynamic Spatial Clustering
-  const [currentZoom, setCurrentZoom] = useState<number>(12);
-
-  // Main Markers Rendering with Dynamic Clustering & Category-Aware Pins
+  // Stable Markers Rendering — Decoupled from continuous pan/zoom events!
   useEffect(() => {
     if (!mapInstanceRef.current || !markersLayerRef.current) return;
     markersLayerRef.current.clearLayers();
@@ -539,148 +559,64 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         (p) => p.lat != null && p.lon != null && isValidCoordinate(p.lat, p.lon)
       );
 
-      if (currentZoom >= 13) {
-        validDestinations.forEach((p) => {
-          const cat = typeof p.category === 'string' ? p.category.toLowerCase() : '';
-          const iconEmoji = cat.includes('beach') ? '🏖️' : cat.includes('temple') || cat.includes('heritage') ? '🏛️' : cat.includes('waterfall') || cat.includes('lake') ? '🌊' : cat.includes('wildlife') || cat.includes('sanctuary') ? '🌿' : '📍';
-          const bgColor = cat.includes('temple') || cat.includes('heritage') ? '#B87B22' : cat.includes('beach') || cat.includes('lake') ? '#1B5E6B' : '#2F523E';
+      validDestinations.forEach((p) => {
+        const cat = typeof p.category === 'string' ? p.category.toLowerCase() : '';
+        const iconEmoji = cat.includes('beach') ? '🏖️' : cat.includes('temple') || cat.includes('heritage') ? '🏛️' : cat.includes('waterfall') || cat.includes('lake') ? '🌊' : cat.includes('wildlife') || cat.includes('sanctuary') ? '🌿' : '📍';
+        const bgColor = cat.includes('temple') || cat.includes('heritage') ? '#B87B22' : cat.includes('beach') || cat.includes('lake') ? '#1B5E6B' : '#2F523E';
 
-          const customIcon = L.divIcon({
-            className: 'custom-destination-pin',
-            html: `<div style="background-color: ${bgColor}; color: #FFFFFF; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 3px 10px rgba(0,0,0,0.3); cursor: pointer;">${iconEmoji}</div>`,
-            iconSize: [32, 32],
-            iconAnchor: [16, 16],
-          });
+        const customIcon = L.divIcon({
+          className: 'custom-destination-pin',
+          html: `<div data-marker-id="${p.id}" data-marker-type="destination" style="background-color: ${bgColor}; color: #FFFFFF; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 2.5px solid white; box-shadow: 0 3px 10px rgba(0,0,0,0.3); cursor: pointer; pointer-events: auto; user-select: none;">${iconEmoji}</div>`,
+          iconSize: [34, 34],
+          iconAnchor: [17, 17],
+        });
 
-          const marker = L.marker([p.lat!, p.lon!], { icon: customIcon });
+        const marker = L.marker([p.lat!, p.lon!], {
+          icon: customIcon,
+          zIndexOffset: 500,
+        });
 
-          marker.on('click', () => {
-            setSelectedPlaceId(p.id);
-            setSelectedExperience(null);
-            setSelectedEssential(null);
-            setSelectedTransitStop(null);
-            marker.openPopup();
-          });
+        marker.on('click', (e) => {
+          L.DomEvent.stopPropagation(e);
+          setSelectedPlaceId(p.id);
+          setSelectedExperience(null);
+          setSelectedEssential(null);
+          setSelectedTransitStop(null);
+          marker.openPopup();
+        });
 
-          const safeCat = typeof p.category === 'string' ? p.category : (p.category as any)?.name || 'Landmark';
-          const ratingText = p.rating ? `★ ${p.rating.toFixed(1)} ${p.rating_count ? `(${p.rating_count})` : ''}` : 'Rating verified';
+        const safeCat = typeof p.category === 'string' ? p.category : (p.category as any)?.name || 'Landmark';
+        const ratingText = p.rating ? `★ ${p.rating.toFixed(1)} ${p.rating_count ? `(${p.rating_count})` : ''}` : 'Rating verified';
 
-          marker.bindPopup(`
-            <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; width: 210px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                <span style="font-size: 10px; font-family: monospace; color: #B87B22; font-weight: bold; text-transform: uppercase;">
-                  ${escapeHtml(safeCat)}
-                </span>
-                <span style="font-size: 10px; font-family: monospace; color: #70798B;">
-                  ${escapeHtml(p.distanceFormatted || '')}
-                </span>
-              </div>
-              <strong style="font-size: 13px; color: #12161E; display: block; line-height: 1.2; margin-bottom: 2px;">
-                ${escapeHtml(p.name)}
-              </strong>
-              <div style="font-size: 11px; color: #70798B; margin-bottom: 6px;">
-                ${p.district ? `${escapeHtml(p.district)} · ` : ''}${ratingText}
-              </div>
-              <div style="display: flex; gap: 6px; margin-top: 4px; border-top: 1px solid #E5DFD5; padding-top: 6px;">
-                <button data-map-action="route" data-lat="${p.lat}" data-lon="${p.lon}" data-name="${escapeHtml(p.name)}" data-category="${escapeHtml(safeCat)}" data-address="${escapeHtml(p.address || '')}" style="flex: 1; padding: 4px 6px; background-color: #B87B22; color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: bold; cursor: pointer;">
-                  🚗 Route
-                </button>
-                <button data-map-action="details" data-id="${p.id}" data-type="destination" style="flex: 1; padding: 4px 6px; background-color: #12161E; color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: bold; cursor: pointer;">
-                  ℹ️ Details
-                </button>
-              </div>
+        marker.bindPopup(`
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; width: 210px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+              <span style="font-size: 10px; font-family: monospace; color: #B87B22; font-weight: bold; text-transform: uppercase;">
+                ${escapeHtml(safeCat)}
+              </span>
+              <span style="font-size: 10px; font-family: monospace; color: #70798B;">
+                ${escapeHtml(p.distanceFormatted || '')}
+              </span>
             </div>
-          `, createSafePopupOptions());
+            <strong style="font-size: 13px; color: #12161E; display: block; line-height: 1.2; margin-bottom: 2px;">
+              ${escapeHtml(p.name)}
+            </strong>
+            <div style="font-size: 11px; color: #70798B; margin-bottom: 6px;">
+              ${p.district ? `${escapeHtml(p.district)} · ` : ''}${ratingText}
+            </div>
+            <div style="display: flex; gap: 6px; margin-top: 4px; border-top: 1px solid #E5DFD5; padding-top: 6px;">
+              <button data-map-action="route" data-lat="${p.lat}" data-lon="${p.lon}" data-name="${escapeHtml(p.name)}" data-category="${escapeHtml(safeCat)}" data-address="${escapeHtml(p.address || '')}" style="flex: 1; padding: 4px 6px; background-color: #B87B22; color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: bold; cursor: pointer;">
+                🚗 Route
+              </button>
+              <button data-map-action="details" data-id="${p.id}" data-type="destination" style="flex: 1; padding: 4px 6px; background-color: #12161E; color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: bold; cursor: pointer;">
+                ℹ️ Details
+              </button>
+            </div>
+          </div>
+        `, lightweightPopupOptions);
 
-          markersLayerRef.current?.addLayer(marker);
-        });
-      } else {
-        // Dynamic Grid Clustering for wide / medium zooms
-        const gridSize = currentZoom <= 8 ? 0.6 : currentZoom <= 10 ? 0.25 : 0.1;
-        const clusters = new Map<string, typeof validDestinations>();
-
-        validDestinations.forEach((p) => {
-          const cellKey = `${Math.floor(p.lat! / gridSize)}_${Math.floor(p.lon! / gridSize)}`;
-          if (!clusters.has(cellKey)) clusters.set(cellKey, []);
-          clusters.get(cellKey)!.push(p);
-        });
-
-        clusters.forEach((items) => {
-          if (items.length === 1) {
-            const p = items[0];
-            const cat = typeof p.category === 'string' ? p.category.toLowerCase() : '';
-            const iconEmoji = cat.includes('beach') ? '🏖️' : cat.includes('temple') || cat.includes('heritage') ? '🏛️' : cat.includes('waterfall') || cat.includes('lake') ? '🌊' : cat.includes('wildlife') || cat.includes('sanctuary') ? '🌿' : '📍';
-            const bgColor = cat.includes('temple') || cat.includes('heritage') ? '#B87B22' : cat.includes('beach') || cat.includes('lake') ? '#1B5E6B' : '#2F523E';
-
-            const customIcon = L.divIcon({
-              className: 'custom-destination-pin',
-              html: `<div style="background-color: ${bgColor}; color: #FFFFFF; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 8px rgba(0,0,0,0.3); cursor: pointer;">${iconEmoji}</div>`,
-              iconSize: [30, 30],
-              iconAnchor: [15, 15],
-            });
-
-            const marker = L.marker([p.lat!, p.lon!], { icon: customIcon });
-            marker.on('click', () => {
-              setSelectedPlaceId(p.id);
-              setSelectedExperience(null);
-              setSelectedEssential(null);
-              setSelectedTransitStop(null);
-              marker.openPopup();
-            });
-
-            const safeCat = typeof p.category === 'string' ? p.category : (p.category as any)?.name || 'Landmark';
-            const ratingText = p.rating ? `★ ${p.rating.toFixed(1)} ${p.rating_count ? `(${p.rating_count})` : ''}` : 'Rating verified';
-
-            marker.bindPopup(`
-              <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; width: 210px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                  <span style="font-size: 10px; font-family: monospace; color: #B87B22; font-weight: bold; text-transform: uppercase;">
-                    ${escapeHtml(safeCat)}
-                  </span>
-                  <span style="font-size: 10px; font-family: monospace; color: #70798B;">
-                    ${escapeHtml(p.distanceFormatted || '')}
-                  </span>
-                </div>
-                <strong style="font-size: 13px; color: #12161E; display: block; line-height: 1.2; margin-bottom: 2px;">
-                  ${escapeHtml(p.name)}
-                </strong>
-                <div style="font-size: 11px; color: #70798B; margin-bottom: 6px;">
-                  ${p.district ? `${escapeHtml(p.district)} · ` : ''}${ratingText}
-                </div>
-                <div style="display: flex; gap: 6px; margin-top: 4px; border-top: 1px solid #E5DFD5; padding-top: 6px;">
-                  <button data-map-action="route" data-lat="${p.lat}" data-lon="${p.lon}" data-name="${escapeHtml(p.name)}" data-category="${escapeHtml(safeCat)}" data-address="${escapeHtml(p.address || '')}" style="flex: 1; padding: 4px 6px; background-color: #B87B22; color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: bold; cursor: pointer;">
-                    🚗 Route
-                  </button>
-                  <button data-map-action="details" data-id="${p.id}" data-type="destination" style="flex: 1; padding: 4px 6px; background-color: #12161E; color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: bold; cursor: pointer;">
-                    ℹ️ Details
-                  </button>
-                </div>
-              </div>
-            `, createSafePopupOptions());
-
-            markersLayerRef.current?.addLayer(marker);
-          } else {
-            // Cluster badge
-            const avgLat = items.reduce((acc, i) => acc + i.lat!, 0) / items.length;
-            const avgLon = items.reduce((acc, i) => acc + i.lon!, 0) / items.length;
-
-            const clusterIcon = L.divIcon({
-              className: 'custom-cluster-badge',
-              html: `<div style="background-color: #B87B22; color: #FFFFFF; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: bold; border: 3px solid white; box-shadow: 0 4px 12px rgba(184,123,34,0.4); cursor: pointer; transition: transform 0.15s ease;">${items.length}</div>`,
-              iconSize: [34, 34],
-              iconAnchor: [17, 17],
-            });
-
-            const clusterMarker = L.marker([avgLat, avgLon], { icon: clusterIcon });
-            clusterMarker.on('click', () => {
-              const clusterBounds = L.latLngBounds(items.map((it) => [it.lat!, it.lon!]));
-              mapInstanceRef.current?.fitBounds(clusterBounds, { padding: [60, 60], maxZoom: 15 });
-            });
-
-            markersLayerRef.current?.addLayer(clusterMarker);
-          }
-        });
-      }
+        markersLayerRef.current?.addLayer(marker);
+      });
     }
     // Mode 3: Hotels & Stays
     else if (viewMode === 'hotels') {
@@ -689,16 +625,21 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         hotelPoints.push([item.lat, item.lon]);
         const hotelIcon = L.divIcon({
           className: 'custom-hotel-pin',
-          html: `<div style="background-color: #8C6239; color: #FFFFFF; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 3px 10px rgba(140,98,57,0.4); cursor: pointer;">🏨</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+          html: `<div data-marker-id="${item.id}" data-marker-type="essential" style="background-color: #8C6239; color: #FFFFFF; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 2.5px solid white; box-shadow: 0 3px 10px rgba(140,98,57,0.4); cursor: pointer; pointer-events: auto; user-select: none;">🏨</div>`,
+          iconSize: [34, 34],
+          iconAnchor: [17, 17],
         });
 
-        const marker = L.marker([item.lat, item.lon], { icon: hotelIcon });
-        marker.on('click', () => {
+        const marker = L.marker([item.lat, item.lon], {
+          icon: hotelIcon,
+          zIndexOffset: 500,
+        });
+        marker.on('click', (e) => {
+          L.DomEvent.stopPropagation(e);
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
+          setSelectedExperience(null);
           marker.openPopup();
         });
 
@@ -725,7 +666,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `, createSafePopupOptions());
+        `, lightweightPopupOptions);
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -742,16 +683,21 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         foodPoints.push([item.lat, item.lon]);
         const foodIcon = L.divIcon({
           className: 'custom-food-pin',
-          html: `<div style="background-color: #C05621; color: #FFFFFF; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 3px 10px rgba(192,86,33,0.4); cursor: pointer;">🍲</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+          html: `<div data-marker-id="${item.id}" data-marker-type="essential" style="background-color: #C05621; color: #FFFFFF; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 2.5px solid white; box-shadow: 0 3px 10px rgba(192,86,33,0.4); cursor: pointer; pointer-events: auto; user-select: none;">🍲</div>`,
+          iconSize: [34, 34],
+          iconAnchor: [17, 17],
         });
 
-        const marker = L.marker([item.lat, item.lon], { icon: foodIcon });
-        marker.on('click', () => {
+        const marker = L.marker([item.lat, item.lon], {
+          icon: foodIcon,
+          zIndexOffset: 500,
+        });
+        marker.on('click', (e) => {
+          L.DomEvent.stopPropagation(e);
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
+          setSelectedExperience(null);
           marker.openPopup();
         });
 
@@ -776,7 +722,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `, createSafePopupOptions());
+        `, lightweightPopupOptions);
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -797,16 +743,21 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
 
         const transitIcon = L.divIcon({
           className: 'custom-transit-pin',
-          html: `<div style="background-color: ${bgColor}; color: #FFFFFF; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 3px 10px rgba(13,148,136,0.4); cursor: pointer;">${iconEmoji}</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+          html: `<div data-marker-id="${st.stop_id}" data-marker-type="transit" style="background-color: ${bgColor}; color: #FFFFFF; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 2.5px solid white; box-shadow: 0 3px 10px rgba(13,148,136,0.4); cursor: pointer; pointer-events: auto; user-select: none;">${iconEmoji}</div>`,
+          iconSize: [34, 34],
+          iconAnchor: [17, 17],
         });
 
-        const marker = L.marker([st.latitude, st.longitude], { icon: transitIcon });
-        marker.on('click', () => {
+        const marker = L.marker([st.latitude, st.longitude], {
+          icon: transitIcon,
+          zIndexOffset: 500,
+        });
+        marker.on('click', (e) => {
+          L.DomEvent.stopPropagation(e);
           setSelectedTransitStop(st);
           setSelectedPlaceId(null);
           setSelectedEssential(null);
+          setSelectedExperience(null);
           marker.openPopup();
         });
 
@@ -833,7 +784,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `, createSafePopupOptions());
+        `, lightweightPopupOptions);
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -851,16 +802,21 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         const iconEmoji = item.category === 'pharmacy' ? '💊' : '🏥';
         const medIcon = L.divIcon({
           className: 'custom-med-pin',
-          html: `<div style="background-color: #DC2626; color: #FFFFFF; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 3px 10px rgba(220,38,38,0.4); cursor: pointer;">${iconEmoji}</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+          html: `<div data-marker-id="${item.id}" data-marker-type="essential" style="background-color: #DC2626; color: #FFFFFF; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 2.5px solid white; box-shadow: 0 3px 10px rgba(220,38,38,0.4); cursor: pointer; pointer-events: auto; user-select: none;">${iconEmoji}</div>`,
+          iconSize: [34, 34],
+          iconAnchor: [17, 17],
         });
 
-        const marker = L.marker([item.lat, item.lon], { icon: medIcon });
-        marker.on('click', () => {
+        const marker = L.marker([item.lat, item.lon], {
+          icon: medIcon,
+          zIndexOffset: 500,
+        });
+        marker.on('click', (e) => {
+          L.DomEvent.stopPropagation(e);
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
+          setSelectedExperience(null);
           marker.openPopup();
         });
 
@@ -885,7 +841,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `, createSafePopupOptions());
+        `, lightweightPopupOptions);
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -902,16 +858,21 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         atmPoints.push([item.lat, item.lon]);
         const atmIcon = L.divIcon({
           className: 'custom-atm-pin',
-          html: `<div style="background-color: #D97706; color: #FFFFFF; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 3px 10px rgba(217,119,6,0.4); cursor: pointer;">🏧</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+          html: `<div data-marker-id="${item.id}" data-marker-type="essential" style="background-color: #D97706; color: #FFFFFF; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 2.5px solid white; box-shadow: 0 3px 10px rgba(217,119,6,0.4); cursor: pointer; pointer-events: auto; user-select: none;">🏧</div>`,
+          iconSize: [34, 34],
+          iconAnchor: [17, 17],
         });
 
-        const marker = L.marker([item.lat, item.lon], { icon: atmIcon });
-        marker.on('click', () => {
+        const marker = L.marker([item.lat, item.lon], {
+          icon: atmIcon,
+          zIndexOffset: 500,
+        });
+        marker.on('click', (e) => {
+          L.DomEvent.stopPropagation(e);
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
+          setSelectedExperience(null);
           marker.openPopup();
         });
 
@@ -936,7 +897,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `, createSafePopupOptions());
+        `, lightweightPopupOptions);
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -953,16 +914,21 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         fuelPoints.push([item.lat, item.lon]);
         const fuelIcon = L.divIcon({
           className: 'custom-fuel-pin',
-          html: `<div style="background-color: #EA580C; color: #FFFFFF; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 3px 10px rgba(234,88,12,0.4); cursor: pointer;">⛽</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+          html: `<div data-marker-id="${item.id}" data-marker-type="essential" style="background-color: #EA580C; color: #FFFFFF; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 2.5px solid white; box-shadow: 0 3px 10px rgba(234,88,12,0.4); cursor: pointer; pointer-events: auto; user-select: none;">⛽</div>`,
+          iconSize: [34, 34],
+          iconAnchor: [17, 17],
         });
 
-        const marker = L.marker([item.lat, item.lon], { icon: fuelIcon });
-        marker.on('click', () => {
+        const marker = L.marker([item.lat, item.lon], {
+          icon: fuelIcon,
+          zIndexOffset: 500,
+        });
+        marker.on('click', (e) => {
+          L.DomEvent.stopPropagation(e);
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
+          setSelectedExperience(null);
           marker.openPopup();
         });
 
@@ -987,7 +953,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `, createSafePopupOptions());
+        `, lightweightPopupOptions);
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -1004,16 +970,21 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         policePoints.push([item.lat, item.lon]);
         const policeIcon = L.divIcon({
           className: 'custom-police-pin',
-          html: `<div style="background-color: #2563EB; color: #FFFFFF; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 3px 10px rgba(37,99,235,0.4); cursor: pointer;">🛡️</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+          html: `<div data-marker-id="${item.id}" data-marker-type="essential" style="background-color: #2563EB; color: #FFFFFF; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 2.5px solid white; box-shadow: 0 3px 10px rgba(37,99,235,0.4); cursor: pointer; pointer-events: auto; user-select: none;">🛡️</div>`,
+          iconSize: [34, 34],
+          iconAnchor: [17, 17],
         });
 
-        const marker = L.marker([item.lat, item.lon], { icon: policeIcon });
-        marker.on('click', () => {
+        const marker = L.marker([item.lat, item.lon], {
+          icon: policeIcon,
+          zIndexOffset: 500,
+        });
+        marker.on('click', (e) => {
+          L.DomEvent.stopPropagation(e);
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
+          setSelectedExperience(null);
           marker.openPopup();
         });
 
@@ -1038,7 +1009,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `, createSafePopupOptions());
+        `, lightweightPopupOptions);
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -1055,13 +1026,17 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         expPoints.push([exp.lat, exp.lon]);
         const expIcon = L.divIcon({
           className: 'custom-exp-pin',
-          html: `<div style="background-color: #7C3AED; color: #FFFFFF; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 3px 10px rgba(124,58,237,0.4); cursor: pointer;">✨</div>`,
-          iconSize: [32, 32],
-          iconAnchor: [16, 16],
+          html: `<div data-marker-id="${exp.id}" data-marker-type="experience" style="background-color: #7C3AED; color: #FFFFFF; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 2.5px solid white; box-shadow: 0 3px 10px rgba(124,58,237,0.4); cursor: pointer; pointer-events: auto; user-select: none;">✨</div>`,
+          iconSize: [34, 34],
+          iconAnchor: [17, 17],
         });
 
-        const marker = L.marker([exp.lat, exp.lon], { icon: expIcon });
-        marker.on('click', () => {
+        const marker = L.marker([exp.lat, exp.lon], {
+          icon: expIcon,
+          zIndexOffset: 500,
+        });
+        marker.on('click', (e) => {
+          L.DomEvent.stopPropagation(e);
           setSelectedExperience(exp);
           setSelectedPlaceId(null);
           setSelectedEssential(null);
@@ -1074,7 +1049,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
             <strong style="font-size: 13px; color: #12161E; display: block; line-height: 1.2;">${escapeHtml(exp.name)}</strong>
             <p style="font-size: 11px; color: #70798B; margin: 2px 0 4px 0;">${escapeHtml(exp.locality)} · ${escapeHtml(exp.categoryLabel)}</p>
           </div>
-        `, createSafePopupOptions());
+        `, lightweightPopupOptions);
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -1092,13 +1067,17 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           savedPoints.push([sp.lat, sp.lon]);
           const savedIcon = L.divIcon({
             className: 'custom-saved-pin',
-            html: `<div style="background-color: #059669; color: #FFFFFF; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 3px 10px rgba(5,150,105,0.4); cursor: pointer;">❤️</div>`,
-            iconSize: [32, 32],
-            iconAnchor: [16, 16],
+            html: `<div data-marker-id="${sp.id}" data-marker-type="destination" style="background-color: #059669; color: #FFFFFF; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 2.5px solid white; box-shadow: 0 3px 10px rgba(5,150,105,0.4); cursor: pointer; pointer-events: auto; user-select: none;">❤️</div>`,
+            iconSize: [34, 34],
+            iconAnchor: [17, 17],
           });
 
-          const marker = L.marker([sp.lat, sp.lon], { icon: savedIcon });
-          marker.on('click', () => {
+          const marker = L.marker([sp.lat, sp.lon], {
+            icon: savedIcon,
+            zIndexOffset: 500,
+          });
+          marker.on('click', (e) => {
+            L.DomEvent.stopPropagation(e);
             setSelectedPlaceId(sp.id);
             setSelectedExperience(null);
             setSelectedEssential(null);
@@ -1111,7 +1090,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               <strong style="font-size: 13px; color: #12161E; display: block; line-height: 1.2;">${escapeHtml(sp.name)}</strong>
               <p style="font-size: 11px; color: #70798B; margin: 2px 0 4px 0;">${escapeHtml(sp.location || 'Odisha')} · ${escapeHtml(sp.category)}</p>
             </div>
-          `, createSafePopupOptions());
+          `, lightweightPopupOptions);
 
           markersLayerRef.current?.addLayer(marker);
         }
@@ -1123,7 +1102,6 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     displayedEssentials,
     displayedTransitStops,
     displayedSavedPlaces,
-    currentZoom,
     activeRouteTarget,
   ]);
 
@@ -1136,8 +1114,8 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   return (
     <div className="flex flex-col h-[calc(100vh-64px)] sm:h-[calc(100vh-72px)] bg-[#FBF9F5] text-[#12161E] font-body overflow-hidden">
       
-      {/* 1. TOP WORKSPACE TOOLBAR & CONTROLS */}
-      <header className="flex-shrink-0 bg-white/95 backdrop-blur-md border-b border-[#E5DFD5] px-3 sm:px-6 py-2.5 z-20 flex flex-col gap-2">
+      {/* 1. TOP WORKSPACE TOOLBAR & LAYER CONTROLS */}
+      <header className="flex-shrink-0 bg-white/95 backdrop-blur-md border-b border-[#E5DFD5] px-3 sm:px-6 py-2.5 z-20 flex flex-col gap-2 pointer-events-auto">
         <div className="flex flex-wrap items-center justify-between gap-3 max-w-[1920px] mx-auto w-full">
           
           {/* Search Workspace Input */}
@@ -1396,16 +1374,20 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         </div>
       </header>
 
-      {/* 2. TWO-COLUMN APPLICATION WORKSPACE (MAP ~68% + DETAILS ~32%) */}
+      {/* 2. TWO-COLUMN WORKSPACE: LEFT MAP (~68%) + RIGHT DETAILS (~32%) */}
       <div className="flex-1 flex flex-col md:flex-row overflow-hidden max-w-[1920px] mx-auto w-full p-2 sm:p-3 md:p-4 gap-3 md:gap-4 min-h-0">
         
         {/* Left Column: Dedicated Leaflet Map Canvas */}
-        <section className="flex-1 md:w-[65%] lg:w-[68%] h-[50vh] md:h-full relative rounded-2xl overflow-hidden border border-[#E5DFD5] shadow-xs flex flex-col bg-[#E5DFD5]">
-          <div ref={mapContainerRef} data-testid="map-canvas-container" className="w-full h-full" />
+        <section className="flex-1 md:w-[65%] lg:w-[68%] h-[50vh] md:h-full relative rounded-2xl overflow-hidden border border-[#E5DFD5] shadow-xs bg-[#E5DFD5]">
+          <div
+            ref={mapContainerRef}
+            data-testid="map-canvas-container"
+            className="absolute inset-0 w-full h-full"
+          />
         </section>
 
-        {/* Right Column: Place Information & Routing Details Panel (Independent Layout) */}
-        <aside className="w-full md:w-[35%] lg:w-[32%] h-auto md:h-full overflow-y-auto rounded-2xl border border-[#E5DFD5] bg-white p-3 sm:p-4 flex flex-col shadow-xs custom-scrollbar">
+        {/* Right Column: Place Information & Routing Details Panel */}
+        <aside className="w-full md:w-[35%] lg:w-[32%] h-auto md:h-full overflow-y-auto rounded-2xl border border-[#E5DFD5] bg-white p-3 sm:p-4 flex flex-col shadow-xs custom-scrollbar flex-shrink-0">
           
           {/* Scenario 1: Active Route Guidance HUD */}
           {activeRouteTarget && (
@@ -1496,7 +1478,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
             </div>
           )}
 
-          {/* Scenario 3: Selected Essential (Hotel, Food, Hospital, Pharmacy, ATM, Petrol, Police) */}
+          {/* Scenario 3: Selected Essential */}
           {selectedEssential && (
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
@@ -1642,14 +1624,17 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
                   {(viewMode === 'destinations' || viewMode === 'places' ? displayedDestinations.slice(0, 5) : displayedEssentials.slice(0, 5)).map((item) => (
                     <div
                       key={item.id}
+                      data-testid={`quick-item-${item.id}`}
                       onClick={() => {
                         if ('category' in item && typeof item.category === 'string' && ['hotel', 'hospital', 'pharmacy', 'atm', 'bank', 'restaurant', 'petrol', 'police'].includes(item.category)) {
                           setSelectedEssential(item as EssentialPlace);
+                          setSelectedPlaceId(null);
                         } else {
                           setSelectedPlaceId(item.id);
+                          setSelectedEssential(null);
                         }
                         if (mapInstanceRef.current && item.lat && item.lon) {
-                          mapInstanceRef.current.flyTo([item.lat, item.lon], 14, { duration: 0.5 });
+                          mapInstanceRef.current.panTo([item.lat, item.lon], { animate: true, duration: 0.5 });
                         }
                       }}
                       className="p-3 rounded-xl border border-[#E5DFD5] bg-white hover:bg-[#FAF7F2] transition cursor-pointer flex items-center justify-between group"
