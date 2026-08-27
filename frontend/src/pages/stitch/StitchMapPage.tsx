@@ -65,6 +65,25 @@ function escapeHtml(text: string): string {
     .replace(/'/g, '&#039;');
 }
 
+// Safe Map Content Viewport & Leaflet Popup Collision Avoidance Helper
+const SAFE_TOP_INSET = 145; // Accounts for Navbar + Search/Location row + Layer rail
+const SAFE_SIDE_INSET = 25;
+const SAFE_BOTTOM_INSET = 50;
+
+const createSafePopupOptions = (customOffset: L.Point = L.point(0, -10)): L.PopupOptions => ({
+  autoPan: true,
+  autoPanPaddingTopLeft: L.point(SAFE_SIDE_INSET, SAFE_TOP_INSET),
+  autoPanPaddingBottomRight: L.point(SAFE_SIDE_INSET, SAFE_BOTTOM_INSET),
+  keepInView: true,
+  closeButton: true,
+  offset: customOffset,
+  className: 'stitch-safe-map-popup',
+});
+
+const openMarkerSafely = (marker: L.Marker, _map: L.Map | null) => {
+  marker.openPopup();
+};
+
 export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   onNavigate,
   onOpenShare,
@@ -329,6 +348,8 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
     routeLineLayerRef.current = routeLineGroup;
     userMarkerLayerRef.current = userGroup;
     mapInstanceRef.current = map;
+    (window as any).__stitch_map = map;
+    (window as any).__stitch_markers = markersLayerRef.current;
     lastQueriedCenterRef.current = [refLat, refLon];
 
     // Ensure Leaflet recalculates dimensions when DOM paints
@@ -552,7 +573,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
             setSelectedExperience(null);
             setSelectedEssential(null);
             setSelectedTransitStop(null);
-            marker.openPopup();
+            openMarkerSafely(marker, mapInstanceRef.current);
           });
 
           const isPlaceSaved = isSaved(p.id);
@@ -587,7 +608,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
                 </button>
               </div>
             </div>
-          `);
+          `, createSafePopupOptions());
 
           markersLayerRef.current?.addLayer(marker);
         });
@@ -622,7 +643,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               setSelectedExperience(null);
               setSelectedEssential(null);
               setSelectedTransitStop(null);
-              marker.openPopup();
+              openMarkerSafely(marker, mapInstanceRef.current);
             });
 
             const isPlaceSaved = isSaved(p.id);
@@ -657,7 +678,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
                   </button>
                 </div>
               </div>
-            `);
+            `, createSafePopupOptions());
 
             markersLayerRef.current?.addLayer(marker);
           } else {
@@ -690,7 +711,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         hotelPoints.push([item.lat, item.lon]);
         const hotelIcon = L.divIcon({
           className: 'custom-hotel-pin',
-          html: `<div style="background-color: #8C6239; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(140,98,57,0.4);">🏨</div>`,
+          html: `<div style="background-color: #8C6239; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(140,98,57,0.4); cursor: pointer;">🏨</div>`,
           iconSize: [30, 30],
           iconAnchor: [15, 15],
         });
@@ -700,7 +721,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
-          marker.openPopup();
+          openMarkerSafely(marker, mapInstanceRef.current);
         });
 
         const ratingText = item.rating ? `★ ${item.rating.toFixed(1)} (${item.ratingCount || ''})` : 'Rating verified';
@@ -726,7 +747,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `);
+        `, createSafePopupOptions());
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -743,7 +764,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         foodPoints.push([item.lat, item.lon]);
         const foodIcon = L.divIcon({
           className: 'custom-food-pin',
-          html: `<div style="background-color: #C05621; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(192,86,33,0.4);">🍲</div>`,
+          html: `<div style="background-color: #C05621; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(192,86,33,0.4); cursor: pointer;">🍲</div>`,
           iconSize: [30, 30],
           iconAnchor: [15, 15],
         });
@@ -753,7 +774,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
-          marker.openPopup();
+          openMarkerSafely(marker, mapInstanceRef.current);
         });
 
         marker.bindPopup(`
@@ -777,7 +798,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `);
+        `, createSafePopupOptions());
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -798,7 +819,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
 
         const transitIcon = L.divIcon({
           className: 'custom-transit-pin',
-          html: `<div style="background-color: ${bgColor}; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(13,148,136,0.4);">${iconEmoji}</div>`,
+          html: `<div style="background-color: ${bgColor}; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(13,148,136,0.4); cursor: pointer;">${iconEmoji}</div>`,
           iconSize: [30, 30],
           iconAnchor: [15, 15],
         });
@@ -808,7 +829,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           setSelectedTransitStop(st);
           setSelectedPlaceId(null);
           setSelectedEssential(null);
-          marker.openPopup();
+          openMarkerSafely(marker, mapInstanceRef.current);
         });
 
         const routesCount = st.routes_serving_stop?.length || 1;
@@ -834,7 +855,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `);
+        `, createSafePopupOptions());
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -852,7 +873,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         const iconEmoji = item.category === 'pharmacy' ? '💊' : '🏥';
         const medIcon = L.divIcon({
           className: 'custom-med-pin',
-          html: `<div style="background-color: #DC2626; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(220,38,38,0.4);">${iconEmoji}</div>`,
+          html: `<div style="background-color: #DC2626; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(220,38,38,0.4); cursor: pointer;">${iconEmoji}</div>`,
           iconSize: [30, 30],
           iconAnchor: [15, 15],
         });
@@ -862,7 +883,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
-          marker.openPopup();
+          openMarkerSafely(marker, mapInstanceRef.current);
         });
 
         marker.bindPopup(`
@@ -886,7 +907,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `);
+        `, createSafePopupOptions());
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -903,7 +924,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         atmPoints.push([item.lat, item.lon]);
         const atmIcon = L.divIcon({
           className: 'custom-atm-pin',
-          html: `<div style="background-color: #D97706; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(217,119,6,0.4);">🏧</div>`,
+          html: `<div style="background-color: #D97706; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(217,119,6,0.4); cursor: pointer;">🏧</div>`,
           iconSize: [30, 30],
           iconAnchor: [15, 15],
         });
@@ -913,7 +934,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
-          marker.openPopup();
+          openMarkerSafely(marker, mapInstanceRef.current);
         });
 
         marker.bindPopup(`
@@ -937,7 +958,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `);
+        `, createSafePopupOptions());
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -954,7 +975,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         fuelPoints.push([item.lat, item.lon]);
         const fuelIcon = L.divIcon({
           className: 'custom-fuel-pin',
-          html: `<div style="background-color: #EA580C; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(234,88,12,0.4);">⛽</div>`,
+          html: `<div style="background-color: #EA580C; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(234,88,12,0.4); cursor: pointer;">⛽</div>`,
           iconSize: [30, 30],
           iconAnchor: [15, 15],
         });
@@ -964,7 +985,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
-          marker.openPopup();
+          openMarkerSafely(marker, mapInstanceRef.current);
         });
 
         marker.bindPopup(`
@@ -988,7 +1009,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `);
+        `, createSafePopupOptions());
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -1005,7 +1026,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         policePoints.push([item.lat, item.lon]);
         const policeIcon = L.divIcon({
           className: 'custom-police-pin',
-          html: `<div style="background-color: #2563EB; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(37,99,235,0.4);">🛡️</div>`,
+          html: `<div style="background-color: #2563EB; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(37,99,235,0.4); cursor: pointer;">🛡️</div>`,
           iconSize: [30, 30],
           iconAnchor: [15, 15],
         });
@@ -1015,7 +1036,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           setSelectedEssential(item);
           setSelectedPlaceId(null);
           setSelectedTransitStop(null);
-          marker.openPopup();
+          openMarkerSafely(marker, mapInstanceRef.current);
         });
 
         marker.bindPopup(`
@@ -1039,7 +1060,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               </button>
             </div>
           </div>
-        `);
+        `, createSafePopupOptions());
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -1056,7 +1077,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         expPoints.push([exp.lat, exp.lon]);
         const expIcon = L.divIcon({
           className: 'custom-exp-pin',
-          html: `<div style="background-color: #7C3AED; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(124,58,237,0.4);">✨</div>`,
+          html: `<div style="background-color: #7C3AED; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(124,58,237,0.4); cursor: pointer;">✨</div>`,
           iconSize: [30, 30],
           iconAnchor: [15, 15],
         });
@@ -1067,7 +1088,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           setSelectedPlaceId(null);
           setSelectedEssential(null);
           setSelectedTransitStop(null);
-          marker.openPopup();
+          openMarkerSafely(marker, mapInstanceRef.current);
         });
 
         marker.bindPopup(`
@@ -1075,7 +1096,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
             <strong style="font-size: 13px; color: #12161E; display: block; line-height: 1.2;">${escapeHtml(exp.name)}</strong>
             <p style="font-size: 11px; color: #70798B; margin: 2px 0 4px 0;">${escapeHtml(exp.locality)} · ${escapeHtml(exp.categoryLabel)}</p>
           </div>
-        `);
+        `, createSafePopupOptions());
 
         markersLayerRef.current?.addLayer(marker);
       });
@@ -1093,7 +1114,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           savedPoints.push([sp.lat, sp.lon]);
           const savedIcon = L.divIcon({
             className: 'custom-saved-pin',
-            html: `<div style="background-color: #059669; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(5,150,105,0.4);">❤️</div>`,
+            html: `<div style="background-color: #059669; color: #FFFFFF; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: 0 3px 10px rgba(5,150,105,0.4); cursor: pointer;">❤️</div>`,
             iconSize: [30, 30],
             iconAnchor: [15, 15],
           });
@@ -1101,17 +1122,18 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
           const marker = L.marker([sp.lat, sp.lon], { icon: savedIcon });
           marker.on('click', () => {
             setSelectedPlaceId(sp.id);
+            setSelectedExperience(null);
             setSelectedEssential(null);
             setSelectedTransitStop(null);
-            marker.openPopup();
+            openMarkerSafely(marker, mapInstanceRef.current);
           });
 
           marker.bindPopup(`
             <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 6px; width: 230px;">
               <strong style="font-size: 13px; color: #12161E; display: block; line-height: 1.2;">${escapeHtml(sp.name)}</strong>
-              <p style="font-size: 11px; color: #70798B; margin: 2px 0 4px 0;">${escapeHtml(sp.location || '')} · ${escapeHtml(sp.category)}</p>
+              <p style="font-size: 11px; color: #70798B; margin: 2px 0 4px 0;">${escapeHtml(sp.location || 'Odisha')} · ${escapeHtml(sp.category)}</p>
             </div>
-          `);
+          `, createSafePopupOptions());
 
           markersLayerRef.current?.addLayer(marker);
         }

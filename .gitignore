@@ -23,8 +23,9 @@ __pycache__/
 
 # Temporary files and artifacts
 artifacts/
-data/images/
 tmp/
+tmp_*/
+data/images/
 scratch/
 .stack_pids.json
 *.log
