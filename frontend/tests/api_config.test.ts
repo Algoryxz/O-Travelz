@@ -142,17 +142,42 @@ describe("API Configuration & Canonical URL Resolution", () => {
     });
 
     it("identifies offline state if navigator.onLine is false", () => {
-      const originalOnLine = navigator.onLine;
-      Object.defineProperty(navigator, "onLine", { value: false, configurable: true });
+      const hadNavigator = typeof globalThis.navigator !== "undefined";
+      const originalOnLine = hadNavigator ? globalThis.navigator.onLine : undefined;
 
-      const diagnostic = diagnoseFetchError(
-        new Error("Failed to fetch"),
-        "https://otravelz-backend.onrender.com/places"
-      );
-      expect(diagnostic.category).toBe("OFFLINE");
-      expect(diagnostic.message).toContain("offline");
+      if (!hadNavigator) {
+        Object.defineProperty(globalThis, "navigator", {
+          value: { onLine: false },
+          configurable: true,
+          writable: true,
+        });
+      } else {
+        Object.defineProperty(globalThis.navigator, "onLine", {
+          value: false,
+          configurable: true,
+          writable: true,
+        });
+      }
 
-      Object.defineProperty(navigator, "onLine", { value: originalOnLine, configurable: true });
+      try {
+        const diagnostic = diagnoseFetchError(
+          new Error("Failed to fetch"),
+          "https://otravelz-backend.onrender.com/places"
+        );
+        expect(diagnostic.category).toBe("OFFLINE");
+        expect(diagnostic.message).toContain("offline");
+      } finally {
+        if (!hadNavigator) {
+          // @ts-expect-error cleanup injected global
+          delete globalThis.navigator;
+        } else {
+          Object.defineProperty(globalThis.navigator, "onLine", {
+            value: originalOnLine,
+            configurable: true,
+            writable: true,
+          });
+        }
+      }
     });
   });
 
