@@ -123,7 +123,7 @@ export function resolvePlaceImage(
   }
 
   // Graceful fallback to imageService.ts
-  return getPrimaryPlaceImage(place?.name, place?.category);
+  return getPrimaryPlaceImage(place?.id || place?.name, place?.category);
 }
 
 /**
@@ -145,7 +145,7 @@ export function resolvePlaceImageUrl(
     return getBackendAssetUrl(place.imageUrl);
   }
 
-  return getPlaceImageUrl(place?.name, place?.category);
+  return getPlaceImageUrl(place?.id || place?.name, place?.category);
 }
 
 /**

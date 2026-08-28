@@ -18,6 +18,7 @@ import {
   formatDuration,
 } from '../../utils/geoUtils';
 import { PlaceInfoCard } from '../../components/place/PlaceInfoCard';
+import { CurrentLocationInfographic } from '../../components/location/CurrentLocationInfographic';
 import { TransitStopDetailPanel } from '../../components/transit/TransitStopDetailPanel';
 import { TransitTimetableModal } from '../../components/transit/TransitTimetableModal';
 import seedPlacesData from '../../../../data/places/places.json';
@@ -78,7 +79,7 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   initialPlaceId,
   initialMode = 'destinations',
 }) => {
-  const { currentPosition, isLive, locateUser, locationName, isLoading: isLocating } = useLocation();
+  const { currentPosition, isLive, locateUser, locationName, city, district, locationType, isLoading: isLocating } = useLocation();
   const { savedPlaces, toggleSave, isSaved } = useSavedPlaces();
 
   const [places, setPlaces] = useState<PlaceDetail[]>(seedPlacesData as unknown as PlaceDetail[]);
@@ -1598,21 +1599,26 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
             </div>
           )}
 
-          {/* Scenario 6: No Place Selected ("Explore Odisha" Default State) */}
+          {/* Scenario 6: No Place Selected ("Explore Odisha" Default State with Current Location Infographic) */}
           {!selectedPlace && !selectedEssential && !selectedTransitStop && !selectedExperience && !activeRouteTarget && (
             <div className="flex flex-col h-full justify-between gap-4">
-              <div>
-                <div className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#E5DFD5] mb-4">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-lg">🧭</span>
-                    <h3 className="font-display font-bold text-sm text-[#12161E]">
-                      Explore Odisha Travel Intelligence
-                    </h3>
-                  </div>
-                  <p className="text-xs text-[#70798B] leading-relaxed">
-                    Select any pin on the map to inspect verified details, view authentic Odia stays & food spots, or calculate live driving and walking routes.
-                  </p>
-                </div>
+              <div className="space-y-4">
+                {/* Dynamic Current Location & Spatial Intelligence Infographic */}
+                <CurrentLocationInfographic
+                  locationName={locationName}
+                  city={city}
+                  district={district}
+                  lat={refLat}
+                  lon={refLon}
+                  isLive={isLive}
+                  locationType={locationType}
+                  onSearchArea={handleSearchThisArea}
+                  onCenterLocation={() => {
+                    if (mapInstanceRef.current && hasValidUserCoords) {
+                      mapInstanceRef.current.setView([refLat, refLon], 14, { animate: true });
+                    }
+                  }}
+                />
 
                 {/* Quick Recommendation List for Active Mode */}
                 <div className="space-y-2">

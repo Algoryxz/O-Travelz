@@ -37,13 +37,14 @@ export interface LocationContextValue {
   locationName: string;
   locality: string;
   city: string;
+  district?: string;
   isLive: boolean;
   locationType: LocationType;
   permissionState: 'prompt' | 'granted' | 'denied' | 'unavailable';
   isLoading: boolean;
   error: string | null;
   locateUser: (silent?: boolean) => Promise<void>;
-  setManualLocation: (pos: LocationPosition, name: string, city?: string) => void;
+  setManualLocation: (pos: LocationPosition, name: string, city?: string, district?: string) => void;
   toggleLiveLocation: () => Promise<void>;
   selectHub: (hub: CanonicalHub) => void;
 }
@@ -60,6 +61,7 @@ const LocationContext = createContext<LocationContextValue>({
   locationName: DEFAULT_FALLBACK_NAME,
   locality: "Master Canteen",
   city: "Bhubaneswar",
+  district: "Khordha",
   isLive: false,
   locationType: 'VERIFIED_DEFAULT_HUB',
   permissionState: 'prompt',
@@ -76,6 +78,7 @@ export const LocationProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [locationName, setLocationName] = useState<string>(DEFAULT_FALLBACK_NAME);
   const [locality, setLocality] = useState<string>("Master Canteen");
   const [city, setCity] = useState<string>("Bhubaneswar");
+  const [district, setDistrict] = useState<string>("Khordha");
   const [isLive, setIsLive] = useState<boolean>(false);
   const [locationType, setLocationType] = useState<LocationType>('VERIFIED_DEFAULT_HUB');
   const [permissionState, setPermissionState] = useState<'prompt' | 'granted' | 'denied' | 'unavailable'>('prompt');
@@ -156,11 +159,12 @@ export const LocationProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     );
   }, [lastManualHub]);
 
-  const setManualLocation = useCallback((pos: LocationPosition, name: string, userCity = "Odisha") => {
+  const setManualLocation = useCallback((pos: LocationPosition, name: string, userCity = "Odisha", userDistrict?: string) => {
     setCurrentPosition(pos);
     setLocationName(name);
     setLocality(name);
     setCity(userCity);
+    if (userDistrict) setDistrict(userDistrict);
     setIsLive(false);
     setLocationType('MANUAL_LOCATION');
     setError(null);
@@ -168,7 +172,8 @@ export const LocationProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const selectHub = useCallback((hub: CanonicalHub) => {
     setLastManualHub(hub);
-    setManualLocation({ lat: hub.lat, lon: hub.lon }, hub.name, hub.city);
+    setDistrict(hub.district);
+    setManualLocation({ lat: hub.lat, lon: hub.lon }, hub.name, hub.city, hub.district);
   }, [setManualLocation]);
 
   const toggleLiveLocation = useCallback(async () => {
@@ -180,6 +185,7 @@ export const LocationProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       setLocationName(lastManualHub.name);
       setLocality(lastManualHub.city);
       setCity(lastManualHub.city);
+      setDistrict(lastManualHub.district);
       setError(null);
     } else {
       // Turn ON -> locate user
@@ -212,6 +218,7 @@ export const LocationProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         locationName,
         locality,
         city,
+        district,
         isLive,
         locationType,
         permissionState,

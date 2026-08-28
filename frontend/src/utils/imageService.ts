@@ -5132,6 +5132,278 @@ function resolveImagesWithBackendUrl(images: PlaceImage[]): PlaceImage[] {
   }));
 }
 
+export interface HubImageInfo {
+  id: string;
+  name: string;
+  category: string;
+  district: string;
+  imageUrl: string;
+  alt: string;
+  description: string;
+}
+
+export const CANONICAL_HUB_IMAGES: Record<string, HubImageInfo> = {
+  bhubaneswar: {
+    id: "place_bbsr_001",
+    name: "Bhubaneswar Capital Region",
+    category: "Heritage Sanctuary",
+    district: "Khordha",
+    imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuBe49mA0mm7Qpx5MT7y5Djc1elkDXFDsaNpmLpJ4PY6IgMjNj2zKrp8HaiUzLv0qaau1kssmLlGV_cMihm9Fe4_1yjjN3xBmz3ce-Qm4SC_oKAN8QUDWJ3fx_gXOc2oKzW-dxlJyIROyw2USQwWfx4-YboARQzxLieWAoRy__qL4Jnz968ztd8rV3fItXe9pUNk9oKT35gvx_wASv-SpZRJGWv-AEwHOUuaT67zAwPFqjxh8ed6Ckh-2jw7eySKtp1okPgYLyc5Kms",
+    alt: "Lingaraj Temple ancient sandstone towers at sunrise in Bhubaneswar, Odisha",
+    description: "Capital of Odisha and city of 1,000 temples with 11th-century Kalinga architecture.",
+  },
+  puri: {
+    id: "place_puri_001",
+    name: "Puri Coastal Sanctuary",
+    category: "Sacred Heritage",
+    district: "Puri",
+    imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuDX9t5xDnxhIlK3OKNGhyuOS73-1dAaksAFQQG_pMNb3CeRJYrdIV52fSNjxCwpm5iWiVwMIOTQXgUtjezNwOEj-IS3ysi7TasX98BsKC3cBLZBa26cpCBbXhLn0mVFSKHaMjWGTA2cbE7ZJftd49rZYbyWgJllFl6Nf7-rTyfDWLBxdBSGqarYv0Ay8lJ_SUK8OthnJ8c2zJWsx_-ehHOJhObOwcEPlaj9AJMvLx_WHzbsY38-o3lG-mgsq7UIn-1EXddvACeNm0Q",
+    alt: "Shree Jagannath Temple towering sanctum and sacred precinct in Puri, Odisha",
+    description: "Spiritual epicenter of Odisha, home to Lord Jagannath, Mahaprasad, and the golden beach coastline.",
+  },
+  konark: {
+    id: "place_konark_001",
+    name: "Konark Sun Temple & Marine Drive",
+    category: "UNESCO World Heritage",
+    district: "Puri",
+    imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqOOikBJZ-5aej8Mblj0xhbGmiY5GW8Kj_DZfPgIWPyUvZ5vc_sVEWY7JWPXCXQFb-2br6r-8CWlxMzqLYIwHeuqC4S-BO4olt2McZxM0XMwm60bFF5jTHCJ9RzglXhmXsGtAeSglMXMTLvTeF6ylfKJbb15-N2Q_MhYfOTwaeSmGiir3D4rZv5iaAKQdKSvnn6b27mSb6nL5tXkFAD46fn4NVUcipQQcUR9MuzEOiMzaGlkR4n4fVqdjyPmY_H0PQ4XiMl9yCMb0",
+    alt: "Konark Sun Temple 13th-century stone chariot wheel and sanctuary in Konark, Odisha",
+    description: "13th-century Black Pagoda monumental chariot temple dedicated to the Sun God Surya.",
+  },
+  cuttack: {
+    id: "place_cuttack_001",
+    name: "Cuttack Millennium City",
+    category: "Historic River City",
+    district: "Cuttack",
+    imageUrl: "/images/manual/food_cuttack_003.webp",
+    alt: "Barabati Fort and historic Mahanadi riverfront corridor in Cuttack, Odisha",
+    description: "1,000-year-old historic millennium city between the Mahanadi and Kathajodi rivers.",
+  },
+  chilika: {
+    id: "place_chilika_001",
+    name: "Chilika Lake & Satapada Lagoon",
+    category: "Marine Lagoon",
+    district: "Puri",
+    imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuBncciVZ_jB169hv_MKF44YxFY_wzB-0nEJAi6vrAnpeouErvxxKFxom7VZ-7VH9-vNrDKxN8ByHJmV0fSwpDCvfWJimHI98mDrHhdQnuSK-QwL88IBCAMCSVoaVGRLgl5O7mtGsbvpmBuHP6F7yMkUsDNRu85F9aKH8KliiglC5e8ZyAzkBtt2vd3fxyF1_cC1PJSxaPskidx5Q5U3hRBdUeDZoLNEobb-CVjWhJsGiP4yU1xS39ATAVvK4PfVW7q626KW5dHZYu0",
+    alt: "Chilika Lake tranquil waters and fishing boats in Odisha",
+    description: "Asia's largest brackish water lagoon, home to Irrawaddy dolphins and migratory birds.",
+  },
+  sambalpur: {
+    id: "place_sambalpur_001",
+    name: "Sambalpur & Hirakud Corridor",
+    category: "Western Gateway",
+    district: "Sambalpur",
+    imageUrl: "/images/manual/food_sambalpur_001.webp",
+    alt: "Hirakud Dam vast reservoir and Sambalpuri handloom heritage in Sambalpur, Odisha",
+    description: "Gateway to Western Odisha, home of the world's longest earthen dam and Sambalpuri handloom.",
+  },
+  rourkela: {
+    id: "place_sundargarh_001",
+    name: "Rourkela Steel City",
+    category: "Highland Corridor",
+    district: "Sundargarh",
+    imageUrl: "/images/manual/food_sundargarh_001.webp",
+    alt: "Vedvyas Temple and scenic hill ranges in Rourkela, Sundargarh, Odisha",
+    description: "Highland commercial hub nestled in scenic northern hills where the Brahmani river forms.",
+  },
+  keonjhar: {
+    id: "place_keonjhar_001",
+    name: "Keonjhar Waterfall Valley",
+    category: "Northern Forests",
+    district: "Kendujhar",
+    imageUrl: "/images/manual/food_keonjhar_001.webp",
+    alt: "Sanaghagara Waterfall cascading through lush green forest in Keonjhar, Odisha",
+    description: "Land of perennial waterfalls, mineral wealth, and ancient Gonasika Guptaganga springs.",
+  },
+  berhampur: {
+    id: "place_ganjam_001",
+    name: "Berhampur Silk City & Gopalpur",
+    category: "Southern Coastal Hub",
+    district: "Ganjam",
+    imageUrl: "/images/manual/food_ganjam_001.webp",
+    alt: "Gopalpur-on-Sea beach and vibrant market culture in Ganjam, Odisha",
+    description: "Southern commercial hub famous for pure silk Berhampuri Patta and colonial Gopalpur beach.",
+  },
+  koraput: {
+    id: "place_koraput_003",
+    name: "Koraput Eastern Ghats",
+    category: "Highland Peaks & Coffee",
+    district: "Koraput",
+    imageUrl: "/images/manual/place_koraput_003.webp",
+    alt: "Deomali mountain summit and rolling green valleys in Koraput, Odisha",
+    description: "Highest mountain peak in Odisha, misty valleys, organic tribal coffee, and cascading waterfalls.",
+  },
+  daringbadi: {
+    id: "place_daringbadi_001",
+    name: "Daringbadi Pine Valleys",
+    category: "Highland Hill Station",
+    district: "Kandhamal",
+    imageUrl: "/images/manual/food_kandhamal_001.webp",
+    alt: "Misty pine forest valleys and coffee estates of Daringbadi in Kandhamal, Odisha",
+    description: "The 'Kashmir of Odisha' situated 3,000 ft above sea level with pine forests and cool mountain climate.",
+  },
+};
+
+const DISTRICT_HUB_FALLBACKS: Record<string, { id: string; name: string; imageUrl: string; alt: string; category: string }> = {
+  angul: { id: "food_angul_001", name: "Angul & Satkosia", imageUrl: "/images/manual/food_angul_001.webp", alt: "Angul cultural corridor", category: "Nature & Heritage" },
+  balasore: { id: "place_balasore_002", name: "Balasore Coast", imageUrl: "/images/manual/place_balasore_002.webp", alt: "Talasari Beach palm fringes in Balasore", category: "Coastal Beach" },
+  bhadrak: { id: "place_bhadrak_001", name: "Bhadrak Heritage", imageUrl: "/images/manual/place_bhadrak_001.webp", alt: "Akhandalamani Temple in Bhadrak", category: "Sacred Heritage" },
+  balangir: { id: "place_balangir_001", name: "Balangir Harishankar", imageUrl: "/images/manual/place_bolangir_001.webp", alt: "Harishankar Temple in Balangir", category: "Sacred Heritage" },
+  bolangir: { id: "place_balangir_001", name: "Balangir Harishankar", imageUrl: "/images/manual/place_bolangir_001.webp", alt: "Harishankar Temple in Balangir", category: "Sacred Heritage" },
+  boudh: { id: "place_boudh_001", name: "Boudh Buddhist Heritage", imageUrl: "/images/manual/place_boudh_001.webp", alt: "Boudh Colossal Buddha statues", category: "Historic Monument" },
+  deogarh: { id: "place_deogarh_001", name: "Deogarh Pradhanpat", imageUrl: "/images/manual/place_deogarh_001.webp", alt: "Pradhanpat Waterfall in Deogarh", category: "Waterfall" },
+  dhenkanal: { id: "place_dhenkanal_001", name: "Dhenkanal Kapilash", imageUrl: "/images/manual/place_dhenkanal_001.webp", alt: "Kapilash Temple Sanctuary in Dhenkanal", category: "Sacred Sanctuary" },
+  gajapati: { id: "place_gajapati_002", name: "Gajapati Highlands", imageUrl: "/images/manual/place_gajapati_002.webp", alt: "Khasada Waterfall in Gajapati", category: "Waterfall" },
+  jagatsinghpur: { id: "place_jagatsinghpur_001", name: "Jagatsinghpur Coastal Corridor", imageUrl: "/images/manual/place_jagatsinghpur_001.webp", alt: "Maa Sarala Temple in Jagatsinghpur", category: "Sacred Heritage" },
+  jajpur: { id: "place_jajpur_004", name: "Jajpur Buddhist Diamond Triangle", imageUrl: "/images/manual/place_jajpur_004.webp", alt: "Historic Jajpur heritage site", category: "Buddhist Monument" },
+  jharsuguda: { id: "place_jharsuguda_002", name: "Jharsuguda Rock Art", imageUrl: "/images/manual/place_jharsuguda_002.webp", alt: "Bikramkhol rock art in Jharsuguda", category: "Historic Monument" },
+  kalahandi: { id: "place_kalahandi_002", name: "Kalahandi Asurgarh", imageUrl: "/images/manual/place_kalahandi_002.webp", alt: "Asurgarh ancient fortified city in Kalahandi", category: "Historic Monument" },
+  kendrapara: { id: "place_kendrapara_002", name: "Kendrapara Bhitarkanika Gateway", imageUrl: "/images/manual/place_kendrapara_002.webp", alt: "Baladevjew Temple in Kendrapara", category: "Sacred Heritage" },
+  malkangiri: { id: "place_malkangiri_001", name: "Malkangiri Balimela", imageUrl: "/images/manual/place_malkangiri_001.webp", alt: "Balimela Dam in Malkangiri", category: "Lake & Hydro" },
+  mayurbhanj: { id: "food_mayurbhanj_001", name: "Mayurbhanj Similipal Hub", imageUrl: "/images/manual/food_mayurbhanj_001.webp", alt: "Mayurbhanj traditional cultural hub", category: "Wildlife & Culture" },
+  nabarangpur: { id: "place_nabarangpur_001", name: "Nabarangpur Shahid Minar", imageUrl: "/images/manual/place_nabarangpur_001.webp", alt: "Shahid Minar Papadahandi in Nabarangpur", category: "Historic Monument" },
+  nayagarh: { id: "place_nayagarh_001", name: "Nayagarh Nilamadhaba", imageUrl: "/images/manual/place_nayagarh_001.webp", alt: "Kantilo Nilamadhaba Temple in Nayagarh", category: "Sacred Heritage" },
+  nuapada: { id: "place_nuapada_002", name: "Nuapada Maraguda", imageUrl: "/images/manual/place_nuapada_002.webp", alt: "Maraguda Valley archaeological site in Nuapada", category: "Historic Monument" },
+  rayagada: { id: "place_rayagada_002", name: "Rayagada Chatikona", imageUrl: "/images/manual/place_rayagada_002.webp", alt: "Chatikona Waterfall in Rayagada", category: "Waterfall" },
+  subarnapur: { id: "place_subarnapur_001", name: "Subarnapur Sonepur", imageUrl: "/images/manual/place_subarnapur_001.webp", alt: "Maa Sureswari Temple in Sonepur", category: "Sacred Heritage" },
+  sonepur: { id: "place_subarnapur_001", name: "Subarnapur Sonepur", imageUrl: "/images/manual/place_subarnapur_001.webp", alt: "Maa Sureswari Temple in Sonepur", category: "Sacred Heritage" },
+};
+
+/**
+ * Resolves a canonical PlaceImage for a location string, hub name, city, or district.
+ */
+export function resolveHubImage(query?: string | null): PlaceImage | null {
+  if (!query) return null;
+  const norm = normalizeKey(query);
+
+  // Exclude place/entity IDs to prevent unmanifested destination cross-contamination
+  if (
+    norm.startsWith('place') ||
+    norm.startsWith('food') ||
+    norm.startsWith('exp') ||
+    norm.startsWith('hotel') ||
+    norm.startsWith('med') ||
+    norm.startsWith('atm') ||
+    norm.startsWith('petrol') ||
+    norm.startsWith('police') ||
+    norm.startsWith('transit')
+  ) {
+    return null;
+  }
+
+  // 1. Direct hub key lookup
+  if (CANONICAL_HUB_IMAGES[norm]) {
+    const hub = CANONICAL_HUB_IMAGES[norm];
+    return {
+      src: getBackendAssetUrl(hub.imageUrl),
+      alt: hub.alt,
+      title: hub.name,
+      source: "O-Travelz Verified Hub",
+      license: "Verified Asset",
+      isFallback: false,
+    };
+  }
+
+  // 2. Keyword substring lookup in hubs
+  if (norm.includes("bhubaneswar") || norm.includes("bbsr") || norm.includes("mastercanteen") || norm.includes("khordha") || norm.includes("khurda")) {
+    const hub = CANONICAL_HUB_IMAGES.bhubaneswar;
+    return { src: getBackendAssetUrl(hub.imageUrl), alt: hub.alt, title: hub.name, source: "O-Travelz Verified Hub", license: "Verified Asset", isFallback: false };
+  }
+  if (norm.includes("puri") || norm.includes("jagannath")) {
+    const hub = CANONICAL_HUB_IMAGES.puri;
+    return { src: getBackendAssetUrl(hub.imageUrl), alt: hub.alt, title: hub.name, source: "O-Travelz Verified Hub", license: "Verified Asset", isFallback: false };
+  }
+  if (norm.includes("konark") || norm.includes("suntemple")) {
+    const hub = CANONICAL_HUB_IMAGES.konark;
+    return { src: getBackendAssetUrl(hub.imageUrl), alt: hub.alt, title: hub.name, source: "O-Travelz Verified Hub", license: "Verified Asset", isFallback: false };
+  }
+  if (norm.includes("cuttack") || norm.includes("barabati")) {
+    const hub = CANONICAL_HUB_IMAGES.cuttack;
+    return { src: getBackendAssetUrl(hub.imageUrl), alt: hub.alt, title: hub.name, source: "O-Travelz Verified Hub", license: "Verified Asset", isFallback: false };
+  }
+  if (norm.includes("chilika") || norm.includes("satapada")) {
+    const hub = CANONICAL_HUB_IMAGES.chilika;
+    return { src: getBackendAssetUrl(hub.imageUrl), alt: hub.alt, title: hub.name, source: "O-Travelz Verified Hub", license: "Verified Asset", isFallback: false };
+  }
+  if (norm.includes("sambalpur") || norm.includes("hirakud")) {
+    const hub = CANONICAL_HUB_IMAGES.sambalpur;
+    return { src: getBackendAssetUrl(hub.imageUrl), alt: hub.alt, title: hub.name, source: "O-Travelz Verified Hub", license: "Verified Asset", isFallback: false };
+  }
+  if (norm.includes("rourkela") || norm.includes("sundargarh") || norm.includes("vedvyas")) {
+    const hub = CANONICAL_HUB_IMAGES.rourkela;
+    return { src: getBackendAssetUrl(hub.imageUrl), alt: hub.alt, title: hub.name, source: "O-Travelz Verified Hub", license: "Verified Asset", isFallback: false };
+  }
+  if (norm.includes("keonjhar") || norm.includes("kendujhar") || norm.includes("sanaghagara")) {
+    const hub = CANONICAL_HUB_IMAGES.keonjhar;
+    return { src: getBackendAssetUrl(hub.imageUrl), alt: hub.alt, title: hub.name, source: "O-Travelz Verified Hub", license: "Verified Asset", isFallback: false };
+  }
+  if (norm.includes("berhampur") || norm.includes("ganjam") || norm.includes("gopalpur")) {
+    const hub = CANONICAL_HUB_IMAGES.berhampur;
+    return { src: getBackendAssetUrl(hub.imageUrl), alt: hub.alt, title: hub.name, source: "O-Travelz Verified Hub", license: "Verified Asset", isFallback: false };
+  }
+  if (norm.includes("koraput") || norm.includes("deomali")) {
+    const hub = CANONICAL_HUB_IMAGES.koraput;
+    return { src: getBackendAssetUrl(hub.imageUrl), alt: hub.alt, title: hub.name, source: "O-Travelz Verified Hub", license: "Verified Asset", isFallback: false };
+  }
+  if (norm.includes("daringbadi") || norm.includes("kandhamal")) {
+    const hub = CANONICAL_HUB_IMAGES.daringbadi;
+    return { src: getBackendAssetUrl(hub.imageUrl), alt: hub.alt, title: hub.name, source: "O-Travelz Verified Hub", license: "Verified Asset", isFallback: false };
+  }
+
+  // 3. Check District fallback map
+  for (const [distKey, distInfo] of Object.entries(DISTRICT_HUB_FALLBACKS)) {
+    if (norm.includes(distKey)) {
+      return {
+        src: getBackendAssetUrl(distInfo.imageUrl),
+        alt: distInfo.alt,
+        title: distInfo.name,
+        source: "O-Travelz Verified District Asset",
+        license: "Verified Asset",
+        isFallback: false,
+      };
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Resolves location image info with fallbacks for Current Location Infographics.
+ */
+export function getLocationImage(
+  locationName?: string | null,
+  city?: string | null,
+  district?: string | null
+): PlaceImage {
+  const queryCandidates = [locationName, city, district].filter(Boolean) as string[];
+  for (const query of queryCandidates) {
+    const match = resolveHubImage(query);
+    if (match) return match;
+  }
+  // Default to Bhubaneswar capital hub image instead of neutral placeholder
+  const defaultHub = CANONICAL_HUB_IMAGES.bhubaneswar;
+  return {
+    src: getBackendAssetUrl(defaultHub.imageUrl),
+    alt: defaultHub.alt,
+    title: locationName || defaultHub.name,
+    source: "O-Travelz Verified Hub",
+    license: "Verified Asset",
+    isFallback: false,
+  };
+}
+
+/**
+ * Returns the resolved image URL for a location name, city, or district.
+ */
+export function getLocationImageUrl(
+  locationName?: string | null,
+  city?: string | null,
+  district?: string | null
+): string {
+  const img = getLocationImage(locationName, city, district);
+  return getBackendAssetUrl(img.src);
+}
+
 export function getPlaceImages(placeName?: string | null, category?: string | null): PlaceImage[] {
   if (!placeName && !category) return resolveImagesWithBackendUrl([DEFAULT_FALLBACK_IMAGE]);
 
@@ -5165,9 +5437,17 @@ export function getPlaceImages(placeName?: string | null, category?: string | nu
         return resolveImagesWithBackendUrl(candidates[0]);
       }
     }
+
+    // 4. Check Hub & Location Image Resolution only when category is absent (pure location search)
+    if (!category) {
+      const hubMatch = resolveHubImage(placeName);
+      if (hubMatch) {
+        return [hubMatch];
+      }
+    }
   }
 
-  // 4. Strict safe fallback: Return category-themed neutral SVG fallback (NEVER another destination's photo!)
+  // 5. Strict safe fallback: Return category-themed neutral SVG fallback (NEVER another destination's photo!)
   if (category) {
     return resolveImagesWithBackendUrl([getCategoryFallback(category)]);
   }

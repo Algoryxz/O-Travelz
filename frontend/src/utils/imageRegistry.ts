@@ -13,8 +13,24 @@
  */
 
 import { resolvePlaceImage } from './imageAdapter';
-import { CATEGORY_THEMED_FALLBACKS, DEFAULT_FALLBACK_IMAGE } from './imageService';
+import {
+  CATEGORY_THEMED_FALLBACKS,
+  DEFAULT_FALLBACK_IMAGE,
+  resolveHubImage,
+  getLocationImage,
+  getLocationImageUrl,
+  CANONICAL_HUB_IMAGES,
+  type HubImageInfo,
+} from './imageService';
 import type { PlaceImageContract } from '../types/api';
+
+export {
+  resolveHubImage,
+  getLocationImage,
+  getLocationImageUrl,
+  CANONICAL_HUB_IMAGES,
+  type HubImageInfo,
+};
 
 export interface ImageResolutionResult {
   src: string;

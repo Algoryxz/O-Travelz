@@ -3,7 +3,7 @@ import type { StitchTab } from '../../components/stitch/StitchNavbar';
 import { useLocation } from '../../context/LocationContext';
 import { useRegisterAIContext } from '../../context/AIContext';
 import { MANUAL_IMAGE_OVERRIDES } from '../../utils/imageRegistry';
-import { getFeaturedOdishaDestinations } from '../../utils/imageService';
+import { getFeaturedOdishaDestinations, getPlaceImageUrl } from '../../utils/imageService';
 import { CoverflowCarousel, type CoverflowItem } from '../../components/gallery/CoverflowCarousel';
 import { ODISHA_EXPERIENCES } from '../../data/odishaExperiences';
 import { StitchWeatherSection } from '../../components/stitch/StitchWeatherSection';
@@ -81,7 +81,7 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
       category: "HERITAGE · UNESCO",
       location: "Konark, Puri District",
       detail: "13th Century Sanctuary",
-      imageUrl: MANUAL_IMAGE_OVERRIDES["place_konark_001"],
+      imageUrl: getPlaceImageUrl("place_konark_001"),
     },
     {
       id: "place_chilika_001",
@@ -90,7 +90,7 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
       category: "COASTAL LAGOON",
       location: "Satapada & Mangalajodi",
       detail: "Asia's Largest Brackish Lagoon",
-      imageUrl: MANUAL_IMAGE_OVERRIDES["place_chilika_001"],
+      imageUrl: getPlaceImageUrl("place_chilika_001"),
     },
     {
       id: "place_daringbadi_001",
@@ -99,7 +99,7 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
       category: "EASTERN GHATS",
       location: "Kandhamal Pine Valleys",
       detail: "Misty Valleys & Coffee Estates",
-      imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuDlDr9_Cek0l7sSj8p9l7a6HT5uYjYAkDij85CJ6uhJV8eizUTCMbyqKS4rlQKXpG2i_BAztVjrdoDYjZIbQf8MmFqxgB0ahaa_X9gAvn4_CQZQqUYVJ2EJJcBH365Dnwd9Pzr9EjRdsnuQtHhSbVBInYpZfeCz3nxzq4oX91YTxIfZ2oJgCpbMwIbcANSqHH1brcUm9gKAfrBa1CocGM7zZ-ARsFtyYEl2koEkEHUjoBnA9_7xyjBwbDAqj3MnQXISntVnPN8L17U",
+      imageUrl: getPlaceImageUrl("place_daringbadi_001"),
     },
     {
       id: "place_puri_001",
@@ -108,7 +108,7 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
       category: "SACRED HERITAGE",
       location: "Puri Golden Coast",
       detail: "12th Century Living Shrines",
-      imageUrl: MANUAL_IMAGE_OVERRIDES["place_puri_001"],
+      imageUrl: getPlaceImageUrl("place_puri_001"),
     },
   ], []);
 
@@ -136,7 +136,7 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
               idx === activeHeroIndex ? "opacity-100 scale-100" : "opacity-0 scale-105 pointer-events-none"
             }`}
             onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = "https://lh3.googleusercontent.com/aida-public/AB6AXuDlDr9_Cek0l7sSj8p9l7a6HT5uYjYAkDij85CJ6uhJV8eizUTCMbyqKS4rlQKXpG2i_BAztVjrdoDYjZIbQf8MmFqxgB0ahaa_X9gAvn4_CQZQqUYVJ2EJJcBH365Dnwd9Pzr9EjRdsnuQtHhSbVBInYpZfeCz3nxzq4oX91YTxIfZ2oJgCpbMwIbcANSqHH1brcUm9gKAfrBa1CocGM7zZ-ARsFtyYEl2koEkEHUjoBnA9_7xyjBwbDAqj3MnQXISntVnPN8L17U";
+              (e.currentTarget as HTMLImageElement).src = getPlaceImageUrl("place_konark_001");
             }}
           />
         ))}
