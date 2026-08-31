@@ -1,498 +1,355 @@
-import React from "react";
-import {
-  ArrowLeft,
-  Mountain,
-  Hospital,
-  Landmark,
-  WalletCards,
-  Coffee,
-  ShoppingBag,
-  MapPin,
-  Compass,
-  Heart,
-} from "lucide-react";
-import { useSavedPlaces } from "../../store/useSavedPlaces";
+import { motion } from "motion/react";
+import { buttonTap, cardHover, cardTap, chipTap } from "../../lib/motion";
+import React, { useState, useMemo } from "react";
+import { Compass, Sparkles, MapPin, ArrowLeft, Star, Clock } from "lucide-react";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
+import {
+  getFeaturedOdishaDestinations,
+  getPlaceImageUrl,
+  getPlaceRegion,
+  getCategoryImage,
+  DEFAULT_FALLBACK_IMAGE,
+} from "../../utils/imageService";
+import { useSavedPlaces } from "../../store/useSavedPlaces";
+import { resolvePlaceImageUrl } from "../../utils/imageAdapter";
+import { CANONICAL_INTEREST_LABELS } from "../../utils/timelineService";
 
 interface CategoryExplorePageProps {
-  category?: string;
-  categoryName?: string;
-  selectedLocation?: string;
+  categoryId: string;
+  categoryTitle: string;
+  categoryDescription?: string;
   onBack: () => void;
-  onPlanTripWithCategory?: (category: string) => void;
-  onPlanWithSinglePlace?: (place: SelectedPlaceInfo) => void;
-  onOpenMap: (place?: SelectedPlaceInfo) => void;
   onSelectPlace?: (place: SelectedPlaceInfo) => void;
+  onPlanWithSinglePlace?: (place: SelectedPlaceInfo) => void;
 }
-
-interface PlaceItem {
-  id: string;
-  name: string;
-  subtitle: string;
-  distance: string;
-  status: string;
-  rating: number;
-  tags: string[];
-}
-
-const CATEGORY_DATA: Record<
-  string,
-  {
-    icon: typeof Mountain;
-    tagline: string;
-    description: string;
-    places: PlaceItem[];
-  }
-> = {
-  "Nature": {
-    icon: Mountain,
-    tagline: "WILDLIFE, WETLANDS & OUTDOORS",
-    description: "Explore Odisha's pristine lakes, tiger reserves, waterfalls, and coastal sanctuaries.",
-    places: [
-      {
-        id: "nature-1",
-        name: "Chilika Lake",
-        subtitle: "Asia's largest brackish water lagoon · Nalabana Bird Sanctuary",
-        distance: "104 km from Bhubaneswar",
-        status: "Open now",
-        rating: 4.8,
-        tags: ["Eco-tourism", "Boating", "Birds"],
-      },
-      {
-        id: "nature-2",
-        name: "Daringbadi Hill Station",
-        subtitle: "Coffee gardens, pine forests and mist-covered valleys",
-        distance: "250 km from Bhubaneswar",
-        status: "Open now",
-        rating: 4.7,
-        tags: ["Pine Forest", "Waterfalls", "Viewpoint"],
-      },
-      {
-        id: "nature-3",
-        name: "Similipal National Park",
-        subtitle: "UNESCO Biosphere Reserve & Tiger Sanctuary",
-        distance: "260 km from Bhubaneswar",
-        status: "Seasonal permits",
-        rating: 4.6,
-        tags: ["Wildlife", "Safaris", "Waterfalls"],
-      },
-      {
-        id: "nature-4",
-        name: "Bhitarkanika Mangroves",
-        subtitle: "Saltwater crocodile habitat and dense delta mangroves",
-        distance: "160 km from Bhubaneswar",
-        status: "Open now",
-        rating: 4.7,
-        tags: ["Mangroves", "Crocodiles", "Boat safari"],
-      },
-    ],
-  },
-  "Medical Help": {
-    icon: Hospital,
-    tagline: "EMERGENCY & HEALTHCARE",
-    description: "24/7 emergency rooms, trauma centers, tertiary hospitals, and pharmacies in Bhubaneswar and nearby regions.",
-    places: [
-      {
-        id: "med-1",
-        name: "AIIMS Bhubaneswar",
-        subtitle: "Sijua, Patrapada · 24/7 Emergency & Critical Care",
-        distance: "6.2 km",
-        status: "Open 24 Hours",
-        rating: 4.8,
-        tags: ["24/7 Emergency", "Multispeciality", "Pharmacy"],
-      },
-      {
-        id: "med-2",
-        name: "Capital Hospital",
-        subtitle: "Unit 6, Bhubaneswar · Government Tertiary Care",
-        distance: "2.4 km",
-        status: "Open 24 Hours",
-        rating: 4.2,
-        tags: ["Casualty", "Blood Bank", "Free Care"],
-      },
-      {
-        id: "med-3",
-        name: "Apollo Hospitals Bhubaneswar",
-        subtitle: "Sainik School Road, Unit 15",
-        distance: "3.8 km",
-        status: "Open 24 Hours",
-        rating: 4.6,
-        tags: ["Super Speciality", "ICU", "Ambulance"],
-      },
-      {
-        id: "med-4",
-        name: "SUM Ultimate Medicare",
-        subtitle: "Kalinga Nagar, Ghatikia",
-        distance: "8.1 km",
-        status: "Open 24 Hours",
-        rating: 4.7,
-        tags: ["Advanced Trauma", "Diagnostics", "24/7 ER"],
-      },
-    ],
-  },
-  "Heritage & Culture": {
-    icon: Landmark,
-    tagline: "KALINGA ARCHITECTURE & MONUMENTS",
-    description: "Centuries-old stone temples, rock-cut caves, maritime heritage, and Odishan historical monuments.",
-    places: [
-      {
-        id: "her-1",
-        name: "Lingaraj Temple",
-        subtitle: "11th-century Kalinga architecture masterpiece",
-        distance: "4.5 km · Old Town",
-        status: "06:00 - 21:00",
-        rating: 4.9,
-        tags: ["Temple", "Kalinga Style", "Heritage"],
-      },
-      {
-        id: "her-2",
-        name: "Konark Sun Temple",
-        subtitle: "13th-century UNESCO World Heritage monumental chariot",
-        distance: "65 km · Marine Drive",
-        status: "06:00 - 20:00",
-        rating: 4.9,
-        tags: ["UNESCO Heritage", "Stone Carvings", "Monument"],
-      },
-      {
-        id: "her-3",
-        name: "Mukteswar Temple",
-        subtitle: "The gem of Odishan architecture · Famous torana archway",
-        distance: "4.1 km · Old Town",
-        status: "06:30 - 19:30",
-        rating: 4.8,
-        tags: ["10th Century", "Torana Arch", "Pond"],
-      },
-      {
-        id: "her-4",
-        name: "Dhauli Shanti Stupa",
-        subtitle: "Peace pagoda and historic Ashokan rock edicts",
-        distance: "8.5 km · Daya River Bank",
-        status: "06:00 - 20:00",
-        rating: 4.7,
-        tags: ["Buddhism", "Ashoka Edicts", "Panoramic View"],
-      },
-    ],
-  },
-  "ATMs": {
-    icon: WalletCards,
-    tagline: "CASH POINTS & BANKING",
-    description: "Convenient cash points and ATM kiosks across Bhubaneswar and transit hubs.",
-    places: [
-      {
-        id: "atm-1",
-        name: "SBI ATM, Jaydev Vihar",
-        subtitle: "Adjacent to Pal Heights · 24/7 Cash dispenser",
-        distance: "0.4 km",
-        status: "Operational",
-        rating: 4.5,
-        tags: ["Cash Withdrawal", "24/7", "SBI"],
-      },
-      {
-        id: "atm-2",
-        name: "HDFC Bank ATM, Master Canteen",
-        subtitle: "Near Bhubaneswar Railway Station",
-        distance: "1.8 km",
-        status: "Operational",
-        rating: 4.6,
-        tags: ["Cash Deposit", "24/7", "HDFC"],
-      },
-      {
-        id: "atm-3",
-        name: "ICICI Bank ATM, Saheed Nagar",
-        subtitle: "Janpath Road, Saheed Nagar",
-        distance: "2.1 km",
-        status: "Operational",
-        rating: 4.4,
-        tags: ["Fast Cash", "24/7", "ICICI"],
-      },
-      {
-        id: "atm-4",
-        name: "Axis Bank ATM, Khandagiri Square",
-        subtitle: "Near Khandagiri Caves Entrance",
-        distance: "5.3 km",
-        status: "Operational",
-        rating: 4.3,
-        tags: ["Kiosk", "24/7", "Axis"],
-      },
-    ],
-  },
-  "Hangout & Chill": {
-    icon: Coffee,
-    tagline: "CAFÉS, SPORTS & LEISURE",
-    description: "Relaxed cafés, modern sports complexes, and recreational arenas to unwind in Bhubaneswar.",
-    places: [
-      {
-        id: "hang-1",
-        name: "Brewbakes Café",
-        subtitle: "Speciality roast, artisanal bakes & quiet work tables",
-        distance: "0.8 km · Jaydev Vihar",
-        status: "Open now",
-        rating: 4.7,
-        tags: ["Coffee", "Work friendly", "Wifi"],
-      },
-      {
-        id: "hang-2",
-        name: "Kalinga Stadium",
-        subtitle: "World-class hockey stadium, athletic tracks & courts",
-        distance: "2.1 km · Nayapalli",
-        status: "Available",
-        rating: 4.8,
-        tags: ["Sports", "Badminton", "Running Track"],
-      },
-      {
-        id: "hang-3",
-        name: "Game On Arena",
-        subtitle: "PC gaming, console lounges and low crowd ambiance",
-        distance: "1.4 km · IRC Village",
-        status: "Open now",
-        rating: 4.6,
-        tags: ["Gaming", "VR", "Snacks"],
-      },
-      {
-        id: "hang-4",
-        name: "Bocca Café",
-        subtitle: "Art café with wood-fired pizza and patio seating",
-        distance: "2.7 km · Master Canteen",
-        status: "Open now",
-        rating: 4.7,
-        tags: ["Art", "Espresso", "Patio"],
-      },
-    ],
-  },
-  "Shopping & Fashion": {
-    icon: ShoppingBag,
-    tagline: "HANDLOOMS, CRAFTS & MODERN MALLS",
-    description: "Authentic Sambalpuri & Ikat handlooms, Silver Filigree (Tarakasi), stone crafts, and contemporary retail.",
-    places: [
-      {
-        id: "shop-1",
-        name: "Boyanika & Utkalika",
-        subtitle: "State Handloom & Handicrafts Emporium · Authentic Ikat & Silk",
-        distance: "2.2 km · Market Building",
-        status: "10:00 - 20:30",
-        rating: 4.8,
-        tags: ["Handloom", "Sambalpuri", "Handicrafts"],
-      },
-      {
-        id: "shop-2",
-        name: "Ekamra Haat",
-        subtitle: "Open-air craft village showcasing rural artisans & live craft demos",
-        distance: "2.5 km · Unit 3",
-        status: "10:00 - 21:00",
-        rating: 4.7,
-        tags: ["Crafts", "Terracotta", "Food Stalls"],
-      },
-      {
-        id: "shop-3",
-        name: "Esplanade One Mall",
-        subtitle: "Premier shopping destination with international brands and cinema",
-        distance: "4.8 km · Rasulgarh",
-        status: "10:30 - 22:00",
-        rating: 4.6,
-        tags: ["Mall", "Fashion", "Food Court"],
-      },
-      {
-        id: "shop-4",
-        name: "Silver Filigree (Tarakasi) Center",
-        subtitle: "Centuries-old Cuttack filigree jewelry & silver artwork",
-        distance: "22 km · Cuttack",
-        status: "10:00 - 19:30",
-        rating: 4.9,
-        tags: ["GI Tagged", "Silver Art", "Jewelry"],
-      },
-    ],
-  },
-};
 
 export const CategoryExplorePage: React.FC<CategoryExplorePageProps> = ({
-  category,
-  categoryName,
-  selectedLocation = "Bhubaneswar",
+  categoryId,
+  categoryTitle,
+  categoryDescription,
   onBack,
-  onPlanTripWithCategory,
-  onPlanWithSinglePlace,
-  onOpenMap,
   onSelectPlace,
+  onPlanWithSinglePlace,
 }) => {
-  const activeCategoryName = category || categoryName || "Nature";
-  const categoryData = CATEGORY_DATA[activeCategoryName] || CATEGORY_DATA["Nature"];
-  const Icon = categoryData.icon;
-  const { isSaved, toggleSavePlace } = useSavedPlaces();
+  const [selectedRegion, setSelectedRegion] = useState<string>("All");
+  const [selectedTheme, setSelectedTheme] = useState<string>("All");
+  const { isPlaceSaved, toggleSavedPlace } = useSavedPlaces();
+
+  const allDestinations = useMemo(() => getFeaturedOdishaDestinations(), []);
+
+  const categoryDestinations = useMemo(() => {
+    return allDestinations.filter((d) => {
+      const matchCat = d.category?.toLowerCase() === categoryId.toLowerCase();
+      return matchCat;
+    });
+  }, [allDestinations, categoryId]);
+
+  const availableRegions = useMemo(() => {
+    const set = new Set<string>();
+    categoryDestinations.forEach((d) => {
+      const r = getPlaceRegion(d.name);
+      if (r) set.add(r);
+    });
+    return ["All", ...Array.from(set).sort()];
+  }, [categoryDestinations]);
+
+  const availableThemes = useMemo(() => {
+    const set = new Set<string>();
+    categoryDestinations.forEach((d) => {
+      if (Array.isArray(d.interests)) {
+        d.interests.forEach((i: string) => set.add(i));
+      }
+    });
+    return ["All", ...Array.from(set).sort()];
+  }, [categoryDestinations]);
+
+  const filteredDestinations = useMemo(() => {
+    return categoryDestinations.filter((d) => {
+      if (selectedRegion !== "All") {
+        const r = getPlaceRegion(d.name);
+        if (r !== selectedRegion) return false;
+      }
+      if (selectedTheme !== "All") {
+        if (!Array.isArray(d.interests) || !d.interests.includes(selectedTheme)) {
+          return false;
+        }
+      }
+      return true;
+    });
+  }, [categoryDestinations, selectedRegion, selectedTheme]);
+
+  const heroImage = getCategoryImage(categoryId) || DEFAULT_FALLBACK_IMAGE;
 
   return (
     <div
       data-testid="category-explore-view"
-      className="max-w-7xl mx-auto px-6 sm:px-8 py-8 space-y-8"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 text-[#12161E]"
     >
-      {/* Header & Back Button */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-gray-200">
-        <div className="flex items-center gap-3">
+      {/* Category Hero Banner */}
+      <div className="relative rounded-3xl overflow-hidden min-h-[260px] sm:min-h-[300px] flex flex-col justify-end p-6 sm:p-10 shadow-lg border border-[#E5DFD5]">
+        <img
+          src={heroImage}
+          alt={categoryTitle}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent" />
+
+        <div className="relative z-10 space-y-3 max-w-2xl">
           <button
             type="button"
-            data-testid="category-back-button"
+            data-testid="category-explore-back-btn"
             onClick={onBack}
-            className="w-10 h-10 rounded-2xl bg-white border border-gray-200 hover:bg-gray-100 flex items-center justify-center text-gray-700 shadow-xs transition-colors cursor-pointer"
-            aria-label="Back to Discover"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs font-semibold transition-colors cursor-pointer"
           >
-            <ArrowLeft size={18} />
+            <ArrowLeft size={14} />
+            <span>Back to All Categories</span>
           </button>
-          <div>
-            <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 font-mono">
-              {categoryData.tagline}
-            </div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 tracking-tight flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-emerald-700 text-white flex items-center justify-center">
-                <Icon size={18} />
-              </div>
-              <span>{category}</span>
-            </h1>
+
+          <h1
+            data-testid="category-explore-title"
+            className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight"
+          >
+            {categoryTitle}
+          </h1>
+
+          {categoryDescription && (
+            <p className="text-sm text-white/90 leading-relaxed font-sans">
+              {categoryDescription}
+            </p>
+          )}
+
+          <div className="flex items-center gap-3 pt-1 text-xs text-white/80 font-mono">
+            <span>
+              {filteredDestinations.length} of {categoryDestinations.length} places shown
+            </span>
           </div>
         </div>
+      </div>
 
-        {/* Action CTAs */}
-        <div className="flex items-center gap-3">
+      {/* Filter Chips Bar */}
+      <div className="space-y-4 bg-[#FFFFFF] p-4 sm:p-5 rounded-2xl border border-[#E5DFD5] shadow-xs">
+        {/* Region Filter */}
+        {availableRegions.length > 2 && (
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-bold text-[#70798B] uppercase tracking-wider font-mono mr-1">
+              Region:
+            </span>
+            {availableRegions.map((region) => (
+              <button
+                key={region}
+                type="button"
+                data-testid={`filter-region-${region.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+                onClick={() => setSelectedRegion(region)}
+                className={`px-3 py-1 rounded-full text-xs font-medium transition-colors cursor-pointer border ${
+                  selectedRegion === region
+                    ? "bg-[#B87B22] text-white border-[#B87B22]"
+                    : "bg-[#FAF7F2] text-[#3D4654] border-[#E5DFD5] hover:bg-[#F2EEE7]"
+                }`}
+              >
+                {region}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Theme/Interest Filter */}
+        {availableThemes.length > 2 && (
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-bold text-[#70798B] uppercase tracking-wider font-mono mr-1">
+              Theme:
+            </span>
+            {availableThemes.map((theme) => (
+              <button
+                key={theme}
+                type="button"
+                data-testid={`filter-theme-${theme.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+                onClick={() => setSelectedTheme(theme)}
+                className={`px-3 py-1 rounded-full text-xs font-medium transition-colors cursor-pointer border ${
+                  selectedTheme === theme
+                    ? "bg-[#1B5E6B] text-white border-[#1B5E6B]"
+                    : "bg-[#FAF7F2] text-[#3D4654] border-[#E5DFD5] hover:bg-[#F2EEE7]"
+                }`}
+              >
+                {CANONICAL_INTEREST_LABELS[theme] || theme}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Destination Grid */}
+      {filteredDestinations.length === 0 ? (
+        <div className="text-center py-16 px-4 rounded-3xl bg-[#FAF7F2] border border-[#E5DFD5] space-y-3">
+          <div className="w-12 h-12 mx-auto rounded-xl bg-[#F2EEE7] text-[#70798B] flex items-center justify-center font-bold text-xl font-mono">
+            ∅
+          </div>
+          <h3 className="text-base font-serif font-bold text-[#12161E]">
+            No destinations found matching these filters
+          </h3>
+          <p className="text-xs text-[#70798B] max-w-sm mx-auto">
+            Try resetting your regional or thematic filters above to discover more {categoryTitle} locations.
+          </p>
           <button
             type="button"
-            data-testid="category-plan-cta"
-            onClick={() => onPlanTripWithCategory?.(activeCategoryName)}
-            className="px-4 py-2.5 rounded-xl bg-[#B87B22] hover:bg-[#A0691B] text-white font-bold text-xs shadow-xs flex items-center gap-2 transition-colors cursor-pointer"
-          >
-            <Compass size={15} />
-            <span>Plan with this category</span>
-          </button>
-          <button
-            type="button"
-            data-testid="category-map-cta"
             onClick={() => {
-              if (categoryData.places.length > 0) {
-                const p = categoryData.places[0];
-                onOpenMap({
-                  id: p.id,
-                  name: p.name,
-                  category: activeCategoryName,
-                  location: p.distance,
-                  description: p.subtitle,
-                });
-              } else {
-                onOpenMap();
-              }
+              setSelectedRegion("All");
+              setSelectedTheme("All");
             }}
-            className="px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#E5DFD5] hover:bg-[#FAF7F2] text-[#12161E] font-bold text-xs shadow-xs flex items-center gap-2 transition-colors cursor-pointer"
+            className="px-4 py-2 rounded-xl bg-[#B87B22] text-white text-xs font-bold shadow-xs hover:bg-[#A0691B] transition-colors cursor-pointer"
           >
-            <MapPin size={15} className="text-[#B87B22]" />
-            <span>View on Map</span>
+            Reset Filters
           </button>
         </div>
-      </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredDestinations.map((dest) => {
+            const isSaved = isPlaceSaved(dest.id || dest.name);
+            const imageUrl = resolvePlaceImageUrl({ name: dest.name, category: dest.category }, "card");
+            const region = getPlaceRegion(dest.name);
 
-      {/* Description Summary Card */}
-      <div className="p-6 rounded-2xl bg-[#FAF7F2] text-[#12161E] border border-[#E5DFD5] shadow-xs">
-        <p className="text-sm sm:text-base text-[#3D4654] leading-relaxed max-w-3xl">
-          {categoryData.description}
-        </p>
-        <div className="text-xs text-[#B87B22] font-mono mt-3">
-          Curated destinations and highlights around {selectedLocation} and connected regions.
-        </div>
-      </div>
+            return (
+              <div
+                key={dest.id || dest.name}
+                data-testid={`category-destination-card-${dest.id || dest.name}`}
+                className="group rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] hover:border-[#D1C8BA] shadow-xs hover:shadow-md transition-all flex flex-col justify-between overflow-hidden text-[#12161E]"
+              >
+                {/* Image Section */}
+                <div className="relative h-48 w-full bg-[#F2EEE7] overflow-hidden">
+                  <img
+                    src={imageUrl}
+                    alt={dest.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = getPlaceImageUrl(dest.name, dest.category);
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
-      {/* Places List Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {categoryData.places.map((place) => {
-          const saved = isSaved(place.id || place.name);
-          return (
-            <div
-              key={place.id}
-              data-testid={`category-place-${place.id}`}
-              className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] hover:border-[#D1C8BA] shadow-xs hover:shadow-md transition-all space-y-4 text-[#12161E]"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div
-                  className="cursor-pointer"
-                  onClick={() =>
-                    onSelectPlace?.({
-                      id: place.id,
-                      name: place.name,
-                      category: activeCategoryName,
-                      distance: place.distance,
-                      description: place.subtitle,
-                      tags: place.tags,
-                    })
-                  }
-                >
-                  <h3 className="font-serif font-bold text-lg text-[#12161E] hover:text-[#B87B22] transition-colors">
-                    {place.name}
-                  </h3>
-                  <p className="text-xs text-[#70798B] mt-0.5">{place.subtitle}</p>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    toggleSavePlace({
-                      id: place.id,
-                      name: place.name,
-                      category: activeCategoryName,
-                      distance: place.distance,
-                      notes: place.subtitle,
-                      tags: place.tags,
-                    })
-                  }
-                  className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors shrink-0 cursor-pointer ${
-                    saved
-                      ? "bg-[#A84825] text-white"
-                      : "bg-[#FAF7F2] text-[#70798B] hover:text-[#12161E] border border-[#E5DFD5]"
-                  }`}
-                  aria-label={`Save ${place.name}`}
-                >
-                  <Heart size={16} fill={saved ? "currentColor" : "none"} />
-                </button>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3 text-xs text-[#70798B]">
-                <span className="font-semibold text-[#B87B22] flex items-center gap-1 font-mono">
-                  <MapPin size={13} /> {place.distance}
-                </span>
-                <span>·</span>
-                <span className="px-2 py-0.5 rounded-md bg-[#FAF7F2] text-[#12161E] border border-[#E5DFD5] font-medium font-mono text-[11px]">
-                  {place.status}
-                </span>
-              </div>
-
-              <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-[#E5DFD5]">
-                <div className="flex flex-wrap gap-1.5">
-                  {place.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-0.5 rounded-md bg-[#F2EEE7] text-[#3D4654] border border-[#E5DFD5] text-[11px] font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-2">
+                  {/* Bookmark Button */}
                   <button
                     type="button"
-                    onClick={() =>
-                      onOpenMap({
-                        id: place.id,
-                        name: place.name,
-                        category: activeCategoryName,
-                        location: place.distance,
-                        description: place.subtitle,
-                      })
-                    }
-                    className="text-xs text-[#B87B22] hover:text-[#A0691B] font-semibold flex items-center gap-1 cursor-pointer font-mono"
+                    data-testid={`save-btn-${dest.id || dest.name}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleSavedPlace({
+                        id: dest.id,
+                        name: dest.name,
+                        category: dest.category,
+                        location: dest.location || region,
+                        description: dest.description,
+                        interests: dest.interests,
+                      });
+                    }}
+                    className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-md transition-all cursor-pointer ${
+                      isSaved
+                        ? "bg-[#B87B22] text-white"
+                        : "bg-black/30 hover:bg-black/50 text-white"
+                    }`}
+                    aria-label={isSaved ? `Remove ${dest.name} from saved` : `Save ${dest.name}`}
                   >
-                    <MapPin size={12} /> Map →
+                    <Star size={14} className={isSaved ? "fill-white" : ""} />
                   </button>
+
+                  <div className="absolute bottom-3 left-4 right-4">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-white/80 font-mono">
+                      {dest.category}
+                    </span>
+                    <h3
+                      className="font-serif font-bold text-lg text-white hover:text-[#B87B22] transition-colors cursor-pointer truncate"
+                      onClick={() =>
+                        onSelectPlace?.({
+                          id: dest.id,
+                          name: dest.name,
+                          category: dest.category,
+                          location: dest.location || region,
+                          description: dest.description,
+                          interests: dest.interests,
+                        })
+                      }
+                    >
+                      {dest.name}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Details & Actions */}
+                <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-2">
+                    <div className="text-xs text-[#70798B] flex items-center justify-between">
+                      <span className="flex items-center gap-1 text-[#3D4654] font-medium">
+                        <MapPin size={12} className="text-[#B87B22]" />
+                        <span>{region}</span>
+                      </span>
+                      {dest.ideal_duration && (
+                        <span className="flex items-center gap-1 font-mono text-[11px]">
+                          <Clock size={11} className="text-[#1B5E6B]" />
+                          <span>{dest.ideal_duration}</span>
+                        </span>
+                      )}
+                    </div>
+
+                    {dest.description && (
+                      <p className="text-xs text-[#3D4654] line-clamp-2 leading-relaxed">
+                        {dest.description}
+                      </p>
+                    )}
+
+                    {Array.isArray(dest.interests) && dest.interests.length > 0 && (
+                      <div className="flex flex-wrap gap-1 pt-1">
+                        {dest.interests.slice(0, 3).map((interest: string) => (
+                          <span
+                            key={interest}
+                            className="px-2 py-0.5 rounded-md bg-[#FAF7F2] border border-[#E5DFD5] text-[10px] font-medium text-[#70798B]"
+                          >
+                            {CANONICAL_INTEREST_LABELS[interest] || interest}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-2 pt-3 border-t border-[#E5DFD5]">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        onSelectPlace?.({
+                          id: dest.id,
+                          name: dest.name,
+                          category: dest.category,
+                          location: dest.location || region,
+                          description: dest.description,
+                          interests: dest.interests,
+                        })
+                      }
+                      className="flex-1 py-2 rounded-xl bg-[#FAF7F2] hover:bg-[#F2EEE7] text-[#12161E] text-xs font-semibold transition-colors text-center cursor-pointer border border-[#E5DFD5]"
+                    >
+                      View Details
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (onPlanWithSinglePlace) {
+                          onPlanWithSinglePlace({
+                            id: dest.id,
+                            name: dest.name,
+                            category: dest.category,
+                            location: dest.location || region,
+                            description: dest.description,
+                            interests: dest.interests,
+                          });
+                        }
+                      }}
+                      className="flex-1 py-2 rounded-xl bg-[#B87B22] hover:bg-[#A0691B] text-white text-xs font-bold shadow-xs transition-colors text-center cursor-pointer"
+                    >
+                      Plan Trip
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
-
