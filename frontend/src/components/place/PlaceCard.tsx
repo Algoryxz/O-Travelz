@@ -1,83 +1,169 @@
+import { motion } from "motion/react";
+import { cardHover, cardTap, buttonTap } from "../../lib/motion";
 import React from "react";
-import { CrowdPill, LiveBadge, StarRating, StatusBadge, VerifiedBadge } from "../badges";
-import type { DemoPlace } from "../../demo/types";
+import { Star, MapPin, Eye, Compass } from "lucide-react";
+import { useSavedPlaces } from "../../store/useSavedPlaces";
+import { resolvePlaceImageUrl } from "../../utils/imageAdapter";
+import type { SelectedPlaceInfo } from "./PlaceDetailsModal";
 
-export function PlaceCard({ place }: { place: DemoPlace }) {
+interface PlaceCardProps {
+  place: {
+    id?: string;
+    name: string;
+    category?: string;
+    location?: string;
+    description?: string;
+    interests?: string[];
+    rating?: number;
+    image_url?: string;
+  };
+  onClick?: () => void;
+  onPlanTrip?: (place: SelectedPlaceInfo) => void;
+  onViewDetails?: (place: SelectedPlaceInfo) => void;
+}
+
+export const PlaceCard: React.FC<PlaceCardProps> = ({
+  place,
+  onClick,
+  onPlanTrip,
+  onViewDetails,
+}) => {
+  const { isPlaceSaved, toggleSavedPlace } = useSavedPlaces();
+  const isSaved = isPlaceSaved(place.id || place.name);
+
+  // Deterministic catalog image via resolution adapter
+  const imageUrl = resolvePlaceImageUrl({ name: place.name, category: place.category, image_url: place.image_url }, "card");
+
+  const handleToggleSave = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    toggleSavedPlace({
+      id: place.id,
+      name: place.name,
+      category: place.category,
+      location: place.location,
+      description: place.description,
+      interests: place.interests,
+    });
+  };
+
+  const handlePlanClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onPlanTrip) {
+      onPlanTrip({
+        id: place.id,
+        name: place.name,
+        category: place.category,
+        location: place.location,
+        description: place.description,
+        interests: place.interests,
+      });
+    }
+  };
+
+  const handleViewClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onViewDetails) {
+      onViewDetails({
+        id: place.id,
+        name: place.name,
+        category: place.category,
+        location: place.location,
+        description: place.description,
+        interests: place.interests,
+      });
+    } else if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-xl bg-[#FFFFFF] border border-[#E5DFD5] transition-all duration-300 hover:-translate-y-1 hover:border-[#D1C8BA] shadow-xs hover:shadow-md text-[#12161E]">
-      <div className="relative h-[190px] overflow-hidden bg-[#F2EEE7]">
+    <motion.div
+      whileHover={cardHover}
+      whileTap={cardTap}
+      data-testid="destination-place-card"
+      onClick={onClick}
+      className="group relative bg-[#FAF7F2] rounded-2xl overflow-hidden border border-[#E5DFD5] shadow-xs hover:shadow-md transition-all flex flex-col justify-between cursor-pointer"
+    >
+      {/* Image & Badges */}
+      <div className="relative aspect-4/3 w-full bg-[#F2EEE7] overflow-hidden">
         <img
-          src={place.img}
-          alt={place.alt}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          src={imageUrl}
+          alt={place.name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-        <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
-          {place.verified && <VerifiedBadge small />}
-          {place.liveData && <LiveBadge />}
-        </div>
-        <div className="absolute right-3 top-3">
-          <CrowdPill level={place.crowd} />
-        </div>
-        {place.badge && (
-          <div className="absolute bottom-3 left-3">
-            <span className="rounded-md px-2 py-0.5 text-xs font-semibold text-white bg-[#B87B22]/90 backdrop-blur-md">
-              {place.badge}
-            </span>
-          </div>
+
+        {/* Category Pill */}
+        {place.category && (
+          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#FFFFFF]/90 backdrop-blur-xs text-[#12161E] border border-[#E5DFD5]">
+            {place.category}
+          </span>
         )}
-      </div>
-      <div className="flex flex-1 flex-col p-4">
-        <p className="mb-0.5 text-xs font-semibold text-[#B87B22] uppercase tracking-wider font-mono">
-          {place.category}
-        </p>
-        <h3 className="mb-2 font-serif font-bold text-base text-[#12161E] leading-snug">
-          {place.name}
-        </h3>
-        <div className="mb-2.5 flex flex-wrap items-center gap-2.5">
-          <StarRating rating={place.rating} count={place.reviewCount} />
-          <StatusBadge status={place.status} until={place.openUntil} />
-          <span className="text-xs text-[#70798B] font-mono">📍 {place.distanceKm} km</span>
-        </div>
-        {place.meta && (
-          <div className="mb-3 flex flex-wrap gap-1.5">
-            {place.meta.map((item) => (
-              <span
-                key={item}
-                className="rounded-md bg-[#F2EEE7] border border-[#E5DFD5] px-2 py-0.5 text-[11px] text-[#3D4654] font-medium"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        )}
-        {place.priceRange && (
-          <p className="mb-3 text-xs font-semibold text-[#3D4654]">{place.priceRange}</p>
-        )}
-        <div className="mt-auto flex gap-2 pt-2 border-t border-[#E5DFD5]">
-          <button
-            type="button"
-            className="flex-1 rounded-lg py-2 text-xs font-bold text-white bg-[#B87B22] hover:bg-[#A0691B] transition-colors cursor-pointer"
-          >
-            {place.variant === "attraction" ? "Explore" : "View details"}
-          </button>
-          <button
-            type="button"
-            className="rounded-lg bg-[#F2EEE7] hover:bg-[#EAE4DA] border border-[#E5DFD5] px-3 py-2 text-xs text-[#3D4654] hover:text-[#12161E] transition-colors cursor-pointer"
-            aria-label={`Show ${place.name} on map`}
-          >
-            🗺
-          </button>
-          <button
-            type="button"
-            className="rounded-lg bg-[#F2EEE7] hover:bg-[#EAE4DA] border border-[#E5DFD5] px-3 py-2 text-xs text-[#3D4654] hover:text-[#12161E] transition-colors cursor-pointer"
-            aria-label={`Save ${place.name}`}
-            title="Save place"
-          >
-            ♡
-          </button>
+
+        {/* Save/Bookmark Button */}
+        <motion.button
+          whileTap={buttonTap}
+          type="button"
+          data-testid="save-place-toggle-btn"
+          onClick={handleToggleSave}
+          className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-md transition-colors ${
+            isSaved
+              ? "bg-[#B87B22] text-white"
+              : "bg-black/30 text-white hover:bg-black/50"
+          }`}
+          aria-label={isSaved ? `Remove ${place.name} from saved` : `Save ${place.name}`}
+        >
+          <Star size={14} className={isSaved ? "fill-white text-white" : "text-white"} />
+        </motion.button>
+
+        {/* Place Title on image overlay */}
+        <div className="absolute bottom-3 left-3 right-3">
+          <h3 className="font-serif font-bold text-base text-white truncate drop-shadow-xs">
+            {place.name}
+          </h3>
+          {place.location && (
+            <p className="text-white/80 text-xs flex items-center gap-1 drop-shadow-2xs">
+              <MapPin size={11} className="text-[#B87B22]" />
+              <span className="truncate">{place.location}</span>
+            </p>
+          )}
         </div>
       </div>
-    </article>
+
+      {/* Content & Actions */}
+      <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
+        {place.description && (
+          <p className="text-xs text-[#70798B] line-clamp-2 leading-relaxed font-body">
+            {place.description}
+          </p>
+        )}
+
+        {/* Action Buttons: View Details & Plan Trip */}
+        <div className="flex items-center gap-2 pt-2 border-t border-[#E5DFD5]">
+          <motion.button
+            whileTap={buttonTap}
+            type="button"
+            data-testid="view-place-details-btn"
+            onClick={handleViewClick}
+            className="flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold bg-[#FAF7F2] hover:bg-[#F2EEE7] text-[#12161E] border border-[#E5DFD5] transition-colors flex items-center justify-center gap-1.5"
+          >
+            <Eye size={12} className="text-[#70798B]" />
+            <span>Details</span>
+          </motion.button>
+
+          <motion.button
+            whileTap={buttonTap}
+            type="button"
+            data-testid="plan-trip-from-card-btn"
+            onClick={handlePlanClick}
+            className="flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold bg-[#B87B22] hover:bg-[#A0691B] text-white shadow-2xs transition-colors flex items-center justify-center gap-1.5"
+          >
+            <Compass size={12} className="text-white" />
+            <span>Plan Trip</span>
+          </motion.button>
+        </div>
+      </div>
+    </motion.div>
   );
-}
+};
