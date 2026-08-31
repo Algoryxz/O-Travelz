@@ -7,6 +7,7 @@ from app.ai.tools.adapters import (
     GetTransitOptionsToolAdapter,
     GetWeatherToolAdapter,
     PlanTransportHopToolAdapter,
+    ReplaceItineraryStopToolAdapter,
     SearchPlacesToolAdapter,
     create_default_tool_registry,
 )
@@ -26,9 +27,11 @@ __all__ = [
     "GetWeatherToolAdapter",
     "PlanTransportHopTool",
     "PlanTransportHopToolAdapter",
+    "ReplaceItineraryStopToolAdapter",
     "SearchPlacesTool",
     "SearchPlacesToolAdapter",
     "ToolResult",
     "ToolStatus",
     "create_default_tool_registry",
 ]
+

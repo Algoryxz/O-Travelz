@@ -474,6 +474,103 @@ class GetTransitOptionsToolAdapter(BaseToolAdapter):
             )
 
 
+class ReplaceItineraryStopToolAdapter(BaseToolAdapter):
+    """Tool adapter exposing deterministic single-stop replacement."""
+
+    def __init__(
+        self,
+        repository: Any = None,
+        transport_service: Any = None,
+        crowd_service: Any = None,
+        weather_service: Any = None,
+    ) -> None:
+        from app.services.itinerary.replacement import StopReplacementService
+        self.replacement_service = StopReplacementService(
+            repository=repository,
+            transport_service=transport_service,
+            crowd_service=crowd_service,
+            weather_service=weather_service,
+        )
+        self._definition = ToolDefinition(
+            name="replace_itinerary_stop",
+            description="Replace a single stop in an existing itinerary with a verified alternative based on weather, crowd, mobility, or interest reasons, recalculating adjacent hops.",
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "day_number": {"type": "integer", "default": 1, "description": "Day number (1-indexed)."},
+                    "stop_sequence": {"type": "integer", "default": 1, "description": "Stop sequence (1-indexed)."},
+                    "reason": {"type": "string", "enum": ["weather", "crowd", "walking", "interest", "closed", "user_request", "transport", "other"], "default": "user_request"},
+                    "itinerary": {"type": "object", "description": "Structured ItineraryResponse payload."},
+                },
+            },
+        )
+
+    @property
+    def definition(self) -> ToolDefinition:
+        return self._definition
+
+    def execute(self, arguments: dict[str, Any], tool_call_id: str | None = None) -> ToolResult:
+        try:
+            from app.schemas.itinerary import ItineraryResponse
+
+            raw_itinerary = arguments.get("itinerary")
+            if not raw_itinerary:
+                return ToolResult(
+                    tool_call_id=tool_call_id,
+                    tool_name=self.definition.name,
+                    status=ToolStatus.ERROR,
+                    reason="Itinerary is required for single stop replacement.",
+                )
+
+            itinerary = ItineraryResponse.model_validate(raw_itinerary)
+            day_number = int(arguments.get("day_number", 1))
+            stop_sequence = int(arguments.get("stop_sequence", 1))
+            reason = str(arguments.get("reason", "user_request"))
+            pref_overrides = arguments.get("preference_overrides")
+
+            success, msg, updated_itinerary, replacement_place, evidence = self.replacement_service.replace_stop(
+                itinerary=itinerary,
+                day_number=day_number,
+                stop_sequence=stop_sequence,
+                reason=reason,
+                preference_overrides=pref_overrides,
+            )
+
+            if not success or updated_itinerary is None:
+                return ToolResult(
+                    tool_call_id=tool_call_id,
+                    tool_name=self.definition.name,
+                    status=ToolStatus.OK,
+                    data={
+                        "available": False,
+                        "message": msg,
+                        "claim_type": "unknown",
+                    },
+                )
+
+            return ToolResult(
+                tool_call_id=tool_call_id,
+                tool_name=self.definition.name,
+                status=ToolStatus.OK,
+                data={
+                    "available": True,
+                    "message": msg,
+                    "updated_itinerary": updated_itinerary.model_dump(mode="json"),
+                    "replacement_place": replacement_place.model_dump(mode="json") if replacement_place else None,
+                    "evidence_items": [e.model_dump(mode="json") for e in evidence],
+                    "claim_type": "verified",
+                },
+            )
+        except Exception as error:
+            return ToolResult(
+                tool_call_id=tool_call_id,
+                tool_name=self.definition.name,
+                status=ToolStatus.ERROR,
+                reason="Replace itinerary stop tool failed.",
+                error=str(error),
+            )
+
+
 def create_default_tool_registry(
     db: Session,
     itinerary_service: ItineraryService | None = None,
@@ -485,15 +582,16 @@ def create_default_tool_registry(
     registry = ToolRegistry()
     registry.register(SearchPlacesToolAdapter(db))
 
-    if transport_service is None:
-        from app.transport.service import SQLAlchemyPlaceResolver, TransportService
-        transport_service = TransportService(SQLAlchemyPlaceResolver(db))
+    if itinerary_service is not None and hasattr(itinerary_service, "repository"):
+        repo = itinerary_service.repository
+    else:
+        from app.services.ranking.repository import SQLAlchemyPlaceRepository
+        repo = SQLAlchemyPlaceRepository(db)
 
     if itinerary_service is None:
-        from app.services.ranking.repository import SQLAlchemyPlaceRepository
         from app.services.itinerary import ItineraryService
-        repo = SQLAlchemyPlaceRepository(db)
         itinerary_service = ItineraryService(repo, transport_service)
+
 
     if weather_service is None:
         from app.services.weather.service import WeatherService
@@ -509,4 +607,6 @@ def create_default_tool_registry(
     registry.register(GetWeatherToolAdapter(weather_service))
     registry.register(EstimateCrowdToolAdapter(crowd_service, db=db))
     registry.register(GetTransitOptionsToolAdapter(transport_service, db=db))
+    registry.register(ReplaceItineraryStopToolAdapter(repository=repo, transport_service=transport_service, crowd_service=crowd_service, weather_service=weather_service))
     return registry
+

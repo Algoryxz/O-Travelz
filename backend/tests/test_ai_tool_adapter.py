@@ -568,7 +568,7 @@ def test_get_provider_status_tool_adapter():
 
 def test_create_default_tool_registry(mock_db):
     registry = create_default_tool_registry(mock_db)
-    assert len(registry) == 7
+    assert len(registry) == 8
     assert registry.has_tool("search_places") is True
     assert registry.has_tool("build_itinerary") is True
     assert registry.has_tool("plan_transport_hop") is True
@@ -576,6 +576,7 @@ def test_create_default_tool_registry(mock_db):
     assert registry.has_tool("get_weather") is True
     assert registry.has_tool("estimate_crowd") is True
     assert registry.has_tool("get_transit_options") is True
+    assert registry.has_tool("replace_itinerary_stop") is True
 
     boundary = ToolExecutionBoundary(registry)
     res = boundary.execute(ToolCall(name="search_places", arguments={"query": "Konark"}))

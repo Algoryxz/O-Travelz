@@ -96,6 +96,14 @@ class GetTransitOptionsArgs(ContractModel):
     preferred_mode: str | None = None
 
 
+class ReplaceItineraryStopArgs(ContractModel):
+    itinerary: dict[str, Any] | None = None
+    day_number: int = 1
+    stop_sequence: int = 1
+    reason: str = "user_request"
+    preference_overrides: dict[str, Any] | None = None
+
+
 class AIStatus(str, Enum):
     SUCCESS = "success"
     CLARIFICATION = "clarification"
@@ -153,8 +161,10 @@ class ToolCall(ContractModel):
         "get_weather",
         "estimate_crowd",
         "get_transit_options",
+        "replace_itinerary_stop",
     ]
     arguments: dict[str, Any] = Field(default_factory=dict)
+
 
 
 
