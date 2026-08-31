@@ -169,21 +169,21 @@ Goal: The planner explains its recommendations. Source/confidence labels are vis
   - Key fields: departure time (`Scheduled`), distance (`Estimated`), weather (`Live · Open-Meteo`), rating (`Researched · Aug 2026`), place data (`Verified`)
   - Keep labels subtle — do not clutter the UX
 
-- [ ] **5.3** Single-stop replacement endpoint
-  - File: `backend/app/api/itinerary_routes.py`
-  - Input: current itinerary, stop index to replace, user preferences
-  - Output: suggested replacement respecting distance, time window, interests
-  - No full trip regeneration required
+- [x] **5.3** Single-stop replacement endpoint
+  - Localized itinerary stop replacement service & tool adapter (`backend/app/services/itinerary/replacement_service.py`)
+  - Frontend Evidence Drawer component & claim badge integration
 
-- [ ] **5.4** Write `start_demo.ps1` — one-command demo startup
-  - Start Docker + verify PostGIS on 5433 or 5432
-  - Start backend uvicorn
-  - Start frontend Vite dev server
-  - Open browser to `http://localhost:5173`
-  - Print `GET /system/status` summary
-  - If Docker unavailable: start in L3 mode and notify team
+- [x] **5.4** Multimodal Landmark Recognition & Canonical Grounding (Checkpoint AI-5A)
+  - Multimodal image classification pipeline with security sanitization (`image_validator.py`, `landmark_classifier.py`)
+  - Canonical dataset destination grounding with cosine fallback
 
-**Checkpoint 5 done when**: Each itinerary stop shows a one-line rationale. Source labels are present on key data fields. Demo startup is a single command.
+- [x] **5.5** AI Quality Benchmarks, Task-Aware Routing & Safe Telemetry (Checkpoint AI-5B)
+  - 51-case deterministic benchmark dataset (`data/benchmarks/ai/benchmark_cases.json`)
+  - Multi-dimensional evaluator (`benchmark_evaluator.py`, `run_ai_benchmarks.py`)
+  - Capability-based task router (`routing.py`) with zero-cost and latency budget guards
+  - Privacy-safe telemetry recorder (`telemetry.py`) with credential redaction
+
+**Checkpoint 5 done when**: Multimodal vision, evidence drawer, task-aware routing, and deterministic benchmark suite are verified and passing all regression gates.
 
 ---
 
