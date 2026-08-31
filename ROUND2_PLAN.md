@@ -243,8 +243,23 @@ Goal: Expand destination catalog across all 30 districts via structured regional
   - Integrity validator: `scripts/validate_canonical_transit.py`
   - Test suite: `backend/tests/test_canonical_transit_pipeline.py` (14 passing assertions)
 
-- [ ] **Track B2 — Wire Backend Dijkstra Router to Canonical Network** (Deferred until B1 review)
-- [ ] **Track B3 — Sync Frontend Transit Fallbacks from Canonical Source** (Deferred until B1 review)
+- [x] **Track B1.5 — Canonical Stop Coordinate Resolution & Verification**
+  - Expanded verified coordinate coverage from 9 to **83 routable stops** across 3 strict provenance tiers:
+    - Tier 1: Existing internal verified registries (31 stops with `VERIFIED_OFFICIAL`)
+    - Tier 2: Canonical places catalog cross-reference (26 stops with `RESOLVED_HIGH_CONFIDENCE`)
+    - Tier 3: External geospatial resolution via OSM Nominatim (26 stops with `VERIFIED_GEOSPATIAL`)
+  - Zero coordinate fabrication: 1,347 unresolved stops remain strictly `lat: null`, `lon: null`
+  - Network-value priority ranking generated: `geocoding_priority.json`
+  - Persistent offline lookup cache: `geocoding_cache.json`
+  - Ambiguous stop review queue: `coordinate_review_queue.json`
+  - Route corridor sanity checker: flags excessive hops (> 75 km)
+  - Top 25 interchange hubs coverage reached **52.0% (13/25)**
+  - 58 routes now have ≥ 2 routable stops
+  - Script: `scripts/resolve_canonical_transit_coordinates.py`
+  - Unit tests: `backend/tests/test_transit_coordinate_resolution.py` (15 passing tests)
+
+- [ ] **Track B2 — Wire Backend Dijkstra Router to Canonical Network** (Ready for execution)
+- [ ] **Track B3 — Sync Frontend Transit Fallbacks from Canonical Source** (Deferred until B2)
 
 
 ---

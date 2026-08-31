@@ -24,8 +24,10 @@ If the canonical files and the frontend fallback diverge, the canonical files wi
 | CRUT / Ama Bus routes verified from official documents | 154 | Verified (source: official schedule PDFs, effective 2026-08-21) |
 | Logical canonical stops in canonical dataset | 1,430 | Normalized in `data/transport/canonical/stops.json` |
 | Ordered route stop sequences | 164 lists (1,491 stops) | 100% route coverage in `data/transport/canonical/route_stops.json` |
-| Stops with verified coordinates | 9 | `VERIFIED_OFFICIAL` (no coordinate fabrication) |
-| Stops with unresolved coordinates | 1,421 | `UNRESOLVED` — coordinates strictly `null` |
+| Routable stops with verified coordinates | **83** | 83 of 1,430 logical stops currently have sufficiently verified coordinates (31 Official, 26 Geospatial, 26 High-Confidence) |
+| Stops with unresolved coordinates | **1,347** | `UNRESOLVED` — coordinates strictly `null` (zero fabrication) |
+| Routes with ≥ 2 routable stops | **58** | Capable of geometric corridor evaluation |
+| Top 25 interchange hubs resolved | **52.0% (13/25)** | Major transit nodes verified (Bhubaneswar, Cuttack, Puri, Berhampur, etc.) |
 | Schedule departure records | 302 | Covering 145 routes in `data/transport/canonical/schedules.json` |
 | Individual departure times | 5,549 | Validated `HH:MM` timestamps (0 malformed) |
 | Alias mappings generated | 2,924 | Registered in `data/transport/canonical/aliases.json` |
@@ -35,11 +37,14 @@ If the canonical files and the frontend fallback diverge, the canonical files wi
 
 | File | Records | Purpose |
 |---|---|---|
-| `stops.json` | 1,430 stops | Authoritative canonical stop registry |
+| `stops.json` | 1,430 stops (83 routable) | Authoritative canonical stop registry |
 | `routes.json` | 154 routes | Authoritative route registry across all regions |
 | `route_stops.json` | 164 sequences (1,491 stops) | Directional ordered stop sequence topology |
 | `schedules.json` | 302 schedules (5,549 departures) | Official timetable departure blocks |
 | `aliases.json` | 2,924 aliases | Name resolution and normalization lookup |
+| `geocoding_priority.json` | 1,430 stops | Network-value priority ranking for geocoding |
+| `geocoding_cache.json` | 80+ queries | Persistent offline query cache |
+| `coordinate_review_queue.json` | Review queue | Ambiguous candidates requiring manual survey |
 | `network.json` | Full graph | Consolidated offline network package |
 | `build_report.json` | Full audit report | Verification gates and build metrics |
 

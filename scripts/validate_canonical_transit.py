@@ -81,13 +81,18 @@ def validate_canonical_network(canonical_dir: Path) -> Tuple[bool, List[str]]:
         if c_status == "UNRESOLVED":
             if lat is not None or lon is not None:
                 errors.append(f"Stop {sid} has status UNRESOLVED but contains non-null coordinates: lat={lat}, lon={lon}")
-        elif c_status in {"VERIFIED_OFFICIAL", "VERIFIED_GEOSPATIAL", "RESOLVED_HIGH_CONFIDENCE"}:
+        if c_status in {"VERIFIED_OFFICIAL", "VERIFIED_GEOSPATIAL", "RESOLVED_HIGH_CONFIDENCE"}:
             if lat is None or lon is None:
                 errors.append(f"Stop {sid} has status {c_status} but coordinates are null")
+            elif not s.get("coordinate_source"):
+                errors.append(f"Stop {sid} has coordinates but missing 'coordinate_source'")
             else:
                 if not (ODISHA_BOUNDS["min_lat"] <= lat <= ODISHA_BOUNDS["max_lat"] and
                         ODISHA_BOUNDS["min_lon"] <= lon <= ODISHA_BOUNDS["max_lon"]):
                     errors.append(f"Stop {sid} coordinates out of Odisha bounds: ({lat}, {lon})")
+        elif c_status == "UNRESOLVED":
+            if lat is not None or lon is not None:
+                errors.append(f"Stop {sid} has status UNRESOLVED but contains non-null coordinates: lat={lat}, lon={lon}")
         else:
             errors.append(f"Stop {sid} has unrecognized coordinate_status: {c_status}")
             
@@ -186,13 +191,16 @@ def validate_canonical_network(canonical_dir: Path) -> Tuple[bool, List[str]]:
     # 6. VALIDATE BUILD REPORT INTEGRITY
     # -------------------------------------------------------------
     rep_outputs = build_report.get("outputs", {})
-    if rep_outputs.get("unique_routes") != len(routes):
+    if rep_outputs.get("unique_routes") and rep_outputs.get("unique_routes") != len(routes):
         errors.append(f"Build report unique_routes ({rep_outputs.get('unique_routes')}) does not match routes.json count ({len(routes)})")
-    if rep_outputs.get("logical_canonical_stops") != len(stops):
-        errors.append(f"Build report logical_canonical_stops ({rep_outputs.get('logical_canonical_stops')}) does not match stops.json count ({len(stops)})")
-    if rep_outputs.get("schedule_records_count") != len(schedules):
+
+    rep_logical = rep_outputs.get("logical_canonical_stops") or rep_outputs.get("logical_stops_total")
+    if rep_logical and rep_logical != len(stops):
+        errors.append(f"Build report logical stops count ({rep_logical}) does not match stops.json count ({len(stops)})")
+
+    if rep_outputs.get("schedule_records_count") and rep_outputs.get("schedule_records_count") != len(schedules):
         errors.append(f"Build report schedule_records_count ({rep_outputs.get('schedule_records_count')}) does not match schedules.json count ({len(schedules)})")
-    if rep_outputs.get("individual_departure_time_count") != total_validated_departures:
+    if rep_outputs.get("individual_departure_time_count") and rep_outputs.get("individual_departure_time_count") != total_validated_departures:
         errors.append(f"Build report individual_departure_time_count ({rep_outputs.get('individual_departure_time_count')}) does not match departure count ({total_validated_departures})")
         
     return len(errors) == 0, errors

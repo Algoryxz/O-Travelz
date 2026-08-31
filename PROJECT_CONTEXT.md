@@ -185,11 +185,12 @@ The weather widget shows live data when online and degrades gracefully when offl
 - 154 CRUT / Ama Bus routes verified from official documents (effective 2026-08-21)
 - 1,430 logical canonical stop records compiled in `data/transport/canonical/stops.json`
 - 164 ordered directional stop sequences (1,491 stop occurrences) in `data/transport/canonical/route_stops.json`
-- 9 stops with verified official coordinates in canonical dataset (`coordinate_status: "VERIFIED_OFFICIAL"`)
-- 1,421 stops with `coordinate_status: "UNRESOLVED"` — zero coordinate fabrication
+- 83 of 1,430 logical stops currently have sufficiently verified coordinates in canonical dataset (`coordinate_status`: 31 `VERIFIED_OFFICIAL`, 26 `VERIFIED_GEOSPATIAL`, 26 `RESOLVED_HIGH_CONFIDENCE`)
+- 1,347 stops with `coordinate_status: "UNRESOLVED"` — zero coordinate fabrication (lat/lon strictly null)
+- 58 routes with ≥ 2 routable stops; 52.0% (13/25) of top interchange hubs resolved
 - 302 official schedule records across 145 routes with 5,549 validated departure times in `data/transport/canonical/schedules.json`
 - 2,924 registered alias mappings in `data/transport/canonical/aliases.json`
-- Deterministic compiler (`scripts/compile_canonical_transit.py`) and validator (`scripts/validate_canonical_transit.py`)
+- Deterministic compiler (`scripts/compile_canonical_transit.py`), resolver (`scripts/resolve_canonical_transit_coordinates.py`), and validator (`scripts/validate_canonical_transit.py`)
 - Fares: NOT IMPLEMENTED (`amount_inr: null` universally)
 
 **What does NOT exist:**
