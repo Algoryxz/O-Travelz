@@ -1,1 +1,821 @@
-[]
+[
+  {
+    "source_id": "round2_east_001_src_1",
+    "research_id": "round2_east_001",
+    "source_type": "government",
+    "title": "Gahirmatha Marine Sanctuary - Official Portal Documentation",
+    "url": "https://kendrapara.nic.in/tourist-place/gahiramatha-beach/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Gahirmatha Marine Sanctuary in Kendrapara district."
+  },
+  {
+    "source_id": "round2_east_001_src_2",
+    "research_id": "round2_east_001",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Gahirmatha Marine Sanctuary",
+    "url": "https://www.openstreetmap.org/#map=17/20.7303/87.0506",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.7303, 87.0506 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_001_src_3",
+    "research_id": "round2_east_001",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Gahirmatha Marine Sanctuary",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Olive_ridley_sea_turtle_with_satellite_transmitter_at_Gahirmatha_Beach.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_002_src_1",
+    "research_id": "round2_east_002",
+    "source_type": "government",
+    "title": "Hukitola Monument - Official Portal Documentation",
+    "url": "https://kendrapara.nic.in/tourist-place/hukitola-island/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Hukitola Monument in Kendrapara district."
+  },
+  {
+    "source_id": "round2_east_002_src_2",
+    "research_id": "round2_east_002",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Hukitola Monument",
+    "url": "https://www.openstreetmap.org/#map=17/20.404/86.791",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.404, 86.791 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_002_src_3",
+    "research_id": "round2_east_002",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Hukitola Monument",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Hukitola-3.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 3.0."
+  },
+  {
+    "source_id": "round2_east_003_src_1",
+    "research_id": "round2_east_003",
+    "source_type": "government",
+    "title": "Kanika Palace - Official Portal Documentation",
+    "url": "https://kendrapara.nic.in/tourist-place/kanika-palace/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Kanika Palace in Kendrapara district."
+  },
+  {
+    "source_id": "round2_east_003_src_2",
+    "research_id": "round2_east_003",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Kanika Palace",
+    "url": "https://www.openstreetmap.org/#map=17/20.7349/86.6998",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.7349, 86.6998 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_003_src_3",
+    "research_id": "round2_east_003",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Kanika Palace",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Kanika_palace.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_004_src_1",
+    "research_id": "round2_east_004",
+    "source_type": "government",
+    "title": "Aul Palace - Official Portal Documentation",
+    "url": "https://kendrapara.nic.in/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Aul Palace in Kendrapara district."
+  },
+  {
+    "source_id": "round2_east_004_src_2",
+    "research_id": "round2_east_004",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Aul Palace",
+    "url": "https://www.openstreetmap.org/#map=17/20.6728/86.6433",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.6728, 86.6433 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_004_src_3",
+    "research_id": "round2_east_004",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Aul Palace",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Aul_Palace.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_005_src_1",
+    "research_id": "round2_east_005",
+    "source_type": "government",
+    "title": "Rakta Tirtha Eram - Official Portal Documentation",
+    "url": "https://bhadrak.nic.in/tourist-place/rakta-tirtha-eram/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Rakta Tirtha Eram in Bhadrak district."
+  },
+  {
+    "source_id": "round2_east_005_src_2",
+    "research_id": "round2_east_005",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Rakta Tirtha Eram",
+    "url": "https://www.openstreetmap.org/#map=17/21.1585/86.7871",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.1585, 86.7871 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_005_src_3",
+    "research_id": "round2_east_005",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Rakta Tirtha Eram",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Banchhanidhi_Mohanty_Statue.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_006_src_1",
+    "research_id": "round2_east_006",
+    "source_type": "government",
+    "title": "Biranchinarayan Sun Temple, Palia - Official Portal Documentation",
+    "url": "https://bhadrak.nic.in/tourist-place/biranchi-narayan-temple/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Biranchinarayan Sun Temple, Palia in Bhadrak district."
+  },
+  {
+    "source_id": "round2_east_006_src_2",
+    "research_id": "round2_east_006",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Biranchinarayan Sun Temple, Palia",
+    "url": "https://www.openstreetmap.org/#map=17/20.8806/86.5361",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.8806, 86.5361 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_006_src_3",
+    "research_id": "round2_east_006",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Biranchinarayan Sun Temple, Palia",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Biranchinarayan_Temple.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_007_src_1",
+    "research_id": "round2_east_007",
+    "source_type": "government",
+    "title": "Maa Bhadrakali Temple - Official Portal Documentation",
+    "url": "https://bhadrak.nic.in/tourist-place/bhadrakali-temple/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Maa Bhadrakali Temple in Bhadrak district."
+  },
+  {
+    "source_id": "round2_east_007_src_2",
+    "research_id": "round2_east_007",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Maa Bhadrakali Temple",
+    "url": "https://www.openstreetmap.org/#map=17/21.0536/86.5056",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.0536, 86.5056 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_007_src_3",
+    "research_id": "round2_east_007",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Maa Bhadrakali Temple",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Bhadrakali_Mandir.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_008_src_1",
+    "research_id": "round2_east_008",
+    "source_type": "government",
+    "title": "Saranga Anantasayana Vishnu - Official Portal Documentation",
+    "url": "https://dhenkanal.nic.in/tourist-place/saranga/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Saranga Anantasayana Vishnu in Dhenkanal district."
+  },
+  {
+    "source_id": "round2_east_008_src_2",
+    "research_id": "round2_east_008",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Saranga Anantasayana Vishnu",
+    "url": "https://www.openstreetmap.org/#map=17/20.8847/85.2639",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.8847, 85.2639 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_008_src_3",
+    "research_id": "round2_east_008",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Saranga Anantasayana Vishnu",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Anantasayana_Basudev_or_Lord_Vishnu_is_sleeping_posture_.This_open_air_relief_is_curved_out_of_stone_on_Brahmani_river_of_Sarang_village_of_Dhenkanal_district_of_Odisha._It%27s_length_is_approx_52_ft_and_was_built_in_9th_century.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_009_src_1",
+    "research_id": "round2_east_009",
+    "source_type": "government",
+    "title": "Dandadhar Dam & Reservoir - Official Portal Documentation",
+    "url": "https://dhenkanal.nic.in/tourist-place/dandadhar/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Dandadhar Dam & Reservoir in Dhenkanal district."
+  },
+  {
+    "source_id": "round2_east_009_src_2",
+    "research_id": "round2_east_009",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Dandadhar Dam & Reservoir",
+    "url": "https://www.openstreetmap.org/#map=17/20.9856/85.8014",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.9856, 85.8014 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_009_src_3",
+    "research_id": "round2_east_009",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Dandadhar Dam & Reservoir",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Ramial_Dam_-_Dhenkanal_2018-01-25_9375.JPG",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY 3.0."
+  },
+  {
+    "source_id": "round2_east_010_src_1",
+    "research_id": "round2_east_010",
+    "source_type": "government",
+    "title": "Sadeibereni Dokra Craft Village - Official Portal Documentation",
+    "url": "https://dhenkanal.nic.in/culture-heritage/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Sadeibereni Dokra Craft Village in Dhenkanal district."
+  },
+  {
+    "source_id": "round2_east_010_src_2",
+    "research_id": "round2_east_010",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Sadeibereni Dokra Craft Village",
+    "url": "https://www.openstreetmap.org/#map=17/20.6728/85.6425",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.6728, 85.6425 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_010_src_3",
+    "research_id": "round2_east_010",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Sadeibereni Dokra Craft Village",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/A_Dhokra_cast_being_made_by_a_Dharua_tribal_woman.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY 4.0."
+  },
+  {
+    "source_id": "round2_east_011_src_1",
+    "research_id": "round2_east_011",
+    "source_type": "government",
+    "title": "Chhatia Bata - Official Portal Documentation",
+    "url": "https://jajpur.nic.in/tourist-place/chhatiabata/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Chhatia Bata in Jajpur district."
+  },
+  {
+    "source_id": "round2_east_011_src_2",
+    "research_id": "round2_east_011",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Chhatia Bata",
+    "url": "https://www.openstreetmap.org/#map=17/20.6083/86.0417",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.6083, 86.0417 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_011_src_3",
+    "research_id": "round2_east_011",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Chhatia Bata",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Chatia_bata.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_012_src_1",
+    "research_id": "round2_east_012",
+    "source_type": "government",
+    "title": "Mahavinayak Temple, Chandikhole - Official Portal Documentation",
+    "url": "https://jajpur.nic.in/tourist-place/mahavinayak/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Mahavinayak Temple, Chandikhole in Jajpur district."
+  },
+  {
+    "source_id": "round2_east_012_src_2",
+    "research_id": "round2_east_012",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Mahavinayak Temple, Chandikhole",
+    "url": "https://www.openstreetmap.org/#map=17/20.6139/86.1361",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.6139, 86.1361 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_012_src_3",
+    "research_id": "round2_east_012",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Mahavinayak Temple, Chandikhole",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Maha_Binayak_Temple.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_013_src_1",
+    "research_id": "round2_east_013",
+    "source_type": "government",
+    "title": "Garh Kujanga - Official Portal Documentation",
+    "url": "https://jagatsinghpur.nic.in/tourist-place/garh-kujanga/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Garh Kujanga in Jagatsinghpur district."
+  },
+  {
+    "source_id": "round2_east_013_src_2",
+    "research_id": "round2_east_013",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Garh Kujanga",
+    "url": "https://www.openstreetmap.org/#map=17/20.2528/86.5861",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.2528, 86.5861 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_013_src_3",
+    "research_id": "round2_east_013",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Garh Kujanga",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/KrutamachandiTemple_TripathySahi_Jagatsinghpur_Odisha_India.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 3.0."
+  },
+  {
+    "source_id": "round2_east_014_src_1",
+    "research_id": "round2_east_014",
+    "source_type": "government",
+    "title": "Alaka Ashram - Official Portal Documentation",
+    "url": "https://jagatsinghpur.nic.in/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Alaka Ashram in Jagatsinghpur district."
+  },
+  {
+    "source_id": "round2_east_014_src_2",
+    "research_id": "round2_east_014",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Alaka Ashram",
+    "url": "https://www.openstreetmap.org/#map=17/20.2583/86.175",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.2583, 86.175 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_014_src_3",
+    "research_id": "round2_east_014",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Alaka Ashram",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Jagatsinghpur_in_Odisha_%28India%29.svg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY 3.0."
+  },
+  {
+    "source_id": "round2_east_015_src_1",
+    "research_id": "round2_east_015",
+    "source_type": "government",
+    "title": "Deulajhari Hot Springs - Official Portal Documentation",
+    "url": "https://angul.nic.in/tourist-place/deulajhari/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Deulajhari Hot Springs in Angul district."
+  },
+  {
+    "source_id": "round2_east_015_src_2",
+    "research_id": "round2_east_015",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Deulajhari Hot Springs",
+    "url": "https://www.openstreetmap.org/#map=17/20.7446/84.4977",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.7446, 84.4977 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_015_src_3",
+    "research_id": "round2_east_015",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Deulajhari Hot Springs",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Deulajhari_Angul.JPG",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_016_src_1",
+    "research_id": "round2_east_016",
+    "source_type": "government",
+    "title": "Talcher Palace - Official Portal Documentation",
+    "url": "https://angul.nic.in/tourist-place/talcher-palace/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Talcher Palace in Angul district."
+  },
+  {
+    "source_id": "round2_east_016_src_2",
+    "research_id": "round2_east_016",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Talcher Palace",
+    "url": "https://www.openstreetmap.org/#map=17/20.9567/85.2377",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.9567, 85.2377 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_016_src_3",
+    "research_id": "round2_east_016",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Talcher Palace",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Talcher_Palace%2C_Angul%2C_Odisha.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_017_src_1",
+    "research_id": "round2_east_017",
+    "source_type": "government",
+    "title": "Lalitgiri Buddhist Complex - Official Portal Documentation",
+    "url": "https://cuttack.nic.in/tourist-place/lalitgiri/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Lalitgiri Buddhist Complex in Cuttack district."
+  },
+  {
+    "source_id": "round2_east_017_src_2",
+    "research_id": "round2_east_017",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Lalitgiri Buddhist Complex",
+    "url": "https://www.openstreetmap.org/#map=17/20.5906/86.2522",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.5906, 86.2522 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_017_src_3",
+    "research_id": "round2_east_017",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Lalitgiri Buddhist Complex",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Lalitgiri_-_Odisha_-_001.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_018_src_1",
+    "research_id": "round2_east_018",
+    "source_type": "government",
+    "title": "Dhabaleswar Island Temple - Official Portal Documentation",
+    "url": "https://cuttack.nic.in/tourist-place/dhabaleswar/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Dhabaleswar Island Temple in Cuttack district."
+  },
+  {
+    "source_id": "round2_east_018_src_2",
+    "research_id": "round2_east_018",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Dhabaleswar Island Temple",
+    "url": "https://www.openstreetmap.org/#map=17/20.5056/85.8267",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.5056, 85.8267 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_018_src_3",
+    "research_id": "round2_east_018",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Dhabaleswar Island Temple",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Dhabaleswar_Bridge.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_019_src_1",
+    "research_id": "round2_east_019",
+    "source_type": "government",
+    "title": "Ansupa Lake - Official Portal Documentation",
+    "url": "https://cuttack.nic.in/tourist-place/ansupa-lake/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Ansupa Lake in Cuttack district."
+  },
+  {
+    "source_id": "round2_east_019_src_2",
+    "research_id": "round2_east_019",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Ansupa Lake",
+    "url": "https://www.openstreetmap.org/#map=17/20.4591/85.6037",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.4591, 85.6037 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_019_src_3",
+    "research_id": "round2_east_019",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Ansupa Lake",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/A_view_of_the_Ansupa_Lake_from_atop_Saranda_Hill.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_020_src_1",
+    "research_id": "round2_east_020",
+    "source_type": "government",
+    "title": "Bhattarika Temple - Official Portal Documentation",
+    "url": "https://cuttack.nic.in/tourist-place/bhattarika-temple/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Bhattarika Temple in Cuttack district."
+  },
+  {
+    "source_id": "round2_east_020_src_2",
+    "research_id": "round2_east_020",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Bhattarika Temple",
+    "url": "https://www.openstreetmap.org/#map=17/20.3685/85.2717",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.3685, 85.2717 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_020_src_3",
+    "research_id": "round2_east_020",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Bhattarika Temple",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Bhattarika.JPG",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_east_021_src_1",
+    "research_id": "round2_east_021",
+    "source_type": "government",
+    "title": "Nuapatna Handloom Heritage Village - Official Portal Documentation",
+    "url": "https://cuttack.nic.in/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Nuapatna Handloom Heritage Village in Cuttack district."
+  },
+  {
+    "source_id": "round2_east_021_src_2",
+    "research_id": "round2_east_021",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Nuapatna Handloom Heritage Village",
+    "url": "https://www.openstreetmap.org/#map=17/20.4417/85.5083",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.4417, 85.5083 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_east_021_src_3",
+    "research_id": "round2_east_021",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Nuapatna Handloom Heritage Village",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Gita_Gobinda_Khandua.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  }
+]

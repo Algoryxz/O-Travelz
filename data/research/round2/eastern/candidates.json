@@ -1,1 +1,600 @@
-[]
+[
+  {
+    "research_id": "round2_east_001",
+    "name": "Gahirmatha Marine Sanctuary",
+    "aliases": [
+      "Gahirmatha Turtle Sanctuary",
+      "Gahirmatha Marine National Park",
+      "Gahirmatha Beach"
+    ],
+    "district": "Kendrapara",
+    "region": "eastern",
+    "category": "wildlife",
+    "description": "Gahirmatha Marine Sanctuary is a world-renowned marine protected area along the Kendrapara coastline. It encompasses the world's largest rookery for endangered Olive Ridley sea turtles, who migrate thousands of miles annually to lay eggs in massive synchronized mass nestings known as Arribada.",
+    "lat": 20.7303,
+    "lon": 87.0506,
+    "coordinate_source": "Odisha Forest & Environment Department / Rajnagar Wildlife Division",
+    "coordinate_verification_status": "cross_checked",
+    "primary_source_url": "https://kendrapara.nic.in/tourist-place/gahiramatha-beach/",
+    "secondary_source_urls": [
+      "https://forest.odisha.gov.in/",
+      "https://en.wikipedia.org/wiki/Gahirmatha_Marine_Sanctuary"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Olive_ridley_sea_turtle_with_satellite_transmitter_at_Gahirmatha_Beach.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "World's largest nesting beach for Olive Ridley turtles. Marine sanctuary extends from Dhamra river mouth to Mahanadi river mouth."
+  },
+  {
+    "research_id": "round2_east_002",
+    "name": "Hukitola Monument",
+    "aliases": [
+      "Hukitola Island",
+      "Hukitola Rice Godown",
+      "Hukitola Building"
+    ],
+    "district": "Kendrapara",
+    "region": "eastern",
+    "category": "heritage",
+    "description": "Hukitola Monument is a remarkable 19th-century colonial maritime complex built on Hukitola Island in 1867 by British engineers following the Great Orissa Famine (Na'anka). Constructed from massive stone blocks, the structure features a specialized rainwater harvesting roof and served as a crucial coastal rice storehouse and port.",
+    "lat": 20.404,
+    "lon": 86.791,
+    "coordinate_source": "OpenStreetMap / Census of India",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://kendrapara.nic.in/tourist-place/hukitola-island/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Hukitola"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Hukitola-3.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 3.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Accessible by boat from Jambu / Gupti / Kharinasi ghats in Kendrapara."
+  },
+  {
+    "research_id": "round2_east_003",
+    "name": "Kanika Palace",
+    "aliases": [
+      "Rajkanika Palace",
+      "Kanika Rajabati",
+      "Rajkanika Raj Palace"
+    ],
+    "district": "Kendrapara",
+    "region": "eastern",
+    "category": "heritage",
+    "description": "Kanika Palace is a magnificent historic palace constructed in 1909 by Maharaja Rajendra Narayan Bhanja Deo in Rajkanika. Built with a blend of Indo-European and gothic architecture across four acres, the palace houses a museum featuring rare royal heirlooms, an extensive antique library, and the preserved skull of the world's largest recorded estuarine crocodile.",
+    "lat": 20.7349,
+    "lon": 86.6998,
+    "coordinate_source": "OpenStreetMap / District Administration Kendrapara",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://kendrapara.nic.in/tourist-place/kanika-palace/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Kanika_Palace"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Kanika_palace.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Houses museum with royal artefacts and crocodile skull recognized by Guinness World Records."
+  },
+  {
+    "research_id": "round2_east_004",
+    "name": "Aul Palace",
+    "aliases": [
+      "Alli Palace",
+      "Aul Rajabati",
+      "Raja of Aul Palace"
+    ],
+    "district": "Kendrapara",
+    "region": "eastern",
+    "category": "heritage",
+    "description": "Aul Palace is a historic 16th-century riverfront fortress palace situated on the scenic banks of the Kharasrota River in Aul block of Kendrapara district. Built around 1590 CE by Raja Ram Chandra Deb, the ancestral estate features traditional Kalinga-Mughal gateway fortifications, royal courtyards, and the ancient Sri Baraha Jew temple.",
+    "lat": 20.6728,
+    "lon": 86.6433,
+    "coordinate_source": "OpenStreetMap / District Administration Kendrapara",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://kendrapara.nic.in/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Aul"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Aul_Palace.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Historic estate associated with Raja of Aul and Kharasrota riverine heritage."
+  },
+  {
+    "research_id": "round2_east_005",
+    "name": "Rakta Tirtha Eram",
+    "aliases": [
+      "Eram Martyr Ground",
+      "Second Jallianwala Bagh of India",
+      "Eram Freedom Memorial"
+    ],
+    "district": "Bhadrak",
+    "region": "eastern",
+    "category": "heritage",
+    "description": "Rakta Tirtha Eram is a hallowed freedom struggle memorial ground located in Basudebpur of Bhadrak district, revered as the Second Jallianwala Bagh of India. On 28 September 1942 during the Quit India Movement, British colonial police opened fire on a peaceful gathering, martyring 29 freedom fighters including woman martyr Pari Bewa.",
+    "lat": 21.1585,
+    "lon": 86.7871,
+    "coordinate_source": "OpenStreetMap / District Administration Bhadrak",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://bhadrak.nic.in/tourist-place/rakta-tirtha-eram/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Eram"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Banchhanidhi_Mohanty_Statue.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Historical memorial ground with martyr pillar commemorating the 1942 tragedy."
+  },
+  {
+    "research_id": "round2_east_006",
+    "name": "Biranchinarayan Sun Temple, Palia",
+    "aliases": [
+      "Palia Biranchi Narayan Temple",
+      "Biranchi Narayana Temple",
+      "Palia Surya Mandir"
+    ],
+    "district": "Bhadrak",
+    "region": "eastern",
+    "category": "temple",
+    "description": "Biranchinarayan Sun Temple is a rare and historic 13th-century stone temple dedicated to the Sun God (Surya) situated at Palia village near Bhadrak. Built during the Ganga-Somavamsi era, the temple preserves remarkable carvings of the sun chariot and four-faced Brahma/Surya deities, representing a unique surviving Sun worship center in eastern India.",
+    "lat": 20.8806,
+    "lon": 86.5361,
+    "coordinate_source": "Odisha State Archaeology / District Administration Bhadrak",
+    "coordinate_verification_status": "cross_checked",
+    "primary_source_url": "https://bhadrak.nic.in/tourist-place/biranchi-narayan-temple/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Biranchi_Narayan_Sun_Temple,_Palia"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Biranchinarayan_Temple.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Rare four-faced Surya deity sculpture with Chariot carving."
+  },
+  {
+    "research_id": "round2_east_007",
+    "name": "Maa Bhadrakali Temple",
+    "aliases": [
+      "Bhadrakali Temple Aharpada",
+      "Bhadrakali Pitha Bhadrak",
+      "Aharpada Bhadrakali Shrine"
+    ],
+    "district": "Bhadrak",
+    "region": "eastern",
+    "category": "temple",
+    "description": "Maa Bhadrakali Temple is the ancient sacred seat of the presiding Shakti deity from whom Bhadrak district derives its name. Situated at Aharpada along the serene banks of the Salandi River, the temple traces its origin to the reign of King Mukunda Deva and is a prominent pilgrimage center during the annual Kali Puja and Saptapuri Amavasya celebrations.",
+    "lat": 21.0536,
+    "lon": 86.5056,
+    "coordinate_source": "OpenStreetMap / District Administration Bhadrak",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://bhadrak.nic.in/tourist-place/bhadrakali-temple/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Bhadrak"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Bhadrakali_Mandir.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Presiding deity of Bhadrak district located on the banks of Salandi river."
+  },
+  {
+    "research_id": "round2_east_008",
+    "name": "Saranga Anantasayana Vishnu",
+    "aliases": [
+      "Rock-cut Vishnu of Saranga",
+      "Balaramprasad Reclining Vishnu",
+      "Saranga Sleeping Vishnu"
+    ],
+    "district": "Dhenkanal",
+    "region": "eastern",
+    "category": "heritage",
+    "description": "Saranga Anantasayana Vishnu is a colossal 9th-century rock-cut open-air sculpture of Lord Vishnu in reclining posture (Anantashayana) on the rocky bed of the Brahmani River at Saranga. Measuring 15.4 meters in length and dating to the Bhauma-Kara and Nandodbhava dynasties, it is the largest reclining stone image of Vishnu in India and an ASI protected monument.",
+    "lat": 20.8847,
+    "lon": 85.2639,
+    "coordinate_source": "Archaeological Survey of India (ASI) / District Administration Dhenkanal",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://dhenkanal.nic.in/tourist-place/saranga/",
+    "secondary_source_urls": [
+      "https://asi.nic.in/",
+      "https://en.wikipedia.org/wiki/Saranga,_Dhenkanal"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Anantasayana_Basudev_or_Lord_Vishnu_is_sleeping_posture_.This_open_air_relief_is_curved_out_of_stone_on_Brahmani_river_of_Sarang_village_of_Dhenkanal_district_of_Odisha._It%27s_length_is_approx_52_ft_and_was_built_in_9th_century.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Centrally protected ASI rock-cut sculpture on the bed of Brahmani river."
+  },
+  {
+    "research_id": "round2_east_009",
+    "name": "Dandadhar Dam & Reservoir",
+    "aliases": [
+      "Ramial Dam",
+      "Dandadhar Reservoir",
+      "Dandadhar Water Reservoir"
+    ],
+    "district": "Dhenkanal",
+    "region": "eastern",
+    "category": "nature",
+    "description": "Dandadhar Dam is a scenic irrigation dam and sprawling reservoir constructed across the Ramial River in Kamakhyanagar block of Dhenkanal district. Framed by rolling forested hillocks and crystal-clear waters, the reservoir serves as a tranquil eco-tourism hotspot and winter haven for migratory birds.",
+    "lat": 20.9856,
+    "lon": 85.8014,
+    "coordinate_source": "OpenStreetMap / Department of Water Resources Odisha",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://dhenkanal.nic.in/tourist-place/dandadhar/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Ramial_Dam_-_Dhenkanal_2018-01-25_9375.JPG",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY 3.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Scenic picnic and nature site located 67 km from Dhenkanal town."
+  },
+  {
+    "research_id": "round2_east_010",
+    "name": "Sadeibereni Dokra Craft Village",
+    "aliases": [
+      "Sadeibereni Artisan Village",
+      "Dhenkanal Dokra Heritage Village",
+      "Sadeibereni Metal Craft Village"
+    ],
+    "district": "Dhenkanal",
+    "region": "eastern",
+    "category": "cultural",
+    "description": "Sadeibereni Dokra Craft Village is an internationally renowned tribal artisan settlement near Dhenkanal where families of the traditional Situla tribal community practice the ancient lost-wax metal casting craft (Dokra). Visitors can observe traditional smelting, wax thread patterning, and brass figurine creation that have earned National Awards.",
+    "lat": 20.6728,
+    "lon": 85.6425,
+    "coordinate_source": "OpenStreetMap / Handlooms, Textiles & Handicrafts Department Odisha",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://dhenkanal.nic.in/culture-heritage/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/A_Dhokra_cast_being_made_by_a_Dharua_tribal_woman.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Home to National Award winning Dokra craft artisans 4 km from Dhenkanal town."
+  },
+  {
+    "research_id": "round2_east_011",
+    "name": "Chhatia Bata",
+    "aliases": [
+      "Chhatia Jagannath Temple",
+      "Hadi Das Pitha Chhatia",
+      "Chhatiabata Shrine"
+    ],
+    "district": "Jajpur",
+    "region": "eastern",
+    "category": "temple",
+    "description": "Chhatia Bata is a celebrated 18th-century Vaishnavite pilgrimage shrine and matha in Badachana block of Jajpur district, sanctified by the mystic saint Mahapurusha Hadi Das. Encircled by a historic fort-like wall and a sacred banyan tree (Bata), the temple is famous for enshrining Lord Jagannath on horseback (Kalki avatar) and preserving the sacred palm-leaf Malika prophecies.",
+    "lat": 20.6083,
+    "lon": 86.0417,
+    "coordinate_source": "OpenStreetMap / District Administration Jajpur",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://jajpur.nic.in/tourist-place/chhatiabata/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Chhatia_Bata"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Chatia_bata.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Major pilgrim site along NH-16 between Cuttack and Chandikhole."
+  },
+  {
+    "research_id": "round2_east_012",
+    "name": "Mahavinayak Temple, Chandikhole",
+    "aliases": [
+      "Mahavinayak Temple",
+      "Mahavinayaka Pitha",
+      "Chandikhol Mahavinayak Temple"
+    ],
+    "district": "Jajpur",
+    "region": "eastern",
+    "category": "temple",
+    "description": "Mahavinayak Temple is a revered pilgrimage shrine nestled at the base of the verdant Barunei Hill in Chandikhole, Jajpur district. Dating back to the medieval era, it is unique for worshiping a single uncarved granite rock representing five major Hindu deities simultaneously (Pancha Devata: Ganesha, Shiva, Vishnu, Surya, and Durga) amidst natural perennial freshwater springs.",
+    "lat": 20.6139,
+    "lon": 86.1361,
+    "coordinate_source": "OpenStreetMap / District Administration Jajpur",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://jajpur.nic.in/tourist-place/mahavinayak/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Mahavinayak_Temple"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Maha_Binayak_Temple.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Unique Pancha Devata worship pitha surrounded by hill forests and perennial stream."
+  },
+  {
+    "research_id": "round2_east_013",
+    "name": "Garh Kujanga",
+    "aliases": [
+      "Kunja Bihari Temple Garh Kujanga",
+      "Kujanga Matha",
+      "Garh Kujang Jagannath Pitha"
+    ],
+    "district": "Jagatsinghpur",
+    "region": "eastern",
+    "category": "temple",
+    "description": "Garh Kujanga is a historic coastal pilgrimage site and fortified royal estate in Kujang block of Jagatsinghpur district, famous for the Kunja Bihari temple and Sri Jagannath matha. Surrounded by ancient groves and waterways near the Bay of Bengal, the shrine is traditionally associated with the sacred Nabakalebara ritual wood collection expeditions of Puri Jagannath Temple.",
+    "lat": 20.2528,
+    "lon": 86.5861,
+    "coordinate_source": "District Administration Jagatsinghpur / Odisha Tourism",
+    "coordinate_verification_status": "cross_checked",
+    "primary_source_url": "https://jagatsinghpur.nic.in/tourist-place/garh-kujanga/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/KrutamachandiTemple_TripathySahi_Jagatsinghpur_Odisha_India.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 3.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Sacred coastal grove associated with royal Kujanga estate and Daru search of Nabakalebara."
+  },
+  {
+    "research_id": "round2_east_014",
+    "name": "Alaka Ashram",
+    "aliases": [
+      "Alaka Ashram Jagatsinghpur",
+      "Alaka Sanskrutika Kendra",
+      "Alaka Memorial"
+    ],
+    "district": "Jagatsinghpur",
+    "region": "eastern",
+    "category": "heritage",
+    "description": "Alaka Ashram is a prominent historic freedom struggle center established in 1921 on the banks of the sacred Alaka River in Jagatsinghpur by legendary nationalist leaders Gopabandhu Choudhury and Rama Devi. The ashram served as the epicentre of the Non-Cooperation Movement, Salt Satyagraha, and spinning khadi craft revival in coastal Odisha.",
+    "lat": 20.2583,
+    "lon": 86.175,
+    "coordinate_source": "OpenStreetMap / District Administration Jagatsinghpur",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://jagatsinghpur.nic.in/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Jagatsinghpur"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Jagatsinghpur_in_Odisha_%28India%29.svg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY 3.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Epicentre of Gandhian freedom movement in coastal Odisha."
+  },
+  {
+    "research_id": "round2_east_015",
+    "name": "Deulajhari Hot Springs",
+    "aliases": [
+      "Deulajhari Sulphur Springs",
+      "Siddha Pitha Deulajhari",
+      "Deulajhari Kundas"
+    ],
+    "district": "Angul",
+    "region": "eastern",
+    "category": "nature",
+    "description": "Deulajhari Hot Springs is a natural geothermal marvel and ancient Shaivite pilgrimage center situated in Athamallik subdivision of Angul district. Nestled amidst dense indigenous forests, it features twenty-four natural hot and cold sulphur water springs (Kundas) with therapeutic mineral properties adjacent to the centuries-old Siddheswar Baba and Maa Maheswari temples.",
+    "lat": 20.7446,
+    "lon": 84.4977,
+    "coordinate_source": "OpenStreetMap / District Administration Angul",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://angul.nic.in/tourist-place/deulajhari/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Deulajhari"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Deulajhari_Angul.JPG",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Ancient geothermal hot spring complex with 24 natural kundas in Athmallik."
+  },
+  {
+    "research_id": "round2_east_016",
+    "name": "Talcher Palace",
+    "aliases": [
+      "Talcher Rajabati",
+      "Palace of the Raja of Talcher",
+      "Talcher King Palace"
+    ],
+    "district": "Angul",
+    "region": "eastern",
+    "category": "heritage",
+    "description": "Talcher Palace is a historic royal palace and ancestral seat of the Bhanja dynasty rulers of the princely state of Talcher, situated on the picturesque embankment of the Brahmani River in Angul district. Dating to the 12th century and rebuilt in the 18th century, the imposing palace showcases royal gates, cannon displays, and distinctive Kalinga-colonial architecture.",
+    "lat": 20.9567,
+    "lon": 85.2377,
+    "coordinate_source": "OpenStreetMap / District Administration Angul",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://angul.nic.in/tourist-place/talcher-palace/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Talcher"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Talcher_Palace%2C_Angul%2C_Odisha.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Historic riverside palace of princely state of Talcher on the Brahmani river."
+  },
+  {
+    "research_id": "round2_east_017",
+    "name": "Lalitgiri Buddhist Complex",
+    "aliases": [
+      "Naltigiri",
+      "Lalitgiri Archaeological Site",
+      "Lalitgiri Maha Stupa"
+    ],
+    "district": "Cuttack",
+    "region": "eastern",
+    "category": "heritage",
+    "description": "Lalitgiri Buddhist Complex is the oldest and one of the most significant Buddhist monastic sites in Odisha, dating from the 3rd century BCE to the 13th century CE in Mahanga/Salepur region of Cuttack district. As the founding pillar of the Diamond Triangle (with Ratnagiri and Udayagiri), it contains an ancient Maha Stupa, rock-cut apsidal chaityagriha, and an ASI museum exhibiting sacred golden relic caskets of Gautama Buddha.",
+    "lat": 20.5906,
+    "lon": 86.2522,
+    "coordinate_source": "Archaeological Survey of India (ASI) / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://cuttack.nic.in/tourist-place/lalitgiri/",
+    "secondary_source_urls": [
+      "https://asi.nic.in/",
+      "https://en.wikipedia.org/wiki/Lalitgiri"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Lalitgiri_-_Odisha_-_001.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Oldest Diamond Triangle Buddhist monastery site housing Buddha tooth/bone relic caskets in ASI museum."
+  },
+  {
+    "research_id": "round2_east_018",
+    "name": "Dhabaleswar Island Temple",
+    "aliases": [
+      "Dhabaleswar Temple",
+      "Dhabaleswar Pitha Athagarh",
+      "Dhabaleswar Island"
+    ],
+    "district": "Cuttack",
+    "region": "eastern",
+    "category": "temple",
+    "description": "Dhabaleswar Island Temple is a renowned 10th-century Shaivite shrine perched on an island in the middle of the Mahanadi River near Athagarh in Cuttack district. Famous for its historic pedestrian suspension ropeway bridge (Jhula) and river boat crossings, the temple of Lord Shiva is celebrated for the holy Bada Osha and Kartika Purnima festivals.",
+    "lat": 20.5056,
+    "lon": 85.8267,
+    "coordinate_source": "OpenStreetMap / District Administration Cuttack",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://cuttack.nic.in/tourist-place/dhabaleswar/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Dhabaleswar"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Dhabaleswar_Bridge.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Island temple in Mahanadi river famous for suspension bridge and Bada Osha festival."
+  },
+  {
+    "research_id": "round2_east_019",
+    "name": "Ansupa Lake",
+    "aliases": [
+      "Anshupa Lake",
+      "Ansupa Oxbow Lake",
+      "Ansupa Eco Park"
+    ],
+    "district": "Cuttack",
+    "region": "eastern",
+    "category": "lake",
+    "description": "Ansupa Lake is the largest freshwater horseshoe-shaped oxbow lake in Odisha, spreading over 231 hectares on the northern bank of the Mahanadi River at Banki in Cuttack district. Sheltered by the picturesque Saranda and Bishnupur hills, the wetland ecosystem is a biodiversity hotspot boasting migratory winter birds, floating lotus beds, and botanical eco-parks.",
+    "lat": 20.4591,
+    "lon": 85.6037,
+    "coordinate_source": "OpenStreetMap / Chilika Development Authority / Odisha Tourism",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://cuttack.nic.in/tourist-place/ansupa-lake/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Anshupa_Lake"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/A_view_of_the_Ansupa_Lake_from_atop_Saranda_Hill.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Largest freshwater oxbow lake in Odisha; major winter migratory bird haven."
+  },
+  {
+    "research_id": "round2_east_020",
+    "name": "Bhattarika Temple",
+    "aliases": [
+      "Maa Bhattarika Temple",
+      "Bhattarika Pitha Badamba",
+      "Sasanga Bhattarika Pitha"
+    ],
+    "district": "Cuttack",
+    "region": "eastern",
+    "category": "temple",
+    "description": "Bhattarika Temple is an ancient riverbank Shakti shrine dedicated to Goddess Bhattarika, situated on the foot of Ratnagiri hill beside the sweeping waters of the Mahanadi River at Sasanga village in Badamba, Cuttack district. Tracing its legend to Parashurama and the Ramayana, the scenic riverside pitha is a major center for Pana Sankranti and Akshaya Tritiya festivals.",
+    "lat": 20.3685,
+    "lon": 85.2717,
+    "coordinate_source": "OpenStreetMap / District Administration Cuttack",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://cuttack.nic.in/tourist-place/bhattarika-temple/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Bhattarika_Temple"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Bhattarika.JPG",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Historic riverside Shakti temple on Mahanadi bank with Parashurama legends."
+  },
+  {
+    "research_id": "round2_east_021",
+    "name": "Nuapatna Handloom Heritage Village",
+    "aliases": [
+      "Nuapatna Khandua Silk Village",
+      "Tigiria Silk Weaving Hub",
+      "Nuapatna Ikat Village"
+    ],
+    "district": "Cuttack",
+    "region": "eastern",
+    "category": "cultural",
+    "description": "Nuapatna Handloom Heritage Village is a historic weaver settlement in Tigiria block of Cuttack district renowned for centuries of weaving the sacred Khandua Pata silk fabrics adorned with Gita Govinda verses for Lord Jagannath of Puri. Home to master Ikat tie-and-dye weavers, the village represents one of India's most prestigious living textile craft traditions.",
+    "lat": 20.4417,
+    "lon": 85.5083,
+    "coordinate_source": "OpenStreetMap / Directorate of Textiles & Handlooms Odisha",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://cuttack.nic.in/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Nuapatna"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Gita_Gobinda_Khandua.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Rudra",
+    "verification_status": "staging",
+    "notes": "Centuries-old home of Khandua Pata silk weaving for Puri Jagannath Temple."
+  }
+]
