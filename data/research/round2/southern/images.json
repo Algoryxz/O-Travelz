@@ -11,8 +11,10 @@
     "license": "CC BY-SA 3.0",
     "resolution": "2048x1152",
     "location_verified": true,
+    "source_page_verified": true,
     "ai_generated": false,
-    "verification_notes": "Real photograph showing the Padmasambhava Mahavihara monastery complex at Chandragiri (Jirang / Lobersing) in Gajapati district. High-resolution landscape photograph. Alternative file Padmasambhava_Mahavihara_Monastery.jpg (399x252, CC BY-SA 4.0 by Subhamsahoo2008) also verified for this location."
+    "ai_selection_policy": "No AI-generated image intentionally selected",
+    "verification_notes": "Source page description and metadata confirm photograph of the Padmasambhava Mahavihara monastery complex at Chandragiri (Jirang / Lobersing) in Gajapati district. High-resolution landscape photograph with clear attribution and CC license."
   },
   {
     "research_id": "round2_south_002",
@@ -26,8 +28,10 @@
     "license": "CC BY-SA 4.0",
     "resolution": "2112x1188",
     "location_verified": true,
+    "source_page_verified": true,
     "ai_generated": false,
-    "verification_notes": "Authentic evening photograph taken at Tampara Lake near Chhatrapur, Ganjam district. Second verified photograph by same photographer available: File:Tampara_lake,_chatrapur.jpg (1900x1069, CC BY-SA 4.0)."
+    "ai_selection_policy": "No AI-generated image intentionally selected",
+    "verification_notes": "Source page description explicitly identifies Tampara Lake at Chhatrapur, Ganjam district. Location and photographer attribution confirmed via Wikimedia Commons metadata."
   },
   {
     "research_id": "round2_south_003",
@@ -41,8 +45,10 @@
     "license": "CC BY-SA 4.0",
     "resolution": "5312x2988",
     "location_verified": true,
+    "source_page_verified": true,
     "ai_generated": false,
-    "verification_notes": "High-resolution real photograph of the historic ruins of Potagarh Fort (Ganjam Fort) in Ganjam town near the mouth of the Rushikulya River."
+    "ai_selection_policy": "No AI-generated image intentionally selected",
+    "verification_notes": "Source page description explicitly identifies Potagarh Fort in Ganjam town near the mouth of the Rushikulya River. Location, photographer attribution, and high-resolution status confirmed."
   },
   {
     "research_id": "round2_south_004",
@@ -56,7 +62,9 @@
     "license": "",
     "resolution": "",
     "location_verified": false,
+    "source_page_verified": false,
     "ai_generated": false,
+    "ai_selection_policy": "No AI-generated image intentionally selected",
     "verification_notes": "No conclusively verified, reusable photograph specifically showing Aryapalli Beach, Ganjam, Odisha found on Wikimedia Commons or official open repositories. Generic photos of Gopalpur, Puri, or Chandrabhaga beaches were rejected to preserve geographic truthfulness. Real field photograph required before production promotion."
   },
   {
@@ -71,7 +79,9 @@
     "license": "",
     "resolution": "",
     "location_verified": false,
+    "source_page_verified": false,
     "ai_generated": false,
+    "ai_selection_policy": "No AI-generated image intentionally selected",
     "verification_notes": "No verified Creative Commons photograph of Brundaban Palace (Gajapati Palace) in Paralakhemundi found. Available Commons images of Paralakhemundi show the railway station and poet statue, but not the palace building itself. Other Odisha palaces were not substituted. Real photograph of the palace facade required."
   },
   {
@@ -86,8 +96,10 @@
     "license": "CC BY-SA 4.0",
     "resolution": "4896x3672",
     "location_verified": true,
+    "source_page_verified": true,
     "ai_generated": false,
-    "verification_notes": "High-resolution real photograph of the shrine of Goddess Bhairabi at Purunakatak in Boudh district, Odisha."
+    "ai_selection_policy": "No AI-generated image intentionally selected",
+    "verification_notes": "Source page description confirms the shrine of Goddess Bhairabi at Purunakatak in Boudh district, Odisha. Direct filename and metadata match destination."
   },
   {
     "research_id": "round2_south_007",
@@ -101,8 +113,10 @@
     "license": "CC BY-SA 4.0",
     "resolution": "4928x3264",
     "location_verified": true,
+    "source_page_verified": true,
     "ai_generated": false,
-    "verification_notes": "High-resolution authentic photograph of Sabara Srikhetra Jagannath temple at Koraput, Odisha. Additional verified photos in the same series by the photographer include Sabara_Srikhetra_06.jpg and Sabara_Srikhetra_07.jpg (both 4928x3264, CC BY-SA 4.0)."
+    "ai_selection_policy": "No AI-generated image intentionally selected",
+    "verification_notes": "Source page description explicitly identifies Sabara Srikhetra Jagannath temple at Koraput, Odisha. High-resolution photograph with verified attribution and CC BY-SA 4.0 license."
   },
   {
     "research_id": "round2_south_008",
@@ -116,8 +130,10 @@
     "license": "CC BY-SA 4.0",
     "resolution": "1920x1080",
     "location_verified": true,
+    "source_page_verified": true,
     "ai_generated": false,
-    "verification_notes": "Real landscape photograph showing the Putsil Mountain Valley in Pottangi block of Koraput district, Odisha."
+    "ai_selection_policy": "No AI-generated image intentionally selected",
+    "verification_notes": "Source page description identifies Putsil Mountain Valley in Pottangi block of Koraput district, Odisha. Landscape photograph with clear CC license."
   },
   {
     "research_id": "round2_south_009",
@@ -131,7 +147,9 @@
     "license": "",
     "resolution": "",
     "location_verified": false,
+    "source_page_verified": false,
     "ai_generated": false,
+    "ai_selection_policy": "No AI-generated image intentionally selected",
     "verification_notes": "No verified Creative Commons photograph of the Maliguda railway tunnel / mountain gorge found in open repositories. Real field photograph required before production promotion."
   },
   {
@@ -146,8 +164,10 @@
     "license": "CC BY-SA 4.0",
     "resolution": "3456x4608",
     "location_verified": true,
+    "source_page_verified": true,
     "ai_generated": false,
-    "verification_notes": "High-resolution real photograph of Rani Duduma Waterfall near Nandapur, Koraput district, Odisha. Conclusively distinguished from the larger Duduma Waterfall on the Machkund River."
+    "ai_selection_policy": "No AI-generated image intentionally selected",
+    "verification_notes": "Source page description explicitly identifies Rani Duduma Waterfall near Koraput, Odisha. Conclusively distinguished from the larger Duduma Waterfall on the Machkund River."
   },
   {
     "research_id": "round2_south_011",
@@ -161,8 +181,10 @@
     "license": "CC BY 4.0",
     "resolution": "1080x1080",
     "location_verified": true,
+    "source_page_verified": true,
     "ai_generated": false,
-    "verification_notes": "Real photograph released by Government of Odisha showing the Gurupriya Bridge in Malkangiri district connecting Swabhiman Anchal to mainland Odisha. File Gurupriya_Bridge_02.jpg (1080x1080, CC BY 4.0) also verified."
+    "ai_selection_policy": "No AI-generated image intentionally selected",
+    "verification_notes": "Source page description and official attribution confirm photograph of Gurupriya Bridge in Malkangiri district connecting Swabhiman Anchal to mainland Odisha. Released by Government of Odisha under CC BY 4.0."
   },
   {
     "research_id": "round2_south_012",
@@ -176,7 +198,9 @@
     "license": "",
     "resolution": "",
     "location_verified": false,
+    "source_page_verified": false,
     "ai_generated": false,
+    "ai_selection_policy": "No AI-generated image intentionally selected",
     "verification_notes": "No verified photograph of Manyamkonda Temple near Motu in Malkangiri district, Odisha found. Wikimedia Commons images titled Manyamkonda belong to Sri Lakshmi Venkateswara Swamy Temple at Manyamkonda in Mahabubnagar district (Telangana) and were intentionally excluded to avoid location misrepresentation."
   },
   {
@@ -191,8 +215,10 @@
     "license": "CC BY 3.0",
     "resolution": "2272x1704",
     "location_verified": true,
+    "source_page_verified": true,
     "ai_generated": false,
-    "verification_notes": "Real photograph of Indravati Dam and reservoir taken in 2012 at Mukhiguda / Thuamul Rampur, Kalahandi district, Odisha. File File:Indiravati_Dam.jpg (1024x768, CC BY-SA 4.0) also verified."
+    "ai_selection_policy": "No AI-generated image intentionally selected",
+    "verification_notes": "Source page description confirms Indravati Dam pictured at Mukhiguda / Thuamul Rampur in Kalahandi district, Odisha. Photographer attribution and CC BY 3.0 license verified."
   },
   {
     "research_id": "round2_south_014",
@@ -206,8 +232,10 @@
     "license": "CC BY-SA 4.0",
     "resolution": "720x405",
     "location_verified": true,
+    "source_page_verified": true,
     "ai_generated": false,
-    "verification_notes": "Real photograph showing Putudi Waterfall near Phulbani in Kandhamal district, Odisha. Verified authentic location match. Note: Resolution is 720x405; flagged for higher-resolution field photo acquisition if possible."
+    "ai_selection_policy": "No AI-generated image intentionally selected",
+    "verification_notes": "Source page description confirms Putudi Waterfall in Kandhamal district, Odisha. Note: Resolution is 720x405; flagged for higher-resolution field photo acquisition if possible."
   },
   {
     "research_id": "round2_south_015",
@@ -221,7 +249,9 @@
     "license": "",
     "resolution": "",
     "location_verified": false,
+    "source_page_verified": false,
     "ai_generated": false,
+    "ai_selection_policy": "No AI-generated image intentionally selected",
     "verification_notes": "No verified Creative Commons photograph specifically showing Minajhola confluence/waterfall in Rayagada district found. Real field photograph required before production promotion."
   }
 ]
