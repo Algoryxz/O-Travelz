@@ -5,7 +5,7 @@ from typing import Any
 
 from app.ai.schemas import GetProviderStatusArgs
 from app.ai.tools.common import ToolResult, ToolStatus
-from app.transport.service import ProviderNotAvailableError
+from app.schemas.transport import ProviderNotAvailableError
 
 
 class GetProviderStatusTool:

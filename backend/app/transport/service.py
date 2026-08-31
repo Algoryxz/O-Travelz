@@ -5,7 +5,13 @@ from typing import Protocol
 from app.ai.schemas import GetProviderStatusArgs, PlanTransportHopArgs
 from app.db.base import Base as _ModelBase  # noqa: F401
 from app.models.transport import DataTier as ModelDataTier
-from app.schemas.transport import DataTier, ProviderStatusContract, TransportHopContract, TransportLeg
+from app.schemas.transport import (
+    DataTier,
+    ProviderNotAvailableError,
+    ProviderStatusContract,
+    TransportHopContract,
+    TransportLeg,
+)
 from app.transport.adapters.base import TransportAdapter
 from app.transport.adapters.mo_bus import MoBusAdapter
 from app.transport.adapters.mo_e_ride import MoERideAdapter
@@ -79,10 +85,6 @@ def aggregate_data_tier(tiers: list[ModelDataTier]) -> DataTier:
     """Conservatively preserve the lowest-confidence supporting tier."""
     order = {ModelDataTier.STATIC: 0, ModelDataTier.SCHEDULED: 1, ModelDataTier.LIVE: 2}
     return _schema_tier(min(tiers, key=lambda tier: order[tier])) if tiers else DataTier.STATIC
-
-
-class ProviderNotAvailableError(LookupError):
-    """Public schema cannot truthfully represent an unknown provider capability."""
 
 
 class TransportService:

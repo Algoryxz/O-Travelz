@@ -47,3 +47,7 @@ class ProviderStatusContract(ContractModel):
     provider_id: str
     data_tier: DataTier
     notes: str | None = None
+
+
+class ProviderNotAvailableError(LookupError):
+    """Public schema cannot truthfully represent an unknown provider capability."""

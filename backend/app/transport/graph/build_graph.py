@@ -104,19 +104,41 @@ def add_road_edge(graph: TransportGraph, source: str, target: str) -> None:
 
 
 def add_adapter_data(graph: TransportGraph, adapter: TransportAdapter) -> None:
-    """Add only coordinate-bearing stops and explicitly ordered adjacent route links."""
+    """Add only coordinate-bearing stops and logical sequence edges between verified stops."""
     stops = {stop.id: stop for stop in adapter.get_stops()}
     for stop in sorted(stops.values(), key=lambda item: item.id):
         if stop.latitude is not None and stop.longitude is not None:
             graph.add_node(GraphNode(f"stop:{adapter.provider_name}:{stop.id}", Coordinate(stop.latitude, stop.longitude)))
     tier = adapter.get_data_tier()
+
     for route in sorted(adapter.get_routes(), key=lambda item: item.id):
-        for first, second in zip(route.stop_ids, route.stop_ids[1:]):
-            source = f"stop:{adapter.provider_name}:{first}"
-            target = f"stop:{adapter.provider_name}:{second}"
-            if source not in graph.nodes or target not in graph.nodes:
-                continue
-            graph.add_edge(GraphEdge(source, target, adapter.transport_mode, f"Take {route.name}", tier, adapter.provider_name, route.name, route.estimated_minutes_per_segment))
+        # Find all stops in route that have coordinates
+        routable_indices = [
+            (idx, sid) for idx, sid in enumerate(route.stop_ids)
+            if f"stop:{adapter.provider_name}:{sid}" in graph.nodes
+        ]
+        # Connect forward pairs of verified stops along the route sequence
+        for a in range(len(routable_indices)):
+            idx_a, sid_a = routable_indices[a]
+            source = f"stop:{adapter.provider_name}:{sid_a}"
+            for b in range(a + 1, len(routable_indices)):
+                idx_b, sid_b = routable_indices[b]
+                target = f"stop:{adapter.provider_name}:{sid_b}"
+                stop_count = idx_b - idx_a
+                est_mins = max(stop_count * (route.estimated_minutes_per_segment or 3), 3)
+                stop_str = f" ({stop_count} stops)" if stop_count > 1 else ""
+                graph.add_edge(
+                    GraphEdge(
+                        source=source,
+                        target=target,
+                        mode=adapter.transport_mode,
+                        detail=f"Take {route.name}{stop_str}",
+                        data_tier=tier,
+                        provider=adapter.provider_name,
+                        route=route.name,
+                        estimated_minutes=est_mins,
+                    )
+                )
 
 
 def build_graph(origin: GraphNode, destination: GraphNode, adapters: list[TransportAdapter]) -> TransportGraph:

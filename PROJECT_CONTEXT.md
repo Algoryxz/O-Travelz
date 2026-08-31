@@ -190,6 +190,7 @@ The weather widget shows live data when online and degrades gracefully when offl
 - 58 routes with ≥ 2 routable stops; 52.0% (13/25) of top interchange hubs resolved
 - 302 official schedule records across 145 routes with 5,549 validated departure times in `data/transport/canonical/schedules.json`
 - 2,924 registered alias mappings in `data/transport/canonical/aliases.json`
+- The backend transit planner now uses the canonical 154-route network. Spatial access is currently supported through the verified coordinate-bearing stop subset.
 - Deterministic compiler (`scripts/compile_canonical_transit.py`), resolver (`scripts/resolve_canonical_transit_coordinates.py`), and validator (`scripts/validate_canonical_transit.py`)
 - Fares: NOT IMPLEMENTED (`amount_inr: null` universally)
 

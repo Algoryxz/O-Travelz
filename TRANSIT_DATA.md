@@ -258,10 +258,21 @@ Examples already resolved:
 
 ---
 
+## Backend Canonical Transit Migration (Track B2)
+
+The backend transit planner now uses the canonical 154-route network. Spatial access is currently supported through the verified coordinate-bearing stop subset (83 stops).
+- **Logical Graph**: All 154 routes and 1,430 stops are loaded into the in-memory `CanonicalTransitRepository` (`backend/app/transport/canonical_repository.py`), providing sequence and schedule reasoning across the entire network.
+- **Spatial Graph**: Restricted strictly to the 83 verified coordinate-bearing stops for nearest-stop discovery and walking connections.
+- **Schedule Truthfulness**: Departures use official timetable data with explicit `data_tier = "scheduled"`.
+- **Zero Fare Fabrication**: Fares remain strictly `null`.
+- **Single Source of Truth**: `MoBusAdapter`, `TransportService`, `TransitEngine`, and AI tools (`get_transit_options`, `plan_transport_hop`) consume the canonical transit repository directly.
+
+---
+
 ## Multimodal Planning Integration
 
-The `TransitComparator` module (`backend/app/transport/comparator.py`) uses the canonical stop registry to:
-1. Find the nearest verified boarding stop to the origin location.
+The multimodal journey planner and transit adapters use the canonical stop registry to:
+1. Find the nearest verified boarding stop to the origin location (from `routable_stops` only).
 2. Check if a verified route connects the boarding stop to a stop near the destination.
 3. Find the next scheduled departure for that route.
 4. Compute walking time to boarding stop (80 m/min standard).

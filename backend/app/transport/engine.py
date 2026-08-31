@@ -136,7 +136,43 @@ class TransitEngine:
             stops_with_dist = stops_with_dist[:limit]
 
         if not stops_with_dist:
-            return []
+            # Fallback to CanonicalTransitRepository in-memory index
+            try:
+                from app.transport.canonical_repository import get_canonical_transit_repository
+                repo = get_canonical_transit_repository()
+                routable_nearby = repo.find_nearest_routable_stops(latitude, longitude, radius_meters, limit)
+                res = []
+                for s, dist in routable_nearby:
+                    routes_serving = [
+                        {
+                            "route_id": r.route_id,
+                            "route_number": r.route_number,
+                            "route_name": r.route_name,
+                            "service_area": r.region,
+                            "origin": r.origin_name,
+                            "destination": r.destination_name,
+                        }
+                        for r in repo.get_routes_for_stop(s.stop_id)
+                    ]
+                    res.append({
+                        "stop_id": s.stop_id,
+                        "name": s.canonical_name,
+                        "published_name": s.published_name,
+                        "canonical_stop_id": s.stop_id,
+                        "city": s.city,
+                        "district": s.district,
+                        "locality": s.locality,
+                        "latitude": round(s.lat, 6) if s.lat is not None else None,
+                        "longitude": round(s.lon, 6) if s.lon is not None else None,
+                        "coordinate_status": s.coordinate_status.lower(),
+                        "distance_m": round(dist, 1),
+                        "walking_estimate_mins": walking_time_minutes(dist),
+                        "routes_serving_stop": routes_serving,
+                        "region": s.city or "Odisha",
+                    })
+                return res
+            except Exception:
+                return []
 
         # Batch load serving routes for all matching stop IDs in a single query (N+1 query elimination)
         stop_ids = [s[0].id for s in stops_with_dist]
@@ -369,6 +405,34 @@ class TransitEngine:
             })
 
         total = len(filtered)
+        if total == 0:
+            # Fallback to canonical repository
+            try:
+                from app.transport.canonical_repository import get_canonical_transit_repository
+                repo = get_canonical_transit_repository()
+                c_routes = repo.list_routes(region=region, query=query)
+                c_list = [
+                    {
+                        "route_id": r.route_id,
+                        "route_number": r.route_number,
+                        "route_name": r.route_name,
+                        "region": r.region,
+                        "origin": r.origin_name,
+                        "destination": r.destination_name,
+                        "via": "",
+                        "source_document": f"CRUT Canonical {r.region} Schedule",
+                    }
+                    for r in c_routes
+                ]
+                return {
+                    "total": len(c_list),
+                    "limit": limit,
+                    "offset": offset,
+                    "routes": c_list[offset:offset + limit],
+                }
+            except Exception:
+                pass
+
         return {
             "total": total,
             "limit": limit,
@@ -378,14 +442,69 @@ class TransitEngine:
 
     def get_route_detail(self, route_id: str) -> dict[str, Any] | None:
         """Get full details of a route, its sequence of stops, and its schedules."""
+        route = None
         try:
             r_uuid = UUID(route_id)
+            route = self.session.query(Route).filter(Route.id == r_uuid).first()
         except ValueError:
-            return None
+            route = None
 
-        route = self.session.query(Route).filter(Route.id == r_uuid).first()
         if route is None:
-            return None
+            # Fallback to canonical repository
+            try:
+                from app.transport.canonical_repository import get_canonical_transit_repository
+                repo = get_canonical_transit_repository()
+                c_route = repo.get_route(route_id)
+                if not c_route:
+                    return None
+
+                seqs = repo.get_sequences_for_route(c_route.route_id)
+                stops_list = []
+                if seqs:
+                    for item in seqs[0].stops:
+                        st = repo.get_stop(item.stop_id)
+                        stops_list.append({
+                            "stop_id": item.stop_id,
+                            "name": st.canonical_name if st else item.stop_name,
+                            "sequence_order": item.sequence,
+                            "latitude": round(st.lat, 6) if (st and st.lat is not None) else None,
+                            "longitude": round(st.lon, 6) if (st and st.lon is not None) else None,
+                            "coordinate_status": st.coordinate_status.lower() if st else "unresolved",
+                        })
+
+                schedules = repo.get_schedules_for_route(c_route.route_id)
+                sched_list = [
+                    {
+                        "schedule_id": sc.schedule_id,
+                        "group_label": f"{sc.start_point} to {sc.end_point}",
+                        "terminus": sc.end_point,
+                        "total_trips": len(sc.departure_times),
+                        "departure_times": sc.departure_times,
+                        "source_document": "CRUT Official Timetable PDF",
+                        "effective_date": "2026-08-21",
+                    }
+                    for sc in schedules
+                ]
+
+                return {
+                    "route_id": c_route.route_id,
+                    "route_number": c_route.route_number,
+                    "route_name": c_route.route_name,
+                    "region": c_route.region,
+                    "origin": c_route.origin_name,
+                    "destination": c_route.destination_name,
+                    "via": "",
+                    "geometry_status": "NONE",
+                    "overall_confidence": "SUPPORTED",
+                    "is_geometry_available": False,
+                    "corridors": [],
+                    "source_document": "CRUT Official Timetable PDF",
+                    "effective_date": "2026-08-21",
+                    "stops": stops_list,
+                    "schedules": sched_list,
+                }
+            except Exception:
+                return None
 
         notes = {}
         if route.notes:

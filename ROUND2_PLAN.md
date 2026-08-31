@@ -258,8 +258,18 @@ Goal: Expand destination catalog across all 30 districts via structured regional
   - Script: `scripts/resolve_canonical_transit_coordinates.py`
   - Unit tests: `backend/tests/test_transit_coordinate_resolution.py` (15 passing tests)
 
-- [ ] **Track B2 — Wire Backend Dijkstra Router to Canonical Network** (Ready for execution)
-- [ ] **Track B3 — Sync Frontend Transit Fallbacks from Canonical Source** (Deferred until B2)
+- [x] **Track B2 — Migrate Backend Routing to the Canonical Transit Network**
+  - Built typed in-memory `CanonicalTransitRepository` (`backend/app/transport/canonical_repository.py`) indexing all 154 routes, 1,430 logical stops, 164 sequences, 302 schedules, and 2,924 aliases.
+  - Strict separation of Logical Transit Graph (all 154 routes / 1,430 stops) vs Spatial Access Graph (83 verified coordinate stops).
+  - Unresolved stops strictly excluded from nearest-stop lookups, spatial walking edges, and geometry.
+  - Logical sequence reasoning allows intermediate unresolved stops without fabricating coordinates.
+  - `MoBusAdapter`, `TransportService`, `TransitEngine`, and `MultimodalJourneyPlanner` wired directly to canonical data.
+  - Schedule truthfulness: returns `data_tier = "scheduled"` with official timetable departure blocks; fares strictly `null`.
+  - AI tools (`get_transit_options`, `plan_transport_hop`, `get_provider_status`) share the canonical backend truth.
+  - Unit tests: `backend/tests/test_canonical_backend_routing.py` (18 passing assertions).
+  - All 989 backend tests green.
+
+- [ ] **Track B3 — Sync Frontend Transit Fallbacks from Canonical Source** (Ready for execution)
 
 
 ---
