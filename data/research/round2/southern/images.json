@@ -253,5 +253,22 @@
     "ai_generated": false,
     "ai_selection_policy": "No AI-generated image intentionally selected",
     "verification_notes": "No verified Creative Commons photograph specifically showing Minajhola confluence/waterfall in Rayagada district found. Real field photograph required before production promotion."
+  },
+  {
+    "research_id": "round2_south_016",
+    "destination": "Aliguna Waterfall",
+    "district": "Rayagada",
+    "image_status": "verified",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Aliguna_waterfall_%2C_kashipur_rayagada.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Aliguna_waterfall_,_kashipur_rayagada.jpg",
+    "source": "Wikimedia Commons",
+    "photographer": "Sarojkumar95",
+    "license": "CC0",
+    "resolution": "1080x1350",
+    "location_verified": true,
+    "source_page_verified": true,
+    "ai_generated": false,
+    "ai_selection_policy": "No AI-generated image intentionally selected",
+    "verification_notes": "Source page description confirms Aliguna Waterfall near Aliguna Village in Kashipur Tehsil, Rayagada district, Odisha. Photographer Sarojkumar95 attribution and CC0 public domain dedication verified. Resolution 1080x1350 exceeds 800px threshold."
   }
 ]

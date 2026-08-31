@@ -417,5 +417,30 @@
     "researcher": "Susmita",
     "verification_status": "research",
     "notes": "Coordinates verified via OSM Nominatim (19.2644, 83.6065). Wikipedia page for Minajhola exists with the same coordinates (19.51666N, 83.74166E based on infobox — there is a coordinate discrepancy between OSM and Wikipedia). Both sets are within Odisha bounding box. Discrepancy needs human review before production promotion. No Wikimedia Commons image found. Rayagada is underrepresented (2 in catalog)."
+  },
+  {
+    "research_id": "round2_south_016",
+    "name": "Aliguna Waterfall",
+    "aliases": [
+      "Aliguna Waterfall Kashipur",
+      "Kashipur Aliguna Falls"
+    ],
+    "district": "Rayagada",
+    "region": "southern",
+    "category": "waterfall",
+    "description": "Aliguna Waterfall is a perennial cascade located near Aliguna village in Banteji Gram Panchayat of Kashipur Tehsil, Rayagada district. Situated approximately 20 km from Kashipur and 79 km from Rayagada town, the waterfall flows through the forested highland terrain of the Eastern Ghats. It is a scenic eco-tourism and nature site in the underrepresented tribal highlands of southern Odisha.",
+    "lat": 19.4866,
+    "lon": 83.116,
+    "coordinate_source": "OpenStreetMap Nominatim verified: Aliguna, Banteji, Kashipur, Rayagada, Odisha",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://rayagada.nic.in/tourist-place/",
+    "secondary_source_urls": [],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Aliguna_waterfall_%2C_kashipur_rayagada.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC0",
+    "image_status": "pending",
+    "researcher": "Susmita",
+    "verification_status": "staging",
+    "notes": "Coordinates verified via OSM Nominatim (19.4866425, 83.1159825). Authentic Wikimedia Commons photograph confirmed: File:Aliguna_waterfall_,_kashipur_rayagada.jpg by Sarojkumar95 under CC0 public domain dedication (1080x1350 px). Zero duplicate collision in places.json; enhances Rayagada district coverage."
   }
 ]

@@ -368,5 +368,44 @@
     "accessed_at": "2026-08-31",
     "supports": ["coordinates", "description"],
     "notes": "Wikipedia page for Minajhola. Infobox coordinates: 19.51666N, 83.74166E. Discrepancy with OSM (19.2644, 83.6065) — one may reference a nearby settlement, the other the waterfall site. Flagged for coordinate reconciliation."
+  },
+  {
+    "source_id": "round2_south_016_src_1",
+    "research_id": "round2_south_016",
+    "source_type": "government",
+    "title": "Rayagada District Tourism — District Administration Portal",
+    "url": "https://rayagada.nic.in/tourist-place/",
+    "accessed_at": "2026-09-01",
+    "supports": [
+      "district",
+      "name",
+      "category",
+      "description"
+    ],
+    "notes": "Rayagada district administration portal documenting tourist and eco-tourism sites in Kashipur tehsil."
+  },
+  {
+    "source_id": "round2_south_016_src_2",
+    "research_id": "round2_south_016",
+    "source_type": "osm",
+    "title": "Aliguna, Kashipur — OpenStreetMap Nominatim",
+    "url": "https://nominatim.openstreetmap.org/search?q=Aliguna,+Kashipur,+Rayagada,+Odisha&format=json",
+    "accessed_at": "2026-09-01",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "OSM Nominatim verified coordinates (19.4866425, 83.1159825) for Aliguna village in Kashipur tehsil, Rayagada district."
+  },
+  {
+    "source_id": "round2_south_016_src_3",
+    "research_id": "round2_south_016",
+    "source_type": "wikimedia",
+    "title": "File:Aliguna waterfall , kashipur rayagada.jpg — Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/wiki/File:Aliguna_waterfall_,_kashipur_rayagada.jpg",
+    "accessed_at": "2026-09-01",
+    "supports": [
+      "image"
+    ],
+    "notes": "Authentic photograph by local photographer Sarojkumar95 under CC0 (Public Domain Dedication). Dimensions: 1080x1350 px. Depicts Aliguna Waterfall near Aliguna village in Kashipur range, Rayagada."
   }
 ]
