@@ -124,21 +124,21 @@
     "region": "southern",
     "category": "heritage",
     "description": "Brundaban Palace is the ancestral seat of the Maharaja of Parlakhemundi (Gajapati rulers), located in Paralakhemundi town, Gajapati district. The palace complex, built in the 19th century, reflects the princely architectural tradition of coastal Odisha. The town of Paralakhemundi, associated with nationalist leader Gopabandhu Das, is the administrative headquarters of Gajapati district.",
-    "lat": null,
-    "lon": null,
-    "coordinate_source": "",
-    "coordinate_verification_status": "pending",
+    "lat": 18.7786,
+    "lon": 84.0869,
+    "coordinate_source": "OpenStreetMap Nominatim verified: Gajapati Palace, liveling road, Paralakhemundi Town, Gajapati, Odisha",
+    "coordinate_verification_status": "verified",
     "primary_source_url": "https://gajapati.nic.in/tourist-place/",
     "secondary_source_urls": [
       "https://en.wikipedia.org/wiki/Paralakhemundi"
     ],
-    "image_source_url": "",
-    "image_source_domain": "",
-    "image_license_note": "",
-    "image_status": "missing",
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Gajapati_Palace_2025.png",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC0",
+    "image_status": "pending",
     "researcher": "Susmita",
-    "verification_status": "research",
-    "notes": "OSM Nominatim returned no result for Brundaban Palace or Paralakhemundi Palace. Coordinates set to null pending verification. Wikipedia article on Paralakhemundi references the palace but does not carry a usable Commons image of the palace itself. Retained for research; needs coordinate and image verification."
+    "verification_status": "staging",
+    "notes": "Coordinates verified via OSM Nominatim (18.7786141, 84.0869042). Authentic Wikimedia Commons photograph confirmed: File:Gajapati_Palace_2025.png by Santosh Kumar Panda under CC0 public domain dedication. Promoted to staging; zero duplicate collision in places.json."
   },
   {
     "research_id": "round2_south_006",
