@@ -20,6 +20,9 @@ __pycache__/
 .env
 .env.*
 !.env.example
+.otravelz-local.json
+.otravelz-bootstrap-state.json
+
 
 # Temporary files and artifacts
 artifacts/

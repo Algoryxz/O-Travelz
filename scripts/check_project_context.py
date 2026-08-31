@@ -36,6 +36,8 @@ REQUIRED_FILES: list[tuple[str, str]] = [
     ("GEMINI.md", "Gemini/Antigravity entry point"),
     (".github/copilot-instructions.md", "GitHub Copilot / Cursor / Windsurf entry point"),
     ("docs/README.md", "Documentation index"),
+    ("SETUP.md", "Teammate environment setup and bootstrap guide"),
+    ("ANTIGRAVITY_START.md", "Antigravity AI agent onboarding guide"),
     ("data/research/round2/schema/candidate.schema.json", "Round 2 research candidate schema"),
     ("data/research/round2/schema/source.schema.json", "Round 2 research source schema"),
 ]
