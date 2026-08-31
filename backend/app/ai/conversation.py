@@ -232,6 +232,17 @@ class GroundedConversationOrchestrator:
 
         # Execute all calls safely
         for tc in calls_to_run:
+            if tc.name == "replace_itinerary_stop" and not tc.arguments.get("itinerary"):
+                base_plan = self.boundary.execute(
+                    ToolCall(
+                        name="build_itinerary",
+                        arguments={"constraints": (effective_constraints or PlanningConstraints(days=1)).model_dump(mode="json"), "candidate_places": []},
+                    )
+                )
+                if base_plan.status == ToolStatus.OK and base_plan.data:
+                    tc.arguments["itinerary"] = base_plan.data.model_dump(mode="json") if hasattr(base_plan.data, "model_dump") else base_plan.data
+
+
             tool_calls_executed.append(tc)
             res = self.boundary.execute(tc)
             tool_results_obtained.append(res)
@@ -257,7 +268,17 @@ class GroundedConversationOrchestrator:
 
         # 6. Generate grounded response message in target language
         grounded_msg = generate_conversational_fallback_message(language=detected_lang)
-        if itinerary is not None:
+        if tool_results_obtained and any(r.tool_name == "replace_itinerary_stop" for r in tool_results_obtained):
+            rep_res = next(r for r in tool_results_obtained if r.tool_name == "replace_itinerary_stop")
+            rep_data = rep_res.data if isinstance(rep_res.data, dict) else {}
+            if rep_data.get("available"):
+                grounded_msg = rep_data.get("message", "Successfully replaced itinerary stop.")
+                if rep_data.get("updated_itinerary"):
+                    from app.schemas.itinerary import ItineraryResponse
+                    itinerary = ItineraryResponse.model_validate(rep_data["updated_itinerary"])
+            else:
+                grounded_msg = rep_data.get("message", "No suitable verified replacement is available for this time window.")
+        elif itinerary is not None:
             stop_count = sum(len(d.stops) for d in itinerary.days)
             grounded_msg = generate_grounded_itinerary_message(
                 language=detected_lang,
@@ -422,6 +443,12 @@ class GroundedConversationOrchestrator:
                             confidence="low",
                         )
                     )
+            elif r.tool_name == "replace_itinerary_stop" and isinstance(r.data, dict):
+                for e in r.data.get("evidence_items", []):
+                    if isinstance(e, dict):
+                        evidence_items.append(EvidenceItem.model_validate(e))
+                    elif isinstance(e, EvidenceItem):
+                        evidence_items.append(e)
 
         return GroundedConversationResponse(
             message=grounded_msg,

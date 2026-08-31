@@ -18,12 +18,17 @@ import {
   Compass,
   ArrowRight,
 } from "lucide-react";
+import type { EvidenceItem } from "../../types/api";
+import { EvidenceDrawer } from "./EvidenceDrawer";
 
 interface CopilotItineraryCardProps {
   itinerary: ItineraryPlanResponse;
   language?: string;
+  evidenceItems?: EvidenceItem[];
   onViewItineraryTab?: () => void;
+  onReplaceStop?: (dayNumber: number, sequence: number, reason: string) => void;
 }
+
 
 const I18N = {
   en: {
@@ -93,7 +98,9 @@ function getModeIcon(mode: string) {
 export const CopilotItineraryCard: React.FC<CopilotItineraryCardProps> = ({
   itinerary,
   language = "en",
+  evidenceItems,
   onViewItineraryTab,
+  onReplaceStop,
 }) => {
   if (!itinerary || !itinerary.days || itinerary.days.length === 0) {
     return null;
@@ -258,8 +265,16 @@ export const CopilotItineraryCard: React.FC<CopilotItineraryCardProps> = ({
         })}
       </div>
 
+      {/* Evidence Drawer */}
+      {evidenceItems && evidenceItems.length > 0 && (
+        <div className="p-3 bg-[#FAF7F2] border-t border-[#E5DFD5]">
+          <EvidenceDrawer evidenceItems={evidenceItems} />
+        </div>
+      )}
+
       {/* Footer / Grounding Notice & CTA */}
       <div className="px-3.5 py-2.5 bg-[#FAF7F2] border-t border-[#E5DFD5] flex flex-wrap items-center justify-between gap-2">
+
         <div className="flex items-center gap-1 text-[10px] text-[#2F523E] font-medium font-mono">
           <ShieldCheck size={12} className="text-[#2F523E]" />
           <span>{t.groundedNotice}</span>

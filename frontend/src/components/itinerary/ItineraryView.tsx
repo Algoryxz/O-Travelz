@@ -23,17 +23,26 @@ import {
   Share2,
   FileDown,
 } from "lucide-react";
+import type { EvidenceItem } from "../../types/api";
+import { EvidenceDrawer } from "../ai/EvidenceDrawer";
 
 interface ItineraryViewProps {
   itinerary: ItineraryPlanResponse;
+  evidenceItems?: EvidenceItem[];
   onOpenMap?: () => void;
   onViewPlaceDetails?: (place: any) => void;
+  onReplaceStop?: (dayNumber: number, sequence: number, reason: string) => void;
 }
 
 export const ItineraryView: React.FC<ItineraryViewProps> = ({
   itinerary,
+  evidenceItems,
+  onOpenMap,
+  onViewPlaceDetails,
+  onReplaceStop,
 }) => {
   const { itinerary_id, constraints, days, explanation } = itinerary;
+
   const { getPlaceByName } = usePlaces();
 
   const [copied, setCopied] = useState<boolean>(false);
@@ -252,6 +261,11 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
         )}
       </div>
 
+      {/* Grounded Evidence Drawer */}
+      {evidenceItems && evidenceItems.length > 0 && (
+        <EvidenceDrawer evidenceItems={evidenceItems} />
+      )}
+
       {/* Daily Timeline Sections */}
       <div className="space-y-6">
         {days.map((day) => (
@@ -259,9 +273,11 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
             key={day.day_number}
             day={day}
             requestedInterests={constraints?.interests || []}
+            onReplaceStop={onReplaceStop}
           />
         ))}
       </div>
+
 
       {/* Share Trip Modal */}
       <ShareTripModal

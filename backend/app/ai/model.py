@@ -273,6 +273,59 @@ class RuleBasedModelAdapter(ModelAdapter):
                 ],
             }
 
+        # Context-aware: Local Single-Stop Replacement
+        is_replacement_query = any(w in text_lower for w in ("replace", "swap", "something quieter instead", "quieter instead", "no temples for this stop", "change this stop", "change stop")) or (
+            "ବଦଳାନ୍ତୁ" in text or "ସ୍ଥାନ ବଦଳ" in text or "बदलें" in text or "की जगह" in text
+        )
+        if is_replacement_query:
+            # Check for ambiguous target
+            cleaned_text = re.sub(r"[^\w\s]", "", text_lower).strip()
+            if cleaned_text in ("replace a stop", "replace stop", "change a stop", "swap stop", "replace one stop", "change stop", "swap a stop", "ସ୍ଥାନ ବଦଳାନ୍ତୁ", "एक स्टॉप बदलें"):
+                return {
+                    "kind": IntentKind.CLARIFICATION.value,
+                    "clarification": {
+                        "question": "Which stop would you like to replace? Please specify the stop number or name.",
+                        "reason": "ambiguous_stop_target",
+                    },
+                }
+
+            # Determine stop sequence
+            seq = 1
+            if any(w in text_lower for w in ("second", "2nd", "stop 2", "ଦ୍ୱିତୀୟ", "दूसरा")):
+                seq = 2
+            elif any(w in text_lower for w in ("third", "3rd", "stop 3", "ତୃତୀୟ", "तीसरा")):
+                seq = 3
+            elif any(w in text_lower for w in ("first", "1st", "stop 1", "ପ୍ରଥମ", "पहला")):
+                seq = 1
+            elif "beach" in text_lower or "outdoor" in text_lower:
+                seq = 2  # default outdoor stop index
+
+            # Determine reason
+            reason = "user_request"
+            if any(w in text_lower for w in ("rain", "weather", "raining", "ବାଦଲ", "ବର୍ଷା", "बारिश", "मौसम")):
+                reason = "weather"
+            elif any(w in text_lower for w in ("quiet", "quieter", "crowd", "crowded", "less crowd", "ଶାନ୍ତ", "ଭିଡ଼", "भीड़", "शांत")):
+                reason = "crowd"
+            elif any(w in text_lower for w in ("walking", "tiring", "less walking", "walk", "ଚାଲିବା", "थकाऊ", "पैदल")):
+                reason = "walking"
+            elif any(w in text_lower for w in ("temple", "no temples", "culture", "ମନ୍ଦିର", "मंदिर")):
+                reason = "interest"
+
+            return {
+                "kind": IntentKind.PLANNING.value,
+                "constraints": {"days": 1, "interests": [], **detected_prefs},
+                "tool_calls": [
+                    {
+                        "name": "replace_itinerary_stop",
+                        "arguments": {
+                            "day_number": 1,
+                            "stop_sequence": seq,
+                            "reason": reason,
+                        },
+                    }
+                ],
+            }
+
         # Resolve starting location if mentioned
         detected_start = self._resolve_start_location(text)
 

@@ -8,11 +8,13 @@ import { calculateDayTimeline } from "../../utils/timelineService";
 interface ItineraryDaySectionProps {
   day: ItineraryDay;
   requestedInterests?: string[];
+  onReplaceStop?: (dayNumber: number, sequence: number, reason: string) => void;
 }
 
 export const ItineraryDaySection: React.FC<ItineraryDaySectionProps> = ({
   day,
   requestedInterests = [],
+  onReplaceStop,
 }) => {
   const { getPlaceByName } = usePlaces();
 
@@ -73,10 +75,12 @@ export const ItineraryDaySection: React.FC<ItineraryDaySectionProps> = ({
             <React.Fragment key={`stop-${stop.sequence}`}>
               <ItineraryStopCard
                 stop={stop}
+                dayNumber={day.day_number}
                 calculatedArrival={timeInfo?.arrivalFormatted}
                 calculatedDeparture={timeInfo?.departureFormatted}
                 visitMinutes={timeInfo?.visitMinutes}
                 requestedInterests={requestedInterests}
+                onReplaceStop={onReplaceStop}
               />
               {followingHops.map((hop, hIdx) => {
                 const key = `hop-${hop.from_sequence}-${hop.to_sequence}-${hIdx}`;
@@ -86,6 +90,7 @@ export const ItineraryDaySection: React.FC<ItineraryDaySectionProps> = ({
             </React.Fragment>
           );
         })}
+
 
         {/* Unmatched / supplementary hops if any exist */}
         {day.hops
