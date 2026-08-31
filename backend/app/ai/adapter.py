@@ -663,6 +663,24 @@ class GeminiProviderAdapter(AIProviderAdapter):
             parts: list[dict[str, Any]] = []
             if msg.content:
                 parts.append({"text": msg.content})
+            if getattr(msg, "image_urls", None):
+                for img_url in msg.image_urls:
+                    if img_url.startswith("data:") and ";base64," in img_url:
+                        mime_part, b64_data = img_url.split(";base64,", 1)
+                        mime_type = mime_part.replace("data:", "").strip()
+                        parts.append({
+                            "inlineData": {
+                                "mimeType": mime_type or "image/jpeg",
+                                "data": b64_data,
+                            }
+                        })
+                    else:
+                        parts.append({
+                            "inlineData": {
+                                "mimeType": "image/jpeg",
+                                "data": img_url,
+                            }
+                        })
             if msg.tool_calls:
                 for tc in msg.tool_calls:
                     parts.append({

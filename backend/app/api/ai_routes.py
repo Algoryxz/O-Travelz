@@ -88,14 +88,18 @@ def identify_place(
 ) -> ImageIdentifyResponse:
     """Identify an Odisha destination or landmark from an uploaded image or camera scan."""
     client_ip = req.client.host if req.client else "127.0.0.1"
-    rate_limiter.enforce_rate_limit(client_ip, is_external_request=False, settings=settings)
+    is_ext = getattr(settings, "ai_allow_external_provider", False) and getattr(settings, "ai_provider", "") not in ("mock", "rule_based")
+    rate_limiter.enforce_rate_limit(client_ip, is_external_request=is_ext, settings=settings)
 
     from app.ai.image_classifier import ImageClassifierService
 
+    provider_adapter = create_provider_adapter(settings)
     return ImageClassifierService.identify_place_from_image(
         db=db,
         image_data=request.image_data,
         image_url=request.image_url,
         file_name=request.file_name,
+        provider_adapter=provider_adapter,
     )
+
 
