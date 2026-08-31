@@ -1,68 +1,99 @@
-import { motion } from "motion/react";
-import { buttonTap, staggerContainer } from "../../lib/motion";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import type { ItineraryPlanResponse } from "../../types/api";
 import { ItineraryDaySection } from "./ItineraryDaySection";
+import { ShareTripModal } from "./ShareTripModal";
 import { ItineraryExportModal } from "./ItineraryExportModal";
 import { PrintableItineraryView } from "./PrintableItineraryView";
-import { ShareTripModal } from "./ShareTripModal";
-import { formatDurationHoursMins, CANONICAL_INTEREST_LABELS } from "../../utils/timelineService";
+import { usePlaces } from "../../store/usePlaces";
 import {
-  Calendar,
-  Clock,
-  MapPin,
-  Compass,
-  FileDown,
-  Share2,
+  generateTravelerTripTitle,
+  calculateItineraryTotalTransitMinutes,
+  formatDurationHoursMins,
+  generateItineraryPlainTextSummary,
+  CANONICAL_INTEREST_LABELS,
+} from "../../utils/timelineService";
+import {
   Copy,
   Check,
+  Calendar,
+  MapPin,
+  Clock,
+  Compass,
   Sparkles,
+  Share2,
+  FileDown,
 } from "lucide-react";
-import { generateItineraryMarkdown } from "../../utils/itineraryExport";
+import type { EvidenceItem } from "../../types/api";
+import { EvidenceDrawer } from "../ai/EvidenceDrawer";
 
 interface ItineraryViewProps {
   itinerary: ItineraryPlanResponse;
+  evidenceItems?: EvidenceItem[];
+  onOpenMap?: () => void;
+  onViewPlaceDetails?: (place: any) => void;
   onReplaceStop?: (dayNumber: number, sequence: number, reason: string) => void;
 }
 
-export const ItineraryView: React.FC<ItineraryViewProps> = ({ itinerary, onReplaceStop }) => {
-  const { itinerary_id, explanation, constraints, days } = itinerary;
+export const ItineraryView: React.FC<ItineraryViewProps> = ({
+  itinerary,
+  evidenceItems,
+  onOpenMap,
+  onViewPlaceDetails,
+  onReplaceStop,
+}) => {
+  const { itinerary_id, constraints, days, explanation } = itinerary;
+
+  const { getPlaceByName } = usePlaces();
+
   const [copied, setCopied] = useState<boolean>(false);
   const [copyError, setCopyError] = useState<string | null>(null);
-  const [isExportOpen, setIsExportOpen] = useState<boolean>(false);
   const [isShareOpen, setIsShareOpen] = useState<boolean>(false);
+  const [isExportOpen, setIsExportOpen] = useState<boolean>(false);
 
-  // Compute aggregate metrics
-  const totalStopsCount = days.reduce((sum, d) => sum + (d.stops?.length || 0), 0);
-  const totalTransitMinutes = days.reduce(
-    (sum, d) =>
-      sum +
-      (d.transit_hops || []).reduce((hopSum, h) => hopSum + (h.duration_minutes || 0), 0),
-    0
-  );
+  const totalStopsCount = days.reduce((acc, d) => acc + d.stops.length, 0);
+  const totalTransitMinutes = calculateItineraryTotalTransitMinutes(itinerary);
+  const tripTitle = generateTravelerTripTitle(constraints, days.length);
 
-  const tripTitle = `${constraints?.days || days.length}-Day Odisha Exploration`;
-
-  const handleCopySummary = async () => {
+  const handleCopySummary = useCallback(async () => {
     try {
-      const markdown = generateItineraryMarkdown(itinerary, tripTitle);
-      await navigator.clipboard.writeText(markdown);
-      setCopied(true);
-      setCopyError(null);
-      setTimeout(() => setCopied(false), 2500);
-    } catch {
-      setCopyError("Could not copy itinerary summary to clipboard.");
+      const summaryText = generateItineraryPlainTextSummary(itinerary, (name) =>
+        getPlaceByName(name)
+      );
+
+      if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(summaryText);
+        setCopied(true);
+        setCopyError(null);
+        setTimeout(() => setCopied(false), 2500);
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = summaryText;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        setCopied(true);
+        setCopyError(null);
+        setTimeout(() => setCopied(false), 2500);
+      }
+    } catch (err) {
+      console.warn("Failed to copy itinerary summary to clipboard:", err);
+      setCopyError("Could not copy automatically. Please select and copy manually.");
       setTimeout(() => setCopyError(null), 3000);
     }
-  };
+  }, [itinerary, getPlaceByName]);
 
   return (
-    <div data-testid="itinerary-view" className="space-y-6 text-[#12161E]">
-      {/* Header card with metadata and applied constraints */}
-      <div className="p-5 md:p-6 rounded-3xl bg-[#FFFFFF] border border-[#E5DFD5] shadow-xs space-y-4">
-        <div className="flex flex-wrap items-start justify-between gap-4 pb-4 border-b border-[#E5DFD5]">
-          <div className="space-y-1 max-w-xl">
+    <div data-testid="itinerary-view" className="space-y-6">
+      {/* Traveler-Focused Header Card */}
+      <div className="p-5 md:p-7 rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] shadow-xs space-y-5 text-[#12161E]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#E5DFD5]">
+          <div className="space-y-1.5 min-w-0">
             <div className="flex items-center gap-2">
+              <span className="live-dot" />
               <span className="text-[11px] font-bold uppercase tracking-wider text-[#B87B22] font-mono">
                 Verified Odisha Itinerary
               </span>
@@ -230,6 +261,11 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({ itinerary, onRepla
         )}
       </div>
 
+      {/* Grounded Evidence Drawer */}
+      {evidenceItems && evidenceItems.length > 0 && (
+        <EvidenceDrawer evidenceItems={evidenceItems} />
+      )}
+
       {/* Daily Timeline Sections */}
       <div className="space-y-6">
         {days.map((day) => (
@@ -241,6 +277,7 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({ itinerary, onRepla
           />
         ))}
       </div>
+
 
       {/* Share Trip Modal */}
       <ShareTripModal

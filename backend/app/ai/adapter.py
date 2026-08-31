@@ -33,14 +33,17 @@ from app.ai.contracts import (
     ToolDefinition,
     UnsupportedCapabilityError,
 )
-from app.core.config import Settings, settings
+from app.ai.routing import ProviderCapabilities, TaskRouter, TaskType
+from app.ai.telemetry import ai_telemetry
+from app.core.config import settings
 
 logger = logging.getLogger(__name__)
 
 
-
 class AIProviderAdapter(ABC):
     """Abstract protocol for pluggable, provider-neutral AI backends."""
+
+    capabilities: ProviderCapabilities = ProviderCapabilities()
 
     @abstractmethod
     def generate(
@@ -49,39 +52,27 @@ class AIProviderAdapter(ABC):
         tools: list[ToolDefinition] | None = None,
         **kwargs: Any,
     ) -> AdapterResponse:
-        """Generate a response or request tool calls from the model.
-
-        Parameters
-        ----------
-        messages : list[ChatMessage]
-            Conversation history conforming to canonical ChatMessage contracts.
-        tools : list[ToolDefinition] | None
-            Available tools formatted as provider-neutral ToolDefinitions.
-        kwargs : Any
-            Optional provider-neutral runtime parameters (e.g. temperature).
-
-        Returns
-        -------
-        AdapterResponse
-            Structured response containing text content and/or canonical ToolCalls.
-        """
+        """Generate a response or request tool calls from the model."""
         raise NotImplementedError
 
     @abstractmethod
     def get_status(self) -> dict[str, Any]:
-        """Return diagnostic status metadata without exposing secrets.
-
-        Returns
-        -------
-        dict[str, Any]
-            Status dictionary containing provider identifier, model name,
-            configuration state, and availability. Never contains API keys.
-        """
+        """Return diagnostic status metadata without exposing secrets."""
         raise NotImplementedError
 
 
 class MockProviderAdapter(AIProviderAdapter):
     """Deterministic, offline provider adapter for unit testing and local simulation."""
+
+    capabilities: ProviderCapabilities = ProviderCapabilities(
+        text=True,
+        vision=True,
+        tools=True,
+        structured_output=True,
+        multilingual=True,
+        complex_reasoning=True,
+        fast_inference=True,
+    )
 
     def __init__(
         self,
@@ -155,8 +146,19 @@ class MockProviderAdapter(AIProviderAdapter):
 class RuleBasedProviderAdapter(AIProviderAdapter):
     """Deterministic offline rule-based adapter for Odisha trip planning."""
 
+    capabilities: ProviderCapabilities = ProviderCapabilities(
+        text=True,
+        vision=False,
+        tools=False,
+        structured_output=True,
+        multilingual=True,
+        complex_reasoning=False,
+        fast_inference=True,
+    )
+
     def __init__(self) -> None:
         pass
+
 
     def generate(
         self,
@@ -258,6 +260,16 @@ class GenericHTTPProviderAdapter(AIProviderAdapter):
     Uses Python standard library (urllib) to avoid vendor SDK dependencies.
     Enforces strict timeouts, retry safety, secret masking, and canonical error mapping.
     """
+
+    capabilities: ProviderCapabilities = ProviderCapabilities(
+        text=True,
+        vision=False,
+        tools=True,
+        structured_output=True,
+        multilingual=True,
+        complex_reasoning=True,
+        fast_inference=True,
+    )
 
     def __init__(
         self,
@@ -563,6 +575,16 @@ class AzureOpenAIProviderAdapter(GenericHTTPProviderAdapter):
     and api-key authentication headers with zero vendor SDK requirements.
     """
 
+    capabilities: ProviderCapabilities = ProviderCapabilities(
+        text=True,
+        vision=True,
+        tools=True,
+        structured_output=True,
+        multilingual=True,
+        complex_reasoning=True,
+        fast_inference=True,
+    )
+
     def __init__(
         self,
         api_base_url: str | None = None,
@@ -612,6 +634,17 @@ class GeminiProviderAdapter(AIProviderAdapter):
     Translates canonical ChatMessage and ToolDefinition contracts into Google Gemini
     generateContent schemas using Python standard library (urllib).
     """
+
+    capabilities: ProviderCapabilities = ProviderCapabilities(
+        text=True,
+        vision=True,
+        tools=True,
+        structured_output=True,
+        multilingual=True,
+        complex_reasoning=True,
+        fast_inference=True,
+    )
+
 
     def __init__(
         self,
@@ -857,6 +890,16 @@ class GeminiProviderAdapter(AIProviderAdapter):
 class NVIDIAProviderAdapter(GenericHTTPProviderAdapter):
     """Provider adapter for NVIDIA API Catalog (OpenAI-compatible inference endpoints)."""
 
+    capabilities: ProviderCapabilities = ProviderCapabilities(
+        text=True,
+        vision=False,
+        tools=True,
+        structured_output=True,
+        multilingual=True,
+        complex_reasoning=True,
+        fast_inference=True,
+    )
+
     def __init__(
         self,
         api_base_url: str | None = None,
@@ -914,6 +957,17 @@ class GroqProviderAdapter(GenericHTTPProviderAdapter):
     - Capability-aware validation and error handling
     - Secret masking and fallback compatibility
     """
+
+    capabilities: ProviderCapabilities = ProviderCapabilities(
+        text=True,
+        vision=True,
+        tools=True,
+        structured_output=True,
+        multilingual=True,
+        complex_reasoning=False,
+        fast_inference=True,
+    )
+
 
     def __init__(
         self,
@@ -1040,16 +1094,58 @@ class MultiProviderFallbackAdapter(AIProviderAdapter):
         tools: list[ToolDefinition] | None = None,
         **kwargs: Any,
     ) -> AdapterResponse:
-        # Zero-Cost Guard: If external providers are disabled, immediately use deterministic offline adapter
-        if not self.allow_external_provider:
-            return self.fallback_adapter.generate(messages, tools, **kwargs)
+        # Determine classified task type
+        raw_task = kwargs.get("task_type")
+        if isinstance(raw_task, str):
+            try:
+                task_type = TaskType(raw_task)
+            except Exception:
+                task_type = TaskType.GENERAL_CONVERSATION
+        elif isinstance(raw_task, TaskType):
+            task_type = raw_task
+        elif any(getattr(m, "image_urls", None) for m in messages):
+            task_type = TaskType.VISION
+        elif tools and len(tools) > 0:
+            task_type = TaskType.COMPLEX_PLANNING
+        else:
+            task_type = TaskType.GENERAL_CONVERSATION
+
+        # Zero-Cost Guard or Deterministic Lookup: immediately use deterministic offline adapter
+        if not self.allow_external_provider or task_type == TaskType.DETERMINISTIC_LOOKUP:
+            fallback_start = time.time()
+            res = self.fallback_adapter.generate(messages, tools, **kwargs)
+            res.metadata["active_provider"] = "rule_based_fallback"
+            res.metadata["fallback_used"] = True
+            lat_ms = (time.time() - fallback_start) * 1000.0
+            ai_telemetry.record_event(
+                task_type=task_type.value,
+                provider="rule_based_fallback",
+                model_identifier="rule_based",
+                latency_ms=lat_ms,
+                success=True,
+                fallback_triggered=True,
+                tool_calls_count=len(res.tool_calls),
+            )
+            return res
 
         errors_encountered: list[str] = []
         start_time = time.time()
         raw_budget = kwargs.get("latency_budget_ms")
         budget_ms = float(raw_budget if raw_budget is not None else getattr(settings, "ai_request_latency_budget_ms", 8000))
+        if budget_ms <= 300:
+            logger.info("Latency budget exhausted immediately. Fast failover to deterministic offline fallback.")
+            errors_encountered.append("all_providers:budget_exhausted")
+            candidates = []
+        else:
+            # Task-aware provider filtering
+            candidates = TaskRouter.filter_and_prioritize(
+                self.providers,
+                task_type=task_type,
+                remaining_budget_ms=budget_ms,
+            )
 
-        for provider in self.providers:
+
+        for provider in candidates:
             # Check remaining latency budget
             elapsed_ms = (time.time() - start_time) * 1000.0
             remaining_budget_ms = budget_ms - elapsed_ms
@@ -1061,20 +1157,6 @@ class MultiProviderFallbackAdapter(AIProviderAdapter):
             status = provider.get_status()
             provider_name = status.get("provider", "unknown")
 
-            # Skip unconfigured providers
-            if not status.get("available"):
-                continue
-
-            # Check circuit breaker state: if OPEN, skip immediately to conserve latency budget
-            try:
-                from app.ai.circuit_breaker import circuit_breaker
-                if not circuit_breaker.is_allowed(provider_name):
-                    logger.info(f"Circuit breaker OPEN for provider '{provider_name}'. Skipping to next fallback.")
-                    errors_encountered.append(f"{provider_name}:circuit_open")
-                    continue
-            except Exception:
-                pass
-
             # Compute effective timeout for this attempt
             configured_timeout = getattr(provider, "timeout_seconds", 30.0)
             attempt_timeout = max(0.5, min(configured_timeout, remaining_budget_ms / 1000.0))
@@ -1083,14 +1165,25 @@ class MultiProviderFallbackAdapter(AIProviderAdapter):
                 provider_kwargs = dict(kwargs)
                 provider_kwargs["timeout_seconds"] = attempt_timeout
                 response = provider.generate(messages, tools, **provider_kwargs)
+                lat_ms = (time.time() - start_time) * 1000.0
                 response.metadata["active_provider"] = provider_name
                 response.metadata["fallback_used"] = False
-                response.metadata["provider_latency_ms"] = round((time.time() - start_time) * 1000.0, 1)
+                response.metadata["provider_latency_ms"] = round(lat_ms, 1)
                 try:
                     from app.ai.circuit_breaker import circuit_breaker
                     circuit_breaker.record_success(provider_name)
                 except Exception:
                     pass
+
+                ai_telemetry.record_event(
+                    task_type=task_type.value,
+                    provider=provider_name,
+                    model_identifier=status.get("model", provider_name),
+                    latency_ms=lat_ms,
+                    success=True,
+                    fallback_triggered=False,
+                    tool_calls_count=len(response.tool_calls),
+                )
                 return response
             except AIProviderError as p_err:
                 logger.warning(f"Provider '{provider_name}' failed: {p_err.code} - {p_err.message}. Attempting fallback.")
@@ -1112,10 +1205,22 @@ class MultiProviderFallbackAdapter(AIProviderAdapter):
         # Deterministic zero-cost fallback
         fallback_start = time.time()
         fallback_response = self.fallback_adapter.generate(messages, tools, **kwargs)
+        total_lat_ms = (time.time() - start_time) * 1000.0
         fallback_response.metadata["active_provider"] = "rule_based_fallback"
         fallback_response.metadata["fallback_used"] = True
         fallback_response.metadata["fallback_errors"] = errors_encountered
-        fallback_response.metadata["total_latency_ms"] = round((time.time() - start_time) * 1000.0, 1)
+        fallback_response.metadata["total_latency_ms"] = round(total_lat_ms, 1)
+
+        ai_telemetry.record_event(
+            task_type=task_type.value,
+            provider="rule_based_fallback",
+            model_identifier="rule_based",
+            latency_ms=total_lat_ms,
+            success=True,
+            fallback_triggered=True,
+            tool_calls_count=len(fallback_response.tool_calls),
+            error_category=";".join(errors_encountered) if errors_encountered else None,
+        )
         return fallback_response
 
 

@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "motion/react";
-import { cardTap } from "../../lib/motion";
 import type { ItineraryStop } from "../../types/api";
 import { getPlaceImageUrl, getPlaceRegion } from "../../utils/imageService";
 import { usePlaces } from "../../store/usePlaces";
@@ -200,3 +198,4 @@ export const ItineraryStopCard: React.FC<ItineraryStopCardProps> = ({
     </div>
   );
 };
+

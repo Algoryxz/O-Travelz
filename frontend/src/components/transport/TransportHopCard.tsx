@@ -1,74 +1,104 @@
-import { motion } from "motion/react";
 import React from "react";
-import type { TransitHop } from "../../types/api";
-import { Clock, IndianRupee, AlertTriangle, Bus, Utensils, Info, ArrowRight } from "lucide-react";
-import { DataTierBadge } from "../badges/DataTierBadge";
+import type { TransportHop } from "../../api/contracts";
+import { DataTierBadge } from "./DataTierBadge";
+import {
+  Footprints,
+  Bus,
+  Car,
+  ArrowDown,
+  Clock,
+  IndianRupee,
+  AlertTriangle,
+  ArrowRight,
+  Utensils,
+  Repeat,
+  Info,
+} from "lucide-react";
 
 interface TransportHopCardProps {
-  hop?: TransitHop;
-  originName?: string;
-  destinationName?: string;
-  className?: string;
+  hop: TransportHop;
 }
 
-export const TransportHopCard: React.FC<TransportHopCardProps> = ({
-  hop,
-  originName,
-  destinationName,
-  className = "",
-}) => {
-  // If no hop data is provided, return null or a minimal visual connector
-  if (!hop) {
-    return (
-      <div className={`my-2 flex items-center gap-3 px-4 py-2 ${className}`}>
-        <div className="flex flex-col items-center">
-          <div className="h-4 w-0.5 border-l-2 border-dashed border-[#D1C8BA]" />
-          <div className="h-2 w-2 rounded-full bg-[#B87B22]/40" />
-          <div className="h-4 w-0.5 border-l-2 border-dashed border-[#D1C8BA]" />
-        </div>
-        <div className="text-xs text-[#70798B] italic font-body">
-          Transit between destinations
-        </div>
-      </div>
-    );
-  }
+export const TransportHopCard: React.FC<TransportHopCardProps> = ({ hop }) => {
+  const isOrigin = hop.from_sequence === 0;
+  const isUnavailable = hop.mode === "unavailable" || !!hop.reason;
+  const mj = hop.multimodal_journey;
 
-  const formatTransitDuration = (minutes: number | null | undefined): string | null => {
-    if (minutes === null || minutes === undefined || minutes <= 0) return null;
-    const hrs = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-    if (hrs === 0) return `${mins}m`;
-    if (mins === 0) return `${hrs}h`;
-    return `${hrs}h ${mins}m`;
+  const formatDuration = (mins: number | null | undefined): string | null => {
+    if (mins === null || mins === undefined) return null;
+    if (mins < 60) return `${mins} min`;
+    const hours = Math.floor(mins / 60);
+    const remaining = mins % 60;
+    return remaining > 0 ? `${hours}h ${remaining.toString().padStart(2, "0")}m` : `${hours}h`;
   };
 
-  const formattedDuration = formatTransitDuration(hop.estimated_minutes);
-  const distanceStr = hop.distance_km != null ? `${hop.distance_km} km` : null;
-  const mj = hop.multimodal_journey;
+  const formatMode = (mode: string): string => {
+    const m = mode.toLowerCase();
+    if (m.includes("transfer")) return "Multimodal (1-Transfer)";
+    if (m === "road" || m === "car") return "Car / Road";
+    if (m === "walk") return "Walk";
+    if (m === "bus") return "Mo Bus";
+    if (m === "rail" || m === "train") return "Train";
+    if (m === "e-rickshaw" || m === "e_ride") return "Mo E-Ride";
+    if (m === "unavailable") return "unavailable";
+    return mode;
+  };
+
+
+  const extractDistance = (h: TransportHop): string | null => {
+    for (const leg of h.legs || []) {
+      const match = leg.detail?.match(/(?:~|approximately\s+)?(\d+(?:\.\d+)?\s*(?:km|m))/i);
+      if (match) return match[1];
+    }
+    return null;
+  };
+
+  const getModeIcon = (mode: string) => {
+    const m = mode.toLowerCase();
+    if (m.includes("transfer")) return <Repeat size={14} className="text-[#B87B22]" />;
+    if (m.includes("walk")) return <Footprints size={14} className="text-[#2F523E]" />;
+    if (m.includes("bus") || m.includes("transit")) return <Bus size={14} className="text-[#1B5E6B]" />;
+    return <Car size={14} className="text-[#B87B22]" />;
+  };
+
+  const hopTitle = isOrigin
+    ? "Origin Start → Stop 1"
+    : `Stop ${hop.from_sequence} → Stop ${hop.to_sequence}`;
+
+  const formattedDuration = formatDuration(hop.estimated_minutes);
+  const distanceStr = extractDistance(hop);
 
   return (
     <div
       data-testid="transport-hop-card"
-      className={`my-3 p-3.5 sm:p-4 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] shadow-xs text-[#12161E] ${className}`}
+      className="relative pl-8 my-2 transition-all"
     >
-      {/* Visual connection track */}
-      <div className="relative pl-6 sm:pl-8 border-l-2 border-dashed border-[#B87B22]/40 ml-4 py-1">
-        <div className="absolute -left-[9px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#FAF7F2] border-2 border-[#B87B22] flex items-center justify-center">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#B87B22]" />
+      {/* Timeline connection line and directional arrow */}
+      <div className="absolute left-3.5 top-0 bottom-0 w-0.5 bg-[#E5DFD5] flex items-center justify-center">
+        <div className="w-4 h-4 rounded-full bg-[#FFFFFF] border border-[#E5DFD5] flex items-center justify-center shadow-xs">
+          <ArrowDown size={10} className="text-[#70798B]" />
         </div>
+      </div>
 
-        {/* Route header */}
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="space-y-0.5">
-            <div className="flex items-center gap-2">
-              <span
-                data-testid="transit-mode-badge"
-                className="text-[11px] font-bold uppercase tracking-wider text-[#B87B22] font-mono"
-              >
-                {hop.mode_label || hop.mode || "Transit Connection"}
-              </span>
-              <span className="text-xs text-[#70798B] font-medium font-body">
-                {originName && destinationName ? `${originName} → ${destinationName}` : "Inter-Destination Hop"}
+      <div
+        className={`p-3.5 rounded-xl border transition-all ${
+          isUnavailable
+            ? "bg-[#FFF7ED] border-[#FDBA74] text-[#C2410C]"
+            : "bg-[#FAF7F2] border-[#E5DFD5] text-[#12161E] shadow-2xs hover:border-[#D1C8BA]"
+        }`}
+      >
+        {/* Header Strip */}
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-[#E5DFD5]">
+          <div className="flex items-center gap-2">
+            <div className="p-1.5 rounded-md bg-[#FFFFFF] border border-[#E5DFD5] flex items-center justify-center">
+              {getModeIcon(hop.mode)}
+            </div>
+            <div>
+              <div className="text-xs font-bold text-[#12161E]">
+                {hopTitle}
+              </div>
+              <span className="text-[11px] text-[#70798B] font-medium font-mono">
+                {`Mode: ${formatMode(hop.mode)}`}
               </span>
             </div>
           </div>
