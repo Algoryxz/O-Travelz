@@ -9,6 +9,10 @@ import { ErrorAlert } from "../itinerary/ErrorAlert";
 import { MapPin, Compass, X } from "lucide-react";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
 import { MapCanvas } from "./MapCanvas";
+import {
+  getAllWesternOdishaMapFeatures,
+  getNearbyFeaturesForDestination,
+} from "../../services/westernOdishaMapService";
 
 export interface MapViewProps {
   projection?: MapProjectionResponse | null;
@@ -37,13 +41,17 @@ export const MapView: React.FC<MapViewProps> = ({
   onViewDetails,
   onClearError,
 }) => {
-  // If no projection is loaded yet, but places are provided, project all places as features
+  // If no projection is loaded yet, project all verified Western Odisha POIs and nearby destination features
   const featuresToRender = useMemo<MapFeature[]>(() => {
     if (projection && projection.features.length > 0) {
       return projection.features;
     }
+    if (selectedPlace && selectedPlace.id) {
+      const nearbyFeats = getNearbyFeaturesForDestination(selectedPlace.id);
+      if (nearbyFeats.length > 0) return nearbyFeats;
+    }
     if (allPlaces && allPlaces.length > 0) {
-      return allPlaces
+      const mapped = allPlaces
         .filter((p) => p.lat != null && p.lon != null)
         .map((p) => ({
           canonical_ref: { entity: "place", id: p.id || p.name },
@@ -51,30 +59,16 @@ export const MapView: React.FC<MapViewProps> = ({
           category: p.category,
           region: p.location || undefined,
           feature_type: "place",
-          geometry_status: "available",
+          geometry_status: "available" as const,
           geometry: {
-            type: "Point",
-            coordinates: [p.lon!, p.lat!],
+            type: "Point" as const,
+            coordinates: [p.lon!, p.lat!] as [number, number],
           },
         }));
+      if (mapped.length > 0) return mapped;
     }
-    if (selectedPlace && selectedPlace.lat && selectedPlace.lon) {
-      return [
-        {
-          canonical_ref: { entity: "place", id: selectedPlace.id || selectedPlace.name },
-          name: selectedPlace.name,
-          category: selectedPlace.category,
-          region: selectedPlace.location || undefined,
-          feature_type: "place",
-          geometry_status: "available",
-          geometry: {
-            type: "Point",
-            coordinates: [selectedPlace.lon, selectedPlace.lat],
-          },
-        },
-      ];
-    }
-    return [];
+    // Default fallback: return all verified Western Odisha map features
+    return getAllWesternOdishaMapFeatures();
   }, [projection, allPlaces, selectedPlace]);
 
   const hasMapContent = featuresToRender.length > 0 || (projection && projection.relationships.length > 0);
