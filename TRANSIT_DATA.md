@@ -17,38 +17,42 @@ If the canonical files and the frontend fallback diverge, the canonical files wi
 
 ---
 
-## What Exists — Verified Inventory (as of 2026-08-31)
+## What Exists — Verified Inventory (as of 2026-09-01)
 
 | Asset | Count | Status |
 |---|---|---|
-| CRUT routes verified from official documents | 154 | Verified (source: official schedule PDFs, effective 2026-08-21) |
-| Stop names extracted from official docs | 1,361 | Name-only; no coordinates |
-| Stops with confirmed OSM Nominatim coordinates | 17 | `VERIFIED_GEOSPATIAL` |
-| Stops with unresolved coordinates | 1,344 | `UNRESOLVED` — coordinates NOT fabricated |
-| Stops currently in frontend production | ~46 | Verified coordinates |
-| Validated schedule trip departures | 5,553 | From official timetables; 0 malformed |
+| CRUT / Ama Bus routes verified from official documents | 154 | Verified (source: official schedule PDFs, effective 2026-08-21) |
+| Logical canonical stops in canonical dataset | 1,430 | Normalized in `data/transport/canonical/stops.json` |
+| Ordered route stop sequences | 164 lists (1,491 stops) | 100% route coverage in `data/transport/canonical/route_stops.json` |
+| Stops with verified coordinates | 9 | `VERIFIED_OFFICIAL` (no coordinate fabrication) |
+| Stops with unresolved coordinates | 1,421 | `UNRESOLVED` — coordinates strictly `null` |
+| Schedule departure records | 302 | Covering 145 routes in `data/transport/canonical/schedules.json` |
+| Individual departure times | 5,549 | Validated `HH:MM` timestamps (0 malformed) |
+| Alias mappings generated | 2,924 | Registered in `data/transport/canonical/aliases.json` |
 | Fare data | 0 | `amount_inr: null` universally — NOT IMPLEMENTED |
 
-### Route Coverage by Region
+### Canonical Pipeline Artifacts (`data/transport/canonical/`)
 
-| Region | Routes |
-|---|---|
-| Capital Region (Bhubaneswar/Cuttack/Puri/Khordha) | 95 |
-| Sambalpur | ~25 |
-| Rourkela / Sundargarh | ~20 |
-| Berhampur / Ganjam | ~10 |
-| Keonjhar | ~4 |
+| File | Records | Purpose |
+|---|---|---|
+| `stops.json` | 1,430 stops | Authoritative canonical stop registry |
+| `routes.json` | 154 routes | Authoritative route registry across all regions |
+| `route_stops.json` | 164 sequences (1,491 stops) | Directional ordered stop sequence topology |
+| `schedules.json` | 302 schedules (5,549 departures) | Official timetable departure blocks |
+| `aliases.json` | 2,924 aliases | Name resolution and normalization lookup |
+| `network.json` | Full graph | Consolidated offline network package |
+| `build_report.json` | Full audit report | Verification gates and build metrics |
 
-### Research Files (do not use directly in production)
+### Research Files (Extraction inputs)
 
 | File | Contents |
 |---|---|
-| `data/research/transit/extraction/routes_extracted.json` | 154 routes — research quality |
-| `data/research/transit/extraction/stops_extracted.json` | 1,361 stops — name-only |
-| `data/research/transit/extraction/stop_geocoding_report.json` | 17 geocoded, 48 unresolved, 35 skipped-generic |
-| `data/research/transit/extraction/schedules_extracted.json` | 5,553 validated trips |
-| `data/research/transit/extraction/geocoding_review.json` | 1,389 stops in review queue |
-| `data/research/transit/extraction/mo_bus_map_second_pass.json` | 44 routes, 242 labeled stops — all `unresolved` |
+| `data/research/transit/extraction/routes_extracted.json` | 154 routes extracted from official PDFs |
+| `data/research/transit/extraction/stops_extracted.json` | 1,430 stops extracted from official PDFs |
+| `data/research/transit/extraction/route_stops_extracted.json` | 1,491 route-stop occurrences |
+| `data/research/transit/extraction/schedules_extracted.json` | 302 schedule departure blocks |
+| `data/research/transit/phase_6b/stop_alias_registry.json` | Phase 6B alias mappings |
+
 
 ---
 

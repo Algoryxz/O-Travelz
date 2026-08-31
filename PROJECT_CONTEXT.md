@@ -182,12 +182,14 @@ The weather widget shows live data when online and degrades gracefully when offl
 ### Transit / Mo Bus / Ama Bus
 
 **What exists:**
-- 154 CRUT routes verified from official documents (effective 2026-08-21)
-- 1,361 stop names extracted from official documents
-- 17 stops with confirmed OSM Nominatim coordinates
-- 1,344 stops with `coordinate_status: "unresolved"` — no coordinates yet
-- ~46 stops with verified coordinates in frontend production data
-- 5,553 trip departures validated from official schedule documents; 0 malformed
+- 154 CRUT / Ama Bus routes verified from official documents (effective 2026-08-21)
+- 1,430 logical canonical stop records compiled in `data/transport/canonical/stops.json`
+- 164 ordered directional stop sequences (1,491 stop occurrences) in `data/transport/canonical/route_stops.json`
+- 9 stops with verified official coordinates in canonical dataset (`coordinate_status: "VERIFIED_OFFICIAL"`)
+- 1,421 stops with `coordinate_status: "UNRESOLVED"` — zero coordinate fabrication
+- 302 official schedule records across 145 routes with 5,549 validated departure times in `data/transport/canonical/schedules.json`
+- 2,924 registered alias mappings in `data/transport/canonical/aliases.json`
+- Deterministic compiler (`scripts/compile_canonical_transit.py`) and validator (`scripts/validate_canonical_transit.py`)
 - Fares: NOT IMPLEMENTED (`amount_inr: null` universally)
 
 **What does NOT exist:**

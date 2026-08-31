@@ -1,0 +1,38 @@
+{
+  "build_timestamp": "2026-08-31T21:14:37.068742+00:00",
+  "compiler_version": "1.0.0",
+  "inputs": {
+    "routes_extracted_count": 154,
+    "stops_extracted_count": 1430,
+    "route_stops_extracted_count": 1491,
+    "schedules_extracted_count": 302,
+    "verified_production_stops_count": 46
+  },
+  "outputs": {
+    "raw_route_records": 154,
+    "unique_routes": 154,
+    "raw_stop_references": 1491,
+    "unique_raw_stop_names": 1430,
+    "normalized_canonical_stops": 1430,
+    "logical_canonical_stops": 1430,
+    "routable_geographic_stops": 9,
+    "stops_with_verified_coordinates": 9,
+    "stops_without_coordinates": 1421,
+    "routes_with_ordered_sequence": 154,
+    "directional_sequences_count": 164,
+    "routes_with_schedule_records": 145,
+    "schedule_records_count": 302,
+    "individual_departure_time_count": 5549,
+    "malformed_times_repaired": 42,
+    "malformed_times_rejected": 0,
+    "unresolved_stop_count": 1421,
+    "review_required_count": 0,
+    "alias_mappings_count": 2924
+  },
+  "gates": {
+    "zero_fabrication_gate": "PASSED",
+    "bounded_coordinates_gate": "PASSED",
+    "all_routes_survived_gate": "PASSED",
+    "all_sequences_survived_gate": "PASSED"
+  }
+}

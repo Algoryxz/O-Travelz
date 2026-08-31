@@ -6,6 +6,14 @@
 
 **Status key**: `[ ]` not started · `[/]` in progress · `[x]` complete · `[-]` blocked/deferred
 
+## AI Intelligence Scope Freeze (Round 2)
+
+> **STATUS: FEATURE COMPLETE FOR ROUND 2 (FEATURE-FROZEN)**
+>
+> - **Completed**: Structured multilingual constraints, tool orchestration (weather, crowd, transit), localized single-stop replacement, Evidence Drawer & ClaimBadges, multimodal landmark vision & cosine fallback, task-aware routing, privacy-safe telemetry, 51-case deterministic AI benchmark suite.
+> - **Allowed Work**: Bug fixes, regression fixes, grounding fixes, truthful wording/labels, demo hardening.
+> - **Deferred Work**: Additional AI product capabilities, model experimentation, custom training, major routing refactors.
+
 ---
 
 ## Checkpoint 1 — P0 Stability
@@ -217,6 +225,27 @@ Goal: Expand destination catalog across all 30 districts via structured regional
   - Promotion to `data/places/places.json` by Core only
 
 **Checkpoint 6 done when**: 15–20 new publishable destinations added across underrepresented districts, all with verified coordinates and validated images.
+
+---
+
+## Transit Track B — Canonical Mo Bus & Ama Bus Transit Network
+
+- [x] **Track B1 — Canonical Data Foundation & Compiler Pipeline**
+  - Canonical output directory created: `data/transport/canonical/` (`stops.json`, `routes.json`, `route_stops.json`, `schedules.json`, `aliases.json`, `network.json`, `build_report.json`)
+  - 154 routes compiled from official schedule PDFs
+  - 1,430 logical canonical stops with stable IDs
+  - 164 directional sequence lists (1,491 stop occurrences)
+  - 302 schedules compiled with 5,549 validated `HH:MM` departure times (0 malformed)
+  - 2,924 alias mappings registered
+  - Two explicit stop sets maintained: Logical Canonical Stops vs Routable Geographic Stops
+  - Zero coordinate fabrication enforced (unresolved stops stay `lat: null`, `lon: null`)
+  - Offline deterministic compiler: `scripts/compile_canonical_transit.py`
+  - Integrity validator: `scripts/validate_canonical_transit.py`
+  - Test suite: `backend/tests/test_canonical_transit_pipeline.py` (14 passing assertions)
+
+- [ ] **Track B2 — Wire Backend Dijkstra Router to Canonical Network** (Deferred until B1 review)
+- [ ] **Track B3 — Sync Frontend Transit Fallbacks from Canonical Source** (Deferred until B1 review)
+
 
 ---
 
