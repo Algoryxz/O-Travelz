@@ -51,9 +51,9 @@ describe("Western Odisha Map Integration Service", () => {
 
   describe("2. Destination Proximity Map Features", () => {
     it("retrieves map features for destination and its nearby facilities", () => {
-      const destFeatures = getNearbyFeaturesForDestination("place_sundargarh_001");
+      const destFeatures = getNearbyFeaturesForDestination("place_sambalpur_002");
       expect(destFeatures.length).toBeGreaterThan(0);
-      expect(destFeatures[0].canonical_ref.id).toBe("place_sundargarh_001");
+      expect(destFeatures[0].canonical_ref.id).toBe("place_sambalpur_002");
     });
   });
 

@@ -270,8 +270,32 @@ export interface GroundedConversationResponse {
 
 /* ================= Phase 6A: Map Projection Contracts ================= */
 
-export type MapEntity = "place" | "stop" | "route";
-export type FeatureType = "place" | "stop" | "route_line";
+export type MapEntity =
+  | "place"
+  | "stop"
+  | "route"
+  | "tourist_place"
+  | "hotel"
+  | "restaurant"
+  | "atm"
+  | "petrol_pump"
+  | "hospital"
+  | "police_station"
+  | "transport";
+
+export type FeatureType =
+  | "place"
+  | "stop"
+  | "route_line"
+  | "tourist_place"
+  | "hotel"
+  | "restaurant"
+  | "atm"
+  | "petrol_pump"
+  | "hospital"
+  | "police_station"
+  | "transport";
+
 export type GeometryStatus = "available" | "unavailable";
 export type UnavailableReason =
   | "coordinate_unverified"

@@ -49,16 +49,33 @@ export const MapView: React.FC<MapViewProps> = ({
     if (selectedPlace && selectedPlace.id) {
       const nearbyFeats = getNearbyFeaturesForDestination(selectedPlace.id);
       if (nearbyFeats.length > 0) return nearbyFeats;
+
+      if (selectedPlace.lat != null && selectedPlace.lon != null) {
+        return [
+          {
+            canonical_ref: { entity: "place" as const, id: selectedPlace.id },
+            name: selectedPlace.name,
+            category: selectedPlace.category || "place",
+            region: selectedPlace.location || undefined,
+            feature_type: "place" as const,
+            geometry_status: "available" as const,
+            geometry: {
+              type: "Point" as const,
+              coordinates: [selectedPlace.lon, selectedPlace.lat] as [number, number],
+            },
+          },
+        ];
+      }
     }
     if (allPlaces && allPlaces.length > 0) {
       const mapped = allPlaces
         .filter((p) => p.lat != null && p.lon != null)
         .map((p) => ({
-          canonical_ref: { entity: "place", id: p.id || p.name },
+          canonical_ref: { entity: "place" as const, id: p.id || p.name },
           name: p.name,
           category: p.category,
           region: p.location || undefined,
-          feature_type: "place",
+          feature_type: "place" as const,
           geometry_status: "available" as const,
           geometry: {
             type: "Point" as const,
@@ -67,8 +84,7 @@ export const MapView: React.FC<MapViewProps> = ({
         }));
       if (mapped.length > 0) return mapped;
     }
-    // Default fallback: return all verified Western Odisha map features
-    return getAllWesternOdishaMapFeatures();
+    return [];
   }, [projection, allPlaces, selectedPlace]);
 
   const hasMapContent = featuresToRender.length > 0 || (projection && projection.relationships.length > 0);

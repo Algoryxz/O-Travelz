@@ -9,7 +9,7 @@
  * Excludes invalid, missing, or (0,0) placeholder coordinates.
  */
 
-import type { MapFeature } from "../types/api";
+import type { FeatureType, MapEntity, MapFeature } from "../types/api";
 import { isValidCoordinate } from "../utils/geoUtils";
 import { getNearbyFacilitiesForPlace } from "./geospatialRelationshipService";
 
@@ -52,8 +52,8 @@ export function getAllWesternOdishaMapFeatures(): MapFeature[] {
     district: string,
     lat: unknown,
     lon: unknown,
-    featureType: string,
-    verificationStatus: string = "verified"
+    featureType: FeatureType,
+    _verificationStatus: string = "verified"
   ) => {
     if (!isValidCoordinate(lat, lon)) return;
 
@@ -61,7 +61,7 @@ export function getAllWesternOdishaMapFeatures(): MapFeature[] {
     const numLon = typeof lon === "number" ? lon : Number(lon);
 
     const feat: MapFeature = {
-      canonical_ref: { entity: featureType, id },
+      canonical_ref: { entity: featureType as MapEntity, id },
       name,
       category,
       region: district,
@@ -78,37 +78,40 @@ export function getAllWesternOdishaMapFeatures(): MapFeature[] {
   };
 
   // 1. Tourist Places (161)
-  for (const p of placesData as Array<{ id: string; name: string; category: string; district?: string; lat: unknown; lon: unknown }>) {
-    addPointFeature(p.id, p.name, p.category || "Tourist Attraction", p.district || "Odisha", p.lat, p.lon, "tourist_place");
+  for (const p of placesData as unknown as Array<{ id: string; name: string; category?: string; district?: string; lat?: unknown; lon?: unknown; latitude?: unknown; longitude?: unknown }>) {
+    const lat = p.lat ?? p.latitude;
+    const lon = p.lon ?? p.longitude;
+    addPointFeature(p.id, p.name, p.category || "Tourist Attraction", p.district || "Odisha", lat, lon, "tourist_place");
   }
 
   // 2. Hotels & Accommodation (78)
-  for (const h of hotelsData as Array<{ id: string; name: string; category: string; district: string; latitude: unknown; longitude: unknown }>) {
+  for (const h of hotelsData as unknown as Array<{ id: string; name: string; category?: string; district: string; latitude: unknown; longitude: unknown }>) {
     addPointFeature(h.id, h.name, h.category || "Hotel", h.district, h.latitude, h.longitude, "hotel");
   }
 
   // 3. Restaurants & Dining (88)
-  for (const r of diningData as Array<{ id: string; name: string; cuisine?: string; district: string; latitude: unknown; longitude: unknown }>) {
-    addPointFeature(r.id, r.name, r.cuisine || "Restaurant", r.district, r.latitude, r.longitude, "restaurant");
+  for (const r of diningData as unknown as Array<{ id: string; name: string; cuisine?: string | string[]; district: string; latitude: unknown; longitude: unknown }>) {
+    const cuisineStr = Array.isArray(r.cuisine) ? r.cuisine.join(", ") : (r.cuisine || "Restaurant");
+    addPointFeature(r.id, r.name, cuisineStr, r.district, r.latitude, r.longitude, "restaurant");
   }
 
   // 4. Police Stations (71)
-  for (const pol of safetyData as Array<{ id: string; name: string; district: string; latitude: unknown; longitude: unknown }>) {
+  for (const pol of safetyData as unknown as Array<{ id: string; name: string; district: string; latitude: unknown; longitude: unknown }>) {
     addPointFeature(pol.id, pol.name, "Police Station", pol.district, pol.latitude, pol.longitude, "police_station");
   }
 
   // 5. ATMs & Cash Points (112)
-  for (const atm of financeData as Array<{ id: string; name: string; bank?: string; district: string; latitude: unknown; longitude: unknown }>) {
+  for (const atm of financeData as unknown as Array<{ id: string; name: string; bank?: string; district: string; latitude: unknown; longitude: unknown }>) {
     addPointFeature(atm.id, atm.name, atm.bank || "ATM", atm.district, atm.latitude, atm.longitude, "atm");
   }
 
   // 6. Petrol Pumps (98)
-  for (const fuel of fuelData as Array<{ id: string; name: string; brand?: string; district: string; latitude: unknown; longitude: unknown }>) {
+  for (const fuel of fuelData as unknown as Array<{ id: string; name: string; brand?: string; district: string; latitude: unknown; longitude: unknown }>) {
     addPointFeature(fuel.id, fuel.name, fuel.brand || "Petrol Pump", fuel.district, fuel.latitude, fuel.longitude, "petrol_pump");
   }
 
   // 7. Hospitals & Medical Care (76)
-  for (const hosp of healthData as Array<{ id: string; name: string; district: string; latitude: unknown; longitude: unknown }>) {
+  for (const hosp of healthData as unknown as Array<{ id: string; name: string; district: string; latitude: unknown; longitude: unknown }>) {
     addPointFeature(hosp.id, hosp.name, "Hospital", hosp.district, hosp.latitude, hosp.longitude, "hospital");
   }
 
