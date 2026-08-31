@@ -902,12 +902,19 @@ export interface PlaceMatchCandidate {
 
 export interface ImageIdentifyResponse {
   query_type: "image";
-  status: "success" | "uncertain" | "no_match";
+  status: "verified_match" | "success" | "uncertain" | "no_match" | "provider_unavailable" | "invalid_image";
+  mode?: "real_multimodal" | "heuristic_fallback" | "unavailable";
   message: string;
+  candidate_name?: string | null;
+  canonical_place_id?: string | null;
+  confidence?: number | null;
   top_match: PlaceMatchCandidate | null;
   candidates: PlaceMatchCandidate[];
+  alternatives?: PlaceMatchCandidate[];
+  evidence?: EvidenceItem[];
   confidence_summary?: string;
 }
+
 
 
 

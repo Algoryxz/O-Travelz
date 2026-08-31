@@ -4,6 +4,7 @@ import { apiClient } from '../../api/client';
 import { useLocation } from '../../context/LocationContext';
 import { useSavedPlaces } from '../../store/useSavedPlaces';
 import { calculateHaversineDistanceKm, formatDistance, isValidCoordinate } from '../../utils/geoUtils';
+import { EvidenceDrawer } from '../ai/EvidenceDrawer';
 import type { StitchTab } from '../stitch/StitchNavbar';
 
 interface ImageIdentifyModalProps {
@@ -50,7 +51,7 @@ export const ImageIdentifyModal: React.FC<ImageIdentifyModalProps> = ({
           setResponse(result);
           if (result.top_match) {
             setSelectedCandidate(result.top_match);
-          } else if (result.candidates.length > 0) {
+          } else if (result.candidates && result.candidates.length > 0) {
             setSelectedCandidate(result.candidates[0]);
           }
         }
@@ -79,27 +80,53 @@ export const ImageIdentifyModal: React.FC<ImageIdentifyModalProps> = ({
       : null;
 
   const getTierBadge = (tier: string) => {
-    if (tier === 'Likely Match') {
+    if (tier === 'Likely Match' || response?.status === 'verified_match') {
       return (
-        <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#2F523E] bg-[#2F523E]/10 px-2.5 py-0.5 rounded-full">
+        <span data-testid="badge-likely-match" className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#2F523E] bg-[#2F523E]/10 px-2.5 py-0.5 rounded-full">
           <span className="w-1.5 h-1.5 rounded-full bg-[#2F523E]"></span>
-          <span>Likely Match</span>
+          <span>Recognized</span>
         </span>
       );
     }
     if (tier === 'Possible Match') {
       return (
-        <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#B87B22] bg-[#B87B22]/10 px-2.5 py-0.5 rounded-full">
+        <span data-testid="badge-possible-match" className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#B87B22] bg-[#B87B22]/10 px-2.5 py-0.5 rounded-full">
           <span className="w-1.5 h-1.5 rounded-full bg-[#B87B22]"></span>
           <span>Possible Match</span>
         </span>
       );
     }
     return (
-      <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#70798B] bg-[#70798B]/10 px-2.5 py-0.5 rounded-full">
-        <span>Uncertain Landmark</span>
+      <span data-testid="badge-uncertain-match" className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#70798B] bg-[#70798B]/10 px-2.5 py-0.5 rounded-full">
+        <span>Could not confidently identify</span>
       </span>
     );
+  };
+
+  const getModeBadge = (mode?: string) => {
+    if (mode === 'real_multimodal') {
+      return (
+        <span
+          data-testid="mode-badge-vision"
+          className="inline-flex items-center gap-1 text-[10px] font-mono font-semibold text-[#1D63A8] bg-[#EEF4FB] px-2 py-0.5 rounded-full border border-[#C7DDF5]"
+        >
+          <span className="material-symbols-outlined text-[11px]">visibility</span>
+          <span>AI visual match</span>
+        </span>
+      );
+    }
+    if (mode === 'heuristic_fallback') {
+      return (
+        <span
+          data-testid="mode-badge-heuristic"
+          className="inline-flex items-center gap-1 text-[10px] font-mono font-semibold text-[#7B2E8D] bg-[#F3EBF7] px-2 py-0.5 rounded-full border border-[#E1C8EA]"
+        >
+          <span className="material-symbols-outlined text-[11px]">fingerprint</span>
+          <span>Fallback signature match</span>
+        </span>
+      );
+    }
+    return null;
   };
 
   return (
@@ -155,18 +182,33 @@ export const ImageIdentifyModal: React.FC<ImageIdentifyModalProps> = ({
 
           {/* Error Message */}
           {error && (
-            <div className="p-4 rounded-2xl bg-[#FFF5F5] border border-[#9E2A2B]/30 text-[#9E2A2B] text-xs font-mono">
+            <div data-testid="identify-error" className="p-4 rounded-2xl bg-[#FFF5F5] border border-[#9E2A2B]/30 text-[#9E2A2B] text-xs font-mono">
               ⚠️ {error}
             </div>
           )}
 
+          {/* Invalid image status banner */}
+          {response?.status === 'invalid_image' && !loading && (
+            <div data-testid="invalid-image-state" className="p-4 rounded-2xl bg-[#FFF5F5] border border-[#9E2A2B]/30 text-[#9E2A2B] text-xs font-mono">
+              ⚠️ {response.message || 'Invalid or corrupted image format. Please upload a clear photo.'}
+            </div>
+          )}
+
+          {/* Provider unavailable banner */}
+          {response?.status === 'provider_unavailable' && !loading && (
+            <div data-testid="provider-unavailable-state" className="p-4 rounded-2xl bg-[#FEF6E7] border border-[#B87B22]/30 text-[#B87B22] text-xs font-mono">
+              ℹ️ Vision temporarily unavailable. Showing suggested Odisha landmarks.
+            </div>
+          )}
+
           {/* Active Identified Place Match Card */}
-          {activeMatch && !loading && (
+          {activeMatch && !loading && response?.status !== 'invalid_image' && (
             <div className="space-y-4 animate-in fade-in duration-300">
               <div className="p-5 rounded-2xl bg-white border border-[#E5DFD5] shadow-xs space-y-3">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     {getTierBadge(activeMatch.confidence_tier)}
+                    {getModeBadge(response?.mode)}
                     {matchDistance && (
                       <span className="text-xs font-mono font-semibold text-[#70798B]">
                         • {matchDistance} away
@@ -191,10 +233,16 @@ export const ImageIdentifyModal: React.FC<ImageIdentifyModalProps> = ({
                   {activeMatch.reason}
                 </p>
 
+                {/* Evidence Drawer */}
+                {response?.evidence && response.evidence.length > 0 && (
+                  <EvidenceDrawer evidenceItems={response.evidence} />
+                )}
+
                 {/* Primary Action Buttons */}
                 <div className="flex flex-wrap items-center gap-2 pt-2">
                   <button
                     type="button"
+                    data-testid="identify-view-map-btn"
                     onClick={() => {
                       onClose();
                       onNavigate('map', { placeId: activeMatch.place_id });
@@ -207,6 +255,7 @@ export const ImageIdentifyModal: React.FC<ImageIdentifyModalProps> = ({
 
                   <button
                     type="button"
+                    data-testid="identify-plan-trip-btn"
                     onClick={() => {
                       onClose();
                       onNavigate('plan', { placeId: activeMatch.place_id });
@@ -219,6 +268,7 @@ export const ImageIdentifyModal: React.FC<ImageIdentifyModalProps> = ({
 
                   <button
                     type="button"
+                    data-testid="identify-save-btn"
                     onClick={() =>
                       toggleSave({
                         id: activeMatch.place_id,
@@ -254,6 +304,7 @@ export const ImageIdentifyModal: React.FC<ImageIdentifyModalProps> = ({
                         <button
                           key={cand.place_id}
                           type="button"
+                          data-testid={`candidate-${cand.place_id}`}
                           onClick={() => setSelectedCandidate(cand)}
                           className="text-left p-3 rounded-xl bg-white hover:bg-[#FAF7F2] border border-[#E5DFD5] hover:border-[#B87B22]/40 transition-colors cursor-pointer space-y-1"
                         >
