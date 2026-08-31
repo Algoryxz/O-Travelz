@@ -24,6 +24,7 @@ import {
   resolvePlaceImageUrl,
 } from "../../utils/imageAdapter";
 import { useRecentPlaces } from "../../store/useRecentPlaces";
+import { NearbyFacilities } from "./NearbyFacilities";
 
 export interface SelectedPlaceInfo {
   id?: string;
@@ -333,6 +334,9 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
               </div>
             </div>
           )}
+
+          {/* Master Geospatial Nearby Facilities & Utilities */}
+          <NearbyFacilities sourceId={place.id} />
         </div>
 
         {/* Action Buttons Strip */}
