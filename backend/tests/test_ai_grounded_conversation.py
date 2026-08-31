@@ -393,10 +393,18 @@ def test_empty_or_unsupported_queries_honest_handling(test_orchestrator):
     res_empty = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="   ")])
     assert res_empty.status == AIStatus.ERROR
 
-    # Unsupported preference (e.g. less walking)
-    res_unsupported = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Plan 2 days with less walking")])
+    # Supported preference (low walking) succeeds
+    res_walking = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Plan 2 days with less walking")])
+    assert res_walking.status == AIStatus.SUCCESS
+    assert res_walking.constraints.low_walking is True
+
+    # Unsupported preference (e.g. pace) is handled honestly
+    res_unsupported = test_orchestrator.converse(
+        [ChatMessage(role=ChatRole.USER, content="Plan 2 days in Puri")],
+        existing_constraints=PlanningConstraints(days=2, pace="ultra-fast"),
+    )
     assert res_unsupported.status == AIStatus.UNSUPPORTED
-    assert "cannot optimize walking distance" in res_unsupported.message
+    assert "cannot optimize these preferences yet: pace" in res_unsupported.message
 
     # Ambiguous general question needing clarification
     res_clarify = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="hello")])

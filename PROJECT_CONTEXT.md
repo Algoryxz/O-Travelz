@@ -146,10 +146,11 @@ Azure OpenAI
 
 AI is responsible for:
 
-- User intent parsing
+- User intent parsing & multi-constraint extraction (`avoid_crowds`, `low_walking`, `vegetarian`, `budget_conscious`, `public_transport_preferred`, `travel_party`)
 - Multilingual interpretation (English, Odia, Hindi)
-- Conversational interaction
-- Explanation and refinement of plans
+- Conversational interaction & multi-turn constraint preservation
+- Structured claim attribution via `ClaimType` (`VERIFIED`, `SCHEDULED`, `LIVE`, `ESTIMATED`, `RESEARCHED`, `UNKNOWN`) and `EvidenceItem` contracts
+- Explanation and conversational refinement of plans
 
 Deterministic services and verified datasets own:
 
@@ -158,6 +159,7 @@ Deterministic services and verified datasets own:
 - Transit stop names, coordinates, route numbers
 - Schedules and departure times
 - Factual itinerary construction
+
 
 ---
 

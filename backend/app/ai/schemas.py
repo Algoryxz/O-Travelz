@@ -112,6 +112,13 @@ class ConstraintUpdate(ContractModel):
     pace: str | None = None
     budget_transport_per_day: float | None = Field(default=None, ge=0)
     mobility: str | None = None
+    avoid_crowds: bool | None = None
+    low_walking: bool | None = None
+    vegetarian: bool | None = None
+    budget_conscious: bool | None = None
+    public_transport_preferred: bool | None = None
+    travel_party: str | None = None
+
 
 
 class ToolCall(ContractModel):

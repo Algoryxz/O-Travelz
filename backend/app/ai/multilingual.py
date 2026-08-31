@@ -208,11 +208,137 @@ def resolve_multilingual_location(text: str) -> Optional[str]:
 
 
 
+def extract_multilingual_preferences(text: str) -> dict[str, Any]:
+    """Extract structured travel preferences and constraints across English, Odia, and Hindi.
+
+    Extracts:
+    - avoid_crowds: bool
+    - low_walking: bool
+    - vegetarian: bool
+    - budget_conscious: bool
+    - public_transport_preferred: bool
+    - travel_party: str ('solo', 'couple', 'family', 'parents', 'friends', 'elderly', 'children')
+    """
+    if not text:
+        return {}
+
+    norm = normalize_multilingual_text(text)
+    text_lower = text.lower()
+    prefs: dict[str, Any] = {}
+
+    # 1. Avoid Crowds
+    crowd_patterns = (
+        r"\b(?:avoid|less|no|hate|fewer)\s+(?:crowds?|people)\b",
+        r"\b(?:less|least)\s+crowded\b",
+        r"\bquiet\s+(?:places?|spots?|time|destinations?)\b",
+        r"\b(?:peaceful|quiet)\b",
+        r"(?:ଭିଡ଼|ଭିଡ)\s*(?:କମ|କମ୍|ଏଡାନ୍ତୁ|ନାହିଁ)",
+        r"ଶାନ୍ତ\s*(?:ସ୍ଥାନ|ଜାଗା)?",
+        r"भीड़\s*(?:से\s*बचें|नहीं|मुक्त)",
+        r"कम\s*भीड़",
+        r"शांत\s*(?:जगह|जगहें|स्थान)?",
+    )
+    if any(re.search(pat, norm if re.search(r"[\u0900-\u097F\u0B00-\u0B7F]", pat) else text_lower) for pat in crowd_patterns):
+        prefs["avoid_crowds"] = True
+
+    # 2. Low Walking / Easy Pace
+    walking_patterns = (
+        r"\b(?:not\s+much|less|low|avoid|minimal|little|no|can'?t|cannot)\s+(?:walking|walk)\b",
+        r"\b(?:not|less)\s+tiring\b",
+        r"\b(?:easy\s+pace|light\s+walking)\b",
+        r"(?:କମ୍|କମ)\s*ଚାଲିବା",
+        r"ଚାଲିବା\s*(?:କମ୍|କମ)",
+        r"ଅଧିକ\s*ଚାଲିପାରିବେ\s*ନାହିଁ",
+        r"(?:କମ୍|କମ)\s*ପରିଶ୍ରମ",
+        r"(?:कम|ज्यादा\s*नहीं)\s*चलना",
+        r"पैदल\s*चलना\s*कम",
+        r"चलना\s*कम",
+        r"कम\s*थकाऊ",
+    )
+    if any(re.search(pat, norm if re.search(r"[\u0900-\u097F\u0B00-\u0B7F]", pat) else text_lower) for pat in walking_patterns):
+        prefs["low_walking"] = True
+
+    # 3. Vegetarian
+    veg_patterns = (
+        r"\b(?:vegetarian|pure\s+veg|veg\s+food|veg\s+only|pure\s+vegetarian|shakahari)\b",
+        r"\bno\s+non[- ]?veg\b",
+        r"ନିରାମିଷ(?:\s*ଖାଦ୍ୟ)?",
+        r"ଶାକାହାରୀ",
+        r"ଶୁଦ୍ଧ\s*ନିରାମିଷ",
+        r"शाकाहारी(?:\s*भोजन)?",
+        r"शुद्ध\s*शाकाहारी",
+        r"\bवेज\s*(?:खाना)?\b",
+    )
+    if any(re.search(pat, norm if re.search(r"[\u0900-\u097F\u0B00-\u0B7F]", pat) else text_lower) for pat in veg_patterns):
+        prefs["vegetarian"] = True
+
+    # 4. Budget Conscious
+    budget_patterns = (
+        r"\b(?:cheap|budget|budget[- ]friendly|low[- ]cost|economical|affordable|pocket[- ]friendly|cheapest)\b",
+        r"\bnot\s+expensive\b",
+        r"ଶସ୍ତା",
+        r"(?:କମ୍|କମ|ଅଳ୍ପ)\s*ଖର୍ଚ୍ଚ",
+        r"ବଜେଟ୍?",
+        r"ସୁଲଭ",
+        r"सस्त[ाीे]",
+        r"कम\s*(?:खर्च|पैसे)",
+        r"किफायती",
+        r"बजट",
+    )
+    if any(re.search(pat, norm if re.search(r"[\u0900-\u097F\u0B00-\u0B7F]", pat) else text_lower) for pat in budget_patterns):
+        prefs["budget_conscious"] = True
+
+    # 5. Public Transport Preferred
+    transit_patterns = (
+        r"\b(?:prefer\s+bus|public\s+transport|by\s+bus|mo\s+bus|ama\s+bus|prefer\s+transit|transit\s+only|bus\s+only|local\s+transport|bus\s+travel)\b",
+        r"ବସ(?:ରେ|\s*ଯାତ୍ରା)",
+        r"ସରକାରୀ\s*ବସ୍?",
+        r"ମୋ\s*ବସ୍?",
+        r"ଲୋକାଲ\s*ବସ୍?",
+        r"बस\s*(?:से|यात्रा)",
+        r"पब्लिक\s*ट्रांसपोर्ट",
+        r"मो\s*बस",
+        r"सरकारी\s*बस",
+    )
+    if any(re.search(pat, norm if re.search(r"[\u0900-\u097F\u0B00-\u0B7F]", pat) else text_lower) for pat in transit_patterns):
+        prefs["public_transport_preferred"] = True
+
+    # 6. Travel Party (specific first, then general)
+    party_found = None
+    # Parents
+    if any(w in text_lower for w in ("parents", "with parents", "with my parents", "mother and father", "mom and dad")) or any(w in norm for w in ("ବାପା ମା", "ବାପା ମାଆ", "ମାତା ପିତା", "माता पिता", "माता-पिता", "माताजी पिताजी")):
+        party_found = "parents"
+    # Elderly / Seniors
+    elif any(w in text_lower for w in ("elderly", "senior citizens", "senior citizen", "seniors", "old people", "aged")) or any(w in norm for w in ("ବରିଷ୍ଠ", "ବୟସ୍କ", "बुजुर्ग", "वरिष्ठ")):
+        party_found = "elderly"
+    # Couple / Honeymoon
+    elif any(w in text_lower for w in ("couple", "honeymoon", "with wife", "with husband", "with partner", "with spouse")) or any(w in norm for w in ("ଯୋଡ଼ି", "ଦମ୍ପତି", "युगल", "जोड़े")):
+        party_found = "couple"
+    # Children / Kids
+    elif any(w in text_lower for w in ("children", "with kids", "with child", "with children", "toddler", "toddlers")) or any(w in norm for w in ("ଶିଶୁ", "ପିଲାମାନେ", "ଛୋଟ ପିଲା", "बच्चों", "बच्चे")):
+        party_found = "children"
+    # Friends
+    elif any(w in text_lower for w in ("friends", "with friends", "with my friends", "buddies")) or any(w in norm for w in ("ସାଙ୍ଗମାନେ", "ସାଙ୍ଗଙ୍କ ସହିତ", "दोस्तों", "मित्रों")):
+        party_found = "friends"
+    # Family
+    elif any(w in text_lower for w in ("family", "with family", "with my family", "family trip")) or any(w in norm for w in ("ପରିବାର", "ପରିବାର ସହିତ", "परिवार", "परिवार के साथ")):
+        party_found = "family"
+    # Solo
+    elif any(w in text_lower for w in ("solo", "alone", "myself", "solo trip", "by myself")) or any(w in norm for w in ("ଏକାକୀ", "ଏକା", "अकेले", "सोलो")):
+        party_found = "solo"
+
+    if party_found:
+        prefs["travel_party"] = party_found
+
+    return prefs
+
+
 def is_refinement_query(text: str) -> bool:
     """Check if the user message indicates conversational refinement."""
     norm = normalize_multilingual_text(text)
     tokens = set(norm.split())
     return bool(tokens & REFINEMENT_KEYWORDS)
+
 
 
 def generate_grounded_itinerary_message(

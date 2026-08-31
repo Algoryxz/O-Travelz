@@ -8,6 +8,7 @@ from app.ai.multilingual import (
     detect_language,
     extract_multilingual_days,
     extract_multilingual_interests,
+    extract_multilingual_preferences,
     is_refinement_query,
     resolve_multilingual_location,
 )
@@ -249,12 +250,8 @@ class RuleBasedModelAdapter(ModelAdapter):
 
         saved_sample_places = (getattr(ctx_saved, "sample_places", None) or (ctx_saved.get("sample_places") if isinstance(ctx_saved, dict) else None)) if ctx_saved else []
 
-        # Handle unsupported preferences
-        if "less walking" in text_lower or "avoid walking" in text_lower or ("walking" in text_lower and "less" in text_lower):
-            return {
-                "kind": IntentKind.UNSUPPORTED.value,
-                "reason": "The current planner cannot optimize walking distance yet.",
-            }
+        # Extract structured travel preferences (avoid_crowds, low_walking, vegetarian, budget_conscious, public_transport_preferred, travel_party)
+        detected_prefs = extract_multilingual_preferences(text)
 
         # Context-aware: Medical / Emergency query or Medical map mode
         is_medical_query = any(w in text_lower for w in ("hospital", "emergency", "medical", "doctor", "ambulance", "ଡାକ୍ତରଖାନା", "ଚିକିତ୍ସା", "ଅସ୍ପତାଲ", "अस्पताल", "इमरजेंसी", "चिकित्सा"))
@@ -262,7 +259,7 @@ class RuleBasedModelAdapter(ModelAdapter):
             med_query = dest_district or loc_city or loc_district or "Puri"
             return {
                 "kind": IntentKind.PLANNING.value,
-                "constraints": {"days": 1, "interests": []},
+                "constraints": {"days": 1, "interests": [], **detected_prefs},
                 "tool_calls": [
                     {
                         "name": "search_places",
@@ -281,7 +278,7 @@ class RuleBasedModelAdapter(ModelAdapter):
         if is_transit_query or map_mode == "transit":
             return {
                 "kind": IntentKind.PLANNING.value,
-                "constraints": {"days": 1, "interests": []},
+                "constraints": {"days": 1, "interests": [], **detected_prefs},
                 "tool_calls": [
                     {
                         "name": "get_provider_status",
@@ -296,7 +293,7 @@ class RuleBasedModelAdapter(ModelAdapter):
             search_target = dest_name or dest_district or loc_city or loc_district or "Bhubaneswar"
             return {
                 "kind": IntentKind.PLANNING.value,
-                "constraints": {"days": 1, "interests": []},
+                "constraints": {"days": 1, "interests": [], **detected_prefs},
                 "tool_calls": [
                     {
                         "name": "search_places",
@@ -344,9 +341,9 @@ class RuleBasedModelAdapter(ModelAdapter):
         found_interests = self._extract_interests(text)
 
         refinement_words = (
-            "refine", "more", "add", "focused", "extend", "change", "switch", "reduce", "budget", "less", "optimize",
+            "refine", "more", "add", "focused", "extend", "change", "switch", "reduce", "budget", "less", "optimize", "also",
             "ଆହୁରି", "ଯୋଡ଼ନ୍ତୁ", "ଯୋଡ଼", "ବଦଳାନ୍ତୁ", "ଅଧିକ", "ସଂଶୋଧନ",
-            "और", "जोड़ो", "बदलो", "अधिक", "शामिल", "संशोधन",
+            "और", "जोड़ो", "बदलो", "अधिक", "शामिल", "संशोधन", "भी",
         )
 
         # If existing_constraints is None but planner_ctx is present and user asks for refinement
@@ -393,6 +390,9 @@ class RuleBasedModelAdapter(ModelAdapter):
                         merged.append(theme)
                 update_payload["interests"] = merged
 
+            # Merge newly extracted preferences into refinement update
+            update_payload.update(detected_prefs)
+
             # If user explicitly used refinement words or modified parameters
             is_refinement = (
                 bool(update_payload)
@@ -400,6 +400,7 @@ class RuleBasedModelAdapter(ModelAdapter):
                 or is_refinement_query(text)
                 or bool(detected_days)
                 or bool(detected_start)
+                or bool(detected_prefs)
             )
 
             if is_refinement:
@@ -412,7 +413,7 @@ class RuleBasedModelAdapter(ModelAdapter):
                 }
 
         # 2. No existing constraints -> check if user is asking to refine without context
-        if (any(w in text_lower for w in refinement_words) or is_refinement_query(text)) and not detected_days and not detected_start:
+        if (any(w in text_lower for w in refinement_words) or is_refinement_query(text)) and not detected_days and not detected_start and not detected_prefs:
             return {
                 "kind": IntentKind.CLARIFICATION.value,
                 "clarification": {
@@ -430,7 +431,7 @@ class RuleBasedModelAdapter(ModelAdapter):
         # 3. New planning request from scratch (or via context)
         if detected_days or detected_start or found_interests:
             days = detected_days if detected_days else 2
-            constraints: dict[str, Any] = {"days": days, "interests": found_interests}
+            constraints: dict[str, Any] = {"days": days, "interests": found_interests, **detected_prefs}
             if detected_start:
                 constraints["start"] = detected_start
 

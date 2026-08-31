@@ -15,6 +15,25 @@ from pydantic import Field
 from app.schemas.common import ContractModel
 
 
+class ClaimType(str, Enum):
+    VERIFIED = "verified"
+    SCHEDULED = "scheduled"
+    LIVE = "live"
+    ESTIMATED = "estimated"
+    RESEARCHED = "researched"
+    UNKNOWN = "unknown"
+
+
+class EvidenceItem(ContractModel):
+    """Compact structured evidence item grounding a recommendation."""
+
+    title: str = Field(min_length=1, description="Brief evidence headline or claim summary.")
+    rationale: str = Field(min_length=1, description="Factual rationale grounding the recommendation.")
+    claim_type: ClaimType = Field(default=ClaimType.VERIFIED, description="Truthfulness provenance classification.")
+    source: str | None = Field(default=None, description="Authoritative service or dataset source.")
+    confidence: str | None = Field(default=None, description="Confidence rating tier (e.g. 'high', 'moderate').")
+
+
 class ToolStatus(str, Enum):
     OK = "ok"
     UNAVAILABLE = "unavailable"

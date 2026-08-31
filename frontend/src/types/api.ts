@@ -49,6 +49,12 @@ export interface PlanningConstraints {
   budget_transport_per_day?: number | null;
   start?: string | null;
   mobility?: string | null;
+  avoid_crowds?: boolean | null;
+  low_walking?: boolean | null;
+  vegetarian?: boolean | null;
+  budget_conscious?: boolean | null;
+  public_transport_preferred?: boolean | null;
+  travel_party?: string | null;
 }
 
 export interface PlaceSummary {
@@ -227,10 +233,22 @@ export interface AIConverseRequest {
 }
 
 
+export type ClaimType = "verified" | "scheduled" | "live" | "estimated" | "researched" | "unknown";
+
+export interface EvidenceItem {
+  title: string;
+  rationale: string;
+  claim_type: ClaimType;
+  source?: string | null;
+  confidence?: string | null;
+}
+
 export interface GroundedConversationResponse {
   message: string;
   status: AIStatus;
   language?: string;
+  intent?: string | null;
+  constraints?: PlanningConstraints | null;
   itinerary?: ItineraryPlanResponse | null;
   places?: unknown[];
   transport?: TransportHop[];
@@ -240,8 +258,14 @@ export interface GroundedConversationResponse {
   clarification?: Clarification | null;
   changed_constraints?: PlanningConstraints | null;
   is_grounded: boolean;
+  verified_claims?: string[];
+  unverified_claims?: string[];
+  grounding_sources?: string[];
+  evidence_items?: EvidenceItem[];
+  degraded_services?: string[];
   warnings?: string[];
 }
+
 
 
 /* ================= Phase 6A: Map Projection Contracts ================= */

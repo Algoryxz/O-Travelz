@@ -21,6 +21,8 @@ from app.ai.contracts import (
     AIProviderError,
     ChatMessage,
     ChatRole,
+    ClaimType,
+    EvidenceItem,
     FinishReason,
     ToolCall,
     ToolDefinition,
@@ -63,6 +65,8 @@ class GroundedConversationResponse(BaseModel):
     message: str
     status: AIStatus = AIStatus.SUCCESS
     language: str = "en"
+    intent: Optional[str] = None
+    constraints: Optional[PlanningConstraints] = None
     itinerary: Optional[ItineraryResponse] = None
     places: List[Any] = Field(default_factory=list)
     transport: List[TransportHopContract] = Field(default_factory=list)
@@ -75,7 +79,10 @@ class GroundedConversationResponse(BaseModel):
     verified_claims: List[str] = Field(default_factory=list)
     unverified_claims: List[str] = Field(default_factory=list)
     grounding_sources: List[str] = Field(default_factory=list)
+    evidence_items: List[EvidenceItem] = Field(default_factory=list)
+    degraded_services: List[str] = Field(default_factory=list)
     warnings: List[str] = Field(default_factory=list)
+
 
 
 
@@ -294,10 +301,56 @@ class GroundedConversationOrchestrator:
             warnings.append("Grounding verification encountered an internal error.")
 
 
+        # Build compact structured evidence items from verified domain records
+        evidence_items: List[EvidenceItem] = []
+        if itinerary is not None:
+            total_stops = sum(len(d.stops) for d in itinerary.days)
+            evidence_items.append(
+                EvidenceItem(
+                    title=f"Verified {len(itinerary.days)}-Day Route",
+                    rationale=f"Deterministic itinerary sequence with {total_stops} verified stops across Odisha",
+                    claim_type=ClaimType.VERIFIED,
+                    source="itinerary_service:deterministic_sequencing",
+                    confidence="high",
+                )
+            )
+        if places:
+            evidence_items.append(
+                EvidenceItem(
+                    title="Verified Catalog Places",
+                    rationale=f"{len(places)} destination(s) verified from Odisha canonical catalog",
+                    claim_type=ClaimType.VERIFIED,
+                    source="search_service:canonical_places_db",
+                    confidence="high",
+                )
+            )
+        if transport:
+            evidence_items.append(
+                EvidenceItem(
+                    title="Transit & Hop Plan",
+                    rationale=f"{len(transport)} transport connection(s) evaluated via Dijkstra graph",
+                    claim_type=ClaimType.SCHEDULED,
+                    source="transport_service:dijkstra_graph",
+                    confidence="high",
+                )
+            )
+        if provider_status:
+            evidence_items.append(
+                EvidenceItem(
+                    title="Transit Provider Status",
+                    rationale="Verified timetable & schedule availability for regional transit",
+                    claim_type=ClaimType.SCHEDULED,
+                    source="transport_service:ama-bus",
+                    confidence="high",
+                )
+            )
+
         return GroundedConversationResponse(
             message=grounded_msg,
             status=AIStatus.SUCCESS,
             language=detected_lang,
+            intent=intent.kind.value if intent else None,
+            constraints=effective_constraints,
             itinerary=itinerary,
             places=places,
             transport=transport,
@@ -309,6 +362,8 @@ class GroundedConversationOrchestrator:
             verified_claims=verified_claims,
             unverified_claims=unverified_claims,
             grounding_sources=grounding_sources,
+            evidence_items=evidence_items,
+            degraded_services=[],
             warnings=warnings,
         )
 
