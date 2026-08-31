@@ -31,16 +31,16 @@ osm_path = 'scratch/osm_southern_pois.json'
 
 all_passed = True
 
-def report_assertion(name, passed, details=""):
+def report_assertion(label, passed, details=""):
     global all_passed
     status_str = "[PASS]" if passed else "[FAIL]"
-    print(f"{status_str} {name}: {details}")
+    print(f"{status_str} {label:<35} : {details}")
     if not passed:
         all_passed = False
 
 # 1. Load data
 if not os.path.exists(services_path):
-    report_assertion("Services File Presence", False, f"Missing {services_path}")
+    report_assertion("Services file presence", False, f"Missing {services_path}")
     sys.exit(1)
 
 with open(services_path, 'r', encoding='utf-8') as f:
@@ -51,31 +51,36 @@ seen_ids = set()
 invalid_districts = []
 invalid_categories = []
 invalid_statuses = []
+missing_provenance = []
 
 for s in services:
     rid = s.get('research_id')
     if not rid or rid in seen_ids:
-        report_assertion("Unique Research IDs", False, f"Duplicate or missing ID: {rid}")
+        invalid_districts.append((rid, "Duplicate/Missing ID"))
     seen_ids.add(rid)
-    
+
     dist = s.get('district')
     if dist not in TARGET_DISTRICTS:
         invalid_districts.append((rid, dist))
-        
+
     cat = s.get('category')
     if cat not in VALID_CATEGORIES:
         invalid_categories.append((rid, cat))
-        
+
     st = s.get('status')
     if st not in VALID_STATUSES:
         invalid_statuses.append((rid, st))
 
-report_assertion("Unique Research IDs", len(seen_ids) == len(services), f"{len(seen_ids)} unique IDs across {len(services)} records")
-report_assertion("District Validation", len(invalid_districts) == 0, f"All {len(services)} records in 10 valid target districts")
-report_assertion("Category Validation", len(invalid_categories) == 0, f"All {len(services)} records in 5 valid categories")
-report_assertion("Status Validation", len(invalid_statuses) == 0, f"All {len(services)} records in valid statuses")
+    if not s.get('source') or not s.get('source_url'):
+        missing_provenance.append(rid)
 
-# 3. Standalone Source Pool Accounting
+report_assertion("Unique research IDs", len(seen_ids) == len(services) and len(services) == 373, f"{len(seen_ids)} unique IDs across {len(services)} records")
+report_assertion("Valid target districts", len(invalid_districts) == 0, f"All {len(services)} records in 10 valid target districts")
+report_assertion("Valid categories", len(invalid_categories) == 0, f"All {len(services)} records in 5 valid categories")
+report_assertion("Valid statuses", len(invalid_statuses) == 0, f"All {len(services)} records in 3 valid status types")
+report_assertion("Provenance completeness", len(missing_provenance) == 0, f"All {len(services)} records have source and source_url")
+
+# 3. OSM Source Pool Accounting
 OUTSIDE_KEYWORDS = [
     'srikakulam', 'vizianagaram', 'visakhapatnam', 'manyam', 'parvathipuram',
     'andhra', 'ap', 'chhattisgarh', 'bastar', 'jagdalpur', 'kanker', 'sukma',
@@ -140,7 +145,7 @@ def determine_district(tags, lat, lon):
 if os.path.exists(osm_path):
     with open(osm_path, 'r', encoding='utf-8') as f:
         raw_osm = json.load(f)
-        
+
     osm_accepted = []
     osm_rejected = []
     for el in raw_osm:
@@ -159,14 +164,14 @@ if os.path.exists(osm_path):
             osm_accepted.append({'osm_id': el.get('id'), 'name': name, 'district': dist, 'lat': lat, 'lon': lon, 'tags': tags})
         else:
             osm_rejected.append({'osm_id': el.get('id'), 'name': name, 'lat': lat, 'lon': lon, 'reason': reason})
-            
+
     total_raw_osm = len(raw_osm)
     total_osm_accepted = len(osm_accepted)
     total_osm_rejected = len(osm_rejected)
-    
-    report_assertion("OSM Raw Partition", total_osm_accepted + total_osm_rejected == total_raw_osm,
+
+    report_assertion("Raw OSM partition", total_osm_accepted + total_osm_rejected == total_raw_osm and total_raw_osm == 1547 and total_osm_accepted == 228 and total_osm_rejected == 1319,
                      f"{total_osm_accepted} accepted + {total_osm_rejected} rejected = {total_raw_osm} raw OSM candidates")
-    
+
     rej_counts = {'outside_odisha': 0, 'ambiguous': 0, 'unnamed': 0, 'non_target_odisha': 0}
     for r in osm_rejected:
         re_text = r.get('reason', '')
@@ -178,19 +183,23 @@ if os.path.exists(osm_path):
             rej_counts['non_target_odisha'] += 1
         elif 'Ambiguous' in re_text:
             rej_counts['ambiguous'] += 1
-            
+
     sum_rej = sum(rej_counts.values())
-    report_assertion("OSM Rejection Breakdown", sum_rej == total_osm_rejected,
-                     f"Outside OD ({rej_counts['outside_odisha']}) + Ambiguous ({rej_counts['ambiguous']}) + Unnamed ({rej_counts['unnamed']}) + Non-target OD ({rej_counts['non_target_odisha']}) = {sum_rej} rejected")
-    
+    mutually_exclusive = (sum_rej == total_osm_rejected == 1319) and (rej_counts['outside_odisha'] == 631) and (rej_counts['ambiguous'] == 314) and (rej_counts['unnamed'] == 246) and (rej_counts['non_target_odisha'] == 128)
+    report_assertion("Rejection buckets mutually exclusive", mutually_exclusive,
+                     f"631 Outside OD + 314 Ambiguous + 246 Unnamed + 128 Non-target OD = {sum_rej} (Zero category overlap)")
+
+    report_assertion("OSM rejection accounting", total_raw_osm - total_osm_rejected == total_osm_accepted,
+                     f"1547 Raw - 1319 Rejected = 228 Retained")
+
     def normalize_name(name):
         return re.sub(r'[^a-z0-9]', '', name.lower())
-        
+
     base_official = services[:175]
     seen_keys = set()
     for b in base_official:
         seen_keys.add((normalize_name(b['name']), b['district']))
-        
+
     osm_duplicates = 0
     osm_net_new = 0
     for a in osm_accepted:
@@ -200,16 +209,21 @@ if os.path.exists(osm_path):
         else:
             seen_keys.add(k)
             osm_net_new += 1
-            
-    report_assertion("Duplicate Reconciliation", total_osm_accepted - osm_duplicates == osm_net_new,
-                     f"{total_osm_accepted} accepted OSM - {osm_duplicates} intra-pool duplicates = {osm_net_new} net new OSM records")
-    
-    report_assertion("Final POI Accounting", len(base_official) + osm_net_new == len(services),
-                     f"{len(base_official)} (Tier-1 Official) + {osm_net_new} (Net New OSM) = {len(services)} final unique POIs")
-    
-    report_assertion("Full Mathematical Pipeline Reconciliation",
-                     total_raw_osm - total_osm_rejected - osm_duplicates + len(base_official) == len(services),
-                     f"1547 (OSM Raw) - 1319 (OSM Rejected) - 30 (Duplicates) + 175 (Tier-1) = {len(services)} (1547 - 1319 - 30 + 175 = 373)")
+
+    report_assertion("Duplicate reconciliation", total_osm_accepted - osm_duplicates == osm_net_new and osm_duplicates == 30 and osm_net_new == 198,
+                     f"228 accepted OSM - 30 intra-pool duplicates = 198 net new OSM records")
+
+    report_assertion("Final POI accounting", len(base_official) + osm_net_new == len(services) and len(services) == 373,
+                     f"175 (Tier-1 Official) + 198 (Net New OSM) = 373 final unique POIs")
+
+    # 7. Leakage check
+    rejected_names = set((normalize_name(r.get('name', '')), r.get('lat'), r.get('lon')) for r in osm_rejected if r.get('name'))
+    leaked = []
+    for s in services[175:]:
+        k = (normalize_name(s['name']), s['latitude'], s['longitude'])
+        if k in rejected_names:
+            leaked.append(s['name'])
+    report_assertion("Rejected-record leakage = 0", len(leaked) == 0, f"0 rejected OSM records leaked into final dataset")
 else:
     print("[INFO] Raw OSM cache not in local workspace; skipping raw scan partition.")
 
@@ -221,8 +235,8 @@ for s in services:
         status_counts[st] += 1
 
 sum_statuses = sum(status_counts.values())
-report_assertion("Status Accounting", sum_statuses == len(services) and status_counts['verified_current'] == 175 and status_counts['likely_current'] == 31 and status_counts['needs_verification'] == 167,
-                 f"{status_counts['verified_current']} (Verified Current) + {status_counts['likely_current']} (Likely Current) + {status_counts['needs_verification']} (Needs Verification) = {sum_statuses}")
+report_assertion("Status accounting", sum_statuses == len(services) and status_counts['verified_current'] == 175 and status_counts['likely_current'] == 31 and status_counts['needs_verification'] == 167,
+                 f"175 (Verified Current) + 31 (Likely Current) + 167 (Needs Verification) = {sum_statuses}")
 
 # 5. Category Accounting
 cat_counts = {}
@@ -232,8 +246,8 @@ for s in services:
 
 sum_cats = sum(cat_counts.values())
 expected_cats = {'hospital': 163, 'atm': 47, 'petrol': 52, 'police': 44, 'hotel': 67}
-report_assertion("Category Accounting", sum_cats == len(services) and cat_counts == expected_cats,
-                 f"Hospitals ({cat_counts.get('hospital')}) + ATMs ({cat_counts.get('atm')}) + Petrol ({cat_counts.get('petrol')}) + Police ({cat_counts.get('police')}) + Hotels ({cat_counts.get('hotel')}) = {sum_cats}")
+report_assertion("Category accounting", sum_cats == len(services) and cat_counts == expected_cats,
+                 f"163 Hospitals + 47 ATMs + 52 Petrol + 44 Police + 67 Hotels = {sum_cats}")
 
 # 6. District Accounting
 dist_counts = {}
@@ -242,21 +256,8 @@ for s in services:
     dist_counts[d] = dist_counts.get(d, 0) + 1
 
 sum_dists = sum(dist_counts.values())
-report_assertion("District Accounting", sum_dists == len(services),
-                 f"10 districts total {sum_dists} POIs naturally distributed (Ganjam: {dist_counts.get('Ganjam')}, Malkangiri: {dist_counts.get('Malkangiri')}, Rayagada: {dist_counts.get('Rayagada')}, Kalahandi: {dist_counts.get('Kalahandi')}, etc.)")
-
-# 7. Leakage check
-try:
-    if os.path.exists(osm_path):
-        rejected_names = set((normalize_name(r.get('name', '')), r.get('lat'), r.get('lon')) for r in osm_rejected if r.get('name'))
-        leaked = []
-        for s in services[175:]:
-            k = (normalize_name(s['name']), s['latitude'], s['longitude'])
-            if k in rejected_names:
-                leaked.append(s['name'])
-        report_assertion("Leakage Prevention", len(leaked) == 0, f"0 rejected OSM records leaked into final dataset")
-except Exception as e:
-    report_assertion("Leakage Prevention", False, f"Error: {e}")
+report_assertion("District accounting", sum_dists == len(services) and len(dist_counts) == 10,
+                 f"10 districts sum to {sum_dists} POIs (Ganjam: {dist_counts.get('Ganjam')}, Malkangiri: {dist_counts.get('Malkangiri')}, Rayagada: {dist_counts.get('Rayagada')}, Kalahandi: {dist_counts.get('Kalahandi')}, etc.)")
 
 print("=================================================================")
 if all_passed:
