@@ -106,11 +106,14 @@ For entries passing steps 3 + 4:
 
 | Environment | Location | Behavior |
 |---|---|---|
-| **Research/staging** | `data/research/` | Raw, unverified, not served publicly |
-| **Staging candidates** | `data/places/places_staging.json` | Awaiting human review |
+| **Regional research staging** | `data/research/round2/{eastern,western,southern,northern}/` | Regional candidate research; validated via `scripts/validate_round2_research.py` |
+| **Research/staging (general)** | `data/research/` | Raw, unverified research artifacts, not served publicly |
+| **Staging candidates** | `data/places/places_staging.json` | Awaiting human review & image pipeline |
 | **Production** | `data/places/places.json` | Publishability gate passed; served to users |
 
-Data flows in one direction: staging → production (with human approval). Never the reverse.
+Regional research contributions go to `data/research/round2/`. Production catalog promotion is handled only after automated validation, image verification, and core-team review. See [`ROUND2_TEAM.md`](ROUND2_TEAM.md).
+
+Data flows in one direction: staging → production (with core team approval). Never the reverse.
 
 ---
 

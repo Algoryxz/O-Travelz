@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://o-travelz/schemas/round2/source.schema.json",
+  "title": "O-TRAVELZ Round 2 Research Source",
+  "description": "Schema for a source record documenting evidence for one or more candidate fields. One source does not need to prove everything — use multiple source records per candidate.",
+  "type": "object",
+  "required": [
+    "source_id",
+    "research_id",
+    "source_type",
+    "url"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Unique ID for this source record. Recommended format: {research_id}_src_{N}. Example: round2_east_001_src_1"
+    },
+    "research_id": {
+      "type": "string",
+      "pattern": "^round2_(east|west|south|north)_[0-9]{3}$",
+      "description": "The research_id of the candidate this source supports."
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "government",
+        "tourism",
+        "asi",
+        "osm",
+        "wikimedia",
+        "wikipedia",
+        "institutional",
+        "news",
+        "other"
+      ],
+      "description": "Type of source. 'government' = state/central government portal. 'tourism' = OTDC or official tourism body. 'asi' = Archaeological Survey of India. 'osm' = OpenStreetMap. 'wikimedia' = Wikimedia Commons (image source). 'wikipedia' = Wikipedia article (use for description context only; verify against primary sources). 'institutional' = university, reserve, museum, etc. 'news' = established news outlet. 'other' = document reason in notes."
+    },
+    "title": {
+      "type": "string",
+      "default": "",
+      "description": "Title of the source page or document."
+    },
+    "url": {
+      "type": "string",
+      "minLength": 10,
+      "description": "URL of the source. Must be a full URL."
+    },
+    "accessed_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "default": "",
+      "description": "Date this source was accessed. ISO date format: YYYY-MM-DD."
+    },
+    "supports": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "coordinates",
+          "description",
+          "opening_hours",
+          "image",
+          "category",
+          "district",
+          "name",
+          "contact",
+          "entry_fee"
+        ]
+      },
+      "default": [],
+      "description": "Which fields of the candidate record this source provides evidence for."
+    },
+    "notes": {
+      "type": "string",
+      "default": "",
+      "description": "Free-text notes: what specifically this source documents, quality notes, or caveats."
+    }
+  }
+}

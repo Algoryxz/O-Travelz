@@ -237,7 +237,7 @@ Separate **research inventory** from **publishable production catalog**.
 
 ```
 Source data
-  → ingest
+  → ingest (data/research/round2/{eastern,western,southern,northern}/)
     → normalize
       → deduplicate
         → coordinate verification
@@ -245,8 +245,10 @@ Source data
             → image validation
               → completeness validation
                 → publishability gate
-                  → production catalog
+                  → production catalog (data/places/places.json)
 ```
+
+Regional research contributions go to `data/research/round2/`. Production catalog promotion is handled only after automated validation, image verification, and core-team review. See [`ROUND2_TEAM.md`](ROUND2_TEAM.md) for team ownership and regional assignments.
 
 Records that fail any required gate stay in `staging/research`. They must not appear in the public product.
 

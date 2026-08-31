@@ -187,28 +187,34 @@ Goal: The planner explains its recommendations. Source/confidence labels are vis
 
 ---
 
-## Checkpoint 6 — Database Expansion
+## Checkpoint 6 — Database Expansion & Regional Research
 
-Goal: Expand the destination catalog for weakest-coverage districts. All additions must pass the publishability gate.
+Goal: Expand destination catalog across all 30 districts via structured regional research. All additions must pass automated staging validation and publishability gates.
 
-- [ ] **6.1** Identify 15–20 high-quality expansion candidates
-  - Priority districts: Boudh (2), Nuapada (2), Deogarh (2), Bargarh (2), Rayagada (2), Nabarangpur (2), Kendrapara (2)
-  - Sources: OTDC, ASI, Wikipedia (verified articles), official government tourism data
+- [ ] **6.1** Regional research staging & team assignments (see [`ROUND2_TEAM.md`](ROUND2_TEAM.md))
+  - Eastern: Rudra (Cuttack, Jagatsinghpur, Jajpur, Bhadrak, Kendrapara, Dhenkanal, Angul)
+  - Western: Akriti (Sambalpur, Bargarh, Jharsuguda, Balangir, Subarnapur, Nuapada, Deogarh, Sundargarh)
+  - Southern: Susmita (Ganjam, Gajapati, Koraput, Rayagada, Nabarangpur, Malkangiri, Kalahandi, Kandhamal, Boudh)
+  - Northern: Punam (Mayurbhanj, Balasore, Keonjhar, Puri, Khordha, Nayagarh)
+  - Priority target districts: Boudh (2), Nuapada (2), Deogarh (2), Bargarh (2), Rayagada (2), Nabarangpur (2), Kendrapara (2)
 
-- [ ] **6.2** Gather evidence for each candidate
-  - Verified coordinates (OSM or satellite cross-check)
-  - Factual description (≥ 50 words)
-  - Provenance URL or document
-  - At least one Wikimedia Commons CC-licensed image
+- [ ] **6.2** Automated validation of staged records
+  - Run: `python scripts/validate_round2_research.py`
+  - Validates schemas, bounding box (17.8–22.6°N, 81.4–87.5°E), district-region alignment, duplicates
 
-- [ ] **6.3** Run image acquisition and validation pipeline
-  - Scripts: `image_acquire.py` → `image_validate.py` → `update_publishability.py`
+- [ ] **6.3** Gather evidence & provenance for staged candidates
+  - Verified coordinates (OSM / satellite cross-check)
+  - Sourced factual description (≥ 50 characters)
+  - Provenance URL or document logged in `sources.json`
+  - Reusable CC-licensed image lead logged in `candidates.json`
 
-- [ ] **6.4** Human review of all candidate records before promotion
-  - Records pass staging review: placed in `places_staging.json`
-  - After approval: merged into `data/places/places.json`
+- [ ] **6.4** Core review & image pipeline
+  - Human cross-review by Core (Deepti + Smarak)
+  - Run image validation and variant generation
 
-- [ ] **6.5** Update `places.json` with approved records
+- [ ] **6.5** Publishability evaluation & production promotion
+  - Gate evaluation (`scripts/update_publishability.py`)
+  - Promotion to `data/places/places.json` by Core only
 
 **Checkpoint 6 done when**: 15–20 new publishable destinations added across underrepresented districts, all with verified coordinates and validated images.
 

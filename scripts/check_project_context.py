@@ -26,6 +26,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 REQUIRED_FILES: list[tuple[str, str]] = [
     ("PROJECT_CONTEXT.md", "Primary canonical context — must always exist"),
     ("AGENTS.md", "Coding agent operating rules — must always exist"),
+    ("ROUND2_TEAM.md", "Team roles, ownership, and regional research assignments"),
     ("ROUND2_PLAN.md", "Implementation checkpoint tracker — must always exist"),
     ("SYSTEM_DESIGN.md", "Service boundary documentation"),
     ("DATA_QUALITY.md", "Publishability and image pipeline rules"),
@@ -35,6 +36,8 @@ REQUIRED_FILES: list[tuple[str, str]] = [
     ("GEMINI.md", "Gemini/Antigravity entry point"),
     (".github/copilot-instructions.md", "GitHub Copilot / Cursor / Windsurf entry point"),
     ("docs/README.md", "Documentation index"),
+    ("data/research/round2/schema/candidate.schema.json", "Round 2 research candidate schema"),
+    ("data/research/round2/schema/source.schema.json", "Round 2 research source schema"),
 ]
 
 OPTIONAL_CROSS_REFERENCES: list[tuple[str, str, str]] = [

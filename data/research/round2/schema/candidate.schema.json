@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://o-travelz/schemas/round2/candidate.schema.json",
+  "title": "O-TRAVELZ Round 2 Research Candidate",
+  "description": "Schema for a destination candidate in the Round 2 regional research pipeline. Schema-valid does NOT imply production-ready.",
+  "type": "object",
+  "required": [
+    "research_id",
+    "name",
+    "district",
+    "region",
+    "category",
+    "researcher",
+    "verification_status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "research_id": {
+      "type": "string",
+      "pattern": "^round2_(east|west|south|north)_[0-9]{3}$",
+      "description": "Unique research ID. Format: round2_{east|west|south|north}_NNN. Example: round2_east_001",
+      "examples": ["round2_east_001", "round2_west_012", "round2_south_003", "round2_north_007"]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 200,
+      "description": "Canonical destination name. Use the official/government name, not colloquial or abbreviated forms."
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Known alternative names, spellings, or transliterations."
+    },
+    "district": {
+      "type": "string",
+      "enum": [
+        "Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Boudh",
+        "Cuttack", "Deogarh", "Dhenkanal", "Gajapati", "Ganjam",
+        "Jagatsinghpur", "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal",
+        "Kendrapara", "Keonjhar", "Khordha", "Koraput", "Malkangiri",
+        "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Puri",
+        "Rayagada", "Sambalpur", "Subarnapur", "Sundargarh"
+      ],
+      "description": "Official Odisha administrative district. Must be one of the 30 official districts."
+    },
+    "region": {
+      "type": "string",
+      "enum": ["eastern", "western", "southern", "northern"],
+      "description": "Round 2 research region — must match the assigned region for the submitting researcher."
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "heritage", "temple", "nature", "wildlife", "beach", "waterfall",
+        "lake", "hill", "museum", "cultural", "tribal", "pilgrimage",
+        "adventure", "food", "other"
+      ],
+      "description": "Destination category from the approved taxonomy."
+    },
+    "description": {
+      "type": "string",
+      "default": "",
+      "description": "Factual description. Minimum 50 characters for production candidacy. Must be sourced — do not invent content."
+    },
+    "lat": {
+      "type": ["number", "null"],
+      "minimum": 17.8,
+      "maximum": 22.6,
+      "default": null,
+      "description": "Latitude. Must be within Odisha bounding box (17.8–22.6). Leave null if unverified — do not invent."
+    },
+    "lon": {
+      "type": ["number", "null"],
+      "minimum": 81.4,
+      "maximum": 87.5,
+      "default": null,
+      "description": "Longitude. Must be within Odisha bounding box (81.4–87.5). Leave null if unverified — do not invent."
+    },
+    "coordinate_source": {
+      "type": "string",
+      "default": "",
+      "description": "Where the coordinates came from. Examples: 'OpenStreetMap Nominatim', 'Google Maps cross-check', 'OTDC official document'."
+    },
+    "coordinate_verification_status": {
+      "type": "string",
+      "enum": ["verified", "pending", "cross_checked", "unverified"],
+      "default": "pending",
+      "description": "'verified' = confirmed via OSM or official source. 'cross_checked' = checked against 2+ sources. 'pending' = needs verification. 'unverified' = researcher is not confident."
+    },
+    "primary_source_url": {
+      "type": "string",
+      "default": "",
+      "description": "URL of the primary source for this candidate (OTDC, ASI, government, Wikipedia). Required before production promotion."
+    },
+    "secondary_source_urls": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Additional supporting source URLs."
+    },
+    "image_source_url": {
+      "type": "string",
+      "default": "",
+      "description": "URL of a candidate image (Wikimedia Commons preferred). Leave blank if not yet found."
+    },
+    "image_source_domain": {
+      "type": "string",
+      "default": "",
+      "description": "Domain of the image source. Example: 'commons.wikimedia.org'."
+    },
+    "image_license_note": {
+      "type": "string",
+      "default": "",
+      "description": "License identifier or note. Example: 'CC BY-SA 4.0'. Must be a reusable license."
+    },
+    "image_status": {
+      "type": "string",
+      "enum": ["verified", "pending", "rejected", "missing"],
+      "default": "pending",
+      "description": "Image pipeline status. Only 'verified' satisfies the publishability gate. Researchers set 'pending'."
+    },
+    "researcher": {
+      "type": "string",
+      "enum": ["Rudra", "Akriti", "Susmita", "Punam", "Deepti", "Smarak"],
+      "description": "The team member who submitted this candidate."
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": ["research", "staging", "review", "rejected"],
+      "default": "research",
+      "description": "'research' = initial, not yet validated. 'staging' = passed automated validation. 'review' = under core team review. 'rejected' = will not be promoted."
+    },
+    "notes": {
+      "type": "string",
+      "default": "",
+      "description": "Free-text notes: uncertainty flags, conflicts with existing records, reviewer comments."
+    }
+  }
+}

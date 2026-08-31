@@ -11,17 +11,19 @@ Before changing **any** code in this repository:
 
 1. Read [`PROJECT_CONTEXT.md`](PROJECT_CONTEXT.md) — project background, architecture, and operating rules.
 2. Read [`ROUND2_PLAN.md`](ROUND2_PLAN.md) — current checkpoint status and ordered implementation plan.
-3. Read [`SYSTEM_DESIGN.md`](SYSTEM_DESIGN.md) if modifying service boundaries or introducing new modules.
-4. Read [`DATA_QUALITY.md`](DATA_QUALITY.md) if touching destinations, images, or publishability logic.
-5. Read [`TRANSIT_DATA.md`](TRANSIT_DATA.md) if touching Mo Bus / Ama Bus stops, routes, schedules, or the transit graph.
-6. Read [`DEMO_RUNBOOK.md`](DEMO_RUNBOOK.md) if modifying startup, environment, or demo behavior.
+3. Read [`ROUND2_TEAM.md`](ROUND2_TEAM.md) if working on regional dataset research, staging, or team roles.
+4. Read [`SYSTEM_DESIGN.md`](SYSTEM_DESIGN.md) if modifying service boundaries or introducing new modules.
+5. Read [`DATA_QUALITY.md`](DATA_QUALITY.md) if touching destinations, images, or publishability logic.
+6. Read [`TRANSIT_DATA.md`](TRANSIT_DATA.md) if touching Mo Bus / Ama Bus stops, routes, schedules, or the transit graph.
+7. Read [`DEMO_RUNBOOK.md`](DEMO_RUNBOOK.md) if modifying startup, environment, or demo behavior.
 
 ---
 
 ## Step 2 — Inspect Before Editing
 
-7. Inspect the **current Git HEAD** of relevant files. Do not assume state from documentation alone.
-8. Check recent `git log` for the affected module when the change involves a previously known bug or recent refactor.
+8. Inspect the **current Git HEAD** of relevant files. Do not assume state from documentation alone.
+9. Check recent `git log` for the affected module when the change involves a previously known bug or recent refactor.
+10. If working on regional research, read `ROUND2_TEAM.md`, the relevant regional README in `data/research/round2/`, and the schemas before staging records.
 
 ---
 
