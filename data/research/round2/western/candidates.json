@@ -1,1 +1,603 @@
-[]
+[
+  {
+    "research_id": "round2_west_001",
+    "name": "Yogimath Rock Art Site",
+    "aliases": [
+      "Yogimatha Prehistoric Cave Art",
+      "Risipiti Rock Art",
+      "Yogimatha Rock Painting"
+    ],
+    "district": "Nuapada",
+    "region": "western",
+    "category": "heritage",
+    "description": "Yogimath Rock Art Site is a renowned prehistoric rock shelter located near Risipiti village in Khariar block of Nuapada district. Dating back to the Mesolithic and Neolithic eras (circa 10th millennium BCE), the rock face preserves ancient red ochre pictographs depicting cattle, bull figures, and human stick figures representing some of the earliest artistic and pastoral records in eastern India.",
+    "lat": 20.3667,
+    "lon": 82.55,
+    "coordinate_source": "Odisha State Archaeology / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://nuapada.nic.in/tourist-place/yogimath/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Yogimatha"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Yogimath_Rock_Art.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "State protected archaeological rock shelter featuring prehistoric ochre paintings in Khariar."
+  },
+  {
+    "research_id": "round2_west_002",
+    "name": "Sunabeda Wildlife Sanctuary",
+    "aliases": [
+      "Sunabeda Tiger Reserve",
+      "Sunabeda Plateau Sanctuary",
+      "Sunabeda Wildlife Division"
+    ],
+    "district": "Nuapada",
+    "region": "western",
+    "category": "wildlife",
+    "description": "Sunabeda Wildlife Sanctuary is a vast 600-square-kilometer protected wildlife reserve and proposed tiger reserve spanning the high Sunabeda plateau in Nuapada district along the Odisha-Chhattisgarh border. Characterized by dense dry deciduous sal forests, deep canyons of the Jonk River, and expansive grasslands, it shelters Royal Bengal tigers, leopards, swamp deer (Barasingha), and sloth bears.",
+    "lat": 20.6,
+    "lon": 82.45,
+    "coordinate_source": "Principal Chief Conservator of Forests Odisha / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://nuapada.nic.in/tourist-place/sunabeda-wildlife-sanctuary/",
+    "secondary_source_urls": [
+      "https://forest.odisha.gov.in/",
+      "https://en.wikipedia.org/wiki/Sunabeda_Wildlife_Sanctuary"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/River_Jonk_at_Beniadhus_in_Sunabeda.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Sprawling wildlife sanctuary and tiger corridor on the Sunabeda plateau with Jonk river gorge."
+  },
+  {
+    "research_id": "round2_west_003",
+    "name": "Patalganga Sacred Spring",
+    "aliases": [
+      "Patalganga Nuapada",
+      "Patalganga Natural Spring",
+      "Patalganga Pitha Boden"
+    ],
+    "district": "Nuapada",
+    "region": "western",
+    "category": "nature",
+    "description": "Patalganga Sacred Spring is a revered natural freshwater spring and Shaivite pilgrimage destination situated in the undulating hills of Boden block in Nuapada district. Known as the local Ganges, the perennial crystal stream bubbles continuously from subterranean rocky strata into sacred bathing kunds surrounded by ancient deciduous forest groves.",
+    "lat": 20.4028,
+    "lon": 82.5222,
+    "coordinate_source": "District Administration Nuapada / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://nuapada.nic.in/tourist-place/patalganga/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Dense_forests_still_exist_in_pockets_in_Sunabeda.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Natural perennial rock spring and sacred spot 42 km from Nuapada headquarters."
+  },
+  {
+    "research_id": "round2_west_004",
+    "name": "Barpali Handloom Heritage Village",
+    "aliases": [
+      "Barpali Ikat Village",
+      "Sambalpuri Bastralaya Hub",
+      "Swabhaba Kabi Gangadhar Meher Smruti Pitha"
+    ],
+    "district": "Bargarh",
+    "region": "western",
+    "category": "cultural",
+    "description": "Barpali Handloom Heritage Village is an internationally acclaimed textile craft center in Bargarh district celebrated as the epicentre of Sambalpuri Bandha (Ikat) tie-and-dye weaving. Pioneered by Padmashree Dr. Krutartha Acharya who established the legendary Sambalpuri Bastralaya society, Barpali is home to hundreds of master artisan weaver families as well as the memorial of revered Odia poet Gangadhar Meher.",
+    "lat": 21.1833,
+    "lon": 83.5972,
+    "coordinate_source": "Directorate of Textiles & Handlooms Odisha / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://bargarh.nic.in/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Barpali"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Sambalpuri_saree1.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "World-famous Sambalpuri Ikat handloom weaving center and birthplace of poet Gangadhar Meher."
+  },
+  {
+    "research_id": "round2_west_005",
+    "name": "Bargarh Dhanu Yatra Open-Air Arena",
+    "aliases": [
+      "Dhanu Jatra Open Air Theatre",
+      "Bargarh Mathura Nagari",
+      "Hatapada Dhanu Yatra Ground"
+    ],
+    "district": "Bargarh",
+    "region": "western",
+    "category": "cultural",
+    "description": "Bargarh Dhanu Yatra Open-Air Arena is the celebrated 8-square-kilometer theatrical landscape in Bargarh recognized as the largest open-air theatre in the world. Commemorating the triumph of Lord Krishna over tyrannical King Kansa, the entire municipality transforms annually into Mathura with the Jeera River becoming the sacred Yamuna and Ambapali village enacting Gopapura across an 11-day theatrical epic.",
+    "lat": 21.3365,
+    "lon": 83.6215,
+    "coordinate_source": "District Administration Bargarh / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://bargarh.nic.in/festival/dhanu-yatra/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Dhanu_Jatra"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Dhanu_Yatra.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "World's largest open-air theatre festival spread across an 8 km radius in Bargarh."
+  },
+  {
+    "research_id": "round2_west_006",
+    "name": "Papanga Hill",
+    "aliases": [
+      "Papanga Pahar",
+      "Papaharana Hill",
+      "Veer Madho Singh Rock Shelter"
+    ],
+    "district": "Bargarh",
+    "region": "western",
+    "category": "hill",
+    "description": "Papanga Hill is a historic monolithic rocky hill and natural lookout rising dramatically above the plains in Bheden block of Bargarh district. Renowned in folklore for the sacred Papaharana stream, the rugged hill served as an impregnable natural fortress and battlefield for martyr Veer Madho Singh, Zamindar of Ghens, during the 1857 Indian rebellion against British colonial forces.",
+    "lat": 21.2833,
+    "lon": 83.5833,
+    "coordinate_source": "District Administration Bargarh / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://bargarh.nic.in/tourist-place/papanga-hill/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Sambalpuri_saree1.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Historic 1857 freedom struggle battlefield and natural hilltop lookout in Bheden block."
+  },
+  {
+    "research_id": "round2_west_007",
+    "name": "Lankeswari Temple, Sonepur",
+    "aliases": [
+      "Maa Lankeswari Pitha",
+      "Paschima Lanka Shrine",
+      "Mahanadi Riverbed Lankeswari Temple"
+    ],
+    "district": "Subarnapur",
+    "region": "western",
+    "category": "temple",
+    "description": "Lankeswari Temple is an ancient riverbed Shakti shrine situated on a granite outcrop midstream in the Mahanadi River at Sonepur in Subarnapur district. Revered as the presiding goddess of the historical territory of Paschima Lanka and guardian deity of ancient river navigators, the pitha dates back to the Somavamsi period and is noted for its distinctive Tantric Bali Jatra rituals.",
+    "lat": 20.8383,
+    "lon": 83.9211,
+    "coordinate_source": "District Administration Subarnapur / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://subarnapur.nic.in/tourist-place/lankeswari-temple/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Lankeswari_Temple"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Lankeswari_Thakurani_Sonepur_Subarnapur_Odisha.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Historic mid-stream riverbed Shakti shrine on the Mahanadi in Sonepur town."
+  },
+  {
+    "research_id": "round2_west_008",
+    "name": "Khaliapali Matha (Santha Kabi Bhima Bhoi Pitha)",
+    "aliases": [
+      "Bhima Bhoi Samadhi Pitha",
+      "Sunya Mandir Khaliapali",
+      "Mahima Dharma Ashram Khaliapali"
+    ],
+    "district": "Subarnapur",
+    "region": "western",
+    "category": "heritage",
+    "description": "Khaliapali Matha is the sacred hermitage and final resting place (Samadhi Pitha) of legendary 19th-century saint-poet, philosopher, and social reformer Santha Kabi Bhima Bhoi in Subarnapur district. Established in 1877, this central pilgrimage seat of Mahima Dharma contains the Sunya Mandir where Bhima Bhoi composed immortal philosophical hymns including the universal humanitarian stanza inscribed at the United Nations.",
+    "lat": 20.835,
+    "lon": 83.82,
+    "coordinate_source": "District Administration Subarnapur / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://subarnapur.nic.in/tourist-place/khaliapali/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Bhima_Bhoi"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Bhima_Bhoi_memorial%2C_Khaliapali_temple.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Sacred Mahima Dharma ashram and Samadhi Pitha of saint-poet Bhima Bhoi in Sonepur."
+  },
+  {
+    "research_id": "round2_west_009",
+    "name": "Metakani Temple, Ullunda",
+    "aliases": [
+      "Maa Metakani Pitha",
+      "Metakani Forest Shrine",
+      "Ullunda Metakani Temple"
+    ],
+    "district": "Subarnapur",
+    "region": "western",
+    "category": "temple",
+    "description": "Metakani Temple is an ancient and widely venerated village Shakti shrine located in the lush teak and sal forest belt of Ullunda block in Subarnapur district. Set along the picturesque Birmaharajpur-Sonepur highway, the shrine draws thousands of travelers and pilgrims for daily blessings and the vibrant annual Chaitra Yatra and Dussehra celebrations.",
+    "lat": 20.9317,
+    "lon": 83.9525,
+    "coordinate_source": "District Administration Subarnapur / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://subarnapur.nic.in/tourist-place/metakani/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Lankeswari_Thakurani_Sonepur_Subarnapur_Odisha.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Popular highway shrine and forest Shakti pitha in Ullunda block."
+  },
+  {
+    "research_id": "round2_west_010",
+    "name": "Maa Patneswari Temple, Patnagarh",
+    "aliases": [
+      "Patnagarh Patneswari Pitha",
+      "Kosaleswara Temple Complex Patnagarh",
+      "Old Patna Kingdom Capital Shrine"
+    ],
+    "district": "Balangir",
+    "region": "western",
+    "category": "temple",
+    "description": "Maa Patneswari Temple is a celebrated 12th-century Shakti shrine and historical capital seat of the Chauhan kings in Patnagarh, Balangir district. Built by Maharaja Ramai Deo as the tutelary goddess (Kuladevi) of the ancient Patna kingdom, the temple complex features Kalinga-Chauhan stone architecture, intricate Tantric motifs, and the adjacent Kosaleswara Mahadev temple.",
+    "lat": 20.7117,
+    "lon": 83.1361,
+    "coordinate_source": "Odisha State Archaeology / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://balangir.nic.in/tourist-place/patneswari-temple/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Patnagarh"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/ASI_signboard_for_Ranipur_Jharial_and_Inndralath_Temple.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Ancient Chauhan capital shrine and tutelary deity of Patna kingdom in Patnagarh."
+  },
+  {
+    "research_id": "round2_west_011",
+    "name": "Indralath Brick Temple, Ranipur Jharial",
+    "aliases": [
+      "Indralatha Temple",
+      "Ranipur Jharial Brick Shrine",
+      "Somavamsi Brick Monument"
+    ],
+    "district": "Balangir",
+    "region": "western",
+    "category": "heritage",
+    "description": "Indralath Brick Temple is a monumental 9th-century brick temple standing over 20 meters tall amidst the rocky outcrop of the archaeological complex at Ranipur Jharial in Balangir district. Built by Somavamsi rulers, it is one of the tallest surviving ancient brick temples in India and an outstanding centrally protected ASI monument of early medieval Kalinga architecture.",
+    "lat": 20.298,
+    "lon": 82.974,
+    "coordinate_source": "Archaeological Survey of India (ASI) / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://balangir.nic.in/tourist-place/ranipur-jharial/",
+    "secondary_source_urls": [
+      "https://asi.nic.in/",
+      "https://en.wikipedia.org/wiki/Indralath_Temple"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/ASI_signboard_for_Ranipur_Jharial_and_Inndralath_Temple.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Tallest surviving ancient brick temple in Odisha; centrally protected ASI monument."
+  },
+  {
+    "research_id": "round2_west_012",
+    "name": "Saintala Chandi Temple Archaeological Site",
+    "aliases": [
+      "Maa Chandeshwari Temple Saintala",
+      "Saintala Mahisamardini Site",
+      "Sainyatala Archaeological Ruins"
+    ],
+    "district": "Balangir",
+    "region": "western",
+    "category": "heritage",
+    "description": "Saintala Chandi Temple Archaeological Site preserves the exquisite stone ruins of a 9th-century Somavamsi temple complex located in Saintala in Balangir district. The site features a celebrated Mahishasuramardini Durga sanctum surrounded by masterfully sculpted red sandstone panels of the Dasavatara (ten avatars of Vishnu), Ganga-Yamuna river deities, and medieval decorative doorframes.",
+    "lat": 20.435,
+    "lon": 83.365,
+    "coordinate_source": "Odisha State Archaeology / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://balangir.nic.in/tourist-place/saintala/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Saintala"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/ASI_signboard_for_Ranipur_Jharial_and_Inndralath_Temple.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Historic 9th-century Somavamsi archaeological mound with Dasavatara stone carvings."
+  },
+  {
+    "research_id": "round2_west_013",
+    "name": "Ulapgarh Fort & Rock Enclosure",
+    "aliases": [
+      "Ulapgarh Hill Fort",
+      "Maheswar Pahar Fort",
+      "Ulap Prehistoric Rock Shelter"
+    ],
+    "district": "Jharsuguda",
+    "region": "western",
+    "category": "heritage",
+    "description": "Ulapgarh Fort is a dramatic 30-acre medieval stone fortress and prehistoric rock shelter perched atop the table-topped Maheswar Hill near Belpahar in Jharsuguda district. Serving as a defensive bastion for the Rajas of Patna and later as a strategic jungle hideout for Veer Surendra Sai's freedom fighters, the plateau retains ancient stone fortifications, guard posts, and rock carvings.",
+    "lat": 21.782,
+    "lon": 83.754,
+    "coordinate_source": "District Administration Jharsuguda / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://jharsuguda.nic.in/tourist-place/ulapgarh/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Gudguda_waterfall_front_view.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Historic hilltop stone fortress and 1857 freedom struggle redoubt near Belpahar."
+  },
+  {
+    "research_id": "round2_west_014",
+    "name": "Kolabira Fort",
+    "aliases": [
+      "Kolabira Zamindari Palace",
+      "Kolabira Agni Tirtha",
+      "Karunakar Nayak Fortress"
+    ],
+    "district": "Jharsuguda",
+    "region": "western",
+    "category": "heritage",
+    "description": "Kolabira Fort is a historic 19th-century royal palace fortress situated on the picturesque embankment of the Telen River in Kolabira block of Jharsuguda district. Revered as an Agni Tirtha of the Indian independence movement, it was the fortified seat of Zamindar Karunakar Nayak who valiantly allied with Veer Surendra Sai in the 1857 revolt against the British East India Company.",
+    "lat": 21.821,
+    "lon": 84.135,
+    "coordinate_source": "District Administration Jharsuguda / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://jharsuguda.nic.in/tourist-place/kolabira-fort/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sambalpur.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 3.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Riverside 1857 freedom struggle fort complex along the Telen River."
+  },
+  {
+    "research_id": "round2_west_015",
+    "name": "Jhadeswar Temple & Cave, Jharsuguda",
+    "aliases": [
+      "Baba Jhadeswar Temple",
+      "Jharsuguda Jhadeswar Pitha",
+      "Purana Basti Shiva Shrine"
+    ],
+    "district": "Jharsuguda",
+    "region": "western",
+    "category": "temple",
+    "description": "Jhadeswar Temple is the oldest and most revered Shaivite pilgrimage shrine in Jharsuguda town, located in Purana Basti near the Darlipali road. Enshrining a self-manifested Swayambhu Shiva Lingam within an ancient rock cavern and surrounded by sacred bilva and banyan trees, the temple is the focal point of the grand annual Maha Shivaratri fair.",
+    "lat": 21.856,
+    "lon": 84.008,
+    "coordinate_source": "District Administration Jharsuguda / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://jharsuguda.nic.in/tourist-place/jhadeswar-temple/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sambalpur.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 3.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Ancient town Shiva shrine and cave sanctuary in Purana Basti, Jharsuguda."
+  },
+  {
+    "research_id": "round2_west_016",
+    "name": "Gohira Dam & Reservoir",
+    "aliases": [
+      "Gohira Irrigation Reservoir",
+      "Ambaghat Dam",
+      "Gohira Eco Picnic Spot"
+    ],
+    "district": "Deogarh",
+    "region": "western",
+    "category": "lake",
+    "description": "Gohira Dam is a picturesque 3.5-kilometer earthen irrigation reservoir constructed across the Gohira River (a tributary of the Brahmani) near Ambaghat village in Deogarh district. Flanked by the rolling forested hills of the Eastern Ghats, the serene reservoir attracts migratory waterbirds during winter and serves as a popular eco-tourism and nature destination.",
+    "lat": 21.4694,
+    "lon": 84.5694,
+    "coordinate_source": "Department of Water Resources Odisha / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://deogarh.nic.in/tourist-place/gohira-dam/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Gudguda_waterfall_front_view.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Scenic water reservoir on Gohira river 28 km from Deogarh town."
+  },
+  {
+    "research_id": "round2_west_017",
+    "name": "Kurudkut Waterfall & Historic Hydro Site",
+    "aliases": [
+      "Kurudkut Cascade",
+      "Bamanda Hydroelectric Heritage",
+      "Kurudkut Falls"
+    ],
+    "district": "Deogarh",
+    "region": "western",
+    "category": "waterfall",
+    "description": "Kurudkut Waterfall is a picturesque tiered mountain cascade nestled within the dense sal forests of Deogarh district. The site is historically famous as the location where visionary ruler Raja Sir Basudeb Sudhal Deb of Bamra princely state commissioned one of Asia's earliest micro-hydroelectric power stations in 1906 to electrify the royal palace, municipal streetlights, and printing press.",
+    "lat": 21.542,
+    "lon": 84.728,
+    "coordinate_source": "District Administration Deogarh / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://deogarh.nic.in/tourist-place/pradhanpat/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Gudguda_waterfall_front_view.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Historic waterfall cascade and site of 1906 early micro-hydro generation in Bamra state."
+  },
+  {
+    "research_id": "round2_west_018",
+    "name": "Gudguda Waterfall",
+    "aliases": [
+      "Gudguda Waterfalls Kuchinda",
+      "Gudguda Eco-Tourism Camp",
+      "Kusumi Falls"
+    ],
+    "district": "Sambalpur",
+    "region": "western",
+    "category": "waterfall",
+    "description": "Gudguda Waterfall is a spectacular multi-tiered natural cascade nestled in a verdant mountain gorge near Kusumi village in Kuchinda subdivision of Sambalpur district. The crystal-clear mountain stream flows over naturally carved rock pools and stone chambers, creating one of Western Odisha's most popular eco-tourism and picnic retreats.",
+    "lat": 21.842,
+    "lon": 84.305,
+    "coordinate_source": "District Administration Sambalpur / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://sambalpur.nic.in/tourist-place/gudguda/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Kuchinda"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Gudguda_waterfall_front_view.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Multi-tier rock pool waterfall and eco-tourism destination in Kuchinda subdivision."
+  },
+  {
+    "research_id": "round2_west_019",
+    "name": "Budharaja Temple & Hill Park",
+    "aliases": [
+      "Budharaja Mandir Sambalpur",
+      "Budharaja Hill Top Park",
+      "Budharaja Shiva Pitha"
+    ],
+    "district": "Sambalpur",
+    "region": "western",
+    "category": "temple",
+    "description": "Budharaja Temple is an ancient hilltop Shaivite shrine and panoramic scenic viewpoint rising 100 meters in the heart of Sambalpur city. Accessible by a motorable road and 108 stone steps, the summit features the historic Shiva lingam temple and landscaped hill gardens providing 360-degree views of Sambalpur town, the Mahanadi River, and the Hirakud canal network.",
+    "lat": 21.4792,
+    "lon": 83.9789,
+    "coordinate_source": "District Administration Sambalpur / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://sambalpur.nic.in/tourist-place/budharaja-temple/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Sambalpur"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sambalpur.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 3.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Historic hilltop Shiva temple offering 360-degree panoramic view of Sambalpur."
+  },
+  {
+    "research_id": "round2_west_020",
+    "name": "Vedvyas Temple & Confluence, Rourkela",
+    "aliases": [
+      "Vedvyas Sangam",
+      "Maharshi Vyas Gufa Rourkela",
+      "Brahmani Confluence Vedvyas"
+    ],
+    "district": "Sundargarh",
+    "region": "western",
+    "category": "temple",
+    "description": "Vedvyas Temple is an ancient and sacred pilgrimage shrine located 14 km from Rourkela in Sundargarh district at the holy Triveni Sangam (confluence of Shankha, Koel, and subterranean Saraswati rivers forming the Brahmani River). Revered in epic tradition as the hermitage where Maharshi Ved Vyasa composed the Mahabharata, the complex features historic cave shrines, Vedic ashrams, and the annual Shivaratri Mela.",
+    "lat": 22.2472,
+    "lon": 84.7736,
+    "coordinate_source": "District Administration Sundargarh / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://sundergarh.nic.in/tourist-place/vedvyas/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Vedvyas,_Rourkela"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ved_Vyas%2C_Rourkela_-_1.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "Sacred river confluence of Shankha and Koel forming Brahmani river; Maharshi Vyasa ashram."
+  },
+  {
+    "research_id": "round2_west_021",
+    "name": "Tensa Hill Station & Nature Camp",
+    "aliases": [
+      "Tensa Hilltop Viewpoint",
+      "Tensa Bonai Eco Retreat",
+      "Zero Point Tensa"
+    ],
+    "district": "Sundargarh",
+    "region": "western",
+    "category": "hill",
+    "description": "Tensa Hill Station is a picturesque mountain retreat and eco-tourism camp situated over 800 meters above sea level in the Bonai Forest Division of Sundargarh district. Surrounded by dense virgin sal forests, misty mountain valleys, and rich iron ore ranges, Tensa features eco-cottages, observation towers, and pleasant round-the-year climate near the Khandadhar hills.",
+    "lat": 21.875,
+    "lon": 85.195,
+    "coordinate_source": "Odisha Ecotourism / Bonai Forest Division / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://sundergarh.nic.in/tourist-place/tensa/",
+    "secondary_source_urls": [
+      "https://ecotourodisha.com/",
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ved_Vyas%2C_Rourkela_-_1.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Akriti",
+    "verification_status": "staging",
+    "notes": "High-altitude hill retreat and eco-camp in Bonai hills at 800m elevation."
+  }
+]

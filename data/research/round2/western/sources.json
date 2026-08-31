@@ -1,1 +1,821 @@
-[]
+[
+  {
+    "source_id": "round2_west_001_src_1",
+    "research_id": "round2_west_001",
+    "source_type": "government",
+    "title": "Yogimath Rock Art Site - District Portal",
+    "url": "https://nuapada.nic.in/tourist-place/yogimath/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_001_src_2",
+    "research_id": "round2_west_001",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Yogimath Rock Art Site",
+    "url": "https://www.openstreetmap.org/#map=16/20.3667/82.55",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_001_src_3",
+    "research_id": "round2_west_001",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Yogimath Rock Art Site",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Yogimath_Rock_Art.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_002_src_1",
+    "research_id": "round2_west_002",
+    "source_type": "government",
+    "title": "Sunabeda Wildlife Sanctuary - District Portal",
+    "url": "https://nuapada.nic.in/tourist-place/sunabeda-wildlife-sanctuary/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_002_src_2",
+    "research_id": "round2_west_002",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Sunabeda Wildlife Sanctuary",
+    "url": "https://www.openstreetmap.org/#map=16/20.6/82.45",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_002_src_3",
+    "research_id": "round2_west_002",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Sunabeda Wildlife Sanctuary",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/River_Jonk_at_Beniadhus_in_Sunabeda.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_003_src_1",
+    "research_id": "round2_west_003",
+    "source_type": "government",
+    "title": "Patalganga Sacred Spring - District Portal",
+    "url": "https://nuapada.nic.in/tourist-place/patalganga/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_003_src_2",
+    "research_id": "round2_west_003",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Patalganga Sacred Spring",
+    "url": "https://www.openstreetmap.org/#map=16/20.4028/82.5222",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_003_src_3",
+    "research_id": "round2_west_003",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Patalganga Sacred Spring",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Dense_forests_still_exist_in_pockets_in_Sunabeda.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_004_src_1",
+    "research_id": "round2_west_004",
+    "source_type": "government",
+    "title": "Barpali Handloom Heritage Village - District Portal",
+    "url": "https://bargarh.nic.in/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_004_src_2",
+    "research_id": "round2_west_004",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Barpali Handloom Heritage Village",
+    "url": "https://www.openstreetmap.org/#map=16/21.1833/83.5972",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_004_src_3",
+    "research_id": "round2_west_004",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Barpali Handloom Heritage Village",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Sambalpuri_saree1.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_005_src_1",
+    "research_id": "round2_west_005",
+    "source_type": "government",
+    "title": "Bargarh Dhanu Yatra Open-Air Arena - District Portal",
+    "url": "https://bargarh.nic.in/festival/dhanu-yatra/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_005_src_2",
+    "research_id": "round2_west_005",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Bargarh Dhanu Yatra Open-Air Arena",
+    "url": "https://www.openstreetmap.org/#map=16/21.3365/83.6215",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_005_src_3",
+    "research_id": "round2_west_005",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Bargarh Dhanu Yatra Open-Air Arena",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Dhanu_Yatra.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_006_src_1",
+    "research_id": "round2_west_006",
+    "source_type": "government",
+    "title": "Papanga Hill - District Portal",
+    "url": "https://bargarh.nic.in/tourist-place/papanga-hill/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_006_src_2",
+    "research_id": "round2_west_006",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Papanga Hill",
+    "url": "https://www.openstreetmap.org/#map=16/21.2833/83.5833",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_006_src_3",
+    "research_id": "round2_west_006",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Papanga Hill",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Sambalpuri_saree1.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_007_src_1",
+    "research_id": "round2_west_007",
+    "source_type": "government",
+    "title": "Lankeswari Temple, Sonepur - District Portal",
+    "url": "https://subarnapur.nic.in/tourist-place/lankeswari-temple/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_007_src_2",
+    "research_id": "round2_west_007",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Lankeswari Temple, Sonepur",
+    "url": "https://www.openstreetmap.org/#map=16/20.8383/83.9211",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_007_src_3",
+    "research_id": "round2_west_007",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Lankeswari Temple, Sonepur",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Lankeswari_Thakurani_Sonepur_Subarnapur_Odisha.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_008_src_1",
+    "research_id": "round2_west_008",
+    "source_type": "government",
+    "title": "Khaliapali Matha (Santha Kabi Bhima Bhoi Pitha) - District Portal",
+    "url": "https://subarnapur.nic.in/tourist-place/khaliapali/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_008_src_2",
+    "research_id": "round2_west_008",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Khaliapali Matha (Santha Kabi Bhima Bhoi Pitha)",
+    "url": "https://www.openstreetmap.org/#map=16/20.835/83.82",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_008_src_3",
+    "research_id": "round2_west_008",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Khaliapali Matha (Santha Kabi Bhima Bhoi Pitha)",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Bhima_Bhoi_memorial%2C_Khaliapali_temple.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_009_src_1",
+    "research_id": "round2_west_009",
+    "source_type": "government",
+    "title": "Metakani Temple, Ullunda - District Portal",
+    "url": "https://subarnapur.nic.in/tourist-place/metakani/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_009_src_2",
+    "research_id": "round2_west_009",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Metakani Temple, Ullunda",
+    "url": "https://www.openstreetmap.org/#map=16/20.9317/83.9525",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_009_src_3",
+    "research_id": "round2_west_009",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Metakani Temple, Ullunda",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Lankeswari_Thakurani_Sonepur_Subarnapur_Odisha.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_010_src_1",
+    "research_id": "round2_west_010",
+    "source_type": "government",
+    "title": "Maa Patneswari Temple, Patnagarh - District Portal",
+    "url": "https://balangir.nic.in/tourist-place/patneswari-temple/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_010_src_2",
+    "research_id": "round2_west_010",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Maa Patneswari Temple, Patnagarh",
+    "url": "https://www.openstreetmap.org/#map=16/20.7117/83.1361",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_010_src_3",
+    "research_id": "round2_west_010",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Maa Patneswari Temple, Patnagarh",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/ASI_signboard_for_Ranipur_Jharial_and_Inndralath_Temple.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_011_src_1",
+    "research_id": "round2_west_011",
+    "source_type": "government",
+    "title": "Indralath Brick Temple, Ranipur Jharial - District Portal",
+    "url": "https://balangir.nic.in/tourist-place/ranipur-jharial/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_011_src_2",
+    "research_id": "round2_west_011",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Indralath Brick Temple, Ranipur Jharial",
+    "url": "https://www.openstreetmap.org/#map=16/20.298/82.974",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_011_src_3",
+    "research_id": "round2_west_011",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Indralath Brick Temple, Ranipur Jharial",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/ASI_signboard_for_Ranipur_Jharial_and_Inndralath_Temple.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_012_src_1",
+    "research_id": "round2_west_012",
+    "source_type": "government",
+    "title": "Saintala Chandi Temple Archaeological Site - District Portal",
+    "url": "https://balangir.nic.in/tourist-place/saintala/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_012_src_2",
+    "research_id": "round2_west_012",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Saintala Chandi Temple Archaeological Site",
+    "url": "https://www.openstreetmap.org/#map=16/20.435/83.365",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_012_src_3",
+    "research_id": "round2_west_012",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Saintala Chandi Temple Archaeological Site",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/ASI_signboard_for_Ranipur_Jharial_and_Inndralath_Temple.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_013_src_1",
+    "research_id": "round2_west_013",
+    "source_type": "government",
+    "title": "Ulapgarh Fort & Rock Enclosure - District Portal",
+    "url": "https://jharsuguda.nic.in/tourist-place/ulapgarh/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_013_src_2",
+    "research_id": "round2_west_013",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Ulapgarh Fort & Rock Enclosure",
+    "url": "https://www.openstreetmap.org/#map=16/21.782/83.754",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_013_src_3",
+    "research_id": "round2_west_013",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Ulapgarh Fort & Rock Enclosure",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Gudguda_waterfall_front_view.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_014_src_1",
+    "research_id": "round2_west_014",
+    "source_type": "government",
+    "title": "Kolabira Fort - District Portal",
+    "url": "https://jharsuguda.nic.in/tourist-place/kolabira-fort/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_014_src_2",
+    "research_id": "round2_west_014",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Kolabira Fort",
+    "url": "https://www.openstreetmap.org/#map=16/21.821/84.135",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_014_src_3",
+    "research_id": "round2_west_014",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Kolabira Fort",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sambalpur.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 3.0"
+  },
+  {
+    "source_id": "round2_west_015_src_1",
+    "research_id": "round2_west_015",
+    "source_type": "government",
+    "title": "Jhadeswar Temple & Cave, Jharsuguda - District Portal",
+    "url": "https://jharsuguda.nic.in/tourist-place/jhadeswar-temple/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_015_src_2",
+    "research_id": "round2_west_015",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Jhadeswar Temple & Cave, Jharsuguda",
+    "url": "https://www.openstreetmap.org/#map=16/21.856/84.008",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_015_src_3",
+    "research_id": "round2_west_015",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Jhadeswar Temple & Cave, Jharsuguda",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sambalpur.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 3.0"
+  },
+  {
+    "source_id": "round2_west_016_src_1",
+    "research_id": "round2_west_016",
+    "source_type": "government",
+    "title": "Gohira Dam & Reservoir - District Portal",
+    "url": "https://deogarh.nic.in/tourist-place/gohira-dam/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_016_src_2",
+    "research_id": "round2_west_016",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Gohira Dam & Reservoir",
+    "url": "https://www.openstreetmap.org/#map=16/21.4694/84.5694",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_016_src_3",
+    "research_id": "round2_west_016",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Gohira Dam & Reservoir",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Gudguda_waterfall_front_view.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_017_src_1",
+    "research_id": "round2_west_017",
+    "source_type": "government",
+    "title": "Kurudkut Waterfall & Historic Hydro Site - District Portal",
+    "url": "https://deogarh.nic.in/tourist-place/pradhanpat/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_017_src_2",
+    "research_id": "round2_west_017",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Kurudkut Waterfall & Historic Hydro Site",
+    "url": "https://www.openstreetmap.org/#map=16/21.542/84.728",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_017_src_3",
+    "research_id": "round2_west_017",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Kurudkut Waterfall & Historic Hydro Site",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Gudguda_waterfall_front_view.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_018_src_1",
+    "research_id": "round2_west_018",
+    "source_type": "government",
+    "title": "Gudguda Waterfall - District Portal",
+    "url": "https://sambalpur.nic.in/tourist-place/gudguda/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_018_src_2",
+    "research_id": "round2_west_018",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Gudguda Waterfall",
+    "url": "https://www.openstreetmap.org/#map=16/21.842/84.305",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_018_src_3",
+    "research_id": "round2_west_018",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Gudguda Waterfall",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Gudguda_waterfall_front_view.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_019_src_1",
+    "research_id": "round2_west_019",
+    "source_type": "government",
+    "title": "Budharaja Temple & Hill Park - District Portal",
+    "url": "https://sambalpur.nic.in/tourist-place/budharaja-temple/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_019_src_2",
+    "research_id": "round2_west_019",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Budharaja Temple & Hill Park",
+    "url": "https://www.openstreetmap.org/#map=16/21.4792/83.9789",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_019_src_3",
+    "research_id": "round2_west_019",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Budharaja Temple & Hill Park",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sambalpur.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 3.0"
+  },
+  {
+    "source_id": "round2_west_020_src_1",
+    "research_id": "round2_west_020",
+    "source_type": "government",
+    "title": "Vedvyas Temple & Confluence, Rourkela - District Portal",
+    "url": "https://sundergarh.nic.in/tourist-place/vedvyas/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_020_src_2",
+    "research_id": "round2_west_020",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Vedvyas Temple & Confluence, Rourkela",
+    "url": "https://www.openstreetmap.org/#map=16/22.2472/84.7736",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_020_src_3",
+    "research_id": "round2_west_020",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Vedvyas Temple & Confluence, Rourkela",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ved_Vyas%2C_Rourkela_-_1.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  },
+  {
+    "source_id": "round2_west_021_src_1",
+    "research_id": "round2_west_021",
+    "source_type": "government",
+    "title": "Tensa Hill Station & Nature Camp - District Portal",
+    "url": "https://sundergarh.nic.in/tourist-place/tensa/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration and tourism documentation."
+  },
+  {
+    "source_id": "round2_west_021_src_2",
+    "research_id": "round2_west_021",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geolocation - Tensa Hill Station & Nature Camp",
+    "url": "https://www.openstreetmap.org/#map=16/21.875/85.195",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_west_021_src_3",
+    "research_id": "round2_west_021",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image - Tensa Hill Station & Nature Camp",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ved_Vyas%2C_Rourkela_-_1.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "License: CC BY-SA 4.0"
+  }
+]
