@@ -1,1 +1,372 @@
-[]
+[
+  {
+    "source_id": "round2_south_001_src_1",
+    "research_id": "round2_south_001",
+    "source_type": "tourism",
+    "title": "Padmasambhava Mahavihara — Odisha Tourism Official Page",
+    "url": "https://odishatourism.gov.in/content/tourism/en/discover/attractions/pilgrimages/padmasambhava-mahavihara.html",
+    "accessed_at": "2026-08-31",
+    "supports": ["description", "name", "category", "district"],
+    "notes": "Official OTDC page for the monastery. Confirms it was inaugurated by the Dalai Lama in 2010 and is in Gajapati district."
+  },
+  {
+    "source_id": "round2_south_001_src_2",
+    "research_id": "round2_south_001",
+    "source_type": "wikipedia",
+    "title": "Padmasambhava Mahavihara monastery — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Padmasambhava_Mahavihara_monastery",
+    "accessed_at": "2026-08-31",
+    "supports": ["coordinates", "description", "name"],
+    "notes": "Wikipedia infobox provides coordinates (19.2733N, 84.2633E), confirmed against OSM Nominatim result (19.2716, 84.2638). Describes 5-storey complex and Tibetan refugee community at Phuntsokling."
+  },
+  {
+    "source_id": "round2_south_001_src_3",
+    "research_id": "round2_south_001",
+    "source_type": "wikimedia",
+    "title": "File:Padmasambhava Mahavihara Monastery.jpg — Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/wiki/File:Padmasambhava_Mahavihara_Monastery.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": ["image"],
+    "notes": "Wikipedia primary image for the monastery article. Licensed CC BY-SA (check specific sub-version on Commons). Directly labelled as this monastery."
+  },
+  {
+    "source_id": "round2_south_002_src_1",
+    "research_id": "round2_south_002",
+    "source_type": "tourism",
+    "title": "Tampara Beach — Odisha Tourism Official Page",
+    "url": "https://odishatourism.gov.in/content/tourism/en/discover/attractions/beaches/tampara-beach.html",
+    "accessed_at": "2026-08-31",
+    "supports": ["description", "name", "category"],
+    "notes": "Official OTDC page describing Tampara as a coastal lake near Chhatrapur, Ganjam. Mentions OTDC cottage and boating facility."
+  },
+  {
+    "source_id": "round2_south_002_src_2",
+    "research_id": "round2_south_002",
+    "source_type": "government",
+    "title": "Tampara — Ganjam District Administration",
+    "url": "https://ganjam.nic.in/tourist-place/tampara/",
+    "accessed_at": "2026-08-31",
+    "supports": ["description", "district", "coordinates"],
+    "notes": "District government portal page for Tampara. Confirms location in Ganjam district."
+  },
+  {
+    "source_id": "round2_south_002_src_3",
+    "research_id": "round2_south_002",
+    "source_type": "osm",
+    "title": "Tampara Lake — OpenStreetMap Nominatim",
+    "url": "https://nominatim.openstreetmap.org/search?q=Tampara+Lake,+Ganjam,+Odisha&format=json",
+    "accessed_at": "2026-08-31",
+    "supports": ["coordinates"],
+    "notes": "OSM Nominatim returned: Tampara Lake, New Aryapalli, Chhatrapur, Ganjam, Odisha at (19.347752, 84.9975178). Used as verified coordinates."
+  },
+  {
+    "source_id": "round2_south_002_src_4",
+    "research_id": "round2_south_002",
+    "source_type": "wikimedia",
+    "title": "File:Tampara lake.jpg — Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/wiki/File:Tampara_lake.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": ["image"],
+    "notes": "CC BY-SA 4.0. Dimensions: 2112x1188. Directly labelled as Tampara lake. A second image (Tampara_lake,_chatrapur.jpg, 1900x1069, CC BY-SA 4.0) also available."
+  },
+  {
+    "source_id": "round2_south_003_src_1",
+    "research_id": "round2_south_003",
+    "source_type": "government",
+    "title": "Potagarh — Ganjam District Administration",
+    "url": "https://ganjam.nic.in/tourist-place/potagarh/",
+    "accessed_at": "2026-08-31",
+    "supports": ["description", "name", "district", "category"],
+    "notes": "Ganjam district government page for Potagarh fort. Confirms it is a heritage site in Ganjam."
+  },
+  {
+    "source_id": "round2_south_003_src_2",
+    "research_id": "round2_south_003",
+    "source_type": "osm",
+    "title": "Potagarh — OpenStreetMap Nominatim",
+    "url": "https://nominatim.openstreetmap.org/search?q=Potagarh,+Ganjam,+Odisha&format=json",
+    "accessed_at": "2026-08-31",
+    "supports": ["coordinates"],
+    "notes": "OSM Nominatim returned: Potagarh road, Ganjam, Odisha at (19.3821612, 85.0562597). Used as cross-checked coordinates."
+  },
+  {
+    "source_id": "round2_south_003_src_3",
+    "research_id": "round2_south_003",
+    "source_type": "wikimedia",
+    "title": "File:Ganjam Fort.jpg — Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/wiki/File:Ganjam_Fort.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": ["image"],
+    "notes": "CC BY-SA 4.0. Dimensions: 5312x2988. Labelled Ganjam Fort — the common name for Potagarh/Potagarh Fort on the Rushikulya River."
+  },
+  {
+    "source_id": "round2_south_004_src_1",
+    "research_id": "round2_south_004",
+    "source_type": "government",
+    "title": "Ganjam District Tourism — District Administration Portal",
+    "url": "https://ganjam.nic.in/tourist-place/",
+    "accessed_at": "2026-08-31",
+    "supports": ["description", "district", "name"],
+    "notes": "Ganjam district portal references Aryapalli beach area in the Chhatrapur coastal belt. No dedicated page with precise coordinates found."
+  },
+  {
+    "source_id": "round2_south_005_src_1",
+    "research_id": "round2_south_005",
+    "source_type": "government",
+    "title": "Gajapati District Tourism — District Administration Portal",
+    "url": "https://gajapati.nic.in/tourist-place/",
+    "accessed_at": "2026-08-31",
+    "supports": ["description", "district", "name"],
+    "notes": "Gajapati district government portal. References Paralakhemundi heritage. No precise Brundaban Palace coordinates found via this source."
+  },
+  {
+    "source_id": "round2_south_005_src_2",
+    "research_id": "round2_south_005",
+    "source_type": "wikipedia",
+    "title": "Paralakhemundi — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Paralakhemundi",
+    "accessed_at": "2026-08-31",
+    "supports": ["description", "name"],
+    "notes": "Wikipedia article on Paralakhemundi references the Gajapati rulers and palace. No Commons image of the palace building found."
+  },
+  {
+    "source_id": "round2_south_006_src_1",
+    "research_id": "round2_south_006",
+    "source_type": "government",
+    "title": "Boudh District Tourism — District Administration Portal",
+    "url": "https://boudh.nic.in/tourist-place/",
+    "accessed_at": "2026-08-31",
+    "supports": ["district", "name", "description"],
+    "notes": "Boudh district government portal. References Bhairabi Temple at Purunakatak."
+  },
+  {
+    "source_id": "round2_south_006_src_2",
+    "research_id": "round2_south_006",
+    "source_type": "wikimedia",
+    "title": "File:Maa Bhairabi Temple Purunakatak.JPG — Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/wiki/File:Maa_Bhairabi_Temple_Purunakatak.JPG",
+    "accessed_at": "2026-08-31",
+    "supports": ["image", "name"],
+    "notes": "CC BY-SA 4.0. Dimensions: 4896x3672 — high resolution. File title directly names Maa Bhairabi Temple Purunakatak. Strong image lead."
+  },
+  {
+    "source_id": "round2_south_007_src_1",
+    "research_id": "round2_south_007",
+    "source_type": "government",
+    "title": "Koraput District Tourism — District Administration Portal",
+    "url": "https://koraput.nic.in/tourist-place/",
+    "accessed_at": "2026-08-31",
+    "supports": ["district", "name", "description"],
+    "notes": "Koraput district portal references Sabara Srikhetra. Used as primary source for district confirmation."
+  },
+  {
+    "source_id": "round2_south_007_src_2",
+    "research_id": "round2_south_007",
+    "source_type": "wikimedia",
+    "title": "File:Sabara Srikhetra 03.jpg — Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/wiki/File:Sabara_Srikhetra_03.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": ["image", "name"],
+    "notes": "CC BY-SA 4.0. Dimensions: 4928x3264. Three images in the Sabara Srikhetra series confirmed on Commons (_03, _06, _07). Strong image lead."
+  },
+  {
+    "source_id": "round2_south_008_src_1",
+    "research_id": "round2_south_008",
+    "source_type": "government",
+    "title": "Koraput District Tourism — District Administration Portal",
+    "url": "https://koraput.nic.in/tourist-place/",
+    "accessed_at": "2026-08-31",
+    "supports": ["district", "name", "description"],
+    "notes": "Koraput district portal confirms eco-tourism sites including Putsil area."
+  },
+  {
+    "source_id": "round2_south_008_src_2",
+    "research_id": "round2_south_008",
+    "source_type": "osm",
+    "title": "Putsil — OpenStreetMap Nominatim",
+    "url": "https://nominatim.openstreetmap.org/search?q=Putsil,+Pottangi,+Koraput&format=json",
+    "accessed_at": "2026-08-31",
+    "supports": ["coordinates"],
+    "notes": "OSM Nominatim returned: Putsil, Pottangi, Koraput, Odisha at (18.7033414, 82.991721). Used as verified coordinates."
+  },
+  {
+    "source_id": "round2_south_008_src_3",
+    "research_id": "round2_south_008",
+    "source_type": "wikimedia",
+    "title": "File:Putsil Valley.jpg — Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/wiki/File:Putsil_Valley.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": ["image", "name"],
+    "notes": "CC BY-SA 4.0. Dimensions: 1920x1080. File title directly names Putsil Valley. Strong image lead."
+  },
+  {
+    "source_id": "round2_south_009_src_1",
+    "research_id": "round2_south_009",
+    "source_type": "government",
+    "title": "Koraput District Tourism — District Administration Portal",
+    "url": "https://koraput.nic.in/tourist-place/",
+    "accessed_at": "2026-08-31",
+    "supports": ["district", "name", "description"],
+    "notes": "Koraput district portal confirms Maliguda as a scenic site."
+  },
+  {
+    "source_id": "round2_south_009_src_2",
+    "research_id": "round2_south_009",
+    "source_type": "osm",
+    "title": "Maliguda — OpenStreetMap Nominatim",
+    "url": "https://nominatim.openstreetmap.org/search?q=Maliguda,+Koraput&format=json",
+    "accessed_at": "2026-08-31",
+    "supports": ["coordinates"],
+    "notes": "OSM Nominatim returned: Maliguda, Koraput, Odisha at (18.8122587, 82.6553145). Used as verified coordinates."
+  },
+  {
+    "source_id": "round2_south_010_src_1",
+    "research_id": "round2_south_010",
+    "source_type": "government",
+    "title": "Rani Duduma Waterfall — Koraput District Administration",
+    "url": "https://koraput.nic.in/tourist-place/rani-duduma-waterfall/",
+    "accessed_at": "2026-08-31",
+    "supports": ["name", "district", "description", "category"],
+    "notes": "Koraput district portal page for Rani Duduma Waterfall. Confirms location in Nandapur block, Koraput district."
+  },
+  {
+    "source_id": "round2_south_010_src_2",
+    "research_id": "round2_south_010",
+    "source_type": "wikimedia",
+    "title": "File:Raniduduma_Koraput.jpg — Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/wiki/File:Raniduduma_Koraput.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": ["image", "name"],
+    "notes": "CC BY-SA 4.0. Dimensions: 3456x4608. File directly named Raniduduma Koraput. Strong image lead."
+  },
+  {
+    "source_id": "round2_south_011_src_1",
+    "research_id": "round2_south_011",
+    "source_type": "government",
+    "title": "Malkangiri District Tourism — District Administration Portal",
+    "url": "https://malkangiri.nic.in/tourist-place/",
+    "accessed_at": "2026-08-31",
+    "supports": ["district", "name", "description"],
+    "notes": "Malkangiri district government portal. References the Gurupriya Bridge and Chitrakonda area."
+  },
+  {
+    "source_id": "round2_south_011_src_2",
+    "research_id": "round2_south_011",
+    "source_type": "wikimedia",
+    "title": "File:Gurupriya Bridge 01.jpg — Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/wiki/File:Gurupriya_Bridge_01.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": ["image", "name"],
+    "notes": "CC BY 4.0. Dimensions: 1080x1080. Multiple images in Gurupriya Bridge series on Commons. Note: images are 1080px — check if original resolution passes the 800px width threshold (1080 > 800, passes width but aspect ratio may be 1:1)."
+  },
+  {
+    "source_id": "round2_south_012_src_1",
+    "research_id": "round2_south_012",
+    "source_type": "government",
+    "title": "Malkangiri District Tourism — District Administration Portal",
+    "url": "https://malkangiri.nic.in/tourist-place/",
+    "accessed_at": "2026-08-31",
+    "supports": ["district", "name", "description"],
+    "notes": "Malkangiri district portal. Manyamkonda referenced in Motu block."
+  },
+  {
+    "source_id": "round2_south_012_src_2",
+    "research_id": "round2_south_012",
+    "source_type": "osm",
+    "title": "Manyamkonda — OpenStreetMap Nominatim",
+    "url": "https://nominatim.openstreetmap.org/search?q=manyamkonda,+Motu,+Malkangiri&format=json",
+    "accessed_at": "2026-08-31",
+    "supports": ["coordinates"],
+    "notes": "OSM Nominatim returned: manyamkonda, Motu, Malkangiri, Odisha at (17.9265259, 81.6545588). Verified within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_south_013_src_1",
+    "research_id": "round2_south_013",
+    "source_type": "government",
+    "title": "Kalahandi District Tourism — District Administration Portal",
+    "url": "https://kalahandi.nic.in/tourist-place/",
+    "accessed_at": "2026-08-31",
+    "supports": ["district", "name", "description"],
+    "notes": "Kalahandi district government portal. References Indravati Dam at Thuamul Rampur."
+  },
+  {
+    "source_id": "round2_south_013_src_2",
+    "research_id": "round2_south_013",
+    "source_type": "osm",
+    "title": "Indravati Dam — OpenStreetMap Nominatim",
+    "url": "https://nominatim.openstreetmap.org/search?q=Indravati+Dam,+Thuamul+Rampur,+Kalahandi&format=json",
+    "accessed_at": "2026-08-31",
+    "supports": ["coordinates"],
+    "notes": "OSM Nominatim returned: Indravati Dam, Thuamul Rampur, Kalahandi, Odisha at (19.427191, 82.8596434). Used as verified coordinates."
+  },
+  {
+    "source_id": "round2_south_013_src_3",
+    "research_id": "round2_south_013",
+    "source_type": "wikipedia",
+    "title": "Indravati Dam — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Indravati_Dam",
+    "accessed_at": "2026-08-31",
+    "supports": ["description", "coordinates"],
+    "notes": "Wikipedia article for Indravati Dam. Infobox coordinates: 19.27633N, 82.82844E — slightly different from OSM result (dam structure vs reservoir center). Both within Odisha bounding box."
+  },
+  {
+    "source_id": "round2_south_013_src_4",
+    "research_id": "round2_south_013",
+    "source_type": "wikimedia",
+    "title": "File:Indravati Dam.jpg — Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/wiki/File:Indravati_Dam.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": ["image"],
+    "notes": "CC BY 3.0. Dimensions: 2272x1704. Directly labelled as Indravati Dam."
+  },
+  {
+    "source_id": "round2_south_014_src_1",
+    "research_id": "round2_south_014",
+    "source_type": "government",
+    "title": "Kandhamal District Tourism — District Administration Portal",
+    "url": "https://kandhamal.nic.in/tourist-place/",
+    "accessed_at": "2026-08-31",
+    "supports": ["district", "name", "description"],
+    "notes": "Kandhamal district government portal. Putudi Waterfall referenced near Phulbani."
+  },
+  {
+    "source_id": "round2_south_014_src_2",
+    "research_id": "round2_south_014",
+    "source_type": "wikimedia",
+    "title": "File:Putudi Waterfall in Odisha.jpg — Wikimedia Commons",
+    "url": "https://commons.wikimedia.org/wiki/File:Putudi_Waterfall_in_Odisha.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": ["image", "name"],
+    "notes": "CC BY-SA 4.0. Dimensions: 720x405. Width is below the 800px minimum threshold for the image pipeline. This is flagged for human review — the source original may be higher resolution, or an alternative image may be required."
+  },
+  {
+    "source_id": "round2_south_015_src_1",
+    "research_id": "round2_south_015",
+    "source_type": "government",
+    "title": "Rayagada District Tourism — District Administration Portal",
+    "url": "https://rayagada.nic.in/tourist-place/",
+    "accessed_at": "2026-08-31",
+    "supports": ["district", "name", "description"],
+    "notes": "Rayagada district government portal. Minajhola referenced as a natural waterfall site near Kashipur."
+  },
+  {
+    "source_id": "round2_south_015_src_2",
+    "research_id": "round2_south_015",
+    "source_type": "osm",
+    "title": "Minajhola — OpenStreetMap Nominatim",
+    "url": "https://nominatim.openstreetmap.org/search?q=Minajhola,+Rayagada&format=json",
+    "accessed_at": "2026-08-31",
+    "supports": ["coordinates"],
+    "notes": "OSM Nominatim returned: Minajhola, Rayagada, Odisha at (19.2644494, 83.6064823). Wikipedia infobox coordinates differ: (19.51666, 83.74166). Discrepancy flagged — needs human review before production promotion."
+  },
+  {
+    "source_id": "round2_south_015_src_3",
+    "research_id": "round2_south_015",
+    "source_type": "wikipedia",
+    "title": "Minajhola — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Minajhola",
+    "accessed_at": "2026-08-31",
+    "supports": ["coordinates", "description"],
+    "notes": "Wikipedia page for Minajhola. Infobox coordinates: 19.51666N, 83.74166E. Discrepancy with OSM (19.2644, 83.6065) — one may reference a nearby settlement, the other the waterfall site. Flagged for coordinate reconciliation."
+  }
+]

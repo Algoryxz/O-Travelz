@@ -1,1 +1,421 @@
-[]
+[
+  {
+    "research_id": "round2_south_001",
+    "name": "Padmasambhava Mahavihara Monastery",
+    "aliases": [
+      "Jirang Monastery",
+      "Thupten Mindolling Monastery",
+      "Chandragiri Tibetan Monastery"
+    ],
+    "district": "Gajapati",
+    "region": "southern",
+    "category": "heritage",
+    "description": "Padmasambhava Mahavihara is a large Tibetan Buddhist monastery in Chandragiri, Gajapati district, inaugurated by the 14th Dalai Lama in 2010. It is widely regarded as the largest Tibetan Buddhist monastery in eastern India. The five-storey complex is built in traditional Himalayan architectural style and serves as a monastery-college for monks from the Tibetan refugee settlement of Phuntsokling, established after the 1959 Chinese invasion of Tibet.",
+    "lat": 19.2716,
+    "lon": 84.2638,
+    "coordinate_source": "OpenStreetMap Nominatim (verified: Padmasambhava Mahavihara, Gajapati, Odisha)",
+    "coordinate_verification_status": "cross_checked",
+    "primary_source_url": "https://odishatourism.gov.in/content/tourism/en/discover/attractions/pilgrimages/padmasambhava-mahavihara.html",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Padmasambhava_Mahavihara_monastery"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Padmasambhava_Mahavihara_Monastery.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Susmita",
+    "verification_status": "staging",
+    "notes": "Coordinates confirmed via Wikipedia infobox (19.2733N, 84.2633E) and OSM Nominatim (19.2716, 84.2638). Wikipedia image confirmed: Padmasambhava_Mahavihara_Monastery.jpg. The Tibetan settlement at Chandragiri is a notable community of Tibetan refugees; description uses respectful, factual language about their history."
+  },
+  {
+    "research_id": "round2_south_002",
+    "name": "Tampara Lake",
+    "aliases": [
+      "Tampara Lagoon",
+      "Tampara Eco Tourism Centre",
+      "Tampara Beach Lake"
+    ],
+    "district": "Ganjam",
+    "region": "southern",
+    "category": "lake",
+    "description": "Tampara is a shallow coastal saltwater lake and eco-tourism destination near Chhatrapur in Ganjam district, separated from the Bay of Bengal by a narrow sand bar. Spread over approximately 320 hectares, the lake is a significant wetland habitat for migratory waterfowl and resident species. OTDC operates a tourist cottage and boating facility at the lake.",
+    "lat": 19.3478,
+    "lon": 84.9975,
+    "coordinate_source": "OpenStreetMap Nominatim verified: Tampara Lake, Chhatrapur, Ganjam, Odisha",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://odishatourism.gov.in/content/tourism/en/discover/attractions/beaches/tampara-beach.html",
+    "secondary_source_urls": [
+      "https://ganjam.nic.in/tourist-place/tampara/",
+      "https://en.wikipedia.org/wiki/Tampara_Lake"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Tampara_lake.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Susmita",
+    "verification_status": "staging",
+    "notes": "Coordinates verified via OSM Nominatim (19.347752, 84.9975178). Two Wikimedia images confirmed: Tampara_lake,_chatrapur.jpg (1900x1069) and Tampara_lake.jpg (2112x1188), both CC BY-SA 4.0. Coastal lagoon, not same location as Gopalpur-on-Sea — no production duplicate."
+  },
+  {
+    "research_id": "round2_south_003",
+    "name": "Potagarh Fort",
+    "aliases": [
+      "Ganjam Fort",
+      "Potagarh Ruins",
+      "Potagarh Dutch-British Fort"
+    ],
+    "district": "Ganjam",
+    "region": "southern",
+    "category": "heritage",
+    "description": "Potagarh Fort is a ruined 17th-century coastal fort near Ganjam town, originally built by the Dutch and later occupied by the British East India Company. The fort stands near the mouth of the Rushikulya river and is associated with the early European trading history of the Odisha coast. It is listed as a heritage site by the Odisha State Archaeology Department.",
+    "lat": 19.3822,
+    "lon": 85.0563,
+    "coordinate_source": "OpenStreetMap Nominatim verified: Potagarh road, Ganjam, Odisha",
+    "coordinate_verification_status": "cross_checked",
+    "primary_source_url": "https://ganjam.nic.in/tourist-place/potagarh/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Potagarh"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Ganjam_Fort.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Susmita",
+    "verification_status": "staging",
+    "notes": "OSM confirmed (19.3822, 85.0563). Wikimedia image Ganjam_Fort.jpg (5312x2988, CC BY-SA 4.0) confirmed. Distinct from existing Ganjam production catalog entries (Gopalpur, Tara Tarini, MKCG). Ganjam_Fort.jpg on Commons specifically labelled as this fort."
+  },
+  {
+    "research_id": "round2_south_004",
+    "name": "Aryapalli Beach",
+    "aliases": [
+      "Aryapalla Beach",
+      "Aryapal Beach",
+      "Chhatrapur Aryapalli"
+    ],
+    "district": "Ganjam",
+    "region": "southern",
+    "category": "beach",
+    "description": "Aryapalli Beach is a pristine, largely undeveloped shoreline near Chhatrapur in Ganjam district. Located adjacent to the Tampara Lake eco-zone, the beach is known for nesting of Olive Ridley sea turtles during the winter season and is included in the Rushikulya sea turtle conservation stretch. The Odisha Forest Department monitors turtle nesting activity at this beach.",
+    "lat": 19.363,
+    "lon": 84.993,
+    "coordinate_source": "Approximate from OSM location of New Aryapalli, Chhatrapur, Ganjam; pending precise verification",
+    "coordinate_verification_status": "pending",
+    "primary_source_url": "https://ganjam.nic.in/tourist-place/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "",
+    "image_source_domain": "",
+    "image_license_note": "",
+    "image_status": "missing",
+    "researcher": "Susmita",
+    "verification_status": "research",
+    "notes": "Coordinates are approximate based on OSM Nominatim result for New Aryapalli. OSM did not return a direct result for Aryapalli Beach itself. Coordinate status set to pending. No verified Wikimedia Commons image found for this specific beach — image_status is missing. Candidate retained for research value; needs image verification before production promotion."
+  },
+  {
+    "research_id": "round2_south_005",
+    "name": "Brundaban Palace, Paralakhemundi",
+    "aliases": [
+      "Paralakhemundi Palace",
+      "Gajapati Raja Palace",
+      "Maharaja of Parlakimidi Palace"
+    ],
+    "district": "Gajapati",
+    "region": "southern",
+    "category": "heritage",
+    "description": "Brundaban Palace is the ancestral seat of the Maharaja of Parlakhemundi (Gajapati rulers), located in Paralakhemundi town, Gajapati district. The palace complex, built in the 19th century, reflects the princely architectural tradition of coastal Odisha. The town of Paralakhemundi, associated with nationalist leader Gopabandhu Das, is the administrative headquarters of Gajapati district.",
+    "lat": null,
+    "lon": null,
+    "coordinate_source": "",
+    "coordinate_verification_status": "pending",
+    "primary_source_url": "https://gajapati.nic.in/tourist-place/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Paralakhemundi"
+    ],
+    "image_source_url": "",
+    "image_source_domain": "",
+    "image_license_note": "",
+    "image_status": "missing",
+    "researcher": "Susmita",
+    "verification_status": "research",
+    "notes": "OSM Nominatim returned no result for Brundaban Palace or Paralakhemundi Palace. Coordinates set to null pending verification. Wikipedia article on Paralakhemundi references the palace but does not carry a usable Commons image of the palace itself. Retained for research; needs coordinate and image verification."
+  },
+  {
+    "research_id": "round2_south_006",
+    "name": "Purunakatak Maa Bhairabi Temple",
+    "aliases": [
+      "Maa Bhairabi Temple Purunakatak",
+      "Purunakatak Bhairabi Pitha",
+      "Boudh Bhairabi Shrine"
+    ],
+    "district": "Boudh",
+    "region": "southern",
+    "category": "temple",
+    "description": "Purunakatak Maa Bhairabi Temple is an ancient Shakti pitha located at Purunakatak in Boudh district, on the banks of the Mahanadi River. The presiding deity is Goddess Bhairabi, worshipped as a powerful form of the divine feminine. The temple is a significant pilgrimage site for communities across Boudh district and surrounding areas.",
+    "lat": 20.5222,
+    "lon": 84.3028,
+    "coordinate_source": "OSM Nominatim approximate from Purunakatak, Boudh, Odisha; cross-checked with Wikipedia coordinates for Purunakatak town",
+    "coordinate_verification_status": "pending",
+    "primary_source_url": "https://boudh.nic.in/tourist-place/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Boudh_district"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Maa_Bhairabi_Temple_Purunakatak.JPG",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Susmita",
+    "verification_status": "staging",
+    "notes": "Wikimedia Commons image confirmed: Maa_Bhairabi_Temple_Purunakatak.JPG (4896x3672, CC BY-SA 4.0) — high quality image directly labelled for this temple. Coordinates approximate from Purunakatak town location; precise temple coordinates need cross-check. Boudh district is underrepresented (2 in catalog)."
+  },
+  {
+    "research_id": "round2_south_007",
+    "name": "Sabara Srikhetra, Koraput",
+    "aliases": [
+      "Sabara Shreekshetra",
+      "Sabari Srikhetra",
+      "Koraput Jagannath Pitha"
+    ],
+    "district": "Koraput",
+    "region": "southern",
+    "category": "temple",
+    "description": "Sabara Srikhetra is a revered pilgrimage complex in Koraput district, regarded as the sacred land of the Sabar (Sabara) community — a tribal community historically associated with the origins of the Jagannath tradition at Puri. The site celebrates the connection between Jagannath worship and indigenous Sabar cultural heritage, and is a significant destination for pilgrims from across the region.",
+    "lat": 18.809,
+    "lon": 82.713,
+    "coordinate_source": "Approximate from Koraput town area based on OTDC references; precise location needs cross-check with OSM",
+    "coordinate_verification_status": "pending",
+    "primary_source_url": "https://koraput.nic.in/tourist-place/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Sabara_Srikhetra_03.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Susmita",
+    "verification_status": "staging",
+    "notes": "Multiple high-quality Wikimedia Commons images confirmed: Sabara_Srikhetra_03.jpg (4928x3264), Sabara_Srikhetra_06.jpg, Sabara_Srikhetra_07.jpg, all CC BY-SA 4.0. Coordinates are approximate from Koraput town center area; need precise site coordinates from OSM or district portal. Description uses respectful, factual language about the Sabar community's historical role."
+  },
+  {
+    "research_id": "round2_south_008",
+    "name": "Putsil Valley, Koraput",
+    "aliases": [
+      "Putsil",
+      "Putsil Forest Reserve",
+      "Putsil Eco Tourism"
+    ],
+    "district": "Koraput",
+    "region": "southern",
+    "category": "nature",
+    "description": "Putsil is a scenic highland valley in Pottangi block of Koraput district, situated in the Eastern Ghats at around 900 metres elevation. The valley is known for its dense forests, rich biodiversity including endemic butterfly species, and views across the highland ranges. It is an emerging eco-tourism site accessible from the Jeypore-Pottangi road.",
+    "lat": 18.7033,
+    "lon": 82.9917,
+    "coordinate_source": "OpenStreetMap Nominatim verified: Putsil, Pottangi, Koraput, Odisha",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://koraput.nic.in/tourist-place/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Putsil_Valley.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Susmita",
+    "verification_status": "staging",
+    "notes": "Coordinates verified by OSM Nominatim (18.7033, 82.9917). Wikimedia Commons image Putsil_Valley.jpg (1920x1080, CC BY-SA 4.0) confirmed and directly labelled for this location. Rich butterfly biodiversity documented on Wikimedia Commons for this site."
+  },
+  {
+    "research_id": "round2_south_009",
+    "name": "Maliguda, Koraput",
+    "aliases": [
+      "Maliguda Gorge",
+      "Maliguda Tunnel",
+      "Maliguda Scenic Site"
+    ],
+    "district": "Koraput",
+    "region": "southern",
+    "category": "nature",
+    "description": "Maliguda is a picturesque gorge and railway tunnel site in Koraput district, situated on the Jagdalpur railway line. The narrow gorge through the Eastern Ghats, combined with a historic railway engineering marvel, makes it a notable scenic destination. The surrounding landscape of densely forested hills and the Machkund River valley is considered one of the most dramatic in southern Odisha.",
+    "lat": 18.8123,
+    "lon": 82.6553,
+    "coordinate_source": "OpenStreetMap Nominatim verified: Maliguda, Koraput, Odisha",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://koraput.nic.in/tourist-place/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "",
+    "image_source_domain": "",
+    "image_license_note": "",
+    "image_status": "missing",
+    "researcher": "Susmita",
+    "verification_status": "research",
+    "notes": "Coordinates verified via OSM Nominatim (18.8123, 82.6553). No suitable Wikimedia Commons image found for the Maliguda gorge or tunnel specifically. Candidate retained for research; needs image lead before production promotion."
+  },
+  {
+    "research_id": "round2_south_010",
+    "name": "Rani Duduma Waterfall",
+    "aliases": [
+      "Raniduduma Waterfall",
+      "Rani Duduma Dam Falls",
+      "Machkund Waterfall"
+    ],
+    "district": "Koraput",
+    "region": "southern",
+    "category": "waterfall",
+    "description": "Rani Duduma is a powerful waterfall on the Machkund River in Nandapur block of Koraput district, located near the Odisha-Andhra Pradesh border. It drops from the edge of the Eastern Ghats plateau into the river gorge below. The waterfall is associated with the Machkund hydroelectric project and is accessible via the Jeypore-Nandapur road.",
+    "lat": 18.6167,
+    "lon": 82.8667,
+    "coordinate_source": "Approximate from Wikipedia article coordinates for Machkund River in Koraput; pending OSM verification",
+    "coordinate_verification_status": "pending",
+    "primary_source_url": "https://koraput.nic.in/tourist-place/rani-duduma-waterfall/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Raniduduma_Koraput.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Susmita",
+    "verification_status": "staging",
+    "notes": "Wikimedia Commons image confirmed: Raniduduma_Koraput.jpg (3456x4608, CC BY-SA 4.0) — directly labelled for this waterfall. Coordinates are approximate from regional mapping; need cross-check with OSM or district portal for precise lat/lon. Not a duplicate of Duduma Waterfall already in production catalog — Rani Duduma and Duduma (Orissa-AP border) are distinct features; confirm prior to promotion."
+  },
+  {
+    "research_id": "round2_south_011",
+    "name": "Gurupriya Bridge, Malkangiri",
+    "aliases": [
+      "Gurupriya Setu",
+      "Malkangiri Gurupriya River Bridge",
+      "Gurupriya Float Bridge"
+    ],
+    "district": "Malkangiri",
+    "region": "southern",
+    "category": "heritage",
+    "description": "Gurupriya Bridge is a strategically and historically significant floating pontoon bridge over the Gurupriya River in Malkangiri district, constructed to connect isolated communities on the Chitrakonda peninsula. For decades it provided the only road link to areas cut off by the Balimela reservoir backwaters. The bridge and surrounding landscape of the reservoir peninsula have become an important local attraction in one of Odisha's most remote districts.",
+    "lat": 18.3167,
+    "lon": 81.6833,
+    "coordinate_source": "Approximate from Malkangiri district, Chitrakonda area; pending precise OSM verification",
+    "coordinate_verification_status": "pending",
+    "primary_source_url": "https://malkangiri.nic.in/tourist-place/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Gurupriya_Bridge_01.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY 4.0",
+    "image_status": "pending",
+    "researcher": "Susmita",
+    "verification_status": "staging",
+    "notes": "Multiple Wikimedia Commons images confirmed: Gurupriya_Bridge_01.jpg (1080x1080), Gurupriya_Bridge_02.jpg, both CC BY 4.0. Coordinates are approximate from the Chitrakonda/Malkangiri area; need OSM cross-check. Malkangiri is underrepresented (3 in catalog). A permanent bridge has been constructed in recent years; check current status of the floating bridge before finalising description."
+  },
+  {
+    "research_id": "round2_south_012",
+    "name": "Manyamkonda Temple, Motu",
+    "aliases": [
+      "Manyamkonda",
+      "Manyamkonda Hill Temple",
+      "Motu Manyamkonda"
+    ],
+    "district": "Malkangiri",
+    "region": "southern",
+    "category": "temple",
+    "description": "Manyamkonda is a hilltop temple site in Motu block of Malkangiri district, near the Andhra Pradesh border. The site, situated in the forested terrain of the Eastern Ghats foothills, is a local pilgrimage destination for communities from both Malkangiri district and neighbouring Andhra Pradesh.",
+    "lat": 17.9265,
+    "lon": 81.6546,
+    "coordinate_source": "OpenStreetMap Nominatim verified: manyamkonda, Motu, Malkangiri, Odisha",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://malkangiri.nic.in/tourist-place/",
+    "secondary_source_urls": [],
+    "image_source_url": "",
+    "image_source_domain": "",
+    "image_license_note": "",
+    "image_status": "missing",
+    "researcher": "Susmita",
+    "verification_status": "research",
+    "notes": "Coordinates verified via OSM Nominatim (17.9265, 81.6546) — confirms location within Odisha bounding box. No Wikimedia Commons image found. Retained as research candidate; image lead needed. Description is intentionally factual and minimal given limited available information."
+  },
+  {
+    "research_id": "round2_south_013",
+    "name": "Indravati Dam, Thuamul Rampur",
+    "aliases": [
+      "Indravati Reservoir",
+      "Khatiguda Reservoir",
+      "Thuamul Rampur Indravati"
+    ],
+    "district": "Kalahandi",
+    "region": "southern",
+    "category": "nature",
+    "description": "Indravati Dam at Thuamul Rampur in Kalahandi district is a major irrigation and hydroelectric dam across the Indravati River. The reservoir created by the dam is vast, submerging large forest areas and forming a scenic lake landscape amid the Eastern Ghats. The dam and surrounding reservoir area are accessible via Bhawanipatna and offer striking views of the highland reservoir environment.",
+    "lat": 19.4272,
+    "lon": 82.8596,
+    "coordinate_source": "OpenStreetMap Nominatim verified: Indravati Dam, Thuamul Rampur, Kalahandi, Odisha",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://kalahandi.nic.in/tourist-place/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Indravati_Dam"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Indravati_Dam.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY 3.0",
+    "image_status": "pending",
+    "researcher": "Susmita",
+    "verification_status": "staging",
+    "notes": "Coordinates verified via OSM Nominatim (19.4272, 82.8596). Wikipedia page for Indravati Dam confirms coords (19.27633N, 82.82844E) — slight discrepancy between OSM (dam structure) and Wikipedia (reservoir area); OSM result for the dam structure is used. Two Wikimedia images available: Indravati_Dam.jpg (2272x1704, CC BY 3.0) and Indiravati_Dam.jpg (1024x768, CC BY-SA 4.0). Indravati Dam (Nabarangpur district) is a different structure — this is the Kalahandi dam at Thuamul Rampur."
+  },
+  {
+    "research_id": "round2_south_014",
+    "name": "Putudi Waterfall",
+    "aliases": [
+      "Putudi Falls",
+      "Phulbani Putudi Waterfall",
+      "Putudi Cascades"
+    ],
+    "district": "Kandhamal",
+    "region": "southern",
+    "category": "waterfall",
+    "description": "Putudi Waterfall is a scenic waterfall near Phulbani in Kandhamal district, surrounded by forested hills in the Eastern Ghats. The waterfall is a popular picnic and nature tourism site for visitors to Phulbani, the district headquarters of Kandhamal. Kandhamal district, known for its coffee and spice cultivation and the hill station of Daringbadi, also includes this lesser-known natural attraction.",
+    "lat": 20.1,
+    "lon": 84.26,
+    "coordinate_source": "Approximate from Phulbani area, Kandhamal district; pending precise OSM or district portal verification",
+    "coordinate_verification_status": "pending",
+    "primary_source_url": "https://kandhamal.nic.in/tourist-place/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Putudi_Waterfall_in_Odisha.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Susmita",
+    "verification_status": "staging",
+    "notes": "Wikimedia Commons image confirmed: Putudi_Waterfall_in_Odisha.jpg (720x405, CC BY-SA 4.0) — directly labelled for this waterfall. Image dimensions are below the 800px width threshold; image_status set to pending for human review to assess actual dimensions at source. Coordinates are approximate from Phulbani town area. Precise coordinates need cross-check. Not a duplicate of existing Kandhamal catalog entries (Daringbadi, Belghar, Midubanda)."
+  },
+  {
+    "research_id": "round2_south_015",
+    "name": "Minajhola, Rayagada",
+    "aliases": [
+      "Minajhola Waterfall",
+      "Minajhola Eco Park",
+      "Kashipur Minajhola"
+    ],
+    "district": "Rayagada",
+    "region": "southern",
+    "category": "waterfall",
+    "description": "Minajhola is a natural waterfall and small eco-tourism site in Rayagada district, located in the Eastern Ghats landscape near Kashipur. The site is set amid forested highlands and is a local attraction in a district that is underrepresented in Odisha tourism databases. Rayagada district is in the tribal highlands region of southern Odisha, and its landscape is characterised by the Eastern Ghats terrain.",
+    "lat": 19.2644,
+    "lon": 83.6065,
+    "coordinate_source": "OpenStreetMap Nominatim verified: Minajhola, Rayagada, Odisha",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://rayagada.nic.in/tourist-place/",
+    "secondary_source_urls": [
+      "https://en.wikipedia.org/wiki/Minajhola"
+    ],
+    "image_source_url": "",
+    "image_source_domain": "",
+    "image_license_note": "",
+    "image_status": "missing",
+    "researcher": "Susmita",
+    "verification_status": "research",
+    "notes": "Coordinates verified via OSM Nominatim (19.2644, 83.6065). Wikipedia page for Minajhola exists with the same coordinates (19.51666N, 83.74166E based on infobox — there is a coordinate discrepancy between OSM and Wikipedia). Both sets are within Odisha bounding box. Discrepancy needs human review before production promotion. No Wikimedia Commons image found. Rayagada is underrepresented (2 in catalog)."
+  }
+]
