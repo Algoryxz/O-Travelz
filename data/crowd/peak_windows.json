@@ -1,0 +1,38 @@
+{
+  "description": "Curated place-specific peak crowd windows based on verified research.",
+  "places": [
+    {
+      "place_id": "p1",
+      "place_name": "Jagannath Temple, Puri",
+      "peak_windows": [
+        {
+          "days": ["saturday", "sunday"],
+          "start": "09:30",
+          "end": "14:00",
+          "severity": "high",
+          "source": "researched"
+        },
+        {
+          "days": ["saturday", "sunday"],
+          "start": "17:00",
+          "end": "20:30",
+          "severity": "high",
+          "source": "researched"
+        }
+      ]
+    },
+    {
+      "place_id": "p3",
+      "place_name": "Konark Sun Temple",
+      "peak_windows": [
+        {
+          "days": ["saturday", "sunday"],
+          "start": "11:00",
+          "end": "15:00",
+          "severity": "high",
+          "source": "researched"
+        }
+      ]
+    }
+  ]
+}

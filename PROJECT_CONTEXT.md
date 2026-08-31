@@ -150,13 +150,16 @@ AI is responsible for:
 - Multilingual interpretation (English, Odia, Hindi)
 - Conversational interaction & multi-turn constraint preservation
 - Structured claim attribution via `ClaimType` (`VERIFIED`, `SCHEDULED`, `LIVE`, `ESTIMATED`, `RESEARCHED`, `UNKNOWN`) and `EvidenceItem` contracts
+- Domain tool routing to verified services (`search_places`, `build_itinerary`, `plan_transport_hop`, `get_provider_status`, `get_weather`, `estimate_crowd`, `get_transit_options`)
 - Explanation and conversational refinement of plans
 
 Deterministic services and verified datasets own:
 
 - Coordinates
 - Place metadata and opening hours
-- Transit stop names, coordinates, route numbers
+- Live weather observations (`Open-Meteo`)
+- Deterministic crowd congestion priors and optimal visiting window heuristics
+- Transit stop names, coordinates, route numbers, and Dijkstra transport graph
 - Schedules and departure times
 - Factual itinerary construction
 
