@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { motion } from "motion/react";
+import { buttonTap, cardHover, cardTap, chipTap, staggerContainer, staggerItem } from "../../lib/motion";
 import {
   Bookmark,
   MapPin,
@@ -7,341 +9,293 @@ import {
   Trash2,
   Heart,
   Sparkles,
-  History,
-  Star,
+  Share2,
+  Download,
+  Upload,
   Calendar,
-  CheckCircle2,
-  Navigation,
+  Check,
+  FileText,
+  Copy,
+  ExternalLink,
 } from "lucide-react";
-import { useSavedPlaces, type SavedPlaceItem } from "../../store/useSavedPlaces";
-import { useRecentPlaces, type MemoryStatus } from "../../store/useRecentPlaces";
-import { resolvePlaceImageUrl } from "../../utils/imageAdapter";
-import { getPlaceImageUrl, getPlaceRegion } from "../../utils/imageService";
+import { useSavedPlaces, type SavedPlace } from "../../store/useSavedPlaces";
 import type { SelectedPlaceInfo } from "../place/PlaceDetailsModal";
+import {
+  getPlaceImageUrl,
+  getPlaceRegion,
+} from "../../utils/imageService";
+import { resolvePlaceImageUrl } from "../../utils/imageAdapter";
+import {
+  createShareableSavedPlacesUrl,
+  exportSavedPlacesAsJson,
+  exportSavedPlacesAsMarkdown,
+  downloadTextFile,
+  importSavedPlacesFromJson,
+  generateSavedPlacesSummary,
+} from "../../utils/savedPlacesExport";
 
 interface SavedPlacesPageProps {
-  initialViewMode?: "saved" | "revisit";
   onBackToDiscover: () => void;
-  onPlanWithSaved: (places: SavedPlaceItem[]) => void;
-  onPlanWithSinglePlace?: (place: SelectedPlaceInfo) => void;
-  onOpenMap: (place?: SelectedPlaceInfo) => void;
   onSelectPlace?: (place: SelectedPlaceInfo) => void;
+  onPlanWithSaved: (places: SavedPlace[]) => void;
+  onPlanWithSinglePlace?: (place: SelectedPlaceInfo) => void;
 }
 
 export const SavedPlacesPage: React.FC<SavedPlacesPageProps> = ({
-  initialViewMode = "saved",
   onBackToDiscover,
+  onSelectPlace,
   onPlanWithSaved,
   onPlanWithSinglePlace,
-  onOpenMap,
-  onSelectPlace,
 }) => {
-  const [viewMode, setViewMode] = useState<"saved" | "revisit">(initialViewMode);
-  const { savedPlaces, removePlace, clearAllSaved } = useSavedPlaces();
-  const { memories, removeRecentPlace, clearRecentPlaces } = useRecentPlaces();
+  const {
+    savedPlaces,
+    removePlace,
+    clearAllSaved,
+    importPlaces,
+  } = useSavedPlaces();
 
-  const getStatusBadge = (status: MemoryStatus) => {
-    switch (status) {
-      case "visited":
-        return {
-          label: "Visited Before",
-          color: "bg-[#2F523E]/10 text-[#2F523E] border-[#2F523E]/30",
-          icon: CheckCircle2,
-        };
-      case "planned":
-        return {
-          label: "Planned",
-          color: "bg-[#1B5E6B]/10 text-[#1B5E6B] border-[#1B5E6B]/30",
-          icon: Calendar,
-        };
-      case "navigated":
-        return {
-          label: "Navigated",
-          color: "bg-[#B87B22]/10 text-[#B87B22] border-[#B87B22]/30",
-          icon: Navigation,
-        };
-      case "explored":
-      default:
-        return {
-          label: "Explored",
-          color: "bg-[#FAF7F2] text-[#70798B] border-[#E5DFD5]",
-          icon: History,
-        };
-    }
+  const [activeTab, setActiveTab] = useState<"places" | "export">("places");
+  const [copiedLink, setCopiedLink] = useState(false);
+  const [copiedSummary, setCopiedSummary] = useState(false);
+  const [importStatus, setImportStatus] = useState<string | null>(null);
+
+  const handleCopyShareLink = () => {
+    const url = createShareableSavedPlacesUrl(savedPlaces);
+    if (!url) return;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2500);
+    });
+  };
+
+  const handleCopySummary = () => {
+    const summary = generateSavedPlacesSummary(savedPlaces);
+    navigator.clipboard.writeText(summary).then(() => {
+      setCopiedSummary(true);
+      setTimeout(() => setCopiedSummary(false), 2500);
+    });
+  };
+
+  const handleDownloadJson = () => {
+    const json = exportSavedPlacesAsJson(savedPlaces);
+    const filename = `o-travelz-saved-places-${new Date().toISOString().slice(0, 10)}.json`;
+    downloadTextFile(json, filename, "application/json");
+  };
+
+  const handleDownloadMarkdown = () => {
+    const md = exportSavedPlacesAsMarkdown(savedPlaces);
+    const filename = `o-travelz-saved-places-${new Date().toISOString().slice(0, 10)}.md`;
+    downloadTextFile(md, filename, "text/markdown");
+  };
+
+  const handleImportJsonFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const content = event.target?.result as string;
+      if (content) {
+        const imported = importSavedPlacesFromJson(content);
+        if (imported.length > 0) {
+          importPlaces(imported);
+          setImportStatus(`Successfully imported ${imported.length} places!`);
+          setTimeout(() => setImportStatus(null), 3000);
+        } else {
+          setImportStatus("Could not import: Invalid or empty file.");
+          setTimeout(() => setImportStatus(null), 3000);
+        }
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = "";
   };
 
   return (
-    <div
-      data-testid="saved-places-view"
-      className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-in fade-in duration-300"
-    >
-      {/* Top Header Strip */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#E5DFD5]">
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            data-testid="saved-back-button"
-            onClick={onBackToDiscover}
-            className="w-9 h-9 rounded-full bg-[#FFFFFF] border border-[#E5DFD5] hover:bg-[#FAF7F2] flex items-center justify-center text-[#12161E] shadow-xs transition-colors cursor-pointer"
-            aria-label="Back to Discover"
-          >
-            <ArrowLeft size={16} />
-          </button>
-          <div>
-            <div className="text-[10px] font-bold uppercase tracking-wider text-[#B87B22] font-mono">
-              PERSONAL TRAVEL ARCHIVE
+    <div data-testid="saved-places-view" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 text-[#12161E]">
+      {/* Top Header Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E5DFD5]">
+        <div className="space-y-1">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              data-testid="saved-places-back-btn"
+              onClick={onBackToDiscover}
+              className="p-2 rounded-full bg-[#FAF7F2] border border-[#E5DFD5] hover:bg-[#F2EEE7] text-[#12161E] transition-colors cursor-pointer"
+              aria-label="Back to Discover"
+            >
+              <ArrowLeft size={16} />
+            </button>
+            <div className="flex items-center gap-2">
+              <span className="p-1.5 rounded-lg bg-[#FAF7F2] border border-[#E5DFD5] text-[#A84825]">
+                <Bookmark size={18} />
+              </span>
+              <h1
+                data-testid="saved-places-title"
+                className="text-2xl sm:text-3xl font-serif font-bold text-[#12161E] tracking-tight"
+              >
+                Saved Places & Wishlist
+              </h1>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#12161E] tracking-tight flex items-center gap-2">
-              {viewMode === "saved" ? (
-                <>
-                  <Bookmark size={22} className="text-[#B87B22]" />
-                  <span>Saved Places</span>
-                </>
-              ) : (
-                <>
-                  <History size={22} className="text-[#B87B22]" />
-                  <span>Revisit Places &amp; Memories</span>
-                </>
-              )}
-            </h1>
           </div>
+          <p className="text-xs sm:text-sm text-[#70798B] pl-11">
+            Review your saved destinations across Odisha, export your wishlist, or turn them into a custom trip plan.
+          </p>
         </div>
 
-        {/* View Mode Switcher Pills */}
-        <div className="flex items-center p-1 rounded-full bg-[#FAF7F2] border border-[#E5DFD5]">
+        {/* View switcher tabs */}
+        <div className="flex items-center gap-2 self-start sm:self-auto bg-[#F2EEE7] p-1 rounded-xl border border-[#E5DFD5]">
           <button
             type="button"
-            data-testid="tab-saved-places tab-saved-wishlist"
-            onClick={() => setViewMode("saved")}
-            className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
-              viewMode === "saved"
-                ? "bg-[#12161E] text-white shadow-xs font-bold"
-                : "text-[#3D4654] hover:text-[#12161E]"
+            data-testid="saved-tab-places"
+            onClick={() => setActiveTab("places")}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              activeTab === "places"
+                ? "bg-[#FFFFFF] text-[#12161E] shadow-xs"
+                : "text-[#70798B] hover:text-[#12161E]"
             }`}
           >
-            <Bookmark size={13} />
-            <span>Saved Wishlist</span>
-            {savedPlaces.length > 0 && (
-              <span className="ml-1 px-1.5 py-0.2 rounded-full bg-[#B87B22] text-white text-[10px]">
-                {savedPlaces.length}
-              </span>
-            )}
+            Saved Places ({savedPlaces.length})
           </button>
-
           <button
             type="button"
-            data-testid="tab-revisit-places"
-            onClick={() => setViewMode("revisit")}
-            className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
-              viewMode === "revisit"
-                ? "bg-[#12161E] text-white shadow-xs font-bold"
-                : "text-[#3D4654] hover:text-[#12161E]"
+            data-testid="saved-tab-export"
+            onClick={() => setActiveTab("export")}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              activeTab === "export"
+                ? "bg-[#FFFFFF] text-[#12161E] shadow-xs"
+                : "text-[#70798B] hover:text-[#12161E]"
             }`}
           >
-            <History size={13} />
-            <span>Recent History</span>
-            {memories.length > 0 && (
-              <span className="ml-1 px-1.5 py-0.2 rounded-full bg-[#B87B22] text-white text-[10px]">
-                {memories.length}
-              </span>
-            )}
+            Share & Export
           </button>
         </div>
       </div>
 
-      {/* VIEW 1: REVISIT MEMORIES */}
-      {viewMode === "revisit" && (
-        <div className="space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-3 bg-[#FAF7F2] p-4 sm:p-5 rounded-2xl border border-[#E5DFD5]">
-            <div className="space-y-1">
-              <h2 className="text-sm font-serif font-bold text-[#12161E] flex items-center gap-2">
-                <Sparkles size={14} className="text-[#B87B22]" />
-                <span>Places You've Explored &amp; Planned</span>
-              </h2>
-              <p className="text-xs text-[#70798B] max-w-xl leading-relaxed">
-                O-Travelz remembers destinations you've viewed, mapped, or included in itineraries.
-              </p>
+      {/* Main Content Area based on Active Tab */}
+      {activeTab === "export" ? (
+        <div data-testid="saved-export-panel" className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Share Link Card */}
+            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] shadow-xs space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] text-[#B87B22] flex items-center justify-center">
+                  <Share2 size={20} />
+                </div>
+                <div>
+                  <h3 className="font-serif font-bold text-base text-[#12161E]">Shareable Wishlist Link</h3>
+                  <p className="text-xs text-[#70798B]">
+                    Generate a portable web link containing your {savedPlaces.length} saved places.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="button"
+                  data-testid="saved-share-link-cta"
+                  onClick={handleCopyShareLink}
+                  disabled={savedPlaces.length === 0}
+                  className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs ${
+                    copiedLink
+                      ? "bg-[#2F523E] text-white"
+                      : "bg-[#B87B22] hover:bg-[#A0691B] text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                  }`}
+                >
+                  {copiedLink ? <Check size={14} /> : <Copy size={14} />}
+                  <span>{copiedLink ? "Link Copied to Clipboard!" : "Copy Shareable Link"}</span>
+                </button>
+              </div>
             </div>
 
-            {memories.length > 0 && (
-              <button
-                type="button"
-                onClick={clearRecentPlaces}
-                className="text-xs text-[#A84825] hover:underline transition-colors cursor-pointer font-medium"
-              >
-                Clear History
-              </button>
-            )}
+            {/* Quick Summary Text Card */}
+            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] shadow-xs space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] text-[#1B5E6B] flex items-center justify-center">
+                  <FileText size={20} />
+                </div>
+                <div>
+                  <h3 className="font-serif font-bold text-base text-[#12161E]">Formatted Summary</h3>
+                  <p className="text-xs text-[#70798B]">
+                    Copy a clean, readable text overview for messaging apps or notes.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="button"
+                  data-testid="saved-copy-summary-cta"
+                  onClick={handleCopySummary}
+                  disabled={savedPlaces.length === 0}
+                  className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer border shadow-xs ${
+                    copiedSummary
+                      ? "bg-[#2F523E] text-white border-[#2F523E]"
+                      : "bg-[#FAF7F2] hover:bg-[#F2EEE7] text-[#12161E] border-[#E5DFD5] disabled:opacity-50 disabled:cursor-not-allowed"
+                  }`}
+                >
+                  {copiedSummary ? <Check size={14} /> : <Copy size={14} />}
+                  <span>{copiedSummary ? "Summary Copied!" : "Copy Formatted Text"}</span>
+                </button>
+              </div>
+            </div>
           </div>
 
-          {memories.length === 0 ? (
-            <div
-              data-testid="revisit-empty-state"
-              className="p-12 text-center rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] shadow-xs space-y-4"
-            >
-              <div className="w-12 h-12 mx-auto rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] text-[#B87B22] flex items-center justify-center font-bold text-2xl">
-                <History size={24} />
-              </div>
-              <div className="space-y-1">
-                <h3 className="text-lg font-serif font-bold text-[#12161E]">No travel memories yet</h3>
-                <p className="text-xs sm:text-sm text-[#70798B] max-w-md mx-auto leading-relaxed">
-                  As you discover destinations in Odisha, open detail cards, or view routes on the map, they will appear here as your personal history.
-                </p>
-              </div>
+          {/* Backup & Import Section */}
+          <div className="p-6 rounded-2xl bg-[#FAF7F2] border border-[#E5DFD5] space-y-4">
+            <h3 className="font-serif font-bold text-base text-[#12161E]">Backup & File Downloads</h3>
+            <p className="text-xs text-[#70798B] leading-relaxed">
+              Save your wishlist as portable JSON for backups, or as structured Markdown for travel journals and obsidian/notion.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
                 type="button"
-                onClick={onBackToDiscover}
-                className="px-5 py-2.5 rounded-xl bg-[#B87B22] hover:bg-[#A0691B] text-white font-bold text-xs shadow-xs inline-flex items-center gap-2 transition-colors cursor-pointer"
+                data-testid="saved-download-json-cta"
+                onClick={handleDownloadJson}
+                disabled={savedPlaces.length === 0}
+                className="px-4 py-2 rounded-xl bg-[#FFFFFF] border border-[#E5DFD5] hover:bg-[#F2EEE7] text-[#12161E] text-xs font-bold shadow-xs flex items-center gap-2 transition-colors cursor-pointer disabled:opacity-50"
               >
-                <Compass size={14} />
-                <span>Discover Odisha Highlights</span>
+                <Download size={14} className="text-[#B87B22]" />
+                <span>Download JSON</span>
               </button>
+
+              <button
+                type="button"
+                data-testid="saved-download-markdown-cta"
+                onClick={handleDownloadMarkdown}
+                disabled={savedPlaces.length === 0}
+                className="px-4 py-2 rounded-xl bg-[#FFFFFF] border border-[#E5DFD5] hover:bg-[#F2EEE7] text-[#12161E] text-xs font-bold shadow-xs flex items-center gap-2 transition-colors cursor-pointer disabled:opacity-50"
+              >
+                <Download size={14} className="text-[#1B5E6B]" />
+                <span>Download Markdown (.md)</span>
+              </button>
+
+              <label className="px-4 py-2 rounded-xl bg-[#FFFFFF] border border-[#E5DFD5] hover:bg-[#F2EEE7] text-[#12161E] text-xs font-bold shadow-xs flex items-center gap-2 transition-colors cursor-pointer">
+                <Upload size={14} className="text-[#A84825]" />
+                <span>Import from JSON</span>
+                <input
+                  type="file"
+                  accept=".json,application/json"
+                  onChange={handleImportJsonFile}
+                  className="hidden"
+                />
+              </label>
             </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {memories.map((mem) => {
-                const badge = getStatusBadge(mem.status);
-                const BadgeIcon = badge.icon;
-                const imageUrl = mem.imageUrl || resolvePlaceImageUrl({ name: mem.name, category: mem.category }, "card");
-                const timeAgo = new Date(mem.visitedAt).toLocaleDateString("en-IN", {
-                  month: "short",
-                  day: "numeric",
-                });
 
-                return (
-                  <div
-                    key={mem.id || mem.name}
-                    data-testid={`revisit-card-${mem.id || mem.name}`}
-                    className="group relative rounded-xl bg-[#FFFFFF] border border-[#E5DFD5] hover:border-[#D1C8BA] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden text-[#12161E]"
-                  >
-                    {/* Photo Header */}
-                    <div className="relative h-44 w-full bg-[#F2EEE7] overflow-hidden">
-                      <img
-                        src={imageUrl}
-                        alt={mem.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = getPlaceImageUrl(mem.name, mem.category);
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-
-                      {/* Top Badges */}
-                      <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                        <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold font-mono border backdrop-blur-md flex items-center gap-1 shadow-xs ${badge.color}`}>
-                          <BadgeIcon size={11} />
-                          <span>{badge.label}</span>
-                        </span>
-
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            removeRecentPlace(mem.id || mem.name);
-                          }}
-                          className="w-7 h-7 rounded-full bg-white/80 hover:bg-white text-[#12161E] flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer"
-                          aria-label={`Remove ${mem.name} from memories`}
-                        >
-                          <Trash2 size={12} />
-                        </button>
-                      </div>
-
-                      {/* Bottom Image Info */}
-                      <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between text-white">
-                        <div>
-                          <span className="text-[10px] uppercase tracking-wider font-bold text-white/90 font-mono">
-                            {mem.category}
-                          </span>
-                          <h3 className="font-serif font-bold text-base text-white leading-tight drop-shadow-sm truncate max-w-[200px]">
-                            {mem.name}
-                          </h3>
-                        </div>
-
-                        {mem.rating && (
-                          <div className="flex items-center gap-1 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[#B87B22] text-xs font-bold">
-                            <Star size={11} className="fill-[#B87B22] text-[#B87B22]" />
-                            <span>{mem.rating.toFixed(1)}</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Card Content Body */}
-                    <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
-                      <div className="space-y-1.5">
-                        <div className="flex items-center justify-between text-xs text-[#70798B]">
-                          <span className="flex items-center gap-1 text-[#3D4654] font-medium">
-                            <MapPin size={11} className="text-[#B87B22]" />
-                            <span>{mem.location || getPlaceRegion(mem.name)}</span>
-                          </span>
-                          <span className="font-mono text-[10px] text-[#70798B]">{timeAgo}</span>
-                        </div>
-
-                        {mem.description && (
-                          <p className="text-xs text-[#70798B] line-clamp-2 leading-relaxed">
-                            {mem.description}
-                          </p>
-                        )}
-                      </div>
-
-                      {/* Action Buttons Strip */}
-                      <div className="pt-3 border-t border-[#E5DFD5] flex items-center gap-2">
-                        <button
-                          type="button"
-                          data-testid={`revisit-explore-${mem.id || mem.name}`}
-                          onClick={() =>
-                            onSelectPlace?.({
-                              id: mem.id,
-                              name: mem.name,
-                              category: mem.category,
-                              location: mem.location,
-                              description: mem.description,
-                              lat: mem.lat,
-                              lon: mem.lon,
-                              imageUrl: mem.imageUrl,
-                            })
-                          }
-                          className="flex-1 py-1.5 rounded-lg bg-[#FAF7F2] border border-[#E5DFD5] hover:bg-[#F2EEE7] text-[#12161E] text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer"
-                        >
-                          <span>Explore Again</span>
-                        </button>
-
-                        <button
-                          type="button"
-                          data-testid={`revisit-plan-${mem.id || mem.name}`}
-                          onClick={() => {
-                            if (onPlanWithSinglePlace) {
-                              onPlanWithSinglePlace({
-                                id: mem.id,
-                                name: mem.name,
-                                category: mem.category,
-                                location: mem.location,
-                                description: mem.description,
-                              });
-                            }
-                          }}
-                          className="flex-1 py-1.5 rounded-lg bg-[#B87B22] hover:bg-[#A0691B] text-white text-xs font-bold shadow-xs transition-all flex items-center justify-center gap-1 cursor-pointer"
-                        >
-                          <Compass size={12} />
-                          <span>Plan Trip</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
+            {importStatus && (
+              <div className="p-3 rounded-lg bg-[#FFFFFF] border border-[#E5DFD5] text-xs font-medium text-[#12161E]">
+                {importStatus}
+              </div>
+            )}
+          </div>
         </div>
-      )}
-
-      {/* VIEW 2: SAVED WISHLIST */}
-      {viewMode === "saved" && (
-        <div className="space-y-6">
+      ) : (
+        <div data-testid="saved-places-list" className="space-y-6">
           {savedPlaces.length === 0 ? (
             <div
-              data-testid="saved-empty-state"
-              className="p-12 text-center rounded-2xl bg-[#FFFFFF] border border-[#E5DFD5] shadow-xs space-y-4"
+              data-testid="saved-places-empty"
+              className="text-center py-16 px-4 rounded-3xl bg-[#FFFFFF] border border-[#E5DFD5] space-y-4 shadow-xs"
             >
               <div className="w-12 h-12 mx-auto rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] text-[#A84825] flex items-center justify-center font-bold text-2xl">
                 <Heart size={24} />
