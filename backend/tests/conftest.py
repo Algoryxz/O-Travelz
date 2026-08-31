@@ -153,3 +153,13 @@ def check_integration_environment(request):
                 "To execute integration tests, start the database with: 'docker-compose up -d db'\n"
                 "or set DATABASE_URL to a valid PostgreSQL/PostGIS instance."
             )
+
+
+@pytest.fixture(autouse=True)
+def reset_ai_rate_limiter():
+    """Reset in-memory AI rate limiter state before and after each test for test isolation."""
+    from app.ai.rate_limit import rate_limiter
+    rate_limiter.reset()
+    yield
+    rate_limiter.reset()
+

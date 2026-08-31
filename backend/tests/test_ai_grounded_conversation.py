@@ -486,3 +486,96 @@ def test_api_routes_integration(test_orchestrator):
         assert len(data_conv["itinerary"]["days"]) == 3
     finally:
         app.dependency_overrides.clear()
+
+
+# ---------------------------------------------------------------------------
+# 7. AI Checkpoint 1 P0 Stability & No-Tool Conversational Fallback Tests
+# ---------------------------------------------------------------------------
+
+class TestP0ConversationalStability:
+    """Explicit regression tests for no-tool conversational handling and crash prevention."""
+
+    def test_hello_conversational_turn(self, test_orchestrator):
+        """A. 'Hello' should return a safe, non-empty response without unassigned variable crash."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Hello")])
+        assert res.status in (AIStatus.SUCCESS, AIStatus.CLARIFICATION)
+        assert res.message is not None and len(res.message.strip()) > 0
+        assert res.is_grounded is True
+        assert res.itinerary is None
+
+    def test_what_can_you_do_query(self, test_orchestrator):
+        """B. 'What can you do?' returns a safe capability overview without exception."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="What can you do?")])
+        assert res.status in (AIStatus.SUCCESS, AIStatus.CLARIFICATION)
+        assert res.message is not None and len(res.message.strip()) > 0
+        assert res.is_grounded is True
+
+    def test_normal_place_query_unchanged(self, test_orchestrator):
+        """C. Normal place query behavior is preserved with grounded place results."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Show me temples in Puri")])
+        assert res.status == AIStatus.SUCCESS
+        assert len(res.places) > 0 or res.itinerary is not None
+        assert res.is_grounded is True
+
+    def test_normal_itinerary_query_unchanged(self, test_orchestrator):
+        """D. Normal itinerary generation is unchanged."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Plan a 2 day trip to Puri")])
+        assert res.status == AIStatus.SUCCESS
+        assert res.itinerary is not None
+        assert len(res.itinerary.days) == 2
+        assert res.is_grounded is True
+
+    def test_transport_request_unchanged(self, test_orchestrator):
+        """E. Transit/transport tool behavior is unchanged."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Tell me about Mo Bus transit status")])
+        assert res.status == AIStatus.SUCCESS
+        assert len(res.provider_status) > 0 or len(res.transport) > 0 or "status" in res.message.lower()
+        assert res.is_grounded is True
+
+    def test_grounding_verifier_failure_path_never_unbound_error(self, test_orchestrator, monkeypatch):
+        """F. Grounding verifier failure path produces a controlled error without UnboundLocalError."""
+        from app.ai.grounding_verifier import GroundingVerifier
+        def mock_verify_fail(*args, **kwargs):
+            raise RuntimeError("Simulated internal verifier failure")
+        monkeypatch.setattr(GroundingVerifier, "verify_response", mock_verify_fail)
+
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Plan a 2 day trip to Puri")])
+        assert res.status == AIStatus.SUCCESS
+        assert res.is_grounded is False
+        assert any("internal error" in w.lower() for w in res.warnings)
+
+    def test_multilingual_no_tool_conversational_odia(self, test_orchestrator):
+        """G1. Odia conversational input preserves language handling without crash."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="ନମସ୍କାର, ଆପଣ କିପରି ସାହାଯ୍ୟ କରିପାରିବେ?")])
+        assert res.status in (AIStatus.SUCCESS, AIStatus.CLARIFICATION)
+        assert res.language == "or"
+        assert res.message is not None and len(res.message.strip()) > 0
+        assert res.is_grounded is True
+
+    def test_multilingual_no_tool_conversational_hindi(self, test_orchestrator):
+        """G2. Hindi conversational input preserves language handling without crash."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="नमस्ते, आप मेरी क्या मदद कर सकते हैं?")])
+        assert res.status in (AIStatus.SUCCESS, AIStatus.CLARIFICATION)
+        assert res.language == "hi"
+        assert res.message is not None and len(res.message.strip()) > 0
+        assert res.is_grounded is True
+
+    def test_no_tool_conversational_fallback_when_no_domain_results(self, test_orchestrator):
+        """H. Conversation where tool execution produces no domain results falls back to safe message without crash."""
+        from app.ai.registry import BaseToolAdapter
+        class EmptyToolAdapter(BaseToolAdapter):
+            @property
+            def definition(self):
+                return ToolDefinition(name="search_places", description="Mock empty search")
+            def execute(self, arguments, tool_call_id=None):
+                return ToolResult(tool_call_id=tool_call_id, tool_name="search_places", status=ToolStatus.OK, data=[])
+
+        test_orchestrator.registry._tools["search_places"] = EmptyToolAdapter()
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Just chatting with you")])
+        assert res.status in (AIStatus.SUCCESS, AIStatus.CLARIFICATION)
+        assert res.message is not None and len(res.message.strip()) > 0
+        assert res.is_grounded is True
+
+
+
+

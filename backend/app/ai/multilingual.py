@@ -272,3 +272,15 @@ def generate_grounded_search_message(
         return f"आपके अनुरोध के अनुसार {place_count} सत्यापित स्थान मिले।"
     else:
         return f"Found {place_count} verified place(s) matching your request."
+
+
+def generate_conversational_fallback_message(language: str) -> str:
+    """Generate truthful, safe conversational fallback message in target language."""
+    lang = language.strip().lower()
+    if lang in ("or", "odia", "ଓଡ଼ିଆ"):
+        return "ମୁଁ ଆପଣଙ୍କୁ ଓଡ଼ିଶା ଭ୍ରମଣ ଯୋଜନା, ସ୍ଥାନ ସନ୍ଧାନ ଏବଂ ପରିବହନ ସୂଚନାରେ ସାହାଯ୍ୟ କରିପାରିବି। ଦୟାକରି ଆପଣଙ୍କ ପସନ୍ଦର ସ୍ଥାନ, ଦିନ ସଂଖ୍ୟା କିମ୍ବା ଆଗ୍ରହ ଜଣାନ୍ତୁ।"
+    elif lang in ("hi", "hindi", "हिन्दी", "हिंदी"):
+        return "मैं ओडिशा यात्रा योजना, दर्शनीय स्थलों की खोज और परिवहन जानकारी में आपकी सहायता कर सकता हूँ। कृपया अपने पसंदीदा गंतव्य, दिनों की संख्या या रुचि बताएं।"
+    else:
+        return "I can help you plan a verified trip across Odisha, discover destinations, and check transit options. Please mention your preferred destinations, number of days, or interests."
+

@@ -66,7 +66,7 @@ def make_mock_http_response(status: int = 200, data: dict | str = None, headers:
 # ==============================================================================
 class TestZeroCostSafetyPolicy:
     def test_default_settings_is_safe_offline_zero_cost(self):
-        settings = Settings()
+        settings = Settings(_env_file=None)
         assert settings.ai_allow_external_provider is False
         assert settings.ai_allow_paid_provider is False
         assert settings.ai_provider == "mock"

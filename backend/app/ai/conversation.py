@@ -18,6 +18,7 @@ from app.ai.adapter import AIProviderAdapter, MockProviderAdapter
 from app.ai.boundary import ToolExecutionBoundary
 from app.ai.contracts import (
     AdapterResponse,
+    AIProviderError,
     ChatMessage,
     ChatRole,
     FinishReason,
@@ -32,6 +33,7 @@ from app.ai.multilingual import (
     detect_language,
     extract_multilingual_days,
     extract_multilingual_interests,
+    generate_conversational_fallback_message,
     generate_grounded_itinerary_message,
     generate_grounded_search_message,
     is_refinement_query,
@@ -247,14 +249,15 @@ class GroundedConversationOrchestrator:
         warnings = list(context.warnings)
 
         # 6. Generate grounded response message in target language
+        grounded_msg = generate_conversational_fallback_message(language=detected_lang)
         if itinerary is not None:
             stop_count = sum(len(d.stops) for d in itinerary.days)
             grounded_msg = generate_grounded_itinerary_message(
                 language=detected_lang,
                 days=len(itinerary.days),
                 stop_count=stop_count,
-                start_place=effective_constraints.start,
-                interests=effective_constraints.interests,
+                start_place=effective_constraints.start if effective_constraints else None,
+                interests=effective_constraints.interests if effective_constraints else None,
             )
         elif places:
             grounded_msg = generate_grounded_search_message(

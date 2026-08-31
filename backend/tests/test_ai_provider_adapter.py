@@ -169,7 +169,7 @@ class TestConfigurationBoundary:
     """Verify provider settings, safe offline defaults, and secret isolation."""
 
     def test_default_settings_is_safe_offline_mock(self):
-        default_settings = Settings()
+        default_settings = Settings(_env_file=None)
         assert default_settings.ai_provider == "mock"
         assert default_settings.ai_model_name is None
         assert default_settings.ai_api_key is None
