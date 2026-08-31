@@ -277,6 +277,28 @@ class GroundedConversationOrchestrator:
         elif tool_results_obtained and any(r.tool_name == "plan_transport_hop" for r in tool_results_obtained):
             h_res = next(r for r in tool_results_obtained if r.tool_name == "plan_transport_hop")
             grounded_msg = f"Transport hop planned: mode={getattr(h_res.data, 'mode', 'unknown')}."
+        elif tool_results_obtained and any(r.tool_name == "get_weather" for r in tool_results_obtained):
+            w_res = next(r for r in tool_results_obtained if r.tool_name == "get_weather")
+            w_data = w_res.data if isinstance(w_res.data, dict) else {}
+            loc = w_data.get("location", "Odisha")
+            temp = w_data.get("temperature_c")
+            cond = w_data.get("condition", "Current conditions")
+            precip = w_data.get("precipitation_probability_pct") or w_data.get("precipitation_probability") or 0
+            grounded_msg = f"Weather in {loc}: {temp}°C, {cond} with {precip}% precipitation probability."
+        elif tool_results_obtained and any(r.tool_name == "estimate_crowd" for r in tool_results_obtained):
+            c_res = next(r for r in tool_results_obtained if r.tool_name == "estimate_crowd")
+            c_data = c_res.data if isinstance(c_res.data, dict) else {}
+            lvl = c_data.get("level", "moderate")
+            rec = c_data.get("recommended_window")
+            rec_str = f" Recommended visit window: {rec.get('start')}-{rec.get('end')}." if rec else ""
+            grounded_msg = f"Expected crowd level is {lvl}.{rec_str}"
+        elif tool_results_obtained and any(r.tool_name == "get_transit_options" for r in tool_results_obtained):
+            t_res = next(r for r in tool_results_obtained if r.tool_name == "get_transit_options")
+            t_data = t_res.data if isinstance(t_res.data, dict) else {}
+            if t_data.get("available"):
+                grounded_msg = f"Verified transit available: mode={t_data.get('mode')}, estimated {t_data.get('estimated_minutes')} mins."
+            else:
+                grounded_msg = t_data.get("message", "No verified public-transit option is currently available for this leg.")
         # 7. Final Fact Verification & Zero-Fabrication Safety Pass
         try:
             from app.ai.grounding_verifier import GroundingVerifier
@@ -344,6 +366,62 @@ class GroundedConversationOrchestrator:
                     confidence="high",
                 )
             )
+
+        # Domain tool specific evidence items
+        for r in tool_results_obtained:
+            if r.tool_name == "get_weather" and isinstance(r.data, dict):
+                w_data = r.data
+                loc = w_data.get("location", "Odisha")
+                temp = w_data.get("temperature_c")
+                cond = w_data.get("condition", "Weather conditions")
+                precip = w_data.get("precipitation_probability_pct", 0)
+                evidence_items.append(
+                    EvidenceItem(
+                        title="Current weather",
+                        rationale=f"{w_data.get('source', 'Open-Meteo')} reports {temp}°C, {cond}, rain probability of {precip}% for {loc}",
+                        claim_type=ClaimType.LIVE,
+                        source=w_data.get("source", "Open-Meteo"),
+                        confidence="high",
+                    )
+                )
+            elif r.tool_name == "estimate_crowd" and isinstance(r.data, dict):
+                c_data = r.data
+                level = c_data.get("level", "moderate")
+                factors = c_data.get("factors", [])
+                rationale_text = "; ".join(factors) if factors else f"Estimated {level} crowd based on category priors and time"
+                evidence_items.append(
+                    EvidenceItem(
+                        title="Expected crowd",
+                        rationale=rationale_text,
+                        claim_type=ClaimType.ESTIMATED,
+                        source=c_data.get("source", "O-TRAVELZ crowd heuristic"),
+                        confidence=c_data.get("confidence", "medium"),
+                    )
+                )
+            elif r.tool_name == "get_transit_options" and isinstance(r.data, dict):
+                t_data = r.data
+                if t_data.get("available"):
+                    mode = t_data.get("mode", "bus")
+                    mins = t_data.get("estimated_minutes")
+                    evidence_items.append(
+                        EvidenceItem(
+                            title="Scheduled departure",
+                            rationale=f"Verified public transit ({mode}) with estimated travel time of {mins} minutes",
+                            claim_type=ClaimType.SCHEDULED,
+                            source=t_data.get("source", "CRUT Mo Bus timetable"),
+                            confidence="high",
+                        )
+                    )
+                else:
+                    evidence_items.append(
+                        EvidenceItem(
+                            title="Transit options unavailable",
+                            rationale=t_data.get("message", "No verified public-transit option is currently available for this leg."),
+                            claim_type=ClaimType.UNKNOWN,
+                            source=t_data.get("source", "O-Travelz transit graph"),
+                            confidence="low",
+                        )
+                    )
 
         return GroundedConversationResponse(
             message=grounded_msg,

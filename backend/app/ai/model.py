@@ -273,7 +273,84 @@ class RuleBasedModelAdapter(ModelAdapter):
                 ],
             }
 
-        # Context-aware: Transit / Bus query
+        # Resolve starting location if mentioned
+        detected_start = self._resolve_start_location(text)
+
+        # Context-aware: Weather query ("Will it rain in Puri?", "Weather in Bhubaneswar", "ପାଣିପାଗ", "मौसम")
+        is_weather_query = any(w in text_lower for w in ("weather", "rain", "temperature", "forecast", "climate", "hot outside", "sunny", "ବାଦଲ", "ପାଣିପାଗ", "ବର୍ଷା", "ତାପମାତ୍ରା", "मौसम", "बारिश", "तापमान"))
+        if is_weather_query:
+            weather_loc = detected_start or dest_name or dest_district or loc_city or loc_district or "Puri"
+            return {
+                "kind": IntentKind.PLANNING.value,
+                "constraints": {"days": 1, "interests": [], **detected_prefs},
+                "tool_calls": [
+                    {
+                        "name": "get_weather",
+                        "arguments": {"location": weather_loc},
+                    }
+                ],
+            }
+
+        # Context-aware: Crowd estimation query ("Is Konark crowded?", "Crowd level at Jagannath Temple", "ଭିଡ଼ କେମିତି", "क्या भीड़ होगी")
+        has_crowd_term = any(w in text_lower for w in ("crowd", "crowded", "rush", "busy", "rush hour")) or ("ଭିଡ଼" in text) or ("भीड़" in text)
+        is_avoid_only = any(p in text_lower for p in ("avoid crowd", "avoid crowds", "no crowd", "without crowd", "peaceful", "quiet", "ଭିଡ଼ କମ", "ଭିଡ଼ ଏଡାନ୍ତୁ", "भीड़ से बचें", "कम भीड़")) and not any(q in text_lower for q in ("is", "how", "what", "level", "when", "?", "କେମିତି", "କି", "କେତେ", "कैसी", "कितनी", "क्या"))
+        is_crowd_query = has_crowd_term and not is_avoid_only
+        if is_crowd_query:
+            crowd_place = dest_name or detected_start or "Konark Sun Temple"
+            return {
+                "kind": IntentKind.PLANNING.value,
+                "constraints": {"days": 1, "interests": [], **detected_prefs},
+                "tool_calls": [
+                    {
+                        "name": "estimate_crowd",
+                        "arguments": {
+                            "place_name": crowd_place,
+                            "arrival_time": "12:00",
+                            "avoid_crowds": detected_prefs.get("avoid_crowds", False),
+                        },
+                    }
+                ],
+            }
+
+        # Context-aware: Point-to-point transit routing query ("Can I take Mo Bus from X to Y?", "How to go from Puri to Konark by bus?")
+        transit_keywords = ("bus", "mo bus", "transit", "train", "route", "ରୁଟ", "ବସ", "ମୋ ବସ", "बस", "रूट")
+        is_point_to_point_transit = any(w in text_lower for w in transit_keywords) and (
+            ("from" in text_lower and "to" in text_lower)
+            or ("ରୁ" in text and "କୁ" in text)
+            or ("से" in text and "तक" in text or "से" in text and "के लिए" in text)
+        )
+        if is_point_to_point_transit:
+            # Extract origin / destination heuristics
+            orig = "from_place"
+            dest = "to_place"
+            match_en = re.search(r"from\s+([A-Za-z\s]+?)\s+to\s+([A-Za-z\s]+)", text_lower)
+            if match_en:
+                orig = match_en.group(1).strip()
+                dest = match_en.group(2).strip()
+                # Clean filler words
+                for f_word in ("by bus", "by mo bus", "bus", "today", "now"):
+                    dest = dest.replace(f_word, "").strip()
+            elif detected_start:
+                orig = detected_start
+                dest = dest_name or "Konark"
+
+            return {
+                "kind": IntentKind.PLANNING.value,
+                "constraints": {"days": 1, "interests": [], **detected_prefs},
+                "tool_calls": [
+                    {
+                        "name": "get_transit_options",
+                        "arguments": {
+                            "origin_id": orig,
+                            "destination_id": dest,
+                            "origin_name": orig,
+                            "destination_name": dest,
+                        },
+                    }
+                ],
+            }
+
+        # Context-aware: General Transit / Provider status query
         is_transit_query = any(w in text_lower for w in ("explain this route", "mo bus", "bus route", "bus timetable", "nearest stop", "transit", "ରୁଟ", "ବସ", "ରୁଟ୍", "बस", "रूट", "समय सारिणी"))
         if is_transit_query or map_mode == "transit":
             return {

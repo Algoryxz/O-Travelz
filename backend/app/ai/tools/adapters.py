@@ -219,10 +219,267 @@ class GetProviderStatusToolAdapter(BaseToolAdapter):
         return res
 
 
+class GetWeatherToolAdapter(BaseToolAdapter):
+    """Tool adapter exposing live/forecast weather observations via Open-Meteo."""
+
+    def __init__(self, weather_service: Any = None) -> None:
+        if weather_service is None:
+            from app.services.weather.service import WeatherService
+            weather_service = WeatherService()
+        self.weather_service = weather_service
+        self._definition = ToolDefinition(
+            name="get_weather",
+            description="Get live weather observation, temperature, precipitation probability, and travel advice for an Odisha destination or coordinates.",
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "location": {"type": "string", "description": "Odisha destination or hub name (e.g. 'Puri', 'Bhubaneswar', 'Konark')."},
+                    "lat": {"type": "number", "description": "WGS84 latitude."},
+                    "lon": {"type": "number", "description": "WGS84 longitude."},
+                    "date": {"type": "string", "description": "Optional forecast date (YYYY-MM-DD)."},
+                },
+            },
+        )
+
+    @property
+    def definition(self) -> ToolDefinition:
+        return self._definition
+
+    def execute(self, arguments: dict[str, Any], tool_call_id: str | None = None) -> ToolResult:
+        try:
+            location = arguments.get("location") or arguments.get("location_name") or "Bhubaneswar"
+            lat = arguments.get("lat")
+            lon = arguments.get("lon")
+            res = self.weather_service.get_weather_for_location(lat=lat, lon=lon, location_name=location)
+            obs = res.current
+            data = {
+                "location": obs.location_name,
+                "temperature_c": obs.temperature_c,
+                "apparent_temperature_c": obs.apparent_temperature_c,
+                "condition": obs.condition,
+                "humidity_pct": obs.humidity_pct,
+                "precipitation_probability_pct": obs.precipitation_probability_pct,
+                "wind_speed_kmh": obs.wind_speed_kmh,
+                "advice": obs.advice,
+                "observed_at": obs.observed_at,
+                "freshness_timestamp": obs.freshness_timestamp,
+                "status": obs.status,
+                "claim_type": "live" if obs.status == "available" else "unknown",
+                "source": obs.provider or "Open-Meteo",
+                "error_reason": obs.error_reason,
+            }
+            return ToolResult(
+                tool_call_id=tool_call_id,
+                tool_name=self.definition.name,
+                status=ToolStatus.OK if obs.status == "available" else ToolStatus.UNAVAILABLE,
+                data=data,
+                reason=obs.error_reason,
+            )
+        except Exception as error:
+            return ToolResult(
+                tool_call_id=tool_call_id,
+                tool_name=self.definition.name,
+                status=ToolStatus.ERROR,
+                reason="Weather tool failed.",
+                error=str(error),
+            )
+
+
+class EstimateCrowdToolAdapter(BaseToolAdapter):
+    """Tool adapter exposing deterministic crowd heuristics and optimal visiting windows."""
+
+    def __init__(self, crowd_service: Any = None, db: Session | None = None) -> None:
+        if crowd_service is None:
+            from app.services.crowd.service import CrowdService
+            crowd_service = CrowdService()
+        self.crowd_service = crowd_service
+        self.db = db
+        self._definition = ToolDefinition(
+            name="estimate_crowd",
+            description="Estimate crowd level (low/moderate/high) and recommended visiting window for a destination based on category priors, operating hours, and time.",
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "place_id": {"type": "string", "description": "Place identifier or reference name."},
+                    "place_name": {"type": "string", "description": "Place name (e.g. 'Konark Sun Temple', 'Jagannath Temple')."},
+                    "arrival_datetime": {"type": "string", "description": "ISO datetime or time string (e.g. '2026-09-01T12:00:00' or '12:00')."},
+                    "arrival_time": {"type": "string", "description": "Time string (e.g. '12:00', '18:30')."},
+                    "avoid_crowds": {"type": "boolean", "description": "True if user requested crowd avoidance."},
+                    "weather_context": {"type": "object", "description": "Optional weather context dictionary."},
+                },
+            },
+        )
+
+    @property
+    def definition(self) -> ToolDefinition:
+        return self._definition
+
+    def execute(self, arguments: dict[str, Any], tool_call_id: str | None = None) -> ToolResult:
+        try:
+            place_id = arguments.get("place_id")
+            place_name = arguments.get("place_name")
+            arrival_dt = arguments.get("arrival_datetime") or arguments.get("arrival_time")
+            avoid_crowds = bool(arguments.get("avoid_crowds", False))
+            weather_ctx = arguments.get("weather_context")
+
+            # Resolve place
+            place_obj = None
+            if self.db is not None and place_id:
+                try:
+                    from app.models.place import Place
+                    import uuid
+                    try:
+                        place_obj = self.db.get(Place, uuid.UUID(str(place_id)))
+                    except Exception:
+                        place_obj = None
+                    if place_obj is None and hasattr(self.db, "query"):
+                        place_obj = self.db.query(Place).filter(
+                            (Place.id == str(place_id)) | (Place.name.ilike(f"%{place_name or place_id}%"))
+                        ).first()
+                except Exception:
+                    place_obj = None
+
+            if place_obj is None:
+                # Fallback to dictionary representation
+                p_name = place_name or place_id or "Unknown"
+                category = "heritage"
+                p_lower = p_name.lower()
+                if "temple" in p_lower or "mandir" in p_lower:
+                    category = "temple"
+                elif "beach" in p_lower or "sea" in p_lower:
+                    category = "beach"
+                elif "museum" in p_lower:
+                    category = "museum"
+                elif "waterfall" in p_lower:
+                    category = "waterfall"
+                elif "nature" in p_lower or "hill" in p_lower or "sanctuary" in p_lower:
+                    category = "nature"
+                elif "market" in p_lower or "bazaar" in p_lower:
+                    category = "market"
+
+                place_obj = {
+                    "id": place_id or "p_unknown",
+                    "name": p_name,
+                    "category": category,
+                }
+
+            estimate = self.crowd_service.estimate_crowd(
+                place=place_obj,
+                arrival_datetime=arrival_dt,
+                avoid_crowds=avoid_crowds,
+                weather_context=weather_ctx,
+            )
+            return ToolResult(
+                tool_call_id=tool_call_id,
+                tool_name=self.definition.name,
+                status=ToolStatus.OK if estimate.level != "unknown" or estimate.recommended_window else ToolStatus.OK,
+                data=estimate.model_dump(mode="json"),
+            )
+        except Exception as error:
+            return ToolResult(
+                tool_call_id=tool_call_id,
+                tool_name=self.definition.name,
+                status=ToolStatus.ERROR,
+                reason="Crowd estimation tool failed.",
+                error=str(error),
+            )
+
+
+class GetTransitOptionsToolAdapter(BaseToolAdapter):
+    """Tool adapter exposing verified public-transit options (CRUT Mo Bus / Ama Bus)."""
+
+    def __init__(self, transport_service: Any = None, db: Session | None = None) -> None:
+        if transport_service is None:
+            from app.transport.service import MappingPlaceResolver, TransportService
+            transport_service = TransportService(MappingPlaceResolver({}))
+        self.transport_service = transport_service
+        self.db = db
+        self._definition = ToolDefinition(
+            name="get_transit_options",
+            description="Get verified public-transit options, connecting routes, stops, and schedules between two Odisha destinations.",
+            input_schema={
+                "type": "object",
+                "required": ["origin_id", "destination_id"],
+                "properties": {
+                    "origin_id": {"type": "string", "description": "Origin place or stop identifier."},
+                    "destination_id": {"type": "string", "description": "Destination place or stop identifier."},
+                    "origin_name": {"type": "string", "description": "Origin place name."},
+                    "destination_name": {"type": "string", "description": "Destination place name."},
+                    "preferred_mode": {"type": "string", "description": "Preferred transit mode (e.g. 'bus', 'walk')."},
+                },
+            },
+        )
+
+    @property
+    def definition(self) -> ToolDefinition:
+        return self._definition
+
+    def execute(self, arguments: dict[str, Any], tool_call_id: str | None = None) -> ToolResult:
+        try:
+            from app.ai.schemas import PlanTransportHopArgs
+            from app.schemas.common import PlaceSummary, PlanningConstraints
+
+            origin_id = arguments.get("origin_id") or arguments.get("origin_name") or "from_place"
+            dest_id = arguments.get("destination_id") or arguments.get("destination_name") or "to_place"
+            origin_name = arguments.get("origin_name") or str(origin_id)
+            dest_name = arguments.get("destination_name") or str(dest_id)
+
+            from_place = PlaceSummary(id=str(origin_id), name=origin_name, category="transit_hub")
+            to_place = PlaceSummary(id=str(dest_id), name=dest_name, category="destination")
+
+            hop_args = PlanTransportHopArgs(
+                from_place=from_place,
+                to_place=to_place,
+                constraints=PlanningConstraints(days=1),
+                from_sequence=1,
+                to_sequence=2,
+            )
+            hop = self.transport_service.plan_transport_hop(hop_args)
+
+            if hop.mode == "unavailable" or not hop.legs:
+                return ToolResult(
+                    tool_call_id=tool_call_id,
+                    tool_name=self.definition.name,
+                    status=ToolStatus.OK,
+                    data={
+                        "available": False,
+                        "message": "No verified public-transit option is currently available for this leg.",
+                        "reason": hop.reason or "No connecting route in verified graph.",
+                        "claim_type": "unknown",
+                        "source": "O-Travelz transit graph",
+                    },
+                )
+
+            return ToolResult(
+                tool_call_id=tool_call_id,
+                tool_name=self.definition.name,
+                status=ToolStatus.OK,
+                data={
+                    "available": True,
+                    "mode": hop.mode,
+                    "estimated_minutes": hop.estimated_minutes,
+                    "legs": [leg.model_dump(mode="json") for leg in hop.legs],
+                    "data_tier": hop.data_tier.value,
+                    "claim_type": "scheduled",
+                    "source": "CRUT Mo Bus / Ama Bus verified timetable graph",
+                },
+            )
+        except Exception as error:
+            return ToolResult(
+                tool_call_id=tool_call_id,
+                tool_name=self.definition.name,
+                status=ToolStatus.ERROR,
+                reason="Transit options tool failed.",
+                error=str(error),
+            )
+
+
 def create_default_tool_registry(
     db: Session,
     itinerary_service: ItineraryService | None = None,
     transport_service: Any = None,
+    weather_service: Any = None,
+    crowd_service: Any = None,
 ) -> ToolRegistry:
     """Create and return a ToolRegistry populated with canonical O-Travelz domain tools."""
     registry = ToolRegistry()
@@ -238,7 +495,18 @@ def create_default_tool_registry(
         repo = SQLAlchemyPlaceRepository(db)
         itinerary_service = ItineraryService(repo, transport_service)
 
+    if weather_service is None:
+        from app.services.weather.service import WeatherService
+        weather_service = WeatherService()
+
+    if crowd_service is None:
+        from app.services.crowd.service import CrowdService
+        crowd_service = CrowdService()
+
     registry.register(BuildItineraryToolAdapter(itinerary_service))
     registry.register(PlanTransportHopToolAdapter(transport_service))
     registry.register(GetProviderStatusToolAdapter(transport_service))
+    registry.register(GetWeatherToolAdapter(weather_service))
+    registry.register(EstimateCrowdToolAdapter(crowd_service, db=db))
+    registry.register(GetTransitOptionsToolAdapter(transport_service, db=db))
     return registry

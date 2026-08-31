@@ -2,7 +2,10 @@
 
 from app.ai.tools.adapters import (
     BuildItineraryToolAdapter,
+    EstimateCrowdToolAdapter,
     GetProviderStatusToolAdapter,
+    GetTransitOptionsToolAdapter,
+    GetWeatherToolAdapter,
     PlanTransportHopToolAdapter,
     SearchPlacesToolAdapter,
     create_default_tool_registry,
@@ -16,8 +19,11 @@ from app.ai.tools.search_places import SearchPlacesTool
 __all__ = [
     "BuildItineraryTool",
     "BuildItineraryToolAdapter",
+    "EstimateCrowdToolAdapter",
     "GetProviderStatusTool",
     "GetProviderStatusToolAdapter",
+    "GetTransitOptionsToolAdapter",
+    "GetWeatherToolAdapter",
     "PlanTransportHopTool",
     "PlanTransportHopToolAdapter",
     "SearchPlacesTool",

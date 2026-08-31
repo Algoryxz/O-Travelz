@@ -72,6 +72,30 @@ class GetProviderStatusResult(ProviderStatusContract):
     """Provider status result supplied to the explanation layer."""
 
 
+class GetWeatherArgs(ContractModel):
+    location: str | None = None
+    lat: float | None = None
+    lon: float | None = None
+    date: str | None = None
+
+
+class EstimateCrowdArgs(ContractModel):
+    place_id: str | None = None
+    place_name: str | None = None
+    arrival_datetime: str | None = None
+    arrival_time: str | None = None
+    avoid_crowds: bool | None = None
+    weather_context: dict[str, Any] | None = None
+
+
+class GetTransitOptionsArgs(ContractModel):
+    origin_id: str | None = None
+    destination_id: str | None = None
+    origin_name: str | None = None
+    destination_name: str | None = None
+    preferred_mode: str | None = None
+
+
 class AIStatus(str, Enum):
     SUCCESS = "success"
     CLARIFICATION = "clarification"
@@ -120,10 +144,18 @@ class ConstraintUpdate(ContractModel):
     travel_party: str | None = None
 
 
-
 class ToolCall(ContractModel):
-    name: Literal["build_itinerary", "plan_transport_hop", "get_provider_status", "search_places"]
+    name: Literal[
+        "build_itinerary",
+        "plan_transport_hop",
+        "get_provider_status",
+        "search_places",
+        "get_weather",
+        "estimate_crowd",
+        "get_transit_options",
+    ]
     arguments: dict[str, Any] = Field(default_factory=dict)
+
 
 
 
