@@ -1,0 +1,120 @@
+package com.otravelz.android
+
+import com.otravelz.android.data.model.*
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import org.junit.Assert.*
+import org.junit.Test
+
+class PlannerRepositoryTest {
+
+    private val json = Json { ignoreUnknownKeys = true; isLenient = true }
+
+    private val sampleItinerary = ItineraryPlanResponseDto(
+        itineraryId = "itin_puri_konark_123",
+        constraints = PlanningConstraintsDto(
+            durationDays = 2,
+            originLat = 20.2961,
+            originLon = 85.8245,
+            categories = listOf("temple", "beach")
+        ),
+        days = listOf(
+            ItineraryDayDto(
+                dayNumber = 1,
+                theme = "Heritage & Sacred Temples",
+                stops = listOf(
+                    ItineraryStopDto(
+                        sequence = 1,
+                        place = PlaceSummaryDto(
+                            id = "lingaraj-temple",
+                            name = "Lingaraj Temple",
+                            category = "temple",
+                            lat = 20.2382,
+                            lon = 85.8338
+                        ),
+                        plannedArrival = "09:00",
+                        plannedDeparture = "10:30",
+                        durationMinutes = 90
+                    )
+                ),
+                hops = listOf(
+                    TransportHopDto(
+                        fromSequence = 1,
+                        toSequence = 2,
+                        mode = "mo_bus",
+                        estimatedMinutes = 25,
+                        dataTier = "scheduled"
+                    )
+                )
+            )
+        ),
+        explanation = "Deterministic 2-day plan connecting Bhubaneswar and Puri via Mo Bus Network."
+    )
+
+    @Test
+    fun testCreateShareTripRequestAndResponseSerialization() {
+        val request = CreateShareTripRequestDto(
+            title = "Bhubaneswar Heritage 2-Day Tour",
+            itinerary = sampleItinerary
+        )
+
+        val encodedRequest = json.encodeToString(request)
+        assertTrue(encodedRequest.contains("\"title\":\"Bhubaneswar Heritage 2-Day Tour\""))
+        assertTrue(encodedRequest.contains("\"itinerary_id\":\"itin_puri_konark_123\""))
+
+        val response = CreateShareTripResponseDto(
+            shareId = "share_abc123",
+            shareUrl = "https://otravelz.com/trips/shared/share_abc123",
+            createdAt = 1700000000000L
+        )
+
+        val encodedResponse = json.encodeToString(response)
+        assertTrue(encodedResponse.contains("\"share_id\":\"share_abc123\""))
+        assertTrue(encodedResponse.contains("\"share_url\":\"https://otravelz.com/trips/shared/share_abc123\""))
+
+        val decodedResponse = json.decodeFromString<CreateShareTripResponseDto>(encodedResponse)
+        assertEquals("share_abc123", decodedResponse.shareId)
+        assertEquals(1700000000000L, decodedResponse.createdAt)
+    }
+
+    @Test
+    fun testSyncTripsSerialization() {
+        val tripItem = SyncTripItemDto(
+            id = "trip_456",
+            title = "Puri & Konark 2-Day Plan",
+            timestamp = 1700000000000L,
+            updatedAt = 1700000000000L,
+            isDeleted = false,
+            itinerary = sampleItinerary
+        )
+
+        val request = SyncTripsRequestDto(items = listOf(tripItem))
+        val encoded = json.encodeToString(request)
+        assertTrue(encoded.contains("\"id\":\"trip_456\""))
+        assertTrue(encoded.contains("\"title\":\"Puri & Konark 2-Day Plan\""))
+
+        val response = SyncTripsResponseDto(
+            syncedCount = 1,
+            items = listOf(tripItem)
+        )
+        val encodedRes = json.encodeToString(response)
+        val decodedRes = json.decodeFromString<SyncTripsResponseDto>(encodedRes)
+        assertEquals(1, decodedRes.syncedCount)
+        assertEquals("trip_456", decodedRes.items[0].id)
+    }
+
+    @Test
+    fun testPlanningConstraintsCustomOrigins() {
+        val constraints = PlanningConstraintsDto(
+            durationDays = 3,
+            originLat = 19.8049,
+            originLon = 85.8179,
+            categories = listOf("temple", "beach", "monument")
+        )
+
+        assertEquals(3, constraints.durationDays)
+        assertEquals(19.8049, constraints.originLat, 0.0001)
+        assertEquals(85.8179, constraints.originLon, 0.0001)
+        assertEquals(3, constraints.categories.size)
+    }
+}

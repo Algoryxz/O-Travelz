@@ -54,4 +54,22 @@ interface ApiService {
     suspend fun syncSavedPlaces(
         @Body request: SyncSavedPlacesRequestDto
     ): SyncSavedPlacesResponseDto
+
+    @POST("api/v1/trips/share")
+    suspend fun shareTrip(
+        @Body request: CreateShareTripRequestDto
+    ): CreateShareTripResponseDto
+
+    @GET("api/v1/trips/shared/{share_id}")
+    suspend fun getSharedTrip(
+        @Path("share_id") shareId: String
+    ): CreateShareTripRequestDto
+
+    @GET("api/v1/sync/trips")
+    suspend fun getSavedTrips(): SyncTripsResponseDto
+
+    @POST("api/v1/sync/trips")
+    suspend fun syncSavedTrips(
+        @Body request: SyncTripsRequestDto
+    ): SyncTripsResponseDto
 }

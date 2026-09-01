@@ -178,3 +178,39 @@ data class SyncSavedPlacesResponseDto(
     @SerialName("synced_count") val syncedCount: Int,
     val items: List<SyncPlaceItemDto> = emptyList()
 )
+
+@Serializable
+data class CreateShareTripRequestDto(
+    val title: String,
+    val itinerary: ItineraryPlanResponseDto,
+    val constraints: PlanningConstraintsDto? = null
+)
+
+@Serializable
+data class CreateShareTripResponseDto(
+    @SerialName("share_id") val shareId: String,
+    @SerialName("share_url") val shareUrl: String,
+    @SerialName("created_at") val createdAt: Long
+)
+
+@Serializable
+data class SyncTripItemDto(
+    val id: String,
+    val title: String,
+    val timestamp: Long,
+    @SerialName("updated_at") val updatedAt: Long,
+    @SerialName("is_deleted") val isDeleted: Boolean = false,
+    val itinerary: ItineraryPlanResponseDto? = null,
+    val constraints: PlanningConstraintsDto? = null
+)
+
+@Serializable
+data class SyncTripsRequestDto(
+    val items: List<SyncTripItemDto> = emptyList()
+)
+
+@Serializable
+data class SyncTripsResponseDto(
+    @SerialName("synced_count") val syncedCount: Int,
+    val items: List<SyncTripItemDto> = emptyList()
+)
