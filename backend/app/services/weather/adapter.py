@@ -241,7 +241,7 @@ class OpenMeteoWeatherAdapter:
             observed_at=timestamp,
             temperature_c=None,
             apparent_temperature_c=None,
-            condition="Unavailable",
+            condition=None,
             condition_code=None,
             is_day=None,
             humidity_pct=None,

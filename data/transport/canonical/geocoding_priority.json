@@ -881,7 +881,7 @@
     "stop_id": "stop_crut_sambalpur_city_railway_station_square",
     "canonical_name": "City Railway Station Square",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "208",
       "214",
@@ -892,7 +892,7 @@
     "is_interchange": true,
     "is_capital_region": false,
     "priority_score": 96,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_gopalpali",
@@ -3441,7 +3441,7 @@
     "stop_id": "stop_crut_bhubaneswar_rasulgarh_square",
     "canonical_name": "Rasulgarh Square",
     "city": "Bhubaneswar",
-    "district": null,
+    "district": "Bhubaneswar",
     "served_routes": [
       "51",
       "71"
@@ -3451,7 +3451,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 51,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_brahmapur_railway_station",
@@ -4257,7 +4257,7 @@
     "stop_id": "stop_crut_sambalpur_khetrajpur_rly_station",
     "canonical_name": "Khetrajpur Rly. Station",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "209"
     ],
@@ -4266,7 +4266,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 43,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_kuchinda_bus_stand",
@@ -4938,7 +4938,7 @@
     "stop_id": "stop_crut_berhampur_housing_board_colony",
     "canonical_name": "Housing Board Colony",
     "city": "Berhampur",
-    "district": null,
+    "district": "Berhampur",
     "served_routes": [
       "300",
       "303"
@@ -4948,7 +4948,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 36,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_isaneswar_temple",
@@ -5290,7 +5290,7 @@
     "stop_id": "stop_crut_berhampur_police_station",
     "canonical_name": "Police Station",
     "city": "Berhampur",
-    "district": null,
+    "district": "Berhampur",
     "served_routes": [
       "302",
       "304"
@@ -5300,7 +5300,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 36,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_prem_nagar_square",
@@ -5514,7 +5514,7 @@
     "stop_id": "stop_crut_berhampur_square",
     "canonical_name": "Square",
     "city": "Berhampur",
-    "district": null,
+    "district": "Berhampur",
     "served_routes": [
       "302",
       "304"
@@ -5524,13 +5524,13 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 36,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_station",
     "canonical_name": "Station",
     "city": "Berhampur",
-    "district": null,
+    "district": "Berhampur",
     "served_routes": [
       "302",
       "304"
@@ -5540,7 +5540,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 36,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_truck_union",
@@ -5882,7 +5882,7 @@
     "stop_id": "stop_crut_rourkela_bondamunda",
     "canonical_name": "Bondamunda",
     "city": "Rourkela",
-    "district": null,
+    "district": "Rourkela",
     "served_routes": [
       "107",
       "117"
@@ -5892,13 +5892,13 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 36,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_rourkela_chhend",
     "canonical_name": "Chhend",
     "city": "Rourkela",
-    "district": null,
+    "district": "Rourkela",
     "served_routes": [
       "101",
       "103"
@@ -5908,7 +5908,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 36,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_rourkela_hanuman_vatika_chowk",
@@ -5962,7 +5962,7 @@
     "stop_id": "stop_crut_rourkela_ring_road",
     "canonical_name": "Ring Road",
     "city": "Rourkela",
-    "district": null,
+    "district": "Rourkela",
     "served_routes": [
       "100",
       "106"
@@ -5972,7 +5972,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 36,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_ambapada",
@@ -6425,7 +6425,7 @@
     "stop_id": "stop_crut_bhubaneswar_ag",
     "canonical_name": "Ag",
     "city": "Bhubaneswar",
-    "district": null,
+    "district": "Bhubaneswar",
     "served_routes": [
       "14"
     ],
@@ -6434,7 +6434,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 33,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_badagada_brit_colony",
@@ -6545,7 +6545,7 @@
     "stop_id": "stop_crut_bhubaneswar_ekamra_kanan",
     "canonical_name": "Ekamra Kanan",
     "city": "Bhubaneswar",
-    "district": null,
+    "district": "Bhubaneswar",
     "served_routes": [
       "47"
     ],
@@ -6554,7 +6554,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 33,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_gandarpur",
@@ -6650,7 +6650,7 @@
     "stop_id": "stop_crut_bhubaneswar_mancheswar",
     "canonical_name": "Mancheswar",
     "city": "Bhubaneswar",
-    "district": null,
+    "district": "Bhubaneswar",
     "served_routes": [
       "25"
     ],
@@ -6659,7 +6659,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 33,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_marine_drive",
@@ -6695,7 +6695,7 @@
     "stop_id": "stop_crut_bhubaneswar_mayfair",
     "canonical_name": "Mayfair",
     "city": "Bhubaneswar",
-    "district": null,
+    "district": "Bhubaneswar",
     "served_routes": [
       "47"
     ],
@@ -6704,7 +6704,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 33,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_niladri_vihar",
@@ -6770,7 +6770,7 @@
     "stop_id": "stop_crut_bhubaneswar_puri_bypass",
     "canonical_name": "Puri Bypass",
     "city": "Bhubaneswar",
-    "district": null,
+    "district": "Bhubaneswar",
     "served_routes": [
       "54"
     ],
@@ -6779,7 +6779,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 33,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_scb",
@@ -6800,7 +6800,7 @@
     "stop_id": "stop_crut_bhubaneswar_sum_ultimate",
     "canonical_name": "Sum Ultimate",
     "city": "Bhubaneswar",
-    "district": null,
+    "district": "Bhubaneswar",
     "served_routes": [
       "14"
     ],
@@ -6809,7 +6809,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 33,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_trisulia_square",
@@ -7280,7 +7280,7 @@
     "stop_id": "stop_crut_sambalpur_echs_polyclinic",
     "canonical_name": "Echs Polyclinic",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "208"
     ],
@@ -7289,7 +7289,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 24,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_gangadhar_meher_chowk",
@@ -7775,7 +7775,7 @@
     "stop_id": "stop_crut_sambalpur_padiabahal_chowk",
     "canonical_name": "Padiabahal Chowk",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "215"
     ],
@@ -7784,7 +7784,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 24,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_petrol_pump_govindtola",
@@ -7865,7 +7865,7 @@
     "stop_id": "stop_crut_sambalpur_rk_rice_mill",
     "canonical_name": "Rk Rice Mill",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "205"
     ],
@@ -7874,7 +7874,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 24,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_sadar_police_station",
@@ -8120,7 +8120,7 @@
     "stop_id": "stop_crut_sambalpur_vssut_burla",
     "canonical_name": "Vssut, Burla",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "208"
     ],
@@ -8129,7 +8129,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 24,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_arua_sonapur",
@@ -9590,7 +9590,7 @@
     "stop_id": "stop_crut_keonjhar_lv_prasad",
     "canonical_name": "L.v Prasad",
     "city": "Keonjhar",
-    "district": null,
+    "district": "Keonjhar",
     "served_routes": [
       "404"
     ],
@@ -9599,7 +9599,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_keonjhar_law_college",
@@ -9680,7 +9680,7 @@
     "stop_id": "stop_crut_keonjhar_naranpur",
     "canonical_name": "Naranpur",
     "city": "Keonjhar",
-    "district": null,
+    "district": "Keonjhar",
     "served_routes": [
       "400"
     ],
@@ -9689,7 +9689,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_keonjhar_naranpur_duburi_jn",
@@ -10220,7 +10220,7 @@
     "stop_id": "stop_crut_rourkela_bisra",
     "canonical_name": "Bisra",
     "city": "Rourkela",
-    "district": null,
+    "district": "Rourkela",
     "served_routes": [
       "117"
     ],
@@ -10229,7 +10229,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_rourkela_chend_colony",
@@ -10265,7 +10265,7 @@
     "stop_id": "stop_crut_rourkela_chhend_chowk",
     "canonical_name": "Chhend Chowk",
     "city": "Rourkela",
-    "district": null,
+    "district": "Rourkela",
     "served_routes": [
       "102"
     ],
@@ -10274,7 +10274,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_rourkela_disco_chowk",
@@ -10325,7 +10325,7 @@
     "stop_id": "stop_crut_rourkela_koel_nagar",
     "canonical_name": "Koel Nagar",
     "city": "Rourkela",
-    "district": null,
+    "district": "Rourkela",
     "served_routes": [
       "102"
     ],
@@ -10334,7 +10334,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_rourkela_kuarmunda",
@@ -10400,7 +10400,7 @@
     "stop_id": "stop_crut_rourkela_sector_2",
     "canonical_name": "Sector-2",
     "city": "Rourkela",
-    "district": null,
+    "district": "Rourkela",
     "served_routes": [
       "104"
     ],
@@ -10409,7 +10409,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_rourkela_soldega",
@@ -10445,7 +10445,7 @@
     "stop_id": "stop_crut_rourkela_udit_nagar",
     "canonical_name": "Udit Nagar",
     "city": "Rourkela",
-    "district": null,
+    "district": "Rourkela",
     "served_routes": [
       "101"
     ],
@@ -10454,13 +10454,13 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_rourkela_uditnagar",
     "canonical_name": "Uditnagar",
     "city": "Rourkela",
-    "district": null,
+    "district": "Rourkela",
     "served_routes": [
       "103"
     ],
@@ -10469,7 +10469,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_akatapali",
@@ -10505,7 +10505,7 @@
     "stop_id": "stop_crut_sambalpur_aditya_aluminium",
     "canonical_name": "Aditya Aluminium",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "211"
     ],
@@ -10514,7 +10514,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_amba_pada",
@@ -10670,7 +10670,7 @@
     "stop_id": "stop_crut_sambalpur_baijamunda",
     "canonical_name": "Baijamunda",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "212"
     ],
@@ -10679,7 +10679,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_baijapali_road",
@@ -11045,7 +11045,7 @@
     "stop_id": "stop_crut_sambalpur_chowk",
     "canonical_name": "Chowk",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "212"
     ],
@@ -11054,7 +11054,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_city_palace",
@@ -11300,7 +11300,7 @@
     "stop_id": "stop_crut_sambalpur_godbhaga",
     "canonical_name": "Godbhaga",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "212"
     ],
@@ -11309,13 +11309,13 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_godbhaga_chowk",
     "canonical_name": "Godbhaga Chowk",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "212"
     ],
@@ -11324,13 +11324,13 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_godbhaga_railway_station",
     "canonical_name": "Godbhaga Railway Station",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "212"
     ],
@@ -11339,7 +11339,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_golgunda_village_road",
@@ -11360,7 +11360,7 @@
     "stop_id": "stop_crut_sambalpur_goshala_market",
     "canonical_name": "Goshala Market",
     "city": "Sambalpur",
-    "district": null,
+    "district": "Sambalpur",
     "served_routes": [
       "212"
     ],
@@ -11369,7 +11369,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_sambalpur_goudapali",
@@ -14727,14 +14727,14 @@
     "stop_id": "stop_crut_bhubaneswar_mancheswar_station",
     "canonical_name": "Mancheswar Station",
     "city": "Bhubaneswar",
-    "district": null,
+    "district": "Bhubaneswar",
     "served_routes": [],
     "frequency_in_sequences": 0,
     "is_terminus": false,
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 15,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_mangala_mandir",
@@ -14779,14 +14779,14 @@
     "stop_id": "stop_crut_bhubaneswar_mayfair_road",
     "canonical_name": "Mayfair Road",
     "city": "Bhubaneswar",
-    "district": null,
+    "district": "Bhubaneswar",
     "served_routes": [],
     "frequency_in_sequences": 0,
     "is_terminus": false,
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 15,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_nabard",
@@ -15013,14 +15013,14 @@
     "stop_id": "stop_crut_bhubaneswar_ouat_square",
     "canonical_name": "OUAT Square",
     "city": "Bhubaneswar",
-    "district": null,
+    "district": "Bhubaneswar",
     "served_routes": [],
     "frequency_in_sequences": 0,
     "is_terminus": false,
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 15,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_pal_heights",
@@ -15052,14 +15052,14 @@
     "stop_id": "stop_crut_bhubaneswar_patia_square",
     "canonical_name": "Patia Square",
     "city": "Bhubaneswar",
-    "district": null,
+    "district": "Bhubaneswar",
     "served_routes": [],
     "frequency_in_sequences": 0,
     "is_terminus": false,
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 15,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_pattanaika",
@@ -17301,14 +17301,14 @@
     "stop_id": "stop_crut_berhampur_police_station_2",
     "canonical_name": "Police Station,",
     "city": "Berhampur",
-    "district": null,
+    "district": "Berhampur",
     "served_routes": [],
     "frequency_in_sequences": 0,
     "is_terminus": false,
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 0,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_police_stationgosaninuagaon",
@@ -20447,14 +20447,14 @@
     "stop_id": "stop_crut_rourkela_udit_nagar_chowk",
     "canonical_name": "Udit Nagar Chowk",
     "city": "Rourkela",
-    "district": null,
+    "district": "Rourkela",
     "served_routes": [],
     "frequency_in_sequences": 0,
     "is_terminus": false,
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 0,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_rourkela_udit_nagar_ps",
@@ -20538,14 +20538,14 @@
     "stop_id": "stop_crut_rourkela_vedvyas_chowk",
     "canonical_name": "Vedvyas Chowk",
     "city": "Rourkela",
-    "district": null,
+    "district": "Rourkela",
     "served_routes": [],
     "frequency_in_sequences": 0,
     "is_terminus": false,
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 0,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_rourkela_vedvyas_chowk_plutone_mall_rourkela_club",

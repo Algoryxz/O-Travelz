@@ -1,0 +1,763 @@
+{
+  "place_024": {
+    "place_id": "place_024",
+    "name": "Bharati Matha Temple",
+    "district": "Khordha",
+    "candidate_count": 0,
+    "candidates": []
+  },
+  "place_026": {
+    "place_id": "place_026",
+    "name": "Megheswar Temple",
+    "district": "Khordha",
+    "candidate_count": 0,
+    "candidates": []
+  },
+  "place_027": {
+    "place_id": "place_027",
+    "name": "Nageshwar Temple",
+    "district": "Khordha",
+    "candidate_count": 4,
+    "candidates": [
+      {
+        "title": "File:Nageswar Temple, Old Town, Bhubaneswar.jpg",
+        "filename": "Nageswar Temple, Old Town, Bhubaneswar.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ANageswar%20Temple%2C%20Old%20Town%2C%20Bhubaneswar.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Nageswar_Temple%2C_Old_Town%2C_Bhubaneswar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 960,
+        "height": 1280,
+        "mime": "image/jpeg",
+        "sha1": "edeba48c6d69883b819c97e20e423a0da26a0194",
+        "creator": "SUDEEP PRAMANIK",
+        "license": "CC BY-SA 4.0",
+        "description": "Nageswar Temple is situated in Old Town Area of Bhubaneswar city. It is one of the famous Shiva Temple of Odihsa.",
+        "coordinates": null
+      },
+      {
+        "title": "File:Nageswar-2.jpg",
+        "filename": "Nageswar-2.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ANageswar-2.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Nageswar-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 566,
+        "height": 552,
+        "mime": "image/jpeg",
+        "sha1": "e21931ba16ab6eee332c4679a29a7eba5e384cbe",
+        "creator": "Dr. Sadasiba Pradhan",
+        "license": "FAL",
+        "description": "Nagesvara Temple is a disused Hindu temple located in the village of Bhubaneswar. It is situated on the western right bank of the Lingaraja West Canal at a distance of 10.35 metres (34.0 ft) west of Subarnesvara temple, located across the canal",
+        "coordinates": null
+      },
+      {
+        "title": "File:Nageswar-3.jpg",
+        "filename": "Nageswar-3.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ANageswar-3.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Nageswar-3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 566,
+        "height": 549,
+        "mime": "image/jpeg",
+        "sha1": "2319583d2f1b086e506cbb64f812101aeb4aec3f",
+        "creator": "Dr. Sadasiba Pradhan",
+        "license": "FAL",
+        "description": "Nagesvara Temple is a disused Hindu temple located in the village of Bhubaneswar. It is situated on the western right bank of the Lingaraja West Canal at a distance of 10.35 metres (34.0 ft) west of Subarnesvara temple, located across the canal",
+        "coordinates": null
+      },
+      {
+        "title": "File:Nageswar-4.jpg",
+        "filename": "Nageswar-4.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ANageswar-4.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Nageswar-4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 566,
+        "height": 552,
+        "mime": "image/jpeg",
+        "sha1": "5eb4434602ede9f583474304d3a083e925c60942",
+        "creator": "Dr. Sadasiba Pradhan",
+        "license": "FAL",
+        "description": "Nagesvara Temple is a disused Hindu temple located in the village of Bhubaneswar. It is situated on the western right bank of the Lingaraja West Canal at a distance of 10.35 metres (34.0 ft) west of Subarnesvara temple, located across the canal",
+        "coordinates": null
+      }
+    ]
+  },
+  "place_028": {
+    "place_id": "place_028",
+    "name": "Talesvara Siva Temple",
+    "district": "Khordha",
+    "candidate_count": 0,
+    "candidates": []
+  },
+  "place_029": {
+    "place_id": "place_029",
+    "name": "Kapilesvara Siva Temple",
+    "district": "Khordha",
+    "candidate_count": 15,
+    "candidates": [
+      {
+        "title": "File:Kapila kunda.jpg",
+        "filename": "Kapila kunda.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapila%20kunda.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Kapila_kunda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 389,
+        "height": 291,
+        "mime": "image/jpeg",
+        "sha1": "7a31cc2360144f23ef9369729c7db43146c8bc07",
+        "creator": "Dr Sadasiba Pradhan and team",
+        "license": "FAL",
+        "description": "The Kapila Kunda is located in the Kapilesvara temple\nprecinct in the village Kapilesvara, Old\n\nTown, Bhubaneswar.",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (1).jpg",
+        "filename": "Kapilesvara temple (1).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%281%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Kapilesvara_temple_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 3905,
+        "height": 2197,
+        "mime": "image/jpeg",
+        "sha1": "6d0a362ed159e68ac7240d38af400dda8198e902",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (10).jpg",
+        "filename": "Kapilesvara temple (10).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2810%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Kapilesvara_temple_%2810%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 3718,
+        "height": 3254,
+        "mime": "image/jpeg",
+        "sha1": "dd410e3a438bf4fae209b38e7cb4582b14408cc9",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (11).jpg",
+        "filename": "Kapilesvara temple (11).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2811%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Kapilesvara_temple_%2811%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4380,
+        "height": 3218,
+        "mime": "image/jpeg",
+        "sha1": "18cafe7ed0e1853577639a1c1a8ff60ed3edfb3c",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (12).jpg",
+        "filename": "Kapilesvara temple (12).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2812%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Kapilesvara_temple_%2812%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 2379,
+        "height": 3164,
+        "mime": "image/jpeg",
+        "sha1": "c8fc87ceae011710e0f336870d71e7d4081e4876",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (13).jpg",
+        "filename": "Kapilesvara temple (13).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2813%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Kapilesvara_temple_%2813%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4861,
+        "height": 3241,
+        "mime": "image/jpeg",
+        "sha1": "04f14a898afb906b3f51966294dadb637a36ed99",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (14).jpg",
+        "filename": "Kapilesvara temple (14).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2814%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Kapilesvara_temple_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4914,
+        "height": 3205,
+        "mime": "image/jpeg",
+        "sha1": "f05d184df2591261b28626de721ca5185abc2939",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (15).jpg",
+        "filename": "Kapilesvara temple (15).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2815%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/2/20/Kapilesvara_temple_%2815%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 5184,
+        "height": 3456,
+        "mime": "image/jpeg",
+        "sha1": "4b57c07e91ed17b0cf22f167af206754fe0b03df",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (16).jpg",
+        "filename": "Kapilesvara temple (16).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2816%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Kapilesvara_temple_%2816%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 3840,
+        "height": 3114,
+        "mime": "image/jpeg",
+        "sha1": "729a2bfbdccb02961ef60ffe05ed5ddb950ad45e",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (17).jpg",
+        "filename": "Kapilesvara temple (17).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2817%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Kapilesvara_temple_%2817%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 5037,
+        "height": 3359,
+        "mime": "image/jpeg",
+        "sha1": "60b3ae2294036fd0bec42f55802e98ca0407a723",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (18).jpg",
+        "filename": "Kapilesvara temple (18).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2818%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Kapilesvara_temple_%2818%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 5039,
+        "height": 3359,
+        "mime": "image/jpeg",
+        "sha1": "b5fe32d9a3cb117290060a8a3a0ee319cf2a92cc",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (19).jpg",
+        "filename": "Kapilesvara temple (19).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2819%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Kapilesvara_temple_%2819%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 2322,
+        "height": 4128,
+        "mime": "image/jpeg",
+        "sha1": "6a178028395ccc5012f3f101ad8bb1d5b8d3d3db",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (2).jpg",
+        "filename": "Kapilesvara temple (2).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%282%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Kapilesvara_temple_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4128,
+        "height": 2322,
+        "mime": "image/jpeg",
+        "sha1": "a272eb7717acaba7e29d4a45a26ad13876eb199c",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (20).jpg",
+        "filename": "Kapilesvara temple (20).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2820%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Kapilesvara_temple_%2820%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 5184,
+        "height": 3456,
+        "mime": "image/jpeg",
+        "sha1": "cea830ade1190efda04064e34ec3b9e72d45f3f7",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      },
+      {
+        "title": "File:Kapilesvara temple (21).jpg",
+        "filename": "Kapilesvara temple (21).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AKapilesvara%20temple%20%2821%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Kapilesvara_temple_%2821%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 5039,
+        "height": 3359,
+        "mime": "image/jpeg",
+        "sha1": "55df20a6339cddc6d15f7884a8786726c55b1d36",
+        "creator": "Ssriram mt",
+        "license": "CC BY-SA 4.0",
+        "description": "Kapilesvara temple, Bhubaneswar",
+        "coordinates": null
+      }
+    ]
+  },
+  "place_031": {
+    "place_id": "place_031",
+    "name": "Indira Gandhi Park",
+    "district": "Khordha",
+    "candidate_count": 2,
+    "candidates": [
+      {
+        "title": "File:Indira Gandhi Park.jpg",
+        "filename": "Indira Gandhi Park.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AIndira%20Gandhi%20Park.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Indira_Gandhi_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4028,
+        "height": 2258,
+        "mime": "image/jpeg",
+        "sha1": "463067535ebc7061f5087fcb6364d5d69cc46fba",
+        "creator": "Subhrasingh",
+        "license": "CC BY-SA 4.0",
+        "description": "Indira Gandhi Park is located in front of Odisha State Secretariat on Sachivalay Marg. Earlier it was the State Parade Ground. It was built as a memorial for Indian prime minister Indira Gandhi, who delivered her last public speech at this location a few hours before her assassination. Picture taken on my smartphone.",
+        "coordinates": null
+      },
+      {
+        "title": "File:Indira Gandhi Statue, Bhubaneswar.jpg",
+        "filename": "Indira Gandhi Statue, Bhubaneswar.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AIndira%20Gandhi%20Statue%2C%20Bhubaneswar.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Indira_Gandhi_Statue%2C_Bhubaneswar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 3024,
+        "height": 4032,
+        "mime": "image/jpeg",
+        "sha1": "6f689c2c7775633b56cca870f82269a5122a8526",
+        "creator": "Subhrasingh",
+        "license": "CC BY-SA 4.0",
+        "description": "This statue has been erected at the exact place where India’s prime minister Indira Gandhi delivered her last public speech just hours before she was murdered on 31 October 1984. Picture taken on my smartphone.",
+        "coordinates": null
+      }
+    ]
+  },
+  "place_032": {
+    "place_id": "place_032",
+    "name": "Buddha Jayanti Park",
+    "district": "Khordha",
+    "candidate_count": 15,
+    "candidates": [
+      {
+        "title": "File:Buddha Jayanti Park - panoramio (1).jpg",
+        "filename": "Buddha Jayanti Park - panoramio (1).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%20Jayanti%20Park%20-%20panoramio%20%281%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Buddha_Jayanti_Park_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4330,
+        "height": 2887,
+        "mime": "image/jpeg",
+        "sha1": "3221348068f6bf77e8f2b1a96f57e66be511aae6",
+        "creator": "Alexey Komarov",
+        "license": "CC BY 3.0",
+        "description": "Buddha Jayanti Park",
+        "coordinates": [
+          {
+            "lat": 28.6148,
+            "lon": 77.17801,
+            "primary": "",
+            "globe": "earth"
+          }
+        ]
+      },
+      {
+        "title": "File:Buddha Jayanti Park - panoramio.jpg",
+        "filename": "Buddha Jayanti Park - panoramio.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%20Jayanti%20Park%20-%20panoramio.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Buddha_Jayanti_Park_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4028,
+        "height": 2686,
+        "mime": "image/jpeg",
+        "sha1": "413177c3938b61adc76227d5838fafbd9c363433",
+        "creator": "Alexey Komarov",
+        "license": "CC BY 3.0",
+        "description": "Buddha Jayanti Park",
+        "coordinates": [
+          {
+            "lat": 28.61191,
+            "lon": 77.17763,
+            "primary": "",
+            "globe": "earth"
+          }
+        ]
+      },
+      {
+        "title": "File:Buddha Jayanti Park Delhi 1.jpg",
+        "filename": "Buddha Jayanti Park Delhi 1.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%20Jayanti%20Park%20Delhi%201.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Buddha_Jayanti_Park_Delhi_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 1912,
+        "height": 3203,
+        "mime": "image/jpeg",
+        "sha1": "321bcb64a26aaffce77581cf6890d6a91a09c096",
+        "creator": "Virusism",
+        "license": "CC BY-SA 4.0",
+        "description": "The Buddha Jayanti Park is located in the midst of Delhi's central ridge and covers an area of around 81 acres. This charming park features several paved pathways with stunning scenery and blossoming flowers. It also features huge trees with crystal streams rushing through the landscape, which adds to the garden's overall beauty.",
+        "coordinates": [
+          {
+            "lat": 28.615569,
+            "lon": 77.178554,
+            "primary": "",
+            "globe": "earth"
+          }
+        ]
+      },
+      {
+        "title": "File:Buddha Jayanti Park Delhi 2.jpg",
+        "filename": "Buddha Jayanti Park Delhi 2.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%20Jayanti%20Park%20Delhi%202.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Buddha_Jayanti_Park_Delhi_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 1439,
+        "height": 1080,
+        "mime": "image/jpeg",
+        "sha1": "93fc33bf1cf2bded938dbb1d8e7ce34801278b23",
+        "creator": "Virusism",
+        "license": "CC BY-SA 4.0",
+        "description": "The Buddha Jayanti Park is located in the midst of Delhi's central ridge and covers an area of around 81 acres. This charming park features several paved pathways with stunning scenery and blossoming flowers. It also features huge trees with crystal streams rushing through the landscape, which adds to the garden's overall beauty.",
+        "coordinates": [
+          {
+            "lat": 28.615569,
+            "lon": 77.178554,
+            "primary": "",
+            "globe": "earth"
+          }
+        ]
+      },
+      {
+        "title": "File:Buddha Jayanti Park Delhi 3.jpg",
+        "filename": "Buddha Jayanti Park Delhi 3.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%20Jayanti%20Park%20Delhi%203.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Buddha_Jayanti_Park_Delhi_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 1439,
+        "height": 1080,
+        "mime": "image/jpeg",
+        "sha1": "6e8a6de6e2f28e5fbd06d19f67946ce7252cdf24",
+        "creator": "Virusism",
+        "license": "CC BY-SA 4.0",
+        "description": "The Buddha Jayanti Park is located in the midst of Delhi's central ridge and covers an area of around 81 acres. This charming park features several paved pathways with stunning scenery and blossoming flowers. It also features huge trees with crystal streams rushing through the landscape, which adds to the garden's overall beauty. Neeraj Gupta is the president and chairman of Buddha Jayanti Park Delhi. Gupta planted 1000+ Amaltas trees in 2023.",
+        "coordinates": [
+          {
+            "lat": 28.615569,
+            "lon": 77.178554,
+            "primary": "",
+            "globe": "earth"
+          }
+        ]
+      },
+      {
+        "title": "File:Buddha Jayanti Park Delhi 4.jpg",
+        "filename": "Buddha Jayanti Park Delhi 4.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%20Jayanti%20Park%20Delhi%204.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Buddha_Jayanti_Park_Delhi_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4160,
+        "height": 3120,
+        "mime": "image/jpeg",
+        "sha1": "67a06415b7b8fff44997a8c5a8681fa7df10b6f6",
+        "creator": "Virusism",
+        "license": "CC BY-SA 4.0",
+        "description": "The Buddha Jayanti Park is located in the midst of Delhi's central ridge and covers an area of around 81 acres. This charming park features several paved pathways with stunning scenery and blossoming flowers. It also features huge trees with crystal streams rushing through the landscape, which adds to the garden's overall beauty.",
+        "coordinates": [
+          {
+            "lat": 28.615569,
+            "lon": 77.178554,
+            "primary": "",
+            "globe": "earth"
+          }
+        ]
+      },
+      {
+        "title": "File:Buddha Jayanti Park Delhi 5.jpg",
+        "filename": "Buddha Jayanti Park Delhi 5.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%20Jayanti%20Park%20Delhi%205.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Buddha_Jayanti_Park_Delhi_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 3120,
+        "height": 4160,
+        "mime": "image/jpeg",
+        "sha1": "aa6374a4d9460e41afba668a26f24703babcf140",
+        "creator": "Virusism",
+        "license": "CC BY-SA 4.0",
+        "description": "The Buddha Jayanti Park is located in the midst of Delhi's central ridge and covers an area of around 81 acres. This charming park features several paved pathways with stunning scenery and blossoming flowers. It also features huge trees with crystal streams rushing through the landscape, which adds to the garden's overall beauty.",
+        "coordinates": [
+          {
+            "lat": 28.615569,
+            "lon": 77.178554,
+            "primary": "",
+            "globe": "earth"
+          }
+        ]
+      },
+      {
+        "title": "File:Buddha Jayanti Park Delhi 6.jpg",
+        "filename": "Buddha Jayanti Park Delhi 6.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%20Jayanti%20Park%20Delhi%206.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Buddha_Jayanti_Park_Delhi_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4160,
+        "height": 3120,
+        "mime": "image/jpeg",
+        "sha1": "51ed8b9eee233655ee2fc6af2b5ea7bcc1997ac2",
+        "creator": "Virusism",
+        "license": "CC BY-SA 4.0",
+        "description": "The Buddha Jayanti Park is located in the midst of Delhi's central ridge and covers an area of around 81 acres. This charming park features several paved pathways with stunning scenery and blossoming flowers. It also features huge trees with crystal streams rushing through the landscape, which adds to the garden's overall beauty. Neeraj Gupta is the president and chairman of Buddha Jayanti Park Delhi. Gupta planted 1000+ Amaltas trees in 2023.",
+        "coordinates": null
+      },
+      {
+        "title": "File:Buddha Jayanti Park Delhi 7.jpg",
+        "filename": "Buddha Jayanti Park Delhi 7.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%20Jayanti%20Park%20Delhi%207.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Buddha_Jayanti_Park_Delhi_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4160,
+        "height": 3120,
+        "mime": "image/jpeg",
+        "sha1": "5f5b0ad37d94501e2e9eb3cc85994b2c77b13e78",
+        "creator": "Virusism",
+        "license": "CC BY-SA 4.0",
+        "description": "The Buddha Jayanti Park is located in the midst of Delhi's central ridge and covers an area of around 81 acres. This charming park features several paved pathways with stunning scenery and blossoming flowers. It also features huge trees with crystal streams rushing through the landscape, which adds to the garden's overall beauty.",
+        "coordinates": null
+      },
+      {
+        "title": "File:Buddha Jayanti Park Delhi 8.jpg",
+        "filename": "Buddha Jayanti Park Delhi 8.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%20Jayanti%20Park%20Delhi%208.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Buddha_Jayanti_Park_Delhi_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4160,
+        "height": 3120,
+        "mime": "image/jpeg",
+        "sha1": "a6e6a7b0c015b4fb3498ab24090b183cd5d30899",
+        "creator": "Virusism",
+        "license": "CC BY-SA 4.0",
+        "description": "The Buddha Jayanti Park is located in the midst of Delhi's central ridge and covers an area of around 81 acres. This charming park features several paved pathways with stunning scenery and blossoming flowers. It also features huge trees with crystal streams rushing through the landscape, which adds to the garden's overall beauty. Neeraj Gupta is the president and chairman of Buddha Jayanti Park Delhi. Gupta planted 1000+ Amaltas trees in 2023.",
+        "coordinates": null
+      },
+      {
+        "title": "File:Buddha Temple in Buddha Jayanti Park.jpg",
+        "filename": "Buddha Temple in Buddha Jayanti Park.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%20Temple%20in%20Buddha%20Jayanti%20Park.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Buddha_Temple_in_Buddha_Jayanti_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4080,
+        "height": 2288,
+        "mime": "image/jpeg",
+        "sha1": "616df1b774e11017a519da8962af512008084155",
+        "creator": "FactiGiri",
+        "license": "CC BY-SA 4.0",
+        "description": "Buddha Jayanti Park",
+        "coordinates": null
+      },
+      {
+        "title": "File:Buddha's statue at the Buddha Jayanti park.jpg",
+        "filename": "Buddha's statue at the Buddha Jayanti park.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ABuddha%27s%20statue%20at%20the%20Buddha%20Jayanti%20park.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Buddha%27s_statue_at_the_Buddha_Jayanti_park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 6000,
+        "height": 4000,
+        "mime": "image/jpeg",
+        "sha1": "e034bc191b59758163da77dfbe06c01a71240c0f",
+        "creator": "Laluttam",
+        "license": "CC BY-SA 4.0",
+        "description": "Buddha's statue at the Buddha Jayanti park at Gyalshing in Sikkim, India",
+        "coordinates": null
+      },
+      {
+        "title": "File:Flowers in the Buddha Jayanti Park.jpg",
+        "filename": "Flowers in the Buddha Jayanti Park.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AFlowers%20in%20the%20Buddha%20Jayanti%20Park.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Flowers_in_the_Buddha_Jayanti_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4032,
+        "height": 3024,
+        "mime": "image/jpeg",
+        "sha1": "63ec4e8acbfbb73d8ba5d4c68b299a65ba03005f",
+        "creator": "Nimesh Dahal",
+        "license": "CC BY-SA 4.0",
+        "description": "Colorful flowers by the side of an artificial pond in the Buddha Jayanti Park located in New Delhi, India",
+        "coordinates": [
+          {
+            "lat": 28.613755,
+            "lon": 77.174937,
+            "primary": "",
+            "globe": "earth"
+          }
+        ]
+      },
+      {
+        "title": "File:Herpestes javanicus (15108157590).jpg",
+        "filename": "Herpestes javanicus (15108157590).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AHerpestes%20javanicus%20%2815108157590%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Herpestes_javanicus_%2815108157590%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4000,
+        "height": 3000,
+        "mime": "image/jpeg",
+        "sha1": "099daab59ba54c974fe03ce0c172ef437d74a8a5",
+        "creator": "Donald Hobern from Copenhagen, Denmark",
+        "license": "CC BY 2.0",
+        "description": "Herpestes javanicus (É. Geoffroy Saint-Hilaire, 1818), Small Asian Mongoose, Buddha Jayanti Park, New Delhi, India, 19 September 2014",
+        "coordinates": [
+          {
+            "lat": 28.614796,
+            "lon": 77.17697,
+            "primary": "",
+            "globe": "earth"
+          }
+        ]
+      },
+      {
+        "title": "File:Herpestes javanicus (15108158220).jpg",
+        "filename": "Herpestes javanicus (15108158220).jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AHerpestes%20javanicus%20%2815108158220%29.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Herpestes_javanicus_%2815108158220%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 4000,
+        "height": 3000,
+        "mime": "image/jpeg",
+        "sha1": "c30b1b6ea2bf5ce6888871cea92dd5fa61541a17",
+        "creator": "Donald Hobern from Copenhagen, Denmark",
+        "license": "CC BY 2.0",
+        "description": "Herpestes javanicus (É. Geoffroy Saint-Hilaire, 1818), Small Asian Mongoose, Buddha Jayanti Park, New Delhi, India, 19 September 2014",
+        "coordinates": [
+          {
+            "lat": 28.614796,
+            "lon": 77.17697,
+            "primary": "",
+            "globe": "earth"
+          }
+        ]
+      }
+    ]
+  },
+  "place_food_003": {
+    "place_id": "place_food_003",
+    "name": "Ananda Bazar, Puri",
+    "district": "Puri",
+    "candidate_count": 0,
+    "candidates": []
+  },
+  "place_food_007": {
+    "place_id": "place_food_007",
+    "name": "Bapuji Nagar Food Corridor, Bhubaneswar",
+    "district": "Khordha",
+    "candidate_count": 0,
+    "candidates": []
+  },
+  "place_food_008": {
+    "place_id": "place_food_008",
+    "name": "Unit-4 Traditional Food & Fish Market, Bhubaneswar",
+    "district": "Khordha",
+    "candidate_count": 0,
+    "candidates": []
+  },
+  "place_food_010": {
+    "place_id": "place_food_010",
+    "name": "Maa Mangala Temple Food & Pitha Precinct, Kakatpur",
+    "district": "Puri",
+    "candidate_count": 7,
+    "candidates": [
+      {
+        "title": "File:Dayamayee Maa Mangala.jpg",
+        "filename": "Dayamayee Maa Mangala.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3ADayamayee%20Maa%20Mangala.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Dayamayee_Maa_Mangala.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 718,
+        "height": 1121,
+        "mime": "image/jpeg",
+        "sha1": "9fdb2ae7022f40cd1353bb7b8c01d97ad5fe5dee",
+        "creator": "Shaktiprasadbarik",
+        "license": "CC BY-SA 4.0",
+        "description": "ଦୟାମୟି ମା ମଙ୍ଗଳା",
+        "coordinates": null
+      },
+      {
+        "title": "File:Maa Mangala idol Kakatpur, India.jpg",
+        "filename": "Maa Mangala idol Kakatpur, India.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AMaa%20Mangala%20idol%20Kakatpur%2C%20India.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Maa_Mangala_idol_Kakatpur%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 675,
+        "height": 1280,
+        "mime": "image/jpeg",
+        "sha1": "0df563442fdb2e5fe623c8f16efcf1f01d87f1fa",
+        "creator": "Usiadhu",
+        "license": "CC BY-SA 4.0",
+        "description": "THIS IS THE PICTURE OF KAKATPUR MAA MANGALA.",
+        "coordinates": null
+      },
+      {
+        "title": "File:Maa mangala maa.jpg",
+        "filename": "Maa mangala maa.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AMaa%20mangala%20maa.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Maa_mangala_maa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 638,
+        "height": 960,
+        "mime": "image/jpeg",
+        "sha1": "3bdcfba4f0b5b2f5782b69ef7cec761d65a8b31a",
+        "creator": "Alokbaral11",
+        "license": "CC BY-SA 4.0",
+        "description": "kakatpur maa mangala",
+        "coordinates": null
+      },
+      {
+        "title": "File:Maa Mangala.jpg",
+        "filename": "Maa Mangala.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AMaa%20Mangala.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Maa_Mangala.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 720,
+        "height": 960,
+        "mime": "image/jpeg",
+        "sha1": "42ff21b82b3e9f1ae44c51e4087242d830816ae0",
+        "creator": "Shaktiprasadbarik",
+        "license": "CC BY-SA 4.0",
+        "description": "Maa Mangala, Kakatpur",
+        "coordinates": null
+      },
+      {
+        "title": "File:MAA MANGALA.jpg",
+        "filename": "MAA MANGALA.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AMAA%20MANGALA.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/MAA_MANGALA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 1536,
+        "height": 2048,
+        "mime": "image/jpeg",
+        "sha1": "a47f915b6f3d35ba7c9d82973e51b6652059fbd8",
+        "creator": "Alok Baral",
+        "license": "CC BY-SA 4.0",
+        "description": "Maa mangala nka mukha chandan besha",
+        "coordinates": null
+      },
+      {
+        "title": "File:Maa mangala1.jpg",
+        "filename": "Maa mangala1.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AMaa%20mangala1.jpg",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Maa_mangala1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 1317,
+        "height": 1399,
+        "mime": "image/jpeg",
+        "sha1": "e48301fcac746fcff94c776339c7e7ecf723d7db",
+        "creator": "Sujit kumar",
+        "license": "CC BY-SA 3.0",
+        "description": "Godess Mangala, Cuttack, India",
+        "coordinates": null
+      },
+      {
+        "title": "File:MaaMangala.png",
+        "filename": "MaaMangala.png",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File%3AMaaMangala.png",
+        "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/MaaMangala.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "width": 381,
+        "height": 515,
+        "mime": "image/png",
+        "sha1": "4d7d1b2c196efe817d77ec245decd644b9bbab86",
+        "creator": "Saroj Sahu",
+        "license": "CC BY-SA 3.0",
+        "description": "Maa Mangala",
+        "coordinates": null
+      }
+    ]
+  },
+  "place_food_011": {
+    "place_id": "place_food_011",
+    "name": "Raghunathpur Culinary Corner, Bhubaneswar",
+    "district": "Khordha",
+    "candidate_count": 0,
+    "candidates": []
+  }
+}

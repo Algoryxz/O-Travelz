@@ -142,7 +142,11 @@ export const StitchDestinationDetailModal: React.FC<StitchDestinationDetailModal
                 <span className="material-symbols-outlined text-[#B87B22]">wb_sunny</span>
                 <div>
                   <span className="block text-[#70798B] font-mono text-[10px]">LIVE METEOROLOGICAL STATE</span>
-                  <strong className="text-[#12161E]">{weather.current?.temperature_c}°C · {weather.current?.condition}</strong>
+                  {weather.current?.status === 'available' && weather.current?.temperature_c != null ? (
+                    <strong className="text-[#12161E]">{Math.round(weather.current.temperature_c)}°C · {weather.current.condition || 'Clear'}</strong>
+                  ) : (
+                    <strong className="text-[#70798B] text-xs font-normal">Weather temporarily unavailable.</strong>
+                  )}
                 </div>
               </div>
             )}

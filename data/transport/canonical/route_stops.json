@@ -110,7 +110,7 @@
         "normalized_stop_name": "Ring Road",
         "stop_id": "stop_crut_rourkela_ring_road",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 3,
@@ -161,7 +161,7 @@
         "normalized_stop_name": "Udit Nagar",
         "stop_id": "stop_crut_rourkela_udit_nagar",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 3,
@@ -177,7 +177,7 @@
         "normalized_stop_name": "Chhend",
         "stop_id": "stop_crut_rourkela_chhend",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 5,
@@ -255,7 +255,7 @@
         "normalized_stop_name": "Chhend Chowk",
         "stop_id": "stop_crut_rourkela_chhend_chowk",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 4,
@@ -263,7 +263,7 @@
         "normalized_stop_name": "Koel Nagar",
         "stop_id": "stop_crut_rourkela_koel_nagar",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 5,
@@ -298,7 +298,7 @@
         "normalized_stop_name": "Uditnagar",
         "stop_id": "stop_crut_rourkela_uditnagar",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 3,
@@ -314,7 +314,7 @@
         "normalized_stop_name": "Chhend",
         "stop_id": "stop_crut_rourkela_chhend",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 5,
@@ -349,7 +349,7 @@
         "normalized_stop_name": "Sector-2",
         "stop_id": "stop_crut_rourkela_sector_2",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 3,
@@ -435,7 +435,7 @@
         "normalized_stop_name": "Ring Road",
         "stop_id": "stop_crut_rourkela_ring_road",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 3,
@@ -478,7 +478,7 @@
         "normalized_stop_name": "Bondamunda",
         "stop_id": "stop_crut_rourkela_bondamunda",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 3,
@@ -879,7 +879,7 @@
         "normalized_stop_name": "Bondamunda",
         "stop_id": "stop_crut_rourkela_bondamunda",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 3,
@@ -887,7 +887,7 @@
         "normalized_stop_name": "Bisra",
         "stop_id": "stop_crut_rourkela_bisra",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 4,
@@ -1285,7 +1285,7 @@
         "normalized_stop_name": "Sum Ultimate",
         "stop_id": "stop_crut_bhubaneswar_sum_ultimate",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 3,
@@ -1309,7 +1309,7 @@
         "normalized_stop_name": "Ag",
         "stop_id": "stop_crut_bhubaneswar_ag",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 6,
@@ -1940,7 +1940,7 @@
         "normalized_stop_name": "Rk Rice Mill",
         "stop_id": "stop_crut_sambalpur_rk_rice_mill",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 32,
@@ -2130,7 +2130,7 @@
         "normalized_stop_name": "Rk Rice Mill",
         "stop_id": "stop_crut_sambalpur_rk_rice_mill",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 16,
@@ -2443,7 +2443,7 @@
         "normalized_stop_name": "Vssut, Burla",
         "stop_id": "stop_crut_sambalpur_vssut_burla",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 11,
@@ -2571,7 +2571,7 @@
         "normalized_stop_name": "Echs Polyclinic",
         "stop_id": "stop_crut_sambalpur_echs_polyclinic",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 27,
@@ -2635,7 +2635,7 @@
         "normalized_stop_name": "City Railway Station Square",
         "stop_id": "stop_crut_sambalpur_city_railway_station_square",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 35,
@@ -3041,7 +3041,7 @@
         "normalized_stop_name": "City Railway Station Square",
         "stop_id": "stop_crut_sambalpur_city_railway_station_square",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 26,
@@ -3081,7 +3081,7 @@
         "normalized_stop_name": "Echs Polyclinic",
         "stop_id": "stop_crut_sambalpur_echs_polyclinic",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 31,
@@ -3201,7 +3201,7 @@
         "normalized_stop_name": "Vssut, Burla",
         "stop_id": "stop_crut_sambalpur_vssut_burla",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 46,
@@ -3300,7 +3300,7 @@
         "normalized_stop_name": "Khetrajpur Rly. Station",
         "stop_id": "stop_crut_sambalpur_khetrajpur_rly_station",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 2,
@@ -3853,7 +3853,7 @@
         "normalized_stop_name": "Aditya Aluminium",
         "stop_id": "stop_crut_sambalpur_aditya_aluminium",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 42,
@@ -4320,7 +4320,7 @@
         "normalized_stop_name": "Chowk",
         "stop_id": "stop_crut_sambalpur_chowk",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 26,
@@ -4360,7 +4360,7 @@
         "normalized_stop_name": "Godbhaga Chowk",
         "stop_id": "stop_crut_sambalpur_godbhaga_chowk",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 31,
@@ -4376,7 +4376,7 @@
         "normalized_stop_name": "Godbhaga",
         "stop_id": "stop_crut_sambalpur_godbhaga",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 33,
@@ -4384,7 +4384,7 @@
         "normalized_stop_name": "Godbhaga Railway Station",
         "stop_id": "stop_crut_sambalpur_godbhaga_railway_station",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 34,
@@ -4416,7 +4416,7 @@
         "normalized_stop_name": "Goshala Market",
         "stop_id": "stop_crut_sambalpur_goshala_market",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 38,
@@ -4440,7 +4440,7 @@
         "normalized_stop_name": "Baijamunda",
         "stop_id": "stop_crut_sambalpur_baijamunda",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 41,
@@ -5633,7 +5633,7 @@
         "normalized_stop_name": "City Railway Station Square",
         "stop_id": "stop_crut_sambalpur_city_railway_station_square",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 8,
@@ -6220,7 +6220,7 @@
         "normalized_stop_name": "Padiabahal Chowk",
         "stop_id": "stop_crut_sambalpur_padiabahal_chowk",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 4,
@@ -6364,7 +6364,7 @@
         "normalized_stop_name": "City Railway Station Square",
         "stop_id": "stop_crut_sambalpur_city_railway_station_square",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 22,
@@ -6522,7 +6522,7 @@
         "normalized_stop_name": "City Railway Station Square",
         "stop_id": "stop_crut_sambalpur_city_railway_station_square",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 8,
@@ -6610,7 +6610,7 @@
         "normalized_stop_name": "Padiabahal Chowk",
         "stop_id": "stop_crut_sambalpur_padiabahal_chowk",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 19,
@@ -6900,7 +6900,7 @@
         "normalized_stop_name": "Mancheswar",
         "stop_id": "stop_crut_bhubaneswar_mancheswar",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 4,
@@ -7185,7 +7185,7 @@
         "normalized_stop_name": "Housing Board Colony",
         "stop_id": "stop_crut_berhampur_housing_board_colony",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 11,
@@ -7943,7 +7943,7 @@
         "normalized_stop_name": "Police Station",
         "stop_id": "stop_crut_berhampur_police_station",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 22,
@@ -8007,7 +8007,7 @@
         "normalized_stop_name": "Station",
         "stop_id": "stop_crut_berhampur_station",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 30,
@@ -8151,7 +8151,7 @@
         "normalized_stop_name": "Square",
         "stop_id": "stop_crut_berhampur_square",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 48,
@@ -8816,7 +8816,7 @@
         "normalized_stop_name": "Housing Board Colony",
         "stop_id": "stop_crut_berhampur_housing_board_colony",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 45,
@@ -9022,7 +9022,7 @@
         "normalized_stop_name": "Square",
         "stop_id": "stop_crut_berhampur_square",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 9,
@@ -9198,7 +9198,7 @@
         "normalized_stop_name": "Police Station",
         "stop_id": "stop_crut_berhampur_police_station",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 31,
@@ -9262,7 +9262,7 @@
         "normalized_stop_name": "Station",
         "stop_id": "stop_crut_berhampur_station",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 39,
@@ -10756,7 +10756,7 @@
         "normalized_stop_name": "Naranpur",
         "stop_id": "stop_crut_keonjhar_naranpur",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 16,
@@ -11496,7 +11496,7 @@
         "normalized_stop_name": "L.v Prasad",
         "stop_id": "stop_crut_keonjhar_lv_prasad",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 7,
@@ -12067,7 +12067,7 @@
         "normalized_stop_name": "Ekamra Kanan",
         "stop_id": "stop_crut_bhubaneswar_ekamra_kanan",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 3,
@@ -12075,7 +12075,7 @@
         "normalized_stop_name": "Mayfair",
         "stop_id": "stop_crut_bhubaneswar_mayfair",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 4,
@@ -12223,7 +12223,7 @@
         "normalized_stop_name": "Rasulgarh Square",
         "stop_id": "stop_crut_bhubaneswar_rasulgarh_square",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 4,
@@ -12328,7 +12328,7 @@
         "normalized_stop_name": "Puri Bypass",
         "stop_id": "stop_crut_bhubaneswar_puri_bypass",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 4,
@@ -12759,7 +12759,7 @@
         "normalized_stop_name": "Rasulgarh Square",
         "stop_id": "stop_crut_bhubaneswar_rasulgarh_square",
         "resolution_status": "RESOLVED_LOGICAL",
-        "coordinate_status": "UNRESOLVED"
+        "coordinate_status": "VERIFIED_OFFICIAL"
       },
       {
         "sequence": 3,

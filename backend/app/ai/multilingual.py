@@ -96,7 +96,11 @@ def extract_multilingual_days(text: str) -> Optional[int]:
         if val and 1 <= val <= 14:
             return val
 
-    # 3. Standalone day pattern if query is short
+    # 3. Single day phrases: "a day trip", "day trip", "day tour", "one day", "ଦିନିକିଆ", "एक दिवसीय"
+    if re.search(r"\b(?:a\s+)?day\s*(?:trip|tour|itinerary|visit|outing)\b|\bଦିନିକିଆ\b|\bଏକ\s*ଦିନ\b|\bएक\s*दिवसीय\b|\bएक\s*दिन\b", text, re.IGNORECASE):
+        return 1
+
+    # 4. Standalone day pattern if query is short
     standalone = re.search(r"\b([0-9୦-୯०-९]+)\s*d\b", text, re.IGNORECASE)
     if standalone:
         parsed = parse_indic_digits(standalone.group(1))
@@ -104,6 +108,7 @@ def extract_multilingual_days(text: str) -> Optional[int]:
             return parsed
 
     return None
+
 
 
 def extract_multilingual_interests(text: str) -> List[str]:
@@ -347,33 +352,55 @@ def generate_grounded_itinerary_message(
     stop_count: int,
     start_place: Optional[str] = None,
     interests: Optional[List[str]] = None,
+    itinerary: Optional[Any] = None,
 ) -> str:
     """Generate truthful, grounded conversational message for a planned itinerary."""
     lang = language.strip().lower()
+
+    # Extract time-slotted summary lines if structured itinerary is present
+    stop_lines: List[str] = []
+    if itinerary and hasattr(itinerary, "days"):
+        for day in itinerary.days:
+            for s in getattr(day, "stops", []):
+                p_name = getattr(s.place, "name", "Destination")
+                arr = getattr(s, "planned_arrival", None)
+                dep = getattr(s, "planned_departure", None)
+                time_prefix = f"{arr}–{dep}: " if arr and dep else ""
+                stop_lines.append(f"• {time_prefix}{p_name}")
 
     if lang in ("or", "odia", "ଓଡ଼ିଆ"):
         interests_or = [get_localized_interest(i, "or") or i for i in (interests or [])]
         theme_str = f" ({', '.join(interests_or)})" if interests_or else ""
         start_str = f" {start_place} ରୁ ଆରମ୍ଭ ହୋଇ" if start_place else ""
-        return (
+        base_msg = (
             f"ମୁଁ{start_str} {days}-ଦିନର ଏକ ଯାଞ୍ଚିତ ଯାତ୍ରା ଯୋଜନା{theme_str} ପ୍ରସ୍ତୁତ କରିଛି, "
             f"ଯେଉଁଥିରେ ସମୁଦାୟ {stop_count} ଟି ନିର୍ଦ୍ଧାରିତ ସ୍ଥଳ ସାମିଲ ଅଛି।"
         )
+        if stop_lines:
+            base_msg += "\n\nନିର୍ଦ୍ଧାରିତ କାର୍ଯ୍ୟସୂଚୀ:\n" + "\n".join(stop_lines)
+        return base_msg
     elif lang in ("hi", "hindi", "हिन्दी", "हिंदी"):
         interests_hi = [get_localized_interest(i, "hi") or i for i in (interests or [])]
         theme_str = f" ({', '.join(interests_hi)})" if interests_hi else ""
         start_str = f" {start_place} से शुरू होने वाला" if start_place else ""
-        return (
+        base_msg = (
             f"मैंने{start_str} {days} दिनों का एक सत्यापित यात्रा कार्यक्रम{theme_str} तैयार किया है, "
             f"जिसमें कुल {stop_count} दर्शनीय स्थल शामिल हैं।"
         )
+        if stop_lines:
+            base_msg += "\n\nदैनिक समय सारिणी:\n" + "\n".join(stop_lines)
+        return base_msg
     else:
         theme_str = f" focused on {', '.join(interests)}" if interests else ""
         start_str = f" starting from {start_place}" if start_place else ""
-        return (
+        base_msg = (
             f"I have built a verified {days}-day itinerary{start_str}{theme_str} "
             f"with {stop_count} planned stops across Odisha."
         )
+        if stop_lines:
+            base_msg += "\n\nPlanned Schedule:\n" + "\n".join(stop_lines)
+        return base_msg
+
 
 
 def generate_grounded_search_message(

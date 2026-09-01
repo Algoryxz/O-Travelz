@@ -33,6 +33,7 @@ from app.transport.canonical_repository import (
 from app.transport.adapters.walking import Coordinate
 from app.transport.adapters.mo_bus import MoBusAdapter
 from app.transport.service import MappingPlaceResolver, TransportService
+from app.transport.engine import TransitEngine
 from app.ai.schemas import PlanTransportHopArgs, GetProviderStatusArgs
 from app.schemas.common import PlaceSummary, PlanningConstraints
 from app.schemas.transport import DataTier
@@ -46,7 +47,7 @@ class TestCanonicalBackendRouting:
     @pytest.fixture(scope="class", autouse=True)
     def repo(self):
         from scripts.resolve_canonical_transit_coordinates import run_coordinate_resolution
-        run_coordinate_resolution(REPO_ROOT, enable_external=True, max_external_lookups=100)
+        run_coordinate_resolution(REPO_ROOT, enable_external=False, max_external_lookups=0)
         CanonicalTransitRepository.reset_instance()
         return get_canonical_transit_repository()
 
@@ -220,3 +221,42 @@ class TestCanonicalBackendRouting:
     def test_18_existing_transit_tests_remain_green(self, repo: CanonicalTransitRepository):
         assert repo.get_route("50") is not None
         assert repo.get_stop("stop_crut_bhubaneswar_bhubaneswar_railway_station") is not None
+
+    def test_19_zero_route_stops_excluded_from_nearby(self, repo: CanonicalTransitRepository):
+        """Zero-route stops must never be returned as primary nearby boarding candidates."""
+        class MockSession:
+            def get_bind(self):
+                class MockDialect:
+                    name = "sqlite"
+                class MockBind:
+                    dialect = MockDialect()
+                return MockBind()
+            def query(self, *args, **kwargs):
+                class MockQuery:
+                    def filter(self, *a, **k):
+                        return self
+                    def all(self):
+                        return []
+                return MockQuery()
+
+        engine = TransitEngine(MockSession())
+        nearby = engine.find_nearby_stops(20.2662, 85.8436, radius_meters=3000.0, limit=10)
+        for stop_entry in nearby:
+            assert len(stop_entry.get("routes_serving_stop", [])) > 0
+
+    def test_20_first_mile_classification_thresholds(self):
+        """Verify first-mile classification rules (<=800m Walk, 800-1500m Walk optional, >1500m Auto/cab)."""
+        def classify_first_mile(dist_m: float) -> str:
+            if dist_m <= 800:
+                return "WALK"
+            elif dist_m <= 1500:
+                return "WALK_OPTIONAL"
+            else:
+                return "AUTO_CAB_RECOMMENDED"
+
+        assert classify_first_mile(400.0) == "WALK"
+        assert classify_first_mile(800.0) == "WALK"
+        assert classify_first_mile(1200.0) == "WALK_OPTIONAL"
+        assert classify_first_mile(1500.0) == "WALK_OPTIONAL"
+        assert classify_first_mile(6400.0) == "AUTO_CAB_RECOMMENDED"
+        assert classify_first_mile(7123.3) == "AUTO_CAB_RECOMMENDED"

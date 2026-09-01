@@ -406,9 +406,25 @@ export const StitchJourneyCard: React.FC<StitchJourneyCardProps> = ({
         </div>
 
         <div className="inline-flex items-center gap-2 bg-[#FAF7F2] border border-[#E5DFD5] px-3.5 py-1.5 rounded-full text-xs font-mono self-start sm:self-auto">
-          <span className="material-symbols-outlined text-[#B87B22] text-sm">directions_walk</span>
-          <span className="font-semibold text-[#12161E]">{stop.distance_m} m</span>
-          <span className="text-[#70798B]">({stop.walking_estimate_mins} min walk)</span>
+          {stop.distance_m > 1500 ? (
+            <>
+              <span className="material-symbols-outlined text-[#B87B22] text-sm">local_taxi</span>
+              <span className="font-semibold text-[#12161E]">{(stop.distance_m / 1000).toFixed(1)} km</span>
+              <span className="text-[#70798B]">(Auto / cab recommended)</span>
+            </>
+          ) : stop.distance_m > 800 ? (
+            <>
+              <span className="material-symbols-outlined text-[#B87B22] text-sm">directions_walk</span>
+              <span className="font-semibold text-[#12161E]">{(stop.distance_m / 1000).toFixed(1)} km away</span>
+              <span className="text-[#70798B]">· walk or short auto</span>
+            </>
+          ) : (
+            <>
+              <span className="material-symbols-outlined text-[#B87B22] text-sm">directions_walk</span>
+              <span className="font-semibold text-[#12161E]">{stop.distance_m} m</span>
+              <span className="text-[#70798B]">({stop.walking_estimate_mins} min walk)</span>
+            </>
+          )}
         </div>
       </div>
 
@@ -426,14 +442,22 @@ export const StitchJourneyCard: React.FC<StitchJourneyCardProps> = ({
             </div>
           </div>
 
-          {/* Step 2: Walking Leg */}
+          {/* Step 2: First-Mile Leg */}
           <div className="flex items-start gap-4 relative">
             <div className="w-8 h-8 rounded-full bg-[#FAF7F2] text-[#70798B] border border-[#E5DFD5] flex items-center justify-center shrink-0 z-10 bg-white">
-              <span className="material-symbols-outlined text-sm">directions_walk</span>
+              <span className="material-symbols-outlined text-sm">
+                {stop.distance_m > 1500 ? 'local_taxi' : 'directions_walk'}
+              </span>
             </div>
             <div className="flex-1 pt-1">
               <div className="text-xs text-[#70798B] font-body">
-                Walk <span className="font-semibold text-[#12161E]">{stop.distance_m}m</span> to {stop.name} (~{stop.walking_estimate_mins} min)
+                {stop.distance_m > 1500 ? (
+                  <>First mile: <span className="font-semibold text-[#12161E]">Auto / cab recommended</span> · {(stop.distance_m / 1000).toFixed(1)} km to {stop.name}</>
+                ) : stop.distance_m > 800 ? (
+                  <><span className="font-semibold text-[#12161E]">{(stop.distance_m / 1000).toFixed(1)} km away</span> · walk or short auto to {stop.name}</>
+                ) : (
+                  <>Walk <span className="font-semibold text-[#12161E]">{stop.distance_m} m</span> to {stop.name} (~{stop.walking_estimate_mins} min)</>
+                )}
               </div>
             </div>
           </div>
@@ -448,29 +472,36 @@ export const StitchJourneyCard: React.FC<StitchJourneyCardProps> = ({
                 <div className="text-[11px] font-mono uppercase tracking-wider text-[#B87B22] font-semibold">
                   Board Transit
                 </div>
-                <span className="text-[11px] font-mono text-[#70798B]">{routes.length} routes serving this stop</span>
+                <span className="text-[11px] font-mono text-[#70798B]">{`${routes.length} ${routes.length === 1 ? 'route' : 'routes'} serving this stop`}</span>
               </div>
 
-              {/* Route Selector Pills */}
-              <div className="flex flex-wrap gap-2 mt-2.5">
-                {routes.map((r) => {
-                  const isSelected = activeRoute?.route_id === r.route_id;
-                  return (
-                    <button
-                      key={r.route_id}
-                      onClick={() => onSelectRoute?.(r)}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all duration-200 cursor-pointer flex items-center gap-1.5 border ${
-                        isSelected
-                          ? 'bg-[#12161E] text-white border-[#12161E] shadow-sm'
-                          : 'bg-[#FAF7F2] text-[#12161E] border-[#E5DFD5] hover:border-[#B87B22]'
-                      }`}
-                    >
-                      <span className="material-symbols-outlined text-sm">directions_bus</span>
-                      <span>Route {r.route_number}</span>
-                    </button>
-                  );
-                })}
-              </div>
+              {routes.length === 0 ? (
+                <div className="mt-2.5 p-3 bg-[#FAF7F2] border border-[#E5DFD5] rounded-xl text-xs text-[#70798B]">
+                  No practical public-transit boarding option nearby. Auto/cab is recommended for this leg.
+                </div>
+              ) : (
+                /* Route Selector Pills */
+                <div className="flex flex-wrap gap-2 mt-2.5">
+                  {routes.map((r) => {
+                    const isSelected = activeRoute?.route_id === r.route_id;
+                    return (
+                      <button
+                        key={r.route_id}
+                        onClick={() => onSelectRoute?.(r)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all duration-200 cursor-pointer flex items-center gap-1.5 border ${
+                          isSelected
+                            ? 'bg-[#12161E] text-white border-[#12161E] shadow-sm'
+                            : 'bg-[#FAF7F2] text-[#12161E] border-[#E5DFD5] hover:border-[#B87B22]'
+                        }`}
+                      >
+                        <span className="material-symbols-outlined text-sm">directions_bus</span>
+                        <span>Route {r.route_number}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
 
               {/* Active Route Details Card */}
               {activeRoute && (

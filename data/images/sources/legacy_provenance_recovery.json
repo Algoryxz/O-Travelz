@@ -1,0 +1,314 @@
+{
+  "metadata": {
+    "title": "O-Travelz Legacy Production Image Provenance Recovery Audit",
+    "track": "Image Track A2 (Step 1)",
+    "total_unmanifested_destinations": 11,
+    "summary_counts": {
+      "total_audited": 11,
+      "READY_FOR_MANIFEST": 0,
+      "PROVENANCE_PARTIAL": 4,
+      "CLASSIFICATION_UNRESOLVED": 0,
+      "NO_PROVENANCE_FOUND": 7,
+      "REJECTED_EVIDENCE": 0
+    }
+  },
+  "records": [
+    {
+      "place_id": "place_024",
+      "place_name": "Bharati Matha Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "asset_hash": "c24a920d9ea5",
+      "asset_path": "data/images/places/place_024/c24a920d9ea5",
+      "variants_complete": true,
+      "recovered_source": null,
+      "recovered_creator": null,
+      "recovered_license": null,
+      "recovered_attribution": null,
+      "classification_evidence": "UNRESOLVED",
+      "linkage_evidence": "UNPROVEN",
+      "recoverability_bucket": "NO_PROVENANCE_FOUND",
+      "missing_fields": [
+        "image_source_url",
+        "creator",
+        "license",
+        "attribution",
+        "source_to_local_byte_linkage"
+      ],
+      "evidence_files": [
+        "data/places/places.json"
+      ],
+      "notes": "No verifiable image source, creator, license, or cryptographic origin evidence exists in repository."
+    },
+    {
+      "place_id": "place_028",
+      "place_name": "Talesvara Siva Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "asset_hash": "cd738a94a267",
+      "asset_path": "data/images/places/place_028/cd738a94a267",
+      "variants_complete": true,
+      "recovered_source": null,
+      "recovered_creator": null,
+      "recovered_license": null,
+      "recovered_attribution": null,
+      "classification_evidence": "UNRESOLVED",
+      "linkage_evidence": "UNPROVEN",
+      "recoverability_bucket": "NO_PROVENANCE_FOUND",
+      "missing_fields": [
+        "image_source_url",
+        "creator",
+        "license",
+        "attribution",
+        "source_to_local_byte_linkage"
+      ],
+      "evidence_files": [
+        "data/places/places.json"
+      ],
+      "notes": "No verifiable image source, creator, license, or cryptographic origin evidence exists in repository."
+    },
+    {
+      "place_id": "place_032",
+      "place_name": "Buddha Jayanti Park",
+      "district": "Khordha",
+      "category": "park",
+      "asset_hash": "1b4f7e6f8b2e",
+      "asset_path": "data/images/places/place_032/1b4f7e6f8b2e",
+      "variants_complete": true,
+      "recovered_source": null,
+      "recovered_creator": null,
+      "recovered_license": null,
+      "recovered_attribution": null,
+      "classification_evidence": "UNRESOLVED",
+      "linkage_evidence": "UNPROVEN",
+      "recoverability_bucket": "NO_PROVENANCE_FOUND",
+      "missing_fields": [
+        "image_source_url",
+        "creator",
+        "license",
+        "attribution",
+        "source_to_local_byte_linkage"
+      ],
+      "evidence_files": [
+        "data/places/places.json"
+      ],
+      "notes": "No verifiable image source, creator, license, or cryptographic origin evidence exists in repository."
+    },
+    {
+      "place_id": "place_food_003",
+      "place_name": "Ananda Bazar, Puri",
+      "district": "Puri",
+      "category": "market",
+      "asset_hash": "5a13e730e909",
+      "asset_path": "data/images/places/place_food_003/5a13e730e909",
+      "variants_complete": true,
+      "recovered_source": null,
+      "recovered_creator": null,
+      "recovered_license": null,
+      "recovered_attribution": null,
+      "classification_evidence": "UNRESOLVED",
+      "linkage_evidence": "UNPROVEN",
+      "recoverability_bucket": "NO_PROVENANCE_FOUND",
+      "missing_fields": [
+        "image_source_url",
+        "creator",
+        "license",
+        "attribution",
+        "source_to_local_byte_linkage"
+      ],
+      "evidence_files": [
+        "data/places/places.json"
+      ],
+      "notes": "No verifiable image source, creator, license, or cryptographic origin evidence exists in repository."
+    },
+    {
+      "place_id": "place_food_005",
+      "place_name": "Bikalananda Kar Rasagola Hub, Salepur",
+      "district": "Cuttack",
+      "category": "market",
+      "asset_hash": "daeb11d5893b",
+      "asset_path": "data/images/places/place_food_005/daeb11d5893b",
+      "variants_complete": true,
+      "recovered_source": "https://odishatourism.gov.in/",
+      "recovered_creator": null,
+      "recovered_license": null,
+      "recovered_attribution": null,
+      "classification_evidence": "UNRESOLVED",
+      "linkage_evidence": "UNPROVEN (Local WebP files present on disk without source byte SHA linkage in repository)",
+      "recoverability_bucket": "PROVENANCE_PARTIAL",
+      "missing_fields": [
+        "image_source_url",
+        "creator",
+        "license",
+        "attribution",
+        "source_to_local_byte_linkage"
+      ],
+      "evidence_files": [
+        "data/places/places.json"
+      ],
+      "notes": "Destination article source lead in places.json (https://odishatourism.gov.in/...), but upstream image binary origin, creator, and legal license are unrecorded."
+    },
+    {
+      "place_id": "place_food_006",
+      "place_name": "OTDC Nimantran Restaurant, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "asset_hash": "88f959c50d0e",
+      "asset_path": "data/images/places/place_food_006/88f959c50d0e",
+      "variants_complete": true,
+      "recovered_source": "https://otdc.in/",
+      "recovered_creator": null,
+      "recovered_license": null,
+      "recovered_attribution": null,
+      "classification_evidence": "UNRESOLVED",
+      "linkage_evidence": "UNPROVEN (Local WebP files present on disk without source byte SHA linkage in repository)",
+      "recoverability_bucket": "PROVENANCE_PARTIAL",
+      "missing_fields": [
+        "image_source_url",
+        "creator",
+        "license",
+        "attribution",
+        "source_to_local_byte_linkage"
+      ],
+      "evidence_files": [
+        "data/places/places.json"
+      ],
+      "notes": "Destination article source lead in places.json (https://otdc.in/...), but upstream image binary origin, creator, and legal license are unrecorded."
+    },
+    {
+      "place_id": "place_food_007",
+      "place_name": "Bapuji Nagar Food Corridor, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "asset_hash": "a0a492f880a5",
+      "asset_path": "data/images/places/place_food_007/a0a492f880a5",
+      "variants_complete": true,
+      "recovered_source": null,
+      "recovered_creator": null,
+      "recovered_license": null,
+      "recovered_attribution": null,
+      "classification_evidence": "UNRESOLVED",
+      "linkage_evidence": "UNPROVEN",
+      "recoverability_bucket": "NO_PROVENANCE_FOUND",
+      "missing_fields": [
+        "image_source_url",
+        "creator",
+        "license",
+        "attribution",
+        "source_to_local_byte_linkage"
+      ],
+      "evidence_files": [
+        "data/places/places.json"
+      ],
+      "notes": "No verifiable image source, creator, license, or cryptographic origin evidence exists in repository."
+    },
+    {
+      "place_id": "place_food_008",
+      "place_name": "Unit-4 Traditional Food & Fish Market, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "asset_hash": "35cde5e9e0e8",
+      "asset_path": "data/images/places/place_food_008/35cde5e9e0e8",
+      "variants_complete": true,
+      "recovered_source": null,
+      "recovered_creator": null,
+      "recovered_license": null,
+      "recovered_attribution": null,
+      "classification_evidence": "UNRESOLVED",
+      "linkage_evidence": "UNPROVEN",
+      "recoverability_bucket": "NO_PROVENANCE_FOUND",
+      "missing_fields": [
+        "image_source_url",
+        "creator",
+        "license",
+        "attribution",
+        "source_to_local_byte_linkage"
+      ],
+      "evidence_files": [
+        "data/places/places.json"
+      ],
+      "notes": "No verifiable image source, creator, license, or cryptographic origin evidence exists in repository."
+    },
+    {
+      "place_id": "place_food_009",
+      "place_name": "OTDC Panthasala Odia Cuisine Centre, Konark",
+      "district": "Puri",
+      "category": "market",
+      "asset_hash": "0b3143c9ea24",
+      "asset_path": "data/images/places/place_food_009/0b3143c9ea24",
+      "variants_complete": true,
+      "recovered_source": "https://otdc.in/",
+      "recovered_creator": null,
+      "recovered_license": null,
+      "recovered_attribution": null,
+      "classification_evidence": "UNRESOLVED",
+      "linkage_evidence": "UNPROVEN (Local WebP files present on disk without source byte SHA linkage in repository)",
+      "recoverability_bucket": "PROVENANCE_PARTIAL",
+      "missing_fields": [
+        "image_source_url",
+        "creator",
+        "license",
+        "attribution",
+        "source_to_local_byte_linkage"
+      ],
+      "evidence_files": [
+        "data/places/places.json"
+      ],
+      "notes": "Destination article source lead in places.json (https://otdc.in/...), but upstream image binary origin, creator, and legal license are unrecorded."
+    },
+    {
+      "place_id": "place_food_010",
+      "place_name": "Maa Mangala Temple Food & Pitha Precinct, Kakatpur",
+      "district": "Puri",
+      "category": "temple",
+      "asset_hash": "abcf1ef01835",
+      "asset_path": "data/images/places/place_food_010/abcf1ef01835",
+      "variants_complete": true,
+      "recovered_source": "https://odishatourism.gov.in/",
+      "recovered_creator": null,
+      "recovered_license": null,
+      "recovered_attribution": null,
+      "classification_evidence": "UNRESOLVED",
+      "linkage_evidence": "UNPROVEN (Local WebP files present on disk without source byte SHA linkage in repository)",
+      "recoverability_bucket": "PROVENANCE_PARTIAL",
+      "missing_fields": [
+        "image_source_url",
+        "creator",
+        "license",
+        "attribution",
+        "source_to_local_byte_linkage"
+      ],
+      "evidence_files": [
+        "data/places/places.json"
+      ],
+      "notes": "Destination article source lead in places.json (https://odishatourism.gov.in/...), but upstream image binary origin, creator, and legal license are unrecorded."
+    },
+    {
+      "place_id": "place_food_011",
+      "place_name": "Raghunathpur Culinary Corner, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "asset_hash": "cb1d3fcc1b6c",
+      "asset_path": "data/images/places/place_food_011/cb1d3fcc1b6c",
+      "variants_complete": true,
+      "recovered_source": null,
+      "recovered_creator": null,
+      "recovered_license": null,
+      "recovered_attribution": null,
+      "classification_evidence": "UNRESOLVED",
+      "linkage_evidence": "UNPROVEN",
+      "recoverability_bucket": "NO_PROVENANCE_FOUND",
+      "missing_fields": [
+        "image_source_url",
+        "creator",
+        "license",
+        "attribution",
+        "source_to_local_byte_linkage"
+      ],
+      "evidence_files": [
+        "data/places/places.json"
+      ],
+      "notes": "No verifiable image source, creator, license, or cryptographic origin evidence exists in repository."
+    }
+  ]
+}

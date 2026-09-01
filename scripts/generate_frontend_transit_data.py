@@ -206,12 +206,14 @@ def generate_static_transit_stops_ts(
         "export function getVerifiedStaticNearbyStops(",
         "  latitude: number,",
         "  longitude: number,",
-        "  maxRadiusMeters: number = 35000,",
+        "  maxRadiusMeters: number = 8000,",
         "  limit: number = 4",
         "): NearbyStopResponse[] {",
         "  const maxRadiusKm = maxRadiusMeters / 1000;",
         "  const nearby = findNearbyTransitStops(latitude, longitude, maxRadiusKm);",
-        "  return nearby.slice(0, limit).map((s) => ({",
+        "  const withRoutes = nearby.filter((s) => s.routes_serving_stop && s.routes_serving_stop.length > 0);",
+        "  const candidateStops = withRoutes.length > 0 ? withRoutes : nearby;",
+        "  return candidateStops.slice(0, limit).map((s) => ({",
         "    stop_id: s.stop_id,",
         "    name: s.name,",
         "    published_name: s.published_name,",
@@ -505,8 +507,9 @@ def run_generator(check_only: bool = False) -> int:
                 print(f"[DRIFT DETECTED] Missing generated file: {path}", file=sys.stderr)
                 drift_detected = True
             else:
-                existing_content = path.read_text(encoding="utf-8")
-                if existing_content != generated_content:
+                existing_content = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+                gen_content_norm = generated_content.replace("\r\n", "\n")
+                if existing_content != gen_content_norm:
                     print(f"[DRIFT DETECTED] File out of sync with canonical source: {path}", file=sys.stderr)
                     drift_detected = True
         else:

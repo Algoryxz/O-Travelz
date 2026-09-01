@@ -913,6 +913,22 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
+    "stop_id": "stop_crut_berhampur_police_station_2",
+    "name": "Police Station,",
+    "published_name": "POLICE STATION,",
+    "canonical_stop_id": "stop_crut_berhampur_police_station_2",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 21.532198,
+    "longitude": 86.652901,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/1393454654",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": []
+  },
+  {
     "stop_id": "stop_crut_berhampur_railway_station_pf_4",
     "name": "Railway Station P.f-4",
     "published_name": "RAILWAY STATION P.F-4",
@@ -938,8 +954,8 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     "locality": "Berhampur",
     "latitude": 19.315347,
     "longitude": 84.786091,
-    "coordinate_status": "geocoded",
-    "coordinate_source": "OSM_Nominatim:node/2447829359",
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
     "agency": "CRUT (Capital Region Urban Transport)",
     "stop_type": "bus_stop",
     "routes_serving_stop": [
@@ -973,8 +989,8 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     "locality": "Berhampur",
     "latitude": 21.513386,
     "longitude": 86.577044,
-    "coordinate_status": "geocoded",
-    "coordinate_source": "OSM_Nominatim:node/9604962377",
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
     "agency": "CRUT (Capital Region Urban Transport)",
     "stop_type": "bus_terminal",
     "routes_serving_stop": [
@@ -2614,6 +2630,22 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
+    "stop_id": "stop_crut_bhubaneswar_mancheswar_station",
+    "name": "Mancheswar Station",
+    "published_name": "MANCHESWAR STATION",
+    "canonical_stop_id": "stop_crut_bhubaneswar_mancheswar_station",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.322308,
+    "longitude": 85.844902,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/6166520745",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": []
+  },
+  {
     "stop_id": "stop_crut_bhubaneswar_master_canteen",
     "name": "Master Canteen",
     "published_name": "Master Canteen",
@@ -2690,6 +2722,22 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
         "destination": null
       }
     ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_mayfair_road",
+    "name": "Mayfair Road",
+    "published_name": "MAYFAIR ROAD",
+    "canonical_stop_id": "stop_crut_bhubaneswar_mayfair_road",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.302423,
+    "longitude": 85.819307,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/289341268",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
   },
   {
     "stop_id": "stop_crut_bhubaneswar_nandankanan",
@@ -3800,6 +3848,58 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
+    "stop_id": "stop_crut_keonjhar_lv_prasad",
+    "name": "L.v Prasad",
+    "published_name": "L.V PRASAD",
+    "canonical_stop_id": "stop_crut_keonjhar_lv_prasad",
+    "city": "Keonjhar",
+    "district": "Keonjhar",
+    "locality": "Keonjhar",
+    "latitude": 21.642549,
+    "longitude": 85.609069,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/7699151600",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_404",
+        "route_number": "404",
+        "route_name": "Route 404",
+        "sequence_order": 6,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_keonjhar_naranpur",
+    "name": "Naranpur",
+    "published_name": "NARANPUR",
+    "canonical_stop_id": "stop_crut_keonjhar_naranpur",
+    "city": "Keonjhar",
+    "district": "Keonjhar",
+    "locality": "Keonjhar",
+    "latitude": 21.617144,
+    "longitude": 85.637232,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/1494045319",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_400",
+        "route_number": "400",
+        "route_name": "Route 400",
+        "sequence_order": 15,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
     "stop_id": "stop_crut_puri_malatipatpur",
     "name": "Malatipatpur",
     "published_name": "MALATIPATPUR",
@@ -3874,6 +3974,32 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
+    "stop_id": "stop_crut_rourkela_bisra",
+    "name": "Bisra",
+    "published_name": "Bisra",
+    "canonical_stop_id": "stop_crut_rourkela_bisra",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.247824,
+    "longitude": 84.99784,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/6240186128",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_117",
+        "route_number": "117",
+        "route_name": "Rourkela New Bus Stand \u2013 Jaraikela (via Bondamunda, Bisra)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
     "stop_id": "stop_crut_rourkela_bondamunda",
     "name": "Bondamunda",
     "published_name": "Bondamunda",
@@ -3937,6 +4063,32 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
         "route_number": "103",
         "route_name": "Rourkela New Bus Stand \u2013 Panposh( Via-Uditnagar,Hanuman Vatika Chowk,Chhend)",
         "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_rourkela_chhend_chowk",
+    "name": "Chhend Chowk",
+    "published_name": "Chhend Chowk",
+    "canonical_stop_id": "stop_crut_rourkela_chhend_chowk",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.240845,
+    "longitude": 84.816995,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/1637536116",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_102",
+        "route_number": "102",
+        "route_name": "Vedvyas - Jhirpani (via Panposh,Chhend Chowk, Koel Nagar)",
+        "sequence_order": 3,
         "service_area": null,
         "origin": null,
         "destination": null
@@ -4136,6 +4288,32 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
         "route_number": "110",
         "route_name": "Rourkela New Bus Stand \u2013 Kalunga (via Raghunathpali)",
         "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_rourkela_koel_nagar",
+    "name": "Koel Nagar",
+    "published_name": "Koel Nagar",
+    "canonical_stop_id": "stop_crut_rourkela_koel_nagar",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.260248,
+    "longitude": 84.892656,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/3060963595",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_102",
+        "route_number": "102",
+        "route_name": "Vedvyas - Jhirpani (via Panposh,Chhend Chowk, Koel Nagar)",
+        "sequence_order": 4,
         "service_area": null,
         "origin": null,
         "destination": null
@@ -4399,6 +4577,32 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
+    "stop_id": "stop_crut_rourkela_sector_2",
+    "name": "Sector-2",
+    "published_name": "Sector-2",
+    "canonical_stop_id": "stop_crut_rourkela_sector_2",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.245652,
+    "longitude": 84.87883,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/13124608765",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_104",
+        "route_number": "104",
+        "route_name": "Rourkela New Bus Stand - Jhirpani(via Sector-2,Nit,Jagda Chowk)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
     "stop_id": "stop_crut_rourkela_tarini_temple",
     "name": "Tarini Temple",
     "published_name": "TARINI TEMPLE",
@@ -4413,6 +4617,74 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     "agency": "CRUT (Capital Region Urban Transport)",
     "stop_type": "bus_stop",
     "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_rourkela_udit_nagar",
+    "name": "Udit Nagar",
+    "published_name": "Udit Nagar",
+    "canonical_stop_id": "stop_crut_rourkela_udit_nagar",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.227857,
+    "longitude": 84.838013,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/537005944",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_101",
+        "route_number": "101",
+        "route_name": "Rourkela New Bus Stand - Laukera (via Udit Nagar, Hanuman Vatika Chowk, Chhend, Airport)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_rourkela_udit_nagar_chowk",
+    "name": "Udit Nagar Chowk",
+    "published_name": "UDIT NAGAR CHOWK",
+    "canonical_stop_id": "stop_crut_rourkela_udit_nagar_chowk",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.227857,
+    "longitude": 84.838013,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/537005944",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_rourkela_uditnagar",
+    "name": "Uditnagar",
+    "published_name": "Uditnagar",
+    "canonical_stop_id": "stop_crut_rourkela_uditnagar",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.227857,
+    "longitude": 84.838013,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_103",
+        "route_number": "103",
+        "route_name": "Rourkela New Bus Stand \u2013 Panposh( Via-Uditnagar,Hanuman Vatika Chowk,Chhend)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
   },
   {
     "stop_id": "stop_crut_rourkela_vedvyas",
@@ -4455,6 +4727,32 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     "agency": "CRUT (Capital Region Urban Transport)",
     "stop_type": "bus_stop",
     "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_aditya_aluminium",
+    "name": "Aditya Aluminium",
+    "published_name": "ADITYA ALUMINIUM",
+    "canonical_stop_id": "stop_crut_sambalpur_aditya_aluminium",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.735604,
+    "longitude": 84.062637,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/704323611",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_211",
+        "route_number": "211",
+        "route_name": "Ainthapali Bus Terminal \u2013 Jharsuguda",
+        "sequence_order": 41,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
   },
   {
     "stop_id": "stop_crut_sambalpur_ainthapali_bus_terminal",
@@ -4742,6 +5040,32 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
+    "stop_id": "stop_crut_sambalpur_baijamunda",
+    "name": "Baijamunda",
+    "published_name": "BAIJAMUNDA",
+    "canonical_stop_id": "stop_crut_sambalpur_baijamunda",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.442099,
+    "longitude": 83.914704,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/730145803",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_212",
+        "route_number": "212",
+        "route_name": "Ainthapali Bus Terminal \u2013 Baragarh",
+        "sequence_order": 40,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
     "stop_id": "stop_crut_sambalpur_birsa_munda_chowk",
     "name": "Birsa Munda Chowk",
     "published_name": "BIRSA MUNDA CHOWK",
@@ -4849,6 +5173,32 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
         "route_number": "213A",
         "route_name": "Ainthapali Bus Terminal \u2013 Belpahar",
         "sequence_order": 17,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_chowk",
+    "name": "Chowk",
+    "published_name": "CHOWK",
+    "canonical_stop_id": "stop_crut_sambalpur_chowk",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.455734,
+    "longitude": 83.976524,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_212",
+        "route_number": "212",
+        "route_name": "Ainthapali Bus Terminal \u2013 Baragarh",
+        "sequence_order": 25,
         "service_area": null,
         "origin": null,
         "destination": null
@@ -5032,6 +5382,110 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
         "route_number": "206",
         "route_name": "Samaleswari Temple - Ghanteswari Temple",
         "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_godbhaga",
+    "name": "Godbhaga",
+    "published_name": "GODBHAGA",
+    "canonical_stop_id": "stop_crut_sambalpur_godbhaga",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.416683,
+    "longitude": 83.857535,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/904593243",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_212",
+        "route_number": "212",
+        "route_name": "Ainthapali Bus Terminal \u2013 Baragarh",
+        "sequence_order": 32,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_godbhaga_chowk",
+    "name": "Godbhaga Chowk",
+    "published_name": "GODBHAGA CHOWK",
+    "canonical_stop_id": "stop_crut_sambalpur_godbhaga_chowk",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.416683,
+    "longitude": 83.857535,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/904593243",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_212",
+        "route_number": "212",
+        "route_name": "Ainthapali Bus Terminal \u2013 Baragarh",
+        "sequence_order": 30,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_godbhaga_railway_station",
+    "name": "Godbhaga Railway Station",
+    "published_name": "GODBHAGA RAILWAY STATION",
+    "canonical_stop_id": "stop_crut_sambalpur_godbhaga_railway_station",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.416824,
+    "longitude": 83.85755,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/5724753864",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_212",
+        "route_number": "212",
+        "route_name": "Ainthapali Bus Terminal \u2013 Baragarh",
+        "sequence_order": 33,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_goshala_market",
+    "name": "Goshala Market",
+    "published_name": "GOSHALA MARKET",
+    "canonical_stop_id": "stop_crut_sambalpur_goshala_market",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.430083,
+    "longitude": 83.89971,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/737877344",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_212",
+        "route_number": "212",
+        "route_name": "Ainthapali Bus Terminal \u2013 Baragarh",
+        "sequence_order": 37,
         "service_area": null,
         "origin": null,
         "destination": null
@@ -5433,12 +5887,14 @@ export function findNearbyTransitStops(
 export function getVerifiedStaticNearbyStops(
   latitude: number,
   longitude: number,
-  maxRadiusMeters: number = 35000,
+  maxRadiusMeters: number = 8000,
   limit: number = 4
 ): NearbyStopResponse[] {
   const maxRadiusKm = maxRadiusMeters / 1000;
   const nearby = findNearbyTransitStops(latitude, longitude, maxRadiusKm);
-  return nearby.slice(0, limit).map((s) => ({
+  const withRoutes = nearby.filter((s) => s.routes_serving_stop && s.routes_serving_stop.length > 0);
+  const candidateStops = withRoutes.length > 0 ? withRoutes : nearby;
+  return candidateStops.slice(0, limit).map((s) => ({
     stop_id: s.stop_id,
     name: s.name,
     published_name: s.published_name,

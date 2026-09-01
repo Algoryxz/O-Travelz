@@ -76,29 +76,42 @@ class MockPlaceModel:
         is_transit: bool = False,
     ):
         self.id = id
+        self.research_id = id
         self.name = name
         self.district = district
         self.category_id = category
         self.category = type("Cat", (), {"name": category, "canonical_name": category})()
         self.interests = [type("Int", (), {"name": i, "canonical_name": i})() for i in interests]
+        self.interest_associations = [type("Assoc", (), {"interest": i})() for i in self.interests]
+        self.images = []
         self.region = region
         self.description = description
         self.latitude = 20.2961
         self.longitude = 85.8245
+        self.location = None
         self.address = f"{name}, {district}, Odisha"
+        self.verified_at = "2026-01-01T00:00:00"
         self.verification_status = "verified"
+        self.coordinate_verification = "verified"
         self.source = "official_dataset"
         self.is_medical = is_medical
         self.is_transit = is_transit
         self.contact_phone = None
         self.emergency_phone = None
+        self.rating = 4.5
+        self.rating_count = 100
+        self.price_tier = "budget"
+        self.avg_visit_minutes = 60
+        self.opening_hours = None
 
 
 class MockPlacesDB:
     def __init__(self, places: list[MockPlaceModel]):
         self._places = places
+        self._is_place_cat_query = False
 
     def query(self, *args, **kwargs):
+        self._is_place_cat_query = len(args) >= 2
         return self
 
     def join(self, *args, **kwargs):
@@ -120,6 +133,8 @@ class MockPlacesDB:
         return self
 
     def all(self):
+        if self._is_place_cat_query:
+            return [(p, p.category) for p in self._places]
         return self._places
 
     def first(self):
@@ -159,6 +174,7 @@ def mock_places():
         MockPlaceModel("p6", "Daringbadi Hill Station", "Kandhamal", "nature", ["nature", "relaxation"]),
         MockPlaceModel("p7", "Barehipani Waterfall", "Mayurbhanj", "waterfall", ["waterfall", "nature"]),
         MockPlaceModel("p8", "Barabati Fort", "Cuttack", "monument", ["heritage", "architecture"]),
+        MockPlaceModel("p9", "Pahala Rasgulla Hub", "Khordha", "food", ["food"]),
         # Emergency & Transit places (domain isolation)
         MockPlaceModel("h1", "District Hospital Puri", "Puri", "hospital", [], is_medical=True),
         MockPlaceModel("t1", "Puri Railway Station", "Puri", "transit_hub", [], is_transit=True),
@@ -369,7 +385,7 @@ def test_zero_fabricated_places_invariant(test_orchestrator):
 
     assert res.status == AIStatus.SUCCESS
     assert res.itinerary is not None
-    verified_ids = {"p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"}
+    verified_ids = {"p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9"}
     for day in res.itinerary.days:
         for stop in day.stops:
             assert stop.place.id in verified_ids
@@ -583,6 +599,44 @@ class TestP0ConversationalStability:
         assert res.status in (AIStatus.SUCCESS, AIStatus.CLARIFICATION)
         assert res.message is not None and len(res.message.strip()) > 0
         assert res.is_grounded is True
+
+    def test_p0_planning_prompt_bbsr_alias(self, test_orchestrator):
+        """P0-1: 'Plan a 1 day trip in bbsr' produces 1-day itinerary starting from Bhubaneswar."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Plan a 1 day trip in bbsr")])
+        assert res.status == AIStatus.SUCCESS
+        assert res.itinerary is not None
+        assert len(res.itinerary.days) == 1
+        assert res.is_grounded is True
+        assert any("bhubaneswar" in s.lower() for s in (res.message or "", getattr(res.itinerary.constraints, "start", "") or ""))
+
+    def test_p0_planning_prompt_one_day_bhubaneswar(self, test_orchestrator):
+        """P0-2: 'Plan a one day trip in Bhubaneswar' produces 1-day itinerary."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Plan a one day trip in Bhubaneswar")])
+        assert res.status == AIStatus.SUCCESS
+        assert res.itinerary is not None
+        assert len(res.itinerary.days) == 1
+        assert res.is_grounded is True
+
+    def test_p0_planning_prompt_temples_lunch_mobus(self, test_orchestrator):
+        """P0-3: 'I am in Bhubaneswar. Plan a day trip with temples, lunch and Mo Bus where practical.' produces itinerary without getting hijacked by Mo Bus."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="I am in Bhubaneswar. Plan a day trip with temples, lunch and Mo Bus where practical.")])
+        assert res.status == AIStatus.SUCCESS
+        assert res.itinerary is not None
+        assert len(res.itinerary.days) == 1
+        assert res.is_grounded is True
+        assert len(res.provider_status) == 0  # Not hijacked to provider status
+
+    def test_p0_food_discovery_pahala_rasgulla(self, test_orchestrator):
+        """P0-4: 'Where can I get Pahala Rasgulla?' triggers search places for Pahala / food."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Where can I get Pahala Rasgulla?")])
+        assert res.status == AIStatus.SUCCESS
+        assert len(res.places) > 0 or res.itinerary is not None
+
+    def test_p0_provider_status_query(self, test_orchestrator):
+        """P0-5: 'Are AI providers working?' triggers provider status tool."""
+        res = test_orchestrator.converse([ChatMessage(role=ChatRole.USER, content="Are AI providers working?")])
+        assert res.status == AIStatus.SUCCESS
+        assert len(res.provider_status) > 0 or "status" in res.message.lower()
 
 
 

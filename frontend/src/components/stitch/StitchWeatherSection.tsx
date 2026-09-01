@@ -201,14 +201,14 @@ export const StitchWeatherSection: React.FC<StitchWeatherSectionProps> = ({
                       Current Atmospheric State
                     </span>
                     <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#12161E] mt-1">
-                      {current.condition}
+                      {current.condition || 'Clear'}
                     </h3>
                   </div>
                   <div className="w-14 h-14 rounded-2xl bg-[#F2EEE7] flex items-center justify-center text-[#B87B22] shadow-xs">
                     <span className="material-symbols-outlined text-3xl">
-                      {current.condition.toLowerCase().includes('rain') || current.condition.toLowerCase().includes('drizzle')
+                      {(current.condition || '').toLowerCase().includes('rain') || (current.condition || '').toLowerCase().includes('drizzle')
                         ? 'rainy'
-                        : current.condition.toLowerCase().includes('cloud') || current.condition.toLowerCase().includes('overcast')
+                        : (current.condition || '').toLowerCase().includes('cloud') || (current.condition || '').toLowerCase().includes('overcast')
                         ? 'partly_cloudy_day'
                         : 'wb_sunny'}
                     </span>
@@ -281,7 +281,7 @@ export const StitchWeatherSection: React.FC<StitchWeatherSectionProps> = ({
                 </div>
                 <div className="my-2">
                   <span className="font-mono text-2xl md:text-3xl font-bold text-[#12161E]">
-                    {current.precipitation_probability_pct != null ? `${current.precipitation_probability_pct}%` : '0%'}
+                    {current.precipitation_probability_pct != null ? `${current.precipitation_probability_pct}%` : '—'}
                   </span>
                 </div>
                 <span className="text-[11px] font-body text-[#70798B]">
@@ -299,7 +299,7 @@ export const StitchWeatherSection: React.FC<StitchWeatherSectionProps> = ({
                 </div>
                 <div className="my-2">
                   <span className="font-mono text-2xl md:text-3xl font-bold text-[#12161E]">
-                    {current.cloud_cover_pct != null ? `${current.cloud_cover_pct}%` : '15%'}
+                    {current.cloud_cover_pct != null ? `${current.cloud_cover_pct}%` : '—'}
                   </span>
                 </div>
                 <span className="text-[11px] font-body text-[#70798B]">

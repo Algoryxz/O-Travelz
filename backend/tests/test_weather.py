@@ -105,7 +105,7 @@ def test_open_meteo_adapter_timeout_fallback():
         res = adapter.fetch_weather(lat=20.2961, lon=85.8245, location_name="Bhubaneswar")
 
         assert res.current.status == "unavailable"
-        assert res.current.condition == "Unavailable"
+        assert res.current.condition is None
         assert res.current.temperature_c is None
         assert "temporarily unavailable" in res.current.advice
         assert "timed out" in (res.current.error_reason or "")

@@ -286,6 +286,7 @@ class GroundedConversationOrchestrator:
                 stop_count=stop_count,
                 start_place=effective_constraints.start if effective_constraints else None,
                 interests=effective_constraints.interests if effective_constraints else None,
+                itinerary=itinerary,
             )
         elif places:
             grounded_msg = generate_grounded_search_message(
@@ -303,9 +304,16 @@ class GroundedConversationOrchestrator:
             w_data = w_res.data if isinstance(w_res.data, dict) else {}
             loc = w_data.get("location", "Odisha")
             temp = w_data.get("temperature_c")
-            cond = w_data.get("condition", "Current conditions")
-            precip = w_data.get("precipitation_probability_pct") or w_data.get("precipitation_probability") or 0
-            grounded_msg = f"Weather in {loc}: {temp}°C, {cond} with {precip}% precipitation probability."
+            cond = w_data.get("condition")
+            precip = w_data.get("precipitation_probability_pct")
+            w_status = w_data.get("status")
+
+            if w_status == "available" and temp is not None:
+                precip_str = f" with {precip}% chance of rain" if precip is not None else ""
+                cond_str = f", {cond}" if cond else ""
+                grounded_msg = f"Current weather in {loc}: {temp}°C{cond_str}{precip_str}."
+            else:
+                grounded_msg = f"Live weather observation for {loc} is temporarily unavailable."
         elif tool_results_obtained and any(r.tool_name == "estimate_crowd" for r in tool_results_obtained):
             c_res = next(r for r in tool_results_obtained if r.tool_name == "estimate_crowd")
             c_data = c_res.data if isinstance(c_res.data, dict) else {}
@@ -394,17 +402,32 @@ class GroundedConversationOrchestrator:
                 w_data = r.data
                 loc = w_data.get("location", "Odisha")
                 temp = w_data.get("temperature_c")
-                cond = w_data.get("condition", "Weather conditions")
-                precip = w_data.get("precipitation_probability_pct", 0)
-                evidence_items.append(
-                    EvidenceItem(
-                        title="Current weather",
-                        rationale=f"{w_data.get('source', 'Open-Meteo')} reports {temp}°C, {cond}, rain probability of {precip}% for {loc}",
-                        claim_type=ClaimType.LIVE,
-                        source=w_data.get("source", "Open-Meteo"),
-                        confidence="high",
+                cond = w_data.get("condition")
+                precip = w_data.get("precipitation_probability_pct")
+                w_status = w_data.get("status")
+
+                if w_status == "available" and temp is not None:
+                    precip_str = f", rain probability of {precip}%" if precip is not None else ""
+                    cond_str = f", {cond}" if cond else ""
+                    evidence_items.append(
+                        EvidenceItem(
+                            title="Current weather",
+                            rationale=f"{w_data.get('source', 'Open-Meteo')} reports {temp}°C{cond_str}{precip_str} for {loc}",
+                            claim_type=ClaimType.LIVE,
+                            source=w_data.get("source", "Open-Meteo"),
+                            confidence="high",
+                        )
                     )
-                )
+                else:
+                    evidence_items.append(
+                        EvidenceItem(
+                            title="Weather notice",
+                            rationale=f"Live weather observation for {loc} is temporarily unavailable",
+                            claim_type=ClaimType.UNKNOWN,
+                            source=w_data.get("source", "Open-Meteo"),
+                            confidence="low",
+                        )
+                    )
             elif r.tool_name == "estimate_crowd" and isinstance(r.data, dict):
                 c_data = r.data
                 level = c_data.get("level", "moderate")

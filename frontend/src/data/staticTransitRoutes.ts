@@ -202,9 +202,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_rourkela_udit_nagar",
         "stop_name": "Udit Nagar",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.227857,
+        "longitude": 84.838013
       },
       {
         "sequence_order": 3,
@@ -302,17 +302,17 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_rourkela_chhend_chowk",
         "stop_name": "Chhend Chowk",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.240845,
+        "longitude": 84.816995
       },
       {
         "sequence_order": 4,
         "stop_id": "stop_crut_rourkela_koel_nagar",
         "stop_name": "Koel Nagar",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.260248,
+        "longitude": 84.892656
       },
       {
         "sequence_order": 5,
@@ -348,9 +348,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_rourkela_uditnagar",
         "stop_name": "Uditnagar",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.227857,
+        "longitude": 84.838013
       },
       {
         "sequence_order": 3,
@@ -402,9 +402,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_rourkela_sector_2",
         "stop_name": "Sector-2",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.245652,
+        "longitude": 84.87883
       },
       {
         "sequence_order": 3,
@@ -982,9 +982,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_rourkela_bisra",
         "stop_name": "Bisra",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.247824,
+        "longitude": 84.99784
       },
       {
         "sequence_order": 4,
@@ -3234,9 +3234,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 41,
         "stop_id": "stop_crut_sambalpur_aditya_aluminium",
         "stop_name": "Aditya Aluminium",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.735604,
+        "longitude": 84.062637
       },
       {
         "sequence_order": 42,
@@ -3704,9 +3704,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 25,
         "stop_id": "stop_crut_sambalpur_chowk",
         "stop_name": "Chowk",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.455734,
+        "longitude": 83.976524
       },
       {
         "sequence_order": 26,
@@ -3744,9 +3744,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 30,
         "stop_id": "stop_crut_sambalpur_godbhaga_chowk",
         "stop_name": "Godbhaga Chowk",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.416683,
+        "longitude": 83.857535
       },
       {
         "sequence_order": 31,
@@ -3760,17 +3760,17 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 32,
         "stop_id": "stop_crut_sambalpur_godbhaga",
         "stop_name": "Godbhaga",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.416683,
+        "longitude": 83.857535
       },
       {
         "sequence_order": 33,
         "stop_id": "stop_crut_sambalpur_godbhaga_railway_station",
         "stop_name": "Godbhaga Railway Station",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.416824,
+        "longitude": 83.85755
       },
       {
         "sequence_order": 34,
@@ -3800,9 +3800,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 37,
         "stop_id": "stop_crut_sambalpur_goshala_market",
         "stop_name": "Goshala Market",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.430083,
+        "longitude": 83.89971
       },
       {
         "sequence_order": 38,
@@ -3824,9 +3824,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 40,
         "stop_id": "stop_crut_sambalpur_baijamunda",
         "stop_name": "Baijamunda",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.442099,
+        "longitude": 83.914704
       },
       {
         "sequence_order": 41,
@@ -9348,9 +9348,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 15,
         "stop_id": "stop_crut_keonjhar_naranpur",
         "stop_name": "Naranpur",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.617144,
+        "longitude": 85.637232
       },
       {
         "sequence_order": 16,
@@ -10100,9 +10100,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 6,
         "stop_id": "stop_crut_keonjhar_lv_prasad",
         "stop_name": "L.v Prasad",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.642549,
+        "longitude": 85.609069
       },
       {
         "sequence_order": 7,

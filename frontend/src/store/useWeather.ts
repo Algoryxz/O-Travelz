@@ -55,7 +55,7 @@ export function useWeather(
           observed_at: new Date().toISOString(),
           temperature_c: null,
           apparent_temperature_c: null,
-          condition: "Unavailable",
+          condition: null,
           condition_code: null,
           is_day: null,
           advice: "Weather data is temporarily unavailable. Check local forecasts before traveling.",

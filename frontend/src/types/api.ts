@@ -486,7 +486,7 @@ export interface WeatherObservation {
   observed_at: string;
   temperature_c?: number | null;
   apparent_temperature_c?: number | null;
-  condition: string;
+  condition?: string | null;
   condition_code?: number | null;
   is_day?: number | null;
   humidity_pct?: number | null;

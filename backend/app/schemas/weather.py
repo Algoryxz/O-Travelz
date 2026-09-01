@@ -16,7 +16,7 @@ class WeatherObservation(ContractModel):
     observed_at: str
     temperature_c: float | None = None
     apparent_temperature_c: float | None = None
-    condition: str
+    condition: str | None = None
     condition_code: int | None = None
     is_day: int | None = Field(default=1, description="1 if daytime, 0 if nighttime according to local solar position")
     humidity_pct: int | None = None

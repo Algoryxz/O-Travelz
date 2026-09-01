@@ -1,5 +1,5 @@
 {
-  "build_timestamp": "2026-09-01T12:52:42.712178+00:00",
+  "build_timestamp": "2026-09-01T15:20:40.307528+00:00",
   "compiler_version": "1.5.0",
   "inputs": {
     "routes_extracted_count": 154,
@@ -9,20 +9,20 @@
   },
   "outputs": {
     "logical_stops_total": 1430,
-    "coordinate_verified_official": 104,
-    "coordinate_verified_geospatial": 56,
+    "coordinate_verified_official": 108,
+    "coordinate_verified_geospatial": 71,
     "coordinate_high_confidence": 0,
     "coordinate_review_required": 0,
-    "coordinate_unresolved": 1270,
-    "routable_stops_total": 160,
-    "tier1_internal_recovered": 142,
+    "coordinate_unresolved": 1251,
+    "routable_stops_total": 179,
+    "tier1_internal_recovered": 172,
     "tier2_places_cross_referenced": 0,
-    "tier3_external_resolved": 15,
-    "routes_with_at_least_2_routable_stops": 83,
-    "routes_with_majority_routable_stops": 92,
-    "fully_geocoded_routes": 22,
+    "tier3_external_resolved": 0,
+    "routes_with_at_least_2_routable_stops": 85,
+    "routes_with_majority_routable_stops": 94,
+    "fully_geocoded_routes": 23,
     "top_25_interchanges_resolution_rate": "56.0% (14/25)",
-    "corridor_anomalies_detected": 19
+    "corridor_anomalies_detected": 20
   },
   "gates": {
     "zero_fabrication_gate": "PASSED",

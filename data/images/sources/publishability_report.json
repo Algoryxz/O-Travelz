@@ -1,0 +1,3000 @@
+{
+  "generation_timestamp": "2026-09-01T15:27:00.884658+00:00",
+  "shadow_mode": true,
+  "policy": {
+    "hard_rule": "NO VERIFIED IMAGE = NO PUBLIC DESTINATION",
+    "min_description_length": 50,
+    "lat_bounds": [
+      17.8,
+      22.6
+    ],
+    "lon_bounds": [
+      81.4,
+      87.5
+    ],
+    "required_variants": [
+      "original",
+      "hero",
+      "card",
+      "thumbnail"
+    ],
+    "allowed_districts_count": 30
+  },
+  "summary": {
+    "total_production_destinations": 161,
+    "shadow_publishable_count": 62,
+    "shadow_blocked_count": 99,
+    "shadow_publishable_percentage": 38.51,
+    "manifest_coverage_count": 70,
+    "local_asset_coverage_count": 81,
+    "all_variants_coverage_count": 81,
+    "exact_verified_image_count": 62,
+    "destinations_missing_exact_image": 99,
+    "blocker_counts": {
+      "NO_IMAGE_MANIFEST": 91,
+      "NO_LOCAL_ASSETS": 80,
+      "NO_EXACT_VERIFIED_IMAGE": 8,
+      "DESCRIPTION_TOO_SHORT": 1
+    }
+  },
+  "classification_summary": {
+    "EXACT_LOCATION_VERIFIED": 62,
+    "NO_IMAGE": 91,
+    "RELATED_LOCATION_ONLY": 8
+  },
+  "district_summary": {
+    "Angul": {
+      "total_places": 4,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 4
+    },
+    "Balangir": {
+      "total_places": 4,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 4
+    },
+    "Balasore": {
+      "total_places": 5,
+      "publishable_places": 1,
+      "exact_image_places": 1,
+      "missing_image_places": 4
+    },
+    "Bargarh": {
+      "total_places": 2,
+      "publishable_places": 1,
+      "exact_image_places": 1,
+      "missing_image_places": 1
+    },
+    "Bhadrak": {
+      "total_places": 3,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 3
+    },
+    "Boudh": {
+      "total_places": 2,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 2
+    },
+    "Cuttack": {
+      "total_places": 9,
+      "publishable_places": 3,
+      "exact_image_places": 3,
+      "missing_image_places": 6
+    },
+    "Deogarh": {
+      "total_places": 2,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 2
+    },
+    "Dhenkanal": {
+      "total_places": 3,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 3
+    },
+    "Gajapati": {
+      "total_places": 3,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 3
+    },
+    "Ganjam": {
+      "total_places": 5,
+      "publishable_places": 2,
+      "exact_image_places": 2,
+      "missing_image_places": 3
+    },
+    "Jagatsinghpur": {
+      "total_places": 3,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 3
+    },
+    "Jajpur": {
+      "total_places": 3,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 3
+    },
+    "Jharsuguda": {
+      "total_places": 3,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 3
+    },
+    "Kalahandi": {
+      "total_places": 3,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 3
+    },
+    "Kandhamal": {
+      "total_places": 4,
+      "publishable_places": 2,
+      "exact_image_places": 2,
+      "missing_image_places": 2
+    },
+    "Kendrapara": {
+      "total_places": 2,
+      "publishable_places": 1,
+      "exact_image_places": 1,
+      "missing_image_places": 1
+    },
+    "Keonjhar": {
+      "total_places": 5,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 5
+    },
+    "Khordha": {
+      "total_places": 44,
+      "publishable_places": 31,
+      "exact_image_places": 31,
+      "missing_image_places": 13
+    },
+    "Koraput": {
+      "total_places": 6,
+      "publishable_places": 4,
+      "exact_image_places": 4,
+      "missing_image_places": 2
+    },
+    "Malkangiri": {
+      "total_places": 3,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 3
+    },
+    "Mayurbhanj": {
+      "total_places": 4,
+      "publishable_places": 2,
+      "exact_image_places": 2,
+      "missing_image_places": 2
+    },
+    "Nabarangpur": {
+      "total_places": 2,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 2
+    },
+    "Nayagarh": {
+      "total_places": 3,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 3
+    },
+    "Nuapada": {
+      "total_places": 2,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 2
+    },
+    "Puri": {
+      "total_places": 15,
+      "publishable_places": 8,
+      "exact_image_places": 8,
+      "missing_image_places": 7
+    },
+    "Rayagada": {
+      "total_places": 2,
+      "publishable_places": 1,
+      "exact_image_places": 1,
+      "missing_image_places": 1
+    },
+    "Sambalpur": {
+      "total_places": 6,
+      "publishable_places": 3,
+      "exact_image_places": 3,
+      "missing_image_places": 3
+    },
+    "Subarnapur": {
+      "total_places": 3,
+      "publishable_places": 0,
+      "exact_image_places": 0,
+      "missing_image_places": 3
+    },
+    "Sundargarh": {
+      "total_places": 6,
+      "publishable_places": 3,
+      "exact_image_places": 3,
+      "missing_image_places": 3
+    }
+  },
+  "regional_candidates_summary": {
+    "eastern": {
+      "total_candidates": 21,
+      "candidates_with_images": 19,
+      "exact_verified_leads": 19,
+      "review_required_leads": 0
+    },
+    "northern": {
+      "total_candidates": 25,
+      "candidates_with_images": 25,
+      "exact_verified_leads": 0,
+      "review_required_leads": 25
+    },
+    "southern": {
+      "total_candidates": 16,
+      "candidates_with_images": 12,
+      "exact_verified_leads": 0,
+      "review_required_leads": 12
+    },
+    "western": {
+      "total_candidates": 21,
+      "candidates_with_images": 21,
+      "exact_verified_leads": 7,
+      "review_required_leads": 14
+    }
+  },
+  "integrity_findings": {
+    "orphan_image_directories": [
+      "lingaraj"
+    ],
+    "manifest_nonexistent_places": [],
+    "cross_place_duplicate_groups": {}
+  },
+  "decisions": [
+    {
+      "place_id": "place_005",
+      "name": "Parasurameswar Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_007",
+      "name": "Chausathi Yogini Temple, Hirapur",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_012",
+      "name": "Regional Museum of Natural History",
+      "district": "Khordha",
+      "category": "museum",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_013",
+      "name": "Museum of Tribal Arts and Artifacts",
+      "district": "Khordha",
+      "category": "museum",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_014",
+      "name": "Pathani Samanta Planetarium",
+      "district": "Khordha",
+      "category": "planetarium",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_018",
+      "name": "Baitala Deula",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_019",
+      "name": "Brahmeswar Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_020",
+      "name": "Bhaskareswar Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_021",
+      "name": "Rameshwar Deula",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_022",
+      "name": "Ram Mandir, Bhubaneswar",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_023",
+      "name": "Chitrakarini Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_024",
+      "name": "Bharati Matha Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json)."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_025",
+      "name": "Kedar Gouri Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_026",
+      "name": "Megheswar Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_027",
+      "name": "Nageshwar Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_028",
+      "name": "Talesvara Siva Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "DESCRIPTION_TOO_SHORT",
+        "NO_IMAGE_MANIFEST"
+      ],
+      "reason_details": [
+        "Description length (37 chars) is below required minimum of 50 characters.",
+        "No entry exists in destination image manifest (data/images/sources/manifest.json)."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_029",
+      "name": "Kapilesvara Siva Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_030",
+      "name": "Regional Science Centre, Bhubaneswar",
+      "district": "Khordha",
+      "category": "science_center",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_031",
+      "name": "Indira Gandhi Park",
+      "district": "Khordha",
+      "category": "park",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_032",
+      "name": "Buddha Jayanti Park",
+      "district": "Khordha",
+      "category": "park",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json)."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_angul_001",
+      "name": "Satkosia Gorge Sanctuary",
+      "district": "Angul",
+      "category": "wildlife",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_angul_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_angul_002",
+      "name": "Tikarpada Nature Camp",
+      "district": "Angul",
+      "category": "nature",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_angul_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_angul_003",
+      "name": "Rengali Dam & Reservoir",
+      "district": "Angul",
+      "category": "lake",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_angul_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_balangir_001",
+      "name": "Harishankar Temple & Stream",
+      "district": "Balangir",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_balangir_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_balangir_002",
+      "name": "Ranipur Jharial 64 Yogini Temple",
+      "district": "Balangir",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_balangir_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_balangir_003",
+      "name": "Sailashree Palace",
+      "district": "Balangir",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_balangir_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_balasore_001",
+      "name": "Chandipur Beach",
+      "district": "Balasore",
+      "category": "beach",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_balasore_002",
+      "name": "Talasari Beach & Palm Fringes",
+      "district": "Balasore",
+      "category": "beach",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_balasore_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_balasore_003",
+      "name": "Panchalingeswar Temple & Springs",
+      "district": "Balasore",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_balasore_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_bargarh_002",
+      "name": "Nrusinghanath Temple",
+      "district": "Bargarh",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_bargarh_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_bbsr_001",
+      "name": "Lingaraj Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bbsr_002",
+      "name": "Mukteswar Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bbsr_003",
+      "name": "Rajarani Temple",
+      "district": "Khordha",
+      "category": "monument",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bbsr_004",
+      "name": "Ananta Vasudeva Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bbsr_005",
+      "name": "Udayagiri and Khandagiri Caves",
+      "district": "Khordha",
+      "category": "monument",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bbsr_006",
+      "name": "Dhauli Shanti Stupa",
+      "district": "Khordha",
+      "category": "monument",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bbsr_007",
+      "name": "Nandankanan Zoological Park",
+      "district": "Khordha",
+      "category": "park",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bbsr_008",
+      "name": "Odisha State Museum",
+      "district": "Khordha",
+      "category": "museum",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bbsr_009",
+      "name": "Odisha Crafts Museum Kala Bhoomi",
+      "district": "Khordha",
+      "category": "museum",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bbsr_010",
+      "name": "Ekamra Haat",
+      "district": "Khordha",
+      "category": "market",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bbsr_011",
+      "name": "Kalinga Stadium",
+      "district": "Khordha",
+      "category": "sports_venue",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bbsr_012",
+      "name": "Bindu Sagar",
+      "district": "Khordha",
+      "category": "lake",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_bhadrak_001",
+      "name": "Maa Akhandalamani Temple (Aradi)",
+      "district": "Bhadrak",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_bhadrak_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_bhadrak_002",
+      "name": "Dhamra Port & Marine Estuary",
+      "district": "Bhadrak",
+      "category": "beach",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_bhadrak_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_bhadrak_003",
+      "name": "Chandbali River Gateway",
+      "district": "Bhadrak",
+      "category": "nature",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_bhadrak_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_boudh_001",
+      "name": "Boudh Colossal Buddha Statues",
+      "district": "Boudh",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_boudh_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_boudh_002",
+      "name": "Rameswar Temple Complex",
+      "district": "Boudh",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_boudh_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_chilika_001",
+      "name": "Chilika Lake - Satapada",
+      "district": "Puri",
+      "category": "lake",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_chilika_002",
+      "name": "Kalijai Island Temple, Chilika",
+      "district": "Khordha",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_chilika_003",
+      "name": "Mangalajodi Bird Sanctuary",
+      "district": "Khordha",
+      "category": "wildlife",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_cuttack_001",
+      "name": "Barabati Fort",
+      "district": "Cuttack",
+      "category": "monument",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_cuttack_002",
+      "name": "Cuttack Chandi Temple",
+      "district": "Cuttack",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_cuttack_003",
+      "name": "Odisha State Maritime Museum",
+      "district": "Cuttack",
+      "category": "museum",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_EXACT_VERIFIED_IMAGE"
+      ],
+      "reason_details": [
+        "Image classification is 'RELATED_LOCATION_ONLY', not 'EXACT_LOCATION_VERIFIED'."
+      ],
+      "classification": "RELATED_LOCATION_ONLY",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_cuttack_004",
+      "name": "Netaji Birth Place Museum",
+      "district": "Cuttack",
+      "category": "museum",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_daringbadi_001",
+      "name": "Daringbadi Hill Station",
+      "district": "Kandhamal",
+      "category": "nature",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_EXACT_VERIFIED_IMAGE"
+      ],
+      "reason_details": [
+        "Image classification is 'RELATED_LOCATION_ONLY', not 'EXACT_LOCATION_VERIFIED'."
+      ],
+      "classification": "RELATED_LOCATION_ONLY",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_daringbadi_002",
+      "name": "Midubanda Waterfall, Daringbadi",
+      "district": "Kandhamal",
+      "category": "waterfall",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_daringbadi_003",
+      "name": "Coffee Gardens, Daringbadi",
+      "district": "Kandhamal",
+      "category": "nature",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_daringbadi_004",
+      "name": "Belghar Nature Camp",
+      "district": "Kandhamal",
+      "category": "nature",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_EXACT_VERIFIED_IMAGE"
+      ],
+      "reason_details": [
+        "Image classification is 'RELATED_LOCATION_ONLY', not 'EXACT_LOCATION_VERIFIED'."
+      ],
+      "classification": "RELATED_LOCATION_ONLY",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_deogarh_001",
+      "name": "Pradhanpat Waterfall",
+      "district": "Deogarh",
+      "category": "waterfall",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_deogarh_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_deogarh_002",
+      "name": "Kailash Palace (Raja Palace)",
+      "district": "Deogarh",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_deogarh_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_dhenkanal_001",
+      "name": "Kapilash Temple & Sanctuary",
+      "district": "Dhenkanal",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_dhenkanal_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_dhenkanal_002",
+      "name": "Joranda Gadi (Mahima Dharma Seat)",
+      "district": "Dhenkanal",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_dhenkanal_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_dhenkanal_003",
+      "name": "Saptasajya Hill Sanctuary",
+      "district": "Dhenkanal",
+      "category": "nature",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_dhenkanal_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_food_001",
+      "name": "Pahala Rasagola Sweet Hub",
+      "district": "Khordha",
+      "category": "market",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_EXACT_VERIFIED_IMAGE"
+      ],
+      "reason_details": [
+        "Image classification is 'RELATED_LOCATION_ONLY', not 'EXACT_LOCATION_VERIFIED'."
+      ],
+      "classification": "RELATED_LOCATION_ONLY",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_food_002",
+      "name": "Nimapada Chhena Jhili Market",
+      "district": "Puri",
+      "category": "market",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_EXACT_VERIFIED_IMAGE"
+      ],
+      "reason_details": [
+        "Image classification is 'RELATED_LOCATION_ONLY', not 'EXACT_LOCATION_VERIFIED'."
+      ],
+      "classification": "RELATED_LOCATION_ONLY",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_food_003",
+      "name": "Ananda Bazar, Puri",
+      "district": "Puri",
+      "category": "market",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json)."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_food_004",
+      "name": "Choudhury Bazar Dahibara Hub, Cuttack",
+      "district": "Cuttack",
+      "category": "market",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_EXACT_VERIFIED_IMAGE"
+      ],
+      "reason_details": [
+        "Image classification is 'RELATED_LOCATION_ONLY', not 'EXACT_LOCATION_VERIFIED'."
+      ],
+      "classification": "RELATED_LOCATION_ONLY",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_food_005",
+      "name": "Bikalananda Kar Rasagola Hub, Salepur",
+      "district": "Cuttack",
+      "category": "market",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json)."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_food_006",
+      "name": "OTDC Nimantran Restaurant, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json)."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_food_007",
+      "name": "Bapuji Nagar Food Corridor, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json)."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_food_008",
+      "name": "Unit-4 Traditional Food & Fish Market, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json)."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_food_009",
+      "name": "OTDC Panthasala Odia Cuisine Centre, Konark",
+      "district": "Puri",
+      "category": "market",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json)."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_food_010",
+      "name": "Maa Mangala Temple Food & Pitha Precinct, Kakatpur",
+      "district": "Puri",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json)."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_food_011",
+      "name": "Raghunathpur Culinary Corner, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json)."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_gajapati_001",
+      "name": "Mahendragiri Mountain Peak",
+      "district": "Gajapati",
+      "category": "nature",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_gajapati_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_gajapati_002",
+      "name": "Khasada Waterfall (Chandragiri)",
+      "district": "Gajapati",
+      "category": "waterfall",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_gajapati_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_gajapati_003",
+      "name": "Gandahati Waterfall",
+      "district": "Gajapati",
+      "category": "waterfall",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_gajapati_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_ganjam_001",
+      "name": "Gopalpur-on-Sea Beach",
+      "district": "Ganjam",
+      "category": "beach",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_ganjam_002",
+      "name": "Tara Tarini Temple",
+      "district": "Ganjam",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_ganjam_003",
+      "name": "Maa Tara Tarini Shakti Peetha",
+      "district": "Ganjam",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_ganjam_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_jagatsinghpur_001",
+      "name": "Maa Sarala Temple (Jhankad)",
+      "district": "Jagatsinghpur",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_jagatsinghpur_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_jagatsinghpur_002",
+      "name": "Paradip Sea Beach & Lighthouse",
+      "district": "Jagatsinghpur",
+      "category": "beach",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_jagatsinghpur_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_jagatsinghpur_003",
+      "name": "Siali Sea Beach",
+      "district": "Jagatsinghpur",
+      "category": "beach",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_jagatsinghpur_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_jajpur_001",
+      "name": "Maa Biraja Temple (Shakti Peetha)",
+      "district": "Jajpur",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_jajpur_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_jajpur_002",
+      "name": "Ratnagiri Buddhist Monastery",
+      "district": "Jajpur",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_jajpur_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_jajpur_003",
+      "name": "Udayagiri Buddhist Complex",
+      "district": "Jajpur",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_jajpur_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_jharsuguda_001",
+      "name": "Koilighugar Waterfall",
+      "district": "Jharsuguda",
+      "category": "waterfall",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_jharsuguda_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_jharsuguda_002",
+      "name": "Bikramkhol Prehistoric Rock Art",
+      "district": "Jharsuguda",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_jharsuguda_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_kalahandi_001",
+      "name": "Phurlijharan Waterfall",
+      "district": "Kalahandi",
+      "category": "waterfall",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_kalahandi_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_kalahandi_002",
+      "name": "Asurgarh Ancient Fortified City",
+      "district": "Kalahandi",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_kalahandi_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_kalahandi_003",
+      "name": "Maa Manikeswari Temple (Bhawanipatna)",
+      "district": "Kalahandi",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_kalahandi_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_kendrapara_001",
+      "name": "Bhitarkanika National Park",
+      "district": "Kendrapara",
+      "category": "wildlife",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_kendrapara_002",
+      "name": "Baladevjew Temple (Ichhapur)",
+      "district": "Kendrapara",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_kendrapara_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_keonjhar_001",
+      "name": "Sanaghagara Waterfall",
+      "district": "Keonjhar",
+      "category": "waterfall",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_keonjhar_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_keonjhar_002",
+      "name": "Badaghagara Waterfall",
+      "district": "Keonjhar",
+      "category": "waterfall",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_keonjhar_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_keonjhar_003",
+      "name": "Khandadhar Waterfall (Keonjhar)",
+      "district": "Keonjhar",
+      "category": "waterfall",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_keonjhar_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_keonjhar_004",
+      "name": "Gonasika (Baitarani Source)",
+      "district": "Keonjhar",
+      "category": "nature",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_keonjhar_004/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_konark_001",
+      "name": "Konark Sun Temple",
+      "district": "Puri",
+      "category": "monument",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_konark_002",
+      "name": "Chandrabhaga Beach",
+      "district": "Puri",
+      "category": "beach",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_konark_003",
+      "name": "Ramachandi Beach & Temple",
+      "district": "Puri",
+      "category": "beach",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_konark_004",
+      "name": "Konark Archaeological Museum",
+      "district": "Puri",
+      "category": "museum",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_koraput_001",
+      "name": "Gupteswar Cave Temple, Koraput",
+      "district": "Koraput",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_koraput_002",
+      "name": "Duduma Waterfall",
+      "district": "Koraput",
+      "category": "waterfall",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_koraput_003",
+      "name": "Deomali Peak, Koraput",
+      "district": "Koraput",
+      "category": "nature",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_koraput_004",
+      "name": "Tribal Museum, Koraput",
+      "district": "Koraput",
+      "category": "museum",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_EXACT_VERIFIED_IMAGE"
+      ],
+      "reason_details": [
+        "Image classification is 'RELATED_LOCATION_ONLY', not 'EXACT_LOCATION_VERIFIED'."
+      ],
+      "classification": "RELATED_LOCATION_ONLY",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_koraput_005",
+      "name": "Kolab Reservoir & Botanical Garden",
+      "district": "Koraput",
+      "category": "lake",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_malkangiri_001",
+      "name": "Balimela Dam & Hydro Reservoir",
+      "district": "Malkangiri",
+      "category": "lake",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_malkangiri_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_malkangiri_002",
+      "name": "Satiguda Eco Dam",
+      "district": "Malkangiri",
+      "category": "lake",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_malkangiri_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_malkangiri_003",
+      "name": "Ammakunda Natural Pool",
+      "district": "Malkangiri",
+      "category": "nature",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_malkangiri_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_mayurbhanj_001",
+      "name": "Similipal National Park",
+      "district": "Mayurbhanj",
+      "category": "wildlife",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_mayurbhanj_002",
+      "name": "Barehipani & Joranda Falls",
+      "district": "Mayurbhanj",
+      "category": "waterfall",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_mayurbhanj_003",
+      "name": "Khiching Kichakeswari Temple",
+      "district": "Mayurbhanj",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_mayurbhanj_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_001",
+      "name": "All India Institute of Medical Sciences (AIIMS) Bhubaneswar",
+      "district": "Khordha",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_002",
+      "name": "SCB Medical College & Hospital",
+      "district": "Cuttack",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_003",
+      "name": "MKCG Medical College & Hospital",
+      "district": "Ganjam",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_004",
+      "name": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences)",
+      "district": "Sambalpur",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_004/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_005",
+      "name": "Capital Hospital Bhubaneswar",
+      "district": "Khordha",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_005/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_006",
+      "name": "Ispat General Hospital (IGH)",
+      "district": "Sundargarh",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_006/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_007",
+      "name": "SLN Medical College & Hospital Koraput",
+      "district": "Koraput",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_007/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_008",
+      "name": "PRM Medical College & Hospital Baripada",
+      "district": "Mayurbhanj",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_008/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_009",
+      "name": "Bhima Bhoi Medical College & Hospital",
+      "district": "Balangir",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_009/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_010",
+      "name": "Fakir Mohan Medical College & Hospital",
+      "district": "Balasore",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_010/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_011",
+      "name": "Dharanidhar Medical College & Hospital",
+      "district": "Keonjhar",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_011/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_012",
+      "name": "District Headquarter Hospital (DHH) Puri",
+      "district": "Puri",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_012/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_med_013",
+      "name": "District Headquarter Hospital (DHH) Angul",
+      "district": "Angul",
+      "category": "hospital",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_med_013/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_nabarangpur_001",
+      "name": "Shahid Minar Papadahandi",
+      "district": "Nabarangpur",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_nabarangpur_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_nabarangpur_002",
+      "name": "Chandandhara Waterfall",
+      "district": "Nabarangpur",
+      "category": "waterfall",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_nabarangpur_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_nayagarh_001",
+      "name": "Kantilo Nilamadhaba Temple",
+      "district": "Nayagarh",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_nayagarh_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_nayagarh_002",
+      "name": "Sarankul Ladubaba Temple",
+      "district": "Nayagarh",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_nayagarh_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_nayagarh_003",
+      "name": "Baisipalli Wildlife Sanctuary",
+      "district": "Nayagarh",
+      "category": "wildlife",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_nayagarh_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_nuapada_001",
+      "name": "Patora Dam & Yogeswar Temple",
+      "district": "Nuapada",
+      "category": "lake",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_nuapada_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_nuapada_002",
+      "name": "Maraguda Valley Archaeological Site",
+      "district": "Nuapada",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_nuapada_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_puri_001",
+      "name": "Jagannath Temple, Puri",
+      "district": "Puri",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_puri_002",
+      "name": "Puri Golden Beach",
+      "district": "Puri",
+      "category": "beach",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_puri_003",
+      "name": "Gundicha Temple",
+      "district": "Puri",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_puri_004",
+      "name": "Swargadwar Beach",
+      "district": "Puri",
+      "category": "beach",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_EXACT_VERIFIED_IMAGE"
+      ],
+      "reason_details": [
+        "Image classification is 'RELATED_LOCATION_ONLY', not 'EXACT_LOCATION_VERIFIED'."
+      ],
+      "classification": "RELATED_LOCATION_ONLY",
+      "has_exact_verified_image": false,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_rayagada_001",
+      "name": "Maa Majhigouri Temple, Rayagada",
+      "district": "Rayagada",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_rayagada_002",
+      "name": "Chatikona Waterfall & Hanging Bridge",
+      "district": "Rayagada",
+      "category": "waterfall",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_rayagada_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_rourkela_001",
+      "name": "Hanuman Vatika, Rourkela",
+      "district": "Sundargarh",
+      "category": "monument",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_rourkela_002",
+      "name": "Mandira Dam, Sundargarh",
+      "district": "Sundargarh",
+      "category": "lake",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_rourkela_003",
+      "name": "Khandadhar Waterfall, Sundargarh",
+      "district": "Sundargarh",
+      "category": "waterfall",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_sambalpur_001",
+      "name": "Hirakud Dam & Reservoir",
+      "district": "Sambalpur",
+      "category": "monument",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_sambalpur_002",
+      "name": "Samaleswari Temple, Sambalpur",
+      "district": "Sambalpur",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_sambalpur_003",
+      "name": "Huma Leaning Temple",
+      "district": "Sambalpur",
+      "category": "temple",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_sambalpur_004",
+      "name": "Debrigarh Wildlife Sanctuary",
+      "district": "Bargarh",
+      "category": "wildlife",
+      "shadow_publishable": true,
+      "reason_codes": [
+        "PUBLISHABLE"
+      ],
+      "reason_details": [
+        "All 8 publishability gate criteria satisfied."
+      ],
+      "classification": "EXACT_LOCATION_VERIFIED",
+      "has_exact_verified_image": true,
+      "all_variants_present": true
+    },
+    {
+      "place_id": "place_sambalpur_005",
+      "name": "Maa Ghanteswari Temple (Chiplima)",
+      "district": "Sambalpur",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_sambalpur_005/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_subarnapur_001",
+      "name": "Maa Sureswari Temple (Sonepur)",
+      "district": "Subarnapur",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_subarnapur_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_subarnapur_002",
+      "name": "Patali Srikhetra (Kotsamalai)",
+      "district": "Subarnapur",
+      "category": "monument",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_subarnapur_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_subarnapur_003",
+      "name": "Subarnameru Temple",
+      "district": "Subarnapur",
+      "category": "temple",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_subarnapur_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_001",
+      "name": "Biju Patnaik International Airport (BBI)",
+      "district": "Khordha",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_001/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_002",
+      "name": "Veer Surendra Sai Airport Jharsuguda (JRG)",
+      "district": "Jharsuguda",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_002/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_003",
+      "name": "Rourkela Airport (RRK)",
+      "district": "Sundargarh",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_003/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_004",
+      "name": "Bhubaneswar Railway Station (BBS)",
+      "district": "Khordha",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_004/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_005",
+      "name": "Cuttack Junction Railway Station (CTC)",
+      "district": "Cuttack",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_005/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_006",
+      "name": "Puri Railway Station (PURI)",
+      "district": "Puri",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_006/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_007",
+      "name": "Berhampur Railway Station (BAM)",
+      "district": "Ganjam",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_007/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_008",
+      "name": "Sambalpur Junction Railway Station (SBP)",
+      "district": "Sambalpur",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_008/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_009",
+      "name": "Rourkela Junction Railway Station (ROU)",
+      "district": "Sundargarh",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_009/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_010",
+      "name": "Balasore Railway Station (BLS)",
+      "district": "Balasore",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_010/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_011",
+      "name": "Baramunda Inter State Bus Terminal (ISBT)",
+      "district": "Khordha",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_011/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    },
+    {
+      "place_id": "place_transit_012",
+      "name": "Badambadi Bus Stand (Cuttack)",
+      "district": "Cuttack",
+      "category": "transit_hub",
+      "shadow_publishable": false,
+      "reason_codes": [
+        "NO_IMAGE_MANIFEST",
+        "NO_LOCAL_ASSETS"
+      ],
+      "reason_details": [
+        "No entry exists in destination image manifest (data/images/sources/manifest.json).",
+        "No local asset directory found under data/images/places/place_transit_012/."
+      ],
+      "classification": "NO_IMAGE",
+      "has_exact_verified_image": false,
+      "all_variants_present": false
+    }
+  ]
+}

@@ -78,17 +78,28 @@ class ItineraryService:
             for day_number in range(1, constraints.days + 1)
         ]
 
+        # Realistic time slot schedule presets for day itinerary stops
+        DEFAULT_TIME_SLOTS = [
+            ("09:00", "11:00"),  # Morning heritage / exploration
+            ("11:45", "13:30"),  # Midday / Lunch / Cultural hub
+            ("14:15", "16:30"),  # Afternoon landmark / scenic spot
+            ("17:00", "18:45"),  # Evening market / sunset view
+        ]
+
         for index, ranked_place in enumerate(selected):
             day = days[index // self.MAX_STOPS_PER_DAY]
             sequence = (index % self.MAX_STOPS_PER_DAY) + 1
+            slot_idx = min(sequence - 1, len(DEFAULT_TIME_SLOTS) - 1)
+            arr, dep = DEFAULT_TIME_SLOTS[slot_idx]
             day.stops.append(
                 ItineraryStopContract(
                     sequence=sequence,
                     place=ranked_place.place.to_summary(),
-                    planned_arrival=None,
-                    planned_departure=None,
+                    planned_arrival=arr,
+                    planned_departure=dep,
                 )
             )
+
 
         if start is not None:
             first = days[0].stops[0]

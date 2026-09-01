@@ -87,18 +87,18 @@ class RuleBasedModelAdapter(ModelAdapter):
     )
 
     _INTEREST_KEYWORD_MAPPINGS: tuple[tuple[str, tuple[str, ...]], ...] = (
-        ("heritage", ("heritage", "historic", "historical", "monument", "monuments")),
-        ("spirituality", ("spirituality", "spiritual", "temple", "temples", "shrine", "shrines", "pilgrimage")),
-        ("architecture", ("architecture", "architectural")),
-        ("food", ("food", "cuisine", "culinary", "sweets")),
-        ("culture", ("culture", "cultural", "museum", "museums", "arts", "tradition", "traditional")),
-        ("nature", ("nature", "natural", "hill station", "hills", "forest", "lake", "lakes")),
-        ("beach", ("beach", "beaches", "coast", "coastal", "sea")),
-        ("wildlife", ("wildlife", "safari", "sanctuary", "zoo", "animals", "birds")),
-        ("waterfall", ("waterfall", "waterfalls", "falls", "cascade")),
-        ("relaxation", ("relaxation", "relaxing", "relax", "peaceful", "leisure")),
-        ("adventure", ("adventure", "trekking", "hiking")),
-        ("shopping", ("shopping", "market", "markets", "crafts", "bazaar", "handlooms")),
+        ("heritage", ("heritage", "historic", "historical", "monument", "monuments", "aitihasika", "ଐତିହାସିକ", "ऐतिहासिक")),
+        ("spirituality", ("spirituality", "spiritual", "temple", "temples", "mandir", "shrine", "shrines", "pilgrimage", "ଦେବସ୍ଥାନ", "ମନ୍ଦିର", "मंदिर", "तीर्थ")),
+        ("architecture", ("architecture", "architectural", "ଶିଳ୍ପକଳା", "ସ୍ଥାପତ୍ୟ")),
+        ("food", ("food", "cuisine", "culinary", "sweets", "lunch", "dinner", "breakfast", "snacks", "restaurant", "restaurants", "dhaba", "rasgulla", "chhena poda", "kora khai", "khaja", "odisha food", "odia food", "ଖାଦ୍ୟ", "ମଧ୍ୟାହ୍ନ ଭୋଜନ", "ଭୋଜନ", "ରସଗୋଲା", "ଛେନାପୋଡ଼", "खाना", "लंच", "भोजन", "मिठाई")),
+        ("culture", ("culture", "cultural", "museum", "museums", "arts", "tradition", "traditional", "ସଂସ୍କୃତି", "କଳା", "संस्कृति")),
+        ("nature", ("nature", "natural", "hill station", "hills", "forest", "lake", "lakes", "ପ୍ରକୃତି", "ପ୍ରାକୃତିକ", "प्रकृति")),
+        ("beach", ("beach", "beaches", "coast", "coastal", "sea", "sea beach", "ବେଳାଭୂମି", "ସମୁଦ୍ର", "तट", "समुद्र तट")),
+        ("wildlife", ("wildlife", "safari", "sanctuary", "zoo", "animals", "birds", "ବନ୍ୟଜନ୍ତୁ", "ପଶୁପକ୍ଷୀ", "वन्यजीव")),
+        ("waterfall", ("waterfall", "waterfalls", "falls", "cascade", "ଜଳପ୍ରପାତ", "झरना")),
+        ("relaxation", ("relaxation", "relaxing", "relax", "peaceful", "leisure", "ବିଶ୍ରାମ", "ଶାନ୍ତ", "विश्राम")),
+        ("adventure", ("adventure", "trekking", "hiking", "ସାହସିକ", "रोमांच")),
+        ("shopping", ("shopping", "market", "markets", "crafts", "bazaar", "handlooms", "କିଣାକିଣି", "ହାଟ", "बाज़ार")),
     )
 
     _KNOWN_PLACES: tuple[tuple[str, tuple[str, ...]], ...] = (
@@ -111,12 +111,13 @@ class RuleBasedModelAdapter(ModelAdapter):
         ("Odisha State Museum", ("state museum", "bhubaneswar museum")),
         ("Ekamra Haat", ("ekamra haat", "crafts market")),
         ("Bindu Sagar Lake", ("bindu sagar", "bindusagar")),
-        ("Bhubaneswar", ("bhubaneswar", "capital", "old town")),
+        ("Pahala Rasgulla Hub", ("pahala", "pahala rasgulla", "rasgulla")),
+        ("Bhubaneswar", ("bbsr", "bhubaneswar", "capital", "old town")),
         ("Puri Golden Beach", ("puri beach", "golden beach", "puri sea beach")),
         ("Jagannath Temple, Puri", ("jagannath", "puri temple", "shree jagannath")),
         ("Gundicha Temple, Puri", ("gundicha",)),
         ("Swargadwar Beach", ("swargadwar",)),
-        ("Puri", ("puri",)),
+        ("Puri", ("puri", "poori", "shrikhetra", "jagannath dham")),
         ("Konark Sun Temple", ("konark sun temple", "black pagoda", "sun temple")),
         ("Chandrabhaga Beach", ("chandrabhaga", "konark beach")),
         ("Ramachandi Beach & Temple", ("ramachandi",)),
@@ -129,10 +130,12 @@ class RuleBasedModelAdapter(ModelAdapter):
         ("Cuttack Chandi Temple", ("cuttack chandi", "chandi temple")),
         ("Netaji Birthplace Museum", ("netaji museum", "netaji birthplace")),
         ("Odisha Maritime Museum", ("maritime museum", "cuttack maritime")),
-        ("Cuttack", ("cuttack", "silver city")),
+        ("Cuttack", ("ctc", "cuttack", "silver city")),
         ("Gopalpur Beach", ("gopalpur", "gopalpur-on-sea")),
         ("Tara Tarini Temple", ("tara tarini", "taratarini")),
         ("Tampara Lake", ("tampara", "tampara lake")),
+        ("Sambalpur", ("sambalpur", "samalpur", "hirakud")),
+
         ("Daringbadi Hill Station", ("daringbadi hill station", "kashmir of odisha")),
         ("Coffee Gardens, Daringbadi", ("coffee garden", "coffee gardens")),
         ("Midubanda Waterfall", ("midubanda", "daringbadi waterfall")),
@@ -365,9 +368,50 @@ class RuleBasedModelAdapter(ModelAdapter):
                 ],
             }
 
+        # Resolve starting location if mentioned
+        detected_start = self._resolve_start_location(text)
+
+        # Contextual fallback for starting location if not explicitly stated in query
+        if not detected_start:
+            if dest_name:
+                detected_start = self._resolve_start_location(dest_name) or dest_name
+            elif dest_district:
+                detected_start = self._resolve_start_location(dest_district) or dest_district
+            elif planner_start:
+                detected_start = self._resolve_start_location(planner_start) or planner_start
+            elif loc_city:
+                detected_start = self._resolve_start_location(loc_city) or loc_city
+            elif saved_sample_places:
+                detected_start = self._resolve_start_location(saved_sample_places[0]) or saved_sample_places[0]
+
+        detected_days = extract_multilingual_days(text)
+        found_interests = self._extract_interests(text)
+
+        # Planning Intent Priority: Queries asking to plan trips/itineraries must take priority over incidental transit keywords
+        is_planning_query = any(w in text_lower for w in ("plan", "trip", "itinerary", "day trip", "1 day", "one day", "tour", "daytour", "day-tour", "guide me", "ଯୋଜନା", "ଭ୍ରମଣ", "ଦିନ", "यात्रा", "योजना")) or (detected_days is not None and bool(detected_start or found_interests))
+
+        # Check if user query is a specific food/dish discovery query ("Where can I get Pahala Rasgulla?", "Where to eat Dahibara?")
+        is_food_search = any(w in text_lower for w in ("where can i get", "where to get", "where to eat", "where is", "famous for", "best place for", "କେଉଁଠି", "କେଉଁଠାରେ", "कहाँ मिलेगा", "कहाँ मिलता")) and any(w in text_lower for w in ("rasgulla", "rasagola", "chhena poda", "kora khai", "khaja", "dahibara", "sweets", "food", "cuisine", "sweet", "ପାହାଳ", "ରସଗୋଲା", "ଛେନାପୋଡ଼"))
+        if is_food_search:
+            search_query = "Pahala" if any(w in text_lower for w in ("rasgulla", "rasagola", "pahala", "ରସଗୋଲା")) else "food"
+            return {
+                "kind": IntentKind.PLANNING.value,
+                "constraints": {"days": 1, "interests": ["food"], **detected_prefs},
+                "tool_calls": [
+                    {
+                        "name": "search_places",
+                        "arguments": {
+                            "query": search_query,
+                            "limit": 5,
+                        },
+                    }
+                ],
+            }
+
+
         # Context-aware: Point-to-point transit routing query ("Can I take Mo Bus from X to Y?", "How to go from Puri to Konark by bus?")
         transit_keywords = ("bus", "mo bus", "transit", "train", "route", "ରୁଟ", "ବସ", "ମୋ ବସ", "बस", "रूट")
-        is_point_to_point_transit = any(w in text_lower for w in transit_keywords) and (
+        is_point_to_point_transit = not is_planning_query and any(w in text_lower for w in transit_keywords) and (
             ("from" in text_lower and "to" in text_lower)
             or ("ରୁ" in text and "କୁ" in text)
             or ("से" in text and "तक" in text or "से" in text and "के लिए" in text)
@@ -403,9 +447,12 @@ class RuleBasedModelAdapter(ModelAdapter):
                 ],
             }
 
-        # Context-aware: General Transit / Provider status query
-        is_transit_query = any(w in text_lower for w in ("explain this route", "mo bus", "bus route", "bus timetable", "nearest stop", "transit", "ରୁଟ", "ବସ", "ରୁଟ୍", "बस", "रूट", "समय सारिणी"))
-        if is_transit_query or map_mode == "transit":
+        # Context-aware: General Transit / Provider status query (only if not an itinerary planning query)
+        is_transit_query = not is_planning_query and (
+            any(w in text_lower for w in ("explain this route", "mo bus", "bus", "transit", "bus route", "bus timetable", "nearest stop", "transit schedule", "provider", "providers", "provider status", "ରୁଟ", "ବସ", "ରୁଟ୍", "बस", "रूट", "समय सारिणी"))
+            or map_mode == "transit"
+        )
+        if is_transit_query:
             return {
                 "kind": IntentKind.PLANNING.value,
                 "constraints": {"days": 1, "interests": [], **detected_prefs},
@@ -418,7 +465,7 @@ class RuleBasedModelAdapter(ModelAdapter):
             }
 
         # Context-aware: Nearby Places query ("What is nearby?", "Explore nearby", "ପାଖରେ କ’ଣ ଅଛି?")
-        is_nearby_query = any(w in text_lower for w in ("nearby", "near by", "near here", "around here", "explore nearby", "what is nearby", "what is near me", "near me", "what's nearby", "ପାଖରେ", "ଆଖପାଖ", "ଏଠାରେ ପାଖରେ", "पास में", "आस-पास", "निकट"))
+        is_nearby_query = not is_planning_query and any(w in text_lower for w in ("nearby", "near by", "near here", "around here", "explore nearby", "what is nearby", "what is near me", "near me", "what's nearby", "ପାଖରେ", "ଆଖପାଖ", "ଏଠାରେ ପାଖରେ", "पास में", "आस-पास", "निकट"))
         if is_nearby_query:
             search_target = dest_name or dest_district or loc_city or loc_district or "Bhubaneswar"
             return {
@@ -436,22 +483,6 @@ class RuleBasedModelAdapter(ModelAdapter):
                 ],
             }
 
-        # Resolve starting location if mentioned
-        detected_start = self._resolve_start_location(text)
-
-        # Contextual fallback for starting location if not explicitly stated in query
-        if not detected_start:
-            if dest_name:
-                detected_start = self._resolve_start_location(dest_name) or dest_name
-            elif dest_district:
-                detected_start = self._resolve_start_location(dest_district) or dest_district
-            elif planner_start:
-                detected_start = self._resolve_start_location(planner_start) or planner_start
-            elif loc_city:
-                detected_start = self._resolve_start_location(loc_city) or loc_city
-            elif saved_sample_places:
-                detected_start = self._resolve_start_location(saved_sample_places[0]) or saved_sample_places[0]
-
         if ("start from" in text_lower or "start at" in text_lower or "hotel" in text_lower) and not detected_start:
             return {
                 "kind": IntentKind.CLARIFICATION.value,
@@ -466,10 +497,6 @@ class RuleBasedModelAdapter(ModelAdapter):
                     "reason": "The requested starting location could not be resolved to a verified place in our database.",
                 },
             }
-
-        detected_days = extract_multilingual_days(text)
-        found_interests = self._extract_interests(text)
-
         refinement_words = (
             "refine", "more", "add", "focused", "extend", "change", "switch", "reduce", "budget", "less", "optimize", "also",
             "ଆହୁରି", "ଯୋଡ଼ନ୍ତୁ", "ଯୋଡ଼", "ବଦଳାନ୍ତୁ", "ଅଧିକ", "ସଂଶୋଧନ",

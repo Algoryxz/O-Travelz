@@ -285,6 +285,12 @@ class AppSavedSummaryContext(ContractModel):
     sample_places: list[str] = Field(default_factory=list)
 
 
+class AppCoordinates(ContractModel):
+    lat: float
+    lon: float
+
+
+
 class AppContextPayload(ContractModel):
     page: str | None = Field(default=None, max_length=100)
     destination: AppDestinationContext | None = None
@@ -292,3 +298,11 @@ class AppContextPayload(ContractModel):
     planner: AppPlannerContext | None = None
     location: AppLocationContext | None = None
     saved: AppSavedSummaryContext | None = None
+    current_location: str | None = Field(default=None, max_length=200)
+    current_coordinates: AppCoordinates | dict[str, float] | None = None
+
+    @model_validator(mode="after")
+    def populate_location_alias(self) -> AppContextPayload:
+        if self.current_location and self.location is None:
+            self.location = AppLocationContext(city=self.current_location)
+        return self

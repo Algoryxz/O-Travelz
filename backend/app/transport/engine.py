@@ -154,6 +154,8 @@ class TransitEngine:
                         }
                         for r in repo.get_routes_for_stop(s.stop_id)
                     ]
+                    if not routes_serving:
+                        continue
                     res.append({
                         "stop_id": s.stop_id,
                         "name": s.canonical_name,
@@ -211,6 +213,8 @@ class TransitEngine:
                     pass
 
             serving_routes = routes_by_stop.get(stop.id, [])
+            if not serving_routes:
+                continue
 
             results.append({
                 "stop_id": str(stop.id),

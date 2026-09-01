@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0.0",
+  "title": "O-TRAVELZ Track A2 Legacy Recovery Backlog",
+  "generated_at": "2026-09-01T15:35:00+05:30",
+  "total_unrecoverable_count": 11,
+  "handoff_policy": "A2 web provenance recovery is complete. These 11 destinations require first-party/community/partner acquisition and serve as the pilot seed for the Community Recommendation / Hometown Photo Intake pipeline.",
+  "destinations": [
+    {
+      "place_id": "place_024",
+      "place_name": "Bharati Matha Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "current_legacy_asset_directory": "data/images/places/place_024",
+      "recovery_status": "UNRECOVERABLE_VIA_WEB_PROVENANCE",
+      "reason_no_canonical_source_accepted": "No verified free CC photograph of 11th-century Bharati Matha monastery/temple on Wikimedia Commons / Wikidata Q4901208 has no image.",
+      "preferred_acquisition_method": "FIELD_RESEARCH_PHOTO",
+      "community_pilot_candidate": true
+    },
+    {
+      "place_id": "place_028",
+      "place_name": "Talesvara Siva Temple",
+      "district": "Khordha",
+      "category": "temple",
+      "current_legacy_asset_directory": "data/images/places/place_028",
+      "recovery_status": "UNRECOVERABLE_VIA_WEB_PROVENANCE",
+      "reason_no_canonical_source_accepted": "No verified free CC photograph of Talesvara Siva Temple in Gosagareswar precinct on Wikimedia Commons / Wikidata Q7679427 has no image.",
+      "preferred_acquisition_method": "FIELD_RESEARCH_PHOTO",
+      "community_pilot_candidate": true
+    },
+    {
+      "place_id": "place_032",
+      "place_name": "Buddha Jayanti Park",
+      "district": "Khordha",
+      "category": "park",
+      "current_legacy_asset_directory": "data/images/places/place_032",
+      "recovery_status": "UNRECOVERABLE_VIA_WEB_PROVENANCE",
+      "reason_no_canonical_source_accepted": "No verified free CC photograph specifically identifying Niladri Vihar Buddha Jayanti Park (generic park greenery strictly rejected).",
+      "preferred_acquisition_method": "COMMUNITY_FIRST_PARTY_PHOTO",
+      "community_pilot_candidate": true
+    },
+    {
+      "place_id": "place_food_003",
+      "place_name": "Ananda Bazar, Puri",
+      "district": "Puri",
+      "category": "market",
+      "current_legacy_asset_directory": "data/images/places/place_food_003",
+      "recovery_status": "UNRECOVERABLE_VIA_WEB_PROVENANCE",
+      "reason_no_canonical_source_accepted": "Physical market hall inside Puri Jagannath Temple compound has strict photography restrictions; generic food dish photos rejected per venue rule.",
+      "preferred_acquisition_method": "TRUSTED_CONTRIBUTOR_PHOTO",
+      "community_pilot_candidate": true
+    },
+    {
+      "place_id": "place_food_005",
+      "place_name": "Bikalananda Kar Rasagola Hub, Salepur",
+      "district": "Cuttack",
+      "category": "market",
+      "current_legacy_asset_directory": "data/images/places/place_food_005",
+      "recovery_status": "UNRECOVERABLE_VIA_WEB_PROVENANCE",
+      "reason_no_canonical_source_accepted": "No verified free CC photograph of Shahid Nagar commercial street food strip; generic dish photos rejected per venue rule.",
+      "preferred_acquisition_method": "COMMUNITY_FIRST_PARTY_PHOTO",
+      "community_pilot_candidate": true
+    },
+    {
+      "place_id": "place_food_006",
+      "place_name": "OTDC Nimantran Restaurant, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "current_legacy_asset_directory": "data/images/places/place_food_006",
+      "recovery_status": "UNRECOVERABLE_VIA_WEB_PROVENANCE",
+      "reason_no_canonical_source_accepted": "No verified free CC photograph of KIIT Road youth food corridor; generic dish photos rejected per venue rule.",
+      "preferred_acquisition_method": "COMMUNITY_FIRST_PARTY_PHOTO",
+      "community_pilot_candidate": true
+    },
+    {
+      "place_id": "place_food_007",
+      "place_name": "Bapuji Nagar Food Corridor, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "current_legacy_asset_directory": "data/images/places/place_food_007",
+      "recovery_status": "UNRECOVERABLE_VIA_WEB_PROVENANCE",
+      "reason_no_canonical_source_accepted": "No verified free CC photograph of Bapuji Nagar food market; generic dish photos rejected per venue rule.",
+      "preferred_acquisition_method": "COMMUNITY_FIRST_PARTY_PHOTO",
+      "community_pilot_candidate": true
+    },
+    {
+      "place_id": "place_food_008",
+      "place_name": "Unit-4 Traditional Food & Fish Market, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "current_legacy_asset_directory": "data/images/places/place_food_008",
+      "recovery_status": "UNRECOVERABLE_VIA_WEB_PROVENANCE",
+      "reason_no_canonical_source_accepted": "No verified free CC photograph of Unit-4 market complex; raw food photos rejected per venue rule.",
+      "preferred_acquisition_method": "COMMUNITY_FIRST_PARTY_PHOTO",
+      "community_pilot_candidate": true
+    },
+    {
+      "place_id": "place_food_009",
+      "place_name": "OTDC Panthasala Odia Cuisine Centre, Konark",
+      "district": "Puri",
+      "category": "market",
+      "current_legacy_asset_directory": "data/images/places/place_food_009",
+      "recovery_status": "UNRECOVERABLE_VIA_WEB_PROVENANCE",
+      "reason_no_canonical_source_accepted": "No verified free CC photograph of Old Town heritage culinary precinct; dish photos rejected per venue rule.",
+      "preferred_acquisition_method": "FIELD_RESEARCH_PHOTO",
+      "community_pilot_candidate": true
+    },
+    {
+      "place_id": "place_food_010",
+      "place_name": "Maa Mangala Temple Food & Pitha Precinct, Kakatpur",
+      "district": "Puri",
+      "category": "temple",
+      "current_legacy_asset_directory": "data/images/places/place_food_010",
+      "recovery_status": "UNRECOVERABLE_VIA_WEB_PROVENANCE",
+      "reason_no_canonical_source_accepted": "No verified free CC photograph of Kakatpur Maa Mangala temple food & pitha precinct; generic sweet photos rejected per venue rule.",
+      "preferred_acquisition_method": "TRUSTED_CONTRIBUTOR_PHOTO",
+      "community_pilot_candidate": true
+    },
+    {
+      "place_id": "place_food_011",
+      "place_name": "Raghunathpur Culinary Corner, Bhubaneswar",
+      "district": "Khordha",
+      "category": "market",
+      "current_legacy_asset_directory": "data/images/places/place_food_011",
+      "recovery_status": "UNRECOVERABLE_VIA_WEB_PROVENANCE",
+      "reason_no_canonical_source_accepted": "No verified free CC photograph of Raghunathpur culinary strip; generic dish photos rejected per venue rule.",
+      "preferred_acquisition_method": "COMMUNITY_FIRST_PARTY_PHOTO",
+      "community_pilot_candidate": true
+    }
+  ]
+}
