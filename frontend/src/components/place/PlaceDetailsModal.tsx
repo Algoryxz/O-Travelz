@@ -103,206 +103,217 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
     });
   };
 
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: `${place.name} - O-Travelz`,
-          text: place.description || `Explore ${place.name} on O-Travelz`,
-          url: window.location.href,
-        });
-      } catch {
-        // Share cancelled
-      }
-    }
-  };
+  const canonicalId = place.id || "place_konark_001";
 
   return (
     <div
       data-testid="place-details-modal"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#12161E]/75 backdrop-blur-md animate-in fade-in duration-200"
+      onClick={onClose}
     >
-      {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/75 backdrop-blur-md transition-opacity"
-        onClick={onClose}
-      />
-
-      {/* Modal Container */}
-      <div className="relative bg-[#FFFFFF] border border-[#E5DFD5] rounded-2xl shadow-2xl w-full max-w-4xl max-h-[92vh] overflow-y-auto z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col">
+        data-testid="place-details-modal"
+        className="relative w-full max-w-3xl max-h-[92vh] bg-[#FFFFFF] rounded-2xl border border-[#E5DFD5] shadow-2xl overflow-hidden flex flex-col animate-in zoom-in-95 duration-200 text-[#12161E]"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header Bar */}
         <div className="px-5 py-3.5 bg-[#FAF7F2] border-b border-[#E5DFD5] flex items-center justify-between gap-3 shrink-0">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#0D5C3A]" />
-            <span className="text-xs font-mono font-semibold text-[#0D5C3A] uppercase tracking-wider">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#0D5C3A] shrink-0" />
+            <span className="font-mono text-[11px] font-semibold text-[#0D5C3A] uppercase tracking-wider truncate">
               {place.category}
             </span>
-            <span className="text-xs text-[#70798B] font-body">
-              • {region}
-            </span>
+            {region && (
+              <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[#70798B] font-body truncate">
+                • {region}
+              </span>
+            )}
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2 shrink-0">
             <button
               type="button"
-              onClick={handleShare}
-              className="w-8 h-8 rounded-full bg-white hover:bg-[#F2EEE7] text-[#12161E] flex items-center justify-center transition-colors cursor-pointer border border-[#E5DFD5] shadow-xs"
-              title="Share"
+              data-testid="modal-save-button"
+              onClick={handleToggleSave}
+              className={`p-2 rounded-xl flex items-center gap-1.5 font-bold text-xs transition-all cursor-pointer ${
+                saved
+                  ? "bg-[#A84825] text-white hover:bg-[#8F3B1D]"
+                  : "bg-white hover:bg-[#F2EEE7] text-[#12161E] border border-[#E5DFD5]"
+              }`}
             >
-              <Share2 size={15} />
+              <Heart size={14} className={saved ? "fill-white" : "text-[#A84825]"} />
+              <span className="hidden sm:inline">{saved ? "Saved" : "Save"}</span>
             </button>
+
             <button
               type="button"
-              data-testid="modal-close-button"
+              data-testid="close-place-details-modal"
               onClick={onClose}
               className="w-8 h-8 rounded-full bg-white hover:bg-[#F2EEE7] text-[#12161E] flex items-center justify-center transition-colors cursor-pointer border border-[#E5DFD5] shadow-xs"
-              title="Close"
+              aria-label="Close details"
             >
               <X size={16} />
             </button>
           </div>
         </div>
 
-        {/* Scrollable Content Body */}
-        <div className="p-6 space-y-6 flex-1 overflow-y-auto">
-          {/* Destination Media Container with V3 3D & Video Preview */}
+        {/* Scrollable Modal Content */}
+        <div className="overflow-y-auto flex-1 p-5 sm:p-6 space-y-6">
+          {/* V3 Destination Media Suite (Photos / Cinematic Video / 3D Experience) */}
           <DestinationMedia
-            placeId={place.id || place.name}
+            placeId={canonicalId}
             placeName={place.name}
             category={place.category}
             district={region}
             images={place.images}
             initialTab={place.initialMediaTab || "photos"}
-            heightClass="h-[280px] sm:h-[360px] md:h-[400px]"
+            heightClass="h-[280px] sm:h-[340px] md:h-[400px]"
           />
 
-          {/* Place Title & Quick Metadata */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#E5DFD5] pb-4">
-            <div>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#12161E] tracking-tight">
+          {/* Place Title & Quick Details */}
+          <div className="space-y-2 border-b border-[#E5DFD5] pb-4">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-[#12161E] tracking-tight">
                 {place.name}
               </h2>
-              <p className="font-body text-xs text-[#70798B] flex items-center gap-1.5 mt-1">
-                <MapPin size={13} className="text-[#C69214]" />
-                <span>{region}</span>
-                {place.badge && (
-                  <span className="text-[#0D5C3A] font-semibold ml-1">
-                    • {place.badge}
-                  </span>
-                )}
-              </p>
+              {place.badge && (
+                <span className="px-3 py-1 rounded-full bg-[#0D5C3A] text-white text-xs font-semibold font-mono shadow-xs">
+                  {place.badge}
+                </span>
+              )}
             </div>
 
-            {place.verified_at && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-mono">
-                <span>✓ Verified Odisha Sanctuary</span>
+            {region && (
+              <div className="flex items-center gap-1.5 text-xs text-[#70798B]">
+                <MapPin size={13} className="text-[#C69214]" />
+                <span>{region}</span>
+                {place.verified_at && (
+                  <span className="text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-mono font-medium ml-2">
+                    ✓ Verified Destination
+                  </span>
+                )}
               </div>
             )}
           </div>
 
-          {/* Navigation Sub-Tabs */}
-          <div className="flex items-center gap-2 border-b border-[#E5DFD5] pb-1">
+          {/* Segmented Content Tabs: Overview & Heritage vs Essentials */}
+          <div className="flex items-center gap-2 border-b border-[#E5DFD5] pb-0">
             <button
+              type="button"
+              data-testid="modal-tab-overview"
               onClick={() => setActiveContentTab("overview")}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              className={`px-4 py-2 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border-b-2 -mb-px ${
                 activeContentTab === "overview"
-                  ? "bg-[#0D5C3A] text-white shadow-xs"
-                  : "text-[#70798B] hover:bg-[#FAF7F2] hover:text-[#12161E]"
+                  ? "border-[#0D5C3A] text-[#0D5C3A]"
+                  : "border-transparent text-[#70798B] hover:text-[#12161E]"
               }`}
             >
-              Overview & Culture
+              <Info size={14} />
+              <span>Overview & Heritage</span>
             </button>
+
             <button
+              type="button"
+              data-testid="modal-tab-essentials"
               onClick={() => setActiveContentTab("essentials")}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+              className={`px-4 py-2 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border-b-2 -mb-px ${
                 activeContentTab === "essentials"
-                  ? "bg-[#0D5C3A] text-white shadow-xs"
-                  : "text-[#70798B] hover:bg-[#FAF7F2] hover:text-[#12161E]"
+                  ? "border-[#0D5C3A] text-[#0D5C3A]"
+                  : "border-transparent text-[#70798B] hover:text-[#12161E]"
               }`}
             >
-              <HeartPulse size={14} />
-              <span>Essentials & Healthcare</span>
+              <HeartPulse size={14} className="text-[#9E2A2B]" />
+              <span>Nearby Facilities & Safety</span>
             </button>
           </div>
 
-          {/* Tab 1: Overview & Editorial Description */}
-          {activeContentTab === "overview" && (
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-              <div className="md:col-span-8 space-y-4">
-                <div>
-                  <span className="text-[10px] font-mono text-[#C69214] uppercase tracking-widest font-semibold block mb-1">
-                    Landmark Chronicle
-                  </span>
-                  <p className="font-body text-sm text-[#3D4654] leading-relaxed">
-                    {place.description ||
-                      "Verified architectural and natural treasure of Odisha, celebrating centuries of heritage, craft, and devotion."}
-                  </p>
-                </div>
+          {activeContentTab === "overview" ? (
+            <div className="space-y-5">
+              {/* Description */}
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono text-[#C69214] uppercase tracking-widest font-semibold block">
+                  About Destination
+                </span>
+                <p className="text-sm sm:text-base text-[#3D4654] leading-relaxed">
+                  {place.description || `Explore ${place.name}, a premier destination in ${region || "Odisha"}.`}
+                </p>
+              </div>
 
-                {place.interests && place.interests.length > 0 && (
-                  <div className="space-y-1.5">
-                    <span className="text-[10px] font-mono text-[#C69214] uppercase tracking-widest font-semibold block">
-                      Traveler Interests
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {place.interests.map((int) => (
-                        <span
-                          key={int}
-                          className="px-2.5 py-1 rounded-lg bg-[#FAF7F2] border border-[#E5DFD5] text-[#0D5C3A] text-xs font-semibold"
-                        >
-                          {int}
-                        </span>
-                      ))}
+              {/* Quick Facts Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {place.avg_visit_minutes != null && (
+                  <div className="p-3.5 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] space-y-1">
+                    <div className="flex items-center gap-1.5 text-[#70798B] text-xs">
+                      <Clock size={14} className="text-[#C69214]" />
+                      <span>Duration</span>
+                    </div>
+                    <div className="text-sm font-bold font-mono text-[#12161E]">
+                      ~{place.avg_visit_minutes} mins
+                    </div>
+                  </div>
+                )}
+
+                {place.price_tier && (
+                  <div className="p-3.5 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] space-y-1">
+                    <div className="flex items-center gap-1.5 text-[#70798B] text-xs">
+                      <Tag size={14} className="text-[#0D5C3A]" />
+                      <span>Entry / Tier</span>
+                    </div>
+                    <div className="text-sm font-bold capitalize text-[#12161E]">
+                      {place.price_tier}
+                    </div>
+                  </div>
+                )}
+
+                {place.lat != null && place.lon != null && (
+                  <div className="p-3.5 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] space-y-1">
+                    <div className="flex items-center gap-1.5 text-[#70798B] text-xs">
+                      <Navigation size={14} className="text-[#1B5E6B]" />
+                      <span>Coordinates</span>
+                    </div>
+                    <div className="text-xs font-mono font-semibold text-[#12161E] truncate">
+                      {place.lat.toFixed(2)}°N, {place.lon.toFixed(2)}°E
                     </div>
                   </div>
                 )}
               </div>
 
-              {/* Quick Info Sidebar */}
-              <div className="md:col-span-4 space-y-3 bg-[#FAF7F2] p-4 rounded-xl border border-[#E5DFD5]">
-                <span className="text-[10px] font-mono text-[#0D5C3A] uppercase tracking-widest font-semibold block">
-                  Quick Details
-                </span>
-                <div className="space-y-2 text-xs">
-                  <div className="flex justify-between py-1 border-b border-[#E5DFD5]">
-                    <span className="text-[#70798B]">Category</span>
-                    <span className="font-semibold text-[#12161E] capitalize">{place.category}</span>
-                  </div>
-                  {place.lat != null && place.lon != null && (
-                    <div className="flex justify-between py-1 border-b border-[#E5DFD5]">
-                      <span className="text-[#70798B]">Coordinates</span>
-                      <span className="font-mono text-[11px] text-[#12161E]">
-                        {place.lat.toFixed(2)}°N, {place.lon.toFixed(2)}°E
+              {/* Thematic Interests */}
+              {place.interests && place.interests.length > 0 && (
+                <div className="space-y-2">
+                  <span className="text-[10px] font-mono text-[#C69214] uppercase tracking-widest font-semibold block">
+                    Themes:
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {place.interests.map((interest) => (
+                      <span
+                        key={interest}
+                        className="px-3 py-1 rounded-lg bg-[#FAF7F2] border border-[#E5DFD5] text-[#0D5C3A] text-xs font-semibold capitalize flex items-center gap-1"
+                      >
+                        <Sparkles size={11} className="text-[#C69214]" />
+                        <span>{interest}</span>
                       </span>
-                    </div>
-                  )}
-                  {place.avg_visit_minutes != null && (
-                    <div className="flex justify-between py-1 border-b border-[#E5DFD5]">
-                      <span className="text-[#70798B]">Est. Visit</span>
-                      <span className="font-semibold text-[#12161E]">~{place.avg_visit_minutes} mins</span>
-                    </div>
-                  )}
-                  {place.price_tier && (
-                    <div className="flex justify-between py-1 border-b border-[#E5DFD5]">
-                      <span className="text-[#70798B]">Price Tier</span>
-                      <span className="font-semibold text-[#12161E] capitalize">{place.price_tier}</span>
-                    </div>
-                  )}
+                    ))}
+                    {(place.tags || []).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded-lg bg-[#F2EEE7] border border-[#E5DFD5] text-[#3D4654] text-xs font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </div>
-          )}
+              )}
 
-          {/* Tab 2: Nearby Essentials & Healthcare */}
-          {activeContentTab === "essentials" && (
+              {/* Nearby Facilities */}
+              <NearbyFacilities sourceId={place.id} />
+            </div>
+          ) : (
             <NearbyEssentialsTab
-              lat={place.lat}
-              lon={place.lon}
-              destinationId={place.id}
-              destinationName={place.name}
-              onSelectFacility={(svc) => {
+              place={place}
+              onExploreServiceOnMap={(svc) => {
                 handleExploreMap({
-                  id: svc.id,
                   name: svc.name,
                   category: svc.category,
                   lat: svc.lat,
@@ -330,7 +341,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
 
             <button
               type="button"
-              data-testid="modal-explore-map-button"
+              data-testid="modal-view-on-map-button"
               onClick={() => {
                 handleExploreMap(place);
                 onClose();
@@ -338,7 +349,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
               className="px-4 py-2.5 rounded-xl bg-white hover:bg-[#F2EEE7] text-[#12161E] border border-[#E5DFD5] text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-xs"
             >
               <Compass size={15} className="text-[#0D5C3A]" />
-              <span>View on Map</span>
+              <span>Explore on Map</span>
             </button>
           </div>
 
@@ -353,7 +364,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
               className="px-6 py-2.5 rounded-xl bg-[#0D5C3A] hover:bg-[#0A472C] text-white text-xs font-bold shadow-md transition-all flex items-center gap-2 cursor-pointer"
             >
               <CalendarDays size={15} className="text-[#C69214]" />
-              <span>Plan Trip to {place.name}</span>
+              <span>Plan Trip Here</span>
             </button>
           )}
         </div>
