@@ -32,19 +32,27 @@ data class PlannerUiState(
     val errorMessage: String? = null
 )
 
-class PlannerViewModel @JvmOverloads constructor(
+class PlannerViewModel(
     application: Application,
     private val plannerRepository: PlannerRepository = PlannerRepository(),
-    private val savedTripsRepository: SavedTripsRepository = SavedTripsRepository(application)
+    private val savedTripsRepository: SavedTripsRepository? = null
 ) : AndroidViewModel(application) {
+
+    constructor(application: Application) : this(
+        application,
+        PlannerRepository(),
+        try { SavedTripsRepository(application) } catch (_: Exception) { null }
+    )
 
     private val _uiState = MutableStateFlow(PlannerUiState())
     val uiState: StateFlow<PlannerUiState> = _uiState.asStateFlow()
 
     init {
-        viewModelScope.launch {
-            savedTripsRepository.savedTrips.collect { trips ->
-                _uiState.update { it.copy(savedTrips = trips) }
+        savedTripsRepository?.let { repo ->
+            viewModelScope.launch {
+                repo.savedTrips.collect { trips ->
+                    _uiState.update { it.copy(savedTrips = trips) }
+                }
             }
         }
     }
@@ -142,11 +150,11 @@ class PlannerViewModel @JvmOverloads constructor(
             start = _uiState.value.selectedOriginName,
             publicTransportPreferred = true
         )
-        savedTripsRepository.saveTrip(title = title, itinerary = itinerary, constraints = constraints)
+        savedTripsRepository?.saveTrip(title = title, itinerary = itinerary, constraints = constraints)
         _uiState.update { it.copy(savedConfirmation = "Itinerary saved to My Saved Trips!") }
 
         viewModelScope.launch {
-            savedTripsRepository.syncWithServer()
+            savedTripsRepository?.syncWithServer()
         }
     }
 
@@ -163,9 +171,9 @@ class PlannerViewModel @JvmOverloads constructor(
     }
 
     fun deleteSavedPlan(tripId: String) {
-        savedTripsRepository.deleteTrip(tripId)
+        savedTripsRepository?.deleteTrip(tripId)
         viewModelScope.launch {
-            savedTripsRepository.syncWithServer()
+            savedTripsRepository?.syncWithServer()
         }
     }
 
