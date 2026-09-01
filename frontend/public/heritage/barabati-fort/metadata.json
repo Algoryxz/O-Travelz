@@ -1,0 +1,121 @@
+{
+  "id": "barabati-fort",
+  "name": "Barabati Fort",
+  "odia_name": "\u0b2c\u0b3e\u0b30\u0b2c\u0b3e\u0b1f\u0b40 \u0b26\u0b41\u0b30\u0b4d\u0b17, \u0b15\u0b1f\u0b15",
+  "district": "Cuttack",
+  "century": "14th Century CE (Ganga & Gajapati Dynasties, King Mukundadeva)",
+  "category": "Medieval Riverine Fortress & Nine-Storey Palace Mound",
+  "description": "Monumental arched laterite stone gateway, defensive moat ramparts, ancient stone bastion towers, and the historic nine-storey palace mound on the banks of Mahanadi.",
+  "scene_type": "REAL_3D_RECONSTRUCTION",
+  "status": "AVAILABLE",
+  "asset": {
+    "format": "photogrammetric_splat_webgl",
+    "model_url": "/heritage/barabati/optimized/barabati_reconstruction.splat",
+    "splat_url": "/heritage/barabati/optimized/barabati_reconstruction.splat",
+    "progressive_low_res_url": null,
+    "point_count": 290000,
+    "mesh_quality": "photogrammetric_high_fidelity",
+    "coordinate_system": "Y-Up",
+    "file_size_bytes": null
+  },
+  "thumbnail": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800&auto=format&fit=crop",
+  "hero_banner": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1600&auto=format&fit=crop",
+  "hotspots": [
+    {
+      "id": "barabati_arched_gate",
+      "title": "Pointed Arch Stone Gateway",
+      "odia_title": "\u0b2a\u0b4d\u0b30\u0b38\u0b4d\u0b24\u0b30 \u0b24\u0b4b\u0b30\u0b23 \u0b13 \u0b26\u0b41\u0b30\u0b4d\u0b17 \u0b2a\u0b4d\u0b30\u0b2c\u0b47\u0b36\u0b26\u0b4d\u0b71\u0b3e\u0b30",
+      "description": "Impressive laterite stone gateway featuring a pointed Indo-Islamic influenced arched portal flanked by octagonal bastion guard towers.",
+      "architectural_significance": "Sole surviving monumental gateway of the 14th-century capital citadel of Kataka Barabati.",
+      "position": [
+        0.0,
+        1.4,
+        0.0
+      ],
+      "look_at": [
+        0.0,
+        1.2,
+        -0.5
+      ],
+      "camera_offset": [
+        0.0,
+        2.0,
+        4.0
+      ]
+    },
+    {
+      "id": "barabati_citadel_mound",
+      "title": "Nine-Storey Palace Mound (Nava-Tala)",
+      "odia_title": "\u0b28\u0b05\u0b24\u0b33\u0b3e \u0b2a\u0b4d\u0b30\u0b3e\u0b38\u0b3e\u0b26 \u0b22\u0b3c\u0b3f\u0b2a",
+      "description": "Centrally located elevated mound where excavations revealed the structural stone column bases and courtyard of King Mukundadeva's palace.",
+      "architectural_significance": "Documented by Mughal and European travelers as one of the most imposing palace strongholds in eastern India.",
+      "position": [
+        -2.0,
+        1.6,
+        -1.8
+      ],
+      "look_at": [
+        -1.5,
+        1.2,
+        -1.0
+      ],
+      "camera_offset": [
+        -3.2,
+        2.5,
+        3.5
+      ]
+    },
+    {
+      "id": "barabati_defensive_moat",
+      "title": "Fortress Moat (Ghai)",
+      "odia_title": "\u0b38\u0b41\u0b30\u0b15\u0b4d\u0b37\u0b3e \u0b2a\u0b30\u0b3f\u0b16\u0b3e",
+      "description": "Historic stone-lined water moat surrounding the citadel measuring up to 100 feet wide, fed by the waters of the Mahanadi and Kathajodi rivers.",
+      "architectural_significance": "Demonstrates sophisticated medieval hydraulic and defensive military engineering in riverine delta terrain.",
+      "position": [
+        2.2,
+        0.4,
+        1.5
+      ],
+      "look_at": [
+        1.8,
+        0.4,
+        0.8
+      ],
+      "camera_offset": [
+        3.2,
+        1.2,
+        3.2
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Archaeological Survey of India Excavation Branch & Cuttack Heritage Circle",
+      "source": "Excavation Reports at Barabati Fort Citadel",
+      "license": "Government Open Archaeological Survey Records",
+      "url": "https://asi.nic.in",
+      "access_date": "2026-08-16",
+      "content_type": "Laser Scanning & Photogrammetric Gate Reconstruction",
+      "attribution": "ASI Bhubaneswar Circle & Govt. of Odisha"
+    }
+  ],
+  "reconstruction_notes": "Photogrammetric surface reconstruction of the surviving 14th-century pointed arch entrance gate, flanked by laterite bastion towers and wide moat defensive perimeter.",
+  "camera_preset": {
+    "position": [
+      0.0,
+      2.2,
+      5.5
+    ],
+    "target": [
+      0.0,
+      1.2,
+      0.0
+    ],
+    "min_distance": 2.0,
+    "max_distance": 15.0,
+    "fov": 45.0
+  },
+  "lighting_preset": "temple_glow",
+  "surrounding_environment": "Mahanadi river delta plains, historic Cuttack city moat, and lush manicured citadel grounds",
+  "is_canonical": true
+}

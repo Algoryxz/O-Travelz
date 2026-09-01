@@ -17,6 +17,7 @@ from app.api.weather_routes import router as weather_router
 from app.api.location_routes import router as location_router
 from app.api.services_routes import router as services_router
 from app.api.media_routes import router as media_router
+from app.api.heritage_routes import router as heritage_router
 from app.core.config import settings
 from app.geospatial.http_adapter import MapProjectionHTTPError
 from app.schemas.api import APIErrorDetail, APIErrorResponse
@@ -110,6 +111,8 @@ app.include_router(location_router, prefix="/api/location", tags=["location"])
 app.include_router(services_router, prefix="/api/v1/services", tags=["services"])
 app.include_router(media_router, prefix="/api/v1/media", tags=["media"])
 app.include_router(media_router, prefix="/media", tags=["media"])
+app.include_router(heritage_router, prefix="/api/v1/heritage", tags=["heritage"])
+app.include_router(heritage_router, prefix="/heritage", tags=["heritage"])
 
 
 

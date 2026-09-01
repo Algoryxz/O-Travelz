@@ -1,270 +1,223 @@
-import React, { useState } from "react";
+/**
+ * Immersive 3D Heritage Explorer Section for O-Travelz.
+ * Delivers museum-grade digital heritage visualizations for the 6 canonical Odisha monuments.
+ */
+import React, { useState, useEffect } from 'react';
 import {
-  Box,
   Sparkles,
-  Compass,
   ArrowRight,
-  Sun,
-  Flame,
-  Info,
+  ShieldCheck,
+  Compass,
   Layers,
-  RotateCw,
-} from "lucide-react";
-import { ThreeDViewer } from "../media/ThreeDViewer";
-import type { Model3DContract } from "../../types/api";
+  MapPin,
+  Clock,
+  BookOpen,
+} from 'lucide-react';
+import type { HeritageScene } from '../../types/heritage';
+import { fetchHeritageScenes, FALLBACK_HERITAGE_SCENES } from '../../api/heritageApi';
+import { HeritageSceneViewer } from '../heritage/HeritageSceneViewer';
 
 interface Heritage3DSectionProps {
   onExplorePlace?: (placeId: string, name: string) => void;
   onPlanTrip?: (placeName: string) => void;
 }
 
-const HERITAGE_3D_SHOWCASE: Array<{
-  id: string;
-  name: string;
-  odiaName: string;
-  category: string;
-  district: string;
-  description: string;
-  model: Model3DContract;
-}> = [
-  {
-    id: "place_konark_001",
-    name: "Konark Sun Temple",
-    odiaName: "କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର",
-    category: "13th Century Solar Chariot",
-    district: "Puri District",
-    description: "The monumental 24-spoke stone Surya Chakra sundials and chlorite deula architecture.",
-    model: {
-      model_id: "model_konark_wheel_001",
-      name: "Konark Surya Chakra",
-      format: "procedural",
-      procedural_type: "konark_wheel",
-      provider: "curated",
-      is_ai_generated: false,
-      badge_label: "3D Heritage Model",
-      transparency_notice: "Interactive 3D representation of the 24-spoke Konark Surya Chakra sundial.",
-      scale_factor: 1.2,
-      initial_camera_position: [0.0, 1.8, 4.2],
-      recommended_lighting: "golden_hour",
-      annotations: [
-        { label: "24 Spoke Wheels", description: "Astronomical sundial wheels representing the 24 fortnights of the solar year.", position: [0.0, 0.0, 0.2] },
-        { label: "Kalinga Vimana", description: "Curvilinear stone tower representing the chariot of the Sun God Surya.", position: [0.0, 1.6, -0.5] },
-      ],
-    },
-  },
-  {
-    id: "place_puri_001",
-    name: "Puri Jagannath Temple",
-    odiaName: "ଶ୍ରୀ ଜଗନ୍ନାଥ ମନ୍ଦିର",
-    category: "Living Sacred Sanctuary",
-    district: "Puri",
-    description: "65-meter sacred rekha deula crowned with the eight-spoke Nilachakra and fluttering flag.",
-    model: {
-      model_id: "model_puri_jagannath_001",
-      name: "Puri Jagannath Sacred Shikhara",
-      format: "procedural",
-      procedural_type: "jagannath_temple",
-      provider: "curated",
-      is_ai_generated: false,
-      badge_label: "3D Heritage Model",
-      transparency_notice: "Interactive 3D model of the 65m Jagannath Temple deula and sanctum sanctorum.",
-      scale_factor: 1.0,
-      initial_camera_position: [0.0, 2.5, 6.0],
-      recommended_lighting: "temple_glow",
-      annotations: [
-        { label: "Nilachakra", description: "Eight-spoked sacred wheel atop the main shikhara forged from ashtadhatu.", position: [0.0, 3.8, 0.0] },
-      ],
-    },
-  },
-  {
-    id: "place_033",
-    name: "Dhauli Shanti Stupa",
-    odiaName: "ଦଉଳି ଶାନ୍ତି ସ୍ତୂପ",
-    category: "Ashokan Peace Pagoda",
-    district: "Khordha",
-    description: "White hemispherical Buddhist peace pagoda overlooking the historic Daya river plains.",
-    model: {
-      model_id: "model_dhauli_stupa_001",
-      name: "Dhauli Shanti Stupa",
-      format: "procedural",
-      procedural_type: "dhauli_stupa",
-      provider: "curated",
-      is_ai_generated: false,
-      badge_label: "3D Heritage Model",
-      transparency_notice: "Interactive 3D dome of the Dhauli Peace Pagoda commemorating Emperor Ashoka's edicts.",
-      scale_factor: 1.1,
-      initial_camera_position: [0.0, 2.0, 4.8],
-      recommended_lighting: "daylight",
-      annotations: [
-        { label: "Ashokan Elephant", description: "Earliest rock sculpture in Odisha marking the Ashokan edict site.", position: [0.0, -0.6, 1.6] },
-      ],
-    },
-  },
-  {
-    id: "place_002",
-    name: "Mukteshwar Temple",
-    odiaName: "ମୁକ୍ତେଶ୍ୱର ମନ୍ଦିର",
-    category: "Gem of Odisha Architecture",
-    district: "Bhubaneswar",
-    description: "Exquisite 10th-century Kalinga Torana arched gateway with miniature lotus carvings.",
-    model: {
-      model_id: "model_mukteshwar_torana_001",
-      name: "Mukteshwar Arched Torana",
-      format: "procedural",
-      procedural_type: "mukteshwar_torana",
-      provider: "curated",
-      is_ai_generated: false,
-      badge_label: "3D Heritage Model",
-      transparency_notice: "Interactive 3D model of the 10th-century Mukteshwar arched Torana gateway.",
-      scale_factor: 1.3,
-      initial_camera_position: [0.0, 1.4, 3.8],
-      recommended_lighting: "golden_hour",
-      annotations: [
-        { label: "Carved Torana Arch", description: "Famous semi-circular archway with miniature lotus and scrollwork.", position: [0.0, 1.2, 0.0] },
-      ],
-    },
-  },
-  {
-    id: "place_020",
-    name: "Barabati Fort Gateway",
-    odiaName: "ବାରବାଟୀ ଦୁର୍ଗ",
-    category: "Medieval Katak Citadel",
-    district: "Cuttack",
-    description: "14th-century Ganga dynasty fortified gateway, laterite towers, and defensive moat ramparts.",
-    model: {
-      model_id: "model_barabati_fort_001",
-      name: "Barabati Fort Gateway",
-      format: "procedural",
-      procedural_type: "barabati_fort",
-      provider: "curated",
-      is_ai_generated: false,
-      badge_label: "3D Heritage Model",
-      transparency_notice: "Interactive 3D reconstruction of the ancient Ganga dynasty arched stone gateway.",
-      scale_factor: 1.0,
-      initial_camera_position: [0.0, 1.5, 4.5],
-      recommended_lighting: "temple_glow",
-      annotations: [
-        { label: "Arched Stone Portal", description: "Pointed arched stone portal of the medieval military stronghold.", position: [0.0, 0.8, 0.0] },
-      ],
-    },
-  },
-];
-
 export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
   onExplorePlace,
   onPlanTrip,
 }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const current = HERITAGE_3D_SHOWCASE[activeIndex];
+  const [scenes, setScenes] = useState<HeritageScene[]>(FALLBACK_HERITAGE_SCENES);
+  const [selectedSceneId, setSelectedSceneId] = useState<string>('konark-sun-temple');
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    let mounted = true;
+    fetchHeritageScenes().then((data) => {
+      if (mounted && data && data.length > 0) {
+        setScenes(data);
+        setLoading(false);
+      }
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const activeScene =
+    scenes.find((s) => s.id === selectedSceneId) || scenes[0] || FALLBACK_HERITAGE_SCENES[0];
+
+  const isReal3D = activeScene.scene_type === 'REAL_3D_RECONSTRUCTION';
 
   return (
-    <section className="w-full bg-[#12161E] text-white py-20 px-6 md:px-12 border-y border-white/10 relative overflow-hidden">
-      {/* Background Ambience Glow */}
-      <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-[#0D5C3A]/30 blur-[120px] pointer-events-none" />
-      <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-[#C69214]/25 blur-[120px] pointer-events-none" />
+    <section className="relative py-16 bg-slate-950 text-slate-100 overflow-hidden border-t border-slate-900">
+      {/* Background Decorative Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-3/4 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-white/15 pb-6">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 bg-white/10 px-3.5 py-1 rounded-full text-xs font-mono text-[#C69214] border border-white/15">
-              <Box className="w-3.5 h-3.5" />
-              <span>IMMERSIVE 3D HERITAGE EXPLORER</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-3">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Digital Heritage & Spatial Intelligence</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight">
-              Experience Odisha in <span className="italic text-[#C69214]">Full 3D Depth</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-100">
+              Immersive 3D Heritage Explorer
             </h2>
-            <p className="font-body text-sm sm:text-base text-[#E5DFD5] max-w-2xl leading-relaxed">
-              Touch, rotate, and examine the astronomical sundials of Konark, sacred spires of Puri, and Ashokan stupas through interactive WebGL models.
+            <p className="text-sm sm:text-base text-slate-400 mt-2 max-w-2xl">
+              Photogrammetric 3D reconstructions and verified architectural spatial models of Odisha’s ancient temples, rock-cut caves, and medieval fortresses.
             </p>
           </div>
 
-          <div className="text-xs font-mono text-[#E5DFD5]/70 flex items-center gap-2">
-            <RotateCw className="w-3.5 h-3.5 text-[#C69214] animate-spin" />
-            <span>Interactive 3D Engine • Three.js</span>
+          <div className="flex items-center gap-3">
+            <span className="text-xs text-slate-400">
+              <strong className="text-amber-400">{scenes.length}</strong> Heritage Reconstructions
+            </span>
           </div>
         </div>
 
-        {/* Interactive Showcase Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left Column: Monument Selector Tabs */}
-          <div className="lg:col-span-4 space-y-2.5">
-            <span className="text-[11px] font-mono text-[#C69214] tracking-widest uppercase font-semibold block px-1">
-              Select Monument to Render
-            </span>
-            <div className="space-y-2">
-              {HERITAGE_3D_SHOWCASE.map((item, idx) => {
-                const isActive = idx === activeIndex;
-                return (
-                  <div
-                    key={item.id}
-                    onClick={() => setActiveIndex(idx)}
-                    className={`p-4 rounded-2xl transition-all duration-300 cursor-pointer border text-left ${
-                      isActive
-                        ? "bg-white/15 border-white/40 border-l-4 border-l-[#C69214] shadow-xl scale-[1.02]"
-                        : "bg-white/5 hover:bg-white/10 border-white/10 opacity-75 hover:opacity-100"
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono text-[#C69214] uppercase tracking-wider font-semibold">
-                        {item.category}
-                      </span>
-                      <span className="text-xs font-mono text-[#E5DFD5]/60">
-                        {item.district}
-                      </span>
-                    </div>
-                    <h3 className="font-display font-bold text-lg text-white mt-1">
-                      {item.name}
-                    </h3>
-                    <p className="font-body text-xs text-[#E5DFD5] line-clamp-2 mt-1">
-                      {item.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
+        {/* Monument Selection Filter Chips */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
+          {scenes.map((scene) => {
+            const isSelected = scene.id === selectedSceneId;
+            const is3D = scene.scene_type === 'REAL_3D_RECONSTRUCTION';
+
+            return (
+              <button
+                key={scene.id}
+                type="button"
+                onClick={() => setSelectedSceneId(scene.id)}
+                className={`flex items-center gap-2.5 px-4 py-2 rounded-2xl text-xs font-semibold whitespace-nowrap transition-all duration-200 border ${
+                  isSelected
+                    ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-lg shadow-amber-500/20 scale-[1.02]'
+                    : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border-slate-800 hover:border-slate-700'
+                }`}
+              >
+                <span>{scene.name}</span>
+                <span
+                  className={`px-1.5 py-0.5 rounded text-[10px] font-mono font-bold ${
+                    isSelected
+                      ? 'bg-slate-950/20 text-slate-950'
+                      : is3D
+                      ? 'bg-emerald-500/20 text-emerald-300'
+                      : 'bg-amber-500/20 text-amber-300'
+                  }`}
+                >
+                  {is3D ? '3D Reconstructed' : 'Ref Experience'}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Master Interactive 3D Viewer Container */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* 3D Viewport Column */}
+          <div className="lg:col-span-8 w-full">
+            <HeritageSceneViewer
+              scene={activeScene}
+              availableScenes={scenes}
+              onSelectScene={(id) => setSelectedSceneId(id)}
+              heightClass="h-[460px] sm:h-[520px] lg:h-[600px]"
+            />
           </div>
 
-          {/* Right Column: 3D Interactive Canvas & CTAs */}
-          <div className="lg:col-span-8 space-y-4">
-            <div className="rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-black/40">
-              <ThreeDViewer
-                key={current.id}
-                model={current.model}
-                placeName={current.name}
-                heightClass="h-[400px] sm:h-[480px] md:h-[540px]"
-              />
+          {/* Monument Architectural & Provenance Intelligence Card */}
+          <div className="lg:col-span-4 bg-slate-900/90 border border-slate-800 backdrop-blur-xl rounded-3xl p-6 flex flex-col justify-between h-full min-h-[520px]">
+            <div className="space-y-4">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span
+                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold border ${
+                      isReal3D
+                        ? 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300'
+                        : 'bg-amber-950/80 border-amber-500/50 text-amber-300'
+                    }`}
+                  >
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span>{isReal3D ? 'Verified Photogrammetry' : 'Curated Heritage Reference'}</span>
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-bold text-slate-100">{activeScene.name}</h3>
+                <div className="text-xs font-serif text-amber-300/80 mt-0.5">
+                  {activeScene.odia_name}
+                </div>
+              </div>
+
+              {/* Quick Meta Stats */}
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
+                  <div className="flex items-center gap-1 text-slate-400 text-[11px] mb-0.5">
+                    <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Location</span>
+                  </div>
+                  <div className="font-medium text-slate-200 truncate">{activeScene.district}</div>
+                </div>
+
+                <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
+                  <div className="flex items-center gap-1 text-slate-400 text-[11px] mb-0.5">
+                    <Clock className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Era / Century</span>
+                  </div>
+                  <div className="font-medium text-slate-200 truncate">
+                    {activeScene.century.split('(')[0].trim()}
+                  </div>
+                </div>
+              </div>
+
+              {/* Architectural Description */}
+              <p className="text-xs text-slate-300 leading-relaxed">
+                {activeScene.description}
+              </p>
+
+              {/* Architectural Hotspots Pill List */}
+              {activeScene.hotspots && activeScene.hotspots.length > 0 && (
+                <div>
+                  <div className="text-[11px] font-semibold uppercase tracking-wider text-amber-400 mb-2 flex items-center gap-1.5">
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>Key Architectural Features ({activeScene.hotspots.length})</span>
+                  </div>
+                  <div className="space-y-1.5">
+                    {activeScene.hotspots.map((h) => (
+                      <div
+                        key={h.id}
+                        className="bg-slate-950/50 p-2.5 rounded-xl border border-slate-800/80 text-xs"
+                      >
+                        <div className="font-semibold text-slate-200">{h.title}</div>
+                        <div className="text-[11px] text-slate-400 line-clamp-2 mt-0.5">
+                          {h.description}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Monument Details & Trip Planner CTA */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
-              <div className="space-y-0.5">
-                <div className="flex items-center gap-2">
-                  <h4 className="font-display font-bold text-lg text-white">{current.name}</h4>
-                  <span className="text-xs text-[#C69214] font-body">{current.odiaName}</span>
-                </div>
-                <p className="text-xs text-[#E5DFD5]/80">{current.description}</p>
-              </div>
-
-              <div className="flex items-center gap-2 shrink-0">
+            {/* Action Buttons */}
+            <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-2 mt-4">
+              {onPlanTrip && (
                 <button
                   type="button"
-                  onClick={() => onExplorePlace?.(current.id, current.name)}
-                  className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
+                  onClick={() => onPlanTrip(activeScene.name)}
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition-colors shadow-lg shadow-amber-500/10"
                 >
-                  <span>Full Details</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => onPlanTrip?.(current.name)}
-                  className="px-4 py-2 rounded-xl bg-[#0D5C3A] hover:bg-[#0A472C] text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-[#C69214]" />
+                  <Compass className="w-4 h-4" />
                   <span>Plan Trip Here</span>
                 </button>
-              </div>
+              )}
+
+              {onExplorePlace && (
+                <button
+                  type="button"
+                  onClick={() => onExplorePlace(activeScene.id, activeScene.name)}
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs transition-colors border border-slate-700"
+                >
+                  <span>Explore Details</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              )}
             </div>
           </div>
         </div>

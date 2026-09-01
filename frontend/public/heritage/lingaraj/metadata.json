@@ -1,0 +1,121 @@
+{
+  "id": "lingaraj-temple",
+  "name": "Lingaraj Temple",
+  "odia_name": "\u0b32\u0b3f\u0b19\u0b4d\u0b17\u0b30\u0b3e\u0b1c \u0b2e\u0b28\u0b4d\u0b26\u0b3f\u0b30, \u0b2d\u0b41\u0b2c\u0b28\u0b47\u0b36\u0b4d\u0b71\u0b30",
+  "district": "Bhubaneswar (Ekamra Kshetra)",
+  "century": "11th Century CE (Somavamsi Dynasty, King Jajati Keshari)",
+  "category": "Culmination of Kalinga Temple Architecture",
+  "description": "55-meter towering curvilinear Sri Mandir deula, sprawling compound of 150 subsidiary shrines, laterite compound wall, and sacred Bindu Sagar tank context.",
+  "scene_type": "REFERENCE_VIRTUAL_EXPERIENCE",
+  "status": "REFERENCE_ONLY",
+  "asset": {
+    "format": "photogrammetric_splat_webgl",
+    "model_url": "/heritage/lingaraj/optimized/lingaraj_reference.splat",
+    "splat_url": "/heritage/lingaraj/optimized/lingaraj_reference.splat",
+    "progressive_low_res_url": null,
+    "point_count": 260000,
+    "mesh_quality": "authorized_external_reference",
+    "coordinate_system": "Y-Up",
+    "file_size_bytes": null
+  },
+  "thumbnail": "https://images.unsplash.com/photo-1667849357658-16bfa7069152?q=80&w=800&auto=format&fit=crop",
+  "hero_banner": "https://images.unsplash.com/photo-1667849357658-16bfa7069152?q=80&w=1600&auto=format&fit=crop",
+  "hotspots": [
+    {
+      "id": "lingaraj_shikhara",
+      "title": "55m Curvilinear Shikhara (Sri Mandir)",
+      "odia_title": "\u0b36\u0b4d\u0b30\u0b40 \u0b2e\u0b28\u0b4d\u0b26\u0b3f\u0b30 \u0b36\u0b3f\u0b16\u0b30",
+      "description": "Rising 55 meters, the deula is divided into five vertical facets (pancharatha) with vertical miniature temple motifs (angashikharas) soaring to the crowning amalaka.",
+      "architectural_significance": "Widely regarded by architectural historians as the finest and most complete expression of Kalinga sacred architecture.",
+      "position": [
+        0.0,
+        3.6,
+        -0.6
+      ],
+      "look_at": [
+        0.0,
+        3.0,
+        0.0
+      ],
+      "camera_offset": [
+        0.0,
+        4.2,
+        5.5
+      ]
+    },
+    {
+      "id": "lingaraj_jagamohana",
+      "title": "Pyramidal Jagamohana & Natamandira",
+      "odia_title": "\u0b1c\u0b17\u0b2e\u0b4b\u0b39\u0b28 \u0b13 \u0b28\u0b3e\u0b1f\u0b2e\u0b28\u0b4d\u0b26\u0b3f\u0b30",
+      "description": "Stepped pyramidal roof (pidha deula) featuring finely carved gargoyles, balustraded windows, and friezes of celestial musicians.",
+      "architectural_significance": "Flawless four-hall axial sequence (Deula, Jagamohana, Nata Mandapa, Bhoga Mandapa) aligned east-to-west.",
+      "position": [
+        0.0,
+        1.8,
+        1.4
+      ],
+      "look_at": [
+        0.0,
+        1.6,
+        0.8
+      ],
+      "camera_offset": [
+        0.0,
+        2.5,
+        4.5
+      ]
+    },
+    {
+      "id": "lingaraj_compound",
+      "title": "Ekamra Compound & Subsidiary Shrines",
+      "odia_title": "\u0b2e\u0b28\u0b4d\u0b26\u0b3f\u0b30 \u0b2a\u0b30\u0b3f\u0b38\u0b30 \u0b36\u0b24\u0b3e\u0b27\u0b3f\u0b15 \u0b2e\u0b28\u0b4d\u0b26\u0b3f\u0b30",
+      "description": "Massive laterite stone compound wall (Kurma Pacheri) measuring 520 ft by 465 ft sheltering 150 individual shrines including the sacred Parvati Temple.",
+      "architectural_significance": "Living pilgrimage ecosystem preserved continuously for over a millennium.",
+      "position": [
+        -2.4,
+        0.8,
+        0.0
+      ],
+      "look_at": [
+        -1.5,
+        0.8,
+        0.0
+      ],
+      "camera_offset": [
+        -3.6,
+        2.0,
+        3.0
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ekamra Kshetra Heritage Masterplan & ASI Bhubaneswar Circle",
+      "source": "Architectural Heritage Mapping of Ancient Temples of Bhubaneswar",
+      "license": "Government Research & Educational Reference",
+      "url": "https://culture.odisha.gov.in",
+      "access_date": "2026-08-10",
+      "content_type": "Orthographic Photogrammetry & Heritage CAD Survey",
+      "attribution": "Ekamra Heritage Project, ASI & Govt. of Odisha"
+    }
+  ],
+  "reconstruction_notes": "Authorized exterior perimeter and architectural skyline reconstruction derived from Ekamra Kshetra Heritage Project spatial records. Preserves precise Kalinga proportion ratio (1:4 deula to jagamohana).",
+  "camera_preset": {
+    "position": [
+      0.0,
+      3.0,
+      7.2
+    ],
+    "target": [
+      0.0,
+      2.0,
+      0.0
+    ],
+    "min_distance": 2.5,
+    "max_distance": 16.0,
+    "fov": 45.0
+  },
+  "lighting_preset": "golden_hour",
+  "surrounding_environment": "Ancient Ekamra Kshetra heritage precinct, red sandstone laterite walls, and Bindu Sagar lake",
+  "is_canonical": true
+}

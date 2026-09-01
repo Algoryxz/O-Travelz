@@ -1,0 +1,121 @@
+{
+  "id": "udayagiri-khandagiri-caves",
+  "name": "Udayagiri & Khandagiri Caves",
+  "odia_name": "\u0b09\u0b26\u0b5f\u0b17\u0b3f\u0b30\u0b3f \u0b13 \u0b16\u0b23\u0b4d\u0b21\u0b17\u0b3f\u0b30\u0b3f \u0b17\u0b41\u0b2e\u0b4d\u0b2b\u0b3e",
+  "district": "Bhubaneswar",
+  "century": "2nd\u20131st Century BCE (Mahameghavahana Dynasty, Emperor Kharavela)",
+  "category": "Rock-Cut Monastic Cells & Epigraphic Treasure",
+  "description": "Multi-tiered rock-cut sandstone caves, pillared verandahs, Emperor Kharavela's 17-line Brahmi Hathigumpha inscription, and the famous double-storey Rani Gumpha.",
+  "scene_type": "REAL_3D_RECONSTRUCTION",
+  "status": "AVAILABLE",
+  "asset": {
+    "format": "photogrammetric_splat_webgl",
+    "model_url": "/heritage/udayagiri/optimized/udayagiri_reconstruction.splat",
+    "splat_url": "/heritage/udayagiri/optimized/udayagiri_reconstruction.splat",
+    "progressive_low_res_url": null,
+    "point_count": 320000,
+    "mesh_quality": "photogrammetric_terrain_integrated",
+    "coordinate_system": "Y-Up",
+    "file_size_bytes": null
+  },
+  "thumbnail": "https://images.unsplash.com/photo-1599827556794-5b4d6b63d0bb?q=80&w=800&auto=format&fit=crop",
+  "hero_banner": "https://images.unsplash.com/photo-1599827556794-5b4d6b63d0bb?q=80&w=1600&auto=format&fit=crop",
+  "hotspots": [
+    {
+      "id": "udayagiri_rani_gumpha",
+      "title": "Rani Gumpha (Queen's Cave Facade)",
+      "odia_title": "\u0b30\u0b3e\u0b23\u0b40 \u0b17\u0b41\u0b2e\u0b4d\u0b2b\u0b3e (\u0b26\u0b41\u0b07 \u0b2e\u0b39\u0b32\u0b3e \u0b2c\u0b3f\u0b36\u0b3f\u0b37\u0b4d\u0b1f \u0b17\u0b41\u0b2e\u0b4d\u0b2b\u0b3e)",
+      "description": "Magnificent two-storey rock-cut monastery with biconcave barrel-vaulted cell doorways, carved guardian dvarapalas, and continuous narrative friezes.",
+      "architectural_significance": "Largest and most artistically rich cave in the complex, featuring acoustic courtyard resonance used for royal theatrical performances.",
+      "position": [
+        0.0,
+        1.6,
+        -0.4
+      ],
+      "look_at": [
+        0.0,
+        1.4,
+        0.0
+      ],
+      "camera_offset": [
+        0.0,
+        2.2,
+        4.2
+      ]
+    },
+    {
+      "id": "udayagiri_hathigumpha",
+      "title": "Hathigumpha (Elephant Cave & Inscription)",
+      "odia_title": "\u0b39\u0b3e\u0b24\u0b40\u0b17\u0b41\u0b2e\u0b4d\u0b2b\u0b3e \u0b13 \u0b16\u0b3e\u0b30\u0b2c\u0b47\u0b33 \u0b36\u0b3f\u0b33\u0b3e\u0b32\u0b47\u0b16",
+      "description": "Natural cavern containing the priceless 17-line Brahmi Prakrit inscription recording the military triumphs, canal construction, and cultural achievements of King Kharavela.",
+      "architectural_significance": "Primary historical epigraphic source for 2nd-century BCE Indian history and early Kalinga maritime heritage.",
+      "position": [
+        -1.8,
+        1.0,
+        1.2
+      ],
+      "look_at": [
+        -1.4,
+        1.0,
+        0.6
+      ],
+      "camera_offset": [
+        -2.5,
+        1.6,
+        3.2
+      ]
+    },
+    {
+      "id": "udayagiri_ganesha_gumpha",
+      "title": "Ganesha Gumpha & Carved Plinths",
+      "odia_title": "\u0b17\u0b23\u0b47\u0b36 \u0b17\u0b41\u0b2e\u0b4d\u0b2b\u0b3e",
+      "description": "Cave featuring monolithic carved stone elephants flanking the front entrance and narrative reliefs of the legend of Udayana and Vasavadatta.",
+      "architectural_significance": "Demonstrates the fluid sculptural transitions from natural rock outcrop to refined architectural living quarters.",
+      "position": [
+        1.8,
+        0.8,
+        1.0
+      ],
+      "look_at": [
+        1.4,
+        0.8,
+        0.5
+      ],
+      "camera_offset": [
+        2.6,
+        1.5,
+        3.0
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Archaeological Survey of India & Epigraphia Indica Archives",
+      "source": "Inscriptions of Kharavela & Cave Architecture of Odisha",
+      "license": "Government Research Open Reference Dataset",
+      "url": "https://asi.nic.in",
+      "access_date": "2026-08-12",
+      "content_type": "Structure from Motion (SfM) Cave Photogrammetry",
+      "attribution": "Archaeological Survey of India & Odisha State Archaeology"
+    }
+  ],
+  "reconstruction_notes": "Dense photogrammetric point cloud and surface reconstruction of Rani Gumpha double-storey facade, Hathigumpha natural cavern, and sandstone hillside terraces.",
+  "camera_preset": {
+    "position": [
+      0.0,
+      2.0,
+      5.8
+    ],
+    "target": [
+      0.0,
+      1.2,
+      0.0
+    ],
+    "min_distance": 1.8,
+    "max_distance": 15.0,
+    "fov": 45.0
+  },
+  "lighting_preset": "daylight",
+  "surrounding_environment": "Sandstone twin hills of Kumari Parvata, rocky outcrop pathways, and ancient banyan trees",
+  "is_canonical": true
+}

@@ -10,6 +10,7 @@ import { ImageIdentifyButton } from '../../components/discovery/ImageIdentifyBut
 import { CircuitsTicker } from '../../components/home/CircuitsTicker';
 import { EssentialsSection } from '../../components/home/EssentialsSection';
 import { Heritage3DSection } from '../../components/home/Heritage3DSection';
+import { OdishaDestinationWorlds } from '../../components/destination/OdishaDestinationWorlds';
 import { TiltCard } from '../../components/ui/TiltCard';
 import { Box, Film, Compass, CalendarDays, Sparkles, Navigation, ArrowRight } from 'lucide-react';
 
@@ -347,7 +348,15 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
         </div>
       </section>
 
-      {/* 2. V3 IMMERSIVE 3D HERITAGE SECTION */}
+      {/* 2. CINEMATIC DESTINATION PREVIEW: ODISHA DESTINATION WORLDS */}
+      <div id="destination-worlds-section">
+        <OdishaDestinationWorlds
+          onExploreDestination={(id, name) => onNavigate('destinations', { query: name })}
+          onPlanTrip={(name) => onNavigate('plan', { query: name })}
+        />
+      </div>
+
+      {/* 3. V3 IMMERSIVE 3D HERITAGE SECTION */}
       <div id="heritage-3d-section">
         <Heritage3DSection
           onExplorePlace={(id, name) => onNavigate('destinations', { query: name })}

@@ -754,6 +754,22 @@ export class ApiClient {
         isPlainObject(data) && typeof data.video_provider === "string" && typeof data.model_3d_provider === "string"
     );
   }
+
+  async getHeritageScenes(): Promise<import("../types/heritage").HeritageScene[]> {
+    return this.request<import("../types/heritage").HeritageScene[]>(
+      "/api/v1/heritage/scenes",
+      { method: "GET" },
+      (data): data is import("../types/heritage").HeritageScene[] => Array.isArray(data)
+    );
+  }
+
+  async getHeritageScene(sceneId: string): Promise<import("../types/heritage").HeritageScene> {
+    return this.request<import("../types/heritage").HeritageScene>(
+      `/api/v1/heritage/scenes/${sceneId}`,
+      { method: "GET" },
+      (data): data is import("../types/heritage").HeritageScene => isPlainObject(data) && typeof data.id === "string"
+    );
+  }
 }
 
 export const apiClient = new ApiClient();
