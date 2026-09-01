@@ -65,6 +65,18 @@ class Settings(BaseSettings):
     groq_base_url: Optional[str] = None
     ai_groq_vision_model_name: Optional[str] = "llama-3.2-11b-vision-preview"
 
+    # Video Generation Provider Configuration (veo, kling, runway, none)
+    video_provider: str = "kling"
+    video_provider_api_key: Optional[str] = None
+    video_provider_base_url: Optional[str] = None
+    video_provider_timeout_seconds: float = 45.0
+
+    # 3D Model Generation Provider Configuration (tripo, meshy, none)
+    model_3d_provider: str = "tripo"
+    model_3d_api_key: Optional[str] = None
+    model_3d_base_url: Optional[str] = "https://api.tripo3d.ai/v2/openapi"
+    model_3d_timeout_seconds: float = 60.0
+
     # Rate Limiting, Latency Budgets & Circuit Breaker
     ai_rate_limit_requests: int = 30
     ai_rate_limit_window_seconds: int = 60
@@ -141,6 +153,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         extra = "ignore"
+        protected_namespaces = ("settings_",)
 
 
 settings = Settings()
