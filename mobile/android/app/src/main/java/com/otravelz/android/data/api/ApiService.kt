@@ -46,4 +46,30 @@ interface ApiService {
         @Query("radius_m") radiusM: Int = 3000,
         @Query("limit") limit: Int = 10
     ): List<NearbyStopDto>
+
+    @GET("api/v1/sync/saved-places")
+    suspend fun getSavedPlaces(): SyncSavedPlacesResponseDto
+
+    @POST("api/v1/sync/saved-places")
+    suspend fun syncSavedPlaces(
+        @Body request: SyncSavedPlacesRequestDto
+    ): SyncSavedPlacesResponseDto
+
+    @POST("api/v1/trips/share")
+    suspend fun shareTrip(
+        @Body request: CreateShareTripRequestDto
+    ): CreateShareTripResponseDto
+
+    @GET("api/v1/trips/shared/{share_id}")
+    suspend fun getSharedTrip(
+        @Path("share_id") shareId: String
+    ): PublicSharedTripResponseDto
+
+    @GET("api/v1/sync/trips")
+    suspend fun getSavedTrips(): SyncTripsResponseDto
+
+    @POST("api/v1/sync/trips")
+    suspend fun syncSavedTrips(
+        @Body request: SyncTripsRequestDto
+    ): SyncTripsResponseDto
 }

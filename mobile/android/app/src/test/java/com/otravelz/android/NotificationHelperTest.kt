@@ -4,6 +4,7 @@ import com.otravelz.android.core.notifications.NotificationHelper
 import com.otravelz.android.core.notifications.NotificationPreferencesData
 import org.junit.Assert.*
 import org.junit.Test
+import java.net.URI
 
 class NotificationHelperTest {
 
@@ -23,6 +24,11 @@ class NotificationHelperTest {
         assertEquals(expectedUri, uriString)
         assertEquals("otravelz", NotificationHelper.DEEP_LINK_SCHEME)
         assertEquals("place", NotificationHelper.DEEP_LINK_HOST_PLACE)
+
+        val parsed = URI(uriString)
+        assertEquals("otravelz", parsed.scheme)
+        assertEquals("place", parsed.host)
+        assertEquals("id=konark-sun-temple", parsed.query)
     }
 
     @Test
