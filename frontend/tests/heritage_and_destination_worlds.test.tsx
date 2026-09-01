@@ -2,7 +2,7 @@
  * Tests for Digital Heritage Spatial Explorer and Odisha Destination Worlds.
  */
 import { describe, it, expect } from 'vitest';
-import { FALLBACK_HERITAGE_SCENES, fetchHeritageScenes } from '../src/api/heritageApi';
+import { FALLBACK_HERITAGE_SCENES } from '../src/api/heritageApi';
 import { ODISHA_DESTINATION_WORLDS } from '../src/components/destination/OdishaDestinationWorlds';
 import { HeritageQualityController } from '../src/components/heritage/HeritageQualityController';
 
@@ -61,19 +61,29 @@ describe('Digital Heritage & Destination Worlds Suite', () => {
     expect(perf.shadowsEnabled).toBe(false);
   });
 
-  it('contains authentic Odisha Destination Worlds with zero space/fake themes', () => {
-    expect(ODISHA_DESTINATION_WORLDS.length).toBeGreaterThanOrEqual(6);
+  it('contains authentic Odisha Destination Worlds with unique visual identities', () => {
+    expect(ODISHA_DESTINATION_WORLDS.length).toBe(8);
 
     const categories = ODISHA_DESTINATION_WORLDS.map((w) => w.category);
     expect(categories).toContain('BEACH');
     expect(categories).toContain('HERITAGE');
-    expect(categories).toContain('NATURE');
+    expect(categories).toContain('LAGOON');
+    expect(categories).toContain('HILL_STATION');
+    expect(categories).toContain('WILDLIFE');
 
     const names = ODISHA_DESTINATION_WORLDS.map((w) => w.name);
     expect(names.some((n) => n.includes('Puri'))).toBe(true);
-    expect(names.some((n) => n.includes('Konark'))).toBe(true);
+    expect(names.some((n) => n.includes('Chandrabhaga'))).toBe(true);
+    expect(names.some((n) => n.includes('Gopalpur'))).toBe(true);
     expect(names.some((n) => n.includes('Chilika'))).toBe(true);
     expect(names.some((n) => n.includes('Daringbadi'))).toBe(true);
     expect(names.some((n) => n.includes('Similipal'))).toBe(true);
+    expect(names.some((n) => n.includes('Konark'))).toBe(true);
+    expect(names.some((n) => n.includes('Dhauli'))).toBe(true);
+
+    // Verify all posters are completely unique (no repeated URLs)
+    const posters = ODISHA_DESTINATION_WORLDS.map((w) => w.poster_url);
+    const uniquePosters = new Set(posters);
+    expect(uniquePosters.size).toBe(ODISHA_DESTINATION_WORLDS.length);
   });
 });
