@@ -104,6 +104,19 @@ class ReplaceItineraryStopArgs(ContractModel):
     preference_overrides: dict[str, Any] | None = None
 
 
+class GetNearbyServicesArgs(ContractModel):
+    lat: float
+    lon: float
+    category: str | None = None
+    subcategory: str | None = None
+    radius_km: float = 5.0
+    limit: int = 10
+
+
+class GetDestinationSafetyArgs(ContractModel):
+    destination_id_or_name: str
+
+
 class AIStatus(str, Enum):
     SUCCESS = "success"
     CLARIFICATION = "clarification"

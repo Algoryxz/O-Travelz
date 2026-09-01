@@ -30,11 +30,11 @@ CANONICAL_DIR = REPO_ROOT / "data" / "transport" / "canonical"
 
 class TestTransitCoordinateResolution:
 
-    @pytest.fixture(autouse=True)
+    @pytest.fixture(scope="class", autouse=True)
     def ensure_pipeline_output(self):
-        # Run resolution with cache enabled
+        # Run resolution with cache enabled (0 network calls in test environment)
         from scripts.resolve_canonical_transit_coordinates import run_coordinate_resolution
-        run_coordinate_resolution(REPO_ROOT, enable_external=True, max_external_lookups=100)
+        run_coordinate_resolution(REPO_ROOT, enable_external=True, max_external_lookups=0)
 
     def test_01_frontend_verified_coordinate_maps_to_canonical_stop(self):
         with open(CANONICAL_DIR / "stops.json", encoding="utf-8") as f:

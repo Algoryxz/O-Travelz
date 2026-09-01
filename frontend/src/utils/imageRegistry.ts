@@ -176,6 +176,45 @@ export const PLACE_IMAGE_OVERRIDES: Record<string, string> = {
   "place_jharsuguda_001": "https://upload.wikimedia.org/wikipedia/commons/d/da/Koilighugar_waterfall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original", // Koilighugar Waterfall (Jharsuguda, waterfall)
   "place_kalahandi_001": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Phurlijharan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original", // Phurlijharan Waterfall (Kalahandi, waterfall)
   "place_keonjhar_001": "https://upload.wikimedia.org/wikipedia/commons/e/e9/PXL_20250608_043103853.MP_Sanaghagara_Waterfall_%2C_Keonjhar%2C_Odisha_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original", // Sanaghagara Waterfall (Keonjhar, waterfall)
+  // 4. Round 2 Eastern Odisha Verified Research Destinations (Audited)
+  "round2_east_001": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Olive_ridley_sea_turtle_with_satellite_transmitter_at_Gahirmatha_Beach.jpg", // Gahirmatha Marine Sanctuary (Kendrapara, wildlife)
+  "Gahirmatha Marine Sanctuary": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Olive_ridley_sea_turtle_with_satellite_transmitter_at_Gahirmatha_Beach.jpg",
+  "round2_east_002": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Hukitola-3.jpg", // Hukitola Monument (Kendrapara, heritage)
+  "Hukitola Monument": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Hukitola-3.jpg",
+  "round2_east_003": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Kanika_palace.jpg", // Kanika Palace (Kendrapara, heritage)
+  "Kanika Palace": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Kanika_palace.jpg",
+  "round2_east_004": "https://upload.wikimedia.org/wikipedia/commons/3/38/Aul_Palace.jpg", // Aul Palace (Kendrapara, heritage)
+  "Aul Palace": "https://upload.wikimedia.org/wikipedia/commons/3/38/Aul_Palace.jpg",
+  "round2_east_005": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Eram_Saheed_Smrutistambha.jpg", // Rakta Tirtha Eram (Bhadrak, heritage)
+  "Rakta Tirtha Eram": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Eram_Saheed_Smrutistambha.jpg",
+  "round2_east_006": "https://upload.wikimedia.org/wikipedia/commons/6/65/Biranchinarayan_Temple.jpg", // Biranchinarayan Sun Temple, Palia (Bhadrak, temple)
+  "Biranchinarayan Sun Temple, Palia": "https://upload.wikimedia.org/wikipedia/commons/6/65/Biranchinarayan_Temple.jpg",
+  "round2_east_007": "https://upload.wikimedia.org/wikipedia/commons/e/e7/BhadraKali_Temple_Gate.jpg", // Maa Bhadrakali Temple (Bhadrak, temple)
+  "Maa Bhadrakali Temple": "https://upload.wikimedia.org/wikipedia/commons/e/e7/BhadraKali_Temple_Gate.jpg",
+  "round2_east_008": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Anantasayana_Basudev_or_Lord_Vishnu_is_sleeping_posture_.This_open_air_relief_is_curved_out_of_stone_on_Brahmani_river_of_Sarang_village_of_Dhenkanal_district_of_Odisha._It%27s_length_is_approx_52_ft_and_was_built_in_9th_century.jpg", // Saranga Anantasayana Vishnu (Dhenkanal, heritage)
+  "Saranga Anantasayana Vishnu": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Anantasayana_Basudev_or_Lord_Vishnu_is_sleeping_posture_.This_open_air_relief_is_curved_out_of_stone_on_Brahmani_river_of_Sarang_village_of_Dhenkanal_district_of_Odisha._It%27s_length_is_approx_52_ft_and_was_built_in_9th_century.jpg",
+  "round2_east_009": "https://upload.wikimedia.org/wikipedia/commons/3/36/Ramial_Dam_-_Dhenkanal_2018-01-25_9375.JPG", // Dandadhar Dam & Reservoir (Dhenkanal, nature)
+  "Dandadhar Dam & Reservoir": "https://upload.wikimedia.org/wikipedia/commons/3/36/Ramial_Dam_-_Dhenkanal_2018-01-25_9375.JPG",
+  "round2_east_010": "https://upload.wikimedia.org/wikipedia/commons/6/66/A_Dhokra_cast_being_made_by_a_Dharua_tribal_woman.jpg", // Sadeibereni Dokra Craft Village (Dhenkanal, cultural)
+  "Sadeibereni Dokra Craft Village": "https://upload.wikimedia.org/wikipedia/commons/6/66/A_Dhokra_cast_being_made_by_a_Dharua_tribal_woman.jpg",
+  "round2_east_011": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Chatia_bata.jpg", // Chhatia Bata (Jajpur, temple)
+  "Chhatia Bata": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Chatia_bata.jpg",
+  "round2_east_012": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Maha_Binayak_Temple.jpg", // Mahavinayak Temple, Chandikhole (Jajpur, temple)
+  "Mahavinayak Temple, Chandikhole": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Maha_Binayak_Temple.jpg",
+  "round2_east_015": "https://upload.wikimedia.org/wikipedia/commons/3/38/Deulajhari_Angul.JPG", // Deulajhari Hot Springs (Angul, nature)
+  "Deulajhari Hot Springs": "https://upload.wikimedia.org/wikipedia/commons/3/38/Deulajhari_Angul.JPG",
+  "round2_east_016": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Talcher_Palace%2C_Angul%2C_Odisha.jpg", // Talcher Palace (Angul, heritage)
+  "Talcher Palace": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Talcher_Palace%2C_Angul%2C_Odisha.jpg",
+  "round2_east_017": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Lalitgiri_-_Odisha_-_001.jpg", // Lalitgiri Buddhist Complex (Cuttack, heritage)
+  "Lalitgiri Buddhist Complex": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Lalitgiri_-_Odisha_-_001.jpg",
+  "round2_east_018": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Dhabaleswar_Temple.JPG", // Dhabaleswar Island Temple (Cuttack, temple)
+  "Dhabaleswar Island Temple": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Dhabaleswar_Temple.JPG",
+  "round2_east_019": "https://upload.wikimedia.org/wikipedia/commons/7/77/A_view_of_the_Ansupa_Lake_from_atop_Saranda_Hill.jpg", // Ansupa Lake (Cuttack, lake)
+  "Ansupa Lake": "https://upload.wikimedia.org/wikipedia/commons/7/77/A_view_of_the_Ansupa_Lake_from_atop_Saranda_Hill.jpg",
+  "round2_east_020": "https://upload.wikimedia.org/wikipedia/commons/7/71/Bhattarika.JPG", // Bhattarika Temple (Cuttack, temple)
+  "Bhattarika Temple": "https://upload.wikimedia.org/wikipedia/commons/7/71/Bhattarika.JPG",
+  "round2_east_021": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Handloom_1.jpg", // Nuapatna Handloom Heritage Village (Cuttack, cultural)
+  "Nuapatna Handloom Heritage Village": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Handloom_1.jpg",
 };
 
 export const MANUAL_IMAGE_OVERRIDES = PLACE_IMAGE_OVERRIDES;

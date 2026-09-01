@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://o-travelz/schemas/round2/safety.schema.json",
+  "title": "O-TRAVELZ Destination Safety Advisory & Emergency Profile",
+  "description": "Schema for destination-specific safety advisories, emergency helplines, local warnings, and environmental/access precautions.",
+  "type": "object",
+  "required": [
+    "destination_id",
+    "destination_name",
+    "district",
+    "nearest_police_station_id",
+    "nearest_hospital_id",
+    "emergency_contacts",
+    "safety_advisories",
+    "source",
+    "last_verified"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "destination_id": {
+      "type": "string",
+      "description": "Canonical ID of the tourist destination (e.g. round2_east_001, place_cuttack_001)"
+    },
+    "destination_name": {
+      "type": "string",
+      "description": "Name of the destination."
+    },
+    "district": {
+      "type": "string",
+      "description": "District of destination."
+    },
+    "nearest_police_station_id": {
+      "type": "string",
+      "description": "Service ID of the nearest verified police station."
+    },
+    "nearest_police_station_name": {
+      "type": "string",
+      "description": "Name of the nearest police station."
+    },
+    "nearest_hospital_id": {
+      "type": "string",
+      "description": "Service ID of the nearest verified hospital or CHC."
+    },
+    "nearest_hospital_name": {
+      "type": "string",
+      "description": "Name of the nearest hospital."
+    },
+    "emergency_contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "number", "service_type"],
+        "properties": {
+          "label": { "type": "string" },
+          "number": { "type": "string" },
+          "service_type": {
+            "type": "string",
+            "enum": ["all_emergency", "police", "ambulance", "fire", "tourist_helpline", "forest_department", "coastal_security", "disaster_control"]
+          },
+          "is_24x7": { "type": "boolean", "default": true }
+        }
+      }
+    },
+    "safety_advisories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "title", "guidance", "severity"],
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": ["water_safety", "wildlife_caution", "terrain_access", "heat_weather", "temple_etiquette", "monument_protection", "general_safety"]
+          },
+          "title": { "type": "string" },
+          "guidance": { "type": "string" },
+          "severity": {
+            "type": "string",
+            "enum": ["info", "caution", "warning"]
+          }
+        }
+      }
+    },
+    "network_connectivity": {
+      "type": "string",
+      "enum": ["good_4g_5g", "moderate_cellular", "patchy_rural", "low_remote"],
+      "default": "good_4g_5g",
+      "description": "Expected mobile network coverage in this area."
+    },
+    "best_visiting_hours": {
+      "type": ["string", "null"],
+      "default": null,
+      "description": "Recommended daytime hours for optimal safety and accessibility."
+    },
+    "source": {
+      "type": "string",
+      "description": "Government / police / tourism / forest department provenance."
+    },
+    "source_url": {
+      "type": ["string", "null"],
+      "default": null,
+      "description": "Official advisory URL if published."
+    },
+    "last_verified": {
+      "type": "string",
+      "description": "ISO 8601 date string of verification."
+    }
+  }
+}

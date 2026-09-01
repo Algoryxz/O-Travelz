@@ -28,17 +28,17 @@ interface MapCanvasProps {
 
 export function getMarkerCategoryColor(category?: string | null): string {
   const cat = (category || "").toLowerCase();
-  if (cat.includes("police") || cat.includes("safety")) return "#2F523E";
-  if (cat.includes("hotel") || cat.includes("resort") || cat.includes("lodging")) return "#B87B22";
-  if (cat.includes("petrol") || cat.includes("fuel")) return "#D69E2E";
+  if (cat.includes("police") || cat.includes("safety") || cat.includes("emergency")) return "#2F523E";
+  if (cat.includes("hotel") || cat.includes("stay") || cat.includes("resort") || cat.includes("panthanivas") || cat.includes("lodging")) return "#B87B22";
+  if (cat.includes("petrol") || cat.includes("fuel") || cat.includes("gas")) return "#D69E2E";
   if (cat.includes("atm") || cat.includes("bank")) return "#0284C7";
   if (cat.includes("transport") || cat.includes("transit") || cat.includes("bus") || cat.includes("rail") || cat.includes("airport")) return "#4A5568";
-  if (cat.includes("medical") || cat.includes("hospital")) return "#E53E3E";
+  if (cat.includes("medical") || cat.includes("hospital") || cat.includes("healthcare")) return "#E53E3E";
+  if (cat.includes("food") || cat.includes("restaurant") || cat.includes("cafe") || cat.includes("dhaba") || cat.includes("hangout")) return "#F59E0B";
   if (cat.includes("temple") || cat.includes("heritage") || cat.includes("culture")) return "#D97706";
   if (cat.includes("beach") || cat.includes("lake") || cat.includes("coastal")) return "#0284C7";
   if (cat.includes("nature") || cat.includes("wildlife") || cat.includes("waterfall") || cat.includes("park")) return "#10B981";
   if (cat.includes("museum") || cat.includes("monument") || cat.includes("shopping")) return "#8B5CF6";
-  if (cat.includes("food") || cat.includes("restaurant") || cat.includes("cafe") || cat.includes("hangout")) return "#F59E0B";
   return "#14B8A6";
 }
 

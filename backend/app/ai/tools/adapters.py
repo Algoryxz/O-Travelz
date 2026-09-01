@@ -19,6 +19,8 @@ from app.ai.schemas import (
 from app.ai.tools.build_itinerary import BuildItineraryTool
 from app.ai.tools.plan_transport_hop import PlanTransportHopTool
 from app.ai.tools.provider_status import GetProviderStatusTool
+from app.ai.tools.get_nearby_services import GetNearbyServicesTool
+from app.ai.tools.get_destination_safety import GetDestinationSafetyTool
 from app.services.search.search_models import SearchQueryParams
 from app.services.search.search_service import SearchService
 
@@ -501,6 +503,7 @@ class ReplaceItineraryStopToolAdapter(BaseToolAdapter):
                     "stop_sequence": {"type": "integer", "default": 1, "description": "Stop sequence (1-indexed)."},
                     "reason": {"type": "string", "enum": ["weather", "crowd", "walking", "interest", "closed", "user_request", "transport", "other"], "default": "user_request"},
                     "itinerary": {"type": "object", "description": "Structured ItineraryResponse payload."},
+                    "preference_overrides": {"type": "object", "description": "Optional updated preferences/interests."},
                 },
             },
         )
@@ -571,6 +574,80 @@ class ReplaceItineraryStopToolAdapter(BaseToolAdapter):
             )
 
 
+class GetNearbyServicesToolAdapter(BaseToolAdapter):
+    """Tool adapter exposing deterministic nearby service discovery."""
+
+    def __init__(self) -> None:
+        self._tool = GetNearbyServicesTool()
+        self._definition = ToolDefinition(
+            name="get_nearby_services",
+            description=(
+                "Find verified nearby essential services (healthcare, hospitals, police stations, "
+                "hotels, restaurants, petrol pumps, transit stops, ATMs) around coordinates in Odisha."
+            ),
+            input_schema={
+                "type": "object",
+                "required": ["lat", "lon"],
+                "properties": {
+                    "lat": {"type": "number", "description": "WGS84 Latitude."},
+                    "lon": {"type": "number", "description": "WGS84 Longitude."},
+                    "category": {
+                        "type": "string",
+                        "enum": ["healthcare", "police", "hotel", "restaurant", "fuel", "transit", "atm"],
+                        "description": "Category filter.",
+                    },
+                    "subcategory": {"type": "string", "description": "Subcategory filter."},
+                    "radius_km": {"type": "number", "default": 5.0, "description": "Initial search radius in km."},
+                    "limit": {"type": "integer", "default": 10, "description": "Max results to return."},
+                },
+            },
+        )
+
+    @property
+    def definition(self) -> ToolDefinition:
+        return self._definition
+
+    def execute(self, arguments: dict[str, Any], tool_call_id: str | None = None) -> ToolResult:
+        res = self._tool.execute(arguments)
+        if tool_call_id and not res.tool_call_id:
+            res.tool_call_id = tool_call_id
+        return res
+
+
+class GetDestinationSafetyToolAdapter(BaseToolAdapter):
+    """Tool adapter exposing verified destination safety profiles and emergency helplines."""
+
+    def __init__(self) -> None:
+        self._tool = GetDestinationSafetyTool()
+        self._definition = ToolDefinition(
+            name="get_destination_safety",
+            description=(
+                "Retrieve authoritative destination-specific safety advisories, emergency helplines, "
+                "nearest police station, and nearest hospital for a tourist destination in Odisha."
+            ),
+            input_schema={
+                "type": "object",
+                "required": ["destination_id_or_name"],
+                "properties": {
+                    "destination_id_or_name": {
+                        "type": "string",
+                        "description": "Canonical destination ID (e.g. 'round2_east_001') or destination name (e.g. 'Dhabaleswar Island Temple').",
+                    },
+                },
+            },
+        )
+
+    @property
+    def definition(self) -> ToolDefinition:
+        return self._definition
+
+    def execute(self, arguments: dict[str, Any], tool_call_id: str | None = None) -> ToolResult:
+        res = self._tool.execute(arguments)
+        if tool_call_id and not res.tool_call_id:
+            res.tool_call_id = tool_call_id
+        return res
+
+
 def create_default_tool_registry(
     db: Session,
     itinerary_service: ItineraryService | None = None,
@@ -608,5 +685,7 @@ def create_default_tool_registry(
     registry.register(EstimateCrowdToolAdapter(crowd_service, db=db))
     registry.register(GetTransitOptionsToolAdapter(transport_service, db=db))
     registry.register(ReplaceItineraryStopToolAdapter(repository=repo, transport_service=transport_service, crowd_service=crowd_service, weather_service=weather_service))
+    registry.register(GetNearbyServicesToolAdapter())
+    registry.register(GetDestinationSafetyToolAdapter())
     return registry
 

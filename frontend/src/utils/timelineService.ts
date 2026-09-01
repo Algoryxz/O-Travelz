@@ -254,8 +254,10 @@ export function getRefinementSuggestions(
       "Plan a 2-day heritage trip in Bhubaneswar",
       "Plan a 2-day food and culture tour",
       "Plan a relaxing beach trip in Puri",
+      "Where is the nearest hospital to Dhabaleswar?",
+      "Find hotels & stays near Ansupa Lake",
+      "Show safety advisories for Gahirmatha",
       "Explore nature and waterfalls in Koraput",
-      "Plan a wildlife and adventure getaway",
     ];
   }
 

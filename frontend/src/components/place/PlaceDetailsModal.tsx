@@ -12,6 +12,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Info,
+  HeartPulse,
 } from "lucide-react";
 import type { PlaceImageContract } from "../../types/api";
 import { useSavedPlaces } from "../../store/useSavedPlaces";
@@ -25,6 +26,7 @@ import {
 } from "../../utils/imageAdapter";
 import { useRecentPlaces } from "../../store/useRecentPlaces";
 import { NearbyFacilities } from "./NearbyFacilities";
+import { NearbyEssentialsTab } from "./NearbyEssentialsTab";
 
 export interface SelectedPlaceInfo {
   id?: string;
@@ -74,6 +76,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
   const placeIdOrName = place.id || place.name;
   const saved = isSaved(placeIdOrName);
   const region = place.location || getPlaceRegion(place.name);
+  const [activeTab, setActiveTab] = useState<"overview" | "essentials">("overview");
 
   React.useEffect(() => {
     if (place?.name) {
@@ -252,87 +255,136 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
           </div>
         </div>
 
+        {/* Segmented Modal Tabs */}
+        <div className="px-6 pt-4 pb-0 bg-[#FAF7F2] border-b border-[#E5DFD5] flex items-center gap-2">
+          <button
+            type="button"
+            data-testid="modal-tab-overview"
+            onClick={() => setActiveTab("overview")}
+            className={`px-4 py-2.5 rounded-t-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border-t border-x ${
+              activeTab === "overview"
+                ? "bg-[#FFFFFF] text-[#12161E] border-[#E5DFD5] -mb-px shadow-xs"
+                : "bg-transparent text-[#70798B] hover:text-[#12161E] border-transparent"
+            }`}
+          >
+            <Info size={14} className={activeTab === "overview" ? "text-[#B87B22]" : "text-[#70798B]"} />
+            <span>Overview &amp; Heritage</span>
+          </button>
+
+          <button
+            type="button"
+            data-testid="modal-tab-essentials"
+            onClick={() => setActiveTab("essentials")}
+            className={`px-4 py-2.5 rounded-t-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border-t border-x ${
+              activeTab === "essentials"
+                ? "bg-[#FFFFFF] text-[#12161E] border-[#E5DFD5] -mb-px shadow-xs"
+                : "bg-transparent text-[#70798B] hover:text-[#12161E] border-transparent"
+            }`}
+          >
+            <HeartPulse size={14} className={activeTab === "essentials" ? "text-[#9E2A2B]" : "text-[#70798B]"} />
+            <span>Nearby Essentials &amp; Safety</span>
+          </button>
+        </div>
+
         {/* Scrollable Content Body */}
-        <div className="p-6 sm:p-8 space-y-6 overflow-y-auto flex-1">
-          {/* Description */}
-          <div className="space-y-2">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#B87B22] font-mono flex items-center gap-1.5">
-              <Info size={13} />
-              <span>About Destination</span>
-            </div>
-            <p className="text-sm sm:text-base text-[#3D4654] leading-relaxed">
-              {place.description ||
-                `Explore ${place.name}, a premier destination in ${region || "Odisha"}.`}
-            </p>
-          </div>
+        <div className="p-6 sm:p-8 space-y-6 overflow-y-auto flex-1 bg-white">
+          {activeTab === "overview" ? (
+            <>
+              {/* Description */}
+              <div className="space-y-2">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-[#B87B22] font-mono flex items-center gap-1.5">
+                  <Info size={13} />
+                  <span>About Destination</span>
+                </div>
+                <p className="text-sm sm:text-base text-[#3D4654] leading-relaxed">
+                  {place.description ||
+                    `Explore ${place.name}, a premier destination in ${region || "Odisha"}.`}
+                </p>
+              </div>
 
-          {/* Quick Facts / Metadata Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {place.avg_visit_minutes != null && (
-              <div className="p-3.5 rounded-xl bg-[#F2EEE7] border border-[#E5DFD5] space-y-1">
-                <div className="flex items-center gap-1.5 text-[#70798B] text-xs">
-                  <Clock size={14} className="text-[#B87B22]" />
-                  <span>Duration</span>
-                </div>
-                <div className="text-sm font-bold font-serif text-[#12161E] font-mono">
-                  ~{place.avg_visit_minutes} mins
-                </div>
-              </div>
-            )}
+              {/* Quick Facts / Metadata Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {place.avg_visit_minutes != null && (
+                  <div className="p-3.5 rounded-xl bg-[#F2EEE7] border border-[#E5DFD5] space-y-1">
+                    <div className="flex items-center gap-1.5 text-[#70798B] text-xs">
+                      <Clock size={14} className="text-[#B87B22]" />
+                      <span>Duration</span>
+                    </div>
+                    <div className="text-sm font-bold font-serif text-[#12161E] font-mono">
+                      ~{place.avg_visit_minutes} mins
+                    </div>
+                  </div>
+                )}
 
-            {place.price_tier && (
-              <div className="p-3.5 rounded-xl bg-[#F2EEE7] border border-[#E5DFD5] space-y-1">
-                <div className="flex items-center gap-1.5 text-[#70798B] text-xs">
-                  <Tag size={14} className="text-[#B87B22]" />
-                  <span>Price Tier</span>
-                </div>
-                <div className="text-sm font-bold font-serif text-[#12161E] capitalize">
-                  {place.price_tier}
-                </div>
-              </div>
-            )}
+                {place.price_tier && (
+                  <div className="p-3.5 rounded-xl bg-[#F2EEE7] border border-[#E5DFD5] space-y-1">
+                    <div className="flex items-center gap-1.5 text-[#70798B] text-xs">
+                      <Tag size={14} className="text-[#B87B22]" />
+                      <span>Price Tier</span>
+                    </div>
+                    <div className="text-sm font-bold font-serif text-[#12161E] capitalize">
+                      {place.price_tier}
+                    </div>
+                  </div>
+                )}
 
-            {place.lat != null && place.lon != null && (
-              <div className="p-3.5 rounded-xl bg-[#F2EEE7] border border-[#E5DFD5] space-y-1">
-                <div className="flex items-center gap-1.5 text-[#70798B] text-xs">
-                  <Navigation size={14} className="text-[#1B5E6B]" />
-                  <span>GPS Coordinates</span>
-                </div>
-                <div className="text-xs font-mono font-semibold text-[#12161E] truncate">
-                  {place.lat.toFixed(2)}°N, {place.lon.toFixed(2)}°E
-                </div>
+                {place.lat != null && place.lon != null && (
+                  <div className="p-3.5 rounded-xl bg-[#F2EEE7] border border-[#E5DFD5] space-y-1">
+                    <div className="flex items-center gap-1.5 text-[#70798B] text-xs">
+                      <Navigation size={14} className="text-[#1B5E6B]" />
+                      <span>GPS Coordinates</span>
+                    </div>
+                    <div className="text-xs font-mono font-semibold text-[#12161E] truncate">
+                      {place.lat.toFixed(2)}°N, {place.lon.toFixed(2)}°E
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
 
-          {/* Interests & Thematic Tags */}
-          {((place.interests && place.interests.length > 0) ||
-            (place.tags && place.tags.length > 0)) && (
-            <div className="space-y-2.5">
-              <div className="text-[11px] font-bold uppercase tracking-wider text-[#B87B22] font-mono flex items-center gap-1.5">
-                <Sparkles size={13} />
-                <span>Themes:</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {(place.interests || []).map((interest) => (
-                  <span
-                    key={interest}
-                    className="px-3 py-1 rounded-lg bg-[#FAF7F2] border border-[#E5DFD5] text-[#B87B22] text-xs font-semibold capitalize flex items-center gap-1"
-                  >
-                    <Sparkles size={11} className="text-[#B87B22]" />
-                    <span>{interest}</span>
-                  </span>
-                ))}
-                {(place.tags || []).map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 rounded-lg bg-[#F2EEE7] border border-[#E5DFD5] text-[#3D4654] text-xs font-medium"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+              {/* Interests & Thematic Tags */}
+              {((place.interests && place.interests.length > 0) ||
+                (place.tags && place.tags.length > 0)) && (
+                <div className="space-y-2.5">
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-[#B87B22] font-mono flex items-center gap-1.5">
+                    <Sparkles size={13} />
+                    <span>Themes:</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {(place.interests || []).map((interest) => (
+                      <span
+                        key={interest}
+                        className="px-3 py-1 rounded-lg bg-[#FAF7F2] border border-[#E5DFD5] text-[#B87B22] text-xs font-semibold capitalize flex items-center gap-1"
+                      >
+                        <Sparkles size={11} className="text-[#B87B22]" />
+                        <span>{interest}</span>
+                      </span>
+                    ))}
+                    {(place.tags || []).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded-lg bg-[#F2EEE7] border border-[#E5DFD5] text-[#3D4654] text-xs font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            <NearbyEssentialsTab
+              place={place}
+              onExploreServiceOnMap={(svc) => {
+                handleExploreMap({
+                  name: svc.name,
+                  category: svc.category,
+                  lat: svc.lat,
+                  lon: svc.lon,
+                  location: svc.district,
+                });
+                onClose();
+              }}
+            />
           )}
 
           {/* Master Geospatial Nearby Facilities & Utilities */}

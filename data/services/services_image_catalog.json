@@ -1,0 +1,1927 @@
+{
+  "title": "O-TRAVELZ Traveller Essentials & Local Services Image Catalog",
+  "audit_pass": "SECOND_PASS_CLEANUP_AND_METADATA_ENHANCEMENT",
+  "region": "Eastern Odisha",
+  "total_services": 61,
+  "verified_services_count": 4,
+  "review_required_count": 0,
+  "no_image_count": 57,
+  "field_photography_recommended_count": 57,
+  "last_audit_date": "2026-09-01",
+  "services": [
+    {
+      "service_id": "hosp_scb_cuttack",
+      "service_name": "SCB Medical College and Hospital",
+      "category": "healthcare",
+      "district": "Cuttack",
+      "locality": "Mangalabag",
+      "image_verification_status": "VERIFIED_IMAGE",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": false,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://dmetodisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_verified_image_found",
+          "query": "SCB Medical College and Hospital Cuttack"
+        }
+      },
+      "audit_note": "Verified authentic physical location photography with verified Creative Commons licensing.",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Platinum_jubilee_gate_of_scb_medical_2021.jpg",
+          "wikimedia_file": "File:Platinum jubilee gate of scb medical 2021.jpg",
+          "source": "Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Platinum_jubilee_gate_of_scb_medical_2021.jpg",
+          "author": "Satya Narayan Baral",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Photo by Satya Narayan Baral via Wikimedia Commons, licensed under CC BY-SA 4.0",
+          "dimensions": [
+            731,
+            419
+          ],
+          "quality": "LOW",
+          "identity_confidence": "HIGH",
+          "usage": "service_card",
+          "type": "primary",
+          "description": "Platinum jubilee main entrance gate of SCB Medical College and Hospital in Mangalabag, Cuttack",
+          "image_verification_status": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "service_id": "hosp_athagarh_sdh",
+      "service_name": "Sub-Divisional Hospital Athagarh",
+      "category": "healthcare",
+      "district": "Cuttack",
+      "locality": "Athagarh",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://cuttack.nic.in/health-facilities/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Sub-Divisional Hospital Athagarh Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_banki_sdh",
+      "service_name": "Sub-Divisional Hospital Banki",
+      "category": "healthcare",
+      "district": "Cuttack",
+      "locality": "Banki",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Sub-Divisional Hospital Banki Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_tigiria_chc",
+      "service_name": "Community Health Centre Tigiria",
+      "category": "healthcare",
+      "district": "Cuttack",
+      "locality": "Tigiria",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://cuttack.nic.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Community Health Centre Tigiria Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_baramba_chc",
+      "service_name": "Community Health Centre Baramba",
+      "category": "healthcare",
+      "district": "Cuttack",
+      "locality": "Baramba",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Community Health Centre Baramba Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_barchana_chc",
+      "service_name": "Community Health Centre Barchana",
+      "category": "healthcare",
+      "district": "Jajpur",
+      "locality": "Barchana",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://jajpur.nic.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Community Health Centre Barchana Jajpur"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_athagarh_ps",
+      "service_name": "Athagarh Police Station",
+      "category": "police",
+      "district": "Cuttack",
+      "locality": "Athagarh",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Athagarh Police Station Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_dhabaleswar_outpost",
+      "service_name": "Dhabaleswar Police Outpost",
+      "category": "police",
+      "district": "Cuttack",
+      "locality": "Dhabaleswar Ghat",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Dhabaleswar Police Outpost Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_banki_ps",
+      "service_name": "Banki Police Station",
+      "category": "police",
+      "district": "Cuttack",
+      "locality": "Banki",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Banki Police Station Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_tigiria_ps",
+      "service_name": "Tigiria Police Station",
+      "category": "police",
+      "district": "Cuttack",
+      "locality": "Tigiria",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Tigiria Police Station Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_baramba_ps",
+      "service_name": "Baramba Police Station",
+      "category": "police",
+      "district": "Cuttack",
+      "locality": "Baramba",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Baramba Police Station Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_balichandrapur_ps",
+      "service_name": "Balichandrapur Police Station",
+      "category": "police",
+      "district": "Jajpur",
+      "locality": "Balichandrapur",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Balichandrapur Police Station Jajpur"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hotel_otdc_panthanivas_cuttack",
+      "service_name": "OTDC Panthanivas Cuttack",
+      "category": "hotel",
+      "district": "Cuttack",
+      "locality": "Buxi Bazar",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://panthanivas.com/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://ecotourodisha.com/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "OTDC Panthanivas Cuttack Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hotel_ansupa_eco_resort",
+      "service_name": "Ansupa Eco-Tourism Nature Camp",
+      "category": "hotel",
+      "district": "Cuttack",
+      "locality": "Saranda Hill, Banki",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://ecotourodisha.com/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://ecotourodisha.com/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Ansupa Eco-Tourism Nature Camp Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hotel_dhabaleswar_yatri_nivas",
+      "service_name": "Dhabaleswar Yatri Nivas & Pilgrim Rest House",
+      "category": "hotel",
+      "district": "Cuttack",
+      "locality": "Dhabaleswar Island",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://cuttack.nic.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://ecotourodisha.com/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Dhabaleswar Yatri Nivas & Pilgrim Rest House Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hotel_lalitgiri_tourist_complex",
+      "service_name": "OTDC Lalitgiri Buddhist Tourist Complex",
+      "category": "hotel",
+      "district": "Cuttack",
+      "locality": "Lalitgiri",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://ecotourodisha.com/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "OTDC Lalitgiri Buddhist Tourist Complex Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hotel_nuapatna_weaver_guest_house",
+      "service_name": "Boyanika Artisan Guest House Nuapatna",
+      "category": "hotel",
+      "district": "Cuttack",
+      "locality": "Nuapatna",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://textiles.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://ecotourodisha.com/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Boyanika Artisan Guest House Nuapatna Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "rest_ansupa_lake_view_dhaba",
+      "service_name": "Ansupa Lakeview Odia Rasoi",
+      "category": "restaurant",
+      "district": "Cuttack",
+      "locality": "Banki-Ansupa Road",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://cuttack.nic.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Ansupa Lakeview Odia Rasoi Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "rest_dhabaleswar_bhojanalaya",
+      "service_name": "Maa Dhabaleswar Temple Bhojanalaya",
+      "category": "restaurant",
+      "district": "Cuttack",
+      "locality": "Athagarh",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://cuttack.nic.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://cuttack.nic.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Maa Dhabaleswar Temple Bhojanalaya Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "rest_lalitgiri_heritage_cafe",
+      "service_name": "Diamond Triangle Heritage Restaurant",
+      "category": "restaurant",
+      "district": "Cuttack",
+      "locality": "Lalitgiri",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://cuttack.nic.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Diamond Triangle Heritage Restaurant Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "fuel_ioc_athagarh",
+      "service_name": "Indian Oil Fuel Station - Athagarh",
+      "category": "fuel",
+      "district": "Cuttack",
+      "locality": "Athagarh",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://www.iocl.com/"
+        },
+        "government": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Indian Oil Fuel Station - Athagarh Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "fuel_hp_banki",
+      "service_name": "HPCL Petrol Pump - Banki",
+      "category": "fuel",
+      "district": "Cuttack",
+      "locality": "Banki",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://www.hindustanpetroleum.com/"
+        },
+        "government": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "HPCL Petrol Pump - Banki Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "fuel_bpcl_balichandrapur",
+      "service_name": "Bharat Petroleum - Balichandrapur",
+      "category": "fuel",
+      "district": "Jajpur",
+      "locality": "Balichandrapur",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://www.bharatpetroleum.in/"
+        },
+        "government": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Bharat Petroleum - Balichandrapur Jajpur"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "transit_cuttack_railway_station",
+      "service_name": "Cuttack Railway Junction (CTC)",
+      "category": "transit",
+      "district": "Cuttack",
+      "locality": "College Square",
+      "image_verification_status": "VERIFIED_IMAGE",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": false,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_verified_image_found",
+          "source_url": "https://eastcoastrail.indianrailways.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://cuttack.nic.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "wikimedia": {
+          "status": "checked_verified_image_found",
+          "query": "Cuttack Railway Junction (CTC) Cuttack"
+        }
+      },
+      "audit_note": "Verified authentic physical location photography with verified Creative Commons licensing.",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Cuttack_Railway_Station.jpg",
+          "wikimedia_file": "File:Cuttack Railway Station.jpg",
+          "source": "Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Cuttack_Railway_Station.jpg",
+          "author": "Aruni Nayak",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "attribution": "Photo by Aruni Nayak via Wikimedia Commons, licensed under CC BY-SA 3.0",
+          "dimensions": [
+            2048,
+            1536
+          ],
+          "quality": "HIGH",
+          "identity_confidence": "HIGH",
+          "usage": "service_card",
+          "type": "primary",
+          "description": "Exterior main entrance facade of Cuttack Railway Junction (CTC) at College Square, Cuttack",
+          "image_verification_status": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "service_id": "transit_badambadi_bus_stand",
+      "service_name": "Netaji Subhash Chandra Bose Bus Terminal (Badambadi)",
+      "category": "transit",
+      "district": "Cuttack",
+      "locality": "Badambadi",
+      "image_verification_status": "VERIFIED_IMAGE",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": false,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_verified_image_found",
+          "source_url": "https://capitalregiontransport.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://cuttack.nic.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "wikimedia": {
+          "status": "checked_verified_image_found",
+          "query": "Netaji Subhash Chandra Bose Bus Terminal (Badambadi) Cuttack"
+        }
+      },
+      "audit_note": "Verified authentic physical location photography with verified Creative Commons licensing.",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Badambadi_bus_stand.JPG",
+          "wikimedia_file": "File:Badambadi bus stand.JPG",
+          "source": "Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Badambadi_bus_stand.JPG",
+          "author": "Kamalakanta777",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "attribution": "Photo by Kamalakanta777 via Wikimedia Commons, licensed under CC BY-SA 3.0",
+          "dimensions": [
+            4000,
+            3000
+          ],
+          "quality": "HIGH",
+          "identity_confidence": "HIGH",
+          "usage": "service_card",
+          "type": "primary",
+          "description": "Passenger bus bays and terminal apron at Badambadi Bus Stand, Cuttack",
+          "image_verification_status": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "service_id": "transit_athagarh_bus_stand",
+      "service_name": "Athagarh Central Bus Stand",
+      "category": "transit",
+      "district": "Cuttack",
+      "locality": "Athagarh",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://osrtc.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://cuttack.nic.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Athagarh Central Bus Stand Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "atm_sbi_athagarh",
+      "service_name": "State Bank of India ATM - Athagarh",
+      "category": "atm",
+      "district": "Cuttack",
+      "locality": "Athagarh",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://bank.sbi/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://slbcodisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "State Bank of India ATM - Athagarh Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "atm_sbi_banki",
+      "service_name": "SBI ATM - Banki Market",
+      "category": "atm",
+      "district": "Cuttack",
+      "locality": "Banki",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://slbcodisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://slbcodisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "SBI ATM - Banki Market Cuttack"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "atm_pnb_balichandrapur",
+      "service_name": "Punjab National Bank ATM - Balichandrapur",
+      "category": "atm",
+      "district": "Jajpur",
+      "locality": "Balichandrapur",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://pnbindia.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://slbcodisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Punjab National Bank ATM - Balichandrapur Jajpur"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_rajnagar_chc",
+      "service_name": "Community Health Centre Rajnagar",
+      "category": "healthcare",
+      "district": "Kendrapara",
+      "locality": "Rajnagar",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://kendrapara.nic.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Community Health Centre Rajnagar Kendrapara"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_rajkanika_chc",
+      "service_name": "Community Health Centre Rajkanika",
+      "category": "healthcare",
+      "district": "Kendrapara",
+      "locality": "Rajkanika",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Community Health Centre Rajkanika Kendrapara"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_aul_chc",
+      "service_name": "Community Health Centre Aul",
+      "category": "healthcare",
+      "district": "Kendrapara",
+      "locality": "Aul",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://kendrapara.nic.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Community Health Centre Aul Kendrapara"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_rajnagar_ps",
+      "service_name": "Rajnagar Police Station",
+      "category": "police",
+      "district": "Kendrapara",
+      "locality": "Rajnagar",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Rajnagar Police Station Kendrapara"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_talchua_coastal_ps",
+      "service_name": "Talchua Coastal Marine Police Station",
+      "category": "police",
+      "district": "Kendrapara",
+      "locality": "Talchua",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Talchua Coastal Marine Police Station Kendrapara"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_jamboo_marine_ps",
+      "service_name": "Jamboo Marine Police Station",
+      "category": "police",
+      "district": "Kendrapara",
+      "locality": "Jamboo",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Jamboo Marine Police Station Kendrapara"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hotel_aranya_nivas_rajnagar",
+      "service_name": "OTDC Aranya Nivas Rajnagar",
+      "category": "hotel",
+      "district": "Kendrapara",
+      "locality": "Rajnagar",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://panthanivas.com/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://ecotourodisha.com/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "OTDC Aranya Nivas Rajnagar Kendrapara"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "fuel_ioc_rajnagar",
+      "service_name": "Indian Oil Petrol Pump - Rajnagar",
+      "category": "fuel",
+      "district": "Kendrapara",
+      "locality": "Rajnagar",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://www.iocl.com/"
+        },
+        "government": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Indian Oil Petrol Pump - Rajnagar Kendrapara"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "atm_sbi_rajnagar",
+      "service_name": "State Bank of India ATM - Rajnagar",
+      "category": "atm",
+      "district": "Kendrapara",
+      "locality": "Rajnagar",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://slbcodisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://slbcodisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "State Bank of India ATM - Rajnagar Kendrapara"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_bhadrak_dhh",
+      "service_name": "District Headquarters Hospital Bhadrak",
+      "category": "healthcare",
+      "district": "Bhadrak",
+      "locality": "Bhadrak Town",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://bhadrak.nic.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "District Headquarters Hospital Bhadrak Bhadrak"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_basudevpur_chc",
+      "service_name": "Community Health Centre Basudevpur",
+      "category": "healthcare",
+      "district": "Bhadrak",
+      "locality": "Basudevpur",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Community Health Centre Basudevpur Bhadrak"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_basudevpur_ps",
+      "service_name": "Basudevpur Police Station",
+      "category": "police",
+      "district": "Bhadrak",
+      "locality": "Basudevpur",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Basudevpur Police Station Bhadrak"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_bhadrak_town_ps",
+      "service_name": "Bhadrak Town Police Station",
+      "category": "police",
+      "district": "Bhadrak",
+      "locality": "Bhadrak Town",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Bhadrak Town Police Station Bhadrak"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hotel_bhadrak_tourist_lodge",
+      "service_name": "OTDC Approved Tourist Lodge Bhadrak",
+      "category": "hotel",
+      "district": "Bhadrak",
+      "locality": "Charampa",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://bhadrak.nic.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://ecotourodisha.com/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "OTDC Approved Tourist Lodge Bhadrak Bhadrak"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "transit_bhadrak_railway_station",
+      "service_name": "Bhadrak Railway Junction (BHC)",
+      "category": "transit",
+      "district": "Bhadrak",
+      "locality": "Charampa",
+      "image_verification_status": "VERIFIED_IMAGE",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": false,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_verified_image_found",
+          "source_url": "https://ser.indianrailways.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://bhadrak.nic.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "wikimedia": {
+          "status": "checked_verified_image_found",
+          "query": "Bhadrak Railway Junction (BHC) Bhadrak"
+        }
+      },
+      "audit_note": "Verified authentic physical location photography with verified Creative Commons licensing.",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Bhadrak_railway_station_at_Bhadrak%2C_Odisha_13.jpg",
+          "wikimedia_file": "File:Bhadrak railway station at Bhadrak, Odisha 13.jpg",
+          "source": "Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Bhadrak_railway_station_at_Bhadrak,_Odisha_13.jpg",
+          "author": "Pinakpani",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY 4.0",
+          "dimensions": [
+            2870,
+            1836
+          ],
+          "quality": "HIGH",
+          "identity_confidence": "HIGH",
+          "usage": "service_card",
+          "type": "primary",
+          "description": "Station building and passenger entrance of Bhadrak Railway Junction (BHC) at Charampa",
+          "image_verification_status": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "service_id": "atm_sbi_bhadrak_town",
+      "service_name": "SBI ATM - Main Branch Bhadrak",
+      "category": "atm",
+      "district": "Bhadrak",
+      "locality": "Kacheri Bazar",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://bank.sbi/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://slbcodisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "SBI ATM - Main Branch Bhadrak Bhadrak"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_dhenkanal_dhh",
+      "service_name": "District Headquarters Hospital Dhenkanal",
+      "category": "healthcare",
+      "district": "Dhenkanal",
+      "locality": "Dhenkanal Town",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://dhenkanal.nic.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "District Headquarters Hospital Dhenkanal Dhenkanal"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_kamakhyanagar_sdh",
+      "service_name": "Sub-Divisional Hospital Kamakhyanagar",
+      "category": "healthcare",
+      "district": "Dhenkanal",
+      "locality": "Kamakhyanagar",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Sub-Divisional Hospital Kamakhyanagar Dhenkanal"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_parjang_ps",
+      "service_name": "Parjang Police Station",
+      "category": "police",
+      "district": "Dhenkanal",
+      "locality": "Parjang",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Parjang Police Station Dhenkanal"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hotel_otdc_panthanivas_dhenkanal",
+      "service_name": "OTDC Panthanivas Dhenkanal",
+      "category": "hotel",
+      "district": "Dhenkanal",
+      "locality": "Dhenkanal Town",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://panthanivas.com/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://ecotourodisha.com/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "OTDC Panthanivas Dhenkanal Dhenkanal"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_chandikhole_chc",
+      "service_name": "Community Health Centre Chandikhole",
+      "category": "healthcare",
+      "district": "Jajpur",
+      "locality": "Chandikhole",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://jajpur.nic.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Community Health Centre Chandikhole Jajpur"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_chandikhole_outpost",
+      "service_name": "Chandikhole Police Outpost",
+      "category": "police",
+      "district": "Jajpur",
+      "locality": "Chandikhole",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Chandikhole Police Outpost Jajpur"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hotel_otdc_panthanivas_chandikhole",
+      "service_name": "OTDC Panthanivas Chandikhole",
+      "category": "hotel",
+      "district": "Jajpur",
+      "locality": "Chandikhole",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://panthanivas.com/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://ecotourodisha.com/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "OTDC Panthanivas Chandikhole Jajpur"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_jagatsinghpur_dhh",
+      "service_name": "District Headquarters Hospital Jagatsinghpur",
+      "category": "healthcare",
+      "district": "Jagatsinghpur",
+      "locality": "Jagatsinghpur Town",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://jagatsinghpur.nic.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "District Headquarters Hospital Jagatsinghpur Jagatsinghpur"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_kujang_chc",
+      "service_name": "Community Health Centre Kujang",
+      "category": "healthcare",
+      "district": "Jagatsinghpur",
+      "locality": "Kujang",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Community Health Centre Kujang Jagatsinghpur"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_kujang_ps",
+      "service_name": "Kujang Police Station",
+      "category": "police",
+      "district": "Jagatsinghpur",
+      "locality": "Kujang",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Kujang Police Station Jagatsinghpur"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_jagatsinghpur_town_ps",
+      "service_name": "Jagatsinghpur Town Police Station",
+      "category": "police",
+      "district": "Jagatsinghpur",
+      "locality": "Jagatsinghpur Town",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Jagatsinghpur Town Police Station Jagatsinghpur"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_athmallik_sdh",
+      "service_name": "Sub-Divisional Hospital Athmallik",
+      "category": "healthcare",
+      "district": "Angul",
+      "locality": "Athmallik",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://angul.nic.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Sub-Divisional Hospital Athmallik Angul"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hosp_talcher_sdh",
+      "service_name": "Sub-Divisional Hospital Talcher",
+      "category": "healthcare",
+      "district": "Angul",
+      "locality": "Talcher",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://health.odisha.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Sub-Divisional Hospital Talcher Angul"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_athmallik_ps",
+      "service_name": "Athmallik Police Station",
+      "category": "police",
+      "district": "Angul",
+      "locality": "Athmallik",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Athmallik Police Station Angul"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "police_talcher_town_ps",
+      "service_name": "Talcher Town Police Station",
+      "category": "police",
+      "district": "Angul",
+      "locality": "Talcher",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishapolice.gov.in/"
+        },
+        "tourism": {
+          "status": "not_applicable",
+          "source_url": null
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "Talcher Town Police Station Angul"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    },
+    {
+      "service_id": "hotel_otdc_panthanivas_angul",
+      "service_name": "OTDC Panthanivas Angul",
+      "category": "hotel",
+      "district": "Angul",
+      "locality": "Angul Town",
+      "image_verification_status": "NO_REUSABLE_IMAGE_FOUND",
+      "last_checked_at": "2026-09-01",
+      "field_photography_recommended": true,
+      "research_attempts": {
+        "official_operator": {
+          "status": "checked_no_image",
+          "source_url": "https://panthanivas.com/"
+        },
+        "government": {
+          "status": "checked_no_image",
+          "source_url": "https://odishatourism.gov.in/"
+        },
+        "tourism": {
+          "status": "checked_no_image",
+          "source_url": "https://ecotourodisha.com/"
+        },
+        "wikimedia": {
+          "status": "checked_no_image",
+          "query": "OTDC Panthanivas Angul Angul"
+        }
+      },
+      "audit_note": "Checked across official operator portals, district administration registries, and open media repositories; no reusable open-licensed photograph was found in the completed research sweep. Field photography is recommended where appropriate for service identification and user-facing presentation.",
+      "images": []
+    }
+  ]
+}

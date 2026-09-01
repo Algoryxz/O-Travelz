@@ -1,0 +1,222 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://o-travelz/schemas/round2/service.schema.json",
+  "title": "O-TRAVELZ Traveller Essential & Local Service Record",
+  "description": "Schema for support services (healthcare, police, hotels, restaurants, fuel, transit, ATMs) near tourist destinations. Support services are strictly separated from tourist destinations.",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "category",
+    "subcategory",
+    "district",
+    "lat",
+    "lon",
+    "address",
+    "source",
+    "source_type",
+    "verification_status",
+    "data_type",
+    "last_verified"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(hosp|police|hotel|rest|fuel|transit|atm|safety)_[a-z0-9_]+$",
+      "description": "Unique identifier with category prefix. E.g. hosp_scb_cuttack, police_kujang, fuel_hp_banki"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 200,
+      "description": "Official name of the facility or service point."
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "healthcare",
+        "police",
+        "hotel",
+        "restaurant",
+        "fuel",
+        "transit",
+        "atm",
+        "safety"
+      ],
+      "description": "Canonical service category."
+    },
+    "subcategory": {
+      "type": "string",
+      "enum": [
+        "hospital",
+        "chc",
+        "phc",
+        "emergency_facility",
+        "clinic",
+        "police_station",
+        "police_outpost",
+        "tourist_police",
+        "coastal_police",
+        "hotel_otdc_panthanivas",
+        "hotel_resort",
+        "hotel_heritage",
+        "hotel_budget",
+        "hotel_guest_house",
+        "homestay",
+        "eco_retreat",
+        "restaurant",
+        "dhaba",
+        "vegetarian",
+        "coastal_cuisine",
+        "cafe",
+        "heritage_dining",
+        "petrol_pump",
+        "fuel_station",
+        "cng_station",
+        "mo_bus_stop",
+        "bus_stand",
+        "railway_station",
+        "ferry_ghat",
+        "bank_atm",
+        "cash_point",
+        "sbi_atm",
+        "postal_payment",
+        "emergency_contact",
+        "disaster_helpline",
+        "forest_range_office"
+      ],
+      "description": "Specific sub-classification."
+    },
+    "district": {
+      "type": "string",
+      "enum": [
+        "Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Boudh",
+        "Cuttack", "Deogarh", "Dhenkanal", "Gajapati", "Ganjam",
+        "Jagatsinghpur", "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal",
+        "Kendrapara", "Keonjhar", "Khordha", "Koraput", "Malkangiri",
+        "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Puri",
+        "Rayagada", "Sambalpur", "Subarnapur", "Sundargarh"
+      ],
+      "description": "Official Odisha district where this service is located."
+    },
+    "locality": {
+      "type": "string",
+      "default": "",
+      "description": "Block, town, or neighborhood name."
+    },
+    "lat": {
+      "type": "number",
+      "minimum": 17.8,
+      "maximum": 22.6,
+      "description": "Verified latitude inside Odisha bounding box."
+    },
+    "lon": {
+      "type": "number",
+      "minimum": 81.4,
+      "maximum": 87.5,
+      "description": "Verified longitude inside Odisha bounding box."
+    },
+    "address": {
+      "type": "string",
+      "description": "Physical postal or landmark address."
+    },
+    "phone": {
+      "type": ["string", "null"],
+      "default": null,
+      "description": "Official landline or contact mobile number."
+    },
+    "emergency_phone": {
+      "type": ["string", "null"],
+      "default": null,
+      "description": "Direct emergency or ambulance helpline number."
+    },
+    "is_24x7": {
+      "type": "boolean",
+      "default": false,
+      "description": "True only if officially verified as round-the-clock facility."
+    },
+    "opening_hours": {
+      "type": ["string", "null"],
+      "default": null,
+      "description": "Operating hours string (e.g. '08:00 - 20:00') or null if unknown."
+    },
+    "amenities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Verified facilities (e.g. ['ICU', 'Oxygen', 'Pharmacy', 'WiFi', 'Parking'])."
+    },
+    "fuel_types": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Fuel options (e.g. ['Petrol', 'Diesel', 'EV_Charging', 'CNG'])."
+    },
+    "routes_served": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Mo Bus route numbers or transit lines connected to this stop."
+    },
+    "bank_name": {
+      "type": ["string", "null"],
+      "default": null,
+      "description": "Bank operating the ATM or branch (e.g. 'State Bank of India', 'HDFC Bank')."
+    },
+    "cuisine": {
+      "type": ["string", "null"],
+      "default": null,
+      "description": "Food style for dining establishments (e.g. 'Odia Traditional', 'Seafood', 'Pure Vegetarian')."
+    },
+    "price_tier": {
+      "type": ["string", "null"],
+      "enum": ["budget", "moderate", "premium", null],
+      "default": null,
+      "description": "Price bracket for hotels or restaurants."
+    },
+    "source": {
+      "type": "string",
+      "description": "Official source entity or directory name."
+    },
+    "source_url": {
+      "type": ["string", "null"],
+      "default": null,
+      "description": "Verification URL."
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "government",
+        "health_department",
+        "police_department",
+        "tourism_department",
+        "transport_authority",
+        "osm",
+        "official_registry"
+      ],
+      "description": "Type of authoritative source."
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": ["verified", "cross_checked", "pending"],
+      "default": "verified",
+      "description": "Quality assurance verification status."
+    },
+    "data_type": {
+      "type": "string",
+      "enum": ["static", "dynamic"],
+      "default": "static",
+      "description": "'static' for immutable locations/facilities; 'dynamic' for volatile operational status."
+    },
+    "last_verified": {
+      "type": "string",
+      "description": "ISO 8601 date string of last verification."
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "default": null,
+      "description": "Operational notes, landmarks, or limitations."
+    }
+  }
+}

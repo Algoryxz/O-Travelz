@@ -387,12 +387,14 @@ def run_coordinate_resolution(
         # TIER 3: External Geospatial Resolution (OSM Nominatim)
         # -------------------------------------------------------------
         if s["coordinate_status"] == "UNRESOLVED" and enable_external:
-            if external_lookups_done < max_external_lookups:
-                city_context = s.get("city") or "Bhubaneswar"
-                query = f"{s['canonical_name']}, {city_context}, Odisha, India"
-                
+            city_context = s.get("city") or "Bhubaneswar"
+            query = f"{s['canonical_name']}, {city_context}, Odisha, India"
+            cached = cache.get(query)
+            
+            if cached is not None or external_lookups_done < max_external_lookups:
+                if cached is None:
+                    external_lookups_done += 1
                 res = query_nominatim(query, cache, delay=0.8)
-                external_lookups_done += 1
 
                 if res and res.get("lat") and res.get("lon"):
                     r_lat = res["lat"]

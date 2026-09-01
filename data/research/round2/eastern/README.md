@@ -61,3 +61,16 @@ Rudra owns research and staging for the following 7 districts:
 4. **District Administration Portals** (`cuttack.nic.in`, `kendrapara.nic.in`, etc.)
 5. **OpenStreetMap** (for geospatial verification)
 6. **Wikimedia Commons** (for reusable images with CC licenses)
+
+## 6. Image Catalog, Audit & Frontend Integration
+
+All 21 researched candidate destinations across the 7 Eastern Odisha districts were audited for geographic authenticity, license validity, and resolution standards:
+
+- **Audit Record**: [`data/research/round2/eastern/eastern_image_audit.json`](eastern_image_audit.json)
+- **Production Catalog**: [`data/research/round2/eastern/eastern_image_catalog.json`](eastern_image_catalog.json)
+- **Audit & Fix Script**: [`scripts/perform_full_audit.py`](../../../scripts/perform_full_audit.py)
+- **Frontend Overrides**: [`frontend/src/utils/imageRegistry.ts`](../../../frontend/src/utils/imageRegistry.ts) (`PLACE_IMAGE_OVERRIDES`)
+- **Frontend Manifest**: [`frontend/src/utils/imageService.ts`](../../../frontend/src/utils/imageService.ts) (`PLACE_IMAGE_MANIFEST`)
+- **Audit Status**:
+  - **19 Destinations Verified**: 100% authentic photography from Wikimedia Commons with verified open licenses (CC BY / CC BY-SA / Public Domain).
+  - **2 Destinations Needs Image**: Garh Kujanga (`round2_east_013`) and Alaka Ashram (`round2_east_014`) had unverified/unrelated images removed and are truthfully marked `NEEDS_VERIFIED_IMAGE` (with high-contrast category SVG fallback per project truthfulness rules).

@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "O-Travelz Canonical Odisha Transit Network",
-    "version": "2.0.0",
-    "compiled_at": "2026-09-01T05:01:02.457950+00:00",
+    "version": "2.1.0",
+    "compiled_at": "2026-09-01T11:55:40.379954+00:00",
     "operator": "CRUT (Capital Region Urban Transport) & Ama Bus",
     "effective_date": "2026-08-21",
     "zero_coordinate_fabrication": true
@@ -10,7 +10,7 @@
   "stats": {
     "total_routes": 154,
     "logical_canonical_stops": 1430,
-    "routable_geographic_stops": 103,
+    "routable_geographic_stops": 112,
     "schedule_records": 302,
     "total_departure_times": 5549
   },
@@ -3534,17 +3534,17 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.3244626,
+      "lon": 84.8577109,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/229076040",
       "served_routes": [
         "301",
         "303"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "2",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_amit_hospital",
@@ -3558,17 +3558,17 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.3148596,
+      "lon": 84.7931684,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/7081842596",
       "served_routes": [
         "300",
         "306"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "1",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_andhapasara_road",
@@ -3651,14 +3651,14 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.3010735,
+      "lon": 84.8156305,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/343271929",
       "served_routes": [],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "6",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_ankuli_bypass",
@@ -3845,17 +3845,17 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.3054537,
+      "lon": 84.8014384,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/287501004",
       "served_routes": [
         "302",
         "304"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "4",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_badi_chhaka",
@@ -4156,17 +4156,17 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.3097866,
+      "lon": 84.8045268,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/9749000732",
       "served_routes": [
         "302",
         "304"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "3",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_berhampur_radio_station",
@@ -4282,16 +4282,16 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.2992205,
+      "lon": 84.8815861,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:relation/15904852",
       "served_routes": [
         "303"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "5",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_bhaba_nagar_square",
@@ -4633,16 +4633,16 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.5315561,
+      "lon": 86.6532083,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/1541207580",
       "served_routes": [
         "306"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "10",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_central_school_berhampur",
@@ -4767,16 +4767,16 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.3455486,
+      "lon": 84.9769999,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/6419389574",
       "served_routes": [
         "305"
       ],
       "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
       "source_page": "2",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_chatrapur_bus_stand",
@@ -4950,14 +4950,14 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.3127389,
+      "lon": 84.7934591,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/7081842683",
       "served_routes": [],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "11",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_collector_residency",

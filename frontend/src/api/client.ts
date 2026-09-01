@@ -628,6 +628,71 @@ export class ApiClient {
     );
   }
 
+  async getNearbyServices(params: {
+    lat: number;
+    lon: number;
+    category?: string;
+    subcategory?: string;
+    radius_km?: number;
+    limit?: number;
+  }): Promise<{
+    query_lat: number;
+    query_lon: number;
+    category?: string;
+    requested_radius_km: number;
+    active_radius_km: number;
+    is_expanded: boolean;
+    count: number;
+    distance_semantics: string;
+    services: any[];
+  }> {
+    const q = new URLSearchParams({
+      lat: String(params.lat),
+      lon: String(params.lon),
+    });
+    if (params.category) q.set("category", params.category);
+    if (params.subcategory) q.set("subcategory", params.subcategory);
+    if (params.radius_km != null) q.set("radius_km", String(params.radius_km));
+    if (params.limit != null) q.set("limit", String(params.limit));
+
+    return this.request(
+      `/api/v1/services/nearby?${q.toString()}`,
+      { method: "GET" },
+      (data): data is any => isPlainObject(data) && Array.isArray(data.services)
+    );
+  }
+
+  async getDestinationSafety(destinationId: string): Promise<import("../types/services").DestinationSafetyAdvisory> {
+    return this.request(
+      `/api/v1/services/safety/${encodeURIComponent(destinationId)}`,
+      { method: "GET" },
+      (data): data is import("../types/services").DestinationSafetyAdvisory =>
+        isPlainObject(data) && typeof data.destination_id === "string"
+    );
+  }
+
+  async getDestinationEssentials(params: {
+    lat: number;
+    lon: number;
+    destination_id?: string;
+    destination_name?: string;
+    radius_km?: number;
+  }): Promise<any> {
+    const q = new URLSearchParams({
+      lat: String(params.lat),
+      lon: String(params.lon),
+    });
+    if (params.destination_id) q.set("destination_id", params.destination_id);
+    if (params.destination_name) q.set("destination_name", params.destination_name);
+    if (params.radius_km != null) q.set("radius_km", String(params.radius_km));
+
+    return this.request(
+      `/api/v1/services/for-destination?${q.toString()}`,
+      { method: "GET" },
+      (data): data is any => isPlainObject(data) && Array.isArray(data.healthcare)
+    );
+  }
+
   async getCurrentUser(): Promise<import("../types/api").UserResponse | null> {
     try {
       const res = await this.getAuthMe();

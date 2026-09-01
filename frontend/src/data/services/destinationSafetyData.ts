@@ -1,0 +1,935 @@
+// Auto-generated verified destination safety advisories from data/services/destination_safety_advisories.json
+import type { DestinationSafetyAdvisory } from "../../types/services";
+
+export const DESTINATION_SAFETY_ADVISORIES: DestinationSafetyAdvisory[] = [
+  {
+    "destination_id": "round2_east_001",
+    "destination_name": "Gahirmatha Marine Sanctuary",
+    "district": "Kendrapara",
+    "nearest_police_station_id": "police_talchua_coastal_ps",
+    "nearest_police_station_name": "Talchua Coastal Marine Police Station",
+    "nearest_hospital_id": "hosp_rajnagar_chc",
+    "nearest_hospital_name": "Community Health Centre Rajnagar",
+    "emergency_contacts": [
+      {
+        "label": "All-in-One Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance Service",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Rajnagar Forest Division (Wildlife)",
+        "number": "06729-272464",
+        "service_type": "forest_department",
+        "is_24x7": true
+      },
+      {
+        "label": "Coastal Police Emergency",
+        "number": "06729-273233",
+        "service_type": "coastal_security",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "wildlife_caution",
+        "title": "Turtle Nesting Conservation Zone",
+        "guidance": "Mechanized fishing vessels and night illumination are strictly regulated from Nov to May to safeguard mass Olive Ridley turtle Arribada nesting.",
+        "severity": "warning"
+      },
+      {
+        "category": "water_safety",
+        "title": "Tidal Estuary Navigation",
+        "guidance": "High tidal currents occur near river mouths (Dhamra/Mahanadi). Life jackets are mandatory on all authorized forest department patrol boats.",
+        "severity": "caution"
+      }
+    ],
+    "network_connectivity": "patchy_rural",
+    "best_visiting_hours": "07:00 - 16:30 (Daytime boat permits only)",
+    "source": "Odisha Forest Dept (Rajnagar Mangrove Wildlife Division) & Coastal Security",
+    "source_url": "https://forest.odisha.gov.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_002",
+    "destination_name": "Hukitola Monument",
+    "district": "Kendrapara",
+    "nearest_police_station_id": "police_jamboo_marine_ps",
+    "nearest_police_station_name": "Jamboo Marine Police Station",
+    "nearest_hospital_id": "hosp_rajnagar_chc",
+    "nearest_hospital_name": "Community Health Centre Rajnagar",
+    "emergency_contacts": [
+      {
+        "label": "All-in-One Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Jamboo Marine Police",
+        "number": "06729-276233",
+        "service_type": "police",
+        "is_24x7": true
+      },
+      {
+        "label": "Kendrapara District Control Room",
+        "number": "06727-232803",
+        "service_type": "disaster_control",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "water_safety",
+        "title": "Island Access via Tidal Waterways",
+        "guidance": "Access is strictly by registered motor launch from Gupti/Jamboo ghats. Trips must align with daylight high-tide schedules.",
+        "severity": "caution"
+      },
+      {
+        "category": "monument_protection",
+        "title": "Historic Heritage Precautions",
+        "guidance": "Carry sufficient drinking water as the island is uninhabited; follow designated stone walkways inside the 1867 colonial storehouse.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "low_remote",
+    "best_visiting_hours": "08:00 - 15:30 (Depart island before dusk)",
+    "source": "District Administration Kendrapara & Tourism Dept",
+    "source_url": "https://kendrapara.nic.in/tourist-place/hukitola-island/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_003",
+    "destination_name": "Kanika Palace",
+    "district": "Kendrapara",
+    "nearest_police_station_id": "police_rajnagar_ps",
+    "nearest_police_station_name": "Rajnagar Police Station",
+    "nearest_hospital_id": "hosp_rajkanika_chc",
+    "nearest_hospital_name": "Community Health Centre Rajkanika",
+    "emergency_contacts": [
+      {
+        "label": "Emergency Helpline",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Rajkanika CHC",
+        "number": "06729-278225",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "monument_protection",
+        "title": "Heritage Museum Etiquette",
+        "guidance": "Private photography may be restricted inside the royal heirloom museum gallery; follow palace estate rules.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "09:00 - 17:00",
+    "source": "Kendrapara District Tourism & Rajkanika Administration",
+    "source_url": "https://kendrapara.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_004",
+    "destination_name": "Aul Palace",
+    "district": "Kendrapara",
+    "nearest_police_station_id": "police_rajnagar_ps",
+    "nearest_police_station_name": "Rajnagar Police Station",
+    "nearest_hospital_id": "hosp_aul_chc",
+    "nearest_hospital_name": "Community Health Centre Aul",
+    "emergency_contacts": [
+      {
+        "label": "Emergency Helpline",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Aul CHC Hospital",
+        "number": "06729-275220",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "water_safety",
+        "title": "Kharasrota River Embankment Caution",
+        "guidance": "Maintain safe distance from unfenced riverbanks during monsoon spate.",
+        "severity": "caution"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "09:00 - 17:30",
+    "source": "District Administration Kendrapara",
+    "source_url": "https://kendrapara.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_005",
+    "destination_name": "Rakta Tirtha Eram",
+    "district": "Bhadrak",
+    "nearest_police_station_id": "police_basudevpur_ps",
+    "nearest_police_station_name": "Basudevpur Police Station",
+    "nearest_hospital_id": "hosp_basudevpur_chc",
+    "nearest_hospital_name": "Community Health Centre Basudevpur",
+    "emergency_contacts": [
+      {
+        "label": "Emergency Helpline",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Basudevpur Police Station",
+        "number": "06784-271233",
+        "service_type": "police",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "monument_protection",
+        "title": "Martyr Memorial Sanctity",
+        "guidance": "Respect memorial grounds and saheed smrutistambha cenotaphs.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "08:00 - 18:00",
+    "source": "District Administration Bhadrak",
+    "source_url": "https://bhadrak.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_006",
+    "destination_name": "Biranchinarayan Sun Temple, Palia",
+    "district": "Bhadrak",
+    "nearest_police_station_id": "police_bhadrak_town_ps",
+    "nearest_police_station_name": "Bhadrak Town Police Station",
+    "nearest_hospital_id": "hosp_bhadrak_dhh",
+    "nearest_hospital_name": "District Headquarters Hospital Bhadrak",
+    "emergency_contacts": [
+      {
+        "label": "Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "temple_etiquette",
+        "title": "Ancient Wooden Craft Protection",
+        "guidance": "Do not touch or lean on 13th-century carved wooden ceilings and Surya sculptures.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "06:00 - 18:00",
+    "source": "Archaeological Survey / Bhadrak NIC",
+    "source_url": "https://bhadrak.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_007",
+    "destination_name": "Maa Bhadrakali Temple",
+    "district": "Bhadrak",
+    "nearest_police_station_id": "police_bhadrak_town_ps",
+    "nearest_police_station_name": "Bhadrak Town Police Station",
+    "nearest_hospital_id": "hosp_bhadrak_dhh",
+    "nearest_hospital_name": "District Headquarters Hospital Bhadrak",
+    "emergency_contacts": [
+      {
+        "label": "All Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Bhadrak DHH Hospital",
+        "number": "06784-251224",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "temple_etiquette",
+        "title": "Festival Crowd Management",
+        "guidance": "High footfall during Navaratri and Kali Puja; utilize designated queue barricades along Salandi riverfront.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "05:30 - 21:00",
+    "source": "Bhadrak District Administration & Temple Trust",
+    "source_url": "https://bhadrak.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_008",
+    "destination_name": "Saranga Anantasayana Vishnu",
+    "district": "Dhenkanal",
+    "nearest_police_station_id": "police_parjang_ps",
+    "nearest_police_station_name": "Parjang Police Station",
+    "nearest_hospital_id": "hosp_kamakhyanagar_sdh",
+    "nearest_hospital_name": "Sub-Divisional Hospital Kamakhyanagar",
+    "emergency_contacts": [
+      {
+        "label": "Emergency Helpline",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Parjang Police",
+        "number": "06768-261233",
+        "service_type": "police",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "water_safety",
+        "title": "Brahmani Riverbed Caution",
+        "guidance": "The rock-cut sculpture sits directly on the open riverbed. Avoid walking onto submerged stones during monsoon high discharge.",
+        "severity": "warning"
+      }
+    ],
+    "network_connectivity": "moderate_cellular",
+    "best_visiting_hours": "07:00 - 17:30 (Daylight recommended)",
+    "source": "Archaeological Survey of India & Dhenkanal Administration",
+    "source_url": "https://dhenkanal.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_009",
+    "destination_name": "Dandadhar Dam & Reservoir",
+    "district": "Dhenkanal",
+    "nearest_police_station_id": "police_parjang_ps",
+    "nearest_police_station_name": "Parjang Police Station",
+    "nearest_hospital_id": "hosp_kamakhyanagar_sdh",
+    "nearest_hospital_name": "Sub-Divisional Hospital Kamakhyanagar",
+    "emergency_contacts": [
+      {
+        "label": "Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Water Resources Control Room",
+        "number": "06762-220199",
+        "service_type": "disaster_control",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "water_safety",
+        "title": "Deep Water Dam Caution",
+        "guidance": "Swimming in the reservoir is strictly prohibited due to steep underwater gradients and spillway currents.",
+        "severity": "warning"
+      }
+    ],
+    "network_connectivity": "moderate_cellular",
+    "best_visiting_hours": "08:00 - 17:00",
+    "source": "Department of Water Resources Odisha",
+    "source_url": "https://dowrodisha.gov.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_010",
+    "destination_name": "Sadeibereni Dokra Craft Village",
+    "district": "Dhenkanal",
+    "nearest_police_station_id": "police_parjang_ps",
+    "nearest_police_station_name": "Dhenkanal Sadar Police Station",
+    "nearest_hospital_id": "hosp_dhenkanal_dhh",
+    "nearest_hospital_name": "District Headquarters Hospital Dhenkanal",
+    "emergency_contacts": [
+      {
+        "label": "Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Dhenkanal DHH Hospital",
+        "number": "06762-226224",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "general_safety",
+        "title": "Artisan Village Etiquette",
+        "guidance": "Interact respectfully with Dharua tribal craftspeople; purchase authentic certified GI Dokra crafts directly from artisan households.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "09:00 - 17:00",
+    "source": "Directorate of Handicrafts Odisha & Dhenkanal NIC",
+    "source_url": "https://dhenkanal.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_011",
+    "destination_name": "Chhatia Bata",
+    "district": "Jajpur",
+    "nearest_police_station_id": "police_chandikhole_outpost",
+    "nearest_police_station_name": "Chandikhole Police Outpost",
+    "nearest_hospital_id": "hosp_barchana_chc",
+    "nearest_hospital_name": "Community Health Centre Barchana",
+    "emergency_contacts": [
+      {
+        "label": "Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Barchana CHC",
+        "number": "06725-271223",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "temple_etiquette",
+        "title": "Pilgrim Guidelines",
+        "guidance": "Remove footwear before outer boundary gate; follow orderly queues during Thursday and Sankranti festival days.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "06:00 - 20:30",
+    "source": "Jajpur District Administration",
+    "source_url": "https://jajpur.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_012",
+    "destination_name": "Mahavinayak Temple, Chandikhole",
+    "district": "Jajpur",
+    "nearest_police_station_id": "police_chandikhole_outpost",
+    "nearest_police_station_name": "Chandikhole Police Outpost",
+    "nearest_hospital_id": "hosp_chandikhole_chc",
+    "nearest_hospital_name": "Community Health Centre Chandikhole",
+    "emergency_contacts": [
+      {
+        "label": "All Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Chandikhole CHC",
+        "number": "06725-241224",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "terrain_access",
+        "title": "Barunei Hill Foothills Steps",
+        "guidance": "Stone steps leading to perennial spring stream can be slippery during rains; wear footwear with good grip.",
+        "severity": "caution"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "05:30 - 20:00",
+    "source": "Odisha Tourism & Jajpur Administration",
+    "source_url": "https://jajpur.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_013",
+    "destination_name": "Garh Kujanga",
+    "district": "Jagatsinghpur",
+    "nearest_police_station_id": "police_kujang_ps",
+    "nearest_police_station_name": "Kujang Police Station",
+    "nearest_hospital_id": "hosp_kujang_chc",
+    "nearest_hospital_name": "Community Health Centre Kujang",
+    "emergency_contacts": [
+      {
+        "label": "Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Kujang CHC",
+        "number": "06722-244224",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "terrain_access",
+        "title": "Coastal Fort Access",
+        "guidance": "Rural access road from Kujang town; check local monsoon weather advisories prior to travel.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "06:00 - 18:30",
+    "source": "Jagatsinghpur District Administration",
+    "source_url": "https://jagatsinghpur.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_014",
+    "destination_name": "Alaka Ashram",
+    "district": "Jagatsinghpur",
+    "nearest_police_station_id": "police_jagatsinghpur_town_ps",
+    "nearest_police_station_name": "Jagatsinghpur Town Police Station",
+    "nearest_hospital_id": "hosp_jagatsinghpur_dhh",
+    "nearest_hospital_name": "District Headquarters Hospital Jagatsinghpur",
+    "emergency_contacts": [
+      {
+        "label": "Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Jagatsinghpur DHH",
+        "number": "06724-220224",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "monument_protection",
+        "title": "Historic Freedom Site Sanctity",
+        "guidance": "Preserve the peaceful ashram environment established during the 1921 Non-Cooperation Movement.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "08:00 - 17:30",
+    "source": "Jagatsinghpur District Administration",
+    "source_url": "https://jagatsinghpur.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_015",
+    "destination_name": "Deulajhari Hot Springs",
+    "district": "Angul",
+    "nearest_police_station_id": "police_athmallik_ps",
+    "nearest_police_station_name": "Athmallik Police Station",
+    "nearest_hospital_id": "hosp_athmallik_sdh",
+    "nearest_hospital_name": "Sub-Divisional Hospital Athmallik",
+    "emergency_contacts": [
+      {
+        "label": "All Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Athmallik SDH Hospital",
+        "number": "06763-220224",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "water_safety",
+        "title": "Hot Sulphur Spring Temperature Warning",
+        "guidance": "Thermal spring waters in central kunda reservoirs range from 43°C to 65°C. Only bathe in designated cooling outlets.",
+        "severity": "warning"
+      }
+    ],
+    "network_connectivity": "moderate_cellular",
+    "best_visiting_hours": "06:00 - 18:00",
+    "source": "District Administration Angul",
+    "source_url": "https://angul.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_016",
+    "destination_name": "Talcher Palace",
+    "district": "Angul",
+    "nearest_police_station_id": "police_talcher_town_ps",
+    "nearest_police_station_name": "Talcher Town Police Station",
+    "nearest_hospital_id": "hosp_talcher_sdh",
+    "nearest_hospital_name": "Sub-Divisional Hospital Talcher",
+    "emergency_contacts": [
+      {
+        "label": "Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Talcher SDH",
+        "number": "06760-240224",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "monument_protection",
+        "title": "Rampart & Embankment Caution",
+        "guidance": "Historic fort walls sit high above Brahmani river bend; maintain caution near historic rampart edges.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "09:00 - 17:00",
+    "source": "Angul District Administration & Tourism Dept",
+    "source_url": "https://angul.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_017",
+    "destination_name": "Lalitgiri Buddhist Complex",
+    "district": "Cuttack",
+    "nearest_police_station_id": "police_balichandrapur_ps",
+    "nearest_police_station_name": "Balichandrapur Police Station",
+    "nearest_hospital_id": "hosp_barchana_chc",
+    "nearest_hospital_name": "Community Health Centre Barchana",
+    "emergency_contacts": [
+      {
+        "label": "All Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "ASI Site Museum Office",
+        "number": "06725-244111",
+        "service_type": "tourist_helpline",
+        "is_24x7": false
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "monument_protection",
+        "title": "Archaeological Heritage Protection",
+        "guidance": "Lalitgiri is a protected 3rd-century BCE ASI monument. Do not step on ancient brick apsidal chaitya walls or relic stupa foundations.",
+        "severity": "warning"
+      },
+      {
+        "category": "terrain_access",
+        "title": "Hilltop Maha Stupa Ascent",
+        "guidance": "Use paved stone stairways; carry water and sun protection during midday summer visits.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "07:00 - 17:30",
+    "source": "Archaeological Survey of India (Bhubaneswar Circle)",
+    "source_url": "https://asi.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_018",
+    "destination_name": "Dhabaleswar Island Temple",
+    "district": "Cuttack",
+    "nearest_police_station_id": "police_dhabaleswar_outpost",
+    "nearest_police_station_name": "Dhabaleswar Police Outpost",
+    "nearest_hospital_id": "hosp_athagarh_sdh",
+    "nearest_hospital_name": "Sub-Divisional Hospital Athagarh",
+    "emergency_contacts": [
+      {
+        "label": "All-in-One Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Dhabaleswar Police Outpost",
+        "number": "06723-220233",
+        "service_type": "police",
+        "is_24x7": true
+      },
+      {
+        "label": "Athagarh SDH Hospital",
+        "number": "06723-220224",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "water_safety",
+        "title": "Mahanadi River Island Access Regulations",
+        "guidance": "Crossing via the suspension bridge or authorized boat ghat is regulated by the district administration. Adhere to bridge load limit instructions.",
+        "severity": "warning"
+      },
+      {
+        "category": "temple_etiquette",
+        "title": "Bada Osha & Kartik Purnima Festivals",
+        "guidance": "Heavy pilgrim rush during Kartik month; follow police barricades and dedicated riverboat departure docks.",
+        "severity": "caution"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "05:00 - 21:00",
+    "source": "Cuttack Rural Police & Endowment Administration",
+    "source_url": "https://cuttack.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_019",
+    "destination_name": "Ansupa Lake",
+    "district": "Cuttack",
+    "nearest_police_station_id": "police_banki_ps",
+    "nearest_police_station_name": "Banki Police Station",
+    "nearest_hospital_id": "hosp_banki_sdh",
+    "nearest_hospital_name": "Sub-Divisional Hospital Banki",
+    "emergency_contacts": [
+      {
+        "label": "Emergency Helpline",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Banki Police Station",
+        "number": "06723-240233",
+        "service_type": "police",
+        "is_24x7": true
+      },
+      {
+        "label": "Banki Sub-Divisional Hospital",
+        "number": "06723-240232",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "water_safety",
+        "title": "Boating Safety & Wetland Conservation",
+        "guidance": "Life jackets are mandatory for all recreational boating on Ansupa Lake. Avoid entering lotus wetland marsh areas on foot.",
+        "severity": "warning"
+      },
+      {
+        "category": "wildlife_caution",
+        "title": "Migratory Bird Sanctuary Etiquette",
+        "guidance": "Do not use loudspeakers or startle migratory waterfowl wintering across the lake.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "06:30 - 18:00",
+    "source": "Chilika Development Authority / CDA Wetland Wing & Banki Administration",
+    "source_url": "https://cuttack.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_020",
+    "destination_name": "Bhattarika Temple",
+    "district": "Cuttack",
+    "nearest_police_station_id": "police_baramba_ps",
+    "nearest_police_station_name": "Baramba Police Station",
+    "nearest_hospital_id": "hosp_baramba_chc",
+    "nearest_hospital_name": "Community Health Centre Baramba",
+    "emergency_contacts": [
+      {
+        "label": "All Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Baramba CHC",
+        "number": "06723-252225",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "water_safety",
+        "title": "Mahanadi River Current Caution",
+        "guidance": "Riverbed rocks near the temple ghat become slippery and water currents intensify during monsoon discharge.",
+        "severity": "caution"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "05:30 - 20:30",
+    "source": "Cuttack District Administration",
+    "source_url": "https://cuttack.nic.in/",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "destination_id": "round2_east_021",
+    "destination_name": "Nuapatna Handloom Heritage Village",
+    "district": "Cuttack",
+    "nearest_police_station_id": "police_tigiria_ps",
+    "nearest_police_station_name": "Tigiria Police Station",
+    "nearest_hospital_id": "hosp_tigiria_chc",
+    "nearest_hospital_name": "Community Health Centre Tigiria",
+    "emergency_contacts": [
+      {
+        "label": "Emergency",
+        "number": "112",
+        "service_type": "all_emergency",
+        "is_24x7": true
+      },
+      {
+        "label": "Ambulance",
+        "number": "108",
+        "service_type": "ambulance",
+        "is_24x7": true
+      },
+      {
+        "label": "Tigiria CHC Hospital",
+        "number": "06723-234220",
+        "service_type": "ambulance",
+        "is_24x7": true
+      }
+    ],
+    "safety_advisories": [
+      {
+        "category": "general_safety",
+        "title": "Weaver Workshop Etiquette",
+        "guidance": "Visitors are welcome inside pit-loom workshops; please ask permission before photographing master weavers at work.",
+        "severity": "info"
+      }
+    ],
+    "network_connectivity": "good_4g_5g",
+    "best_visiting_hours": "08:30 - 18:30 (Weaving looms active)",
+    "source": "Directorate of Textiles & Handlooms Odisha",
+    "source_url": "https://textiles.odisha.gov.in/",
+    "last_verified": "2026-08-31"
+  }
+];

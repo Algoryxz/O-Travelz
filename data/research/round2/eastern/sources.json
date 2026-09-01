@@ -36,7 +36,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by B.C. Choudhury via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_002_src_1",
@@ -75,7 +75,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 3.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 3.0: Photo by Dsasanka via Wikimedia Commons, CC BY-SA 3.0"
   },
   {
     "source_id": "round2_east_003_src_1",
@@ -114,7 +114,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Sanjeetkunu via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_004_src_1",
@@ -153,7 +153,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Imbibek91 via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_005_src_1",
@@ -187,12 +187,12 @@
     "research_id": "round2_east_005",
     "source_type": "wikimedia",
     "title": "Wikimedia Commons Image Lead for Rakta Tirtha Eram",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Banchhanidhi_Mohanty_Statue.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Eram_Saheed_Smrutistambha.jpg",
     "accessed_at": "2026-08-31",
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Sangram Keshari Senapati via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_006_src_1",
@@ -231,7 +231,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Satyabrata Nanda via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_007_src_1",
@@ -265,12 +265,12 @@
     "research_id": "round2_east_007",
     "source_type": "wikimedia",
     "title": "Wikimedia Commons Image Lead for Maa Bhadrakali Temple",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Bhadrakali_Mandir.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/BhadraKali_Temple_Gate.jpg",
     "accessed_at": "2026-08-31",
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY 4.0: Photo by BinayakAsh via Wikimedia Commons, CC BY 4.0"
   },
   {
     "source_id": "round2_east_008_src_1",
@@ -309,7 +309,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Kamalakanta777 via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_009_src_1",
@@ -348,7 +348,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY 3.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY 3.0: Photo by Biswarup Ganguly via Wikimedia Commons, CC BY 3.0"
   },
   {
     "source_id": "round2_east_010_src_1",
@@ -387,7 +387,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY 4.0: Photo by Government of Odisha via Wikimedia Commons, CC BY 4.0"
   },
   {
     "source_id": "round2_east_011_src_1",
@@ -426,7 +426,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Subhasisa Panigrahi via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_012_src_1",
@@ -465,7 +465,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Subhasisa Panigrahi via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_013_src_1",
@@ -498,13 +498,13 @@
     "source_id": "round2_east_013_src_3",
     "research_id": "round2_east_013",
     "source_type": "wikimedia",
-    "title": "Wikimedia Commons Image Lead for Garh Kujanga",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/KrutamachandiTemple_TripathySahi_Jagatsinghpur_Odisha_India.jpg",
+    "title": "Wikimedia Commons Search for Garh Kujanga (No verified photo)",
+    "url": "https://commons.wikimedia.org",
     "accessed_at": "2026-08-31",
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 3.0."
+    "notes": "Audited Wikimedia Commons; no verified authentic photograph found for Garh Kujanga. Status set to needs_image."
   },
   {
     "source_id": "round2_east_014_src_1",
@@ -537,13 +537,13 @@
     "source_id": "round2_east_014_src_3",
     "research_id": "round2_east_014",
     "source_type": "wikimedia",
-    "title": "Wikimedia Commons Image Lead for Alaka Ashram",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Jagatsinghpur_in_Odisha_%28India%29.svg",
+    "title": "Wikimedia Commons Search for Alaka Ashram (No verified photo)",
+    "url": "https://commons.wikimedia.org",
     "accessed_at": "2026-08-31",
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY 3.0."
+    "notes": "Audited Wikimedia Commons; no verified authentic photograph found for Alaka Ashram. Status set to needs_image."
   },
   {
     "source_id": "round2_east_015_src_1",
@@ -582,7 +582,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Sujit kumar via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_016_src_1",
@@ -621,7 +621,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Athulvis via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_017_src_1",
@@ -660,7 +660,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Rupeshsarkar via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_018_src_1",
@@ -694,12 +694,12 @@
     "research_id": "round2_east_018",
     "source_type": "wikimedia",
     "title": "Wikimedia Commons Image Lead for Dhabaleswar Island Temple",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Dhabaleswar_Bridge.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Dhabaleswar_Temple.JPG",
     "accessed_at": "2026-08-31",
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Nirmalbarik via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_019_src_1",
@@ -738,7 +738,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Adityanag2002 via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_020_src_1",
@@ -777,7 +777,7 @@
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0: Photo by Sujit kumar via Wikimedia Commons, CC BY-SA 4.0"
   },
   {
     "source_id": "round2_east_021_src_1",
@@ -811,11 +811,11 @@
     "research_id": "round2_east_021",
     "source_type": "wikimedia",
     "title": "Wikimedia Commons Image Lead for Nuapatna Handloom Heritage Village",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Gita_Gobinda_Khandua.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Handloom_1.jpg",
     "accessed_at": "2026-08-31",
     "supports": [
       "image"
     ],
-    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+    "notes": "Candidate image lead on Wikimedia Commons under license Public domain: Photo by Bhagirathipatra via Wikimedia Commons, Public domain"
   }
 ]

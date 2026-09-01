@@ -1,38 +1,32 @@
 {
-  "build_timestamp": "2026-09-01T05:01:02.457950+00:00",
-  "compiler_version": "1.0.0",
+  "build_timestamp": "2026-09-01T11:55:40.343808+00:00",
+  "compiler_version": "1.5.0",
   "inputs": {
     "routes_extracted_count": 154,
     "stops_extracted_count": 1430,
-    "route_stops_extracted_count": 1491,
-    "schedules_extracted_count": 302,
-    "verified_production_stops_count": 102
+    "route_stops_extracted_count": 164,
+    "schedules_extracted_count": 302
   },
   "outputs": {
-    "raw_route_records": 154,
-    "unique_routes": 154,
-    "raw_stop_references": 1491,
-    "unique_raw_stop_names": 1430,
-    "normalized_canonical_stops": 1430,
-    "logical_canonical_stops": 1430,
-    "routable_geographic_stops": 103,
-    "stops_with_verified_coordinates": 103,
-    "stops_without_coordinates": 1327,
-    "routes_with_ordered_sequence": 154,
-    "directional_sequences_count": 164,
-    "routes_with_schedule_records": 145,
-    "schedule_records_count": 302,
-    "individual_departure_time_count": 5549,
-    "malformed_times_repaired": 42,
-    "malformed_times_rejected": 0,
-    "unresolved_stop_count": 1327,
-    "review_required_count": 0,
-    "alias_mappings_count": 2924
+    "logical_stops_total": 1430,
+    "coordinate_verified_official": 103,
+    "coordinate_verified_geospatial": 9,
+    "coordinate_high_confidence": 0,
+    "coordinate_review_required": 0,
+    "coordinate_unresolved": 1318,
+    "routable_stops_total": 112,
+    "tier1_internal_recovered": 101,
+    "tier2_places_cross_referenced": 0,
+    "tier3_external_resolved": 9,
+    "routes_with_at_least_2_routable_stops": 68,
+    "routes_with_majority_routable_stops": 77,
+    "fully_geocoded_routes": 14,
+    "top_25_interchanges_resolution_rate": "56.0% (14/25)",
+    "corridor_anomalies_detected": 10
   },
   "gates": {
     "zero_fabrication_gate": "PASSED",
-    "bounded_coordinates_gate": "PASSED",
-    "all_routes_survived_gate": "PASSED",
-    "all_sequences_survived_gate": "PASSED"
+    "provenance_required_gate": "PASSED",
+    "bounded_coordinates_gate": "PASSED"
   }
 }

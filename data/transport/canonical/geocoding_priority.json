@@ -2423,7 +2423,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 58,
-    "coordinate_status": "VERIFIED_GEOSPATIAL"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_dumduma_jadupur_2",
@@ -2483,7 +2483,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 58,
-    "coordinate_status": "VERIFIED_GEOSPATIAL"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_igkc",
@@ -2498,7 +2498,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 58,
-    "coordinate_status": "VERIFIED_GEOSPATIAL"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_igkc_multispecialty_hospital",
@@ -2513,7 +2513,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 58,
-    "coordinate_status": "VERIFIED_GEOSPATIAL"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_jagadguru_krupalu_university",
@@ -2603,7 +2603,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 58,
-    "coordinate_status": "VERIFIED_GEOSPATIAL"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_kiit_square",
@@ -2663,7 +2663,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 58,
-    "coordinate_status": "VERIFIED_GEOSPATIAL"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_madhabnanda_temple_niali",
@@ -2723,7 +2723,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 58,
-    "coordinate_status": "VERIFIED_GEOSPATIAL"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_mangalahata",
@@ -2768,7 +2768,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 58,
-    "coordinate_status": "VERIFIED_GEOSPATIAL"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_master_canteen_scb_medical",
@@ -13993,7 +13993,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 15,
-    "coordinate_status": "VERIFIED_GEOSPATIAL"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_ekamra_college",
@@ -14253,7 +14253,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 15,
-    "coordinate_status": "VERIFIED_GEOSPATIAL"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_bhubaneswar_iit_bhubaneswar",
@@ -16112,7 +16112,7 @@
     "is_interchange": false,
     "is_capital_region": true,
     "priority_score": 15,
-    "coordinate_status": "VERIFIED_GEOSPATIAL"
+    "coordinate_status": "VERIFIED_OFFICIAL"
   },
   {
     "stop_id": "stop_crut_puri_matiapada_square",
