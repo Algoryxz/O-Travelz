@@ -109,14 +109,24 @@ fun HomeScreen(
                             Spacer(modifier = Modifier.width(Spacing.sm))
                             Column {
                                 val temp = state.weather?.current?.temperature
-                                val condition = state.weather?.current?.condition ?: "Pleasant"
+                                val condition = state.weather?.current?.condition
+                                val weatherTitle = if (temp != null) {
+                                    "${temp.toInt()}°C in ${state.weather?.locationName ?: "Bhubaneswar"}"
+                                } else {
+                                    "Weather temporarily unavailable"
+                                }
+                                val weatherSubtitle = if (condition != null && condition.isNotBlank()) {
+                                    "$condition • Label: ${state.weather?.dataTier?.uppercase() ?: "LIVE"}"
+                                } else {
+                                    "Station data pending • Label: ESTIMATED"
+                                }
                                 Text(
-                                    text = if (temp != null) "${temp.toInt()}°C in ${state.weather?.locationName ?: "Bhubaneswar"}" else "Weather Context",
+                                    text = weatherTitle,
                                     style = MaterialTheme.typography.titleMedium,
                                     color = TextPrimary
                                 )
                                 Text(
-                                    text = "$condition • Label: ${state.weather?.dataTier?.uppercase() ?: "ESTIMATED"}",
+                                    text = weatherSubtitle,
                                     style = MaterialTheme.typography.bodyMedium,
                                     color = TextSecondary
                                 )

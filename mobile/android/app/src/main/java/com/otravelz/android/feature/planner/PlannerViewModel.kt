@@ -89,11 +89,10 @@ class PlannerViewModel(
             _uiState.update { it.copy(isLoading = true, errorMessage = null, savedConfirmation = null) }
 
             val constraints = PlanningConstraintsDto(
-                durationDays = state.durationDays,
-                originLat = state.originLat,
-                originLon = state.originLon,
-                categories = state.selectedCategories.toList(),
-                interests = state.selectedCategories.toList()
+                days = state.durationDays,
+                interests = state.selectedCategories.toList(),
+                start = state.selectedOriginName,
+                publicTransportPreferred = true
             )
 
             when (val res = plannerRepository.planItinerary(constraints)) {
@@ -138,10 +137,10 @@ class PlannerViewModel(
         val itinerary = _uiState.value.itinerary ?: return
         val title = "${_uiState.value.selectedOriginName} ${_uiState.value.durationDays}-Day Cultural Journey"
         val constraints = PlanningConstraintsDto(
-            durationDays = _uiState.value.durationDays,
-            originLat = _uiState.value.originLat,
-            originLon = _uiState.value.originLon,
-            categories = _uiState.value.selectedCategories.toList()
+            days = _uiState.value.durationDays,
+            interests = _uiState.value.selectedCategories.toList(),
+            start = _uiState.value.selectedOriginName,
+            publicTransportPreferred = true
         )
         savedTripsRepository.saveTrip(title = title, itinerary = itinerary, constraints = constraints)
         _uiState.update { it.copy(savedConfirmation = "Itinerary saved to My Saved Trips!") }

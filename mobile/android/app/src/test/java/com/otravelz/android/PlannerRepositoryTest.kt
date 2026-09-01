@@ -13,10 +13,9 @@ class PlannerRepositoryTest {
     private val sampleItinerary = ItineraryPlanResponseDto(
         itineraryId = "itin_puri_konark_123",
         constraints = PlanningConstraintsDto(
-            durationDays = 2,
-            originLat = 20.2961,
-            originLon = 85.8245,
-            categories = listOf("temple", "beach")
+            days = 2,
+            interests = listOf("temple", "beach"),
+            start = "Bhubaneswar"
         ),
         days = listOf(
             ItineraryDayDto(
@@ -106,16 +105,16 @@ class PlannerRepositoryTest {
     @Test
     fun testPlanningConstraintsCustomOrigins() {
         val constraints = PlanningConstraintsDto(
-            durationDays = 3,
-            originLat = 19.8049,
-            originLon = 85.8179,
-            categories = listOf("temple", "beach", "monument")
+            days = 3,
+            interests = listOf("temple", "beach", "monument"),
+            start = "Puri Hub",
+            publicTransportPreferred = true
         )
 
-        assertEquals(3, constraints.durationDays)
-        assertEquals(19.8049, constraints.originLat, 0.0001)
-        assertEquals(85.8179, constraints.originLon, 0.0001)
-        assertEquals(3, constraints.categories.size)
+        assertEquals(3, constraints.days)
+        assertEquals("Puri Hub", constraints.start)
+        assertEquals(3, constraints.interests.size)
+        assertTrue(constraints.publicTransportPreferred == true)
     }
 
     @Test

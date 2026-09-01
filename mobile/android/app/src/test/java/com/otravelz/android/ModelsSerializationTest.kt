@@ -18,14 +18,15 @@ class ModelsSerializationTest {
     @Test
     fun testPlanningConstraintsSerialization() {
         val constraints = PlanningConstraintsDto(
-            durationDays = 1,
-            originLat = 20.2961,
-            originLon = 85.8245,
-            categories = listOf("temple", "monument")
+            days = 1,
+            interests = listOf("temple", "monument"),
+            start = "Bhubaneswar",
+            publicTransportPreferred = true
         )
         val str = json.encodeToString(constraints)
-        assertTrue(str.contains("\"duration_days\":1"))
-        assertTrue(str.contains("\"origin_lat\":20.2961"))
+        assertTrue(str.contains("\"days\":1"))
+        assertTrue(str.contains("\"start\":\"Bhubaneswar\""))
+        assertTrue(str.contains("\"public_transport_preferred\":true"))
     }
 
     @Test

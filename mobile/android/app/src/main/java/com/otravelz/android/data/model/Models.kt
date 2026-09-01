@@ -71,13 +71,18 @@ data class WeatherResponseDto(
 
 @Serializable
 data class PlanningConstraintsDto(
-    @SerialName("start_date") val startDate: String? = null,
-    @SerialName("duration_days") val durationDays: Int = 1,
-    @SerialName("origin_lat") val originLat: Double = 20.2961,
-    @SerialName("origin_lon") val originLon: Double = 85.8245,
+    val days: Int = 1,
     val interests: List<String> = emptyList(),
-    val categories: List<String> = emptyList(),
-    @SerialName("max_travel_time_minutes") val maxTravelTimeMinutes: Int? = null
+    val start: String? = "Bhubaneswar",
+    val pace: String? = null,
+    @SerialName("budget_transport_per_day") val budgetTransportPerDay: Double? = null,
+    val mobility: String? = null,
+    @SerialName("avoid_crowds") val avoidCrowds: Boolean? = null,
+    @SerialName("low_walking") val lowWalking: Boolean? = null,
+    val vegetarian: Boolean? = null,
+    @SerialName("budget_conscious") val budgetConscious: Boolean? = null,
+    @SerialName("public_transport_preferred") val publicTransportPreferred: Boolean? = null,
+    @SerialName("travel_party") val travelParty: String? = null
 )
 
 @Serializable
