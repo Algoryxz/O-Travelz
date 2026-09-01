@@ -1,1 +1,746 @@
-[]
+[
+  {
+    "research_id": "round2_north_001",
+    "name": "Haribaldev Jew Temple, Baripada",
+    "aliases": [
+      "Baripada Jagannath Temple",
+      "Haribaldevjew Temple",
+      "Dwitiya Srikshetra Temple",
+      "Bhanja Jagannath Temple"
+    ],
+    "district": "Mayurbhanj",
+    "region": "northern",
+    "category": "temple",
+    "description": "Haribaldev Jew Temple is a historic 16th-century Jagannath temple constructed in 1575 CE by Maharaja Baidyanath Bhanj in Baripada. Revered as the Second Srikshetra (Dwitiya Srikshetra), it is famous for its unique Ratha Yatra tradition where women exclusively pull the chariot of Goddess Subhadra (Darpadalana).",
+    "lat": 21.9338,
+    "lon": 86.7266,
+    "coordinate_source": "OpenStreetMap / District Administration Mayurbhanj",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://mayurbhanj.nic.in/tourist-place/haribaldev-jew-temple/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Jagannath_Temple,_Baripada"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Jagannath_temple_baripada.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Second Srikshetra of Odisha; famous for female chariot pullers during Ratha Yatra."
+  },
+  {
+    "research_id": "round2_north_002",
+    "name": "Devkund Waterfalls & Maa Ambika Temple",
+    "aliases": [
+      "Debakunda",
+      "Devkund Waterfall",
+      "Devkund Similipal",
+      "Ambika Temple Devkund"
+    ],
+    "district": "Mayurbhanj",
+    "region": "northern",
+    "category": "waterfall",
+    "description": "Devkund is a picturesque multi-tiered waterfall and natural water pool complex nestled in the outer periphery of Similipal Biosphere Reserve in Udala block of Mayurbhanj. Falling from a height of about 50 feet into a sacred kund (pond), the site is famous for the ancient hilltop Maa Ambika Temple and pristine sal forest trails.",
+    "lat": 21.5794,
+    "lon": 86.5414,
+    "coordinate_source": "OpenStreetMap / Odisha Tourism / Forest Dept",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://mayurbhanj.nic.in/tourist-place/devkund/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Devkund_Waterfall"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Devkund_Waterfall_Odisha.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Sacred pool and waterfall complex in Udala foothills with ancient Ambika temple."
+  },
+  {
+    "research_id": "round2_north_003",
+    "name": "The Belgadia Palace, Baripada",
+    "aliases": [
+      "Belgadia Palace",
+      "Mayurbhanj Royal Palace",
+      "Baripada Rajabati",
+      "Bhanja Palace"
+    ],
+    "district": "Mayurbhanj",
+    "region": "northern",
+    "category": "heritage",
+    "description": "The Belgadia Palace is an 18th-century Victorian-era royal residence built in 1804 by the Bhanja Royal Family of Mayurbhanj in Baripada. Designed with an elegant mix of Victorian, Greek, and Persian architectural styles, the heritage property preserves royal suites, family antiques, art collections, and royal documents.",
+    "lat": 21.9367,
+    "lon": 86.7486,
+    "coordinate_source": "OpenStreetMap / District Administration Mayurbhanj",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://mayurbhanj.nic.in/culture-heritage/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Mayurbhanj_State"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/The_Belgadia_Palace%2C_Mayurbhanj%2C_Odisha.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Victorian-Greek royal palace of Bhanja dynasty in Baripada."
+  },
+  {
+    "research_id": "round2_north_004",
+    "name": "Haripur Gada Archaeological Site",
+    "aliases": [
+      "Haripurgarh",
+      "Haripur Fort",
+      "Rasikaraya Temple Haripur",
+      "Ancient Capital of Mayurbhanj"
+    ],
+    "district": "Mayurbhanj",
+    "region": "northern",
+    "category": "heritage",
+    "description": "Haripur Gada is a protected 14th-century archaeological fortress site and former royal capital of the Bhanja rulers of Mayurbhanj, situated 16 km southeast of Baripada. The site contains the magnificent terracotta ruins of the Rasikaraya Temple, the Radhamohan Temple, and stone fortifications protected by the Archaeological Survey of India (ASI).",
+    "lat": 21.8483,
+    "lon": 86.8033,
+    "coordinate_source": "Archaeological Survey of India (ASI) / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://mayurbhanj.nic.in/tourist-place/haripur/",
+    "secondary_source_urls": [
+      "https://asi.nic.in/",
+      "https://en.wikipedia.org/wiki/Haripurgarh"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Rasikaraya_Temple_Haripurgarh_Mayurbhanj_Odisha_01.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "ASI protected medieval brick terracotta temple ruins and Bhanja capital fort."
+  },
+  {
+    "research_id": "round2_north_005",
+    "name": "Sitakund Waterfall, Pithabata",
+    "aliases": [
+      "Sitakund Mayurbhanj",
+      "Sitakunda Waterfall",
+      "Pithabata Sitakund",
+      "Sitakund Falls"
+    ],
+    "district": "Mayurbhanj",
+    "region": "northern",
+    "category": "waterfall",
+    "description": "Sitakund is a scenic natural waterfall and perennial mountain pool situated at the foothills of the Similipal range near Pithabata in Mayurbhanj district. Framed by massive boulders and lush subtropical sal forests, the gorge is a prominent nature retreat and eco-tourism picnic destination.",
+    "lat": 21.9056,
+    "lon": 86.6028,
+    "coordinate_source": "OpenStreetMap / District Administration Mayurbhanj",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://mayurbhanj.nic.in/tourist-place/sitakund/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Sitakund_Waterfall_Mayurbhanj.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Scenic perennial waterfall and picnic spot near Similipal entry gate Pithabata."
+  },
+  {
+    "research_id": "round2_north_006",
+    "name": "Lulung Eco-Tourism & Palpala River Gorge",
+    "aliases": [
+      "Lulung Similipal",
+      "Lulung Eco Camp",
+      "Palpala River Gorge",
+      "Lulung Nature Camp"
+    ],
+    "district": "Mayurbhanj",
+    "region": "northern",
+    "category": "nature",
+    "description": "Lulung is a premier eco-tourism destination located along the rocky banks of the Palpala River at the eastern entrance to Similipal National Park near Baripada. Famous for its crystal-clear river pools, herbal plants, butterfly diversity, and surrounding forested peaks, it serves as a base camp for Similipal wilderness excursions.",
+    "lat": 21.9361,
+    "lon": 86.5361,
+    "coordinate_source": "OpenStreetMap / Eco Tour Odisha / Forest Dept",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://mayurbhanj.nic.in/tourist-place/lulung/",
+    "secondary_source_urls": [
+      "https://www.ecotourodisha.com/",
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Palpala_River_at_Lulung%2C_Mayurbhanj.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Major ecotourism hub and gateway to Similipal National Park on Palpala river."
+  },
+  {
+    "research_id": "round2_north_007",
+    "name": "Khirachora Gopinatha Temple, Remuna",
+    "aliases": [
+      "Remuna Gopinath Temple",
+      "Khirachora Gopinath Temple",
+      "Remuna Pitha",
+      "Sri Khirachora Gopinatha"
+    ],
+    "district": "Balasore",
+    "region": "northern",
+    "category": "temple",
+    "description": "Khirachora Gopinatha Temple is a celebrated 12th-century Vaishnavite pilgrimage temple built by King Narasingha Deva I in Remuna, 9 km from Balasore. The temple is internationally famous for its 'Amruta Keli' condensed milk offering (Khira) and the medieval legend of Lord Krishna stealing milk for his devotee Madhavendra Puri, as recorded in Chaitanya Charitamrita.",
+    "lat": 21.5278,
+    "lon": 86.8722,
+    "coordinate_source": "OpenStreetMap / District Administration Balasore",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://balasore.nic.in/tourist-place/khirachora-gopinath-temple/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Khirachora_Gopinatha_Temple"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Khirachora_Gopinatha_Temple_Remuna_Balasore_Odisha.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Famous 12th-century Krishna temple in Remuna known for Khira bhoga and Chaitanya Mahaprabhu association."
+  },
+  {
+    "research_id": "round2_north_008",
+    "name": "Nilagiri Jagannath Temple & Royal Fort",
+    "aliases": [
+      "Nilagiri Jagannath Temple",
+      "Nilagiri Rajabati",
+      "Nilagiri Palace",
+      "Swarnachuda Temple"
+    ],
+    "district": "Balasore",
+    "region": "northern",
+    "category": "heritage",
+    "description": "Nilagiri Jagannath Temple and Royal Palace is a historic 12th-century heritage complex located at the foothills of the Swarnachuda mountain in the former princely state of Nilagiri, Balasore. The stone temple is renowned for its Ratha Yatra celebrations and adjacent royal fort and palace established by the Bhanja rulers of Nilagiri.",
+    "lat": 21.4611,
+    "lon": 86.7667,
+    "coordinate_source": "OpenStreetMap / District Administration Balasore",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://balasore.nic.in/tourist-place/nilagiri/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Nilagiri"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Nilagiri_Jagannath_Temple_Balasore.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Historical Jagannath temple and palace of princely state of Nilagiri."
+  },
+  {
+    "research_id": "round2_north_009",
+    "name": "Dagara Beach",
+    "aliases": [
+      "Dagara Sea Beach",
+      "Dagra Beach",
+      "Basta Dagara Beach",
+      "Dagara Coast"
+    ],
+    "district": "Balasore",
+    "region": "northern",
+    "category": "beach",
+    "description": "Dagara Beach is a pristine, tranquil coastal beach situated along the Bay of Bengal in Basta/Baliapal block of Balasore district. Fringed by dense casuarina groves, wide flat sand dunes, and teeming colonies of red ghost crabs, Dagara offers panoramic sunrise and sunset views in a quiet eco-coastal setting.",
+    "lat": 21.6056,
+    "lon": 87.2722,
+    "coordinate_source": "OpenStreetMap / District Administration Balasore",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://balasore.nic.in/tourist-place/dagara-beach/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Dagara,_Balasore"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Dagara_Beach_Balasore_Odisha.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Serene casuarina-lined beach in northern Balasore famous for red crabs and calm shores."
+  },
+  {
+    "research_id": "round2_north_010",
+    "name": "Chandaneswar Shiva Temple",
+    "aliases": [
+      "Chandaneswar Temple",
+      "Chandaneswara Pitha",
+      "Bhogarai Chandaneswar Temple",
+      "Baba Chandaneswar Shrine"
+    ],
+    "district": "Balasore",
+    "region": "northern",
+    "category": "temple",
+    "description": "Chandaneswar Shiva Temple is an ancient Shaivite pilgrimage shrine situated near the coastal border of Odisha and West Bengal in Balasore district. The temple is famed throughout eastern India for the spectacular annual Chadak Mela / Uda Parba festival during Nilaparva in Chaitra-Baisakh, drawing hundreds of thousands of pilgrims.",
+    "lat": 21.6212,
+    "lon": 87.489,
+    "coordinate_source": "OpenStreetMap / District Administration Balasore",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://balasore.nic.in/tourist-place/chandaneswar/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Chandaneswar"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Chandaneswar_Temple_Balasore.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Major Shaivite pilgrimage center near Talasari famous for Chadak Mela."
+  },
+  {
+    "research_id": "round2_north_011",
+    "name": "Bhudhar Chandi Temple, Sujanagarh",
+    "aliases": [
+      "Bhudharchandi Temple",
+      "Sujanagarh Chandi Temple",
+      "Bhudhar Chandi Pitha",
+      "Maa Bhudhar Chandi"
+    ],
+    "district": "Balasore",
+    "region": "northern",
+    "category": "temple",
+    "description": "Bhudhar Chandi Temple is a sacred hillside Shakti pitha situated in Sujanagarh near Nilagiri in Balasore district. Presided over by Goddess Chandi and surrounded by lush green forests and granite rock formations, the shrine is a prominent center for Durga Puja and Navaratri rituals.",
+    "lat": 21.4389,
+    "lon": 86.725,
+    "coordinate_source": "OpenStreetMap / District Administration Balasore",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://balasore.nic.in/tourist-place/bhudhar-chandi/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Bhudharchandi_temple_Sujanagarh.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Ancient hilltop Shakti shrine located near Nilagiri in Balasore."
+  },
+  {
+    "research_id": "round2_north_012",
+    "name": "Balaramgadi Beach & Budhabalanga Estuary",
+    "aliases": [
+      "Balaramgadi Port",
+      "Balaramgadi Beach",
+      "Budhabalanga River Mouth",
+      "Balaramgadi Fishing Harbour"
+    ],
+    "district": "Balasore",
+    "region": "northern",
+    "category": "beach",
+    "description": "Balaramgadi is a scenic coastal beach and river estuary located 2 km from Chandipur in Balasore district, where the Budhabalanga River empties into the Bay of Bengal. Famous for its bustling traditional fishing harbour, mangrove patches, and golden sand beaches, it offers picturesque sea vistas and local seafood markets.",
+    "lat": 21.4778,
+    "lon": 87.0389,
+    "coordinate_source": "OpenStreetMap / District Administration Balasore",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://balasore.nic.in/tourist-place/balaramgadi/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Budhabalanga_River_Mouth_Balaramgadi.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Scenic river mouth and coastal fishing hub adjacent to Chandipur beach."
+  },
+  {
+    "research_id": "round2_north_013",
+    "name": "Maa Tarini Temple, Ghatagaon",
+    "aliases": [
+      "Ghatagaon Tarini Temple",
+      "Maa Tarini Pitha",
+      "Ghatgaon Tarini Shrine",
+      "Tarini Mandir Keonjhar"
+    ],
+    "district": "Keonjhar",
+    "region": "northern",
+    "category": "temple",
+    "description": "Maa Tarini Temple is one of Odisha's most revered Shakti pilgrimage shrines, situated at Ghatagaon amidst the sal forests of Keonjhar district. Presided over by Goddess Tarini, who was brought from Kanchi by King Purushottama Deva in the 15th century, the shrine is globally unique for receiving coconuts mailed and transported by devotees from across the country.",
+    "lat": 21.4083,
+    "lon": 85.9139,
+    "coordinate_source": "OpenStreetMap / District Administration Keonjhar",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://keonjhar.nic.in/tourist-place/ghatagaon/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Maa_Tarini_Temple,_Ghatgaon"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Maa_Tarini_Temple_Ghatgaon.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Foremost Shakti pilgrimage pitha of Keonjhar; famous for coconut postal offerings."
+  },
+  {
+    "research_id": "round2_north_014",
+    "name": "Sitabinji Fresco Painting & Ravan Chhaya",
+    "aliases": [
+      "Sitabinji Rock Painting",
+      "Ravan Chhaya Sitabinji",
+      "Sitabinji Archaeological Site",
+      "Sitabinj Rock Inscription"
+    ],
+    "district": "Keonjhar",
+    "region": "northern",
+    "category": "heritage",
+    "description": "Sitabinji is an extraordinary 4th–5th century CE archaeological site in Ghatagaon block of Keonjhar district, famous for its ancient tempera rock paintings on a boulder named 'Ravan Chhaya'. Protected by the Archaeological Survey of India (ASI), the mural depicts a royal procession on elephants and horses with Sanskrit Brahmi inscriptions, representing one of eastern India's rarest classical frescoes.",
+    "lat": 21.4333,
+    "lon": 85.8,
+    "coordinate_source": "Archaeological Survey of India (ASI) / OpenStreetMap",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://keonjhar.nic.in/tourist-place/sitabinji/",
+    "secondary_source_urls": [
+      "https://asi.nic.in/",
+      "https://en.wikipedia.org/wiki/Sitabinji_Group_of_Rock_Shelters"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Sitabinji_Frescoes_Keonjhar.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Centrally protected ASI site with rare 5th-century Gupta-period tempera fresco."
+  },
+  {
+    "research_id": "round2_north_015",
+    "name": "Bhimkund Water Pool & Gorge",
+    "aliases": [
+      "Bhimkund Keonjhar",
+      "Bhimkund Natural Reservoir",
+      "Bhimakunda Baitarani",
+      "Bhimkund Waterfall"
+    ],
+    "district": "Keonjhar",
+    "region": "northern",
+    "category": "nature",
+    "description": "Bhimkund is a dramatic natural water reservoir and gorge situated on the Baitarani River near Boinda/Dumuria along the border of Keonjhar and Mayurbhanj districts. Encircled by towering granite bedrock, the perennial turquoise water pool is steeped in Mahabharata lore as the bathing place of the Pandava prince Bhima.",
+    "lat": 21.5056,
+    "lon": 86.0111,
+    "coordinate_source": "OpenStreetMap / District Administration Keonjhar",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://keonjhar.nic.in/tourist-place/bhimkund/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Bhimkund"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Bhimakunda_Keonjhar_Odisha.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Natural turquoise gorge and pool on Baitarani river with epic Mahabharata folklore."
+  },
+  {
+    "research_id": "round2_north_016",
+    "name": "Gundichaghai Waterfall",
+    "aliases": [
+      "Gundichaghai Falls",
+      "Gundichaghai Harichandanpur",
+      "Gundicha Ghai Waterfall",
+      "Gundichaghagi Falls"
+    ],
+    "district": "Keonjhar",
+    "region": "northern",
+    "category": "waterfall",
+    "description": "Gundichaghai Waterfall is a spectacular 50-foot cascading waterfall situated on the Musala River in Harichandanpur block of Keonjhar district. Surrounded by dense deciduous forests and rugged hill terrains, the roaring cascade creates a deep natural misty pool popular for eco-tourism and nature trekking.",
+    "lat": 21.3722,
+    "lon": 85.7694,
+    "coordinate_source": "OpenStreetMap / District Administration Keonjhar",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://keonjhar.nic.in/tourist-place/gundichaghai/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Gundichaghai_Waterfall_Keonjhar.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Scenic 50-foot cascading waterfall on Musala river in Harichandanpur."
+  },
+  {
+    "research_id": "round2_north_017",
+    "name": "Hadgarh Wildlife Sanctuary & Dam",
+    "aliases": [
+      "Hadgarh Reservoir",
+      "Hadgarh Sanctuary",
+      "Salandi Dam Hadgarh",
+      "Hadagarh Wildlife Sanctuary"
+    ],
+    "district": "Keonjhar",
+    "region": "northern",
+    "category": "wildlife",
+    "description": "Hadgarh Wildlife Sanctuary is a rich 191 sq km protected wilderness and wetland reservoir created by the Hadgarh Dam across the Salandi River in Keonjhar district. Serving as a crucial elephant corridor connected to Similipal and Kuldiha, the sanctuary shelters leopards, mugger crocodiles, and diverse resident and migratory avifauna.",
+    "lat": 21.2889,
+    "lon": 86.3056,
+    "coordinate_source": "OpenStreetMap / Forest & Environment Dept / District Portal",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://keonjhar.nic.in/tourist-place/hadgarh/",
+    "secondary_source_urls": [
+      "https://forest.odisha.gov.in/",
+      "https://en.wikipedia.org/wiki/Hadgarh_Wildlife_Sanctuary"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Hadgarh_Reservoir_Keonjhar.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Major wildlife sanctuary and Salandi river reservoir acting as Similipal-Kuldiha corridor."
+  },
+  {
+    "research_id": "round2_north_018",
+    "name": "Murga Mahadev Temple & Waterfall",
+    "aliases": [
+      "Murga Mahadev Shrine",
+      "Murga Mahadev Pitha",
+      "Thakurani Hills Murga Mahadev",
+      "Murga Waterfall"
+    ],
+    "district": "Keonjhar",
+    "region": "northern",
+    "category": "temple",
+    "description": "Murga Mahadev Temple is an ancient Shaivite shrine and scenic perennial waterfall situated at the foothills of the mineral-rich Thakurani Hill range near Nuamundi/Barbil in Keonjhar district. The shrine attracts thousands of devotees during Kartika Purnima and Shivaratri who bathe in the sacred mineral stream cascading down the forested hill.",
+    "lat": 22.0667,
+    "lon": 85.45,
+    "coordinate_source": "OpenStreetMap / District Administration Keonjhar",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://keonjhar.nic.in/tourist-place/murga-mahadev/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Murga_Mahadev_Waterfall_Keonjhar.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Ancient Shiva shrine and perennial stream at the foot of Thakurani Hills."
+  },
+  {
+    "research_id": "round2_north_019",
+    "name": "Odagaon Raghunath Temple",
+    "aliases": [
+      "Raghunath Temple Odagaon",
+      "Odagaon Ram Temple",
+      "Odagaon Raghunatha Pitha",
+      "Sri Raghunath Jew Odagaon"
+    ],
+    "district": "Nayagarh",
+    "region": "northern",
+    "category": "temple",
+    "description": "Odagaon Raghunath Temple is a prominent 19th-century temple dedicated to Lord Rama, Lakshmana, and Goddess Sita situated in Odagaon town of Nayagarh district. Featuring majestic Kalinga vimana architecture adorned with gold kalasa and intricate wooden ceiling carvings, the shrine is the foremost center of Ramanavami festival celebrations in Odisha.",
+    "lat": 20.0167,
+    "lon": 85.0,
+    "coordinate_source": "OpenStreetMap / District Administration Nayagarh",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://nayagarh.nic.in/tourist-place/odagaon/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Odagaon"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Odagaon_Raghunatha_Temple.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Foremost Ramanandi pilgrimage temple in Odisha; epicenter of Ramanavami festival."
+  },
+  {
+    "research_id": "round2_north_020",
+    "name": "Ranpur Jagannath Temple & Maninag Hill",
+    "aliases": [
+      "Ranpur Jagannath Temple",
+      "Maninag Temple",
+      "Ranpur Rajabati",
+      "Ranpur Palace & Temple"
+    ],
+    "district": "Nayagarh",
+    "region": "northern",
+    "category": "heritage",
+    "description": "Ranpur Jagannath Temple and Maninag Hill is a historical royal heritage and pilgrimage center in the former princely state of Ranpur, Nayagarh district. The complex features the ancient Jagannath Temple with royal courtyards and the hilltop shrine of Maa Maninaga perched atop the Maninag Hill overlooking scenic valleys and irrigation dams.",
+    "lat": 20.0611,
+    "lon": 85.3472,
+    "coordinate_source": "OpenStreetMap / District Administration Nayagarh",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://nayagarh.nic.in/tourist-place/ranpur/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Ranpur,_Odisha"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Ranpur_Jagannath_Temple_Nayagarh.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Historical Jagannath temple and hilltop Maninag shrine in royal estate of Ranpur."
+  },
+  {
+    "research_id": "round2_north_021",
+    "name": "Satkosia Gorge Eco-Camp, Badamul",
+    "aliases": [
+      "Badamul Eco Camp",
+      "Satkosia Sands Resort Badamul",
+      "Badamul Mahanadi Gorge",
+      "Satkosia Southern Ecotourism"
+    ],
+    "district": "Nayagarh",
+    "region": "northern",
+    "category": "nature",
+    "description": "Satkosia Gorge Eco-Camp at Badamul is a celebrated community eco-tourism retreat situated along the deep southern banks of the Mahanadi River in Nayagarh district within the Satkosia Tiger Reserve. The camp offers scenic river sandbar tent stays, nature canopy trails, and boat safaris to spot endangered gharial crocodiles, muggers, and river terns.",
+    "lat": 20.4611,
+    "lon": 84.8833,
+    "coordinate_source": "OpenStreetMap / Eco Tour Odisha / Forest Dept",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://nayagarh.nic.in/tourist-place/badamul/",
+    "secondary_source_urls": [
+      "https://www.ecotourodisha.com/",
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Satkosia_Gorge_Mahanadi_Badamul.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Premier river sandbar ecotourism site on Mahanadi gorge in Nayagarh."
+  },
+  {
+    "research_id": "round2_north_022",
+    "name": "Dutikeswar Shiva Temple, Jamupatna",
+    "aliases": [
+      "Dutikeswar Temple",
+      "Jamupatna Shiva Temple",
+      "Baba Dutikeswar Pitha",
+      "Dutikeswara Mahadev Shrine"
+    ],
+    "district": "Nayagarh",
+    "region": "northern",
+    "category": "temple",
+    "description": "Dutikeswar Shiva Temple is an ancient Shaivite pilgrimage shrine situated at Jamupatna in Odagaon block of Nayagarh district. Flanked by ancient banyan and neem groves, a massive freshwater holy tank, and historic stone mandapas, the temple is a revered center for Maha Shivaratri and Shravana Bolbom pilgrimages.",
+    "lat": 20.0389,
+    "lon": 84.9722,
+    "coordinate_source": "OpenStreetMap / District Administration Nayagarh",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://nayagarh.nic.in/tourist-place/dutikeswar/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Dutikeswar_Temple_Nayagarh.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Ancient Shaivite shrine in Jamupatna with large sacred pond."
+  },
+  {
+    "research_id": "round2_north_023",
+    "name": "Raghurajpur Heritage Crafts Village",
+    "aliases": [
+      "Raghurajpur Artisan Village",
+      "Raghurajpur Pattachitra Village",
+      "Raghurajpur Heritage Village",
+      "Raghurajpur Chitrakar Sahi"
+    ],
+    "district": "Puri",
+    "region": "northern",
+    "category": "cultural",
+    "description": "Raghurajpur is India's first designated heritage crafts village, located on the banks of the Bhargavi River near Puri. Inhabited by master chitrakars (artisans) across generations, every home in the village is an open-air art gallery famous for traditional Pattachitra palm-leaf paintings, papier-mâché toys, cow dung masks, and Gotipua classical dance academies.",
+    "lat": 19.8833,
+    "lon": 85.8333,
+    "coordinate_source": "OpenStreetMap / District Administration Puri / Odisha Tourism",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://puri.nic.in/tourist-place/raghurajpur/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Raghurajpur"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Pattachitra_Artist_Raghurajpur_Puri.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "India's premier Pattachitra and Gotipua living heritage village 14 km from Puri."
+  },
+  {
+    "research_id": "round2_north_024",
+    "name": "Pipili Applique Craft Village",
+    "aliases": [
+      "Pipili Chandua Hub",
+      "Pipili Applique Market",
+      "Pipli Artisan Village",
+      "Pipili Heritage Town"
+    ],
+    "district": "Puri",
+    "region": "northern",
+    "category": "cultural",
+    "description": "Pipili is a world-renowned artisanal town and GI-tagged heritage craft cluster located along NH-316 in Puri district. Tracing its royal patronization to the 12th century, Pipili's master craftsmen create intricate colourful applique needlework (Chandua), umbrellas (Trasa), and canopies essential for the annual Ratha Yatra chariots of Lord Jagannath.",
+    "lat": 20.1167,
+    "lon": 85.8333,
+    "coordinate_source": "OpenStreetMap / District Administration Puri",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://puri.nic.in/tourist-place/pipili/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Pipili"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Pipili_Applique_Work_Odisha.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "GI-tagged applique craft center crafting royal canopies for Puri Ratha Yatra."
+  },
+  {
+    "research_id": "round2_north_025",
+    "name": "Maa Barunei Temple & Barunei Hill",
+    "aliases": [
+      "Barunei Temple",
+      "Barunei Hill Khordha",
+      "Barunei Pitha",
+      "Maa Barunei Shrine"
+    ],
+    "district": "Khordha",
+    "region": "northern",
+    "category": "heritage",
+    "description": "Maa Barunei Temple is a historic pilgrimage shrine and forested hill complex situated on Barunei Hill in Khordha district. Renowned as the historic stronghold of the legendary Paika warriors led by Buxi Jagabandhu during the 1817 Paika Rebellion against the British, the site features natural perennial spring water kundas and dense botanical forests.",
+    "lat": 20.1764,
+    "lon": 85.6667,
+    "coordinate_source": "OpenStreetMap / District Administration Khordha",
+    "coordinate_verification_status": "verified",
+    "primary_source_url": "https://khordha.nic.in/tourist-place/barunei/",
+    "secondary_source_urls": [
+      "https://odishatourism.gov.in/",
+      "https://en.wikipedia.org/wiki/Khordha"
+    ],
+    "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Barunei_Temple_Khordha.jpg",
+    "image_source_domain": "commons.wikimedia.org",
+    "image_license_note": "CC BY-SA 4.0",
+    "image_status": "pending",
+    "researcher": "Punam",
+    "verification_status": "staging",
+    "notes": "Historic seat of 1817 Paika Rebellion and holy hill spring shrine in Khordha."
+  }
+]

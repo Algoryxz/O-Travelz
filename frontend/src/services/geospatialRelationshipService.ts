@@ -8,12 +8,22 @@
  */
 
 import relData from "../../../data/geospatial/poi_relationships_western_odisha.json";
+import relNorthData from "../../../data/geospatial/poi_relationships_northern_odisha.json";
 import hotelsData from "../../../data/accommodation/hotels_western_odisha.json";
+import hotelsNorthData from "../../../data/accommodation/hotels_northern_odisha.json";
 import diningData from "../../../data/dining/restaurants_western_odisha.json";
+import diningNorthData from "../../../data/dining/restaurants_northern_odisha.json";
 import safetyData from "../../../data/safety/police_stations_western_odisha.json";
+import safetyNorthData from "../../../data/safety/police_stations_northern_odisha.json";
+import fireNorthData from "../../../data/safety/fire_stations_northern_odisha.json";
 import financeData from "../../../data/finance/atms_western_odisha.json";
+import financeNorthData from "../../../data/finance/atms_northern_odisha.json";
+import banksNorthData from "../../../data/finance/banks_northern_odisha.json";
 import fuelData from "../../../data/fuel/petrol_pumps_western_odisha.json";
+import fuelNorthData from "../../../data/fuel/petrol_pumps_northern_odisha.json";
 import healthData from "../../../data/health/hospitals_western_odisha.json";
+import healthNorthData from "../../../data/health/hospitals_northern_odisha.json";
+import transportNorthData from "../../../data/transport/transport_hubs_northern_odisha.json";
 import placesData from "../../../data/places/places.json";
 import { VERIFIED_TRANSIT_STOPS } from "../data/staticTransitStops";
 
@@ -76,11 +86,20 @@ function buildNameRegistry() {
 
   const datasetList = [
     hotelsData,
+    hotelsNorthData,
     diningData,
+    diningNorthData,
     safetyData,
+    safetyNorthData,
+    fireNorthData,
     financeData,
+    financeNorthData,
+    banksNorthData,
     fuelData,
+    fuelNorthData,
     healthData,
+    healthNorthData,
+    transportNorthData,
     placesData,
   ];
 
@@ -105,8 +124,11 @@ const sourceIndex: Map<string, GeospatialRelationshipRaw[]> = new Map();
 function buildSourceIndex() {
   if (sourceIndex.size > 0) return;
 
-  const rawList = (relData as { relationships?: GeospatialRelationshipRaw[] }).relationships || [];
-  for (const rel of rawList) {
+  const rawListWest = (relData as { relationships?: GeospatialRelationshipRaw[] }).relationships || [];
+  const rawListNorth = (relNorthData as { relationships?: GeospatialRelationshipRaw[] }).relationships || [];
+  const combined = [...rawListWest, ...rawListNorth];
+
+  for (const rel of combined) {
     if (!sourceIndex.has(rel.source_id)) {
       sourceIndex.set(rel.source_id, []);
     }

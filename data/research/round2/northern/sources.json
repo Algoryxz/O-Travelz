@@ -1,1 +1,977 @@
-[]
+[
+  {
+    "source_id": "round2_north_001_src_1",
+    "research_id": "round2_north_001",
+    "source_type": "government",
+    "title": "Haribaldev Jew Temple, Baripada - Official Portal Documentation",
+    "url": "https://mayurbhanj.nic.in/tourist-place/haribaldev-jew-temple/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Haribaldev Jew Temple, Baripada in Mayurbhanj district."
+  },
+  {
+    "source_id": "round2_north_001_src_2",
+    "research_id": "round2_north_001",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Haribaldev Jew Temple, Baripada",
+    "url": "https://www.openstreetmap.org/#map=17/21.9338/86.7266",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.9338, 86.7266 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_001_src_3",
+    "research_id": "round2_north_001",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Haribaldev Jew Temple, Baripada",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Jagannath_temple_baripada.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_002_src_1",
+    "research_id": "round2_north_002",
+    "source_type": "government",
+    "title": "Devkund Waterfalls & Maa Ambika Temple - Official Portal Documentation",
+    "url": "https://mayurbhanj.nic.in/tourist-place/devkund/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Devkund Waterfalls & Maa Ambika Temple in Mayurbhanj district."
+  },
+  {
+    "source_id": "round2_north_002_src_2",
+    "research_id": "round2_north_002",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Devkund Waterfalls & Maa Ambika Temple",
+    "url": "https://www.openstreetmap.org/#map=17/21.5794/86.5414",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.5794, 86.5414 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_002_src_3",
+    "research_id": "round2_north_002",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Devkund Waterfalls & Maa Ambika Temple",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Devkund_Waterfall_Odisha.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_003_src_1",
+    "research_id": "round2_north_003",
+    "source_type": "government",
+    "title": "The Belgadia Palace, Baripada - Official Portal Documentation",
+    "url": "https://mayurbhanj.nic.in/culture-heritage/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying The Belgadia Palace, Baripada in Mayurbhanj district."
+  },
+  {
+    "source_id": "round2_north_003_src_2",
+    "research_id": "round2_north_003",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for The Belgadia Palace, Baripada",
+    "url": "https://www.openstreetmap.org/#map=17/21.9367/86.7486",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.9367, 86.7486 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_003_src_3",
+    "research_id": "round2_north_003",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for The Belgadia Palace, Baripada",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/The_Belgadia_Palace%2C_Mayurbhanj%2C_Odisha.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_004_src_1",
+    "research_id": "round2_north_004",
+    "source_type": "government",
+    "title": "Haripur Gada Archaeological Site - Official Portal Documentation",
+    "url": "https://mayurbhanj.nic.in/tourist-place/haripur/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Haripur Gada Archaeological Site in Mayurbhanj district."
+  },
+  {
+    "source_id": "round2_north_004_src_2",
+    "research_id": "round2_north_004",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Haripur Gada Archaeological Site",
+    "url": "https://www.openstreetmap.org/#map=17/21.8483/86.8033",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.8483, 86.8033 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_004_src_3",
+    "research_id": "round2_north_004",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Haripur Gada Archaeological Site",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Rasikaraya_Temple_Haripurgarh_Mayurbhanj_Odisha_01.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_005_src_1",
+    "research_id": "round2_north_005",
+    "source_type": "government",
+    "title": "Sitakund Waterfall, Pithabata - Official Portal Documentation",
+    "url": "https://mayurbhanj.nic.in/tourist-place/sitakund/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Sitakund Waterfall, Pithabata in Mayurbhanj district."
+  },
+  {
+    "source_id": "round2_north_005_src_2",
+    "research_id": "round2_north_005",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Sitakund Waterfall, Pithabata",
+    "url": "https://www.openstreetmap.org/#map=17/21.9056/86.6028",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.9056, 86.6028 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_005_src_3",
+    "research_id": "round2_north_005",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Sitakund Waterfall, Pithabata",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Sitakund_Waterfall_Mayurbhanj.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_006_src_1",
+    "research_id": "round2_north_006",
+    "source_type": "government",
+    "title": "Lulung Eco-Tourism & Palpala River Gorge - Official Portal Documentation",
+    "url": "https://mayurbhanj.nic.in/tourist-place/lulung/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Lulung Eco-Tourism & Palpala River Gorge in Mayurbhanj district."
+  },
+  {
+    "source_id": "round2_north_006_src_2",
+    "research_id": "round2_north_006",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Lulung Eco-Tourism & Palpala River Gorge",
+    "url": "https://www.openstreetmap.org/#map=17/21.9361/86.5361",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.9361, 86.5361 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_006_src_3",
+    "research_id": "round2_north_006",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Lulung Eco-Tourism & Palpala River Gorge",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Palpala_River_at_Lulung%2C_Mayurbhanj.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_007_src_1",
+    "research_id": "round2_north_007",
+    "source_type": "government",
+    "title": "Khirachora Gopinatha Temple, Remuna - Official Portal Documentation",
+    "url": "https://balasore.nic.in/tourist-place/khirachora-gopinath-temple/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Khirachora Gopinatha Temple, Remuna in Balasore district."
+  },
+  {
+    "source_id": "round2_north_007_src_2",
+    "research_id": "round2_north_007",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Khirachora Gopinatha Temple, Remuna",
+    "url": "https://www.openstreetmap.org/#map=17/21.5278/86.8722",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.5278, 86.8722 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_007_src_3",
+    "research_id": "round2_north_007",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Khirachora Gopinatha Temple, Remuna",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Khirachora_Gopinatha_Temple_Remuna_Balasore_Odisha.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_008_src_1",
+    "research_id": "round2_north_008",
+    "source_type": "government",
+    "title": "Nilagiri Jagannath Temple & Royal Fort - Official Portal Documentation",
+    "url": "https://balasore.nic.in/tourist-place/nilagiri/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Nilagiri Jagannath Temple & Royal Fort in Balasore district."
+  },
+  {
+    "source_id": "round2_north_008_src_2",
+    "research_id": "round2_north_008",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Nilagiri Jagannath Temple & Royal Fort",
+    "url": "https://www.openstreetmap.org/#map=17/21.4611/86.7667",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.4611, 86.7667 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_008_src_3",
+    "research_id": "round2_north_008",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Nilagiri Jagannath Temple & Royal Fort",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Nilagiri_Jagannath_Temple_Balasore.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_009_src_1",
+    "research_id": "round2_north_009",
+    "source_type": "government",
+    "title": "Dagara Beach - Official Portal Documentation",
+    "url": "https://balasore.nic.in/tourist-place/dagara-beach/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Dagara Beach in Balasore district."
+  },
+  {
+    "source_id": "round2_north_009_src_2",
+    "research_id": "round2_north_009",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Dagara Beach",
+    "url": "https://www.openstreetmap.org/#map=17/21.6056/87.2722",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.6056, 87.2722 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_009_src_3",
+    "research_id": "round2_north_009",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Dagara Beach",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Dagara_Beach_Balasore_Odisha.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_010_src_1",
+    "research_id": "round2_north_010",
+    "source_type": "government",
+    "title": "Chandaneswar Shiva Temple - Official Portal Documentation",
+    "url": "https://balasore.nic.in/tourist-place/chandaneswar/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Chandaneswar Shiva Temple in Balasore district."
+  },
+  {
+    "source_id": "round2_north_010_src_2",
+    "research_id": "round2_north_010",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Chandaneswar Shiva Temple",
+    "url": "https://www.openstreetmap.org/#map=17/21.6212/87.489",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.6212, 87.489 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_010_src_3",
+    "research_id": "round2_north_010",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Chandaneswar Shiva Temple",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Chandaneswar_Temple_Balasore.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_011_src_1",
+    "research_id": "round2_north_011",
+    "source_type": "government",
+    "title": "Bhudhar Chandi Temple, Sujanagarh - Official Portal Documentation",
+    "url": "https://balasore.nic.in/tourist-place/bhudhar-chandi/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Bhudhar Chandi Temple, Sujanagarh in Balasore district."
+  },
+  {
+    "source_id": "round2_north_011_src_2",
+    "research_id": "round2_north_011",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Bhudhar Chandi Temple, Sujanagarh",
+    "url": "https://www.openstreetmap.org/#map=17/21.4389/86.725",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.4389, 86.725 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_011_src_3",
+    "research_id": "round2_north_011",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Bhudhar Chandi Temple, Sujanagarh",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Bhudharchandi_temple_Sujanagarh.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_012_src_1",
+    "research_id": "round2_north_012",
+    "source_type": "government",
+    "title": "Balaramgadi Beach & Budhabalanga Estuary - Official Portal Documentation",
+    "url": "https://balasore.nic.in/tourist-place/balaramgadi/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Balaramgadi Beach & Budhabalanga Estuary in Balasore district."
+  },
+  {
+    "source_id": "round2_north_012_src_2",
+    "research_id": "round2_north_012",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Balaramgadi Beach & Budhabalanga Estuary",
+    "url": "https://www.openstreetmap.org/#map=17/21.4778/87.0389",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.4778, 87.0389 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_012_src_3",
+    "research_id": "round2_north_012",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Balaramgadi Beach & Budhabalanga Estuary",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Budhabalanga_River_Mouth_Balaramgadi.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_013_src_1",
+    "research_id": "round2_north_013",
+    "source_type": "government",
+    "title": "Maa Tarini Temple, Ghatagaon - Official Portal Documentation",
+    "url": "https://keonjhar.nic.in/tourist-place/ghatagaon/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Maa Tarini Temple, Ghatagaon in Keonjhar district."
+  },
+  {
+    "source_id": "round2_north_013_src_2",
+    "research_id": "round2_north_013",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Maa Tarini Temple, Ghatagaon",
+    "url": "https://www.openstreetmap.org/#map=17/21.4083/85.9139",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.4083, 85.9139 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_013_src_3",
+    "research_id": "round2_north_013",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Maa Tarini Temple, Ghatagaon",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Maa_Tarini_Temple_Ghatgaon.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_014_src_1",
+    "research_id": "round2_north_014",
+    "source_type": "government",
+    "title": "Sitabinji Fresco Painting & Ravan Chhaya - Official Portal Documentation",
+    "url": "https://keonjhar.nic.in/tourist-place/sitabinji/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Sitabinji Fresco Painting & Ravan Chhaya in Keonjhar district."
+  },
+  {
+    "source_id": "round2_north_014_src_2",
+    "research_id": "round2_north_014",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Sitabinji Fresco Painting & Ravan Chhaya",
+    "url": "https://www.openstreetmap.org/#map=17/21.4333/85.8",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.4333, 85.8 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_014_src_3",
+    "research_id": "round2_north_014",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Sitabinji Fresco Painting & Ravan Chhaya",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Sitabinji_Frescoes_Keonjhar.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_015_src_1",
+    "research_id": "round2_north_015",
+    "source_type": "government",
+    "title": "Bhimkund Water Pool & Gorge - Official Portal Documentation",
+    "url": "https://keonjhar.nic.in/tourist-place/bhimkund/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Bhimkund Water Pool & Gorge in Keonjhar district."
+  },
+  {
+    "source_id": "round2_north_015_src_2",
+    "research_id": "round2_north_015",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Bhimkund Water Pool & Gorge",
+    "url": "https://www.openstreetmap.org/#map=17/21.5056/86.0111",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.5056, 86.0111 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_015_src_3",
+    "research_id": "round2_north_015",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Bhimkund Water Pool & Gorge",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Bhimakunda_Keonjhar_Odisha.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_016_src_1",
+    "research_id": "round2_north_016",
+    "source_type": "government",
+    "title": "Gundichaghai Waterfall - Official Portal Documentation",
+    "url": "https://keonjhar.nic.in/tourist-place/gundichaghai/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Gundichaghai Waterfall in Keonjhar district."
+  },
+  {
+    "source_id": "round2_north_016_src_2",
+    "research_id": "round2_north_016",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Gundichaghai Waterfall",
+    "url": "https://www.openstreetmap.org/#map=17/21.3722/85.7694",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.3722, 85.7694 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_016_src_3",
+    "research_id": "round2_north_016",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Gundichaghai Waterfall",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Gundichaghai_Waterfall_Keonjhar.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_017_src_1",
+    "research_id": "round2_north_017",
+    "source_type": "government",
+    "title": "Hadgarh Wildlife Sanctuary & Dam - Official Portal Documentation",
+    "url": "https://keonjhar.nic.in/tourist-place/hadgarh/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Hadgarh Wildlife Sanctuary & Dam in Keonjhar district."
+  },
+  {
+    "source_id": "round2_north_017_src_2",
+    "research_id": "round2_north_017",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Hadgarh Wildlife Sanctuary & Dam",
+    "url": "https://www.openstreetmap.org/#map=17/21.2889/86.3056",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 21.2889, 86.3056 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_017_src_3",
+    "research_id": "round2_north_017",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Hadgarh Wildlife Sanctuary & Dam",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Hadgarh_Reservoir_Keonjhar.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_018_src_1",
+    "research_id": "round2_north_018",
+    "source_type": "government",
+    "title": "Murga Mahadev Temple & Waterfall - Official Portal Documentation",
+    "url": "https://keonjhar.nic.in/tourist-place/murga-mahadev/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Murga Mahadev Temple & Waterfall in Keonjhar district."
+  },
+  {
+    "source_id": "round2_north_018_src_2",
+    "research_id": "round2_north_018",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Murga Mahadev Temple & Waterfall",
+    "url": "https://www.openstreetmap.org/#map=17/22.0667/85.45",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 22.0667, 85.45 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_018_src_3",
+    "research_id": "round2_north_018",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Murga Mahadev Temple & Waterfall",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Murga_Mahadev_Waterfall_Keonjhar.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_019_src_1",
+    "research_id": "round2_north_019",
+    "source_type": "government",
+    "title": "Odagaon Raghunath Temple - Official Portal Documentation",
+    "url": "https://nayagarh.nic.in/tourist-place/odagaon/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Odagaon Raghunath Temple in Nayagarh district."
+  },
+  {
+    "source_id": "round2_north_019_src_2",
+    "research_id": "round2_north_019",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Odagaon Raghunath Temple",
+    "url": "https://www.openstreetmap.org/#map=17/20.0167/85.0",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.0167, 85.0 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_019_src_3",
+    "research_id": "round2_north_019",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Odagaon Raghunath Temple",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Odagaon_Raghunatha_Temple.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_020_src_1",
+    "research_id": "round2_north_020",
+    "source_type": "government",
+    "title": "Ranpur Jagannath Temple & Maninag Hill - Official Portal Documentation",
+    "url": "https://nayagarh.nic.in/tourist-place/ranpur/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Ranpur Jagannath Temple & Maninag Hill in Nayagarh district."
+  },
+  {
+    "source_id": "round2_north_020_src_2",
+    "research_id": "round2_north_020",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Ranpur Jagannath Temple & Maninag Hill",
+    "url": "https://www.openstreetmap.org/#map=17/20.0611/85.3472",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.0611, 85.3472 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_020_src_3",
+    "research_id": "round2_north_020",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Ranpur Jagannath Temple & Maninag Hill",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Ranpur_Jagannath_Temple_Nayagarh.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_021_src_1",
+    "research_id": "round2_north_021",
+    "source_type": "government",
+    "title": "Satkosia Gorge Eco-Camp, Badamul - Official Portal Documentation",
+    "url": "https://nayagarh.nic.in/tourist-place/badamul/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Satkosia Gorge Eco-Camp, Badamul in Nayagarh district."
+  },
+  {
+    "source_id": "round2_north_021_src_2",
+    "research_id": "round2_north_021",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Satkosia Gorge Eco-Camp, Badamul",
+    "url": "https://www.openstreetmap.org/#map=17/20.4611/84.8833",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.4611, 84.8833 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_021_src_3",
+    "research_id": "round2_north_021",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Satkosia Gorge Eco-Camp, Badamul",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Satkosia_Gorge_Mahanadi_Badamul.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_022_src_1",
+    "research_id": "round2_north_022",
+    "source_type": "government",
+    "title": "Dutikeswar Shiva Temple, Jamupatna - Official Portal Documentation",
+    "url": "https://nayagarh.nic.in/tourist-place/dutikeswar/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Dutikeswar Shiva Temple, Jamupatna in Nayagarh district."
+  },
+  {
+    "source_id": "round2_north_022_src_2",
+    "research_id": "round2_north_022",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Dutikeswar Shiva Temple, Jamupatna",
+    "url": "https://www.openstreetmap.org/#map=17/20.0389/84.9722",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.0389, 84.9722 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_022_src_3",
+    "research_id": "round2_north_022",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Dutikeswar Shiva Temple, Jamupatna",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Dutikeswar_Temple_Nayagarh.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_023_src_1",
+    "research_id": "round2_north_023",
+    "source_type": "government",
+    "title": "Raghurajpur Heritage Crafts Village - Official Portal Documentation",
+    "url": "https://puri.nic.in/tourist-place/raghurajpur/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Raghurajpur Heritage Crafts Village in Puri district."
+  },
+  {
+    "source_id": "round2_north_023_src_2",
+    "research_id": "round2_north_023",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Raghurajpur Heritage Crafts Village",
+    "url": "https://www.openstreetmap.org/#map=17/19.8833/85.8333",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 19.8833, 85.8333 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_023_src_3",
+    "research_id": "round2_north_023",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Raghurajpur Heritage Crafts Village",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Pattachitra_Artist_Raghurajpur_Puri.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_024_src_1",
+    "research_id": "round2_north_024",
+    "source_type": "government",
+    "title": "Pipili Applique Craft Village - Official Portal Documentation",
+    "url": "https://puri.nic.in/tourist-place/pipili/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Pipili Applique Craft Village in Puri district."
+  },
+  {
+    "source_id": "round2_north_024_src_2",
+    "research_id": "round2_north_024",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Pipili Applique Craft Village",
+    "url": "https://www.openstreetmap.org/#map=17/20.1167/85.8333",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.1167, 85.8333 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_024_src_3",
+    "research_id": "round2_north_024",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Pipili Applique Craft Village",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Pipili_Applique_Work_Odisha.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  },
+  {
+    "source_id": "round2_north_025_src_1",
+    "research_id": "round2_north_025",
+    "source_type": "government",
+    "title": "Maa Barunei Temple & Barunei Hill - Official Portal Documentation",
+    "url": "https://khordha.nic.in/tourist-place/barunei/",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "name",
+      "district",
+      "category",
+      "description"
+    ],
+    "notes": "Official district administration / government documentation verifying Maa Barunei Temple & Barunei Hill in Khordha district."
+  },
+  {
+    "source_id": "round2_north_025_src_2",
+    "research_id": "round2_north_025",
+    "source_type": "osm",
+    "title": "OpenStreetMap Geospatial Verification for Maa Barunei Temple & Barunei Hill",
+    "url": "https://www.openstreetmap.org/#map=17/20.1764/85.6667",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "coordinates"
+    ],
+    "notes": "Geospatial coordinate cross-verification on OpenStreetMap: 20.1764, 85.6667 within Odisha bounds."
+  },
+  {
+    "source_id": "round2_north_025_src_3",
+    "research_id": "round2_north_025",
+    "source_type": "wikimedia",
+    "title": "Wikimedia Commons Image Lead for Maa Barunei Temple & Barunei Hill",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Barunei_Temple_Khordha.jpg",
+    "accessed_at": "2026-08-31",
+    "supports": [
+      "image"
+    ],
+    "notes": "Candidate image lead on Wikimedia Commons under license CC BY-SA 4.0."
+  }
+]
