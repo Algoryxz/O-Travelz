@@ -121,7 +121,7 @@ fun TransitScreen(
                 )
                 Spacer(modifier = Modifier.width(Spacing.sm))
                 Text(
-                    text = "Scheduled Timetable Notice: Stop departures and route sequences are derived from published CRUT / Mo Bus schedules. Live GPS vehicle tracking is not available.",
+                    text = "Scheduled Timetable Notice: Stop departures and route frequencies are derived from published CRUT / Mo Bus timetables. Live GPS vehicle tracking is not available.",
                     style = MaterialTheme.typography.bodySmall,
                     color = TextSecondary
                 )
@@ -254,7 +254,7 @@ fun TransitScreen(
                                 Spacer(modifier = Modifier.height(2.dp))
 
                                 Text(
-                                    text = "Walking: ~${stop.walkingEstimateMins} mins (${stop.distanceMeters.toInt()}m) • Straight-line",
+                                    text = "Straight-line proximity: ${stop.distanceMeters.toInt()}m from Master Canteen • Scheduled",
                                     style = MaterialTheme.typography.bodyMedium,
                                     color = TextSecondary
                                 )
