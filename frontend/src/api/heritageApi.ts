@@ -2,7 +2,7 @@
  * Digital Heritage API client connecting to FastAPI backend with verified fallback catalog.
  */
 import type { HeritageScene } from '../types/heritage';
-import { apiClient } from './client';
+import { getApiBaseUrl } from './config';
 
 export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
   {
@@ -23,8 +23,8 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       mesh_quality: "archival_spatial_reference",
       coordinate_system: "Y-Up"
     },
-    thumbnail: "https://images.unsplash.com/photo-1606210114565-964c5d12038a?q=80&w=800&auto=format&fit=crop",
-    hero_banner: "https://images.unsplash.com/photo-1606210114565-964c5d12038a?q=80&w=1600&auto=format&fit=crop",
+    thumbnail: "/images/heritage/konark_sun_temple.webp",
+    hero_banner: "/images/heritage/konark_sun_temple.webp",
     reconstruction_notes: "3D Reconstruction in progress. Currently presenting high-definition archival photographic canvas, verified spatial coordinates, and interactive architectural hotspots.",
     camera_preset: {
       position: [0.0, 1.8, 4.8],
@@ -80,12 +80,12 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       },
       {
         title: "Wikimedia Commons Cultural Heritage Documentation",
-        source: "High-resolution orthogonal monument photographic documentation",
+        source: "High-resolution orthogonal monument photographic documentation (File:Closeup of the center of a stone wheel - Konark Sun Temple, Orissa, India.jpg)",
         license: "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
         url: "https://commons.wikimedia.org",
         access_date: "2026-08-22",
         content_type: "Multi-angle Photographic Documentation",
-        attribution: "Contributing Photographers & Wikimedia Foundation"
+        attribution: "Photo by Subhrajyoti07 via Wikimedia Commons"
       }
     ]
   },
@@ -107,8 +107,8 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       mesh_quality: "authorized_external_reference",
       coordinate_system: "Y-Up"
     },
-    thumbnail: "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=800&auto=format&fit=crop",
-    hero_banner: "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=1600&auto=format&fit=crop",
+    thumbnail: "/images/heritage/puri_jagannath_temple.webp",
+    hero_banner: "/images/heritage/puri_jagannath_temple.webp",
     reconstruction_notes: "Authorized exterior perimeter and architectural skyline reference only. In accordance with sacred sanctum sanctity rules, no interior sanctum geometry is reconstructed or displayed.",
     camera_preset: {
       position: [0.0, 2.6, 6.0],
@@ -172,8 +172,8 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       mesh_quality: "archival_spatial_reference",
       coordinate_system: "Y-Up"
     },
-    thumbnail: "https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?q=80&w=800&auto=format&fit=crop",
-    hero_banner: "https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?q=80&w=1600&auto=format&fit=crop",
+    thumbnail: "/images/heritage/dhauli_shanti_stupa.webp",
+    hero_banner: "/images/heritage/dhauli_shanti_stupa.webp",
     reconstruction_notes: "3D Reconstruction in progress. Archival photographic reference and cardinal Buddha relief mapping active.",
     camera_preset: {
       position: [0.0, 2.0, 5.2],
@@ -237,8 +237,8 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       mesh_quality: "authorized_external_reference",
       coordinate_system: "Y-Up"
     },
-    thumbnail: "https://images.unsplash.com/photo-1667849357658-16bfa7069152?q=80&w=800&auto=format&fit=crop",
-    hero_banner: "https://images.unsplash.com/photo-1667849357658-16bfa7069152?q=80&w=1600&auto=format&fit=crop",
+    thumbnail: "/images/heritage/lingaraj_temple.webp",
+    hero_banner: "/images/heritage/lingaraj_temple.webp",
     reconstruction_notes: "Authorized exterior perimeter and architectural skyline reference derived from Ekamra Kshetra Heritage Project spatial records. Preserves authentic Kalinga architectural proportion ratio (1:4 deula to jagamohana).",
     camera_preset: {
       position: [0.0, 2.5, 6.0],
@@ -260,16 +260,6 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
         position: [0.0, 3.0, -0.5],
         look_at: [0.0, 2.4, 0.0],
         camera_offset: [0.0, 3.5, 4.5]
-      },
-      {
-        id: "lingaraj_compound",
-        title: "Ekamra Compound & Subsidiary Shrines",
-        odia_title: "ମନ୍ଦିର ପରିସର ଶତାଧିକ ମନ୍ଦିର",
-        description: "Massive laterite stone compound wall (Kurma Pacheri) sheltering 150 individual shrines including the sacred Parvati Temple.",
-        architectural_significance: "Living pilgrimage ecosystem preserved continuously for over a millennium.",
-        position: [-2.0, 0.7, 0.0],
-        look_at: [-1.2, 0.7, 0.0],
-        camera_offset: [-3.0, 1.6, 2.5]
       }
     ],
     sources: [
@@ -302,8 +292,8 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       mesh_quality: "archival_spatial_reference",
       coordinate_system: "Y-Up"
     },
-    thumbnail: "https://images.unsplash.com/photo-1599827556794-5b4d6b63d0bb?q=80&w=800&auto=format&fit=crop",
-    hero_banner: "https://images.unsplash.com/photo-1599827556794-5b4d6b63d0bb?q=80&w=1600&auto=format&fit=crop",
+    thumbnail: "/images/heritage/udayagiri_caves.webp",
+    hero_banner: "/images/heritage/udayagiri_caves.webp",
     reconstruction_notes: "3D Reconstruction in progress. Epigraphic and architectural hotspot reference active.",
     camera_preset: {
       position: [0.0, 1.8, 5.0],
@@ -319,22 +309,12 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       {
         id: "udayagiri_rani_gumpha",
         title: "Rani Gumpha (Queen's Cave Facade)",
-        odia_title: "ରାଣୀ ଗମ୍ଫା (ଦୁଇ ମହଲା ବିଶିଷ୍ଟ ଗୁମ୍ଫା)",
+        odia_title: "ରାଣୀ ଗୁମ୍ଫା (ଦୁଇ ମହଲା ବିଶିଷ୍ଟ ଗୁମ୍ଫା)",
         description: "Magnificent two-storey rock-cut monastery with biconcave barrel-vaulted cell doorways, carved guardian dvarapalas, and continuous narrative friezes.",
         architectural_significance: "Largest and most artistically rich cave in the complex, featuring acoustic courtyard resonance used for royal theatrical performances.",
         position: [0.0, 1.3, -0.3],
         look_at: [0.0, 1.1, 0.0],
         camera_offset: [0.0, 1.8, 3.5]
-      },
-      {
-        id: "udayagiri_hathigumpha",
-        title: "Hathigumpha (Elephant Cave & Inscription)",
-        odia_title: "ହାତୀଗୁମ୍ଫା ଓ ଖାରବେଳ ଶିଳାଲେଖ",
-        description: "Natural cavern containing the priceless 17-line Brahmi Prakrit inscription recording the military triumphs, canal construction, and cultural achievements of King Kharavela.",
-        architectural_significance: "Primary historical epigraphic source for 2nd-century BCE Indian history and early Kalinga maritime heritage.",
-        position: [-1.5, 0.8, 1.0],
-        look_at: [-1.2, 0.8, 0.5],
-        camera_offset: [-2.0, 1.3, 2.6]
       }
     ],
     sources: [
@@ -367,8 +347,8 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       mesh_quality: "archival_spatial_reference",
       coordinate_system: "Y-Up"
     },
-    thumbnail: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800&auto=format&fit=crop",
-    hero_banner: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1600&auto=format&fit=crop",
+    thumbnail: "/images/heritage/barabati_fort.webp",
+    hero_banner: "/images/heritage/barabati_fort.webp",
     reconstruction_notes: "3D Reconstruction in progress. 14th-century pointed arch entrance gate spatial reference active.",
     camera_preset: {
       position: [0.0, 1.8, 4.8],
@@ -390,16 +370,6 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
         position: [0.0, 1.2, 0.0],
         look_at: [0.0, 1.0, -0.4],
         camera_offset: [0.0, 1.6, 3.2]
-      },
-      {
-        id: "barabati_citadel_mound",
-        title: "Nine-Storey Palace Mound (Nava-Tala)",
-        odia_title: "ନଅତଳା ପ୍ରାସାଦ ଢ଼ିପ",
-        description: "Centrally located elevated mound where excavations revealed the structural stone column bases and courtyard of King Mukundadeva's palace.",
-        architectural_significance: "Documented by Mughal and European travelers as one of the most imposing palace strongholds in eastern India.",
-        position: [-1.6, 1.3, -1.4],
-        look_at: [-1.2, 1.0, -0.8],
-        camera_offset: [-2.5, 2.0, 2.8]
       }
     ],
     sources: [
@@ -418,24 +388,41 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
 
 export async function fetchHeritageScenes(): Promise<HeritageScene[]> {
   try {
-    const res = await apiClient.getHeritageScenes();
-    if (Array.isArray(res) && res.length > 0) {
-      return res;
+    const base = getApiBaseUrl();
+    const res = await fetch(`${base}/heritage/scenes`, { credentials: 'omit' });
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        return data;
+      }
     }
-  } catch (err) {
-    // Graceful fallback to verified catalog
+    return FALLBACK_HERITAGE_SCENES;
+  } catch {
+    return FALLBACK_HERITAGE_SCENES;
   }
-  return FALLBACK_HERITAGE_SCENES;
 }
 
-export async function fetchHeritageSceneById(id: string): Promise<HeritageScene | null> {
+export async function fetchHeritageSceneById(id: string): Promise<HeritageScene> {
   try {
-    const res = await apiClient.getHeritageScene(id);
-    if (res && res.id) {
-      return res;
+    const base = getApiBaseUrl();
+    const res = await fetch(`${base}/heritage/scenes/${id}`, { credentials: 'omit' });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.id) {
+        return data;
+      }
     }
-  } catch (err) {
-    // Fallback
+    const fallback = FALLBACK_HERITAGE_SCENES.find((s) => s.id === id);
+    if (fallback) return fallback;
+    throw new Error(`Scene not found: ${id}`);
+  } catch {
+    const fallback = FALLBACK_HERITAGE_SCENES.find((s) => s.id === id);
+    if (fallback) return fallback;
+    throw new Error(`Scene not found: ${id}`);
   }
-  return FALLBACK_HERITAGE_SCENES.find((s) => s.id === id) || null;
 }
+
+export const heritageApi = {
+  getAllScenes: fetchHeritageScenes,
+  getSceneById: fetchHeritageSceneById,
+};

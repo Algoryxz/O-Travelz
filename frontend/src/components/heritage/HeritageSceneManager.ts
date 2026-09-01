@@ -1,11 +1,12 @@
 /**
- * Three.js Heritage Scene Manager: Manages photogrammetric heritage geometries,
- * real Gaussian Splat / Point Cloud streams, atmospheric solar presets,
- * and authentic spatial reference canvas without synthetic procedural primitives.
+ * Three.js Heritage Scene Manager: Manages photogrammetric heritage assets,
+ * authentic Gaussian Splat renderers, atmospheric solar presets,
+ * and high-definition archival spatial reference canvases without synthetic procedural geometry.
  */
 import * as THREE from 'three';
 import type { HeritageScene } from '../../types/heritage';
 import type { QualitySettings } from './HeritageQualityController';
+import { HeritageSplatRenderer } from './HeritageSplatRenderer';
 
 export type LightingPreset = 'daylight' | 'golden_hour' | 'temple_glow' | 'twilight';
 
@@ -15,6 +16,7 @@ export class HeritageSceneManager {
   public terrainGroup: THREE.Group;
   public lightsGroup: THREE.Group;
   public particlesGroup: THREE.Points | null = null;
+  public splatRenderer: HeritageSplatRenderer;
 
   private textureLoader = new THREE.TextureLoader();
   private activeLighting: LightingPreset = 'golden_hour';
@@ -27,6 +29,7 @@ export class HeritageSceneManager {
     this.monumentGroup = new THREE.Group();
     this.terrainGroup = new THREE.Group();
     this.lightsGroup = new THREE.Group();
+    this.splatRenderer = new HeritageSplatRenderer();
 
     this.scene.add(this.terrainGroup);
     this.scene.add(this.monumentGroup);
@@ -48,42 +51,63 @@ export class HeritageSceneManager {
   }
 
   /**
-   * Loads real photogrammetric point cloud / Gaussian Splat buffer into the 3D viewport.
+   * Per-frame update for Gaussian Splat depth sorting and atmospheric particles.
    */
-  public loadRealPhotogrammetricAsset(
-    geometry: THREE.BufferGeometry,
-    material: THREE.Material,
-    sceneData: HeritageScene
-  ): void {
+  public update(delta: number): void {
+    this.splatRenderer.update();
+    if (this.particlesGroup && this.particlesGroup.visible) {
+      this.particlesGroup.rotation.y += delta * 0.02;
+    }
+  }
+
+  /**
+   * Loads a genuine 3D Gaussian Splatting scene into Three.js via DropInViewer.
+   */
+  public async loadGaussianSplatAsset(
+    assetUrl: string,
+    sceneData: HeritageScene,
+    onProgress?: (percent: number, status: string) => void
+  ): Promise<boolean> {
     this.disposeCurrentMonument();
 
-    const group = new THREE.Group();
-    const pointsMesh = new THREE.Points(geometry, material);
-    pointsMesh.castShadow = true;
-    group.add(pointsMesh);
+    const success = await this.splatRenderer.loadSplatScene(
+      assetUrl,
+      this.monumentGroup,
+      {
+        splatAlphaRemovalThreshold: 5,
+        progressiveLoad: false,
+        onProgress,
+      }
+    );
 
-    // Anchors for verified architectural hotspots
-    if (sceneData.hotspots) {
-      sceneData.hotspots.forEach((h) => {
-        const anchorGeo = new THREE.SphereGeometry(0.04, 12, 12);
-        const anchorMat = new THREE.MeshBasicMaterial({
-          color: 0xf59e0b,
-          transparent: true,
-          opacity: 0.85,
+    if (success) {
+      // Anchors for verified architectural hotspots
+      if (sceneData.hotspots) {
+        sceneData.hotspots.forEach((h) => {
+          const anchorGeo = new THREE.SphereGeometry(0.04, 12, 12);
+          const anchorMat = new THREE.MeshBasicMaterial({
+            color: 0xf59e0b,
+            transparent: true,
+            opacity: 0.85,
+          });
+          const anchor = new THREE.Mesh(anchorGeo, anchorMat);
+          anchor.position.set(h.position[0], h.position[1], h.position[2]);
+          this.monumentGroup.add(anchor);
         });
-        const anchor = new THREE.Mesh(anchorGeo, anchorMat);
-        anchor.position.set(h.position[0], h.position[1], h.position[2]);
-        group.add(anchor);
-      });
+      }
+      this.setupTerrain(sceneData.id);
+      return true;
     }
 
-    this.monumentGroup.add(group);
-    this.setupTerrain(sceneData.id);
+    // If splat load failed, fall back to verified archival reference
+    this.loadSpatialReferenceExperience(sceneData);
+    return false;
   }
 
   /**
    * Renders high-definition Archival Spatial Reference Canvas for monuments
-   * under sacred reference classification. Zero synthetic geometry or primitive boxes.
+   * under sacred reference classification or ongoing reconstruction.
+   * Zero synthetic geometry or primitive boxes.
    */
   public loadSpatialReferenceExperience(sceneData: HeritageScene): void {
     this.disposeCurrentMonument();
@@ -169,6 +193,7 @@ export class HeritageSceneManager {
   }
 
   private disposeCurrentMonument(): void {
+    this.splatRenderer.dispose();
     while (this.monumentGroup.children.length > 0) {
       const obj = this.monumentGroup.children[0];
       this.monumentGroup.remove(obj);

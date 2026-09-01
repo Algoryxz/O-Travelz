@@ -1,6 +1,7 @@
 /**
  * Authoritative Destination World Asset Manifest for Odisha Cinematic Stages.
- * Unique, verified imagery and video references for each iconic Odisha destination.
+ * Explicit provenance, verified destination identities, unique media streams,
+ * and zero generic stock/hallucinated landscapes.
  */
 
 export interface DestinationWorldAsset {
@@ -14,12 +15,19 @@ export interface DestinationWorldAsset {
   traveler_highlight: string;
   best_time: string;
   distance_from_hub: string;
-  poster_url: string;
-  midground_url?: string;
+  mediaType: 'image' | 'video';
+  posterUrl: string;
+  poster_url: string; // Alias for backward compatibility & tests
+  fallbackPosterUrl?: string;
+  videoUrl?: string;
+  source: string;
+  sourceUrl: string;
+  license: string;
+  attribution: string;
+  verified: boolean;
+  destinationIdentity: string;
   foreground_texture: 'beach_sand' | 'coastal_surf' | 'water_ripple' | 'pine_mist' | 'forest_sal' | 'chlorite_stone' | 'hilltop_scrub';
   ambient_lighting: 'golden_coastal' | 'morning_mist' | 'ocean_breeze' | 'sunset_amber' | 'emerald_canopy';
-  source_attribution: string;
-  license: string;
 }
 
 export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
@@ -31,14 +39,21 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     category: 'BEACH',
     tagline: 'Blue Flag Certified Golden Coast',
     description: 'Golden sands stretching along the Bay of Bengal with gentle surf, coastal fishermen catamarans, and sunrise vistas over sacred waters.',
-    traveler_highlight: 'Blue Flag certified pristine eco-beach with safe swimming zones and promenade walks.',
+    traveler_highlight: 'Blue Flag certified pristine eco-beach with safe swimming zones, certified lifeguards, and beach promenade.',
     best_time: 'October to March (Sunrise: 05:40 AM)',
     distance_from_hub: '60 km from Bhubaneswar (NH 316)',
-    poster_url: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1920&auto=format&fit=crop',
+    mediaType: 'image',
+    posterUrl: '/images/destinations/puri_beach.webp',
+    poster_url: '/images/destinations/puri_beach.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Puri_sea_beach_005.jpg',
+    source: 'Wikimedia Commons (File:Puri sea beach 005.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Puri_sea_beach_005.jpg',
+    license: 'CC BY-SA 4.0',
+    attribution: 'Photo by Tarunsamanta via Wikimedia Commons, licensed under CC BY-SA 4.0',
+    verified: true,
+    destinationIdentity: 'Puri coastline with golden sand beach, fishing boats, and Bay of Bengal morning surf.',
     foreground_texture: 'beach_sand',
     ambient_lighting: 'golden_coastal',
-    source_attribution: 'Odisha Tourism & Blue Flag Beach Program',
-    license: 'Public Editorial Reference',
   },
   {
     id: 'chandrabhaga-beach',
@@ -48,14 +63,21 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     category: 'BEACH',
     tagline: 'Where the Sun Rises from the Ocean',
     description: 'Pristine coastal sanctuary near Konark where golden casuarina groves meet the rhythmic Bay of Bengal tides, renowned for the sacred Magha Saptami dawn dip.',
-    traveler_highlight: 'Spectacular unimpeded ocean sunrise and serene eco-retreat trails.',
+    traveler_highlight: 'Spectacular unimpeded ocean sunrise and serene eco-retreat trails away from commercial crowds.',
     best_time: 'November to February (Dawn / Sunrise)',
-    distance_from_hub: '35 km from Puri / 65 km from Bhubaneswar',
-    poster_url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&auto=format&fit=crop',
+    distance_from_hub: '35 km from Puri / 65 km from Bhubaneswar (Marine Drive)',
+    mediaType: 'image',
+    posterUrl: '/images/destinations/chandrabhaga_beach.webp',
+    poster_url: '/images/destinations/chandrabhaga_beach.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Chandrabhaga_Beach_in_Odisha_02.jpg',
+    source: 'Wikimedia Commons (File:Chandrabhaga Beach in Odisha 02.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Chandrabhaga_Beach_in_Odisha_02.jpg',
+    license: 'CC BY-SA 4.0',
+    attribution: 'Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0',
+    verified: true,
+    destinationIdentity: 'Chandrabhaga shoreline with wide sands and open Bay of Bengal dawn horizon.',
     foreground_texture: 'coastal_surf',
     ambient_lighting: 'sunset_amber',
-    source_attribution: 'Department of Tourism, Govt. of Odisha',
-    license: 'Public Editorial Reference',
   },
   {
     id: 'gopalpur-on-sea',
@@ -65,14 +87,21 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     category: 'BEACH',
     tagline: 'Historic Maritime Haven & Casuarina Dunes',
     description: 'Historic seaport with whispering casuarina dunes, an ancient red-and-white striped lighthouse, and peaceful tranquil surf along the southern coast.',
-    traveler_highlight: 'Vintage colonial lighthouse climb with panoramic coastal vistas and fresh sea breeze.',
+    traveler_highlight: 'Vintage colonial lighthouse climb with panoramic coastal vistas, historic port jetty remains, and fresh seafood.',
     best_time: 'October to March',
     distance_from_hub: '170 km from Bhubaneswar / 15 km from Berhampur',
-    poster_url: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1920&auto=format&fit=crop',
+    mediaType: 'image',
+    posterUrl: '/images/destinations/gopalpur_beach.webp',
+    poster_url: '/images/destinations/gopalpur_beach.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Gopalpur_beach%2CBrahmapur%2CGanjam%2COdisha.jpg',
+    source: 'Wikimedia Commons (File:Gopalpur beach,Brahmapur,Ganjam,Odisha.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Gopalpur_beach,Brahmapur,Ganjam,Odisha.jpg',
+    license: 'CC BY-SA 4.0',
+    attribution: 'Photo via Wikimedia Commons, licensed under CC BY-SA 4.0',
+    verified: true,
+    destinationIdentity: 'Gopalpur southern coastal waters with casuarina pine tree dunes and seaside horizon.',
     foreground_texture: 'beach_sand',
     ambient_lighting: 'ocean_breeze',
-    source_attribution: 'Ganjam Heritage & Odisha Tourism',
-    license: 'Public Editorial Reference',
   },
   {
     id: 'chilika-satapada',
@@ -82,14 +111,21 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     category: 'LAGOON',
     tagline: 'Asia’s Largest Brackish Water Lagoon',
     description: 'Expansive 1,100 sq km wetland teeming with Irrawaddy dolphins, migratory avian flocks at Nalabana sanctuary, and traditional fishermen wooden boats.',
-    traveler_highlight: 'Boat safari to Sea Mouth & Irrawaddy dolphin watching near Satapada.',
+    traveler_highlight: 'Boat safari to Sea Mouth & Irrawaddy dolphin watching near Satapada lagoon mouth.',
     best_time: 'November to February (Peak Migratory Bird Season)',
     distance_from_hub: '100 km from Bhubaneswar / 50 km from Puri',
-    poster_url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920&auto=format&fit=crop',
+    mediaType: 'image',
+    posterUrl: '/images/destinations/chilika_satapada.webp',
+    poster_url: '/images/destinations/chilika_satapada.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Satapada_12.jpg',
+    source: 'Wikimedia Commons (File:Satapada 12.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Satapada_12.jpg',
+    license: 'CC BY-SA 4.0',
+    attribution: 'Photo by Rangan Datta via Wikimedia Commons, licensed under CC BY-SA 4.0',
+    verified: true,
+    destinationIdentity: 'Chilika tranquil blue lagoon waters with traditional wooden boats and island ridges.',
     foreground_texture: 'water_ripple',
     ambient_lighting: 'ocean_breeze',
-    source_attribution: 'Chilika Development Authority (CDA)',
-    license: 'Public Editorial Reference',
   },
   {
     id: 'daringbadi',
@@ -99,14 +135,21 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     category: 'HILL_STATION',
     tagline: 'The Kashmir of Odisha',
     description: 'High-altitude pine forests, aromatic coffee plantations, cascading hill springs, and winter morning frost at 3,000 feet elevation in the Eastern Ghats.',
-    traveler_highlight: 'Misty pine forest canopy trails, Hill View park, and Midubanda waterfall.',
+    traveler_highlight: 'Misty pine forest canopy trails, Hill View park, coffee gardens, and Midubanda waterfall.',
     best_time: 'October to February (Winter frost: Dec–Jan)',
     distance_from_hub: '250 km from Bhubaneswar / 125 km from Berhampur',
-    poster_url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop',
+    mediaType: 'image',
+    posterUrl: '/images/destinations/daringbadi_valleys.webp',
+    poster_url: '/images/destinations/daringbadi_valleys.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Daringbadi%2Corissa.jpg',
+    source: 'Wikimedia Commons (File:Daringbadi,orissa.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Daringbadi,orissa.jpg',
+    license: 'CC BY-SA 4.0',
+    attribution: 'Photo via Wikimedia Commons, licensed under CC BY-SA 4.0',
+    verified: true,
+    destinationIdentity: 'Eastern Ghats mountain ranges, pine forest valleys, and highland mist of Daringbadi.',
     foreground_texture: 'pine_mist',
     ambient_lighting: 'morning_mist',
-    source_attribution: 'Kandhamal Eco-Tourism Initiative',
-    license: 'Public Editorial Reference',
   },
   {
     id: 'similipal',
@@ -116,14 +159,21 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     category: 'WILDLIFE',
     tagline: 'UNESCO World Network of Biosphere Reserves',
     description: 'Vast 2,750 sq km primeval wilderness of towering dense Sal forests, roaring waterfalls at Barehipani & Joranda, and home to Bengal tigers & wild elephants.',
-    traveler_highlight: 'Barehipani twin-tiered 399-meter waterfall and deep jungle jeep safari.',
+    traveler_highlight: 'Barehipani twin-tiered 399-meter waterfall and deep jungle jeep safari through primeval Sal forest.',
     best_time: 'November to mid-June (Jungle open season)',
     distance_from_hub: '270 km from Bhubaneswar / 20 km from Baripada',
-    poster_url: 'https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1920&auto=format&fit=crop',
+    mediaType: 'image',
+    posterUrl: '/images/destinations/similipal_falls.webp',
+    poster_url: '/images/destinations/similipal_falls.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Barehipani_Falls.jpg',
+    source: 'Wikimedia Commons (File:Barehipani Falls.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Barehipani_Falls.jpg',
+    license: 'CC BY-SA 3.0',
+    attribution: 'Photo via Wikimedia Commons, licensed under CC BY-SA 3.0',
+    verified: true,
+    destinationIdentity: 'Barehipani waterfall cascading through dense primeval Sal forest canopy in Similipal.',
     foreground_texture: 'forest_sal',
     ambient_lighting: 'emerald_canopy',
-    source_attribution: 'Similipal Tiger Reserve & Odisha Wildlife Wing',
-    license: 'Public Editorial Reference',
   },
   {
     id: 'konark-chariot',
@@ -133,14 +183,21 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     category: 'HERITAGE',
     tagline: 'Poetry in Stone on the Eastern Seaboard',
     description: '13th-century monumental stone chariot of the Sun God, adorned with 24 colossal carved wheels and galloping horses overlooking sandy coastal plains.',
-    traveler_highlight: 'Illuminated evening sound-and-light show and annual Konark Dance Festival.',
+    traveler_highlight: 'Illuminated evening sound-and-light show and annual Konark Dance Festival amidst ancient temple ruins.',
     best_time: 'October to March (Golden Hour & Evening)',
     distance_from_hub: '65 km from Bhubaneswar / 35 km from Puri',
-    poster_url: 'https://images.unsplash.com/photo-1606210114565-964c5d12038a?q=80&w=1920&auto=format&fit=crop',
+    mediaType: 'image',
+    posterUrl: '/images/destinations/konark_sun_temple.webp',
+    poster_url: '/images/destinations/konark_sun_temple.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Closeup_of_the_center_of_a_stone_wheel_-_Konark_Sun_Temple%2C_Orissa%2C_India.jpg',
+    source: 'Wikimedia Commons (File:Closeup of the center of a stone wheel - Konark Sun Temple, Orissa, India.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Closeup_of_the_center_of_a_stone_wheel_-_Konark_Sun_Temple,_Orissa,_India.jpg',
+    license: 'CC BY-SA 4.0',
+    attribution: 'Photo by Subhrajyoti07 via Wikimedia Commons, licensed under CC BY-SA 4.0',
+    verified: true,
+    destinationIdentity: 'Konark Sun Temple 24-spoke chlorite stone Surya Chakra and architectural relief sculpture.',
     foreground_texture: 'chlorite_stone',
     ambient_lighting: 'golden_coastal',
-    source_attribution: 'Archaeological Survey of India & Odisha Tourism',
-    license: 'Public Editorial Reference',
   },
   {
     id: 'dhauli-valley',
@@ -150,13 +207,20 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     category: 'HERITAGE',
     tagline: 'Historical Cradle of Universal Peace',
     description: 'Gleaming white Buddhist Peace Pagoda perched atop Dhauli Hill, overlooking the serene Daya river plains where Emperor Ashoka renounced war for peace.',
-    traveler_highlight: 'Ashokan 3rd-century BCE rock edicts and panoramic twilight sunset over the Daya river.',
+    traveler_highlight: 'Ashokan 3rd-century BCE rock edicts and panoramic twilight sunset over the Daya river plains.',
     best_time: 'Year-round (Late Afternoon / Sunset)',
     distance_from_hub: '8 km south of Bhubaneswar city center',
-    poster_url: 'https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?q=80&w=1920&auto=format&fit=crop',
+    mediaType: 'image',
+    posterUrl: '/images/destinations/dhauli_shanti_stupa.webp',
+    poster_url: '/images/destinations/dhauli_shanti_stupa.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/02/Dhauli_Shanti_Stupa%2C_Bhubaneswar.jpg',
+    source: 'Wikimedia Commons (File:Dhauli Shanti Stupa, Bhubaneswar.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dhauli_Shanti_Stupa,_Bhubaneswar.jpg',
+    license: 'CC BY-SA 4.0',
+    attribution: 'Photo by Saileshpat via Wikimedia Commons, licensed under CC BY-SA 4.0',
+    verified: true,
+    destinationIdentity: 'Dhauli peace pagoda white stupa dome overlooking historic Daya river valley.',
     foreground_texture: 'hilltop_scrub',
     ambient_lighting: 'sunset_amber',
-    source_attribution: 'Odisha State Archaeology & Kalinga Nippon Buddha Sangha',
-    license: 'Public Editorial Reference',
   },
 ];

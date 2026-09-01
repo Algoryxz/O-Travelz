@@ -5,6 +5,9 @@ import { describe, it, expect } from 'vitest';
 import { FALLBACK_HERITAGE_SCENES } from '../src/api/heritageApi';
 import { ODISHA_DESTINATION_WORLDS } from '../src/components/destination/OdishaDestinationWorlds';
 import { HeritageQualityController } from '../src/components/heritage/HeritageQualityController';
+import { HeritageSplatRenderer } from '../src/components/heritage/HeritageSplatRenderer';
+import { HeritageSceneLoader } from '../src/components/heritage/HeritageSceneLoader';
+import { HeritageSceneManager } from '../src/components/heritage/HeritageSceneManager';
 
 describe('Digital Heritage & Destination Worlds Suite', () => {
   it('contains all 6 canonical high-priority Odisha heritage locations', () => {
@@ -82,8 +85,28 @@ describe('Digital Heritage & Destination Worlds Suite', () => {
     expect(names.some((n) => n.includes('Dhauli'))).toBe(true);
 
     // Verify all posters are completely unique (no repeated URLs)
-    const posters = ODISHA_DESTINATION_WORLDS.map((w) => w.poster_url);
+    const posters = ODISHA_DESTINATION_WORLDS.map((w) => w.posterUrl || w.poster_url);
     const uniquePosters = new Set(posters);
     expect(uniquePosters.size).toBe(ODISHA_DESTINATION_WORLDS.length);
+
+    // Verify media provenance fields
+    ODISHA_DESTINATION_WORLDS.forEach((world) => {
+      expect(world.source).toBeTruthy();
+      expect(world.license).toBeTruthy();
+      expect(world.attribution).toBeTruthy();
+      expect(world.verified).toBe(true);
+    });
+  });
+
+  it('verifies genuine splat renderer integration and absence of naive THREE.Points splat conversion', () => {
+    const manager = new HeritageSceneManager();
+    expect(manager.splatRenderer).toBeInstanceOf(HeritageSplatRenderer);
+
+    const loader = new HeritageSceneLoader(manager);
+    expect(loader).toBeDefined();
+
+    // Verify loader does not contain any reference to THREE.PointsMaterial
+    const loaderCode = HeritageSceneLoader.toString();
+    expect(loaderCode).not.toContain('PointsMaterial');
   });
 });

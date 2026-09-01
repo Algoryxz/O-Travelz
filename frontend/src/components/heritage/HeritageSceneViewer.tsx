@@ -1,7 +1,8 @@
 /**
  * Museum-Grade Digital Heritage 3D Scene Viewer.
- * Integrates Three.js WebGL rendering, honest reconstruction status badges,
- * dynamic solar presets, interactive architectural hotspots, and verified provenance.
+ * Integrates Three.js WebGL rendering, genuine 3D Gaussian Splatting engine,
+ * honest reconstruction status badges, dynamic solar presets,
+ * interactive architectural hotspots, and verified archival provenance.
  */
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import * as THREE from 'three';
@@ -119,13 +120,14 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
       }
     });
 
-    // 6. Render Loop
+    // 6. Render Loop with Gaussian Splat update
     let lastTime = performance.now();
     const animate = (currentTime: number) => {
       const delta = (currentTime - lastTime) / 1000;
       lastTime = currentTime;
 
       cameraController.update(delta);
+      sceneManager.update(delta);
       renderer.render(sceneManager.scene, camera);
 
       animFrameIdRef.current = requestAnimationFrame(animate);
@@ -221,13 +223,13 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
       case 'REAL_3D_RECONSTRUCTION':
         return {
           label: 'REAL 3D RECONSTRUCTION',
-          sub: 'Verified Photogrammetry',
+          sub: 'Source-backed spatial capture',
           badgeClass: 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300',
           icon: <ShieldCheck className="w-3.5 h-3.5" />,
         };
       case 'REFERENCE_VIRTUAL_EXPERIENCE':
         return {
-          label: 'REFERENCE VIRTUAL EXPERIENCE',
+          label: 'VERIFIED VISUAL REFERENCE',
           sub: 'Authorized External Reference',
           badgeClass: 'bg-cyan-950/80 border-cyan-500/50 text-cyan-300',
           icon: <ShieldCheck className="w-3.5 h-3.5" />,
@@ -235,7 +237,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
       case 'RECONSTRUCTION_IN_PROGRESS':
       default:
         return {
-          label: 'RECONSTRUCTION IN PROGRESS',
+          label: '3D RECONSTRUCTION IN PROGRESS',
           sub: 'Archival Reference Active',
           badgeClass: 'bg-amber-950/80 border-amber-500/50 text-amber-300',
           icon: <Clock className="w-3.5 h-3.5" />,
@@ -313,7 +315,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
           <button
             type="button"
             onClick={() => handleLightingChange('golden_hour')}
-            className={`p-1.5 rounded-lg text-xs transition-colors ${
+            className={`p-1.5 rounded-lg text-xs transition-colors cursor-pointer ${
               lighting === 'golden_hour'
                 ? 'bg-amber-500/20 text-amber-300 font-bold'
                 : 'text-slate-400 hover:text-slate-200'
@@ -325,7 +327,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
           <button
             type="button"
             onClick={() => handleLightingChange('daylight')}
-            className={`p-1.5 rounded-lg text-xs transition-colors ${
+            className={`p-1.5 rounded-lg text-xs transition-colors cursor-pointer ${
               lighting === 'daylight'
                 ? 'bg-amber-500/20 text-amber-300 font-bold'
                 : 'text-slate-400 hover:text-slate-200'
@@ -337,7 +339,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
           <button
             type="button"
             onClick={() => handleLightingChange('temple_glow')}
-            className={`p-1.5 rounded-lg text-xs transition-colors ${
+            className={`p-1.5 rounded-lg text-xs transition-colors cursor-pointer ${
               lighting === 'temple_glow'
                 ? 'bg-amber-500/20 text-amber-300 font-bold'
                 : 'text-slate-400 hover:text-slate-200'
@@ -349,7 +351,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
           <button
             type="button"
             onClick={() => handleLightingChange('twilight')}
-            className={`p-1.5 rounded-lg text-xs transition-colors ${
+            className={`p-1.5 rounded-lg text-xs transition-colors cursor-pointer ${
               lighting === 'twilight'
                 ? 'bg-amber-500/20 text-amber-300 font-bold'
                 : 'text-slate-400 hover:text-slate-200'
@@ -364,7 +366,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
         <button
           type="button"
           onClick={handleAutoRotateToggle}
-          className={`p-2 rounded-xl backdrop-blur-md border shadow-lg transition-colors ${
+          className={`p-2 rounded-xl backdrop-blur-md border shadow-lg transition-colors cursor-pointer ${
             isAutoRotating
               ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
               : 'bg-slate-900/90 text-slate-400 hover:text-slate-200 border-slate-800'
@@ -378,7 +380,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
         <button
           type="button"
           onClick={handleCameraReset}
-          className="p-2 rounded-xl bg-slate-900/90 text-slate-400 hover:text-slate-200 border border-slate-800 backdrop-blur-md shadow-lg transition-colors"
+          className="p-2 rounded-xl bg-slate-900/90 text-slate-400 hover:text-slate-200 border border-slate-800 backdrop-blur-md shadow-lg transition-colors cursor-pointer"
           title="Reset Viewpoint"
         >
           <RotateCcw className="w-4 h-4" />
@@ -388,7 +390,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
         <button
           type="button"
           onClick={() => setShowProvenanceDrawer((v) => !v)}
-          className={`p-2 rounded-xl backdrop-blur-md border shadow-lg transition-colors ${
+          className={`p-2 rounded-xl backdrop-blur-md border shadow-lg transition-colors cursor-pointer ${
             showProvenanceDrawer
               ? 'bg-amber-500 text-slate-950 font-bold border-amber-400'
               : 'bg-slate-900/90 text-slate-400 hover:text-slate-200 border-slate-800'
@@ -402,7 +404,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
         <button
           type="button"
           onClick={handleFullscreenToggle}
-          className="p-2 rounded-xl bg-slate-900/90 text-slate-400 hover:text-slate-200 border border-slate-800 backdrop-blur-md shadow-lg transition-colors"
+          className="p-2 rounded-xl bg-slate-900/90 text-slate-400 hover:text-slate-200 border border-slate-800 backdrop-blur-md shadow-lg transition-colors cursor-pointer"
           title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
         >
           {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
@@ -423,7 +425,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
             <button
               type="button"
               onClick={() => setShowProvenanceDrawer(false)}
-              className="text-xs text-slate-400 hover:text-slate-200 px-2 py-1 rounded bg-slate-900 border border-slate-800"
+              className="text-xs text-slate-400 hover:text-slate-200 px-2 py-1 rounded bg-slate-900 border border-slate-800 cursor-pointer"
             >
               Close
             </button>

@@ -176,6 +176,13 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
                 <MapPin className="w-3 h-3 text-emerald-400" />
                 <span>{activeWorld.district}</span>
               </span>
+
+              {activeWorld.verified && (
+                <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-950/80 border border-emerald-500/40 text-emerald-300">
+                  <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                  <span>Verified Location Media</span>
+                </span>
+              )}
             </div>
 
             {/* Top Right: Best Season Info */}
@@ -217,7 +224,7 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="p-2.5 rounded-full bg-slate-900/85 hover:bg-slate-850 text-slate-300 hover:text-white border border-slate-700/80 backdrop-blur-md shadow-lg transition-transform active:scale-95"
+                  className="p-2.5 rounded-full bg-slate-900/85 hover:bg-slate-850 text-slate-300 hover:text-white border border-slate-700/80 backdrop-blur-md shadow-lg transition-transform active:scale-95 cursor-pointer"
                   aria-label="Previous destination"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -232,7 +239,7 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="p-2.5 rounded-full bg-slate-900/85 hover:bg-slate-850 text-slate-300 hover:text-white border border-slate-700/80 backdrop-blur-md shadow-lg transition-transform active:scale-95"
+                  className="p-2.5 rounded-full bg-slate-900/85 hover:bg-slate-850 text-slate-300 hover:text-white border border-slate-700/80 backdrop-blur-md shadow-lg transition-transform active:scale-95 cursor-pointer"
                   aria-label="Next destination"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -244,7 +251,7 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
                   <button
                     type="button"
                     onClick={() => onPlanTrip(activeWorld.name)}
-                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-lg shadow-emerald-500/20 transition-colors"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-lg shadow-emerald-500/20 transition-colors cursor-pointer"
                   >
                     <Compass className="w-4 h-4" />
                     <span>Plan Trip Here</span>
@@ -258,7 +265,7 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
                       if (onExploreDestination) onExploreDestination(activeWorld.id, activeWorld.name);
                       else if (onExplorePlace) onExplorePlace(activeWorld.id, activeWorld.name);
                     }}
-                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700/80 backdrop-blur-md font-semibold text-xs transition-colors"
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700/80 backdrop-blur-md font-semibold text-xs transition-colors cursor-pointer"
                   >
                     <span>Explore</span>
                     <ArrowRight className="w-3.5 h-3.5" />

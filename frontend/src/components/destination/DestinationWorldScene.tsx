@@ -1,6 +1,6 @@
 /**
- * DestinationWorldScene: Multi-layered visual rendering stage with genuine depth,
- * atmospheric lighting, subtle parallax, and zero generic AI slop.
+ * DestinationWorldScene: Multi-layered cinematic visual rendering stage with genuine depth,
+ * atmospheric lighting, subtle parallax, and resilient media loading strategy.
  */
 import React, { useState, useEffect } from 'react';
 import type { DestinationWorldAsset } from '../../data/destinationWorldAssets';
@@ -19,14 +19,26 @@ export const DestinationWorldScene: React.FC<DestinationWorldSceneProps> = ({
   isReducedMotion,
   isActive,
 }) => {
-  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+  const [currentSrc, setCurrentSrc] = useState<string>(world.posterUrl || world.poster_url);
+  const [mediaLoaded, setMediaLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    setImageLoaded(false);
+    setMediaLoaded(false);
+    const initialSrc = world.posterUrl || world.poster_url;
+    setCurrentSrc(initialSrc);
+
     const img = new Image();
-    img.src = world.poster_url;
-    img.onload = () => setImageLoaded(true);
-  }, [world.poster_url]);
+    img.src = initialSrc;
+    img.onload = () => setMediaLoaded(true);
+    img.onerror = () => {
+      if (world.fallbackPosterUrl && initialSrc !== world.fallbackPosterUrl) {
+        setCurrentSrc(world.fallbackPosterUrl);
+        const fallbackImg = new Image();
+        fallbackImg.src = world.fallbackPosterUrl;
+        fallbackImg.onload = () => setMediaLoaded(true);
+      }
+    };
+  }, [world.posterUrl, world.poster_url, world.fallbackPosterUrl]);
 
   const getAmbientAtmosphere = () => {
     switch (world.ambient_lighting) {
@@ -46,7 +58,7 @@ export const DestinationWorldScene: React.FC<DestinationWorldSceneProps> = ({
 
   return (
     <div className="absolute inset-0 overflow-hidden select-none pointer-events-none">
-      {/* 1. Background Layer: Full Photographic Destination Canvas with Depth Scale */}
+      {/* 1. Background Layer: Full Photographic / Video Canvas with Slow Depth Scale */}
       <div
         className="absolute -inset-8 transition-transform duration-700 ease-out will-change-transform"
         style={{
@@ -58,17 +70,32 @@ export const DestinationWorldScene: React.FC<DestinationWorldSceneProps> = ({
             : 'transform 8000ms cubic-bezier(0.25, 1, 0.5, 1), opacity 800ms ease-in-out',
         }}
       >
-        <img
-          src={world.poster_url}
-          alt={world.name}
-          className={`w-full h-full object-cover object-center transition-opacity duration-1000 ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          loading="eager"
-        />
+        {world.videoUrl ? (
+          <video
+            src={world.videoUrl}
+            poster={currentSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={`w-full h-full object-cover object-center transition-opacity duration-1000 ${
+              mediaLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoadedData={() => setMediaLoaded(true)}
+          />
+        ) : (
+          <img
+            src={currentSrc}
+            alt={world.name}
+            className={`w-full h-full object-cover object-center transition-opacity duration-1000 ${
+              mediaLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            loading="eager"
+          />
+        )}
       </div>
 
-      {/* 2. Atmospheric Mood & Natural Sun/Mist Lighting Overlay */}
+      {/* 2. Atmospheric Mood & Natural Sunlight/Mist Gradient Overlay */}
       <div
         className={`absolute inset-0 bg-gradient-to-t ${getAmbientAtmosphere()} transition-opacity duration-1000`}
       />
@@ -84,7 +111,7 @@ export const DestinationWorldScene: React.FC<DestinationWorldSceneProps> = ({
         }}
       />
 
-      {/* 5. Minimal Environmental Dust / Mist Drifts (Restrained & Purposeful) */}
+      {/* 5. Minimal Environmental Atmosphere Drift for Highlands/Forests */}
       {!isReducedMotion && world.category === 'HILL_STATION' && (
         <div className="absolute inset-0 opacity-20 mix-blend-screen bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse duration-1000" />
       )}
