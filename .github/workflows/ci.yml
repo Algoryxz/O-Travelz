@@ -87,6 +87,10 @@ jobs:
         run: |
           python scripts/bootstrap_database.py
 
+      - name: Validate OpenAPI Schema Drift
+        run: |
+          python scripts/generate_openapi.py --check
+
       - name: Run Full Pytest Suite
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/travel_odisha
@@ -116,6 +120,12 @@ jobs:
       - name: Install Node Dependencies
         run: |
           npm --prefix frontend ci
+
+      - name: Validate TypeScript API Contract Synchronization
+        run: |
+          npx --prefix frontend openapi-typescript shared/openapi/openapi.json -o shared/api/temp_ci_check.ts
+          git diff --no-index --exit-code shared/api/generated.ts shared/api/temp_ci_check.ts
+          rm -f shared/api/temp_ci_check.ts
 
       - name: Run Full Vitest Suite
         run: |
