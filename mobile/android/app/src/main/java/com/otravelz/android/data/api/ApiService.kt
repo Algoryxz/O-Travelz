@@ -46,4 +46,12 @@ interface ApiService {
         @Query("radius_m") radiusM: Int = 3000,
         @Query("limit") limit: Int = 10
     ): List<NearbyStopDto>
+
+    @GET("api/v1/sync/saved-places")
+    suspend fun getSavedPlaces(): SyncSavedPlacesResponseDto
+
+    @POST("api/v1/sync/saved-places")
+    suspend fun syncSavedPlaces(
+        @Body request: SyncSavedPlacesRequestDto
+    ): SyncSavedPlacesResponseDto
 }

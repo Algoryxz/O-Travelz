@@ -158,3 +158,23 @@ data class NearbyStopDto(
     @SerialName("walking_estimate_mins") val walkingEstimateMins: Int,
     @SerialName("routes_serving_stop") val routes: List<ServingRouteDto> = emptyList()
 )
+
+@Serializable
+data class SyncPlaceItemDto(
+    @SerialName("place_id") val placeId: String,
+    @SerialName("place_name") val placeName: String? = null,
+    @SerialName("saved_at") val savedAt: Long,
+    @SerialName("updated_at") val updatedAt: Long,
+    @SerialName("is_deleted") val isDeleted: Boolean = false
+)
+
+@Serializable
+data class SyncSavedPlacesRequestDto(
+    val items: List<SyncPlaceItemDto> = emptyList()
+)
+
+@Serializable
+data class SyncSavedPlacesResponseDto(
+    @SerialName("synced_count") val syncedCount: Int,
+    val items: List<SyncPlaceItemDto> = emptyList()
+)

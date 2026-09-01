@@ -33,6 +33,7 @@ import com.otravelz.android.core.design.*
 import com.otravelz.android.core.notifications.NotificationHelper
 import com.otravelz.android.core.notifications.NotificationRationaleDialog
 import com.otravelz.android.feature.discover.DiscoverScreen
+import com.otravelz.android.feature.discover.DiscoverViewModel
 import com.otravelz.android.feature.home.HomeScreen
 import com.otravelz.android.feature.home.HomeViewModel
 import com.otravelz.android.feature.map.MapScreen
@@ -45,6 +46,7 @@ import com.otravelz.android.feature.transit.TransitScreen
 class MainActivity : ComponentActivity() {
 
     private val homeViewModel: HomeViewModel by viewModels()
+    private val discoverViewModel: DiscoverViewModel by viewModels()
     private val placeDetailViewModel: PlaceDetailViewModel by viewModels()
     private val plannerViewModel: PlannerViewModel by viewModels()
 
@@ -56,6 +58,7 @@ class MainActivity : ComponentActivity() {
             OTravelzTheme {
                 OTravelzAppNav(
                     homeViewModel = homeViewModel,
+                    discoverViewModel = discoverViewModel,
                     placeDetailViewModel = placeDetailViewModel,
                     plannerViewModel = plannerViewModel
                 )
@@ -80,6 +83,7 @@ sealed class Screen(val route: String, val title: String, val icon: androidx.com
 @Composable
 fun OTravelzAppNav(
     homeViewModel: HomeViewModel,
+    discoverViewModel: DiscoverViewModel,
     placeDetailViewModel: PlaceDetailViewModel,
     plannerViewModel: PlannerViewModel
 ) {
@@ -196,7 +200,7 @@ fun OTravelzAppNav(
 
             composable(Screen.Discover.route) {
                 DiscoverScreen(
-                    places = homeState.places,
+                    viewModel = discoverViewModel,
                     onPlaceClick = { placeId -> navController.navigate("place/$placeId") }
                 )
             }
