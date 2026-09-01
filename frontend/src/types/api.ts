@@ -636,9 +636,9 @@ export interface AuthMeResponse {
   user: UserResponse | null;
 }
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // OFFICIAL TRANSIT CONTRACTS (Phase 2.5)
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 export interface ServingRouteSummary {
   route_id: string;
@@ -938,6 +938,100 @@ export interface ImageIdentifyResponse {
   evidence?: EvidenceItem[];
   confidence_summary?: string;
 }
+
+// =========================================================================
+// Phase V3: Media, Video Generation & 3D Heritage Experience Contracts
+// =========================================================================
+
+export interface VideoPreviewContract {
+  video_url: string;
+  poster_url?: string | null;
+  provider: string;
+  duration_seconds: number;
+  is_ai_generated: boolean;
+  badge_label: string;
+  title?: string | null;
+  description?: string | null;
+  attribution?: string | null;
+}
+
+export interface HotspotAnnotation {
+  label: string;
+  description: string;
+  position: [number, number, number];
+}
+
+export interface Model3DContract {
+  model_id: string;
+  name: string;
+  format: "glb" | "gltf" | "procedural" | string;
+  model_url?: string | null;
+  procedural_type?: "konark_wheel" | "jagannath_temple" | "dhauli_stupa" | "barabati_fort" | "mukteshwar_torana" | "chilika_boat" | string | null;
+  thumbnail_url?: string | null;
+  provider: "tripo" | "meshy" | "curated" | "procedural" | string;
+  is_ai_generated: boolean;
+  badge_label: string;
+  transparency_notice: string;
+  scale_factor: number;
+  initial_camera_position: [number, number, number];
+  recommended_lighting: "daylight" | "golden_hour" | "temple_glow" | "moonlit_night" | string;
+  annotations?: HotspotAnnotation[];
+}
+
+export interface PlaceMediaResponse {
+  place_id: string;
+  name: string;
+  category: string;
+  district?: string | null;
+  images: PlaceImageContract[];
+  video_preview?: VideoPreviewContract | null;
+  model_3d?: Model3DContract | null;
+  available_tabs: ("photos" | "video" | "3d")[];
+  has_video: boolean;
+  has_3d: boolean;
+  hero_poster_url?: string | null;
+}
+
+export interface VideoGenerationRequest {
+  place_id: string;
+  prompt?: string | null;
+  style?: string;
+  duration_seconds?: number;
+  aspect_ratio?: string;
+}
+
+export interface VideoGenerationResponse {
+  status: "completed" | "queued" | "unavailable" | string;
+  message: string;
+  provider: string;
+  video_result?: VideoPreviewContract | null;
+  is_fallback: boolean;
+}
+
+export interface Model3DGenerationRequest {
+  place_id: string;
+  prompt?: string | null;
+  quality?: "standard" | "high";
+}
+
+export interface Model3DGenerationResponse {
+  status: "completed" | "queued" | "unavailable" | string;
+  message: string;
+  provider: string;
+  model_result?: Model3DContract | null;
+  is_fallback: boolean;
+}
+
+export interface ProviderStatusResponse {
+  video_provider: string;
+  video_configured: boolean;
+  video_status: string;
+  model_3d_provider: string;
+  model_3d_configured: boolean;
+  model_3d_status: string;
+  notice: string;
+}
+
 
 
 
