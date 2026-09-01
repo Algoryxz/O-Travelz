@@ -3,10 +3,7 @@ package com.otravelz.android.data.repository
 import com.otravelz.android.core.network.NetworkClient
 import com.otravelz.android.core.network.NetworkResult
 import com.otravelz.android.data.api.ApiService
-import com.otravelz.android.data.model.AIPlanRequestDto
-import com.otravelz.android.data.model.AIResponseDto
-import com.otravelz.android.data.model.ItineraryPlanResponseDto
-import com.otravelz.android.data.model.PlanningConstraintsDto
+import com.otravelz.android.data.model.*
 
 class PlannerRepository(private val apiService: ApiService = NetworkClient.apiService) {
 

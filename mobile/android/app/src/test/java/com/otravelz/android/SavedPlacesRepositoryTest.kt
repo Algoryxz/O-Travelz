@@ -8,7 +8,7 @@ import org.junit.Test
 
 class SavedPlacesRepositoryTest {
 
-    private val json = Json { ignoreUnknownKeys = true; isLenient = true }
+    private val json = Json { ignoreUnknownKeys = true; isLenient = true; encodeDefaults = true }
 
     @Test
     fun testSyncPlaceItemDtoSerialization() {
