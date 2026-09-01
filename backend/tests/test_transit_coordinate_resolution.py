@@ -117,7 +117,7 @@ class TestTransitCoordinateResolution:
         with open(CANONICAL_DIR / "stops.json", encoding="utf-8") as f:
             stops = json.load(f)
         unresolved = [s for s in stops if s["coordinate_status"] == "UNRESOLVED"]
-        assert len(unresolved) > 1300
+        assert len(unresolved) >= 1250
         for u in unresolved:
             assert u["lat"] is None
             assert u["lon"] is None

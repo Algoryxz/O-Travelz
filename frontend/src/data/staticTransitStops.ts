@@ -31,6 +31,127 @@ export interface VerifiedTransitStop {
 
 export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
   {
+    "stop_id": "stop_crut_berhampur_ambapua",
+    "name": "Ambapua",
+    "published_name": "AMBAPUA",
+    "canonical_stop_id": "stop_crut_berhampur_ambapua",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.324463,
+    "longitude": 84.857711,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/229076040",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_301",
+        "route_number": "301",
+        "route_name": "Berhampur Rail Stn. - Parala maharaja college (Via- MKCG Medical, Engineering",
+        "sequence_order": 19,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_303",
+        "route_number": "303",
+        "route_name": "Duduma Colony Bus Stand \u2013 Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+        "sequence_order": 14,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_amit_hospital",
+    "name": "Amit Hospital",
+    "published_name": "AMIT HOSPITAL",
+    "canonical_stop_id": "stop_crut_berhampur_amit_hospital",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.31486,
+    "longitude": 84.793168,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/7081842596",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_300",
+        "route_number": "300",
+        "route_name": "NIST college - Duduma Colony Bus stand",
+        "sequence_order": 37,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_306",
+        "route_number": "306",
+        "route_name": "Mahatma Gandhi Stadium - Sonapur beach (Via- Railway Station,Haldiapadar New Bus Stand,Kanisi Hata,Sidhha",
+        "sequence_order": 8,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_ankuli",
+    "name": "Ankuli",
+    "published_name": "ANKULI",
+    "canonical_stop_id": "stop_crut_berhampur_ankuli",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.301074,
+    "longitude": 84.81563,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/343271929",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_berhampur_auto_nagar",
+    "name": "Auto Nagar",
+    "published_name": "AUTO NAGAR",
+    "canonical_stop_id": "stop_crut_berhampur_auto_nagar",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.305454,
+    "longitude": 84.801438,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/287501004",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_302",
+        "route_number": "302",
+        "route_name": "Berhampur Railway Station \u2013 Regidi",
+        "sequence_order": 7,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_304",
+        "route_number": "304",
+        "route_name": "Berhampur Railway Station -D.patapur",
+        "sequence_order": 17,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
     "stop_id": "stop_crut_berhampur_berhampur",
     "name": "Berhampur",
     "published_name": "BERHAMPUR",
@@ -50,6 +171,41 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
         "route_number": "303",
         "route_name": "Duduma Colony Bus Stand \u2013 Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
         "sequence_order": 6,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_berhampur_new_bus_stand",
+    "name": "Berhampur New Bus Stand",
+    "published_name": "BERHAMPUR NEW BUS STAND",
+    "canonical_stop_id": "stop_crut_berhampur_berhampur_new_bus_stand",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.309787,
+    "longitude": 84.804527,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/9749000732",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_302",
+        "route_number": "302",
+        "route_name": "Berhampur Railway Station \u2013 Regidi",
+        "sequence_order": 23,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_304",
+        "route_number": "304",
+        "route_name": "Berhampur Railway Station -D.patapur",
+        "sequence_order": 28,
         "service_area": null,
         "origin": null,
         "destination": null
@@ -163,6 +319,32 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
+    "stop_id": "stop_crut_berhampur_berhampur_university",
+    "name": "Berhampur University",
+    "published_name": "BERHAMPUR UNIVERSITY",
+    "canonical_stop_id": "stop_crut_berhampur_berhampur_university",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.299221,
+    "longitude": 84.881586,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:relation/15904852",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_303",
+        "route_number": "303",
+        "route_name": "Duduma Colony Bus Stand \u2013 Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+        "sequence_order": 26,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
     "stop_id": "stop_crut_berhampur_brahmapur_railway_station",
     "name": "Brahmapur Railway Station",
     "published_name": "BRAHMAPUR RAILWAY STATION",
@@ -189,6 +371,58 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
+    "stop_id": "stop_crut_berhampur_bus_stand",
+    "name": "Bus Stand",
+    "published_name": "BUS STAND",
+    "canonical_stop_id": "stop_crut_berhampur_bus_stand",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 21.531556,
+    "longitude": 86.653208,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:way/1541207580",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_306",
+        "route_number": "306",
+        "route_name": "Mahatma Gandhi Stadium - Sonapur beach (Via- Railway Station,Haldiapadar New Bus Stand,Kanisi Hata,Sidhha",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_chatrapur",
+    "name": "Chatrapur",
+    "published_name": "Chatrapur",
+    "canonical_stop_id": "stop_crut_berhampur_chatrapur",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.345549,
+    "longitude": 84.977,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/6419389574",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_305",
+        "route_number": "305",
+        "route_name": "Haladiapadar Bus Stand\u2013 Chatrapur",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
     "stop_id": "stop_crut_berhampur_chowk_berhampur",
     "name": "Chowk Berhampur",
     "published_name": "CHOWK BERHAMPUR",
@@ -200,6 +434,22 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     "longitude": 84.802,
     "coordinate_status": "official",
     "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_berhampur_city_hospital_berhampur",
+    "name": "City Hospital Berhampur",
+    "published_name": "CITY HOSPITAL BERHAMPUR",
+    "canonical_stop_id": "stop_crut_berhampur_city_hospital_berhampur",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.312739,
+    "longitude": 84.793459,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "OSM_Nominatim:node/7081842683",
     "agency": "CRUT (Capital Region Urban Transport)",
     "stop_type": "bus_stop",
     "routes_serving_stop": []

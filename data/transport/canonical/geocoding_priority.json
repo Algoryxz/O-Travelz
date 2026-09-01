@@ -3636,7 +3636,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 43,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_GEOSPATIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_dpatapur",
@@ -4500,7 +4500,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 36,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_GEOSPATIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_amit_hospital",
@@ -4516,7 +4516,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 36,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_GEOSPATIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_andhapasara_road",
@@ -4564,7 +4564,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 36,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_GEOSPATIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_berhampur_new_bus_stand",
@@ -4580,7 +4580,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 36,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_GEOSPATIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_berhampur_radio_station",
@@ -8234,7 +8234,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_GEOSPATIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_bhanja_vihar",
@@ -8294,7 +8294,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 18,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_GEOSPATIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_central_school_berhampur",
@@ -16255,7 +16255,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 0,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_GEOSPATIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_ankuli_bypass",
@@ -16528,7 +16528,7 @@
     "is_interchange": false,
     "is_capital_region": false,
     "priority_score": 0,
-    "coordinate_status": "UNRESOLVED"
+    "coordinate_status": "VERIFIED_GEOSPATIAL"
   },
   {
     "stop_id": "stop_crut_berhampur_collector_residency",

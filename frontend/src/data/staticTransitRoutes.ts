@@ -6550,9 +6550,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 37,
         "stop_id": "stop_crut_berhampur_amit_hospital",
         "stop_name": "Amit Hospital",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.31486,
+        "longitude": 84.793168
       },
       {
         "sequence_order": 38,
@@ -6788,9 +6788,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 19,
         "stop_id": "stop_crut_berhampur_ambapua",
         "stop_name": "Ambapua",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.324463,
+        "longitude": 84.857711
       },
       {
         "sequence_order": 20,
@@ -6986,9 +6986,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 7,
         "stop_id": "stop_crut_berhampur_auto_nagar",
         "stop_name": "Auto Nagar",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.305454,
+        "longitude": 84.801438
       },
       {
         "sequence_order": 8,
@@ -7456,9 +7456,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 14,
         "stop_id": "stop_crut_berhampur_ambapua",
         "stop_name": "Ambapua",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.324463,
+        "longitude": 84.857711
       },
       {
         "sequence_order": 15,
@@ -7552,9 +7552,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 26,
         "stop_id": "stop_crut_berhampur_berhampur_university",
         "stop_name": "Berhampur University",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.299221,
+        "longitude": 84.881586
       },
       {
         "sequence_order": 27,
@@ -7980,9 +7980,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 17,
         "stop_id": "stop_crut_berhampur_auto_nagar",
         "stop_name": "Auto Nagar",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.305454,
+        "longitude": 84.801438
       },
       {
         "sequence_order": 18,
@@ -8368,9 +8368,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_berhampur_chatrapur",
         "stop_name": "Chatrapur",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.345549,
+        "longitude": 84.977
       }
     ]
   },
@@ -8406,9 +8406,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_berhampur_bus_stand",
         "stop_name": "Bus Stand",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.531556,
+        "longitude": 86.653208
       },
       {
         "sequence_order": 4,
@@ -8446,9 +8446,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 8,
         "stop_id": "stop_crut_berhampur_amit_hospital",
         "stop_name": "Amit Hospital",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.31486,
+        "longitude": 84.793168
       },
       {
         "sequence_order": 9,
