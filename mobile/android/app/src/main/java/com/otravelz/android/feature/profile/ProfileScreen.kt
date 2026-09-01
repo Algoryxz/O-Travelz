@@ -1,32 +1,18 @@
 package com.otravelz.android.feature.profile
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AddLocationAlt
-import androidx.compose.material.icons.filled.ChevronRight
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Language
-import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.PrivacyTip
-import androidx.compose.material.icons.filled.Security
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.otravelz.android.core.design.*
+import com.otravelz.android.core.ui.profile.*
 
 @Composable
 fun ProfileScreen(
@@ -34,10 +20,12 @@ fun ProfileScreen(
     onNavigateToTrips: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var isOdiaSelected by remember { mutableStateOf(false) }
+    var selectedLanguage by remember { mutableStateOf("English") }
     var tripRemindersEnabled by remember { mutableStateOf(true) }
-    var weatherAlertsEnabled by remember { mutableStateOf(true) }
+    var weatherAdvisoriesEnabled by remember { mutableStateOf(true) }
     var showCommunityDialog by remember { mutableStateOf(false) }
+    var showLanguageDialog by remember { mutableStateOf(false) }
+    var showPrivacyDialog by remember { mutableStateOf(false) }
 
     Column(
         modifier = modifier
@@ -47,84 +35,35 @@ fun ProfileScreen(
             .verticalScroll(rememberScrollState())
     ) {
         Text(
-            text = "Profile & Settings",
+            text = "You & Settings",
             style = MaterialTheme.typography.headlineMedium,
             color = TextPrimary,
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = "Account, preferences, and privacy controls",
+            text = "Account, preferences, and data truth manifest",
             style = MaterialTheme.typography.bodySmall,
-            color = TextSecondary
+            color = SunTempleGold
         )
 
         Spacer(modifier = Modifier.height(Spacing.md))
 
-        // Guest User Card
-        Card(
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(containerColor = DarkSurfaceElevated),
-            border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(Spacing.md),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Box(
-                    modifier = Modifier
-                        .size(54.dp)
-                        .background(DarkSurfaceVariant, CircleShape)
-                        .border(2.dp, SunTempleGold, CircleShape),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Person,
-                        contentDescription = "Guest User",
-                        tint = SunTempleGold,
-                        modifier = Modifier.size(28.dp)
-                    )
-                }
+        // Profile Hero
+        ProfileUserHero()
 
-                Spacer(modifier = Modifier.width(Spacing.md))
+        Spacer(modifier = Modifier.height(Spacing.md))
 
-                Column(modifier = Modifier.weight(1f)) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            text = "Odisha Explorer",
-                            style = MaterialTheme.typography.titleMedium,
-                            color = TextPrimary,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Spacer(modifier = Modifier.width(Spacing.xs))
-                        TruthBadge(label = "GUEST", backgroundColor = DarkSurfaceVariant, contentColor = TextSecondary)
-                    }
-                    Text(
-                        text = "Local device storage active",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = OchreLight
-                    )
-                }
-            }
-        }
+        // Stats Row
+        ProfileStatsRow(
+            destinationCount = "80+ Verified",
+            transitStatus = "Mo Bus Schedules",
+            activeLanguage = selectedLanguage
+        )
 
         Spacer(modifier = Modifier.height(Spacing.lg))
 
-        // Section: Community & Contribution
-        Text(
-            text = "Community Contribution",
-            style = MaterialTheme.typography.titleMedium,
-            color = TextPrimary,
-            fontWeight = FontWeight.Bold
-        )
-        Spacer(modifier = Modifier.height(Spacing.xs))
-
-        SettingsRow(
-            icon = Icons.Default.AddLocationAlt,
-            title = "Recommend Your Hometown",
-            subtitle = "Submit unlisted Odia heritage, food, or natural gems for verification",
-            onClick = { showCommunityDialog = true }
-        )
+        // Section: Data Truth Manifest
+        TruthManifestCard()
 
         Spacer(modifier = Modifier.height(Spacing.lg))
 
@@ -137,58 +76,82 @@ fun ProfileScreen(
         )
         Spacer(modifier = Modifier.height(Spacing.xs))
 
-        SettingsToggleRow(
+        SettingsTile(
             icon = Icons.Default.Language,
-            title = "Language",
-            subtitle = if (isOdiaSelected) "ଓଡ଼ିଆ (Odia)" else "English",
-            checked = isOdiaSelected,
-            onCheckedChange = { isOdiaSelected = it }
+            title = "Display Language",
+            subtitle = selectedLanguage,
+            onClick = { showLanguageDialog = true }
         )
 
-        SettingsToggleRow(
+        Spacer(modifier = Modifier.height(Spacing.xs))
+
+        SettingsToggleTile(
             icon = Icons.Default.Notifications,
-            title = "Trip Reminders",
-            subtitle = "Contextual destination alerts & departure windows",
+            title = "Trip Arrival Alerts",
+            subtitle = "Contextual arrival alerts and departure windows",
             checked = tripRemindersEnabled,
             onCheckedChange = { tripRemindersEnabled = it }
         )
 
-        SettingsToggleRow(
-            icon = Icons.Default.Notifications,
-            title = "Weather Advisories",
-            subtitle = "Open-Meteo live weather updates for active routes",
-            checked = weatherAlertsEnabled,
-            onCheckedChange = { weatherAlertsEnabled = it }
+        Spacer(modifier = Modifier.height(Spacing.xs))
+
+        SettingsToggleTile(
+            icon = Icons.Default.CloudQueue,
+            title = "Live Weather Advisories",
+            subtitle = "Open-Meteo live updates along active routes",
+            checked = weatherAdvisoriesEnabled,
+            onCheckedChange = { weatherAdvisoriesEnabled = it }
         )
 
         Spacer(modifier = Modifier.height(Spacing.lg))
 
-        // Section: Privacy & Compliance
+        // Section: Community & Staging
         Text(
-            text = "Data & Privacy",
+            text = "Community & Staging",
             style = MaterialTheme.typography.titleMedium,
             color = TextPrimary,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(Spacing.xs))
 
-        SettingsRow(
-            icon = Icons.Default.Security,
-            title = "Location & Privacy Policy",
-            subtitle = "Location is used only for the described app behavior and this feature does not persist precise location.",
-            onClick = {}
+        SettingsTile(
+            icon = Icons.Default.AddLocationAlt,
+            title = "Recommend an Unlisted Gem",
+            subtitle = "Submit unlisted Odia heritage, food, or nature spots for research verification",
+            onClick = { showCommunityDialog = true }
         )
 
-        SettingsRow(
+        Spacer(modifier = Modifier.height(Spacing.lg))
+
+        // Section: Privacy & Compliance
+        Text(
+            text = "Privacy & Platform",
+            style = MaterialTheme.typography.titleMedium,
+            color = TextPrimary,
+            fontWeight = FontWeight.Bold
+        )
+        Spacer(modifier = Modifier.height(Spacing.xs))
+
+        SettingsTile(
+            icon = Icons.Default.Security,
+            title = "Location & Data Policy",
+            subtitle = "DPDP compliant: GPS is processed ephemerally on-device for spatial sorting.",
+            onClick = { showPrivacyDialog = true }
+        )
+
+        Spacer(modifier = Modifier.height(Spacing.xs))
+
+        SettingsTile(
             icon = Icons.Default.Info,
-            title = "About O-TRAVELZ v2.0",
-            subtitle = "Curated & Verified Odisha Cultural Mobility Platform",
+            title = "About O-TRAVELZ Mobile v3.0",
+            subtitle = "Autonomous native Odisha cultural mobility companion",
             onClick = {}
         )
 
         Spacer(modifier = Modifier.height(Spacing.xl))
     }
 
+    // Community Dialog
     if (showCommunityDialog) {
         AlertDialog(
             onDismissRequest = { showCommunityDialog = false },
@@ -197,90 +160,80 @@ fun ProfileScreen(
             },
             text = {
                 Text(
-                    "Community destination submissions are staged for manual verification by the O-TRAVELZ research team before public indexing.\n\nStaging endpoint integration is scheduled for P2.",
+                    "Community destination submissions are staged in data/research/round2/ for verification by the research team before public indexing.\n\nStrict Rule: No verified image = no public index.",
                     style = MaterialTheme.typography.bodyMedium,
                     color = TextSecondary
                 )
             },
             confirmButton = {
                 TextButton(onClick = { showCommunityDialog = false }) {
-                    Text("Understood", color = OchrePrimary)
+                    Text("Understood", color = OchrePrimary, fontWeight = FontWeight.Bold)
                 }
             },
             containerColor = DarkSurfaceElevated
         )
     }
-}
 
-@Composable
-private fun SettingsRow(
-    icon: ImageVector,
-    title: String,
-    subtitle: String,
-    onClick: () -> Unit
-) {
-    Surface(
-        shape = RoundedCornerShape(12.dp),
-        color = DarkSurfaceElevated,
-        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 4.dp)
-            .clickable { onClick() }
-    ) {
-        Row(
-            modifier = Modifier.padding(Spacing.md),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(imageVector = icon, contentDescription = null, tint = SunTempleGold, modifier = Modifier.size(24.dp))
-            Spacer(modifier = Modifier.width(Spacing.md))
-            Column(modifier = Modifier.weight(1f)) {
-                Text(text = title, style = MaterialTheme.typography.titleSmall, color = TextPrimary, fontWeight = FontWeight.Bold)
-                Spacer(modifier = Modifier.height(2.dp))
-                Text(text = subtitle, style = MaterialTheme.typography.bodySmall, color = TextSecondary)
-            }
-            Icon(imageVector = Icons.Default.ChevronRight, contentDescription = null, tint = TextMuted)
-        }
+    // Language Selector Dialog
+    if (showLanguageDialog) {
+        val languages = listOf("English", "ଓଡ଼ିଆ (Odia)", "हिन्दी (Hindi)")
+        AlertDialog(
+            onDismissRequest = { showLanguageDialog = false },
+            title = {
+                Text("Select Language", style = MaterialTheme.typography.titleMedium, color = TextPrimary)
+            },
+            text = {
+                Column {
+                    languages.forEach { lang ->
+                        Row(
+                            verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 8.dp)
+                        ) {
+                            RadioButton(
+                                selected = selectedLanguage == lang,
+                                onClick = {
+                                    selectedLanguage = lang
+                                    showLanguageDialog = false
+                                },
+                                colors = RadioButtonDefaults.colors(selectedColor = OchrePrimary)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(text = lang, style = MaterialTheme.typography.bodyLarge, color = TextPrimary)
+                        }
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showLanguageDialog = false }) {
+                    Text("Close", color = TextSecondary)
+                }
+            },
+            containerColor = DarkSurfaceElevated
+        )
     }
-}
 
-@Composable
-private fun SettingsToggleRow(
-    icon: ImageVector,
-    title: String,
-    subtitle: String,
-    checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit
-) {
-    Surface(
-        shape = RoundedCornerShape(12.dp),
-        color = DarkSurfaceElevated,
-        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 4.dp)
-    ) {
-        Row(
-            modifier = Modifier.padding(Spacing.md),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(imageVector = icon, contentDescription = null, tint = SunTempleGold, modifier = Modifier.size(24.dp))
-            Spacer(modifier = Modifier.width(Spacing.md))
-            Column(modifier = Modifier.weight(1f)) {
-                Text(text = title, style = MaterialTheme.typography.titleSmall, color = TextPrimary, fontWeight = FontWeight.Bold)
-                Spacer(modifier = Modifier.height(2.dp))
-                Text(text = subtitle, style = MaterialTheme.typography.bodySmall, color = TextSecondary)
-            }
-            Switch(
-                checked = checked,
-                onCheckedChange = onCheckedChange,
-                colors = SwitchDefaults.colors(
-                    checkedThumbColor = DarkBackground,
-                    checkedTrackColor = OchrePrimary,
-                    uncheckedThumbColor = TextMuted,
-                    uncheckedTrackColor = DarkSurfaceVariant
+    // Privacy Dialog
+    if (showPrivacyDialog) {
+        AlertDialog(
+            onDismissRequest = { showPrivacyDialog = false },
+            title = {
+                Text("Privacy & Data Guarantee", style = MaterialTheme.typography.titleMedium, color = TextPrimary)
+            },
+            text = {
+                Text(
+                    "O-TRAVELZ Mobile is designed privacy-first:\n\n• Location coordinates are used ephemerally to compute Haversine distances to nearby destinations and stops.\n• Itineraries and saved trips are saved locally on your device (SQLite / Room / DataStore).\n• No background tracking or continuous telemetry.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = TextSecondary
                 )
-            )
-        }
+            },
+            confirmButton = {
+                TextButton(onClick = { showPrivacyDialog = false }) {
+                    Text("Got It", color = OchrePrimary, fontWeight = FontWeight.Bold)
+                }
+            },
+            containerColor = DarkSurfaceElevated
+        )
     }
 }
