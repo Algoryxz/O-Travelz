@@ -16,10 +16,10 @@ export interface OpeningStatusResult {
  */
 export function getCurrentISTTime(): { day: number; hour: number; minute: number; timeNumber: number } {
   const now = new Date();
-  // Format into Asia/Kolkata timezone
+  // Format into Asia/Kolkata timezone with explicit 24-hour cycle (0-23)
   const istFormatter = new Intl.DateTimeFormat('en-US', {
     timeZone: 'Asia/Kolkata',
-    hour12: false,
+    hourCycle: 'h23',
     weekday: 'short',
     hour: 'numeric',
     minute: 'numeric',
@@ -35,6 +35,9 @@ export function getCurrentISTTime(): { day: number; hour: number; minute: number
     if (p.type === 'minute') minute = parseInt(p.value, 10);
     if (p.type === 'weekday') weekdayStr = p.value;
   }
+
+  // Normalize midnight representation: ensure hour is strictly 0..23
+  hour = ((hour % 24) + 24) % 24;
 
   const daysMap: Record<string, number> = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
   const day = daysMap[weekdayStr] ?? now.getDay();
