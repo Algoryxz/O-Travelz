@@ -19,16 +19,18 @@
 
 ---
 
-## 3. Reusable Modules from Web Frontend
+## 3. Reusable Modules from Web Frontend & Shared Layer
 
-The following core logic from `frontend/` is directly shareable:
-1. **First-Mile Distance & Auto/Cab Classifier**:
+The following core modules and contracts are directly shareable:
+1. **Shared API Contracts**:
+   - `shared/api/generated.ts` (Framework-neutral TypeScript types generated from backend OpenAPI snapshot).
+2. **First-Mile Distance & Auto/Cab Classifier**:
    - $\le 800\text{ m}$ walking
    - $800–1500\text{ m}$ walk/short auto optional
    - $> 1500\text{ m}$ auto/cab recommended
-2. **Offline Bundled Transit Data**:
+3. **Offline Bundled Transit Data**:
    - `staticTransitStops.ts`, `staticTransitRoutes.ts`, `transitTimetables.ts`.
-3. **Multilingual Text & Odia Aliases**:
+4. **Multilingual Text & Odia Aliases**:
    - Query parser and station name matcher.
 
 ---
@@ -48,6 +50,6 @@ The following core logic from `frontend/` is directly shareable:
 ## 5. Pre-Initialization Checklist
 
 Before initializing `mobile/`:
-- [ ] Freeze web baseline tag (`web-stable-2026-09-01`).
-- [ ] Establish OpenAPI TypeScript generation (`openapi.json` $\rightarrow$ shared types).
+- [x] Freeze web baseline tag (`web-stable-2026-09-01`).
+- [x] Establish OpenAPI TypeScript generation (`shared/openapi/openapi.json` $\rightarrow$ `shared/api/generated.ts`).
 - [ ] Confirm Expo project configuration (`app.json`, bundle identifiers).

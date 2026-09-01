@@ -79,6 +79,18 @@ generated_outputs:
     purpose: "Bundled offline transit timetables fallback"
     hand_editing_forbidden: true
 
+  - path: "shared/openapi/openapi.json"
+    generator: "scripts/generate_openapi.py"
+    check: "python scripts/generate_openapi.py --check"
+    purpose: "Deterministic OpenAPI 3.x schema snapshot generated directly from backend FastAPI"
+    hand_editing_forbidden: true
+
+  - path: "shared/api/generated.ts"
+    generator: "npm --prefix frontend run generate:api"
+    check: "python scripts/check_api_drift.py"
+    purpose: "Framework-neutral TypeScript API contract types consumed by web and mobile"
+    hand_editing_forbidden: true
+
   - path: "data/transport/canonical/network.json"
     generator: "scripts/compile_canonical_transit.py"
     purpose: "Compiled graph representation for fast in-memory routing"
@@ -90,6 +102,12 @@ generated_outputs:
     hand_editing_forbidden: true
 
 validators:
+  - command: "python scripts/generate_openapi.py --check"
+    scope: "OpenAPI schema snapshot drift validation"
+
+  - command: "python scripts/check_api_drift.py"
+    scope: "Shared TypeScript API contract drift validation"
+
   - command: "python scripts/validate_round2_research.py"
     scope: "Regional research schema & staging validation"
 

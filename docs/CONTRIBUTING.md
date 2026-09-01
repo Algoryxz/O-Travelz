@@ -34,19 +34,25 @@ npm --prefix frontend run build
 # 4. Regional Research Validator
 python scripts/validate_round2_research.py
 
-# 5. Photographic Integrity Validator
+# 5. OpenAPI Schema Snapshot Drift Check
+python scripts/generate_openapi.py --check
+
+# 6. Shared TypeScript API Contract Drift Check
+python scripts/check_api_drift.py
+
+# 7. Photographic Integrity Validator
 python scripts/validate_image_pipeline.py
 
-# 6. Catalog Image Audit & Manifest Reconciliation
+# 8. Catalog Image Audit & Manifest Reconciliation
 python scripts/audit_destination_images.py
 
-# 7. Canonical Transit Validator
+# 9. Canonical Transit Validator
 python scripts/validate_canonical_transit.py
 
-# 8. Frontend Transit Fallback Drift Check
+# 10. Frontend Transit Fallback Drift Check
 python scripts/generate_frontend_transit_data.py --check
 
-# 9. Git whitespace check
+# 11. Git whitespace check
 git diff --check
 ```
 
@@ -58,6 +64,8 @@ The following tracked files are deterministically generated and must not be edit
 
 | Tracked Generated File | Source | Generating Script | CI Enforcement |
 |---|---|---|---|
+| `shared/openapi/openapi.json` | `backend/app/schemas/` | `python scripts/generate_openapi.py` | `python scripts/generate_openapi.py --check` |
+| `shared/api/generated.ts` | `shared/openapi/openapi.json` | `npm --prefix frontend run generate:api` | `python scripts/check_api_drift.py` |
 | `frontend/src/data/staticTransitStops.ts` | `data/transport/canonical/stops.json` | `python scripts/generate_frontend_transit_data.py` | `python scripts/generate_frontend_transit_data.py --check` |
 | `frontend/src/data/staticTransitRoutes.ts` | `data/transport/canonical/routes.json` | `python scripts/generate_frontend_transit_data.py` | `python scripts/generate_frontend_transit_data.py --check` |
 | `frontend/src/data/transitTimetables.ts` | `data/transport/canonical/schedules.json` | `python scripts/generate_frontend_transit_data.py` | `python scripts/generate_frontend_transit_data.py --check` |

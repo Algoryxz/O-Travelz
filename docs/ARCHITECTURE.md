@@ -58,25 +58,31 @@ O-TRAVELZ is an intelligent multimodal travel platform built for Odisha. It inte
 
 ---
 
-## 4. Shared API Contract Strategy (Future Direction)
+## 4. Shared API Contract Pipeline
 
-Currently, backend Pydantic models (`backend/app/schemas/`) and frontend TypeScript interfaces (`frontend/src/types/api.ts`) are synchronized manually.
+Backend Pydantic schemas in `backend/app/schemas/` are the authoritative contract source of truth.
 
-To support the upcoming **Mobile App (`mobile/`)** alongside **Web (`frontend/`)**, the architecture transitions to an OpenAPI-driven pipeline:
+Shared API contracts flow deterministically as follows:
 
 ```
 FastAPI Pydantic Schemas (backend/app/schemas/)
                      │
-                     ▼
-             /openapi.json
+                     ▼ (python scripts/generate_openapi.py)
+        shared/openapi/openapi.json
                      │
-                     ▼
-        openapi-typescript / Orval
+                     ▼ (npm --prefix frontend run generate:api)
+          shared/api/generated.ts (Framework-neutral TypeScript)
                      │
-      ┌──────────────┴──────────────┐
-      ▼                             ▼
-Web Client (frontend/)        Mobile Client (mobile/)
+       ┌─────────────┴─────────────┐
+       ▼                           ▼
+Web Client (frontend/)       Mobile Client (mobile/)
 ```
+
+### Golden Rules
+1. **Source of Truth**: FastAPI Pydantic schemas.
+2. **Never Hand Edit**: `shared/openapi/openapi.json` and `shared/api/generated.ts`.
+3. **Change Lifecycle**: Modify backend schema $\rightarrow$ `python scripts/generate_openapi.py` $\rightarrow$ `npm --prefix frontend run generate:api` $\rightarrow$ compile web/mobile $\rightarrow$ commit together.
+4. **Drift Enforcement**: Validated automatically in CI via `python scripts/generate_openapi.py --check` and `python scripts/check_api_drift.py`.
 
 ---
 
