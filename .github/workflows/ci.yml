@@ -121,8 +121,9 @@ jobs:
           cache-dependency-path: frontend/package-lock.json
 
       - name: Install Node Dependencies
+        working-directory: frontend
         run: |
-          npm --prefix frontend ci
+          npm ci
 
       - name: Validate TypeScript API Contract Synchronization
         run: |
@@ -131,9 +132,11 @@ jobs:
           rm -f shared/api/temp_ci_check.ts
 
       - name: Run Full Vitest Suite
+        working-directory: frontend
         run: |
-          npm --prefix frontend test -- --run
+          npm test -- --run
 
       - name: Run Production Build (tsc && vite build)
+        working-directory: frontend
         run: |
-          npm --prefix frontend run build
+          npm run build
