@@ -30,22 +30,64 @@ class ModelsSerializationTest {
     }
 
     @Test
-    fun testPlaceDetailDeserialization() {
+    fun testProductionPlaceDetailDeserializationWithImages() {
         val jsonStr = """
             {
-                "id": "lingaraj_temple",
-                "name": "Lingaraj Temple",
-                "category": "temple",
-                "district": "Khordha",
-                "lat": 20.2382,
-                "lon": 85.8336,
-                "images": []
+              "id": "cb5cfba0-f0c4-5801-af66-266d78b3d051",
+              "research_id": "place_bbsr_004",
+              "name": "Ananta Vasudeva Temple",
+              "category": "temple",
+              "description": "Historic 13th-century Vaishnavite temple on Bindu Sagar bank.",
+              "lat": 20.2422,
+              "lon": 85.8344,
+              "district": "Khordha",
+              "region": "Bhubaneswar & Central",
+              "avg_visit_minutes": 45,
+              "price_tier": "free",
+              "rating": 4.6,
+              "rating_count": 820,
+              "rating_source": "Google Places",
+              "verification_status": "VERIFIED",
+              "contact_phone": null,
+              "emergency_phone": null,
+              "address": "Bindu Sagar Road, Old Town, Bhubaneswar 751002",
+              "cuisine": null,
+              "dietary_tags": null,
+              "speciality_dishes": null,
+              "images": [
+                {
+                  "storage_key": "place_bbsr_004/b91e7a5f0092",
+                  "url": "/static/images/places/place_bbsr_004/b91e7a5f0092/hero.webp",
+                  "thumbnail_url": "/static/images/places/place_bbsr_004/b91e7a5f0092/thumbnail.webp",
+                  "card_url": "/static/images/places/place_bbsr_004/b91e7a5f0092/card.webp",
+                  "alt_text": "Authentic photograph of Ananta Vasudeva Temple in Odisha",
+                  "is_primary": true,
+                  "id": "9d5cf1ae-566a-4e40-b7b4-4ffee25d263b"
+                }
+              ],
+              "interests": ["temple", "heritage"]
             }
         """.trimIndent()
 
         val dto = json.decodeFromString<PlaceDetailDto>(jsonStr)
-        assertEquals("lingaraj_temple", dto.id)
-        assertEquals("Lingaraj Temple", dto.name)
-        assertEquals(20.2382, dto.lat!!, 0.0001)
+        assertEquals("cb5cfba0-f0c4-5801-af66-266d78b3d051", dto.id)
+        assertEquals("Ananta Vasudeva Temple", dto.name)
+        assertEquals("temple", dto.category)
+        assertEquals(1, dto.images.size)
+        assertEquals("/static/images/places/place_bbsr_004/b91e7a5f0092/hero.webp", dto.images[0].url)
+        assertTrue(dto.images[0].isPrimary)
+    }
+
+    @Test
+    fun testApiConfigResolveImageUrl() {
+        val relative = "/static/images/hero.webp"
+        val resolved = com.otravelz.android.core.network.ApiConfig.resolveImageUrl(relative)
+        assertEquals("https://otravelz-backend.onrender.com/static/images/hero.webp", resolved)
+
+        val absolute = "https://example.com/photo.jpg"
+        assertEquals(absolute, com.otravelz.android.core.network.ApiConfig.resolveImageUrl(absolute))
+
+        assertEquals(null, com.otravelz.android.core.network.ApiConfig.resolveImageUrl(null))
+        assertEquals(null, com.otravelz.android.core.network.ApiConfig.resolveImageUrl(""))
     }
 }

@@ -101,9 +101,10 @@ fun DestinationCard(
                     .height(130.dp)
                     .background(DarkSurfaceVariant)
             ) {
-                if (!imageUrl.isNullOrBlank()) {
+                val resolved = com.otravelz.android.core.network.ApiConfig.resolveImageUrl(imageUrl)
+                if (!resolved.isNullOrBlank()) {
                     AsyncImage(
-                        model = imageUrl,
+                        model = resolved,
                         contentDescription = name,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize()
@@ -162,9 +163,10 @@ fun MediaHero(
             .clip(RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp))
             .background(DarkSurface)
     ) {
-        if (!imageUrl.isNullOrBlank()) {
+        val resolved = com.otravelz.android.core.network.ApiConfig.resolveImageUrl(imageUrl)
+        if (!resolved.isNullOrBlank()) {
             AsyncImage(
-                model = imageUrl,
+                model = resolved,
                 contentDescription = title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()

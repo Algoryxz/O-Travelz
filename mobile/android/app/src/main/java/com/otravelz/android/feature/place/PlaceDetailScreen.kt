@@ -78,7 +78,7 @@ fun PlaceDetailScreen(
 
     val place = state.place!!
     val isSaved = savedPlaceIds.contains(place.id)
-    val primaryImage = place.images.firstOrNull()?.url
+    val primaryImage = com.otravelz.android.core.network.ApiConfig.resolveImageUrl(place.images.firstOrNull()?.url)
 
     Scaffold(
         topBar = {

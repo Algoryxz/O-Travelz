@@ -213,7 +213,8 @@ private fun PlaceListItemCard(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            val img = place.images.firstOrNull()?.thumbnailUrl ?: place.images.firstOrNull()?.url
+            val rawImg = place.images.firstOrNull()?.thumbnailUrl ?: place.images.firstOrNull()?.url
+            val img = com.otravelz.android.core.network.ApiConfig.resolveImageUrl(rawImg)
             if (!img.isNullOrBlank()) {
                 AsyncImage(
                     model = img,

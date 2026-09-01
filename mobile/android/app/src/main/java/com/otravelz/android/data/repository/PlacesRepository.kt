@@ -37,10 +37,21 @@ class PlacesRepository(private val apiService: ApiService = NetworkClient.apiSer
 
     suspend fun getPlaceById(id: String): NetworkResult<PlaceDetailDto> {
         return try {
+            android.util.Log.d("PlacesRepository", "Fetching place detail for id='$id'")
             val res = apiService.getPlaceDetail(id)
+            android.util.Log.d("PlacesRepository", "Successfully fetched place detail: ${res.name}")
             NetworkResult.Success(res)
+        } catch (e: retrofit2.HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            android.util.Log.e("PlacesRepository", "Place detail HTTP ${e.code()} for id='$id'. Body: $errorBody", e)
+            val msg = if (e.code() == 404) "Place not found." else "Place details temporarily unavailable (HTTP ${e.code()})."
+            NetworkResult.Error(msg, cause = e)
+        } catch (e: kotlinx.serialization.SerializationException) {
+            android.util.Log.e("PlacesRepository", "Place detail JSON deserialization failed for id='$id'", e)
+            NetworkResult.Error("Place data format error: ${e.message}", cause = e)
         } catch (e: Exception) {
-            NetworkResult.Error("Unable to load place details.", cause = e)
+            android.util.Log.e("PlacesRepository", "Place detail failed for id='$id' [${e.javaClass.simpleName}]: ${e.message}", e)
+            NetworkResult.Error("Unable to load place details (${e.javaClass.simpleName}: ${e.message})", cause = e)
         }
     }
 }

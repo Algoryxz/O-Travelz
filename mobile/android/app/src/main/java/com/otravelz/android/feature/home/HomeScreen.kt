@@ -140,7 +140,7 @@ fun HomeScreen(
                                 notificationId = 101,
                                 title = "Welcome to Odisha",
                                 message = "Mo Bus Route 10 and 11 available near Master Canteen.",
-                                placeId = state.places.firstOrNull()?.id
+                                placeId = state.places.firstOrNull()?.id ?: "9b27a5dd-1d0a-5844-9fe3-d721289202c0"
                             )
                         }) {
                             Icon(

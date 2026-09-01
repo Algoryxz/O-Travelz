@@ -9,4 +9,18 @@ object ApiConfig {
 
     // Active Base URL
     var activeBaseUrl: String = PROD_BASE_URL
+
+    /**
+     * Resolves relative image paths (e.g. /static/images/...) against activeBaseUrl.
+     */
+    fun resolveImageUrl(rawUrl: String?): String? {
+        if (rawUrl.isNullOrBlank()) return null
+        return if (rawUrl.startsWith("http://") || rawUrl.startsWith("https://")) {
+            rawUrl
+        } else {
+            val base = activeBaseUrl.removeSuffix("/")
+            val path = if (rawUrl.startsWith("/")) rawUrl else "/$rawUrl"
+            "$base$path"
+        }
+    }
 }
