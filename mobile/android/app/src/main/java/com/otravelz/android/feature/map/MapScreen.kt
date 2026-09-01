@@ -1,13 +1,21 @@
 package com.otravelz.android.feature.map
 
+import android.Manifest
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.DirectionsWalk
 import androidx.compose.material.icons.filled.LocationSearching
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.Security
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -30,6 +38,89 @@ fun MapScreen(
     val locationManager = remember { LocationManager(context) }
     val locationState by locationManager.state.collectAsState()
 
+    var showPermissionRationale by remember { mutableStateOf(false) }
+    var selectedCategory by remember { mutableStateOf("All") }
+
+    // DPDP-compliant runtime permission launcher
+    val permissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestMultiplePermissions()
+    ) { permissions ->
+        val granted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true ||
+                permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true
+        if (granted) {
+            locationManager.requestLocation()
+        } else {
+            locationManager.setDenied("Location permission denied. Utilizing default Bhubaneswar reference.")
+        }
+    }
+
+    fun handleLocationRequest() {
+        if (locationManager.hasLocationPermission()) {
+            locationManager.requestLocation()
+        } else {
+            showPermissionRationale = true
+        }
+    }
+
+    val currentLat = (locationState as? GeolocationState.Granted)?.lat ?: LocationManager.DEFAULT_FALLBACK_LAT
+    val currentLon = (locationState as? GeolocationState.Granted)?.lon ?: LocationManager.DEFAULT_FALLBACK_LON
+
+    // DPDP Consent Rationale Dialog
+    if (showPermissionRationale) {
+        AlertDialog(
+            onDismissRequest = { showPermissionRationale = false },
+            icon = { Icon(Icons.Default.Security, contentDescription = null, tint = OchrePrimary) },
+            title = {
+                Text(
+                    text = "Location Access (DPDP Compliant)",
+                    style = MaterialTheme.typography.titleLarge,
+                    color = TextPrimary
+                )
+            },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+                    Text(
+                        text = "O-TRAVELZ uses your GPS location solely in-memory to calculate straight-line distances to cultural destinations and nearby Mo Bus transit stops.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = TextSecondary
+                    )
+                    Text(
+                        text = "• Coordinates are never saved to disk or shared with third parties.\n• You can clear your in-memory location at any time.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = OchreLight
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showPermissionRationale = false
+                        permissionLauncher.launch(
+                            arrayOf(
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.ACCESS_COARSE_LOCATION
+                            )
+                        )
+                    }
+                ) {
+                    Text("Grant Permission", color = OchrePrimary, fontWeight = FontWeight.Bold)
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        showPermissionRationale = false
+                        locationManager.setDenied()
+                    }
+                ) {
+                    Text("Use Default Origin", color = TextMuted)
+                }
+            },
+            containerColor = DarkSurface,
+            shape = MaterialTheme.shapes.large
+        )
+    }
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -49,7 +140,7 @@ fun MapScreen(
 
         Spacer(modifier = Modifier.height(Spacing.md))
 
-        // GPS State & Location Button
+        // GPS State & Location Control Card (DPDP Compliant)
         OTCard {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -58,79 +149,178 @@ fun MapScreen(
             ) {
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = "GPS Location (DPDP Compliant)",
+                        text = "GPS Location (In-Memory State)",
                         style = MaterialTheme.typography.titleMedium,
                         color = TextPrimary
                     )
                     when (val state = locationState) {
                         is GeolocationState.Idle -> {
-                            Text("Location not requested yet", style = MaterialTheme.typography.bodyMedium, color = TextMuted)
+                            Text(
+                                text = "Using Bhubaneswar Reference (20.2961°N, 85.8245°E)",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = TextMuted
+                            )
                         }
                         is GeolocationState.Requesting -> {
-                            Text("Requesting GPS lock...", style = MaterialTheme.typography.bodyMedium, color = OchrePrimary)
+                            Text(
+                                text = "Acquiring GPS lock...",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = OchrePrimary
+                            )
                         }
                         is GeolocationState.Granted -> {
-                            Text("Lat: %.4f, Lon: %.4f".format(state.lat, state.lon), style = MaterialTheme.typography.bodyMedium, color = StatusSuccess)
+                            Text(
+                                text = "Active Lock: %.4f°N, %.4f°E (±%.0fm)".format(
+                                    state.lat,
+                                    state.lon,
+                                    state.accuracyMeters ?: 0f
+                                ),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = StatusSuccess,
+                                fontWeight = FontWeight.SemiBold
+                            )
                         }
                         is GeolocationState.Denied -> {
-                            Text("Permission Denied", style = MaterialTheme.typography.bodyMedium, color = StatusError)
+                            Text(
+                                text = "Permission Denied • Default Origin Active",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = StatusError
+                            )
                         }
                         is GeolocationState.Unavailable -> {
-                            Text("GPS Unavailable", style = MaterialTheme.typography.bodyMedium, color = StatusWarning)
+                            Text(
+                                text = "GPS Hardware Offline • Fallback Origin Active",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = StatusWarning
+                            )
                         }
                     }
                 }
 
-                IconButton(
-                    onClick = { locationManager.requestLocation() }
-                ) {
-                    Icon(
-                        imageVector = if (locationState is GeolocationState.Granted) Icons.Default.MyLocation else Icons.Default.LocationSearching,
-                        contentDescription = "Get GPS Location",
-                        tint = OchrePrimary
-                    )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    if (locationState is GeolocationState.Granted) {
+                        IconButton(onClick = { locationManager.clear() }) {
+                            Icon(
+                                imageVector = Icons.Default.Clear,
+                                contentDescription = "Clear in-memory location",
+                                tint = TextMuted
+                            )
+                        }
+                    }
+
+                    IconButton(onClick = { handleLocationRequest() }) {
+                        Icon(
+                            imageVector = if (locationState is GeolocationState.Granted) Icons.Default.MyLocation else Icons.Default.LocationSearching,
+                            contentDescription = "Request GPS Location",
+                            tint = OchrePrimary
+                        )
+                    }
                 }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(Spacing.sm))
+
+        // Category Filter Chips
+        val categories = listOf("All", "heritage", "temple", "nature", "wildlife", "craft", "beach")
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.spacedBy(Spacing.xs)
+        ) {
+            categories.forEach { cat ->
+                ContextChip(
+                    label = if (cat == "All") "All Places" else cat.replaceFirstChar { it.uppercase() },
+                    isSelected = selectedCategory == cat,
+                    onClick = { selectedCategory = cat }
+                )
             }
         }
 
         Spacer(modifier = Modifier.height(Spacing.md))
 
+        val filteredPlaces = remember(places, selectedCategory) {
+            if (selectedCategory == "All") {
+                places
+            } else {
+                places.filter { it.category.equals(selectedCategory, ignoreCase = true) }
+            }
+        }
+
         Text(
-            text = "Canonical Destination Pins (${places.size})",
-            style = MaterialTheme.typography.titleLarge,
+            text = "Destination Pins & First-Mile Guidance (${filteredPlaces.size})",
+            style = MaterialTheme.typography.titleMedium,
             color = TextPrimary
         )
 
-        Spacer(modifier = Modifier.height(Spacing.sm))
+        Spacer(modifier = Modifier.height(Spacing.xs))
 
-        val currentLat = (locationState as? GeolocationState.Granted)?.lat ?: 20.2961
-        val currentLon = (locationState as? GeolocationState.Granted)?.lon ?: 85.8245
+        if (filteredPlaces.isEmpty()) {
+            EmptyState(
+                title = "No destinations found",
+                subtitle = "No verified places match the selected category filter."
+            )
+        } else {
+            LazyColumn(verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+                items(filteredPlaces, key = { it.id }) { place ->
+                    val distKm = if (place.lat != null && place.lon != null) {
+                        LocationManager.haversineDistanceKm(currentLat, currentLon, place.lat, place.lon)
+                    } else null
 
-        LazyColumn(verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-            items(places) { place ->
-                val distKm = if (place.lat != null && place.lon != null) {
-                    LocationManager.haversineDistanceKm(currentLat, currentLon, place.lat, place.lon)
-                } else null
+                    val distanceMeters = distKm?.times(1000)
+                    val firstMileGuidance = distanceMeters?.let { LocationManager.getFirstMileRecommendation(it) }
 
-                val firstMile = distKm?.let { LocationManager.getFirstMileRecommendation(it * 1000) }
+                    OTCard(onClick = { onPlaceClick(place.id) }) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(Icons.Default.Place, contentDescription = null, tint = OchrePrimary)
+                            Spacer(modifier = Modifier.width(Spacing.sm))
+                            Column(modifier = Modifier.weight(1f)) {
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Text(
+                                        text = place.name,
+                                        style = MaterialTheme.typography.titleMedium,
+                                        color = TextPrimary,
+                                        modifier = Modifier.weight(1f)
+                                    )
+                                    if (distKm != null) {
+                                        Text(
+                                            text = "%.1f km · straight-line".format(distKm),
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = OchreLight,
+                                            fontWeight = FontWeight.SemiBold
+                                        )
+                                    }
+                                }
 
-                OTCard(onClick = { onPlaceClick(place.id) }) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(Icons.Default.Place, contentDescription = null, tint = OchrePrimary)
-                        Spacer(modifier = Modifier.width(Spacing.sm))
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(text = place.name, style = MaterialTheme.typography.titleMedium, color = TextPrimary)
-                            Text(
-                                text = "${place.district ?: "Odisha"} • ${distKm?.let { "%.1f km away".format(it) } ?: "Coordinates verified"}",
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = TextSecondary
-                            )
-                            if (firstMile != null) {
                                 Text(
-                                    text = "First-Mile: $firstMile",
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = TealLight
+                                    text = "${place.district ?: "Odisha"} • ${place.category.replace("_", " ").uppercase()}",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = TextSecondary
                                 )
+
+                                if (firstMileGuidance != null) {
+                                    Spacer(modifier = Modifier.height(4.dp))
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                        Icon(
+                                            imageVector = Icons.Default.DirectionsWalk,
+                                            contentDescription = null,
+                                            tint = TealLight,
+                                            modifier = Modifier.size(14.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(4.dp))
+                                        Text(
+                                            text = "First-Mile: $firstMileGuidance",
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = TealLight,
+                                            fontWeight = FontWeight.Medium
+                                        )
+                                    }
+                                }
                             }
                         }
                     }

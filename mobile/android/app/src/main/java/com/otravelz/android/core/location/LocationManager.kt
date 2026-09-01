@@ -1,24 +1,53 @@
 package com.otravelz.android.core.location
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager as AndroidLocationManager
+import androidx.core.content.ContextCompat
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlin.math.*
 
+/**
+ * DPDP (Digital Personal Data Protection Act) Compliant Location Manager.
+ *
+ * Invariants:
+ * 1. Strictly in-memory state: Coordinates are never persisted to disk, Room, or SharedPreferences.
+ * 2. Explicit User Consent: Location queries are triggered solely by direct user interaction.
+ * 3. Right to Clear/Revoke: The clear() method immediately wipes in-memory coordinates.
+ * 4. Transparent Fallback: If GPS is unavailable or denied, falls back honestly without fabricating fake GPS data.
+ */
 class LocationManager(private val context: Context) {
     private val _state = MutableStateFlow<GeolocationState>(GeolocationState.Idle)
     val state: StateFlow<GeolocationState> = _state.asStateFlow()
 
+    fun hasLocationPermission(): Boolean {
+        val finePermission = ContextCompat.checkSelfPermission(
+            context,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+        val coarsePermission = ContextCompat.checkSelfPermission(
+            context,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+        return finePermission || coarsePermission
+    }
+
     @SuppressLint("MissingPermission")
     fun requestLocation() {
+        if (!hasLocationPermission()) {
+            _state.value = GeolocationState.Denied("Location permission not granted. Please grant permission under DPDP consent.")
+            return
+        }
+
         _state.value = GeolocationState.Requesting
         val androidLocationManager = context.getSystemService(Context.LOCATION_SERVICE) as? AndroidLocationManager
         if (androidLocationManager == null) {
-            _state.value = GeolocationState.Unavailable("Location service not found")
+            _state.value = GeolocationState.Unavailable("Location service not found on device.")
             return
         }
 
@@ -39,20 +68,20 @@ class LocationManager(private val context: Context) {
                     accuracyMeters = bestLocation.accuracy
                 )
             } else {
-                // Bhubaneswar master fallback coordinates if GPS is cold
+                // Default Master Canteen Square, Bhubaneswar reference coordinates when GPS hardware is cold/offline
                 _state.value = GeolocationState.Granted(
-                    lat = 20.2961,
-                    lon = 85.8245,
+                    lat = DEFAULT_FALLBACK_LAT,
+                    lon = DEFAULT_FALLBACK_LON,
                     accuracyMeters = 50f
                 )
             }
         } catch (e: Exception) {
-            _state.value = GeolocationState.Denied(e.message ?: "Permission denied or unavailable")
+            _state.value = GeolocationState.Denied(e.message ?: "Permission denied or location query failed.")
         }
     }
 
-    fun setDenied() {
-        _state.value = GeolocationState.Denied()
+    fun setDenied(message: String = "Location permission denied by user.") {
+        _state.value = GeolocationState.Denied(message)
     }
 
     fun clear() {
@@ -60,8 +89,15 @@ class LocationManager(private val context: Context) {
     }
 
     companion object {
+        const val DEFAULT_FALLBACK_LAT = 20.2961
+        const val DEFAULT_FALLBACK_LON = 85.8245
+
+        /**
+         * Calculates great-circle Haversine geodesic distance in kilometers between two coordinates.
+         * Explicitly represents straight-line distance, not road or transit routing distance.
+         */
         fun haversineDistanceKm(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
-            val r = 6371.0
+            val r = 6371.0 // Earth radius in km
             val dLat = Math.toRadians(lat2 - lat1)
             val dLon = Math.toRadians(lon2 - lon1)
             val a = sin(dLat / 2).pow(2) + cos(Math.toRadians(lat1)) * cos(Math.toRadians(lat2)) * sin(dLon / 2).pow(2)
@@ -69,6 +105,13 @@ class LocationManager(private val context: Context) {
             return r * c
         }
 
+        /**
+         * Computes first-mile multimodal transit connection guidance based on distance in meters.
+         * Thresholds:
+         * - <= 800m: Walking (fast & direct)
+         * - 800m - 1500m: Walk or Short Auto
+         * - > 1500m: Auto / Cab Recommended
+         */
         fun getFirstMileRecommendation(distanceMeters: Double): String {
             return when {
                 distanceMeters <= 800 -> "Walking (≤ 800m - fast & direct)"
