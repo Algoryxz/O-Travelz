@@ -30,7 +30,7 @@
 | **You / Profile** | Guest User Status | **WORKING** | Guest status banner with local device storage notice |
 | | Language Switcher | **WORKING** | English / Odia toggle |
 | | Notification Channel Toggles | **WORKING** | Granular switches for Trip, Weather, and Transit alerts |
-| | DPDP Act 2023 Privacy Controls | **WORKING** | Explicit transparency modal on local data handling |
+| | Privacy & Location Controls | **WORKING** | Explicit notice: "Location is used only for the described app behavior and this feature does not persist precise location." |
 | | Community Hometown Submission | **UI_ONLY** | Staged submission modal with *"Submitted for review"* contract |
 | **Maps & Location** | GPS / Geolocation State | **WORKING** | Real device location vs `ReferenceOrigin` fallback |
 | | Native Map Container | **PARTIAL** | Spatial list fallback working; MapLibre / Maps Compose planned for Wave 4 |

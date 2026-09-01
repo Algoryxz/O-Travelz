@@ -174,8 +174,8 @@ fun ProfileScreen(
 
         SettingsRow(
             icon = Icons.Default.Security,
-            title = "DPDP Act 2023 Compliance",
-            subtitle = "Location data is processed locally and never sold or persisted on remote servers.",
+            title = "Location & Privacy Policy",
+            subtitle = "Location is used only for the described app behavior and this feature does not persist precise location.",
             onClick = {}
         )
 

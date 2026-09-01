@@ -6,21 +6,18 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.BookmarkBorder
-import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.filled.GridView
+import androidx.compose.material.icons.filled.FilterList
+import androidx.compose.material.icons.filled.Landscape
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.filled.ViewList
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -38,6 +35,7 @@ import com.otravelz.android.core.design.*
 import com.otravelz.android.core.network.ApiConfig
 import com.otravelz.android.data.model.PlaceDetailDto
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DiscoverScreen(
     viewModel: DiscoverViewModel,
@@ -45,9 +43,10 @@ fun DiscoverScreen(
     modifier: Modifier = Modifier
 ) {
     val state by viewModel.uiState.collectAsState()
-    var isGridView by remember { mutableStateOf(false) }
+    var showFilterSheet by remember { mutableStateOf(false) }
 
     val categories = listOf(
+        null to "All",
         "temple" to "Temples",
         "heritage" to "Heritage",
         "nature" to "Nature & Hills",
@@ -63,208 +62,222 @@ fun DiscoverScreen(
         "Sambalpur",
         "Mayurbhanj",
         "Koraput",
-        "Sundargarh"
+        "Sundargarh",
+        "Ganjam",
+        "Kalahandi",
+        "Balasore"
     )
 
     val displayedPlaces = if (state.showSavedOnly) {
         state.savedPlaces.filter { place ->
             val matchesQuery = state.searchQuery.isBlank() ||
                 place.name.contains(state.searchQuery, ignoreCase = true) ||
-                (place.district?.contains(state.searchQuery, ignoreCase = true) == true)
+                (place.district?.contains(state.searchQuery, ignoreCase = true) == true) ||
+                place.category.contains(state.searchQuery, ignoreCase = true)
             val matchesCat = state.selectedCategory == null || place.category.equals(state.selectedCategory, ignoreCase = true)
             val matchesDist = state.selectedDistrict == null || place.district?.equals(state.selectedDistrict, ignoreCase = true) == true
             matchesQuery && matchesCat && matchesDist
         }
     } else {
-        state.places
+        state.places.filter { place ->
+            val matchesQuery = state.searchQuery.isBlank() ||
+                place.name.contains(state.searchQuery, ignoreCase = true) ||
+                (place.district?.contains(state.searchQuery, ignoreCase = true) == true) ||
+                place.category.contains(state.searchQuery, ignoreCase = true)
+            val matchesCat = state.selectedCategory == null || place.category.equals(state.selectedCategory, ignoreCase = true)
+            val matchesDist = state.selectedDistrict == null || place.district?.equals(state.selectedDistrict, ignoreCase = true) == true
+            matchesQuery && matchesCat && matchesDist
+        }
     }
 
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .background(DarkBackground)
-            .padding(horizontal = Spacing.md, vertical = Spacing.sm)
-    ) {
-        // Header & View Toggle
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxWidth()
+    Scaffold(
+        containerColor = DarkBackground,
+        modifier = modifier.fillMaxSize()
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
         ) {
-            Column {
-                Text(
-                    text = if (state.showSavedOnly) "Saved Places" else "Discover Odisha",
-                    style = MaterialTheme.typography.headlineMedium,
-                    color = TextPrimary,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
-                    text = "${displayedPlaces.size} Verified destinations",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = OchreLight
-                )
-            }
-
-            IconButton(
-                onClick = { isGridView = !isGridView },
+            // 1. Persistent Search Bar
+            Box(
                 modifier = Modifier
-                    .background(DarkSurfaceElevated, RoundedCornerShape(12.dp))
-                    .border(1.dp, DarkBorder, RoundedCornerShape(12.dp))
+                    .fillMaxWidth()
+                    .padding(horizontal = Spacing.md, vertical = Spacing.xs)
             ) {
-                Icon(
-                    imageVector = if (isGridView) Icons.Default.ViewList else Icons.Default.GridView,
-                    contentDescription = "Switch View",
-                    tint = TextPrimary
+                OutlinedTextField(
+                    value = state.searchQuery,
+                    onValueChange = { viewModel.updateSearchQuery(it) },
+                    placeholder = {
+                        Text(
+                            text = "Search temples, waterfalls, heritage...",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = TextMuted
+                        )
+                    },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.Default.Search,
+                            contentDescription = "Search",
+                            tint = OchrePrimary
+                        )
+                    },
+                    trailingIcon = {
+                        if (state.searchQuery.isNotEmpty()) {
+                            IconButton(onClick = { viewModel.updateSearchQuery("") }) {
+                                Icon(
+                                    imageVector = Icons.Default.Clear,
+                                    contentDescription = "Clear Search",
+                                    tint = TextMuted
+                                )
+                            }
+                        }
+                    },
+                    singleLine = true,
+                    shape = RoundedCornerShape(16.dp),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedContainerColor = DarkSurfaceElevated,
+                        unfocusedContainerColor = DarkSurfaceElevated,
+                        focusedBorderColor = OchrePrimary,
+                        unfocusedBorderColor = DarkBorder,
+                        focusedTextColor = TextPrimary,
+                        unfocusedTextColor = TextPrimary
+                    ),
+                    modifier = Modifier.fillMaxWidth()
                 )
             }
-        }
 
-        Spacer(modifier = Modifier.height(Spacing.sm))
+            // 2. Compact Primary Category Strip
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                contentPadding = PaddingValues(horizontal = Spacing.md, vertical = Spacing.xs),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                items(categories) { (catKey, catLabel) ->
+                    val isSelected = if (state.showSavedOnly) {
+                        catKey == "saved"
+                    } else {
+                        (state.selectedCategory == null && catKey == null) ||
+                            (state.selectedCategory.equals(catKey, ignoreCase = true))
+                    }
+                    ContextChip(
+                        label = catLabel,
+                        isSelected = isSelected,
+                        onClick = {
+                            if (catKey == "saved") {
+                                viewModel.toggleSavedOnly(true)
+                            } else {
+                                viewModel.toggleSavedOnly(false)
+                                viewModel.selectCategory(catKey)
+                            }
+                        }
+                    )
+                }
+            }
 
-        // Search Bar
-        OutlinedTextField(
-            value = state.searchQuery,
-            onValueChange = { viewModel.updateSearchQuery(it) },
-            placeholder = { Text("Search temples, waterfalls, heritage...", color = TextMuted) },
-            leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search", tint = SunTempleGold) },
-            trailingIcon = {
-                if (state.searchQuery.isNotBlank()) {
-                    IconButton(onClick = { viewModel.updateSearchQuery("") }) {
-                        Icon(Icons.Default.Clear, contentDescription = "Clear", tint = TextSecondary)
+            // 3. Results Summary & Filter Sheet Action
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = Spacing.md, vertical = Spacing.xs)
+            ) {
+                Text(
+                    text = "${displayedPlaces.size} verified destinations",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = TextSecondary,
+                    fontWeight = FontWeight.Medium
+                )
+
+                // District Filter Pill Button
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = if (state.selectedDistrict != null) OchrePrimary.copy(alpha = 0.2f) else DarkSurfaceElevated,
+                    border = androidx.compose.foundation.BorderStroke(
+                        1.dp,
+                        if (state.selectedDistrict != null) OchrePrimary else DarkBorderSubtle
+                    ),
+                    modifier = Modifier.clickable { showFilterSheet = true }
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.FilterList,
+                            contentDescription = "Filter",
+                            tint = if (state.selectedDistrict != null) OchrePrimary else TextSecondary,
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = state.selectedDistrict ?: "District",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = if (state.selectedDistrict != null) OchrePrimary else TextPrimary,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
-            },
-            singleLine = true,
-            shape = RoundedCornerShape(14.dp),
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = DarkSurfaceElevated,
-                unfocusedContainerColor = DarkSurface,
-                focusedBorderColor = OchrePrimary,
-                unfocusedBorderColor = DarkBorder,
-                focusedTextColor = TextPrimary,
-                unfocusedTextColor = TextPrimary
-            ),
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(Spacing.sm))
-
-        // Primary Category Chips
-        LazyRow(horizontalArrangement = Arrangement.spacedBy(Spacing.xs)) {
-            item {
-                ContextChip(
-                    label = "All",
-                    isSelected = state.selectedCategory == null && !state.showSavedOnly,
-                    onClick = {
-                        if (state.showSavedOnly) viewModel.toggleSavedOnly(false)
-                        viewModel.selectCategory(null)
-                    }
-                )
             }
-            item {
-                ContextChip(
-                    label = "Saved",
-                    isSelected = state.showSavedOnly,
-                    icon = Icons.Default.Bookmark,
-                    count = state.savedPlaces.size,
-                    onClick = { viewModel.toggleSavedOnly(!state.showSavedOnly) }
-                )
-            }
-            items(categories) { (catId, catLabel) ->
-                ContextChip(
-                    label = catLabel,
-                    isSelected = state.selectedCategory.equals(catId, ignoreCase = true) && !state.showSavedOnly,
-                    onClick = {
-                        if (state.showSavedOnly) viewModel.toggleSavedOnly(false)
-                        viewModel.selectCategory(if (state.selectedCategory == catId) null else catId)
-                    }
-                )
-            }
-        }
 
-        Spacer(modifier = Modifier.height(Spacing.xs))
-
-        // Secondary District Filter Chips
-        LazyRow(horizontalArrangement = Arrangement.spacedBy(Spacing.xs)) {
-            items(districts) { district ->
-                val isSelected = state.selectedDistrict.equals(district, ignoreCase = true)
-                FilterChip(
-                    selected = isSelected,
-                    onClick = { viewModel.selectDistrict(if (isSelected) null else district) },
-                    label = { Text(district, style = MaterialTheme.typography.labelMedium) },
-                    colors = FilterChipDefaults.filterChipColors(
-                        selectedContainerColor = OchreDark,
-                        selectedLabelColor = TextPrimary,
-                        containerColor = DarkSurface,
-                        labelColor = TextSecondary
-                    ),
-                    border = FilterChipDefaults.filterChipBorder(
-                        enabled = true,
-                        selected = isSelected,
-                        borderColor = DarkBorder,
-                        selectedBorderColor = OchrePrimary
-                    )
-                )
-            }
-        }
-
-        Spacer(modifier = Modifier.height(Spacing.sm))
-
-        // Content Area (Grid or List)
-        if (state.isLoading && displayedPlaces.isEmpty()) {
-            LoadingState(modifier = Modifier.weight(1f), message = "Searching catalog...")
-        } else if (state.errorMessage != null && displayedPlaces.isEmpty()) {
-            ErrorState(
-                message = state.errorMessage ?: "Failed to load places",
-                onRetry = { viewModel.loadPlaces() },
-                modifier = Modifier.weight(1f)
-            )
-        } else if (displayedPlaces.isEmpty()) {
-            EmptyState(
-                title = "No destinations found",
-                subtitle = "Try adjusting your search query, category, or district filter.",
-                actionText = "Clear Filters",
-                onAction = {
-                    viewModel.updateSearchQuery("")
-                    viewModel.selectCategory(null)
-                    viewModel.selectDistrict(null)
-                },
-                modifier = Modifier.weight(1f)
-            )
-        } else {
-            if (isGridView) {
-                LazyVerticalGrid(
-                    columns = GridCells.Fixed(2),
-                    horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
-                    verticalArrangement = Arrangement.spacedBy(Spacing.sm),
-                    modifier = Modifier.weight(1f)
+            // 4. Destination Feed or Semantic State
+            if (state.isLoading && displayedPlaces.isEmpty()) {
+                LoadingState(modifier = Modifier.fillMaxSize(), message = "Loading verified destinations...")
+            } else if (displayedPlaces.isEmpty()) {
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(Spacing.lg)
                 ) {
-                    items(displayedPlaces, key = { it.id }) { place ->
-                        val isSaved = state.savedPlaces.any { it.id == place.id }
-                        DestinationCard(
-                            name = place.name,
-                            category = place.category,
-                            district = place.district,
-                            imageUrl = place.images.firstOrNull()?.thumbnailUrl ?: place.images.firstOrNull()?.url,
-                            rating = place.rating,
-                            isSaved = isSaved,
-                            onSaveToggle = { viewModel.toggleBookmark(place) },
-                            onClick = { onPlaceClick(place.id) },
-                            modifier = Modifier.fillMaxWidth()
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Icon(
+                            imageVector = Icons.Default.Landscape,
+                            contentDescription = null,
+                            tint = TextMuted,
+                            modifier = Modifier.size(48.dp)
                         )
+                        Spacer(modifier = Modifier.height(Spacing.sm))
+                        Text(
+                            text = if (state.searchQuery.isNotBlank()) "No destinations match \"${state.searchQuery}\"" else "No destinations match these filters",
+                            style = MaterialTheme.typography.titleMedium,
+                            color = TextPrimary,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Spacer(modifier = Modifier.height(Spacing.xs))
+                        Text(
+                            text = "Try clearing search or changing district filter.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = TextSecondary
+                        )
+                        Spacer(modifier = Modifier.height(Spacing.md))
+                        Button(
+                            onClick = {
+                                viewModel.updateSearchQuery("")
+                                viewModel.selectCategory(null)
+                                viewModel.selectDistrict(null)
+                                viewModel.toggleSavedOnly(false)
+                            },
+                            colors = ButtonDefaults.buttonColors(containerColor = DarkSurfaceElevated, contentColor = SunTempleGold),
+                            shape = RoundedCornerShape(10.dp)
+                        ) {
+                            Text("Reset All Filters")
+                        }
                     }
                 }
             } else {
                 LazyColumn(
-                    verticalArrangement = Arrangement.spacedBy(Spacing.sm),
-                    modifier = Modifier.weight(1f)
+                    contentPadding = PaddingValues(horizontal = Spacing.md, vertical = Spacing.sm),
+                    verticalArrangement = Arrangement.spacedBy(Spacing.md),
+                    modifier = Modifier.fillMaxSize()
                 ) {
                     items(displayedPlaces, key = { it.id }) { place ->
-                        val isSaved = state.savedPlaces.any { it.id == place.id }
-                        DiscoverListItemCard(
+                        val isSaved = state.savedPlaceIds.contains(place.id)
+                        DiscoverPlaceCard(
                             place = place,
                             isSaved = isSaved,
-                            onSaveToggle = { viewModel.toggleBookmark(place) },
+                            onSaveClick = { viewModel.toggleBookmark(place) },
                             onClick = { onPlaceClick(place.id) }
                         )
                     }
@@ -272,102 +285,207 @@ fun DiscoverScreen(
             }
         }
     }
+
+    // Bottom Sheet for District Filtering
+    if (showFilterSheet) {
+        ModalBottomSheet(
+            onDismissRequest = { showFilterSheet = false },
+            containerColor = DarkSurfaceElevated,
+            contentColor = TextPrimary,
+            dragHandle = { BottomSheetDefaults.DragHandle(color = TextMuted) }
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = Spacing.lg, vertical = Spacing.sm)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = "Filter by District",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = TextPrimary,
+                        fontWeight = FontWeight.Bold
+                    )
+                    if (state.selectedDistrict != null) {
+                        TextButton(onClick = { viewModel.selectDistrict(null) }) {
+                            Text("Clear", color = OchrePrimary)
+                        }
+                    }
+                }
+                Spacer(modifier = Modifier.height(Spacing.sm))
+
+                // District Chips Grid
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    contentPadding = PaddingValues(vertical = Spacing.xs),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    items(districts) { dist ->
+                        val isSelected = state.selectedDistrict.equals(dist, ignoreCase = true)
+                        FilterChip(
+                            selected = isSelected,
+                            onClick = {
+                                viewModel.selectDistrict(if (isSelected) null else dist)
+                                showFilterSheet = false
+                            },
+                            label = { Text(dist) },
+                            leadingIcon = if (isSelected) {
+                                { Icon(Icons.Default.Check, contentDescription = null, modifier = Modifier.size(16.dp)) }
+                            } else null,
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = OchrePrimary,
+                                selectedLabelColor = DarkBackground,
+                                containerColor = DarkSurface,
+                                labelColor = TextPrimary
+                            )
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.height(Spacing.xl))
+            }
+        }
+    }
 }
 
 @Composable
-private fun DiscoverListItemCard(
+fun DiscoverPlaceCard(
     place: PlaceDetailDto,
     isSaved: Boolean,
-    onSaveToggle: () -> Unit,
-    onClick: () -> Unit
+    onSaveClick: () -> Unit,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
+    val imageUrl = place.images.firstOrNull()?.url
+    val qualifiedUrl = ApiConfig.resolveImageUrl(imageUrl)
+
     Card(
-        shape = RoundedCornerShape(14.dp),
+        shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = DarkSurfaceElevated),
-        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
-        modifier = Modifier
+        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorderSubtle),
+        modifier = modifier
             .fillMaxWidth()
+            .clip(RoundedCornerShape(20.dp))
             .clickable { onClick() }
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(Spacing.sm),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            val rawImg = place.images.firstOrNull()?.thumbnailUrl ?: place.images.firstOrNull()?.url
-            val img = ApiConfig.resolveImageUrl(rawImg)
-            if (!img.isNullOrBlank()) {
-                AsyncImage(
-                    model = img,
-                    contentDescription = place.name,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .size(80.dp)
-                        .clip(RoundedCornerShape(10.dp))
-                )
-                Spacer(modifier = Modifier.width(Spacing.md))
-            }
-
-            Column(modifier = Modifier.weight(1f)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = place.name,
-                        style = MaterialTheme.typography.titleMedium,
-                        color = TextPrimary,
-                        fontWeight = FontWeight.Bold,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.weight(1f)
+        Column {
+            // Photo Hero Container (16:9)
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(180.dp)
+                    .background(DarkSurfaceVariant)
+            ) {
+                if (qualifiedUrl != null) {
+                    AsyncImage(
+                        model = qualifiedUrl,
+                        contentDescription = place.name,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize()
                     )
-                    TruthBadge(
-                        label = "VERIFIED",
-                        backgroundColor = LiveBadgeBg,
-                        contentColor = LiveBadgeText
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(2.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = place.category.replace("_", " ").uppercase(),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = OchreLight,
-                        fontWeight = FontWeight.Bold
-                    )
-                    if (!place.district.isNullOrBlank()) {
-                        Text(
-                            text = " • ${place.district}",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = TextSecondary
-                        )
-                    }
-                }
-
-                if (place.rating != null) {
-                    Spacer(modifier = Modifier.height(2.dp))
-                    Row(verticalAlignment = Alignment.CenterVertically) {
+                } else {
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier.fillMaxSize()
+                    ) {
                         Icon(
-                            imageVector = Icons.Default.Star,
-                            contentDescription = "Rating",
-                            tint = SunTempleGold,
-                            modifier = Modifier.size(14.dp)
-                        )
-                        Spacer(modifier = Modifier.width(2.dp))
-                        Text(
-                            text = "${place.rating} (${place.ratingCount ?: 100}+)",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = TextSecondary
+                            imageVector = Icons.Default.Landscape,
+                            contentDescription = null,
+                            tint = TextMuted,
+                            modifier = Modifier.size(40.dp)
                         )
                     }
                 }
+
+                // Gradient scrim
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(
+                            Brush.verticalGradient(
+                                colors = listOf(Color.Transparent, DarkSurfaceElevated.copy(alpha = 0.95f)),
+                                startY = 100f
+                            )
+                        )
+                )
+
+                // Category & District Badges (Bottom Left over image)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .align(Alignment.BottomStart)
+                        .padding(Spacing.sm)
+                ) {
+                    Surface(
+                        shape = RoundedCornerShape(6.dp),
+                        color = OchrePrimary.copy(alpha = 0.9f)
+                    ) {
+                        Text(
+                            text = place.category.uppercase(),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = DarkBackground,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                        )
+                    }
+                    if (!place.district.isNullOrBlank()) {
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Surface(
+                            shape = RoundedCornerShape(6.dp),
+                            color = DarkBackground.copy(alpha = 0.8f)
+                        ) {
+                            Text(
+                                text = place.district ?: "",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = TextPrimary,
+                                fontWeight = FontWeight.Medium,
+                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                            )
+                        }
+                    }
+                }
+
+                // Bookmark Icon Button (Top Right)
+                IconButton(
+                    onClick = onSaveClick,
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .padding(8.dp)
+                        .size(36.dp)
+                        .background(DarkBackground.copy(alpha = 0.7f), CircleShape)
+                ) {
+                    Icon(
+                        imageVector = if (isSaved) Icons.Default.Bookmark else Icons.Default.BookmarkBorder,
+                        contentDescription = if (isSaved) "Saved" else "Save",
+                        tint = if (isSaved) SunTempleGold else TextPrimary,
+                        modifier = Modifier.size(20.dp)
+                    )
+                }
             }
 
-            IconButton(onClick = onSaveToggle) {
-                Icon(
-                    imageVector = if (isSaved) Icons.Default.Bookmark else Icons.Default.BookmarkBorder,
-                    contentDescription = "Save",
-                    tint = if (isSaved) SunTempleGold else TextSecondary
+            // Card Body (Title & Cultural Info)
+            Column(modifier = Modifier.padding(horizontal = Spacing.md, vertical = Spacing.sm)) {
+                Text(
+                    text = place.name,
+                    style = MaterialTheme.typography.titleMedium,
+                    color = TextPrimary,
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
+                if (!place.description.isNullOrBlank()) {
+                    Spacer(modifier = Modifier.height(2.dp))
+                    Text(
+                        text = place.description ?: "",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = TextSecondary,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
             }
         }
     }
