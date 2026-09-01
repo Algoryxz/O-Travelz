@@ -101,7 +101,7 @@ sealed class Screen(val route: String, val title: String, val icon: androidx.com
     object Discover : Screen("discover", "Discover", Icons.Default.Explore)
     object Planner : Screen("planner", "Plan", Icons.Default.Route)
     object Trips : Screen("trips", "Trips", Icons.Default.Bookmark)
-    object Profile : Screen("profile", "Profile", Icons.Default.Person)
+    object You : Screen("you", "You", Icons.Default.Person)
     object Transit : Screen("transit", "Transit", Icons.Default.DirectionsBus)
     object Map : Screen("map", "Map", Icons.Default.Map)
 }
@@ -181,7 +181,7 @@ fun OTravelzAppNav(
         Screen.Discover,
         Screen.Planner,
         Screen.Trips,
-        Screen.Profile
+        Screen.You
     )
 
     val homeState by homeViewModel.uiState.collectAsState()
@@ -260,7 +260,7 @@ fun OTravelzAppNav(
                 )
             }
 
-            composable(Screen.Profile.route) {
+            composable(Screen.You.route) {
                 ProfileScreen(
                     onNavigateToSavedPlaces = { navController.navigate(Screen.Discover.route) },
                     onNavigateToTrips = { navController.navigate(Screen.Trips.route) }
