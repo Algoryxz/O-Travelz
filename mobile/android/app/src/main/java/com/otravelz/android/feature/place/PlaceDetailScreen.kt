@@ -9,19 +9,22 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.NotificationsActive
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.otravelz.android.core.design.*
+import com.otravelz.android.core.notifications.NotificationHelper
+import com.otravelz.android.core.notifications.NotificationPreferencesDialog
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,12 +32,23 @@ fun PlaceDetailScreen(
     placeId: String,
     viewModel: PlaceDetailViewModel,
     onBack: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onRequestNotificationPermission: (((onGranted: (() -> Unit)?) -> Unit))? = null
 ) {
+    val context = LocalContext.current
     val state by viewModel.uiState.collectAsState()
+    var isReminderSet by remember { mutableStateOf(false) }
+    var showPreferencesDialog by remember { mutableStateOf(false) }
+    val snackbarHostState = remember { SnackbarHostState() }
 
     LaunchedEffect(placeId) {
         viewModel.loadPlace(placeId)
+    }
+
+    if (showPreferencesDialog) {
+        NotificationPreferencesDialog(
+            onDismiss = { showPreferencesDialog = false }
+        )
     }
 
     if (state.isLoading) {
@@ -63,12 +77,22 @@ fun PlaceDetailScreen(
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = TextPrimary)
                     }
                 },
+                actions = {
+                    IconButton(onClick = { showPreferencesDialog = true }) {
+                        Icon(
+                            imageVector = Icons.Default.Settings,
+                            contentDescription = "Notification Settings",
+                            tint = OchreLight
+                        )
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = DarkSurface,
                     titleContentColor = TextPrimary
                 )
             )
         },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         containerColor = DarkBackground
     ) { padding ->
         Column(
@@ -121,6 +145,69 @@ fun PlaceDetailScreen(
                                 text = "Lat: $lat, Lon: $lon (Label: Verified)",
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = TextSecondary
+                            )
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(Spacing.md))
+
+                // Travel Reminder & Alert Trigger Box
+                OTCard {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Row(
+                            modifier = Modifier.weight(1f),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                imageVector = if (isReminderSet) Icons.Default.NotificationsActive else Icons.Default.Notifications,
+                                contentDescription = "Reminder",
+                                tint = if (isReminderSet) StatusSuccess else OchrePrimary,
+                                modifier = Modifier.size(24.dp)
+                            )
+                            Spacer(modifier = Modifier.width(Spacing.sm))
+                            Column {
+                                Text(
+                                    text = if (isReminderSet) "Travel Alert Active" else "Set Trip Reminder",
+                                    style = MaterialTheme.typography.titleMedium,
+                                    color = TextPrimary
+                                )
+                                Text(
+                                    text = if (isReminderSet) "Deep link ready in notification tray" else "Receive trip alert with instant place access",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = TextSecondary
+                                )
+                            }
+                        }
+
+                        Button(
+                            onClick = {
+                                val triggerAlert = {
+                                    val posted = NotificationHelper.showTripReminder(context, place.id, place.name)
+                                    if (posted) {
+                                        isReminderSet = true
+                                    }
+                                }
+
+                                if (onRequestNotificationPermission != null) {
+                                    onRequestNotificationPermission(triggerAlert)
+                                } else {
+                                    triggerAlert()
+                                }
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = if (isReminderSet) DarkSurfaceVariant else OchrePrimary,
+                                contentColor = if (isReminderSet) TextPrimary else DarkBackground
+                            ),
+                            shape = RoundedCornerShape(8.dp)
+                        ) {
+                            Text(
+                                text = if (isReminderSet) "Alert Sent" else "Remind Me",
+                                fontWeight = FontWeight.SemiBold
                             )
                         }
                     }

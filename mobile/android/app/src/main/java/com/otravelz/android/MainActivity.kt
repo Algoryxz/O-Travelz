@@ -1,9 +1,15 @@
 package com.otravelz.android
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -14,16 +20,18 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.Route
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import com.otravelz.android.core.design.*
+import com.otravelz.android.core.notifications.NotificationHelper
+import com.otravelz.android.core.notifications.NotificationRationaleDialog
 import com.otravelz.android.feature.discover.DiscoverScreen
 import com.otravelz.android.feature.home.HomeScreen
 import com.otravelz.android.feature.home.HomeViewModel
@@ -54,6 +62,11 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+    }
 }
 
 sealed class Screen(val route: String, val title: String, val icon: androidx.compose.ui.graphics.vector.ImageVector) {
@@ -70,9 +83,56 @@ fun OTravelzAppNav(
     placeDetailViewModel: PlaceDetailViewModel,
     plannerViewModel: PlannerViewModel
 ) {
+    val context = LocalContext.current
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
+
+    // Android 13+ POST_NOTIFICATIONS Runtime Permission Launcher
+    var showPermissionRationale by remember { mutableStateOf(false) }
+    var pendingActionAfterPermission by remember { mutableStateOf<(() -> Unit)?>(null) }
+
+    val notificationPermissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            pendingActionAfterPermission?.invoke()
+        }
+        pendingActionAfterPermission = null
+    }
+
+    val requestNotificationPermission: (onGranted: (() -> Unit)?) -> Unit = { onGranted ->
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val permissionStatus = ContextCompat.checkSelfPermission(
+                context,
+                Manifest.permission.POST_NOTIFICATIONS
+            )
+            if (permissionStatus != PackageManager.PERMISSION_GRANTED) {
+                pendingActionAfterPermission = onGranted
+                showPermissionRationale = true
+            } else {
+                onGranted?.invoke()
+            }
+        } else {
+            // API 26-32: notifications enabled by default
+            onGranted?.invoke()
+        }
+    }
+
+    if (showPermissionRationale) {
+        NotificationRationaleDialog(
+            onConfirm = {
+                showPermissionRationale = false
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                }
+            },
+            onDismiss = {
+                showPermissionRationale = false
+                pendingActionAfterPermission = null
+            }
+        )
+    }
 
     val bottomNavItems = listOf(
         Screen.Home,
@@ -168,6 +228,7 @@ fun OTravelzAppNav(
                 PlaceDetailScreen(
                     placeId = placeId,
                     viewModel = placeDetailViewModel,
+                    onRequestNotificationPermission = requestNotificationPermission,
                     onBack = { navController.popBackStack() }
                 )
             }
