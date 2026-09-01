@@ -1,7 +1,6 @@
-/**
- * Canonical Whole-Odisha API Contract Types.
- * Authoritative type definitions matching backend FastAPI schemas.
- */
+import type { components } from "../../../shared/api/generated";
+
+export type GeneratedSchemas = components["schemas"];
 
 export type DataTier = "static" | "scheduled" | "live" | "unknown";
 
@@ -41,21 +40,7 @@ export const CANONICAL_INTERESTS = [
 export type CanonicalCategoryId = (typeof CANONICAL_CATEGORIES)[number]["id"];
 export type CanonicalInterestId = (typeof CANONICAL_INTERESTS)[number]["id"];
 
-export interface PlanningConstraints {
-  days: number;
-  interests: string[];
-  dates?: string[] | null;
-  pace?: string | null;
-  budget_transport_per_day?: number | null;
-  start?: string | null;
-  mobility?: string | null;
-  avoid_crowds?: boolean | null;
-  low_walking?: boolean | null;
-  vegetarian?: boolean | null;
-  budget_conscious?: boolean | null;
-  public_transport_preferred?: boolean | null;
-  travel_party?: string | null;
-}
+export type PlanningConstraints = GeneratedSchemas["PlanningConstraints"];
 
 export interface PlaceSummary {
   id: string;
@@ -127,17 +112,11 @@ export interface APIErrorResponse {
 
 /* ================= Phase 5: AI Planning Contracts ================= */
 
-export type AIStatus = "success" | "clarification" | "unsupported" | "error";
+/* ================= Phase 5: AI Planning Contracts (Generated from OpenAPI) ================= */
 
-export interface Clarification {
-  question: string;
-  reason?: string | null;
-}
-
-export interface AIPlanRequest {
-  message: string;
-  constraints?: PlanningConstraints | null;
-}
+export type AIStatus = GeneratedSchemas["AIStatus"];
+export type Clarification = GeneratedSchemas["Clarification"];
+export type AIPlanRequest = GeneratedSchemas["AIPlanRequest"];
 
 export interface AIResponse {
   message: string;
@@ -152,79 +131,18 @@ export interface AIResponse {
 
 /* ================= Phase 12: Grounded AI Conversation Contracts ================= */
 
-export type ChatRole = "system" | "user" | "assistant" | "tool";
+export type ChatRole = GeneratedSchemas["ChatRole"];
+export type ToolStatus = GeneratedSchemas["ToolStatus"];
+export type ToolCall = GeneratedSchemas["ToolCall"];
+export type ToolResult = GeneratedSchemas["ToolResult"];
+export type ChatMessage = GeneratedSchemas["ChatMessage"];
 
-export type ToolStatus = "ok" | "unavailable" | "unknown" | "invalid" | "error";
-
-export interface ToolCall {
-  id?: string;
-  name: string;
-  arguments: Record<string, unknown>;
-}
-
-export interface ToolResult {
-  tool_call_id?: string | null;
-  tool_name: string;
-  status: ToolStatus;
-  data?: unknown;
-  reason?: string | null;
-  error?: string | null;
-  warnings?: string[];
-}
-
-export interface ChatMessage {
-  role: ChatRole;
-  content?: string | null;
-  tool_calls?: ToolCall[];
-  tool_call_id?: string | null;
-  name?: string | null;
-}
-
-export interface AppDestinationContext {
-  id?: string | null;
-  name?: string | null;
-  category?: string | null;
-  district?: string | null;
-  region?: string | null;
-}
-
-export interface AppMapContext {
-  mode?: string | null;
-  selected_place?: AppDestinationContext | null;
-  selected_route_id?: string | null;
-  selected_route_name?: string | null;
-  selected_stop_id?: string | null;
-  selected_stop_name?: string | null;
-  region?: string | null;
-}
-
-export interface AppPlannerContext {
-  days?: number | null;
-  start?: string | null;
-  interests?: string[];
-  anchor_place?: AppDestinationContext | null;
-}
-
-export interface AppLocationContext {
-  locality?: string | null;
-  city?: string | null;
-  district?: string | null;
-  location_type?: string | null;
-}
-
-export interface AppSavedSummaryContext {
-  saved_count?: number;
-  sample_places?: string[];
-}
-
-export interface AppContextPayload {
-  page?: string | null;
-  destination?: AppDestinationContext | null;
-  map?: AppMapContext | null;
-  planner?: AppPlannerContext | null;
-  location?: AppLocationContext | null;
-  saved?: AppSavedSummaryContext | null;
-}
+export type AppDestinationContext = GeneratedSchemas["AppDestinationContext"];
+export type AppMapContext = GeneratedSchemas["AppMapContext"];
+export type AppPlannerContext = GeneratedSchemas["AppPlannerContext"];
+export type AppLocationContext = GeneratedSchemas["AppLocationContext"];
+export type AppSavedSummaryContext = GeneratedSchemas["AppSavedSummaryContext"];
+export type AppContextPayload = GeneratedSchemas["AppContextPayload"];
 
 export interface AIConverseRequest {
   messages: ChatMessage[];
@@ -307,22 +225,17 @@ export type UnavailableReason =
   | "provider_geometry_unavailable"
   | "contract_not_approved";
 
+export type BackendCanonicalRef = GeneratedSchemas["CanonicalRef"];
+export type BackendMapFeature = GeneratedSchemas["MapFeature"];
+
+export type PointGeometry = GeneratedSchemas["PointGeometry"];
+export type LineStringGeometry = GeneratedSchemas["LineStringGeometry"];
+export type MapGeometry = PointGeometry | LineStringGeometry;
+
 export interface CanonicalRef {
   entity: MapEntity;
   id: string;
 }
-
-export interface PointGeometry {
-  type: "Point";
-  coordinates: [number, number];
-}
-
-export interface LineStringGeometry {
-  type: "LineString";
-  coordinates: Array<[number, number]>;
-}
-
-export type MapGeometry = PointGeometry | LineStringGeometry;
 
 export interface MapFeature {
   feature_type: FeatureType;
@@ -334,61 +247,14 @@ export interface MapFeature {
   category?: string | null;
   region?: string | null;
 }
-
-export interface MapHopRef {
-  day_number: number;
-  from_sequence: number;
-  to_sequence: number;
-}
-
-export interface MapLeg {
-  mode: string;
-  detail: string;
-  provider?: string | null;
-  route?: string | null;
-  geometry_status: GeometryStatus;
-  geometry?: LineStringGeometry | null;
-  route_ref?: string | null;
-  stop_refs: string[];
-  unavailable_reason?: UnavailableReason | null;
-}
-
-export interface MapRelationship {
-  relationship_type: "itinerary_hop";
-  hop_ref: MapHopRef;
-  mode: string;
-  data_tier: DataTier;
-  reason?: string | null;
-  legs: MapLeg[];
-}
-
-export interface UnavailableItem {
-  item_type: "feature" | "relationship";
-  ref: CanonicalRef | MapHopRef;
-  unavailable_reason: UnavailableReason;
-}
-
-export interface MapProjectionFeatureRequest {
-  entity: MapEntity;
-  id: string;
-}
-
-export interface RequestedHopContext {
-  day_number: number;
-  hop: TransportHop;
-}
-
-export interface MapProjectionHTTPRequest {
-  requested_features?: MapProjectionFeatureRequest[];
-  requested_hops?: RequestedHopContext[];
-}
-
-export interface MapProjectionResponse {
-  requested_features: CanonicalRef[];
-  features: MapFeature[];
-  relationships: MapRelationship[];
-  unavailable_items: UnavailableItem[];
-}
+export type MapHopRef = GeneratedSchemas["MapHopRef"];
+export type MapLeg = GeneratedSchemas["MapLeg"];
+export type MapRelationship = GeneratedSchemas["MapRelationship"];
+export type UnavailableItem = GeneratedSchemas["UnavailableItem"];
+export type MapProjectionFeatureRequest = GeneratedSchemas["MapProjectionFeatureRequest"];
+export type RequestedHopContext = GeneratedSchemas["RequestedHopContext"];
+export type MapProjectionHTTPRequest = GeneratedSchemas["MapProjectionHTTPRequest"];
+export type MapProjectionResponse = GeneratedSchemas["MapProjectionResponse"];
 
 /* ================= Authoritative Places Discovery Contracts ================= */
 
@@ -477,53 +343,11 @@ export interface PlaceListParams {
 }
 
 
-/* ================= Weather Contracts ================= */
+/* ================= Weather Contracts (Generated from OpenAPI) ================= */
 
-export interface WeatherObservation {
-  location_name: string;
-  lat: number;
-  lon: number;
-  observed_at: string;
-  temperature_c?: number | null;
-  apparent_temperature_c?: number | null;
-  condition?: string | null;
-  condition_code?: number | null;
-  is_day?: number | null;
-  humidity_pct?: number | null;
-  precipitation_probability_pct?: number | null;
-  precipitation_mm?: number | null;
-  wind_speed_kmh?: number | null;
-  wind_direction_deg?: number | null;
-  wind_gusts_kmh?: number | null;
-  cloud_cover_pct?: number | null;
-  timezone?: string | null;
-  advice?: string | null;
-  provider: string;
-  freshness_timestamp: string;
-  status: "available" | "unavailable";
-  error_reason?: string | null;
-}
-
-export interface DailyForecastItem {
-  date: string;
-  temperature_max_c: number;
-  temperature_min_c: number;
-  apparent_temperature_max_c?: number | null;
-  apparent_temperature_min_c?: number | null;
-  condition: string;
-  condition_code?: number | null;
-  precipitation_probability_pct?: number | null;
-  precipitation_sum_mm?: number | null;
-  sunrise?: string | null;
-  sunset?: string | null;
-  wind_speed_max_kmh?: number | null;
-}
-
-export interface WeatherResponse {
-  location_name: string;
-  current: WeatherObservation;
-  forecast_daily: DailyForecastItem[];
-}
+export type WeatherObservation = GeneratedSchemas["WeatherObservation"];
+export type DailyForecastItem = GeneratedSchemas["DailyForecastItem"];
+export type WeatherResponse = GeneratedSchemas["WeatherResponse"];
 
 export interface SearchSuggestion {
   text: string;
@@ -911,33 +735,9 @@ export interface JourneyPlanResponse {
 
 export type ConfidenceTier = "Likely Match" | "Possible Match" | "Could not confidently identify this place" | "Uncertain";
 
-export interface PlaceMatchCandidate {
-  place_id: string;
-  name: string;
-  district: string;
-  category: string;
-  confidence: number;
-  confidence_tier: ConfidenceTier;
-  reason: string;
-  lat?: number | null;
-  lon?: number | null;
-  image_url?: string | null;
-}
-
-export interface ImageIdentifyResponse {
-  query_type: "image";
-  status: "verified_match" | "success" | "uncertain" | "no_match" | "provider_unavailable" | "invalid_image";
-  mode?: "real_multimodal" | "heuristic_fallback" | "unavailable";
-  message: string;
-  candidate_name?: string | null;
-  canonical_place_id?: string | null;
-  confidence?: number | null;
-  top_match: PlaceMatchCandidate | null;
-  candidates: PlaceMatchCandidate[];
-  alternatives?: PlaceMatchCandidate[];
-  evidence?: EvidenceItem[];
-  confidence_summary?: string;
-}
+export type PlaceMatchCandidate = GeneratedSchemas["PlaceMatchCandidate"];
+export type ImageIdentifyRequest = GeneratedSchemas["ImageIdentifyRequest"];
+export type ImageIdentifyResponse = GeneratedSchemas["ImageIdentifyResponse"];
 
 
 

@@ -61,7 +61,10 @@ export function getAllWesternOdishaMapFeatures(): MapFeature[] {
     const numLon = typeof lon === "number" ? lon : Number(lon);
 
     const feat: MapFeature = {
-      canonical_ref: { entity: featureType as MapEntity, id },
+      canonical_ref: {
+        entity: featureType as MapEntity,
+        id,
+      },
       name,
       category,
       region: district,

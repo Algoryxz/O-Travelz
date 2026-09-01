@@ -43,7 +43,7 @@ export const MapView: React.FC<MapViewProps> = ({
 }) => {
   // If no projection is loaded yet, project all verified Western Odisha POIs and nearby destination features
   const featuresToRender = useMemo<MapFeature[]>(() => {
-    if (projection && projection.features.length > 0) {
+    if (projection && projection.features && projection.features.length > 0) {
       return projection.features;
     }
     if (selectedPlace && selectedPlace.id) {
@@ -68,7 +68,7 @@ export const MapView: React.FC<MapViewProps> = ({
       }
     }
     if (allPlaces && allPlaces.length > 0) {
-      const mapped = allPlaces
+      const mapped: MapFeature[] = allPlaces
         .filter((p) => p.lat != null && p.lon != null)
         .map((p) => ({
           canonical_ref: { entity: "place" as const, id: p.id || p.name },
@@ -87,7 +87,7 @@ export const MapView: React.FC<MapViewProps> = ({
     return [];
   }, [projection, allPlaces, selectedPlace]);
 
-  const hasMapContent = featuresToRender.length > 0 || (projection && projection.relationships.length > 0);
+  const hasMapContent = featuresToRender.length > 0 || Boolean(projection && projection.relationships && projection.relationships.length > 0);
 
   return (
     <div data-testid="map-view-root" className="space-y-4">
