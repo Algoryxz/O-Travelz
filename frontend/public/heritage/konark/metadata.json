@@ -6,15 +6,15 @@
   "century": "13th Century CE (King Narasimhadeva I, Eastern Ganga Dynasty)",
   "category": "Monumental Chariot & Chlorite Deula",
   "description": "The monumental 24-spoke Surya Chakra astronomical sundials, Jagamohana stone massing, Natya Mandap pillared pavilion, and intricately sculpted chlorite relief panels.",
-  "scene_type": "RECONSTRUCTION_IN_PROGRESS",
-  "status": "PROCESSING",
+  "scene_type": "REAL_3D_RECONSTRUCTION",
+  "status": "AVAILABLE",
   "asset": {
     "format": "photogrammetric_splat_webgl",
     "model_url": "/heritage/konark/optimized/konark_reconstruction.splat",
     "splat_url": "/heritage/konark/optimized/konark_reconstruction.splat",
     "progressive_low_res_url": "/heritage/konark/optimized/konark_lowres.ply",
     "point_count": 350000,
-    "mesh_quality": "archival_spatial_reference",
+    "mesh_quality": "photogrammetric_high_fidelity",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null
   },

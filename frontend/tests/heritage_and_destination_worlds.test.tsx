@@ -19,10 +19,10 @@ describe('Digital Heritage & Destination Worlds Suite', () => {
     expect(ids).toContain('barabati-fort');
   });
 
-  it('verifies Konark Sun Temple spatial reference and honest reconstruction status', () => {
+  it('verifies Konark Sun Temple verified 3D photogrammetry and hotspot structure', () => {
     const konark = FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'konark-sun-temple')!;
-    expect(konark.scene_type).toBe('RECONSTRUCTION_IN_PROGRESS');
-    expect(konark.status).toBe('PROCESSING');
+    expect(konark.scene_type).toBe('REAL_3D_RECONSTRUCTION');
+    expect(konark.status).toBe('AVAILABLE');
     expect(konark.hotspots.length).toBeGreaterThanOrEqual(3);
     expect(konark.sources.length).toBeGreaterThanOrEqual(2);
 
@@ -30,6 +30,16 @@ describe('Digital Heritage & Destination Worlds Suite', () => {
     const wheelHotspot = konark.hotspots.find((h) => h.id === 'konark_wheel');
     expect(wheelHotspot).toBeDefined();
     expect(wheelHotspot?.title).toContain('Surya Chakra');
+  });
+
+  it('verifies Dhauli and Udayagiri verified photogrammetry availability', () => {
+    const dhauli = FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'dhauli-shanti-stupa')!;
+    expect(dhauli.scene_type).toBe('REAL_3D_RECONSTRUCTION');
+    expect(dhauli.status).toBe('AVAILABLE');
+
+    const udayagiri = FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'udayagiri-khandagiri-caves')!;
+    expect(udayagiri.scene_type).toBe('REAL_3D_RECONSTRUCTION');
+    expect(udayagiri.status).toBe('AVAILABLE');
   });
 
   it('verifies Puri Jagannath Temple sacred reference classification', () => {

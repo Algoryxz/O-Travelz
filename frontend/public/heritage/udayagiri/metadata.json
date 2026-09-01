@@ -6,15 +6,15 @@
   "century": "2nd\u20131st Century BCE (Mahameghavahana Dynasty, Emperor Kharavela)",
   "category": "Rock-Cut Monastic Cells & Epigraphic Treasure",
   "description": "Multi-tiered rock-cut sandstone caves, pillared verandahs, Emperor Kharavela's 17-line Brahmi Hathigumpha inscription, and the famous double-storey Rani Gumpha.",
-  "scene_type": "RECONSTRUCTION_IN_PROGRESS",
-  "status": "PROCESSING",
+  "scene_type": "REAL_3D_RECONSTRUCTION",
+  "status": "AVAILABLE",
   "asset": {
     "format": "photogrammetric_splat_webgl",
     "model_url": "/heritage/udayagiri/optimized/udayagiri_reconstruction.splat",
     "splat_url": "/heritage/udayagiri/optimized/udayagiri_reconstruction.splat",
     "progressive_low_res_url": null,
     "point_count": 320000,
-    "mesh_quality": "archival_spatial_reference",
+    "mesh_quality": "photogrammetric_high_fidelity",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null
   },

@@ -48,22 +48,42 @@ export class HeritageSceneManager {
   }
 
   /**
-   * Loads real photogrammetric point cloud / Gaussian Splat buffer if asset is present.
+   * Loads real photogrammetric point cloud / Gaussian Splat buffer into the 3D viewport.
    */
   public loadRealPhotogrammetricAsset(
     geometry: THREE.BufferGeometry,
-    material: THREE.Material
+    material: THREE.Material,
+    sceneData: HeritageScene
   ): void {
     this.disposeCurrentMonument();
-    const mesh = new THREE.Points(geometry, material);
-    mesh.castShadow = true;
-    this.monumentGroup.add(mesh);
+
+    const group = new THREE.Group();
+    const pointsMesh = new THREE.Points(geometry, material);
+    pointsMesh.castShadow = true;
+    group.add(pointsMesh);
+
+    // Anchors for verified architectural hotspots
+    if (sceneData.hotspots) {
+      sceneData.hotspots.forEach((h) => {
+        const anchorGeo = new THREE.SphereGeometry(0.04, 12, 12);
+        const anchorMat = new THREE.MeshBasicMaterial({
+          color: 0xf59e0b,
+          transparent: true,
+          opacity: 0.85,
+        });
+        const anchor = new THREE.Mesh(anchorGeo, anchorMat);
+        anchor.position.set(h.position[0], h.position[1], h.position[2]);
+        group.add(anchor);
+      });
+    }
+
+    this.monumentGroup.add(group);
+    this.setupTerrain(sceneData.id);
   }
 
   /**
    * Renders high-definition Archival Spatial Reference Canvas for monuments
-   * in progress or under sacred reference classification.
-   * Zero synthetic geometry or primitive boxes.
+   * under sacred reference classification. Zero synthetic geometry or primitive boxes.
    */
   public loadSpatialReferenceExperience(sceneData: HeritageScene): void {
     this.disposeCurrentMonument();

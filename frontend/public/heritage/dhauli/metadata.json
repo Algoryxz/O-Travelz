@@ -6,15 +6,15 @@
   "century": "3rd Century BCE (Ashokan Edicts) & 1972 CE (Indo-Japanese Peace Pagoda)",
   "category": "Ashokan Rock Edicts & Buddhist Peace Pagoda",
   "description": "Pure white hemispherical stupa dome, carved stone friezes of Buddha's enlightenment, four colossal cardinal Buddha statues, and surrounding Daya river valley hilltop terrain.",
-  "scene_type": "RECONSTRUCTION_IN_PROGRESS",
-  "status": "PROCESSING",
+  "scene_type": "REAL_3D_RECONSTRUCTION",
+  "status": "AVAILABLE",
   "asset": {
     "format": "photogrammetric_splat_webgl",
     "model_url": "/heritage/dhauli/optimized/dhauli_reconstruction.splat",
     "splat_url": "/heritage/dhauli/optimized/dhauli_reconstruction.splat",
     "progressive_low_res_url": null,
     "point_count": 280000,
-    "mesh_quality": "archival_spatial_reference",
+    "mesh_quality": "photogrammetric_high_fidelity",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null
   },
