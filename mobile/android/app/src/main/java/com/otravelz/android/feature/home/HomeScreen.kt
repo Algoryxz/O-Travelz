@@ -85,7 +85,13 @@ fun HomeScreen(
     ) {
         // 1. Cinematic Hero Header
         item {
-            val heroImage = state.places.firstOrNull { it.images.isNotEmpty() }?.images?.firstOrNull()?.url
+            val heroPlace = state.places.firstOrNull { 
+                it.name.contains("Konark", ignoreCase = true) || 
+                it.name.contains("Lingaraj", ignoreCase = true) || 
+                it.name.contains("Jagannath", ignoreCase = true) ||
+                it.name.contains("Puri", ignoreCase = true)
+            } ?: state.places.firstOrNull { it.images.isNotEmpty() }
+            val heroImage = heroPlace?.images?.firstOrNull()?.url
             Box(
                 modifier = Modifier
                     .fillMaxWidth()

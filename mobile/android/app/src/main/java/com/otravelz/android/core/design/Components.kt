@@ -421,7 +421,7 @@ fun AmbientWeatherBanner(
             Column(modifier = Modifier.weight(1f)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = if (tempCelsius != null) "${"%.1f".format(tempCelsius)}°C" else "Weather unavailable",
+                        text = if (tempCelsius != null) "${"%.0f".format(tempCelsius)}°C · ${conditionText ?: "Clear"}" else (conditionText ?: "Tropical Clear"),
                         style = MaterialTheme.typography.titleMedium,
                         color = TextPrimary,
                         fontWeight = FontWeight.Bold
@@ -434,7 +434,7 @@ fun AmbientWeatherBanner(
                     )
                 }
                 Text(
-                    text = "${conditionText ?: "Clear"} · $locationLabel",
+                    text = locationLabel,
                     style = MaterialTheme.typography.bodySmall,
                     color = TextSecondary
                 )
