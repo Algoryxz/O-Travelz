@@ -1,39 +1,32 @@
 package com.otravelz.android.core.design
 
+import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.ui.unit.IntOffset
 
-object Motion {
-    val snappySpring = spring<Float>(
+object MotionTokens {
+    val BouncySpring = spring<Float>(
         dampingRatio = Spring.DampingRatioMediumBouncy,
-        stiffness = Spring.StiffnessMedium
-    )
-
-    val smoothSpring = spring<Float>(
-        dampingRatio = Spring.DampingRatioNoBouncy,
         stiffness = Spring.StiffnessLow
     )
 
-    val offsetSpring = spring<IntOffset>(
-        dampingRatio = Spring.DampingRatioMediumBouncy,
-        stiffness = Spring.StiffnessMedium
+    val SmoothSpring = spring<Float>(
+        dampingRatio = Spring.DampingRatioNoBouncy,
+        stiffness = Spring.StiffnessMediumLow
     )
 
-    val fadeInTransition = fadeIn(animationSpec = spring(stiffness = Spring.StiffnessMediumLow))
-    val fadeOutTransition = fadeOut(animationSpec = spring(stiffness = Spring.StiffnessMediumLow))
+    val FastFade = tween<Float>(durationMillis = 150, easing = FastOutSlowInEasing)
+    val StandardDuration = 250
+    val LongDuration = 400
 
-    val slideUpTransition = slideInVertically(
-        initialOffsetY = { 40 },
-        animationSpec = offsetSpring
-    ) + fadeInTransition
+    val ScreenEnter = fadeIn(animationSpec = tween(StandardDuration)) +
+            slideInVertically(animationSpec = tween(StandardDuration)) { it / 10 }
 
-    val slideDownExit = slideOutVertically(
-        targetOffsetY = { -40 },
-        animationSpec = offsetSpring
-    ) + fadeOutTransition
+    val ScreenExit = fadeOut(animationSpec = tween(FastFade.durationMillis)) +
+            slideOutVertically(animationSpec = tween(FastFade.durationMillis)) { -it / 10 }
 }

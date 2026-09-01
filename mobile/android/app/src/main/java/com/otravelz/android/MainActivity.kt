@@ -14,10 +14,12 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.DirectionsBus
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Map
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Route
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -26,12 +28,22 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
-import androidx.navigation.compose.*
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
-import com.otravelz.android.core.design.*
-import com.otravelz.android.core.notifications.NotificationHelper
-import com.otravelz.android.core.notifications.NotificationRationaleDialog
+import com.otravelz.android.core.design.DarkBackground
+import com.otravelz.android.core.design.DarkSurface
+import com.otravelz.android.core.design.DarkSurfaceElevated
+import com.otravelz.android.core.design.DarkSurfaceVariant
+import com.otravelz.android.core.design.OchrePrimary
+import com.otravelz.android.core.design.OTravelzTheme
+import com.otravelz.android.core.design.SunTempleGold
+import com.otravelz.android.core.design.TextMuted
+import com.otravelz.android.core.design.TextPrimary
+import com.otravelz.android.core.design.TextSecondary
 import com.otravelz.android.feature.discover.DiscoverScreen
 import com.otravelz.android.feature.discover.DiscoverViewModel
 import com.otravelz.android.feature.home.HomeScreen
@@ -41,7 +53,9 @@ import com.otravelz.android.feature.place.PlaceDetailScreen
 import com.otravelz.android.feature.place.PlaceDetailViewModel
 import com.otravelz.android.feature.planner.PlannerScreen
 import com.otravelz.android.feature.planner.PlannerViewModel
+import com.otravelz.android.feature.profile.ProfileScreen
 import com.otravelz.android.feature.transit.TransitScreen
+import com.otravelz.android.feature.trips.TripsScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -75,7 +89,9 @@ class MainActivity : ComponentActivity() {
 sealed class Screen(val route: String, val title: String, val icon: androidx.compose.ui.graphics.vector.ImageVector) {
     object Home : Screen("home", "Home", Icons.Default.Home)
     object Discover : Screen("discover", "Discover", Icons.Default.Explore)
-    object Planner : Screen("planner", "Planner", Icons.Default.Route)
+    object Planner : Screen("planner", "Plan", Icons.Default.Route)
+    object Trips : Screen("trips", "Trips", Icons.Default.Bookmark)
+    object Profile : Screen("profile", "Profile", Icons.Default.Person)
     object Transit : Screen("transit", "Transit", Icons.Default.DirectionsBus)
     object Map : Screen("map", "Map", Icons.Default.Map)
 }
@@ -154,8 +170,8 @@ fun OTravelzAppNav(
         Screen.Home,
         Screen.Discover,
         Screen.Planner,
-        Screen.Transit,
-        Screen.Map
+        Screen.Trips,
+        Screen.Profile
     )
 
     val homeState by homeViewModel.uiState.collectAsState()
@@ -164,17 +180,18 @@ fun OTravelzAppNav(
         bottomBar = {
             if (currentRoute != "place/{placeId}") {
                 NavigationBar(
-                    containerColor = DarkSurface,
+                    containerColor = DarkSurfaceElevated,
                     contentColor = TextPrimary
                 ) {
                     bottomNavItems.forEach { screen ->
+                        val isSelected = currentRoute == screen.route
                         NavigationBarItem(
                             icon = { Icon(screen.icon, contentDescription = screen.title) },
                             label = { Text(screen.title) },
-                            selected = currentRoute == screen.route,
+                            selected = isSelected,
                             colors = NavigationBarItemDefaults.colors(
-                                selectedIconColor = OchrePrimary,
-                                selectedTextColor = OchrePrimary,
+                                selectedIconColor = SunTempleGold,
+                                selectedTextColor = SunTempleGold,
                                 indicatorColor = DarkSurfaceVariant,
                                 unselectedIconColor = TextMuted,
                                 unselectedTextColor = TextMuted
@@ -206,7 +223,9 @@ fun OTravelzAppNav(
                 HomeScreen(
                     viewModel = homeViewModel,
                     onPlaceClick = { placeId -> navController.navigate("place/$placeId") },
-                    onExploreClick = { navController.navigate(Screen.Discover.route) }
+                    onExploreClick = { navController.navigate(Screen.Discover.route) },
+                    onPlanClick = { navController.navigate(Screen.Planner.route) },
+                    onTripsClick = { navController.navigate(Screen.Trips.route) }
                 )
             }
 
@@ -221,6 +240,20 @@ fun OTravelzAppNav(
                 PlannerScreen(
                     viewModel = plannerViewModel,
                     onPlaceClick = { placeId -> navController.navigate("place/$placeId") }
+                )
+            }
+
+            composable(Screen.Trips.route) {
+                TripsScreen(
+                    onPlanNewTrip = { navController.navigate(Screen.Planner.route) },
+                    onTripClick = { tripId -> navController.navigate(Screen.Planner.route) }
+                )
+            }
+
+            composable(Screen.Profile.route) {
+                ProfileScreen(
+                    onNavigateToSavedPlaces = { navController.navigate(Screen.Discover.route) },
+                    onNavigateToTrips = { navController.navigate(Screen.Trips.route) }
                 )
             }
 
@@ -250,4 +283,39 @@ fun OTravelzAppNav(
             }
         }
     }
+}
+
+@Composable
+fun NotificationRationaleDialog(
+    onConfirm: () -> Unit,
+    onDismiss: () -> Unit
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Text(
+                text = "Enable Trip Guidance",
+                style = MaterialTheme.typography.titleMedium,
+                color = TextPrimary
+            )
+        },
+        text = {
+            Text(
+                text = "O-TRAVELZ uses notifications to deliver contextual destination arrival alerts, scheduled Mo Bus departure guidance, and live Open-Meteo weather updates along your route.",
+                style = MaterialTheme.typography.bodyMedium,
+                color = TextSecondary
+            )
+        },
+        confirmButton = {
+            TextButton(onClick = onConfirm) {
+                Text("Allow Notifications", color = OchrePrimary)
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Not Now", color = TextSecondary)
+            }
+        },
+        containerColor = DarkSurfaceElevated
+    )
 }
