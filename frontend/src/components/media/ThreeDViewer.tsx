@@ -741,4 +741,128 @@ export const ThreeDViewer: React.FC<ThreeDViewerProps> = ({
       </div>
 
       {/* Hotspots / Architectural Annotation Overlays */}
-      {model?.annotations && model.annotations.length > 0 && (\n        <div className="absolute top-16 left-4 max-w-xs space-y-1.5 pointer-events-auto z-20 hidden md:block">\n          <div className="text-[10px] font-mono text-[#C69214] uppercase tracking-widest font-semibold flex items-center gap-1">\n            <Compass className="w-3 h-3" />\n            <span>Interactive Hotspots</span>\n          </div>\n          <div className="flex flex-col gap-1.5">\n            {model.annotations.map((ann, idx) => (\n              <button\n                key={idx}\n                onClick={() =>\n                  setSelectedHotspot((prev) => (prev?.label === ann.label ? null : ann))\n                }\n                className={`text-left p-2 rounded-xl text-xs backdrop-blur-md border transition-all cursor-pointer ${\n                  selectedHotspot?.label === ann.label\n                    ? "bg-[#0D5C3A] text-white border-white/40 shadow-lg scale-[1.02]"\n                    : "bg-black/50 text-[#E5DFD5] hover:bg-black/70 border-white/15"\n                }`}\n              >\n                <div className="font-semibold">{ann.label}</div>\n                {selectedHotspot?.label === ann.label && (\n                  <p className="text-[11px] text-[#E5DFD5] mt-1 leading-tight font-light">\n                    {ann.description}\n                  </p>\n                )}\n              </button>\n            ))}\n          </div>\n        </div>\n      )}\n\n      {/* Bottom Controls Bar: Lighting Presets & Toggles */}\n      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2.5 z-20">\n        {/* Lighting Selector */}\n        <div className="flex items-center gap-1 bg-black/70 backdrop-blur-xl border border-white/20 p-1 rounded-2xl shadow-xl">\n          <button\n            onClick={() => setLighting("golden_hour")}\n            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${\n              lighting === "golden_hour"\n                ? "bg-[#C69214] text-white shadow-md"\n                : "text-[#E5DFD5]/80 hover:text-white hover:bg-white/10"\n            }`}\n            title="Golden Hour Sunset Light"\n          >\n            <Sunset className="w-3.5 h-3.5" />\n            <span className="hidden sm:inline">Golden Hour</span>\n          </button>\n\n          <button\n            onClick={() => setLighting("daylight")}\n            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${\n              lighting === "daylight"\n                ? "bg-[#0D5C3A] text-white shadow-md"\n                : "text-[#E5DFD5]/80 hover:text-white hover:bg-white/10"\n            }`}\n            title="Tropical Daylight"\n          >\n            <Sun className="w-3.5 h-3.5" />\n            <span className="hidden sm:inline">Daylight</span>\n          </button>\n\n          <button\n            onClick={() => setLighting("temple_glow")}\n            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${\n              lighting === "temple_glow"\n                ? "bg-[#D9381E] text-white shadow-md"\n                : "text-[#E5DFD5]/80 hover:text-white hover:bg-white/10"\n            }`}\n            title="Sacred Diya Temple Glow"\n          >\n            <Flame className="w-3.5 h-3.5" />\n            <span className="hidden sm:inline">Temple Glow</span>\n          </button>\n\n          <button\n            onClick={() => setLighting("moonlit_night")}\n            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${\n              lighting === "moonlit_night"\n                ? "bg-[#1E3A8A] text-white shadow-md"\n                : "text-[#E5DFD5]/80 hover:text-white hover:bg-white/10"\n            }`}\n            title="Moonlit Coastal Night"\n          >\n            <Moon className="w-3.5 h-3.5" />\n            <span className="hidden sm:inline">Moonlight</span>\n          </button>\n        </div>\n\n        {/* Rotation & Wireframe Toggles */}\n        <div className="flex items-center gap-1 bg-black/70 backdrop-blur-xl border border-white/20 p-1 rounded-2xl shadow-xl">\n          <button\n            onClick={() => setIsAutoRotating((prev) => !prev)}\n            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${\n              isAutoRotating\n                ? "bg-white/20 text-white"\n                : "text-[#E5DFD5]/70 hover:text-white"\n            }`}\n            title={isAutoRotating ? "Pause Auto-Rotate" : "Auto-Rotate 3D View"}\n          >\n            {isAutoRotating ? <Pause className="w-3.5 h-3.5 text-[#C69214]" /> : <Play className="w-3.5 h-3.5" />}\n            <span className="hidden md:inline">Rotate</span>\n          </button>\n\n          <button\n            onClick={() => setIsWireframe((prev) => !prev)}\n            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${\n              isWireframe\n                ? "bg-[#0D5C3A] text-white"\n                : "text-[#E5DFD5]/70 hover:text-white"\n            }`}\n            title="Toggle Wireframe Geometry"\n          >\n            <Layers className="w-3.5 h-3.5" />\n            <span className="hidden md:inline">Mesh</span>\n          </button>\n        </div>\n      </div>\n\n      {/* Bottom Hint */}\n      <div className="absolute bottom-1 right-4 text-[9px] font-mono text-white/40 pointer-events-none hidden lg:block">\n        Drag to Orbit • Scroll to Zoom • Right-click to Pan\n      </div>\n    </div>\n  );\n};\n
+      {model?.annotations && model.annotations.length > 0 && (
+        <div className="absolute top-16 left-4 max-w-xs space-y-1.5 pointer-events-auto z-20 hidden md:block">
+          <div className="text-[10px] font-mono text-[#C69214] uppercase tracking-widest font-semibold flex items-center gap-1">
+            <Compass className="w-3 h-3" />
+            <span>Interactive Hotspots</span>
+          </div>
+          <div className="flex flex-col gap-1.5">
+            {model.annotations.map((ann, idx) => (
+              <button
+                key={idx}
+                onClick={() =>
+                  setSelectedHotspot((prev) => (prev?.label === ann.label ? null : ann))
+                }
+                className={`text-left p-2 rounded-xl text-xs backdrop-blur-md border transition-all cursor-pointer ${
+                  selectedHotspot?.label === ann.label
+                    ? "bg-[#0D5C3A] text-white border-white/40 shadow-lg scale-[1.02]"
+                    : "bg-black/50 text-[#E5DFD5] hover:bg-black/70 border-white/15"
+                }`}
+              >
+                <div className="font-semibold">{ann.label}</div>
+                {selectedHotspot?.label === ann.label && (
+                  <p className="text-[11px] text-[#E5DFD5] mt-1 leading-tight font-light">
+                    {ann.description}
+                  </p>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Bottom Controls Bar: Lighting Presets & Toggles */}
+      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2.5 z-20">
+        {/* Lighting Selector */}
+        <div className="flex items-center gap-1 bg-black/70 backdrop-blur-xl border border-white/20 p-1 rounded-2xl shadow-xl">
+          <button
+            onClick={() => setLighting("golden_hour")}
+            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+              lighting === "golden_hour"
+                ? "bg-[#C69214] text-white shadow-md"
+                : "text-[#E5DFD5]/80 hover:text-white hover:bg-white/10"
+            }`}
+            title="Golden Hour Sunset Light"
+          >
+            <Sunset className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Golden Hour</span>
+          </button>
+
+          <button
+            onClick={() => setLighting("daylight")}
+            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+              lighting === "daylight"
+                ? "bg-[#0D5C3A] text-white shadow-md"
+                : "text-[#E5DFD5]/80 hover:text-white hover:bg-white/10"
+            }`}
+            title="Tropical Daylight"
+          >
+            <Sun className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Daylight</span>
+          </button>
+
+          <button
+            onClick={() => setLighting("temple_glow")}
+            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+              lighting === "temple_glow"
+                ? "bg-[#D9381E] text-white shadow-md"
+                : "text-[#E5DFD5]/80 hover:text-white hover:bg-white/10"
+            }`}
+            title="Sacred Diya Temple Glow"
+          >
+            <Flame className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Temple Glow</span>
+          </button>
+
+          <button
+            onClick={() => setLighting("moonlit_night")}
+            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+              lighting === "moonlit_night"
+                ? "bg-[#1E3A8A] text-white shadow-md"
+                : "text-[#E5DFD5]/80 hover:text-white hover:bg-white/10"
+            }`}
+            title="Moonlit Coastal Night"
+          >
+            <Moon className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Moonlight</span>
+          </button>
+        </div>
+
+        {/* Rotation & Wireframe Toggles */}
+        <div className="flex items-center gap-1 bg-black/70 backdrop-blur-xl border border-white/20 p-1 rounded-2xl shadow-xl">
+          <button
+            onClick={() => setIsAutoRotating((prev) => !prev)}
+            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+              isAutoRotating
+                ? "bg-white/20 text-white"
+                : "text-[#E5DFD5]/70 hover:text-white"
+            }`}
+            title={isAutoRotating ? "Pause Auto-Rotate" : "Auto-Rotate 3D View"}
+          >
+            {isAutoRotating ? <Pause className="w-3.5 h-3.5 text-[#C69214]" /> : <Play className="w-3.5 h-3.5" />}
+            <span className="hidden md:inline">Rotate</span>
+          </button>
+
+          <button
+            onClick={() => setIsWireframe((prev) => !prev)}
+            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+              isWireframe
+                ? "bg-[#0D5C3A] text-white"
+                : "text-[#E5DFD5]/70 hover:text-white"
+            }`}
+            title="Toggle Wireframe Geometry"
+          >
+            <Layers className="w-3.5 h-3.5" />
+            <span className="hidden md:inline">Mesh</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Bottom Hint */}
+      <div className="absolute bottom-1 right-4 text-[9px] font-mono text-white/40 pointer-events-none hidden lg:block">
+        Drag to Orbit • Scroll to Zoom • Right-click to Pan
+      </div>
+    </div>
+  );
+};
