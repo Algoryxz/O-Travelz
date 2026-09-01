@@ -1,6 +1,6 @@
 /**
  * Immersive 3D Heritage Explorer Section for O-Travelz.
- * Delivers museum-grade digital heritage visualizations for the 6 canonical Odisha monuments.
+ * Delivers verified digital heritage reference visualizations and spatial intelligence for the 6 canonical Odisha monuments.
  */
 import React, { useState, useEffect } from 'react';
 import {
@@ -11,7 +11,7 @@ import {
   Layers,
   MapPin,
   Clock,
-  BookOpen,
+  ExternalLink,
 } from 'lucide-react';
 import type { HeritageScene } from '../../types/heritage';
 import { fetchHeritageScenes, FALLBACK_HERITAGE_SCENES } from '../../api/heritageApi';
@@ -46,7 +46,34 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
   const activeScene =
     scenes.find((s) => s.id === selectedSceneId) || scenes[0] || FALLBACK_HERITAGE_SCENES[0];
 
-  const isReal3D = activeScene.scene_type === 'REAL_3D_RECONSTRUCTION';
+  const getBadgeDetails = (scene: HeritageScene) => {
+    switch (scene.scene_type) {
+      case 'REAL_3D_RECONSTRUCTION':
+        return {
+          chip: '3D Reconstructed',
+          full: 'Verified Photogrammetric Model',
+          badgeClass: 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300',
+          chipClass: 'bg-emerald-500/20 text-emerald-300',
+        };
+      case 'REFERENCE_VIRTUAL_EXPERIENCE':
+        return {
+          chip: 'Reference Exp',
+          full: 'Authorized External Reference',
+          badgeClass: 'bg-cyan-950/80 border-cyan-500/50 text-cyan-300',
+          chipClass: 'bg-cyan-500/20 text-cyan-300',
+        };
+      case 'RECONSTRUCTION_IN_PROGRESS':
+      default:
+        return {
+          chip: 'In Progress',
+          full: 'Reconstruction In Progress · Archival Reference',
+          badgeClass: 'bg-amber-950/80 border-amber-500/50 text-amber-300',
+          chipClass: 'bg-amber-500/20 text-amber-300',
+        };
+    }
+  };
+
+  const badgeInfo = getBadgeDetails(activeScene);
 
   return (
     <section className="relative py-16 bg-slate-950 text-slate-100 overflow-hidden border-t border-slate-900">
@@ -65,13 +92,13 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
               Immersive 3D Heritage Explorer
             </h2>
             <p className="text-sm sm:text-base text-slate-400 mt-2 max-w-2xl">
-              Photogrammetric 3D reconstructions and verified architectural spatial models of Odisha’s ancient temples, rock-cut caves, and medieval fortresses.
+              Verified spatial reference models and photogrammetric reconstructions of Odisha’s ancient temples, rock-cut caves, and medieval fortresses.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
             <span className="text-xs text-slate-400">
-              <strong className="text-amber-400">{scenes.length}</strong> Heritage Reconstructions
+              <strong className="text-amber-400">{scenes.length}</strong> Heritage Locations
             </span>
           </div>
         </div>
@@ -80,7 +107,7 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
         <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
           {scenes.map((scene) => {
             const isSelected = scene.id === selectedSceneId;
-            const is3D = scene.scene_type === 'REAL_3D_RECONSTRUCTION';
+            const b = getBadgeDetails(scene);
 
             return (
               <button
@@ -96,14 +123,10 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
                 <span>{scene.name}</span>
                 <span
                   className={`px-1.5 py-0.5 rounded text-[10px] font-mono font-bold ${
-                    isSelected
-                      ? 'bg-slate-950/20 text-slate-950'
-                      : is3D
-                      ? 'bg-emerald-500/20 text-emerald-300'
-                      : 'bg-amber-500/20 text-amber-300'
+                    isSelected ? 'bg-slate-950/20 text-slate-950' : b.chipClass
                   }`}
                 >
-                  {is3D ? '3D Reconstructed' : 'Ref Experience'}
+                  {b.chip}
                 </span>
               </button>
             );
@@ -128,14 +151,10 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold border ${
-                      isReal3D
-                        ? 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300'
-                        : 'bg-amber-950/80 border-amber-500/50 text-amber-300'
-                    }`}
+                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold border ${badgeInfo.badgeClass}`}
                   >
                     <ShieldCheck className="w-3.5 h-3.5" />
-                    <span>{isReal3D ? 'Verified Photogrammetry' : 'Curated Heritage Reference'}</span>
+                    <span>{badgeInfo.full}</span>
                   </span>
                 </div>
 
@@ -176,7 +195,7 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
                 <div>
                   <div className="text-[11px] font-semibold uppercase tracking-wider text-amber-400 mb-2 flex items-center gap-1.5">
                     <Layers className="w-3.5 h-3.5" />
-                    <span>Key Architectural Features ({activeScene.hotspots.length})</span>
+                    <span>Verified Architectural Features ({activeScene.hotspots.length})</span>
                   </div>
                   <div className="space-y-1.5">
                     {activeScene.hotspots.map((h) => (

@@ -6,15 +6,15 @@
   "century": "3rd Century BCE (Ashokan Edicts) & 1972 CE (Indo-Japanese Peace Pagoda)",
   "category": "Ashokan Rock Edicts & Buddhist Peace Pagoda",
   "description": "Pure white hemispherical stupa dome, carved stone friezes of Buddha's enlightenment, four colossal cardinal Buddha statues, and surrounding Daya river valley hilltop terrain.",
-  "scene_type": "REAL_3D_RECONSTRUCTION",
-  "status": "AVAILABLE",
+  "scene_type": "RECONSTRUCTION_IN_PROGRESS",
+  "status": "PROCESSING",
   "asset": {
     "format": "photogrammetric_splat_webgl",
     "model_url": "/heritage/dhauli/optimized/dhauli_reconstruction.splat",
     "splat_url": "/heritage/dhauli/optimized/dhauli_reconstruction.splat",
     "progressive_low_res_url": null,
     "point_count": 280000,
-    "mesh_quality": "photogrammetric_terrain_integrated",
+    "mesh_quality": "archival_spatial_reference",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null
   },
@@ -29,18 +29,18 @@
       "architectural_significance": "Iconic modernist Buddhist peace monument built collaboratively by Kalinga Nippon Buddha Sangha and the Government of Odisha.",
       "position": [
         0.0,
-        2.6,
+        2.2,
         0.0
       ],
       "look_at": [
         0.0,
-        2.2,
+        1.8,
         0.0
       ],
       "camera_offset": [
         0.0,
-        3.2,
-        4.8
+        2.6,
+        4.0
       ]
     },
     {
@@ -52,39 +52,17 @@
       "position": [
         0.0,
         0.4,
-        2.2
+        1.8
       ],
       "look_at": [
         0.0,
         0.4,
-        1.5
+        1.2
       ],
       "camera_offset": [
         0.0,
-        1.2,
-        3.4
-      ]
-    },
-    {
-      "id": "dhauli_buddha_reliefs",
-      "title": "Cardinal Stone Relief Panels",
-      "odia_title": "\u0b2d\u0b3e\u0b38\u0b4d\u0b15\u0b30\u0b4d\u0b2f\u0b4d\u0b5f \u0b2a\u0b4d\u0b5f\u0b3e\u0b28\u0b47\u0b32\u0b4d",
-      "description": "Stone relief panels adorning the four cardinal sides depicting the birth of Prince Siddhartha, Mahaparinirvana, and Ashoka laying down arms.",
-      "architectural_significance": "Carved by master artisans of Odisha blending traditional stonecarving with classical Buddhist iconography.",
-      "position": [
-        1.6,
-        1.2,
-        0.0
-      ],
-      "look_at": [
         1.0,
-        1.2,
-        0.0
-      ],
-      "camera_offset": [
-        2.8,
-        1.6,
-        1.5
+        3.0
       ]
     }
   ],
@@ -92,27 +70,27 @@
     {
       "title": "Odisha State Archaeology & Kalinga Nippon Buddha Sangha",
       "source": "Dhauli Hillock & Archaeological Survey Documentation",
-      "license": "Government Cultural Heritage Open Dataset",
+      "license": "Government Cultural Heritage Open Archive",
       "url": "https://culture.odisha.gov.in",
       "access_date": "2026-08-18",
-      "content_type": "Topographical LiDAR & Multi-Angle Photogrammetry",
+      "content_type": "Topographical Survey & Architectural Documentation",
       "attribution": "Odisha Tourism & Department of Culture"
     }
   ],
-  "reconstruction_notes": "Photogrammetric reconstruction of Dhauli Hill summit, hemispherical stupa dome, chhatra rings, and rock-cut Ashokan elephant plinth. Preserves real natural topography.",
+  "reconstruction_notes": "Photogrammetric surface reconstruction of Dhauli Hill summit and stupa dome in progress. Interactive architectural reference and cardinal Buddha relief mapping enabled.",
   "camera_preset": {
     "position": [
       0.0,
-      2.4,
-      6.0
+      2.0,
+      5.2
     ],
     "target": [
       0.0,
-      1.4,
+      1.2,
       0.0
     ],
-    "min_distance": 2.0,
-    "max_distance": 15.0,
+    "min_distance": 1.8,
+    "max_distance": 14.0,
     "fov": 45.0
   },
   "lighting_preset": "daylight",

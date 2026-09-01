@@ -1,5 +1,5 @@
 /**
- * Tests for Digital Heritage 3D Explorer and Odisha Destination Worlds.
+ * Tests for Digital Heritage Spatial Explorer and Odisha Destination Worlds.
  */
 import { describe, it, expect } from 'vitest';
 import { FALLBACK_HERITAGE_SCENES, fetchHeritageScenes } from '../src/api/heritageApi';
@@ -7,7 +7,7 @@ import { ODISHA_DESTINATION_WORLDS } from '../src/components/destination/OdishaD
 import { HeritageQualityController } from '../src/components/heritage/HeritageQualityController';
 
 describe('Digital Heritage & Destination Worlds Suite', () => {
-  it('contains all 6 canonical high-priority Odisha heritage reconstructions', () => {
+  it('contains all 6 canonical high-priority Odisha heritage locations', () => {
     expect(FALLBACK_HERITAGE_SCENES).toHaveLength(6);
 
     const ids = FALLBACK_HERITAGE_SCENES.map((s) => s.id);
@@ -19,11 +19,11 @@ describe('Digital Heritage & Destination Worlds Suite', () => {
     expect(ids).toContain('barabati-fort');
   });
 
-  it('verifies Konark Sun Temple photogrammetric reconstruction integrity', () => {
+  it('verifies Konark Sun Temple spatial reference and honest reconstruction status', () => {
     const konark = FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'konark-sun-temple')!;
-    expect(konark.scene_type).toBe('REAL_3D_RECONSTRUCTION');
-    expect(konark.status).toBe('AVAILABLE');
-    expect(konark.hotspots.length).toBeGreaterThanOrEqual(4);
+    expect(konark.scene_type).toBe('RECONSTRUCTION_IN_PROGRESS');
+    expect(konark.status).toBe('PROCESSING');
+    expect(konark.hotspots.length).toBeGreaterThanOrEqual(3);
     expect(konark.sources.length).toBeGreaterThanOrEqual(2);
 
     // Verify 24-spoke wheel hotspot

@@ -6,15 +6,15 @@
   "century": "13th Century CE (King Narasimhadeva I, Eastern Ganga Dynasty)",
   "category": "Monumental Chariot & Chlorite Deula",
   "description": "The monumental 24-spoke Surya Chakra astronomical sundials, Jagamohana stone massing, Natya Mandap pillared pavilion, and intricately sculpted chlorite relief panels.",
-  "scene_type": "REAL_3D_RECONSTRUCTION",
-  "status": "AVAILABLE",
+  "scene_type": "RECONSTRUCTION_IN_PROGRESS",
+  "status": "PROCESSING",
   "asset": {
     "format": "photogrammetric_splat_webgl",
     "model_url": "/heritage/konark/optimized/konark_reconstruction.splat",
     "splat_url": "/heritage/konark/optimized/konark_reconstruction.splat",
     "progressive_low_res_url": "/heritage/konark/optimized/konark_lowres.ply",
     "point_count": 350000,
-    "mesh_quality": "photogrammetric_high_fidelity",
+    "mesh_quality": "archival_spatial_reference",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null
   },
@@ -29,17 +29,17 @@
       "architectural_significance": "Masterpiece of Kalinga sculptural precision, carved from fine-grained chlorite stone with beadings and animal medallions.",
       "position": [
         0.0,
-        1.4,
-        0.4
+        1.3,
+        0.2
       ],
       "look_at": [
         0.0,
-        1.4,
+        1.3,
         0.0
       ],
       "camera_offset": [
         0.0,
-        1.6,
+        1.5,
         2.8
       ]
     },
@@ -51,18 +51,18 @@
       "architectural_significance": "Largest surviving freestanding stone stepped-pyramid hall of Kalinga architectural style, built with interlocking laterite and khondalite blocks.",
       "position": [
         0.0,
-        2.8,
-        -1.2
+        2.4,
+        -1.0
       ],
       "look_at": [
         0.0,
-        2.4,
-        -0.8
+        2.0,
+        -0.6
       ],
       "camera_offset": [
         0.0,
-        3.2,
-        5.0
+        2.8,
+        4.5
       ]
     },
     {
@@ -72,19 +72,19 @@
       "description": "Open hypostyle dancing pavilion featuring 16 massive carved pillars depicting classical Odissi dance postures, musicians playing mardala, and dancers.",
       "architectural_significance": "Elevated plinth adorned with continuous friezes of war elephants, court musicians, and celestial nymphs (apsaras).",
       "position": [
-        -2.2,
-        0.9,
-        1.8
-      ],
-      "look_at": [
         -1.8,
         0.8,
-        1.2
+        1.4
+      ],
+      "look_at": [
+        -1.4,
+        0.8,
+        0.9
       ],
       "camera_offset": [
-        -2.8,
-        1.6,
-        3.8
+        -2.4,
+        1.4,
+        3.2
       ]
     },
     {
@@ -94,56 +94,56 @@
       "description": "Green chlorite relief panels depicting royal hunting processions, planetary deities (Navagrahas), and mythical gajasimha motifs.",
       "architectural_significance": "Unsurpassed relief depth and polish, highlighting 13th-century metallurgical tools and stonemasonry guilds.",
       "position": [
-        1.8,
+        1.5,
         0.7,
-        0.5
+        0.4
       ],
       "look_at": [
-        1.5,
+        1.2,
         0.7,
         0.0
       ],
       "camera_offset": [
-        2.4,
-        1.2,
-        2.5
+        2.0,
+        1.1,
+        2.2
       ]
     }
   ],
   "sources": [
     {
-      "title": "Archaeological Survey of India & Odisha Tourism Reference Archive",
-      "source": "ASI Monograph on Konark Architecture & Survey Photography",
-      "license": "Government Open Data / Educational Heritage Reference",
+      "title": "Archaeological Survey of India Reference Monograph",
+      "source": "ASI Architectural Survey of Konark Sun Temple & Epigraphical Archives",
+      "license": "Government of India Public Historical Archive",
       "url": "https://odishatourism.gov.in",
       "access_date": "2026-08-20",
-      "content_type": "Photogrammetric Structure from Motion & Geometric Survey",
+      "content_type": "Architectural Survey & Spatial Mapping Reference",
       "attribution": "Archaeological Survey of India & Odisha Tourism"
     },
     {
-      "title": "Wikimedia Commons Cultural Heritage Repository",
-      "source": "High-resolution orthogonal monument documentation",
+      "title": "Wikimedia Commons Cultural Heritage Documentation",
+      "source": "High-resolution orthogonal monument photographic documentation",
       "license": "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
       "url": "https://commons.wikimedia.org",
       "access_date": "2026-08-22",
-      "content_type": "Multi-view Viewpoint Image Overlap Dataset",
-      "attribution": "Multiple Contributing Photographers & ASI Heritage License"
+      "content_type": "Multi-angle Photographic Survey Dataset",
+      "attribution": "Contributing Photographers & Wikimedia Foundation"
     }
   ],
-  "reconstruction_notes": "Multi-view structure from motion (SfM) reconstruction of surviving Jagamohana, Natya Mandap plinths, and 24-spoke stone wheels based on survey photography and open spatial datasets. Zero synthetic hallucinations.",
+  "reconstruction_notes": "Photogrammetric Structure from Motion (SfM) / Gaussian Splat pipeline configured. High-definition archival spatial reference and interactive architectural hotspots active pending final dense mesh optimization.",
   "camera_preset": {
     "position": [
       0.0,
-      2.2,
-      5.2
+      1.8,
+      4.8
     ],
     "target": [
       0.0,
-      1.2,
+      1.1,
       0.0
     ],
-    "min_distance": 1.8,
-    "max_distance": 14.0,
+    "min_distance": 1.5,
+    "max_distance": 12.0,
     "fov": 45.0
   },
   "lighting_preset": "golden_hour",

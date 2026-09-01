@@ -9,9 +9,9 @@
   "scene_type": "REFERENCE_VIRTUAL_EXPERIENCE",
   "status": "REFERENCE_ONLY",
   "asset": {
-    "format": "photogrammetric_splat_webgl",
-    "model_url": "/heritage/jagannath/optimized/jagannath_reference.splat",
-    "splat_url": "/heritage/jagannath/optimized/jagannath_reference.splat",
+    "format": "archival_spatial_reference",
+    "model_url": null,
+    "splat_url": null,
     "progressive_low_res_url": null,
     "point_count": 220000,
     "mesh_quality": "authorized_external_reference",
@@ -29,40 +29,40 @@
       "architectural_significance": "Crowning metal crest of the monumental Rekha Deula visible across Puri and the Bay of Bengal coastline.",
       "position": [
         0.0,
-        5.2,
+        4.2,
         0.0
       ],
       "look_at": [
         0.0,
-        4.8,
+        3.8,
         0.0
       ],
       "camera_offset": [
         0.0,
-        5.6,
-        3.5
+        4.5,
+        3.0
       ]
     },
     {
       "id": "jagannath_rekha_deula",
       "title": "Bada Deula (Main Sanctum Spire)",
       "odia_title": "\u0b2c\u0b21\u0b3c \u0b26\u0b47\u0b09\u0b33",
-      "description": "Monumental curvilinear curvilinear tower rising 65 meters on an elevated stone plinth (Kurma Beda), dominating the sacred skyline.",
+      "description": "Monumental curvilinear tower rising 65 meters on an elevated stone plinth (Kurma Beda), dominating the sacred skyline.",
       "architectural_significance": "Pinnacle of mature Kalinga architecture with vertical pagas, rahapaga niches, and amalaka crowning disc.",
       "position": [
         0.0,
-        2.8,
-        -0.4
+        2.2,
+        -0.3
       ],
       "look_at": [
         0.0,
-        2.2,
+        1.8,
         0.0
       ],
       "camera_offset": [
         0.0,
-        3.5,
-        6.0
+        2.8,
+        5.0
       ]
     },
     {
@@ -74,17 +74,17 @@
       "position": [
         0.0,
         0.8,
-        3.2
+        2.4
       ],
       "look_at": [
         0.0,
         0.8,
-        2.5
+        1.8
       ],
       "camera_offset": [
         0.0,
-        1.8,
-        5.0
+        1.5,
+        4.0
       ]
     }
   ],
@@ -99,20 +99,20 @@
       "attribution": "SJTA & Department of Tourism, Govt. of Odisha"
     }
   ],
-  "reconstruction_notes": "Authorized exterior silhouette and Meghnad Pacheri boundary reference only. In accordance with sacred sanctum sanctity rules, no interior sanctum geometry is reconstructed or displayed.",
+  "reconstruction_notes": "Authorized exterior perimeter and architectural skyline reference only. In accordance with sacred sanctum sanctity rules, no interior sanctum geometry is reconstructed or displayed.",
   "camera_preset": {
     "position": [
       0.0,
-      3.2,
-      7.5
+      2.6,
+      6.0
     ],
     "target": [
       0.0,
-      2.2,
+      1.8,
       0.0
     ],
-    "min_distance": 2.5,
-    "max_distance": 18.0,
+    "min_distance": 2.0,
+    "max_distance": 15.0,
     "fov": 45.0
   },
   "lighting_preset": "temple_glow",

@@ -6,15 +6,15 @@
   "century": "14th Century CE (Ganga & Gajapati Dynasties, King Mukundadeva)",
   "category": "Medieval Riverine Fortress & Nine-Storey Palace Mound",
   "description": "Monumental arched laterite stone gateway, defensive moat ramparts, ancient stone bastion towers, and the historic nine-storey palace mound on the banks of Mahanadi.",
-  "scene_type": "REAL_3D_RECONSTRUCTION",
-  "status": "AVAILABLE",
+  "scene_type": "RECONSTRUCTION_IN_PROGRESS",
+  "status": "PROCESSING",
   "asset": {
     "format": "photogrammetric_splat_webgl",
     "model_url": "/heritage/barabati/optimized/barabati_reconstruction.splat",
     "splat_url": "/heritage/barabati/optimized/barabati_reconstruction.splat",
     "progressive_low_res_url": null,
     "point_count": 290000,
-    "mesh_quality": "photogrammetric_high_fidelity",
+    "mesh_quality": "archival_spatial_reference",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null
   },
@@ -29,18 +29,18 @@
       "architectural_significance": "Sole surviving monumental gateway of the 14th-century capital citadel of Kataka Barabati.",
       "position": [
         0.0,
-        1.4,
+        1.2,
         0.0
       ],
       "look_at": [
         0.0,
-        1.2,
-        -0.5
+        1.0,
+        -0.4
       ],
       "camera_offset": [
         0.0,
-        2.0,
-        4.0
+        1.6,
+        3.2
       ]
     },
     {
@@ -50,41 +50,19 @@
       "description": "Centrally located elevated mound where excavations revealed the structural stone column bases and courtyard of King Mukundadeva's palace.",
       "architectural_significance": "Documented by Mughal and European travelers as one of the most imposing palace strongholds in eastern India.",
       "position": [
-        -2.0,
-        1.6,
-        -1.8
+        -1.6,
+        1.3,
+        -1.4
       ],
       "look_at": [
-        -1.5,
-        1.2,
-        -1.0
+        -1.2,
+        1.0,
+        -0.8
       ],
       "camera_offset": [
-        -3.2,
-        2.5,
-        3.5
-      ]
-    },
-    {
-      "id": "barabati_defensive_moat",
-      "title": "Fortress Moat (Ghai)",
-      "odia_title": "\u0b38\u0b41\u0b30\u0b15\u0b4d\u0b37\u0b3e \u0b2a\u0b30\u0b3f\u0b16\u0b3e",
-      "description": "Historic stone-lined water moat surrounding the citadel measuring up to 100 feet wide, fed by the waters of the Mahanadi and Kathajodi rivers.",
-      "architectural_significance": "Demonstrates sophisticated medieval hydraulic and defensive military engineering in riverine delta terrain.",
-      "position": [
-        2.2,
-        0.4,
-        1.5
-      ],
-      "look_at": [
-        1.8,
-        0.4,
-        0.8
-      ],
-      "camera_offset": [
-        3.2,
-        1.2,
-        3.2
+        -2.5,
+        2.0,
+        2.8
       ]
     }
   ],
@@ -95,24 +73,24 @@
       "license": "Government Open Archaeological Survey Records",
       "url": "https://asi.nic.in",
       "access_date": "2026-08-16",
-      "content_type": "Laser Scanning & Photogrammetric Gate Reconstruction",
+      "content_type": "Laser Scanning & Archaeological Excavation Mapping",
       "attribution": "ASI Bhubaneswar Circle & Govt. of Odisha"
     }
   ],
-  "reconstruction_notes": "Photogrammetric surface reconstruction of the surviving 14th-century pointed arch entrance gate, flanked by laterite bastion towers and wide moat defensive perimeter.",
+  "reconstruction_notes": "Photogrammetric surface reconstruction of the surviving 14th-century pointed arch entrance gate in progress. Verified medieval bastion and fortress moat spatial reference enabled.",
   "camera_preset": {
     "position": [
       0.0,
-      2.2,
-      5.5
+      1.8,
+      4.8
     ],
     "target": [
       0.0,
-      1.2,
+      1.0,
       0.0
     ],
-    "min_distance": 2.0,
-    "max_distance": 15.0,
+    "min_distance": 1.8,
+    "max_distance": 13.0,
     "fov": 45.0
   },
   "lighting_preset": "temple_glow",

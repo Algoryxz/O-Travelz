@@ -1,6 +1,6 @@
 /**
  * Museum-Grade Digital Heritage 3D Scene Viewer.
- * Integrates Three.js WebGL rendering, photogrammetric reconstruction shaders,
+ * Integrates Three.js WebGL rendering, honest reconstruction status badges,
  * dynamic solar presets, interactive architectural hotspots, and verified provenance.
  */
 import React, { useEffect, useRef, useState, useCallback } from 'react';
@@ -13,13 +13,11 @@ import {
   RotateCcw,
   Maximize2,
   Minimize2,
-  Sparkles,
   Info,
   ShieldCheck,
-  Layers,
   Play,
   Pause,
-  Sliders,
+  Clock,
   ExternalLink,
 } from 'lucide-react';
 import type { HeritageScene, HeritageHotspot } from '../../types/heritage';
@@ -54,15 +52,12 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
   );
   const [qualityPreset, setQualityPreset] = useState<QualityPreset>('AUTO');
   const [isAutoRotating, setIsAutoRotating] = useState<boolean>(autoRotateDefault);
-  const [isWireframe, setIsWireframe] = useState<boolean>(false);
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
   const [selectedHotspot, setSelectedHotspot] = useState<HeritageHotspot | null>(null);
   const [showProvenanceDrawer, setShowProvenanceDrawer] = useState<boolean>(false);
   const [loadingProgress, setLoadingProgress] = useState<LoadingProgress>({
     phase: 'METADATA',
     percent: 10,
-    loadedBytes: 0,
-    totalBytes: 150000,
     statusText: 'Initializing...',
   });
   const [isReady, setIsReady] = useState<boolean>(false);
@@ -184,15 +179,6 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
     }
   }, []);
 
-  // Wireframe toggle
-  const handleWireframeToggle = useCallback(() => {
-    const next = !isWireframe;
-    setIsWireframe(next);
-    if (sceneManagerRef.current) {
-      sceneManagerRef.current.loadMonumentScene(scene, next);
-    }
-  }, [isWireframe, scene]);
-
   // Auto rotate toggle
   const handleAutoRotateToggle = useCallback(() => {
     const next = !isAutoRotating;
@@ -230,7 +216,34 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
     }
   }, []);
 
-  const isReal3D = scene.scene_type === 'REAL_3D_RECONSTRUCTION';
+  const getStatusBadge = () => {
+    switch (scene.scene_type) {
+      case 'REAL_3D_RECONSTRUCTION':
+        return {
+          label: 'REAL 3D RECONSTRUCTION',
+          sub: 'Verified Photogrammetry',
+          badgeClass: 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300',
+          icon: <ShieldCheck className="w-3.5 h-3.5" />,
+        };
+      case 'REFERENCE_VIRTUAL_EXPERIENCE':
+        return {
+          label: 'REFERENCE VIRTUAL EXPERIENCE',
+          sub: 'Authorized External Reference',
+          badgeClass: 'bg-cyan-950/80 border-cyan-500/50 text-cyan-300',
+          icon: <ShieldCheck className="w-3.5 h-3.5" />,
+        };
+      case 'RECONSTRUCTION_IN_PROGRESS':
+      default:
+        return {
+          label: 'RECONSTRUCTION IN PROGRESS',
+          sub: 'Archival Reference Active',
+          badgeClass: 'bg-amber-950/80 border-amber-500/50 text-amber-300',
+          icon: <Clock className="w-3.5 h-3.5" />,
+        };
+    }
+  };
+
+  const statusBadge = getStatusBadge();
 
   return (
     <div
@@ -250,20 +263,14 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
         onCloseHotspot={() => setSelectedHotspot(null)}
       />
 
-      {/* Top Left: Monument Identity & Verified State Pill */}
+      {/* Top Left: Monument Identity & Audited State Pill */}
       <div className="absolute top-4 left-4 z-20 flex flex-col gap-1.5 max-w-[70%] md:max-w-md pointer-events-auto">
         <div className="flex items-center gap-2 flex-wrap">
           <span
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold backdrop-blur-md border ${
-              isReal3D
-                ? 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300'
-                : 'bg-amber-950/80 border-amber-500/50 text-amber-300'
-            }`}
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold backdrop-blur-md border ${statusBadge.badgeClass}`}
           >
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span>
-              {isReal3D ? 'REAL 3D RECONSTRUCTION' : 'REFERENCE VIRTUAL EXPERIENCE'}
-            </span>
+            {statusBadge.icon}
+            <span>{statusBadge.label}</span>
           </span>
 
           <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-900/80 text-slate-300 border border-slate-700/60 backdrop-blur-sm">
@@ -271,7 +278,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
           </span>
         </div>
 
-        <div className="bg-slate-900/80 backdrop-blur-md rounded-xl p-2.5 border border-slate-800">
+        <div className="bg-slate-900/85 backdrop-blur-md rounded-xl p-2.5 border border-slate-800">
           <h3 className="text-base md:text-lg font-bold text-slate-100 flex items-center gap-2">
             <span>{scene.name}</span>
             <span className="text-xs font-serif text-amber-400/80 font-normal">
@@ -292,7 +299,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
           >
             {availableScenes.map((s) => (
               <option key={s.id} value={s.id} className="bg-slate-900 text-slate-100">
-                {s.name} ({s.scene_type === 'REAL_3D_RECONSTRUCTION' ? '3D' : 'Ref'})
+                {s.name} ({s.scene_type === 'REFERENCE_VIRTUAL_EXPERIENCE' ? 'Ref' : 'In Progress'})
               </option>
             ))}
           </select>
@@ -367,20 +374,6 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
           {isAutoRotating ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
         </button>
 
-        {/* Wireframe Inspection */}
-        <button
-          type="button"
-          onClick={handleWireframeToggle}
-          className={`p-2 rounded-xl backdrop-blur-md border shadow-lg transition-colors ${
-            isWireframe
-              ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40'
-              : 'bg-slate-900/90 text-slate-400 hover:text-slate-200 border-slate-800'
-          }`}
-          title="Toggle Photogrammetric Wireframe"
-        >
-          <Layers className="w-4 h-4" />
-        </button>
-
         {/* Reset Camera */}
         <button
           type="button"
@@ -400,7 +393,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
               ? 'bg-amber-500 text-slate-950 font-bold border-amber-400'
               : 'bg-slate-900/90 text-slate-400 hover:text-slate-200 border-slate-800'
           }`}
-          title="View Data Provenance & Legal Sources"
+          title="View Archival Sources & Provenance"
         >
           <Info className="w-4 h-4" />
         </button>
@@ -439,7 +432,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
           <div className="space-y-4 text-xs">
             <div>
               <span className="text-[10px] font-semibold uppercase tracking-wider text-amber-400">
-                Reconstruction Methodology
+                Spatial Reference Status
               </span>
               <p className="text-slate-300 mt-1 leading-relaxed">
                 {scene.reconstruction_notes}
@@ -448,7 +441,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
 
             <div>
               <span className="text-[10px] font-semibold uppercase tracking-wider text-amber-400">
-                Asset Specifications
+                Asset Specification
               </span>
               <div className="grid grid-cols-2 gap-2 mt-1.5">
                 <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
@@ -458,9 +451,9 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
                   </div>
                 </div>
                 <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
-                  <div className="text-slate-500 text-[10px]">Point Density</div>
-                  <div className="text-slate-200 font-mono text-[11px]">
-                    {scene.asset.point_count.toLocaleString()} pts
+                  <div className="text-slate-500 text-[10px]">Quality Mode</div>
+                  <div className="text-slate-200 font-mono text-[11px] truncate">
+                    {scene.asset.mesh_quality}
                   </div>
                 </div>
               </div>
@@ -468,7 +461,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
 
             <div>
               <span className="text-[10px] font-semibold uppercase tracking-wider text-amber-400">
-                Verified Data Sources & Licenses
+                Archival Data Sources & Licenses
               </span>
               <div className="space-y-2 mt-2">
                 {scene.sources.map((src, idx) => (
@@ -503,7 +496,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
         <div className="absolute inset-0 z-30 bg-slate-950/80 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center">
           <div className="w-12 h-12 rounded-full border-2 border-amber-500/20 border-t-amber-400 animate-spin mb-4" />
           <div className="text-sm font-bold text-slate-100 mb-1">
-            Loading Digital Reconstruction
+            Loading Spatial Experience
           </div>
           <div className="text-xs text-amber-300 font-mono mb-3">
             {loadingProgress.statusText}
