@@ -1775,5 +1775,306 @@
     "query": "Dumduma Jadupur, Bhubaneswar, Odisha, India",
     "cached_at": "2026-08-31T21:31:20.063149+00:00",
     "result": null
+  },
+  "gadakana, bhubaneswar, odisha, india": {
+    "query": "Gadakana, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:20:39.961226+00:00",
+    "result": null
+  },
+  "gadama, bhubaneswar, odisha, india": {
+    "query": "Gadama, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:20:42.329853+00:00",
+    "result": null
+  },
+  "hi-tech hospital, bhubaneswar, odisha, india": {
+    "query": "Hi-tech Hospital, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:29.810861+00:00",
+    "result": {
+      "lat": 20.3039069,
+      "lon": 85.87846,
+      "display_name": "Hi Tech Medical College, Bhubaneswar, Cuttack - Puri Bypass Road, Ward 18, North Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751025, India",
+      "osm_type": "node",
+      "osm_id": 7079232145,
+      "class": "amenity",
+      "type": "hospital",
+      "address": {
+        "amenity": "Hi Tech Medical College, Bhubaneswar",
+        "road": "Cuttack - Puri Bypass Road",
+        "suburb": "Ward 18",
+        "city_district": "North Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751025",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "igkc, bhubaneswar, odisha, india": {
+    "query": "Igkc, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:30.940629+00:00",
+    "result": {
+      "lat": 20.2740594,
+      "lon": 85.7643314,
+      "display_name": "IGKC Multispecialty Hospital, Plot No:- G1-43/1695, Khandagiri - Chandaka Road, Khandagiri, Ward 23, South West Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751029, India",
+      "osm_type": "way",
+      "osm_id": 1476896544,
+      "class": "building",
+      "type": "hospital",
+      "address": {
+        "building": "IGKC Multispecialty Hospital",
+        "house_number": "Plot No:- G1-43/1695",
+        "road": "Khandagiri - Chandaka Road",
+        "suburb": "Khandagiri",
+        "city_district": "South West Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751029",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "igkc multispecialty hospital, bhubaneswar, odisha, india": {
+    "query": "Igkc Multispecialty Hospital, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:32.250687+00:00",
+    "result": {
+      "lat": 20.2740594,
+      "lon": 85.7643314,
+      "display_name": "IGKC Multispecialty Hospital, Plot No:- G1-43/1695, Khandagiri - Chandaka Road, Khandagiri, Ward 23, South West Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751029, India",
+      "osm_type": "way",
+      "osm_id": 1476896544,
+      "class": "building",
+      "type": "hospital",
+      "address": {
+        "building": "IGKC Multispecialty Hospital",
+        "house_number": "Plot No:- G1-43/1695",
+        "road": "Khandagiri - Chandaka Road",
+        "suburb": "Khandagiri",
+        "city_district": "South West Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751029",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "jagadguru krupalu university, bhubaneswar, odisha, india": {
+    "query": "Jagadguru Krupalu University, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:33.400936+00:00",
+    "result": null
+  },
+  "jagannath temple, salepur, bhubaneswar, odisha, india": {
+    "query": "Jagannath Temple, Salepur, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:35.247209+00:00",
+    "result": null
+  },
+  "jagatpur, bhubaneswar, odisha, india": {
+    "query": "Jagatpur, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:36.596936+00:00",
+    "result": null
+  },
+  "jagatpur, cuttack, bhubaneswar, odisha, india": {
+    "query": "Jagatpur, Cuttack, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:37.991032+00:00",
+    "result": null
+  },
+  "kakatpur, bhubaneswar, odisha, india": {
+    "query": "Kakatpur, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:39.094886+00:00",
+    "result": null
+  },
+  "kalinga nagar, bhubaneswar, odisha, india": {
+    "query": "Kalinga Nagar, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:40.554935+00:00",
+    "result": {
+      "lat": 20.2680426,
+      "lon": 85.7623093,
+      "display_name": "K7, Kalinga Nagar, Ward 23, South West Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, India",
+      "osm_type": "way",
+      "osm_id": 236511871,
+      "class": "landuse",
+      "type": "residential",
+      "address": {
+        "residential": "K7, Kalinga Nagar",
+        "suburb": "Ward 23",
+        "city_district": "South West Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "kiit square, bhubaneswar, odisha, india": {
+    "query": "Kiit Square, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:41.680426+00:00",
+    "result": null
+  },
+  "light house, bhubaneswar, odisha, india": {
+    "query": "Light House, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:43.527249+00:00",
+    "result": null
+  },
+  "lingipur, bhubaneswar, odisha, india": {
+    "query": "Lingipur, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:44.918348+00:00",
+    "result": {
+      "lat": 20.2137892,
+      "lon": 85.8536106,
+      "display_name": "Lingipur Chowk, Cuttack - Puri Bypass Road, Sisupalgarh, Bhubaneswar, Bhubaneswar (M.Corp.), Khordha, Odisha, 751001, India",
+      "osm_type": "node",
+      "osm_id": 4593978899,
+      "class": "junction",
+      "type": "yes",
+      "address": {
+        "junction": "Lingipur Chowk",
+        "road": "Cuttack - Puri Bypass Road",
+        "suburb": "Sisupalgarh",
+        "city": "Bhubaneswar",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751001",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "madhabnanda temple, niali, bhubaneswar, odisha, india": {
+    "query": "Madhabnanda Temple, Niali, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:45.998125+00:00",
+    "result": null
+  },
+  "mahanadi vihar, bhubaneswar, odisha, india": {
+    "query": "Mahanadi Vihar, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:47.268769+00:00",
+    "result": null
+  },
+  "mahanadi vihar,cuttack, bhubaneswar, odisha, india": {
+    "query": "Mahanadi Vihar,cuttack, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:48.546462+00:00",
+    "result": null
+  },
+  "malatipatpur bus stand, bhubaneswar, odisha, india": {
+    "query": "Malatipatpur Bus Stand, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:49.678038+00:00",
+    "result": {
+      "lat": 19.8661474,
+      "lon": 85.8293361,
+      "display_name": "Malatipatpur Bus Stand, Bhubaneswar Puri Highway, Chandanpur, Puri, Odisha, 752012, India",
+      "osm_type": "way",
+      "osm_id": 746288611,
+      "class": "amenity",
+      "type": "bus_station",
+      "address": {
+        "amenity": "Malatipatpur Bus Stand",
+        "road": "Bhubaneswar Puri Highway",
+        "town": "Chandanpur",
+        "county": "Chandanpur",
+        "state_district": "Puri",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "752012",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "mangalahata, bhubaneswar, odisha, india": {
+    "query": "Mangalahata, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:51.220251+00:00",
+    "result": null
+  },
+  "mangarajpur, bhubaneswar, odisha, india": {
+    "query": "Mangarajpur, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:52.629143+00:00",
+    "result": null
+  },
+  "master canteen, bhubaneswar, odisha, india": {
+    "query": "Master Canteen, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-08-31T22:31:53.777128+00:00",
+    "result": {
+      "lat": 20.2681216,
+      "lon": 85.8437854,
+      "display_name": "Relience Super, Master Canteen, Chandrama Complex Lane, Ward 41, Bhubaneswar, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751000, India",
+      "osm_type": "way",
+      "osm_id": 305236191,
+      "class": "shop",
+      "type": "supermarket",
+      "address": {
+        "shop": "Relience Super",
+        "house_number": "Master Canteen",
+        "road": "Chandrama Complex Lane",
+        "suburb": "Ward 41",
+        "city": "Bhubaneswar",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751000",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "master canteen - scb medical, bhubaneswar, odisha, india": {
+    "query": "Master Canteen - Scb Medical, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T05:00:34.036629+00:00",
+    "result": null
+  },
+  "maulana azad national urdu university, bhubaneswar, odisha, india": {
+    "query": "Maulana Azad National Urdu University, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T05:00:35.443461+00:00",
+    "result": null
+  },
+  "mundali, bhubaneswar, odisha, india": {
+    "query": "Mundali, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T05:00:36.860615+00:00",
+    "result": null
+  },
+  "naraj railway station, bhubaneswar, odisha, india": {
+    "query": "Naraj Railway Station, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T05:00:38.806386+00:00",
+    "result": null
+  },
+  "national law university o, bhubaneswar, odisha, india": {
+    "query": "National Law University O, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T05:00:40.341789+00:00",
+    "result": null
+  },
+  "nimapada bus stand, bhubaneswar, odisha, india": {
+    "query": "Nimapada Bus Stand, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T05:00:41.470663+00:00",
+    "result": null
+  },
+  "nlu, cuttack, bhubaneswar, odisha, india": {
+    "query": "Nlu, Cuttack, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T05:00:42.743244+00:00",
+    "result": null
+  },
+  "nuapada, bhubaneswar, odisha, india": {
+    "query": "Nuapada, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T05:00:43.889162+00:00",
+    "result": null
+  },
+  "nuapatana, bhubaneswar, odisha, india": {
+    "query": "Nuapatana, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T05:00:45.736046+00:00",
+    "result": null
   }
 }

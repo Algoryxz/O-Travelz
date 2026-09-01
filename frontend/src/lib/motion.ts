@@ -1,4 +1,4 @@
-import { type Transition, type Variants } from "motion/react";
+import { type Transition, type Variants } from "framer-motion";
 
 // Spring Physics Presets
 export const springSnappy: Transition = {

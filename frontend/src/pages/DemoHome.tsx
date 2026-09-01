@@ -589,7 +589,16 @@ function LegacyVisualReference() {
           </div>
 
           <div className="grid gap-3" style={{ gridTemplateColumns:'1fr 1fr' }}>
-            {nearbyFiltered.map(place => <NearbyDarkCard key={place.id} place={place} />)}
+            {nearbyFiltered.map(place => (
+              <NearbyDarkCard
+                key={place.id}
+                title={place.name}
+                location={place.location || ''}
+                distance={place.distanceKm != null ? `${place.distanceKm} km` : ''}
+                category={place.category || 'destination'}
+                imageUrl={place.img}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -608,7 +617,16 @@ function LegacyVisualReference() {
             <button className="text-sm font-medium" style={{ color:'#6b7280' }}>View all →</button>
           </div>
           <div className="grid gap-5" style={{ gridTemplateColumns:'repeat(4, 1fr)' }}>
-            {ODISHA_DESTINATIONS.map(dest => <PlaceCard key={dest.id} place={dest} />)}
+            {ODISHA_DESTINATIONS.map(dest => (
+              <PlaceCard
+                key={dest.id}
+                place={{
+                  ...dest,
+                  id: dest.id || dest.name,
+                  description: dest.description || undefined,
+                }}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -907,7 +925,15 @@ function LegacyVisualReference() {
                   </div>
                 </div>
                 <div className="p-3 space-y-2">
-                  {sec.data.map(p => <EssentialCard key={p.id} place={p} icon={sec.icon} />)}
+                  {sec.data.map(p => (
+                    <EssentialCard
+                      key={p.id}
+                      name={p.name}
+                      category={p.category || 'essential'}
+                      location={p.address || 'Odisha'}
+                      contact={p.contact}
+                    />
+                  ))}
                 </div>
                 <div className="px-4 pb-4">
                   <button className="w-full py-2.5 rounded-xl text-xs font-bold"

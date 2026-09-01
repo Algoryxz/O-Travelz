@@ -1,5 +1,9 @@
-import React from 'react';
-import { VERIFIED_TRANSIT_TIMETABLES, type TransitScheduleEntry } from '../../data/transitTimetables';
+import React, { useMemo } from 'react';
+import {
+  VERIFIED_TRANSIT_TIMETABLES,
+  getNextScheduledDeparture,
+  type TransitScheduleEntry,
+} from '../../data/transitTimetables';
 
 export interface TransitTimetableModalProps {
   routeNumber: string | null;
@@ -14,6 +18,11 @@ export const TransitTimetableModal: React.FC<TransitTimetableModalProps> = ({
 
   const schedule: TransitScheduleEntry | undefined = VERIFIED_TRANSIT_TIMETABLES[routeNumber];
 
+  const nextDepartureInfo = useMemo(() => {
+    if (!schedule?.departures_weekday) return null;
+    return getNextScheduledDeparture(schedule.departures_weekday);
+  }, [schedule]);
+
   return (
     <div
       data-testid="transit-timetable-modal"
@@ -25,10 +34,13 @@ export const TransitTimetableModal: React.FC<TransitTimetableModalProps> = ({
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="px-2 py-0.5 bg-[#1B5E6B] text-white rounded font-mono font-bold text-xs">
-                Route {routeNumber}
+                {`Route ${routeNumber}`}
               </span>
               <span className="text-[10px] font-mono text-[#70798B] uppercase tracking-wider font-semibold">
                 {schedule?.service_type || 'Ama Bus / CRUT'}
+              </span>
+              <span className="px-1.5 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded font-mono text-[9px] font-bold">
+                Scheduled
               </span>
             </div>
             <h2 className="font-display font-bold text-lg text-[#12161E]">
@@ -51,10 +63,21 @@ export const TransitTimetableModal: React.FC<TransitTimetableModalProps> = ({
         <div className="px-5 py-2.5 bg-teal-50/70 border-b border-teal-100 flex items-center justify-between text-[11px] font-mono text-teal-900">
           <div className="flex items-center gap-1.5">
             <span className="material-symbols-outlined text-sm text-teal-700">verified</span>
-            <span>{schedule?.source_name || 'Official Transport Department Bulletin'}</span>
+            <span>{schedule?.source_name || 'Official CRUT Published Timetable Bulletin'}</span>
           </div>
           <span className="text-[10px] text-teal-700">Effective: {schedule?.effective_date || 'Aug 2026'}</span>
         </div>
+
+        {/* Next Scheduled Departure Badge */}
+        {nextDepartureInfo && (
+          <div className="px-5 py-2 bg-emerald-50/50 border-b border-emerald-100 flex items-center justify-between text-xs font-mono">
+            <div className="flex items-center gap-1.5 text-emerald-900">
+              <span className="material-symbols-outlined text-sm text-emerald-700">schedule</span>
+              <span className="font-medium">{nextDepartureInfo.label}</span>
+            </div>
+            <span className="text-[10px] text-[#70798B]">IST (Indian Standard Time)</span>
+          </div>
+        )}
 
         {/* Timetable Body */}
         <div className="p-5 overflow-y-auto space-y-4">
@@ -73,7 +96,7 @@ export const TransitTimetableModal: React.FC<TransitTimetableModalProps> = ({
                 <div className="p-2 bg-[#FAF7F2] rounded-xl border border-[#E5DFD5]">
                   <span className="text-[10px] text-[#70798B] block">Frequency</span>
                   <strong className="text-[#1B5E6B] text-sm">
-                    {schedule.frequency_minutes ? `~${schedule.frequency_minutes} min` : 'Fixed Times'}
+                    {schedule.frequency_minutes ? `~${schedule.frequency_minutes} min` : 'Published Schedule'}
                   </strong>
                 </div>
               </div>
@@ -87,7 +110,11 @@ export const TransitTimetableModal: React.FC<TransitTimetableModalProps> = ({
                   {schedule.departures_weekday.map((time, idx) => (
                     <div
                       key={idx}
-                      className="py-1.5 px-2 bg-[#FAF7F2] hover:bg-[#F3EFE6] text-center rounded-lg border border-[#E5DFD5] font-mono text-xs font-medium text-[#12161E]"
+                      className={`py-1.5 px-2 text-center rounded-lg border font-mono text-xs font-medium transition ${
+                        nextDepartureInfo?.nextDeparture === time
+                          ? 'bg-emerald-100 border-emerald-400 text-emerald-900 font-bold shadow-sm'
+                          : 'bg-[#FAF7F2] hover:bg-[#F3EFE6] border-[#E5DFD5] text-[#12161E]'
+                      }`}
                     >
                       {time}
                     </div>

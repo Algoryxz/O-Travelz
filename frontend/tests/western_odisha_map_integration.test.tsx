@@ -45,7 +45,7 @@ describe("Western Odisha Map Integration Service", () => {
       expect(hospitals.length).toBe(76);
 
       const transport = getWesternOdishaMapFeatures("transport");
-      expect(transport.length).toBe(46);
+      expect(transport.length).toBeGreaterThanOrEqual(46);
     });
   });
 

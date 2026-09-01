@@ -111,10 +111,15 @@ def extract_frontend_verified_stops() -> List[Dict[str, Any]]:
         r'\{\s*"stop_id":\s*"([^"]+)",\s*"name":\s*"([^"]+)",\s*"published_name":\s*"([^"]+)",'
         r'\s*"canonical_stop_id":\s*"([^"]+)",\s*"city":\s*"([^"]+)",\s*"district":\s*"([^"]+)",'
         r'\s*"locality":\s*"([^"]+)",\s*"latitude":\s*([0-9\.-]+),\s*"longitude":\s*([0-9\.-]+)'
+        r'(?:,\s*"coordinate_status":\s*"([^"]+)")?'
+        r'(?:,\s*"coordinate_source":\s*"([^"]+)")?'
     )
     stops = []
     for match in obj_pattern.finditer(content):
-        stop_id, name, published_name, canonical_id, city, district, locality, lat_str, lon_str = match.groups()
+        groups = match.groups()
+        stop_id, name, published_name, canonical_id, city, district, locality, lat_str, lon_str = groups[:9]
+        coord_status = groups[9] if len(groups) > 9 else None
+        coord_src = groups[10] if len(groups) > 10 else None
         lat = float(lat_str)
         lon = float(lon_str)
         if (ODISHA_BOUNDS["min_lat"] <= lat <= ODISHA_BOUNDS["max_lat"] and
@@ -129,6 +134,8 @@ def extract_frontend_verified_stops() -> List[Dict[str, Any]]:
                 "locality": locality,
                 "lat": lat,
                 "lon": lon,
+                "coordinate_status": coord_status,
+                "coordinate_source": coord_src,
             })
     return stops
 
@@ -342,9 +349,17 @@ def run_coordinate_resolution(
             if best_fs:
                 s["lat"] = best_fs["lat"]
                 s["lon"] = best_fs["lon"]
-                s["coordinate_status"] = "VERIFIED_OFFICIAL"
-                s["coordinate_source"] = "staticTransitStops_verified_survey"
-                s["verification_status"] = "VERIFIED_OFFICIAL"
+                src = best_fs.get("coordinate_source") or "staticTransitStops_verified_survey"
+                s["coordinate_source"] = src
+                if "OSM" in src:
+                    s["coordinate_status"] = "VERIFIED_GEOSPATIAL"
+                    s["verification_status"] = "VERIFIED_GEOSPATIAL"
+                elif "canonical_place" in src:
+                    s["coordinate_status"] = "RESOLVED_HIGH_CONFIDENCE"
+                    s["verification_status"] = "RESOLVED_HIGH_CONFIDENCE"
+                else:
+                    s["coordinate_status"] = "VERIFIED_OFFICIAL"
+                    s["verification_status"] = "VERIFIED_OFFICIAL"
                 s["district"] = s.get("district") or best_fs.get("district")
                 tier1_count += 1
                 continue

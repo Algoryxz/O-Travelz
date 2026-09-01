@@ -269,8 +269,16 @@ Goal: Expand destination catalog across all 30 districts via structured regional
   - Unit tests: `backend/tests/test_canonical_backend_routing.py` (18 passing assertions).
   - All 989 backend tests green.
 
-- [ ] **Track B3 — Sync Frontend Transit Fallbacks from Canonical Source** (Ready for execution)
-
+- [x] **Track B3 — Sync Frontend Transit Fallbacks with Canonical Network**
+  - Built deterministic generator `scripts/generate_frontend_transit_data.py` compiling TypeScript assets directly from `data/transport/canonical/`.
+  - Added `--check` drift detector to prevent frontend and canonical data diverge.
+  - Generated `frontend/src/data/staticTransitStops.ts` (strictly coordinate-bearing verified stops for map rendering).
+  - Generated `frontend/src/data/staticTransitRoutes.ts` (all 154 canonical routes & logical sequence topology).
+  - Generated `frontend/src/data/transitTimetables.ts` (all 302 schedules & 5,549 verified departure timestamps).
+  - Standardized next-departure helper comparing against IST (`getNextScheduledDeparture`).
+  - Standardized provenance labels ("Next scheduled departure: HH:MM IST", "Scheduled", "Published CRUT timetable").
+  - Automated tests: `frontend/tests/canonical_frontend_transit_sync.test.tsx` (13 passing tests).
+  - All 592 frontend tests passing, 0 failed; TypeScript check and Vite production build clean.
 
 ---
 

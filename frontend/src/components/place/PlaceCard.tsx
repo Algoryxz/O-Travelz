@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { cardHover, cardTap, buttonTap } from "../../lib/motion";
 import React from "react";
 import { Star, MapPin, Eye, Compass } from "lucide-react";
@@ -28,19 +28,19 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
   onPlanTrip,
   onViewDetails,
 }) => {
-  const { isPlaceSaved, toggleSavedPlace } = useSavedPlaces();
-  const isSaved = isPlaceSaved(place.id || place.name);
+  const { isSaved: checkSaved, toggleSave } = useSavedPlaces();
+  const isSaved = checkSaved(place.id || place.name);
 
   // Deterministic catalog image via resolution adapter
-  const imageUrl = resolvePlaceImageUrl({ name: place.name, category: place.category, image_url: place.image_url }, "card");
+  const imageUrl = resolvePlaceImageUrl({ name: place.name, category: place.category, imageUrl: place.image_url }, "card");
 
   const handleToggleSave = (e: React.MouseEvent) => {
     e.stopPropagation();
-    toggleSavedPlace({
-      id: place.id,
+    toggleSave({
+      id: place.id || place.name,
       name: place.name,
-      category: place.category,
-      location: place.location,
+      category: place.category || 'destination',
+      location: place.location || 'Odisha',
       description: place.description,
       interests: place.interests,
     });
@@ -52,8 +52,8 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
       onPlanTrip({
         id: place.id,
         name: place.name,
-        category: place.category,
-        location: place.location,
+        category: place.category || 'destination',
+        location: place.location || 'Odisha',
         description: place.description,
         interests: place.interests,
       });
@@ -66,8 +66,8 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
       onViewDetails({
         id: place.id,
         name: place.name,
-        category: place.category,
-        location: place.location,
+        category: place.category || 'destination',
+        location: place.location || 'Odisha',
         description: place.description,
         interests: place.interests,
       });

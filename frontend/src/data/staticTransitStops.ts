@@ -1,7 +1,7 @@
-/**
- * Verified Agency-Aware Odisha Transit Network Dataset
- * Distinguishes CRUT / Ama Bus, OSRTC Intercity, Indian Railways (ECoR), and Airports (AAI).
- */
+// AUTO-GENERATED FROM data/transport/canonical/
+// DO NOT EDIT MANUALLY.
+// Run: python scripts/generate_frontend_transit_data.py
+
 import type { NearbyStopResponse } from "../types/api";
 
 export interface VerifiedTransitStop {
@@ -15,13 +15,14 @@ export interface VerifiedTransitStop {
   latitude: number;
   longitude: number;
   coordinate_status: "official" | "geocoded" | "ambiguous" | "unresolved";
+  coordinate_source?: string;
   agency?: "CRUT (Capital Region Urban Transport)" | "OSRTC (Odisha State Road Transport Corp)" | "Indian Railways (East Coast Railway)" | "AAI (Airports Authority of India)";
   stop_type?: "bus_stop" | "bus_terminal" | "rail_station" | "airport";
   routes_serving_stop: Array<{
     route_id: string;
     route_number: string;
     route_name?: string | null;
-    sequence_order?: number;
+    sequence_order: number;
     service_area?: string | null;
     origin?: string | null;
     destination?: string | null;
@@ -30,1197 +31,3842 @@ export interface VerifiedTransitStop {
 
 export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
   {
-    "stop_id": "airport_bbsr_bbi",
-    "name": "Biju Patnaik International Airport (BBI)",
-    "published_name": "Bhubaneswar Airport (Terminal 1 & 2)",
-    "canonical_stop_id": "aai_bbi_airport",
-    "city": "Bhubaneswar",
-    "district": "Khordha",
-    "locality": "Aerodrome Area, Airport Road",
-    "latitude": 20.252,
-    "longitude": 85.8178,
-    "coordinate_status": "official",
-    "agency": "AAI (Airports Authority of India)",
-    "stop_type": "airport",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_10",
-        "route_number": "10",
-        "route_name": "BBI Airport \u21c4 Nandankanan",
-        "service_area": "Capital Region",
-        "origin": "Airport",
-        "destination": "Nandankanan"
-      },
-      {
-        "route_id": "rt_11",
-        "route_number": "11",
-        "route_name": "BBI Airport \u21c4 CNBT Cuttack",
-        "service_area": "Capital Region",
-        "origin": "Airport",
-        "destination": "CNBT Cuttack"
-      },
-      {
-        "route_id": "rt_20",
-        "route_number": "20",
-        "route_name": "BBI Airport \u21c4 Master Canteen \u21c4 Khurda",
-        "service_area": "Capital Region",
-        "origin": "Airport",
-        "destination": "Khurda New Bus Stand"
-      }
-    ]
-  },
-  {
-    "stop_id": "airport_jharsuguda_jrg",
-    "name": "Veer Surendra Sai Airport Jharsuguda (JRG)",
-    "published_name": "Jharsuguda Airport",
-    "canonical_stop_id": "aai_jrg_airport",
-    "city": "Jharsuguda",
-    "district": "Jharsuguda",
-    "locality": "Durlaga, Airport Road",
-    "latitude": 21.914,
-    "longitude": 84.05,
-    "coordinate_status": "official",
-    "agency": "AAI (Airports Authority of India)",
-    "stop_type": "airport",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_jrg_rkl",
-        "route_number": "OSRTC-JRG-RKL",
-        "route_name": "Jharsuguda Airport \u21c4 Rourkela",
-        "service_area": "Western Odisha",
-        "origin": "Jharsuguda Airport",
-        "destination": "Rourkela Bus Stand"
-      }
-    ]
-  },
-  {
-    "stop_id": "airport_rourkela_rrk",
-    "name": "Rourkela Airport (RRK)",
-    "published_name": "Rourkela Commercial Airport",
-    "canonical_stop_id": "aai_rrk_airport",
-    "city": "Rourkela",
-    "district": "Sundargarh",
-    "locality": "Sector 1, Chhend Colony Road",
-    "latitude": 22.256,
-    "longitude": 84.815,
-    "coordinate_status": "official",
-    "agency": "AAI (Airports Authority of India)",
-    "stop_type": "airport",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_crut_rkl_100",
-        "route_number": "RKL-100",
-        "route_name": "Rourkela Airport \u21c4 Rourkela Railway Station",
-        "service_area": "Rourkela",
-        "origin": "Rourkela Airport",
-        "destination": "Railway Station"
-      }
-    ]
-  },
-  {
-    "stop_id": "rail_bbsr_central",
-    "name": "Bhubaneswar Railway Station (BBS)",
-    "published_name": "Bhubaneswar Main Railway Station",
-    "canonical_stop_id": "ecor_bbs",
-    "city": "Bhubaneswar",
-    "district": "Khordha",
-    "locality": "Master Canteen, Unit-3",
-    "latitude": 20.2662,
-    "longitude": 85.8436,
-    "coordinate_status": "official",
-    "agency": "Indian Railways (East Coast Railway)",
-    "stop_type": "rail_station",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_10",
-        "route_number": "10",
-        "route_name": "BBI Airport \u21c4 Nandankanan",
-        "service_area": "Capital Region",
-        "origin": "Airport",
-        "destination": "Nandankanan"
-      },
-      {
-        "route_id": "rt_12",
-        "route_number": "12",
-        "route_name": "Master Canteen \u21c4 Nandankanan via Jaydev Vihar",
-        "service_area": "Capital Region",
-        "origin": "Master Canteen",
-        "destination": "Nandankanan"
-      },
-      {
-        "route_id": "rt_70",
-        "route_number": "70",
-        "route_name": "Bhubaneswar Rly Stn \u21c4 Puri Shree Mandira",
-        "service_area": "Puri Corridor",
-        "origin": "Master Canteen",
-        "destination": "Puri Jagannath Temple"
-      }
-    ]
-  },
-  {
-    "stop_id": "rail_cuttack_central",
-    "name": "Cuttack Junction Railway Station (CTC)",
-    "published_name": "Cuttack Railway Station",
-    "canonical_stop_id": "ecor_ctc",
-    "city": "Cuttack",
-    "district": "Cuttack",
-    "locality": "Station Bazar, College Square",
-    "latitude": 20.4638,
-    "longitude": 85.8942,
-    "coordinate_status": "official",
-    "agency": "Indian Railways (East Coast Railway)",
-    "stop_type": "rail_station",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_11",
-        "route_number": "11",
-        "route_name": "CNBT Cuttack \u21c4 BBI Airport",
-        "service_area": "Capital Region",
-        "origin": "CNBT Cuttack",
-        "destination": "Airport"
-      }
-    ]
-  },
-  {
-    "stop_id": "rail_puri_central",
-    "name": "Puri Railway Station (PURI)",
-    "published_name": "Puri Terminus Railway Station",
-    "canonical_stop_id": "ecor_puri",
-    "city": "Puri",
-    "district": "Puri",
-    "locality": "Station Road, Jagannath Dham",
-    "latitude": 19.813,
-    "longitude": 85.839,
-    "coordinate_status": "official",
-    "agency": "Indian Railways (East Coast Railway)",
-    "stop_type": "rail_station",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_70",
-        "route_number": "70",
-        "route_name": "Puri Railway Station \u21c4 Shree Mandira \u21c4 Bhubaneswar",
-        "service_area": "Puri Corridor",
-        "origin": "Bhubaneswar",
-        "destination": "Puri"
-      }
-    ]
-  },
-  {
-    "stop_id": "rail_berhampur_bam",
-    "name": "Berhampur Railway Station (BAM)",
-    "published_name": "Brahmapur Railway Station",
-    "canonical_stop_id": "ecor_bam",
+    "stop_id": "stop_crut_berhampur_berhampur",
+    "name": "Berhampur",
+    "published_name": "BERHAMPUR",
+    "canonical_stop_id": "stop_crut_berhampur_berhampur",
     "city": "Berhampur",
     "district": "Ganjam",
-    "locality": "Station Road, Old Berhampur",
-    "latitude": 19.317,
-    "longitude": 84.793,
-    "coordinate_status": "official",
-    "agency": "Indian Railways (East Coast Railway)",
-    "stop_type": "rail_station",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_crut_bam_300",
-        "route_number": "300",
-        "route_name": "Berhampur Railway Station \u21c4 Gopalpur Sea Beach",
-        "service_area": "Berhampur",
-        "origin": "Railway Station",
-        "destination": "Gopalpur"
-      }
-    ]
-  },
-  {
-    "stop_id": "rail_sambalpur_sbp",
-    "name": "Sambalpur Junction Railway Station (SBP)",
-    "published_name": "Sambalpur Main Junction",
-    "canonical_stop_id": "ecor_sbp",
-    "city": "Sambalpur",
-    "district": "Sambalpur",
-    "locality": "Khetrajpur, Sambalpur",
-    "latitude": 21.488,
-    "longitude": 83.955,
-    "coordinate_status": "official",
-    "agency": "Indian Railways (East Coast Railway)",
-    "stop_type": "rail_station",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_crut_sbp_200",
-        "route_number": "200",
-        "route_name": "Sambalpur Rly Stn \u21c4 Burla VIMSAR",
-        "service_area": "Sambalpur",
-        "origin": "Sambalpur Rly Stn",
-        "destination": "Burla VIMSAR"
-      }
-    ]
-  },
-  {
-    "stop_id": "rail_rourkela_rou",
-    "name": "Rourkela Junction Railway Station (ROU)",
-    "published_name": "Rourkela Main Railway Station",
-    "canonical_stop_id": "ecor_rou",
-    "city": "Rourkela",
-    "district": "Sundargarh",
-    "locality": "Station Road, Bisra Square",
-    "latitude": 22.2505,
-    "longitude": 84.8565,
-    "coordinate_status": "official",
-    "agency": "Indian Railways (East Coast Railway)",
-    "stop_type": "rail_station",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_crut_rkl_101",
-        "route_number": "RKL-101",
-        "route_name": "Rourkela Railway Stn \u21c4 Panposh \u21c4 NIT",
-        "service_area": "Rourkela",
-        "origin": "Railway Station",
-        "destination": "NIT Rourkela"
-      }
-    ]
-  },
-  {
-    "stop_id": "rail_balasore_bls",
-    "name": "Balasore Railway Station (BLS)",
-    "published_name": "Balasore Central Railway Station",
-    "canonical_stop_id": "ecor_bls",
-    "city": "Balasore",
-    "district": "Balasore",
-    "locality": "Station Road, Balasore Town",
-    "latitude": 21.498,
-    "longitude": 86.929,
-    "coordinate_status": "official",
-    "agency": "Indian Railways (East Coast Railway)",
-    "stop_type": "rail_station",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_bls_cdp",
-        "route_number": "OSRTC-BLS-CDP",
-        "route_name": "Balasore Rly Stn \u21c4 Chandipur Sea Beach",
-        "service_area": "Balasore",
-        "origin": "Railway Station",
-        "destination": "Chandipur Beach"
-      }
-    ]
-  },
-  {
-    "stop_id": "rail_rayagada_rgda",
-    "name": "Rayagada Railway Station (RGDA)",
-    "published_name": "Rayagada Junction Railway Station",
-    "canonical_stop_id": "ecor_rgda",
-    "city": "Rayagada",
-    "district": "Rayagada",
-    "locality": "Station Road, Rayagada",
-    "latitude": 19.164,
-    "longitude": 83.421,
-    "coordinate_status": "official",
-    "agency": "Indian Railways (East Coast Railway)",
-    "stop_type": "rail_station",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_rgda_krpu",
-        "route_number": "OSRTC-RGDA-KRPU",
-        "route_name": "Rayagada Rly Stn \u21c4 Koraput Bus Terminal",
-        "service_area": "KBK Region",
-        "origin": "Rayagada",
-        "destination": "Koraput"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_angul",
-    "name": "OSRTC Central Bus Stand Angul",
-    "published_name": "Angul Central Bus Terminal (Angul)",
-    "canonical_stop_id": "osrtc_angul_isbt",
-    "city": "Angul",
-    "district": "Angul",
-    "locality": "Bus Stand Complex, Angul",
-    "latitude": 20.8395,
-    "longitude": 85.10520000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_angul_bbsr",
-        "route_number": "OSRTC-ANG-BBS",
-        "route_name": "Angul \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Angul Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_balangir",
-    "name": "OSRTC Central Bus Stand Balangir",
-    "published_name": "Balangir Central Bus Terminal (Balangir)",
-    "canonical_stop_id": "osrtc_balangir_isbt",
-    "city": "Balangir",
-    "district": "Balangir",
-    "locality": "Bus Stand Complex, Balangir",
-    "latitude": 20.7135,
-    "longitude": 83.49000000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_balangir_bbsr",
-        "route_number": "OSRTC-BAL-BBS",
-        "route_name": "Balangir \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Balangir Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_balasore",
-    "name": "OSRTC Central Bus Stand Balasore",
-    "published_name": "Balasore Central Bus Terminal (Balasore)",
-    "canonical_stop_id": "osrtc_balasore_isbt",
-    "city": "Balasore",
-    "district": "Balasore",
-    "locality": "Bus Stand Complex, Balasore",
-    "latitude": 21.497,
-    "longitude": 86.929,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_balasore_bbsr",
-        "route_number": "OSRTC-BAL-BBS",
-        "route_name": "Balasore \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Balasore Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_bargarh",
-    "name": "OSRTC Central Bus Stand Bargarh",
-    "published_name": "Bargarh Central Bus Terminal (Bargarh)",
-    "canonical_stop_id": "osrtc_bargarh_isbt",
-    "city": "Bargarh",
-    "district": "Bargarh",
-    "locality": "Bus Stand Complex, Bargarh",
-    "latitude": 21.332,
-    "longitude": 83.622,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_bargarh_bbsr",
-        "route_number": "OSRTC-BAR-BBS",
-        "route_name": "Bargarh \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Bargarh Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_bhadrak",
-    "name": "OSRTC Central Bus Stand Bhadrak",
-    "published_name": "Bhadrak Central Bus Terminal (Bhadrak)",
-    "canonical_stop_id": "osrtc_bhadrak_isbt",
-    "city": "Bhadrak",
-    "district": "Bhadrak",
-    "locality": "Bus Stand Complex, Bhadrak",
-    "latitude": 21.055,
-    "longitude": 86.51700000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_bhadrak_bbsr",
-        "route_number": "OSRTC-BHA-BBS",
-        "route_name": "Bhadrak \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Bhadrak Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_boudh",
-    "name": "OSRTC Central Bus Stand Boudh",
-    "published_name": "Boudh Central Bus Terminal (Boudh)",
-    "canonical_stop_id": "osrtc_boudh_isbt",
-    "city": "Boudh",
-    "district": "Boudh",
-    "locality": "Bus Stand Complex, Boudh",
-    "latitude": 20.837,
-    "longitude": 84.328,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_boudh_bbsr",
-        "route_number": "OSRTC-BOU-BBS",
-        "route_name": "Boudh \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Boudh Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_cuttack",
-    "name": "OSRTC Central Bus Stand Cuttack",
-    "published_name": "Cuttack Central Bus Terminal (Cuttack)",
-    "canonical_stop_id": "osrtc_cuttack_isbt",
-    "city": "Cuttack",
-    "district": "Cuttack",
-    "locality": "Bus Stand Complex, Cuttack",
-    "latitude": 20.464000000000002,
-    "longitude": 85.88300000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_cuttack_bbsr",
-        "route_number": "OSRTC-CUT-BBS",
-        "route_name": "Cuttack \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Cuttack Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_deogarh",
-    "name": "OSRTC Central Bus Stand Deogarh",
-    "published_name": "Deogarh Central Bus Terminal (Deogarh)",
-    "canonical_stop_id": "osrtc_deogarh_isbt",
-    "city": "Deogarh",
-    "district": "Deogarh",
-    "locality": "Bus Stand Complex, Deogarh",
-    "latitude": 21.535,
-    "longitude": 84.736,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_deogarh_bbsr",
-        "route_number": "OSRTC-DEO-BBS",
-        "route_name": "Deogarh \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Deogarh Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_dhenkanal",
-    "name": "OSRTC Central Bus Stand Dhenkanal",
-    "published_name": "Dhenkanal Central Bus Terminal (Dhenkanal)",
-    "canonical_stop_id": "osrtc_dhenkanal_isbt",
-    "city": "Dhenkanal",
-    "district": "Dhenkanal",
-    "locality": "Bus Stand Complex, Dhenkanal",
-    "latitude": 20.666,
-    "longitude": 85.60000000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_dhenkanal_bbsr",
-        "route_number": "OSRTC-DHE-BBS",
-        "route_name": "Dhenkanal \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Dhenkanal Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_gajapati",
-    "name": "OSRTC Central Bus Stand Paralakhemundi",
-    "published_name": "Paralakhemundi Central Bus Terminal (Gajapati)",
-    "canonical_stop_id": "osrtc_gajapati_isbt",
-    "city": "Paralakhemundi",
-    "district": "Gajapati",
-    "locality": "Bus Stand Complex, Paralakhemundi",
-    "latitude": 18.776,
-    "longitude": 84.096,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_gajapati_bbsr",
-        "route_number": "OSRTC-PAR-BBS",
-        "route_name": "Paralakhemundi \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Paralakhemundi Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_ganjam",
-    "name": "OSRTC Central Bus Stand Berhampur",
-    "published_name": "Berhampur Central Bus Terminal (Ganjam)",
-    "canonical_stop_id": "osrtc_ganjam_isbt",
-    "city": "Berhampur",
-    "district": "Ganjam",
-    "locality": "Bus Stand Complex, Berhampur",
+    "locality": "Berhampur",
     "latitude": 19.315,
     "longitude": 84.802,
     "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_ganjam_bbsr",
-        "route_number": "OSRTC-BER-BBS",
-        "route_name": "Berhampur \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Berhampur Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_jagatsinghpur",
-    "name": "OSRTC Central Bus Stand Jagatsinghpur",
-    "published_name": "Jagatsinghpur Central Bus Terminal (Jagatsinghpur)",
-    "canonical_stop_id": "osrtc_jagatsinghpur_isbt",
-    "city": "Jagatsinghpur",
-    "district": "Jagatsinghpur",
-    "locality": "Bus Stand Complex, Jagatsinghpur",
-    "latitude": 20.266000000000002,
-    "longitude": 86.176,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_jagatsinghpur_bbsr",
-        "route_number": "OSRTC-JAG-BBS",
-        "route_name": "Jagatsinghpur \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Jagatsinghpur Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_jajpur",
-    "name": "OSRTC Central Bus Stand Jajpur",
-    "published_name": "Jajpur Central Bus Terminal (Jajpur)",
-    "canonical_stop_id": "osrtc_jajpur_isbt",
-    "city": "Jajpur",
-    "district": "Jajpur",
-    "locality": "Bus Stand Complex, Jajpur",
-    "latitude": 20.85,
-    "longitude": 86.339,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_jajpur_bbsr",
-        "route_number": "OSRTC-JAJ-BBS",
-        "route_name": "Jajpur \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Jajpur Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_jharsuguda",
-    "name": "OSRTC Central Bus Stand Jharsuguda",
-    "published_name": "Jharsuguda Central Bus Terminal (Jharsuguda)",
-    "canonical_stop_id": "osrtc_jharsuguda_isbt",
-    "city": "Jharsuguda",
-    "district": "Jharsuguda",
-    "locality": "Bus Stand Complex, Jharsuguda",
-    "latitude": 21.860000000000003,
-    "longitude": 84.019,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_jharsuguda_bbsr",
-        "route_number": "OSRTC-JHA-BBS",
-        "route_name": "Jharsuguda \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Jharsuguda Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_kalahandi",
-    "name": "OSRTC Central Bus Stand Bhawanipatna",
-    "published_name": "Bhawanipatna Central Bus Terminal (Kalahandi)",
-    "canonical_stop_id": "osrtc_kalahandi_isbt",
-    "city": "Bhawanipatna",
-    "district": "Kalahandi",
-    "locality": "Bus Stand Complex, Bhawanipatna",
-    "latitude": 19.903000000000002,
-    "longitude": 83.17200000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_kalahandi_bbsr",
-        "route_number": "OSRTC-BHA-BBS",
-        "route_name": "Bhawanipatna \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Bhawanipatna Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_kandhamal",
-    "name": "OSRTC Central Bus Stand Phulbani",
-    "published_name": "Phulbani Central Bus Terminal (Kandhamal)",
-    "canonical_stop_id": "osrtc_kandhamal_isbt",
-    "city": "Phulbani",
-    "district": "Kandhamal",
-    "locality": "Bus Stand Complex, Phulbani",
-    "latitude": 20.476000000000003,
-    "longitude": 84.238,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_kandhamal_bbsr",
-        "route_number": "OSRTC-PHU-BBS",
-        "route_name": "Phulbani \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Phulbani Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_kendrapara",
-    "name": "OSRTC Central Bus Stand Kendrapara",
-    "published_name": "Kendrapara Central Bus Terminal (Kendrapara)",
-    "canonical_stop_id": "osrtc_kendrapara_isbt",
-    "city": "Kendrapara",
-    "district": "Kendrapara",
-    "locality": "Bus Stand Complex, Kendrapara",
-    "latitude": 20.503,
-    "longitude": 86.429,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_kendrapara_bbsr",
-        "route_number": "OSRTC-KEN-BBS",
-        "route_name": "Kendrapara \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Kendrapara Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_keonjhar",
-    "name": "OSRTC Central Bus Stand Keonjhar",
-    "published_name": "Keonjhar Central Bus Terminal (Keonjhar)",
-    "canonical_stop_id": "osrtc_keonjhar_isbt",
-    "city": "Keonjhar",
-    "district": "Keonjhar",
-    "locality": "Bus Stand Complex, Keonjhar",
-    "latitude": 21.629,
-    "longitude": 85.593,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_keonjhar_bbsr",
-        "route_number": "OSRTC-KEO-BBS",
-        "route_name": "Keonjhar \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Keonjhar Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_khordha",
-    "name": "OSRTC Central Bus Stand Bhubaneswar",
-    "published_name": "Bhubaneswar Central Bus Terminal (Khordha)",
-    "canonical_stop_id": "osrtc_khordha_isbt",
-    "city": "Bhubaneswar",
-    "district": "Khordha",
-    "locality": "Bus Stand Complex, Bhubaneswar",
-    "latitude": 20.265,
-    "longitude": 85.845,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_khordha_bbsr",
-        "route_number": "OSRTC-BHU-BBS",
-        "route_name": "Bhubaneswar \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Bhubaneswar Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_koraput",
-    "name": "OSRTC Central Bus Stand Koraput",
-    "published_name": "Koraput Central Bus Terminal (Koraput)",
-    "canonical_stop_id": "osrtc_koraput_isbt",
-    "city": "Koraput",
-    "district": "Koraput",
-    "locality": "Bus Stand Complex, Koraput",
-    "latitude": 18.812,
-    "longitude": 82.71600000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_koraput_bbsr",
-        "route_number": "OSRTC-KOR-BBS",
-        "route_name": "Koraput \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Koraput Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_malkangiri",
-    "name": "OSRTC Central Bus Stand Malkangiri",
-    "published_name": "Malkangiri Central Bus Terminal (Malkangiri)",
-    "canonical_stop_id": "osrtc_malkangiri_isbt",
-    "city": "Malkangiri",
-    "district": "Malkangiri",
-    "locality": "Bus Stand Complex, Malkangiri",
-    "latitude": 18.352,
-    "longitude": 81.896,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_malkangiri_bbsr",
-        "route_number": "OSRTC-MAL-BBS",
-        "route_name": "Malkangiri \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Malkangiri Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_mayurbhanj",
-    "name": "OSRTC Central Bus Stand Baripada",
-    "published_name": "Baripada Central Bus Terminal (Mayurbhanj)",
-    "canonical_stop_id": "osrtc_mayurbhanj_isbt",
-    "city": "Baripada",
-    "district": "Mayurbhanj",
-    "locality": "Bus Stand Complex, Baripada",
-    "latitude": 21.929000000000002,
-    "longitude": 86.73,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_mayurbhanj_bbsr",
-        "route_number": "OSRTC-BAR-BBS",
-        "route_name": "Baripada \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Baripada Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_nabarangpur",
-    "name": "OSRTC Central Bus Stand Nabarangpur",
-    "published_name": "Nabarangpur Central Bus Terminal (Nabarangpur)",
-    "canonical_stop_id": "osrtc_nabarangpur_isbt",
-    "city": "Nabarangpur",
-    "district": "Nabarangpur",
-    "locality": "Bus Stand Complex, Nabarangpur",
-    "latitude": 19.23,
-    "longitude": 82.55600000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_nabarangpur_bbsr",
-        "route_number": "OSRTC-NAB-BBS",
-        "route_name": "Nabarangpur \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Nabarangpur Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_nayagarh",
-    "name": "OSRTC Central Bus Stand Nayagarh",
-    "published_name": "Nayagarh Central Bus Terminal (Nayagarh)",
-    "canonical_stop_id": "osrtc_nayagarh_isbt",
-    "city": "Nayagarh",
-    "district": "Nayagarh",
-    "locality": "Bus Stand Complex, Nayagarh",
-    "latitude": 20.126,
-    "longitude": 85.10900000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_nayagarh_bbsr",
-        "route_number": "OSRTC-NAY-BBS",
-        "route_name": "Nayagarh \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Nayagarh Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_nuapada",
-    "name": "OSRTC Central Bus Stand Nuapada",
-    "published_name": "Nuapada Central Bus Terminal (Nuapada)",
-    "canonical_stop_id": "osrtc_nuapada_isbt",
-    "city": "Nuapada",
-    "district": "Nuapada",
-    "locality": "Bus Stand Complex, Nuapada",
-    "latitude": 20.830000000000002,
-    "longitude": 82.53800000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_nuapada_bbsr",
-        "route_number": "OSRTC-NUA-BBS",
-        "route_name": "Nuapada \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Nuapada Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_puri",
-    "name": "OSRTC Central Bus Stand Puri",
-    "published_name": "Puri Central Bus Terminal (Puri)",
-    "canonical_stop_id": "osrtc_puri_isbt",
-    "city": "Puri",
-    "district": "Puri",
-    "locality": "Bus Stand Complex, Puri",
-    "latitude": 19.806,
-    "longitude": 85.827,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_puri_bbsr",
-        "route_number": "OSRTC-PUR-BBS",
-        "route_name": "Puri \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Puri Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_rayagada",
-    "name": "OSRTC Central Bus Stand Rayagada",
-    "published_name": "Rayagada Central Bus Terminal (Rayagada)",
-    "canonical_stop_id": "osrtc_rayagada_isbt",
-    "city": "Rayagada",
-    "district": "Rayagada",
-    "locality": "Bus Stand Complex, Rayagada",
-    "latitude": 19.166,
-    "longitude": 83.41900000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_rayagada_bbsr",
-        "route_number": "OSRTC-RAY-BBS",
-        "route_name": "Rayagada \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Rayagada Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_sambalpur",
-    "name": "OSRTC Central Bus Stand Sambalpur",
-    "published_name": "Sambalpur Central Bus Terminal (Sambalpur)",
-    "canonical_stop_id": "osrtc_sambalpur_isbt",
-    "city": "Sambalpur",
-    "district": "Sambalpur",
-    "locality": "Bus Stand Complex, Sambalpur",
-    "latitude": 21.468,
-    "longitude": 83.979,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_sambalpur_bbsr",
-        "route_number": "OSRTC-SAM-BBS",
-        "route_name": "Sambalpur \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Sambalpur Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_subarnapur",
-    "name": "OSRTC Central Bus Stand Sonepur",
-    "published_name": "Sonepur Central Bus Terminal (Subarnapur)",
-    "canonical_stop_id": "osrtc_subarnapur_isbt",
-    "city": "Sonepur",
-    "district": "Subarnapur",
-    "locality": "Bus Stand Complex, Sonepur",
-    "latitude": 20.84,
-    "longitude": 83.92500000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_subarnapur_bbsr",
-        "route_number": "OSRTC-SON-BBS",
-        "route_name": "Sonepur \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Sonepur Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "osrtc_bus_stand_sundargarh",
-    "name": "OSRTC Central Bus Stand Rourkela",
-    "published_name": "Rourkela Central Bus Terminal (Sundargarh)",
-    "canonical_stop_id": "osrtc_sundargarh_isbt",
-    "city": "Rourkela",
-    "district": "Sundargarh",
-    "locality": "Bus Stand Complex, Rourkela",
-    "latitude": 22.249000000000002,
-    "longitude": 84.85600000000001,
-    "coordinate_status": "official",
-    "agency": "OSRTC (Odisha State Road Transport Corp)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_osrtc_sundargarh_bbsr",
-        "route_number": "OSRTC-ROU-BBS",
-        "route_name": "Rourkela \u21c4 Bhubaneswar Baramunda ISBT",
-        "service_area": "Intercity Express",
-        "origin": "Rourkela Bus Stand",
-        "destination": "Baramunda ISBT Bhubaneswar"
-      }
-    ]
-  },
-  {
-    "stop_id": "crut_stop_baramunda_isbt",
-    "name": "Baramunda Inter State Bus Terminal (ISBT)",
-    "published_name": "Baramunda ISBT",
-    "canonical_stop_id": "crut_baramunda",
-    "city": "Bhubaneswar",
-    "district": "Khordha",
-    "locality": "NH-16, Baramunda",
-    "latitude": 20.279,
-    "longitude": 85.798,
-    "coordinate_status": "official",
-    "agency": "CRUT (Capital Region Urban Transport)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_10",
-        "route_number": "10",
-        "route_name": "Airport \u21c4 Nandankanan",
-        "service_area": "Capital Region"
-      },
-      {
-        "route_id": "rt_20",
-        "route_number": "20",
-        "route_name": "Master Canteen \u21c4 Khurda",
-        "service_area": "Capital Region"
-      }
-    ]
-  },
-  {
-    "stop_id": "crut_stop_jaydev_vihar",
-    "name": "Jaydev Vihar Square Bus Stop",
-    "published_name": "Jaydev Vihar",
-    "canonical_stop_id": "crut_jaydev_vihar",
-    "city": "Bhubaneswar",
-    "district": "Khordha",
-    "locality": "Jaydev Vihar NH-16 Intersection",
-    "latitude": 20.301,
-    "longitude": 85.823,
-    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
     "agency": "CRUT (Capital Region Urban Transport)",
     "stop_type": "bus_stop",
     "routes_serving_stop": [
       {
-        "route_id": "rt_10",
-        "route_number": "10",
-        "route_name": "Airport \u21c4 Nandankanan",
-        "service_area": "Capital Region"
-      },
-      {
-        "route_id": "rt_12",
-        "route_number": "12",
-        "route_name": "Master Canteen \u21c4 Nandankanan",
-        "service_area": "Capital Region"
+        "route_id": "rt_crut_303",
+        "route_number": "303",
+        "route_name": "Duduma Colony Bus Stand \u2013 Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+        "sequence_order": 6,
+        "service_area": null,
+        "origin": null,
+        "destination": null
       }
     ]
   },
   {
-    "stop_id": "crut_stop_nandankanan",
-    "name": "Nandankanan Zoological Park Bus Terminal",
-    "published_name": "Nandankanan Terminal",
-    "canonical_stop_id": "crut_nandankanan",
-    "city": "Bhubaneswar",
-    "district": "Khordha",
-    "locality": "Nandankanan Main Gate",
-    "latitude": 20.398,
-    "longitude": 85.824,
+    "stop_id": "stop_crut_berhampur_berhampur_railway",
+    "name": "Berhampur Railway",
+    "published_name": "BERHAMPUR RAILWAY",
+    "canonical_stop_id": "stop_crut_berhampur_berhampur_railway",
+    "city": "Berhampur",
+    "district": "Ganjam",
+    "locality": "Berhampur",
+    "latitude": 19.317,
+    "longitude": 84.793,
     "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_302",
+        "route_number": "302",
+        "route_name": "Berhampur Railway Station \u2013 Regidi",
+        "sequence_order": 28,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_304",
+        "route_number": "304",
+        "route_name": "Berhampur Railway Station -D.patapur",
+        "sequence_order": 37,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_berhampur_railway_station",
+    "name": "Berhampur Railway Station",
+    "published_name": "BERHAMPUR RAILWAY STATION",
+    "canonical_stop_id": "stop_crut_berhampur_berhampur_railway_station",
+    "city": "Berhampur",
+    "district": "Ganjam",
+    "locality": "Berhampur",
+    "latitude": 19.317,
+    "longitude": 84.793,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
     "agency": "CRUT (Capital Region Urban Transport)",
     "stop_type": "bus_terminal",
     "routes_serving_stop": [
       {
-        "route_id": "rt_10",
-        "route_number": "10",
-        "route_name": "Airport \u21c4 Nandankanan",
-        "service_area": "Capital Region"
+        "route_id": "rt_crut_300",
+        "route_number": "300",
+        "route_name": "NIST college - Duduma Colony Bus stand",
+        "sequence_order": 20,
+        "service_area": null,
+        "origin": null,
+        "destination": null
       },
       {
-        "route_id": "rt_12",
-        "route_number": "12",
-        "route_name": "Master Canteen \u21c4 Nandankanan",
-        "service_area": "Capital Region"
+        "route_id": "rt_crut_301",
+        "route_number": "301",
+        "route_name": "Berhampur Rail Stn. - Parala maharaja college (Via- MKCG Medical, Engineering",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_302",
+        "route_number": "302",
+        "route_name": "Berhampur Railway Station \u2013 Regidi",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_304",
+        "route_number": "304",
+        "route_name": "Berhampur Railway Station -D.patapur",
+        "sequence_order": 58,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_304e",
+        "route_number": "304E",
+        "route_name": "Berhampur Railway Station - Ralaba",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_306",
+        "route_number": "306",
+        "route_name": "Mahatma Gandhi Stadium - Sonapur beach (Via- Railway Station,Haldiapadar New Bus Stand,Kanisi Hata,Sidhha",
+        "sequence_order": 37,
+        "service_area": null,
+        "origin": null,
+        "destination": null
       }
     ]
   },
   {
-    "stop_id": "crut_stop_cnbt_cuttack",
-    "name": "Netaji Central Bus Terminal Cuttack (CNBT)",
-    "published_name": "CNBT Khannagar Cuttack",
-    "canonical_stop_id": "crut_cnbt_cuttack",
-    "city": "Cuttack",
+    "stop_id": "stop_crut_berhampur_brahmapur_railway_station",
+    "name": "Brahmapur Railway Station",
+    "published_name": "BRAHMAPUR RAILWAY STATION",
+    "canonical_stop_id": "stop_crut_berhampur_brahmapur_railway_station",
+    "city": "Berhampur",
+    "district": "Ganjam",
+    "locality": "Berhampur",
+    "latitude": 19.317,
+    "longitude": 84.793,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_302",
+        "route_number": "302",
+        "route_name": "Berhampur Railway Station \u2013 Regidi",
+        "sequence_order": 50,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_chowk_berhampur",
+    "name": "Chowk Berhampur",
+    "published_name": "CHOWK BERHAMPUR",
+    "canonical_stop_id": "stop_crut_berhampur_chowk_berhampur",
+    "city": "Berhampur",
+    "district": "Ganjam",
+    "locality": "Berhampur",
+    "latitude": 19.315,
+    "longitude": 84.802,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_berhampur_college",
+    "name": "College",
+    "published_name": "COLLEGE",
+    "canonical_stop_id": "stop_crut_berhampur_college",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.307477,
+    "longitude": 84.794415,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_berhampur_college_chaka",
+    "name": "College Chaka",
+    "published_name": "COLLEGE CHAKA",
+    "canonical_stop_id": "stop_crut_berhampur_college_chaka",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.307477,
+    "longitude": 84.794415,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_berhampur_gandhi_nagar",
+    "name": "Gandhi Nagar",
+    "published_name": "GANDHI NAGAR",
+    "canonical_stop_id": "stop_crut_berhampur_gandhi_nagar",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.308028,
+    "longitude": 84.788706,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_300",
+        "route_number": "300",
+        "route_name": "NIST college - Duduma Colony Bus stand",
+        "sequence_order": 15,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_303",
+        "route_number": "303",
+        "route_name": "Duduma Colony Bus Stand \u2013 Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+        "sequence_order": 49,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_306",
+        "route_number": "306",
+        "route_name": "Mahatma Gandhi Stadium - Sonapur beach (Via- Railway Station,Haldiapadar New Bus Stand,Kanisi Hata,Sidhha",
+        "sequence_order": 32,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_ganesh_nagar",
+    "name": "Ganesh Nagar",
+    "published_name": "GANESH NAGAR",
+    "canonical_stop_id": "stop_crut_berhampur_ganesh_nagar",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.305118,
+    "longitude": 84.780953,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_300",
+        "route_number": "300",
+        "route_name": "NIST college - Duduma Colony Bus stand",
+        "sequence_order": 6,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_302",
+        "route_number": "302",
+        "route_name": "Berhampur Railway Station \u2013 Regidi",
+        "sequence_order": 13,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_303",
+        "route_number": "303",
+        "route_name": "Duduma Colony Bus Stand \u2013 Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+        "sequence_order": 40,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_304",
+        "route_number": "304",
+        "route_name": "Berhampur Railway Station -D.patapur",
+        "sequence_order": 22,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_kamapalli",
+    "name": "Kamapalli",
+    "published_name": "KAMAPALLI",
+    "canonical_stop_id": "stop_crut_berhampur_kamapalli",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.307031,
+    "longitude": 84.805822,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_301",
+        "route_number": "301",
+        "route_name": "Berhampur Rail Stn. - Parala maharaja college (Via- MKCG Medical, Engineering",
+        "sequence_order": 5,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_302",
+        "route_number": "302",
+        "route_name": "Berhampur Railway Station \u2013 Regidi",
+        "sequence_order": 19,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_303",
+        "route_number": "303",
+        "route_name": "Duduma Colony Bus Stand \u2013 Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+        "sequence_order": 54,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_304",
+        "route_number": "304",
+        "route_name": "Berhampur Railway Station -D.patapur",
+        "sequence_order": 24,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_khallikote_college",
+    "name": "Khallikote College",
+    "published_name": "KHALLIKOTE COLLEGE",
+    "canonical_stop_id": "stop_crut_berhampur_khallikote_college",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.307477,
+    "longitude": 84.794415,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_300",
+        "route_number": "300",
+        "route_name": "NIST college - Duduma Colony Bus stand",
+        "sequence_order": 17,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_303",
+        "route_number": "303",
+        "route_name": "Duduma Colony Bus Stand \u2013 Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+        "sequence_order": 51,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_306",
+        "route_number": "306",
+        "route_name": "Mahatma Gandhi Stadium - Sonapur beach (Via- Railway Station,Haldiapadar New Bus Stand,Kanisi Hata,Sidhha",
+        "sequence_order": 34,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_mkcg_medical",
+    "name": "Mkcg Medical",
+    "published_name": "MKCG MEDICAL",
+    "canonical_stop_id": "stop_crut_berhampur_mkcg_medical",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.3083,
+    "longitude": 84.8083,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_berhampur_mkcg_medical_college",
+    "name": "Mkcg Medical College",
+    "published_name": "MKCG MEDICAL COLLEGE",
+    "canonical_stop_id": "stop_crut_berhampur_mkcg_medical_college",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.3083,
+    "longitude": 84.8083,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_berhampur_mkcg_medical_college_square",
+    "name": "Mkcg Medical College Square",
+    "published_name": "MKCG MEDICAL COLLEGE SQUARE",
+    "canonical_stop_id": "stop_crut_berhampur_mkcg_medical_college_square",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.3083,
+    "longitude": 84.8083,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_301",
+        "route_number": "301",
+        "route_name": "Berhampur Rail Stn. - Parala maharaja college (Via- MKCG Medical, Engineering",
+        "sequence_order": 8,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_303",
+        "route_number": "303",
+        "route_name": "Duduma Colony Bus Stand \u2013 Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_new_bus_stand",
+    "name": "New Bus Stand",
+    "published_name": "NEW BUS STAND",
+    "canonical_stop_id": "stop_crut_berhampur_new_bus_stand",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 19.312894,
+    "longitude": 84.802658,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_121",
+        "route_number": "121",
+        "route_name": "DAV POND \u2013 Radio Station (Kantajhor) (via Basanti Colony, New Bus Stand, NIT)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_300",
+        "route_number": "300",
+        "route_name": "NIST college - Duduma Colony Bus stand",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_303",
+        "route_number": "303",
+        "route_name": "Duduma Colony Bus Stand \u2013 Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+        "sequence_order": 36,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_berhampur_railway_station_pf_4",
+    "name": "Railway Station P.f-4",
+    "published_name": "RAILWAY STATION P.F-4",
+    "canonical_stop_id": "stop_crut_berhampur_railway_station_pf_4",
+    "city": "Berhampur",
+    "district": "Ganjam",
+    "locality": "Berhampur",
+    "latitude": 19.317,
+    "longitude": 84.793,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_berhampur_temple",
+    "name": "Temple",
+    "published_name": "TEMPLE",
+    "canonical_stop_id": "stop_crut_berhampur_temple",
+    "city": "Berhampur",
+    "district": "Berhampur",
+    "locality": "Berhampur",
+    "latitude": 21.539347,
+    "longitude": 86.656633,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_300",
+        "route_number": "300",
+        "route_name": "NIST college - Duduma Colony Bus stand",
+        "sequence_order": 22,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_302",
+        "route_number": "302",
+        "route_name": "Berhampur Railway Station \u2013 Regidi",
+        "sequence_order": 43,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_304",
+        "route_number": "304",
+        "route_name": "Berhampur Railway Station -D.patapur",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_306",
+        "route_number": "306",
+        "route_name": "Mahatma Gandhi Stadium - Sonapur beach (Via- Railway Station,Haldiapadar New Bus Stand,Kanisi Hata,Sidhha",
+        "sequence_order": 39,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_aiims",
+    "name": "AIIMS",
+    "published_name": "AIIMS",
+    "canonical_stop_id": "stop_crut_bhubaneswar_aiims",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.236178,
+    "longitude": 85.778299,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_19",
+        "route_number": "19",
+        "route_name": "AIIMS - OMP Square-Mahanadi Vihar (via NH)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_27",
+        "route_number": "27",
+        "route_name": "Bhubaneswar Railway Station \u2013 Bhagwanpur (via AIIMS)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_39",
+        "route_number": "39",
+        "route_name": "Bhubaneswar Railway Station - AIIMS (via Capital Hospital, Bhimtangi)",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_40",
+        "route_number": "40",
+        "route_name": "AIIMS - Sai Mandir (Kesora) (via Capital Hospital, Badagada Brit Colony)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_airport",
+    "name": "Airport",
+    "published_name": "AIRPORT",
+    "canonical_stop_id": "stop_crut_bhubaneswar_airport",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.252295,
+    "longitude": 85.813485,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_101",
+        "route_number": "101",
+        "route_name": "Rourkela New Bus Stand - Laukera (via Udit Nagar, Hanuman Vatika Chowk, Chhend, Airport)",
+        "sequence_order": 5,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_82",
+        "route_number": "82",
+        "route_name": "AIRPORT - MASTER CANTEEN - SCB Medical (Settlement Office) (via NH)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_badambadi",
+    "name": "Badambadi",
+    "published_name": "Badambadi",
+    "canonical_stop_id": "stop_crut_bhubaneswar_badambadi",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.4556,
+    "longitude": 85.8778,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_54",
+        "route_number": "54",
+        "route_name": "NLU, Cuttack - Puri Bus Stand (via Badambadi, Puri Bypass)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_58",
+        "route_number": "58",
+        "route_name": "Jagatpur,Cuttack \u2013 Puri Bus Stand (via Badambadi,Link Road)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_59",
+        "route_number": "59",
+        "route_name": "Mahanadi Vihar,Cuttack \u2013 Puri Bus Stand (via Badambadi,Link Road)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_80",
+        "route_number": "80",
+        "route_name": "Naraj Police Outpost \u2013 Agrahat, Charbatia (via NLU, Badambadi, SCB Medical)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_80e",
+        "route_number": "80E",
+        "route_name": "Naraj Police Outpost \u2013 Mangarajpur (via NLU, Badambadi, SCB Medical)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_balakati",
+    "name": "Balakati",
+    "published_name": "Balakati",
+    "canonical_stop_id": "stop_crut_bhubaneswar_balakati",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.203366,
+    "longitude": 85.86856,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_34",
+        "route_number": "34",
+        "route_name": "Bhubaneswar Railway Station \u2013 Balakati (Sai Hospital)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_34e",
+        "route_number": "34E",
+        "route_name": "Bhubaneswar Railway Station - Trahi Achyut(Via-Balakati)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_bapuji_nagar",
+    "name": "Bapuji Nagar",
+    "published_name": "BAPUJI NAGAR",
+    "canonical_stop_id": "stop_crut_bhubaneswar_bapuji_nagar",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.2642,
+    "longitude": 85.8361,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_baramunda",
+    "name": "Baramunda",
+    "published_name": "BARAMUNDA",
+    "canonical_stop_id": "stop_crut_bhubaneswar_baramunda",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.273141,
+    "longitude": 85.79227,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_baramunda_bsabt",
+    "name": "Baramunda Bsabt",
+    "published_name": "Baramunda BSABT",
+    "canonical_stop_id": "stop_crut_bhubaneswar_baramunda_bsabt",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.273141,
+    "longitude": 85.79227,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_18",
+        "route_number": "18",
+        "route_name": "Baramunda BSABT \u2013 Jagatpur (via Nandankanan)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_32",
+        "route_number": "32",
+        "route_name": "Baramunda BSABT \u2013 Lingaraj Temple (Via Bhubaneswar Railway Station)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_37",
+        "route_number": "37",
+        "route_name": "Baramunda BSABT \u2013 Naraj Railway Station (via Trisulia Square, OMFED Dairy)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_41",
+        "route_number": "41",
+        "route_name": "Baramunda BSABT \u2013 Tangi (via NH)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_42",
+        "route_number": "42",
+        "route_name": "Baramunda BSABT \u2013 Nandankanan (via Chandaka)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_43",
+        "route_number": "43",
+        "route_name": "Baramunda BSABT \u2013 Banamalipur (via Rasulgarh ,Kalapana Sqr)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_43e",
+        "route_number": "43E",
+        "route_name": "Baramunda BSABT \u2013 Abhyamukhi (via Rasulgarh ,Kalapana Sqr,Banamalipur)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_44",
+        "route_number": "44",
+        "route_name": "Baramunda BSABT - SVNIRTAR,Olatpur (via Master Canteen, ,Kalapana",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_51",
+        "route_number": "51",
+        "route_name": "Baramunda BSABT - Puri Bus Stand (via Vani Vihar,Rasulgarh Square)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_91",
+        "route_number": "91",
+        "route_name": "Baramunda BSABT \u2013 Biju Patnaik Park, Cuttack (Via NH)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_baramunda_isbt",
+    "name": "Baramunda ISBT",
+    "published_name": "Baramunda ISBT",
+    "canonical_stop_id": "stop_crut_bhubaneswar_baramunda_isbt",
+    "city": "Bhubaneswar",
+    "district": "Khordha",
+    "locality": "Bhubaneswar",
+    "latitude": 20.273141,
+    "longitude": 85.79227,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_71",
+        "route_number": "71",
+        "route_name": "Baramunda ISBT \u2013 Konark (via Rasulgarh Square)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_bhubaneswar_airport",
+    "name": "Bhubaneswar Airport",
+    "published_name": "Bhubaneswar Airport",
+    "canonical_stop_id": "stop_crut_bhubaneswar_bhubaneswar_airport",
+    "city": "Bhubaneswar",
+    "district": "Khordha",
+    "locality": "Bhubaneswar",
+    "latitude": 20.252,
+    "longitude": 85.8178,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_10",
+        "route_number": "10",
+        "route_name": "Bhubaneswar Airport \u2013 Maulana Azad National Urdu University,",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_bhubaneswar_railway_station",
+    "name": "Bhubaneswar Railway Station",
+    "published_name": "Bhubaneswar Railway Station",
+    "canonical_stop_id": "stop_crut_bhubaneswar_bhubaneswar_railway_station",
+    "city": "Bhubaneswar",
+    "district": "Khordha",
+    "locality": "Bhubaneswar",
+    "latitude": 20.2662,
+    "longitude": 85.8436,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_09",
+        "route_number": "09",
+        "route_name": "Bhubaneswar Railway Station - Patia (via Niladri Vihar)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_11",
+        "route_number": "11",
+        "route_name": "Trishulia Bus Stand \u2013 Bhubaneswar Railway Station(via Nandankana, Acharya",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_12",
+        "route_number": "12",
+        "route_name": "Nandankanan - Bhubaneswar Railway Station (via Jaydev Vihar)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_14",
+        "route_number": "14",
+        "route_name": "Kalinga Vihar \u2013 Bhubaneswar Railway Station (Via Sum Ultimate,BSABT,OUAT,AG)",
+        "sequence_order": 6,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_16",
+        "route_number": "16",
+        "route_name": "Bhubaneswar Railway Station \u2013 Sri Sri University, Kataka (via NH)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_20",
+        "route_number": "20",
+        "route_name": "Bhubaneswar Railway Station \u2013 Khordha New Bus Stand (via Vani Vihar)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_21",
+        "route_number": "21",
+        "route_name": "Bhubaneswar Railway Station - Khordha New Bus Stand (via OUAT)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_22a",
+        "route_number": "22A",
+        "route_name": "Bhubaneswar Railway Station - Khordha Road Station",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_23",
+        "route_number": "23",
+        "route_name": "Bhubaneswar Railway Station \u2013 Sum Hospital-IGKC",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_27",
+        "route_number": "27",
+        "route_name": "Bhubaneswar Railway Station \u2013 Bhagwanpur (via AIIMS)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_30",
+        "route_number": "30",
+        "route_name": "Bhubaneswar Railway Station \u2013 Chhatabar -Mahatma Gandhi Academy of",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_31",
+        "route_number": "31",
+        "route_name": "Bhubaneswar Railway Station \u2013 Hi-Tech Hospital (via Toshali Bhawan,",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_32",
+        "route_number": "32",
+        "route_name": "Baramunda BSABT \u2013 Lingaraj Temple (Via Bhubaneswar Railway Station)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_33",
+        "route_number": "33",
+        "route_name": "Bhubaneswar Railway Station \u2013 Pipili",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_34",
+        "route_number": "34",
+        "route_name": "Bhubaneswar Railway Station \u2013 Balakati (Sai Hospital)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_34e",
+        "route_number": "34E",
+        "route_name": "Bhubaneswar Railway Station - Trahi Achyut(Via-Balakati)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_36",
+        "route_number": "36",
+        "route_name": "Bhubaneswar Railway Station \u2013 Mundali (via Judicial Academy)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_38",
+        "route_number": "38",
+        "route_name": "Bhubaneswar Railway Station \u2013 Trimal (via Khordha Bypass, IIT)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_39",
+        "route_number": "39",
+        "route_name": "Bhubaneswar Railway Station - AIIMS (via Capital Hospital, Bhimtangi)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_45",
+        "route_number": "45",
+        "route_name": "Bhubaneswar Railway Station - Jayadev Pitha (via Brahman Sarangi,Khamanga)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_46",
+        "route_number": "46",
+        "route_name": "Bhubaneswar Railway Station - Nandankanan (via Kalayanpur,Gandarpur)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_49",
+        "route_number": "49",
+        "route_name": "Bhubaneswar Railway Station \u2013 Delanga Hata (via Pipili)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_50",
+        "route_number": "50",
+        "route_name": "Bhubaneswar Railway Station - Puri Bus Stand",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_62",
+        "route_number": "62",
+        "route_name": "Bhubaneswar Railway Station \u2013 Suando (via-Kalpana Square, Pipili Bypass,",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_64",
+        "route_number": "64",
+        "route_name": "Bhubaneswar Railway Station \u2013 Jatani Gate (via-Vani vihar, Gohiria square,",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_65",
+        "route_number": "65",
+        "route_name": "Bhubaneswar Railway Station \u2013 Wonderla Amusement Park (Via - Vani Vihar)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_66",
+        "route_number": "66",
+        "route_name": "Bhubaneswar Railway Station - Pathargadia Square (Via- Kiss College, Kelucharan",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_70",
+        "route_number": "70",
+        "route_name": "Bhubaneswar Railway Station - Konark",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_93",
+        "route_number": "93",
+        "route_name": "Bhubaneswar Railway Station \u2013 Biju Patnaik Park, CDA (Via Fire",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_dd1",
+        "route_number": "DD1",
+        "route_name": "Bhubaneswar Railway Station \u2013 Shree Mandira Parking, Puri (Via",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_bhubaneswar_railway_station_2",
+    "name": "Bhubaneswar Railway Station.",
+    "published_name": "Bhubaneswar Rly. Stn.",
+    "canonical_stop_id": "stop_crut_bhubaneswar_bhubaneswar_railway_station_2",
+    "city": "Bhubaneswar",
+    "district": "Khordha",
+    "locality": "Bhubaneswar",
+    "latitude": 20.2662,
+    "longitude": 85.8436,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_35",
+        "route_number": "35",
+        "route_name": "Bhubaneswar Rly. Stn. - Udaynath College, Adaspur (Via Jayadev Pitha)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_biju_patnaik_international_airport",
+    "name": "Biju Patnaik International Airport",
+    "published_name": "BIJU PATNAIK INTERNATIONAL AIRPORT",
+    "canonical_stop_id": "stop_crut_bhubaneswar_biju_patnaik_international_airport",
+    "city": "Bhubaneswar",
+    "district": "Khordha",
+    "locality": "Bhubaneswar",
+    "latitude": 20.252,
+    "longitude": 85.8178,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_bsabt",
+    "name": "Bsabt",
+    "published_name": "BSABT",
+    "canonical_stop_id": "stop_crut_bhubaneswar_bsabt",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.273141,
+    "longitude": 85.79227,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_14",
+        "route_number": "14",
+        "route_name": "Kalinga Vihar \u2013 Bhubaneswar Railway Station (Via Sum Ultimate,BSABT,OUAT,AG)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_63",
+        "route_number": "63",
+        "route_name": "BSABT -Madhabananda Temple, Niali (Via-Vani Vihar, Master Canteen,",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_buddha_park",
+    "name": "Buddha Park",
+    "published_name": "BUDDHA PARK",
+    "canonical_stop_id": "stop_crut_bhubaneswar_buddha_park",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.3241,
+    "longitude": 85.8082,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_capital_hospital",
+    "name": "Capital Hospital",
+    "published_name": "Capital Hospital",
+    "canonical_stop_id": "stop_crut_bhubaneswar_capital_hospital",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.2611,
+    "longitude": 85.8278,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_39",
+        "route_number": "39",
+        "route_name": "Bhubaneswar Railway Station - AIIMS (via Capital Hospital, Bhimtangi)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_40",
+        "route_number": "40",
+        "route_name": "AIIMS - Sai Mandir (Kesora) (via Capital Hospital, Badagada Brit Colony)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_cuttack_netaji_bus_terminal",
+    "name": "Cuttack Netaji Bus Terminal",
+    "published_name": "Cuttack Netaji Bus Terminal",
+    "canonical_stop_id": "stop_crut_bhubaneswar_cuttack_netaji_bus_terminal",
+    "city": "Bhubaneswar",
     "district": "Cuttack",
-    "locality": "Khannagar Ring Road, Cuttack",
+    "locality": "Bhubaneswar",
     "latitude": 20.452,
     "longitude": 85.875,
     "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
     "agency": "CRUT (Capital Region Urban Transport)",
     "stop_type": "bus_terminal",
     "routes_serving_stop": [
       {
-        "route_id": "rt_11",
-        "route_number": "11",
-        "route_name": "CNBT Cuttack \u21c4 BBI Airport",
-        "service_area": "Capital Region"
+        "route_id": "rt_crut_85",
+        "route_number": "85",
+        "route_name": "Cuttack Netaji Bus Terminal - Gadama (via OMP, Kandarpur)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
       }
     ]
   },
   {
-    "stop_id": "crut_stop_shree_mandira_puri",
-    "name": "Puri Shree Mandira Parikrama Bus Stop",
-    "published_name": "Shree Mandira South Gate Parking",
-    "canonical_stop_id": "crut_shree_mandira_puri",
-    "city": "Puri",
-    "district": "Puri",
-    "locality": "Grand Road, South Gate, Puri",
-    "latitude": 19.8045,
-    "longitude": 85.818,
+    "stop_id": "stop_crut_bhubaneswar_cuttack_netaji_bus_terminus_cnbt",
+    "name": "Cuttack Netaji Bus Terminus (cnbt)",
+    "published_name": "Cuttack Netaji Bus Terminus (CNBT)",
+    "canonical_stop_id": "stop_crut_bhubaneswar_cuttack_netaji_bus_terminus_cnbt",
+    "city": "Bhubaneswar",
+    "district": "Cuttack",
+    "locality": "Bhubaneswar",
+    "latitude": 20.452,
+    "longitude": 85.875,
     "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_cuttack_netaji_bus_terminus_cnbt_2",
+    "name": "Cuttack Netaji Bus Terminus Cnbt",
+    "published_name": "Cuttack Netaji Bus Terminus (CNBT)",
+    "canonical_stop_id": "stop_crut_bhubaneswar_cuttack_netaji_bus_terminus_cnbt_2",
+    "city": "Bhubaneswar",
+    "district": "Cuttack",
+    "locality": "Bhubaneswar",
+    "latitude": 20.452,
+    "longitude": 85.875,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
     "agency": "CRUT (Capital Region Urban Transport)",
     "stop_type": "bus_stop",
     "routes_serving_stop": [
       {
-        "route_id": "rt_70",
-        "route_number": "70",
-        "route_name": "Master Canteen \u21c4 Puri Shree Mandira",
-        "service_area": "Puri Corridor"
+        "route_id": "rt_crut_15",
+        "route_number": "15",
+        "route_name": "Cuttack Netaji Bus Terminus (CNBT) \u2013 Utkal Hospital (Via Judicial Square,",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_15e",
+        "route_number": "15E",
+        "route_name": "Cuttack Netaji Bus Terminus (CNBT) \u2013 Salia Sahi (Via Judicial Square,",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_dhabaleswar",
+    "name": "Dhabaleswar",
+    "published_name": "Dhabaleswar",
+    "canonical_stop_id": "stop_crut_bhubaneswar_dhabaleswar",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.192324,
+    "longitude": 85.840249,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_303e",
+        "route_number": "303E",
+        "route_name": "Duduma Colony Bus stand \u2013 Dhabaleswar (Via- Railway station P.F-4, Lanjipali Village, Ankuli ,ARMY",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_83",
+        "route_number": "83",
+        "route_name": "Dhabaleswar - Kandarpur (via 42 Mouza)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_dumduma",
+    "name": "Dumduma",
+    "published_name": "Dumduma",
+    "canonical_stop_id": "stop_crut_bhubaneswar_dumduma",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.239603,
+    "longitude": 85.788816,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_25",
+        "route_number": "25",
+        "route_name": "Dumduma \u2013 Gadakana (Via \u2013 Mastercanteen, Mancheswar)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_dumduma_jadupur",
+    "name": "Dumduma (jadupur)",
+    "published_name": "Dumduma (Jadupur)",
+    "canonical_stop_id": "stop_crut_bhubaneswar_dumduma_jadupur",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.239603,
+    "longitude": 85.788816,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_dumduma_jadupur_2",
+    "name": "Dumduma Jadupur",
+    "published_name": "Dumduma (Jadupur)",
+    "canonical_stop_id": "stop_crut_bhubaneswar_dumduma_jadupur_2",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.239603,
+    "longitude": 85.788816,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_26",
+        "route_number": "26",
+        "route_name": "Dumduma (Jadupur) \u2013 Rokat, Rajdhani Engineering College (Via Chaikeisiani)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_hi_tech_hospital",
+    "name": "Hi-tech Hospital",
+    "published_name": "Hi-Tech Hospital",
+    "canonical_stop_id": "stop_crut_bhubaneswar_hi_tech_hospital",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.303907,
+    "longitude": 85.87846,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_31",
+        "route_number": "31",
+        "route_name": "Bhubaneswar Railway Station \u2013 Hi-Tech Hospital (via Toshali Bhawan,",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_igkc",
+    "name": "Igkc",
+    "published_name": "IGKC",
+    "canonical_stop_id": "stop_crut_bhubaneswar_igkc",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.274059,
+    "longitude": 85.764331,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_92",
+        "route_number": "92",
+        "route_name": "IGKC \u2013 Sai Temple (Via Khandagiri, Lingraj Station, Bhim Tangi,",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_igkc_hospital",
+    "name": "Igkc Hospital",
+    "published_name": "IGKC HOSPITAL",
+    "canonical_stop_id": "stop_crut_bhubaneswar_igkc_hospital",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.274059,
+    "longitude": 85.764331,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_igkc_multispecialty_hospital",
+    "name": "Igkc Multispecialty Hospital",
+    "published_name": "IGKC Multispecialty Hospital",
+    "canonical_stop_id": "stop_crut_bhubaneswar_igkc_multispecialty_hospital",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.274059,
+    "longitude": 85.764331,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_08",
+        "route_number": "08",
+        "route_name": "IGKC Multispecialty Hospital \u2013 Sum Hospital (Campus -2) (via Sum Hospital",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_jagannath_temple",
+    "name": "Jagannath Temple",
+    "published_name": "JAGANNATH TEMPLE",
+    "canonical_stop_id": "stop_crut_bhubaneswar_jagannath_temple",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 19.804722,
+    "longitude": 85.817778,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_jatani",
+    "name": "Jatani",
+    "published_name": "Jatani",
+    "canonical_stop_id": "stop_crut_bhubaneswar_jatani",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.222787,
+    "longitude": 85.81107,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_22b",
+        "route_number": "22B",
+        "route_name": "Jatani Gate- Khordha New Bus Stand (via Jatani)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_56",
+        "route_number": "56",
+        "route_name": "Khordha New Bus Stand \u2013 Puri Bus Stand (via Jatani,Pipili)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_56e",
+        "route_number": "56E",
+        "route_name": "Puri Bus Stand - Khordha Road Station (via Jatani,Pipili)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_jatani_gate",
+    "name": "Jatani Gate",
+    "published_name": "Jatani Gate",
+    "canonical_stop_id": "stop_crut_bhubaneswar_jatani_gate",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.222787,
+    "longitude": 85.81107,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_22b",
+        "route_number": "22B",
+        "route_name": "Jatani Gate- Khordha New Bus Stand (via Jatani)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_64",
+        "route_number": "64",
+        "route_name": "Bhubaneswar Railway Station \u2013 Jatani Gate (via-Vani vihar, Gohiria square,",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_jaydev_vihar",
+    "name": "Jaydev Vihar",
+    "published_name": "Jaydev Vihar",
+    "canonical_stop_id": "stop_crut_bhubaneswar_jaydev_vihar",
+    "city": "Bhubaneswar",
+    "district": "Khordha",
+    "locality": "Bhubaneswar",
+    "latitude": 20.301,
+    "longitude": 85.823,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_12",
+        "route_number": "12",
+        "route_name": "Nandankanan - Bhubaneswar Railway Station (via Jaydev Vihar)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_jaydev_vihar_square",
+    "name": "Jaydev Vihar Square",
+    "published_name": "JAYDEV VIHAR SQUARE",
+    "canonical_stop_id": "stop_crut_bhubaneswar_jaydev_vihar_square",
+    "city": "Bhubaneswar",
+    "district": "Khordha",
+    "locality": "Bhubaneswar",
+    "latitude": 20.301,
+    "longitude": 85.823,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_kala_bhoomi",
+    "name": "Kala Bhoomi",
+    "published_name": "KALA BHOOMI",
+    "canonical_stop_id": "stop_crut_bhubaneswar_kala_bhoomi",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.221667,
+    "longitude": 85.788611,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_kalinga_nagar",
+    "name": "Kalinga Nagar",
+    "published_name": "Kalinga Nagar",
+    "canonical_stop_id": "stop_crut_bhubaneswar_kalinga_nagar",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.268043,
+    "longitude": 85.762309,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_28",
+        "route_number": "28",
+        "route_name": "Master Canteen - Kalinga Nagar (Trident)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_kalinga_stadium_gate_2",
+    "name": "Kalinga Stadium Gate-2",
+    "published_name": "KALINGA STADIUM GATE-2",
+    "canonical_stop_id": "stop_crut_bhubaneswar_kalinga_stadium_gate_2",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.290917,
+    "longitude": 85.825,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_kalinga_stadium_gate_8",
+    "name": "Kalinga Stadium Gate-8",
+    "published_name": "KALINGA STADIUM GATE-8",
+    "canonical_stop_id": "stop_crut_bhubaneswar_kalinga_stadium_gate_8",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.290917,
+    "longitude": 85.825,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_kalinga_vihar",
+    "name": "Kalinga Vihar",
+    "published_name": "Kalinga Vihar",
+    "canonical_stop_id": "stop_crut_bhubaneswar_kalinga_vihar",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.261627,
+    "longitude": 85.760884,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_14",
+        "route_number": "14",
+        "route_name": "Kalinga Vihar \u2013 Bhubaneswar Railway Station (Via Sum Ultimate,BSABT,OUAT,AG)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_24",
+        "route_number": "24",
+        "route_name": "Kalinga Vihar- Sai Temple",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_24e",
+        "route_number": "24E",
+        "route_name": "Kalinga Vihar- Bainchua (via-Sai Temple)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_lingaraj_station",
+    "name": "Lingaraj Station",
+    "published_name": "LINGARAJ STATION",
+    "canonical_stop_id": "stop_crut_bhubaneswar_lingaraj_station",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.238333,
+    "longitude": 85.833611,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_lingaraj_temple",
+    "name": "Lingaraj Temple",
+    "published_name": "Lingaraj Temple",
+    "canonical_stop_id": "stop_crut_bhubaneswar_lingaraj_temple",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.238333,
+    "longitude": 85.833611,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_32",
+        "route_number": "32",
+        "route_name": "Baramunda BSABT \u2013 Lingaraj Temple (Via Bhubaneswar Railway Station)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_lingipur",
+    "name": "Lingipur",
+    "published_name": "Lingipur",
+    "canonical_stop_id": "stop_crut_bhubaneswar_lingipur",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.213789,
+    "longitude": 85.853611,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_13",
+        "route_number": "13",
+        "route_name": "Nandankanan Botanical Garden \u2013Lingipur (via AG Square)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_malatipatpur_bus_stand",
+    "name": "Malatipatpur Bus Stand",
+    "published_name": "Malatipatpur Bus Stand",
+    "canonical_stop_id": "stop_crut_bhubaneswar_malatipatpur_bus_stand",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 19.866147,
+    "longitude": 85.829336,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_53",
+        "route_number": "53",
+        "route_name": "Malatipatpur Bus Stand \u2013 Shree Mandira (via Puri Bus Stand)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_master_canteen",
+    "name": "Master Canteen",
+    "published_name": "Master Canteen",
+    "canonical_stop_id": "stop_crut_bhubaneswar_master_canteen",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.268122,
+    "longitude": 85.843785,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_28",
+        "route_number": "28",
+        "route_name": "Master Canteen - Kalinga Nagar (Trident)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_mastercanteen",
+    "name": "Mastercanteen",
+    "published_name": "Mastercanteen",
+    "canonical_stop_id": "stop_crut_bhubaneswar_mastercanteen",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.268122,
+    "longitude": 85.843785,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_25",
+        "route_number": "25",
+        "route_name": "Dumduma \u2013 Gadakana (Via \u2013 Mastercanteen, Mancheswar)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_nandankanan",
+    "name": "Nandankanan",
+    "published_name": "Nandankanan",
+    "canonical_stop_id": "stop_crut_bhubaneswar_nandankanan",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.347814,
+    "longitude": 85.824766,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_12",
+        "route_number": "12",
+        "route_name": "Nandankanan - Bhubaneswar Railway Station (via Jaydev Vihar)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_18",
+        "route_number": "18",
+        "route_name": "Baramunda BSABT \u2013 Jagatpur (via Nandankanan)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_42",
+        "route_number": "42",
+        "route_name": "Baramunda BSABT \u2013 Nandankanan (via Chandaka)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_46",
+        "route_number": "46",
+        "route_name": "Bhubaneswar Railway Station - Nandankanan (via Kalayanpur,Gandarpur)",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_nh",
+    "name": "NH",
+    "published_name": "NH",
+    "canonical_stop_id": "stop_crut_bhubaneswar_nh",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.258226,
+    "longitude": 85.777753,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_105",
+        "route_number": "105",
+        "route_name": "Rourkela New Bus Stand - Rajgangpur (via NH)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_106",
+        "route_number": "106",
+        "route_name": "Rourkela New Bus Stand - Birmitrapur (via Ring Road, NH)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_109",
+        "route_number": "109",
+        "route_name": "Rourkela New Bus Stand \u2013 Lathikata (via NH)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_113",
+        "route_number": "113",
+        "route_name": "Rourkela New Bus Stand \u2013 Ushra (via NH)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_16",
+        "route_number": "16",
+        "route_name": "Bhubaneswar Railway Station \u2013 Sri Sri University, Kataka (via NH)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_17",
+        "route_number": "17",
+        "route_name": "Biju Patnaik International Airport, BBSR- Barabati Stadium, Cuttack (via NH)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_19",
+        "route_number": "19",
+        "route_name": "AIIMS - OMP Square-Mahanadi Vihar (via NH)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_41",
+        "route_number": "41",
+        "route_name": "Baramunda BSABT \u2013 Tangi (via NH)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_82",
+        "route_number": "82",
+        "route_name": "AIRPORT - MASTER CANTEEN - SCB Medical (Settlement Office) (via NH)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_90",
+        "route_number": "90",
+        "route_name": "Khordha New Bus Stand \u2013 Jagatpur, Cuttack (Via NH)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_91",
+        "route_number": "91",
+        "route_name": "Baramunda BSABT \u2013 Biju Patnaik Park, Cuttack (Via NH)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_pipili",
+    "name": "Pipili",
+    "published_name": "Pipili",
+    "canonical_stop_id": "stop_crut_bhubaneswar_pipili",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.137175,
+    "longitude": 85.839165,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_33",
+        "route_number": "33",
+        "route_name": "Bhubaneswar Railway Station \u2013 Pipili",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_49",
+        "route_number": "49",
+        "route_name": "Bhubaneswar Railway Station \u2013 Delanga Hata (via Pipili)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_56",
+        "route_number": "56",
+        "route_name": "Khordha New Bus Stand \u2013 Puri Bus Stand (via Jatani,Pipili)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_56e",
+        "route_number": "56E",
+        "route_name": "Puri Bus Stand - Khordha Road Station (via Jatani,Pipili)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_puri_bus_stand",
+    "name": "Puri Bus Stand",
+    "published_name": "Puri Bus Stand",
+    "canonical_stop_id": "stop_crut_bhubaneswar_puri_bus_stand",
+    "city": "Bhubaneswar",
+    "district": "Puri",
+    "locality": "Bhubaneswar",
+    "latitude": 19.813,
+    "longitude": 85.839,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_50",
+        "route_number": "50",
+        "route_name": "Bhubaneswar Railway Station - Puri Bus Stand",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_51",
+        "route_number": "51",
+        "route_name": "Baramunda BSABT - Puri Bus Stand (via Vani Vihar,Rasulgarh Square)",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_52",
+        "route_number": "52",
+        "route_name": "Puri Bus Stand \u2013 Mangalahata (Via Puri Railway Station,Beach",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_53",
+        "route_number": "53",
+        "route_name": "Malatipatpur Bus Stand \u2013 Shree Mandira (via Puri Bus Stand)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_54",
+        "route_number": "54",
+        "route_name": "NLU, Cuttack - Puri Bus Stand (via Badambadi, Puri Bypass)",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_56",
+        "route_number": "56",
+        "route_name": "Khordha New Bus Stand \u2013 Puri Bus Stand (via Jatani,Pipili)",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_56e",
+        "route_number": "56E",
+        "route_name": "Puri Bus Stand - Khordha Road Station (via Jatani,Pipili)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_57",
+        "route_number": "57",
+        "route_name": "Puri Bus Stand - Astaranga",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_58",
+        "route_number": "58",
+        "route_name": "Jagatpur,Cuttack \u2013 Puri Bus Stand (via Badambadi,Link Road)",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_59",
+        "route_number": "59",
+        "route_name": "Mahanadi Vihar,Cuttack \u2013 Puri Bus Stand (via Badambadi,Link Road)",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_61",
+        "route_number": "61",
+        "route_name": "Puri Bus Stand \u2013 Satapada Bus Stand",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_73",
+        "route_number": "73",
+        "route_name": "Puri Bus Stand \u2013 Talabania",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_74",
+        "route_number": "74",
+        "route_name": "Puri Railway Station \u2013 Shree Mandira (Via \u2013 Puri Bus Stand)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_75",
+        "route_number": "75",
+        "route_name": "Shree Mandira \u2013 Kakatpur (Via Puri Bus Stand, Balighai, Marine Drive, Konark)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_76",
+        "route_number": "76",
+        "route_name": "Puri Bus Stand \u2013 Sakhigopal Temple",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_77",
+        "route_number": "77",
+        "route_name": "Puri Bus Stand \u2013 Nimapada Bus Stand",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_78",
+        "route_number": "78",
+        "route_name": "Puri Bus Stand\u2013 Alarnath (Brahamgiri New Bus Stand)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_puri_railway_station",
+    "name": "Puri Railway Station",
+    "published_name": "Puri Railway Station",
+    "canonical_stop_id": "stop_crut_bhubaneswar_puri_railway_station",
+    "city": "Bhubaneswar",
+    "district": "Puri",
+    "locality": "Bhubaneswar",
+    "latitude": 19.813,
+    "longitude": 85.839,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_74",
+        "route_number": "74",
+        "route_name": "Puri Railway Station \u2013 Shree Mandira (Via \u2013 Puri Bus Stand)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_ram_mandir",
+    "name": "Ram Mandir",
+    "published_name": "RAM MANDIR",
+    "canonical_stop_id": "stop_crut_bhubaneswar_ram_mandir",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.2777,
+    "longitude": 85.8429,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_scb",
+    "name": "Scb",
+    "published_name": "SCB",
+    "canonical_stop_id": "stop_crut_bhubaneswar_scb",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.4725,
+    "longitude": 85.8864,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_87e",
+        "route_number": "87E",
+        "route_name": "Judicial Academy\u2013 Nuapada(Via Barabati,SCB)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_scb_hospital",
+    "name": "Scb Hospital",
+    "published_name": "SCB Hospital",
+    "canonical_stop_id": "stop_crut_bhubaneswar_scb_hospital",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.4725,
+    "longitude": 85.8864,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_88",
+        "route_number": "88",
+        "route_name": "National Law University (O) \u2013 SCB Hospital (Via CDA, Raj Kishor Marg,",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_scb_medical",
+    "name": "Scb Medical",
+    "published_name": "SCB Medical",
+    "canonical_stop_id": "stop_crut_bhubaneswar_scb_medical",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.4725,
+    "longitude": 85.8864,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_80",
+        "route_number": "80",
+        "route_name": "Naraj Police Outpost \u2013 Agrahat, Charbatia (via NLU, Badambadi, SCB Medical)",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_80e",
+        "route_number": "80E",
+        "route_name": "Naraj Police Outpost \u2013 Mangarajpur (via NLU, Badambadi, SCB Medical)",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_89",
+        "route_number": "89",
+        "route_name": "SCB Medical \u2013 Jagadguru Krupalu University (JKU)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_89a",
+        "route_number": "89A",
+        "route_name": "SCB Medical \u2013 Judicial Square",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_shree_mandira",
+    "name": "Shree Mandira",
+    "published_name": "Shree Mandira",
+    "canonical_stop_id": "stop_crut_bhubaneswar_shree_mandira",
+    "city": "Bhubaneswar",
+    "district": "Puri",
+    "locality": "Bhubaneswar",
+    "latitude": 19.8045,
+    "longitude": 85.818,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_53",
+        "route_number": "53",
+        "route_name": "Malatipatpur Bus Stand \u2013 Shree Mandira (via Puri Bus Stand)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_72",
+        "route_number": "72",
+        "route_name": "Shree Mandira \u2013 Madhabnanda Temple, Niali",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_74",
+        "route_number": "74",
+        "route_name": "Puri Railway Station \u2013 Shree Mandira (Via \u2013 Puri Bus Stand)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_75",
+        "route_number": "75",
+        "route_name": "Shree Mandira \u2013 Kakatpur (Via Puri Bus Stand, Balighai, Marine Drive, Konark)",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_79",
+        "route_number": "79",
+        "route_name": "Shree Mandira \u2013 Light House (Via Police line, SCS College, Kacheri,",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_shree_mandira_parking_puri",
+    "name": "Shree Mandira Parking, Puri",
+    "published_name": "Shree Mandira Parking, Puri",
+    "canonical_stop_id": "stop_crut_bhubaneswar_shree_mandira_parking_puri",
+    "city": "Bhubaneswar",
+    "district": "Puri",
+    "locality": "Bhubaneswar",
+    "latitude": 19.8045,
+    "longitude": 85.818,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_dd1",
+        "route_number": "DD1",
+        "route_name": "Bhubaneswar Railway Station \u2013 Shree Mandira Parking, Puri (Via",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_temple_square",
+    "name": "Temple Square",
+    "published_name": "TEMPLE SQUARE",
+    "canonical_stop_id": "stop_crut_bhubaneswar_temple_square",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 19.804722,
+    "longitude": 85.817778,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_vani_vihar",
+    "name": "Vani Vihar",
+    "published_name": "Vani Vihar",
+    "canonical_stop_id": "stop_crut_bhubaneswar_vani_vihar",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.303273,
+    "longitude": 85.839744,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_20",
+        "route_number": "20",
+        "route_name": "Bhubaneswar Railway Station \u2013 Khordha New Bus Stand (via Vani Vihar)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_51",
+        "route_number": "51",
+        "route_name": "Baramunda BSABT - Puri Bus Stand (via Vani Vihar,Rasulgarh Square)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_65",
+        "route_number": "65",
+        "route_name": "Bhubaneswar Railway Station \u2013 Wonderla Amusement Park (Via - Vani Vihar)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_vani_vihar_square",
+    "name": "Vani Vihar Square",
+    "published_name": "VANI VIHAR SQUARE",
+    "canonical_stop_id": "stop_crut_bhubaneswar_vani_vihar_square",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.303273,
+    "longitude": 85.839744,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_bhubaneswar_vss_nagar_road",
+    "name": "V.s.s. Nagar Road",
+    "published_name": "V.S.S. NAGAR ROAD",
+    "canonical_stop_id": "stop_crut_bhubaneswar_vss_nagar_road",
+    "city": "Bhubaneswar",
+    "district": "Bhubaneswar",
+    "locality": "Bhubaneswar",
+    "latitude": 20.2642,
+    "longitude": 85.8361,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_keonjhar_dharanidhar_medical_college",
+    "name": "Dharanidhar Medical College",
+    "published_name": "DHARANIDHAR MEDICAL COLLEGE",
+    "canonical_stop_id": "stop_crut_keonjhar_dharanidhar_medical_college",
+    "city": "Keonjhar",
+    "district": "Keonjhar",
+    "locality": "Keonjhar",
+    "latitude": 21.6333,
+    "longitude": 85.5833,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_404",
+        "route_number": "404",
+        "route_name": "Route 404",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_keonjhar_district_hospital",
+    "name": "District Hospital",
+    "published_name": "DISTRICT HOSPITAL",
+    "canonical_stop_id": "stop_crut_keonjhar_district_hospital",
+    "city": "Keonjhar",
+    "district": "Keonjhar",
+    "locality": "Keonjhar",
+    "latitude": 19.8167,
+    "longitude": 85.8333,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_400",
+        "route_number": "400",
+        "route_name": "Route 400",
+        "sequence_order": 33,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_403",
+        "route_number": "403",
+        "route_name": "Route 403",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_keonjhar_keonjhar_bus_stand",
+    "name": "Keonjhar Bus Stand",
+    "published_name": "KEONJHAR BUS STAND",
+    "canonical_stop_id": "stop_crut_keonjhar_keonjhar_bus_stand",
+    "city": "Keonjhar",
+    "district": "Keonjhar",
+    "locality": "Keonjhar",
+    "latitude": 21.629,
+    "longitude": 85.593,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_404",
+        "route_number": "404",
+        "route_name": "Route 404",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_405",
+        "route_number": "405",
+        "route_name": "Route 405",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_keonjhar_kv_keonjhar",
+    "name": "K.v, Keonjhar",
+    "published_name": "K.V, KEONJHAR",
+    "canonical_stop_id": "stop_crut_keonjhar_kv_keonjhar",
+    "city": "Keonjhar",
+    "district": "Keonjhar",
+    "locality": "Keonjhar",
+    "latitude": 21.629,
+    "longitude": 85.593,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_403",
+        "route_number": "403",
+        "route_name": "Route 403",
+        "sequence_order": 21,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_puri_malatipatpur",
+    "name": "Malatipatpur",
+    "published_name": "MALATIPATPUR",
+    "canonical_stop_id": "stop_crut_puri_malatipatpur",
+    "city": "Puri",
+    "district": "Bhubaneswar",
+    "locality": "Puri",
+    "latitude": 19.866147,
+    "longitude": 85.829336,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_puri_sea_beach_road",
+    "name": "Sea Beach Road",
+    "published_name": "SEA BEACH ROAD",
+    "canonical_stop_id": "stop_crut_puri_sea_beach_road",
+    "city": "Puri",
+    "district": "Puri",
+    "locality": "Puri",
+    "latitude": 19.261111,
+    "longitude": 84.908333,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_puri_sun_temple",
+    "name": "Sun Temple",
+    "published_name": "SUN TEMPLE",
+    "canonical_stop_id": "stop_crut_puri_sun_temple",
+    "city": "Puri",
+    "district": "Puri",
+    "locality": "Puri",
+    "latitude": 19.8875,
+    "longitude": 86.094444,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_rourkela_hanuman_vatika_chowk",
+    "name": "Hanuman Vatika Chowk",
+    "published_name": "Hanuman Vatika Chowk",
+    "canonical_stop_id": "stop_crut_rourkela_hanuman_vatika_chowk",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.216667,
+    "longitude": 84.85,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_101",
+        "route_number": "101",
+        "route_name": "Rourkela New Bus Stand - Laukera (via Udit Nagar, Hanuman Vatika Chowk, Chhend, Airport)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_103",
+        "route_number": "103",
+        "route_name": "Rourkela New Bus Stand \u2013 Panposh( Via-Uditnagar,Hanuman Vatika Chowk,Chhend)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_rourkela_ispat_general_hospital",
+    "name": "Ispat General Hospital",
+    "published_name": "ISPAT GENERAL HOSPITAL",
+    "canonical_stop_id": "stop_crut_rourkela_ispat_general_hospital",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.2583,
+    "longitude": 84.8583,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_rourkela_jhirpani",
+    "name": "Jhirpani",
+    "published_name": "Jhirpani",
+    "canonical_stop_id": "stop_crut_rourkela_jhirpani",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.268472,
+    "longitude": 84.90068,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_102",
+        "route_number": "102",
+        "route_name": "Vedvyas - Jhirpani (via Panposh,Chhend Chowk, Koel Nagar)",
+        "sequence_order": 5,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_104",
+        "route_number": "104",
+        "route_name": "Rourkela New Bus Stand - Jhirpani(via Sector-2,Nit,Jagda Chowk)",
+        "sequence_order": 5,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_108",
+        "route_number": "108",
+        "route_name": "Rourkela New Bus Stand \u2013 Nuagaon (via Jagda Chowk, Jhirpani, Khuntagaon)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_rourkela_mangala_temple",
+    "name": "Mangala Temple",
+    "published_name": "MANGALA TEMPLE",
+    "canonical_stop_id": "stop_crut_rourkela_mangala_temple",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 20.0,
+    "longitude": 86.1948,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_rourkela_nit",
+    "name": "NIT",
+    "published_name": "Nit",
+    "canonical_stop_id": "stop_crut_rourkela_nit",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.25312,
+    "longitude": 84.90159,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_104",
+        "route_number": "104",
+        "route_name": "Rourkela New Bus Stand - Jhirpani(via Sector-2,Nit,Jagda Chowk)",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_116",
+        "route_number": "116",
+        "route_name": "Rourkela New Bus Stand \u2013 Loram (via NIT, Jagda Chowk, Khutagaon, Sorda)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_121",
+        "route_number": "121",
+        "route_name": "DAV POND \u2013 Radio Station (Kantajhor) (via Basanti Colony, New Bus Stand, NIT)",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_rourkela_nit_main_gate",
+    "name": "NIT Main Gate",
+    "published_name": "NIT MAIN GATE",
+    "canonical_stop_id": "stop_crut_rourkela_nit_main_gate",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.25312,
+    "longitude": 84.90159,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_rourkela_osrtc_bus_stand",
+    "name": "Osrtc Bus Stand",
+    "published_name": "OSRTC BUS STAND",
+    "canonical_stop_id": "stop_crut_rourkela_osrtc_bus_stand",
+    "city": "Rourkela",
+    "district": "Sundargarh",
+    "locality": "Rourkela",
+    "latitude": 22.249,
+    "longitude": 84.856,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_rourkela_panposh",
+    "name": "Panposh",
+    "published_name": "Panposh",
+    "canonical_stop_id": "stop_crut_rourkela_panposh",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.228599,
+    "longitude": 84.805323,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_102",
+        "route_number": "102",
+        "route_name": "Vedvyas - Jhirpani (via Panposh,Chhend Chowk, Koel Nagar)",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_103",
+        "route_number": "103",
+        "route_name": "Rourkela New Bus Stand \u2013 Panposh( Via-Uditnagar,Hanuman Vatika Chowk,Chhend)",
+        "sequence_order": 5,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_rourkela_panposh_chowk",
+    "name": "Panposh Chowk",
+    "published_name": "PANPOSH CHOWK",
+    "canonical_stop_id": "stop_crut_rourkela_panposh_chowk",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.228599,
+    "longitude": 84.805323,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_rourkela_panposh_station",
+    "name": "Panposh Station",
+    "published_name": "Panposh Station",
+    "canonical_stop_id": "stop_crut_rourkela_panposh_station",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 22.228599,
+    "longitude": 84.805323,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_101e",
+        "route_number": "101E",
+        "route_name": "Rourkela New Bus Stand \u2013 Panposh Station(",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_rourkela_tarini_temple",
+    "name": "Tarini Temple",
+    "published_name": "TARINI TEMPLE",
+    "canonical_stop_id": "stop_crut_rourkela_tarini_temple",
+    "city": "Rourkela",
+    "district": "Rourkela",
+    "locality": "Rourkela",
+    "latitude": 19.491667,
+    "longitude": 84.9,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": []
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_ainthapali_bus_terminal",
+    "name": "Ainthapali Bus Terminal",
+    "published_name": "AINTHAPALI BUS TERMINAL",
+    "canonical_stop_id": "stop_crut_sambalpur_ainthapali_bus_terminal",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.495385,
+    "longitude": 83.983956,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_terminal",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_201",
+        "route_number": "201",
+        "route_name": "Ainthapali Bus Terminal \u2013 Ghanteswari Temple",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_202",
+        "route_number": "202",
+        "route_name": "Ainthapali Bus Terminal \u2013 Atal Chowk",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_203",
+        "route_number": "203",
+        "route_name": "Ainthapali Bus Terminal - Hirakud Dam",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_204",
+        "route_number": "204",
+        "route_name": "Ainthapali Bus Terminal - Maneswar",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_205",
+        "route_number": "205",
+        "route_name": "Ainthapali Bus Terminal - Nuajamda",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_207",
+        "route_number": "207",
+        "route_name": "Ainthapali Bus Terminal \u2013 Dhama",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_208",
+        "route_number": "208",
+        "route_name": "Dhanupali Chowk \u2013 Burla Hospital",
+        "sequence_order": 39,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_210",
+        "route_number": "210",
+        "route_name": "Ainthapali Bus Terminal \u2013 Jamadarpali Dyke",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_211",
+        "route_number": "211",
+        "route_name": "Ainthapali Bus Terminal \u2013 Jharsuguda",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_212",
+        "route_number": "212",
+        "route_name": "Ainthapali Bus Terminal \u2013 Baragarh",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_213",
+        "route_number": "213",
+        "route_name": "Ainthapali Bus Terminal \u2013 Belpahar",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_213a",
+        "route_number": "213A",
+        "route_name": "Ainthapali Bus Terminal \u2013 Belpahar",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_214",
+        "route_number": "214",
+        "route_name": "Ainthapali Bus Terminal \u2013 Kuchinda",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_215",
+        "route_number": "215",
+        "route_name": "Ainthapali Bus Terminal \u2013 Padiabahal",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_ainthapali_chowk",
+    "name": "Ainthapali Chowk",
+    "published_name": "AINTHAPALI CHOWK",
+    "canonical_stop_id": "stop_crut_sambalpur_ainthapali_chowk",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.495385,
+    "longitude": 83.983956,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_205",
+        "route_number": "205",
+        "route_name": "Ainthapali Bus Terminal - Nuajamda",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_208",
+        "route_number": "208",
+        "route_name": "Dhanupali Chowk \u2013 Burla Hospital",
+        "sequence_order": 38,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_210",
+        "route_number": "210",
+        "route_name": "Ainthapali Bus Terminal \u2013 Jamadarpali Dyke",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_211",
+        "route_number": "211",
+        "route_name": "Ainthapali Bus Terminal \u2013 Jharsuguda",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_212",
+        "route_number": "212",
+        "route_name": "Ainthapali Bus Terminal \u2013 Baragarh",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_213",
+        "route_number": "213",
+        "route_name": "Ainthapali Bus Terminal \u2013 Belpahar",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_213a",
+        "route_number": "213A",
+        "route_name": "Ainthapali Bus Terminal \u2013 Belpahar",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_214",
+        "route_number": "214",
+        "route_name": "Ainthapali Bus Terminal \u2013 Kuchinda",
+        "sequence_order": 3,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_215",
+        "route_number": "215",
+        "route_name": "Ainthapali Bus Terminal \u2013 Padiabahal",
+        "sequence_order": 17,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_amruth_vihar",
+    "name": "Amruth Vihar",
+    "published_name": "AMRUTH VIHAR",
+    "canonical_stop_id": "stop_crut_sambalpur_amruth_vihar",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.49046,
+    "longitude": 83.991443,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_208",
+        "route_number": "208",
+        "route_name": "Dhanupali Chowk \u2013 Burla Hospital",
+        "sequence_order": 36,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_214",
+        "route_number": "214",
+        "route_name": "Ainthapali Bus Terminal \u2013 Kuchinda",
+        "sequence_order": 5,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_215",
+        "route_number": "215",
+        "route_name": "Ainthapali Bus Terminal \u2013 Padiabahal",
+        "sequence_order": 19,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_birsa_munda_chowk",
+    "name": "Birsa Munda Chowk",
+    "published_name": "BIRSA MUNDA CHOWK",
+    "canonical_stop_id": "stop_crut_sambalpur_birsa_munda_chowk",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.493747,
+    "longitude": 83.988915,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_211",
+        "route_number": "211",
+        "route_name": "Ainthapali Bus Terminal \u2013 Jharsuguda",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_213",
+        "route_number": "213",
+        "route_name": "Ainthapali Bus Terminal \u2013 Belpahar",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_213a",
+        "route_number": "213A",
+        "route_name": "Ainthapali Bus Terminal \u2013 Belpahar",
+        "sequence_order": 4,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_chc_debeipali",
+    "name": "Chc Debeipali",
+    "published_name": "CHC DEBEIPALI",
+    "canonical_stop_id": "stop_crut_sambalpur_chc_debeipali",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.536393,
+    "longitude": 84.023462,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_211",
+        "route_number": "211",
+        "route_name": "Ainthapali Bus Terminal \u2013 Jharsuguda",
+        "sequence_order": 17,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_213",
+        "route_number": "213",
+        "route_name": "Ainthapali Bus Terminal \u2013 Belpahar",
+        "sequence_order": 17,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_213a",
+        "route_number": "213A",
+        "route_name": "Ainthapali Bus Terminal \u2013 Belpahar",
+        "sequence_order": 17,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_ghanteswari_temple",
+    "name": "Ghanteswari Temple",
+    "published_name": "Ghanteswari Temple",
+    "canonical_stop_id": "stop_crut_sambalpur_ghanteswari_temple",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.35,
+    "longitude": 83.9167,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_201",
+        "route_number": "201",
+        "route_name": "Ainthapali Bus Terminal \u2013 Ghanteswari Temple",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_206",
+        "route_number": "206",
+        "route_name": "Samaleswari Temple - Ghanteswari Temple",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_hirakud_dam",
+    "name": "Hirakud Dam",
+    "published_name": "Hirakud Dam",
+    "canonical_stop_id": "stop_crut_sambalpur_hirakud_dam",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.527778,
+    "longitude": 83.872222,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_203",
+        "route_number": "203",
+        "route_name": "Ainthapali Bus Terminal - Hirakud Dam",
+        "sequence_order": 2,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_hirakud_ps",
+    "name": "Hirakud P.s",
+    "published_name": "HIRAKUD P.S",
+    "canonical_stop_id": "stop_crut_sambalpur_hirakud_ps",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.527778,
+    "longitude": 83.872222,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_205",
+        "route_number": "205",
+        "route_name": "Ainthapali Bus Terminal - Nuajamda",
+        "sequence_order": 15,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_hirakud_ps_2",
+    "name": "Hirakud P.s.",
+    "published_name": "HIRAKUD P.S.",
+    "canonical_stop_id": "stop_crut_sambalpur_hirakud_ps_2",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.527778,
+    "longitude": 83.872222,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_205",
+        "route_number": "205",
+        "route_name": "Ainthapali Bus Terminal - Nuajamda",
+        "sequence_order": 31,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_samaleswari_temple",
+    "name": "Samaleswari Temple",
+    "published_name": "Samaleswari Temple",
+    "canonical_stop_id": "stop_crut_sambalpur_samaleswari_temple",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.463889,
+    "longitude": 83.963889,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_206",
+        "route_number": "206",
+        "route_name": "Samaleswari Temple - Ghanteswari Temple",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_sason_village_road",
+    "name": "Sason Village Road",
+    "published_name": "SASON VILLAGE ROAD",
+    "canonical_stop_id": "stop_crut_sambalpur_sason_village_road",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.557249,
+    "longitude": 84.039813,
+    "coordinate_status": "official",
+    "coordinate_source": "staticTransitStops_verified_survey",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_211",
+        "route_number": "211",
+        "route_name": "Ainthapali Bus Terminal \u2013 Jharsuguda",
+        "sequence_order": 19,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_213",
+        "route_number": "213",
+        "route_name": "Ainthapali Bus Terminal \u2013 Belpahar",
+        "sequence_order": 19,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_213a",
+        "route_number": "213A",
+        "route_name": "Ainthapali Bus Terminal \u2013 Belpahar",
+        "sequence_order": 19,
+        "service_area": null,
+        "origin": null,
+        "destination": null
       }
     ]
   }
 ];
 
-function calculateDistanceMeters(lat1: number, lon1: number, lat2: number, lon2: number): number {
-  const R = 6371e3;
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLon = ((lon2 - lon1) * Math.PI) / 180;
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
+export const VERIFIED_TRANSIT_STOPS_BY_ID: Record<string, VerifiedTransitStop> = Object.fromEntries(
+  VERIFIED_TRANSIT_STOPS.map((s) => [s.stop_id, s])
+);
+
+export function getTransitStopById(stopId: string): VerifiedTransitStop | undefined {
+  return VERIFIED_TRANSIT_STOPS_BY_ID[stopId];
+}
+
+export function findNearbyTransitStops(
+  latitude: number,
+  longitude: number,
+  radiusKm: number = 3.0
+): Array<VerifiedTransitStop & { distanceKm: number }> {
+  const R = 6371; // Earth radius in km
+  const results: Array<VerifiedTransitStop & { distanceKm: number }> = [];
+  for (const stop of VERIFIED_TRANSIT_STOPS) {
+    const dLat = ((stop.latitude - latitude) * Math.PI) / 180;
+    const dLon = ((stop.longitude - longitude) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos((latitude * Math.PI) / 180) *
+        Math.cos((stop.latitude * Math.PI) / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const dist = R * c;
+    if (dist <= radiusKm) {
+      results.push({ ...stop, distanceKm: Math.round(dist * 100) / 100 });
+    }
+  }
+  results.sort((a, b) => a.distanceKm - b.distanceKm);
+  return results;
 }
 
 export function getVerifiedStaticNearbyStops(
-  lat: number,
-  lon: number,
-  radiusMeters: number = 35000,
-  limit: number = 5
+  latitude: number,
+  longitude: number,
+  maxRadiusMeters: number = 35000,
+  limit: number = 4
 ): NearbyStopResponse[] {
-  return VERIFIED_TRANSIT_STOPS.map((stop) => {
-    const dist = calculateDistanceMeters(lat, lon, stop.latitude, stop.longitude);
-    return {
-      stop_id: stop.stop_id,
-      name: stop.name,
-      published_name: stop.published_name,
-      canonical_stop_id: stop.canonical_stop_id,
-      city: stop.city,
-      distance_m: Math.round(dist),
-      walking_estimate_mins: Math.ceil(dist / 80),
-      latitude: stop.latitude,
-      longitude: stop.longitude,
-      coordinate_status: stop.coordinate_status,
-      region: stop.district,
-      routes_serving_stop: stop.routes_serving_stop.map((r, idx) => ({
-        route_id: r.route_id,
-        route_number: r.route_number,
-        route_name: r.route_name ?? null,
-        sequence_order: r.sequence_order ?? (idx + 1),
-        service_area: r.service_area ?? null,
-        origin: r.origin ?? null,
-        destination: r.destination ?? null,
-      })),
-    };
-  })
-    .filter((s) => s.distance_m <= radiusMeters)
-    .sort((a, b) => a.distance_m - b.distance_m)
-    .slice(0, limit);
+  const maxRadiusKm = maxRadiusMeters / 1000;
+  const nearby = findNearbyTransitStops(latitude, longitude, maxRadiusKm);
+  return nearby.slice(0, limit).map((s) => ({
+    stop_id: s.stop_id,
+    name: s.name,
+    published_name: s.published_name,
+    canonical_stop_id: s.canonical_stop_id,
+    city: s.city,
+    district: s.district,
+    locality: s.locality,
+    latitude: s.latitude,
+    longitude: s.longitude,
+    coordinate_status: s.coordinate_status,
+    distance_m: Math.round(s.distanceKm * 1000),
+    walking_estimate_mins: Math.max(1, Math.round((s.distanceKm * 1000) / 80)),
+    region: s.city || "Odisha",
+    routes_serving_stop: s.routes_serving_stop.map((r) => ({
+      route_id: r.route_id,
+      route_number: r.route_number,
+      route_name: r.route_name || null,
+      sequence_order: r.sequence_order ?? 1,
+      service_area: r.service_area || null,
+      origin: r.origin || null,
+      destination: r.destination || null,
+    })),
+  }));
 }

@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { cardHover, cardTap } from "../../lib/motion";
 import React from "react";
 import { MapPin } from "lucide-react";

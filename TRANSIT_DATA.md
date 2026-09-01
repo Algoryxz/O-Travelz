@@ -269,6 +269,19 @@ The backend transit planner now uses the canonical 154-route network. Spatial ac
 
 ---
 
+## Frontend Fallback Synchronization (Track B3)
+
+Backend and frontend transit fallbacks are now derived from the same canonical 154-route transit dataset.
+- **Generator**: `scripts/generate_frontend_transit_data.py` (with `--check` flag for CI drift detection).
+- **Generated Assets**:
+  - `frontend/src/data/staticTransitStops.ts` (contains only the verified coordinate-bearing stops for map rendering).
+  - `frontend/src/data/staticTransitRoutes.ts` (contains all 154 canonical routes and logical sequence topology).
+  - `frontend/src/data/transitTimetables.ts` (contains all 302 schedules and 5,549 departure times).
+- **Map & Spatial Rule**: Only coordinate-verified stops are rendered geographically; unresolved stops remain available as logical route-sequence records.
+- **Schedule Truthfulness**: Wording standardized across UI components: "Next scheduled departure: HH:MM IST" with official CRUT provenance. Zero fare fabrication.
+
+---
+
 ## Multimodal Planning Integration
 
 The multimodal journey planner and transit adapters use the canonical stop registry to:
