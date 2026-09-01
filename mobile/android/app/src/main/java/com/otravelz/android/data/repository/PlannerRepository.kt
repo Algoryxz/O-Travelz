@@ -46,7 +46,7 @@ class PlannerRepository(private val apiService: ApiService = NetworkClient.apiSe
         }
     }
 
-    suspend fun getSharedTrip(shareId: String): NetworkResult<CreateShareTripRequestDto> {
+    suspend fun getSharedTrip(shareId: String): NetworkResult<PublicSharedTripResponseDto> {
         return try {
             val res = apiService.getSharedTrip(shareId)
             NetworkResult.Success(res)

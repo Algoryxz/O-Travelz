@@ -92,6 +92,18 @@ fun OTravelzAppNav(
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
+    // Ensure immediate deep-link navigation on new intent when app is already running/warm
+    DisposableEffect(Unit) {
+        val activity = context as? ComponentActivity
+        val listener = androidx.core.util.Consumer<Intent> { intent ->
+            navController.handleDeepLink(intent)
+        }
+        activity?.addOnNewIntentListener(listener)
+        onDispose {
+            activity?.removeOnNewIntentListener(listener)
+        }
+    }
+
     // Android 13+ POST_NOTIFICATIONS Runtime Permission Launcher
     var showPermissionRationale by remember { mutableStateOf(false) }
     var pendingActionAfterPermission by remember { mutableStateOf<(() -> Unit)?>(null) }

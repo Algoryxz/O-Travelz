@@ -117,4 +117,26 @@ class PlannerRepositoryTest {
         assertEquals(85.8179, constraints.originLon, 0.0001)
         assertEquals(3, constraints.categories.size)
     }
+
+    @Test
+    fun testPublicSharedTripResponseDtoSerialization() {
+        val publicResponse = PublicSharedTripResponseDto(
+            shareId = "share_xyz789",
+            title = "Puri Coastal Journey",
+            itinerary = sampleItinerary,
+            createdAt = 1700000000000L,
+            expiresAt = 1705000000000L,
+            constraints = sampleItinerary.constraints
+        )
+
+        val encoded = json.encodeToString(publicResponse)
+        assertTrue(encoded.contains("\"share_id\":\"share_xyz789\""))
+        assertTrue(encoded.contains("\"title\":\"Puri Coastal Journey\""))
+        assertTrue(encoded.contains("\"expires_at\":1705000000000"))
+
+        val decoded = json.decodeFromString<PublicSharedTripResponseDto>(encoded)
+        assertEquals("share_xyz789", decoded.shareId)
+        assertEquals(1705000000000L, decoded.expiresAt)
+        assertEquals("itin_puri_konark_123", decoded.itinerary.itineraryId)
+    }
 }

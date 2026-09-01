@@ -194,6 +194,16 @@ data class CreateShareTripResponseDto(
 )
 
 @Serializable
+data class PublicSharedTripResponseDto(
+    @SerialName("share_id") val shareId: String,
+    val title: String,
+    val itinerary: ItineraryPlanResponseDto,
+    @SerialName("created_at") val createdAt: Long,
+    @SerialName("expires_at") val expiresAt: Long? = null,
+    val constraints: PlanningConstraintsDto? = null
+)
+
+@Serializable
 data class SyncTripItemDto(
     val id: String,
     val title: String,

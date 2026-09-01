@@ -63,7 +63,7 @@ interface ApiService {
     @GET("api/v1/trips/shared/{share_id}")
     suspend fun getSharedTrip(
         @Path("share_id") shareId: String
-    ): CreateShareTripRequestDto
+    ): PublicSharedTripResponseDto
 
     @GET("api/v1/sync/trips")
     suspend fun getSavedTrips(): SyncTripsResponseDto
