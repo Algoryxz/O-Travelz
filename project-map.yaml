@@ -1,0 +1,126 @@
+version: "1.0"
+project: "O-TRAVELZ"
+description: "Intelligent Multimodal Travel Platform for Odisha"
+
+systems:
+  backend:
+    path: "backend/"
+    framework: "FastAPI"
+    runtime: "Python 3.12"
+    entrypoint: "app.main:app"
+    status: "production_stable"
+
+  web:
+    path: "frontend/"
+    framework: "React + Vite + TypeScript"
+    ui_system: "Stitch Travel UI"
+    status: "production_stable"
+
+  mobile:
+    path: "mobile/"
+    framework: "React Native + Expo (Planned)"
+    status: "not_initialized"
+
+canonical_sources:
+  places:
+    catalog: "data/places/places.json"
+    schema: "PlaceCatalog"
+
+  images:
+    asset_root: "data/images/places/"
+    provenance_ledgers:
+      - "data/images/sources/legacy_provenance_recovery.json"
+      - "data/images/sources/legacy_external_provenance_research.json"
+      - "data/images/sources/a2_unrecoverable_backlog.json"
+    generated_audit_ledger: "data/images/sources/publishability_report.json"
+
+  transit:
+    canonical_dir: "data/transport/canonical/"
+    datasets:
+      - "routes.json"
+      - "stops.json"
+      - "route_stops.json"
+      - "schedules.json"
+      - "aliases.json"
+
+  research:
+    staging_dir: "data/research/round2/"
+    regions:
+      - "north"
+      - "south"
+      - "east"
+      - "west"
+
+  services:
+    services_dir: "data/services/"
+    datasets:
+      - "atms.json"
+      - "hospitals.json"
+      - "fuel.json"
+      - "police.json"
+
+generated_outputs:
+  - path: "frontend/src/data/staticTransitStops.ts"
+    generator: "scripts/generate_frontend_transit_data.py"
+    check: "python scripts/generate_frontend_transit_data.py --check"
+    purpose: "Bundled offline transit stops fallback for web and mobile"
+    hand_editing_forbidden: true
+
+  - path: "frontend/src/data/staticTransitRoutes.ts"
+    generator: "scripts/generate_frontend_transit_data.py"
+    check: "python scripts/generate_frontend_transit_data.py --check"
+    purpose: "Bundled offline transit routes fallback for web and mobile"
+    hand_editing_forbidden: true
+
+  - path: "frontend/src/data/transitTimetables.ts"
+    generator: "scripts/generate_frontend_transit_data.py"
+    check: "python scripts/generate_frontend_transit_data.py --check"
+    purpose: "Bundled offline transit timetables fallback"
+    hand_editing_forbidden: true
+
+  - path: "data/transport/canonical/network.json"
+    generator: "scripts/compile_canonical_transit.py"
+    purpose: "Compiled graph representation for fast in-memory routing"
+    hand_editing_forbidden: true
+
+  - path: "data/images/sources/publishability_report.json"
+    generator: "scripts/audit_destination_images.py"
+    purpose: "Generated public catalog image validation ledger"
+    hand_editing_forbidden: true
+
+validators:
+  - command: "python scripts/validate_round2_research.py"
+    scope: "Regional research schema & staging validation"
+
+  - command: "python scripts/validate_image_pipeline.py"
+    scope: "Photographic integrity & 4-variant image verification"
+
+  - command: "python scripts/audit_destination_images.py"
+    scope: "Catalog publishability & manifest reconciliation"
+
+  - command: "python scripts/validate_canonical_transit.py"
+    scope: "Transit network topology & schedule semantics"
+
+  - command: "python scripts/generate_frontend_transit_data.py --check"
+    scope: "Frontend transit fallback synchronization"
+
+deployment:
+  frontend:
+    platform: "GitHub Pages"
+    url: "https://algoryxz.github.io/O-Travelz/"
+    render_url: "UNKNOWN"
+
+  backend:
+    platform: "Render"
+    url: "https://otravelz-backend.onrender.com"
+
+  database:
+    platform: "PostgreSQL 16 + PostGIS 3.4"
+
+ownership:
+  integration_architecture: "smarak"
+  ui_ux: "deeptiman"
+  maps_location: "rudra"
+  notifications: "susmita"
+  mobile_data: "akriti"
+  qa: "punam"
