@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import type { PlaceDetail, WeatherResponse } from '../../api/contracts';
 import { apiClient } from '../../api/client';
-import { resolveDestinationImage, getCategoryFallbackSvg } from '../../utils/imageRegistry';
+import { DestinationMedia } from '../media/DestinationMedia';
+import { Sparkles, MapPin, CalendarDays, Compass, X, CloudSun, ShieldCheck } from 'lucide-react';
 
 interface StitchDestinationDetailModalProps {
   place: PlaceDetail | null;
@@ -41,134 +42,157 @@ export const StitchDestinationDetailModal: React.FC<StitchDestinationDetailModal
 
   if (!isOpen || !place) return null;
 
-  const imgResult = resolveDestinationImage({
-    id: place.id,
-    researchId: place.research_id || place.id,
-    name: place.name,
-    category: place.category,
-    images: place.images,
-  });
-  const imageUrl = imgResult.src;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity" onClick={onClose} />
+      <div className="fixed inset-0 bg-black/75 backdrop-blur-md transition-opacity" onClick={onClose} />
 
       {/* Modal Card */}
-      <div className="relative bg-[#FBF9F5] border border-[#E5DFD5] rounded-none md:rounded-2xl shadow-2xl w-full max-w-4xl max-h-screen md:max-h-[90vh] overflow-y-auto z-10 animate-in fade-in zoom-in-95 duration-200">
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-30 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full backdrop-blur-md transition-colors"
-        >
-          <span className="material-symbols-outlined text-xl">close</span>
-        </button>
+      <div className="relative bg-[#FFFFFF] border border-[#E5DFD5] rounded-2xl shadow-2xl w-full max-w-4xl max-h-[92vh] overflow-y-auto z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col">
+        {/* Header Strip */}
+        <div className="px-5 py-3.5 bg-[#FAF7F2] border-b border-[#E5DFD5] flex items-center justify-between gap-3 shrink-0">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#0D5C3A]" />
+            <span className="text-xs font-mono font-semibold text-[#0D5C3A] uppercase tracking-wider">
+              {place.category}
+            </span>
+            {place.district && (
+              <span className="text-xs text-[#70798B] font-body">
+                • {place.district}
+              </span>
+            )}
+          </div>
 
-        {/* Hero Banner */}
-        <div className="relative w-full h-[320px] md:h-[400px] overflow-hidden">
-          <img
-            src={imageUrl}
-            alt={place.name}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).onerror = null;
-              (e.currentTarget as HTMLImageElement).src = getCategoryFallbackSvg(place.category, place.name);
-            }}
+          <button
+            onClick={onClose}
+            className="w-8 h-8 rounded-full bg-white hover:bg-[#F2EEE7] text-[#12161E] flex items-center justify-center transition-colors cursor-pointer border border-[#E5DFD5] shadow-xs"
+          >
+            <X size={16} />
+          </button>
+        </div>
+
+        {/* Modal Scroll Body */}
+        <div className="p-6 space-y-6 flex-1 overflow-y-auto">
+          {/* Destination Media Suite: Photos / Video / 3D */}
+          <DestinationMedia
+            placeId={place.id}
+            placeName={place.name}
+            category={place.category}
+            district={place.district || place.region || "Odisha"}
+            images={place.images}
+            heightClass="h-[300px] sm:h-[380px] md:h-[420px]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#12161E] via-[#12161E]/40 to-transparent"></div>
 
-          <div className="absolute bottom-6 left-6 right-6 text-white">
-            <div className="flex flex-wrap gap-2 mb-2">
-              <span className="px-2.5 py-0.5 bg-white/20 backdrop-blur-md rounded-full text-xs font-mono">
-                {place.category}
-              </span>
-              <span className="px-2.5 py-0.5 bg-[#B87B22] rounded-full text-xs font-mono font-medium">
-                {place.region || 'Odisha Heritage'}
-              </span>
+          {/* Place Title & Info */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#E5DFD5] pb-4">
+            <div>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#12161E] tracking-tight">
+                {place.name}
+              </h2>
+              <p className="font-body text-xs text-[#70798B] flex items-center gap-1.5 mt-1">
+                <MapPin size={13} className="text-[#C69214]" />
+                <span>{place.district || place.region || 'Odisha'}</span>
+                <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded text-[11px] font-mono ml-2">
+                  ✓ Verified Place ID: {place.id}
+                </span>
+              </p>
             </div>
-            <h2 className="font-display text-3xl md:text-4xl font-bold">{place.name}</h2>
-            <p className="font-mono text-xs text-[#E5DFD5] mt-1">Canonical UUID: {place.id}</p>
+
+            {weather && weather.current && weather.current.temperature_c != null && (
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#FAF7F2] border border-[#E5DFD5] text-xs">
+                <CloudSun size={16} className="text-[#C69214]" />
+                <span className="font-semibold text-[#12161E]">{weather.current.temperature_c}°C</span>
+                {weather.current.condition && (
+                  <span className="text-[#70798B]">({weather.current.condition})</span>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Editorial Description & Details */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div className="md:col-span-8 space-y-4">
+              <div>
+                <span className="text-[10px] font-mono text-[#C69214] uppercase tracking-widest font-semibold block mb-1">
+                  Curated Landmark Intelligence
+                </span>
+                <p className="font-body text-sm text-[#3D4654] leading-relaxed">
+                  {place.description || 'Verified Odisha cultural, spiritual, and ecological sanctuary.'}
+                </p>
+              </div>
+
+              {place.interests && place.interests.length > 0 && (
+                <div className="space-y-1.5">
+                  <span className="text-[10px] font-mono text-[#C69214] uppercase tracking-widest font-semibold block">
+                    Travel Themes
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {place.interests.map((int) => (
+                      <span
+                        key={int}
+                        className="px-2.5 py-1 rounded-lg bg-[#FAF7F2] border border-[#E5DFD5] text-[#0D5C3A] text-xs font-semibold"
+                      >
+                        {int}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="md:col-span-4 space-y-3 bg-[#FAF7F2] p-4 rounded-xl border border-[#E5DFD5]">
+              <span className="text-[10px] font-mono text-[#0D5C3A] uppercase tracking-widest font-semibold block">
+                Quick Facts
+              </span>
+              <div className="space-y-2 text-xs">
+                <div className="flex justify-between py-1 border-b border-[#E5DFD5]">
+                  <span className="text-[#70798B]">Category</span>
+                  <span className="font-semibold text-[#12161E] capitalize">{place.category}</span>
+                </div>
+                {place.lat != null && place.lon != null && (
+                  <div className="flex justify-between py-1 border-b border-[#E5DFD5]">
+                    <span className="text-[#70798B]">Coordinates</span>
+                    <span className="font-mono text-[11px] text-[#12161E]">
+                      {place.lat.toFixed(2)}°N, {place.lon.toFixed(2)}°E
+                    </span>
+                  </div>
+                )}
+                {place.avg_visit_minutes != null && (
+                  <div className="flex justify-between py-1 border-b border-[#E5DFD5]">
+                    <span className="text-[#70798B]">Est. Visit</span>
+                    <span className="font-semibold text-[#12161E]">~{place.avg_visit_minutes} mins</span>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Content Body */}
-        <div className="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Editorial Description */}
-          <div className="lg:col-span-7 space-y-4">
-            <h3 className="font-display font-bold text-xl text-[#12161E]">Curated Landmark Intelligence</h3>
-            <p className="font-body text-sm text-[#3D4654] leading-relaxed">
-              {place.description || 'A verified historical, ecological, and cultural destination situated in Odisha, mapped for spatial discovery and multimodal itinerary routing.'}
-            </p>
+        {/* Action Strip */}
+        <div className="p-4 bg-[#FAF7F2] border-t border-[#E5DFD5] flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <button
+            type="button"
+            onClick={() => {
+              onViewOnMap(place);
+              onClose();
+            }}
+            className="px-4 py-2.5 rounded-xl bg-white hover:bg-[#F2EEE7] text-[#12161E] border border-[#E5DFD5] text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-xs"
+          >
+            <Compass size={15} className="text-[#0D5C3A]" />
+            <span>Explore on Map</span>
+          </button>
 
-            {place.interests && place.interests.length > 0 && (
-              <div className="pt-2">
-                <span className="block text-xs font-mono text-[#70798B] mb-2 font-semibold">THEME VECTORS</span>
-                <div className="flex flex-wrap gap-1.5">
-                  {place.interests.map(t => (
-                    <span key={t} className="px-2.5 py-1 bg-[#F2EEE7] text-[#12161E] rounded-md text-xs font-mono">
-                      #{t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Logistical Sidebar */}
-          <div className="lg:col-span-5 bg-[#F2EEE7]/60 border border-[#E5DFD5] rounded-xl p-6 space-y-4 text-xs font-body">
-            <h4 className="font-display font-bold text-base text-[#12161E] border-b border-[#E5DFD5] pb-2">
-              Verified Logistics
-            </h4>
-
-            <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-[#B87B22]">schedule</span>
-              <div>
-                <span className="block text-[#70798B] font-mono text-[10px]">AVG VISIT DURATION</span>
-                <strong className="text-[#12161E]">{place.avg_visit_minutes || 90} Minutes</strong>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-[#1B5E6B]">location_on</span>
-              <div>
-                <span className="block text-[#70798B] font-mono text-[10px]">DISTRICT &amp; COORDINATES</span>
-                <strong className="text-[#12161E]">{place.district || 'Odisha'} · {place.lat?.toFixed(3)}, {place.lon?.toFixed(3)}</strong>
-              </div>
-            </div>
-
-            {weather && (
-              <div className="flex items-center gap-3 bg-white p-2.5 rounded-lg border border-[#E5DFD5]">
-                <span className="material-symbols-outlined text-[#B87B22]">wb_sunny</span>
-                <div>
-                  <span className="block text-[#70798B] font-mono text-[10px]">LIVE METEOROLOGICAL STATE</span>
-                  {weather.current?.status === 'available' && weather.current?.temperature_c != null ? (
-                    <strong className="text-[#12161E]">{Math.round(weather.current.temperature_c)}°C · {weather.current.condition || 'Clear'}</strong>
-                  ) : (
-                    <strong className="text-[#70798B] text-xs font-normal">Weather temporarily unavailable.</strong>
-                  )}
-                </div>
-              </div>
-            )}
-
-            {/* Actions */}
-            <div className="pt-4 flex flex-col gap-2">
-              <button
-                onClick={() => { onPlanTrip(place); onClose(); }}
-                className="w-full py-2.5 bg-[#B87B22] hover:bg-[#A0691B] text-white rounded-lg font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
-              >
-                <span className="material-symbols-outlined text-sm">edit_calendar</span>
-                <span>Plan Trip Around Landmark</span>
-              </button>
-              <button
-                onClick={() => { onViewOnMap(place); onClose(); }}
-                className="w-full py-2.5 bg-white border border-[#E5DFD5] hover:bg-[#F2EEE7] text-[#12161E] rounded-lg font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-              >
-                <span className="material-symbols-outlined text-sm">map</span>
-                <span>View on Spatial Map</span>
-              </button>
-            </div>
-          </div>
+          <button
+            type="button"
+            onClick={() => {
+              onPlanTrip(place);
+              onClose();
+            }}
+            className="px-6 py-2.5 rounded-xl bg-[#0D5C3A] hover:bg-[#0A472C] text-white text-xs font-bold shadow-md transition-all flex items-center gap-2 cursor-pointer"
+          >
+            <CalendarDays size={15} className="text-[#C69214]" />
+            <span>Plan Itinerary with AI</span>
+          </button>
         </div>
       </div>
     </div>
