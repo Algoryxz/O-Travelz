@@ -132,7 +132,8 @@ export const StitchHomePage: React.FC<StitchHomePageProps> = ({
       {/* 1. CINEMATIC ODISHA HERO SECTION WITH 3D & VIDEO ACCENTS */}
       <section className="relative w-full min-h-[92vh] lg:min-h-[90vh] flex flex-col justify-center pt-28 pb-16 px-6 md:px-12 overflow-hidden bg-[#12161E]">
         {/* Background Crossfading Photography */}
-        {heroDestinations.map((dest, idx) => (\n          <img
+        {heroDestinations.map((dest, idx) => (
+          <img
             key={dest.id}
             src={dest.imageUrl}
             alt={dest.name}
