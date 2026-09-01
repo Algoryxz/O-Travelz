@@ -10,12 +10,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.filled.DirectionsWalk
-import androidx.compose.material.icons.filled.LocationSearching
-import androidx.compose.material.icons.filled.MyLocation
-import androidx.compose.material.icons.filled.Place
-import androidx.compose.material.icons.filled.Security
+import androidx.compose.material.icons.automirrored.filled.DirectionsWalk
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -38,15 +34,14 @@ fun MapScreen(
     val locationManager = remember { LocationManager(context) }
     val locationState by locationManager.state.collectAsState()
 
-    var showPermissionRationale by remember { mutableStateOf(false) }
     var selectedCategory by remember { mutableStateOf("All") }
+    var showPermissionRationale by remember { mutableStateOf(false) }
 
-    // DPDP-compliant runtime permission launcher
     val permissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestMultiplePermissions()
     ) { permissions ->
         val granted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true ||
-                permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true
+                      permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true
         if (granted) {
             locationManager.requestLocation()
         } else {
@@ -62,17 +57,25 @@ fun MapScreen(
         }
     }
 
-    val currentLat = (locationState as? GeolocationState.Granted)?.lat ?: LocationManager.DEFAULT_FALLBACK_LAT
-    val currentLon = (locationState as? GeolocationState.Granted)?.lon ?: LocationManager.DEFAULT_FALLBACK_LON
+    val currentLat = when (val state = locationState) {
+        is GeolocationState.Granted -> state.lat
+        is GeolocationState.ReferenceOrigin -> state.lat
+        else -> LocationManager.DEFAULT_FALLBACK_LAT
+    }
+    val currentLon = when (val state = locationState) {
+        is GeolocationState.Granted -> state.lon
+        is GeolocationState.ReferenceOrigin -> state.lon
+        else -> LocationManager.DEFAULT_FALLBACK_LON
+    }
 
-    // DPDP Consent Rationale Dialog
+    // In-memory Location Access Dialog
     if (showPermissionRationale) {
         AlertDialog(
             onDismissRequest = { showPermissionRationale = false },
             icon = { Icon(Icons.Default.Security, contentDescription = null, tint = OchrePrimary) },
             title = {
                 Text(
-                    text = "Location Access (DPDP Compliant)",
+                    text = "In-Memory Location Access",
                     style = MaterialTheme.typography.titleLarge,
                     color = TextPrimary
                 )
@@ -80,14 +83,15 @@ fun MapScreen(
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
                     Text(
-                        text = "O-TRAVELZ uses your GPS location solely in-memory to calculate straight-line distances to cultural destinations and nearby Mo Bus transit stops.",
+                        text = "O-TRAVELZ uses your GPS location solely in-memory for this session to calculate straight-line distances to cultural destinations and nearby Mo Bus transit stops.",
                         style = MaterialTheme.typography.bodyMedium,
                         color = TextSecondary
                     )
                     Text(
-                        text = "• Coordinates are never saved to disk or shared with third parties.\n• You can clear your in-memory location at any time.",
+                        text = "Location is used in-memory for this session and is not persisted by this feature.",
                         style = MaterialTheme.typography.bodySmall,
-                        color = OchreLight
+                        color = OchreLight,
+                        fontWeight = FontWeight.SemiBold
                     )
                 }
             },
@@ -140,7 +144,7 @@ fun MapScreen(
 
         Spacer(modifier = Modifier.height(Spacing.md))
 
-        // GPS State & Location Control Card (DPDP Compliant)
+        // GPS State & Location Control Card
         OTCard {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -178,6 +182,13 @@ fun MapScreen(
                                 style = MaterialTheme.typography.bodySmall,
                                 color = StatusSuccess,
                                 fontWeight = FontWeight.SemiBold
+                            )
+                        }
+                        is GeolocationState.ReferenceOrigin -> {
+                            Text(
+                                text = "Using Bhubaneswar Reference Origin (GPS offline)",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = OchreLight
                             )
                         }
                         is GeolocationState.Denied -> {
@@ -307,7 +318,7 @@ fun MapScreen(
                                     Spacer(modifier = Modifier.height(4.dp))
                                     Row(verticalAlignment = Alignment.CenterVertically) {
                                         Icon(
-                                            imageVector = Icons.Default.DirectionsWalk,
+                                            imageVector = Icons.AutoMirrored.Filled.DirectionsWalk,
                                             contentDescription = null,
                                             tint = TealLight,
                                             modifier = Modifier.size(14.dp)

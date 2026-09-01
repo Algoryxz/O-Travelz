@@ -13,13 +13,13 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlin.math.*
 
 /**
- * DPDP (Digital Personal Data Protection Act) Compliant Location Manager.
+ * In-memory Location Manager with transparent reference-origin fallback.
  *
  * Invariants:
  * 1. Strictly in-memory state: Coordinates are never persisted to disk, Room, or SharedPreferences.
  * 2. Explicit User Consent: Location queries are triggered solely by direct user interaction.
  * 3. Right to Clear/Revoke: The clear() method immediately wipes in-memory coordinates.
- * 4. Transparent Fallback: If GPS is unavailable or denied, falls back honestly without fabricating fake GPS data.
+ * 4. Transparent Reference Origin: If GPS hardware is unavailable or denied, uses explicit ReferenceOrigin state.
  */
 class LocationManager(private val context: Context) {
     private val _state = MutableStateFlow<GeolocationState>(GeolocationState.Idle)
@@ -40,7 +40,7 @@ class LocationManager(private val context: Context) {
     @SuppressLint("MissingPermission")
     fun requestLocation() {
         if (!hasLocationPermission()) {
-            _state.value = GeolocationState.Denied("Location permission not granted. Please grant permission under DPDP consent.")
+            _state.value = GeolocationState.Denied("Location permission not granted. Using Bhubaneswar reference origin.")
             return
         }
 
@@ -68,12 +68,8 @@ class LocationManager(private val context: Context) {
                     accuracyMeters = bestLocation.accuracy
                 )
             } else {
-                // Default Master Canteen Square, Bhubaneswar reference coordinates when GPS hardware is cold/offline
-                _state.value = GeolocationState.Granted(
-                    lat = DEFAULT_FALLBACK_LAT,
-                    lon = DEFAULT_FALLBACK_LON,
-                    accuracyMeters = 50f
-                )
+                // Explicit Reference Origin when GPS hardware is offline or cold
+                _state.value = GeolocationState.ReferenceOrigin()
             }
         } catch (e: Exception) {
             _state.value = GeolocationState.Denied(e.message ?: "Permission denied or location query failed.")
