@@ -9,11 +9,11 @@
   "scene_type": "RECONSTRUCTION_IN_PROGRESS",
   "status": "PROCESSING",
   "asset": {
-    "format": "photogrammetric_splat_webgl",
-    "model_url": "/heritage/barabati/optimized/barabati_reconstruction.splat",
-    "splat_url": "/heritage/barabati/optimized/barabati_reconstruction.splat",
+    "format": "archival_spatial_reference",
+    "model_url": null,
+    "splat_url": null,
     "progressive_low_res_url": null,
-    "point_count": 290000,
+    "point_count": null,
     "mesh_quality": "archival_spatial_reference",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null
@@ -73,11 +73,11 @@
       "license": "Government Open Archaeological Survey Records",
       "url": "https://asi.nic.in",
       "access_date": "2026-08-16",
-      "content_type": "Laser Scanning & Archaeological Excavation Mapping",
+      "content_type": "Excavation & Architectural Survey Documentation",
       "attribution": "ASI Bhubaneswar Circle & Govt. of Odisha"
     }
   ],
-  "reconstruction_notes": "Photogrammetric surface reconstruction of the surviving 14th-century pointed arch entrance gate in progress. Verified medieval bastion and fortress moat spatial reference enabled.",
+  "reconstruction_notes": "3D Reconstruction in progress. 14th-century pointed arch entrance gate spatial reference active.",
   "camera_preset": {
     "position": [
       0.0,

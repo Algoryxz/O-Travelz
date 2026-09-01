@@ -51,14 +51,14 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
       case 'REAL_3D_RECONSTRUCTION':
         return {
           chip: '3D Reconstructed',
-          full: 'Verified Photogrammetric Model',
+          full: 'Verified 3D Reconstruction',
           badgeClass: 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300',
           chipClass: 'bg-emerald-500/20 text-emerald-300',
         };
       case 'REFERENCE_VIRTUAL_EXPERIENCE':
         return {
-          chip: 'Reference Exp',
-          full: 'Authorized External Reference',
+          chip: 'Visual Ref',
+          full: 'Verified Visual Reference',
           badgeClass: 'bg-cyan-950/80 border-cyan-500/50 text-cyan-300',
           chipClass: 'bg-cyan-500/20 text-cyan-300',
         };
@@ -66,7 +66,7 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
       default:
         return {
           chip: 'In Progress',
-          full: 'Reconstruction In Progress · Archival Reference',
+          full: '3D Reconstruction In Progress · Archival Reference',
           badgeClass: 'bg-amber-950/80 border-amber-500/50 text-amber-300',
           chipClass: 'bg-amber-500/20 text-amber-300',
         };

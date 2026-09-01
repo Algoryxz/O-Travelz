@@ -13,7 +13,7 @@
     "model_url": null,
     "splat_url": null,
     "progressive_low_res_url": null,
-    "point_count": 260000,
+    "point_count": null,
     "mesh_quality": "authorized_external_reference",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null
@@ -73,7 +73,7 @@
       "license": "Government Research & Educational Reference Archive",
       "url": "https://culture.odisha.gov.in",
       "access_date": "2026-08-10",
-      "content_type": "Architectural CAD & Survey Photogrammetry Dataset",
+      "content_type": "Architectural CAD & Survey Dataset",
       "attribution": "Ekamra Heritage Project, ASI & Govt. of Odisha"
     }
   ],

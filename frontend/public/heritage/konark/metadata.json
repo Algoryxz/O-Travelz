@@ -6,15 +6,15 @@
   "century": "13th Century CE (King Narasimhadeva I, Eastern Ganga Dynasty)",
   "category": "Monumental Chariot & Chlorite Deula",
   "description": "The monumental 24-spoke Surya Chakra astronomical sundials, Jagamohana stone massing, Natya Mandap pillared pavilion, and intricately sculpted chlorite relief panels.",
-  "scene_type": "REAL_3D_RECONSTRUCTION",
-  "status": "AVAILABLE",
+  "scene_type": "RECONSTRUCTION_IN_PROGRESS",
+  "status": "PROCESSING",
   "asset": {
-    "format": "photogrammetric_splat_webgl",
-    "model_url": "/heritage/konark/optimized/konark_reconstruction.splat",
-    "splat_url": "/heritage/konark/optimized/konark_reconstruction.splat",
-    "progressive_low_res_url": "/heritage/konark/optimized/konark_lowres.ply",
-    "point_count": 350000,
-    "mesh_quality": "photogrammetric_high_fidelity",
+    "format": "archival_spatial_reference",
+    "model_url": null,
+    "splat_url": null,
+    "progressive_low_res_url": null,
+    "point_count": null,
+    "mesh_quality": "archival_spatial_reference",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null
   },
@@ -126,11 +126,11 @@
       "license": "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
       "url": "https://commons.wikimedia.org",
       "access_date": "2026-08-22",
-      "content_type": "Multi-angle Photographic Survey Dataset",
+      "content_type": "Multi-angle Photographic Documentation",
       "attribution": "Contributing Photographers & Wikimedia Foundation"
     }
   ],
-  "reconstruction_notes": "Photogrammetric Structure from Motion (SfM) / Gaussian Splat pipeline configured. High-definition archival spatial reference and interactive architectural hotspots active pending final dense mesh optimization.",
+  "reconstruction_notes": "3D Reconstruction in progress. Currently presenting high-definition archival photographic canvas, verified spatial coordinates, and interactive architectural hotspots.",
   "camera_preset": {
     "position": [
       0.0,

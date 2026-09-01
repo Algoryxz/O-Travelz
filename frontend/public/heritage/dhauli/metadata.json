@@ -6,15 +6,15 @@
   "century": "3rd Century BCE (Ashokan Edicts) & 1972 CE (Indo-Japanese Peace Pagoda)",
   "category": "Ashokan Rock Edicts & Buddhist Peace Pagoda",
   "description": "Pure white hemispherical stupa dome, carved stone friezes of Buddha's enlightenment, four colossal cardinal Buddha statues, and surrounding Daya river valley hilltop terrain.",
-  "scene_type": "REAL_3D_RECONSTRUCTION",
-  "status": "AVAILABLE",
+  "scene_type": "RECONSTRUCTION_IN_PROGRESS",
+  "status": "PROCESSING",
   "asset": {
-    "format": "photogrammetric_splat_webgl",
-    "model_url": "/heritage/dhauli/optimized/dhauli_reconstruction.splat",
-    "splat_url": "/heritage/dhauli/optimized/dhauli_reconstruction.splat",
+    "format": "archival_spatial_reference",
+    "model_url": null,
+    "splat_url": null,
     "progressive_low_res_url": null,
-    "point_count": 280000,
-    "mesh_quality": "photogrammetric_high_fidelity",
+    "point_count": null,
+    "mesh_quality": "archival_spatial_reference",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null
   },
@@ -77,7 +77,7 @@
       "attribution": "Odisha Tourism & Department of Culture"
     }
   ],
-  "reconstruction_notes": "Photogrammetric surface reconstruction of Dhauli Hill summit and stupa dome in progress. Interactive architectural reference and cardinal Buddha relief mapping enabled.",
+  "reconstruction_notes": "3D Reconstruction in progress. Archival photographic reference and cardinal Buddha relief mapping active.",
   "camera_preset": {
     "position": [
       0.0,

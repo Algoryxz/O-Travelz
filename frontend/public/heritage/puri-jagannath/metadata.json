@@ -13,7 +13,7 @@
     "model_url": null,
     "splat_url": null,
     "progressive_low_res_url": null,
-    "point_count": 220000,
+    "point_count": null,
     "mesh_quality": "authorized_external_reference",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null

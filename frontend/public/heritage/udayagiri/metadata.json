@@ -6,15 +6,15 @@
   "century": "2nd\u20131st Century BCE (Mahameghavahana Dynasty, Emperor Kharavela)",
   "category": "Rock-Cut Monastic Cells & Epigraphic Treasure",
   "description": "Multi-tiered rock-cut sandstone caves, pillared verandahs, Emperor Kharavela's 17-line Brahmi Hathigumpha inscription, and the famous double-storey Rani Gumpha.",
-  "scene_type": "REAL_3D_RECONSTRUCTION",
-  "status": "AVAILABLE",
+  "scene_type": "RECONSTRUCTION_IN_PROGRESS",
+  "status": "PROCESSING",
   "asset": {
-    "format": "photogrammetric_splat_webgl",
-    "model_url": "/heritage/udayagiri/optimized/udayagiri_reconstruction.splat",
-    "splat_url": "/heritage/udayagiri/optimized/udayagiri_reconstruction.splat",
+    "format": "archival_spatial_reference",
+    "model_url": null,
+    "splat_url": null,
     "progressive_low_res_url": null,
-    "point_count": 320000,
-    "mesh_quality": "photogrammetric_high_fidelity",
+    "point_count": null,
+    "mesh_quality": "archival_spatial_reference",
     "coordinate_system": "Y-Up",
     "file_size_bytes": null
   },
@@ -73,11 +73,11 @@
       "license": "Government Research Open Reference Dataset",
       "url": "https://asi.nic.in",
       "access_date": "2026-08-12",
-      "content_type": "Structure from Motion (SfM) Cave Photogrammetry Survey",
+      "content_type": "Architectural & Cave Survey Documentation",
       "attribution": "Archaeological Survey of India & Odisha State Archaeology"
     }
   ],
-  "reconstruction_notes": "Photogrammetric surface reconstruction of Rani Gumpha double-storey facade and Hathigumpha natural cavern in progress. Verified epigraphic and architectural hotspot reference active.",
+  "reconstruction_notes": "3D Reconstruction in progress. Epigraphic and architectural hotspot reference active.",
   "camera_preset": {
     "position": [
       0.0,

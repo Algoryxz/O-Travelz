@@ -49,7 +49,7 @@ export interface AssetMetadata {
   model_url?: string;
   splat_url?: string;
   progressive_low_res_url?: string;
-  point_count: number;
+  point_count?: number;
   mesh_quality: string;
   coordinate_system: string;
   file_size_bytes?: number;

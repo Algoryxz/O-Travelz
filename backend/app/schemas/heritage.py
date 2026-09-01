@@ -55,7 +55,7 @@ class AssetMetadata(BaseModel):
     model_url: Optional[str] = None
     splat_url: Optional[str] = None
     progressive_low_res_url: Optional[str] = None
-    point_count: int = 150000
+    point_count: Optional[int] = None
     mesh_quality: str = "high_fidelity"
     coordinate_system: str = "Y-Up"
     file_size_bytes: Optional[int] = None

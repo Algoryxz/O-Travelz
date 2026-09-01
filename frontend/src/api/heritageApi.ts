@@ -13,20 +13,19 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
     century: "13th Century CE (King Narasimhadeva I, Eastern Ganga Dynasty)",
     category: "Monumental Chariot & Chlorite Deula",
     description: "The monumental 24-spoke Surya Chakra astronomical sundials, Jagamohana stone massing, Natya Mandap pillared pavilion, and intricately sculpted chlorite relief panels.",
-    scene_type: "REAL_3D_RECONSTRUCTION",
-    status: "AVAILABLE",
+    scene_type: "RECONSTRUCTION_IN_PROGRESS",
+    status: "PROCESSING",
     asset: {
-      format: "photogrammetric_splat_webgl",
-      model_url: "/heritage/konark/optimized/konark_reconstruction.splat",
-      splat_url: "/heritage/konark/optimized/konark_reconstruction.splat",
-      progressive_low_res_url: "/heritage/konark/optimized/konark_reconstruction.ply",
-      point_count: 185000,
-      mesh_quality: "photogrammetric_high_fidelity",
+      format: "archival_spatial_reference",
+      model_url: undefined,
+      splat_url: undefined,
+      point_count: undefined,
+      mesh_quality: "archival_spatial_reference",
       coordinate_system: "Y-Up"
     },
     thumbnail: "https://images.unsplash.com/photo-1606210114565-964c5d12038a?q=80&w=800&auto=format&fit=crop",
     hero_banner: "https://images.unsplash.com/photo-1606210114565-964c5d12038a?q=80&w=1600&auto=format&fit=crop",
-    reconstruction_notes: "Photogrammetric Structure-from-Motion (SfM) point cloud reconstruction derived from Archaeological Survey of India (ASI) surveys and Wikimedia Commons multi-view photographic datasets. Dense chlorite and khondalite stone point cloud stream verified in WebGL.",
+    reconstruction_notes: "3D Reconstruction in progress. Currently presenting high-definition archival photographic canvas, verified spatial coordinates, and interactive architectural hotspots.",
     camera_preset: {
       position: [0.0, 1.8, 4.8],
       target: [0.0, 1.1, 0.0],
@@ -76,16 +75,16 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
         license: "Government of India Public Historical Archive",
         url: "https://odishatourism.gov.in",
         access_date: "2026-08-20",
-        content_type: "Structure-from-Motion Multi-View Photographic Dataset",
+        content_type: "Architectural Survey & Spatial Mapping Reference",
         attribution: "Archaeological Survey of India & Odisha Tourism"
       },
       {
         title: "Wikimedia Commons Cultural Heritage Documentation",
-        source: "High-resolution multi-view orthogonal monument photographic dataset",
+        source: "High-resolution orthogonal monument photographic documentation",
         license: "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
         url: "https://commons.wikimedia.org",
         access_date: "2026-08-22",
-        content_type: "Multi-angle Photographic Survey Dataset",
+        content_type: "Multi-angle Photographic Documentation",
         attribution: "Contributing Photographers & Wikimedia Foundation"
       }
     ]
@@ -104,7 +103,7 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       format: "archival_spatial_reference",
       model_url: undefined,
       splat_url: undefined,
-      point_count: 220000,
+      point_count: undefined,
       mesh_quality: "authorized_external_reference",
       coordinate_system: "Y-Up"
     },
@@ -163,20 +162,19 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
     century: "3rd Century BCE (Ashokan Edicts) & 1972 CE (Indo-Japanese Peace Pagoda)",
     category: "Ashokan Rock Edicts & Buddhist Peace Pagoda",
     description: "Pure white hemispherical stupa dome, carved stone friezes of Buddha's enlightenment, four colossal cardinal Buddha statues, and surrounding Daya river valley hilltop terrain.",
-    scene_type: "REAL_3D_RECONSTRUCTION",
-    status: "AVAILABLE",
+    scene_type: "RECONSTRUCTION_IN_PROGRESS",
+    status: "PROCESSING",
     asset: {
-      format: "photogrammetric_splat_webgl",
-      model_url: "/heritage/dhauli/optimized/dhauli_reconstruction.splat",
-      splat_url: "/heritage/dhauli/optimized/dhauli_reconstruction.splat",
-      progressive_low_res_url: "/heritage/dhauli/optimized/dhauli_reconstruction.ply",
-      point_count: 160000,
-      mesh_quality: "photogrammetric_high_fidelity",
+      format: "archival_spatial_reference",
+      model_url: undefined,
+      splat_url: undefined,
+      point_count: undefined,
+      mesh_quality: "archival_spatial_reference",
       coordinate_system: "Y-Up"
     },
     thumbnail: "https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?q=80&w=800&auto=format&fit=crop",
     hero_banner: "https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?q=80&w=1600&auto=format&fit=crop",
-    reconstruction_notes: "Photogrammetric surface reconstruction of Dhauli Hill summit and hemispherical stupa dome with concentric chhatras and cardinal Buddha reliefs.",
+    reconstruction_notes: "3D Reconstruction in progress. Archival photographic reference and cardinal Buddha relief mapping active.",
     camera_preset: {
       position: [0.0, 2.0, 5.2],
       target: [0.0, 1.2, 0.0],
@@ -216,7 +214,7 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
         license: "Government Cultural Heritage Open Archive",
         url: "https://culture.odisha.gov.in",
         access_date: "2026-08-18",
-        content_type: "Topographical Survey & Dense Point Cloud Mapping",
+        content_type: "Topographical Survey & Architectural Documentation",
         attribution: "Odisha Tourism & Department of Culture"
       }
     ]
@@ -235,7 +233,7 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       format: "archival_spatial_reference",
       model_url: undefined,
       splat_url: undefined,
-      point_count: 260000,
+      point_count: undefined,
       mesh_quality: "authorized_external_reference",
       coordinate_system: "Y-Up"
     },
@@ -281,7 +279,7 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
         license: "Government Research & Educational Reference Archive",
         url: "https://culture.odisha.gov.in",
         access_date: "2026-08-10",
-        content_type: "Architectural CAD & Survey Photogrammetry Dataset",
+        content_type: "Architectural CAD & Survey Dataset",
         attribution: "Ekamra Heritage Project, ASI & Govt. of Odisha"
       }
     ]
@@ -294,20 +292,19 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
     century: "2nd–1st Century BCE (Mahameghavahana Dynasty, Emperor Kharavela)",
     category: "Rock-Cut Monastic Cells & Epigraphic Treasure",
     description: "Multi-tiered rock-cut sandstone caves, pillared verandahs, Emperor Kharavela's 17-line Brahmi Hathigumpha inscription, and the famous double-storey Rani Gumpha.",
-    scene_type: "REAL_3D_RECONSTRUCTION",
-    status: "AVAILABLE",
+    scene_type: "RECONSTRUCTION_IN_PROGRESS",
+    status: "PROCESSING",
     asset: {
-      format: "photogrammetric_splat_webgl",
-      model_url: "/heritage/udayagiri/optimized/udayagiri_reconstruction.splat",
-      splat_url: "/heritage/udayagiri/optimized/udayagiri_reconstruction.splat",
-      progressive_low_res_url: "/heritage/udayagiri/optimized/udayagiri_reconstruction.ply",
-      point_count: 150000,
-      mesh_quality: "photogrammetric_high_fidelity",
+      format: "archival_spatial_reference",
+      model_url: undefined,
+      splat_url: undefined,
+      point_count: undefined,
+      mesh_quality: "archival_spatial_reference",
       coordinate_system: "Y-Up"
     },
     thumbnail: "https://images.unsplash.com/photo-1599827556794-5b4d6b63d0bb?q=80&w=800&auto=format&fit=crop",
     hero_banner: "https://images.unsplash.com/photo-1599827556794-5b4d6b63d0bb?q=80&w=1600&auto=format&fit=crop",
-    reconstruction_notes: "Photogrammetric surface reconstruction of Rani Gumpha double-storey rock-cut facade, colonnaded verandahs, and Hathigumpha natural cavern epigraphic portal.",
+    reconstruction_notes: "3D Reconstruction in progress. Epigraphic and architectural hotspot reference active.",
     camera_preset: {
       position: [0.0, 1.8, 5.0],
       target: [0.0, 1.0, 0.0],
@@ -322,7 +319,7 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       {
         id: "udayagiri_rani_gumpha",
         title: "Rani Gumpha (Queen's Cave Facade)",
-        odia_title: "ରାଣୀ ଗୁମ୍ଫା (ଦୁଇ ମହଲା ବିଶିଷ୍ଟ ଗୁମ୍ଫା)",
+        odia_title: "ରାଣୀ ଗମ୍ଫା (ଦୁଇ ମହଲା ବିଶିଷ୍ଟ ଗୁମ୍ଫା)",
         description: "Magnificent two-storey rock-cut monastery with biconcave barrel-vaulted cell doorways, carved guardian dvarapalas, and continuous narrative friezes.",
         architectural_significance: "Largest and most artistically rich cave in the complex, featuring acoustic courtyard resonance used for royal theatrical performances.",
         position: [0.0, 1.3, -0.3],
@@ -347,7 +344,7 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
         license: "Government Research Open Reference Dataset",
         url: "https://asi.nic.in",
         access_date: "2026-08-12",
-        content_type: "Structure from Motion (SfM) Cave Photogrammetry Survey",
+        content_type: "Architectural & Cave Survey Documentation",
         attribution: "Archaeological Survey of India & Odisha State Archaeology"
       }
     ]
@@ -363,16 +360,16 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
     scene_type: "RECONSTRUCTION_IN_PROGRESS",
     status: "PROCESSING",
     asset: {
-      format: "photogrammetric_splat_webgl",
-      model_url: "/heritage/barabati/optimized/barabati_reconstruction.splat",
-      splat_url: "/heritage/barabati/optimized/barabati_reconstruction.splat",
-      point_count: 290000,
+      format: "archival_spatial_reference",
+      model_url: undefined,
+      splat_url: undefined,
+      point_count: undefined,
       mesh_quality: "archival_spatial_reference",
       coordinate_system: "Y-Up"
     },
     thumbnail: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800&auto=format&fit=crop",
     hero_banner: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1600&auto=format&fit=crop",
-    reconstruction_notes: "Photogrammetric surface reconstruction of the surviving 14th-century pointed arch entrance gate in progress. Verified medieval bastion and fortress moat spatial reference enabled.",
+    reconstruction_notes: "3D Reconstruction in progress. 14th-century pointed arch entrance gate spatial reference active.",
     camera_preset: {
       position: [0.0, 1.8, 4.8],
       target: [0.0, 1.0, 0.0],
@@ -412,7 +409,7 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
         license: "Government Open Archaeological Survey Records",
         url: "https://asi.nic.in",
         access_date: "2026-08-16",
-        content_type: "Laser Scanning & Archaeological Excavation Mapping",
+        content_type: "Excavation & Architectural Survey Documentation",
         attribution: "ASI Bhubaneswar Circle & Govt. of Odisha"
       }
     ]

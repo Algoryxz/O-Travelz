@@ -15,7 +15,7 @@ from app.schemas.heritage import (
 
 
 class HeritageService:
-    """Manages verified heritage scenes, photogrammetric pipeline status, and archival provenance."""
+    """Manages verified heritage scenes, reconstruction status, and archival provenance."""
 
     def __init__(self) -> None:
         self._scenes: Dict[str, HeritageSceneResponse] = self._init_heritage_catalog()
@@ -25,7 +25,6 @@ class HeritageService:
         if not relative_path:
             return False
         clean_path = relative_path.lstrip("/").replace("/", os.sep)
-        # Check in frontend/public or data/heritage
         potential_roots = [
             os.path.join("frontend", "public", clean_path),
             os.path.join("data", clean_path),
@@ -53,17 +52,16 @@ class HeritageService:
             scene_type=HeritageSceneType.REAL_3D_RECONSTRUCTION if has_konark_asset else HeritageSceneType.RECONSTRUCTION_IN_PROGRESS,
             status=HeritageStatus.AVAILABLE if has_konark_asset else HeritageStatus.PROCESSING,
             asset=AssetMetadata(
-                format="photogrammetric_splat_webgl",
-                model_url=konark_asset_path,
-                splat_url=konark_asset_path,
-                progressive_low_res_url="/heritage/konark/optimized/konark_lowres.ply",
-                point_count=350000,
-                mesh_quality="photogrammetric_high_fidelity" if has_konark_asset else "archival_spatial_reference",
+                format="archival_spatial_reference",
+                model_url=None,
+                splat_url=None,
+                point_count=None,
+                mesh_quality="archival_spatial_reference",
                 coordinate_system="Y-Up",
             ),
             thumbnail="https://images.unsplash.com/photo-1606210114565-964c5d12038a?q=80&w=800&auto=format&fit=crop",
             hero_banner="https://images.unsplash.com/photo-1606210114565-964c5d12038a?q=80&w=1600&auto=format&fit=crop",
-            reconstruction_notes="Photogrammetric Structure from Motion (SfM) / Gaussian Splat pipeline configured. High-definition archival spatial reference and interactive architectural hotspots active pending final dense mesh optimization.",
+            reconstruction_notes="3D Reconstruction in progress. Currently presenting high-definition archival photographic canvas, verified spatial coordinates, and interactive architectural hotspots.",
             camera_preset=CameraPreset(
                 position=[0.0, 1.8, 4.8],
                 target=[0.0, 1.1, 0.0],
@@ -131,7 +129,7 @@ class HeritageService:
                     license="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
                     url="https://commons.wikimedia.org",
                     access_date="2026-08-22",
-                    content_type="Multi-angle Photographic Survey Dataset",
+                    content_type="Multi-angle Photographic Documentation",
                     attribution="Contributing Photographers & Wikimedia Foundation",
                 ),
             ],
@@ -154,7 +152,7 @@ class HeritageService:
                 format="archival_spatial_reference",
                 model_url=None,
                 splat_url=None,
-                point_count=220000,
+                point_count=None,
                 mesh_quality="authorized_external_reference",
                 coordinate_system="Y-Up",
             ),
@@ -232,16 +230,16 @@ class HeritageService:
             scene_type=HeritageSceneType.REAL_3D_RECONSTRUCTION if has_dhauli_asset else HeritageSceneType.RECONSTRUCTION_IN_PROGRESS,
             status=HeritageStatus.AVAILABLE if has_dhauli_asset else HeritageStatus.PROCESSING,
             asset=AssetMetadata(
-                format="photogrammetric_splat_webgl",
-                model_url=dhauli_asset_path,
-                splat_url=dhauli_asset_path,
-                point_count=280000,
-                mesh_quality="photogrammetric_high_fidelity" if has_dhauli_asset else "archival_spatial_reference",
+                format="archival_spatial_reference",
+                model_url=None,
+                splat_url=None,
+                point_count=None,
+                mesh_quality="archival_spatial_reference",
                 coordinate_system="Y-Up",
             ),
             thumbnail="https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?q=80&w=800&auto=format&fit=crop",
             hero_banner="https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?q=80&w=1600&auto=format&fit=crop",
-            reconstruction_notes="Photogrammetric surface reconstruction of Dhauli Hill summit and stupa dome in progress. Interactive architectural reference and cardinal Buddha relief mapping enabled.",
+            reconstruction_notes="3D Reconstruction in progress. Archival photographic reference and cardinal Buddha relief mapping active.",
             camera_preset=CameraPreset(
                 position=[0.0, 2.0, 5.2],
                 target=[0.0, 1.2, 0.0],
@@ -303,7 +301,7 @@ class HeritageService:
                 format="archival_spatial_reference",
                 model_url=None,
                 splat_url=None,
-                point_count=260000,
+                point_count=None,
                 mesh_quality="authorized_external_reference",
                 coordinate_system="Y-Up",
             ),
@@ -348,7 +346,7 @@ class HeritageService:
                     license="Government Research & Educational Reference Archive",
                     url="https://culture.odisha.gov.in",
                     access_date="2026-08-10",
-                    content_type="Architectural CAD & Survey Photogrammetry Dataset",
+                    content_type="Architectural CAD & Survey Dataset",
                     attribution="Ekamra Heritage Project, ASI & Govt. of Odisha",
                 ),
             ],
@@ -371,16 +369,16 @@ class HeritageService:
             scene_type=HeritageSceneType.REAL_3D_RECONSTRUCTION if has_udayagiri_asset else HeritageSceneType.RECONSTRUCTION_IN_PROGRESS,
             status=HeritageStatus.AVAILABLE if has_udayagiri_asset else HeritageStatus.PROCESSING,
             asset=AssetMetadata(
-                format="photogrammetric_splat_webgl",
-                model_url=udayagiri_asset_path,
-                splat_url=udayagiri_asset_path,
-                point_count=320000,
-                mesh_quality="photogrammetric_high_fidelity" if has_udayagiri_asset else "archival_spatial_reference",
+                format="archival_spatial_reference",
+                model_url=None,
+                splat_url=None,
+                point_count=None,
+                mesh_quality="archival_spatial_reference",
                 coordinate_system="Y-Up",
             ),
             thumbnail="https://images.unsplash.com/photo-1599827556794-5b4d6b63d0bb?q=80&w=800&auto=format&fit=crop",
             hero_banner="https://images.unsplash.com/photo-1599827556794-5b4d6b63d0bb?q=80&w=1600&auto=format&fit=crop",
-            reconstruction_notes="Photogrammetric surface reconstruction of Rani Gumpha double-storey facade and Hathigumpha natural cavern in progress. Verified epigraphic and architectural hotspot reference active.",
+            reconstruction_notes="3D Reconstruction in progress. Epigraphic and architectural hotspot reference active.",
             camera_preset=CameraPreset(
                 position=[0.0, 1.8, 5.0],
                 target=[0.0, 1.0, 0.0],
@@ -419,7 +417,7 @@ class HeritageService:
                     license="Government Research Open Reference Dataset",
                     url="https://asi.nic.in",
                     access_date="2026-08-12",
-                    content_type="Structure from Motion (SfM) Cave Photogrammetry Survey",
+                    content_type="Architectural & Cave Survey Documentation",
                     attribution="Archaeological Survey of India & Odisha State Archaeology",
                 ),
             ],
@@ -442,16 +440,16 @@ class HeritageService:
             scene_type=HeritageSceneType.REAL_3D_RECONSTRUCTION if has_barabati_asset else HeritageSceneType.RECONSTRUCTION_IN_PROGRESS,
             status=HeritageStatus.AVAILABLE if has_barabati_asset else HeritageStatus.PROCESSING,
             asset=AssetMetadata(
-                format="photogrammetric_splat_webgl",
-                model_url=barabati_asset_path,
-                splat_url=barabati_asset_path,
-                point_count=290000,
-                mesh_quality="photogrammetric_high_fidelity" if has_barabati_asset else "archival_spatial_reference",
+                format="archival_spatial_reference",
+                model_url=None,
+                splat_url=None,
+                point_count=None,
+                mesh_quality="archival_spatial_reference",
                 coordinate_system="Y-Up",
             ),
             thumbnail="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800&auto=format&fit=crop",
             hero_banner="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1600&auto=format&fit=crop",
-            reconstruction_notes="Photogrammetric surface reconstruction of the surviving 14th-century pointed arch entrance gate in progress. Verified medieval bastion and fortress moat spatial reference enabled.",
+            reconstruction_notes="3D Reconstruction in progress. 14th-century pointed arch entrance gate spatial reference active.",
             camera_preset=CameraPreset(
                 position=[0.0, 1.8, 4.8],
                 target=[0.0, 1.0, 0.0],
@@ -490,7 +488,7 @@ class HeritageService:
                     license="Government Open Archaeological Survey Records",
                     url="https://asi.nic.in",
                     access_date="2026-08-16",
-                    content_type="Laser Scanning & Archaeological Excavation Mapping",
+                    content_type="Excavation & Architectural Survey Documentation",
                     attribution="ASI Bhubaneswar Circle & Govt. of Odisha",
                 ),
             ],
@@ -499,25 +497,25 @@ class HeritageService:
         return catalog
 
     def get_all_scenes(self) -> List[HeritageSceneResponse]:
-        """Retrieve list of all authoritative digital heritage scenes."""
+        """Return all registered heritage scenes."""
         return list(self._scenes.values())
 
     def get_scene_by_id(self, scene_id: str) -> Optional[HeritageSceneResponse]:
-        """Retrieve single heritage scene by canonical ID."""
+        """Fetch scene by unique slug."""
         return self._scenes.get(scene_id)
 
-    def get_scene_asset(self, scene_id: str) -> Optional[AssetMetadata]:
-        """Retrieve asset metadata for a scene."""
-        scene = self._scenes.get(scene_id)
-        return scene.asset if scene else None
-
     def get_scene_hotspots(self, scene_id: str) -> Optional[List[HeritageHotspot]]:
-        """Retrieve interactive hotspots for a scene."""
+        """Fetch architectural hotspots for a scene."""
         scene = self._scenes.get(scene_id)
         return scene.hotspots if scene else None
 
+    def get_scene_asset(self, scene_id: str) -> Optional[AssetMetadata]:
+        """Fetch asset metadata for a scene."""
+        scene = self._scenes.get(scene_id)
+        return scene.asset if scene else None
+
     def get_scene_sources(self, scene_id: str) -> Optional[List[HeritageSource]]:
-        """Retrieve provenance and licensing sources for a scene."""
+        """Fetch archival sources for a scene."""
         scene = self._scenes.get(scene_id)
         return scene.sources if scene else None
 
