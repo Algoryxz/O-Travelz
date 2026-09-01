@@ -16,7 +16,7 @@ data class PlaceDetailUiState(
     val errorMessage: String? = null
 )
 
-class PlaceDetailViewModel(
+class PlaceDetailViewModel @JvmOverloads constructor(
     private val placesRepository: PlacesRepository = PlacesRepository()
 ) : ViewModel() {
 

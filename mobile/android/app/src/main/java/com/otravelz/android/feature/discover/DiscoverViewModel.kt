@@ -24,7 +24,7 @@ data class DiscoverUiState(
     val errorMessage: String? = null
 )
 
-class DiscoverViewModel(
+class DiscoverViewModel @JvmOverloads constructor(
     application: Application,
     private val placesRepository: PlacesRepository = PlacesRepository(),
     private val savedPlacesRepository: SavedPlacesRepository = SavedPlacesRepository(application)

@@ -32,7 +32,7 @@ data class PlannerUiState(
     val errorMessage: String? = null
 )
 
-class PlannerViewModel(
+class PlannerViewModel @JvmOverloads constructor(
     application: Application,
     private val plannerRepository: PlannerRepository = PlannerRepository(),
     private val savedTripsRepository: SavedTripsRepository = SavedTripsRepository(application)

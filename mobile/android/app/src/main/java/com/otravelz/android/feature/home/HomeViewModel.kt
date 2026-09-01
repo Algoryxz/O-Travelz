@@ -20,7 +20,7 @@ data class HomeUiState(
     val errorMessage: String? = null
 )
 
-class HomeViewModel(
+class HomeViewModel @JvmOverloads constructor(
     private val placesRepository: PlacesRepository = PlacesRepository(),
     private val weatherRepository: WeatherRepository = WeatherRepository()
 ) : ViewModel() {
