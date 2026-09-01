@@ -28,6 +28,7 @@ canonical_sources:
 
   images:
     asset_root: "data/images/places/"
+    manifest: "data/images/sources/manifest.json"
     provenance_ledgers:
       - "data/images/sources/legacy_provenance_recovery.json"
       - "data/images/sources/legacy_external_provenance_research.json"
