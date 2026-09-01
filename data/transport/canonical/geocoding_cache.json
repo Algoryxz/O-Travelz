@@ -2076,5 +2076,2276 @@
     "query": "Nuapatana, Bhubaneswar, Odisha, India",
     "cached_at": "2026-09-01T05:00:45.736046+00:00",
     "result": null
+  },
+  "omp square-mahanadi vihar, bhubaneswar, odisha, india": {
+    "query": "Omp Square-mahanadi Vihar, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:19.538212+00:00",
+    "result": null
+  },
+  "pathargadia square, bhubaneswar, odisha, india": {
+    "query": "Pathargadia Square, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:20.887509+00:00",
+    "result": null
+  },
+  "patia, bhubaneswar, odisha, india": {
+    "query": "Patia, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:22.156074+00:00",
+    "result": {
+      "lat": 20.3604502,
+      "lon": 85.8247661,
+      "display_name": "Patia, North Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751024, India",
+      "osm_type": "way",
+      "osm_id": 368852640,
+      "class": "highway",
+      "type": "residential",
+      "address": {
+        "road": "Patia",
+        "city_district": "North Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751024",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "rokat, rajdhani engineering college, bhubaneswar, odisha, india": {
+    "query": "Rokat, Rajdhani Engineering College, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:23.997509+00:00",
+    "result": null
+  },
+  "sakhigopal temple, bhubaneswar, odisha, india": {
+    "query": "Sakhigopal Temple, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:25.400588+00:00",
+    "result": null
+  },
+  "salia sahi, bhubaneswar, odisha, india": {
+    "query": "Salia Sahi, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:27.244759+00:00",
+    "result": null
+  },
+  "satapada bus stand, bhubaneswar, odisha, india": {
+    "query": "Satapada Bus Stand, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:28.379110+00:00",
+    "result": null
+  },
+  "sbi colony, bhubaneswar, odisha, india": {
+    "query": "Sbi Colony, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:29.531337+00:00",
+    "result": {
+      "lat": 20.281412,
+      "lon": 85.825917,
+      "display_name": "SBI Colony road, SBI Staff quarters, Ward 39, South West Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751001, India",
+      "osm_type": "way",
+      "osm_id": 1219871297,
+      "class": "highway",
+      "type": "residential",
+      "address": {
+        "road": "SBI Colony road",
+        "residential": "SBI Staff quarters",
+        "suburb": "Ward 39",
+        "city_district": "South West Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751001",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "scb medical,cuttack, bhubaneswar, odisha, india": {
+    "query": "Scb Medical,cuttack, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:30.688164+00:00",
+    "result": null
+  },
+  "siep, jatni, bhubaneswar, odisha, india": {
+    "query": "Siep, Jatni, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:32.536625+00:00",
+    "result": null
+  },
+  "sri sri university, kataka, bhubaneswar, odisha, india": {
+    "query": "Sri Sri University, Kataka, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:34.104466+00:00",
+    "result": null
+  },
+  "suando, bhubaneswar, odisha, india": {
+    "query": "Suando, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:35.539526+00:00",
+    "result": null
+  },
+  "sum hospital-igkc, bhubaneswar, odisha, india": {
+    "query": "Sum Hospital-igkc, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:36.709017+00:00",
+    "result": null
+  },
+  "svnirtar,olatpur, bhubaneswar, odisha, india": {
+    "query": "Svnirtar,olatpur, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:37.941844+00:00",
+    "result": null
+  },
+  "talabania, bhubaneswar, odisha, india": {
+    "query": "Talabania, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:39.256990+00:00",
+    "result": null
+  },
+  "tangi, bhubaneswar, odisha, india": {
+    "query": "Tangi, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:41.098969+00:00",
+    "result": null
+  },
+  "trahi achyut, bhubaneswar, odisha, india": {
+    "query": "Trahi Achyut, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:42.209827+00:00",
+    "result": null
+  },
+  "trimal, bhubaneswar, odisha, india": {
+    "query": "Trimal, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:43.582519+00:00",
+    "result": null
+  },
+  "trishulia bus stand, bhubaneswar, odisha, india": {
+    "query": "Trishulia Bus Stand, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:44.940845+00:00",
+    "result": null
+  },
+  "udaynath college, adaspur, bhubaneswar, odisha, india": {
+    "query": "Udaynath College, Adaspur, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:46.790262+00:00",
+    "result": null
+  },
+  "utkal hospital, bhubaneswar, odisha, india": {
+    "query": "Utkal Hospital, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:48.169805+00:00",
+    "result": {
+      "lat": 20.3227673,
+      "lon": 85.8004875,
+      "display_name": "Utkal Hospital, Ishaneshwara Temple Road, Ward 14, North Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751021, India",
+      "osm_type": "node",
+      "osm_id": 7709755738,
+      "class": "amenity",
+      "type": "hospital",
+      "address": {
+        "amenity": "Utkal Hospital",
+        "road": "Ishaneshwara Temple Road",
+        "suburb": "Ward 14",
+        "city_district": "North Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751021",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "wonderla amusement park, bhubaneswar, odisha, india": {
+    "query": "Wonderla Amusement Park, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:49.562758+00:00",
+    "result": null
+  },
+  "burla hospital, sambalpur, odisha, india": {
+    "query": "Burla Hospital, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:27:51.417799+00:00",
+    "result": {
+      "lat": 21.4982581,
+      "lon": 83.8772702,
+      "display_name": "Burla Cancer Hospital, Sadeipali road, Burla, Sambalpur, Odisha, 768017, India",
+      "osm_type": "node",
+      "osm_id": 7712918689,
+      "class": "amenity",
+      "type": "hospital",
+      "address": {
+        "amenity": "Burla Cancer Hospital",
+        "road": "Sadeipali road",
+        "town": "Burla",
+        "county": "Burla",
+        "state_district": "Sambalpur",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "768017",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "dhanupali chowk, sambalpur, odisha, india": {
+    "query": "Dhanupali Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:27:52.812503+00:00",
+    "result": null
+  },
+  "padiabahal, sambalpur, odisha, india": {
+    "query": "Padiabahal, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:27:54.207913+00:00",
+    "result": {
+      "lat": 21.4494963,
+      "lon": 84.1552077,
+      "display_name": "PHC, Padiabahal, NH53, Sadar, Sambalpur, Odisha, 768105, India",
+      "osm_type": "node",
+      "osm_id": 7205635012,
+      "class": "healthcare",
+      "type": "centre",
+      "address": {
+        "healthcare": "PHC, Padiabahal",
+        "road": "NH53",
+        "county": "Sadar",
+        "state_district": "Sambalpur",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "768105",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "ag square, bhubaneswar, odisha, india": {
+    "query": "Ag Square, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:56.047495+00:00",
+    "result": {
+      "lat": 20.2659766,
+      "lon": 85.8301523,
+      "display_name": "AG Square, Raj Path, Unit-1, Ward 40, South East Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751009, India",
+      "osm_type": "node",
+      "osm_id": 2999157406,
+      "class": "highway",
+      "type": "bus_stop",
+      "address": {
+        "highway": "AG Square",
+        "road": "Raj Path",
+        "neighbourhood": "Unit-1",
+        "suburb": "Ward 40",
+        "city_district": "South East Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751009",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "chandaka, bhubaneswar, odisha, india": {
+    "query": "Chandaka, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:57.419089+00:00",
+    "result": {
+      "lat": 20.2719902,
+      "lon": 85.7838115,
+      "display_name": "Khandagiri - Chandaka Road, Ward 49, South West Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751003, India",
+      "osm_type": "way",
+      "osm_id": 1210204475,
+      "class": "highway",
+      "type": "primary",
+      "address": {
+        "road": "Khandagiri - Chandaka Road",
+        "suburb": "Ward 49",
+        "city_district": "South West Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751003",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "kalapana square, bhubaneswar, odisha, india": {
+    "query": "Kalapana Square, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:27:58.819235+00:00",
+    "result": null
+  },
+  "nlu, bhubaneswar, odisha, india": {
+    "query": "Nlu, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:28:00.238941+00:00",
+    "result": null
+  },
+  "ouat, bhubaneswar, odisha, india": {
+    "query": "OUAT, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:28:01.629405+00:00",
+    "result": {
+      "lat": 20.2625177,
+      "lon": 85.8156266,
+      "display_name": "OUAT Hostel Lane 1, South West Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 752010, India",
+      "osm_type": "way",
+      "osm_id": 876058745,
+      "class": "highway",
+      "type": "residential",
+      "address": {
+        "road": "OUAT Hostel Lane 1",
+        "city_district": "South West Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "752010",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "rasulgarh, bhubaneswar, odisha, india": {
+    "query": "Rasulgarh, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:28:03.017635+00:00",
+    "result": {
+      "lat": 20.2997167,
+      "lon": 85.8625752,
+      "display_name": "Rasulgarh Flyover, Ward 19, North Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751010, India",
+      "osm_type": "way",
+      "osm_id": 879568354,
+      "class": "highway",
+      "type": "trunk",
+      "address": {
+        "road": "Rasulgarh Flyover",
+        "suburb": "Ward 19",
+        "city_district": "North Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751010",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "rasulgarh square, bhubaneswar, odisha, india": {
+    "query": "Rasulgarh Square, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:28:04.415265+00:00",
+    "result": null
+  },
+  "chandamunda road, sambalpur, odisha, india": {
+    "query": "Chandamunda Road, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:06.255095+00:00",
+    "result": null
+  },
+  "mahavir square, sambalpur, odisha, india": {
+    "query": "Mahavir Square, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:07.528464+00:00",
+    "result": null
+  },
+  "nuajamada, sambalpur, odisha, india": {
+    "query": "Nuajamada, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:08.623810+00:00",
+    "result": null
+  },
+  "nurshing college road, sambalpur, odisha, india": {
+    "query": "Nurshing College Road, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:10.568661+00:00",
+    "result": null
+  },
+  "gurunthi chowk, berhampur, odisha, india": {
+    "query": "Gurunthi Chowk, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:11.702732+00:00",
+    "result": null
+  },
+  "gurunthi village, berhampur, odisha, india": {
+    "query": "Gurunthi Village, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:12.980635+00:00",
+    "result": null
+  },
+  "lochapada ganesh bazaar, berhampur, odisha, india": {
+    "query": "Lochapada Ganesh Bazaar, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:14.155884+00:00",
+    "result": null
+  },
+  "techno city, berhampur, odisha, india": {
+    "query": "Techno City, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:15.989196+00:00",
+    "result": null
+  },
+  "techno park, berhampur, odisha, india": {
+    "query": "Techno Park, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:17.923744+00:00",
+    "result": null
+  },
+  "engg.school, berhampur, odisha, india": {
+    "query": "Engg.school, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:19.133129+00:00",
+    "result": null
+  },
+  "haladiapadar bus stand, berhampur, odisha, india": {
+    "query": "Haladiapadar Bus Stand, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:21.028923+00:00",
+    "result": null
+  },
+  "regidi, berhampur, odisha, india": {
+    "query": "Regidi, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:28:22.444698+00:00",
+    "result": null
+  },
+  "belda, keonjhar, odisha, india": {
+    "query": "Belda, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:28:23.818276+00:00",
+    "result": null
+  },
+  "govt hospital, suakati, keonjhar, odisha, india": {
+    "query": "Govt Hospital, Suakati, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:28:25.041745+00:00",
+    "result": null
+  },
+  "gst office, keonjhar, odisha, india": {
+    "query": "Gst Office, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:28:26.881386+00:00",
+    "result": null
+  },
+  "omfed, keonjhar, odisha, india": {
+    "query": "Omfed, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:28:28.247800+00:00",
+    "result": null
+  },
+  "birmitrapur, rourkela, odisha, india": {
+    "query": "Birmitrapur, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:30.096772+00:00",
+    "result": null
+  },
+  "birsa munda hockey stadium, rourkela, odisha, india": {
+    "query": "Birsa Munda Hockey Stadium, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:31.412501+00:00",
+    "result": {
+      "lat": 22.2456627,
+      "lon": 84.8137173,
+      "display_name": "Birsa Munda International Hockey Stadium, Ring Road, Chhend, Rourkela, Sundargarh, Odisha, 769015, India",
+      "osm_type": "way",
+      "osm_id": 1127963131,
+      "class": "leisure",
+      "type": "stadium",
+      "address": {
+        "leisure": "Birsa Munda International Hockey Stadium",
+        "road": "Ring Road",
+        "suburb": "Chhend",
+        "county": "Rourkela",
+        "state_district": "Sundargarh",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "769015",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "bonaigarh, rourkela, odisha, india": {
+    "query": "Bonaigarh, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:32.661476+00:00",
+    "result": null
+  },
+  "dav pond, rourkela, odisha, india": {
+    "query": "Dav Pond, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:33.759910+00:00",
+    "result": {
+      "lat": 22.2314298,
+      "lon": 84.833428,
+      "display_name": "DAV Pond, Rourkela, Raurkela (M), Sundargarh, Odisha, 769002, India",
+      "osm_type": "way",
+      "osm_id": 150812602,
+      "class": "water",
+      "type": "pond",
+      "address": {
+        "pond": "DAV Pond",
+        "city": "Rourkela",
+        "county": "Raurkela (M)",
+        "state_district": "Sundargarh",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "769002",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "gurundia, rourkela, odisha, india": {
+    "query": "Gurundia, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:35.606797+00:00",
+    "result": {
+      "lat": 21.8560137,
+      "lon": 84.7700733,
+      "display_name": "OAV Gurundia, Gurundia, Sundargarh, Odisha, 770043, India",
+      "osm_type": "node",
+      "osm_id": 13853634913,
+      "class": "office",
+      "type": "educational_institution",
+      "address": {
+        "office": "OAV Gurundia",
+        "village": "Gurundia",
+        "county": "Gurundia",
+        "state_district": "Sundargarh",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "770043",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "hamirpur, rourkela, odisha, india": {
+    "query": "Hamirpur, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:36.974536+00:00",
+    "result": {
+      "lat": 22.2694159,
+      "lon": 84.8689246,
+      "display_name": "Hamirpur, Rourkela, Sundargarh, Odisha, 769005, India",
+      "osm_type": "node",
+      "osm_id": 3060906742,
+      "class": "place",
+      "type": "suburb",
+      "address": {
+        "suburb": "Hamirpur",
+        "county": "Rourkela",
+        "state_district": "Sundargarh",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "769005",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "jaraikela, rourkela, odisha, india": {
+    "query": "Jaraikela, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:38.223373+00:00",
+    "result": null
+  },
+  "kalunga, rourkela, odisha, india": {
+    "query": "Kalunga, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:39.632494+00:00",
+    "result": {
+      "lat": 22.2220668,
+      "lon": 84.7339761,
+      "display_name": "Kalunga, Sambalpur - Sundargarh - Rourkela Highway, Brahmani Tarang, Sundargarh, Odisha, 769041, India",
+      "osm_type": "node",
+      "osm_id": 6211253286,
+      "class": "railway",
+      "type": "station",
+      "address": {
+        "railway": "Kalunga",
+        "road": "Sambalpur - Sundargarh - Rourkela Highway",
+        "county": "Brahmani Tarang",
+        "state_district": "Sundargarh",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "769041",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "kutra, rourkela, odisha, india": {
+    "query": "Kutra, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:41.019615+00:00",
+    "result": {
+      "lat": 22.2326204,
+      "lon": 84.4532481,
+      "display_name": "CHC, Kutra, Sambalpur - Sundargarh - Rourkela Highway, Kutra, Sundargarh, Odisha, 770022, India",
+      "osm_type": "node",
+      "osm_id": 7220667235,
+      "class": "healthcare",
+      "type": "centre",
+      "address": {
+        "healthcare": "CHC, Kutra",
+        "road": "Sambalpur - Sundargarh - Rourkela Highway",
+        "village": "Kutra",
+        "county": "Kutra",
+        "state_district": "Sundargarh",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "770022",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "lahunipara, rourkela, odisha, india": {
+    "query": "Lahunipara, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:42.853144+00:00",
+    "result": null
+  },
+  "lathikata, rourkela, odisha, india": {
+    "query": "Lathikata, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:44.184623+00:00",
+    "result": null
+  },
+  "laukera, rourkela, odisha, india": {
+    "query": "Laukera, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:45.557765+00:00",
+    "result": null
+  },
+  "loram, rourkela, odisha, india": {
+    "query": "Loram, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:46.656963+00:00",
+    "result": null
+  },
+  "potab, rourkela, odisha, india": {
+    "query": "Potab, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:47.985653+00:00",
+    "result": null
+  },
+  "radio station, rourkela, odisha, india": {
+    "query": "Radio Station, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:49.274849+00:00",
+    "result": null
+  },
+  "rajgangpur, rourkela, odisha, india": {
+    "query": "Rajgangpur, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:51.121498+00:00",
+    "result": {
+      "lat": 22.1861154,
+      "lon": 84.5835067,
+      "display_name": "Rajgangpur, Sambalpur - Sundargarh - Rourkela Highway, Rajgangpur, Rajagangapur, Sundargarh, Odisha, 770017, India",
+      "osm_type": "node",
+      "osm_id": 2518869694,
+      "class": "railway",
+      "type": "station",
+      "address": {
+        "railway": "Rajgangpur",
+        "road": "Sambalpur - Sundargarh - Rourkela Highway",
+        "town": "Rajgangpur",
+        "county": "Rajagangapur",
+        "state_district": "Sundargarh",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "770017",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "salangabahal, rourkela, odisha, india": {
+    "query": "Salangabahal, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:52.444316+00:00",
+    "result": null
+  },
+  "shakti nagar, rourkela, odisha, india": {
+    "query": "Shakti Nagar, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:54.309631+00:00",
+    "result": null
+  },
+  "tarapur filter house, rourkela, odisha, india": {
+    "query": "Tarapur Filter House, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:55.727028+00:00",
+    "result": null
+  },
+  "teterkela, rourkela, odisha, india": {
+    "query": "Teterkela, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:57.095850+00:00",
+    "result": null
+  },
+  "ushra, rourkela, odisha, india": {
+    "query": "Ushra, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:28:58.938573+00:00",
+    "result": null
+  },
+  "vedvyas, rourkela, odisha, india": {
+    "query": "Vedvyas, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:29:00.084753+00:00",
+    "result": {
+      "lat": 22.2375203,
+      "lon": 84.7786525,
+      "display_name": "Vyas Residency, Vedvyas Chowk, NH143, Rourkela, Brahmani Tarang, Sundargarh, Odisha, 769041, India",
+      "osm_type": "way",
+      "osm_id": 486942220,
+      "class": "leisure",
+      "type": "playground",
+      "address": {
+        "leisure": "Vyas Residency",
+        "house_number": "Vedvyas Chowk",
+        "road": "NH143",
+        "city": "Rourkela",
+        "county": "Brahmani Tarang",
+        "state_district": "Sundargarh",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "769041",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "anisha ladies hostel, sambalpur, odisha, india": {
+    "query": "Anisha Ladies Hostel, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:01.398445+00:00",
+    "result": null
+  },
+  "atal chowk, sambalpur, odisha, india": {
+    "query": "Atal Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:02.776980+00:00",
+    "result": null
+  },
+  "baragarh, sambalpur, odisha, india": {
+    "query": "Baragarh, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:04.034290+00:00",
+    "result": null
+  },
+  "city railway station, sambalpur, odisha, india": {
+    "query": "City Railway Station, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:06.524789+00:00",
+    "result": {
+      "lat": 21.476515,
+      "lon": 84.0076678,
+      "display_name": "Sambalpur City, NH53, Sambalpur, Odisha, 768005, India",
+      "osm_type": "node",
+      "osm_id": 1056563399,
+      "class": "railway",
+      "type": "station",
+      "address": {
+        "railway": "Sambalpur City",
+        "road": "NH53",
+        "city": "Sambalpur",
+        "county": "Sambalpur",
+        "state_district": "Sambalpur",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "768005",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "city railway station, ainthapali bus terminal, remed, sambalpur, odisha, india": {
+    "query": "City Railway Station, Ainthapali Bus Terminal, Remed, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:09.064501+00:00",
+    "result": null
+  },
+  "dhama, sambalpur, odisha, india": {
+    "query": "Dhama, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:10.333287+00:00",
+    "result": {
+      "lat": 21.2780978,
+      "lon": 83.9719819,
+      "display_name": "Dhama, Sambalpur, Odisha, 768113, India",
+      "osm_type": "relation",
+      "osm_id": 10104938,
+      "class": "boundary",
+      "type": "administrative",
+      "address": {
+        "county": "Dhama",
+        "state_district": "Sambalpur",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "768113",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "fci, sambalpur, odisha, india": {
+    "query": "Fci, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:11.471999+00:00",
+    "result": {
+      "lat": 21.4239786,
+      "lon": 83.9129424,
+      "display_name": "FCI Baudiapada, IIM Road, Burla, Sambalpur, Odisha, 768025, India",
+      "osm_type": "way",
+      "osm_id": 730145789,
+      "class": "amenity",
+      "type": "social_facility",
+      "address": {
+        "amenity": "FCI Baudiapada",
+        "road": "IIM Road",
+        "county": "Burla",
+        "state_district": "Sambalpur",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "768025",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "jharsuguda, sambalpur, odisha, india": {
+    "query": "Jharsuguda, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:12.616054+00:00",
+    "result": {
+      "lat": 21.7947689,
+      "lon": 84.3025892,
+      "display_name": "Jharsuguda - Tileibani Highway, Kochinda, Sambalpur, Odisha, India",
+      "osm_type": "way",
+      "osm_id": 290628856,
+      "class": "highway",
+      "type": "trunk",
+      "address": {
+        "road": "Jharsuguda - Tileibani Highway",
+        "county": "Kochinda",
+        "state_district": "Sambalpur",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "khetrajpur railway station, sambalpur, odisha, india": {
+    "query": "Khetrajpur Railway Station, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:14.028114+00:00",
+    "result": {
+      "lat": 21.4816689,
+      "lon": 83.9596969,
+      "display_name": "Khetrajpur Railway Station, Farm Road, Sambalpur, Odisha, 768003, India",
+      "osm_type": "node",
+      "osm_id": 12176828720,
+      "class": "highway",
+      "type": "bus_stop",
+      "address": {
+        "highway": "Khetrajpur Railway Station",
+        "road": "Farm Road",
+        "city": "Sambalpur",
+        "county": "Sambalpur",
+        "state_district": "Sambalpur",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "768003",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "khetrajpur rly. station, sambalpur, odisha, india": {
+    "query": "Khetrajpur Rly. Station, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:15.587093+00:00",
+    "result": null
+  },
+  "kuchinda bus stand, sambalpur, odisha, india": {
+    "query": "Kuchinda Bus Stand, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:16.709724+00:00",
+    "result": null
+  },
+  "maneswar, sambalpur, odisha, india": {
+    "query": "Maneswar, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:18.100451+00:00",
+    "result": {
+      "lat": 21.4163207,
+      "lon": 84.0249555,
+      "display_name": "Maneswar Mandhata Baba Temple, NH55, Sadar, Sambalpur, Odisha, 768005, India",
+      "osm_type": "node",
+      "osm_id": 3374687727,
+      "class": "amenity",
+      "type": "place_of_worship",
+      "address": {
+        "amenity": "Maneswar Mandhata Baba Temple",
+        "road": "NH55",
+        "county": "Sadar",
+        "state_district": "Sambalpur",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "768005",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "nuagujatal village road, sambalpur, odisha, india": {
+    "query": "Nuagujatal Village Road, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:19.207848+00:00",
+    "result": null
+  },
+  "nuajamda, sambalpur, odisha, india": {
+    "query": "Nuajamda, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:20.331179+00:00",
+    "result": null
+  },
+  "osou sambalpur, sambalpur, odisha, india": {
+    "query": "Osou Sambalpur, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:21.658357+00:00",
+    "result": null
+  },
+  "charbhati chowk, sambalpur, odisha, india": {
+    "query": "Charbhati Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:22.930187+00:00",
+    "result": null
+  },
+  "gohira tikira, sambalpur, odisha, india": {
+    "query": "Gohira Tikira, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:24.307772+00:00",
+    "result": null
+  },
+  "lakshmi dunguri chowk, sambalpur, odisha, india": {
+    "query": "Lakshmi Dunguri Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:25.765137+00:00",
+    "result": null
+  },
+  "mahindra showroom, sambalpur, odisha, india": {
+    "query": "Mahindra Showroom, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:27.610163+00:00",
+    "result": null
+  },
+  "p.c bridge chowk, sambalpur, odisha, india": {
+    "query": "P.c Bridge Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:28.922170+00:00",
+    "result": null
+  },
+  "satsang vihar, sambalpur, odisha, india": {
+    "query": "Satsang Vihar, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:30.270130+00:00",
+    "result": null
+  },
+  "sindurpank nh bypass, sambalpur, odisha, india": {
+    "query": "Sindurpank NH Bypass, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:31.627928+00:00",
+    "result": null
+  },
+  "takba square, sambalpur, odisha, india": {
+    "query": "Takba Square, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:32.756115+00:00",
+    "result": null
+  },
+  "duduma colony new bus stand, berhampur, odisha, india": {
+    "query": "Duduma Colony New Bus Stand, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:34.693235+00:00",
+    "result": null
+  },
+  "gajapati nagar, berhampur, odisha, india": {
+    "query": "Gajapati Nagar, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:35.794755+00:00",
+    "result": {
+      "lat": 19.3089002,
+      "lon": 84.8188788,
+      "display_name": "Gajapati Nagar, Brahmapur, Rangeilunda, Ganjam, Odisha, 760008, India",
+      "osm_type": "node",
+      "osm_id": 2532369155,
+      "class": "place",
+      "type": "neighbourhood",
+      "address": {
+        "neighbourhood": "Gajapati Nagar",
+        "city": "Brahmapur",
+        "county": "Rangeilunda",
+        "state_district": "Ganjam",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "760008",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "gandhi college, berhampur, odisha, india": {
+    "query": "Gandhi College, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:37.246129+00:00",
+    "result": null
+  },
+  "ganjam law college, berhampur, odisha, india": {
+    "query": "Ganjam Law College, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:38.536995+00:00",
+    "result": null
+  },
+  "goilundi square, berhampur, odisha, india": {
+    "query": "Goilundi Square, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:40.369854+00:00",
+    "result": null
+  },
+  "golanthra village, berhampur, odisha, india": {
+    "query": "Golanthra Village, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:42.336408+00:00",
+    "result": null
+  },
+  "gopalpur junction, berhampur, odisha, india": {
+    "query": "Gopalpur Junction, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:29:43.751743+00:00",
+    "result": null
+  },
+  "gosaninuagaon, berhampur, odisha, india": {
+    "query": "Gosaninuagaon, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:38.988138+00:00",
+    "result": null
+  },
+  "gosaninugaa, berhampur, odisha, india": {
+    "query": "Gosaninugaa, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:40.317127+00:00",
+    "result": null
+  },
+  "gosaninugaa police station, berhampur, odisha, india": {
+    "query": "Gosaninugaa Police Station, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:41.687241+00:00",
+    "result": null
+  },
+  "gosaninugaa santoshi, berhampur, odisha, india": {
+    "query": "Gosaninugaa Santoshi, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:43.534937+00:00",
+    "result": null
+  },
+  "government iti, berhampur, odisha, india": {
+    "query": "Government Iti, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:45.375371+00:00",
+    "result": null
+  },
+  "govinda vihar, berhampur, odisha, india": {
+    "query": "Govinda Vihar, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:46.487139+00:00",
+    "result": null
+  },
+  "haradakhandi sqare, berhampur, odisha, india": {
+    "query": "Haradakhandi Sqare, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:47.715975+00:00",
+    "result": null
+  },
+  "haridakhandi chaka, berhampur, odisha, india": {
+    "query": "Haridakhandi Chaka, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:49.110942+00:00",
+    "result": null
+  },
+  "housing board colony, berhampur, odisha, india": {
+    "query": "Housing Board Colony, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:50.392657+00:00",
+    "result": {
+      "lat": 19.3066413,
+      "lon": 84.7798008,
+      "display_name": "Housing Board Colony, Dharma Nagar, Brahmapur, Rangeilunda, Ganjam, Odisha, 760002, India",
+      "osm_type": "node",
+      "osm_id": 2470729906,
+      "class": "place",
+      "type": "neighbourhood",
+      "address": {
+        "neighbourhood": "Housing Board Colony",
+        "suburb": "Dharma Nagar",
+        "city": "Brahmapur",
+        "county": "Rangeilunda",
+        "state_district": "Ganjam",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "760002",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "isaneswar temple, berhampur, odisha, india": {
+    "query": "Isaneswar Temple, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:51.762194+00:00",
+    "result": null
+  },
+  "jagadalpur ri office, berhampur, odisha, india": {
+    "query": "Jagadalpur Ri Office, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:52.908786+00:00",
+    "result": null
+  },
+  "jagadalpur up school, berhampur, odisha, india": {
+    "query": "Jagadalpur Up School, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:54.094630+00:00",
+    "result": null
+  },
+  "jagadalpur village, berhampur, odisha, india": {
+    "query": "Jagadalpur Village, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:55.536905+00:00",
+    "result": null
+  },
+  "jayaprakash nagar, berhampur, odisha, india": {
+    "query": "Jayaprakash Nagar, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:57.746825+00:00",
+    "result": null
+  },
+  "kanisi hata, berhampur, odisha, india": {
+    "query": "Kanisi Hata, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:44:58.996543+00:00",
+    "result": null
+  },
+  "kanisi village, berhampur, odisha, india": {
+    "query": "Kanisi Village, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:01.142648+00:00",
+    "result": null
+  },
+  "katha mantu chaka, berhampur, odisha, india": {
+    "query": "Katha Mantu Chaka, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:02.265802+00:00",
+    "result": null
+  },
+  "khata mantu chaka, berhampur, odisha, india": {
+    "query": "Khata Mantu Chaka, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:04.130026+00:00",
+    "result": null
+  },
+  "khoda singh gate, berhampur, odisha, india": {
+    "query": "Khoda Singh Gate, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:05.970494+00:00",
+    "result": null
+  },
+  "lic office berhampur, berhampur, odisha, india": {
+    "query": "Lic Office Berhampur, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:07.812650+00:00",
+    "result": null
+  },
+  "lochapada hanuman mandir, berhampur, odisha, india": {
+    "query": "Lochapada Hanuman Mandir, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:09.127157+00:00",
+    "result": null
+  },
+  "lochapada hanuman mandir square, berhampur, odisha, india": {
+    "query": "Lochapada Hanuman Mandir Square, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:11.068904+00:00",
+    "result": null
+  },
+  "madanmohanpur, berhampur, odisha, india": {
+    "query": "Madanmohanpur, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:12.912228+00:00",
+    "result": null
+  },
+  "mantu chaka, berhampur, odisha, india": {
+    "query": "Mantu Chaka, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:14.323197+00:00",
+    "result": null
+  },
+  "mentu chaka, berhampur, odisha, india": {
+    "query": "Mentu Chaka, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:15.580479+00:00",
+    "result": null
+  },
+  "nalini nagar, berhampur, odisha, india": {
+    "query": "Nalini Nagar, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:16.873535+00:00",
+    "result": null
+  },
+  "nimakhandi ri office, berhampur, odisha, india": {
+    "query": "Nimakhandi Ri Office, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:18.267938+00:00",
+    "result": null
+  },
+  "patita paban nagar, berhampur, odisha, india": {
+    "query": "Patita Paban Nagar, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:19.715201+00:00",
+    "result": null
+  },
+  "payal talkies, berhampur, odisha, india": {
+    "query": "Payal Talkies, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:21.090603+00:00",
+    "result": null
+  },
+  "police station, berhampur, odisha, india": {
+    "query": "Police Station, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:22.576450+00:00",
+    "result": {
+      "lat": 21.5321984,
+      "lon": 86.6529008,
+      "display_name": "Berhampur Police station, Berhampur Road, Berhampur, Baleshwar, Odisha, 756058, India",
+      "osm_type": "way",
+      "osm_id": 1393454654,
+      "class": "amenity",
+      "type": "police",
+      "address": {
+        "amenity": "Berhampur Police station",
+        "road": "Berhampur Road",
+        "village": "Berhampur",
+        "county": "Berhampur",
+        "state_district": "Baleshwar",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "756058",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "prem nagar square, berhampur, odisha, india": {
+    "query": "Prem Nagar Square, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:23.744269+00:00",
+    "result": null
+  },
+  "raj dhoba street, berhampur, odisha, india": {
+    "query": "Raj Dhoba Street, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:25.589358+00:00",
+    "result": null
+  },
+  "rajarani apartment, berhampur, odisha, india": {
+    "query": "Rajarani Apartment, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:26.914544+00:00",
+    "result": null
+  },
+  "randha chowk, berhampur, odisha, india": {
+    "query": "Randha Chowk, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:28.308136+00:00",
+    "result": null
+  },
+  "register office, berhampur, odisha, india": {
+    "query": "Register Office, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:29.702907+00:00",
+    "result": null
+  },
+  "roland pharmacy college, berhampur, odisha, india": {
+    "query": "Roland Pharmacy College, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:30.869517+00:00",
+    "result": null
+  },
+  "royal pharmacy college, berhampur, odisha, india": {
+    "query": "Royal Pharmacy College, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:32.218376+00:00",
+    "result": null
+  },
+  "santoshi temple, berhampur, odisha, india": {
+    "query": "Santoshi Temple, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:33.508871+00:00",
+    "result": null
+  },
+  "shivashakit hall, berhampur, odisha, india": {
+    "query": "Shivashakit Hall, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:34.750830+00:00",
+    "result": null
+  },
+  "shreekhetra vihar, berhampur, odisha, india": {
+    "query": "Shreekhetra Vihar, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:36.592892+00:00",
+    "result": null
+  },
+  "shri gangadhareshwar, berhampur, odisha, india": {
+    "query": "Shri Gangadhareshwar, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:37.964612+00:00",
+    "result": null
+  },
+  "shri gangadhareshwar temple, berhampur, odisha, india": {
+    "query": "Shri Gangadhareshwar Temple, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:39.357937+00:00",
+    "result": null
+  },
+  "sihnala road, berhampur, odisha, india": {
+    "query": "Sihnala Road, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:40.732028+00:00",
+    "result": null
+  },
+  "square, berhampur, odisha, india": {
+    "query": "Square, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:41.852698+00:00",
+    "result": {
+      "lat": 19.3153468,
+      "lon": 84.786091,
+      "display_name": "Gajapati Square, Dharma Nagar, Brahmapur, Rangeilunda, Ganjam, Odisha, 760009, India",
+      "osm_type": "node",
+      "osm_id": 2447829359,
+      "class": "place",
+      "type": "locality",
+      "address": {
+        "locality": "Gajapati Square",
+        "suburb": "Dharma Nagar",
+        "city": "Brahmapur",
+        "county": "Rangeilunda",
+        "state_district": "Ganjam",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "760009",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "station, berhampur, odisha, india": {
+    "query": "Station, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:43.696956+00:00",
+    "result": {
+      "lat": 21.5133858,
+      "lon": 86.5770436,
+      "display_name": "Luipa Hill station, Berhampur, Baleshwar, Odisha, 757040, India",
+      "osm_type": "node",
+      "osm_id": 9604962377,
+      "class": "natural",
+      "type": "peak",
+      "address": {
+        "peak": "Luipa Hill station",
+        "county": "Berhampur",
+        "state_district": "Baleshwar",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "757040",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "truck union, berhampur, odisha, india": {
+    "query": "Truck Union, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:45.074901+00:00",
+    "result": null
+  },
+  "utareswara temple, berhampur, odisha, india": {
+    "query": "Utareswara Temple, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:46.214785+00:00",
+    "result": null
+  },
+  "uttareswar temple, berhampur, odisha, india": {
+    "query": "Uttareswar Temple, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:45:47.337919+00:00",
+    "result": null
+  },
+  "agnishwar mahadev temple, keonjhar, odisha, india": {
+    "query": "Agnishwar Mahadev Temple, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:45:48.806362+00:00",
+    "result": null
+  },
+  "atopur road, keonjhar, odisha, india": {
+    "query": "Atopur Road, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:45:50.167802+00:00",
+    "result": null
+  },
+  "bsnl chowk, keonjhar, odisha, india": {
+    "query": "Bsnl Chowk, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:45:51.267848+00:00",
+    "result": null
+  },
+  "dhangarapada tiraha, keonjhar, odisha, india": {
+    "query": "Dhangarapada Tiraha, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:45:52.509175+00:00",
+    "result": null
+  },
+  "fire station, keonjhar, odisha, india": {
+    "query": "Fire Station, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:45:53.923480+00:00",
+    "result": null
+  },
+  "govt. womens college, keonjhar, odisha, india": {
+    "query": "Govt. Womens College, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:45:55.115350+00:00",
+    "result": null
+  },
+  "hati tower, keonjhar, odisha, india": {
+    "query": "Hati Tower, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:45:56.227912+00:00",
+    "result": null
+  },
+  "jail road, keonjhar, odisha, india": {
+    "query": "Jail Road, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:45:57.333959+00:00",
+    "result": null
+  },
+  "judia chaura, keonjhar, odisha, india": {
+    "query": "Judia Chaura, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:45:58.719128+00:00",
+    "result": null
+  },
+  "labanya bus stand, keonjhar, odisha, india": {
+    "query": "Labanya Bus Stand, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:45:59.819827+00:00",
+    "result": null
+  },
+  "mandua, keonjhar, odisha, india": {
+    "query": "Mandua, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:46:00.920961+00:00",
+    "result": null
+  },
+  "mumbai highway road, keonjhar, odisha, india": {
+    "query": "Mumbai Highway Road, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:46:02.053353+00:00",
+    "result": null
+  },
+  "new court chowk, keonjhar, odisha, india": {
+    "query": "New Court Chowk, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:46:03.489088+00:00",
+    "result": null
+  },
+  "nihal singh chaka, keonjhar, odisha, india": {
+    "query": "Nihal Singh Chaka, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:46:04.612961+00:00",
+    "result": null
+  },
+  "old town post office, keonjhar, odisha, india": {
+    "query": "Old Town Post Office, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:46:06.052840+00:00",
+    "result": null
+  },
+  "rto office, keonjhar, odisha, india": {
+    "query": "Rto Office, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:46:07.154436+00:00",
+    "result": null
+  },
+  "serajuddin chowk, keonjhar, odisha, india": {
+    "query": "Serajuddin Chowk, Keonjhar, Odisha, India",
+    "cached_at": "2026-09-01T12:46:08.549008+00:00",
+    "result": null
+  },
+  "basanti colony, rourkela, odisha, india": {
+    "query": "Basanti Colony, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:46:09.960202+00:00",
+    "result": null
+  },
+  "bondamunda, rourkela, odisha, india": {
+    "query": "Bondamunda, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:46:11.116188+00:00",
+    "result": {
+      "lat": 22.232538,
+      "lon": 84.9053598,
+      "display_name": "Bondamunda 'K' Cabin, NH320D, Rourkela, Raurkela (M), Sundargarh, Odisha, 769002, India",
+      "osm_type": "node",
+      "osm_id": 7156405471,
+      "class": "railway",
+      "type": "technical_station",
+      "address": {
+        "railway": "Bondamunda 'K' Cabin",
+        "road": "NH320D",
+        "city": "Rourkela",
+        "county": "Raurkela (M)",
+        "state_district": "Sundargarh",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "769002",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "chhend, rourkela, odisha, india": {
+    "query": "Chhend, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:46:12.546038+00:00",
+    "result": {
+      "lat": 22.2408446,
+      "lon": 84.8169946,
+      "display_name": "Chhend, Rourkela, Sundargarh, Odisha, 769015, India",
+      "osm_type": "node",
+      "osm_id": 1637536116,
+      "class": "place",
+      "type": "suburb",
+      "address": {
+        "suburb": "Chhend",
+        "county": "Rourkela",
+        "state_district": "Sundargarh",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "769015",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "hatibari, rourkela, odisha, india": {
+    "query": "Hatibari, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:46:13.896195+00:00",
+    "result": null
+  },
+  "igh, rourkela, odisha, india": {
+    "query": "Igh, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:46:15.243582+00:00",
+    "result": null
+  },
+  "ring road, rourkela, odisha, india": {
+    "query": "Ring Road, Rourkela, Odisha, India",
+    "cached_at": "2026-09-01T12:46:17.218504+00:00",
+    "result": {
+      "lat": 22.2310541,
+      "lon": 84.8318262,
+      "display_name": "Ring Road, Rourkela, Raurkela (M), Sundargarh, Odisha, 769002, India",
+      "osm_type": "way",
+      "osm_id": 150662523,
+      "class": "highway",
+      "type": "primary",
+      "address": {
+        "road": "Ring Road",
+        "city": "Rourkela",
+        "county": "Raurkela (M)",
+        "state_district": "Sundargarh",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "769002",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "ambapada, sambalpur, odisha, india": {
+    "query": "Ambapada, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:18.577985+00:00",
+    "result": null
+  },
+  "badriprasad collage, sambalpur, odisha, india": {
+    "query": "Badriprasad Collage, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:19.678472+00:00",
+    "result": null
+  },
+  "banaharpali thana, sambalpur, odisha, india": {
+    "query": "Banaharpali Thana, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:20.762647+00:00",
+    "result": null
+  },
+  "barpali, sambalpur, odisha, india": {
+    "query": "Barpali, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:21.862414+00:00",
+    "result": null
+  },
+  "belapahar, sambalpur, odisha, india": {
+    "query": "Belapahar, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:23.195335+00:00",
+    "result": null
+  },
+  "bus stand, rengali, sambalpur, odisha, india": {
+    "query": "Bus Stand, Rengali, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:25.162152+00:00",
+    "result": null
+  },
+  "central workshop bus stop, sambalpur, odisha, india": {
+    "query": "Central Workshop Bus Stop, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:27.106679+00:00",
+    "result": null
+  },
+  "duanpali road, sambalpur, odisha, india": {
+    "query": "Duanpali Road, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:28.569627+00:00",
+    "result": null
+  },
+  "dun - dun chowk, sambalpur, odisha, india": {
+    "query": "Dun - Dun Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:30.426027+00:00",
+    "result": null
+  },
+  "govt. polytechnic college, sambalpur, odisha, india": {
+    "query": "Govt. Polytechnic College, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:31.626396+00:00",
+    "result": null
+  },
+  "gumadera, sambalpur, odisha, india": {
+    "query": "Gumadera, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:32.750516+00:00",
+    "result": null
+  },
+  "hanuman temple, rengali, sambalpur, odisha, india": {
+    "query": "Hanuman Temple, Rengali, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:34.106336+00:00",
+    "result": null
+  },
+  "hanuman temple,dhankauda, sambalpur, odisha, india": {
+    "query": "Hanuman Temple,dhankauda, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:35.463598+00:00",
+    "result": null
+  },
+  "karpabahal chowk, sambalpur, odisha, india": {
+    "query": "Karpabahal Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:36.796208+00:00",
+    "result": null
+  },
+  "kia showroom, sambalpur, odisha, india": {
+    "query": "Kia Showroom, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:37.919254+00:00",
+    "result": null
+  },
+  "kumarbandh chowk, sambalpur, odisha, india": {
+    "query": "Kumarbandh Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:39.802261+00:00",
+    "result": null
+  },
+  "kumarbandh college, sambalpur, odisha, india": {
+    "query": "Kumarbandh College, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:41.132010+00:00",
+    "result": null
+  },
+  "kurla, sambalpur, odisha, india": {
+    "query": "Kurla, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:43.006066+00:00",
+    "result": null
+  },
+  "laxmi market bus stand, sambalpur, odisha, india": {
+    "query": "Laxmi Market Bus Stand, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:44.336042+00:00",
+    "result": null
+  },
+  "mausi mandir bus stop, sambalpur, odisha, india": {
+    "query": "Mausi Mandir Bus Stop, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:45.630168+00:00",
+    "result": null
+  },
+  "mcl chowk, sambalpur, odisha, india": {
+    "query": "Mcl Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:46.748251+00:00",
+    "result": null
+  },
+  "police station, rengali, sambalpur, odisha, india": {
+    "query": "Police Station, Rengali, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:48.142849+00:00",
+    "result": null
+  },
+  "rengali block office, sambalpur, odisha, india": {
+    "query": "Rengali Block Office, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:49.982060+00:00",
+    "result": null
+  },
+  "salad up school, sambalpur, odisha, india": {
+    "query": "Salad Up School, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:51.147042+00:00",
+    "result": null
+  },
+  "sidheswar temple chowk, sambalpur, odisha, india": {
+    "query": "Sidheswar Temple Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:52.590216+00:00",
+    "result": null
+  },
+  "sindurpank chowk, sambalpur, odisha, india": {
+    "query": "Sindurpank Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:53.919991+00:00",
+    "result": null
+  },
+  "turitikira chowk, sambalpur, odisha, india": {
+    "query": "Turitikira Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:46:55.248939+00:00",
+    "result": null
+  },
+  "42 mouza, bhubaneswar, odisha, india": {
+    "query": "42 Mouza, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:46:56.465128+00:00",
+    "result": null
+  },
+  "badagada brit colony, bhubaneswar, odisha, india": {
+    "query": "Badagada Brit Colony, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:46:57.599952+00:00",
+    "result": null
+  },
+  "balighai, bhubaneswar, odisha, india": {
+    "query": "Balighai, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:10.039949+00:00",
+    "result": null
+  },
+  "barabati, bhubaneswar, odisha, india": {
+    "query": "Barabati, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:11.874841+00:00",
+    "result": null
+  },
+  "bhimtangi, bhubaneswar, odisha, india": {
+    "query": "Bhimtangi, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:12.978371+00:00",
+    "result": null
+  },
+  "brahman sarangi, bhubaneswar, odisha, india": {
+    "query": "Brahman Sarangi, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:14.350994+00:00",
+    "result": null
+  },
+  "cda, bhubaneswar, odisha, india": {
+    "query": "CDA, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:15.720307+00:00",
+    "result": null
+  },
+  "chaikeisiani, bhubaneswar, odisha, india": {
+    "query": "Chaikeisiani, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:17.103186+00:00",
+    "result": null
+  },
+  "ekamra kanan, bhubaneswar, odisha, india": {
+    "query": "Ekamra Kanan, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:18.353201+00:00",
+    "result": {
+      "lat": 20.3031171,
+      "lon": 85.7994959,
+      "display_name": "Ekamra Kanan, Ward 15, South West Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, India",
+      "osm_type": "way",
+      "osm_id": 465589976,
+      "class": "leisure",
+      "type": "park",
+      "address": {
+        "park": "Ekamra Kanan",
+        "suburb": "Ward 15",
+        "city_district": "South West Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "gandarpur, bhubaneswar, odisha, india": {
+    "query": "Gandarpur, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:19.695439+00:00",
+    "result": null
+  },
+  "iit, bhubaneswar, odisha, india": {
+    "query": "IIT, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:21.545270+00:00",
+    "result": null
+  },
+  "kalayanpur, bhubaneswar, odisha, india": {
+    "query": "Kalayanpur, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:22.821933+00:00",
+    "result": null
+  },
+  "khamanga, bhubaneswar, odisha, india": {
+    "query": "Khamanga, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:24.223190+00:00",
+    "result": null
+  },
+  "khordha bypass, bhubaneswar, odisha, india": {
+    "query": "Khordha Bypass, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:25.363499+00:00",
+    "result": null
+  },
+  "mancheswar, bhubaneswar, odisha, india": {
+    "query": "Mancheswar, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:26.743083+00:00",
+    "result": {
+      "lat": 20.3223078,
+      "lon": 85.8449016,
+      "display_name": "Mancheswar, Rangamatia Tala Sahi Road, Ward 9, North Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751017, India",
+      "osm_type": "node",
+      "osm_id": 6166520745,
+      "class": "railway",
+      "type": "station",
+      "address": {
+        "railway": "Mancheswar",
+        "road": "Rangamatia Tala Sahi Road",
+        "suburb": "Ward 9",
+        "city_district": "North Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751017",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "marine drive, bhubaneswar, odisha, india": {
+    "query": "Marine Drive, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:28.031815+00:00",
+    "result": null
+  },
+  "mayfair, bhubaneswar, odisha, india": {
+    "query": "Mayfair, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:29.442144+00:00",
+    "result": {
+      "lat": 20.3024231,
+      "lon": 85.8193071,
+      "display_name": "MayFair Hotel & Resorts, Nandankanan Road, Ward 16, North Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751013, India",
+      "osm_type": "way",
+      "osm_id": 289341268,
+      "class": "tourism",
+      "type": "hotel",
+      "address": {
+        "tourism": "MayFair Hotel & Resorts",
+        "road": "Nandankanan Road",
+        "suburb": "Ward 16",
+        "city_district": "North Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751013",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "niladri vihar, bhubaneswar, odisha, india": {
+    "query": "Niladri Vihar, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:30.852071+00:00",
+    "result": null
+  },
+  "omfed dairy, bhubaneswar, odisha, india": {
+    "query": "Omfed Dairy, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:32.258967+00:00",
+    "result": null
+  },
+  "omp, bhubaneswar, odisha, india": {
+    "query": "Omp, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:34.107814+00:00",
+    "result": null
+  },
+  "pitapalli, bhubaneswar, odisha, india": {
+    "query": "Pitapalli, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:35.488624+00:00",
+    "result": null
+  },
+  "puri bypass, bhubaneswar, odisha, india": {
+    "query": "Puri Bypass, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:36.775477+00:00",
+    "result": {
+      "lat": 20.217697,
+      "lon": 85.8569896,
+      "display_name": "Cuttack - Puri Bypass Road, Sisupalgarh, Bhubaneswar, Bhubaneswar (M.Corp.), Khordha, Odisha, 751001, India",
+      "osm_type": "way",
+      "osm_id": 874656097,
+      "class": "highway",
+      "type": "trunk",
+      "address": {
+        "road": "Cuttack - Puri Bypass Road",
+        "suburb": "Sisupalgarh",
+        "city": "Bhubaneswar",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751001",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "sum ultimate, bhubaneswar, odisha, india": {
+    "query": "Sum Ultimate, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:37.951892+00:00",
+    "result": {
+      "lat": 20.2830217,
+      "lon": 85.7730188,
+      "display_name": "SUM Ultimate Medicare Hospital, Khandagiri - Chandaka Road, Khandagiri, Ward 23, South West Zone, Bhubaneswar Municipal Corporation, Bhubaneswar (M.Corp.), Khordha, Odisha, 751029, India",
+      "osm_type": "way",
+      "osm_id": 1476906088,
+      "class": "building",
+      "type": "hospital",
+      "address": {
+        "building": "SUM Ultimate Medicare Hospital",
+        "road": "Khandagiri - Chandaka Road",
+        "suburb": "Khandagiri",
+        "city_district": "South West Zone",
+        "city": "Bhubaneswar Municipal Corporation",
+        "county": "Bhubaneswar (M.Corp.)",
+        "state_district": "Khordha",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "751029",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "trisulia square, bhubaneswar, odisha, india": {
+    "query": "Trisulia Square, Bhubaneswar, Odisha, India",
+    "cached_at": "2026-09-01T12:49:39.297874+00:00",
+    "result": null
+  },
+  "gondala, berhampur, odisha, india": {
+    "query": "Gondala, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:40.628791+00:00",
+    "result": null
+  },
+  "hugulapata, berhampur, odisha, india": {
+    "query": "Hugulapata, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:41.968508+00:00",
+    "result": null
+  },
+  "jakarpalli, berhampur, odisha, india": {
+    "query": "Jakarpalli, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:43.290812+00:00",
+    "result": null
+  },
+  "laxminarayanpur, berhampur, odisha, india": {
+    "query": "Laxminarayanpur, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:44.536326+00:00",
+    "result": null
+  },
+  "nandika, berhampur, odisha, india": {
+    "query": "Nandika, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:45.616764+00:00",
+    "result": null
+  },
+  "palasi, berhampur, odisha, india": {
+    "query": "Palasi, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:46.896251+00:00",
+    "result": null
+  },
+  "ramapalli, berhampur, odisha, india": {
+    "query": "Ramapalli, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:48.003071+00:00",
+    "result": null
+  },
+  "regidi chowk, berhampur, odisha, india": {
+    "query": "Regidi Chowk, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:49.298919+00:00",
+    "result": null
+  },
+  "shanti nagar, berhampur, odisha, india": {
+    "query": "Shanti Nagar, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:50.692908+00:00",
+    "result": null
+  },
+  "sikulapalli, berhampur, odisha, india": {
+    "query": "Sikulapalli, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:51.773920+00:00",
+    "result": null
+  },
+  "smit degree college, berhampur, odisha, india": {
+    "query": "Smit Degree College, Berhampur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:53.706052+00:00",
+    "result": null
+  },
+  "alind chowk, sambalpur, odisha, india": {
+    "query": "Alind Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:55.064120+00:00",
+    "result": null
+  },
+  "bhangamunda, sambalpur, odisha, india": {
+    "query": "Bhangamunda, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:56.415659+00:00",
+    "result": null
+  },
+  "binayak dera, sambalpur, odisha, india": {
+    "query": "Binayak Dera, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:57.678059+00:00",
+    "result": null
+  },
+  "burla hospital back gate, sambalpur, odisha, india": {
+    "query": "Burla Hospital Back Gate, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:49:59.528299+00:00",
+    "result": null
+  },
+  "dakdera chowk, sambalpur, odisha, india": {
+    "query": "Dakdera Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:00.608532+00:00",
+    "result": null
+  },
+  "deer park square, sambalpur, odisha, india": {
+    "query": "Deer Park Square, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:02.139117+00:00",
+    "result": null
+  },
+  "dhankauda chowk, sambalpur, odisha, india": {
+    "query": "Dhankauda Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:03.486135+00:00",
+    "result": null
+  },
+  "dhankauda field, sambalpur, odisha, india": {
+    "query": "Dhankauda Field, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:04.877727+00:00",
+    "result": null
+  },
+  "dhankauda high school, sambalpur, odisha, india": {
+    "query": "Dhankauda High School, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:06.028994+00:00",
+    "result": null
+  },
+  "dhanupali square, sambalpur, odisha, india": {
+    "query": "Dhanupali Square, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:07.385880+00:00",
+    "result": null
+  },
+  "durga mandir chowk, sambalpur, odisha, india": {
+    "query": "Durga Mandir Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:08.679373+00:00",
+    "result": null
+  },
+  "echs polyclinic, sambalpur, odisha, india": {
+    "query": "Echs Polyclinic, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:10.066019+00:00",
+    "result": {
+      "lat": 21.4625754,
+      "lon": 83.9834144,
+      "display_name": "ECHS Polyclinic, Motijharan Rd, Sambalpur, Odisha, 768001, India",
+      "osm_type": "node",
+      "osm_id": 7712918650,
+      "class": "amenity",
+      "type": "clinic",
+      "address": {
+        "amenity": "ECHS Polyclinic",
+        "road": "Motijharan Rd",
+        "city": "Sambalpur",
+        "county": "Sambalpur",
+        "state_district": "Sambalpur",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "postcode": "768001",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "gangadhar meher chowk, sambalpur, odisha, india": {
+    "query": "Gangadhar Meher Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:11.457199+00:00",
+    "result": null
+  },
+  "gargi ladies hostel, sambalpur, odisha, india": {
+    "query": "Gargi Ladies Hostel, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:12.865163+00:00",
+    "result": null
+  },
+  "gengutipali chowk, sambalpur, odisha, india": {
+    "query": "Gengutipali Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:14.194816+00:00",
+    "result": null
+  },
+  "gengutipali u p school, sambalpur, odisha, india": {
+    "query": "Gengutipali U P School, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:15.520424+00:00",
+    "result": null
+  },
+  "govindtola durga mandap, sambalpur, odisha, india": {
+    "query": "Govindtola Durga Mandap, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:16.611868+00:00",
+    "result": null
+  },
+  "gundurupada, sambalpur, odisha, india": {
+    "query": "Gundurupada, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:17.964473+00:00",
+    "result": null
+  },
+  "hanuman mandir chowk, sambalpur, odisha, india": {
+    "query": "Hanuman Mandir Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:19.134313+00:00",
+    "result": null
+  },
+  "hapriabahal road, sambalpur, odisha, india": {
+    "query": "Hapriabahal Road, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:20.224786+00:00",
+    "result": null
+  },
+  "hil, sambalpur, odisha, india": {
+    "query": "Hil, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:21.596112+00:00",
+    "result": null
+  },
+  "hindalco chowk, sambalpur, odisha, india": {
+    "query": "Hindalco Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:22.969486+00:00",
+    "result": null
+  },
+  "hirakud college, sambalpur, odisha, india": {
+    "query": "Hirakud College, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:24.163829+00:00",
+    "result": null
+  },
+  "hirakud school, sambalpur, odisha, india": {
+    "query": "Hirakud School, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:25.603422+00:00",
+    "result": null
+  },
+  "idc chowk, sambalpur, odisha, india": {
+    "query": "Idc Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:27.023855+00:00",
+    "result": null
+  },
+  "iti colony, sambalpur, odisha, india": {
+    "query": "Iti Colony, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:28.216590+00:00",
+    "result": null
+  },
+  "jhankarpada, sambalpur, odisha, india": {
+    "query": "Jhankarpada, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:30.049938+00:00",
+    "result": null
+  },
+  "kabrapali chowk, sambalpur, odisha, india": {
+    "query": "Kabrapali Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:31.130069+00:00",
+    "result": null
+  },
+  "kabrapali high school, sambalpur, odisha, india": {
+    "query": "Kabrapali High School, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:32.504035+00:00",
+    "result": null
+  },
+  "kendghati chowk, sambalpur, odisha, india": {
+    "query": "Kendghati Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:33.726162+00:00",
+    "result": null
+  },
+  "khaliapali, sambalpur, odisha, india": {
+    "query": "Khaliapali, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:34.848495+00:00",
+    "result": null
+  },
+  "kirba chowk, sambalpur, odisha, india": {
+    "query": "Kirba Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:35.952353+00:00",
+    "result": null
+  },
+  "kudopali, sambalpur, odisha, india": {
+    "query": "Kudopali, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:37.216485+00:00",
+    "result": null
+  },
+  "kuluthkani chowk, sambalpur, odisha, india": {
+    "query": "Kuluthkani Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:39.045577+00:00",
+    "result": null
+  },
+  "larpank, sambalpur, odisha, india": {
+    "query": "Larpank, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:40.128411+00:00",
+    "result": null
+  },
+  "maruti vihar, sambalpur, odisha, india": {
+    "query": "Maruti Vihar, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:41.304370+00:00",
+    "result": null
+  },
+  "mcl,anand vihar, sambalpur, odisha, india": {
+    "query": "Mcl,anand Vihar, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:43.135222+00:00",
+    "result": null
+  },
+  "medical chowk,burla, sambalpur, odisha, india": {
+    "query": "Medical Chowk,burla, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:44.439493+00:00",
+    "result": null
+  },
+  "motijharan chowk, sambalpur, odisha, india": {
+    "query": "Motijharan Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:46.053958+00:00",
+    "result": null
+  },
+  "naradihi, sambalpur, odisha, india": {
+    "query": "Naradihi, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:48.656598+00:00",
+    "result": null
+  },
+  "nildunguri toll plaza, sambalpur, odisha, india": {
+    "query": "Nildunguri Toll Plaza, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:51.326767+00:00",
+    "result": null
+  },
+  "nscb college, sambalpur, odisha, india": {
+    "query": "Nscb College, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:54.530543+00:00",
+    "result": null
+  },
+  "nscb college bypass, sambalpur, odisha, india": {
+    "query": "Nscb College Bypass, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:57.311978+00:00",
+    "result": null
+  },
+  "nuajamada chowk, sambalpur, odisha, india": {
+    "query": "Nuajamada Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:50:59.682450+00:00",
+    "result": null
+  },
+  "petrol pump, govindtola, sambalpur, odisha, india": {
+    "query": "Petrol Pump, Govindtola, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:02.404762+00:00",
+    "result": null
+  },
+  "phed office, sambalpur, odisha, india": {
+    "query": "Phed Office, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:04.149870+00:00",
+    "result": null
+  },
+  "primary school, padiabahal, sambalpur, odisha, india": {
+    "query": "Primary School, Padiabahal, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:06.029842+00:00",
+    "result": null
+  },
+  "raja pada, sambalpur, odisha, india": {
+    "query": "Raja Pada, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:07.745329+00:00",
+    "result": null
+  },
+  "raza nagar chowk, sambalpur, odisha, india": {
+    "query": "Raza Nagar Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:10.050552+00:00",
+    "result": null
+  },
+  "rk rice mill, sambalpur, odisha, india": {
+    "query": "Rk Rice Mill, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:12.475000+00:00",
+    "result": {
+      "lat": 21.4372832,
+      "lon": 83.9169356,
+      "display_name": "Rice Mill, Burla, Sambalpur, Odisha, India",
+      "osm_type": "way",
+      "osm_id": 1052643549,
+      "class": "landuse",
+      "type": "industrial",
+      "address": {
+        "industrial": "Rice Mill",
+        "county": "Burla",
+        "state_district": "Sambalpur",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
+  },
+  "sadar police station, sambalpur, odisha, india": {
+    "query": "Sadar Police Station, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:14.102603+00:00",
+    "result": null
+  },
+  "sainath colony, sambalpur, odisha, india": {
+    "query": "Sainath Colony, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:16.023301+00:00",
+    "result": null
+  },
+  "samaleswari temple, hirakud, sambalpur, odisha, india": {
+    "query": "Samaleswari Temple, Hirakud, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:17.485228+00:00",
+    "result": null
+  },
+  "sanatanpali road, sambalpur, odisha, india": {
+    "query": "Sanatanpali Road, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:19.752584+00:00",
+    "result": null
+  },
+  "shaktinagar, hirakud, sambalpur, odisha, india": {
+    "query": "Shaktinagar, Hirakud, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:21.668094+00:00",
+    "result": null
+  },
+  "shiv mandir chowk, sambalpur, odisha, india": {
+    "query": "Shiv Mandir Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:23.435982+00:00",
+    "result": null
+  },
+  "shree ram chowk, sambalpur, odisha, india": {
+    "query": "Shree Ram Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:25.237328+00:00",
+    "result": null
+  },
+  "shree ram vatika, sambalpur, odisha, india": {
+    "query": "Shree Ram Vatika, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:27.396476+00:00",
+    "result": null
+  },
+  "smelter main gate, sambalpur, odisha, india": {
+    "query": "Smelter Main Gate, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:30.411151+00:00",
+    "result": null
+  },
+  "sonapali chowk, sambalpur, odisha, india": {
+    "query": "Sonapali Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:32.014838+00:00",
+    "result": null
+  },
+  "sourav vihar, sambalpur, odisha, india": {
+    "query": "Sourav Vihar, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:33.573617+00:00",
+    "result": null
+  },
+  "sp vigilance office, sambalpur, odisha, india": {
+    "query": "Sp Vigilance Office, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:35.400381+00:00",
+    "result": null
+  },
+  "tikirapada, sambalpur, odisha, india": {
+    "query": "Tikirapada, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:37.870196+00:00",
+    "result": null
+  },
+  "turipada, sambalpur, odisha, india": {
+    "query": "Turipada, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:40.046115+00:00",
+    "result": null
+  },
+  "uphc dhankauda, sambalpur, odisha, india": {
+    "query": "Uphc Dhankauda, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:42.334661+00:00",
+    "result": null
+  },
+  "vss chowk, sambalpur, odisha, india": {
+    "query": "Vss Chowk, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:45.937394+00:00",
+    "result": null
+  },
+  "vssut, burla, sambalpur, odisha, india": {
+    "query": "Vssut, Burla, Sambalpur, Odisha, India",
+    "cached_at": "2026-09-01T12:51:47.193342+00:00",
+    "result": {
+      "lat": 21.4990293,
+      "lon": 83.9015864,
+      "display_name": "Central Garden, VSSUT Boys Hostels - Garden, Burla, Sambalpur, Odisha, India",
+      "osm_type": "way",
+      "osm_id": 553186201,
+      "class": "leisure",
+      "type": "garden",
+      "address": {
+        "garden": "Central Garden, VSSUT Boys Hostels - Garden",
+        "town": "Burla",
+        "county": "Burla",
+        "state_district": "Sambalpur",
+        "state": "Odisha",
+        "ISO3166-2-lvl4": "IN-OD",
+        "country": "India",
+        "country_code": "in"
+      }
+    }
   }
 }

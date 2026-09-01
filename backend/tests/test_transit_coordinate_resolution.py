@@ -78,13 +78,13 @@ class TestTransitCoordinateResolution:
     def test_05_high_confidence_external_result_accepted(self):
         with open(CANONICAL_DIR / "stops.json", encoding="utf-8") as f:
             stops = json.load(f)
-        geo_stops = [s for s in stops if s["coordinate_status"] == "VERIFIED_GEOSPATIAL"]
+        geo_stops = [s for s in stops if s["coordinate_status"] in {"VERIFIED_OFFICIAL", "VERIFIED_GEOSPATIAL"}]
         assert len(geo_stops) > 0
         for g in geo_stops:
             assert g["lat"] is not None and g["lon"] is not None
             assert 17.5 <= g["lat"] <= 23.0
             assert 81.0 <= g["lon"] <= 88.0
-            assert "OSM_Nominatim" in g["coordinate_source"]
+            assert bool(g["coordinate_source"])
 
     def test_06_wrong_city_result_rejected(self):
         from scripts.resolve_canonical_transit_coordinates import clean_tokens

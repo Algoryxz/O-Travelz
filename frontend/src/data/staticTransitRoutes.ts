@@ -88,9 +88,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_bhubaneswar_patia",
         "stop_name": "Patia",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.36045,
+        "longitude": 85.824766
       }
     ]
   },
@@ -148,9 +148,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_rourkela_ring_road",
         "stop_name": "Ring Road",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.231054,
+        "longitude": 84.831826
       },
       {
         "sequence_order": 3,
@@ -172,9 +172,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 5,
         "stop_id": "stop_crut_rourkela_birsa_munda_hockey_stadium",
         "stop_name": "Birsa Munda Hockey Stadium",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.245663,
+        "longitude": 84.813717
       }
     ]
   },
@@ -218,9 +218,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 4,
         "stop_id": "stop_crut_rourkela_chhend",
         "stop_name": "Chhend",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.240845,
+        "longitude": 84.816995
       },
       {
         "sequence_order": 5,
@@ -286,9 +286,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 1,
         "stop_id": "stop_crut_rourkela_vedvyas",
         "stop_name": "Vedvyas",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.23752,
+        "longitude": 84.778653
       },
       {
         "sequence_order": 2,
@@ -364,9 +364,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 4,
         "stop_id": "stop_crut_rourkela_chhend",
         "stop_name": "Chhend",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.240845,
+        "longitude": 84.816995
       },
       {
         "sequence_order": 5,
@@ -464,9 +464,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_rourkela_rajgangpur",
         "stop_name": "Rajgangpur",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.186115,
+        "longitude": 84.583507
       }
     ]
   },
@@ -494,9 +494,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_rourkela_ring_road",
         "stop_name": "Ring Road",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.231054,
+        "longitude": 84.831826
       },
       {
         "sequence_order": 3,
@@ -540,9 +540,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_rourkela_bondamunda",
         "stop_name": "Bondamunda",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.232538,
+        "longitude": 84.90536
       },
       {
         "sequence_order": 3,
@@ -708,9 +708,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_rourkela_kalunga",
         "stop_name": "Kalunga",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.222067,
+        "longitude": 84.733976
       }
     ]
   },
@@ -974,9 +974,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_rourkela_bondamunda",
         "stop_name": "Bondamunda",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.232538,
+        "longitude": 84.90536
       },
       {
         "sequence_order": 3,
@@ -1074,9 +1074,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_rourkela_kutra",
         "stop_name": "Kutra",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.23262,
+        "longitude": 84.453248
       }
     ]
   },
@@ -1158,9 +1158,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 4,
         "stop_id": "stop_crut_rourkela_gurundia",
         "stop_name": "Gurundia",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.856014,
+        "longitude": 84.770073
       }
     ]
   },
@@ -1180,9 +1180,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 1,
         "stop_id": "stop_crut_rourkela_dav_pond",
         "stop_name": "Dav Pond",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.23143,
+        "longitude": 84.833428
       },
       {
         "sequence_order": 2,
@@ -1304,9 +1304,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 6,
         "stop_id": "stop_crut_rourkela_hamirpur",
         "stop_name": "Hamirpur",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 22.269416,
+        "longitude": 84.868925
       }
     ]
   },
@@ -1334,9 +1334,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_bhubaneswar_ag_square",
         "stop_name": "Ag Square",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.265977,
+        "longitude": 85.830152
       },
       {
         "sequence_order": 3,
@@ -1372,9 +1372,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_bhubaneswar_ag_square",
         "stop_name": "Ag Square",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.265977,
+        "longitude": 85.830152
       },
       {
         "sequence_order": 3,
@@ -1410,9 +1410,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_bhubaneswar_sum_ultimate",
         "stop_name": "Sum Ultimate",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.283022,
+        "longitude": 85.773019
       },
       {
         "sequence_order": 3,
@@ -1426,17 +1426,17 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 4,
         "stop_id": "stop_crut_bhubaneswar_ouat",
         "stop_name": "OUAT",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.262518,
+        "longitude": 85.815627
       },
       {
         "sequence_order": 5,
         "stop_id": "stop_crut_bhubaneswar_ag",
         "stop_name": "Ag",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.265977,
+        "longitude": 85.830152
       },
       {
         "sequence_order": 6,
@@ -1472,9 +1472,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_bhubaneswar_utkal_hospital",
         "stop_name": "Utkal Hospital",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.322767,
+        "longitude": 85.800488
       }
     ]
   },
@@ -1714,17 +1714,17 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 1,
         "stop_id": "stop_crut_sambalpur_khetrajpur_railway_station",
         "stop_name": "Khetrajpur Railway Station",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.481669,
+        "longitude": 83.959697
       },
       {
         "sequence_order": 2,
         "stop_id": "stop_crut_sambalpur_city_railway_station",
         "stop_name": "City Railway Station",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.476515,
+        "longitude": 84.007668
       }
     ]
   },
@@ -1842,9 +1842,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_sambalpur_maneswar",
         "stop_name": "Maneswar",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.416321,
+        "longitude": 84.024956
       }
     ]
   },
@@ -2104,9 +2104,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 31,
         "stop_id": "stop_crut_sambalpur_rk_rice_mill",
         "stop_name": "Rk Rice Mill",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.437283,
+        "longitude": 83.916936
       },
       {
         "sequence_order": 32,
@@ -2136,9 +2136,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 35,
         "stop_id": "stop_crut_sambalpur_fci",
         "stop_name": "Fci",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.423979,
+        "longitude": 83.912942
       }
     ]
   },
@@ -2196,9 +2196,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_sambalpur_dhama",
         "stop_name": "Dhama",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.278098,
+        "longitude": 83.971982
       }
     ]
   },
@@ -2218,9 +2218,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 1,
         "stop_id": "stop_crut_sambalpur_burla_hospital",
         "stop_name": "Burla Hospital",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.498258,
+        "longitude": 83.87727
       },
       {
         "sequence_order": 2,
@@ -2290,9 +2290,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 10,
         "stop_id": "stop_crut_sambalpur_vssut_burla",
         "stop_name": "Vssut, Burla",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.499029,
+        "longitude": 83.901586
       },
       {
         "sequence_order": 11,
@@ -2418,9 +2418,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 26,
         "stop_id": "stop_crut_sambalpur_echs_polyclinic",
         "stop_name": "Echs Polyclinic",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.462575,
+        "longitude": 83.983414
       },
       {
         "sequence_order": 27,
@@ -2482,9 +2482,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 34,
         "stop_id": "stop_crut_sambalpur_city_railway_station_square",
         "stop_name": "City Railway Station Square",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.476515,
+        "longitude": 84.007668
       },
       {
         "sequence_order": 35,
@@ -2672,9 +2672,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 1,
         "stop_id": "stop_crut_sambalpur_khetrajpur_rly_station",
         "stop_name": "Khetrajpur Rly. Station",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.481669,
+        "longitude": 83.959697
       },
       {
         "sequence_order": 2,
@@ -2710,9 +2710,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_bhubaneswar_ouat",
         "stop_name": "OUAT",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.262518,
+        "longitude": 85.815627
       },
       {
         "sequence_order": 3,
@@ -3490,9 +3490,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 73,
         "stop_id": "stop_crut_sambalpur_jharsuguda",
         "stop_name": "Jharsuguda",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.794769,
+        "longitude": 84.302589
       }
     ]
   },
@@ -5026,9 +5026,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 7,
         "stop_id": "stop_crut_sambalpur_city_railway_station_square",
         "stop_name": "City Railway Station Square",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.476515,
+        "longitude": 84.007668
       },
       {
         "sequence_order": 8,
@@ -5600,9 +5600,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 1,
         "stop_id": "stop_crut_sambalpur_padiabahal",
         "stop_name": "Padiabahal",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.449496,
+        "longitude": 84.155208
       },
       {
         "sequence_order": 2,
@@ -5616,9 +5616,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_sambalpur_padiabahal_chowk",
         "stop_name": "Padiabahal Chowk",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.449496,
+        "longitude": 84.155208
       },
       {
         "sequence_order": 4,
@@ -5760,9 +5760,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 21,
         "stop_id": "stop_crut_sambalpur_city_railway_station_square",
         "stop_name": "City Railway Station Square",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.476515,
+        "longitude": 84.007668
       },
       {
         "sequence_order": 22,
@@ -6028,9 +6028,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_bhubaneswar_mancheswar",
         "stop_name": "Mancheswar",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.322308,
+        "longitude": 85.844902
       },
       {
         "sequence_order": 4,
@@ -6210,9 +6210,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_bhubaneswar_sbi_colony",
         "stop_name": "Sbi Colony",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.281412,
+        "longitude": 85.825917
       }
     ]
   },
@@ -6334,9 +6334,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 10,
         "stop_id": "stop_crut_berhampur_housing_board_colony",
         "stop_name": "Housing Board Colony",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.306641,
+        "longitude": 84.779801
       },
       {
         "sequence_order": 11,
@@ -6708,9 +6708,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 9,
         "stop_id": "stop_crut_berhampur_gajapati_nagar",
         "stop_name": "Gajapati Nagar",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.3089,
+        "longitude": 84.818879
       },
       {
         "sequence_order": 10,
@@ -7098,9 +7098,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 21,
         "stop_id": "stop_crut_berhampur_police_station",
         "stop_name": "Police Station",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.532198,
+        "longitude": 86.652901
       },
       {
         "sequence_order": 22,
@@ -7162,9 +7162,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 29,
         "stop_id": "stop_crut_berhampur_station",
         "stop_name": "Station",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.513386,
+        "longitude": 86.577044
       },
       {
         "sequence_order": 30,
@@ -7306,9 +7306,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 47,
         "stop_id": "stop_crut_berhampur_square",
         "stop_name": "Square",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.315347,
+        "longitude": 84.786091
       },
       {
         "sequence_order": 48,
@@ -7368,9 +7368,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_berhampur_gajapati_nagar",
         "stop_name": "Gajapati Nagar",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.3089,
+        "longitude": 84.818879
       },
       {
         "sequence_order": 4,
@@ -7696,9 +7696,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 44,
         "stop_id": "stop_crut_berhampur_housing_board_colony",
         "stop_name": "Housing Board Colony",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.306641,
+        "longitude": 84.779801
       },
       {
         "sequence_order": 45,
@@ -7908,9 +7908,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 8,
         "stop_id": "stop_crut_berhampur_square",
         "stop_name": "Square",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 19.315347,
+        "longitude": 84.786091
       },
       {
         "sequence_order": 9,
@@ -8084,9 +8084,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 30,
         "stop_id": "stop_crut_berhampur_police_station",
         "stop_name": "Police Station",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.532198,
+        "longitude": 86.652901
       },
       {
         "sequence_order": 31,
@@ -8148,9 +8148,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 38,
         "stop_id": "stop_crut_berhampur_station",
         "stop_name": "Station",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.513386,
+        "longitude": 86.577044
       },
       {
         "sequence_order": 39,
@@ -10438,9 +10438,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_bhubaneswar_chandaka",
         "stop_name": "Chandaka",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.27199,
+        "longitude": 85.783811
       },
       {
         "sequence_order": 3,
@@ -10476,9 +10476,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_bhubaneswar_rasulgarh",
         "stop_name": "Rasulgarh",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.299717,
+        "longitude": 85.862575
       },
       {
         "sequence_order": 3,
@@ -10522,9 +10522,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_bhubaneswar_rasulgarh",
         "stop_name": "Rasulgarh",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.299717,
+        "longitude": 85.862575
       },
       {
         "sequence_order": 3,
@@ -10698,17 +10698,17 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_bhubaneswar_ekamra_kanan",
         "stop_name": "Ekamra Kanan",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.303117,
+        "longitude": 85.799496
       },
       {
         "sequence_order": 3,
         "stop_id": "stop_crut_bhubaneswar_mayfair",
         "stop_name": "Mayfair",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.302423,
+        "longitude": 85.819307
       },
       {
         "sequence_order": 4,
@@ -10752,9 +10752,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_bhubaneswar_chandaka",
         "stop_name": "Chandaka",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.27199,
+        "longitude": 85.783811
       },
       {
         "sequence_order": 4,
@@ -10866,9 +10866,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_bhubaneswar_rasulgarh_square",
         "stop_name": "Rasulgarh Square",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.299717,
+        "longitude": 85.862575
       },
       {
         "sequence_order": 4,
@@ -10980,9 +10980,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_bhubaneswar_puri_bypass",
         "stop_name": "Puri Bypass",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.217697,
+        "longitude": 85.85699
       },
       {
         "sequence_order": 4,
@@ -11450,9 +11450,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_bhubaneswar_rasulgarh_square",
         "stop_name": "Rasulgarh Square",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 20.299717,
+        "longitude": 85.862575
       },
       {
         "sequence_order": 3,

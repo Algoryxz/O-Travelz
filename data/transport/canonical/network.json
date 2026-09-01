@@ -2,7 +2,7 @@
   "metadata": {
     "title": "O-Travelz Canonical Odisha Transit Network",
     "version": "2.1.0",
-    "compiled_at": "2026-09-01T12:04:28.143613+00:00",
+    "compiled_at": "2026-09-01T12:52:42.820922+00:00",
     "operator": "CRUT (Capital Region Urban Transport) & Ama Bus",
     "effective_date": "2026-08-21",
     "zero_coordinate_fabrication": true
@@ -10,7 +10,7 @@
   "stats": {
     "total_routes": 154,
     "logical_canonical_stops": 1430,
-    "routable_geographic_stops": 112,
+    "routable_geographic_stops": 160,
     "schedule_records": 302,
     "total_departure_times": 5549
   },
@@ -3531,11 +3531,11 @@
         "Ambapua"
       ],
       "city": "Berhampur",
-      "district": null,
+      "district": "Berhampur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": 19.3244626,
-      "lon": 84.8577109,
+      "lat": 19.324463,
+      "lon": 84.857711,
       "coordinate_status": "VERIFIED_GEOSPATIAL",
       "coordinate_source": "OSM_Nominatim:way/229076040",
       "served_routes": [
@@ -3555,11 +3555,11 @@
         "Amit Hospital"
       ],
       "city": "Berhampur",
-      "district": null,
+      "district": "Berhampur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": 19.3148596,
-      "lon": 84.7931684,
+      "lat": 19.31486,
+      "lon": 84.793168,
       "coordinate_status": "VERIFIED_GEOSPATIAL",
       "coordinate_source": "OSM_Nominatim:node/7081842596",
       "served_routes": [
@@ -3648,11 +3648,11 @@
         "Ankuli"
       ],
       "city": "Berhampur",
-      "district": null,
+      "district": "Berhampur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": 19.3010735,
-      "lon": 84.8156305,
+      "lat": 19.301074,
+      "lon": 84.81563,
       "coordinate_status": "VERIFIED_GEOSPATIAL",
       "coordinate_source": "OSM_Nominatim:way/343271929",
       "served_routes": [],
@@ -3842,11 +3842,11 @@
         "Auto Nagar"
       ],
       "city": "Berhampur",
-      "district": null,
+      "district": "Berhampur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": 19.3054537,
-      "lon": 84.8014384,
+      "lat": 19.305454,
+      "lon": 84.801438,
       "coordinate_status": "VERIFIED_GEOSPATIAL",
       "coordinate_source": "OSM_Nominatim:way/287501004",
       "served_routes": [
@@ -4153,11 +4153,11 @@
         "Berhampur New Bus Stand"
       ],
       "city": "Berhampur",
-      "district": null,
+      "district": "Berhampur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": 19.3097866,
-      "lon": 84.8045268,
+      "lat": 19.309787,
+      "lon": 84.804527,
       "coordinate_status": "VERIFIED_GEOSPATIAL",
       "coordinate_source": "OSM_Nominatim:node/9749000732",
       "served_routes": [
@@ -4279,11 +4279,11 @@
         "Berhampur University"
       ],
       "city": "Berhampur",
-      "district": null,
+      "district": "Berhampur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": 19.2992205,
-      "lon": 84.8815861,
+      "lat": 19.299221,
+      "lon": 84.881586,
       "coordinate_status": "VERIFIED_GEOSPATIAL",
       "coordinate_source": "OSM_Nominatim:relation/15904852",
       "served_routes": [
@@ -4630,19 +4630,19 @@
         "Bus Stand"
       ],
       "city": "Berhampur",
-      "district": null,
+      "district": "Berhampur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": 21.5315561,
-      "lon": 86.6532083,
-      "coordinate_status": "VERIFIED_GEOSPATIAL",
-      "coordinate_source": "OSM_Nominatim:way/1541207580",
+      "lat": 21.531556,
+      "lon": 86.653208,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "coordinate_source": "staticTransitStops_verified_survey",
       "served_routes": [
         "306"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "10",
-      "verification_status": "VERIFIED_GEOSPATIAL"
+      "verification_status": "VERIFIED_OFFICIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_central_school_berhampur",
@@ -4764,11 +4764,11 @@
         "Chatrapur"
       ],
       "city": "Berhampur",
-      "district": null,
+      "district": "Berhampur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": 19.3455486,
-      "lon": 84.9769999,
+      "lat": 19.345549,
+      "lon": 84.977,
       "coordinate_status": "VERIFIED_GEOSPATIAL",
       "coordinate_source": "OSM_Nominatim:node/6419389574",
       "served_routes": [
@@ -4787,17 +4787,17 @@
         "Chatrapur Bus Stand"
       ],
       "city": "Berhampur",
-      "district": null,
+      "district": "Berhampur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.345549,
+      "lon": 84.977,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/6419389574",
       "served_routes": [],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "9",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_chowk_berhampur",
@@ -4947,11 +4947,11 @@
         "City Hospital Berhampur"
       ],
       "city": "Berhampur",
-      "district": null,
+      "district": "Berhampur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": 19.3127389,
-      "lon": 84.7934591,
+      "lat": 19.312739,
+      "lon": 84.793459,
       "coordinate_status": "VERIFIED_GEOSPATIAL",
       "coordinate_source": "OSM_Nominatim:node/7081842683",
       "served_routes": [],
@@ -5628,20 +5628,20 @@
         "Gajapati Nagar"
       ],
       "city": "Berhampur",
-      "district": null,
+      "district": "Berhampur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.3089,
+      "lon": 84.818879,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/2532369155",
       "served_routes": [
         "301",
         "303"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "2",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_gandhi_college",
@@ -6666,17 +6666,17 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.3066413,
+      "lon": 84.7798008,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/2470729906",
       "served_routes": [
         "300",
         "303"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "1",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_hugulapata",
@@ -8591,17 +8591,17 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.5321984,
+      "lon": 86.6529008,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/1393454654",
       "served_routes": [
         "302",
         "304"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "4",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_police_station_2",
@@ -9602,17 +9602,17 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 19.3153468,
+      "lon": 84.786091,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/2447829359",
       "served_routes": [
         "302",
         "304"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "4",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_sri_ram_nagar",
@@ -9670,17 +9670,17 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.5133858,
+      "lon": 86.5770436,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/9604962377",
       "served_routes": [
         "302",
         "304"
       ],
       "source_document": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
       "source_page": "4",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_berhampur_subarao_chowk",
@@ -10280,19 +10280,19 @@
         "Ag"
       ],
       "city": "Bhubaneswar",
-      "district": null,
+      "district": "Bhubaneswar",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.265977,
+      "lon": 85.830152,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/2999157406",
       "served_routes": [
         "14"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "4",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_ag_colony",
@@ -10325,20 +10325,20 @@
         "Ag Square"
       ],
       "city": "Bhubaneswar",
-      "district": null,
+      "district": "Bhubaneswar",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.265977,
+      "lon": 85.830152,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/2999157406",
       "served_routes": [
         "13",
         "13E"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "3",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_agrahat_charbatia",
@@ -11605,20 +11605,20 @@
         "Chandaka"
       ],
       "city": "Bhubaneswar",
-      "district": null,
+      "district": "Bhubaneswar",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.27199,
+      "lon": 85.783811,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/1210204475",
       "served_routes": [
         "42",
         "48"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "11",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_chandrashekharpur",
@@ -12227,16 +12227,16 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.3031171,
+      "lon": 85.7994959,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/465589976",
       "served_routes": [
         "47"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "12",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_ekamra_talkies",
@@ -14287,16 +14287,16 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.3223078,
+      "lon": 85.8449016,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/6166520745",
       "served_routes": [
         "25"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "7",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_mancheswar_police_station",
@@ -14600,16 +14600,16 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.3024231,
+      "lon": 85.8193071,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/289341268",
       "served_routes": [
         "47"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "12",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_mayfair_road",
@@ -15364,20 +15364,20 @@
         "OUAT"
       ],
       "city": "Bhubaneswar",
-      "district": null,
+      "district": "Bhubaneswar",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.262518,
+      "lon": 85.815627,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/876058745",
       "served_routes": [
         "14",
         "21"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "4",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_ouat_guest_house",
@@ -15409,17 +15409,17 @@
         "OUAT Square"
       ],
       "city": "Bhubaneswar",
-      "district": null,
+      "district": "Bhubaneswar",
       "operator": "CRUT",
       "network": "Mo Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.262518,
+      "lon": 85.815627,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/876058745",
       "served_routes": [],
       "source_document": "Latest_MO_BUS_Full_Network_Final_English_2_For_Odia_and_English_compressed.pdf",
       "source_page": "2",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_pal_heights",
@@ -15495,19 +15495,19 @@
         "Patia"
       ],
       "city": "Bhubaneswar",
-      "district": null,
+      "district": "Bhubaneswar",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.36045,
+      "lon": 85.824766,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/368852640",
       "served_routes": [
         "09"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "2",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_patia_square",
@@ -15518,17 +15518,17 @@
         "Patia Square"
       ],
       "city": "Bhubaneswar",
-      "district": null,
+      "district": "Bhubaneswar",
       "operator": "CRUT",
       "network": "Mo Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.36045,
+      "lon": 85.824766,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/368852640",
       "served_routes": [],
       "source_document": "Latest_MO_BUS_Full_Network_Final_English_2_For_Odia_and_English_compressed.pdf",
       "source_page": "2",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_pattanaika",
@@ -15903,16 +15903,16 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.217697,
+      "lon": 85.8569896,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/874656097",
       "served_routes": [
         "54"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "13",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_puri_railway_station",
@@ -16114,20 +16114,20 @@
         "Rasulgarh"
       ],
       "city": "Bhubaneswar",
-      "district": null,
+      "district": "Bhubaneswar",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.299717,
+      "lon": 85.862575,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/879568354",
       "served_routes": [
         "43",
         "43E"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "11",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_rasulgarh_square",
@@ -16138,20 +16138,20 @@
         "Rasulgarh Square"
       ],
       "city": "Bhubaneswar",
-      "district": null,
+      "district": "Bhubaneswar",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.299717,
+      "lon": 85.862575,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/879568354",
       "served_routes": [
         "51",
         "71"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "13",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_rd_womens_college",
@@ -16553,19 +16553,19 @@
         "Sbi Colony"
       ],
       "city": "Bhubaneswar",
-      "district": null,
+      "district": "Bhubaneswar",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.281412,
+      "lon": 85.825917,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/1219871297",
       "served_routes": [
         "29E"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "8",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_scb",
@@ -17035,16 +17035,16 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.2830217,
+      "lon": 85.7730188,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/1476906088",
       "served_routes": [
         "14"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "4",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_sundarpada_square",
@@ -17450,19 +17450,19 @@
         "Utkal Hospital"
       ],
       "city": "Bhubaneswar",
-      "district": null,
+      "district": "Bhubaneswar",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 20.322767,
+      "lon": 85.800488,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/7709755738",
       "served_routes": [
         "15"
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
       "source_page": "4",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_bhubaneswar_utkal_university_gate_1",
@@ -21358,19 +21358,19 @@
         "Birsa Munda Hockey Stadium"
       ],
       "city": "Rourkela",
-      "district": null,
+      "district": "Rourkela",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 22.245663,
+      "lon": 84.813717,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/1127963131",
       "served_routes": [
         "100"
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
       "source_page": "1",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_bisra",
@@ -21724,17 +21724,17 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 22.232538,
+      "lon": 84.9053598,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/7156405471",
       "served_routes": [
         "107",
         "117"
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
       "source_page": "3",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_brahmani_tarang",
@@ -22025,17 +22025,17 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 22.2408446,
+      "lon": 84.8169946,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/1637536116",
       "served_routes": [
         "101",
         "103"
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
       "source_page": "1",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_chhend_chowk",
@@ -22258,19 +22258,19 @@
         "Dav Pond"
       ],
       "city": "Rourkela",
-      "district": null,
+      "district": "Rourkela",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 22.23143,
+      "lon": 84.833428,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/150812602",
       "served_routes": [
         "121"
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
       "source_page": "5",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_deogaon",
@@ -22619,19 +22619,19 @@
         "Gurundia"
       ],
       "city": "Rourkela",
-      "district": null,
+      "district": "Rourkela",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.856014,
+      "lon": 84.770073,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/13853634913",
       "served_routes": [
         "120"
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
       "source_page": "4",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_hamirpur",
@@ -22642,19 +22642,19 @@
         "Hamirpur"
       ],
       "city": "Rourkela",
-      "district": null,
+      "district": "Rourkela",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 22.269416,
+      "lon": 84.868925,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/3060906742",
       "served_routes": [
         "124"
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
       "source_page": "5",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_hanuman_vatika_chowk",
@@ -23293,19 +23293,19 @@
         "Kalunga"
       ],
       "city": "Rourkela",
-      "district": null,
+      "district": "Rourkela",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 22.222067,
+      "lon": 84.733976,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/6211253286",
       "served_routes": [
         "110"
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
       "source_page": "3",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_khuntagaon",
@@ -23639,19 +23639,19 @@
         "Kutra"
       ],
       "city": "Rourkela",
-      "district": null,
+      "district": "Rourkela",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 22.23262,
+      "lon": 84.453248,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/7220667235",
       "served_routes": [
         "119"
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
       "source_page": "4",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_kv_bondamunda",
@@ -24719,19 +24719,19 @@
         "Rajgangpur"
       ],
       "city": "Rourkela",
-      "district": null,
+      "district": "Rourkela",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 22.186115,
+      "lon": 84.583507,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/2518869694",
       "served_routes": [
         "105"
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
       "source_page": "2",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_rajgangpur_bypass",
@@ -24915,17 +24915,17 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 22.2310541,
+      "lon": 84.8318262,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/150662523",
       "served_routes": [
         "100",
         "106"
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
       "source_page": "1",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_rotary",
@@ -26723,19 +26723,19 @@
         "Vedvyas"
       ],
       "city": "Rourkela",
-      "district": null,
+      "district": "Rourkela",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 22.23752,
+      "lon": 84.778653,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/486942220",
       "served_routes": [
         "102"
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
       "source_page": "1",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_vedvyas_aahar_kendra",
@@ -26788,17 +26788,17 @@
         "Vedvyas Chowk"
       ],
       "city": "Rourkela",
-      "district": null,
+      "district": "Rourkela",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 22.23752,
+      "lon": 84.778653,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/486942220",
       "served_routes": [],
       "source_document": "01dd4cef-b9c3-4a5a-8b3d-00a80578469d_Rourkela-Updated-Route-w.e.f-11.04.26.pdf",
       "source_page": "4",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_rourkela_vedvyas_chowk_plutone_mall_rourkela_club",
@@ -28387,19 +28387,19 @@
         "Burla Hospital"
       ],
       "city": "Sambalpur",
-      "district": null,
+      "district": "Sambalpur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.498258,
+      "lon": 83.87727,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/7712918689",
       "served_routes": [
         "208"
       ],
       "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
       "source_page": "3",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_burla_hospital_back_gate",
@@ -28740,19 +28740,19 @@
         "City Railway station"
       ],
       "city": "Sambalpur",
-      "district": null,
+      "district": "Sambalpur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.476515,
+      "lon": 84.007668,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/1056563399",
       "served_routes": [
         "200"
       ],
       "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
       "source_page": "1",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_city_railway_station_square",
@@ -28763,13 +28763,13 @@
         "City Railway Station Square"
       ],
       "city": "Sambalpur",
-      "district": null,
+      "district": "Sambalpur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.476515,
+      "lon": 84.007668,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/1056563399",
       "served_routes": [
         "208",
         "214",
@@ -28777,7 +28777,7 @@
       ],
       "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
       "source_page": "3",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_city_railway_station_ainthapali_bus_terminal_remed",
@@ -29063,19 +29063,19 @@
         "Dhama"
       ],
       "city": "Sambalpur",
-      "district": null,
+      "district": "Sambalpur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.278098,
+      "lon": 83.971982,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:relation/10104938",
       "served_routes": [
         "207"
       ],
       "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
       "source_page": "3",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_dhankauda_chowk",
@@ -29298,16 +29298,16 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.4625754,
+      "lon": 83.9834144,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/7712918650",
       "served_routes": [
         "208"
       ],
       "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
       "source_page": "3",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_fci",
@@ -29318,19 +29318,19 @@
         "Fci"
       ],
       "city": "Sambalpur",
-      "district": null,
+      "district": "Sambalpur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.423979,
+      "lon": 83.912942,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/730145789",
       "served_routes": [
         "205"
       ],
       "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
       "source_page": "2",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_fci_werehouse",
@@ -30853,19 +30853,19 @@
         "Jharsuguda"
       ],
       "city": "Sambalpur",
-      "district": null,
+      "district": "Sambalpur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.794769,
+      "lon": 84.302589,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/290628856",
       "served_routes": [
         "211"
       ],
       "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
       "source_page": "3",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_jharsuguda_bypass",
@@ -31506,19 +31506,19 @@
         "SAMBALPUR RLY STN"
       ],
       "city": "Sambalpur",
-      "district": null,
+      "district": "Sambalpur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.481669,
+      "lon": 83.959697,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/12176828720",
       "served_routes": [
         "200"
       ],
       "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
       "source_page": "1",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_khetrajpur_rly_station",
@@ -31529,19 +31529,19 @@
         "Khetrajpur Rly. Station"
       ],
       "city": "Sambalpur",
-      "district": null,
+      "district": "Sambalpur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.481669,
+      "lon": 83.959697,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/12176828720",
       "served_routes": [
         "209"
       ],
       "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
       "source_page": "3",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_khinda",
@@ -32481,19 +32481,19 @@
         "Maneswar"
       ],
       "city": "Sambalpur",
-      "district": null,
+      "district": "Sambalpur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.416321,
+      "lon": 84.024956,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/3374687727",
       "served_routes": [
         "204"
       ],
       "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
       "source_page": "2",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_maruti_vihar",
@@ -33130,19 +33130,19 @@
         "Padiabahal"
       ],
       "city": "Sambalpur",
-      "district": null,
+      "district": "Sambalpur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.449496,
+      "lon": 84.155208,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/7205635012",
       "served_routes": [
         "215"
       ],
       "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
       "source_page": "11",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_padiabahal_chowk",
@@ -33153,19 +33153,19 @@
         "Padiabahal Chowk"
       ],
       "city": "Sambalpur",
-      "district": null,
+      "district": "Sambalpur",
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.449496,
+      "lon": 84.155208,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:node/7205635012",
       "served_routes": [
         "215"
       ],
       "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
       "source_page": "11",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_panchagochhia",
@@ -33999,16 +33999,16 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.4372832,
+      "lon": 83.9169356,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/1052643549",
       "served_routes": [
         "205"
       ],
       "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
       "source_page": "1",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     },
     {
       "stop_id": "stop_crut_sambalpur_rmc_office",
@@ -35798,16 +35798,16 @@
       "district": null,
       "operator": "CRUT",
       "network": "AMA Bus",
-      "lat": null,
-      "lon": null,
-      "coordinate_status": "UNRESOLVED",
-      "coordinate_source": null,
+      "lat": 21.4990293,
+      "lon": 83.9015864,
+      "coordinate_status": "VERIFIED_GEOSPATIAL",
+      "coordinate_source": "OSM_Nominatim:way/553186201",
       "served_routes": [
         "208"
       ],
       "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
       "source_page": "3",
-      "verification_status": "UNRESOLVED"
+      "verification_status": "VERIFIED_GEOSPATIAL"
     }
   ],
   "route_stops": [
@@ -35868,7 +35868,7 @@
           "normalized_stop_name": "Patia",
           "stop_id": "stop_crut_bhubaneswar_patia",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf"
@@ -35946,7 +35946,7 @@
           "normalized_stop_name": "Birsa Munda Hockey Stadium",
           "stop_id": "stop_crut_rourkela_birsa_munda_hockey_stadium",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf"
@@ -36051,7 +36051,7 @@
           "normalized_stop_name": "Vedvyas",
           "stop_id": "stop_crut_rourkela_vedvyas",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 2,
@@ -36220,7 +36220,7 @@
           "normalized_stop_name": "Rajgangpur",
           "stop_id": "stop_crut_rourkela_rajgangpur",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf"
@@ -36446,7 +36446,7 @@
           "normalized_stop_name": "Kalunga",
           "stop_id": "stop_crut_rourkela_kalunga",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf"
@@ -36785,7 +36785,7 @@
           "normalized_stop_name": "Kutra",
           "stop_id": "stop_crut_rourkela_kutra",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf"
@@ -36863,7 +36863,7 @@
           "normalized_stop_name": "Gurundia",
           "stop_id": "stop_crut_rourkela_gurundia",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf"
@@ -36882,7 +36882,7 @@
           "normalized_stop_name": "Dav Pond",
           "stop_id": "stop_crut_rourkela_dav_pond",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 2,
@@ -37000,7 +37000,7 @@
           "normalized_stop_name": "Hamirpur",
           "stop_id": "stop_crut_rourkela_hamirpur",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf"
@@ -37027,7 +37027,7 @@
           "normalized_stop_name": "Ag Square",
           "stop_id": "stop_crut_bhubaneswar_ag_square",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 3,
@@ -37062,7 +37062,7 @@
           "normalized_stop_name": "Ag Square",
           "stop_id": "stop_crut_bhubaneswar_ag_square",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 3,
@@ -37113,7 +37113,7 @@
           "normalized_stop_name": "OUAT",
           "stop_id": "stop_crut_bhubaneswar_ouat",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 5,
@@ -37156,7 +37156,7 @@
           "normalized_stop_name": "Utkal Hospital",
           "stop_id": "stop_crut_bhubaneswar_utkal_hospital",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf"
@@ -37377,7 +37377,7 @@
           "normalized_stop_name": "Khetrajpur Railway Station",
           "stop_id": "stop_crut_sambalpur_khetrajpur_railway_station",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 2,
@@ -37385,7 +37385,7 @@
           "normalized_stop_name": "City Railway Station",
           "stop_id": "stop_crut_sambalpur_city_railway_station",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf"
@@ -37493,7 +37493,7 @@
           "normalized_stop_name": "Maneswar",
           "stop_id": "stop_crut_sambalpur_maneswar",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf"
@@ -37784,7 +37784,7 @@
           "normalized_stop_name": "Fci",
           "stop_id": "stop_crut_sambalpur_fci",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf"
@@ -38164,7 +38164,7 @@
           "normalized_stop_name": "Dhama",
           "stop_id": "stop_crut_sambalpur_dhama",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf"
@@ -38183,7 +38183,7 @@
           "normalized_stop_name": "Burla Hospital",
           "stop_id": "stop_crut_sambalpur_burla_hospital",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 2,
@@ -38642,7 +38642,7 @@
           "normalized_stop_name": "Burla Hospital",
           "stop_id": "stop_crut_sambalpur_burla_hospital",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf"
@@ -39085,7 +39085,7 @@
           "normalized_stop_name": "Burla Hospital",
           "stop_id": "stop_crut_sambalpur_burla_hospital",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 55,
@@ -39147,7 +39147,7 @@
           "normalized_stop_name": "OUAT",
           "stop_id": "stop_crut_bhubaneswar_ouat",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 3,
@@ -39921,7 +39921,7 @@
           "normalized_stop_name": "Jharsuguda",
           "stop_id": "stop_crut_sambalpur_jharsuguda",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf"
@@ -42016,7 +42016,7 @@
           "normalized_stop_name": "Padiabahal",
           "stop_id": "stop_crut_sambalpur_padiabahal",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 2,
@@ -42267,7 +42267,7 @@
           "normalized_stop_name": "Padiabahal",
           "stop_id": "stop_crut_sambalpur_padiabahal",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf"
@@ -42294,7 +42294,7 @@
           "normalized_stop_name": "Padiabahal",
           "stop_id": "stop_crut_sambalpur_padiabahal",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 3,
@@ -42879,7 +42879,7 @@
           "normalized_stop_name": "Sbi Colony",
           "stop_id": "stop_crut_bhubaneswar_sbi_colony",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf"
@@ -43213,7 +43213,7 @@
           "normalized_stop_name": "Amit Hospital",
           "stop_id": "stop_crut_berhampur_amit_hospital",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 38,
@@ -43368,7 +43368,7 @@
           "normalized_stop_name": "Gajapati Nagar",
           "stop_id": "stop_crut_berhampur_gajapati_nagar",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 10,
@@ -43448,7 +43448,7 @@
           "normalized_stop_name": "Ambapua",
           "stop_id": "stop_crut_berhampur_ambapua",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 20,
@@ -43643,7 +43643,7 @@
           "normalized_stop_name": "Auto Nagar",
           "stop_id": "stop_crut_berhampur_auto_nagar",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 8,
@@ -44209,7 +44209,7 @@
           "normalized_stop_name": "Berhampur New Bus Stand",
           "stop_id": "stop_crut_berhampur_berhampur_new_bus_stand",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 24,
@@ -44300,7 +44300,7 @@
           "normalized_stop_name": "Gajapati Nagar",
           "stop_id": "stop_crut_berhampur_gajapati_nagar",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 4,
@@ -44388,7 +44388,7 @@
           "normalized_stop_name": "Ambapua",
           "stop_id": "stop_crut_berhampur_ambapua",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 15,
@@ -44484,7 +44484,7 @@
           "normalized_stop_name": "Berhampur University",
           "stop_id": "stop_crut_berhampur_berhampur_university",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 27,
@@ -44906,7 +44906,7 @@
           "normalized_stop_name": "Auto Nagar",
           "stop_id": "stop_crut_berhampur_auto_nagar",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 18,
@@ -45496,7 +45496,7 @@
           "normalized_stop_name": "Berhampur New Bus Stand",
           "stop_id": "stop_crut_berhampur_berhampur_new_bus_stand",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 29,
@@ -45630,7 +45630,7 @@
           "normalized_stop_name": "Chatrapur",
           "stop_id": "stop_crut_berhampur_chatrapur",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         }
       ],
       "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf"
@@ -45665,7 +45665,7 @@
           "normalized_stop_name": "Bus Stand",
           "stop_id": "stop_crut_berhampur_bus_stand",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 4,
@@ -45705,7 +45705,7 @@
           "normalized_stop_name": "Amit Hospital",
           "stop_id": "stop_crut_berhampur_amit_hospital",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 9,
@@ -47637,7 +47637,7 @@
           "normalized_stop_name": "Chandaka",
           "stop_id": "stop_crut_bhubaneswar_chandaka",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 3,
@@ -47672,7 +47672,7 @@
           "normalized_stop_name": "Rasulgarh",
           "stop_id": "stop_crut_bhubaneswar_rasulgarh",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 3,
@@ -47715,7 +47715,7 @@
           "normalized_stop_name": "Rasulgarh",
           "stop_id": "stop_crut_bhubaneswar_rasulgarh",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 3,
@@ -47930,7 +47930,7 @@
           "normalized_stop_name": "Chandaka",
           "stop_id": "stop_crut_bhubaneswar_chandaka",
           "resolution_status": "RESOLVED_LOGICAL",
-          "coordinate_status": "UNRESOLVED"
+          "coordinate_status": "VERIFIED_OFFICIAL"
         },
         {
           "sequence": 4,
