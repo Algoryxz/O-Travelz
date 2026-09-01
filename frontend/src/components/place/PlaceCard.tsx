@@ -110,7 +110,8 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
         <div className="absolute inset-0 bg-gradient-to-t from-[#12161E]/90 via-black/25 to-transparent" />
 
         {/* Category Pill */}
-        {place.category && (\n          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#0D5C3A] text-white border border-white/20 shadow-xs">
+        {place.category && (
+          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#0D5C3A] text-white border border-white/20 shadow-xs">
             {place.category}
           </span>
         )}
