@@ -1,67 +1,196 @@
 package com.otravelz.android.feature.planner
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.otravelz.android.core.network.NetworkResult
-import com.otravelz.android.data.model.ItineraryPlanResponseDto
-import com.otravelz.android.data.model.PlanningConstraintsDto
+import com.otravelz.android.data.model.*
 import com.otravelz.android.data.repository.PlannerRepository
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import com.otravelz.android.data.repository.SavedTripsRepository
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
+enum class PlannerTab {
+    CREATE_PLAN,
+    SAVED_TRIPS
+}
+
 data class PlannerUiState(
+    val activeTab: PlannerTab = PlannerTab.CREATE_PLAN,
     val isLoading: Boolean = false,
+    val isSharing: Boolean = false,
     val itinerary: ItineraryPlanResponseDto? = null,
-    val prompt: String = "Plan a 1 day trip in Bhubaneswar with temples and Mo Bus",
+    val prompt: String = "Plan a culturally rich trip with temples, heritage, and Mo Bus connectivity",
+    val durationDays: Int = 1,
+    val selectedOriginName: String = "Bhubaneswar",
+    val originLat: Double = 20.2961,
+    val originLon: Double = 85.8245,
+    val selectedCategories: Set<String> = setOf("temple", "monument", "market"),
+    val savedTrips: List<SyncTripItemDto> = emptyList(),
+    val sharedTripUrl: String? = null,
+    val savedConfirmation: String? = null,
     val errorMessage: String? = null
 )
 
 class PlannerViewModel(
-    private val plannerRepository: PlannerRepository = PlannerRepository()
-) : ViewModel() {
+    application: Application,
+    private val plannerRepository: PlannerRepository = PlannerRepository(),
+    private val savedTripsRepository: SavedTripsRepository = SavedTripsRepository(application)
+) : AndroidViewModel(application) {
 
     private val _uiState = MutableStateFlow(PlannerUiState())
     val uiState: StateFlow<PlannerUiState> = _uiState.asStateFlow()
 
-    fun updatePrompt(text: String) {
-        _uiState.value = _uiState.value.copy(prompt = text)
+    init {
+        viewModelScope.launch {
+            savedTripsRepository.savedTrips.collect { trips ->
+                _uiState.update { it.copy(savedTrips = trips) }
+            }
+        }
     }
 
-    fun generatePlan(durationDays: Int = 1) {
+    fun setActiveTab(tab: PlannerTab) {
+        _uiState.update { it.copy(activeTab = tab) }
+    }
+
+    fun updatePrompt(text: String) {
+        _uiState.update { it.copy(prompt = text) }
+    }
+
+    fun setDurationDays(days: Int) {
+        _uiState.update { it.copy(durationDays = days) }
+    }
+
+    fun setOrigin(name: String, lat: Double, lon: Double) {
+        _uiState.update {
+            it.copy(
+                selectedOriginName = name,
+                originLat = lat,
+                originLon = lon
+            )
+        }
+    }
+
+    fun toggleCategory(category: String) {
+        val current = _uiState.value.selectedCategories.toMutableSet()
+        if (current.contains(category)) {
+            if (current.size > 1) { // Keep at least one category
+                current.remove(category)
+            }
+        } else {
+            current.add(category)
+        }
+        _uiState.update { it.copy(selectedCategories = current) }
+    }
+
+    fun generatePlan() {
         viewModelScope.launch {
-            _uiState.value = _uiState.value.copy(isLoading = true, errorMessage = null)
+            val state = _uiState.value
+            _uiState.update { it.copy(isLoading = true, errorMessage = null, savedConfirmation = null) }
+
             val constraints = PlanningConstraintsDto(
-                durationDays = durationDays,
-                originLat = 20.2961,
-                originLon = 85.8245,
-                categories = listOf("temple", "monument", "market")
+                durationDays = state.durationDays,
+                originLat = state.originLat,
+                originLon = state.originLon,
+                categories = state.selectedCategories.toList(),
+                interests = state.selectedCategories.toList()
             )
 
             when (val res = plannerRepository.planItinerary(constraints)) {
                 is NetworkResult.Success -> {
-                    _uiState.value = _uiState.value.copy(
-                        isLoading = false,
-                        itinerary = res.data,
-                        errorMessage = null
-                    )
+                    _uiState.update {
+                        it.copy(
+                            isLoading = false,
+                            itinerary = res.data,
+                            errorMessage = null
+                        )
+                    }
                 }
                 is NetworkResult.Error -> {
-                    // Try AI fallback if deterministic endpoint returns error
+                    // AI Fallback when deterministic planner returns error
                     val aiRes = plannerRepository.planWithAi(
-                        message = _uiState.value.prompt,
+                        message = state.prompt,
                         constraints = constraints
                     )
                     if (aiRes is NetworkResult.Success && aiRes.data.itinerary != null) {
-                        _uiState.value = _uiState.value.copy(
-                            isLoading = false,
-                            itinerary = aiRes.data.itinerary,
-                            errorMessage = null
-                        )
+                        _uiState.update {
+                            it.copy(
+                                isLoading = false,
+                                itinerary = aiRes.data.itinerary,
+                                errorMessage = null
+                            )
+                        }
                     } else {
-                        _uiState.value = _uiState.value.copy(
-                            isLoading = false,
+                        _uiState.update {
+                            it.copy(
+                                isLoading = false,
+                                errorMessage = res.message
+                            )
+                        }
+                    }
+                }
+                else -> {}
+            }
+        }
+    }
+
+    fun saveCurrentPlan() {
+        val itinerary = _uiState.value.itinerary ?: return
+        val title = "${_uiState.value.selectedOriginName} ${_uiState.value.durationDays}-Day Cultural Journey"
+        val constraints = PlanningConstraintsDto(
+            durationDays = _uiState.value.durationDays,
+            originLat = _uiState.value.originLat,
+            originLon = _uiState.value.originLon,
+            categories = _uiState.value.selectedCategories.toList()
+        )
+        savedTripsRepository.saveTrip(title = title, itinerary = itinerary, constraints = constraints)
+        _uiState.update { it.copy(savedConfirmation = "Itinerary saved to My Saved Trips!") }
+
+        viewModelScope.launch {
+            savedTripsRepository.syncWithServer()
+        }
+    }
+
+    fun loadSavedPlan(trip: SyncTripItemDto) {
+        if (trip.itinerary != null) {
+            _uiState.update {
+                it.copy(
+                    itinerary = trip.itinerary,
+                    activeTab = PlannerTab.CREATE_PLAN,
+                    savedConfirmation = "Loaded saved plan: ${trip.title}"
+                )
+            }
+        }
+    }
+
+    fun deleteSavedPlan(tripId: String) {
+        savedTripsRepository.deleteTrip(tripId)
+        viewModelScope.launch {
+            savedTripsRepository.syncWithServer()
+        }
+    }
+
+    fun shareCurrentPlan() {
+        val itinerary = _uiState.value.itinerary ?: return
+        viewModelScope.launch {
+            _uiState.update { it.copy(isSharing = true) }
+            val title = "${_uiState.value.selectedOriginName} ${_uiState.value.durationDays}-Day Trip"
+            when (val res = plannerRepository.shareTrip(
+                title = title,
+                itinerary = itinerary
+            )) {
+                is NetworkResult.Success -> {
+                    _uiState.update {
+                        it.copy(
+                            isSharing = false,
+                            sharedTripUrl = res.data.shareUrl
+                        )
+                    }
+                }
+                is NetworkResult.Error -> {
+                    _uiState.update {
+                        it.copy(
+                            isSharing = false,
                             errorMessage = res.message
                         )
                     }
@@ -69,5 +198,9 @@ class PlannerViewModel(
                 else -> {}
             }
         }
+    }
+
+    fun clearShareUrl() {
+        _uiState.update { it.copy(sharedTripUrl = null) }
     }
 }

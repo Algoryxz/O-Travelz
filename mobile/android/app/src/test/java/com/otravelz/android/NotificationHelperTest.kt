@@ -51,4 +51,12 @@ class NotificationHelperTest {
         assertFalse(prefs.transitGuidanceEnabled)
         assertTrue(prefs.weatherAlertsEnabled)
     }
+
+    @Test
+    fun testDeepLinkUriBuilderWithQueryParam() {
+        val uri = NotificationHelper.buildPlaceDeepLinkUri("lingaraj-temple")
+        assertEquals("otravelz", uri.scheme)
+        assertEquals("place", uri.host)
+        assertEquals("lingaraj-temple", uri.getQueryParameter("id"))
+    }
 }

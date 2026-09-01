@@ -27,4 +27,31 @@ class PlannerRepository(private val apiService: ApiService = NetworkClient.apiSe
             NetworkResult.Error("AI Planner backend unreachable.", cause = e)
         }
     }
+
+    suspend fun shareTrip(
+        title: String,
+        itinerary: ItineraryPlanResponseDto,
+        constraints: PlanningConstraintsDto? = null
+    ): NetworkResult<CreateShareTripResponseDto> {
+        return try {
+            val request = CreateShareTripRequestDto(
+                title = title,
+                itinerary = itinerary,
+                constraints = constraints
+            )
+            val res = apiService.shareTrip(request)
+            NetworkResult.Success(res)
+        } catch (e: Exception) {
+            NetworkResult.Error("Unable to create shareable trip link.", cause = e)
+        }
+    }
+
+    suspend fun getSharedTrip(shareId: String): NetworkResult<PublicSharedTripResponseDto> {
+        return try {
+            val res = apiService.getSharedTrip(shareId)
+            NetworkResult.Success(res)
+        } catch (e: Exception) {
+            NetworkResult.Error("Unable to load shared trip.", cause = e)
+        }
+    }
 }

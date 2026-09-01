@@ -16,6 +16,25 @@ class PlacesRepository(private val apiService: ApiService = NetworkClient.apiSer
         }
     }
 
+    suspend fun searchPlaces(
+        search: String? = null,
+        category: String? = null,
+        district: String? = null,
+        limit: Int = 50
+    ): NetworkResult<List<PlaceDetailDto>> {
+        return try {
+            val res = apiService.listPlaces(
+                category = category?.ifBlank { null },
+                district = district?.ifBlank { null },
+                search = search?.ifBlank { null },
+                limit = limit
+            )
+            NetworkResult.Success(res)
+        } catch (e: Exception) {
+            NetworkResult.Error("Unable to search places. Please check connectivity.", cause = e)
+        }
+    }
+
     suspend fun getPlaceById(id: String): NetworkResult<PlaceDetailDto> {
         return try {
             val res = apiService.getPlaceDetail(id)

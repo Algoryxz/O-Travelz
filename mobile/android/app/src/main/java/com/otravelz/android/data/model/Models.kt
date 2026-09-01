@@ -158,3 +158,69 @@ data class NearbyStopDto(
     @SerialName("walking_estimate_mins") val walkingEstimateMins: Int,
     @SerialName("routes_serving_stop") val routes: List<ServingRouteDto> = emptyList()
 )
+
+@Serializable
+data class SyncPlaceItemDto(
+    @SerialName("place_id") val placeId: String,
+    @SerialName("place_name") val placeName: String? = null,
+    @SerialName("saved_at") val savedAt: Long,
+    @SerialName("updated_at") val updatedAt: Long,
+    @SerialName("is_deleted") val isDeleted: Boolean = false
+)
+
+@Serializable
+data class SyncSavedPlacesRequestDto(
+    val items: List<SyncPlaceItemDto> = emptyList()
+)
+
+@Serializable
+data class SyncSavedPlacesResponseDto(
+    @SerialName("synced_count") val syncedCount: Int,
+    val items: List<SyncPlaceItemDto> = emptyList()
+)
+
+@Serializable
+data class CreateShareTripRequestDto(
+    val title: String,
+    val itinerary: ItineraryPlanResponseDto,
+    val constraints: PlanningConstraintsDto? = null
+)
+
+@Serializable
+data class CreateShareTripResponseDto(
+    @SerialName("share_id") val shareId: String,
+    @SerialName("share_url") val shareUrl: String,
+    @SerialName("created_at") val createdAt: Long
+)
+
+@Serializable
+data class PublicSharedTripResponseDto(
+    @SerialName("share_id") val shareId: String,
+    val title: String,
+    val itinerary: ItineraryPlanResponseDto,
+    @SerialName("created_at") val createdAt: Long,
+    @SerialName("expires_at") val expiresAt: Long? = null,
+    val constraints: PlanningConstraintsDto? = null
+)
+
+@Serializable
+data class SyncTripItemDto(
+    val id: String,
+    val title: String,
+    val timestamp: Long,
+    @SerialName("updated_at") val updatedAt: Long,
+    @SerialName("is_deleted") val isDeleted: Boolean = false,
+    val itinerary: ItineraryPlanResponseDto? = null,
+    val constraints: PlanningConstraintsDto? = null
+)
+
+@Serializable
+data class SyncTripsRequestDto(
+    val items: List<SyncTripItemDto> = emptyList()
+)
+
+@Serializable
+data class SyncTripsResponseDto(
+    @SerialName("synced_count") val syncedCount: Int,
+    val items: List<SyncTripItemDto> = emptyList()
+)
