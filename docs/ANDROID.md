@@ -48,3 +48,8 @@ Backend FastAPI schemas in `backend/app/schemas/` define canonical truth:
 1. `python scripts/generate_openapi.py` outputs `shared/openapi/openapi.json`.
 2. Kotlin DTOs in `data/model/Models.kt` mirror OpenAPI fields strictly.
 3. No fabricated coordinates, routes, fares, or real-time GPS telemetry.
+
+---
+
+## 5. Domain Documentation
+- [`MOBILE_MAPS_AND_TRANSIT.md`](MOBILE_MAPS_AND_TRANSIT.md) — Location state machine, Haversine proximity semantics, DPDP privacy compliance, and scheduled transit.
