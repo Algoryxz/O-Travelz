@@ -8,9 +8,9 @@ O-TRAVELZ is an intelligent multimodal travel platform built for Odisha. It inte
 ┌────────────────────────────────────────────────────────────────────────┐
 │                          Client Layer                                  │
 │  ┌─────────────────────────────┐      ┌─────────────────────────────┐  │
-│  │   Web App (frontend/)       │      │   Mobile App (mobile/)      │  │
-│  │   React 18 + Vite + Stitch  │      │   React Native + Expo       │  │
-│  │   Leaflet + TypeScript      │      │   (Planned Architecture)    │  │
+│  │   Web App (frontend/)       │      │   Android App (mobile/)     │  │
+│  │   React 18 + Vite + Stitch  │      │   Kotlin + Jetpack Compose  │  │
+│  │   Leaflet + TypeScript      │      │   Material 3 + Retrofit     │  │
 │  └──────────────┬──────────────┘      └──────────────┬──────────────┘  │
 └─────────────────┼────────────────────────────────────┼─────────────────┘
                   │                                    │

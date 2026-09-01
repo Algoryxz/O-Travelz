@@ -17,9 +17,10 @@ systems:
     status: "production_stable"
 
   mobile:
-    path: "mobile/"
-    framework: "React Native + Expo (Planned)"
-    status: "not_initialized"
+    path: "mobile/android/"
+    framework: "Kotlin + Jetpack Compose"
+    ui_system: "Material 3"
+    status: "initialized"
 
 canonical_sources:
   places:

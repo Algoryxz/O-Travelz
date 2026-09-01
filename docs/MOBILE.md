@@ -1,53 +1,41 @@
-# Mobile App Architecture & Preconditions — O-TRAVELZ
+# Mobile App Architecture & Specifications — O-TRAVELZ
 
 ## 1. Status
 
-> **Status**: `NOT_INITIALIZED`  
-> Mobile implementation has not begun. This document establishes the target architectural boundary and preconditions.
+> **Status**: `INITIALIZED` (Native Android Foundation)  
+> Mobile implementation has commenced using **Kotlin + Jetpack Compose**.
 
 ---
 
-## 2. Target Technology Stack
+## 2. Technology Stack
 
-* **Framework**: React Native + Expo (SDK 51+)
-* **Language**: TypeScript 5.x (Strict mode)
-* **Target Platforms**: Android (APK/AAB) & iOS
-* **State Management**: Zustand / TanStack Query
-* **Location & Geofencing**: `expo-location`
-* **Secure Storage**: `expo-secure-store` (OAuth session tokens)
-* **Maps**: `react-native-maps` / Mapbox GL (Native vector rendering, avoiding WebView-only architecture)
-
----
-
-## 3. Reusable Modules from Web Frontend
-
-The following core logic from `frontend/` is directly shareable:
-1. **First-Mile Distance & Auto/Cab Classifier**:
-   - $\le 800\text{ m}$ walking
-   - $800–1500\text{ m}$ walk/short auto optional
-   - $> 1500\text{ m}$ auto/cab recommended
-2. **Offline Bundled Transit Data**:
-   - `staticTransitStops.ts`, `staticTransitRoutes.ts`, `transitTimetables.ts`.
-3. **Multilingual Text & Odia Aliases**:
-   - Query parser and station name matcher.
+* **Platform**: Native Android (`mobile/android/`)
+* **Language**: Kotlin 2.0.20
+* **UI Framework**: Jetpack Compose BOM 2024.09.02 (Material 3)
+* **Architecture**: MVI / MVVM with Coroutines & StateFlow
+* **Networking**: Retrofit 2.11.0 + OkHttp 4.12.0 + `kotlinx.serialization`
+* **Image Pipeline**: Coil 2.7.0 for WebP 4-variant photo loading
+* **Location**: Android Fused Location / LocationManager with DPDP in-memory privacy
+* **Notifications**: NotificationCompat + Channels (`otravelz_trip_alerts`, `otravelz_transit_guidance`)
+* **API Contracts**: Generated OpenAPI 3.1 snapshot (`shared/openapi/openapi.json`)
 
 ---
 
-## 4. Mobile-Specific Adaptations
+## 3. Shared Architectural Parity
 
-| Web Feature | Mobile Implementation |
-|---|---|
-| **Map Rendering** | Leaflet DOM $\rightarrow$ `react-native-maps` |
-| **Auth Session** | HttpOnly cookie / localStorage $\rightarrow$ `expo-secure-store` Bearer token exchange |
-| **Audio Guide** | HTML5 `<audio>` $\rightarrow$ `expo-av` |
-| **Camera / QR** | WebRTC $\rightarrow$ `expo-camera` |
-| **Push Notifications** | Service Worker $\rightarrow$ Expo Push Notifications |
+1. **Shared Contract Source of Truth**:
+   - Backend Pydantic models in `backend/app/schemas/` $\rightarrow$ `shared/openapi/openapi.json`.
+2. **First-Mile Distance Classifier**:
+   - $\le 800\text{ m}$: Walking recommended
+   - $800–1500\text{ m}$: Walk or short auto optional
+   - $> 1500\text{ m}$: Auto / cab recommended
+3. **Data Integrity & Truthfulness**:
+   - Explicit data tier labeling (`Verified`, `Scheduled`, `Estimated`, `Live`).
+   - Zero fabricated transit arrival timers or fares.
 
 ---
 
-## 5. Pre-Initialization Checklist
-
-Before initializing `mobile/`:
-- [ ] Freeze web baseline tag (`web-stable-2026-09-01`).
-- [ ] Establish OpenAPI TypeScript generation (`openapi.json` $\rightarrow$ shared types).
-- [ ] Confirm Expo project configuration (`app.json`, bundle identifiers).
+## 4. Documentation References
+- [`docs/ANDROID.md`](ANDROID.md) — Android technical architecture and package mapping.
+- [`docs/MOBILE_OVERNIGHT_PLAN.md`](MOBILE_OVERNIGHT_PLAN.md) — Overnight implementation milestones.
+- [`mobile/android/TEAM.md`](../mobile/android/TEAM.md) — Team workstreams and branch assignments.

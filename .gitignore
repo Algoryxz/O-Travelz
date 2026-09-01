@@ -33,4 +33,10 @@ scratch/
 *.timestamp-*.mjs
 *.tsbuildinfo
 *.zip
-
+# Android ignores
+.gradle/
+**/.gradle/
+**/local.properties
+**/Captures/
+.externalNativeBuild/
+.cxx/
