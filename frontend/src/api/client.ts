@@ -704,9 +704,56 @@ export class ApiClient {
       return null;
     }
   }
+
+  // =========================================================================
+  // O-Travelz V3: Media, Video Generation & 3D Heritage Experience API Methods
+  // =========================================================================
+
+  async getPlaceMedia(placeId: string): Promise<import("../types/api").PlaceMediaResponse> {
+    return this.request<import("../types/api").PlaceMediaResponse>(
+      `/api/v1/media/places/${encodeURIComponent(placeId)}`,
+      { method: "GET" },
+      (data): data is import("../types/api").PlaceMediaResponse =>
+        isPlainObject(data) && typeof data.place_id === "string" && Array.isArray(data.available_tabs)
+    );
+  }
+
+  async generateVideoPreview(
+    request: import("../types/api").VideoGenerationRequest
+  ): Promise<import("../types/api").VideoGenerationResponse> {
+    return this.request<import("../types/api").VideoGenerationResponse>(
+      "/api/v1/media/video/generate",
+      {
+        method: "POST",
+        body: JSON.stringify(request),
+      },
+      (data): data is import("../types/api").VideoGenerationResponse =>
+        isPlainObject(data) && typeof data.status === "string" && typeof data.provider === "string"
+    );
+  }
+
+  async generate3DModel(
+    request: import("../types/api").Model3DGenerationRequest
+  ): Promise<import("../types/api").Model3DGenerationResponse> {
+    return this.request<import("../types/api").Model3DGenerationResponse>(
+      "/api/v1/media/3d/generate",
+      {
+        method: "POST",
+        body: JSON.stringify(request),
+      },
+      (data): data is import("../types/api").Model3DGenerationResponse =>
+        isPlainObject(data) && typeof data.status === "string" && typeof data.provider === "string"
+    );
+  }
+
+  async getMediaProviderStatus(): Promise<import("../types/api").ProviderStatusResponse> {
+    return this.request<import("../types/api").ProviderStatusResponse>(
+      "/api/v1/media/providers/status",
+      { method: "GET" },
+      (data): data is import("../types/api").ProviderStatusResponse =>
+        isPlainObject(data) && typeof data.video_provider === "string" && typeof data.model_3d_provider === "string"
+    );
+  }
 }
 
 export const apiClient = new ApiClient();
-
-
-
