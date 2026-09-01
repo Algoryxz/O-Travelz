@@ -266,23 +266,25 @@ Records that fail any required gate stay in `staging/research`. They must not ap
 
 ---
 
-## Image Pipeline Rules
+## Image Pipeline Rules (Track A1)
 
 See `DATA_QUALITY.md` for full details.
 
-Summary of validation gates (all deterministic, no AI dependency):
+Validation and quality gates are deterministic (no AI dependency):
 
 | Gate | Pass Condition |
 |---|---|
-| File validity | Valid JPEG / PNG / WebP |
-| Minimum dimensions | ≥ 800×450 pixels |
-| Aspect ratio | 0.5 – 3.0 |
-| File size | 50 KB – 25 MB |
-| SHA256 not blacklisted | Not in `rejected_candidates.json` |
-| Source domain | Wikimedia Commons, OTDC, ASI, official government sources |
-| Relevance | Filename / title / Wikimedia metadata matches destination |
+| File validity | Valid JPEG / PNG / WebP, aspect ratio 0.5–3.0 |
+| Minimum dimensions | ≥ 800×450 pixels (orientation aware) |
+| Decompression safety | Max 50 million pixels (decompression bomb guard) |
+| Provenance & License | Approved license (CC0, CC BY, CC BY-SA, Public Domain, Unsplash) |
+| Exact Classification | `EXACT_LOCATION_VERIFIED` photographic evidence |
+| Variants | 4 WebP variants (`original.webp`, `hero.webp`, `card.webp`, `thumbnail.webp`) |
 
-Accepted destinations should have canonical variants: `hero.webp`, `card.webp`, `thumbnail.webp`.
+- Unified ingestion CLI: `scripts/ingest_destination_images.py`
+- Destination auditor & shadow publishability: `scripts/audit_destination_images.py`
+- Pipeline integrity validator: `scripts/validate_image_pipeline.py`
+- **Current Baseline**: 161 production destinations, 50 manifest records, 45 exact verified images, 45 shadow-publishable destinations (27.95%). Shadow mode only — public catalog visibility not yet altered.
 
 ---
 

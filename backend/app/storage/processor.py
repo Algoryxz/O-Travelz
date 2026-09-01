@@ -14,7 +14,8 @@ class ImageProcessingError(Exception):
 class ImageProcessor:
     """Validates image integrity and generates standardized WebP variants."""
 
-    SUPPORTED_FORMATS = {"JPEG", "PNG", "WEBP", "TIFF", "BMP"}
+    # Strict A1 format policy: JPEG (including MPO), PNG, and WebP only
+    SUPPORTED_FORMATS = {"JPEG", "PNG", "WEBP", "MPO"}
 
     # Target variant dimensions (max_width, max_height)
     VARIANT_SIZES: Dict[str, Tuple[int, int]] = {
@@ -24,23 +25,41 @@ class ImageProcessor:
         "thumbnail": (320, 240),
     }
 
-    def __init__(self, min_width: int = 100, min_height: int = 100):
+    # Pillow decompression bomb limit (50 megapixels)
+    MAX_PIXELS = 50_000_000
+
+    def __init__(
+        self,
+        min_width: int = 100,
+        min_height: int = 100,
+        min_aspect_ratio: float = 0.5,
+        max_aspect_ratio: float = 3.0,
+    ):
         self.min_width = min_width
         self.min_height = min_height
+        self.min_aspect_ratio = min_aspect_ratio
+        self.max_aspect_ratio = max_aspect_ratio
+        Image.MAX_IMAGE_PIXELS = self.MAX_PIXELS
 
     def validate_and_open(self, data: bytes) -> Tuple[Image.Image, str, int, int]:
         """Validate raw bytes and return normalized Pillow Image, format, width, and height."""
         if not data or len(data) < 32:
             raise ImageProcessingError("Image byte stream is empty or too short.")
 
+        # HTML / non-image text sniffing guard
+        prefix = data[:256].lower()
+        if any(tag in prefix for tag in (b"<html", b"<!doctype html", b"<?xml", b"<svg", b"<!doctype")):
+            raise ImageProcessingError("Non-image document (HTML/XML/SVG) detected in image stream.")
+
         try:
             stream = io.BytesIO(data)
             img = Image.open(stream)
             img_format = img.format or "UNKNOWN"
 
+            # Check format against strict A1 allowed formats
             if img_format not in self.SUPPORTED_FORMATS:
                 raise ImageProcessingError(
-                    f"Unsupported image format '{img_format}'. Allowed: {self.SUPPORTED_FORMATS}"
+                    f"Unsupported image format '{img_format}'. Allowed: {sorted(list(self.SUPPORTED_FORMATS))}"
                 )
 
             # Auto-rotate based on EXIF tag if present
@@ -52,6 +71,15 @@ class ImageProcessor:
                     f"Image dimensions ({width}x{height}) below minimum required ({self.min_width}x{self.min_height})."
                 )
 
+            # Aspect ratio check (0.5 <= w/h <= 3.0)
+            if height > 0:
+                aspect_ratio = width / height
+                if not (self.min_aspect_ratio <= aspect_ratio <= self.max_aspect_ratio):
+                    raise ImageProcessingError(
+                        f"Image aspect ratio {aspect_ratio:.2f} ({width}x{height}) outside allowed range "
+                        f"[{self.min_aspect_ratio}, {self.max_aspect_ratio}]."
+                    )
+
             # Convert to RGB / RGBA if palletized or special mode
             if img.mode in ("P", "1", "LA", "PA"):
                 img = img.convert("RGBA" if "A" in img.mode else "RGB")
@@ -61,6 +89,8 @@ class ImageProcessor:
             return img, img_format, width, height
         except ImageProcessingError:
             raise
+        except Image.DecompressionBombError as e:
+            raise ImageProcessingError(f"Image exceeds maximum pixel decompression threshold: {e}") from e
         except Exception as e:
             raise ImageProcessingError(f"Corrupt or invalid image data: {e}") from e
 

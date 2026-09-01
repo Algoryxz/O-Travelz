@@ -44,7 +44,7 @@ def audit_data():
 
 def test_every_canonical_destination_has_image_and_provenance(manifest_data, places_data):
     """Assert every canonical destination has an entry in manifest with complete provenance."""
-    assert len(manifest_data) == 50
+    assert len(manifest_data) == 70
     assert len(places_data) >= 50
 
     place_ids = {p["id"] for p in places_data}
@@ -55,7 +55,6 @@ def test_every_canonical_destination_has_image_and_provenance(manifest_data, pla
         assert m.get("place_id"), "Missing place_id"
         assert m.get("place_name"), "Missing place_name"
         assert m.get("source_url"), f"Missing source_url for {m['place_id']}"
-        assert m.get("wikimedia_file"), f"Missing wikimedia_file for {m['place_id']}"
         assert m.get("creator"), f"Missing creator for {m['place_id']}"
         assert m.get("license"), f"Missing license for {m['place_id']}"
         assert m.get("asset_hash"), f"Missing asset_hash for {m['place_id']}"
@@ -65,7 +64,7 @@ def test_every_canonical_destination_has_image_and_provenance(manifest_data, pla
 def test_no_duplicate_source_identities_across_destinations(manifest_data):
     """Assert no source URL, wikimedia file, or content hash is shared across destinations."""
     sources = [m["source_url"] for m in manifest_data]
-    files = [m["wikimedia_file"] for m in manifest_data]
+    files = [m.get("wikimedia_file") or m.get("source_url") for m in manifest_data]
     hashes = [m["content_sha256"] for m in manifest_data]
     asset_hashes = [m["asset_hash"] for m in manifest_data]
 

@@ -60,6 +60,9 @@ class HttpImageDownloader:
                         raise DownloadError(
                             f"HTTP {response.status_code} while fetching {url}"
                         )
+                    content_type = response.headers.get("Content-Type", "").lower()
+                    if "text/html" in content_type:
+                        raise DownloadError(f"HTTP server returned HTML content ({content_type}) instead of image for {url}")
                     content_length = response.headers.get("Content-Length")
                     if content_length and int(content_length) > self.max_size_bytes:
                         raise DownloadError(

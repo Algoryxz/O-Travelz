@@ -33,3 +33,4 @@ scratch/
 *.log
 *.timestamp-*.mjs
 *.tsbuildinfo
+*.zip

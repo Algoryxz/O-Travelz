@@ -54,40 +54,38 @@ Goal: The app must not crash on any standard demo interaction. All unsupported p
 
 ---
 
-## Checkpoint 2 — Image Pipeline & Publishability
+## Checkpoint 2 — Image Pipeline & Publishability (Image Track A1)
 
-Goal: Every place in the public catalog must pass a validated image gate. The gate is deterministic and auditable.
+> **STATUS: TRACK A1 COMPLETE (CANONICAL INGESTION + QUALITY PIPELINE + SHADOW PUBLISHABILITY)**
+>
+> - **Completed (Track A1)**:
+>   - Canonical manifest contract & typed Pydantic models with 100% backward compatibility (`backend/app/storage/manifest.py`)
+>   - Ingestion safety hardening: aspect ratio [0.5, 3.0], 50M pixel decompression bomb guard, strict WebP format (`backend/app/storage/processor.py`, `backend/app/storage/downloader.py`)
+>   - Unified CLI ingestion pipeline (`scripts/ingest_destination_images.py`) supporting URL, local file, batch, and regional candidates with SHA-256 duplicate detection
+>   - Unified Destination Image Auditor (`scripts/audit_destination_images.py`) generating authoritative shadow report `data/images/sources/publishability_report.json`
+>   - Canonical Image Pipeline Integrity Validator (`scripts/validate_image_pipeline.py`) verifying structural, dimensional, and cryptographic storage consistency
+>   - Five-case end-to-end pilot verified (idempotency, provenance safety block, dry-run research validation, duplicate detection, generic evidence rejection)
+>   - **Verified Baseline**: 161 production places, 50 canonical manifest records, 81 local variant sets, 45 exact verified images, 45 shadow-publishable destinations (27.95%), 0 pipeline integrity errors.
+> - **Shadow Mode Note**: All publishability evaluation remains in shadow mode; production visibility in `places.json` and the frontend was not altered during A1.
+> - **Next Image Workstreams**: Track A2 (Legacy Production Image Provenance Recovery for 31 unmanifested places) / Track A3 (Controlled Regional Image Acquisition for Round 2 candidates).
 
-- [ ] **2.1** Add `publishable` and `image_status` fields to Place model
-  - File: `backend/app/models/place.py`
-  - Add Alembic migration
-  - Fields: `publishable: bool = False`, `image_status: Optional[str]`, `publishability_reason: Optional[str]`
+- [x] **2.1** Canonical Manifest Contract & Safety Hardening (`backend/app/storage/manifest.py`, `processor.py`)
+- [x] **2.2** Unified Destination Image Ingestion CLI (`scripts/ingest_destination_images.py`)
+- [x] **2.3** Unified Destination Image Auditor & Shadow Publishability Engine (`scripts/audit_destination_images.py`)
+- [x] **2.4** Canonical Image Pipeline Integrity Validator (`scripts/validate_image_pipeline.py`)
+- [x] **2.5** Five-Case End-to-End Pilot Execution (`backend/tests/test_image_pilot_end_to_end.py`)
+- [x] **2.6** (Track A2) Legacy Production Image Provenance Recovery (31 unmanifested places)
+  - **Status**: COMPLETE. All 31 legacy unmanifested places audited across external web discovery.
+  - **Ingested**: 20 canonical records (17 EXACT_LOCATION_VERIFIED, 3 RELATED_LOCATION_ONLY food hubs).
+  - **Strict Evidence**: Reconciled to 112 records in `strict_photo_evidence_registry.json` (0 sync gaps).
+  - **Description Repairs**: 7 factual archaeological description repairs completed (`place_012`, `place_018`, `place_020`, `place_021`, `place_022`, `place_026`, `place_027`).
+  - **Unrecoverable Backlog**: 11 places structured in `data/images/sources/a2_unrecoverable_backlog.json` for first-party/community acquisition.
+  - **Shadow Publishable Metrics**: 62 / 161 destinations (38.51%) pass all 8 publishability gates (up from 45 at start of Track A).
+  - **Integrity**: 0 validator errors, 100% byte-identical legacy asset preservation.
+- [ ] **2.7** (Track A3) Controlled Regional Image Acquisition for Round 2 Candidates
+- [ ] **2.8** (Track A4) Production Catalog Publishability Enforcement & Visibility Cutover
 
-- [ ] **2.2** Write `scripts/image_audit.py`
-  - Read `data/images/sources/manifest.json` (50 entries, currently all `quality_status: "unknown"`)
-  - Validate: dimensions, aspect ratio, file size, SHA256 vs blacklist, source domain
-  - Write `data/images/quality_report.json`
-
-- [ ] **2.3** Write `scripts/image_validate.py`
-  - Deterministic gate (no AI): valid file format, ≥ 800×450 px, 0.5–3.0 aspect ratio, 50 KB – 25 MB
-  - Set `quality_status: "verified" | "rejected" | "needs_review"`
-
-- [ ] **2.4** Write `scripts/update_publishability.py`
-  - For each place in `places.json`, check if gate criteria are met
-  - Set `publishable: true/false` and `publishability_reason`
-
-- [ ] **2.5** Add `?publishable=true` filter to `/places` API
-  - File: `backend/app/api/places_routes.py`
-  - Default: `publishable=true` for public catalog
-
-- [ ] **2.6** Frontend: filter destination catalog to publishable places only
-  - Files: `frontend/src/pages/stitch/StitchDestinationsPage.tsx` and related
-
-- [ ] **2.7** (Optional) Write `scripts/image_acquire.py`
-  - Wikimedia Commons API search for destinations without manifest entries
-  - Human review before any image is accepted into catalog
-
-**Checkpoint 2 done when**: All public-facing destinations have at least one quality-checked image. Places without verified images are hidden from the catalog (research/staging only).
+**Checkpoint 2 / Track A1 done when**: Canonical image ingestion and quality pipeline complete, 0 integrity errors, shadow publishability baseline established, full regression tests passing.
 
 ---
 

@@ -40,65 +40,34 @@ If any criterion fails, set:
 
 ---
 
-## Image Pipeline
+## Image Pipeline (Track A1 Architecture)
 
-### Step 1 — Audit (`scripts/image_audit.py`)
-- Read `data/images/sources/manifest.json`
-- For each entry: check source URL accessibility, original dimensions, SHA256 integrity
-- Current state: 50 entries, all `quality_status: "unknown"` — audit has not been run yet
-- Output: `data/images/quality_report.json`
+The image pipeline uses unified, typed, and deterministic tooling without AI hallucination risk:
 
-### Step 2 — Acquisition (`scripts/image_acquire.py`)
-- For each publishable-candidate place without a manifest entry:
-  - Search Wikimedia Commons API by place name + "Odisha"
-  - Download candidate to `data/images/raw/<place_id>/`
-  - Record entry in manifest with SHA256
-- Human review required before any acquired image is accepted
+### 1. Canonical Manifest Contract (`backend/app/storage/manifest.py`)
+- Typed Pydantic models: `ImageManifestItem`, `VariantMetadata`, `EvidenceClassification`, `QualityStatus`, `RelevanceStatus`.
+- Standardized classifications: `EXACT_LOCATION_VERIFIED`, `RELATED_LOCATION_ONLY`, `GENERIC_IMAGE`, `REJECTED`, `REVIEW_REQUIRED`.
+- Fully backward compatible with legacy records (`VERIFIED_AUTHENTIC_PHOTOGRAPHY`).
 
-### Step 3 — Validation (`scripts/image_validate.py`)
-Deterministic rules. No AI or vision model required.
+### 2. Ingestion & Safety Hardening (`scripts/ingest_destination_images.py`)
+- Unified ingestion CLI supporting URL acquisition, local files, batch JSON, and regional research candidates.
+- Strict format checks (`JPEG`, `PNG`, `WEBP`), aspect ratio bounds `0.5–3.0`, 50M pixel decompression bomb guard, and HTML payload rejection.
+- SHA-256 duplicate detection: same-place duplicates are idempotent (`ALREADY_EXISTS`); cross-place duplicates safely downgrade to `REVIEW_REQUIRED` with conflict audit notes.
+- Generates 4 standardized WebP variants: `original.webp`, `hero.webp` (1080×720), `card.webp` (640×427), `thumbnail.webp` (320×213).
 
-| Rule | Pass condition | Fail action |
-|---|---|---|
-| File validity | Valid JPEG / PNG / WebP, not corrupt | Reject |
-| Minimum dimensions | Width ≥ 800 px AND height ≥ 450 px | Reject |
-| Aspect ratio | 0.5 ≤ (width/height) ≤ 3.0 | Reject |
-| File size | 50 KB ≤ size ≤ 25 MB | Reject |
-| SHA256 blacklist | Not present in `rejected_candidates.json` | Reject |
-| Source domain | Wikimedia Commons, OTDC, ASI, official government sources | Flag for review |
+### 3. Destination Image Auditor & Shadow Publishability (`scripts/audit_destination_images.py`)
+- Evaluates destinations across all 8 publishability gates emitting deterministic machine-readable blocker reason codes.
+- Shadow mode evaluation: produces `data/images/sources/publishability_report.json` and updates `authentic_image_audit.json` without mutating `places.json` or frontend visibility.
+- **Current Verified Baseline**: 161 production places, 70 canonical manifest records, 81 local variant sets, 62 exact verified images, 62 shadow-publishable destinations (38.51%).
 
-Output: `quality_status = "verified" | "rejected" | "needs_review"` per entry.
+### 4. Canonical Pipeline Integrity Validator (`scripts/validate_image_pipeline.py`)
+- Cryptographic and structural validator verifying manifest schema validity, Pillow WebP decoding, dimension/byte matching, variant SHA verification, and strict evidence reconciliation (112 strict registry records, 0 sync gaps).
+- Distinguishes fatal errors (CI exit code 1) from non-blocking legacy debt warnings (exit code 0).
+- **Current Verified Status**: 0 integrity errors.
 
-### Step 4 — Relevance Check (`scripts/image_relevance.py`)
-Heuristic check. No vision AI dependency.
-
-| Check | Pass condition |
-|---|---|
-| Source domain | Trusted heritage/government source |
-| Wikimedia file title | Contains place name or known location keywords |
-| Filename | Contains place name, destination name, or canonical location keywords |
-| Description metadata | References the destination or its district |
-
-Output: `relevance_status = "relevant" | "suspect" | "rejected"` per entry.
-
-**Important**: quality ≠ relevance. A high-quality image of the wrong place must be rejected.
-
-### Step 5 — Variant Generation (`scripts/image_variants.py`)
-For entries passing steps 3 + 4:
-- Generate `hero.webp` (1280×720, Q=85)
-- Generate `card.webp` (640×400, Q=85)
-- Generate `thumbnail.webp` (320×200, Q=85)
-- Update manifest with variant paths and dimensions
-
-### Step 6 — Publishability Update (`scripts/update_publishability.py`)
-- For each place in `data/places/places.json`, evaluate all publishability criteria
-- Set `publishable: true` or `false` with reason
-- Write `data/places/places_publishable.json` (not a separate database — used to update `places.json`)
-
-### Step 7 — Quarantine
-- Images failing validation: move to `data/images/quarantine/<place_id>/`
-- Log reason in `data/images/quarantine_report.json`
-- Quarantined images do not block the place record — they are simply not counted as valid images
+### 5. Track A2 Legacy Recovery Status & Acquisition Policy
+- **Track A2 Web Provenance Recovery is COMPLETE**: All 31 legacy unmanifested destinations audited; 20 canonically ingested (17 exact, 3 related); 11 unrecoverable web sources cataloged in `data/images/sources/a2_unrecoverable_backlog.json`.
+- **Policy**: Remaining unrecoverable image gaps require first-party, community, or official partner photography, NOT lower-quality web scraping. These 11 serve as the pilot seed for the Community Recommendation intake pipeline.
 
 ---
 
