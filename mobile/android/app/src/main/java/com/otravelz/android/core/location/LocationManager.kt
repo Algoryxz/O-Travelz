@@ -18,8 +18,9 @@ import kotlin.math.*
  * Invariants:
  * 1. Strictly in-memory state: Coordinates are never persisted to disk, Room, or SharedPreferences.
  * 2. Explicit User Consent: Location queries are triggered solely by direct user interaction.
- * 3. Right to Clear/Revoke: The clear() method immediately wipes in-memory coordinates.
- * 4. Transparent Fallback: If GPS is unavailable or denied, falls back honestly without fabricating fake GPS data.
+ * 3. Right to Clear/Revoke: The clear() method immediately wipes in-memory coordinates back to Idle.
+ * 4. Transparent Fallback: If GPS is unavailable or denied, sets explicit FallbackReference/Denied/Unavailable states
+ *    and NEVER masquerades fallback coordinates as genuine GPS telemetry.
  */
 class LocationManager(private val context: Context) {
     private val _state = MutableStateFlow<GeolocationState>(GeolocationState.Idle)
@@ -62,17 +63,17 @@ class LocationManager(private val context: Context) {
             }
 
             if (bestLocation != null) {
-                _state.value = GeolocationState.Granted(
+                _state.value = GeolocationState.RealGps(
                     lat = bestLocation.latitude,
                     lon = bestLocation.longitude,
                     accuracyMeters = bestLocation.accuracy
                 )
             } else {
-                // Default Master Canteen Square, Bhubaneswar reference coordinates when GPS hardware is cold/offline
-                _state.value = GeolocationState.Granted(
+                // Explicit Fallback Reference state when GPS hardware is cold/offline
+                _state.value = GeolocationState.FallbackReference(
                     lat = DEFAULT_FALLBACK_LAT,
                     lon = DEFAULT_FALLBACK_LON,
-                    accuracyMeters = 50f
+                    referenceName = DEFAULT_FALLBACK_NAME
                 )
             }
         } catch (e: Exception) {
@@ -80,7 +81,7 @@ class LocationManager(private val context: Context) {
         }
     }
 
-    fun setDenied(message: String = "Location permission denied by user.") {
+    fun setDenied(message: String = "Location permission denied by user. Showing estimates from Bhubaneswar Master Canteen.") {
         _state.value = GeolocationState.Denied(message)
     }
 
@@ -91,6 +92,7 @@ class LocationManager(private val context: Context) {
     companion object {
         const val DEFAULT_FALLBACK_LAT = 20.2961
         const val DEFAULT_FALLBACK_LON = 85.8245
+        const val DEFAULT_FALLBACK_NAME = "Bhubaneswar Master Canteen"
 
         /**
          * Calculates great-circle Haversine geodesic distance in kilometers between two coordinates.
@@ -106,17 +108,18 @@ class LocationManager(private val context: Context) {
         }
 
         /**
-         * Computes first-mile multimodal transit connection guidance based on distance in meters.
+         * Computes first-mile multimodal transit connection guidance based on straight-line distance in meters.
+         * Used ONLY when genuine Real GPS coordinates are locked.
          * Thresholds:
-         * - <= 800m: Walking (fast & direct)
-         * - 800m - 1500m: Walk or Short Auto
+         * - <= 800m: Walking recommendation (proximity estimate)
+         * - 800m - 1500m: Walk or Short Auto recommendation
          * - > 1500m: Auto / Cab Recommended
          */
         fun getFirstMileRecommendation(distanceMeters: Double): String {
             return when {
-                distanceMeters <= 800 -> "Walking (≤ 800m - fast & direct)"
-                distanceMeters <= 1500 -> "Walk or Short Auto (800m–1.5km)"
-                else -> "Auto / Cab Recommended (> 1.5km)"
+                distanceMeters <= 800 -> "Walking proximity (≤ 800m straight-line)"
+                distanceMeters <= 1500 -> "Walk or Short Auto proximity (800m–1.5km)"
+                else -> "Auto / Cab proximity (> 1.5km)"
             }
         }
     }

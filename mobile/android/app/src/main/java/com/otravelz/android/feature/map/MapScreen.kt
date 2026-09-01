@@ -9,9 +9,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.DirectionsWalk
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationSearching
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Place
@@ -20,6 +22,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -50,7 +53,7 @@ fun MapScreen(
         if (granted) {
             locationManager.requestLocation()
         } else {
-            locationManager.setDenied("Location permission denied. Utilizing default Bhubaneswar reference.")
+            locationManager.setDenied("Location permission denied. Utilizing Bhubaneswar Master Canteen reference origin.")
         }
     }
 
@@ -62,8 +65,8 @@ fun MapScreen(
         }
     }
 
-    val currentLat = (locationState as? GeolocationState.Granted)?.lat ?: LocationManager.DEFAULT_FALLBACK_LAT
-    val currentLon = (locationState as? GeolocationState.Granted)?.lon ?: LocationManager.DEFAULT_FALLBACK_LON
+    val (currentLat, currentLon) = locationState.coordinatesOrFallback
+    val isRealGpsActive = locationState.isRealGps
 
     // DPDP Consent Rationale Dialog
     if (showPermissionRationale) {
@@ -80,12 +83,12 @@ fun MapScreen(
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
                     Text(
-                        text = "O-TRAVELZ uses your GPS location solely in-memory to calculate straight-line distances to cultural destinations and nearby Mo Bus transit stops.",
+                        text = "O-TRAVELZ uses your GPS location solely in-memory to calculate straight-line distances to cultural destinations and nearby scheduled Mo Bus transit stops.",
                         style = MaterialTheme.typography.bodyMedium,
                         color = TextSecondary
                     )
                     Text(
-                        text = "• Coordinates are never saved to disk or shared with third parties.\n• You can clear your in-memory location at any time.",
+                        text = "• Coordinates are never saved to disk or shared with third parties.\n• You can clear your in-memory location at any time.\n• If dismissed, the app utilizes Bhubaneswar Master Canteen as a standard reference origin.",
                         style = MaterialTheme.typography.bodySmall,
                         color = OchreLight
                     )
@@ -113,7 +116,7 @@ fun MapScreen(
                         locationManager.setDenied()
                     }
                 ) {
-                    Text("Use Default Origin", color = TextMuted)
+                    Text("Use Reference Origin", color = TextMuted)
                 }
             },
             containerColor = DarkSurface,
@@ -133,7 +136,7 @@ fun MapScreen(
             color = TextPrimary
         )
         Text(
-            text = "Canonical Geospatial Projection & First-Mile Routing",
+            text = "Canonical Geospatial Projection & First-Mile Proximity Guidance",
             style = MaterialTheme.typography.bodyMedium,
             color = OchreLight
         )
@@ -149,28 +152,28 @@ fun MapScreen(
             ) {
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = "GPS Location (In-Memory State)",
+                        text = if (isRealGpsActive) "Real GPS Telemetry (In-Memory)" else "Reference Origin (Standard Datum)",
                         style = MaterialTheme.typography.titleMedium,
                         color = TextPrimary
                     )
                     when (val state = locationState) {
                         is GeolocationState.Idle -> {
                             Text(
-                                text = "Using Bhubaneswar Reference (20.2961°N, 85.8245°E)",
+                                text = "Location not requested · Showing estimates from Bhubaneswar Master Canteen (20.2961°N, 85.8245°E)",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = TextMuted
                             )
                         }
                         is GeolocationState.Requesting -> {
                             Text(
-                                text = "Acquiring GPS lock...",
+                                text = "Acquiring GPS satellite lock...",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = OchrePrimary
                             )
                         }
-                        is GeolocationState.Granted -> {
+                        is GeolocationState.RealGps -> {
                             Text(
-                                text = "Active Lock: %.4f°N, %.4f°E (±%.0fm)".format(
+                                text = "Live Device Lock: %.4f°N, %.4f°E (±%.0fm)".format(
                                     state.lat,
                                     state.lon,
                                     state.accuracyMeters ?: 0f
@@ -180,16 +183,23 @@ fun MapScreen(
                                 fontWeight = FontWeight.SemiBold
                             )
                         }
+                        is GeolocationState.FallbackReference -> {
+                            Text(
+                                text = "Location unavailable · Showing estimates from ${state.referenceName}",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = StatusWarning
+                            )
+                        }
                         is GeolocationState.Denied -> {
                             Text(
-                                text = "Permission Denied • Default Origin Active",
+                                text = "Permission Denied · Showing estimates from Bhubaneswar Master Canteen",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = StatusError
                             )
                         }
                         is GeolocationState.Unavailable -> {
                             Text(
-                                text = "GPS Hardware Offline • Fallback Origin Active",
+                                text = "GPS Hardware Offline · Showing estimates from Bhubaneswar Master Canteen",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = StatusWarning
                             )
@@ -198,7 +208,7 @@ fun MapScreen(
                 }
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    if (locationState is GeolocationState.Granted) {
+                    if (locationState is GeolocationState.RealGps) {
                         IconButton(onClick = { locationManager.clear() }) {
                             Icon(
                                 imageVector = Icons.Default.Clear,
@@ -210,7 +220,7 @@ fun MapScreen(
 
                     IconButton(onClick = { handleLocationRequest() }) {
                         Icon(
-                            imageVector = if (locationState is GeolocationState.Granted) Icons.Default.MyLocation else Icons.Default.LocationSearching,
+                            imageVector = if (isRealGpsActive) Icons.Default.MyLocation else Icons.Default.LocationSearching,
                             contentDescription = "Request GPS Location",
                             tint = OchrePrimary
                         )
@@ -220,6 +230,34 @@ fun MapScreen(
         }
 
         Spacer(modifier = Modifier.height(Spacing.sm))
+
+        // Reference Mode Disclaimer when Real GPS is inactive
+        if (!isRealGpsActive) {
+            Card(
+                shape = RoundedCornerShape(10.dp),
+                colors = CardDefaults.cardColors(containerColor = DarkSurfaceVariant.copy(alpha = 0.5f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Row(
+                    modifier = Modifier.padding(horizontal = Spacing.sm, vertical = 6.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Info,
+                        contentDescription = null,
+                        tint = OchreLight,
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Spacer(modifier = Modifier.width(Spacing.xs))
+                    Text(
+                        text = "Straight-line distances shown below are measured from Bhubaneswar Master Canteen reference origin.",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = TextSecondary
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(Spacing.xs))
+        }
 
         // Category Filter Chips
         val categories = listOf("All", "heritage", "temple", "nature", "wildlife", "craft", "beach")
@@ -238,7 +276,7 @@ fun MapScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(Spacing.md))
+        Spacer(modifier = Modifier.height(Spacing.sm))
 
         val filteredPlaces = remember(places, selectedCategory) {
             if (selectedCategory == "All") {
@@ -249,7 +287,7 @@ fun MapScreen(
         }
 
         Text(
-            text = "Destination Pins & First-Mile Guidance (${filteredPlaces.size})",
+            text = "Destination Pins (${filteredPlaces.size})",
             style = MaterialTheme.typography.titleMedium,
             color = TextPrimary
         )
@@ -269,7 +307,9 @@ fun MapScreen(
                     } else null
 
                     val distanceMeters = distKm?.times(1000)
-                    val firstMileGuidance = distanceMeters?.let { LocationManager.getFirstMileRecommendation(it) }
+                    val firstMileGuidance = if (isRealGpsActive && distanceMeters != null) {
+                        LocationManager.getFirstMileRecommendation(distanceMeters)
+                    } else null
 
                     OTCard(onClick = { onPlaceClick(place.id) }) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -289,7 +329,11 @@ fun MapScreen(
                                     )
                                     if (distKm != null) {
                                         Text(
-                                            text = "%.1f km · straight-line".format(distKm),
+                                            text = if (isRealGpsActive) {
+                                                "%.1f km · straight-line".format(distKm)
+                                            } else {
+                                                "%.1f km · straight-line ref".format(distKm)
+                                            },
                                             style = MaterialTheme.typography.labelSmall,
                                             color = OchreLight,
                                             fontWeight = FontWeight.SemiBold
