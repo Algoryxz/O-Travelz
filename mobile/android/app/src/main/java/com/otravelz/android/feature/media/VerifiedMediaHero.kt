@@ -31,6 +31,7 @@ import androidx.media3.ui.PlayerView
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.otravelz.android.core.design.*
+import com.otravelz.android.core.network.ApiConfig
 
 @OptIn(UnstableApi::class)
 @Composable
@@ -46,16 +47,19 @@ fun VerifiedMediaHero(
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
 
+    val resolvedVideoUrl = videoUrl?.let { ApiConfig.resolveImageUrl(it) }
+    val resolvedPosterUrl = posterImageUrl?.let { ApiConfig.resolveImageUrl(it) }
+
     var isPlaying by remember { mutableStateOf(false) }
     var isMuted by remember { mutableStateOf(true) }
     var isVideoReady by remember { mutableStateOf(false) }
     var hasVideoError by remember { mutableStateOf(false) }
 
     // ExoPlayer instance managed across lifecycle
-    val exoPlayer = remember(videoUrl) {
-        if (!videoUrl.isNullOrBlank()) {
+    val exoPlayer = remember(resolvedVideoUrl) {
+        if (!resolvedVideoUrl.isNullOrBlank()) {
             ExoPlayer.Builder(context).build().apply {
-                val mediaItem = MediaItem.fromUri(Uri.parse(videoUrl))
+                val mediaItem = MediaItem.fromUri(Uri.parse(resolvedVideoUrl))
                 setMediaItem(mediaItem)
                 volume = if (isMuted) 0f else 1f
                 repeatMode = Player.REPEAT_MODE_ALL
@@ -111,10 +115,10 @@ fun VerifiedMediaHero(
             .background(DarkSurface)
     ) {
         // 1. Poster Image (Always rendered as base or fallback)
-        if (!posterImageUrl.isNullOrBlank() || exoPlayer == null || hasVideoError || !isVideoReady) {
+        if (!resolvedPosterUrl.isNullOrBlank() || exoPlayer == null || hasVideoError || !isVideoReady) {
             AsyncImage(
                 model = ImageRequest.Builder(context)
-                    .data(posterImageUrl)
+                    .data(resolvedPosterUrl)
                     .crossfade(true)
                     .build(),
                 contentDescription = title,
