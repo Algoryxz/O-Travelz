@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 /**
  * Comprehensive Validation Suite for Digital Heritage 3D Rebuild & Odisha Destination Worlds Expansion.
  * Validates:
@@ -6,8 +7,11 @@
  * 3. Sacred interior protection for Puri Jagannath Temple.
  * 4. All 12 verified eligible Odisha destinations with unique IDs, verified unique images, and complete provenance.
  * 5. Horizontal destination rail scrollability and responsive stability.
+ * 6. CRITICAL: Autoplay slide changes NEVER scroll the window, NEVER call element.scrollIntoView, and NEVER steal focus.
  */
-import { describe, it, expect } from 'vitest';
+import React from 'react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, act, cleanup } from '@testing-library/react';
 import { FALLBACK_HERITAGE_SCENES, fetchHeritageSceneById } from '../src/api/heritageApi';
 import { DESTINATION_WORLD_ASSETS } from '../src/data/destinationWorldAssets';
 import { getAllDestinationWorlds, getDestinationWorldById } from '../src/data/destinationWorlds';
@@ -15,8 +19,42 @@ import { HeritageQualityController } from '../src/components/heritage/HeritageQu
 import { HeritageSceneLoader } from '../src/components/heritage/HeritageSceneLoader';
 import { HeritageSceneManager } from '../src/components/heritage/HeritageSceneManager';
 import { HeritageModelBuilder } from '../src/components/heritage/HeritageModelBuilder';
+import { DestinationWorldStage } from '../src/components/destination/DestinationWorldStage';
 
 describe('Odisha Destination Worlds Expansion & Media Provenance Suite', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    if (!HTMLElement.prototype.scrollIntoView) {
+      HTMLElement.prototype.scrollIntoView = () => {};
+    }
+    if (!HTMLElement.prototype.scrollTo) {
+      HTMLElement.prototype.scrollTo = () => {};
+    }
+    if (!window.scrollTo) {
+      window.scrollTo = () => {};
+    }
+    if (!window.scroll) {
+      window.scroll = () => {};
+    }
+    if (!window.matchMedia) {
+      window.matchMedia = vi.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      }));
+    }
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    cleanup();
+  });
+
   it('contains all 12 eligible verified Odisha destinations with unique IDs', () => {
     const worlds = getAllDestinationWorlds();
     expect(worlds).toHaveLength(12);
@@ -86,6 +124,46 @@ describe('Odisha Destination Worlds Expansion & Media Provenance Suite', () => {
     expect(categories).toContain('HILL_STATION');
     expect(categories).toContain('WILDLIFE');
     expect(categories).toContain('HERITAGE');
+  });
+
+  it('guarantees automatic destination slide changes NEVER scroll the window or call element.scrollIntoView', () => {
+    // Spies on DOM and Window scrolling APIs
+    const scrollIntoViewSpy = vi.spyOn(HTMLElement.prototype, 'scrollIntoView');
+    const windowScrollToSpy = vi.spyOn(window, 'scrollTo');
+    const windowScrollSpy = vi.spyOn(window, 'scroll');
+
+    const { getAllByText, unmount } = render(<DestinationWorldStage />);
+
+    // Initial destination is visible (in button and heading)
+    expect(getAllByText('Puri Golden Beach').length).toBeGreaterThanOrEqual(1);
+
+    // Advance 9 seconds to trigger automatic background slide transition
+    act(() => {
+      vi.advanceTimersByTime(9500);
+    });
+
+    // Content changes to next slide
+    expect(getAllByText('Chandrabhaga Beach').length).toBeGreaterThanOrEqual(1);
+
+    // Verify ZERO calls to scrollIntoView, window.scrollTo, or window.scroll
+    expect(scrollIntoViewSpy).not.toHaveBeenCalled();
+    expect(windowScrollToSpy).not.toHaveBeenCalled();
+    expect(windowScrollSpy).not.toHaveBeenCalled();
+
+    // Advance 9 more seconds for another transition
+    act(() => {
+      vi.advanceTimersByTime(9500);
+    });
+
+    expect(getAllByText('Gopalpur-on-Sea').length).toBeGreaterThanOrEqual(1);
+    expect(scrollIntoViewSpy).not.toHaveBeenCalled();
+    expect(windowScrollToSpy).not.toHaveBeenCalled();
+    expect(windowScrollSpy).not.toHaveBeenCalled();
+
+    scrollIntoViewSpy.mockRestore();
+    windowScrollToSpy.mockRestore();
+    windowScrollSpy.mockRestore();
+    unmount();
   });
 });
 

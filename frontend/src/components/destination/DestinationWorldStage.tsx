@@ -2,6 +2,11 @@
  * DestinationWorldStage: Full-width cinematic digital travel portal into Odisha destinations.
  * Smooth horizontal scrollable rail for all 12 verified destinations,
  * verified media, subtle parallax motion, and clear readable metadata.
+ *
+ * CRITICAL SCROLL SAFETY RULE:
+ * Background autoplay and automatic slide changes must NEVER scroll the page or steal focus.
+ * Rail auto-centering is strictly constrained to `railRef.current.scrollTo()` and never calls `element.scrollIntoView()`
+ * or window scrolling APIs.
  */
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
@@ -52,16 +57,28 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
   const prefersReducedMotion = useRef<boolean>(false);
 
   useEffect(() => {
-    prefersReducedMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+      prefersReducedMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
   }, []);
 
   const activeWorld = DESTINATION_WORLD_ASSETS[activeIndex] || DESTINATION_WORLD_ASSETS[0];
 
-  // Auto-scroll the selected destination into center view on the rail
+  // Auto-scroll the selected destination into center view on the HORIZONTAL RAIL ONLY.
+  // NEVER call element.scrollIntoView() or window.scrollTo() to prevent vertical page jumps.
   useEffect(() => {
+    const rail = railRef.current;
     const targetBtn = buttonRefs.current[activeIndex];
-    if (targetBtn) {
-      targetBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if (rail && targetBtn) {
+      const buttonLeft = targetBtn.offsetLeft;
+      const buttonWidth = targetBtn.offsetWidth;
+      const railWidth = rail.clientWidth;
+      const targetScrollLeft = buttonLeft - railWidth / 2 + buttonWidth / 2;
+
+      rail.scrollTo({
+        left: Math.max(0, targetScrollLeft),
+        behavior: 'smooth',
+      });
     }
   }, [activeIndex]);
 
