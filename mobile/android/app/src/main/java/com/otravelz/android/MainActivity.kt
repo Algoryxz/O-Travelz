@@ -243,7 +243,9 @@ fun OTravelzAppNav(
         Screen.Discover.route,
         Screen.Planner.route,
         Screen.Trips.route,
-        Screen.You.route
+        Screen.You.route,
+        Screen.Transit.route,
+        Screen.Map.route
     )
 
     Scaffold(
