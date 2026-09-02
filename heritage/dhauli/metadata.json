@@ -1,0 +1,99 @@
+{
+  "id": "dhauli-shanti-stupa",
+  "name": "Dhauli Shanti Stupa",
+  "odia_name": "\u0b26\u0b09\u0b33\u0b3f \u0b36\u0b3e\u0b28\u0b4d\u0b24\u0b3f \u0b38\u0b4d\u0b24\u0b42\u0b2a",
+  "district": "Khordha District",
+  "century": "3rd Century BCE (Ashokan Edicts) & 1972 CE (Indo-Japanese Peace Pagoda)",
+  "category": "Ashokan Rock Edicts & Buddhist Peace Pagoda",
+  "description": "Pure white hemispherical stupa dome, carved stone friezes of Buddha's enlightenment, four colossal cardinal Buddha statues, and surrounding Daya river valley hilltop terrain.",
+  "scene_type": "RECONSTRUCTION_IN_PROGRESS",
+  "status": "PROCESSING",
+  "asset": {
+    "format": "archival_spatial_reference",
+    "model_url": null,
+    "splat_url": null,
+    "progressive_low_res_url": null,
+    "point_count": null,
+    "mesh_quality": "archival_spatial_reference",
+    "coordinate_system": "Y-Up",
+    "file_size_bytes": null
+  },
+  "thumbnail": "https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?q=80&w=800&auto=format&fit=crop",
+  "hero_banner": "https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?q=80&w=1600&auto=format&fit=crop",
+  "hotspots": [
+    {
+      "id": "dhauli_dome",
+      "title": "Hemispherical Stupa Dome & Chhatra",
+      "odia_title": "\u0b36\u0b3e\u0b28\u0b4d\u0b24\u0b3f \u0b38\u0b4d\u0b24\u0b42\u0b2a \u0b17\u0b2e\u0b4d\u0b2c\u0b41\u0b1c",
+      "description": "Imposing white hemispherical dome crowned by concentric tiered stone parasols (chhatras) representing the stages of spiritual enlightenment.",
+      "architectural_significance": "Iconic modernist Buddhist peace monument built collaboratively by Kalinga Nippon Buddha Sangha and the Government of Odisha.",
+      "position": [
+        0.0,
+        2.2,
+        0.0
+      ],
+      "look_at": [
+        0.0,
+        1.8,
+        0.0
+      ],
+      "camera_offset": [
+        0.0,
+        2.6,
+        4.0
+      ]
+    },
+    {
+      "id": "dhauli_ashokan_elephant",
+      "title": "Ashokan Rock-Cut Elephant",
+      "odia_title": "\u0b05\u0b36\u0b4b\u0b15\u0b19\u0b4d\u0b15 \u0b2a\u0b4d\u0b30\u0b38\u0b4d\u0b24\u0b30 \u0b39\u0b38\u0b4d\u0b24\u0b40",
+      "description": "Earliest rock-cut sculpture in Odisha (3rd century BCE) emerging seamlessly from the natural rock face above the carved edicts of Emperor Ashoka.",
+      "architectural_significance": "Historic inflection point marking Emperor Ashoka's transition from Digvijaya (military conquest) to Dharmavijaya (peace) following the Kalinga War.",
+      "position": [
+        0.0,
+        0.4,
+        1.8
+      ],
+      "look_at": [
+        0.0,
+        0.4,
+        1.2
+      ],
+      "camera_offset": [
+        0.0,
+        1.0,
+        3.0
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Odisha State Archaeology & Kalinga Nippon Buddha Sangha",
+      "source": "Dhauli Hillock & Archaeological Survey Documentation",
+      "license": "Government Cultural Heritage Open Archive",
+      "url": "https://culture.odisha.gov.in",
+      "access_date": "2026-08-18",
+      "content_type": "Topographical Survey & Architectural Documentation",
+      "attribution": "Odisha Tourism & Department of Culture"
+    }
+  ],
+  "reconstruction_notes": "3D Reconstruction in progress. Archival photographic reference and cardinal Buddha relief mapping active.",
+  "camera_preset": {
+    "position": [
+      0.0,
+      2.0,
+      5.2
+    ],
+    "target": [
+      0.0,
+      1.2,
+      0.0
+    ],
+    "min_distance": 1.8,
+    "max_distance": 14.0,
+    "fov": 45.0
+  },
+  "lighting_preset": "daylight",
+  "surrounding_environment": "Dhauli hilltop, historic Daya river plains, and lush green scrub landscape",
+  "is_canonical": true
+}

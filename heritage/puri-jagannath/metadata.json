@@ -1,0 +1,121 @@
+{
+  "id": "puri-jagannath-temple",
+  "name": "Puri Jagannath Temple",
+  "odia_name": "\u0b36\u0b4d\u0b30\u0b40 \u0b1c\u0b17\u0b28\u0b4d\u0b28\u0b3e\u0b25 \u0b2e\u0b28\u0b4d\u0b26\u0b3f\u0b30, \u0b2a\u0b41\u0b30\u0b40",
+  "district": "Puri",
+  "century": "12th Century CE (King Anantavarman Chodaganga Deva)",
+  "category": "Living Sacred Sanctuary & Rekha Deula",
+  "description": "65-meter towering sacred Rekha Deula, Jagamohana, Nata Mandapa, and Bhoga Mandapa crowned by the eight-spoke Nilachakra and sacred Patitapabana flag.",
+  "scene_type": "REFERENCE_VIRTUAL_EXPERIENCE",
+  "status": "REFERENCE_ONLY",
+  "asset": {
+    "format": "archival_spatial_reference",
+    "model_url": null,
+    "splat_url": null,
+    "progressive_low_res_url": null,
+    "point_count": null,
+    "mesh_quality": "authorized_external_reference",
+    "coordinate_system": "Y-Up",
+    "file_size_bytes": null
+  },
+  "thumbnail": "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=800&auto=format&fit=crop",
+  "hero_banner": "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=1600&auto=format&fit=crop",
+  "hotspots": [
+    {
+      "id": "jagannath_nilachakra",
+      "title": "Nilachakra & Patitapabana Flag",
+      "odia_title": "\u0b28\u0b40\u0b33\u0b1a\u0b15\u0b4d\u0b30 \u0b13 \u0b2a\u0b24\u0b3f\u0b24\u0b2a\u0b3e\u0b2c\u0b28 \u0b2c\u0b3e\u0b28\u0b3e",
+      "description": "The eight-spoked sacred discus forged from ashtadhatu atop the 65m shikhara, adorned with the daily ceremonial flag changed by the Chuda Sevakas.",
+      "architectural_significance": "Crowning metal crest of the monumental Rekha Deula visible across Puri and the Bay of Bengal coastline.",
+      "position": [
+        0.0,
+        4.2,
+        0.0
+      ],
+      "look_at": [
+        0.0,
+        3.8,
+        0.0
+      ],
+      "camera_offset": [
+        0.0,
+        4.5,
+        3.0
+      ]
+    },
+    {
+      "id": "jagannath_rekha_deula",
+      "title": "Bada Deula (Main Sanctum Spire)",
+      "odia_title": "\u0b2c\u0b21\u0b3c \u0b26\u0b47\u0b09\u0b33",
+      "description": "Monumental curvilinear tower rising 65 meters on an elevated stone plinth (Kurma Beda), dominating the sacred skyline.",
+      "architectural_significance": "Pinnacle of mature Kalinga architecture with vertical pagas, rahapaga niches, and amalaka crowning disc.",
+      "position": [
+        0.0,
+        2.2,
+        -0.3
+      ],
+      "look_at": [
+        0.0,
+        1.8,
+        0.0
+      ],
+      "camera_offset": [
+        0.0,
+        2.8,
+        5.0
+      ]
+    },
+    {
+      "id": "jagannath_singhadwara",
+      "title": "Singhadwara (Lion's Gate)",
+      "odia_title": "\u0b38\u0b3f\u0b02\u0b39\u0b26\u0b4d\u0b71\u0b3e\u0b30",
+      "description": "The majestic eastern portal of the outer Meghnad Pacheri wall guarded by two colossal monolithic crouching stone lions.",
+      "architectural_significance": "Primary ceremonial gateway leading up the historic 22 Baisi Pahacha steps to the inner sanctuary.",
+      "position": [
+        0.0,
+        0.8,
+        2.4
+      ],
+      "look_at": [
+        0.0,
+        0.8,
+        1.8
+      ],
+      "camera_offset": [
+        0.0,
+        1.5,
+        4.0
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Shree Jagannath Temple Administration & Odisha Culture Department",
+      "source": "Official External Architectural Survey & Monograph",
+      "license": "Public Domain / Authorized External Heritage Documentation",
+      "url": "https://shreejagannatha.in",
+      "access_date": "2026-08-15",
+      "content_type": "External Survey & Topographical Reference",
+      "attribution": "SJTA & Department of Tourism, Govt. of Odisha"
+    }
+  ],
+  "reconstruction_notes": "Authorized exterior perimeter and architectural skyline reference only. In accordance with sacred sanctum sanctity rules, no interior sanctum geometry is reconstructed or displayed.",
+  "camera_preset": {
+    "position": [
+      0.0,
+      2.6,
+      6.0
+    ],
+    "target": [
+      0.0,
+      1.8,
+      0.0
+    ],
+    "min_distance": 2.0,
+    "max_distance": 15.0,
+    "fov": 45.0
+  },
+  "lighting_preset": "temple_glow",
+  "surrounding_environment": "Grand Road (Bada Danda), sacred temple enclosure, and ocean breeze",
+  "is_canonical": true
+}
