@@ -2,6 +2,11 @@
 **/dist/
 **/build/
 
+# Android / Gradle artifacts
+**/local.properties
+.gradle/
+**/.gradle/
+
 # Python virtual environments
 .venv/
 venv/
@@ -14,7 +19,6 @@ venv/
 __pycache__/
 **/__pycache__/
 *.py[cod]
-
 
 # Local environment/configuration
 .env
@@ -33,4 +37,3 @@ scratch/
 *.timestamp-*.mjs
 *.tsbuildinfo
 *.zip
-
