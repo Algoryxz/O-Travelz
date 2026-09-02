@@ -3,7 +3,11 @@ package com.otravelz.android.feature.discover
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.otravelz.android.core.location.GeolocationState
+import com.otravelz.android.core.location.LocationManager
 import com.otravelz.android.core.network.NetworkResult
+import com.otravelz.android.data.local.BundledCatalogProvider
+import com.otravelz.android.data.model.DataProvenance
 import com.otravelz.android.data.model.PlaceDetailDto
 import com.otravelz.android.data.repository.PlacesRepository
 import com.otravelz.android.data.repository.SavedPlacesRepository
@@ -17,16 +21,20 @@ data class DiscoverUiState(
     val selectedCategory: String? = null,
     val selectedDistrict: String? = null,
     val showSavedOnly: Boolean = false,
+    val isNearbyMode: Boolean = false,
     val places: List<PlaceDetailDto> = emptyList(),
     val savedPlaces: List<PlaceDetailDto> = emptyList(),
     val savedPlaceIds: Set<String> = emptySet(),
+    val dataProvenance: DataProvenance = DataProvenance.LIVE,
     val isLoading: Boolean = false,
     val errorMessage: String? = null
 )
 
 class DiscoverViewModel @JvmOverloads constructor(
     application: Application,
-    private val placesRepository: PlacesRepository = PlacesRepository(),
+    private val placesRepository: PlacesRepository = PlacesRepository(
+        bundledCatalogProvider = BundledCatalogProvider.getInstance(application)
+    ),
     private val savedPlacesRepository: SavedPlacesRepository = SavedPlacesRepository(application)
 ) : AndroidViewModel(application) {
 
@@ -55,29 +63,57 @@ class DiscoverViewModel @JvmOverloads constructor(
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, errorMessage = null) }
             val state = _uiState.value
-            when (val result = placesRepository.searchPlaces(
-                search = state.searchQuery,
-                category = state.selectedCategory,
-                district = state.selectedDistrict
-            )) {
-                is NetworkResult.Success -> {
-                    _uiState.update {
-                        it.copy(
-                            places = result.data,
-                            isLoading = false,
-                            errorMessage = null
-                        )
+
+            if (state.searchQuery.isNotBlank()) {
+                when (val result = placesRepository.searchPlaces(
+                    search = state.searchQuery,
+                    category = state.selectedCategory,
+                    district = state.selectedDistrict
+                )) {
+                    is NetworkResult.Success -> {
+                        _uiState.update {
+                            it.copy(
+                                places = result.data,
+                                isLoading = false,
+                                errorMessage = null
+                            )
+                        }
                     }
-                }
-                is NetworkResult.Error -> {
-                    _uiState.update {
-                        it.copy(
-                            isLoading = false,
-                            errorMessage = result.message
-                        )
+                    is NetworkResult.Error -> {
+                        _uiState.update {
+                            it.copy(
+                                isLoading = false,
+                                errorMessage = result.message
+                            )
+                        }
                     }
+                    else -> {}
                 }
-                else -> {}
+            } else {
+                when (val result = placesRepository.getPlacesWithProvenance(
+                    category = state.selectedCategory,
+                    district = state.selectedDistrict
+                )) {
+                    is NetworkResult.Success -> {
+                        _uiState.update {
+                            it.copy(
+                                places = result.data.data,
+                                dataProvenance = result.data.provenance,
+                                isLoading = false,
+                                errorMessage = null
+                            )
+                        }
+                    }
+                    is NetworkResult.Error -> {
+                        _uiState.update {
+                            it.copy(
+                                isLoading = false,
+                                errorMessage = result.message
+                            )
+                        }
+                    }
+                    else -> {}
+                }
             }
         }
     }
@@ -107,9 +143,13 @@ class DiscoverViewModel @JvmOverloads constructor(
         _uiState.update { it.copy(showSavedOnly = showSaved) }
     }
 
+    fun toggleNearbyMode(enabled: Boolean) {
+        _uiState.update { it.copy(isNearbyMode = enabled) }
+    }
+
     fun toggleBookmark(place: PlaceDetailDto) {
         savedPlacesRepository.toggleSave(place)
-        // Optionally trigger background sync
+        // Trigger background sync
         viewModelScope.launch {
             savedPlacesRepository.syncWithServer()
         }

@@ -1,5 +1,8 @@
 package com.otravelz.android.feature.discover
 
+import android.Manifest
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -10,14 +13,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.BookmarkBorder
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.filled.FilterList
-import androidx.compose.material.icons.filled.Landscape
-import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.automirrored.filled.DirectionsWalk
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -26,12 +23,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.otravelz.android.core.design.*
+import com.otravelz.android.core.location.FirstMileEstimator
+import com.otravelz.android.core.location.GeolocationState
+import com.otravelz.android.core.location.LocationManager
 import com.otravelz.android.core.network.ApiConfig
 import com.otravelz.android.data.model.PlaceDetailDto
 
@@ -42,8 +43,35 @@ fun DiscoverScreen(
     onPlaceClick: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
+    val locationManager = remember { LocationManager(context) }
+    val locationState by locationManager.state.collectAsState()
+
     val state by viewModel.uiState.collectAsState()
     var showFilterSheet by remember { mutableStateOf(false) }
+
+    val permissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestMultiplePermissions()
+    ) { permissions ->
+        val granted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true ||
+                      permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true
+        if (granted) {
+            locationManager.requestLocation()
+        } else {
+            locationManager.setDenied("Location permission denied. Utilizing default Bhubaneswar reference.")
+        }
+    }
+
+    val currentLat = when (val locState = locationState) {
+        is GeolocationState.Granted -> locState.lat
+        is GeolocationState.ReferenceOrigin -> locState.lat
+        else -> LocationManager.DEFAULT_FALLBACK_LAT
+    }
+    val currentLon = when (val locState = locationState) {
+        is GeolocationState.Granted -> locState.lon
+        is GeolocationState.ReferenceOrigin -> locState.lon
+        else -> LocationManager.DEFAULT_FALLBACK_LON
+    }
 
     val categories = listOf(
         null to "All",
@@ -68,25 +96,28 @@ fun DiscoverScreen(
         "Balasore"
     )
 
-    val displayedPlaces = if (state.showSavedOnly) {
-        state.savedPlaces.filter { place ->
-            val matchesQuery = state.searchQuery.isBlank() ||
-                place.name.contains(state.searchQuery, ignoreCase = true) ||
-                (place.district?.contains(state.searchQuery, ignoreCase = true) == true) ||
-                place.category.contains(state.searchQuery, ignoreCase = true)
-            val matchesCat = state.selectedCategory == null || place.category.equals(state.selectedCategory, ignoreCase = true)
-            val matchesDist = state.selectedDistrict == null || place.district?.equals(state.selectedDistrict, ignoreCase = true) == true
-            matchesQuery && matchesCat && matchesDist
-        }
-    } else {
-        state.places.filter { place ->
-            val matchesQuery = state.searchQuery.isBlank() ||
-                place.name.contains(state.searchQuery, ignoreCase = true) ||
-                (place.district?.contains(state.searchQuery, ignoreCase = true) == true) ||
-                place.category.contains(state.searchQuery, ignoreCase = true)
-            val matchesCat = state.selectedCategory == null || place.category.equals(state.selectedCategory, ignoreCase = true)
-            val matchesDist = state.selectedDistrict == null || place.district?.equals(state.selectedDistrict, ignoreCase = true) == true
-            matchesQuery && matchesCat && matchesDist
+    val rawPlaces = if (state.showSavedOnly) state.savedPlaces else state.places
+    val filteredPlaces = rawPlaces.filter { place ->
+        val matchesQuery = state.searchQuery.isBlank() ||
+            place.name.contains(state.searchQuery, ignoreCase = true) ||
+            (place.district?.contains(state.searchQuery, ignoreCase = true) == true) ||
+            place.category.contains(state.searchQuery, ignoreCase = true)
+        val matchesCat = state.selectedCategory == null || place.category.equals(state.selectedCategory, ignoreCase = true)
+        val matchesDist = state.selectedDistrict == null || place.district?.equals(state.selectedDistrict, ignoreCase = true) == true
+        matchesQuery && matchesCat && matchesDist
+    }
+
+    val displayedPlaces = remember(filteredPlaces, state.isNearbyMode, currentLat, currentLon) {
+        if (state.isNearbyMode) {
+            filteredPlaces.sortedBy { place ->
+                if (place.lat != null && place.lon != null) {
+                    LocationManager.haversineDistanceKm(currentLat, currentLon, place.lat, place.lon)
+                } else {
+                    Double.MAX_VALUE
+                }
+            }
+        } else {
+            filteredPlaces
         }
     }
 
@@ -99,7 +130,7 @@ fun DiscoverScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            // 1. Persistent Search Bar
+            // 1. Persistent Search Bar & Data Provenance Badge
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -147,12 +178,49 @@ fun DiscoverScreen(
                 )
             }
 
-            // 2. Compact Primary Category Strip
+            // 2. Primary Category Strip & Nearby Toggle Chip
             LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(horizontal = Spacing.md, vertical = Spacing.xs),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
             ) {
+                // Nearby Proximity Mode Chip
+                item {
+                    FilterChip(
+                        selected = state.isNearbyMode,
+                        onClick = {
+                            val targetState = !state.isNearbyMode
+                            viewModel.toggleNearbyMode(targetState)
+                            if (targetState && !locationManager.hasLocationPermission()) {
+                                permissionLauncher.launch(
+                                    arrayOf(
+                                        Manifest.permission.ACCESS_FINE_LOCATION,
+                                        Manifest.permission.ACCESS_COARSE_LOCATION
+                                    )
+                                )
+                            } else if (targetState) {
+                                locationManager.requestLocation()
+                            }
+                        },
+                        label = { Text("Nearby Mode", style = MaterialTheme.typography.labelSmall) },
+                        leadingIcon = {
+                            Icon(
+                                imageVector = if (state.isNearbyMode) Icons.Default.NearMe else Icons.Default.NearMeDisabled,
+                                contentDescription = null,
+                                modifier = Modifier.size(14.dp),
+                                tint = if (state.isNearbyMode) SunTempleGold else TextMuted
+                            )
+                        },
+                        colors = FilterChipDefaults.filterChipColors(
+                            selectedContainerColor = SunTempleGold.copy(alpha = 0.2f),
+                            selectedLabelColor = SunTempleGold,
+                            containerColor = DarkSurfaceElevated,
+                            labelColor = TextMuted
+                        )
+                    )
+                }
+
                 items(categories) { (catKey, catLabel) ->
                     val isSelected = if (state.showSavedOnly) {
                         catKey == "saved"
@@ -175,7 +243,46 @@ fun DiscoverScreen(
                 }
             }
 
-            // 3. Results Summary & Filter Sheet Action
+            // Nearby Mode Truth Banner
+            if (state.isNearbyMode) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = Spacing.md, vertical = 2.dp)
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(DarkSurfaceVariant)
+                        .padding(horizontal = 10.dp, vertical = 6.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.weight(1f)) {
+                            Icon(
+                                imageVector = Icons.Default.Info,
+                                contentDescription = null,
+                                tint = OchreLight,
+                                modifier = Modifier.size(14.dp)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                text = if (locationState is GeolocationState.Granted) {
+                                    "Sorted by straight-line distance from your verified location"
+                                } else {
+                                    "Sorted by straight-line distance from Bhubaneswar reference point"
+                                },
+                                style = MaterialTheme.typography.bodySmall,
+                                color = TextSecondary,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
+                    }
+                }
+            }
+
+            // 3. Results Summary, Provenance Badge & Filter Sheet Action
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -183,12 +290,29 @@ fun DiscoverScreen(
                     .fillMaxWidth()
                     .padding(horizontal = Spacing.md, vertical = Spacing.xs)
             ) {
-                Text(
-                    text = "${displayedPlaces.size} verified destinations",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = TextSecondary,
-                    fontWeight = FontWeight.Medium
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = "${displayedPlaces.size} verified destinations",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = TextSecondary,
+                        fontWeight = FontWeight.Medium
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
+                    // Provenance badge
+                    Surface(
+                        shape = RoundedCornerShape(4.dp),
+                        color = state.dataProvenance.getBadgeColor().copy(alpha = 0.2f)
+                    ) {
+                        Text(
+                            text = state.dataProvenance.badgeText,
+                            style = MaterialTheme.typography.labelSmall,
+                            color = state.dataProvenance.getBadgeColor(),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 9.sp,
+                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp)
+                        )
+                    }
+                }
 
                 // District Filter Pill Button
                 Surface(
@@ -274,9 +398,15 @@ fun DiscoverScreen(
                 ) {
                     items(displayedPlaces, key = { it.id }) { place ->
                         val isSaved = state.savedPlaceIds.contains(place.id)
+                        val distKm = if (place.lat != null && place.lon != null) {
+                            LocationManager.haversineDistanceKm(currentLat, currentLon, place.lat, place.lon)
+                        } else null
+
                         DiscoverPlaceCard(
                             place = place,
                             isSaved = isSaved,
+                            distanceKm = distKm,
+                            showDistance = state.isNearbyMode,
                             onSaveClick = { viewModel.toggleBookmark(place) },
                             onClick = { onPlaceClick(place.id) }
                         )
@@ -355,12 +485,16 @@ fun DiscoverScreen(
 fun DiscoverPlaceCard(
     place: PlaceDetailDto,
     isSaved: Boolean,
+    distanceKm: Double? = null,
+    showDistance: Boolean = false,
     onSaveClick: () -> Unit,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val imageUrl = place.images.firstOrNull()?.url
     val qualifiedUrl = ApiConfig.resolveImageUrl(imageUrl)
+    val distanceMeters = distanceKm?.times(1000)
+    val firstMile = distanceMeters?.let { FirstMileEstimator.getRecommendation(it) }
 
     Card(
         shape = RoundedCornerShape(20.dp),
@@ -466,16 +600,32 @@ fun DiscoverPlaceCard(
                 }
             }
 
-            // Card Body (Title & Cultural Info)
+            // Card Body (Title & Cultural Info & Distance / First-Mile)
             Column(modifier = Modifier.padding(horizontal = Spacing.md, vertical = Spacing.sm)) {
-                Text(
-                    text = place.name,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = TextPrimary,
-                    fontWeight = FontWeight.Bold,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = place.name,
+                        style = MaterialTheme.typography.titleMedium,
+                        color = TextPrimary,
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f)
+                    )
+                    if (distanceKm != null && showDistance) {
+                        Text(
+                            text = "%.1f km · straight-line".format(distanceKm),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = OchreLight,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
+                }
+
                 if (!place.description.isNullOrBlank()) {
                     Spacer(modifier = Modifier.height(2.dp))
                     Text(
@@ -485,6 +635,25 @@ fun DiscoverPlaceCard(
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis
                     )
+                }
+
+                if (firstMile != null && showDistance) {
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.DirectionsWalk,
+                            contentDescription = null,
+                            tint = TealLight,
+                            modifier = Modifier.size(13.dp)
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = "First-Mile: $firstMile",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = TealLight,
+                            fontWeight = FontWeight.Medium
+                        )
+                    }
                 }
             }
         }

@@ -1,14 +1,17 @@
 package com.otravelz.android.core.network
 
+import com.otravelz.android.BuildConfig
+
 object ApiConfig {
-    // Production Render Backend URL (default fallback for Android physical & emulator)
+    // Production Render Backend URL (default fallback for Android release builds)
     const val PROD_BASE_URL = "https://otravelz-backend.onrender.com/"
     
-    // Android Emulator loopback alias for 127.0.0.1
+    // Android Emulator / Local loopback (with adb reverse tcp:8000 tcp:8000)
+    const val LOCAL_BASE_URL = "http://127.0.0.1:8000/"
     const val EMULATOR_LOCAL_BASE_URL = "http://10.0.2.2:8000/"
 
     // Active Base URL
-    var activeBaseUrl: String = PROD_BASE_URL
+    var activeBaseUrl: String = if (BuildConfig.DEBUG) LOCAL_BASE_URL else PROD_BASE_URL
 
     /**
      * Resolves relative image paths (e.g. /static/images/...) against activeBaseUrl.

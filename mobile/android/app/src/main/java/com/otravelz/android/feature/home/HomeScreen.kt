@@ -48,6 +48,8 @@ fun HomeScreen(
     onExploreClick: () -> Unit,
     onPlanClick: (() -> Unit)? = null,
     onTripsClick: (() -> Unit)? = null,
+    onTransitClick: (() -> Unit)? = null,
+    onMapClick: (() -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
     val state by viewModel.uiState.collectAsState()
@@ -267,7 +269,7 @@ fun HomeScreen(
                     title = "Transit",
                     icon = Icons.Default.DirectionsBus,
                     color = RaghurajpurTerracotta,
-                    onClick = onExploreClick
+                    onClick = { onTransitClick?.invoke() ?: onExploreClick() }
                 )
             }
         }

@@ -103,17 +103,10 @@ class LocationManager(private val context: Context) {
 
         /**
          * Computes first-mile multimodal transit connection guidance based on distance in meters.
-         * Thresholds:
-         * - <= 800m: Walking (fast & direct)
-         * - 800m - 1500m: Walk or Short Auto
-         * - > 1500m: Auto / Cab Recommended
+         * Delegates to standardized FirstMileEstimator.
          */
         fun getFirstMileRecommendation(distanceMeters: Double): String {
-            return when {
-                distanceMeters <= 800 -> "Walking (≤ 800m - fast & direct)"
-                distanceMeters <= 1500 -> "Walk or Short Auto (800m–1.5km)"
-                else -> "Auto / Cab Recommended (> 1.5km)"
-            }
+            return FirstMileEstimator.getRecommendation(distanceMeters)
         }
     }
 }

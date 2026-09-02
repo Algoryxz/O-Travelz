@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.DirectionsWalk
 import androidx.compose.material.icons.filled.DirectionsBus
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Search
@@ -19,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.otravelz.android.core.design.*
+import com.otravelz.android.core.location.FirstMileEstimator
 import com.otravelz.android.core.location.LocationManager
 import com.otravelz.android.core.network.NetworkResult
 import com.otravelz.android.data.model.NearbyStopDto
@@ -121,7 +123,7 @@ fun TransitScreen(
                 )
                 Spacer(modifier = Modifier.width(Spacing.sm))
                 Text(
-                    text = "Scheduled Timetable Notice: Stop departures and route frequencies are derived from published CRUT / Mo Bus timetables. Live GPS vehicle tracking is not available.",
+                    text = "Scheduled Timetable Notice: Stop departures and route frequencies are derived from published CRUT / Mo Bus timetables. Live GPS vehicle tracking is not available. Route geometry unavailable.",
                     style = MaterialTheme.typography.bodySmall,
                     color = TextSecondary
                 )
@@ -200,6 +202,8 @@ fun TransitScreen(
         } else {
             LazyColumn(verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
                 items(filteredStops, key = { it.stopId }) { stop ->
+                    val firstMileGuidance = FirstMileEstimator.getRecommendation(stop.distanceMeters)
+
                     OTCard {
                         Row(verticalAlignment = Alignment.Top) {
                             Box(
@@ -258,6 +262,23 @@ fun TransitScreen(
                                     style = MaterialTheme.typography.bodyMedium,
                                     color = TextSecondary
                                 )
+
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Icon(
+                                        imageVector = Icons.AutoMirrored.Filled.DirectionsWalk,
+                                        contentDescription = null,
+                                        tint = TealLight,
+                                        modifier = Modifier.size(13.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Text(
+                                        text = "First-Mile: $firstMileGuidance",
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = TealLight,
+                                        fontWeight = FontWeight.Medium
+                                    )
+                                }
 
                                 if (stop.routes.isNotEmpty()) {
                                     Spacer(modifier = Modifier.height(Spacing.xs))

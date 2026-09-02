@@ -235,7 +235,9 @@ fun OTravelzAppNav(
                     onPlaceClick = { placeId -> navController.navigate("place/$placeId") },
                     onExploreClick = { navController.navigate(Screen.Discover.route) },
                     onPlanClick = { navController.navigate(Screen.Planner.route) },
-                    onTripsClick = { navController.navigate(Screen.Trips.route) }
+                    onTripsClick = { navController.navigate(Screen.Trips.route) },
+                    onTransitClick = { navController.navigate(Screen.Transit.route) },
+                    onMapClick = { navController.navigate(Screen.Map.route) }
                 )
             }
 
