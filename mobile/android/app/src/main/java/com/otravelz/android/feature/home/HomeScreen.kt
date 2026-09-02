@@ -15,6 +15,7 @@ import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.DirectionsBus
 import androidx.compose.material.icons.filled.Explore
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.LocalAtm
 import androidx.compose.material.icons.filled.LocalGasStation
 import androidx.compose.material.icons.filled.LocalHospital
@@ -22,23 +23,28 @@ import androidx.compose.material.icons.filled.LocalPolice
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Route
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.otravelz.android.core.design.*
+import com.otravelz.android.core.network.ApiConfig
 import com.otravelz.android.core.notifications.NotificationHelper
+import com.otravelz.android.data.local.room.RecentlyViewedEntity
+import com.otravelz.android.data.repository.CivicCategory
+import com.otravelz.android.feature.civic.CivicEssentialsSheet
 import java.util.Calendar
 
 @Composable
@@ -46,6 +52,7 @@ fun HomeScreen(
     viewModel: HomeViewModel,
     onPlaceClick: (String) -> Unit,
     onExploreClick: () -> Unit,
+    onSearchClick: (() -> Unit)? = null,
     onPlanClick: (() -> Unit)? = null,
     onTripsClick: (() -> Unit)? = null,
     onTransitClick: (() -> Unit)? = null,
@@ -54,6 +61,7 @@ fun HomeScreen(
 ) {
     val state by viewModel.uiState.collectAsState()
     val context = LocalContext.current
+    var selectedCivicCategory by remember { mutableStateOf<CivicCategory?>(null) }
 
     val greeting = when (Calendar.getInstance().get(Calendar.HOUR_OF_DAY)) {
         in 4..11 -> "Shubha Sakala • Good Morning"
@@ -75,12 +83,20 @@ fun HomeScreen(
         return
     }
 
+    // Civic Essentials Bottom Sheet
+    if (selectedCivicCategory != null) {
+        CivicEssentialsSheet(
+            initialCategory = selectedCivicCategory!!,
+            onDismiss = { selectedCivicCategory = null }
+        )
+    }
+
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
             .background(DarkBackground)
     ) {
-        // 1. Compact Contextual Header with Location & Notification
+        // 1. Compact Contextual Header with Location & Actions
         item {
             val heroPlace = state.places.firstOrNull { 
                 it.name.contains("Konark", ignoreCase = true) || 
@@ -104,7 +120,7 @@ fun HomeScreen(
                     modifier = Modifier.fillMaxSize()
                 )
 
-                // Top Bar Actions (Location Truth & Notification Prompt)
+                // Top Bar Actions (Location Truth, Search & Notification Prompt)
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -139,43 +155,161 @@ fun HomeScreen(
                         }
                     }
 
-                    // Notification Trigger
-                    IconButton(
-                        onClick = {
-                            val samplePlace = state.places.firstOrNull()
-                            NotificationHelper.showLocalNotification(
-                                context = context,
-                                notificationId = 101,
-                                title = "Trip Guidance • Odisha",
-                                message = "Scheduled Mo Bus Route 10 and 11 available near Master Canteen.",
-                                placeId = samplePlace?.id ?: "9b27a5dd-1d0a-5844-9fe3-d721289202c0"
+                    Row(horizontalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+                        if (onSearchClick != null) {
+                            IconButton(
+                                onClick = onSearchClick,
+                                modifier = Modifier
+                                    .size(36.dp)
+                                    .background(DarkBackground.copy(alpha = 0.75f), CircleShape)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Search,
+                                    contentDescription = "Global Search",
+                                    tint = OchrePrimary,
+                                    modifier = Modifier.size(18.dp)
+                                )
+                            }
+                        }
+
+                        IconButton(
+                            onClick = {
+                                val samplePlace = state.places.firstOrNull()
+                                NotificationHelper.showLocalNotification(
+                                    context = context,
+                                    notificationId = 101,
+                                    title = "Trip Guidance • Odisha",
+                                    message = "Scheduled Mo Bus Route 10 and 11 available near Master Canteen.",
+                                    placeId = samplePlace?.id ?: "9b27a5dd-1d0a-5844-9fe3-d721289202c0"
+                                )
+                            },
+                            modifier = Modifier
+                                .size(36.dp)
+                                .background(DarkBackground.copy(alpha = 0.75f), CircleShape)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Notifications,
+                                contentDescription = "Notification Prompt",
+                                tint = SunTempleGold,
+                                modifier = Modifier.size(18.dp)
                             )
-                        },
-                        modifier = Modifier
-                            .size(36.dp)
-                            .background(DarkBackground.copy(alpha = 0.75f), CircleShape)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Notifications,
-                            contentDescription = "Notification Prompt",
-                            tint = SunTempleGold,
-                            modifier = Modifier.size(18.dp)
-                        )
+                        }
                     }
                 }
             }
         }
 
-        // 2. Ambient Weather Context Banner
+        // 1.5 Quick Search Bar
+        if (onSearchClick != null) {
+            item {
+                Spacer(modifier = Modifier.height(Spacing.sm))
+                Box(modifier = Modifier.padding(horizontal = Spacing.md)) {
+                    Surface(
+                        shape = RoundedCornerShape(16.dp),
+                        color = DarkSurfaceElevated,
+                        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onSearchClick() }
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(horizontal = Spacing.md, vertical = 12.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Search,
+                                contentDescription = "Search",
+                                tint = OchrePrimary,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(Spacing.sm))
+                            Text(
+                                text = "Search places, circuits, districts, trips...",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = TextMuted
+                            )
+                        }
+                    }
+                }
+            }
+        }
+
+        // 2. Ambient Weather Context Banner with Weather-Aware Hint
         item {
-            Spacer(modifier = Modifier.height(Spacing.md))
+            Spacer(modifier = Modifier.height(Spacing.sm))
             Column(modifier = Modifier.padding(horizontal = Spacing.md)) {
+                val temp = state.weather?.current?.temperature
+                val condition = state.weather?.current?.condition ?: "Pleasant"
+                val weatherHint = when {
+                    condition.contains("Rain", ignoreCase = true) -> "Rainy conditions • Ideal for scenic waterfall visits or museum tours"
+                    temp != null && temp > 34.0 -> "Warm afternoon ($temp°C) • Best to explore air-conditioned museums or morning heritage trails"
+                    temp != null && temp < 26.0 -> "Pleasant weather ($temp°C) • Excellent for open-air heritage and temple trails"
+                    else -> "Optimal conditions for temple trails and coastal ecotourism across Odisha"
+                }
+
                 AmbientWeatherBanner(
-                    tempCelsius = state.weather?.current?.temperature,
-                    conditionText = state.weather?.current?.condition ?: "Tropical Clear",
+                    tempCelsius = temp,
+                    conditionText = condition,
                     isLive = state.weather?.dataTier == "live" || state.weather?.current != null,
                     locationLabel = state.weather?.locationName ?: "Bhubaneswar & Central Odisha"
                 )
+
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = "💡 $weatherHint",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = TextSecondary,
+                    modifier = Modifier.padding(horizontal = 4.dp)
+                )
+            }
+        }
+
+        // 2.5 Recently Viewed Row (if any)
+        if (state.recentlyViewed.isNotEmpty()) {
+            item {
+                Spacer(modifier = Modifier.height(Spacing.md))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = Spacing.md)
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.Default.History,
+                            contentDescription = null,
+                            tint = OchrePrimary,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = "Recently Viewed",
+                            style = MaterialTheme.typography.titleMedium,
+                            color = TextPrimary,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    Text(
+                        text = "Clear",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = TextMuted,
+                        modifier = Modifier.clickable { viewModel.clearRecentlyViewed() }
+                    )
+                }
+                Spacer(modifier = Modifier.height(Spacing.xs))
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
+                    contentPadding = PaddingValues(horizontal = Spacing.md),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    items(state.recentlyViewed, key = { it.placeId }) { recent ->
+                        RecentlyViewedPlaceCard(
+                            place = recent,
+                            onClick = { onPlaceClick(recent.placeId) }
+                        )
+                    }
+                }
             }
         }
 
@@ -289,15 +423,39 @@ fun HomeScreen(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    EssentialChip(icon = Icons.Default.LocalHospital, label = "Medical", modifier = Modifier.weight(1f))
-                    EssentialChip(icon = Icons.Default.LocalPolice, label = "Police", modifier = Modifier.weight(1f))
-                    EssentialChip(icon = Icons.Default.LocalGasStation, label = "Fuel", modifier = Modifier.weight(1f))
-                    EssentialChip(icon = Icons.Default.LocalAtm, label = "ATM", modifier = Modifier.weight(1f))
+                    EssentialChip(
+                        icon = Icons.Default.LocalHospital,
+                        label = "Medical",
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { selectedCivicCategory = CivicCategory.HOSPITAL }
+                    )
+                    EssentialChip(
+                        icon = Icons.Default.LocalPolice,
+                        label = "Police",
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { selectedCivicCategory = CivicCategory.POLICE }
+                    )
+                    EssentialChip(
+                        icon = Icons.Default.LocalGasStation,
+                        label = "Fuel",
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { selectedCivicCategory = CivicCategory.FUEL }
+                    )
+                    EssentialChip(
+                        icon = Icons.Default.LocalAtm,
+                        label = "ATM",
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { selectedCivicCategory = CivicCategory.ATM }
+                    )
                 }
             }
         }
 
-        // 6. Near You / Featured Experiences
+        // 6. Featured Destinations Carousel
         item {
             Spacer(modifier = Modifier.height(Spacing.lg))
             Row(
@@ -350,24 +508,84 @@ fun HomeScreen(
 }
 
 @Composable
+private fun RecentlyViewedPlaceCard(
+    place: RecentlyViewedEntity,
+    onClick: () -> Unit
+) {
+    Surface(
+        shape = RoundedCornerShape(12.dp),
+        color = DarkSurfaceElevated,
+        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
+        modifier = Modifier
+            .width(140.dp)
+            .clickable(onClick = onClick)
+    ) {
+        Column(modifier = Modifier.padding(8.dp)) {
+            val resolvedUrl = place.imageUrl?.let { ApiConfig.resolveImageUrl(it) }
+            if (resolvedUrl != null) {
+                AsyncImage(
+                    model = resolvedUrl,
+                    contentDescription = place.name,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(80.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                )
+            } else {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(80.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(DarkSurfaceVariant),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.LocationOn,
+                        contentDescription = null,
+                        tint = OchrePrimary,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(6.dp))
+
+            Text(
+                text = place.name,
+                style = MaterialTheme.typography.bodySmall,
+                fontWeight = FontWeight.SemiBold,
+                color = TextPrimary,
+                maxLines = 1
+            )
+            Text(
+                text = place.district ?: place.category,
+                style = MaterialTheme.typography.labelSmall,
+                color = TextMuted,
+                maxLines = 1
+            )
+        }
+    }
+}
+
+@Composable
 fun QuickActionItem(
     title: String,
     icon: ImageVector,
     color: Color,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    onClick: () -> Unit
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.clickable { onClick() }
+        modifier = Modifier.clickable { onClick() }
     ) {
         Box(
-            contentAlignment = Alignment.Center,
             modifier = Modifier
-                .size(52.dp)
-                .clip(RoundedCornerShape(16.dp))
-                .background(DarkSurfaceElevated)
-                .border(1.dp, DarkBorder, RoundedCornerShape(16.dp))
+                .size(54.dp)
+                .background(color.copy(alpha = 0.15f), RoundedCornerShape(16.dp))
+                .border(1.dp, color.copy(alpha = 0.3f), RoundedCornerShape(16.dp)),
+            contentAlignment = Alignment.Center
         ) {
             Icon(
                 imageVector = icon,
@@ -379,7 +597,7 @@ fun QuickActionItem(
         Spacer(modifier = Modifier.height(6.dp))
         Text(
             text = title,
-            style = MaterialTheme.typography.labelMedium,
+            style = MaterialTheme.typography.labelSmall,
             color = TextSecondary,
             fontWeight = FontWeight.Medium
         )
@@ -393,29 +611,28 @@ fun EssentialChip(
     modifier: Modifier = Modifier
 ) {
     Surface(
-        shape = RoundedCornerShape(10.dp),
+        shape = RoundedCornerShape(12.dp),
         color = DarkSurfaceElevated,
-        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorderSubtle),
+        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
         modifier = modifier
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(horizontal = 6.dp, vertical = 8.dp)
+            modifier = Modifier.padding(horizontal = 10.dp, vertical = 8.dp)
         ) {
             Icon(
                 imageVector = icon,
                 contentDescription = label,
-                tint = TextSecondary,
-                modifier = Modifier.size(14.dp)
+                tint = SunTempleGold,
+                modifier = Modifier.size(16.dp)
             )
             Spacer(modifier = Modifier.width(4.dp))
             Text(
                 text = label,
                 style = MaterialTheme.typography.labelSmall,
                 color = TextPrimary,
-                fontWeight = FontWeight.Medium,
-                maxLines = 1
+                fontWeight = FontWeight.Medium
             )
         }
     }

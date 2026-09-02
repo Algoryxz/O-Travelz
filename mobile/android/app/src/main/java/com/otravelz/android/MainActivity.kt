@@ -12,6 +12,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -24,9 +26,11 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Route
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -35,16 +39,11 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
-import com.otravelz.android.core.design.DarkBackground
-import com.otravelz.android.core.design.DarkSurface
-import com.otravelz.android.core.design.DarkSurfaceElevated
-import com.otravelz.android.core.design.DarkSurfaceVariant
-import com.otravelz.android.core.design.OchrePrimary
-import com.otravelz.android.core.design.OTravelzTheme
-import com.otravelz.android.core.design.SunTempleGold
-import com.otravelz.android.core.design.TextMuted
-import com.otravelz.android.core.design.TextPrimary
-import com.otravelz.android.core.design.TextSecondary
+import com.otravelz.android.core.design.*
+import com.otravelz.android.data.local.UserPreferencesDataStore
+import com.otravelz.android.data.repository.RecentSearchesRepository
+import com.otravelz.android.data.repository.SavedPlacesRepository
+import com.otravelz.android.data.repository.SavedTripsRepository
 import com.otravelz.android.feature.discover.DiscoverScreen
 import com.otravelz.android.feature.discover.DiscoverViewModel
 import com.otravelz.android.feature.home.HomeScreen
@@ -55,7 +54,10 @@ import com.otravelz.android.feature.place.PlaceDetailViewModel
 import com.otravelz.android.feature.planner.PlannerScreen
 import com.otravelz.android.feature.planner.PlannerViewModel
 import com.otravelz.android.feature.profile.ProfileScreen
+import com.otravelz.android.feature.search.GlobalSearchScreen
+import com.otravelz.android.feature.search.GlobalSearchViewModel
 import com.otravelz.android.feature.transit.TransitScreen
+import com.otravelz.android.feature.trips.TripModeScreen
 import com.otravelz.android.feature.trips.TripsScreen
 
 class MainActivity : ComponentActivity() {
@@ -96,7 +98,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-sealed class Screen(val route: String, val title: String, val icon: androidx.compose.ui.graphics.vector.ImageVector) {
+sealed class Screen(val route: String, val titleRes: String, val icon: androidx.compose.ui.graphics.vector.ImageVector) {
     object Home : Screen("home", "Home", Icons.Default.Home)
     object Discover : Screen("discover", "Discover", Icons.Default.Explore)
     object Planner : Screen("planner", "Plan", Icons.Default.Route)
@@ -117,6 +119,35 @@ fun OTravelzAppNav(
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
+
+    val preferencesDataStore = remember { UserPreferencesDataStore.getInstance(context) }
+    val userPreferences by preferencesDataStore.userPreferencesFlow.collectAsState(
+        initial = com.otravelz.android.data.local.UserPreferences()
+    )
+
+    val savedTripsRepo = remember {
+        try {
+            SavedTripsRepository(context)
+        } catch (_: Exception) {
+            null
+        }
+    }
+
+    val savedPlacesRepo = remember {
+        try {
+            SavedPlacesRepository(context)
+        } catch (_: Exception) {
+            null
+        }
+    }
+
+    val recentSearchesRepo = remember {
+        try {
+            RecentSearchesRepository.getInstance(context)
+        } catch (_: Exception) {
+            null
+        }
+    }
 
     // Ensure immediate deep-link navigation on new intent when app is already running/warm
     DisposableEffect(Unit) {
@@ -156,7 +187,6 @@ fun OTravelzAppNav(
                 onGranted?.invoke()
             }
         } else {
-            // API 26-32: notifications enabled by default
             onGranted?.invoke()
         }
     }
@@ -184,20 +214,51 @@ fun OTravelzAppNav(
         Screen.You
     )
 
+    fun getTabLabel(screen: Screen, lang: String): String {
+        return when (lang) {
+            "or" -> when (screen) {
+                Screen.Home -> "ମୂଳପୃଷ୍ଠା"
+                Screen.Discover -> "ଆବିଷ୍କାର"
+                Screen.Planner -> "ଯୋଜନା"
+                Screen.Trips -> "ଯାତ୍ରା"
+                Screen.You -> "ଆପଣ"
+                else -> screen.titleRes
+            }
+            "hi" -> when (screen) {
+                Screen.Home -> "होम"
+                Screen.Discover -> "खोजें"
+                Screen.Planner -> "योजना"
+                Screen.Trips -> "यात्राएं"
+                Screen.You -> "आप"
+                else -> screen.titleRes
+            }
+            else -> screen.titleRes
+        }
+    }
+
     val homeState by homeViewModel.uiState.collectAsState()
+
+    val shouldShowBottomBar = currentRoute in listOf(
+        Screen.Home.route,
+        Screen.Discover.route,
+        Screen.Planner.route,
+        Screen.Trips.route,
+        Screen.You.route
+    )
 
     Scaffold(
         bottomBar = {
-            if (currentRoute != "place/{placeId}") {
+            if (shouldShowBottomBar) {
                 NavigationBar(
                     containerColor = DarkSurfaceElevated,
                     contentColor = TextPrimary
                 ) {
                     bottomNavItems.forEach { screen ->
                         val isSelected = currentRoute == screen.route
+                        val label = getTabLabel(screen, userPreferences.preferredLanguage)
                         NavigationBarItem(
-                            icon = { Icon(screen.icon, contentDescription = screen.title) },
-                            label = { Text(screen.title) },
+                            icon = { Icon(screen.icon, contentDescription = label) },
+                            label = { Text(label) },
                             selected = isSelected,
                             colors = NavigationBarItemDefaults.colors(
                                 selectedIconColor = SunTempleGold,
@@ -234,10 +295,31 @@ fun OTravelzAppNav(
                     viewModel = homeViewModel,
                     onPlaceClick = { placeId -> navController.navigate("place/$placeId") },
                     onExploreClick = { navController.navigate(Screen.Discover.route) },
+                    onSearchClick = { navController.navigate("global_search") },
                     onPlanClick = { navController.navigate(Screen.Planner.route) },
                     onTripsClick = { navController.navigate(Screen.Trips.route) },
                     onTransitClick = { navController.navigate(Screen.Transit.route) },
                     onMapClick = { navController.navigate(Screen.Map.route) }
+                )
+            }
+
+            composable("global_search") {
+                val searchVm = remember {
+                    GlobalSearchViewModel(
+                        savedPlacesRepository = savedPlacesRepo,
+                        savedTripsRepository = savedTripsRepo,
+                        recentSearchesRepository = recentSearchesRepo
+                    )
+                }
+                GlobalSearchScreen(
+                    viewModel = searchVm,
+                    onBackClick = { navController.popBackStack() },
+                    onPlaceClick = { placeId -> navController.navigate("place/$placeId") },
+                    onTripClick = { tripId -> navController.navigate("trip_mode/$tripId") },
+                    onCategoryClick = { cat ->
+                        discoverViewModel.selectCategory(cat)
+                        navController.navigate(Screen.Discover.route)
+                    }
                 )
             }
 
@@ -259,8 +341,45 @@ fun OTravelzAppNav(
             composable(Screen.Trips.route) {
                 TripsScreen(
                     onPlanNewTrip = { navController.navigate(Screen.Planner.route) },
-                    onTripClick = { tripId -> navController.navigate(Screen.Planner.route) }
+                    onTripClick = { tripId -> navController.navigate("trip_mode/$tripId") },
+                    onPlaceClick = { placeId -> navController.navigate("place/$placeId") },
+                    onStartTripMode = { tripId -> navController.navigate("trip_mode/$tripId") },
+                    onReplanTrip = { trip ->
+                        plannerViewModel.loadFromTrip(trip)
+                        navController.navigate(Screen.Planner.route)
+                    }
                 )
+            }
+
+            composable(
+                route = "trip_mode/{tripId}",
+                arguments = listOf(navArgument("tripId") { type = NavType.StringType }),
+                deepLinks = listOf(
+                    navDeepLink { uriPattern = "otravelz://trip/{tripId}" },
+                    navDeepLink { uriPattern = "otravelz://trip?id={tripId}" }
+                )
+            ) { backStackEntry ->
+                val tripId = backStackEntry.arguments?.getString("tripId") ?: ""
+                val savedTrips by savedTripsRepo?.savedTrips?.collectAsState() ?: remember { mutableStateOf(emptyList()) }
+                val currentTrip = savedTrips.firstOrNull { it.id == tripId } ?: savedTrips.firstOrNull()
+
+                if (currentTrip != null) {
+                    TripModeScreen(
+                        trip = currentTrip,
+                        onBackClick = { navController.popBackStack() },
+                        onPlaceClick = { placeId -> navController.navigate("place/$placeId") },
+                        onMapClick = { navController.navigate(Screen.Map.route) }
+                    )
+                } else {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(DarkBackground),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator(color = OchrePrimary)
+                    }
+                }
             }
 
             composable(Screen.You.route) {
@@ -291,7 +410,10 @@ fun OTravelzAppNav(
             composable(
                 route = "place/{placeId}",
                 arguments = listOf(navArgument("placeId") { type = NavType.StringType }),
-                deepLinks = listOf(navDeepLink { uriPattern = "otravelz://place?id={placeId}" })
+                deepLinks = listOf(
+                    navDeepLink { uriPattern = "otravelz://place/{placeId}" },
+                    navDeepLink { uriPattern = "otravelz://place?id={placeId}" }
+                )
             ) { backStackEntry ->
                 val placeId = backStackEntry.arguments?.getString("placeId") ?: ""
                 PlaceDetailScreen(
@@ -328,7 +450,7 @@ fun NotificationRationaleDialog(
         },
         confirmButton = {
             TextButton(onClick = onConfirm) {
-                Text("Allow Notifications", color = OchrePrimary)
+                Text("Allow Notifications", color = com.otravelz.android.core.design.OchrePrimary)
             }
         },
         dismissButton = {

@@ -61,6 +61,21 @@ class PlannerViewModel(
         _uiState.update { it.copy(activeTab = tab) }
     }
 
+    fun loadFromTrip(trip: SyncTripItemDto) {
+        val itin = trip.itinerary ?: return
+        val days = itin.constraints?.days ?: itin.days.size.coerceAtLeast(1)
+        val interests = itin.constraints?.interests ?: listOf("temple", "monument", "market")
+        _uiState.update {
+            it.copy(
+                activeTab = PlannerTab.CREATE_PLAN,
+                itinerary = itin,
+                durationDays = days,
+                selectedCategories = interests.toSet(),
+                prompt = "Trip: ${trip.title}"
+            )
+        }
+    }
+
     fun updatePrompt(text: String) {
         _uiState.update { it.copy(prompt = text) }
     }

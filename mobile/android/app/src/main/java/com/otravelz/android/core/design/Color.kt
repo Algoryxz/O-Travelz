@@ -20,6 +20,7 @@ val SimilipalEmeraldLight = Color(0xFFA7F3D0)
 
 val OliveForest = Color(0xFF15803D)           // Eastern Ghats Canopy
 val RaghurajpurTerracotta = Color(0xFFC2410C) // Raghurajpur Artisan Terracotta
+val TerracottaAccent = RaghurajpurTerracotta
 val ChilikaAzure = Color(0xFF0284C7)          // Chilika Lake Azure
 
 // Dark Mode Surfaces (Primary Default for Rich Travel UI)
@@ -29,6 +30,7 @@ val DarkSurfaceElevated = Color(0xFF1A2234)
 val DarkSurfaceVariant = Color(0xFF1F2937)
 val DarkSurfaceGlass = Color(0xD9161F30)
 val DarkBorder = Color(0xFF2E3A4E)
+val DarkSurfaceBorder = DarkBorder
 val DarkBorderSubtle = Color(0xFF1F293D)
 
 // Neutral Text & Accents

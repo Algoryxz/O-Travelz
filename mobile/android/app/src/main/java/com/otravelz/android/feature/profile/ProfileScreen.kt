@@ -3,6 +3,7 @@ package com.otravelz.android.feature.profile
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -155,6 +156,89 @@ fun ProfileScreen(
             subtitle = "Draft and stage unlisted Odia shrines, crafts, or nature gems locally on device",
             onClick = onNavigateToCommunityStaging
         )
+
+        Spacer(modifier = Modifier.height(Spacing.lg))
+
+        Spacer(modifier = Modifier.height(Spacing.lg))
+
+        // Section: Data Management
+        Text(
+            text = "Data Management",
+            style = MaterialTheme.typography.titleMedium,
+            color = TextPrimary,
+            fontWeight = FontWeight.Bold
+        )
+        Spacer(modifier = Modifier.height(Spacing.xs))
+
+        val recentlyViewedRepo = remember { com.otravelz.android.data.repository.RecentlyViewedRepository.getInstance(context) }
+        val recentSearchRepo = remember { com.otravelz.android.data.repository.RecentSearchesRepository.getInstance(context) }
+
+        SettingsTile(
+            icon = Icons.Default.History,
+            title = "Clear Search History",
+            subtitle = "Remove saved recent search terms from on-device storage",
+            onClick = {
+                coroutineScope.launch {
+                    recentSearchRepo.clearAll()
+                    android.widget.Toast.makeText(context, "Search history cleared", android.widget.Toast.LENGTH_SHORT).show()
+                }
+            }
+        )
+
+        Spacer(modifier = Modifier.height(Spacing.xs))
+
+        SettingsTile(
+            icon = Icons.Default.DeleteSweep,
+            title = "Clear Recently Viewed",
+            subtitle = "Clear your destination browsing history",
+            onClick = {
+                coroutineScope.launch {
+                    recentlyViewedRepo.clearHistory()
+                    android.widget.Toast.makeText(context, "Recently viewed history cleared", android.widget.Toast.LENGTH_SHORT).show()
+                }
+            }
+        )
+
+        Spacer(modifier = Modifier.height(Spacing.lg))
+
+        // Section: Diagnostics & Architecture Truth
+        Text(
+            text = "System Diagnostics & Source Truth",
+            style = MaterialTheme.typography.titleMedium,
+            color = TextPrimary,
+            fontWeight = FontWeight.Bold
+        )
+        Spacer(modifier = Modifier.height(Spacing.xs))
+
+        Surface(
+            shape = RoundedCornerShape(14.dp),
+            color = DarkSurfaceElevated,
+            border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(modifier = Modifier.padding(Spacing.md), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
+                    Text("Destinations Catalog", style = MaterialTheme.typography.bodySmall, color = TextMuted)
+                    Text("160+ Verified [Curated]", style = MaterialTheme.typography.labelSmall, color = SimilipalEmerald, fontWeight = FontWeight.Bold)
+                }
+                Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
+                    Text("Transit Schedules", style = MaterialTheme.typography.bodySmall, color = TextMuted)
+                    Text("Mo Bus / Ama Bus [Scheduled]", style = MaterialTheme.typography.labelSmall, color = SunTempleGold, fontWeight = FontWeight.Bold)
+                }
+                Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
+                    Text("Weather API", style = MaterialTheme.typography.bodySmall, color = TextMuted)
+                    Text("Open-Meteo [Live]", style = MaterialTheme.typography.labelSmall, color = OchrePrimary, fontWeight = FontWeight.Bold)
+                }
+                Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
+                    Text("Local Persistence", style = MaterialTheme.typography.bodySmall, color = TextMuted)
+                    Text("Room SQLite v2 [Local]", style = MaterialTheme.typography.labelSmall, color = TextPrimary, fontWeight = FontWeight.Bold)
+                }
+                Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
+                    Text("Distance Engine", style = MaterialTheme.typography.bodySmall, color = TextMuted)
+                    Text("WGS-84 Haversine [Estimated]", style = MaterialTheme.typography.labelSmall, color = TextSecondary)
+                }
+            }
+        }
 
         Spacer(modifier = Modifier.height(Spacing.lg))
 

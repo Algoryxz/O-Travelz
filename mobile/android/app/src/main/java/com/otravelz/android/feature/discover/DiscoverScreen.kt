@@ -203,6 +203,61 @@ fun DiscoverScreen(
                 }
             }
 
+            // Recent Search Chips (when search query is empty)
+            if (state.searchQuery.isEmpty() && state.recentSearches.isNotEmpty()) {
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(Spacing.xs),
+                    contentPadding = PaddingValues(horizontal = Spacing.md, vertical = 2.dp),
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    item {
+                        Surface(
+                            shape = RoundedCornerShape(10.dp),
+                            color = DarkSurface,
+                            border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
+                            modifier = Modifier.clickable { viewModel.clearRecentSearches() }
+                        ) {
+                            Text(
+                                text = "Clear",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = TextMuted,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                            )
+                        }
+                    }
+                    items(state.recentSearches) { recentQuery ->
+                        Surface(
+                            shape = RoundedCornerShape(10.dp),
+                            color = DarkSurfaceElevated,
+                            border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
+                            modifier = Modifier.clickable {
+                                viewModel.updateSearchQuery(recentQuery)
+                                viewModel.addRecentSearch(recentQuery)
+                            }
+                        ) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.History,
+                                    contentDescription = null,
+                                    tint = OchrePrimary,
+                                    modifier = Modifier.size(12.dp)
+                                )
+                                Spacer(modifier = Modifier.width(4.dp))
+                                Text(
+                                    text = recentQuery,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = TextPrimary
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+
             // 2. Primary Category Strip & Nearby Toggle Chip
             LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),

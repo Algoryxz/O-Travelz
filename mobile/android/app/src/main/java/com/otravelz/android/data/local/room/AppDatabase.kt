@@ -8,15 +8,21 @@ import androidx.room.RoomDatabase
 @Database(
     entities = [
         SavedPlaceEntity::class,
-        SavedTripEntity::class
+        SavedTripEntity::class,
+        RecentlyViewedEntity::class,
+        RecentSearchEntity::class,
+        CommunityDraftEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun savedPlacesDao(): SavedPlacesDao
     abstract fun savedTripsDao(): SavedTripsDao
+    abstract fun recentlyViewedDao(): RecentlyViewedDao
+    abstract fun recentSearchDao(): RecentSearchDao
+    abstract fun communityDraftDao(): CommunityDraftDao
 
     companion object {
         private const val DATABASE_NAME = "otravelz_database.db"

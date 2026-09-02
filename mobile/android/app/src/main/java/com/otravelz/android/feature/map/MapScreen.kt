@@ -179,11 +179,20 @@ fun MapScreen(
         )
     }
 
-    val filteredPlaces = remember(places, selectedCategory) {
-        if (selectedCategory == "All") {
-            places
-        } else {
-            places.filter { it.category.equals(selectedCategory, ignoreCase = true) }
+    val savedPlacesRepository = remember {
+        try {
+            com.otravelz.android.data.repository.SavedPlacesRepository(context)
+        } catch (_: Exception) {
+            null
+        }
+    }
+    val savedPlaceIds by savedPlacesRepository?.savedPlaceIds?.collectAsState() ?: remember { mutableStateOf(emptySet()) }
+
+    val filteredPlaces = remember(places, selectedCategory, savedPlaceIds) {
+        when (selectedCategory) {
+            "All" -> places
+            "Saved" -> places.filter { savedPlaceIds.contains(it.id) }
+            else -> places.filter { it.category.equals(selectedCategory, ignoreCase = true) }
         }
     }
 
@@ -341,7 +350,7 @@ fun MapScreen(
         Spacer(modifier = Modifier.height(Spacing.xs))
 
         // Filter Chips & Transit Overlay Toggle
-        val categories = listOf("All", "heritage", "temple", "nature", "wildlife", "craft", "beach")
+        val categories = listOf("All", "Saved", "heritage", "temple", "nature", "wildlife", "craft", "beach")
         Row(
             modifier = Modifier
                 .fillMaxWidth()

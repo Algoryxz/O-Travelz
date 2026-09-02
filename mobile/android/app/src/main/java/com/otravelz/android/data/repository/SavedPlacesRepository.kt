@@ -77,6 +77,8 @@ class SavedPlacesRepository(
         return _savedPlaceIds.value.contains(placeId)
     }
 
+    fun isPlaceSaved(placeId: String): Boolean = isSaved(placeId)
+
     /**
      * Toggles bookmark state for a destination.
      * Returns true if newly bookmarked, false if unbookmarked.
@@ -91,6 +93,15 @@ class SavedPlacesRepository(
             }
         }
         return !currentlySaved
+    }
+
+    /**
+     * Directly removes a destination by id.
+     */
+    fun removePlace(placeId: String) {
+        coroutineScope.launch {
+            dao.deletePlace(placeId)
+        }
     }
 
     /**

@@ -84,7 +84,10 @@ fun PlaceDetailScreen(
                 modifier = Modifier.padding(Spacing.md)
             ) {
                 // Identity
-                PlaceIdentity(place = place)
+                PlaceIdentity(
+                    place = place,
+                    weather = state.weather
+                )
 
                 // Action Bar
                 PlaceActionBar(
@@ -105,16 +108,7 @@ fun PlaceDetailScreen(
                         }
                     },
                     onShare = {
-                        val sendIntent = Intent().apply {
-                            action = Intent.ACTION_SEND
-                            putExtra(
-                                Intent.EXTRA_TEXT,
-                                "Discover ${place.name} in ${place.district ?: "Odisha"} on O-TRAVELZ travel intelligence."
-                            )
-                            type = "text/plain"
-                        }
-                        val shareIntent = Intent.createChooser(sendIntent, "Share Destination")
-                        context.startActivity(shareIntent)
+                        com.otravelz.android.core.util.ShareHelper.sharePlace(context, place)
                     },
                     onRemind = {
                         val triggerAlert: () -> Unit = {

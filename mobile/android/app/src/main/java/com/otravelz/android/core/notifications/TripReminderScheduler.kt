@@ -74,6 +74,25 @@ object TripReminderScheduler {
     }
 
     /**
+     * Overload for scheduling with trip metadata.
+     */
+    fun scheduleTripReminder(
+        context: Context,
+        tripId: String,
+        tripTitle: String,
+        nextStopName: String,
+        triggerAtMillis: Long
+    ) {
+        scheduleTripReminder(
+            context = context,
+            placeId = tripId,
+            placeName = nextStopName,
+            triggerAtMillis = triggerAtMillis,
+            customMessage = "Departure reminder for $nextStopName ($tripTitle)"
+        )
+    }
+
+    /**
      * Cancels a scheduled departure reminder.
      */
     fun cancelScheduledReminder(context: Context, placeId: String) {

@@ -98,6 +98,7 @@ fun PlaceHero(
 @Composable
 fun PlaceIdentity(
     place: PlaceDetailDto,
+    weather: com.otravelz.android.data.model.WeatherObservationDto? = null,
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
@@ -151,28 +152,58 @@ fun PlaceIdentity(
             fontWeight = FontWeight.Bold
         )
 
-        if (place.rating != null) {
-            Spacer(modifier = Modifier.height(2.dp))
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    imageVector = Icons.Default.Star,
-                    contentDescription = null,
-                    tint = SunTempleGold,
-                    modifier = Modifier.size(16.dp)
-                )
-                Spacer(modifier = Modifier.width(4.dp))
-                Text(
-                    text = "%.1f".format(place.rating),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = TextPrimary,
-                    fontWeight = FontWeight.Bold
-                )
-                if (place.ratingCount != null) {
-                    Text(
-                        text = " (${place.ratingCount} reviews)",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = TextMuted
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(Spacing.sm)
+        ) {
+            if (place.rating != null) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = Icons.Default.Star,
+                        contentDescription = null,
+                        tint = SunTempleGold,
+                        modifier = Modifier.size(16.dp)
                     )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = "%.1f".format(place.rating),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = TextPrimary,
+                        fontWeight = FontWeight.Bold
+                    )
+                    if (place.ratingCount != null) {
+                        Text(
+                            text = " (${place.ratingCount})",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = TextMuted
+                        )
+                    }
+                }
+            }
+
+            if (weather != null) {
+                Surface(
+                    shape = RoundedCornerShape(6.dp),
+                    color = DarkSurfaceElevated,
+                    border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.WbSunny,
+                            contentDescription = null,
+                            tint = SunTempleGold,
+                            modifier = Modifier.size(12.dp)
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = "${weather.temperature}°C ${weather.condition}",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = TextSecondary
+                        )
+                    }
                 }
             }
         }

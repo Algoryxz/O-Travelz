@@ -8,9 +8,13 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BookmarkBorder
+import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.DirectionsBus
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Route
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
@@ -20,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.otravelz.android.core.design.*
 import com.otravelz.android.data.model.SyncTripItemDto
 
@@ -65,6 +70,9 @@ fun TripsHeader(
 fun SavedTripCardV3(
     trip: SyncTripItemDto,
     onClick: () -> Unit,
+    onStartTripMode: () -> Unit,
+    onDuplicate: () -> Unit,
+    onReplan: () -> Unit,
     onShare: () -> Unit,
     onDelete: () -> Unit,
     modifier: Modifier = Modifier
@@ -200,20 +208,62 @@ fun SavedTripCardV3(
             HorizontalDivider(color = DarkBorderSubtle, thickness = 1.dp)
             Spacer(modifier = Modifier.height(Spacing.xs))
 
-            // Footer Actions
+            // Quick Actions: Trip Mode, Replan, Duplicate, Share, Delete
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(
-                    text = "Tap to open in Planner",
-                    style = MaterialTheme.typography.labelSmall,
-                    color = TextMuted
-                )
+                // Trip Mode Quick Button
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = OchrePrimary.copy(alpha = 0.15f),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, OchrePrimary.copy(alpha = 0.4f)),
+                    modifier = Modifier.clickable(onClick = onStartTripMode)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.PlayArrow,
+                            contentDescription = "Start Trip Mode",
+                            tint = OchrePrimary,
+                            modifier = Modifier.size(14.dp)
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = "Trip Mode",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = OchrePrimary,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                }
 
-                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                    IconButton(onClick = onShare, modifier = Modifier.size(32.dp)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+                    // Replan Action
+                    IconButton(onClick = onReplan, modifier = Modifier.size(30.dp)) {
+                        Icon(
+                            imageVector = Icons.Default.Refresh,
+                            contentDescription = "Replan Trip",
+                            tint = TextSecondary,
+                            modifier = Modifier.size(16.dp)
+                        )
+                    }
+
+                    // Duplicate Action
+                    IconButton(onClick = onDuplicate, modifier = Modifier.size(30.dp)) {
+                        Icon(
+                            imageVector = Icons.Default.ContentCopy,
+                            contentDescription = "Duplicate Trip",
+                            tint = TextSecondary,
+                            modifier = Modifier.size(16.dp)
+                        )
+                    }
+
+                    // Share Action
+                    IconButton(onClick = onShare, modifier = Modifier.size(30.dp)) {
                         Icon(
                             imageVector = Icons.Default.Share,
                             contentDescription = "Share Trip",
@@ -222,7 +272,8 @@ fun SavedTripCardV3(
                         )
                     }
 
-                    IconButton(onClick = onDelete, modifier = Modifier.size(32.dp)) {
+                    // Delete Action
+                    IconButton(onClick = onDelete, modifier = Modifier.size(30.dp)) {
                         Icon(
                             imageVector = Icons.Default.DeleteOutline,
                             contentDescription = "Delete Trip",
@@ -250,34 +301,34 @@ fun EmptyTripsStateV3(
     ) {
         Box(
             modifier = Modifier
-                .size(72.dp)
-                .background(DarkSurfaceVariant, CircleShape)
-                .border(1.dp, DarkBorderSubtle, CircleShape),
+                .size(64.dp)
+                .background(DarkSurfaceVariant, CircleShape),
             contentAlignment = Alignment.Center
         ) {
             Icon(
                 imageVector = Icons.Default.BookmarkBorder,
                 contentDescription = null,
-                tint = SunTempleGold,
-                modifier = Modifier.size(36.dp)
+                tint = TextMuted,
+                modifier = Modifier.size(32.dp)
             )
         }
 
         Spacer(modifier = Modifier.height(Spacing.md))
 
         Text(
-            text = "No Saved Trips Yet",
-            style = MaterialTheme.typography.titleLarge,
+            text = "No saved itineraries yet",
+            style = MaterialTheme.typography.titleMedium,
             color = TextPrimary,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.SemiBold
         )
 
         Spacer(modifier = Modifier.height(Spacing.xs))
 
         Text(
-            text = "Generate optimized daily routes with scheduled Mo Bus transit in the Planner, then tap 'Save Trip' to store them offline.",
-            style = MaterialTheme.typography.bodyMedium,
+            text = "Create customized Odisha itineraries with deterministic Mo Bus transit in the Planner.",
+            style = MaterialTheme.typography.bodySmall,
             color = TextSecondary,
+            modifier = Modifier.padding(horizontal = Spacing.md),
             textAlign = androidx.compose.ui.text.style.TextAlign.Center
         )
 
@@ -286,12 +337,9 @@ fun EmptyTripsStateV3(
         Button(
             onClick = onPlanNewTrip,
             colors = ButtonDefaults.buttonColors(containerColor = OchrePrimary, contentColor = DarkBackground),
-            shape = RoundedCornerShape(12.dp),
-            contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp)
+            shape = RoundedCornerShape(12.dp)
         ) {
-            Icon(Icons.Default.Route, contentDescription = null, modifier = Modifier.size(18.dp))
-            Spacer(modifier = Modifier.width(6.dp))
-            Text("Create Your First Itinerary", fontWeight = FontWeight.Bold)
+            Text("Plan Your First Itinerary", fontWeight = FontWeight.Bold)
         }
     }
 }

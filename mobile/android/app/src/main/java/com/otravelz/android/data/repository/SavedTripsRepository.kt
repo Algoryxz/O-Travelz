@@ -99,6 +99,26 @@ class SavedTripsRepository(
     }
 
     /**
+     * Duplicates an existing saved trip locally.
+     */
+    fun duplicateTrip(tripId: String): SyncTripItemDto? {
+        val original = _savedTrips.value.firstOrNull { it.id == tripId } ?: return null
+        val itinerary = original.itinerary ?: return null
+        return saveTrip(
+            title = "${original.title} (Copy)",
+            itinerary = itinerary,
+            constraints = original.constraints
+        )
+    }
+
+    /**
+     * Gets a saved trip by ID.
+     */
+    fun getTripById(tripId: String): SyncTripItemDto? {
+        return _savedTrips.value.firstOrNull { it.id == tripId }
+    }
+
+    /**
      * Removes a saved trip locally.
      */
     fun deleteTrip(tripId: String) {

@@ -22,6 +22,7 @@ data class DiscoverUiState(
     val selectedDistrict: String? = null,
     val showSavedOnly: Boolean = false,
     val isNearbyMode: Boolean = false,
+    val recentSearches: List<String> = emptyList(),
     val places: List<PlaceDetailDto> = emptyList(),
     val savedPlaces: List<PlaceDetailDto> = emptyList(),
     val savedPlaceIds: Set<String> = emptySet(),
@@ -35,7 +36,9 @@ class DiscoverViewModel @JvmOverloads constructor(
     private val placesRepository: PlacesRepository = PlacesRepository(
         bundledCatalogProvider = BundledCatalogProvider.getInstance(application)
     ),
-    private val savedPlacesRepository: SavedPlacesRepository = SavedPlacesRepository(application)
+    private val savedPlacesRepository: SavedPlacesRepository = SavedPlacesRepository(application),
+    private val recentSearchesRepository: com.otravelz.android.data.repository.RecentSearchesRepository = 
+        com.otravelz.android.data.repository.RecentSearchesRepository.getInstance(application)
 ) : AndroidViewModel(application) {
 
     private val _uiState = MutableStateFlow(DiscoverUiState())
@@ -53,6 +56,11 @@ class DiscoverViewModel @JvmOverloads constructor(
         viewModelScope.launch {
             savedPlacesRepository.savedPlaceIds.collect { savedIds ->
                 _uiState.update { it.copy(savedPlaceIds = savedIds) }
+            }
+        }
+        viewModelScope.launch {
+            recentSearchesRepository.getRecentSearches(10).collect { list ->
+                _uiState.update { it.copy(recentSearches = list.map { item -> item.query }) }
             }
         }
 
@@ -137,6 +145,27 @@ class DiscoverViewModel @JvmOverloads constructor(
         val newDistrict = if (_uiState.value.selectedDistrict == district) null else district
         _uiState.update { it.copy(selectedDistrict = newDistrict) }
         loadPlaces()
+    }
+
+    fun addRecentSearch(query: String) {
+        val trimmed = query.trim()
+        if (trimmed.isNotBlank()) {
+            viewModelScope.launch {
+                recentSearchesRepository.addSearch(trimmed)
+            }
+        }
+    }
+
+    fun removeRecentSearch(query: String) {
+        viewModelScope.launch {
+            recentSearchesRepository.removeSearch(query)
+        }
+    }
+
+    fun clearRecentSearches() {
+        viewModelScope.launch {
+            recentSearchesRepository.clearAll()
+        }
     }
 
     fun toggleSavedOnly(showSaved: Boolean) {
