@@ -40,3 +40,5 @@ scratch/
 **/Captures/
 .externalNativeBuild/
 .cxx/
+mobile/android/*.png
+mobile/android/.kotlin/
