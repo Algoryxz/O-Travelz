@@ -13,7 +13,7 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 /**
- * Repository managing saved/bookmarked destinations with DPDP-compliant local storage
+ * Repository managing saved/bookmarked destinations with private local storage
  * and background cloud sync via /api/v1/sync/saved-places.
  */
 class SavedPlacesRepository(

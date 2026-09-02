@@ -14,7 +14,7 @@ import kotlinx.serialization.json.Json
 import java.util.UUID
 
 /**
- * Repository managing saved travel itineraries with DPDP-compliant local storage
+ * Repository managing saved travel itineraries with private local storage
  * and background cloud sync via /api/v1/sync/trips.
  */
 class SavedTripsRepository(

@@ -20,7 +20,7 @@ import com.otravelz.android.core.design.*
 @Composable
 fun ProfileUserHero(
     userName: String = "Odisha Explorer",
-    subtitle: String = "Local SQLite & DataStore Active",
+    subtitle: String = "Local Storage Active",
     modifier: Modifier = Modifier
 ) {
     Card(

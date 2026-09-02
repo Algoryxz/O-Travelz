@@ -135,7 +135,7 @@ fun ProfileScreen(
         SettingsTile(
             icon = Icons.Default.Security,
             title = "Location & Data Policy",
-            subtitle = "DPDP compliant: GPS is processed ephemerally on-device for spatial sorting.",
+            subtitle = "Privacy-first: Location coordinates are processed ephemerally on-device for spatial sorting.",
             onClick = { showPrivacyDialog = true }
         )
 
@@ -223,7 +223,7 @@ fun ProfileScreen(
             },
             text = {
                 Text(
-                    "O-TRAVELZ Mobile is designed privacy-first:\n\n• Location coordinates are used ephemerally to compute Haversine distances to nearby destinations and stops.\n• Itineraries and saved trips are saved locally on your device (SQLite / Room / DataStore).\n• No background tracking or continuous telemetry.",
+                    "O-TRAVELZ Mobile is designed privacy-first:\n\n• Location coordinates are used ephemerally in-memory to compute Haversine distances to nearby destinations and stops.\n• Itineraries and saved trips are saved locally on your device (App-private Local Storage).\n• No background tracking or continuous telemetry.",
                     style = MaterialTheme.typography.bodyMedium,
                     color = TextSecondary
                 )

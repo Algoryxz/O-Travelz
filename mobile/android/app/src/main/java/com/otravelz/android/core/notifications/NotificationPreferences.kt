@@ -13,7 +13,7 @@ data class NotificationPreferencesData(
 )
 
 /**
- * Preferences manager for notification toggles complying with DPDP principles.
+ * Preferences manager for notification toggles and user privacy controls.
  */
 object NotificationPreferences {
 
