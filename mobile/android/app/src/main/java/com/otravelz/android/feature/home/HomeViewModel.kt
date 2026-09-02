@@ -9,6 +9,7 @@ import com.otravelz.android.data.model.PlaceDetailDto
 import com.otravelz.android.data.model.WeatherResponseDto
 import com.otravelz.android.data.repository.PlacesRepository
 import com.otravelz.android.data.repository.RecentlyViewedRepository
+import com.otravelz.android.data.repository.SavedPlacesRepository
 import com.otravelz.android.data.repository.WeatherRepository
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
@@ -21,6 +22,7 @@ data class HomeUiState(
     val isLoading: Boolean = true,
     val isRefreshing: Boolean = false,
     val places: List<PlaceDetailDto> = emptyList(),
+    val savedPlaceIds: Set<String> = emptySet(),
     val recentlyViewed: List<RecentlyViewedEntity> = emptyList(),
     val weather: WeatherResponseDto? = null,
     val selectedCategory: String = "temple",
@@ -31,6 +33,7 @@ class HomeViewModel @JvmOverloads constructor(
     application: Application,
     private val placesRepository: PlacesRepository = PlacesRepository(),
     private val weatherRepository: WeatherRepository = WeatherRepository(),
+    private val savedPlacesRepository: SavedPlacesRepository = SavedPlacesRepository(application),
     private val recentlyViewedRepository: RecentlyViewedRepository = RecentlyViewedRepository.getInstance(application)
 ) : AndroidViewModel(application) {
 
@@ -40,6 +43,7 @@ class HomeViewModel @JvmOverloads constructor(
     init {
         loadData()
         observeRecentlyViewed()
+        observeSavedPlaces()
     }
 
     private fun observeRecentlyViewed() {
@@ -47,6 +51,23 @@ class HomeViewModel @JvmOverloads constructor(
             recentlyViewedRepository.getRecentlyViewed(10).collect { list ->
                 _uiState.value = _uiState.value.copy(recentlyViewed = list)
             }
+        }
+    }
+
+    private fun observeSavedPlaces() {
+        viewModelScope.launch {
+            savedPlacesRepository.savedPlaceIds.collect { ids ->
+                _uiState.value = _uiState.value.copy(savedPlaceIds = ids)
+            }
+        }
+    }
+
+    fun toggleBookmark(place: PlaceDetailDto) {
+        viewModelScope.launch {
+            val isNowSaved = savedPlacesRepository.toggleSave(place)
+            val updated = _uiState.value.savedPlaceIds.toMutableSet()
+            if (isNowSaved) updated.add(place.id) else updated.remove(place.id)
+            _uiState.value = _uiState.value.copy(savedPlaceIds = updated)
         }
     }
 

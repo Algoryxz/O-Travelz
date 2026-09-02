@@ -1,3 +1,58 @@
 <resources>
     <string name="app_name">O-TRAVELZ</string>
+    <string name="app_tagline">Odisha Travel Intelligence</string>
+
+    <!-- Navigation -->
+    <string name="tab_home">Home</string>
+    <string name="tab_discover">Discover</string>
+    <string name="tab_planner">Planner</string>
+    <string name="tab_trips">Trips</string>
+    <string name="tab_you">You</string>
+    <string name="tab_map">Map</string>
+    <string name="tab_transit">Transit</string>
+
+    <!-- Home -->
+    <string name="home_title">Explore Odisha</string>
+    <string name="home_subtitle">Explore Odisha intelligently</string>
+    <string name="home_search_placeholder">Search places, circuits, districts, trips…</string>
+    <string name="live_weather_title">Live Weather</string>
+    <string name="curated_circuit_title">Ekamra Heritage Circuit</string>
+    <string name="curated_circuit_subtitle">3 stops • Scheduled transit</string>
+    <string name="explore_circuit_action">Explore Circuit</string>
+
+    <!-- Discover -->
+    <string name="discover_title">Discover Odisha</string>
+    <string name="filter_all">All</string>
+    <string name="filter_nearby">Nearby</string>
+    <string name="filter_saved">Saved</string>
+    <string name="filter_by_district">Filter by District</string>
+    <string name="all_districts">All Districts</string>
+    <string name="search_destinations_placeholder">Search Odisha…</string>
+    <string name="no_destinations_found">No destinations match</string>
+    <string name="reset_filters_action">Reset All Filters</string>
+
+    <!-- Place Detail -->
+    <string name="visit_essentials_title">Visit Essentials</string>
+    <string name="first_mile_title">First-Mile Connection</string>
+    <string name="save_action">Save</string>
+    <string name="saved_action">Saved</string>
+    <string name="share_action">Share</string>
+    <string name="remind_action">Remind</string>
+    <string name="view_details_action">View Place Details</string>
+
+    <!-- Badges -->
+    <string name="badge_verified">VERIFIED</string>
+    <string name="badge_scheduled">SCHEDULED</string>
+    <string name="badge_estimated">ESTIMATED</string>
+    <string name="badge_live">LIVE</string>
+    <string name="badge_curated">CURATED</string>
+    <string name="badge_fallback">OFFLINE FALLBACK</string>
+
+    <!-- You / Settings -->
+    <string name="you_title">You &amp; Settings</string>
+    <string name="language_setting_title">Display Language</string>
+    <string name="truth_manifest_title">Data Truth Manifest</string>
+    <string name="privacy_title">Privacy &amp; Local Storage</string>
+    <string name="built_by_algoryxz">Built by Algoryxz</string>
+    <string name="version_name">Version 3.0.0</string>
 </resources>

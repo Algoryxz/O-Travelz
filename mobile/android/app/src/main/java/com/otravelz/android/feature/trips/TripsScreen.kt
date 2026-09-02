@@ -210,35 +210,11 @@ fun TripsScreen(
 
             TripsTab.SAVED_PLACES -> {
                 if (savedPlaces.isEmpty()) {
-                    Box(
-                        modifier = Modifier
-                            .weight(1f)
-                            .fillMaxWidth(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Icon(
-                                imageVector = Icons.Default.Bookmark,
-                                contentDescription = null,
-                                tint = TextMuted,
-                                modifier = Modifier.size(48.dp)
-                            )
-                            Spacer(modifier = Modifier.height(Spacing.sm))
-                            Text(
-                                text = "No saved places yet",
-                                style = MaterialTheme.typography.titleMedium,
-                                color = TextPrimary
-                            )
-                            Spacer(modifier = Modifier.height(Spacing.xs))
-                            Text(
-                                text = "Bookmark heritage sites and nature spots across Odisha from Discover or Place Details.",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = TextMuted,
-                                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-                                modifier = Modifier.padding(horizontal = Spacing.lg)
-                            )
-                        }
-                    }
+                    OTBrandedEmptyState(
+                        title = "No saved places yet",
+                        message = "Bookmark heritage sites and nature spots across Odisha from Discover or Place Details.",
+                        modifier = Modifier.weight(1f)
+                    )
                 } else {
                     LazyColumn(
                         verticalArrangement = Arrangement.spacedBy(Spacing.sm),

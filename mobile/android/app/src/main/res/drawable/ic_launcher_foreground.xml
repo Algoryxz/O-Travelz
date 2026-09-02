@@ -1,10 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <path
-        android:fillColor="#D97706"
-        android:pathData="M54,20 C35.2,20 20,35.2 20,54 C20,72.8 35.2,88 54,88 C72.8,88 88,72.8 88,54 C88,35.2 72.8,20 54,20 Z M54,76 C41.8,76 32,66.2 32,54 C32,41.8 41.8,32 54,32 C66.2,32 76,41.8 76,54 C76,66.2 66.2,76 54,76 Z" />
+
+    <group
+        android:translateX="18"
+        android:translateY="18"
+        android:scaleX="0.140625"
+        android:scaleY="0.140625">
+
+        <!-- Background Base Circle -->
+        <path
+            android:fillColor="#172235"
+            android:strokeColor="#263244"
+            android:strokeWidth="6"
+            android:pathData="M256,96 C344.37,96 416,167.63 416,256 C416,344.37 344.37,416 256,416 C167.63,416 96,344.37 96,256 C96,167.63 167.63,96 256,96 Z" />
+
+        <!-- Outer Accent Ring -->
+        <path
+            android:strokeColor="#14B8A6"
+            android:strokeWidth="4"
+            android:strokeAlpha="0.5"
+            android:pathData="M256,76 C355.41,76 436,156.59 436,256 C436,355.41 355.41,436 256,436 C156.59,436 76,355.41 76,256 C76,156.59 156.59,76 256,76 Z" />
+
+        <!-- 8 Compass / Konark Wheel Spokes -->
+        <path
+            android:strokeColor="#14B8A6"
+            android:strokeWidth="6"
+            android:strokeLineCap="round"
+            android:pathData="M256,116 L256,396" />
+
+        <path
+            android:strokeColor="#14B8A6"
+            android:strokeWidth="6"
+            android:strokeLineCap="round"
+            android:pathData="M116,256 L396,256" />
+
+        <path
+            android:strokeColor="#0F766E"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:pathData="M157,157 L355,355" />
+
+        <path
+            android:strokeColor="#0F766E"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:pathData="M157,355 L355,157" />
+
+        <!-- Temple Shikhara Spire Motif (Northern Pointer) -->
+        <path
+            android:fillColor="#2DD4BF"
+            android:pathData="M256,136 L296,296 L256,276 L216,296 Z" />
+
+        <!-- Shikhara Shadow Facet -->
+        <path
+            android:fillColor="#0D9488"
+            android:pathData="M256,136 L256,276 L296,296 Z" />
+
+        <!-- Konark Sun Star / Southern Pointer -->
+        <path
+            android:fillColor="#FBBF24"
+            android:pathData="M256,376 L281,286 L256,276 L231,286 Z" />
+
+        <!-- Southern Shadow Facet -->
+        <path
+            android:fillColor="#D97706"
+            android:pathData="M256,376 L256,276 L281,286 Z" />
+
+        <!-- Central Core Hub -->
+        <path
+            android:fillColor="#0B1220"
+            android:strokeColor="#14B8A6"
+            android:strokeWidth="6"
+            android:pathData="M256,224 C273.67,224 288,238.33 288,256 C288,273.67 273.67,288 256,288 C238.33,288 224,273.67 224,256 C224,238.33 238.33,224 256,224 Z" />
+
+        <!-- Inner Core Dot -->
+        <path
+            android:fillColor="#2DD4BF"
+            android:pathData="M256,242 C263.73,242 270,248.27 270,256 C270,263.73 263.73,270 256,270 C248.27,270 242,263.73 242,256 C242,248.27 248.27,242 256,242 Z" />
+
+        <!-- Center White Spark -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M256,250 C259.31,250 262,252.69 262,256 C262,259.31 259.31,262 256,262 C252.69,262 250,259.31 250,256 C250,252.69 252.69,250 256,250 Z" />
+
+    </group>
 </vector>

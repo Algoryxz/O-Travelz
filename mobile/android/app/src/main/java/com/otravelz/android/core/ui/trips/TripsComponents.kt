@@ -299,18 +299,20 @@ fun EmptyTripsStateV3(
             .fillMaxWidth()
             .padding(Spacing.xl)
     ) {
-        Box(
-            modifier = Modifier
-                .size(64.dp)
-                .background(DarkSurfaceVariant, CircleShape),
-            contentAlignment = Alignment.Center
+        Surface(
+            shape = CircleShape,
+            color = DarkSurfaceVariant,
+            border = androidx.compose.foundation.BorderStroke(1.dp, SunTempleGold.copy(alpha = 0.25f)),
+            modifier = Modifier.size(64.dp)
         ) {
-            Icon(
-                imageVector = Icons.Default.BookmarkBorder,
-                contentDescription = null,
-                tint = TextMuted,
-                modifier = Modifier.size(32.dp)
-            )
+            Box(contentAlignment = Alignment.Center) {
+                Icon(
+                    painter = androidx.compose.ui.res.painterResource(id = com.otravelz.android.R.drawable.ic_otravelz_logo),
+                    contentDescription = null,
+                    tint = androidx.compose.ui.graphics.Color.Unspecified,
+                    modifier = Modifier.size(38.dp)
+                )
+            }
         }
 
         Spacer(modifier = Modifier.height(Spacing.md))

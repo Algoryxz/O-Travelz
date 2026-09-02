@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">O-TRAVELZ</string>
+    <string name="app_tagline">ଓଡ଼ିଶା ଭ୍ରମଣ ଇଣ୍ଟେଲିଜେନ୍ସ</string>
+
+    <!-- Navigation -->
+    <string name="tab_home">ମୂଳପୃଷ୍ଠା</string>
+    <string name="tab_discover">ଆବିଷ୍କାର</string>
+    <string name="tab_planner">ଯୋଜନା</string>
+    <string name="tab_trips">ଯାତ୍ରା</string>
+    <string name="tab_you">ଆପଣ</string>
+    <string name="tab_map">ମାନଚିତ୍ର</string>
+    <string name="tab_transit">ପରିବହନ</string>
+
+    <!-- Home -->
+    <string name="home_title">ଓଡ଼ିଶା ଅନ୍ୱେଷଣ କରନ୍ତୁ</string>
+    <string name="home_subtitle">ଓଡ଼ିଶାକୁ ବୁଦ୍ଧିମାନ ଭାବରେ ଅନ୍ୱେଷଣ କରନ୍ତୁ</string>
+    <string name="home_search_placeholder">ସ୍ଥାନ, ସର୍କିଟ୍, ଜିଲ୍ଲା କିମ୍ବା ଯାତ୍ରା ଖୋଜନ୍ତୁ…</string>
+    <string name="live_weather_title">ପ୍ରତ୍ୟକ୍ଷ ପାଣିପାଗ</string>
+    <string name="curated_circuit_title">ଏକାମ୍ର ଐତିହ୍ୟ ସର୍କିଟ୍</string>
+    <string name="curated_circuit_subtitle">୩ ସ୍ଥାନ • ନିର୍ଦ୍ଧାରିତ ପରିବହନ</string>
+    <string name="explore_circuit_action">ସର୍କିଟ୍ ଦେଖନ୍ତୁ</string>
+
+    <!-- Discover -->
+    <string name="discover_title">ଓଡ଼ିଶା ଆବିଷ୍କାର କରନ୍ତୁ</string>
+    <string name="filter_all">ସବୁ</string>
+    <string name="filter_nearby">ନିକଟବର୍ତ୍ତୀ</string>
+    <string name="filter_saved">ସଂରକ୍ଷିତ</string>
+    <string name="filter_by_district">ଜିଲ୍ଲା ଅନୁଯାୟୀ ଫିଲ୍ଟର୍</string>
+    <string name="all_districts">ସମସ୍ତ ଜିଲ୍ଲା</string>
+    <string name="search_destinations_placeholder">ଓଡ଼ିଶା ଖୋଜନ୍ତୁ…</string>
+    <string name="no_destinations_found">କୌଣସି ଗନ୍ତବ୍ୟସ୍ଥଳ ମିଳିଲା ନାହିଁ</string>
+    <string name="reset_filters_action">ଫିଲ୍ଟର୍ ପୁନଃସେଟ୍ କରନ୍ତୁ</string>
+
+    <!-- Place Detail -->
+    <string name="visit_essentials_title">ଭ୍ରମଣ ସୂଚନା</string>
+    <string name="first_mile_title">ପ୍ରଥମ ମାଇଲ୍ ସଂଯୋଗ</string>
+    <string name="save_action">ସଂରକ୍ଷଣ</string>
+    <string name="saved_action">ସଂରକ୍ଷିତ</string>
+    <string name="share_action">ସେୟାର</string>
+    <string name="remind_action">ସ୍ମାରକ</string>
+    <string name="view_details_action">ସ୍ଥାନର ସମ୍ପୂର୍ଣ୍ଣ ବିବରଣୀ</string>
+
+    <!-- Badges -->
+    <string name="badge_verified">ପ୍ରମାଣିତ</string>
+    <string name="badge_scheduled">ନିର୍ଦ୍ଧାରିତ</string>
+    <string name="badge_estimated">ଅନୁମାନିତ</string>
+    <string name="badge_live">ପ୍ରତ୍ୟକ୍ଷ</string>
+    <string name="badge_curated">ମନୋନୀତ</string>
+    <string name="badge_fallback">ଅଫଲାଇନ୍</string>
+
+    <!-- You / Settings -->
+    <string name="you_title">ଆପଣ ଓ ସେଟିଂସ୍</string>
+    <string name="language_setting_title">ଭାଷା ପସନ୍ଦ</string>
+    <string name="truth_manifest_title">ତଥ୍ୟ ସତ୍ୟତା ମ୍ୟାନିଫେଷ୍ଟ</string>
+    <string name="privacy_title">ଗୋପନୀୟତା ଓ ସ୍ଥାନୀୟ ସଂରକ୍ଷଣ</string>
+    <string name="built_by_algoryxz">Built by Algoryxz</string>
+    <string name="version_name">ସଂସ୍କରଣ ୩.୦.୦</string>
+</resources>

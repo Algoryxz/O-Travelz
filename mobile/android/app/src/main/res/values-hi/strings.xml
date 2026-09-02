@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">O-TRAVELZ</string>
+    <string name="app_tagline">ओडिशा यात्रा इंटेलिजेंस</string>
+
+    <!-- Navigation -->
+    <string name="tab_home">होम</string>
+    <string name="tab_discover">खोजें</string>
+    <string name="tab_planner">योजना</string>
+    <string name="tab_trips">यात्राएं</string>
+    <string name="tab_you">आप</string>
+    <string name="tab_map">नक्शा</string>
+    <string name="tab_transit">पारगमन</string>
+
+    <!-- Home -->
+    <string name="home_title">ओडिशा का अन्वेषण करें</string>
+    <string name="home_subtitle">ओडिशा का समझदारी से अन्वेषण करें</string>
+    <string name="home_search_placeholder">स्थान, सर्किट, जिले या यात्राएं खोजें…</string>
+    <string name="live_weather_title">लाइव मौसम</string>
+    <string name="curated_circuit_title">एकाम्र विरासत सर्किट</string>
+    <string name="curated_circuit_subtitle">3 स्टॉप • निर्धारित ट्रांजिट</string>
+    <string name="explore_circuit_action">सर्किट देखें</string>
+
+    <!-- Discover -->
+    <string name="discover_title">ओडिशा खोजें</string>
+    <string name="filter_all">सभी</string>
+    <string name="filter_nearby">पास में</string>
+    <string name="filter_saved">सहेजा गया</string>
+    <string name="filter_by_district">जिले अनुसार फ़िल्टर</string>
+    <string name="all_districts">सभी जिले</string>
+    <string name="search_destinations_placeholder">ओडिशा खोजें…</string>
+    <string name="no_destinations_found">कोई गंतव्य नहीं मिला</string>
+    <string name="reset_filters_action">सभी फ़िल्टर रीसेट करें</string>
+
+    <!-- Place Detail -->
+    <string name="visit_essentials_title">यात्रा विवरण</string>
+    <string name="first_mile_title">फ़र्स्ट-माइल कनेक्शन</string>
+    <string name="save_action">सहेजें</string>
+    <string name="saved_action">सहेजा गया</string>
+    <string name="share_action">साझा करें</string>
+    <string name="remind_action">याद दिलाएं</string>
+    <string name="view_details_action">स्थान का पूर्ण विवरण</string>
+
+    <!-- Badges -->
+    <string name="badge_verified">सत्यापित</string>
+    <string name="badge_scheduled">निर्धारित</string>
+    <string name="badge_estimated">अनुमानित</string>
+    <string name="badge_live">लाइव</string>
+    <string name="badge_curated">क्यूरेटेड</string>
+    <string name="badge_fallback">ऑफ़लाइन</string>
+
+    <!-- You / Settings -->
+    <string name="you_title">आप एवं सेटिंग्स</string>
+    <string name="language_setting_title">भाषा प्राथमिकता</string>
+    <string name="truth_manifest_title">डेटा सत्यता घोषणापत्र</string>
+    <string name="privacy_title">गोपनीयता एवं स्थानीय भंडारण</string>
+    <string name="built_by_algoryxz">Built by Algoryxz</string>
+    <string name="version_name">संस्करण 3.0.0</string>
+</resources>

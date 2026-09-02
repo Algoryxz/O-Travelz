@@ -358,34 +358,11 @@ fun GlobalSearchScreen(
                     state.matchingSavedTrips.isEmpty()
                 ) {
                     item {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 48.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                Icon(
-                                    imageVector = Icons.Default.Search,
-                                    contentDescription = null,
-                                    tint = TextMuted,
-                                    modifier = Modifier.size(48.dp)
-                                )
-                                Spacer(modifier = Modifier.height(Spacing.sm))
-                                Text(
-                                    text = "No matching destinations or itineraries",
-                                    style = MaterialTheme.typography.titleSmall,
-                                    color = TextPrimary
-                                )
-                                Spacer(modifier = Modifier.height(Spacing.xs))
-                                Text(
-                                    text = "Try searching by district (e.g. Puri, Khordha) or category (e.g. temple, nature)",
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = TextMuted,
-                                    modifier = Modifier.padding(horizontal = Spacing.lg)
-                                )
-                            }
-                        }
+                        OTBrandedEmptyState(
+                            title = "No matching results",
+                            message = "Try searching by district (e.g. Puri, Khordha) or category (e.g. temple, nature)",
+                            modifier = Modifier.padding(vertical = Spacing.md)
+                        )
                     }
                 }
             }

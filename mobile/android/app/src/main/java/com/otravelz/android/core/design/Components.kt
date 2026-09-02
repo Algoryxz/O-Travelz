@@ -11,14 +11,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.BookmarkBorder
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.filled.WbSunny
-import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
@@ -37,6 +30,67 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.otravelz.android.core.network.ApiConfig
+
+object CategoryVisualHelper {
+    fun getCategoryGradient(category: String): Brush {
+        val cat = category.lowercase().trim()
+        return when {
+            cat.contains("temple") || cat.contains("mandir") -> Brush.linearGradient(
+                colors = listOf(Color(0xFF451A03), Color(0xFF78350F), Color(0xFF1E1B18))
+            )
+            cat.contains("nature") || cat.contains("wildlife") || cat.contains("forest") -> Brush.linearGradient(
+                colors = listOf(Color(0xFF064E3B), Color(0xFF065F46), Color(0xFF0F291E))
+            )
+            cat.contains("beach") || cat.contains("lake") || cat.contains("water") -> Brush.linearGradient(
+                colors = listOf(Color(0xFF0C4A6E), Color(0xFF075985), Color(0xFF082F49))
+            )
+            cat.contains("heritage") || cat.contains("monument") || cat.contains("fort") -> Brush.linearGradient(
+                colors = listOf(Color(0xFF3B0764), Color(0xFF581C87), Color(0xFF2E1065))
+            )
+            cat.contains("food") || cat.contains("dining") || cat.contains("restaurant") -> Brush.linearGradient(
+                colors = listOf(Color(0xFF7C2D12), Color(0xFF9A3412), Color(0xFF3B1308))
+            )
+            cat.contains("museum") || cat.contains("art") -> Brush.linearGradient(
+                colors = listOf(Color(0xFF374151), Color(0xFF4B5563), Color(0xFF1F2937))
+            )
+            else -> Brush.linearGradient(
+                colors = listOf(DarkSurfaceVariant, DarkSurfaceElevated, DarkBackground)
+            )
+        }
+    }
+
+    fun getCategoryIcon(category: String): ImageVector {
+        val cat = category.lowercase().trim()
+        return when {
+            cat.contains("temple") || cat.contains("mandir") -> Icons.Default.AccountBalance
+            cat.contains("nature") || cat.contains("forest") || cat.contains("park") -> Icons.Default.Park
+            cat.contains("beach") || cat.contains("lake") || cat.contains("water") -> Icons.Default.Water
+            cat.contains("wildlife") -> Icons.Default.Pets
+            cat.contains("heritage") || cat.contains("monument") -> Icons.Default.Fort
+            cat.contains("food") || cat.contains("dining") -> Icons.Default.Restaurant
+            cat.contains("museum") || cat.contains("art") -> Icons.Default.Museum
+            else -> Icons.Default.Landscape
+        }
+    }
+}
+
+@Composable
+fun CategoryThemedPlaceholder(
+    category: String,
+    modifier: Modifier = Modifier
+) {
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = modifier.background(CategoryVisualHelper.getCategoryGradient(category))
+    ) {
+        Icon(
+            imageVector = CategoryVisualHelper.getCategoryIcon(category),
+            contentDescription = null,
+            tint = TextMuted.copy(alpha = 0.35f),
+            modifier = Modifier.size(44.dp)
+        )
+    }
+}
 
 @Composable
 fun OTButton(
@@ -238,7 +292,6 @@ fun DestinationCard(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(136.dp)
-                    .background(DarkSurfaceVariant)
             ) {
                 val resolved = ApiConfig.resolveImageUrl(imageUrl)
                 if (!resolved.isNullOrBlank()) {
@@ -248,7 +301,13 @@ fun DestinationCard(
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize()
                     )
+                } else {
+                    CategoryThemedPlaceholder(
+                        category = category,
+                        modifier = Modifier.fillMaxSize()
+                    )
                 }
+
                 // Gradient Scrim
                 Box(
                     modifier = Modifier
@@ -340,7 +399,9 @@ fun MediaHero(
     title: String,
     subtitle: String,
     imageUrl: String?,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    showBrandLogo: Boolean = false,
+    tagline: String? = null
 ) {
     Box(
         modifier = modifier
@@ -357,15 +418,21 @@ fun MediaHero(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()
             )
+        } else {
+            CategoryThemedPlaceholder(
+                category = title,
+                modifier = Modifier.fillMaxSize()
+            )
         }
+
         // Gradient Scrim
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .background(
                     Brush.verticalGradient(
-                        colors = listOf(Color.Transparent, DarkBackground),
-                        startY = 100f
+                        colors = listOf(Color.Transparent, DarkBackground.copy(alpha = 0.85f), DarkBackground),
+                        startY = 60f
                     )
                 )
         )
@@ -375,16 +442,59 @@ fun MediaHero(
                 .align(Alignment.BottomStart)
                 .padding(Spacing.md)
         ) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.headlineMedium,
-                color = TextPrimary,
-                fontWeight = FontWeight.Bold
-            )
-            Spacer(modifier = Modifier.height(Spacing.xs))
+            if (showBrandLogo) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    Surface(
+                        shape = RoundedCornerShape(10.dp),
+                        color = DarkSurfaceElevated.copy(alpha = 0.9f),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, SunTempleGold.copy(alpha = 0.4f)),
+                        modifier = Modifier.size(38.dp)
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Icon(
+                                painter = androidx.compose.ui.res.painterResource(id = com.otravelz.android.R.drawable.ic_otravelz_logo),
+                                contentDescription = "O-TRAVELZ Logo Mark",
+                                tint = Color.Unspecified,
+                                modifier = Modifier.size(28.dp)
+                            )
+                        }
+                    }
+
+                    Column {
+                        Text(
+                            text = title,
+                            style = MaterialTheme.typography.titleLarge,
+                            color = TextPrimary,
+                            fontWeight = FontWeight.ExtraBold,
+                            letterSpacing = 1.sp
+                        )
+                        if (!tagline.isNullOrBlank()) {
+                            Text(
+                                text = tagline,
+                                style = MaterialTheme.typography.labelSmall,
+                                color = SunTempleGold,
+                                fontWeight = FontWeight.SemiBold,
+                                letterSpacing = 0.5.sp
+                            )
+                        }
+                    }
+                }
+            } else {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.headlineMedium,
+                    color = TextPrimary,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = subtitle,
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodySmall,
                 color = TextSecondary
             )
         }
@@ -392,52 +502,111 @@ fun MediaHero(
 }
 
 @Composable
-fun AmbientWeatherBanner(
-    tempCelsius: Double?,
-    conditionText: String?,
-    isLive: Boolean = true,
-    locationLabel: String = "Bhubaneswar",
-    modifier: Modifier = Modifier
+fun OTBrandedEmptyState(
+    title: String,
+    message: String,
+    modifier: Modifier = Modifier,
+    actionText: String? = null,
+    onAction: (() -> Unit)? = null
 ) {
-    Surface(
-        shape = RoundedCornerShape(16.dp),
-        color = DarkSurfaceElevated,
-        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
-        modifier = modifier.fillMaxWidth()
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(Spacing.xl),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
+        Surface(
+            shape = CircleShape,
+            color = DarkSurfaceElevated,
+            border = androidx.compose.foundation.BorderStroke(1.dp, SunTempleGold.copy(alpha = 0.25f)),
+            modifier = Modifier.size(60.dp)
+        ) {
+            Box(contentAlignment = Alignment.Center) {
+                Icon(
+                    painter = androidx.compose.ui.res.painterResource(id = com.otravelz.android.R.drawable.ic_otravelz_logo),
+                    contentDescription = null,
+                    tint = Color.Unspecified,
+                    modifier = Modifier.size(36.dp)
+                )
+            }
+        }
+        Spacer(modifier = Modifier.height(Spacing.md))
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = TextPrimary,
+            textAlign = androidx.compose.ui.text.style.TextAlign.Center
+        )
+        Spacer(modifier = Modifier.height(Spacing.xs))
+        Text(
+            text = message,
+            style = MaterialTheme.typography.bodySmall,
+            color = TextMuted,
+            textAlign = androidx.compose.ui.text.style.TextAlign.Center
+        )
+        if (actionText != null && onAction != null) {
+            Spacer(modifier = Modifier.height(Spacing.md))
+            OTButton(
+                text = actionText,
+                onClick = onAction,
+                variant = ButtonVariant.Secondary
+            )
+        }
+    }
+}
+
+@Composable
+fun OfflineBanner(
+    isOffline: Boolean,
+    modifier: Modifier = Modifier,
+    message: String = "Offline mode • Serving cached and bundled offline data",
+    onRetry: (() -> Unit)? = null
+) {
+    AnimatedVisibility(
+        visible = isOffline,
+        modifier = modifier
+    ) {
+        Surface(
+            color = Color(0xFF1E293B),
+            shape = RoundedCornerShape(10.dp),
+            border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF334155)),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = Spacing.md, vertical = Spacing.sm)
+                .padding(horizontal = Spacing.md, vertical = Spacing.xs)
         ) {
-            Icon(
-                imageVector = Icons.Default.WbSunny,
-                contentDescription = "Weather",
-                tint = SunTempleGold,
-                modifier = Modifier.size(28.dp)
-            )
-            Spacer(modifier = Modifier.width(Spacing.sm))
-            Column(modifier = Modifier.weight(1f)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = if (tempCelsius != null) "${"%.0f".format(tempCelsius)}°C · ${conditionText ?: "Clear"}" else (conditionText ?: "Tropical Clear"),
-                        style = MaterialTheme.typography.titleMedium,
-                        color = TextPrimary,
-                        fontWeight = FontWeight.Bold
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Info,
+                        contentDescription = null,
+                        tint = SunTempleGold,
+                        modifier = Modifier.size(16.dp)
                     )
-                    Spacer(modifier = Modifier.width(Spacing.xs))
-                    TruthBadge(
-                        label = if (isLive) "LIVE" else "ESTIMATED",
-                        backgroundColor = if (isLive) LiveBadgeBg else DarkSurfaceVariant,
-                        contentColor = if (isLive) LiveBadgeText else TextSecondary
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = message,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = TextPrimary
                     )
                 }
-                Text(
-                    text = locationLabel,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = TextSecondary
-                )
+                if (onRetry != null) {
+                    TextButton(
+                        onClick = onRetry,
+                        contentPadding = PaddingValues(horizontal = 8.dp, vertical = 2.dp),
+                        modifier = Modifier.height(28.dp)
+                    ) {
+                        Text("Retry", style = MaterialTheme.typography.labelSmall, color = SunTempleGold)
+                    }
+                }
             }
         }
     }
@@ -445,17 +614,28 @@ fun AmbientWeatherBanner(
 
 @Composable
 fun LoadingState(
-    message: String = "Loading...",
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    message: String = "Loading verified destinations..."
 ) {
     Box(
-        modifier = modifier.fillMaxWidth().padding(Spacing.xl),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
+        modifier = modifier.padding(Spacing.xl)
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            CircularProgressIndicator(color = OchrePrimary, modifier = Modifier.size(36.dp))
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            CircularProgressIndicator(
+                color = OchrePrimary,
+                modifier = Modifier.size(36.dp),
+                strokeWidth = 3.dp
+            )
             Spacer(modifier = Modifier.height(Spacing.md))
-            Text(text = message, style = MaterialTheme.typography.bodyMedium, color = TextSecondary)
+            Text(
+                text = message,
+                style = MaterialTheme.typography.bodyMedium,
+                color = TextSecondary
+            )
         }
     }
 }
@@ -467,22 +647,67 @@ fun ErrorState(
     modifier: Modifier = Modifier
 ) {
     Box(
-        modifier = modifier.fillMaxWidth().padding(Spacing.lg),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
+        modifier = modifier.padding(Spacing.xl)
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
             Icon(
                 imageVector = Icons.Default.Warning,
-                contentDescription = "Error",
+                contentDescription = null,
                 tint = StatusError,
-                modifier = Modifier.size(32.dp)
+                modifier = Modifier.size(48.dp)
             )
-            Spacer(modifier = Modifier.height(Spacing.xs))
-            Text(text = "Unable to complete request", style = MaterialTheme.typography.titleMedium, color = StatusError)
-            Spacer(modifier = Modifier.height(Spacing.xs))
-            Text(text = message, style = MaterialTheme.typography.bodyMedium, color = TextSecondary)
             Spacer(modifier = Modifier.height(Spacing.md))
-            OTButton(text = "Retry", onClick = onRetry, variant = ButtonVariant.Secondary)
+            Text(
+                text = message,
+                style = MaterialTheme.typography.bodyMedium,
+                color = TextSecondary,
+                modifier = Modifier.padding(horizontal = Spacing.lg)
+            )
+            Spacer(modifier = Modifier.height(Spacing.md))
+            OTButton(
+                text = "Retry",
+                onClick = onRetry,
+                variant = ButtonVariant.Secondary
+            )
+        }
+    }
+}
+
+@Composable
+fun EssentialChip(
+    icon: ImageVector,
+    label: String,
+    modifier: Modifier = Modifier,
+    onClick: (() -> Unit)? = null
+) {
+    Surface(
+        shape = RoundedCornerShape(10.dp),
+        color = DarkSurfaceElevated,
+        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorderSubtle),
+        modifier = if (onClick != null) modifier.clip(RoundedCornerShape(10.dp)).clickable { onClick() } else modifier
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.padding(horizontal = 4.dp, vertical = 8.dp)
+        ) {
+            Icon(
+                imageVector = icon,
+                contentDescription = label,
+                tint = OchrePrimary,
+                modifier = Modifier.size(18.dp)
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelSmall,
+                color = TextPrimary,
+                maxLines = 1
+            )
         }
     }
 }
@@ -492,27 +717,42 @@ fun EmptyState(
     title: String,
     subtitle: String,
     modifier: Modifier = Modifier,
+    icon: ImageVector = Icons.Default.Info,
     actionText: String? = null,
     onAction: (() -> Unit)? = null
 ) {
     Box(
-        modifier = modifier.fillMaxWidth().padding(Spacing.lg),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(Spacing.xl)
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
             Icon(
-                imageVector = Icons.Default.Info,
+                imageVector = icon,
                 contentDescription = null,
-                tint = OchreLight,
-                modifier = Modifier.size(32.dp)
+                tint = TextMuted,
+                modifier = Modifier.size(48.dp)
             )
             Spacer(modifier = Modifier.height(Spacing.sm))
-            Text(text = title, style = MaterialTheme.typography.titleMedium, color = TextPrimary)
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleMedium,
+                color = TextPrimary,
+                fontWeight = FontWeight.Bold
+            )
             Spacer(modifier = Modifier.height(Spacing.xs))
-            Text(text = subtitle, style = MaterialTheme.typography.bodyMedium, color = TextSecondary)
+            Text(
+                text = subtitle,
+                style = MaterialTheme.typography.bodySmall,
+                color = TextSecondary
+            )
             if (actionText != null && onAction != null) {
                 Spacer(modifier = Modifier.height(Spacing.md))
-                OTButton(text = actionText, onClick = onAction, variant = ButtonVariant.Outline)
+                OTButton(text = actionText, onClick = onAction)
             }
         }
     }

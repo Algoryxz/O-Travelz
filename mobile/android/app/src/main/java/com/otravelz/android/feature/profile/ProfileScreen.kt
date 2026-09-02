@@ -13,7 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.otravelz.android.core.design.*
+import com.otravelz.android.core.i18n.LocalAppStrings
 import com.otravelz.android.core.ui.profile.*
 import com.otravelz.android.data.local.UserPreferencesDataStore
 import kotlinx.coroutines.launch
@@ -26,6 +28,7 @@ fun ProfileScreen(
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
+    val strings = LocalAppStrings.current
     val coroutineScope = rememberCoroutineScope()
     val preferencesDataStore = remember { UserPreferencesDataStore.getInstance(context) }
     val userPreferences by preferencesDataStore.userPreferencesFlow.collectAsState(
@@ -49,13 +52,13 @@ fun ProfileScreen(
             .verticalScroll(rememberScrollState())
     ) {
         Text(
-            text = "You & Settings",
+            text = strings.youTitle,
             style = MaterialTheme.typography.headlineMedium,
             color = TextPrimary,
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = "Account, preferences, and data truth manifest",
+            text = strings.youSubtitle,
             style = MaterialTheme.typography.bodySmall,
             color = SunTempleGold
         )
@@ -83,7 +86,7 @@ fun ProfileScreen(
 
         // Section: Preferences
         Text(
-            text = "Preferences",
+            text = strings.languageSettingTitle,
             style = MaterialTheme.typography.titleMedium,
             color = TextPrimary,
             fontWeight = FontWeight.Bold
@@ -92,7 +95,7 @@ fun ProfileScreen(
 
         SettingsTile(
             icon = Icons.Default.Language,
-            title = "Display Language",
+            title = strings.languageSettingTitle,
             subtitle = displayLanguageName,
             onClick = { showLanguageDialog = true }
         )
@@ -143,7 +146,7 @@ fun ProfileScreen(
 
         // Section: Community & Staging
         Text(
-            text = "Community & Staging",
+            text = strings.communityStagingTitle,
             style = MaterialTheme.typography.titleMedium,
             color = TextPrimary,
             fontWeight = FontWeight.Bold
@@ -159,11 +162,9 @@ fun ProfileScreen(
 
         Spacer(modifier = Modifier.height(Spacing.lg))
 
-        Spacer(modifier = Modifier.height(Spacing.lg))
-
         // Section: Data Management
         Text(
-            text = "Data Management",
+            text = strings.privacyTitle,
             style = MaterialTheme.typography.titleMedium,
             color = TextPrimary,
             fontWeight = FontWeight.Bold
@@ -201,71 +202,174 @@ fun ProfileScreen(
 
         Spacer(modifier = Modifier.height(Spacing.lg))
 
-        // Section: Diagnostics & Architecture Truth
-        Text(
-            text = "System Diagnostics & Source Truth",
-            style = MaterialTheme.typography.titleMedium,
-            color = TextPrimary,
-            fontWeight = FontWeight.Bold
-        )
-        Spacer(modifier = Modifier.height(Spacing.xs))
-
-        Surface(
-            shape = RoundedCornerShape(14.dp),
-            color = DarkSurfaceElevated,
-            border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Column(modifier = Modifier.padding(Spacing.md), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
-                    Text("Destinations Catalog", style = MaterialTheme.typography.bodySmall, color = TextMuted)
-                    Text("160+ Verified [Curated]", style = MaterialTheme.typography.labelSmall, color = SimilipalEmerald, fontWeight = FontWeight.Bold)
-                }
-                Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
-                    Text("Transit Schedules", style = MaterialTheme.typography.bodySmall, color = TextMuted)
-                    Text("Mo Bus / Ama Bus [Scheduled]", style = MaterialTheme.typography.labelSmall, color = SunTempleGold, fontWeight = FontWeight.Bold)
-                }
-                Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
-                    Text("Weather API", style = MaterialTheme.typography.bodySmall, color = TextMuted)
-                    Text("Open-Meteo [Live]", style = MaterialTheme.typography.labelSmall, color = OchrePrimary, fontWeight = FontWeight.Bold)
-                }
-                Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
-                    Text("Local Persistence", style = MaterialTheme.typography.bodySmall, color = TextMuted)
-                    Text("Room SQLite v2 [Local]", style = MaterialTheme.typography.labelSmall, color = TextPrimary, fontWeight = FontWeight.Bold)
-                }
-                Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
-                    Text("Distance Engine", style = MaterialTheme.typography.bodySmall, color = TextMuted)
-                    Text("WGS-84 Haversine [Estimated]", style = MaterialTheme.typography.labelSmall, color = TextSecondary)
-                }
-            }
-        }
-
-        Spacer(modifier = Modifier.height(Spacing.lg))
-
-        // Section: Privacy & Compliance
-        Text(
-            text = "Privacy & Platform",
-            style = MaterialTheme.typography.titleMedium,
-            color = TextPrimary,
-            fontWeight = FontWeight.Bold
-        )
-        Spacer(modifier = Modifier.height(Spacing.xs))
-
+        // Section: Privacy & About
         SettingsTile(
             icon = Icons.Default.Security,
-            title = "Location & Data Policy",
-            subtitle = "Privacy-first: Location coordinates are processed ephemerally on-device for spatial sorting.",
+            title = strings.privacyTitle,
+            subtitle = strings.privacySubtitle,
             onClick = { showPrivacyDialog = true }
         )
 
-        Spacer(modifier = Modifier.height(Spacing.xs))
+        Spacer(modifier = Modifier.height(Spacing.md))
 
-        SettingsTile(
-            icon = Icons.Default.Info,
-            title = "About O-TRAVELZ Mobile v3.0",
-            subtitle = "Autonomous native Odisha cultural mobility companion",
-            onClick = {}
-        )
+        // Section: About O-TRAVELZ
+        Surface(
+            shape = RoundedCornerShape(16.dp),
+            color = DarkSurfaceElevated,
+            border = androidx.compose.foundation.BorderStroke(1.dp, SunTempleGold.copy(alpha = 0.35f)),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(
+                modifier = Modifier.padding(Spacing.lg),
+                horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(14.dp),
+                    color = DarkSurface,
+                    border = androidx.compose.foundation.BorderStroke(1.dp, SunTempleGold.copy(alpha = 0.5f)),
+                    modifier = Modifier.size(56.dp)
+                ) {
+                    Box(contentAlignment = androidx.compose.ui.Alignment.Center) {
+                        Icon(
+                            painter = androidx.compose.ui.res.painterResource(id = com.otravelz.android.R.drawable.ic_otravelz_logo),
+                            contentDescription = "O-TRAVELZ Logo Mark",
+                            tint = androidx.compose.ui.graphics.Color.Unspecified,
+                            modifier = Modifier.size(40.dp)
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.height(Spacing.sm))
+                Text(
+                    text = "O-TRAVELZ",
+                    style = MaterialTheme.typography.titleLarge,
+                    color = TextPrimary,
+                    fontWeight = FontWeight.ExtraBold,
+                    letterSpacing = 1.2.sp
+                )
+                Text(
+                    text = "Odisha Travel Intelligence",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = SunTempleGold,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Text(
+                    text = "Built by Algoryxz",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = TextSecondary,
+                    fontWeight = FontWeight.Medium
+                )
+                Text(
+                    text = "v3.0.0 • SOA IDEATHON 2026",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = TextMuted
+                )
+
+                Spacer(modifier = Modifier.height(Spacing.md))
+                HorizontalDivider(color = DarkBorderSubtle)
+                Spacer(modifier = Modifier.height(Spacing.md))
+
+                // Truthfulness & Data Grounding Summary
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(Spacing.xs)
+                ) {
+                    Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.Default.CheckCircle,
+                            contentDescription = null,
+                            tint = OchrePrimary,
+                            modifier = Modifier.size(14.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = "160+ WGS-84 Verified Destinations (30 Districts)",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = TextSecondary
+                        )
+                    }
+                    Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.Default.DirectionsBus,
+                            contentDescription = null,
+                            tint = OchrePrimary,
+                            modifier = Modifier.size(14.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = "1,430 Scheduled Mo Bus Stops (CRUT Timetables)",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = TextSecondary
+                        )
+                    }
+                    Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.Default.WbSunny,
+                            contentDescription = null,
+                            tint = OchrePrimary,
+                            modifier = Modifier.size(14.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = "Live Weather Advisories (Open-Meteo API)",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = TextSecondary
+                        )
+                    }
+                    Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.Default.Lock,
+                            contentDescription = null,
+                            tint = OchrePrimary,
+                            modifier = Modifier.size(14.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = "DPDP Act 2023 Aligned • Zero Continuous Telemetry",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = TextSecondary
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(Spacing.md))
+
+                // GitHub Action Button
+                val uriHandler = androidx.compose.ui.platform.LocalUriHandler.current
+                OutlinedButton(
+                    onClick = {
+                        try {
+                            uriHandler.openUri("https://github.com/Algoryxz/O-Travelz")
+                        } catch (e: Exception) {
+                            // Ignored
+                        }
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, OchrePrimary.copy(alpha = 0.6f)),
+                    colors = ButtonDefaults.outlinedButtonColors(contentColor = OchrePrimary),
+                    modifier = Modifier.fillMaxWidth().height(42.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.OpenInNew,
+                        contentDescription = "Open GitHub",
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = "View on GitHub (Algoryxz/O-Travelz)",
+                        style = MaterialTheme.typography.labelMedium,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(Spacing.sm))
+                Text(
+                    text = "Crafted by Algoryxz",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = TextMuted,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                )
+            }
+        }
 
         Spacer(modifier = Modifier.height(Spacing.xl))
     }
@@ -280,7 +384,7 @@ fun ProfileScreen(
         AlertDialog(
             onDismissRequest = { showLanguageDialog = false },
             title = {
-                Text("Select Language", style = MaterialTheme.typography.titleMedium, color = TextPrimary)
+                Text(strings.languageSettingTitle, style = MaterialTheme.typography.titleMedium, color = TextPrimary)
             },
             text = {
                 Column {
@@ -309,7 +413,7 @@ fun ProfileScreen(
             },
             confirmButton = {
                 TextButton(onClick = { showLanguageDialog = false }) {
-                    Text("Close", color = TextSecondary)
+                    Text(strings.closeAction, color = TextSecondary)
                 }
             },
             containerColor = DarkSurfaceElevated
@@ -321,7 +425,7 @@ fun ProfileScreen(
         AlertDialog(
             onDismissRequest = { showPrivacyDialog = false },
             title = {
-                Text("Privacy & Data Guarantee", style = MaterialTheme.typography.titleMedium, color = TextPrimary)
+                Text(strings.privacyTitle, style = MaterialTheme.typography.titleMedium, color = TextPrimary)
             },
             text = {
                 Text(
@@ -332,7 +436,7 @@ fun ProfileScreen(
             },
             confirmButton = {
                 TextButton(onClick = { showPrivacyDialog = false }) {
-                    Text("Got It", color = OchrePrimary, fontWeight = FontWeight.Bold)
+                    Text(strings.gotItAction, color = OchrePrimary, fontWeight = FontWeight.Bold)
                 }
             },
             containerColor = DarkSurfaceElevated

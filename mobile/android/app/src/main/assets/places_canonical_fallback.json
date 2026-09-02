@@ -19,7 +19,17 @@
     "coordinate_verification": "SCSTRTI Government of Odisha Campus, CRPF Square, Nayapalli",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "4ddd9a095da7",
+        "url": "/static/images/places/place_013/4ddd9a095da7/hero.webp",
+        "thumbnail_url": "/static/images/places/place_013/4ddd9a095da7/hero.webp",
+        "card_url": "/static/images/places/place_013/4ddd9a095da7/hero.webp",
+        "alt_text": "Authentic photograph of Museum of Tribal Arts and Artifacts in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_012",
@@ -41,7 +51,17 @@
     "coordinate_verification": "Ministry of Environment & Forests (MoEFCC) RMNH Campus, Acharya Vihar",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "ad0d35d110fd",
+        "url": "/static/images/places/place_012/ad0d35d110fd/hero.webp",
+        "thumbnail_url": "/static/images/places/place_012/ad0d35d110fd/hero.webp",
+        "card_url": "/static/images/places/place_012/ad0d35d110fd/hero.webp",
+        "alt_text": "Authentic photograph of Regional Museum of Natural History in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_032",
@@ -63,7 +83,8 @@
     "coordinate_verification": "Bhubaneswar Development Authority (BDA) Park, Niladri Vihar",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": []
   },
   {
     "id": "place_031",
@@ -85,7 +106,17 @@
     "coordinate_verification": "Bhubaneswar Development Authority (BDA) Park, Unit-2, AG Square",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "4df88497ceb1",
+        "url": "/static/images/places/place_031/4df88497ceb1/hero.webp",
+        "thumbnail_url": "/static/images/places/place_031/4df88497ceb1/hero.webp",
+        "card_url": "/static/images/places/place_031/4df88497ceb1/hero.webp",
+        "alt_text": "High-resolution photograph of Indira Gandhi Park",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_014",
@@ -104,7 +135,17 @@
     "coordinate_verification": "Science & Technology Dept, Government of Odisha, Acharya Vihar",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "d6f4657f934a",
+        "url": "/static/images/places/place_014/d6f4657f934a/hero.webp",
+        "thumbnail_url": "/static/images/places/place_014/d6f4657f934a/hero.webp",
+        "card_url": "/static/images/places/place_014/d6f4657f934a/hero.webp",
+        "alt_text": "Authentic photograph of Pathani Samanta Planetarium in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_008",
@@ -126,7 +167,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "dc85cc5814e7",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Bhubaneswar_State_Museum.jpg/1280px-Bhubaneswar_State_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Bhubaneswar_State_Museum.jpg/1280px-Bhubaneswar_State_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Bhubaneswar_State_Museum.jpg/1280px-Bhubaneswar_State_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Odisha State Museum in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_006",
@@ -149,7 +200,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "94ea88ae627b",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Dhauli-Giri-Shanti-Stupa-Bhubaneswar-Orissa.jpg/1280px-Dhauli-Giri-Shanti-Stupa-Bhubaneswar-Orissa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Dhauli-Giri-Shanti-Stupa-Bhubaneswar-Orissa.jpg/1280px-Dhauli-Giri-Shanti-Stupa-Bhubaneswar-Orissa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Dhauli-Giri-Shanti-Stupa-Bhubaneswar-Orissa.jpg/1280px-Dhauli-Giri-Shanti-Stupa-Bhubaneswar-Orissa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Dhauli Shanti Stupa in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_030",
@@ -168,7 +229,17 @@
     "coordinate_verification": "National Council of Science Museums (NCSM), Pandit Jawaharlal Nehru Marg",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "740d0c7acced",
+        "url": "/static/images/places/place_030/740d0c7acced/hero.webp",
+        "thumbnail_url": "/static/images/places/place_030/740d0c7acced/hero.webp",
+        "card_url": "/static/images/places/place_030/740d0c7acced/hero.webp",
+        "alt_text": "Authentic photograph of Regional Science Centre, Bhubaneswar in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_024",
@@ -191,7 +262,8 @@
     "coordinate_verification": "Indira Gandhi National Centre for the Arts (IGNCA) / ASI Monument, Badu Sahi",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": []
   },
   {
     "id": "place_019",
@@ -214,7 +286,17 @@
     "coordinate_verification": "Archaeological Survey of India (ASI) Protected Monument, Tankapani Road",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "5ef73cb02061",
+        "url": "/static/images/places/place_019/5ef73cb02061/hero.webp",
+        "thumbnail_url": "/static/images/places/place_019/5ef73cb02061/hero.webp",
+        "card_url": "/static/images/places/place_019/5ef73cb02061/hero.webp",
+        "alt_text": "Authentic photograph of Brahmeswar Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_007",
@@ -237,7 +319,17 @@
     "coordinate_verification": "Archaeological Survey of India (ASI) Protected Monument, Hirapur",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "564e4835c3ef",
+        "url": "/static/images/places/place_007/564e4835c3ef/hero.webp",
+        "thumbnail_url": "/static/images/places/place_007/564e4835c3ef/hero.webp",
+        "card_url": "/static/images/places/place_007/564e4835c3ef/hero.webp",
+        "alt_text": "Authentic photograph of Chausathi Yogini Temple, Hirapur in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_029",
@@ -260,7 +352,17 @@
     "coordinate_verification": "Odisha State Archaeology / IGNCA Heritage Site, Kapileswar",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "526a11476642",
+        "url": "/static/images/places/place_029/526a11476642/hero.webp",
+        "thumbnail_url": "/static/images/places/place_029/526a11476642/hero.webp",
+        "card_url": "/static/images/places/place_029/526a11476642/hero.webp",
+        "alt_text": "High-resolution photograph of Kapilesvara Siva Temple",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_025",
@@ -283,7 +385,17 @@
     "coordinate_verification": "Odisha Tourism / ASI Monument Precinct, Kedar Gouri Road",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "c6e8242087d0",
+        "url": "/static/images/places/place_025/c6e8242087d0/hero.webp",
+        "thumbnail_url": "/static/images/places/place_025/c6e8242087d0/hero.webp",
+        "card_url": "/static/images/places/place_025/c6e8242087d0/hero.webp",
+        "alt_text": "Authentic photograph of Kedar Gouri Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_026",
@@ -306,7 +418,17 @@
     "coordinate_verification": "Archaeological Survey of India (ASI) Protected Monument, Megheswar",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "33b5729ba32a",
+        "url": "/static/images/places/place_026/33b5729ba32a/hero.webp",
+        "thumbnail_url": "/static/images/places/place_026/33b5729ba32a/hero.webp",
+        "card_url": "/static/images/places/place_026/33b5729ba32a/hero.webp",
+        "alt_text": "High-resolution photograph of Megheswar Temple",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_027",
@@ -329,7 +451,17 @@
     "coordinate_verification": "IGNCA / ASI Archaeological Site, Subarneswar Lane, Old Town",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "95be07c1b213",
+        "url": "/static/images/places/place_027/95be07c1b213/hero.webp",
+        "thumbnail_url": "/static/images/places/place_027/95be07c1b213/hero.webp",
+        "card_url": "/static/images/places/place_027/95be07c1b213/hero.webp",
+        "alt_text": "High-resolution photograph of Nageshwar Temple",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_puri_002",
@@ -352,7 +484,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Puri"
+    "district": "Puri",
+    "images": [
+      {
+        "id": "8146170ae9b7",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/At_Puri_beach_04.jpg/1280px-At_Puri_beach_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/At_Puri_beach_04.jpg/1280px-At_Puri_beach_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/At_Puri_beach_04.jpg/1280px-At_Puri_beach_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Puri Golden Beach in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_005",
@@ -375,7 +517,17 @@
     "coordinate_verification": "Archaeological Survey of India (ASI) Protected Monument, Old Town",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "ab842f38830d",
+        "url": "/static/images/places/place_005/ab842f38830d/hero.webp",
+        "thumbnail_url": "/static/images/places/place_005/ab842f38830d/hero.webp",
+        "card_url": "/static/images/places/place_005/ab842f38830d/hero.webp",
+        "alt_text": "Authentic photograph of Parasurameswar Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_022",
@@ -398,7 +550,17 @@
     "coordinate_verification": "Government of Odisha Hindu Religious Endowments Commission, Janpath, Kharvel Nagar",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "de61af93e2b1",
+        "url": "/static/images/places/place_022/de61af93e2b1/hero.webp",
+        "thumbnail_url": "/static/images/places/place_022/de61af93e2b1/hero.webp",
+        "card_url": "/static/images/places/place_022/de61af93e2b1/hero.webp",
+        "alt_text": "Authentic photograph of Ram Mandir, Bhubaneswar in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_021",
@@ -421,7 +583,17 @@
     "coordinate_verification": "Archaeological Survey of India (ASI) Protected Monument, Mausi Maa, Old Town",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "abf138069a51",
+        "url": "/static/images/places/place_021/abf138069a51/hero.webp",
+        "thumbnail_url": "/static/images/places/place_021/abf138069a51/hero.webp",
+        "card_url": "/static/images/places/place_021/abf138069a51/hero.webp",
+        "alt_text": "Authentic photograph of Rameshwar Deula in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_028",
@@ -444,7 +616,8 @@
     "coordinate_verification": "IGNCA / ASI Archaeological Survey Site, Gosagareswar Precinct, Old Town",
     "coordinate_audit_status": "high",
     "audit_status": "verified",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": []
   },
   {
     "id": "place_023",
@@ -467,7 +640,17 @@
     "coordinate_verification": "ASI/IGNCA identify Chitrakarini Temple; existing coordinate is supported by the cited heritage documentation and was previously cross-checked.",
     "coordinate_audit_status": "high",
     "audit_status": "green",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "7f34ece02179",
+        "url": "/static/images/places/place_023/7f34ece02179/hero.webp",
+        "thumbnail_url": "/static/images/places/place_023/7f34ece02179/hero.webp",
+        "card_url": "/static/images/places/place_023/7f34ece02179/hero.webp",
+        "alt_text": "Authentic photograph of Chitrakarini Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_020",
@@ -490,7 +673,17 @@
     "coordinate_verification": "Authoritative National Monuments Authority heritage-bye-law document gives GPS coordinates 20.244542 N, 85.852811 E for Bhaskareswar Temple.",
     "coordinate_audit_status": "high",
     "audit_status": "green",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "5d7d0f8c3edb",
+        "url": "/static/images/places/place_020/5d7d0f8c3edb/hero.webp",
+        "thumbnail_url": "/static/images/places/place_020/5d7d0f8c3edb/hero.webp",
+        "card_url": "/static/images/places/place_020/5d7d0f8c3edb/hero.webp",
+        "alt_text": "Authentic photograph of Bhaskareswar Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_018",
@@ -513,7 +706,17 @@
     "coordinate_verification": "Exact coordinate reproduced in multiple geotagged Wikimedia Commons records; Government of India Incredible India confirms the exact temple.",
     "coordinate_audit_status": "high",
     "audit_status": "green",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "e61446a6ba33",
+        "url": "/static/images/places/place_018/e61446a6ba33/hero.webp",
+        "thumbnail_url": "/static/images/places/place_018/e61446a6ba33/hero.webp",
+        "card_url": "/static/images/places/place_018/e61446a6ba33/hero.webp",
+        "alt_text": "Authentic photograph of Baitala Deula in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_004",
@@ -537,7 +740,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "b91e7a5f0092",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Ananta_Basudeba_Temple%2C_Bhubaneswar_01.jpg/1280px-Ananta_Basudeba_Temple%2C_Bhubaneswar_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Ananta_Basudeba_Temple%2C_Bhubaneswar_01.jpg/1280px-Ananta_Basudeba_Temple%2C_Bhubaneswar_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Ananta_Basudeba_Temple%2C_Bhubaneswar_01.jpg/1280px-Ananta_Basudeba_Temple%2C_Bhubaneswar_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Ananta Vasudeva Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_005",
@@ -559,7 +772,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "87c823650f8a",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Looking_onto_the_Udayagiri_caves_from_Khandagiri%2C_in_Bhubaneswar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Looking_onto_the_Udayagiri_caves_from_Khandagiri%2C_in_Bhubaneswar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Looking_onto_the_Udayagiri_caves_from_Khandagiri%2C_in_Bhubaneswar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Udayagiri and Khandagiri Caves in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_002",
@@ -582,7 +805,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "bf6293b73157",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/15%29Mukteshvara_Temple%2C_Bhubaneswar%2Codisa.jpg/1280px-15%29Mukteshvara_Temple%2C_Bhubaneswar%2Codisa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/15%29Mukteshvara_Temple%2C_Bhubaneswar%2Codisa.jpg/1280px-15%29Mukteshvara_Temple%2C_Bhubaneswar%2Codisa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/15%29Mukteshvara_Temple%2C_Bhubaneswar%2Codisa.jpg/1280px-15%29Mukteshvara_Temple%2C_Bhubaneswar%2Codisa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Mukteswar Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_012",
@@ -606,7 +839,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "3e013f8a3fd2",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Bindu_Sagar_Bhubaneswar_Odisha_India.jpg/1280px-Bindu_Sagar_Bhubaneswar_Odisha_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Bindu_Sagar_Bhubaneswar_Odisha_India.jpg/1280px-Bindu_Sagar_Bhubaneswar_Odisha_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Bindu_Sagar_Bhubaneswar_Odisha_India.jpg/1280px-Bindu_Sagar_Bhubaneswar_Odisha_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Bindu Sagar in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_007",
@@ -628,7 +871,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "83ddf7bcbca3",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/DUSK_AND_ANIMALS_-_NANDANKANAN_ZOOLOGICAL_PARK%2C_ODISHA.jpg/1280px-DUSK_AND_ANIMALS_-_NANDANKANAN_ZOOLOGICAL_PARK%2C_ODISHA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/DUSK_AND_ANIMALS_-_NANDANKANAN_ZOOLOGICAL_PARK%2C_ODISHA.jpg/1280px-DUSK_AND_ANIMALS_-_NANDANKANAN_ZOOLOGICAL_PARK%2C_ODISHA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/DUSK_AND_ANIMALS_-_NANDANKANAN_ZOOLOGICAL_PARK%2C_ODISHA.jpg/1280px-DUSK_AND_ANIMALS_-_NANDANKANAN_ZOOLOGICAL_PARK%2C_ODISHA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Nandankanan Zoological Park in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_konark_003",
@@ -653,7 +906,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Puri"
+    "district": "Puri",
+    "images": [
+      {
+        "id": "05c33a10ed83",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Goddess_RamaChandi.jpg/1280px-Goddess_RamaChandi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Goddess_RamaChandi.jpg/1280px-Goddess_RamaChandi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Goddess_RamaChandi.jpg/1280px-Goddess_RamaChandi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Ramachandi Beach & Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_chilika_002",
@@ -676,7 +939,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "a4ae8ae04351",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Chilika_Lake_%2811144%29.jpg/1280px-Chilika_Lake_%2811144%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Chilika_Lake_%2811144%29.jpg/1280px-Chilika_Lake_%2811144%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Chilika_Lake_%2811144%29.jpg/1280px-Chilika_Lake_%2811144%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Kalijai Island Temple, Chilika in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_puri_003",
@@ -700,7 +973,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Puri"
+    "district": "Puri",
+    "images": [
+      {
+        "id": "f14517383b2e",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Devi_Subhadra_Pahandi_from_Gundicha_Temple_on_2022_Bahuda_Jatra.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Devi_Subhadra_Pahandi_from_Gundicha_Temple_on_2022_Bahuda_Jatra.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Devi_Subhadra_Pahandi_from_Gundicha_Temple_on_2022_Bahuda_Jatra.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Gundicha Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_puri_001",
@@ -724,7 +1007,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Puri"
+    "district": "Puri",
+    "images": [
+      {
+        "id": "02287867dc89",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Jagannath_Temple%2C_Puri%2C_Odisha%2C_India_%282016%29.jpg/1280px-Jagannath_Temple%2C_Puri%2C_Odisha%2C_India_%282016%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Jagannath_Temple%2C_Puri%2C_Odisha%2C_India_%282016%29.jpg/1280px-Jagannath_Temple%2C_Puri%2C_Odisha%2C_India_%282016%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Jagannath_Temple%2C_Puri%2C_Odisha%2C_India_%282016%29.jpg/1280px-Jagannath_Temple%2C_Puri%2C_Odisha%2C_India_%282016%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Jagannath Temple, Puri in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_sambalpur_002",
@@ -747,7 +1040,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Sambalpur"
+    "district": "Sambalpur",
+    "images": [
+      {
+        "id": "34272df89ec2",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Samaleswari_Temple%2C_Sambalpur.jpg/1280px-Samaleswari_Temple%2C_Sambalpur.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Samaleswari_Temple%2C_Sambalpur.jpg/1280px-Samaleswari_Temple%2C_Sambalpur.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Samaleswari_Temple%2C_Sambalpur.jpg/1280px-Samaleswari_Temple%2C_Sambalpur.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Samaleswari Temple, Sambalpur in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_011",
@@ -766,7 +1069,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "36e8a9a95990",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Aerial_view_of_Kalinga_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Aerial_view_of_Kalinga_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Aerial_view_of_Kalinga_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Kalinga Stadium in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_puri_004",
@@ -790,7 +1103,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Puri"
+    "district": "Puri",
+    "images": [
+      {
+        "id": "292d580f6bc0",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Maa_Anandamayee_Ashram%2C_near_Swargadwar_Beach%2C_Puri_01.jpg/1280px-Maa_Anandamayee_Ashram%2C_near_Swargadwar_Beach%2C_Puri_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Maa_Anandamayee_Ashram%2C_near_Swargadwar_Beach%2C_Puri_01.jpg/1280px-Maa_Anandamayee_Ashram%2C_near_Swargadwar_Beach%2C_Puri_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Maa_Anandamayee_Ashram%2C_near_Swargadwar_Beach%2C_Puri_01.jpg/1280px-Maa_Anandamayee_Ashram%2C_near_Swargadwar_Beach%2C_Puri_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Swargadwar Beach in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_cuttack_001",
@@ -811,7 +1134,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Cuttack"
+    "district": "Cuttack",
+    "images": [
+      {
+        "id": "02e40272a98d",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Barabati_Fort_Gateway_of_Cuttack.jpg/1280px-Barabati_Fort_Gateway_of_Cuttack.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Barabati_Fort_Gateway_of_Cuttack.jpg/1280px-Barabati_Fort_Gateway_of_Cuttack.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Barabati_Fort_Gateway_of_Cuttack.jpg/1280px-Barabati_Fort_Gateway_of_Cuttack.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Barabati Fort in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_rourkela_001",
@@ -833,7 +1166,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Sundargarh"
+    "district": "Sundargarh",
+    "images": [
+      {
+        "id": "ae7eb1c0b708",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Hanuman_Vatika_Rourkela.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Hanuman_Vatika_Rourkela.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Hanuman_Vatika_Rourkela.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Hanuman Vatika, Rourkela in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_sambalpur_001",
@@ -854,7 +1197,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Sambalpur"
+    "district": "Sambalpur",
+    "images": [
+      {
+        "id": "319e1fc78ef8",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Colours_of_Nature2_-_Mahanadi_River_near_Hirakund_Dam%2C.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Colours_of_Nature2_-_Mahanadi_River_near_Hirakund_Dam%2C.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Colours_of_Nature2_-_Mahanadi_River_near_Hirakund_Dam%2C.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Hirakud Dam & Reservoir in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_rourkela_003",
@@ -876,7 +1229,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Sundargarh"
+    "district": "Sundargarh",
+    "images": [
+      {
+        "id": "a8c814c32300",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/At_the_site_of_khandadhar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/At_the_site_of_khandadhar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/At_the_site_of_khandadhar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Khandadhar Waterfall, Sundargarh in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_konark_002",
@@ -899,7 +1262,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Puri"
+    "district": "Puri",
+    "images": [
+      {
+        "id": "96b3058c4a4d",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Beach_of_Konark_01.jpg/1280px-Beach_of_Konark_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Beach_of_Konark_01.jpg/1280px-Beach_of_Konark_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Beach_of_Konark_01.jpg/1280px-Beach_of_Konark_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Chandrabhaga Beach in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_koraput_001",
@@ -923,7 +1296,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Koraput"
+    "district": "Koraput",
+    "images": [
+      {
+        "id": "ebdb01aa8cee",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Gupteshwara_Shiva-lingam.jpg/1280px-Gupteshwara_Shiva-lingam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Gupteshwara_Shiva-lingam.jpg/1280px-Gupteshwara_Shiva-lingam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Gupteshwara_Shiva-lingam.jpg/1280px-Gupteshwara_Shiva-lingam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Gupteswar Cave Temple, Koraput in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_mayurbhanj_002",
@@ -945,7 +1328,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Mayurbhanj"
+    "district": "Mayurbhanj",
+    "images": [
+      {
+        "id": "91f5f250ddfa",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Barehipani_Falls.jpg/1280px-Barehipani_Falls.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Barehipani_Falls.jpg/1280px-Barehipani_Falls.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Barehipani_Falls.jpg/1280px-Barehipani_Falls.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Barehipani & Joranda Falls in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_chilika_003",
@@ -967,7 +1360,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "3b306bfaf9fd",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Chilika_Lake_Mangalajodi_Wetlands_Odisha_India_2012.jpg/1280px-Chilika_Lake_Mangalajodi_Wetlands_Odisha_India_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Chilika_Lake_Mangalajodi_Wetlands_Odisha_India_2012.jpg/1280px-Chilika_Lake_Mangalajodi_Wetlands_Odisha_India_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Chilika_Lake_Mangalajodi_Wetlands_Odisha_India_2012.jpg/1280px-Chilika_Lake_Mangalajodi_Wetlands_Odisha_India_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Mangalajodi Bird Sanctuary in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_kendrapara_001",
@@ -990,7 +1393,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Kendrapara"
+    "district": "Kendrapara",
+    "images": [
+      {
+        "id": "3c1227e192f9",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Bhitarkanika_Mangroves_Flora_and_Fauna_03.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Bhitarkanika_Mangroves_Flora_and_Fauna_03.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Bhitarkanika_Mangroves_Flora_and_Fauna_03.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Bhitarkanika National Park in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_koraput_005",
@@ -1012,7 +1425,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Koraput"
+    "district": "Koraput",
+    "images": [
+      {
+        "id": "375b5f789f69",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Kolab_Dam_%26_Garden.jpg/1280px-Kolab_Dam_%26_Garden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Kolab_Dam_%26_Garden.jpg/1280px-Kolab_Dam_%26_Garden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Kolab_Dam_%26_Garden.jpg/1280px-Kolab_Dam_%26_Garden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Kolab Reservoir & Botanical Garden in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_konark_001",
@@ -1034,7 +1457,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Puri"
+    "district": "Puri",
+    "images": [
+      {
+        "id": "03b959a8abef",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Chariot_Wheel_at_Sun_Temple%2C_Konark%2C-Konark-Odisha-IMG_001.jpg/1280px-Chariot_Wheel_at_Sun_Temple%2C_Konark%2C-Konark-Odisha-IMG_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Chariot_Wheel_at_Sun_Temple%2C_Konark%2C-Konark-Odisha-IMG_001.jpg/1280px-Chariot_Wheel_at_Sun_Temple%2C_Konark%2C-Konark-Odisha-IMG_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Chariot_Wheel_at_Sun_Temple%2C_Konark%2C-Konark-Odisha-IMG_001.jpg/1280px-Chariot_Wheel_at_Sun_Temple%2C_Konark%2C-Konark-Odisha-IMG_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Konark Sun Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_ganjam_001",
@@ -1057,7 +1490,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Ganjam"
+    "district": "Ganjam",
+    "images": [
+      {
+        "id": "e3487587a075",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Gopalpur_Sea_Beach%2C_Odisha.jpg/1280px-Gopalpur_Sea_Beach%2C_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Gopalpur_Sea_Beach%2C_Odisha.jpg/1280px-Gopalpur_Sea_Beach%2C_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Gopalpur_Sea_Beach%2C_Odisha.jpg/1280px-Gopalpur_Sea_Beach%2C_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Gopalpur-on-Sea Beach in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_cuttack_004",
@@ -1079,7 +1522,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Cuttack"
+    "district": "Cuttack",
+    "images": [
+      {
+        "id": "3d8ae5f82b5d",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Azad_Hind_stamps_released_by_Indian_National_Army_in_display_at_Netaji_Birth_Place_Museum%2C_Cuttack%2C_Odisha%2C_India.jpg/1280px-Azad_Hind_stamps_released_by_Indian_National_Army_in_display_at_Netaji_Birth_Place_Museum%2C_Cuttack%2C_Odisha%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Azad_Hind_stamps_released_by_Indian_National_Army_in_display_at_Netaji_Birth_Place_Museum%2C_Cuttack%2C_Odisha%2C_India.jpg/1280px-Azad_Hind_stamps_released_by_Indian_National_Army_in_display_at_Netaji_Birth_Place_Museum%2C_Cuttack%2C_Odisha%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Azad_Hind_stamps_released_by_Indian_National_Army_in_display_at_Netaji_Birth_Place_Museum%2C_Cuttack%2C_Odisha%2C_India.jpg/1280px-Azad_Hind_stamps_released_by_Indian_National_Army_in_display_at_Netaji_Birth_Place_Museum%2C_Cuttack%2C_Odisha%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Netaji Birth Place Museum in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_sambalpur_003",
@@ -1102,7 +1555,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Sambalpur"
+    "district": "Sambalpur",
+    "images": [
+      {
+        "id": "62ffb7d419a2",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Huma%2C_Sambalpur.jpg/1280px-Huma%2C_Sambalpur.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Huma%2C_Sambalpur.jpg/1280px-Huma%2C_Sambalpur.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Huma%2C_Sambalpur.jpg/1280px-Huma%2C_Sambalpur.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Huma Leaning Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_ganjam_002",
@@ -1125,7 +1588,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Ganjam"
+    "district": "Ganjam",
+    "images": [
+      {
+        "id": "87bc44f63b2d",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tara_Tarini_Temple_Ganjam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tara_Tarini_Temple_Ganjam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tara_Tarini_Temple_Ganjam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Tara Tarini Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_konark_004",
@@ -1147,7 +1620,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Puri"
+    "district": "Puri",
+    "images": [
+      {
+        "id": "ea4b0bedaa44",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Pictures_of_Konark_Museum_01.jpg/1280px-Pictures_of_Konark_Museum_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Pictures_of_Konark_Museum_01.jpg/1280px-Pictures_of_Konark_Museum_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Pictures_of_Konark_Museum_01.jpg/1280px-Pictures_of_Konark_Museum_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Konark Archaeological Museum in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_daringbadi_003",
@@ -1169,7 +1652,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Kandhamal"
+    "district": "Kandhamal",
+    "images": [
+      {
+        "id": "18724980adff",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Coffee_garden%2C_Daringbari.JPG/1280px-Coffee_garden%2C_Daringbari.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Coffee_garden%2C_Daringbari.JPG/1280px-Coffee_garden%2C_Daringbari.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Coffee_garden%2C_Daringbari.JPG/1280px-Coffee_garden%2C_Daringbari.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Coffee Gardens, Daringbadi in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_mayurbhanj_001",
@@ -1191,7 +1684,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Mayurbhanj"
+    "district": "Mayurbhanj",
+    "images": [
+      {
+        "id": "62ca826d15a0",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Black_Tiger_resting_at_Simlipal_National_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Black_Tiger_resting_at_Simlipal_National_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Black_Tiger_resting_at_Simlipal_National_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Similipal National Park in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_koraput_003",
@@ -1214,7 +1717,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Koraput"
+    "district": "Koraput",
+    "images": [
+      {
+        "id": "d706510f47e0",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/IMG-20220821-WA0004.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/IMG-20220821-WA0004.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/IMG-20220821-WA0004.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Deomali Peak, Koraput in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_chilika_001",
@@ -1237,7 +1750,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Puri"
+    "district": "Puri",
+    "images": [
+      {
+        "id": "b5a796039cf9",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Satapada_12.jpg/1280px-Satapada_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Satapada_12.jpg/1280px-Satapada_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Satapada_12.jpg/1280px-Satapada_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Chilika Lake - Satapada in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_balasore_001",
@@ -1260,7 +1783,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Balasore"
+    "district": "Balasore",
+    "images": [
+      {
+        "id": "7b71840acce2",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Beautiful_Sun_Set.jpg/1280px-Beautiful_Sun_Set.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Beautiful_Sun_Set.jpg/1280px-Beautiful_Sun_Set.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Beautiful_Sun_Set.jpg/1280px-Beautiful_Sun_Set.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Chandipur Beach in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_daringbadi_004",
@@ -1283,7 +1816,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Kandhamal"
+    "district": "Kandhamal",
+    "images": [
+      {
+        "id": "c5ae233d3210",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Kandamal_Zilla%2C_Odisha.jpg/1280px-Kandamal_Zilla%2C_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Kandamal_Zilla%2C_Odisha.jpg/1280px-Kandamal_Zilla%2C_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Kandamal_Zilla%2C_Odisha.jpg/1280px-Kandamal_Zilla%2C_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Belghar Nature Camp in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_009",
@@ -1305,7 +1848,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "d3fdc630c2d8",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Kala_Bhoomi_-_13.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Kala_Bhoomi_-_13.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Kala_Bhoomi_-_13.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Odisha Crafts Museum Kala Bhoomi in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_sambalpur_004",
@@ -1327,7 +1880,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Bargarh"
+    "district": "Bargarh",
+    "images": [
+      {
+        "id": "22d5bc4545b0",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Debrigarh_Wildlife_sanctuary_%2838509512300%29.jpg/1280px-Debrigarh_Wildlife_sanctuary_%2838509512300%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Debrigarh_Wildlife_sanctuary_%2838509512300%29.jpg/1280px-Debrigarh_Wildlife_sanctuary_%2838509512300%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Debrigarh_Wildlife_sanctuary_%2838509512300%29.jpg/1280px-Debrigarh_Wildlife_sanctuary_%2838509512300%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Debrigarh Wildlife Sanctuary in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_cuttack_003",
@@ -1349,7 +1912,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Cuttack"
+    "district": "Cuttack",
+    "images": [
+      {
+        "id": "78dff96a9c3a",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Identical_places_between_Odisha_and_Indonesia_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Identical_places_between_Odisha_and_Indonesia_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Identical_places_between_Odisha_and_Indonesia_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Odisha State Maritime Museum in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_010",
@@ -1372,7 +1945,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "78c2ef783f40",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Earthen_pots_from_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Earthen_pots_from_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Earthen_pots_from_Odisha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Ekamra Haat in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_cuttack_002",
@@ -1395,7 +1978,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Cuttack"
+    "district": "Cuttack",
+    "images": [
+      {
+        "id": "57a31cc80182",
+        "url": "/static/images/places/place_cuttack_002/57a31cc80182/hero.webp",
+        "thumbnail_url": "/static/images/places/place_cuttack_002/57a31cc80182/hero.webp",
+        "card_url": "/static/images/places/place_cuttack_002/57a31cc80182/hero.webp",
+        "alt_text": "Authentic photograph of Cuttack Chandi Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_koraput_004",
@@ -1417,7 +2010,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Koraput"
+    "district": "Koraput",
+    "images": [
+      {
+        "id": "a54c2ebd04a0",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/A_cowbell_in_the_Tribal_Museum%2C_Koraput.jpg/1280px-A_cowbell_in_the_Tribal_Museum%2C_Koraput.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/A_cowbell_in_the_Tribal_Museum%2C_Koraput.jpg/1280px-A_cowbell_in_the_Tribal_Museum%2C_Koraput.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/A_cowbell_in_the_Tribal_Museum%2C_Koraput.jpg/1280px-A_cowbell_in_the_Tribal_Museum%2C_Koraput.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Tribal Museum, Koraput in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_koraput_002",
@@ -1439,7 +2042,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Koraput"
+    "district": "Koraput",
+    "images": [
+      {
+        "id": "da596fb21308",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Duduma_.jpg/1280px-Duduma_.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Duduma_.jpg/1280px-Duduma_.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Duduma_.jpg/1280px-Duduma_.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Duduma Waterfall in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_rayagada_001",
@@ -1462,7 +2075,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Rayagada"
+    "district": "Rayagada",
+    "images": [
+      {
+        "id": "a863f4660940",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Maa_Sri_Majhigauri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Maa_Sri_Majhigauri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Maa_Sri_Majhigauri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Maa Majhigouri Temple, Rayagada in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_001",
@@ -1485,7 +2108,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "06a456469886",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chandrasekhar%2C_Lingaraj_Temple%2C_Bhubaneswar%2C_Odisha%2C_India_%282021%29.jpg/1280px-Chandrasekhar%2C_Lingaraj_Temple%2C_Bhubaneswar%2C_Odisha%2C_India_%282021%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chandrasekhar%2C_Lingaraj_Temple%2C_Bhubaneswar%2C_Odisha%2C_India_%282021%29.jpg/1280px-Chandrasekhar%2C_Lingaraj_Temple%2C_Bhubaneswar%2C_Odisha%2C_India_%282021%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chandrasekhar%2C_Lingaraj_Temple%2C_Bhubaneswar%2C_Odisha%2C_India_%282021%29.jpg/1280px-Chandrasekhar%2C_Lingaraj_Temple%2C_Bhubaneswar%2C_Odisha%2C_India_%282021%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Lingaraj Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_daringbadi_002",
@@ -1507,7 +2140,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Kandhamal"
+    "district": "Kandhamal",
+    "images": [
+      {
+        "id": "604241c8ef4d",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Madubanda_Waterfall%2C_Daringbari.jpg/1280px-Madubanda_Waterfall%2C_Daringbari.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Madubanda_Waterfall%2C_Daringbari.jpg/1280px-Madubanda_Waterfall%2C_Daringbari.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Madubanda_Waterfall%2C_Daringbari.jpg/1280px-Madubanda_Waterfall%2C_Daringbari.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Midubanda Waterfall, Daringbadi in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_daringbadi_001",
@@ -1529,7 +2172,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Kandhamal"
+    "district": "Kandhamal",
+    "images": [
+      {
+        "id": "49e608c2405f",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Black_pepper_creepers%2C_Daringbari.jpg/1280px-Black_pepper_creepers%2C_Daringbari.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Black_pepper_creepers%2C_Daringbari.jpg/1280px-Black_pepper_creepers%2C_Daringbari.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Black_pepper_creepers%2C_Daringbari.jpg/1280px-Black_pepper_creepers%2C_Daringbari.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Daringbadi Hill Station in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_bbsr_003",
@@ -1551,7 +2204,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "0dd1f614ea63",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/PXL_20250609_060643318.MP_Rajarani_Temple%2C_Bhubaneswar%2C_Odisha_06.jpg/1280px-PXL_20250609_060643318.MP_Rajarani_Temple%2C_Bhubaneswar%2C_Odisha_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/PXL_20250609_060643318.MP_Rajarani_Temple%2C_Bhubaneswar%2C_Odisha_06.jpg/1280px-PXL_20250609_060643318.MP_Rajarani_Temple%2C_Bhubaneswar%2C_Odisha_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/PXL_20250609_060643318.MP_Rajarani_Temple%2C_Bhubaneswar%2C_Odisha_06.jpg/1280px-PXL_20250609_060643318.MP_Rajarani_Temple%2C_Bhubaneswar%2C_Odisha_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "alt_text": "Authentic photograph of Rajarani Temple in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_rourkela_002",
@@ -1573,7 +2236,17 @@
     "coordinate_verification": null,
     "coordinate_audit_status": null,
     "audit_status": null,
-    "district": "Sundargarh"
+    "district": "Sundargarh",
+    "images": [
+      {
+        "id": "00793bab38cf",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/MANDIRA_DAM.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/MANDIRA_DAM.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "card_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/MANDIRA_DAM.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "alt_text": "Authentic photograph of Mandira Dam, Sundargarh in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_food_001",
@@ -1595,7 +2268,17 @@
     "coordinate_audit_status": "high",
     "audit_status": "verified",
     "verified_at": "2026-08-20T17:00:00Z",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": [
+      {
+        "id": "27967704d13b",
+        "url": "/static/images/places/place_food_001/27967704d13b/hero.webp",
+        "thumbnail_url": "/static/images/places/place_food_001/27967704d13b/hero.webp",
+        "card_url": "/static/images/places/place_food_001/27967704d13b/hero.webp",
+        "alt_text": "Authentic photograph of Pahala Rasagola Sweet Hub in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_food_002",
@@ -1617,7 +2300,17 @@
     "coordinate_audit_status": "high",
     "audit_status": "verified",
     "verified_at": "2026-08-20T17:00:00Z",
-    "district": "Puri"
+    "district": "Puri",
+    "images": [
+      {
+        "id": "ee5d7923fbe0",
+        "url": "/static/images/places/place_food_002/ee5d7923fbe0/hero.webp",
+        "thumbnail_url": "/static/images/places/place_food_002/ee5d7923fbe0/hero.webp",
+        "card_url": "/static/images/places/place_food_002/ee5d7923fbe0/hero.webp",
+        "alt_text": "Authentic photograph of Nimapada Chhena Jhili Market in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_food_003",
@@ -1641,7 +2334,8 @@
     "coordinate_audit_status": "high",
     "audit_status": "verified",
     "verified_at": "2026-08-20T17:00:00Z",
-    "district": "Puri"
+    "district": "Puri",
+    "images": []
   },
   {
     "id": "place_food_004",
@@ -1663,7 +2357,17 @@
     "coordinate_audit_status": "high",
     "audit_status": "verified",
     "verified_at": "2026-08-20T17:00:00Z",
-    "district": "Cuttack"
+    "district": "Cuttack",
+    "images": [
+      {
+        "id": "979edf809ee0",
+        "url": "/static/images/places/place_food_004/979edf809ee0/hero.webp",
+        "thumbnail_url": "/static/images/places/place_food_004/979edf809ee0/hero.webp",
+        "card_url": "/static/images/places/place_food_004/979edf809ee0/hero.webp",
+        "alt_text": "Authentic photograph of Choudhury Bazar Dahibara Hub, Cuttack in Odisha",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "place_food_005",
@@ -1686,7 +2390,8 @@
     "coordinate_audit_status": "high",
     "audit_status": "verified",
     "verified_at": "2026-08-20T17:00:00Z",
-    "district": "Cuttack"
+    "district": "Cuttack",
+    "images": []
   },
   {
     "id": "place_food_006",
@@ -1708,7 +2413,8 @@
     "coordinate_audit_status": "high",
     "audit_status": "verified",
     "verified_at": "2026-08-20T17:00:00Z",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": []
   },
   {
     "id": "place_food_007",
@@ -1730,7 +2436,8 @@
     "coordinate_audit_status": "high",
     "audit_status": "verified",
     "verified_at": "2026-08-20T17:00:00Z",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": []
   },
   {
     "id": "place_food_008",
@@ -1753,7 +2460,8 @@
     "coordinate_audit_status": "high",
     "audit_status": "verified",
     "verified_at": "2026-08-20T17:00:00Z",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": []
   },
   {
     "id": "place_food_009",
@@ -1775,7 +2483,8 @@
     "coordinate_audit_status": "high",
     "audit_status": "verified",
     "verified_at": "2026-08-20T17:00:00Z",
-    "district": "Puri"
+    "district": "Puri",
+    "images": []
   },
   {
     "id": "place_food_010",
@@ -1798,7 +2507,8 @@
     "coordinate_audit_status": "high",
     "audit_status": "verified",
     "verified_at": "2026-08-20T17:00:00Z",
-    "district": "Puri"
+    "district": "Puri",
+    "images": []
   },
   {
     "id": "place_food_011",
@@ -1820,7 +2530,8 @@
     "coordinate_audit_status": "high",
     "audit_status": "verified",
     "verified_at": "2026-08-20T17:00:00Z",
-    "district": "Khordha"
+    "district": "Khordha",
+    "images": []
   },
   {
     "id": "place_angul_001",
@@ -1843,7 +2554,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_angul_002",
@@ -1866,7 +2578,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_angul_003",
@@ -1888,7 +2601,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_balangir_001",
@@ -1912,7 +2626,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_balangir_002",
@@ -1935,7 +2650,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_balangir_003",
@@ -1957,7 +2673,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_bhadrak_001",
@@ -1980,7 +2697,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_bhadrak_002",
@@ -2002,7 +2720,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_bhadrak_003",
@@ -2025,7 +2744,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_boudh_001",
@@ -2048,7 +2768,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_boudh_002",
@@ -2071,7 +2792,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_deogarh_001",
@@ -2094,7 +2816,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_deogarh_002",
@@ -2116,7 +2839,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_dhenkanal_001",
@@ -2139,7 +2863,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_dhenkanal_002",
@@ -2162,7 +2887,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_dhenkanal_003",
@@ -2185,7 +2911,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_gajapati_001",
@@ -2209,7 +2936,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_gajapati_002",
@@ -2232,7 +2960,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_gajapati_003",
@@ -2255,7 +2984,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_jagatsinghpur_001",
@@ -2278,7 +3008,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_jagatsinghpur_002",
@@ -2301,7 +3032,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_jagatsinghpur_003",
@@ -2324,7 +3056,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_jajpur_001",
@@ -2347,7 +3080,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_jajpur_002",
@@ -2370,7 +3104,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_jajpur_003",
@@ -2393,7 +3128,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_jharsuguda_001",
@@ -2416,7 +3152,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_jharsuguda_002",
@@ -2438,7 +3175,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_kalahandi_001",
@@ -2461,7 +3199,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_kalahandi_002",
@@ -2483,7 +3222,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_kalahandi_003",
@@ -2506,7 +3246,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_keonjhar_001",
@@ -2529,7 +3270,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_keonjhar_002",
@@ -2551,7 +3293,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_keonjhar_003",
@@ -2574,7 +3317,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_keonjhar_004",
@@ -2597,7 +3341,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_malkangiri_001",
@@ -2619,7 +3364,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_malkangiri_002",
@@ -2641,7 +3387,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_malkangiri_003",
@@ -2663,7 +3410,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_nabarangpur_001",
@@ -2685,7 +3433,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_nabarangpur_002",
@@ -2708,7 +3457,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_nayagarh_001",
@@ -2731,7 +3481,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_nayagarh_002",
@@ -2753,7 +3504,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_nayagarh_003",
@@ -2776,7 +3528,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_nuapada_001",
@@ -2799,7 +3552,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_nuapada_002",
@@ -2821,7 +3575,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_subarnapur_001",
@@ -2844,7 +3599,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_subarnapur_002",
@@ -2867,7 +3623,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_subarnapur_003",
@@ -2889,7 +3646,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_balasore_002",
@@ -2912,7 +3670,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_balasore_003",
@@ -2934,7 +3693,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_bargarh_002",
@@ -2958,7 +3718,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_ganjam_003",
@@ -2981,7 +3742,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_kendrapara_002",
@@ -3004,7 +3766,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_mayurbhanj_003",
@@ -3027,7 +3790,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_rayagada_002",
@@ -3050,7 +3814,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_sambalpur_005",
@@ -3072,7 +3837,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "verified on-the-ground survey 2026-08",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_001",
@@ -3091,7 +3857,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_002",
@@ -3110,7 +3877,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_003",
@@ -3129,7 +3897,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_004",
@@ -3148,7 +3917,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_005",
@@ -3167,7 +3937,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_006",
@@ -3186,7 +3957,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_007",
@@ -3204,7 +3976,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_008",
@@ -3222,7 +3995,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_009",
@@ -3240,7 +4014,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_010",
@@ -3258,7 +4033,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_011",
@@ -3276,7 +4052,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_012",
@@ -3294,7 +4071,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_med_013",
@@ -3312,7 +4090,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_001",
@@ -3329,7 +4108,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official AAI aviation registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_002",
@@ -3346,7 +4126,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official AAI aviation registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_003",
@@ -3363,7 +4144,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official AAI aviation registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_004",
@@ -3380,7 +4162,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "Indian Railways official portal",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_005",
@@ -3397,7 +4180,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "Indian Railways official portal",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_006",
@@ -3414,7 +4198,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "Indian Railways official portal",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_007",
@@ -3431,7 +4216,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "Indian Railways official portal",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_008",
@@ -3448,7 +4234,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "Indian Railways official portal",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_009",
@@ -3465,7 +4252,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "Indian Railways official portal",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_010",
@@ -3482,7 +4270,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "Indian Railways official portal",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_011",
@@ -3499,7 +4288,8 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "OSRTC official transit registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   },
   {
     "id": "place_transit_012",
@@ -3516,6 +4306,7 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "OSRTC official transit registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "images": []
   }
 ]

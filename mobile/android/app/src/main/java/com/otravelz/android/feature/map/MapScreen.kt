@@ -3,12 +3,10 @@ package com.otravelz.android.feature.map
 import android.Manifest
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.horizontalScroll
@@ -30,13 +28,17 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.otravelz.android.core.design.*
+import com.otravelz.android.core.i18n.LocalAppStrings
 import com.otravelz.android.core.location.FirstMileEstimator
 import com.otravelz.android.core.location.GeolocationState
 import com.otravelz.android.core.location.LocationManager
+import com.otravelz.android.core.network.ApiConfig
 import com.otravelz.android.core.network.NetworkResult
 import com.otravelz.android.data.model.NearbyStopDto
 import com.otravelz.android.data.model.PlaceDetailDto
@@ -61,6 +63,7 @@ fun MapScreen(
     transitRepository: TransitRepository = remember { TransitRepository() }
 ) {
     val context = LocalContext.current
+    val strings = LocalAppStrings.current
     val locationManager = remember { LocationManager(context) }
     val locationState by locationManager.state.collectAsState()
     val coroutineScope = rememberCoroutineScope()
@@ -89,7 +92,7 @@ fun MapScreen(
         if (granted) {
             locationManager.requestLocation()
         } else {
-            locationManager.setDenied("Location permission denied. Utilizing default Bhubaneswar reference.")
+            locationManager.setDenied(strings.locationPermissionDeniedText)
         }
     }
 
@@ -101,16 +104,9 @@ fun MapScreen(
         }
     }
 
-    val currentLat = when (val state = locationState) {
-        is GeolocationState.Granted -> state.lat
-        is GeolocationState.ReferenceOrigin -> state.lat
-        else -> LocationManager.DEFAULT_FALLBACK_LAT
-    }
-    val currentLon = when (val state = locationState) {
-        is GeolocationState.Granted -> state.lon
-        is GeolocationState.ReferenceOrigin -> state.lon
-        else -> LocationManager.DEFAULT_FALLBACK_LON
-    }
+    val currentLat = locationState.currentLat
+    val currentLon = locationState.currentLon
+    val isLiveGps = locationState is GeolocationState.LiveLocation || locationState is GeolocationState.LastKnownLocation || locationState is GeolocationState.Granted
 
     // Load transit stops around active center
     LaunchedEffect(currentLat, currentLon) {
@@ -122,35 +118,27 @@ fun MapScreen(
         }
     }
 
-    // In-memory Location Access Dialog
+    // Location Access Dialog
     if (showPermissionRationale) {
         AlertDialog(
             onDismissRequest = { showPermissionRationale = false },
             icon = { Icon(Icons.Default.Security, contentDescription = null, tint = OchrePrimary) },
             title = {
                 Text(
-                    text = "In-Memory Location Access",
+                    text = "Live GPS Location",
                     style = MaterialTheme.typography.titleLarge,
                     color = TextPrimary
                 )
             },
             text = {
-                Column(verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-                    Text(
-                        text = "O-TRAVELZ uses your GPS location solely in-memory for this session to calculate straight-line distances to cultural destinations and nearby Mo Bus transit stops.",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = TextSecondary
-                    )
-                    Text(
-                        text = "Location is used in-memory for this session and is not persisted to disk.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = OchreLight,
-                        fontWeight = FontWeight.SemiBold
-                    )
-                }
+                Text(
+                    text = "Allow location access to view your real-time position on the Odisha map and compute accurate first-mile transit recommendations. Location coordinates are strictly kept in-memory and never stored remotely.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = TextSecondary
+                )
             },
             confirmButton = {
-                TextButton(
+                Button(
                     onClick = {
                         showPermissionRationale = false
                         permissionLauncher.launch(
@@ -159,40 +147,26 @@ fun MapScreen(
                                 Manifest.permission.ACCESS_COARSE_LOCATION
                             )
                         )
-                    }
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = OchrePrimary, contentColor = DarkBackground)
                 ) {
-                    Text("Grant Permission", color = OchrePrimary, fontWeight = FontWeight.Bold)
+                    Text("Enable GPS")
                 }
             },
             dismissButton = {
-                TextButton(
-                    onClick = {
-                        showPermissionRationale = false
-                        locationManager.setDenied()
-                    }
-                ) {
-                    Text("Use Default Origin", color = TextMuted)
+                TextButton(onClick = { showPermissionRationale = false }) {
+                    Text(strings.closeAction, color = TextSecondary)
                 }
             },
-            containerColor = DarkSurface,
-            shape = MaterialTheme.shapes.large
+            containerColor = DarkSurfaceElevated
         )
     }
 
-    val savedPlacesRepository = remember {
-        try {
-            com.otravelz.android.data.repository.SavedPlacesRepository(context)
-        } catch (_: Exception) {
-            null
-        }
-    }
-    val savedPlaceIds by savedPlacesRepository?.savedPlaceIds?.collectAsState() ?: remember { mutableStateOf(emptySet()) }
-
-    val filteredPlaces = remember(places, selectedCategory, savedPlaceIds) {
-        when (selectedCategory) {
-            "All" -> places
-            "Saved" -> places.filter { savedPlaceIds.contains(it.id) }
-            else -> places.filter { it.category.equals(selectedCategory, ignoreCase = true) }
+    val filteredPlaces = remember(places, selectedCategory) {
+        if (selectedCategory.equals("All", ignoreCase = true)) {
+            places
+        } else {
+            places.filter { it.category.equals(selectedCategory, ignoreCase = true) }
         }
     }
 
@@ -200,147 +174,64 @@ fun MapScreen(
         modifier = modifier
             .fillMaxSize()
             .background(DarkBackground)
-            .padding(horizontal = Spacing.md, vertical = Spacing.sm)
+            .padding(horizontal = Spacing.md, vertical = Spacing.xs)
     ) {
-        // Header & View Mode Switcher
+        // 1. Header Toolbar with Title & View Mode Toggle
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier.fillMaxWidth()
         ) {
-            Column(modifier = Modifier.weight(1f)) {
+            Column {
                 Text(
-                    text = "Interactive Travel Map",
+                    text = strings.tabMap,
                     style = MaterialTheme.typography.headlineMedium,
-                    color = TextPrimary
+                    color = TextPrimary,
+                    fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = "Odisha Geospatial Canvas • First-Mile Routing",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = OchreLight
+                    text = "Spatial exploration • ${filteredPlaces.size} verified locations",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = TextSecondary
                 )
             }
 
-            // Map / List Toggle
-            Row(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(20.dp))
-                    .background(DarkSurfaceVariant)
-                    .padding(2.dp)
+            Surface(
+                shape = RoundedCornerShape(12.dp),
+                color = DarkSurfaceElevated,
+                border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder)
             ) {
-                IconButton(
-                    onClick = { viewMode = MapViewMode.MAP },
-                    modifier = Modifier
-                        .size(36.dp)
-                        .clip(RoundedCornerShape(18.dp))
-                        .background(if (viewMode == MapViewMode.MAP) OchrePrimary else Color.Transparent)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Map,
-                        contentDescription = "Map View",
-                        tint = if (viewMode == MapViewMode.MAP) DarkBackground else TextMuted,
-                        modifier = Modifier.size(18.dp)
-                    )
-                }
-                IconButton(
-                    onClick = { viewMode = MapViewMode.LIST },
-                    modifier = Modifier
-                        .size(36.dp)
-                        .clip(RoundedCornerShape(18.dp))
-                        .background(if (viewMode == MapViewMode.LIST) OchrePrimary else Color.Transparent)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.List,
-                        contentDescription = "List View",
-                        tint = if (viewMode == MapViewMode.LIST) DarkBackground else TextMuted,
-                        modifier = Modifier.size(18.dp)
-                    )
-                }
-            }
-        }
-
-        Spacer(modifier = Modifier.height(Spacing.xs))
-
-        // GPS State & Location Control Card (Truth Banner)
-        OTCard {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = "Location State (In-Memory)",
-                        style = MaterialTheme.typography.titleMedium,
-                        color = TextPrimary
-                    )
-                    when (val state = locationState) {
-                        is GeolocationState.Idle -> {
-                            Text(
-                                text = "Bhubaneswar reference point (20.2961°N, 85.8245°E)",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = TextMuted
+                Row(modifier = Modifier.padding(2.dp)) {
+                    IconButton(
+                        onClick = { viewMode = MapViewMode.MAP },
+                        modifier = Modifier
+                            .size(36.dp)
+                            .background(
+                                if (viewMode == MapViewMode.MAP) OchrePrimary else Color.Transparent,
+                                RoundedCornerShape(10.dp)
                             )
-                        }
-                        is GeolocationState.Requesting -> {
-                            Text(
-                                text = "Acquiring GPS lock...",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = OchrePrimary
-                            )
-                        }
-                        is GeolocationState.Granted -> {
-                            Text(
-                                text = "Your location: %.4f°N, %.4f°E (±%.0fm)".format(
-                                    state.lat,
-                                    state.lon,
-                                    state.accuracyMeters ?: 0f
-                                ),
-                                style = MaterialTheme.typography.bodySmall,
-                                color = StatusSuccess,
-                                fontWeight = FontWeight.SemiBold
-                            )
-                        }
-                        is GeolocationState.ReferenceOrigin -> {
-                            Text(
-                                text = "Bhubaneswar reference point (GPS unavailable)",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = OchreLight
-                            )
-                        }
-                        is GeolocationState.Denied -> {
-                            Text(
-                                text = "Bhubaneswar reference point (Permission Denied)",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = StatusWarning
-                            )
-                        }
-                        is GeolocationState.Unavailable -> {
-                            Text(
-                                text = "Bhubaneswar reference point (GPS Offline)",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = StatusWarning
-                            )
-                        }
-                    }
-                }
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    if (locationState is GeolocationState.Granted) {
-                        IconButton(onClick = { locationManager.clear() }) {
-                            Icon(
-                                imageVector = Icons.Default.Clear,
-                                contentDescription = "Clear in-memory location",
-                                tint = TextMuted
-                            )
-                        }
-                    }
-
-                    IconButton(onClick = { handleLocationRequest() }) {
+                    ) {
                         Icon(
-                            imageVector = if (locationState is GeolocationState.Granted) Icons.Default.MyLocation else Icons.Default.LocationSearching,
-                            contentDescription = "Request GPS Location",
-                            tint = OchrePrimary
+                            imageVector = Icons.Default.Map,
+                            contentDescription = "Map View",
+                            tint = if (viewMode == MapViewMode.MAP) DarkBackground else TextMuted,
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                    IconButton(
+                        onClick = { viewMode = MapViewMode.LIST },
+                        modifier = Modifier
+                            .size(36.dp)
+                            .background(
+                                if (viewMode == MapViewMode.LIST) OchrePrimary else Color.Transparent,
+                                RoundedCornerShape(10.dp)
+                            )
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.List,
+                            contentDescription = "List View",
+                            tint = if (viewMode == MapViewMode.LIST) DarkBackground else TextMuted,
+                            modifier = Modifier.size(18.dp)
                         )
                     }
                 }
@@ -349,8 +240,94 @@ fun MapScreen(
 
         Spacer(modifier = Modifier.height(Spacing.xs))
 
-        // Filter Chips & Transit Overlay Toggle
-        val categories = listOf("All", "Saved", "heritage", "temple", "nature", "wildlife", "craft", "beach")
+        // 2. Geolocation Status Banner
+        Surface(
+            shape = RoundedCornerShape(12.dp),
+            color = DarkSurfaceElevated,
+            border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorderSubtle),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.padding(horizontal = Spacing.md, vertical = 8.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Icon(
+                        imageVector = if (isLiveGps) Icons.Default.MyLocation else Icons.Default.LocationOn,
+                        contentDescription = null,
+                        tint = if (isLiveGps) SimilipalEmerald else OchrePrimary,
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Spacer(modifier = Modifier.width(Spacing.xs))
+                    when (val state = locationState) {
+                        is GeolocationState.LiveLocation -> {
+                            Text(
+                                text = "LIVE GPS: ${"%.4f".format(state.lat)}°N, ${"%.4f".format(state.lon)}°E (±${state.accuracyMeters.toInt()}m)",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = SimilipalEmerald,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                        }
+                        is GeolocationState.LastKnownLocation -> {
+                            Text(
+                                text = "LAST GPS: ${"%.4f".format(state.lat)}°N, ${"%.4f".format(state.lon)}°E",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = SimilipalEmerald,
+                                fontWeight = FontWeight.Medium
+                            )
+                        }
+                        is GeolocationState.Granted -> {
+                            Text(
+                                text = "GPS: ${"%.4f".format(state.lat)}°N, ${"%.4f".format(state.lon)}°E",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = SimilipalEmerald,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                        }
+                        is GeolocationState.Requesting -> {
+                            Text(
+                                text = "Acquiring live GPS fix...",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = OchrePrimary
+                            )
+                        }
+                        else -> {
+                            Text(
+                                text = strings.fromBhubaneswarReference,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = TextSecondary
+                            )
+                        }
+                    }
+                }
+
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    if (isLiveGps) {
+                        IconButton(onClick = { locationManager.clear() }, modifier = Modifier.size(36.dp)) {
+                            Icon(Icons.Default.Clear, contentDescription = "Clear", tint = TextMuted, modifier = Modifier.size(16.dp))
+                        }
+                    }
+
+                    IconButton(onClick = { handleLocationRequest() }, modifier = Modifier.size(36.dp)) {
+                        Icon(
+                            imageVector = if (isLiveGps) Icons.Default.MyLocation else Icons.Default.LocationSearching,
+                            contentDescription = "Request Location",
+                            tint = OchrePrimary,
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(Spacing.xs))
+
+        // 3. Category Filter Chips & Transit Toggle
+        val categories = listOf("All", "heritage", "temple", "nature", "wildlife", "beach", "museum")
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -358,7 +335,6 @@ fun MapScreen(
             horizontalArrangement = Arrangement.spacedBy(Spacing.xs),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Transit toggle chip
             FilterChip(
                 selected = showTransitStops,
                 onClick = { showTransitStops = !showTransitStops },
@@ -381,8 +357,8 @@ fun MapScreen(
 
             categories.forEach { cat ->
                 ContextChip(
-                    label = if (cat == "All") "All Places" else cat.replaceFirstChar { it.uppercase() },
-                    isSelected = selectedCategory == cat,
+                    label = if (cat == "All") strings.filterAll else cat.replaceFirstChar { it.uppercase() },
+                    isSelected = selectedCategory.equals(cat, ignoreCase = true),
                     onClick = { selectedCategory = cat }
                 )
             }
@@ -391,7 +367,7 @@ fun MapScreen(
         Spacer(modifier = Modifier.height(Spacing.xs))
 
         if (viewMode == MapViewMode.MAP) {
-            // Interactive Native Spatial Map View
+            // Interactive Native Spatial Basemap View
             Box(
                 modifier = Modifier
                     .weight(1f)
@@ -400,13 +376,12 @@ fun MapScreen(
                     .background(DarkSurfaceElevated)
                     .border(1.dp, DarkBorder, RoundedCornerShape(16.dp))
             ) {
-                // Coordinate Projection Canvas
                 InteractiveOdishaMapCanvas(
                     places = filteredPlaces,
                     transitStops = if (showTransitStops) transitStops else emptyList(),
                     currentLat = currentLat,
                     currentLon = currentLon,
-                    isGpsGranted = locationState is GeolocationState.Granted,
+                    isGpsGranted = isLiveGps,
                     zoom = zoom,
                     panOffsetX = panOffsetX,
                     panOffsetY = panOffsetY,
@@ -431,7 +406,7 @@ fun MapScreen(
                     }
                 )
 
-                // Map Overlay Floating Controls (Zoom in, Zoom out, Reset Center)
+                // Map Overlay Floating Controls
                 Column(
                     modifier = Modifier
                         .align(Alignment.TopEnd)
@@ -468,148 +443,111 @@ fun MapScreen(
                     }
                 }
 
-                // Legend / Provenance Indicator Overlay
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.TopStart)
-                        .padding(Spacing.sm)
-                        .clip(RoundedCornerShape(8.dp))
-                        .background(DarkSurface.copy(alpha = 0.85f))
-                        .padding(horizontal = 8.dp, vertical = 4.dp)
-                ) {
-                    Text(
-                        text = "Odisha Projection (${filteredPlaces.size} places)",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = OchreLight,
-                        fontWeight = FontWeight.Medium
-                    )
-                }
+                // Bottom Selected Place Preview Card
+                val place = selectedPlace
+                if (place != null) {
+                    val distKm = if (place.lat != null && place.lon != null) {
+                        LocationManager.haversineDistanceKm(currentLat, currentLon, place.lat, place.lon)
+                    } else null
+                    val rawUrl = place.images.firstOrNull()?.url
+                    val qualifiedUrl = ApiConfig.resolveImageUrl(rawUrl)
 
-                // Selected Pin Bottom Card
-                if (selectedPlace != null || selectedStop != null) {
                     Box(
                         modifier = Modifier
                             .align(Alignment.BottomCenter)
+                            .padding(Spacing.md)
                             .fillMaxWidth()
-                            .padding(Spacing.sm)
                     ) {
-                        if (selectedPlace != null) {
-                            val place = selectedPlace!!
-                            val distKm = if (place.lat != null && place.lon != null) {
-                                LocationManager.haversineDistanceKm(currentLat, currentLon, place.lat, place.lon)
-                            } else null
-                            val distanceMeters = distKm?.times(1000)
-                            val firstMile = distanceMeters?.let { FirstMileEstimator.getRecommendation(it) }
-
-                            OTCard(onClick = { onPlaceClick(place.id) }) {
-                                Column {
+                        Card(
+                            shape = RoundedCornerShape(16.dp),
+                            colors = CardDefaults.cardColors(containerColor = DarkSurfaceElevated),
+                            border = androidx.compose.foundation.BorderStroke(1.dp, OchrePrimary.copy(alpha = 0.5f)),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Column(modifier = Modifier.padding(Spacing.md)) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
                                     Row(
-                                        modifier = Modifier.fillMaxWidth(),
-                                        horizontalArrangement = Arrangement.SpaceBetween,
-                                        verticalAlignment = Alignment.CenterVertically
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        modifier = Modifier.weight(1f)
                                     ) {
-                                        Column(modifier = Modifier.weight(1f)) {
+                                        Box(
+                                            modifier = Modifier
+                                                .size(48.dp)
+                                                .clip(RoundedCornerShape(8.dp))
+                                                .background(DarkSurfaceVariant)
+                                        ) {
+                                            if (!qualifiedUrl.isNullOrBlank()) {
+                                                AsyncImage(
+                                                    model = qualifiedUrl,
+                                                    contentDescription = place.name,
+                                                    contentScale = ContentScale.Crop,
+                                                    modifier = Modifier.fillMaxSize()
+                                                )
+                                            } else {
+                                                CategoryThemedPlaceholder(
+                                                    category = place.category,
+                                                    modifier = Modifier.fillMaxSize()
+                                                )
+                                            }
+                                        }
+                                        Spacer(modifier = Modifier.width(Spacing.sm))
+                                        Column {
                                             Text(
                                                 text = place.name,
                                                 style = MaterialTheme.typography.titleMedium,
-                                                color = TextPrimary
+                                                color = TextPrimary,
+                                                fontWeight = FontWeight.Bold,
+                                                maxLines = 1
                                             )
                                             Text(
-                                                text = "${place.district ?: "Odisha"} • ${place.category.uppercase()}",
-                                                style = MaterialTheme.typography.bodySmall,
+                                                text = "${place.category.uppercase()} • ${place.district ?: ""}".trim(),
+                                                style = MaterialTheme.typography.labelSmall,
                                                 color = TextSecondary
                                             )
                                         }
-                                        IconButton(onClick = { selectedPlace = null }, modifier = Modifier.size(24.dp)) {
-                                            Icon(Icons.Default.Close, contentDescription = "Close", tint = TextMuted)
-                                        }
                                     }
 
-                                    if (distKm != null) {
-                                        Spacer(modifier = Modifier.height(Spacing.xs))
-                                        Row(
-                                            modifier = Modifier.fillMaxWidth(),
-                                            horizontalArrangement = Arrangement.SpaceBetween,
-                                            verticalAlignment = Alignment.CenterVertically
-                                        ) {
-                                            Text(
-                                                text = "%.1f km · straight-line".format(distKm),
-                                                style = MaterialTheme.typography.labelSmall,
-                                                color = OchreLight,
-                                                fontWeight = FontWeight.Bold
-                                            )
-                                            if (firstMile != null) {
-                                                Text(
-                                                    text = firstMile,
-                                                    style = MaterialTheme.typography.labelSmall,
-                                                    color = TealLight
-                                                )
-                                            }
-                                        }
-                                    }
-
-                                    Spacer(modifier = Modifier.height(Spacing.xs))
-                                    Button(
-                                        onClick = { onPlaceClick(place.id) },
-                                        modifier = Modifier.fillMaxWidth(),
-                                        colors = ButtonDefaults.buttonColors(containerColor = OchrePrimary, contentColor = DarkBackground)
+                                    IconButton(
+                                        onClick = { selectedPlace = null },
+                                        modifier = Modifier.size(28.dp)
                                     ) {
-                                        Text("View Place Details", fontWeight = FontWeight.Bold)
+                                        Icon(Icons.Default.Close, contentDescription = "Close", tint = TextMuted, modifier = Modifier.size(16.dp))
                                     }
                                 }
-                            }
-                        } else if (selectedStop != null) {
-                            val stop = selectedStop!!
-                            OTCard {
-                                Column {
+
+                                if (distKm != null) {
+                                    Spacer(modifier = Modifier.height(Spacing.xs))
                                     Row(
-                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
                                         horizontalArrangement = Arrangement.SpaceBetween,
-                                        verticalAlignment = Alignment.CenterVertically
+                                        modifier = Modifier.fillMaxWidth()
                                     ) {
-                                        Row(verticalAlignment = Alignment.CenterVertically) {
-                                            Icon(Icons.Default.DirectionsBus, contentDescription = null, tint = TealLight)
-                                            Spacer(modifier = Modifier.width(Spacing.xs))
-                                            Column {
-                                                Text(
-                                                    text = stop.name,
-                                                    style = MaterialTheme.typography.titleMedium,
-                                                    color = TextPrimary
-                                                )
-                                                if (!stop.publishedName.isNullOrBlank() && stop.publishedName != stop.name) {
-                                                    Text(
-                                                        text = "Official: ${stop.publishedName}",
-                                                        style = MaterialTheme.typography.bodySmall,
-                                                        color = TextMuted
-                                                    )
-                                                }
-                                            }
-                                        }
-                                        IconButton(onClick = { selectedStop = null }, modifier = Modifier.size(24.dp)) {
-                                            Icon(Icons.Default.Close, contentDescription = "Close", tint = TextMuted)
-                                        }
+                                        Text(
+                                            text = "${"%.1f".format(distKm)} km ${strings.straightLineDistance}",
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = SunTempleGold,
+                                            fontWeight = FontWeight.SemiBold
+                                        )
+                                        TruthBadge(
+                                            label = strings.badgeVerified,
+                                            backgroundColor = SimilipalEmerald.copy(alpha = 0.2f),
+                                            contentColor = SimilipalEmerald
+                                        )
                                     }
+                                }
 
-                                    Spacer(modifier = Modifier.height(Spacing.xs))
-                                    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                                        stop.routes.forEach { r ->
-                                            Box(
-                                                modifier = Modifier
-                                                    .clip(RoundedCornerShape(4.dp))
-                                                    .background(TealDark.copy(alpha = 0.5f))
-                                                    .padding(horizontal = 6.dp, vertical = 2.dp)
-                                            ) {
-                                                Text("Route ${r.routeNumber}", style = MaterialTheme.typography.labelSmall, color = TealLight)
-                                            }
-                                        }
-                                    }
-
-                                    Spacer(modifier = Modifier.height(Spacing.xs))
-                                    Text(
-                                        text = "Scheduled data • Route geometry unavailable",
-                                        style = MaterialTheme.typography.labelSmall,
-                                        color = TextMuted
-                                    )
+                                Spacer(modifier = Modifier.height(Spacing.sm))
+                                Button(
+                                    onClick = { onPlaceClick(place.id) },
+                                    colors = ButtonDefaults.buttonColors(containerColor = OchrePrimary, contentColor = DarkBackground),
+                                    shape = RoundedCornerShape(10.dp),
+                                    modifier = Modifier.fillMaxWidth().height(42.dp)
+                                ) {
+                                    Text(strings.viewDetailsAction, fontWeight = FontWeight.Bold)
                                 }
                             }
                         }
@@ -618,82 +556,47 @@ fun MapScreen(
             }
         } else {
             // List View Mode
-            Text(
-                text = "Destination Pins & First-Mile Guidance (${filteredPlaces.size})",
-                style = MaterialTheme.typography.titleMedium,
-                color = TextPrimary
-            )
-            Spacer(modifier = Modifier.height(Spacing.xs))
+            LazyColumn(
+                verticalArrangement = Arrangement.spacedBy(Spacing.sm),
+                modifier = Modifier.fillMaxSize()
+            ) {
+                items(filteredPlaces, key = { it.id }) { place ->
+                    val distKm = if (place.lat != null && place.lon != null) {
+                        LocationManager.haversineDistanceKm(currentLat, currentLon, place.lat, place.lon)
+                    } else null
 
-            if (filteredPlaces.isEmpty()) {
-                EmptyState(
-                    title = "No destinations found",
-                    subtitle = "No verified places match the selected category filter."
-                )
-            } else {
-                LazyColumn(
-                    modifier = Modifier.weight(1f),
-                    verticalArrangement = Arrangement.spacedBy(Spacing.sm)
-                ) {
-                    items(filteredPlaces, key = { it.id }) { place ->
-                        val distKm = if (place.lat != null && place.lon != null) {
-                            LocationManager.haversineDistanceKm(currentLat, currentLon, place.lat, place.lon)
-                        } else null
-
-                        val distanceMeters = distKm?.times(1000)
-                        val firstMileGuidance = distanceMeters?.let { FirstMileEstimator.getRecommendation(it) }
-
-                        OTCard(onClick = { onPlaceClick(place.id) }) {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Icon(Icons.Default.Place, contentDescription = null, tint = OchrePrimary)
-                                Spacer(modifier = Modifier.width(Spacing.sm))
-                                Column(modifier = Modifier.weight(1f)) {
-                                    Row(
-                                        modifier = Modifier.fillMaxWidth(),
-                                        horizontalArrangement = Arrangement.SpaceBetween,
-                                        verticalAlignment = Alignment.CenterVertically
-                                    ) {
-                                        Text(
-                                            text = place.name,
-                                            style = MaterialTheme.typography.titleMedium,
-                                            color = TextPrimary,
-                                            modifier = Modifier.weight(1f)
-                                        )
-                                        if (distKm != null) {
-                                            Text(
-                                                text = "%.1f km · straight-line".format(distKm),
-                                                style = MaterialTheme.typography.labelSmall,
-                                                color = OchreLight,
-                                                fontWeight = FontWeight.SemiBold
-                                            )
-                                        }
-                                    }
-
-                                    Text(
-                                        text = "${place.district ?: "Odisha"} • ${place.category.replace("_", " ").uppercase()}",
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = TextSecondary
-                                    )
-
-                                    if (firstMileGuidance != null) {
-                                        Spacer(modifier = Modifier.height(4.dp))
-                                        Row(verticalAlignment = Alignment.CenterVertically) {
-                                            Icon(
-                                                imageVector = Icons.AutoMirrored.Filled.DirectionsWalk,
-                                                contentDescription = null,
-                                                tint = TealLight,
-                                                modifier = Modifier.size(14.dp)
-                                            )
-                                            Spacer(modifier = Modifier.width(4.dp))
-                                            Text(
-                                                text = "First-Mile: $firstMileGuidance",
-                                                style = MaterialTheme.typography.labelSmall,
-                                                color = TealLight,
-                                                fontWeight = FontWeight.Medium
-                                            )
-                                        }
-                                    }
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = DarkSurfaceElevated,
+                        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorderSubtle),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onPlaceClick(place.id) }
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(Spacing.md)
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(44.dp)
+                                    .clip(RoundedCornerShape(8.dp))
+                                    .background(DarkSurfaceVariant)
+                            ) {
+                                val url = ApiConfig.resolveImageUrl(place.images.firstOrNull()?.url)
+                                if (!url.isNullOrBlank()) {
+                                    AsyncImage(model = url, contentDescription = null, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
+                                } else {
+                                    CategoryThemedPlaceholder(category = place.category, modifier = Modifier.fillMaxSize())
                                 }
+                            }
+                            Spacer(modifier = Modifier.width(Spacing.sm))
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(text = place.name, style = MaterialTheme.typography.titleMedium, color = TextPrimary, fontWeight = FontWeight.Bold)
+                                Text(text = "${place.category.uppercase()} • ${place.district ?: ""}".trim(), style = MaterialTheme.typography.bodySmall, color = TextSecondary)
+                            }
+                            if (distKm != null) {
+                                Text(text = "${"%.1f".format(distKm)} km", style = MaterialTheme.typography.labelSmall, color = SunTempleGold, fontWeight = FontWeight.Bold)
                             }
                         }
                     }
@@ -703,9 +606,6 @@ fun MapScreen(
     }
 }
 
-/**
- * 2D Interactive Canvas projecting geographic coordinates into screen coordinates.
- */
 @Composable
 private fun InteractiveOdishaMapCanvas(
     places: List<PlaceDetailDto>,
@@ -718,17 +618,17 @@ private fun InteractiveOdishaMapCanvas(
     panOffsetY: Float,
     selectedPlaceId: String?,
     selectedStopId: String?,
-    onTransform: (zoomChange: Float, panChange: Offset) -> Unit,
+    onTransform: (Float, Offset) -> Unit,
     onPlaceSelected: (PlaceDetailDto) -> Unit,
     onStopSelected: (NearbyStopDto) -> Unit,
-    onBackgroundTapped: () -> Unit
+    onBackgroundTapped: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    // Spatial pin projection cache for hit testing
     var projectedPlacePins by remember { mutableStateOf<List<Pair<PlaceDetailDto, Offset>>>(emptyList()) }
     var projectedStopPins by remember { mutableStateOf<List<Pair<NearbyStopDto, Offset>>>(emptyList()) }
 
     Canvas(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .pointerInput(Unit) {
                 detectTransformGestures { _, pan, gestureZoom, _ ->
@@ -737,23 +637,21 @@ private fun InteractiveOdishaMapCanvas(
             }
             .pointerInput(projectedPlacePins, projectedStopPins) {
                 detectTapGestures { tapOffset ->
-                    val touchRadiusPx = 36.dp.toPx()
+                    val hitPlace = projectedPlacePins.firstOrNull { (_, offset) ->
+                        (offset - tapOffset).getDistance() <= 32.dp.toPx()
+                    }?.first
 
-                    // Check place pin hit
-                    val hitPlace = projectedPlacePins.firstOrNull { (_, pos) ->
-                        (pos - tapOffset).getDistance() <= touchRadiusPx
-                    }
                     if (hitPlace != null) {
-                        onPlaceSelected(hitPlace.first)
+                        onPlaceSelected(hitPlace)
                         return@detectTapGestures
                     }
 
-                    // Check transit stop pin hit
-                    val hitStop = projectedStopPins.firstOrNull { (_, pos) ->
-                        (pos - tapOffset).getDistance() <= touchRadiusPx
-                    }
+                    val hitStop = projectedStopPins.firstOrNull { (_, offset) ->
+                        (offset - tapOffset).getDistance() <= 24.dp.toPx()
+                    }?.first
+
                     if (hitStop != null) {
-                        onStopSelected(hitStop.first)
+                        onStopSelected(hitStop)
                         return@detectTapGestures
                     }
 
@@ -764,44 +662,43 @@ private fun InteractiveOdishaMapCanvas(
         val width = size.width
         val height = size.height
 
+        // Projection math
         fun projectLatLon(lat: Double, lon: Double): Offset {
-            val normX = ((lon - ODISHA_MIN_LON) / (ODISHA_MAX_LON - ODISHA_MIN_LON)).toFloat()
-            val normY = (1.0f - ((lat - ODISHA_MIN_LAT) / (ODISHA_MAX_LAT - ODISHA_MIN_LAT)).toFloat())
+            val normX = (lon - ODISHA_MIN_LON) / (ODISHA_MAX_LON - ODISHA_MIN_LON)
+            val normY = 1.0 - ((lat - ODISHA_MIN_LAT) / (ODISHA_MAX_LAT - ODISHA_MIN_LAT))
 
             val cx = width / 2f
             val cy = height / 2f
 
-            val basePx = normX * width
-            val basePy = normY * height
+            val rawX = normX.toFloat() * width
+            val rawY = normY.toFloat() * height
 
-            val transformedX = (basePx - cx) * zoom + cx + panOffsetX
-            val transformedY = (basePy - cy) * zoom + cy + panOffsetY
+            val scaledX = cx + (rawX - cx) * zoom + panOffsetX
+            val scaledY = cy + (rawY - cy) * zoom + panOffsetY
 
-            return Offset(transformedX, transformedY)
+            return Offset(scaledX, scaledY)
         }
 
-        // Draw grid lines
+        // Draw background grid lines
         drawGridLines(width, height)
 
-        // Draw Location Origin (User GPS or Bhubaneswar Reference Origin)
-        val locationPos = projectLatLon(currentLat, currentLon)
-        drawLocationMarker(locationPos, isGpsGranted)
+        // Draw User Location Beacon
+        val userLocationPos = projectLatLon(currentLat, currentLon)
+        drawLocationMarker(userLocationPos, isGpsGranted)
 
-        // Draw Canonical Places
+        // Draw Places Pins
         val placePins = mutableListOf<Pair<PlaceDetailDto, Offset>>()
         places.forEach { place ->
             if (place.lat != null && place.lon != null) {
                 val pos = projectLatLon(place.lat, place.lon)
-                if (pos.x in -50f..(width + 50f) && pos.y in -50f..(height + 50f)) {
-                    placePins.add(place to pos)
-                    val isSelected = place.id == selectedPlaceId
-                    drawPlacePin(pos, place.category, isSelected)
-                }
+                placePins.add(place to pos)
+                val isSelected = place.id == selectedPlaceId
+                drawPlacePin(pos, place.category, isSelected)
             }
         }
         projectedPlacePins = placePins
 
-        // Draw Transit Stops (Gated to max 30 in viewport for high performance)
+        // Draw Transit Stops
         val stopPins = mutableListOf<Pair<NearbyStopDto, Offset>>()
         val visibleStops = transitStops
             .map { it to projectLatLon(it.latitude, it.longitude) }
@@ -842,7 +739,7 @@ private fun DrawScope.drawGridLines(width: Float, height: Float) {
 }
 
 private fun DrawScope.drawLocationMarker(pos: Offset, isGpsGranted: Boolean) {
-    val color = if (isGpsGranted) StatusSuccess else SunTempleGold
+    val color = if (isGpsGranted) SimilipalEmerald else SunTempleGold
     // Outer ripple
     drawCircle(
         color = color.copy(alpha = 0.25f),

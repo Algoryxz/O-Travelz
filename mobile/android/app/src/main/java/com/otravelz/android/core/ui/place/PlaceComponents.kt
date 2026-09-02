@@ -1,7 +1,5 @@
 package com.otravelz.android.core.ui.place
 
-import android.content.Context
-import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -17,15 +15,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.otravelz.android.core.design.*
+import com.otravelz.android.core.i18n.LocalAppStrings
 import com.otravelz.android.core.network.ApiConfig
 import com.otravelz.android.data.model.PlaceDetailDto
+import com.otravelz.android.data.model.WeatherObservationDto
 
 @Composable
 fun PlaceHero(
@@ -38,7 +36,7 @@ fun PlaceHero(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .height(260.dp)
+            .height(280.dp)
             .background(DarkSurfaceVariant)
     ) {
         if (!imageUrl.isNullOrBlank()) {
@@ -49,17 +47,10 @@ fun PlaceHero(
                 modifier = Modifier.fillMaxSize()
             )
         } else {
-            Box(
-                contentAlignment = Alignment.Center,
+            CategoryThemedPlaceholder(
+                category = place.category,
                 modifier = Modifier.fillMaxSize()
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Landscape,
-                    contentDescription = null,
-                    tint = TextMuted,
-                    modifier = Modifier.size(56.dp)
-                )
-            }
+            )
         }
 
         // Gradient Scrim
@@ -69,7 +60,7 @@ fun PlaceHero(
                 .background(
                     Brush.verticalGradient(
                         colors = listOf(
-                            DarkBackground.copy(alpha = 0.6f),
+                            DarkBackground.copy(alpha = 0.65f),
                             Color.Transparent,
                             DarkBackground.copy(alpha = 0.95f)
                         )
@@ -98,9 +89,11 @@ fun PlaceHero(
 @Composable
 fun PlaceIdentity(
     place: PlaceDetailDto,
-    weather: com.otravelz.android.data.model.WeatherObservationDto? = null,
+    weather: WeatherObservationDto? = null,
     modifier: Modifier = Modifier
 ) {
+    val strings = LocalAppStrings.current
+
     Column(modifier = modifier.fillMaxWidth()) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -138,7 +131,7 @@ fun PlaceIdentity(
             }
 
             TruthBadge(
-                label = "VERIFIED CANONICAL",
+                label = strings.badgeVerified,
                 backgroundColor = SimilipalEmerald.copy(alpha = 0.2f),
                 contentColor = SimilipalEmerald
             )
@@ -199,7 +192,7 @@ fun PlaceIdentity(
                         )
                         Spacer(modifier = Modifier.width(4.dp))
                         Text(
-                            text = "${weather.temperature}°C ${weather.condition}",
+                            text = "${weather.temperature}°C ${weather.condition ?: ""}".trim(),
                             style = MaterialTheme.typography.labelSmall,
                             color = TextSecondary
                         )
@@ -219,6 +212,8 @@ fun PlaceActionBar(
     onRemind: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val strings = LocalAppStrings.current
+
     Row(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -229,11 +224,11 @@ fun PlaceActionBar(
             colors = ButtonDefaults.buttonColors(containerColor = OchrePrimary, contentColor = DarkBackground),
             shape = RoundedCornerShape(12.dp),
             contentPadding = PaddingValues(horizontal = 12.dp, vertical = 10.dp),
-            modifier = Modifier.weight(1.2f)
+            modifier = Modifier.weight(1.2f).height(48.dp)
         ) {
             Icon(Icons.Default.Route, contentDescription = null, modifier = Modifier.size(16.dp))
             Spacer(modifier = Modifier.width(4.dp))
-            Text("Plan Visit", fontWeight = FontWeight.Bold, maxLines = 1)
+            Text(strings.tripModeAction, fontWeight = FontWeight.Bold, maxLines = 1)
         }
 
         OutlinedButton(
@@ -247,7 +242,7 @@ fun PlaceActionBar(
                 1.dp,
                 if (isSaved) SunTempleGold else DarkBorderSubtle
             ),
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f).height(48.dp)
         ) {
             Icon(
                 imageVector = if (isSaved) Icons.Default.Bookmark else Icons.Default.BookmarkBorder,
@@ -255,27 +250,27 @@ fun PlaceActionBar(
                 modifier = Modifier.size(16.dp)
             )
             Spacer(modifier = Modifier.width(4.dp))
-            Text(if (isSaved) "Saved" else "Save", maxLines = 1)
+            Text(if (isSaved) strings.savedAction else strings.saveAction, maxLines = 1)
         }
 
         IconButton(
             onClick = onShare,
             modifier = Modifier
-                .size(42.dp)
+                .size(48.dp)
                 .background(DarkSurfaceElevated, RoundedCornerShape(12.dp))
                 .border(1.dp, DarkBorderSubtle, RoundedCornerShape(12.dp))
         ) {
-            Icon(Icons.Default.Share, contentDescription = "Share", tint = TextSecondary, modifier = Modifier.size(18.dp))
+            Icon(Icons.Default.Share, contentDescription = strings.shareAction, tint = TextSecondary, modifier = Modifier.size(18.dp))
         }
 
         IconButton(
             onClick = onRemind,
             modifier = Modifier
-                .size(42.dp)
+                .size(48.dp)
                 .background(DarkSurfaceElevated, RoundedCornerShape(12.dp))
                 .border(1.dp, DarkBorderSubtle, RoundedCornerShape(12.dp))
         ) {
-            Icon(Icons.Default.Notifications, contentDescription = "Remind", tint = SunTempleGold, modifier = Modifier.size(18.dp))
+            Icon(Icons.Default.Notifications, contentDescription = strings.remindAction, tint = SunTempleGold, modifier = Modifier.size(18.dp))
         }
     }
 }
@@ -285,6 +280,8 @@ fun PlaceVisitInfo(
     place: PlaceDetailDto,
     modifier: Modifier = Modifier
 ) {
+    val strings = LocalAppStrings.current
+
     Surface(
         shape = RoundedCornerShape(16.dp),
         color = DarkSurfaceElevated,
@@ -293,7 +290,7 @@ fun PlaceVisitInfo(
     ) {
         Column(modifier = Modifier.padding(Spacing.md)) {
             Text(
-                text = "Visit Essentials",
+                text = strings.visitEssentialsTitle,
                 style = MaterialTheme.typography.titleMedium,
                 color = TextPrimary,
                 fontWeight = FontWeight.Bold
@@ -313,7 +310,7 @@ fun PlaceVisitInfo(
                         Icon(Icons.Default.Schedule, contentDescription = null, tint = TextMuted, modifier = Modifier.size(14.dp))
                         Spacer(modifier = Modifier.width(4.dp))
                         Text(
-                            text = "~${place.avgVisitMinutes} mins visit",
+                            text = "~${place.avgVisitMinutes} mins",
                             style = MaterialTheme.typography.labelSmall,
                             color = TextSecondary
                         )
@@ -344,7 +341,7 @@ fun PlaceVisitInfo(
                     Icon(Icons.Default.LocationOn, contentDescription = null, tint = OchrePrimary, modifier = Modifier.size(16.dp))
                     Spacer(modifier = Modifier.width(6.dp))
                     Text(
-                        text = "Lat: ${"%.4f".format(place.lat)}, Lon: ${"%.4f".format(place.lon)}",
+                        text = "${"%.4f".format(place.lat)}°N, ${"%.4f".format(place.lon)}°E",
                         style = MaterialTheme.typography.bodySmall,
                         color = TextSecondary
                     )
@@ -360,6 +357,8 @@ fun PlaceTransportCard(
     onNavigateTransit: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val strings = LocalAppStrings.current
+
     Surface(
         shape = RoundedCornerShape(16.dp),
         color = DarkSurfaceElevated,
@@ -376,13 +375,13 @@ fun PlaceTransportCard(
                     Icon(Icons.Default.DirectionsBus, contentDescription = null, tint = RaghurajpurTerracotta, modifier = Modifier.size(20.dp))
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = "Getting There",
+                        text = strings.firstMileTitle,
                         style = MaterialTheme.typography.titleMedium,
                         color = TextPrimary,
                         fontWeight = FontWeight.Bold
                     )
                 }
-                TruthBadge(label = "SCHEDULED", backgroundColor = DarkSurfaceVariant, contentColor = SunTempleGold)
+                TruthBadge(label = strings.badgeScheduled, backgroundColor = DarkSurfaceVariant, contentColor = SunTempleGold)
             }
 
             Spacer(modifier = Modifier.height(Spacing.xs))
@@ -405,7 +404,7 @@ fun PlaceTransportCard(
                     Icon(Icons.Default.DirectionsWalk, contentDescription = null, tint = TextMuted, modifier = Modifier.size(14.dp))
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = "First-mile: Walk / short auto to nearest stop",
+                        text = strings.walkRecommended,
                         style = MaterialTheme.typography.labelSmall,
                         color = TextSecondary
                     )

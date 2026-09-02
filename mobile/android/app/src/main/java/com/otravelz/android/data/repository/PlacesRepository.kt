@@ -25,12 +25,28 @@ class PlacesRepository(
         }
     )
 
+    private fun enrichPlaceWithFallbackImages(place: PlaceDetailDto): PlaceDetailDto {
+        if (place.images.isNotEmpty()) return place
+        val fallback = bundledCatalogProvider?.getPlaceById(place.id)
+            ?: bundledCatalogProvider?.getBundledPlaces()?.firstOrNull { it.name.equals(place.name, ignoreCase = true) }
+        if (fallback != null && fallback.images.isNotEmpty()) {
+            return place.copy(images = fallback.images)
+        }
+        return place
+    }
+
+    private fun prioritizeVerifiedImages(places: List<PlaceDetailDto>): List<PlaceDetailDto> {
+        return places.map { enrichPlaceWithFallbackImages(it) }
+            .sortedWith(compareByDescending<PlaceDetailDto> { it.images.isNotEmpty() }.thenBy { it.name })
+    }
+
     suspend fun getPlacesWithProvenance(
         category: String? = null,
         district: String? = null
     ): NetworkResult<ProvenanceResult<List<PlaceDetailDto>>> {
         return try {
-            val res = apiService.listPlaces(category = category, district = district)
+            val rawRes = apiService.listPlaces(category = category, district = district)
+            val res = prioritizeVerifiedImages(rawRes)
             if (category == null && district == null) {
                 memoryCachedPlaces = res
                 // Pre-populate detail cache
@@ -51,7 +67,8 @@ class PlacesRepository(
                 NetworkResult.Success(ProvenanceResult(filtered, DataProvenance.CACHED))
             } else if (bundledCatalogProvider != null) {
                 // Offline bundled fallback
-                val fallback = bundledCatalogProvider.searchPlaces(category = category, district = district)
+                val rawFallback = bundledCatalogProvider.searchPlaces(category = category, district = district)
+                val fallback = prioritizeVerifiedImages(rawFallback)
                 if (fallback.isNotEmpty()) {
                     fallback.forEach { place -> detailCache[place.id] = place }
                     NetworkResult.Success(ProvenanceResult(fallback, DataProvenance.OFFLINE_FALLBACK))
@@ -81,22 +98,24 @@ class PlacesRepository(
         limit: Int = 50
     ): NetworkResult<List<PlaceDetailDto>> {
         return try {
-            val res = apiService.listPlaces(
+            val rawRes = apiService.listPlaces(
                 category = category?.ifBlank { null },
                 district = district?.ifBlank { null },
                 search = search?.ifBlank { null },
                 limit = limit
             )
+            val res = prioritizeVerifiedImages(rawRes)
             res.forEach { place -> detailCache[place.id] = place }
             NetworkResult.Success(res)
         } catch (e: Exception) {
             if (bundledCatalogProvider != null) {
-                val fallback = bundledCatalogProvider.searchPlaces(
+                val rawFallback = bundledCatalogProvider.searchPlaces(
                     search = search,
                     category = category,
                     district = district,
                     limit = limit
                 )
+                val fallback = prioritizeVerifiedImages(rawFallback)
                 if (fallback.isNotEmpty()) {
                     fallback.forEach { place -> detailCache[place.id] = place }
                     return NetworkResult.Success(fallback)
@@ -110,26 +129,29 @@ class PlacesRepository(
     suspend fun getPlaceById(id: String): NetworkResult<PlaceDetailDto> {
         // Fast LRU memory check
         detailCache[id]?.let { cached ->
-            return NetworkResult.Success(cached)
+            return NetworkResult.Success(enrichPlaceWithFallbackImages(cached))
         }
 
         return try {
-            val res = apiService.getPlaceDetail(id)
+            val raw = apiService.getPlaceDetail(id)
+            val res = enrichPlaceWithFallbackImages(raw)
             detailCache[id] = res
             NetworkResult.Success(res)
         } catch (e: retrofit2.HttpException) {
             // Check bundled fallback if 404 or server error
             bundledCatalogProvider?.getPlaceById(id)?.let {
-                detailCache[id] = it
-                return NetworkResult.Success(it)
+                val enriched = enrichPlaceWithFallbackImages(it)
+                detailCache[id] = enriched
+                return NetworkResult.Success(enriched)
             }
             val appError = AppError.fromThrowable(e)
             NetworkResult.Error(appError.message, cause = e)
         } catch (e: Exception) {
             // Check bundled fallback on offline/network exception
             bundledCatalogProvider?.getPlaceById(id)?.let {
-                detailCache[id] = it
-                return NetworkResult.Success(it)
+                val enriched = enrichPlaceWithFallbackImages(it)
+                detailCache[id] = enriched
+                return NetworkResult.Success(enriched)
             }
             val appError = AppError.fromThrowable(e)
             NetworkResult.Error(appError.message, cause = e)

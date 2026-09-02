@@ -22,7 +22,6 @@ import com.otravelz.android.core.design.*
 import com.otravelz.android.core.notifications.NotificationHelper
 import com.otravelz.android.core.ui.place.*
 import com.otravelz.android.data.repository.SavedPlacesRepository
-import com.otravelz.android.feature.home.EssentialChip
 import kotlinx.coroutines.launch
 
 @Composable
