@@ -18,13 +18,14 @@ export interface DestinationWorldAsset {
   mediaType: 'image' | 'video';
   posterUrl: string;
   poster_url: string; // Alias for backward compatibility & tests
-  fallbackPosterUrl?: string;
+  fallbackPosterUrl: string;
   videoUrl?: string;
   source: string;
   sourceUrl: string;
   license: string;
   attribution: string;
   verified: boolean;
+  verificationNote: string;
   destinationIdentity: string;
   foreground_texture: 'beach_sand' | 'coastal_surf' | 'water_ripple' | 'pine_mist' | 'forest_sal' | 'chlorite_stone' | 'hilltop_scrub';
   ambient_lighting: 'golden_coastal' | 'morning_mist' | 'ocean_breeze' | 'sunset_amber' | 'emerald_canopy';
@@ -51,6 +52,7 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     license: 'CC BY-SA 4.0',
     attribution: 'Photo by Tarunsamanta via Wikimedia Commons, licensed under CC BY-SA 4.0',
     verified: true,
+    verificationNote: 'Photograph visibly depicts the Puri sea beach coastline, fishing catamarans, and Bay of Bengal morning surf.',
     destinationIdentity: 'Puri coastline with golden sand beach, fishing boats, and Bay of Bengal morning surf.',
     foreground_texture: 'beach_sand',
     ambient_lighting: 'golden_coastal',
@@ -75,6 +77,7 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     license: 'CC BY-SA 4.0',
     attribution: 'Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0',
     verified: true,
+    verificationNote: 'Photograph visibly depicts Chandrabhaga shoreline with wide sands and open Bay of Bengal dawn horizon near Konark.',
     destinationIdentity: 'Chandrabhaga shoreline with wide sands and open Bay of Bengal dawn horizon.',
     foreground_texture: 'coastal_surf',
     ambient_lighting: 'sunset_amber',
@@ -99,6 +102,7 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     license: 'CC BY-SA 4.0',
     attribution: 'Photo via Wikimedia Commons, licensed under CC BY-SA 4.0',
     verified: true,
+    verificationNote: 'Photograph visibly depicts the tranquil southern coastal beach waters and casuarina pine tree sands of Gopalpur-on-Sea in Ganjam.',
     destinationIdentity: 'Gopalpur southern coastal waters with casuarina pine tree dunes and seaside horizon.',
     foreground_texture: 'beach_sand',
     ambient_lighting: 'ocean_breeze',
@@ -123,6 +127,7 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     license: 'CC BY-SA 4.0',
     attribution: 'Photo by Rangan Datta via Wikimedia Commons, licensed under CC BY-SA 4.0',
     verified: true,
+    verificationNote: 'Photograph visibly depicts the tranquil brackish waters of Satapada lagoon at Chilika Lake with wooden boats moored along the wetland shore.',
     destinationIdentity: 'Chilika tranquil blue lagoon waters with traditional wooden boats and island ridges.',
     foreground_texture: 'water_ripple',
     ambient_lighting: 'ocean_breeze',
@@ -147,6 +152,7 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     license: 'CC BY-SA 4.0',
     attribution: 'Photo via Wikimedia Commons, licensed under CC BY-SA 4.0',
     verified: true,
+    verificationNote: 'Photograph visibly depicts the Eastern Ghats mountain ranges, pine forest valley canopy, and misty highland terrain of Daringbadi.',
     destinationIdentity: 'Eastern Ghats mountain ranges, pine forest valleys, and highland mist of Daringbadi.',
     foreground_texture: 'pine_mist',
     ambient_lighting: 'morning_mist',
@@ -171,6 +177,7 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     license: 'CC BY-SA 3.0',
     attribution: 'Photo via Wikimedia Commons, licensed under CC BY-SA 3.0',
     verified: true,
+    verificationNote: 'Photograph visibly depicts the monumental two-tiered Barehipani waterfall cascading over the cliff in Similipal National Park surrounded by dense Sal forest.',
     destinationIdentity: 'Barehipani waterfall cascading through dense primeval Sal forest canopy in Similipal.',
     foreground_texture: 'forest_sal',
     ambient_lighting: 'emerald_canopy',
@@ -195,6 +202,7 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     license: 'CC BY-SA 4.0',
     attribution: 'Photo by Subhrajyoti07 via Wikimedia Commons, licensed under CC BY-SA 4.0',
     verified: true,
+    verificationNote: 'Photograph visibly depicts the center hub and intricate chlorite stone carving of the 24-spoke Surya Chakra wheel at Konark Sun Temple.',
     destinationIdentity: 'Konark Sun Temple 24-spoke chlorite stone Surya Chakra and architectural relief sculpture.',
     foreground_texture: 'chlorite_stone',
     ambient_lighting: 'golden_coastal',
@@ -219,6 +227,7 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     license: 'CC BY-SA 4.0',
     attribution: 'Photo by Saileshpat via Wikimedia Commons, licensed under CC BY-SA 4.0',
     verified: true,
+    verificationNote: 'Photograph visibly depicts the white hemispherical dome and crowning parasols of Dhauli Shanti Stupa standing atop Dhauli Giri.',
     destinationIdentity: 'Dhauli peace pagoda white stupa dome overlooking historic Daya river valley.',
     foreground_texture: 'hilltop_scrub',
     ambient_lighting: 'sunset_amber',

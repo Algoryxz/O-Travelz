@@ -14,6 +14,10 @@ if not settings.database_url.startswith("sqlite"):
         "pool_size": settings.db_pool_size,
         "max_overflow": settings.db_max_overflow,
     })
+else:
+    engine_kwargs.update({
+        "connect_args": {"check_same_thread": False},
+    })
 
 engine = create_engine(settings.database_url, **engine_kwargs)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, future=True)

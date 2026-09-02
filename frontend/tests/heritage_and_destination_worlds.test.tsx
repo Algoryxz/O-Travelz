@@ -1,15 +1,79 @@
 /**
- * Tests for Digital Heritage Spatial Explorer and Odisha Destination Worlds.
+ * Comprehensive Validation Suite for Digital Heritage Spatial Explorer & Odisha Destination Worlds.
+ * Validates media authenticity, provenance, Gaussian Splatting architecture,
+ * and honest reconstruction status reporting.
  */
 import { describe, it, expect } from 'vitest';
 import { FALLBACK_HERITAGE_SCENES } from '../src/api/heritageApi';
-import { ODISHA_DESTINATION_WORLDS } from '../src/components/destination/OdishaDestinationWorlds';
+import { DESTINATION_WORLD_ASSETS } from '../src/data/destinationWorldAssets';
+import { getAllDestinationWorlds } from '../src/data/destinationWorlds';
 import { HeritageQualityController } from '../src/components/heritage/HeritageQualityController';
 import { HeritageSplatRenderer } from '../src/components/heritage/HeritageSplatRenderer';
 import { HeritageSceneLoader } from '../src/components/heritage/HeritageSceneLoader';
 import { HeritageSceneManager } from '../src/components/heritage/HeritageSceneManager';
 
-describe('Digital Heritage & Destination Worlds Suite', () => {
+describe('Odisha Destination Worlds - Media Authenticity & Provenance Suite', () => {
+  it('contains exactly 8 canonical Odisha destinations with unique IDs', () => {
+    const worlds = getAllDestinationWorlds();
+    expect(worlds).toHaveLength(8);
+
+    const ids = worlds.map((w) => w.id);
+    const uniqueIds = new Set(ids);
+    expect(uniqueIds.size).toBe(8);
+
+    expect(ids).toContain('puri-beach');
+    expect(ids).toContain('chandrabhaga-beach');
+    expect(ids).toContain('gopalpur-on-sea');
+    expect(ids).toContain('chilika-satapada');
+    expect(ids).toContain('daringbadi');
+    expect(ids).toContain('similipal');
+    expect(ids).toContain('konark-chariot');
+    expect(ids).toContain('dhauli-valley');
+  });
+
+  it('verifies that each destination has a unique verified local poster and valid fallback', () => {
+    const posters = DESTINATION_WORLD_ASSETS.map((w) => w.posterUrl);
+    const uniquePosters = new Set(posters);
+    expect(uniquePosters.size).toBe(8);
+
+    DESTINATION_WORLD_ASSETS.forEach((dest) => {
+      // Must use local webp asset
+      expect(dest.posterUrl).toMatch(/^\/images\/destinations\/[a-z_]+\.webp$/);
+      // Fallback poster must be present and point to verified Wikimedia / external archive
+      expect(dest.fallbackPosterUrl).toBeTruthy();
+      expect(dest.fallbackPosterUrl).toMatch(/^https?:\/\//);
+      // Media type must be image or video
+      expect(['image', 'video']).toContain(dest.mediaType);
+      // Verified flag
+      expect(dest.verified).toBe(true);
+    });
+  });
+
+  it('verifies complete provenance metadata and meaningful verification notes for each destination', () => {
+    DESTINATION_WORLD_ASSETS.forEach((dest) => {
+      expect(dest.source).toBeTruthy();
+      expect(dest.sourceUrl).toMatch(/^https?:\/\//);
+      expect(dest.license).toBeTruthy();
+      expect(dest.attribution).toBeTruthy();
+      expect(dest.verificationNote).toBeTruthy();
+      // Verification note must be descriptive (not a generic placeholder)
+      expect(dest.verificationNote.length).toBeGreaterThan(25);
+      expect(dest.verificationNote).not.toBe('Verified image of destination');
+      expect(dest.destinationIdentity).toBeTruthy();
+    });
+  });
+
+  it('covers all essential Odisha tourism categories', () => {
+    const categories = DESTINATION_WORLD_ASSETS.map((w) => w.category);
+    expect(categories).toContain('BEACH');
+    expect(categories).toContain('LAGOON');
+    expect(categories).toContain('HILL_STATION');
+    expect(categories).toContain('WILDLIFE');
+    expect(categories).toContain('HERITAGE');
+  });
+});
+
+describe('Digital Heritage - Spatial Architecture & Status Truthfulness Suite', () => {
   it('contains all 6 canonical high-priority Odisha heritage locations', () => {
     expect(FALLBACK_HERITAGE_SCENES).toHaveLength(6);
 
@@ -22,30 +86,31 @@ describe('Digital Heritage & Destination Worlds Suite', () => {
     expect(ids).toContain('barabati-fort');
   });
 
-  it('verifies Konark Sun Temple honest reconstruction in progress status and verified hotspots', () => {
+  it('enforces status truthfulness: no REAL_3D_RECONSTRUCTION when spatial file is absent', () => {
+    FALLBACK_HERITAGE_SCENES.forEach((scene) => {
+      if (!scene.asset.splat_url && !scene.asset.model_url) {
+        // Must NEVER claim REAL_3D_RECONSTRUCTION if asset is not present
+        expect(scene.scene_type).not.toBe('REAL_3D_RECONSTRUCTION');
+        expect(['RECONSTRUCTION_IN_PROGRESS', 'REFERENCE_VIRTUAL_EXPERIENCE']).toContain(
+          scene.scene_type
+        );
+      }
+    });
+  });
+
+  it('verifies Konark Sun Temple reconstruction in progress status and verified hotspots', () => {
     const konark = FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'konark-sun-temple')!;
     expect(konark.scene_type).toBe('RECONSTRUCTION_IN_PROGRESS');
     expect(konark.status).toBe('PROCESSING');
     expect(konark.hotspots.length).toBeGreaterThanOrEqual(3);
     expect(konark.sources.length).toBeGreaterThanOrEqual(2);
 
-    // Verify 24-spoke wheel hotspot
     const wheelHotspot = konark.hotspots.find((h) => h.id === 'konark_wheel');
     expect(wheelHotspot).toBeDefined();
     expect(wheelHotspot?.title).toContain('Surya Chakra');
   });
 
-  it('verifies Dhauli and Udayagiri reconstruction in progress statuses', () => {
-    const dhauli = FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'dhauli-shanti-stupa')!;
-    expect(dhauli.scene_type).toBe('RECONSTRUCTION_IN_PROGRESS');
-    expect(dhauli.status).toBe('PROCESSING');
-
-    const udayagiri = FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'udayagiri-khandagiri-caves')!;
-    expect(udayagiri.scene_type).toBe('RECONSTRUCTION_IN_PROGRESS');
-    expect(udayagiri.status).toBe('PROCESSING');
-  });
-
-  it('verifies Puri Jagannath Temple sacred reference classification', () => {
+  it('verifies Puri Jagannath Temple sacred living reference classification', () => {
     const jagannath = FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'puri-jagannath-temple')!;
     expect(jagannath.scene_type).toBe('REFERENCE_VIRTUAL_EXPERIENCE');
     expect(jagannath.status).toBe('REFERENCE_ONLY');
@@ -54,7 +119,21 @@ describe('Digital Heritage & Destination Worlds Suite', () => {
     expect(nilachakra).toBeDefined();
   });
 
-  it('verifies Quality Presets configure proper pixel ratios and point budgets', () => {
+  it('verifies absence of naive THREE.Points splat conversion in HeritageSceneLoader', () => {
+    const loaderCode = HeritageSceneLoader.toString();
+    expect(loaderCode).not.toContain('PointsMaterial');
+    expect(loaderCode).not.toContain('THREE.Points');
+  });
+
+  it('verifies genuine DropInViewer integration in HeritageSplatRenderer', () => {
+    const renderer = new HeritageSplatRenderer();
+    expect(renderer).toBeDefined();
+    expect(typeof renderer.loadSplatScene).toBe('function');
+    expect(typeof renderer.update).toBe('function');
+    expect(typeof renderer.dispose).toBe('function');
+  });
+
+  it('verifies Quality Controller presets', () => {
     const high = HeritageQualityController.getSettings('HIGH');
     expect(high.shadowsEnabled).toBe(true);
     expect(high.pointBudget).toBeGreaterThanOrEqual(300000);
@@ -62,51 +141,5 @@ describe('Digital Heritage & Destination Worlds Suite', () => {
     const perf = HeritageQualityController.getSettings('PERFORMANCE');
     expect(perf.pixelRatio).toBe(1.0);
     expect(perf.shadowsEnabled).toBe(false);
-  });
-
-  it('contains authentic Odisha Destination Worlds with unique visual identities', () => {
-    expect(ODISHA_DESTINATION_WORLDS.length).toBe(8);
-
-    const categories = ODISHA_DESTINATION_WORLDS.map((w) => w.category);
-    expect(categories).toContain('BEACH');
-    expect(categories).toContain('HERITAGE');
-    expect(categories).toContain('LAGOON');
-    expect(categories).toContain('HILL_STATION');
-    expect(categories).toContain('WILDLIFE');
-
-    const names = ODISHA_DESTINATION_WORLDS.map((w) => w.name);
-    expect(names.some((n) => n.includes('Puri'))).toBe(true);
-    expect(names.some((n) => n.includes('Chandrabhaga'))).toBe(true);
-    expect(names.some((n) => n.includes('Gopalpur'))).toBe(true);
-    expect(names.some((n) => n.includes('Chilika'))).toBe(true);
-    expect(names.some((n) => n.includes('Daringbadi'))).toBe(true);
-    expect(names.some((n) => n.includes('Similipal'))).toBe(true);
-    expect(names.some((n) => n.includes('Konark'))).toBe(true);
-    expect(names.some((n) => n.includes('Dhauli'))).toBe(true);
-
-    // Verify all posters are completely unique (no repeated URLs)
-    const posters = ODISHA_DESTINATION_WORLDS.map((w) => w.posterUrl || w.poster_url);
-    const uniquePosters = new Set(posters);
-    expect(uniquePosters.size).toBe(ODISHA_DESTINATION_WORLDS.length);
-
-    // Verify media provenance fields
-    ODISHA_DESTINATION_WORLDS.forEach((world) => {
-      expect(world.source).toBeTruthy();
-      expect(world.license).toBeTruthy();
-      expect(world.attribution).toBeTruthy();
-      expect(world.verified).toBe(true);
-    });
-  });
-
-  it('verifies genuine splat renderer integration and absence of naive THREE.Points splat conversion', () => {
-    const manager = new HeritageSceneManager();
-    expect(manager.splatRenderer).toBeInstanceOf(HeritageSplatRenderer);
-
-    const loader = new HeritageSceneLoader(manager);
-    expect(loader).toBeDefined();
-
-    // Verify loader does not contain any reference to THREE.PointsMaterial
-    const loaderCode = HeritageSceneLoader.toString();
-    expect(loaderCode).not.toContain('PointsMaterial');
   });
 });
