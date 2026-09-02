@@ -15,20 +15,20 @@ Mass-building of UI screens is disallowed until data contracts, domain models, a
 
 ## 2. The 18 Implementation Phases
 
-### Phase 1: Master Audit & Classification `[x] COMPLETE`
+### Phase 1: Master Audit & Classification `[x] IMPLEMENTED / VERIFIED`
 - [x] **1.1** Audit old mobile code across `PORT_TO_KMP`, `PORT_TO_ANDROID_V4`, `PORT_TO_IOS_V4`, `REFERENCE_ONLY`, `DELETE_FROM_V4`.
 - [x] **1.2** Author `docs/V4_MASTER_AUDIT.md`.
 
 ---
 
-### Phase 2: Fresh Branch Initialization `[x] COMPLETE`
+### Phase 2: Fresh Branch Initialization `[x] IMPLEMENTED / VERIFIED`
 - [x] **2.1** Verify commit reference on `main` (`51ab34ed0342d575e55ff799189b3dd19e8aee84`).
 - [x] **2.2** Create and push `feature/v4-platform-rebuild` to remote origin.
 
 ---
 
-### Phase 3: Extract Reusable Domain Logic & Contracts `[/] IN PROGRESS`
-- [x] **3.1** Author architectural specifications:
+### Phase 3: Architecture & Domain Specifications `[x] IMPLEMENTED / VERIFIED`
+- [x] **3.1** Author all authoritative V4 architectural specifications:
   - `docs/V4_PRODUCT_ARCHITECTURE.md`
   - `docs/V4_DATA_GRAPH.md`
   - `docs/V4_TRANSPORT_ARCHITECTURE.md`
@@ -41,26 +41,25 @@ Mass-building of UI screens is disallowed until data contracts, domain models, a
   - `docs/V4_IOS_PARITY_MATRIX.md`
   - `docs/V4_APPLE_READINESS.md`
   - `docs/V4_BACKLOG.md`
-- [ ] **3.2** Extract Haversine distance math, First-Mile thresholds, and timetable logic into pure Kotlin files for KMP core.
 
 ---
 
-### Phase 4: Clean Legacy Mobile from V4 Worktree `[ ] NOT STARTED`
-- [ ] **4.1** Clear legacy `mobile/android/` UI screens and screenshot artifacts on `feature/v4-platform-rebuild`.
-- [ ] **4.2** Establish clean root layout: `mobile/shared/`, `mobile/android/`, `mobile/ios/`.
+### Phase 4: Clean Legacy Mobile Worktree `[x] IMPLEMENTED / VERIFIED`
+- [x] **4.1** Clear legacy `mobile/android/` UI screens and screenshot artifacts on `feature/v4-platform-rebuild`.
+- [x] **4.2** Establish clean root layout: `mobile/shared/`, `mobile/android/`, `mobile/ios/`.
 
 ---
 
-### Phase 5: KMP Shared Core Skeleton (`mobile/shared/`) `[ ] NOT STARTED`
-- [ ] **5.1** Setup Gradle KMP build with JVM/Android and Apple XCFramework targets.
-- [ ] **5.2** Implement `com.otravelz.shared.domain.*` (PlaceSummary, PlaceDetail, TransitStop, ItineraryPlan, WeatherContext).
-- [ ] **5.3** Implement `HaversineDistance`, `GeoBoundingBox`, `FirstMileEngine`, `TimetableEngine`, `ItineraryRules`, `SearchFilterEngine`.
-- [ ] **5.4** Implement `LocalizationKeys` and `GreetingEngine` (keys only).
-- [ ] **5.5** Setup `commonTest` suite for deterministic math and engines.
+### Phase 5: KMP Shared Core Skeleton (`mobile/shared/`) `[/] IN PROGRESS`
+- [ ] **5.1** Setup Gradle KMP build with JVM/Android and Apple XCFramework targets (stdlib only).
+- [ ] **5.2** Implement `com.otravelz.shared.geo` (`GeoPoint`, `HaversineDistance`, `OdishaBounds`).
+- [ ] **5.3** Implement `com.otravelz.shared.engine` (`FirstMileEngine`, `TimetableEngine`, `SearchFilterEngine`).
+- [ ] **5.4** Implement `com.otravelz.shared.provenance` (`DataProvenance`, `LocationState`, `WeatherState`).
+- [ ] **5.5** Setup and run `commonTest` suite for deterministic math and engines.
 
 ---
 
-### Phase 6: Fresh Android Shell (`mobile/android/`) `[ ] NOT STARTED`
+### Phase 6: Fresh Android Shell (`mobile/android/`) `[ ] NOT_STARTED`
 - [ ] **6.1** Initialize clean Android app with Kotlin 2.0+ and Jetpack Compose (Material 3).
 - [ ] **6.2** Link `:mobile:shared` dependency.
 - [ ] **6.3** Implement 5-tab scaffold: `Home`, `Explore`, `Plan`, `Trips`, `You`.
@@ -68,7 +67,7 @@ Mass-building of UI screens is disallowed until data contracts, domain models, a
 
 ---
 
-### Phase 7: Fresh iOS Shell (`mobile/ios/`) `[ ] NOT STARTED`
+### Phase 7: Fresh iOS Shell (`mobile/ios/`) `[ ] NOT_STARTED`
 - [ ] **7.1** Initialize clean Xcode project with Swift 5.9+ / SwiftUI (iOS 17.0+).
 - [ ] **7.2** Link `OTravelzCore.xcframework`.
 - [ ] **7.3** Implement 5-tab shell (`TabView` with `NavigationStack`).
@@ -77,69 +76,69 @@ Mass-building of UI screens is disallowed until data contracts, domain models, a
 
 ---
 
-### Phase 8: New Web Information Architecture (`frontend/`) `[ ] NOT STARTED`
+### Phase 8: New Web Information Architecture (`frontend/`) `[ ] NOT_STARTED`
 - [ ] **8.1** Modernize Web IA to 8 primary sections: `Explore`, `Plan`, `Map`, `Transport`, `Culture`, `Artisans`, `Stories`, `Community`.
 - [ ] **8.2** Apply *Modern Odisha Cultural Atlas* design direction with warm sandstone and slate dark modes.
 
 ---
 
-### Phase 9: Design System Prototypes & Brand Integration `[ ] NOT STARTED`
+### Phase 9: Design System Prototypes & Brand Integration `[ ] NOT_STARTED`
 - [ ] **9.1** Standardize canonical SVG logos and brand assets across Web, Android, and iOS.
-- [ ] **9.2** Implement `TruthBadge` component across all three platforms (`VERIFIED`, `SCHEDULED`, `LIVE`, `ESTIMATED`, `FALLBACK`).
+- [ ] **9.2** Implement `TruthBadge` component across all three platforms (`VERIFIED_OFFICIAL`, `SCHEDULED`, `LIVE`, `ESTIMATED`, `FALLBACK`).
 
 ---
 
-### Phase 10: Places & Artisans Data Layer `[ ] NOT STARTED`
+### Phase 10: Places & Artisans Data Layer `[ ] NOT_STARTED`
 - [ ] **10.1** Integrate 12 living craft traditions and verified artisan clusters (Raghurajpur, Pipili, Cuttack Tarakasi, Sambalpuri).
 - [ ] **10.2** Expand backend models and database migrations for `CraftTradition`, `ArtisanCluster`, and `Artisan`.
 
 ---
 
-### Phase 11: Real Maps Architecture `[ ] NOT STARTED`
+### Phase 11: Real Maps Architecture `[ ] NOT_STARTED`
 - [ ] **11.1** Web: MapLibre GL JS full-screen map with vector tiles and multi-layer toggles.
 - [ ] **11.2** Android: MapLibre Native / Compose Spatial discovery.
 - [ ] **11.3** iOS: Apple MapKit (`SwiftUI.Map`) with custom temple and craft annotations.
 
 ---
 
-### Phase 12: Multimodal Transport Graph `[ ] NOT STARTED`
+### Phase 12: Multimodal Transport Graph `[ ] NOT_STARTED`
 - [ ] **12.1** Implement backend graph routing across Aviation, Rail, Intercity Bus, and Local Transit.
 - [ ] **12.2** Expose unified `/api/v1/transport/multimodal-route` endpoint.
 
 ---
 
-### Phase 13: Proper Mo Bus Experience `[ ] NOT STARTED`
+### Phase 13: Proper Mo Bus Experience `[ ] NOT_STARTED`
 - [ ] **13.1** Network map and stop sequence viewer for all 154 CRUT routes.
 - [ ] **13.2** Next scheduled departure lookup based on IST clock blocks.
 - [ ] **13.3** Pluggable `TransitRealtimeProvider` adapter in backend.
 
 ---
 
-### Phase 14: Indian Railways Layer `[ ] NOT STARTED`
+### Phase 14: Indian Railways Layer `[ ] NOT_STARTED`
 - [ ] **14.1** Model Odisha railway hubs (BBS, PURI, CTC, SBP, BAM, BLS).
 - [ ] **14.2** Add scheduled tourist rail connections and station interchange links.
 
 ---
 
-### Phase 15: Commercial Aviation Layer `[ ] NOT STARTED`
+### Phase 15: Commercial Aviation Layer `[ ] NOT_STARTED`
 - [ ] **15.1** Model commercial airports (Bhubaneswar BBI, Jharsuguda JRG).
 - [ ] **15.2** Add static flight connectivity corridors and airport transit connection guides.
 
 ---
 
-### Phase 16: Grounded Itinerary Planner V4 `[ ] NOT STARTED`
+### Phase 16: Grounded Itinerary Planner V4 `[ ] NOT_STARTED`
 - [ ] **16.1** Constraint-aware multi-day planner factoring in meal windows, opening hours, transit hops, and craft clusters.
 - [ ] **16.2** Deterministic "Why this stop?" explainability generator.
 
 ---
 
-### Phase 17: Community & Living Heritage Submissions `[ ] NOT STARTED`
+### Phase 17: Community & Living Heritage Submissions `[ ] NOT_STARTED`
 - [ ] **17.1** Staged community submissions for cultural landmarks, artisan workshops, and photo evidence.
 - [ ] **17.2** Zero-permission `PhotosPicker` on iOS and modern PhotoPicker on Android.
 
 ---
 
-### Phase 18: Performance, QA & Demo Hardening `[ ] NOT STARTED`
+### Phase 18: Performance, QA & Demo Hardening `[ ] NOT_STARTED`
 - [ ] **18.1** End-to-end multiplatform test suites (Pytest, KMP CommonTest, Android JUnit/Compose tests, iOS XCTest).
 - [ ] **18.2** Offline flight check: Airplane mode verification across Web, Android, and iOS.
 - [ ] **18.3** App Store submission checklist audit.
