@@ -21,16 +21,10 @@ object FirstMileEstimator {
 
     /**
      * Calculates Haversine distance in kilometers between two lat/lon points.
+     * Delegates to canonical LocationManager geodesic calculator.
      */
     fun calculateHaversineDistanceKm(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
-        val r = 6371.0 // Earth radius in km
-        val dLat = Math.toRadians(lat2 - lat1)
-        val dLon = Math.toRadians(lon2 - lon1)
-        val a = sin(dLat / 2).pow(2.0) +
-                cos(Math.toRadians(lat1)) * cos(Math.toRadians(lat2)) *
-                sin(dLon / 2).pow(2.0)
-        val c = 2 * atan2(sqrt(a), sqrt(1 - a))
-        return r * c
+        return LocationManager.haversineDistanceKm(lat1, lon1, lat2, lon2)
     }
 
     /**

@@ -90,8 +90,8 @@ class PlaceDetailViewModel @JvmOverloads constructor(
 
     fun toggleSave() {
         val place = _uiState.value.place ?: return
-        savedPlacesRepository.toggleSave(place)
-        _uiState.value = _uiState.value.copy(isSaved = !savedPlacesRepository.isPlaceSaved(place.id))
+        val newSavedState = savedPlacesRepository.toggleSave(place)
+        _uiState.value = _uiState.value.copy(isSaved = newSavedState)
         viewModelScope.launch {
             savedPlacesRepository.syncWithServer()
         }
