@@ -244,7 +244,8 @@ fun OTravelzAppNav(
             composable(Screen.Discover.route) {
                 DiscoverScreen(
                     viewModel = discoverViewModel,
-                    onPlaceClick = { placeId -> navController.navigate("place/$placeId") }
+                    onPlaceClick = { placeId -> navController.navigate("place/$placeId") },
+                    onMapClick = { navController.navigate(Screen.Map.route) }
                 )
             }
 
