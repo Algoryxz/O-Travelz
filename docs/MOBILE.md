@@ -37,5 +37,6 @@
 
 ## 4. Documentation References
 - [`docs/ANDROID.md`](ANDROID.md) — Android technical architecture and package mapping.
+- [`docs/MOBILE_MAPS_AND_TRANSIT.md`](MOBILE_MAPS_AND_TRANSIT.md) — Location state machine, straight-line proximity semantics, and scheduled transit behavior.
 - [`docs/MOBILE_OVERNIGHT_PLAN.md`](MOBILE_OVERNIGHT_PLAN.md) — Overnight implementation milestones.
 - [`mobile/android/TEAM.md`](../mobile/android/TEAM.md) — Team workstreams and branch assignments.
