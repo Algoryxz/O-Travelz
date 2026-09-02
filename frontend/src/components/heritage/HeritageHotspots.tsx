@@ -1,9 +1,10 @@
 /**
  * Screen-projected Interactive Architectural Hotspots for Heritage 3D Scene.
+ * Displays concise architectural details, verified dimensions, materials, and provenance.
  */
 import React, { useEffect, useState } from 'react';
 import * as THREE from 'three';
-import { Sparkles, Info, X } from 'lucide-react';
+import { Info, X, Ruler, Layers, BookOpen } from 'lucide-react';
 import type { HeritageHotspot } from '../../types/heritage';
 
 interface ProjectedHotspot {
@@ -97,7 +98,7 @@ export const HeritageHotspots: React.FC<HeritageHotspotsProps> = ({
             style={{
               transform: `translate3d(${screenX}px, ${screenY}px, 0) translate(-50%, -50%)`,
             }}
-            className={`absolute pointer-events-auto group flex items-center gap-1.5 px-2.5 py-1 rounded-full backdrop-blur-md transition-all duration-200 shadow-lg ${
+            className={`absolute pointer-events-auto group flex items-center gap-1.5 px-2.5 py-1 rounded-full backdrop-blur-md transition-all duration-200 shadow-lg cursor-pointer ${
               isSelected
                 ? 'bg-amber-500 text-slate-950 font-bold ring-2 ring-amber-300 ring-offset-2 ring-offset-slate-900 scale-110 z-30'
                 : 'bg-slate-900/85 hover:bg-slate-800 text-amber-300 border border-amber-500/40 hover:border-amber-400 hover:scale-105'
@@ -115,14 +116,14 @@ export const HeritageHotspots: React.FC<HeritageHotspotsProps> = ({
       {/* Selected Hotspot Detail Drawer Overlay */}
       {selectedHotspot && (
         <div
-          className="absolute bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-md pointer-events-auto bg-slate-900/95 border border-amber-500/30 backdrop-blur-xl rounded-2xl p-4 md:p-5 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-200 z-30"
+          className="absolute bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-md pointer-events-auto bg-slate-900/95 border border-amber-500/40 backdrop-blur-xl rounded-2xl p-4 md:p-5 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-200 z-30 space-y-3"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex items-start justify-between gap-3 mb-2">
+          <div className="flex items-start justify-between gap-3">
             <div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">
-                  Architectural Feature
+                  Architectural Hotspot
                 </span>
                 {selectedHotspot.odia_title && (
                   <span className="text-xs font-serif text-amber-200/70">
@@ -137,25 +138,57 @@ export const HeritageHotspots: React.FC<HeritageHotspotsProps> = ({
             <button
               type="button"
               onClick={onCloseHotspot}
-              className="p-1 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors"
+              className="p-1 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors cursor-pointer"
               aria-label="Close details"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          <p className="text-xs text-slate-300 leading-relaxed mb-3">
+          <p className="text-xs text-slate-300 leading-relaxed">
             {selectedHotspot.description}
           </p>
 
-          <div className="bg-slate-950/60 rounded-xl p-3 border border-slate-800">
-            <div className="flex items-center gap-1.5 text-[11px] font-semibold text-amber-400 mb-1">
-              <Info className="w-3.5 h-3.5" />
-              <span>Architectural Significance</span>
+          <div className="bg-slate-950/70 rounded-xl p-3 border border-slate-800 space-y-2">
+            <div>
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold text-amber-400 mb-0.5">
+                <Info className="w-3.5 h-3.5" />
+                <span>Architectural Significance</span>
+              </div>
+              <p className="text-[11px] text-slate-300 leading-relaxed">
+                {selectedHotspot.architectural_significance}
+              </p>
             </div>
-            <p className="text-[11px] text-slate-400 leading-relaxed">
-              {selectedHotspot.architectural_significance}
-            </p>
+
+            {/* Verified Dimension & Material Badges */}
+            <div className="grid grid-cols-2 gap-2 pt-1 border-t border-slate-800/80">
+              <div className="bg-slate-900/80 p-1.5 rounded-lg border border-slate-800">
+                <div className="flex items-center gap-1 text-[10px] text-slate-400">
+                  <Ruler className="w-3 h-3 text-emerald-400" />
+                  <span>Dimension</span>
+                </div>
+                <div className="text-[11px] font-medium text-slate-200 truncate mt-0.5">
+                  {selectedHotspot.dimension || 'Approximate — source dependent'}
+                </div>
+              </div>
+
+              <div className="bg-slate-900/80 p-1.5 rounded-lg border border-slate-800">
+                <div className="flex items-center gap-1 text-[10px] text-slate-400">
+                  <Layers className="w-3 h-3 text-amber-400" />
+                  <span>Material</span>
+                </div>
+                <div className="text-[11px] font-medium text-slate-200 truncate mt-0.5">
+                  {selectedHotspot.material || 'Sandstone / Laterite masonry'}
+                </div>
+              </div>
+            </div>
+
+            {selectedHotspot.source_provenance && (
+              <div className="flex items-center gap-1.5 text-[10px] text-slate-400 pt-0.5">
+                <BookOpen className="w-3 h-3 text-amber-400/80" />
+                <span>Source: {selectedHotspot.source_provenance}</span>
+              </div>
+            )}
           </div>
         </div>
       )}

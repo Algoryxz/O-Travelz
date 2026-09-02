@@ -1,8 +1,8 @@
 /**
  * Museum-Grade Digital Heritage 3D Scene Viewer.
- * Integrates Three.js WebGL rendering, genuine 3D Gaussian Splatting engine,
- * honest reconstruction status badges, dynamic solar presets,
- * interactive architectural hotspots, and verified archival provenance.
+ * Integrates Three.js WebGL rendering of authentic Kalinga 3D architectural models,
+ * truthful reconstruction status badges, dynamic solar lighting presets,
+ * interactive architectural hotspots, verified dimensions, materials, and archival provenance.
  */
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import * as THREE from 'three';
@@ -20,6 +20,8 @@ import {
   Pause,
   Clock,
   ExternalLink,
+  Ruler,
+  Layers,
 } from 'lucide-react';
 import type { HeritageScene, HeritageHotspot } from '../../types/heritage';
 import { HeritageSceneManager, type LightingPreset } from './HeritageSceneManager';
@@ -51,7 +53,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
   const [lighting, setLighting] = useState<LightingPreset>(
     (scene.lighting_preset as LightingPreset) || 'golden_hour'
   );
-  const [qualityPreset, setQualityPreset] = useState<QualityPreset>('AUTO');
+  const [qualityPreset] = useState<QualityPreset>('AUTO');
   const [isAutoRotating, setIsAutoRotating] = useState<boolean>(autoRotateDefault);
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
   const [selectedHotspot, setSelectedHotspot] = useState<HeritageHotspot | null>(null);
@@ -85,13 +87,15 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
 
     // 2. Renderer
     const quality = HeritageQualityController.getSettings(qualityPreset);
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+
     const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
       antialias: quality.antialias,
       powerPreference: 'high-performance',
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(quality.pixelRatio);
+    renderer.setPixelRatio(pixelRatio);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = quality.toneMappingExposure;
     renderer.shadowMap.enabled = quality.shadowsEnabled;
@@ -110,7 +114,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
     cameraController.applyPreset(scene.camera_preset);
     cameraController.autoRotate = isAutoRotating;
 
-    // 5. Load Scene
+    // 5. Load 3D Architectural Scene
     const loader = new HeritageSceneLoader(sceneManager);
     setIsReady(false);
     loader.loadScene(scene, (progress) => {
@@ -120,7 +124,17 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
       }
     });
 
-    // 6. Render Loop with Gaussian Splat update
+    // 6. Pause auto-rotation on user pointer interaction
+    const handlePointerDown = () => {
+      if (cameraControllerRef.current) {
+        cameraControllerRef.current.autoRotate = false;
+        setIsAutoRotating(false);
+      }
+    };
+    const container = containerRef.current;
+    container.addEventListener('pointerdown', handlePointerDown);
+
+    // 7. Render Loop
     let lastTime = performance.now();
     const animate = (currentTime: number) => {
       const delta = (currentTime - lastTime) / 1000;
@@ -135,7 +149,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
 
     animFrameIdRef.current = requestAnimationFrame(animate);
 
-    // 7. Resize Handler
+    // 8. Resize Handler
     const handleResize = () => {
       if (!containerRef.current || !rendererRef.current || !cameraRef.current) return;
       const w = containerRef.current.clientWidth;
@@ -148,6 +162,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
     window.addEventListener('resize', handleResize);
 
     return () => {
+      container.removeEventListener('pointerdown', handlePointerDown);
       window.removeEventListener('resize', handleResize);
       if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
       cameraController.dispose();
@@ -222,8 +237,8 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
     switch (scene.scene_type) {
       case 'REAL_3D_RECONSTRUCTION':
         return {
-          label: 'REAL 3D RECONSTRUCTION',
-          sub: 'Source-backed spatial capture',
+          label: '3D DIGITAL RECONSTRUCTION',
+          sub: 'Architectural 3D model with verified geometry',
           badgeClass: 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300',
           icon: <ShieldCheck className="w-3.5 h-3.5" />,
         };
@@ -291,7 +306,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
         </div>
       </div>
 
-      {/* Top Right: Monument Switcher (If available) */}
+      {/* Top Right: Monument Switcher (4 Canonical Monuments) */}
       {availableScenes.length > 1 && onSelectScene && (
         <div className="absolute top-4 right-4 z-20 pointer-events-auto">
           <select
@@ -301,7 +316,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
           >
             {availableScenes.map((s) => (
               <option key={s.id} value={s.id} className="bg-slate-900 text-slate-100">
-                {s.name} ({s.scene_type === 'REFERENCE_VIRTUAL_EXPERIENCE' ? 'Ref' : 'In Progress'})
+                {s.name}
               </option>
             ))}
           </select>
@@ -395,7 +410,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
               ? 'bg-amber-500 text-slate-950 font-bold border-amber-400'
               : 'bg-slate-900/90 text-slate-400 hover:text-slate-200 border-slate-800'
           }`}
-          title="View Archival Sources & Provenance"
+          title="View Dimensions, Materials & Provenance"
         >
           <Info className="w-4 h-4" />
         </button>
@@ -411,7 +426,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
         </button>
       </div>
 
-      {/* Provenance & Sources Drawer */}
+      {/* Provenance & Architecture Specifications Drawer */}
       {showProvenanceDrawer && (
         <div
           className="absolute inset-y-0 right-0 w-full sm:w-96 bg-slate-950/95 border-l border-amber-500/30 backdrop-blur-2xl p-6 overflow-y-auto z-40 animate-in slide-in-from-right duration-200"
@@ -420,7 +435,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
           <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-amber-400" />
-              <h3 className="text-base font-bold text-slate-100">Heritage Provenance</h3>
+              <h3 className="text-base font-bold text-slate-100">Heritage Provenance & Specs</h3>
             </div>
             <button
               type="button"
@@ -434,33 +449,64 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
           <div className="space-y-4 text-xs">
             <div>
               <span className="text-[10px] font-semibold uppercase tracking-wider text-amber-400">
-                Spatial Reference Status
+                3D Model Provenance
               </span>
               <p className="text-slate-300 mt-1 leading-relaxed">
                 {scene.reconstruction_notes}
               </p>
             </div>
 
-            <div>
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-amber-400">
-                Asset Specification
-              </span>
-              <div className="grid grid-cols-2 gap-2 mt-1.5">
-                <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
-                  <div className="text-slate-500 text-[10px]">Format</div>
-                  <div className="text-slate-200 font-mono text-[11px] truncate">
-                    {scene.asset.format}
-                  </div>
+            {/* Documented Architectural Dimensions */}
+            {scene.dimensions && Object.keys(scene.dimensions).length > 0 && (
+              <div>
+                <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-emerald-400 mb-1.5">
+                  <Ruler className="w-3.5 h-3.5" />
+                  <span>Verified Architectural Dimensions</span>
                 </div>
-                <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
-                  <div className="text-slate-500 text-[10px]">Quality Mode</div>
-                  <div className="text-slate-200 font-mono text-[11px] truncate">
-                    {scene.asset.mesh_quality}
-                  </div>
+                <div className="space-y-1.5">
+                  {Object.entries(scene.dimensions).map(([key, value]) => (
+                    <div
+                      key={key}
+                      className="bg-slate-900 p-2 rounded-lg border border-slate-800 flex justify-between gap-2"
+                    >
+                      <span className="text-slate-400 capitalize text-[11px]">
+                        {key.replace(/_/g, ' ')}:
+                      </span>
+                      <span className="text-slate-200 font-medium text-[11px] text-right">
+                        {value}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
+            )}
 
+            {/* Documented Stone Materials */}
+            {scene.materials && Object.keys(scene.materials).length > 0 && (
+              <div>
+                <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-amber-400 mb-1.5">
+                  <Layers className="w-3.5 h-3.5" />
+                  <span>Documented Construction Material</span>
+                </div>
+                <div className="space-y-1.5">
+                  {Object.entries(scene.materials).map(([key, value]) => (
+                    <div
+                      key={key}
+                      className="bg-slate-900 p-2 rounded-lg border border-slate-800 space-y-0.5"
+                    >
+                      <div className="text-slate-500 text-[10px] capitalize">
+                        {key.replace(/_/g, ' ')}
+                      </div>
+                      <div className="text-slate-200 text-[11px] font-medium">
+                        {value}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Archival Sources */}
             <div>
               <span className="text-[10px] font-semibold uppercase tracking-wider text-amber-400">
                 Archival Data Sources & Licenses
@@ -498,7 +544,7 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
         <div className="absolute inset-0 z-30 bg-slate-950/80 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center">
           <div className="w-12 h-12 rounded-full border-2 border-amber-500/20 border-t-amber-400 animate-spin mb-4" />
           <div className="text-sm font-bold text-slate-100 mb-1">
-            Loading Spatial Experience
+            Loading 3D Heritage Experience
           </div>
           <div className="text-xs text-amber-300 font-mono mb-3">
             {loadingProgress.statusText}

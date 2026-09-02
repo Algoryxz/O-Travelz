@@ -29,6 +29,9 @@ class HeritageHotspot(BaseModel):
     position: List[float] = Field(description="[x, y, z] 3D coordinates relative to monument center")
     look_at: Optional[List[float]] = None
     camera_offset: Optional[List[float]] = None
+    dimension: Optional[str] = None
+    material: Optional[str] = None
+    source_provenance: Optional[str] = None
 
 
 class HeritageSource(BaseModel):
@@ -81,3 +84,5 @@ class HeritageSceneResponse(BaseModel):
     lighting_preset: str = "golden_hour"
     surrounding_environment: Optional[str] = None
     is_canonical: bool = True
+    dimensions: Optional[Dict[str, str]] = None
+    materials: Optional[Dict[str, str]] = None

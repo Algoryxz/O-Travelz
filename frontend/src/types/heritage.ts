@@ -24,6 +24,9 @@ export interface HeritageHotspot {
   position: [number, number, number];
   look_at?: [number, number, number];
   camera_offset?: [number, number, number];
+  dimension?: string;
+  material?: string;
+  source_provenance?: string;
 }
 
 export interface HeritageSource {
@@ -75,4 +78,6 @@ export interface HeritageScene {
   lighting_preset: string;
   surrounding_environment?: string;
   is_canonical: boolean;
+  dimensions?: Record<string, string>;
+  materials?: Record<string, string>;
 }

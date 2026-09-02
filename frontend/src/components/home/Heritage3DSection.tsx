@@ -1,6 +1,7 @@
 /**
  * Immersive Digital Heritage Section for O-Travelz.
- * Delivers verified archival spatial reference visualizations and architectural intelligence for the 6 canonical Odisha monuments.
+ * Delivers authentic 3D architectural models, verified dimensions, materials,
+ * and spatial intelligence for the 4 canonical Odisha monuments.
  */
 import React, { useState, useEffect } from 'react';
 import {
@@ -11,6 +12,7 @@ import {
   Layers,
   MapPin,
   Clock,
+  Ruler,
 } from 'lucide-react';
 import type { HeritageScene } from '../../types/heritage';
 import { fetchHeritageScenes, FALLBACK_HERITAGE_SCENES } from '../../api/heritageApi';
@@ -27,7 +29,7 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
 }) => {
   const [scenes, setScenes] = useState<HeritageScene[]>(FALLBACK_HERITAGE_SCENES);
   const [selectedSceneId, setSelectedSceneId] = useState<string>('konark-sun-temple');
-  const [loading, setLoading] = useState<boolean>(true);
+  const [, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     let mounted = true;
@@ -49,8 +51,8 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
     switch (scene.scene_type) {
       case 'REAL_3D_RECONSTRUCTION':
         return {
-          chip: '3D Reconstructed',
-          full: 'Verified 3D Reconstruction',
+          chip: '3D Model',
+          full: '3D Digital Reconstruction',
           badgeClass: 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300',
           chipClass: 'bg-emerald-500/20 text-emerald-300',
         };
@@ -65,7 +67,7 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
       default:
         return {
           chip: 'In Progress',
-          full: '3D Reconstruction In Progress · Archival Reference',
+          full: '3D Reconstruction In Progress',
           badgeClass: 'bg-amber-950/80 border-amber-500/50 text-amber-300',
           chipClass: 'bg-amber-500/20 text-amber-300',
         };
@@ -88,7 +90,7 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
               Immersive Heritage Explorer
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
-              Authentic architectural reference models and survey documentation of Odisha’s monumental temples, rock-cut caves, and riverine fortifications.
+              Authentic 3D architectural models and structural intelligence of Odisha’s 4 canonical Kalinga temples.
             </p>
           </div>
 
@@ -99,8 +101,8 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
           </div>
         </div>
 
-        {/* Monument Selection Filter Chips */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
+        {/* Monument Selection Filter Chips (4 Canonical Monuments) */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar max-w-full">
           {scenes.map((scene) => {
             const isSelected = scene.id === selectedSceneId;
             const b = getBadgeDetails(scene);
@@ -110,7 +112,7 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
                 key={scene.id}
                 type="button"
                 onClick={() => setSelectedSceneId(scene.id)}
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-2xl text-xs font-semibold whitespace-nowrap transition-all duration-200 border ${
+                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-2xl text-xs font-semibold whitespace-nowrap transition-all duration-200 border cursor-pointer ${
                   isSelected
                     ? 'bg-emerald-500 text-slate-950 border-emerald-400 shadow-md shadow-emerald-500/20 font-bold scale-[1.02]'
                     : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border-slate-800 hover:border-slate-700'
@@ -145,7 +147,7 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
           <div className="lg:col-span-4 bg-slate-900/85 border border-slate-800 backdrop-blur-xl rounded-3xl p-5 sm:p-6 flex flex-col justify-between h-full min-h-[460px] sm:min-h-[500px] lg:min-h-[560px]">
             <div className="space-y-3.5">
               <div>
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
                   <span
                     className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold border ${badgeInfo.badgeClass}`}
                   >
@@ -173,7 +175,7 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
                 <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/80">
                   <div className="flex items-center gap-1 text-slate-400 text-[11px] mb-0.5">
                     <Clock className="w-3 h-3 text-emerald-400" />
-                    <span>Era / Century</span>
+                    <span>Era / Dynasty</span>
                   </div>
                   <div className="font-medium text-slate-200 truncate">
                     {activeScene.century.split('(')[0].trim()}
@@ -186,20 +188,55 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
                 {activeScene.description}
               </p>
 
+              {/* Verified Dimensions & Material Badges */}
+              {(activeScene.dimensions || activeScene.materials) && (
+                <div className="space-y-1.5 bg-slate-950/60 p-3 rounded-2xl border border-slate-800/80">
+                  {activeScene.dimensions && (
+                    <div className="flex items-start gap-2 text-xs">
+                      <Ruler className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
+                      <div>
+                        <span className="text-slate-400 text-[11px]">Key Dimensions: </span>
+                        <span className="text-slate-200 font-medium text-[11px]">
+                          {Object.values(activeScene.dimensions)[0]}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  {activeScene.materials && (
+                    <div className="flex items-start gap-2 text-xs">
+                      <Layers className="w-3.5 h-3.5 text-amber-400 mt-0.5 shrink-0" />
+                      <div>
+                        <span className="text-slate-400 text-[11px]">Material: </span>
+                        <span className="text-slate-200 font-medium text-[11px]">
+                          {Object.values(activeScene.materials)[0]}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Architectural Hotspots Pill List */}
               {activeScene.hotspots && activeScene.hotspots.length > 0 && (
                 <div>
                   <div className="text-[11px] font-semibold uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-1.5">
                     <Layers className="w-3.5 h-3.5" />
-                    <span>Verified Architectural Features ({activeScene.hotspots.length})</span>
+                    <span>Verified Architectural Hotspots ({activeScene.hotspots.length})</span>
                   </div>
-                  <div className="space-y-1.5 max-h-44 overflow-y-auto pr-1 no-scrollbar">
+                  <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1 no-scrollbar">
                     {activeScene.hotspots.map((h) => (
                       <div
                         key={h.id}
                         className="bg-slate-950/50 p-2 rounded-xl border border-slate-800/80 text-xs"
                       >
-                        <div className="font-semibold text-slate-200">{h.title}</div>
+                        <div className="font-semibold text-slate-200 flex justify-between gap-1">
+                          <span>{h.title}</span>
+                          {h.dimension && (
+                            <span className="text-[10px] text-emerald-400/90 font-mono">
+                              {h.dimension.split(',')[0]}
+                            </span>
+                          )}
+                        </div>
                         <div className="text-[11px] text-slate-400 line-clamp-2 mt-0.5">
                           {h.description}
                         </div>
@@ -216,7 +253,7 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
                 <button
                   type="button"
                   onClick={() => onPlanTrip(activeScene.name)}
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-colors shadow-md shadow-emerald-500/10"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-colors shadow-md shadow-emerald-500/10 cursor-pointer"
                 >
                   <Compass className="w-4 h-4" />
                   <span>Plan Trip Here</span>
@@ -227,7 +264,7 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
                 <button
                   type="button"
                   onClick={() => onExplorePlace(activeScene.id, activeScene.name)}
-                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs transition-colors border border-slate-700"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs transition-colors border border-slate-700 cursor-pointer"
                 >
                   <span>Explore Details</span>
                   <ArrowRight className="w-3.5 h-3.5" />

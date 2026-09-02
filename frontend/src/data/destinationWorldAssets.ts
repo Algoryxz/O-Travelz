@@ -1,7 +1,7 @@
 /**
  * Authoritative Destination World Asset Manifest for Odisha Cinematic Stages.
- * Explicit provenance, verified destination identities, unique media streams,
- * and zero generic stock/hallucinated landscapes.
+ * Contains ALL 12 eligible verified destinations with explicit provenance,
+ * verified destination identities, unique media streams, and zero generic stock/hallucinated landscapes.
  */
 
 export interface DestinationWorldAsset {
@@ -27,8 +27,8 @@ export interface DestinationWorldAsset {
   verified: boolean;
   verificationNote: string;
   destinationIdentity: string;
-  foreground_texture: 'beach_sand' | 'coastal_surf' | 'water_ripple' | 'pine_mist' | 'forest_sal' | 'chlorite_stone' | 'hilltop_scrub';
-  ambient_lighting: 'golden_coastal' | 'morning_mist' | 'ocean_breeze' | 'sunset_amber' | 'emerald_canopy';
+  foreground_texture: 'beach_sand' | 'coastal_surf' | 'water_ripple' | 'pine_mist' | 'forest_sal' | 'chlorite_stone' | 'hilltop_scrub' | 'sandstone_plinth';
+  ambient_lighting: 'golden_coastal' | 'morning_mist' | 'ocean_breeze' | 'sunset_amber' | 'emerald_canopy' | 'temple_glow';
 }
 
 export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
@@ -231,5 +231,105 @@ export const DESTINATION_WORLD_ASSETS: DestinationWorldAsset[] = [
     destinationIdentity: 'Dhauli peace pagoda white stupa dome overlooking historic Daya river valley.',
     foreground_texture: 'hilltop_scrub',
     ambient_lighting: 'sunset_amber',
+  },
+  {
+    id: 'lingaraj-heritage',
+    name: 'Lingaraj Temple & Ekamra Kshetra',
+    odia_name: 'ଲିଙ୍ଗରାଜ ମନ୍ଦିର ଓ ଏକାମ୍ର କ୍ଷେତ୍ର',
+    district: 'Khordha District',
+    category: 'HERITAGE',
+    tagline: 'Culmination of Kalinga Temple Architecture',
+    description: '11th-century soaring 55-meter curvilinear deula surrounded by 150 ancient stone shrines in the historic spiritual capital of Bhubaneswar.',
+    traveler_highlight: 'Panoramic evening aarti rituals and historic Bindu Sagar holy tank heritage walk.',
+    best_time: 'October to March',
+    distance_from_hub: 'Central Old Town, Bhubaneswar',
+    mediaType: 'image',
+    posterUrl: '/images/heritage/lingaraj_temple.webp',
+    poster_url: '/images/heritage/lingaraj_temple.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Lingaraja_Temple_Bhubaneswar_Orissa_India.jpg',
+    source: 'Wikimedia Commons (File:Lingaraja Temple Bhubaneswar Orissa India.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Lingaraja_Temple_Bhubaneswar_Orissa_India.jpg',
+    license: 'CC BY-SA 3.0',
+    attribution: 'Photo via Wikimedia Commons, licensed under CC BY-SA 3.0',
+    verified: true,
+    verificationNote: 'Photograph visibly depicts the 55-meter towering curvilinear sandstone shikhara and courtyard shrines of Lingaraj Temple in Bhubaneswar.',
+    destinationIdentity: 'Lingaraj Temple 55m curvilinear sandstone deula and Ekamra Kshetra precinct.',
+    foreground_texture: 'sandstone_plinth',
+    ambient_lighting: 'golden_coastal',
+  },
+  {
+    id: 'puri-jagannath-heritage',
+    name: 'Puri Jagannath Temple & Bada Danda',
+    odia_name: 'ଶ୍ରୀ ଜଗନ୍ନାଥ ମନ୍ଦିର ଓ ବଡ଼ଦାଣ୍ଡ',
+    district: 'Puri District',
+    category: 'HERITAGE',
+    tagline: 'Supreme Sacred Dham of Sanatana Dharma',
+    description: '12th-century monumental 65-meter Rekha Deula, Grand Road (Bada Danda) pilgrimage corridor, and the celebrated spiritual epicentre of Lord Jagannath.',
+    traveler_highlight: 'Ananda Bazaar sacred Mahaprasad feast, Patitapabana flag changing ceremony, and Grand Road heritage walk.',
+    best_time: 'Year-round (Morning & Twilight)',
+    distance_from_hub: '60 km from Bhubaneswar',
+    mediaType: 'image',
+    posterUrl: '/images/heritage/puri_jagannath_temple.webp',
+    poster_url: '/images/heritage/puri_jagannath_temple.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Jagannath_Temple%2C_Puri%2C_Odisha.jpg',
+    source: 'Wikimedia Commons (File:Jagannath Temple, Puri, Odisha.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Jagannath_Temple,_Puri,_Odisha.jpg',
+    license: 'CC BY-SA 4.0',
+    attribution: 'Photo via Wikimedia Commons, licensed under CC BY-SA 4.0',
+    verified: true,
+    verificationNote: 'Photograph visibly depicts the soaring 65-meter curvilinear Bada Deula shikhara crowned by the sacred Nilachakra in Puri.',
+    destinationIdentity: 'Puri Jagannath Temple monumental Rekha Deula spire, Nilachakra discus, and temple enclosure.',
+    foreground_texture: 'sandstone_plinth',
+    ambient_lighting: 'temple_glow',
+  },
+  {
+    id: 'barabati-citadel',
+    name: 'Barabati Fort & Mahanadi Citadel',
+    odia_name: 'ବାରବାଟୀ ଦୁର୍ଗ ଓ ମହାନଦୀ କୂଳ',
+    district: 'Cuttack District',
+    category: 'HERITAGE',
+    tagline: 'Medieval Riverine Imperial Citadel',
+    description: '14th-century Ganga dynasty fortified gateway, defensive moat ramparts, and palace mounds nestled between the Mahanadi and Kathajodi rivers.',
+    traveler_highlight: 'Pointed arch stone gateway exploration, historic moat perimeter walk, and Mahanadi riverfront sunset views.',
+    best_time: 'October to February (Late Afternoon)',
+    distance_from_hub: '28 km north of Bhubaneswar',
+    mediaType: 'image',
+    posterUrl: '/images/heritage/barabati_fort.webp',
+    poster_url: '/images/heritage/barabati_fort.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Barabati_Fort_Gate_Cuttack.jpg',
+    source: 'Wikimedia Commons (File:Barabati Fort Gate Cuttack.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Barabati_Fort_Gate_Cuttack.jpg',
+    license: 'CC BY-SA 4.0',
+    attribution: 'Photo via Wikimedia Commons, licensed under CC BY-SA 4.0',
+    verified: true,
+    verificationNote: 'Photograph visibly depicts the 14th-century pointed arch laterite stone entrance gateway and bastion guard towers of Barabati Fort in Cuttack.',
+    destinationIdentity: 'Barabati Fort medieval arched laterite entrance gateway and defensive stone moat.',
+    foreground_texture: 'sandstone_plinth',
+    ambient_lighting: 'sunset_amber',
+  },
+  {
+    id: 'udayagiri-monasteries',
+    name: 'Udayagiri & Khandagiri Caves',
+    odia_name: 'ଉଦୟଗିରି ଓ ଖଣ୍ଡଗିରି ଗୁମ୍ଫା',
+    district: 'Khordha District',
+    category: 'HERITAGE',
+    tagline: '2nd-Century BCE Rock-Cut Epigraphic Wonder',
+    description: 'Twin hills honeycombed with ancient rock-cut Jain monastic cells, Emperor Kharavela’s 17-line Brahmi Hathigumpha inscription, and the two-storey Rani Gumpha.',
+    traveler_highlight: 'Double-storey Rani Gumpha theatrical acoustic courtyard and reading Emperor Kharavela’s historic Brahmi inscriptions.',
+    best_time: 'October to March (Morning & Sunset)',
+    distance_from_hub: '6 km west of Bhubaneswar center',
+    mediaType: 'image',
+    posterUrl: '/images/heritage/udayagiri_caves.webp',
+    poster_url: '/images/heritage/udayagiri_caves.webp',
+    fallbackPosterUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Rani_Gumpha_Udayagiri_Caves.jpg',
+    source: 'Wikimedia Commons (File:Rani Gumpha Udayagiri Caves.jpg)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Rani_Gumpha_Udayagiri_Caves.jpg',
+    license: 'CC BY-SA 4.0',
+    attribution: 'Photo via Wikimedia Commons, licensed under CC BY-SA 4.0',
+    verified: true,
+    verificationNote: 'Photograph visibly depicts the two-storey carved pillared facade and monastic cells of Rani Gumpha at Udayagiri Caves.',
+    destinationIdentity: 'Udayagiri Caves rock-cut two-storey monastic pavilions and ancient carved sandstone reliefs.',
+    foreground_texture: 'hilltop_scrub',
+    ambient_lighting: 'golden_coastal',
   },
 ];

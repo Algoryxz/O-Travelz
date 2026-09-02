@@ -1,6 +1,7 @@
 /**
  * DestinationWorldStage: Full-width cinematic digital travel portal into Odisha destinations.
- * Inspired by immersive depth, slow parallax, and atmospheric motion.
+ * Smooth horizontal scrollable rail for all 12 verified destinations,
+ * verified media, subtle parallax motion, and clear readable metadata.
  */
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
@@ -10,12 +11,12 @@ import {
   ChevronRight,
   MapPin,
   Clock,
-  Sparkles,
   Waves,
   Trees,
   Mountain,
   Eye,
   ShieldCheck,
+  Building2,
 } from 'lucide-react';
 import { DESTINATION_WORLD_ASSETS, type DestinationWorldAsset } from '../../data/destinationWorldAssets';
 import { computeParallaxOffsets, type ParallaxOffset } from './DestinationWorldMotion';
@@ -46,6 +47,8 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
   });
 
   const stageRef = useRef<HTMLDivElement>(null);
+  const railRef = useRef<HTMLDivElement>(null);
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const prefersReducedMotion = useRef<boolean>(false);
 
   useEffect(() => {
@@ -54,12 +57,20 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
 
   const activeWorld = DESTINATION_WORLD_ASSETS[activeIndex] || DESTINATION_WORLD_ASSETS[0];
 
-  // Auto-drift through destinations every 8 seconds if not interacted
+  // Auto-scroll the selected destination into center view on the rail
+  useEffect(() => {
+    const targetBtn = buttonRefs.current[activeIndex];
+    if (targetBtn) {
+      targetBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [activeIndex]);
+
+  // Auto-drift through destinations every 9 seconds if not interacted
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % DESTINATION_WORLD_ASSETS.length);
-    }, 8000);
+    }, 9000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
@@ -86,6 +97,24 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
     setActiveIndex((prev) => (prev + 1) % DESTINATION_WORLD_ASSETS.length);
   };
 
+  // Horizontal Wheel / Trackpad Scroll on Rail
+  const handleRailWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (railRef.current && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      railRef.current.scrollLeft += e.deltaY;
+    }
+  };
+
+  // Keyboard navigation on rail
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      handleNext();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      handlePrev();
+    }
+  };
+
   const getCategoryIcon = (category: DestinationWorldAsset['category']) => {
     switch (category) {
       case 'BEACH':
@@ -97,7 +126,7 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
         return <Trees className="w-3.5 h-3.5 text-lime-400" />;
       case 'HERITAGE':
       default:
-        return <Sparkles className="w-3.5 h-3.5 text-amber-400" />;
+        return <Building2 className="w-3.5 h-3.5 text-amber-400" />;
     }
   };
 
@@ -120,33 +149,44 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
           </div>
 
           <p className="text-xs sm:text-sm text-slate-400 max-w-md">
-            Step through atmospheric portals into Odisha’s golden coasts, misty highlands, and primeval biosphere reserves.
+            Step through atmospheric portals into Odisha’s golden coasts, misty highlands, primeval biosphere reserves, and monumental temples.
           </p>
         </div>
 
-        {/* Destination World Navigation Chips */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
-          {DESTINATION_WORLD_ASSETS.map((dest, idx) => {
-            const isSelected = idx === activeIndex;
-            return (
-              <button
-                key={dest.id}
-                type="button"
-                onClick={() => {
-                  setIsPaused(true);
-                  setActiveIndex(idx);
-                }}
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 border ${
-                  isSelected
-                    ? 'bg-emerald-500 text-slate-950 border-emerald-400 shadow-md shadow-emerald-500/20 font-bold scale-[1.02]'
-                    : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border-slate-800 hover:border-slate-700'
-                }`}
-              >
-                {getCategoryIcon(dest.category)}
-                <span>{dest.name}</span>
-              </button>
-            );
-          })}
+        {/* Destination World Horizontally Scrollable Rail */}
+        <div className="relative mb-6">
+          <div
+            ref={railRef}
+            onWheel={handleRailWheel}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+            aria-label="Destination rail switcher"
+            className="flex items-center gap-2 overflow-x-auto pb-3 pt-1 scroll-smooth no-scrollbar max-w-full focus:outline-none"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
+            {DESTINATION_WORLD_ASSETS.map((dest, idx) => {
+              const isSelected = idx === activeIndex;
+              return (
+                <button
+                  key={dest.id}
+                  ref={(el) => { buttonRefs.current[idx] = el; }}
+                  type="button"
+                  onClick={() => {
+                    setIsPaused(true);
+                    setActiveIndex(idx);
+                  }}
+                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 border shrink-0 cursor-pointer ${
+                    isSelected
+                      ? 'bg-emerald-500 text-slate-950 border-emerald-400 shadow-md shadow-emerald-500/20 font-bold scale-[1.02]'
+                      : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border-slate-800 hover:border-slate-700'
+                  }`}
+                >
+                  {getCategoryIcon(dest.category)}
+                  <span>{dest.name}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Master Cinematic Visual Stage */}
@@ -224,7 +264,7 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="p-2.5 rounded-full bg-slate-900/85 hover:bg-slate-850 text-slate-300 hover:text-white border border-slate-700/80 backdrop-blur-md shadow-lg transition-transform active:scale-95 cursor-pointer"
+                  className="p-2.5 rounded-full bg-slate-900/85 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/80 backdrop-blur-md shadow-lg transition-transform active:scale-95 cursor-pointer"
                   aria-label="Previous destination"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -239,7 +279,7 @@ export const DestinationWorldStage: React.FC<DestinationWorldStageProps> = ({
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="p-2.5 rounded-full bg-slate-900/85 hover:bg-slate-850 text-slate-300 hover:text-white border border-slate-700/80 backdrop-blur-md shadow-lg transition-transform active:scale-95 cursor-pointer"
+                  className="p-2.5 rounded-full bg-slate-900/85 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/80 backdrop-blur-md shadow-lg transition-transform active:scale-95 cursor-pointer"
                   aria-label="Next destination"
                 >
                   <ChevronRight className="w-5 h-5" />

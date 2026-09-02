@@ -1,6 +1,6 @@
 /**
  * High-Fidelity 3D Heritage Scene Viewer component for Destination and Modal views.
- * Bridges legacy Model3DContract to authoritative HeritageSceneViewer.
+ * Bridges legacy Model3DContract to authoritative HeritageSceneViewer with 4 canonical monuments.
  */
 import React, { useMemo } from 'react';
 import type { Model3DContract } from '../../types/api';
@@ -29,22 +29,16 @@ export const ThreeDViewer: React.FC<ThreeDViewerProps> = ({
     const pType = (model?.procedural_type || '').toLowerCase();
 
     if (pName.includes('konark') || pType.includes('konark')) {
-      return FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'konark-sun-temple')!;
+      return FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'konark-sun-temple') || FALLBACK_HERITAGE_SCENES[0];
     }
     if (pName.includes('puri') || pName.includes('jagannath') || pType.includes('jagannath')) {
-      return FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'puri-jagannath-temple')!;
+      return FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'puri-jagannath-temple') || FALLBACK_HERITAGE_SCENES[1];
     }
-    if (pName.includes('dhauli') || pType.includes('dhauli')) {
-      return FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'dhauli-shanti-stupa')!;
+    if (pName.includes('lingaraj') || pType.includes('lingaraj')) {
+      return FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'lingaraj-temple') || FALLBACK_HERITAGE_SCENES[2];
     }
-    if (pName.includes('lingaraj') || pName.includes('mukteshwar') || pType.includes('mukteshwar') || pType.includes('lingaraj')) {
-      return FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'lingaraj-temple')!;
-    }
-    if (pName.includes('udayagiri') || pName.includes('khandagiri') || pType.includes('caves')) {
-      return FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'udayagiri-khandagiri-caves')!;
-    }
-    if (pName.includes('barabati') || pName.includes('cuttack') || pType.includes('barabati')) {
-      return FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'barabati-fort')!;
+    if (pName.includes('brahmeswara') || pName.includes('bhrameshwar') || pName.includes('brahmeshwar') || pType.includes('brahmeswara') || pType.includes('bhrameshwar')) {
+      return FALLBACK_HERITAGE_SCENES.find((s) => s.id === 'brahmeswara-temple') || FALLBACK_HERITAGE_SCENES[3];
     }
 
     return FALLBACK_HERITAGE_SCENES[0];
