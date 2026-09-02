@@ -5,20 +5,29 @@ import android.content.SharedPreferences
 import com.otravelz.android.core.network.NetworkClient
 import com.otravelz.android.core.network.NetworkResult
 import com.otravelz.android.data.api.ApiService
+import com.otravelz.android.data.local.room.AppDatabase
+import com.otravelz.android.data.local.room.SavedPlaceEntity
+import com.otravelz.android.data.local.room.SavedPlacesDao
 import com.otravelz.android.data.model.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 /**
- * Repository managing saved/bookmarked destinations with private local storage
- * and background cloud sync via /api/v1/sync/saved-places.
+ * Repository managing saved/bookmarked destinations backed by Room Database
+ * with auto-migration from legacy SharedPreferences and background sync via /api/v1/sync/saved-places.
  */
 class SavedPlacesRepository(
-    private val context: Context,
-    private val apiService: ApiService = NetworkClient.apiService
+    context: Context,
+    private val apiService: ApiService = NetworkClient.apiService,
+    private val dao: SavedPlacesDao = AppDatabase.getInstance(context).savedPlacesDao(),
+    private val coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 ) {
 
     private val json = Json { ignoreUnknownKeys = true; isLenient = true }
@@ -31,27 +40,33 @@ class SavedPlacesRepository(
     val savedPlaces: StateFlow<List<PlaceDetailDto>> = _savedPlaces.asStateFlow()
 
     init {
-        loadFromLocalStorage()
-    }
-
-    private fun loadFromLocalStorage() {
-        try {
-            val rawJson = prefs.getString(KEY_SAVED_PLACES_JSON, null)
-            if (!rawJson.isNullOrBlank()) {
-                val list = json.decodeFromString<List<PlaceDetailDto>>(rawJson)
-                _savedPlaces.value = list
-                _savedPlaceIds.value = list.map { it.id }.toSet()
-            } else {
-                _savedPlaces.value = emptyList()
-                _savedPlaceIds.value = emptySet()
+        coroutineScope.launch {
+            migrateFromPreferencesIfEmpty()
+            dao.getAllPlacesFlow().collect { entities ->
+                val dtos = entities.map { it.toDto(json) }
+                _savedPlaces.value = dtos
+                _savedPlaceIds.value = dtos.map { it.id }.toSet()
+                // Keep SharedPreferences updated as secondary backup
+                persistToLegacyBackup(dtos)
             }
-        } catch (e: Exception) {
-            _savedPlaces.value = emptyList()
-            _savedPlaceIds.value = emptySet()
         }
     }
 
-    private fun persistToLocalStorage(list: List<PlaceDetailDto>) {
+    suspend fun migrateFromPreferencesIfEmpty() {
+        try {
+            val roomCount = dao.getCount()
+            if (roomCount == 0) {
+                val rawJson = prefs.getString(KEY_SAVED_PLACES_JSON, null)
+                if (!rawJson.isNullOrBlank()) {
+                    val list = json.decodeFromString<List<PlaceDetailDto>>(rawJson)
+                    val entities = list.map { SavedPlaceEntity.fromDto(it, json = json) }
+                    dao.insertPlaces(entities)
+                }
+            }
+        } catch (_: Exception) {}
+    }
+
+    private fun persistToLegacyBackup(list: List<PlaceDetailDto>) {
         try {
             val rawJson = json.encodeToString(list)
             prefs.edit().putString(KEY_SAVED_PLACES_JSON, rawJson).apply()
@@ -67,22 +82,15 @@ class SavedPlacesRepository(
      * Returns true if newly bookmarked, false if unbookmarked.
      */
     fun toggleSave(place: PlaceDetailDto): Boolean {
-        val currentList = _savedPlaces.value.toMutableList()
-        val existingIndex = currentList.indexOfFirst { it.id == place.id }
-
-        val isNowSaved = if (existingIndex >= 0) {
-            currentList.removeAt(existingIndex)
-            false
-        } else {
-            currentList.add(0, place)
-            true
+        val currentlySaved = isSaved(place.id)
+        coroutineScope.launch {
+            if (currentlySaved) {
+                dao.deletePlace(place.id)
+            } else {
+                dao.insertPlace(SavedPlaceEntity.fromDto(place, json = json))
+            }
         }
-
-        _savedPlaces.value = currentList
-        _savedPlaceIds.value = currentList.map { it.id }.toSet()
-        persistToLocalStorage(currentList)
-
-        return isNowSaved
+        return !currentlySaved
     }
 
     /**
@@ -111,7 +119,7 @@ class SavedPlacesRepository(
     }
 
     companion object {
-        private const val PREFS_NAME = "otravelz_saved_places_storage"
-        private const val KEY_SAVED_PLACES_JSON = "saved_places_json_v1"
+        const val PREFS_NAME = "otravelz_saved_places_storage"
+        const val KEY_SAVED_PLACES_JSON = "saved_places_json_v1"
     }
 }

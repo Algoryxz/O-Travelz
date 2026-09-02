@@ -265,7 +265,14 @@ fun OTravelzAppNav(
             composable(Screen.You.route) {
                 ProfileScreen(
                     onNavigateToSavedPlaces = { navController.navigate(Screen.Discover.route) },
-                    onNavigateToTrips = { navController.navigate(Screen.Trips.route) }
+                    onNavigateToTrips = { navController.navigate(Screen.Trips.route) },
+                    onNavigateToCommunityStaging = { navController.navigate("community_staging") }
+                )
+            }
+
+            composable("community_staging") {
+                com.otravelz.android.feature.community.CommunityStagingScreen(
+                    onNavigateBack = { navController.popBackStack() }
                 )
             }
 

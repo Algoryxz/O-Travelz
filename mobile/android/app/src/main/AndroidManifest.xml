@@ -37,6 +37,10 @@
                     android:host="place" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".core.notifications.TripAlarmReceiver"
+            android:exported="false" />
     </application>
 
 </manifest>

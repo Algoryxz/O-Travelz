@@ -5,21 +5,30 @@ import android.content.SharedPreferences
 import com.otravelz.android.core.network.NetworkClient
 import com.otravelz.android.core.network.NetworkResult
 import com.otravelz.android.data.api.ApiService
+import com.otravelz.android.data.local.room.AppDatabase
+import com.otravelz.android.data.local.room.SavedTripEntity
+import com.otravelz.android.data.local.room.SavedTripsDao
 import com.otravelz.android.data.model.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.util.UUID
 
 /**
- * Repository managing saved travel itineraries with private local storage
- * and background cloud sync via /api/v1/sync/trips.
+ * Repository managing saved travel itineraries backed by Room Database
+ * with auto-migration from legacy SharedPreferences and background sync via /api/v1/sync/trips.
  */
 class SavedTripsRepository(
-    private val context: Context,
-    private val apiService: ApiService = NetworkClient.apiService
+    context: Context,
+    private val apiService: ApiService = NetworkClient.apiService,
+    private val dao: SavedTripsDao = AppDatabase.getInstance(context).savedTripsDao(),
+    private val coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 ) {
 
     private val json = Json { ignoreUnknownKeys = true; isLenient = true }
@@ -29,24 +38,32 @@ class SavedTripsRepository(
     val savedTrips: StateFlow<List<SyncTripItemDto>> = _savedTrips.asStateFlow()
 
     init {
-        loadFromLocalStorage()
-    }
-
-    private fun loadFromLocalStorage() {
-        try {
-            val rawJson = prefs.getString(KEY_SAVED_TRIPS_JSON, null)
-            if (!rawJson.isNullOrBlank()) {
-                val list = json.decodeFromString<List<SyncTripItemDto>>(rawJson)
-                _savedTrips.value = list.filter { !it.isDeleted }
-            } else {
-                _savedTrips.value = emptyList()
+        coroutineScope.launch {
+            migrateFromPreferencesIfEmpty()
+            dao.getAllTripsFlow().collect { entities ->
+                val dtos = entities.map { it.toDto(json) }
+                _savedTrips.value = dtos
+                // Keep SharedPreferences updated as secondary backup
+                persistToLegacyBackup(dtos)
             }
-        } catch (e: Exception) {
-            _savedTrips.value = emptyList()
         }
     }
 
-    private fun persistToLocalStorage(list: List<SyncTripItemDto>) {
+    suspend fun migrateFromPreferencesIfEmpty() {
+        try {
+            val roomCount = dao.getCount()
+            if (roomCount == 0) {
+                val rawJson = prefs.getString(KEY_SAVED_TRIPS_JSON, null)
+                if (!rawJson.isNullOrBlank()) {
+                    val list = json.decodeFromString<List<SyncTripItemDto>>(rawJson)
+                    val entities = list.map { SavedTripEntity.fromDto(it, json = json) }
+                    dao.insertTrips(entities)
+                }
+            }
+        } catch (_: Exception) {}
+    }
+
+    private fun persistToLegacyBackup(list: List<SyncTripItemDto>) {
         try {
             val rawJson = json.encodeToString(list)
             prefs.edit().putString(KEY_SAVED_TRIPS_JSON, rawJson).apply()
@@ -74,10 +91,9 @@ class SavedTripsRepository(
             constraints = constraints
         )
 
-        val currentList = _savedTrips.value.toMutableList()
-        currentList.add(0, item)
-        _savedTrips.value = currentList
-        persistToLocalStorage(currentList)
+        coroutineScope.launch {
+            dao.insertTrip(SavedTripEntity.fromDto(item, json = json))
+        }
 
         return item
     }
@@ -86,12 +102,8 @@ class SavedTripsRepository(
      * Removes a saved trip locally.
      */
     fun deleteTrip(tripId: String) {
-        val currentList = _savedTrips.value.toMutableList()
-        val index = currentList.indexOfFirst { it.id == tripId }
-        if (index >= 0) {
-            currentList.removeAt(index)
-            _savedTrips.value = currentList
-            persistToLocalStorage(currentList)
+        coroutineScope.launch {
+            dao.deleteTrip(tripId)
         }
     }
 
@@ -109,7 +121,7 @@ class SavedTripsRepository(
     }
 
     companion object {
-        private const val PREFS_NAME = "otravelz_saved_trips_storage"
-        private const val KEY_SAVED_TRIPS_JSON = "saved_trips_json_v1"
+        const val PREFS_NAME = "otravelz_saved_trips_storage"
+        const val KEY_SAVED_TRIPS_JSON = "saved_trips_json_v1"
     }
 }

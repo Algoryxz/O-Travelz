@@ -9,23 +9,36 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.otravelz.android.core.design.*
 import com.otravelz.android.core.ui.profile.*
+import com.otravelz.android.data.local.UserPreferencesDataStore
+import kotlinx.coroutines.launch
 
 @Composable
 fun ProfileScreen(
     onNavigateToSavedPlaces: () -> Unit,
     onNavigateToTrips: () -> Unit,
+    onNavigateToCommunityStaging: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    var selectedLanguage by remember { mutableStateOf("English") }
-    var tripRemindersEnabled by remember { mutableStateOf(true) }
-    var weatherAdvisoriesEnabled by remember { mutableStateOf(true) }
-    var showCommunityDialog by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+    val coroutineScope = rememberCoroutineScope()
+    val preferencesDataStore = remember { UserPreferencesDataStore.getInstance(context) }
+    val userPreferences by preferencesDataStore.userPreferencesFlow.collectAsState(
+        initial = com.otravelz.android.data.local.UserPreferences()
+    )
+
     var showLanguageDialog by remember { mutableStateOf(false) }
     var showPrivacyDialog by remember { mutableStateOf(false) }
+
+    val displayLanguageName = when (userPreferences.preferredLanguage) {
+        "or" -> "ଓଡ଼ିଆ (Odia)"
+        "hi" -> "हिन्दी (Hindi)"
+        else -> "English"
+    }
 
     Column(
         modifier = modifier
@@ -55,9 +68,9 @@ fun ProfileScreen(
 
         // Stats Row
         ProfileStatsRow(
-            destinationCount = "80+ Verified",
+            destinationCount = "160+ Verified",
             transitStatus = "Mo Bus Schedules",
-            activeLanguage = selectedLanguage
+            activeLanguage = displayLanguageName
         )
 
         Spacer(modifier = Modifier.height(Spacing.lg))
@@ -79,7 +92,7 @@ fun ProfileScreen(
         SettingsTile(
             icon = Icons.Default.Language,
             title = "Display Language",
-            subtitle = selectedLanguage,
+            subtitle = displayLanguageName,
             onClick = { showLanguageDialog = true }
         )
 
@@ -89,8 +102,12 @@ fun ProfileScreen(
             icon = Icons.Default.Notifications,
             title = "Trip Arrival Alerts",
             subtitle = "Contextual arrival alerts and departure windows",
-            checked = tripRemindersEnabled,
-            onCheckedChange = { tripRemindersEnabled = it }
+            checked = userPreferences.tripAlertsEnabled,
+            onCheckedChange = { enabled ->
+                coroutineScope.launch {
+                    preferencesDataStore.setTripAlertsEnabled(enabled)
+                }
+            }
         )
 
         Spacer(modifier = Modifier.height(Spacing.xs))
@@ -99,8 +116,26 @@ fun ProfileScreen(
             icon = Icons.Default.CloudQueue,
             title = "Live Weather Advisories",
             subtitle = "Open-Meteo live updates along active routes",
-            checked = weatherAdvisoriesEnabled,
-            onCheckedChange = { weatherAdvisoriesEnabled = it }
+            checked = userPreferences.weatherAlertsEnabled,
+            onCheckedChange = { enabled ->
+                coroutineScope.launch {
+                    preferencesDataStore.setWeatherAlertsEnabled(enabled)
+                }
+            }
+        )
+
+        Spacer(modifier = Modifier.height(Spacing.xs))
+
+        SettingsToggleTile(
+            icon = Icons.Default.DirectionsWalk,
+            title = "First-Mile Transit Guidance",
+            subtitle = "Walking and short-auto recommendations for Mo Bus stops",
+            checked = userPreferences.transitGuidanceEnabled,
+            onCheckedChange = { enabled ->
+                coroutineScope.launch {
+                    preferencesDataStore.setTransitGuidanceEnabled(enabled)
+                }
+            }
         )
 
         Spacer(modifier = Modifier.height(Spacing.lg))
@@ -116,9 +151,9 @@ fun ProfileScreen(
 
         SettingsTile(
             icon = Icons.Default.AddLocationAlt,
-            title = "Recommend an Unlisted Gem",
-            subtitle = "Submit unlisted Odia heritage, food, or nature spots for research verification",
-            onClick = { showCommunityDialog = true }
+            title = "Hometown Cultural Staging",
+            subtitle = "Draft and stage unlisted Odia shrines, crafts, or nature gems locally on device",
+            onClick = onNavigateToCommunityStaging
         )
 
         Spacer(modifier = Modifier.height(Spacing.lg))
@@ -151,32 +186,13 @@ fun ProfileScreen(
         Spacer(modifier = Modifier.height(Spacing.xl))
     }
 
-    // Community Dialog
-    if (showCommunityDialog) {
-        AlertDialog(
-            onDismissRequest = { showCommunityDialog = false },
-            title = {
-                Text("Recommend a Destination", style = MaterialTheme.typography.titleMedium, color = TextPrimary)
-            },
-            text = {
-                Text(
-                    "Community destination submissions are staged in data/research/round2/ for verification by the research team before public indexing.\n\nStrict Rule: No verified image = no public index.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = TextSecondary
-                )
-            },
-            confirmButton = {
-                TextButton(onClick = { showCommunityDialog = false }) {
-                    Text("Understood", color = OchrePrimary, fontWeight = FontWeight.Bold)
-                }
-            },
-            containerColor = DarkSurfaceElevated
-        )
-    }
-
     // Language Selector Dialog
     if (showLanguageDialog) {
-        val languages = listOf("English", "ଓଡ଼ିଆ (Odia)", "हिन्दी (Hindi)")
+        val languages = listOf(
+            "en" to "English",
+            "or" to "ଓଡ଼ିଆ (Odia)",
+            "hi" to "हिन्दी (Hindi)"
+        )
         AlertDialog(
             onDismissRequest = { showLanguageDialog = false },
             title = {
@@ -184,7 +200,7 @@ fun ProfileScreen(
             },
             text = {
                 Column {
-                    languages.forEach { lang ->
+                    languages.forEach { (code, name) ->
                         Row(
                             verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
                             modifier = Modifier
@@ -192,15 +208,17 @@ fun ProfileScreen(
                                 .padding(vertical = 8.dp)
                         ) {
                             RadioButton(
-                                selected = selectedLanguage == lang,
+                                selected = userPreferences.preferredLanguage == code,
                                 onClick = {
-                                    selectedLanguage = lang
+                                    coroutineScope.launch {
+                                        preferencesDataStore.setPreferredLanguage(code)
+                                    }
                                     showLanguageDialog = false
                                 },
                                 colors = RadioButtonDefaults.colors(selectedColor = OchrePrimary)
                             )
                             Spacer(modifier = Modifier.width(8.dp))
-                            Text(text = lang, style = MaterialTheme.typography.bodyLarge, color = TextPrimary)
+                            Text(text = name, style = MaterialTheme.typography.bodyLarge, color = TextPrimary)
                         }
                     }
                 }
@@ -223,7 +241,7 @@ fun ProfileScreen(
             },
             text = {
                 Text(
-                    "O-TRAVELZ Mobile is designed privacy-first:\n\n• Location coordinates are used ephemerally in-memory to compute Haversine distances to nearby destinations and stops.\n• Itineraries and saved trips are saved locally on your device (App-private Local Storage).\n• No background tracking or continuous telemetry.",
+                    "O-TRAVELZ Mobile is designed privacy-first:\n\n• Location coordinates are used ephemerally in-memory to compute Haversine distances to nearby destinations and stops.\n• Itineraries and saved trips are saved locally in Room database on your device (App-private Local Storage).\n• No background tracking or continuous telemetry.",
                     style = MaterialTheme.typography.bodyMedium,
                     color = TextSecondary
                 )

@@ -11,7 +11,7 @@ object ApiConfig {
     const val EMULATOR_LOCAL_BASE_URL = "http://10.0.2.2:8000/"
 
     // Active Base URL
-    var activeBaseUrl: String = if (BuildConfig.DEBUG) LOCAL_BASE_URL else PROD_BASE_URL
+    var activeBaseUrl: String = PROD_BASE_URL
 
     /**
      * Resolves relative image paths (e.g. /static/images/...) against activeBaseUrl.
