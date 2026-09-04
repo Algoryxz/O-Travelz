@@ -127,7 +127,7 @@ export class HeritageSceneManager {
   }
 
   private disposeObject(obj: THREE.Object3D): void {
-    obj.traverse((child) => {
+    obj.traverse((child: THREE.Object3D) => {
       if ((child as THREE.Mesh).geometry) {
         (child as THREE.Mesh).geometry.dispose();
       }
