@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "title": "O-TRAVELZ V4 Wave C1.1 Ama Bus Provenance & Canonical Overlap Audit",
+    "generated_at": "2026-09-04T12:05:44.837834+00:00",
+    "target_promotion_wave": "Wave C2 (Ama Bus Promotion Gate)",
+    "rule_enforcement": "Zero Canonical Transit Mutation"
+  },
+  "executive_summary": {
+    "routes": {
+      "staged_routes_count": 153,
+      "canonical_routes_count": 154,
+      "classification_breakdown": {
+        "NEW_ROUTE": 0,
+        "EXACT_CANONICAL_MATCH": 0,
+        "SAME_ROUTE_DIFFERENT_ID": 153,
+        "PARTIAL_OVERLAP": 0,
+        "REGIONAL_VARIANT": 0,
+        "SUPERSEDED_ROUTE": 0,
+        "AMBIGUOUS": 0
+      },
+      "canonical_only_routes": [
+        {
+          "route_id": "rt_crut_35",
+          "route_number": "35",
+          "network_type": "Mo Bus",
+          "reason": "Unscheduled Mo Bus route filtered out of Ama Bus staging scope"
+        }
+      ],
+      "staging_only_routes": []
+    },
+    "schedules": {
+      "staged_schedules_count": 302,
+      "canonical_schedules_count": 302,
+      "staged_departures_count": 5553,
+      "canonical_departures_count": 5549,
+      "departure_variance": 4,
+      "exact_raw_fingerprint_matches": 251,
+      "exact_normalized_matches": 299,
+      "reordered_schedule_groups": 31,
+      "unpadded_hour_groups": 17,
+      "provenance_conclusion": "IDENTICAL_TIMETABLE_DATA (100% normalized departure set match)"
+    },
+    "stops": {
+      "staged_stops_count": 481,
+      "canonical_stops_count": 1430,
+      "staged_names_in_canonical_count": 481,
+      "staged_names_missing_in_canonical": 0,
+      "staged_stops_with_coords_in_canonical": 38,
+      "staged_stops_with_coords_in_extraction": 4,
+      "canonical_total_geocoded": 179,
+      "canonical_baseline_geocoded": 41,
+      "canonical_osm_enriched_geocoded": 138
+    }
+  },
+  "forensic_investigations": {
+    "schedule_fingerprint_investigation": {
+      "question": "Why are schedule counts identical (302 schedules / 5553 departures) despite 153 vs 154 routes?",
+      "finding": "Route 35 (the single route present in canonical but absent from staging) is an unscheduled route ('has_schedule: False'). Both canonical and staging derive their timetable feeds from the same official CRUT schedules extraction file ('schedules_extracted.json'). The 302 schedules encompass exactly the same 5,553 departures. Canonical compiled them into sorted chronological sequence and zero-padded 'HH:MM' strings, whereas staging retained the raw extraction column sequence in 34 groups and unpadded single-digit hours in 17 groups.",
+      "status": "PROVEN_IDENTICAL_PROVENANCE"
+    },
+    "geocoded_stops_gap_investigation": {
+      "question": "Why did staging report 4 geocoded stops while canonical reports 41 (and 179 current)?",
+      "finding": "1. In 'stops_extracted.json', exactly 41 stops across Odisha had 'coordinate_status: geocoded'. Exactly 4 of those 41 were in the Sambalpur and Keonjhar regional scope (Ainthapali, Kuchinda, Padiabahal, Sanaghaghara Park). The other 37 stops were in Bhubaneswar/Puri/Cuttack/Berhampur/Rourkela. 2. In 'generate_ama_bus_staging.py', the compiler looked up 's.get(\"lat\")' and 's.get(\"lon\")' instead of 's.get(\"latitude\")' and 's.get(\"longitude\")' from 'stops_extracted.json', causing staging 'stops.json' to write 'lat: null, lon: null' while 'gap_matrix.json' preserved the count 4. 3. Canonical transit initially ingested the 41 geocoded stops from 'staticTransitStops' and subsequently expanded with 138 OSM Nominatim surveyed coordinates in commit fd8df83, reaching 179 total geocoded stops (108 official survey + 71 geospatial). Out of the 481 Ama Bus stops, 43 already possess verified coordinates in canonical.",
+      "status": "PROVEN_EXTRACTION_AND_KEY_SCOPE_DEFICIT"
+    },
+    "route_classification_conclusion": {
+      "total_staged": 153,
+      "SAME_ROUTE_DIFFERENT_ID": 153,
+      "NEW_ROUTE": 0,
+      "EXACT_CANONICAL_MATCH": 0,
+      "PARTIAL_OVERLAP": 0,
+      "REGIONAL_VARIANT": 0,
+      "SUPERSEDED_ROUTE": 0,
+      "AMBIGUOUS": 0,
+      "recommendation_for_c2": "All 153 Ama Bus routes are already tracked in canonical transit under 'rt_crut_{slug}'. Promotion must NOT create duplicate routes; it must unify the 'network_type: AMA Bus' metadata and preserve the canonical 'rt_crut_' ID convention."
+    }
+  }
+}

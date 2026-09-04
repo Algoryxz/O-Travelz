@@ -1,0 +1,746 @@
+[
+  {
+    "index": 1,
+    "entity_id": "lingaraj",
+    "place_id": "lingaraj",
+    "place_name": null,
+    "storage_path": "data\\images\\places\\lingaraj",
+    "files_count": 0,
+    "files": [],
+    "classification": "ARCHIVE",
+    "rationale": "Legacy unnumbered directory 'lingaraj' superseded by canonical 'place_001' (Lingaraj Temple); directory is empty."
+  },
+  {
+    "index": 2,
+    "entity_id": "place_005/4e56a105e3a5",
+    "place_id": "place_005",
+    "place_name": "Parasurameswar Temple",
+    "storage_path": "data\\images\\places\\place_005\\4e56a105e3a5",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_005' (Parasurameswar Temple); active manifest points to alternate hash 'ab842f38830d'."
+  },
+  {
+    "index": 3,
+    "entity_id": "place_007/6d8254429a6a",
+    "place_id": "place_007",
+    "place_name": "Chausathi Yogini Temple, Hirapur",
+    "storage_path": "data\\images\\places\\place_007\\6d8254429a6a",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_007' (Chausathi Yogini Temple, Hirapur); active manifest points to alternate hash '564e4835c3ef'."
+  },
+  {
+    "index": 4,
+    "entity_id": "place_012/a917c9873b59",
+    "place_id": "place_012",
+    "place_name": "Regional Museum of Natural History",
+    "storage_path": "data\\images\\places\\place_012\\a917c9873b59",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_012' (Regional Museum of Natural History); active manifest points to alternate hash 'ad0d35d110fd'."
+  },
+  {
+    "index": 5,
+    "entity_id": "place_013/a2d24252c0ce",
+    "place_id": "place_013",
+    "place_name": "Museum of Tribal Arts and Artifacts",
+    "storage_path": "data\\images\\places\\place_013\\a2d24252c0ce",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_013' (Museum of Tribal Arts and Artifacts); active manifest points to alternate hash '4ddd9a095da7'."
+  },
+  {
+    "index": 6,
+    "entity_id": "place_014/30f7ed6f5755",
+    "place_id": "place_014",
+    "place_name": "Pathani Samanta Planetarium",
+    "storage_path": "data\\images\\places\\place_014\\30f7ed6f5755",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_014' (Pathani Samanta Planetarium); active manifest points to alternate hash 'd6f4657f934a'."
+  },
+  {
+    "index": 7,
+    "entity_id": "place_018/3fdcd749885b",
+    "place_id": "place_018",
+    "place_name": "Baitala Deula",
+    "storage_path": "data\\images\\places\\place_018\\3fdcd749885b",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_018' (Baitala Deula); active manifest points to alternate hash 'e61446a6ba33'."
+  },
+  {
+    "index": 8,
+    "entity_id": "place_019/79d401a75a62",
+    "place_id": "place_019",
+    "place_name": "Brahmeswar Temple",
+    "storage_path": "data\\images\\places\\place_019\\79d401a75a62",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_019' (Brahmeswar Temple); active manifest points to alternate hash '5ef73cb02061'."
+  },
+  {
+    "index": 9,
+    "entity_id": "place_020/eaedc027e860",
+    "place_id": "place_020",
+    "place_name": "Bhaskareswar Temple",
+    "storage_path": "data\\images\\places\\place_020\\eaedc027e860",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_020' (Bhaskareswar Temple); active manifest points to alternate hash '5d7d0f8c3edb'."
+  },
+  {
+    "index": 10,
+    "entity_id": "place_021/40dbffdb3896",
+    "place_id": "place_021",
+    "place_name": "Rameshwar Deula",
+    "storage_path": "data\\images\\places\\place_021\\40dbffdb3896",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_021' (Rameshwar Deula); active manifest points to alternate hash 'abf138069a51'."
+  },
+  {
+    "index": 11,
+    "entity_id": "place_022/250c5fb998e6",
+    "place_id": "place_022",
+    "place_name": "Ram Mandir, Bhubaneswar",
+    "storage_path": "data\\images\\places\\place_022\\250c5fb998e6",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_022' (Ram Mandir, Bhubaneswar); active manifest points to alternate hash 'de61af93e2b1'."
+  },
+  {
+    "index": 12,
+    "entity_id": "place_023/993614bac0d4",
+    "place_id": "place_023",
+    "place_name": "Chitrakarini Temple",
+    "storage_path": "data\\images\\places\\place_023\\993614bac0d4",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_023' (Chitrakarini Temple); active manifest points to alternate hash '7f34ece02179'."
+  },
+  {
+    "index": 13,
+    "entity_id": "place_024/c24a920d9ea5",
+    "place_id": "place_024",
+    "place_name": "Bharati Matha Temple",
+    "storage_path": "data\\images\\places\\place_024\\c24a920d9ea5",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Valid photographic asset bundle for canonical sanctuary 'place_024' (Bharati Matha Temple); directory present on disk but omitted from initial 70-place manifest.json."
+  },
+  {
+    "index": 14,
+    "entity_id": "place_025/32de32c1a13d",
+    "place_id": "place_025",
+    "place_name": "Kedar Gouri Temple",
+    "storage_path": "data\\images\\places\\place_025\\32de32c1a13d",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_025' (Kedar Gouri Temple); active manifest points to alternate hash 'c6e8242087d0'."
+  },
+  {
+    "index": 15,
+    "entity_id": "place_026/37aea0eff98c",
+    "place_id": "place_026",
+    "place_name": "Megheswar Temple",
+    "storage_path": "data\\images\\places\\place_026\\37aea0eff98c",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_026' (Megheswar Temple); active manifest points to alternate hash '33b5729ba32a'."
+  },
+  {
+    "index": 16,
+    "entity_id": "place_027/17b31b2b4531",
+    "place_id": "place_027",
+    "place_name": "Nageshwar Temple",
+    "storage_path": "data\\images\\places\\place_027\\17b31b2b4531",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_027' (Nageshwar Temple); active manifest points to alternate hash '95be07c1b213'."
+  },
+  {
+    "index": 17,
+    "entity_id": "place_028/cd738a94a267",
+    "place_id": "place_028",
+    "place_name": "Talesvara Siva Temple",
+    "storage_path": "data\\images\\places\\place_028\\cd738a94a267",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Valid photographic asset bundle for canonical sanctuary 'place_028' (Talesvara Siva Temple); directory present on disk but omitted from initial 70-place manifest.json."
+  },
+  {
+    "index": 18,
+    "entity_id": "place_029/4878025f4210",
+    "place_id": "place_029",
+    "place_name": "Kapilesvara Siva Temple",
+    "storage_path": "data\\images\\places\\place_029\\4878025f4210",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_029' (Kapilesvara Siva Temple); active manifest points to alternate hash '526a11476642'."
+  },
+  {
+    "index": 19,
+    "entity_id": "place_030/dd18b0f33834",
+    "place_id": "place_030",
+    "place_name": "Regional Science Centre, Bhubaneswar",
+    "storage_path": "data\\images\\places\\place_030\\dd18b0f33834",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_030' (Regional Science Centre, Bhubaneswar); active manifest points to alternate hash '740d0c7acced'."
+  },
+  {
+    "index": 20,
+    "entity_id": "place_031/420159c383f2",
+    "place_id": "place_031",
+    "place_name": "Indira Gandhi Park",
+    "storage_path": "data\\images\\places\\place_031\\420159c383f2",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_031' (Indira Gandhi Park); active manifest points to alternate hash '4df88497ceb1'."
+  },
+  {
+    "index": 21,
+    "entity_id": "place_032/1b4f7e6f8b2e",
+    "place_id": "place_032",
+    "place_name": "Buddha Jayanti Park",
+    "storage_path": "data\\images\\places\\place_032\\1b4f7e6f8b2e",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Valid photographic asset bundle for canonical sanctuary 'place_032' (Buddha Jayanti Park); directory present on disk but omitted from initial 70-place manifest.json."
+  },
+  {
+    "index": 22,
+    "entity_id": "place_bbsr_001/95eb7c9a1274",
+    "place_id": "place_bbsr_001",
+    "place_name": "Lingaraj Temple",
+    "storage_path": "data\\images\\places\\place_bbsr_001\\95eb7c9a1274",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_bbsr_001' (Lingaraj Temple); active manifest points to alternate hash '06a456469886'."
+  },
+  {
+    "index": 23,
+    "entity_id": "place_bbsr_001/abc12345",
+    "place_id": "place_bbsr_001",
+    "place_name": "Lingaraj Temple",
+    "storage_path": "data\\images\\places\\place_bbsr_001\\abc12345",
+    "files_count": 1,
+    "files": [
+      "hero.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_bbsr_001' (Lingaraj Temple); active manifest points to alternate hash '06a456469886'."
+  },
+  {
+    "index": 24,
+    "entity_id": "place_bbsr_001/b4c97bb3044b",
+    "place_id": "place_bbsr_001",
+    "place_name": "Lingaraj Temple",
+    "storage_path": "data\\images\\places\\place_bbsr_001\\b4c97bb3044b",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_bbsr_001' (Lingaraj Temple); active manifest points to alternate hash '06a456469886'."
+  },
+  {
+    "index": 25,
+    "entity_id": "place_chilika_001/e3007c197f3b",
+    "place_id": "place_chilika_001",
+    "place_name": "Chilika Lake - Satapada",
+    "storage_path": "data\\images\\places\\place_chilika_001\\e3007c197f3b",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_chilika_001' (Chilika Lake - Satapada); active manifest points to alternate hash 'b5a796039cf9'."
+  },
+  {
+    "index": 26,
+    "entity_id": "place_cuttack_001/edeaa939a80c",
+    "place_id": "place_cuttack_001",
+    "place_name": "Barabati Fort",
+    "storage_path": "data\\images\\places\\place_cuttack_001\\edeaa939a80c",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_cuttack_001' (Barabati Fort); active manifest points to alternate hash '02e40272a98d'."
+  },
+  {
+    "index": 27,
+    "entity_id": "place_cuttack_002/14877b098df9",
+    "place_id": "place_cuttack_002",
+    "place_name": "Cuttack Chandi Temple",
+    "storage_path": "data\\images\\places\\place_cuttack_002\\14877b098df9",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_cuttack_002' (Cuttack Chandi Temple); active manifest points to alternate hash '57a31cc80182'."
+  },
+  {
+    "index": 28,
+    "entity_id": "place_daringbadi_001/76083e315cec",
+    "place_id": "place_daringbadi_001",
+    "place_name": "Daringbadi Hill Station",
+    "storage_path": "data\\images\\places\\place_daringbadi_001\\76083e315cec",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_daringbadi_001' (Daringbadi Hill Station); active manifest points to alternate hash '49e608c2405f'."
+  },
+  {
+    "index": 29,
+    "entity_id": "place_food_001/e6fb3a71867e",
+    "place_id": "place_food_001",
+    "place_name": "Pahala Rasagola Sweet Hub",
+    "storage_path": "data\\images\\places\\place_food_001\\e6fb3a71867e",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Authentic culinary asset for food entity 'place_food_001' (Pahala Rasagola Sweet Hub); valid WebP variant bundle not yet indexed in destination manifest.json."
+  },
+  {
+    "index": 30,
+    "entity_id": "place_food_002/e0850b09b5ca",
+    "place_id": "place_food_002",
+    "place_name": "Nimapada Chhena Jhili Market",
+    "storage_path": "data\\images\\places\\place_food_002\\e0850b09b5ca",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Authentic culinary asset for food entity 'place_food_002' (Nimapada Chhena Jhili Market); valid WebP variant bundle not yet indexed in destination manifest.json."
+  },
+  {
+    "index": 31,
+    "entity_id": "place_food_003/5a13e730e909",
+    "place_id": "place_food_003",
+    "place_name": "Ananda Bazar, Puri",
+    "storage_path": "data\\images\\places\\place_food_003\\5a13e730e909",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Authentic culinary asset for food entity 'place_food_003' (Ananda Bazar, Puri); valid WebP variant bundle not yet indexed in destination manifest.json."
+  },
+  {
+    "index": 32,
+    "entity_id": "place_food_004/4e765c230837",
+    "place_id": "place_food_004",
+    "place_name": "Choudhury Bazar Dahibara Hub, Cuttack",
+    "storage_path": "data\\images\\places\\place_food_004\\4e765c230837",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Authentic culinary asset for food entity 'place_food_004' (Choudhury Bazar Dahibara Hub, Cuttack); valid WebP variant bundle not yet indexed in destination manifest.json."
+  },
+  {
+    "index": 33,
+    "entity_id": "place_food_005/daeb11d5893b",
+    "place_id": "place_food_005",
+    "place_name": "Bikalananda Kar Rasagola Hub, Salepur",
+    "storage_path": "data\\images\\places\\place_food_005\\daeb11d5893b",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Authentic culinary asset for food entity 'place_food_005' (Bikalananda Kar Rasagola Hub, Salepur); valid WebP variant bundle not yet indexed in destination manifest.json."
+  },
+  {
+    "index": 34,
+    "entity_id": "place_food_006/88f959c50d0e",
+    "place_id": "place_food_006",
+    "place_name": "OTDC Nimantran Restaurant, Bhubaneswar",
+    "storage_path": "data\\images\\places\\place_food_006\\88f959c50d0e",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Authentic culinary asset for food entity 'place_food_006' (OTDC Nimantran Restaurant, Bhubaneswar); valid WebP variant bundle not yet indexed in destination manifest.json."
+  },
+  {
+    "index": 35,
+    "entity_id": "place_food_007/a0a492f880a5",
+    "place_id": "place_food_007",
+    "place_name": "Bapuji Nagar Food Corridor, Bhubaneswar",
+    "storage_path": "data\\images\\places\\place_food_007\\a0a492f880a5",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Authentic culinary asset for food entity 'place_food_007' (Bapuji Nagar Food Corridor, Bhubaneswar); valid WebP variant bundle not yet indexed in destination manifest.json."
+  },
+  {
+    "index": 36,
+    "entity_id": "place_food_008/35cde5e9e0e8",
+    "place_id": "place_food_008",
+    "place_name": "Unit-4 Traditional Food & Fish Market, Bhubaneswar",
+    "storage_path": "data\\images\\places\\place_food_008\\35cde5e9e0e8",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Authentic culinary asset for food entity 'place_food_008' (Unit-4 Traditional Food & Fish Market, Bhubaneswar); valid WebP variant bundle not yet indexed in destination manifest.json."
+  },
+  {
+    "index": 37,
+    "entity_id": "place_food_009/0b3143c9ea24",
+    "place_id": "place_food_009",
+    "place_name": "OTDC Panthasala Odia Cuisine Centre, Konark",
+    "storage_path": "data\\images\\places\\place_food_009\\0b3143c9ea24",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Authentic culinary asset for food entity 'place_food_009' (OTDC Panthasala Odia Cuisine Centre, Konark); valid WebP variant bundle not yet indexed in destination manifest.json."
+  },
+  {
+    "index": 38,
+    "entity_id": "place_food_010/abcf1ef01835",
+    "place_id": "place_food_010",
+    "place_name": "Maa Mangala Temple Food & Pitha Precinct, Kakatpur",
+    "storage_path": "data\\images\\places\\place_food_010\\abcf1ef01835",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Authentic culinary asset for food entity 'place_food_010' (Maa Mangala Temple Food & Pitha Precinct, Kakatpur); valid WebP variant bundle not yet indexed in destination manifest.json."
+  },
+  {
+    "index": 39,
+    "entity_id": "place_food_011/cb1d3fcc1b6c",
+    "place_id": "place_food_011",
+    "place_name": "Raghunathpur Culinary Corner, Bhubaneswar",
+    "storage_path": "data\\images\\places\\place_food_011\\cb1d3fcc1b6c",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "LEGACY_VALID_UNREGISTERED",
+    "rationale": "Authentic culinary asset for food entity 'place_food_011' (Raghunathpur Culinary Corner, Bhubaneswar); valid WebP variant bundle not yet indexed in destination manifest.json."
+  },
+  {
+    "index": 40,
+    "entity_id": "place_kendrapara_001/9f848ce9dd1c",
+    "place_id": "place_kendrapara_001",
+    "place_name": "Bhitarkanika National Park",
+    "storage_path": "data\\images\\places\\place_kendrapara_001\\9f848ce9dd1c",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_kendrapara_001' (Bhitarkanika National Park); active manifest points to alternate hash '3c1227e192f9'."
+  },
+  {
+    "index": 41,
+    "entity_id": "place_konark_001/dadad62e6578",
+    "place_id": "place_konark_001",
+    "place_name": "Konark Sun Temple",
+    "storage_path": "data\\images\\places\\place_konark_001\\dadad62e6578",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_konark_001' (Konark Sun Temple); active manifest points to alternate hash '03b959a8abef'."
+  },
+  {
+    "index": 42,
+    "entity_id": "place_koraput_001/17d13f161748",
+    "place_id": "place_koraput_001",
+    "place_name": "Gupteswar Cave Temple, Koraput",
+    "storage_path": "data\\images\\places\\place_koraput_001\\17d13f161748",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_koraput_001' (Gupteswar Cave Temple, Koraput); active manifest points to alternate hash 'ebdb01aa8cee'."
+  },
+  {
+    "index": 43,
+    "entity_id": "place_koraput_003/b8491bd13242",
+    "place_id": "place_koraput_003",
+    "place_name": "Deomali Peak, Koraput",
+    "storage_path": "data\\images\\places\\place_koraput_003\\b8491bd13242",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_koraput_003' (Deomali Peak, Koraput); active manifest points to alternate hash 'd706510f47e0'."
+  },
+  {
+    "index": 44,
+    "entity_id": "place_mayurbhanj_001/1018a32ef1a4",
+    "place_id": "place_mayurbhanj_001",
+    "place_name": "Similipal National Park",
+    "storage_path": "data\\images\\places\\place_mayurbhanj_001\\1018a32ef1a4",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_mayurbhanj_001' (Similipal National Park); active manifest points to alternate hash '62ca826d15a0'."
+  },
+  {
+    "index": 45,
+    "entity_id": "place_puri_001/46bc44872d9d",
+    "place_id": "place_puri_001",
+    "place_name": "Jagannath Temple, Puri",
+    "storage_path": "data\\images\\places\\place_puri_001\\46bc44872d9d",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_puri_001' (Jagannath Temple, Puri); active manifest points to alternate hash '02287867dc89'."
+  },
+  {
+    "index": 46,
+    "entity_id": "place_sambalpur_001/d31c0247861c",
+    "place_id": "place_sambalpur_001",
+    "place_name": "Hirakud Dam & Reservoir",
+    "storage_path": "data\\images\\places\\place_sambalpur_001\\d31c0247861c",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_sambalpur_001' (Hirakud Dam & Reservoir); active manifest points to alternate hash '319e1fc78ef8'."
+  },
+  {
+    "index": 47,
+    "entity_id": "place_sambalpur_001/f9bd5d208c25",
+    "place_id": "place_sambalpur_001",
+    "place_name": "Hirakud Dam & Reservoir",
+    "storage_path": "data\\images\\places\\place_sambalpur_001\\f9bd5d208c25",
+    "files_count": 4,
+    "files": [
+      "card.webp",
+      "hero.webp",
+      "original.webp",
+      "thumbnail.webp"
+    ],
+    "classification": "ARCHIVE",
+    "rationale": "Prior revision / alternative crop for 'place_sambalpur_001' (Hirakud Dam & Reservoir); active manifest points to alternate hash '319e1fc78ef8'."
+  }
+]

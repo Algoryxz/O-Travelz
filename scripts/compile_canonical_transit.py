@@ -160,12 +160,13 @@ def compile_canonical_transit(
     repo_root: Path,
     dry_run: bool = False,
     check_mode: bool = False,
+    output_dir: Path | None = None,
 ) -> Dict[str, Any]:
     """Main compilation routine."""
     extraction_dir = repo_root / "data" / "research" / "transit" / "extraction"
     static_ts_path = repo_root / "frontend" / "src" / "data" / "staticTransitStops.ts"
     alias_reg_path = repo_root / "data" / "research" / "transit" / "phase_6b" / "stop_alias_registry.json"
-    canonical_dir = repo_root / "data" / "transport" / "canonical"
+    canonical_dir = output_dir or (repo_root / "data" / "transport" / "canonical")
     
     required_inputs = [
         extraction_dir / "routes_extracted.json",

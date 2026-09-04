@@ -39,11 +39,11 @@ def get_file_sha256(path: Path) -> str:
 
 class TestCanonicalTransitPipeline:
 
-    @pytest.fixture(autouse=True)
+    @pytest.fixture(scope="class", autouse=True)
     def setup_pipeline(self):
-        # Run compilation to ensure latest canonical output is present
+        # Validate compilation gates without mutating canonical disk
         from scripts.compile_canonical_transit import compile_canonical_transit
-        compile_canonical_transit(REPO_ROOT)
+        compile_canonical_transit(REPO_ROOT, check_mode=True)
 
     def test_01_154_route_records_compile(self):
         routes_file = CANONICAL_DIR / "routes.json"
@@ -84,16 +84,16 @@ class TestCanonicalTransitPipeline:
         sample_f1 = next(r for r in routes if r["route_number"] == "F1")
         assert sample_f1["route_id"] == "rt_crut_f1"
 
-    def test_04_stable_stop_ids_across_reruns(self):
+    def test_04_stable_stop_ids_across_reruns(self, tmp_path):
         with open(CANONICAL_DIR / "stops.json", encoding="utf-8") as f:
             stops_1 = json.load(f)
         ids_1 = [s["stop_id"] for s in stops_1]
         
-        # Run compilation again
+        # Run compilation to isolated temporary directory
         from scripts.compile_canonical_transit import compile_canonical_transit
-        compile_canonical_transit(REPO_ROOT)
+        compile_canonical_transit(REPO_ROOT, output_dir=tmp_path)
         
-        with open(CANONICAL_DIR / "stops.json", encoding="utf-8") as f:
+        with open(tmp_path / "stops.json", encoding="utf-8") as f:
             stops_2 = json.load(f)
         ids_2 = [s["stop_id"] for s in stops_2]
         
@@ -169,7 +169,12 @@ class TestCanonicalTransitPipeline:
             rep = json.load(f)
         
         total_deps = sum(len(s["departure_times"]) for s in schedules)
-        assert total_deps == rep["outputs"]["individual_departure_time_count"]
+        expected_from_rep = rep.get("outputs", {}).get("individual_departure_time_count")
+        if expected_from_rep is not None:
+            assert total_deps == expected_from_rep
+        with open(CANONICAL_DIR / "network.json", encoding="utf-8") as f:
+            net = json.load(f)
+        assert total_deps == net["stats"]["total_departure_times"]
         assert total_deps == 5549
 
     def test_12_malformed_time_rejected_or_normalized(self):
@@ -182,16 +187,18 @@ class TestCanonicalTransitPipeline:
         assert normalize_time_str("invalid") is None
         assert normalize_time_str("") is None
 
-    def test_13_build_deterministic_across_repeated_runs(self):
+    def test_13_build_deterministic_across_repeated_runs(self, tmp_path):
         from scripts.compile_canonical_transit import compile_canonical_transit
         
-        # Run 1
-        compile_canonical_transit(REPO_ROOT)
-        hashes_1 = {f.name: get_file_sha256(f) for f in CANONICAL_DIR.glob("*.json")}
+        # Run 1 to isolated temporary directory
+        run1_dir = tmp_path / "run1"
+        compile_canonical_transit(REPO_ROOT, output_dir=run1_dir)
+        hashes_1 = {f.name: get_file_sha256(f) for f in run1_dir.glob("*.json")}
         
-        # Run 2
-        compile_canonical_transit(REPO_ROOT)
-        hashes_2 = {f.name: get_file_sha256(f) for f in CANONICAL_DIR.glob("*.json")}
+        # Run 2 to isolated temporary directory
+        run2_dir = tmp_path / "run2"
+        compile_canonical_transit(REPO_ROOT, output_dir=run2_dir)
+        hashes_2 = {f.name: get_file_sha256(f) for f in run2_dir.glob("*.json")}
         
         # Verify content hashes match (excluding variable ISO timestamp in build_report.json/network.json)
         for fname in ["stops.json", "routes.json", "route_stops.json", "schedules.json", "aliases.json"]:
