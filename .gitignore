@@ -40,3 +40,6 @@ scratch/
 
 # Graphify architecture graph output
 graphify-out/
+
+# Database dump files
+*.dump
