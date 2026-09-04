@@ -1,0 +1,29 @@
+{
+  "c3_readiness_metadata": {
+    "title": "O-TRAVELZ V4 Wave C3 Pre-Promotion Readiness & Gate Report",
+    "generated_at": "2026-09-04T13:25:57.776975+00:00",
+    "target_gate": "Wave C3 Canonical Transit Promotion Gate",
+    "rule_enforcement": "Strict Regional Coordinate Consistency; Zero-Mutation Barrier"
+  },
+  "five_region_routes_complete": true,
+  "five_region_stop_extraction_complete": true,
+  "distinct_stop_identity_candidates": 939,
+  "ambiguous_identity_count": 5,
+  "coordinate_consistency_failures": 1,
+  "coordinate_consistency_reviews": 0,
+  "coordinate_exact_passes": 39,
+  "canonical_mutation_ready": false,
+  "gate_status": "BLOCKED",
+  "blocking_reasons": [
+    "Regional coordinate mismatch: 'stop_crut_keonjhar_district_hospital' in Keonjhar resolved to Puri coordinates (19.8167, 85.8333), 203.2 km south of Keonjhar anchor (FAIL).",
+    "939 missing region stop candidates across Capital Region (355), Rourkela (294), and Berhampur (290) require formal identity verification before promotion.",
+    "Zero Canonical Transit Mutation invariant in effect: data/transport/canonical/ must remain untouched."
+  ],
+  "audit_cross_references": {
+    "locality_resolution_file": "data/transport/staging/ama_bus/locality_resolution.json",
+    "coordinate_overlap_discrepancy_file": "data/transport/staging/ama_bus/coordinate_overlap_discrepancy.json",
+    "regional_stop_coverage_file": "data/transport/staging/ama_bus/regional_stop_coverage.json",
+    "regional_coordinate_discrepancies_file": "data/transport/staging/ama_bus/regional_coordinate_discrepancies.json",
+    "missing_region_stop_candidates_file": "data/transport/staging/ama_bus/missing_region_stop_candidates.json"
+  }
+}

@@ -1,18 +1,23 @@
 {
   "audit_metadata": {
-    "title": "O-TRAVELZ V4 Wave C2.1 Five-Region Ama Bus Stop Universe Coverage Audit",
-    "generated_at": "2026-09-04T13:01:24.056176+00:00",
-    "target_wave": "Wave C2.1 / C3 Network Expansion",
-    "rule_enforcement": "Zero Canonical Transit Mutation; Explicit Gap Accounting"
+    "title": "O-TRAVELZ V4 Wave C2.2 Five-Region Ama Bus Stop Universe Coverage Audit",
+    "generated_at": "2026-09-04T13:25:57.737214+00:00",
+    "target_wave": "Wave C2.2 / C3 Network Expansion",
+    "rule_enforcement": "Zero Canonical Transit Mutation; Distinct Published Names vs Extracted Records Accounting"
   },
   "network_totals": {
     "total_regions": 5,
     "total_source_documents": 9,
     "total_staged_routes": 153,
-    "total_distinct_published_stops": 1417,
-    "total_extracted_stops": 1430,
+    "total_extracted_records": 1430,
+    "total_distinct_published_names": 1417,
     "total_staged_stops": 481,
+    "missing_extracted_records": 949,
+    "missing_distinct_published_names": 944,
+    "missing_region_stop_candidates": 939,
     "total_missing_staging_stops": 949,
+    "total_extracted_stops": 1430,
+    "total_distinct_published_stops": 1417,
     "total_locality_resolution_stops": 481,
     "total_coordinate_resolved_stops": 40,
     "total_locality_only_stops": 441
@@ -26,13 +31,17 @@
       ],
       "source_document_count": 2,
       "staged_routes_count": 95,
+      "distinct_published_names_count": 358,
       "distinct_published_stops_count": 358,
+      "extracted_records_count": 362,
       "extracted_stops_count": 362,
       "staging_stops_count": 0,
+      "missing_extracted_records": 362,
+      "missing_distinct_published_names": 358,
+      "missing_staging_stops_count": 362,
       "locality_resolution_stops_count": 0,
       "coordinate_resolved_count": 0,
       "locality_only_count": 0,
-      "missing_staging_stops_count": 362,
       "status": "PENDING_EXTRACTION_INGESTION"
     },
     {
@@ -43,13 +52,17 @@
       ],
       "source_document_count": 2,
       "staged_routes_count": 25,
+      "distinct_published_names_count": 294,
       "distinct_published_stops_count": 294,
+      "extracted_records_count": 294,
       "extracted_stops_count": 294,
       "staging_stops_count": 0,
+      "missing_extracted_records": 294,
+      "missing_distinct_published_names": 294,
+      "missing_staging_stops_count": 294,
       "locality_resolution_stops_count": 0,
       "coordinate_resolved_count": 0,
       "locality_only_count": 0,
-      "missing_staging_stops_count": 294,
       "status": "PENDING_EXTRACTION_INGESTION"
     },
     {
@@ -60,13 +73,17 @@
       ],
       "source_document_count": 2,
       "staged_routes_count": 17,
+      "distinct_published_names_count": 368,
       "distinct_published_stops_count": 368,
+      "extracted_records_count": 374,
       "extracted_stops_count": 374,
       "staging_stops_count": 374,
+      "missing_extracted_records": 0,
+      "missing_distinct_published_names": 0,
+      "missing_staging_stops_count": 0,
       "locality_resolution_stops_count": 374,
       "coordinate_resolved_count": 33,
       "locality_only_count": 341,
-      "missing_staging_stops_count": 0,
       "status": "LOCALITY_RESOLVED"
     },
     {
@@ -77,13 +94,17 @@
       ],
       "source_document_count": 2,
       "staged_routes_count": 10,
+      "distinct_published_names_count": 292,
       "distinct_published_stops_count": 292,
+      "extracted_records_count": 293,
       "extracted_stops_count": 293,
       "staging_stops_count": 0,
+      "missing_extracted_records": 293,
+      "missing_distinct_published_names": 292,
+      "missing_staging_stops_count": 293,
       "locality_resolution_stops_count": 0,
       "coordinate_resolved_count": 0,
       "locality_only_count": 0,
-      "missing_staging_stops_count": 293,
       "status": "PENDING_EXTRACTION_INGESTION"
     },
     {
@@ -93,18 +114,22 @@
       ],
       "source_document_count": 1,
       "staged_routes_count": 6,
+      "distinct_published_names_count": 105,
       "distinct_published_stops_count": 105,
+      "extracted_records_count": 107,
       "extracted_stops_count": 107,
       "staging_stops_count": 107,
+      "missing_extracted_records": 0,
+      "missing_distinct_published_names": 0,
+      "missing_staging_stops_count": 0,
       "locality_resolution_stops_count": 107,
       "coordinate_resolved_count": 7,
       "locality_only_count": 100,
-      "missing_staging_stops_count": 0,
       "status": "LOCALITY_RESOLVED"
     }
   ],
   "forensic_finding": {
-    "summary": "Staged Ama Bus routes cover the full five-region network (153 routes across Capital Region, Rourkela, Sambalpur, Berhampur, Keonjhar). In contrast, staged stops (481) represent only Sambalpur (374) and Keonjhar (107). Exactly 949 stops across Capital Region (362), Rourkela (294), and Berhampur (293) were extracted from official schedule PDFs ('stops_extracted.json') but have not yet been ingested into staging 'stops.json'. 481 is NOT the complete five-region universe.",
+    "summary": "Staged Ama Bus routes cover the full five-region network (153 routes across Capital Region, Rourkela, Sambalpur, Berhampur, Keonjhar). In contrast, staged stops (481) represent only Sambalpur (374) and Keonjhar (107). Exactly 949 missing extraction records (representing 944 distinct published stop names and 939 normalized candidate entities) across Capital Region (362 ext / 358 names / 355 cand), Rourkela (294 ext / 294 names / 294 cand), and Berhampur (293 ext / 292 names / 290 cand) were extracted from official schedule PDFs ('stops_extracted.json') but have not yet been ingested into staging 'stops.json'. 949 is the raw extracted record count, NOT unique physical stops.",
     "promotion_boundary_warning": "Passing validator promotion (--profile promotion) on locality_resolution.json proves strict schema and truth compliance for the staged Sambalpur and Keonjhar slice ONLY. It does NOT prove five-region stop identity closure or canonical promotion readiness for the full network."
   }
 }

@@ -5,12 +5,49 @@ sorting, and split transit truth boundaries (provenance and live claims).
 """
 from __future__ import annotations
 
+import math
 import re
 from typing import Any, Dict, List, Optional, Set
 from app.validation import codes
-from app.validation.models import ValidationReport, ValidationSeverity
+from app.validation.models import ValidationProfile, ValidationReport, ValidationSeverity
 
 TIME_HHMM_REGEX = re.compile(r"^([01]\d|2[0-3]):([0-5]\d)$")
+
+REGIONAL_ANCHORS: Dict[str, Dict[str, float]] = {
+    "CAPITAL_REGION": {"lat": 20.2961, "lon": 85.8245, "max_km": 95.0},
+    "ROURKELA": {"lat": 22.2604, "lon": 84.8536, "max_km": 75.0},
+    "SAMBALPUR": {"lat": 21.4669, "lon": 83.9812, "max_km": 80.0},
+    "BERHAMPUR": {"lat": 19.3150, "lon": 84.7941, "max_km": 65.0},
+    "KEONJHAR": {"lat": 21.6289, "lon": 85.5817, "max_km": 75.0},
+}
+
+
+def _haversine_distance_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    r = 6371.0
+    phi1, phi2 = math.radians(lat1), math.radians(lat2)
+    dphi = math.radians(lat2 - lat1)
+    dlambda = math.radians(lon2 - lon1)
+    a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
+    return 2 * r * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+
+def _resolve_transit_region(stop: Dict[str, Any]) -> str:
+    sid = str(stop.get("stop_id", "")).lower()
+    city = str(stop.get("city") or (stop.get("locality", {}) or {}).get("city") or "").lower()
+    s_area = str(stop.get("service_area", "")).lower()
+    t = f"{sid} {city} {s_area}"
+    if "sambalpur" in t:
+        return "SAMBALPUR"
+    if "keonjhar" in t:
+        return "KEONJHAR"
+    if "rourkela" in t:
+        return "ROURKELA"
+    if "berhampur" in t or "brahmapur" in t:
+        return "BERHAMPUR"
+    if any(k in t for k in ("bhubaneswar", "cuttack", "puri", "khordha", "capital")):
+        return "CAPITAL_REGION"
+    return "UNKNOWN"
+
 
 
 def _to_service_day_minutes(time_str: str) -> Optional[int]:
@@ -236,6 +273,54 @@ def validate_transit_stop(
                 message=f"Stop '{sid}' claims BigDataCloud reverse geocoding provenance without valid input coordinates",
                 evidence={"locality_source": locality_source, "lat": lat, "lon": lon},
             )
+
+    # TRN_COORDINATE_SERVICE_AREA_MISMATCH
+    # Check coordinate against declared transit region/service area
+    if lat is not None and lon is not None:
+        region = _resolve_transit_region(stop)
+        cfg = REGIONAL_ANCHORS.get(region)
+        if cfg:
+            dist = _haversine_distance_km(float(lat), float(lon), cfg["lat"], cfg["lon"])
+            if dist > cfg["max_km"]:
+                severity = (
+                    ValidationSeverity.ERROR
+                    if report.profile == ValidationProfile.PROMOTION
+                    else ValidationSeverity.WARNING
+                )
+                report.add_issue(
+                    code=codes.TRN_COORDINATE_SERVICE_AREA_MISMATCH,
+                    severity=severity,
+                    domain="transit",
+                    entity_type="stop",
+                    entity_id=sid,
+                    field="coordinate",
+                    message=(
+                        f"Stop '{sid}' declared in region '{region}' but coordinate ({lat}, {lon}) "
+                        f"is {dist:.1f} km from regional anchor ({cfg['lat']}, {cfg['lon']}), "
+                        f"exceeding conservative {cfg['max_km']} km service boundary"
+                    ),
+                    evidence={
+                        "region": region,
+                        "lat": lat,
+                        "lon": lon,
+                        "distance_km": round(dist, 2),
+                        "max_allowed_km": cfg["max_km"],
+                    },
+                )
+        elif region == "UNKNOWN":
+            # Unknown region remains review-required
+            if report.profile in {ValidationProfile.AUDIT, ValidationProfile.PROMOTION}:
+                report.add_issue(
+                    code=codes.TRN_COORDINATE_SERVICE_AREA_MISMATCH,
+                    severity=ValidationSeverity.INFO,
+                    domain="transit",
+                    entity_type="stop",
+                    entity_id=sid,
+                    field="coordinate",
+                    message=f"Stop '{sid}' has coordinates ({lat}, {lon}) in unmapped region '{region}'; manual review required",
+                    evidence={"lat": lat, "lon": lon, "review_status": "REVIEW_REQUIRED"},
+                )
+
 
 
 def validate_transit_route(
