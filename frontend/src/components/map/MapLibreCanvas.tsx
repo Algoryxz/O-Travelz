@@ -1,8 +1,14 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Map, NavigationControl, AttributionControl, Popup, Marker, type GeoJSONSource } from 'maplibre-gl';
+import { Map, NavigationControl, AttributionControl, Popup, Marker, setWorkerUrl, type GeoJSONSource } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import maplibreglWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import { DEFAULT_MAP_CONFIG, MAP_STYLES, type MapStyleOption } from '../../config/mapConfig';
 import { Layers, Compass } from 'lucide-react';
+
+// Configure MapLibre self-contained worker bundle URL for Vite dev and production
+if (typeof window !== 'undefined' && maplibreglWorkerUrl) {
+  setWorkerUrl(maplibreglWorkerUrl);
+}
 
 export interface MapPlaceMarker {
   id: string;
@@ -245,7 +251,14 @@ export const MapLibreCanvas: React.FC<MapLibreCanvasProps> = ({
       });
     };
 
+    map.on('error', (e) => {
+      if (typeof process !== 'undefined' && process.env?.NODE_ENV !== 'production') {
+        console.warn('[MapLibre Canvas Event]', e.error?.message || e);
+      }
+    });
+
     map.on('load', () => {
+      map.resize();
       setIsMapLoaded(true);
       setupLayers();
       try {
@@ -261,9 +274,21 @@ export const MapLibreCanvas: React.FC<MapLibreCanvasProps> = ({
       }
     });
 
+    // ResizeObserver ensures canvas automatically tracks container dimensions
+    let resizeObserver: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined' && mapContainerRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        map.resize();
+      });
+      resizeObserver.observe(mapContainerRef.current);
+    }
+
     mapRef.current = map;
 
     return () => {
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
       if (popupRef.current) popupRef.current.remove();
       if (activeMarkerRef.current) activeMarkerRef.current.remove();
       map.remove();
