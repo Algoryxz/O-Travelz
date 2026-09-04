@@ -139,10 +139,10 @@ def test_database_invariants_post_phase_4():
         assert total_stops == 1430, f"Expected 1430 total stops, got {total_stops}"
 
         geocoded_stops = db.query(Stop).filter(Stop.location != None).count()  # noqa: E711
-        assert geocoded_stops in (41, 173), f"Expected 41 or 173 geocoded stops, got {geocoded_stops}"
+        assert geocoded_stops == 173, f"Expected 173 geocoded stops, got {geocoded_stops}"
 
         route_stops = db.query(RouteStop).count()
-        assert route_stops in (1487, 1491), f"Expected 1487 or 1491 route stops, got {route_stops}"
+        assert route_stops == 1491, f"Expected 1491 route stops, got {route_stops}"
 
         trip_groups = db.query(ScheduledTripGroup).count()
         assert trip_groups == 302, f"Expected 302 trip groups, got {trip_groups}"

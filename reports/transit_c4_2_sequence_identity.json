@@ -1,0 +1,84 @@
+{
+  "audit_timestamp": "2026-09-04T18:23:46.688109+00:00",
+  "wave": "C4.2",
+  "status": "HARDENING_COMPLETE",
+  "two_phase_migration": {
+    "phase_1_ddl_migration": "0015_add_route_stop_sequence_columns",
+    "phase_1_backfill_script": "scripts/backfill_route_stop_sequence_identity.py",
+    "phase_2_ddl_migration": "0016_enforce_route_stop_sequence_identity",
+    "runtime_json_decoupled_from_alembic": true
+  },
+  "schema_contract": {
+    "table": "route_stops",
+    "columns_added": [
+      {
+        "name": "direction",
+        "type": "VARCHAR(64)",
+        "nullable": true
+      },
+      {
+        "name": "sequence_id",
+        "type": "VARCHAR(128)",
+        "nullable": false
+      }
+    ],
+    "indexes": [
+      "ix_route_stops_sequence_id"
+    ],
+    "constraints": [
+      "uq_route_stop_sequence_order (route_id, sequence_id, sequence_order)"
+    ]
+  },
+  "live_database_verification": {
+    "routes": 154,
+    "stops": 1430,
+    "geocoded_stops": 173,
+    "unresolved_stops": 1257,
+    "route_stops": 1491,
+    "schedules": 302,
+    "departures": 5553,
+    "null_sequence_ids": 0,
+    "null_directions": 0
+  },
+  "multiset_parity": {
+    "canonical_links": 1491,
+    "db_route_stops": 1491,
+    "multiset_parity_achieved": true,
+    "unique_tuples_count": 1491,
+    "dimensions": [
+      "route_number",
+      "sequence_id",
+      "direction",
+      "sequence_order",
+      "canonical_stop_id"
+    ],
+    "c4_1_collisions_disambiguated": 4
+  },
+  "idempotency": {
+    "tested_consecutive_runs": 2,
+    "row_count_preserved": 1491,
+    "tuple_multiset_identical": true
+  },
+  "test_modernization": {
+    "eliminated_compatibility_ranges": [
+      "in (1487, 1491)",
+      "in (41, 173)",
+      "in (1389, 1257)"
+    ],
+    "updated_test_files": [
+      "backend/tests/test_food_places_extension.py",
+      "backend/tests/test_food_discovery_and_corridor.py",
+      "backend/tests/test_multimodal_journey.py",
+      "backend/tests/test_official_transit_import.py",
+      "backend/tests/test_phase_4b_transfer_routing.py",
+      "backend/tests/test_phase_4a_hub_aliasing.py",
+      "backend/tests/test_phase_3d_end_to_end.py",
+      "backend/tests/test_phase_4d_performance_hardening.py",
+      "backend/tests/test_qa_repairs.py",
+      "backend/tests/test_phase_4c_itinerary_integration.py",
+      "backend/tests/test_research_importer.py",
+      "backend/tests/test_stop_geocoding_anomaly_remediation.py"
+    ],
+    "new_parity_suite": "backend/tests/test_transit_sequence_identity.py"
+  }
+}

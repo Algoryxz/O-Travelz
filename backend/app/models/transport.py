@@ -123,12 +123,16 @@ class RouteStop(Base):
     __table_args__ = (
         Index("ix_route_stops_route_id", "route_id"),
         Index("ix_route_stops_stop_id", "stop_id"),
+        Index("ix_route_stops_sequence_id", "sequence_id"),
+        UniqueConstraint("route_id", "sequence_id", "sequence_order", name="uq_route_stop_sequence_order"),
     )
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     route_id = Column(UUID(as_uuid=True), ForeignKey("routes.id"), nullable=False)
     stop_id = Column(UUID(as_uuid=True), ForeignKey("stops.id"), nullable=False)
     sequence_order = Column(Integer, nullable=False)
+    direction = Column(String, nullable=True)
+    sequence_id = Column(String, nullable=False)
 
 
 

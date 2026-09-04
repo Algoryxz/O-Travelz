@@ -190,7 +190,7 @@ def test_transport_graph_invariants_preserved():
         assert providers_count == 3, f"Expected 3 providers, found {providers_count}"
         assert routes_count == 154, f"Expected 154 routes, found {routes_count}"
         assert stops_count == 1430, f"Expected 1,430 stops, found {stops_count}"
-        assert links_count in (1487, 1491), f"Expected 1,487 or 1,491 links, found {links_count}"
+        assert links_count == 1491, f"Expected 1,491 links, found {links_count}"
         assert schedules_count == 302, f"Expected 302 schedules, found {schedules_count}"
     finally:
         db.close()

@@ -498,6 +498,8 @@ def run_coordinate_resolution(
             "tier1_internal_recovered": tier1_count,
             "tier2_places_cross_referenced": tier2_count,
             "tier3_external_resolved": tier3_count,
+            "route_stop_sequence_groups": len(canonical_route_stops),
+            "route_stop_links_total": sum(len(rs.get("stops", [])) for rs in canonical_route_stops),
             "routes_with_at_least_2_routable_stops": routes_with_2plus_stops,
             "routes_with_majority_routable_stops": routes_majority_stops,
             "fully_geocoded_routes": fully_geocoded_routes,

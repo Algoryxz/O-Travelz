@@ -203,10 +203,10 @@ def test_11_12_graph_and_coordinate_invariants_strictly_preserved():
         assert db.query(TransportProvider).count() == 3
         assert db.query(Route).count() == 154
         assert db.query(Stop).count() == 1430
-        assert db.query(RouteStop).count() in (1487, 1491)
+        assert db.query(RouteStop).count() == 1491
         assert db.query(ScheduledTripGroup).count() == 302
-        assert db.query(Stop).filter(Stop.location.isnot(None)).count() in (41, 173)
-        assert db.query(Stop).filter(Stop.location.is_(None)).count() in (1389, 1257)
+        assert db.query(Stop).filter(Stop.location.isnot(None)).count() == 173
+        assert db.query(Stop).filter(Stop.location.is_(None)).count() == 1257
 
         departures_count = 0
         for sg in db.query(ScheduledTripGroup).all():

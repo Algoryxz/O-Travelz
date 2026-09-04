@@ -498,6 +498,8 @@ def compile_canonical_transit(
             "stops_without_coordinates": stops_without_coords_count,
             "routes_with_ordered_sequence": len(set(rs["route_id"] for rs in canonical_route_stops)),
             "directional_sequences_count": len(canonical_route_stops),
+            "route_stop_sequence_groups": len(canonical_route_stops),
+            "route_stop_links_total": sum(len(rs.get("stops", [])) for rs in canonical_route_stops),
             "routes_with_schedule_records": len(set(s["route_number"] for s in canonical_schedules)),
             "schedule_records_count": len(canonical_schedules),
             "individual_departure_time_count": total_individual_departures,

@@ -365,7 +365,8 @@ class OfficialTransitImporter:
             route_num = str(rs["route_number"]).strip()
             stop_name = (rs.get("stop_name") or "").upper().strip()
             seq_order = int(rs.get("sequence_order", 1))
-            direction = str(rs.get("direction") or rs.get("sequence_id") or "forward")
+            direction = str(rs.get("direction") or "forward")
+            sequence_id = str(rs.get("sequence_id") or f"{route_num}_{direction}")
 
             route = routes_by_key.get((route_num, ""))
             stop = stops_by_canonical.get(stop_name)
@@ -375,7 +376,7 @@ class OfficialTransitImporter:
                 ).first()
 
             if route is not None and stop is not None:
-                link_key = (route.id, stop.id, seq_order, direction)
+                link_key = (route.id, stop.id, seq_order, direction, sequence_id)
                 if link_key not in seen_links:
                     seen_links.add(link_key)
                     route_stop_row = RouteStop(
@@ -383,6 +384,8 @@ class OfficialTransitImporter:
                         route_id=route.id,
                         stop_id=stop.id,
                         sequence_order=seq_order,
+                        direction=direction,
+                        sequence_id=sequence_id,
                     )
                     self.session.add(route_stop_row)
                     count += 1

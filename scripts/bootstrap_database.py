@@ -220,6 +220,9 @@ def bootstrap_database() -> int:
         print(f"  Evidence Citations: {total_evidence:<6} (Expected: >= 10)")
         print(f"  EXACT Routes:       {exact_routes:<6} (Expected: >= 1)")
 
+        null_seq_ids = db.query(RouteStop).filter(RouteStop.sequence_id.is_(None)).count()
+        null_dirs = db.query(RouteStop).filter(RouteStop.direction.is_(None)).count()
+
         # Invariant Assertions
         assert total_places == 204, f"FAIL: Expected 204 places, found {total_places}"
         assert total_categories >= 19, f"FAIL: Expected >= 19 categories, found {total_categories}"
@@ -230,6 +233,8 @@ def bootstrap_database() -> int:
         assert geocoded_stops == expected_geocoded, f"FAIL: Expected {expected_geocoded} geocoded stops, found {geocoded_stops}"
         assert unresolved_stops == expected_unresolved, f"FAIL: Expected {expected_unresolved} unresolved stops, found {unresolved_stops}"
         assert total_route_stops == expected_route_stops, f"FAIL: Expected {expected_route_stops} route stops, found {total_route_stops}"
+        assert null_seq_ids == 0, f"FAIL: Expected 0 null sequence_ids, found {null_seq_ids}"
+        assert null_dirs == 0, f"FAIL: Expected 0 null directions, found {null_dirs}"
         assert total_schedules == 302, f"FAIL: Expected 302 schedule groups, found {total_schedules}"
         assert total_departures == 5553, f"FAIL: Expected 5553 departures, found {total_departures}"
         assert total_images >= 50, f"FAIL: Expected >= 50 place images, found {total_images}"

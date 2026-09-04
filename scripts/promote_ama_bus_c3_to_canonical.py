@@ -305,6 +305,8 @@ def promote_ama_bus_to_canonical(dry_run: bool = False) -> Dict[str, Any]:
             "tier1_internal_recovered": new_geocoded,
             "tier2_places_cross_referenced": 0,
             "tier3_external_resolved": 0,
+            "route_stop_sequence_groups": len(promoted_route_stops),
+            "route_stop_links_total": sum(len(rs.get("stops", [])) for rs in promoted_route_stops),
             "routes_with_at_least_2_routable_stops": 85,
             "routes_with_majority_routable_stops": 94,
             "fully_geocoded_routes": 23,
