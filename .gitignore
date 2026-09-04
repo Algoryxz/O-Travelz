@@ -37,3 +37,6 @@ scratch/
 *.timestamp-*.mjs
 *.tsbuildinfo
 *.zip
+
+# Graphify architecture graph output
+graphify-out/
