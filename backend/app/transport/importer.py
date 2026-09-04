@@ -87,7 +87,28 @@ class OfficialTransitImporter:
         """Run full deterministic idempotent import."""
         routes_data = self._load_json("routes_extracted.json")
         stops_data = self._load_json("stops_extracted.json")
-        route_stops_data = self._load_json("route_stops_extracted.json")
+
+        # Prefer authoritative canonical route_stops.json if present
+        canonical_rs_file = Path(__file__).resolve().parents[3] / "data" / "transport" / "canonical" / "route_stops.json"
+        if canonical_rs_file.exists():
+            with open(canonical_rs_file, encoding="utf-8") as f:
+                can_groups = json.load(f)
+            route_stops_data = []
+            for g in can_groups:
+                r_num = str(g.get("route_number") or g.get("route_id")).strip()
+                direction = str(g.get("direction") or g.get("sequence_id") or "forward")
+                seq_id = g.get("sequence_id")
+                for s in g.get("stops", []):
+                    route_stops_data.append({
+                        "route_number": r_num,
+                        "stop_name": s.get("raw_stop_name") or s.get("canonical_name") or s.get("stop_name"),
+                        "sequence_order": s.get("sequence") or s.get("sequence_order", 1),
+                        "direction": direction,
+                        "sequence_id": seq_id,
+                        "stop_id": s.get("stop_id"),
+                    })
+        else:
+            route_stops_data = self._load_json("route_stops_extracted.json")
         schedules_data = self._load_json("schedules_extracted.json")
 
         geocoding_results = {}
@@ -342,14 +363,19 @@ class OfficialTransitImporter:
 
         for rs in route_stops_data:
             route_num = str(rs["route_number"]).strip()
-            stop_name = rs["stop_name"].upper().strip()
+            stop_name = (rs.get("stop_name") or "").upper().strip()
             seq_order = int(rs.get("sequence_order", 1))
+            direction = str(rs.get("direction") or rs.get("sequence_id") or "forward")
 
             route = routes_by_key.get((route_num, ""))
             stop = stops_by_canonical.get(stop_name)
+            if stop is None and rs.get("stop_id"):
+                stop = self.session.query(Stop).filter(
+                    (Stop.canonical_stop_id == rs["stop_id"]) | (Stop.research_id == rs["stop_id"])
+                ).first()
 
             if route is not None and stop is not None:
-                link_key = (route.id, stop.id, seq_order)
+                link_key = (route.id, stop.id, seq_order, direction)
                 if link_key not in seen_links:
                     seen_links.add(link_key)
                     route_stop_row = RouteStop(

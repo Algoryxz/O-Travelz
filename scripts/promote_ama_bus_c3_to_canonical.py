@@ -514,6 +514,9 @@ def sync_canonical_stops_to_database(db: Any, dry_run: bool = False) -> Dict[str
         if cs.get("district"):
             row.district = cs["district"]
 
+        if cs.get("stop_id"):
+            row.canonical_stop_id = cs["stop_id"]
+
         locality_payload = {
             "canonical_stop_id": cs.get("stop_id"),
             "locality_status": cs.get("locality_status"),

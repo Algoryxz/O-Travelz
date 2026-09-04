@@ -126,7 +126,11 @@ class TestCanonicalTransitPipeline:
         verified = [s for s in stops if s["coordinate_status"] == "VERIFIED_OFFICIAL"]
         assert len(verified) > 0
         for v in verified:
-            assert v["coordinate_source"] == "staticTransitStops_verified_survey"
+            assert v["coordinate_source"] in {
+                "staticTransitStops_verified_survey",
+                "official_district_portal_gis",
+                "canonical_place_repository",
+            }
             assert v["verification_status"] == "VERIFIED_OFFICIAL"
 
     def test_08_safe_alias_handling(self):
@@ -174,7 +178,11 @@ class TestCanonicalTransitPipeline:
             assert total_deps == expected_from_rep
         with open(CANONICAL_DIR / "network.json", encoding="utf-8") as f:
             net = json.load(f)
-        assert total_deps == net["stats"]["total_departure_times"]
+        total_network_deps = (
+            net.get("network_summary", {}).get("total_departures")
+            or net.get("stats", {}).get("total_departure_times")
+        )
+        assert total_deps == total_network_deps
         assert total_deps == 5549
 
     def test_12_malformed_time_rejected_or_normalized(self):

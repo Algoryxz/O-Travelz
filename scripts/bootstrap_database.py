@@ -188,11 +188,19 @@ def bootstrap_database() -> int:
         total_evidence = db.query(EvidenceCitation).count()
         exact_routes = db.query(RouteIntelligence).filter(RouteIntelligence.geometry_status == "EXACT").count()
 
-        # Authoritative canonical expectations from build report (C4E)
+        # Authoritative canonical expectations from build report & route_stops (C4E / C4.1)
         build_rep_path = WORKSPACE_ROOT / "data" / "transport" / "canonical" / "build_report.json"
         build_rep = json.loads(build_rep_path.read_text(encoding="utf-8")) if build_rep_path.exists() else {}
         expected_geocoded = build_rep.get("outputs", {}).get("routable_stops_total", 173)
         expected_unresolved = build_rep.get("outputs", {}).get("coordinate_unresolved", 1257)
+
+        can_rs_path = WORKSPACE_ROOT / "data" / "transport" / "canonical" / "route_stops.json"
+        if can_rs_path.exists():
+            with open(can_rs_path, encoding="utf-8") as fh:
+                can_rs_groups = json.load(fh)
+            expected_route_stops = sum(len(g.get("stops", [])) for g in can_rs_groups)
+        else:
+            expected_route_stops = 1491
 
         print(f"  Places:             {total_places:<6} (Expected: 204 = 161 sanctuaries + 43 food)")
         print(f"  Categories:         {total_categories:<6} (Expected: >= 19)")
@@ -202,7 +210,7 @@ def bootstrap_database() -> int:
         print(f"  Stops:              {total_stops:<6} (Expected: 1,430)")
         print(f"  Geocoded Stops:     {geocoded_stops:<6} (Expected: {expected_geocoded})")
         print(f"  Unresolved Stops:   {unresolved_stops:<6} (Expected: {expected_unresolved})")
-        print(f"  Route-Stops:        {total_route_stops:<6} (Expected: 1,487)")
+        print(f"  Route-Stops:        {total_route_stops:<6} (Expected: {expected_route_stops})")
         print(f"  Schedule Groups:    {total_schedules:<6} (Expected: 302)")
         print(f"  Departures:         {total_departures:<6} (Expected: 5,553)")
         print(f"  Place Images:       {total_images:<6} (Expected: >= 50)")
@@ -221,7 +229,7 @@ def bootstrap_database() -> int:
         assert total_stops == 1430, f"FAIL: Expected 1430 stops, found {total_stops}"
         assert geocoded_stops == expected_geocoded, f"FAIL: Expected {expected_geocoded} geocoded stops, found {geocoded_stops}"
         assert unresolved_stops == expected_unresolved, f"FAIL: Expected {expected_unresolved} unresolved stops, found {unresolved_stops}"
-        assert total_route_stops == 1487, f"FAIL: Expected 1487 route stops, found {total_route_stops}"
+        assert total_route_stops == expected_route_stops, f"FAIL: Expected {expected_route_stops} route stops, found {total_route_stops}"
         assert total_schedules == 302, f"FAIL: Expected 302 schedule groups, found {total_schedules}"
         assert total_departures == 5553, f"FAIL: Expected 5553 departures, found {total_departures}"
         assert total_images >= 50, f"FAIL: Expected >= 50 place images, found {total_images}"
@@ -230,6 +238,12 @@ def bootstrap_database() -> int:
         assert total_stop_intel == 1487, f"FAIL: Expected 1487 stop intelligence records, found {total_stop_intel}"
         assert total_evidence >= 10, f"FAIL: Expected >= 10 evidence citations, found {total_evidence}"
         assert exact_routes >= 1, f"FAIL: Expected >= 1 EXACT route, found {exact_routes}"
+
+        # Hard Parity Gate: DB RouteStop count == flattened canonical RouteStop count
+        assert total_route_stops == expected_route_stops, (
+            f"PARITY GATE FAILURE: DB RouteStop count ({total_route_stops}) != "
+            f"flattened canonical count ({expected_route_stops})"
+        )
 
         print("\n[SUCCESS] ALL AUTHORITATIVE DATABASE INVARIANTS VERIFIED!")
         print("=" * 70)

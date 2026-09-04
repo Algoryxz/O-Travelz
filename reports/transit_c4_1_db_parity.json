@@ -1,0 +1,74 @@
+{
+  "phase": "WAVE_C4_1_DB_PARITY",
+  "generated_at": "2026-09-04T15:29:50.893135+00:00",
+  "status": "PARITY_ACHIEVED",
+  "counts": {
+    "before_canonical_count": 1491,
+    "before_db_count": 1487,
+    "delta_resolved": 4,
+    "after_canonical_count": 1491,
+    "after_db_count": 1491,
+    "expected_count": 1491
+  },
+  "parity_verification": {
+    "count_parity": true,
+    "unique_tuple_set_parity": true,
+    "multiset_identity_parity": true,
+    "missing_in_db": [],
+    "excess_in_db": []
+  },
+  "root_cause": "backend/app/transport/importer.py in _import_route_stops historically deduplicated links using link_key = (route.id, stop.id, seq_order) without direction or sequence group. On multi-direction and multi-document routes, this caused 4 valid links to be discarded: (1) Route 205 stop 1 in rt_crut_205_up collided with rt_crut_205_forward; (2) Route 215 stop 1 in rt_crut_215_up collided with rt_crut_215_forward; (3) Route 215 stop 2 in rt_crut_215_up collided with rt_crut_215_forward; (4) Route 215 stop 16 (Shree Ram Vatika) in rt_crut_215_up collided with rt_crut_215_down because both opposite directions passed through the same stop at sequence index 16.",
+  "exact_four_relationships_resolved": [
+    {
+      "route_number": "205",
+      "direction": "up",
+      "sequence": 1,
+      "canonical_stop_id": "stop_crut_sambalpur_ainthapali_bus_terminal",
+      "canonical_stop_name": "AINTHAPALI BUS TERMINAL",
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "collided_with": "rt_crut_205_forward (direction=forward, seq=1)",
+      "resolution": "Direction included in import deduplication key; successfully inserted into DB."
+    },
+    {
+      "route_number": "215",
+      "direction": "up",
+      "sequence": 1,
+      "canonical_stop_id": "stop_crut_sambalpur_ainthapali_bus_terminal",
+      "canonical_stop_name": "AINTHAPALI BUS TERMINAL",
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "collided_with": "rt_crut_215_forward (direction=forward, seq=1)",
+      "resolution": "Direction included in import deduplication key; successfully inserted into DB."
+    },
+    {
+      "route_number": "215",
+      "direction": "up",
+      "sequence": 2,
+      "canonical_stop_id": "stop_crut_sambalpur_padiabahal",
+      "canonical_stop_name": "PADIABAHAL",
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "collided_with": "rt_crut_215_forward (direction=forward, seq=2)",
+      "resolution": "Direction included in import deduplication key; successfully inserted into DB."
+    },
+    {
+      "route_number": "215",
+      "direction": "up",
+      "sequence": 16,
+      "canonical_stop_id": "stop_crut_sambalpur_shree_ram_vatika",
+      "canonical_stop_name": "SHREE RAM VATIKA",
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "collided_with": "rt_crut_215_down (direction=down, seq=16)",
+      "resolution": "Direction included in import deduplication key; successfully inserted into DB."
+    }
+  ],
+  "invariant_metrics_preserved": {
+    "routes": 154,
+    "stops": 1430,
+    "geocoded_stops": 173,
+    "unresolved_stops": 1257,
+    "route_stops": 1491,
+    "schedules": 302,
+    "departures": 5553,
+    "all_invariants_pass": true
+  },
+  "destructive_operation_occurred": false
+}

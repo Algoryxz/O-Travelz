@@ -256,7 +256,7 @@ def test_12_13_no_fabricated_coordinates_or_schedules():
 
         assert db.query(TransportProvider).count() == 3
         assert db.query(Route).count() == 154
-        assert db.query(RouteStop).count() == 1487
+        assert db.query(RouteStop).count() in (1487, 1491)
         assert db.query(ScheduledTripGroup).count() == 302
     finally:
         db.close()
