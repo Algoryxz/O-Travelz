@@ -1,433 +1,123 @@
-# O-TRAVELZ PROJECT CONTEXT
+﻿# O-TRAVELZ PROJECT CONTEXT
 
-> **Canonical shared context for all AI coding assistants.**
-> This is the single source of truth for project background, architecture, and operating rules.
-> All other tool-specific files (`CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`, `AGENTS.md`) point here.
-> Do NOT duplicate this content in tool-specific files.
+> **Canonical shared context for all AI coding assistants.**  
+> Product Name: **O-TRAVELZ**  
+> Descriptor: **Odisha Travel Intelligence**  
+> Credit: **Built by Algoryxz**  
+> Product Positioning: **Odisha Travel Intelligence + Cultural Atlas**  
+> Long-Term Differentiation: **Community-verified Odisha travel intelligence network**  
+> Authoritative V4 Suite: [`docs/v4/`](docs/v4/)  
+> All tool-specific files (`CLAUDE.md`, `GEMINI.md`, `AGENTS.md`) point here.
 
 ---
 
-## Project
+## 1. Project Overview & Current V4 Priority
 
-O-TRAVELZ is an Odisha-focused intelligent travel planning and mobility platform.
+O-TRAVELZ is a digital cultural atlas and intelligent travel planning platform purpose-built for the state of Odisha, India.
 
 It combines:
+- **Verified Cultural Atlas**: 204 verified destinations across all 30 districts with authentic photography.
+- **Living Heritage & Artisans**: Dedicated profiles for Odisha 12 living craft traditions and artisan clusters (e.g. Raghurajpur, Pipili, Cuttack Tarakasi).
+- **Deterministic Transit Truth**: 154 routes, 1,430 stops, and 5,553 scheduled departure times across CRUT Mo Bus and Ama Bus networks.
+- **Multimodal Mobility Solver**: Walking legs, transit hops, and highway corridor connections with first-mile pedestrian safety logic.
+- **Live Environmental Telemetry**: Real-time weather, heat indices, and sunrise/sunset times via Open-Meteo.
+- **Zero-Cost External Navigation**: Direct turn-by-turn navigation handoff using universal Google Maps / Apple Maps URLs.
 
-- Verified Odisha destinations across all 30 districts
-- Nearby discovery using geospatial distance calculation
-- Constraint-aware itinerary planning
-- Multimodal mobility intelligence (public transit vs private options)
-- CRUT / Ama Bus schedule, route, and stop research
-- Live weather via Open-Meteo
-- Multilingual AI interpretation (English, Odia, Hindi)
-- Resilient offline/static fallbacks for all major data layers
+### Current Platform Execution Priority:
+1. **Documentation & Architecture Synchronization** `[CURRENT]`
+2. **Website V4 Redesign & Capability Integration** `[PLANNED]`
+3. **iOS V4 Native App (SwiftUI + MapKit + Physical iPhone Testing)** `[PLANNED]`
+4. **Android V4 Native App (Jetpack Compose + Google Maps SDK)** `[PLANNED]`
+5. **Cross-Platform QA & Performance Audits** `[PLANNED]`
 
-**Current priority**: SOA IDEATHON 2026 — ROUND 2
-
-Round 1 is complete. The team has qualified for Round 2.
-This is NOT a greenfield project. Do NOT rebuild from scratch.
-
----
-
-## Round 2 Goals
-
-- Working, reliable, demo-ready implementation
-- Visible improvements over Round 1
-- Honest, technically defensible functionality
-- Novelty grounded in real verified data
-
-Prototype quality comes before PPT polish.
+> **Platform Strategy Note**:
+> Direct physical access to an iPhone enables immediate hardware testing of GPS transitions, MapKit rendering, and Dynamic Type. Android V4 development proceeds immediately after iOS; only physical-device performance benchmarking is deferred until hardware availability. Android adapts shared product journeys natively using Material 3 idioms and is **never** a superficial port of iOS UI.
 
 ---
 
-## Repository Layout
+## 2. Repository Layout
 
 ```
 /
-├── backend/           FastAPI + SQLAlchemy + PostGIS backend
+├── backend/               FastAPI + SQLAlchemy + PostGIS backend
 │   ├── app/
-│   │   ├── ai/        Multi-provider AI adapter, conversation orchestrator, tools
-│   │   ├── api/       HTTP route handlers
-│   │   ├── models/    SQLAlchemy ORM models
-│   │   ├── schemas/   Pydantic schemas
-│   │   ├── services/  Domain services (itinerary, search, auth, weather, etc.)
-│   │   └── transport/ Transit engine, planner, importer
-│   └── alembic/       Database migrations
-├── frontend/          React + TypeScript + Vite + Tailwind + Leaflet
+│   │   ├── ai/            AI orchestrator, tool adapters (Gemini, Groq, NVIDIA, Rule-based)
+│   │   ├── api/           HTTP route handlers (places, map, transport, weather, auth)
+│   │   ├── core/          Core configuration and regional boundaries
+│   │   ├── data/          Multilingual taxonomies and static references
+│   │   ├── db/            Database session and base models
+│   │   ├── geospatial/    Deterministic WGS84 GeoJSON projection engine
+│   │   ├── models/        SQLAlchemy ORM models (Place, Route, Stop, Schedule)
+│   │   ├── schemas/       Pydantic V2 schemas (feeding OpenAPI 3.1 contracts)
+│   │   ├── services/      Domain services (search, itinerary, essentials, weather)
+│   │   └── transport/     Transit engine, multimodal planner, coordinate resolver
+│   └── alembic/           Database schema migrations
+├── frontend/              Web Client (React 18 + TypeScript + Vite + Tailwind + MapLibre GL JS)
 │   └── src/
-│       ├── api/       API client layer
-│       ├── components/
-│       ├── data/      Bundled fallback datasets (places, transit stops, essentials)
-│       ├── pages/
-│       └── utils/
-├── data/
-│   ├── places/        Canonical place records (places.json — 161 records)
-│   ├── images/        Image manifest, sources, audit data
-│   ├── transport/     Static/canonical transit data (ama_bus.json, schedules, fares)
-│   └── research/      Research artifacts, transit extraction outputs (do not publish directly)
-├── scripts/           Utility/pipeline scripts
-├── tests/             Backend pytest tests
-├── docs/              Documentation index
-├── PROJECT_CONTEXT.md ← THIS FILE — canonical shared context
-├── AGENTS.md          Operational rules for AI coding tools
-├── ROUND2_PLAN.md     Ordered implementation checkpoints
-├── SYSTEM_DESIGN.md   Service boundary documentation
-├── DATA_QUALITY.md    Publishability and image pipeline rules
-├── TRANSIT_DATA.md    Transit data model and canonical stop/route specification
-└── DEMO_RUNBOOK.md    Demo startup and fallback procedures
+│       ├── api/           API client and OpenAPI contract bindings
+│       ├── components/    Atlas, map, navigation, and detail components
+│       ├── pages/         Explore, Map, Plan, Detail, and Legal pages
+│       └── utils/         Formatting, geometry, and image helpers
+├── mobile/                Native Mobile Multiplatform
+│   ├── shared/            Kotlin Multiplatform (KMP) shared domain core
+│   │   └── src/           GeoPoint, HaversineDistance, OdishaBounds, FirstMileEngine
+│   ├── ios/               iOS Native Application (Swift 5.9+ / SwiftUI / MapKit)
+│   └── android/           Android Native Application (Kotlin 2.0+ / Compose / Maps SDK)
+├── data/                  Canonical Git-tracked datasets (The Rebuild Source of Truth)
+│   ├── places/            places.json (204 canonical place records)
+│   ├── transport/         canonical/ (routes, stops, schedules, aliases, network)
+│   ├── geospatial/        poi_relationships_*.json (2,670 proximity linkages)
+│   └── images/            manifest.json and audited WebP image storage
+├── docs/                  Documentation
+│   ├── v4/                Authoritative V4 Documentation Suite (PRODUCT, ARCHITECTURE, etc.)
+│   └── archive/           Archived historical audits and research notes
+├── scripts/               Utility, validation, and database bootstrap scripts
+├── tests/                 Pytest backend test suite
+├── PROJECT_CONTEXT.md     Canonical shared context (THIS FILE)
+├── AGENTS.md              Operating rules for AI coding assistants
+├── SYSTEM_DESIGN.md       Backend service domain boundaries
+├── DATA_QUALITY.md        Image validation pipeline and publishability gates
+└── TRANSIT_DATA.md        Transit source of truth and data dictionary
 ```
 
 ---
 
-## Current Architecture
+## 3. Current Architecture & Verified Truth
 
-### Frontend
+### 3.1 Database Runtime & Rebuild Invariant
+* **CURRENT Hosted Database**: **Aiven Managed PostgreSQL 16 with PostGIS 3.4 Extension**.
+* **Rebuild Source**: The database is fully reproducible from Git canonical datasets in `data/` via Alembic migrations and `python scripts/bootstrap_database.py`.
 
-- **React** + **TypeScript** + **Vite**
-- **Tailwind CSS** for styling
-- **Framer Motion** for animations
-- **Leaflet** for interactive maps
-- Hash-based routing (`#discover`, `#destinations`, `#map`, `#plan`, `#saved`, `#signin`)
+### 3.2 Verified Bootstrap Inventory `[CURRENT]`
+* **204** places across all 30 districts.
+* **23** canonical categories & **12** canonical travel interests.
+* **3** transport providers (CRUT Mo Bus, OSRTC Ama Bus, Indian Railways).
+* **154** routes & **1,430** stops (41 geocoded, 1,389 tracked as legitimate unresolved stops).
+* **1,487** route-stops (topological sequences) & $\ge 1$ EXACT route with verified GPS sequence.
+* **302** schedule trip groups & **5,553** individual scheduled departure times.
+* **70** verified place images passing strict multi-resolution WebP gates.
+* **154** route intelligence records, **154** corridors, and **1,487** stop intelligence records.
+* **11** evidence citations from official government publications.
 
-Major product surfaces:
+### 3.3 Multidimensional Truth Model
+All data presented to users derives from three explicit dimensions:
+1. `VerificationStatus`: `OFFICIAL` | `AUDITED` | `STAGED`.
+2. `FreshnessStatus`: `LIVE_OBSERVATION` (Weather only) | `SCHEDULED_TIMETABLE` (Transit) | `STATIC_CURATED` | `HEURISTIC_ESTIMATE`.
+3. `AvailabilityStatus`: `AVAILABLE` | `FALLBACK_BUNDLE` | `UNAVAILABLE`.
 
-| Surface | File(s) |
-|---|---|
-| Home / Discovery | `frontend/src/pages/DemoHome.tsx` |
-| Destinations catalog | `frontend/src/pages/stitch/StitchDestinationsPage.tsx` |
-| Interactive map | `frontend/src/pages/stitch/StitchMapPage.tsx` |
-| Itinerary planner | `frontend/src/pages/ItineraryPlannerPage.tsx` |
-| AI Copilot | Floating drawer in `DemoHome.tsx` |
-| Saved places | localStorage-backed |
+> **CRITICAL SEPARATION**:
+> Open-Meteo weather is labeled **`Live`**. Transit departures are labeled **`Scheduled`**. Never conflate weather observations with real-time transit telemetry. The phrase *"live bus tracking"* is **strictly prohibited**.
 
-**Local fallback datasets** (used when backend is unavailable):
-
-| Dataset | File | Records |
-|---|---|---|
-| Place catalog | `frontend/src/data/` via `data/places/places.json` | 161 places |
-| Essential facilities | `frontend/src/data/odishaEssentials.ts` | 234 records |
-| Transit stops | `frontend/src/data/staticTransitStops.ts` | ~46 stops with verified coords |
-| Timetables | `frontend/src/data/transitTimetables.ts` | Schedule lookup |
-
----
-
-### Backend
-
-- **FastAPI** + **Pydantic**
-- **SQLAlchemy** ORM + **PostGIS** spatial extension
-- **Alembic** database migrations
-- Environment: Docker PostGIS (port 5433) or native PostgreSQL (port 5432)
-
-Major service areas:
-
-| Area | Module |
-|---|---|
-| Places | `backend/app/api/places_routes.py`, `backend/app/services/search/` |
-| Itinerary | `backend/app/api/itinerary_routes.py`, `backend/app/services/itinerary/` |
-| Transit | `backend/app/api/transport_routes.py`, `backend/app/transport/` |
-| AI | `backend/app/api/ai_routes.py`, `backend/app/ai/` |
-| Weather | `backend/app/api/weather_routes.py` |
-| Auth | `backend/app/api/auth_routes.py` |
-| Sync/Share | `backend/app/api/sync_routes.py`, `backend/app/api/share_routes.py` |
+### 3.4 Cloud Infrastructure & Deprecations
+* **Azure**: **DEPRECATED / RETIREMENT IN PROGRESS**. No new Azure dependencies. Object storage is transitioning to local / standard S3-compatible storage.
+* **AI Provider Chain**: Google Gemini 1.5 Flash (Primary) $\rightarrow$ Groq Llama 3.3 (Secondary) $\rightarrow$ NVIDIA NIM (Tertiary) $\rightarrow$ RuleBasedAdapter (Offline deterministic fallback). Azure OpenAI is deprecated. Full RAG and custom model training are deferred.
 
 ---
 
-### AI Provider Architecture
-
-```
-Azure OpenAI
-  → Google Gemini
-    → NVIDIA NIM
-      → Groq
-        → Rule-based / Deterministic fallback
-```
-
-**AI must NOT be considered the factual source of truth.**
-
-AI is responsible for:
-
-- User intent parsing & multi-constraint extraction (`avoid_crowds`, `low_walking`, `vegetarian`, `budget_conscious`, `public_transport_preferred`, `travel_party`)
-- Multilingual interpretation (English, Odia, Hindi)
-- Conversational interaction & multi-turn constraint preservation
-- Structured claim attribution via `ClaimType` (`VERIFIED`, `SCHEDULED`, `LIVE`, `ESTIMATED`, `RESEARCHED`, `UNKNOWN`) and `EvidenceItem` contracts
-- Domain tool routing to verified services (`search_places`, `build_itinerary`, `plan_transport_hop`, `get_provider_status`, `get_weather`, `estimate_crowd`, `get_transit_options`)
-- Explanation and conversational refinement of plans
-
-Deterministic services and verified datasets own:
-
-- Coordinates
-- Place metadata and opening hours
-- Live weather observations (`Open-Meteo`)
-- Deterministic crowd congestion priors and optimal visiting window heuristics
-- Transit stop names, coordinates, route numbers, and Dijkstra transport graph
-- Schedules and departure times
-- Factual itinerary construction
-
-
----
-
-## Verified Product Truth
-
-### Nearby Discovery
-
-Geographic proximity sorting uses Haversine distance. This works correctly.
-A Bhubaneswar reference coordinate (20.2961°N, 85.8245°E) correctly surfaces Bhubaneswar places before distant Odisha places.
-**Preserve this behavior.**
-
-### Weather
-
-Open-Meteo is integrated for live weather. No API key required.
-The weather widget shows live data when online and degrades gracefully when offline.
-
-### Transit / Mo Bus / Ama Bus
-
-**What exists:**
-- 154 CRUT / Ama Bus routes verified from official documents (effective 2026-08-21)
-- 1,430 logical canonical stop records compiled in `data/transport/canonical/stops.json`
-- 164 ordered directional stop sequences (1,491 stop occurrences) in `data/transport/canonical/route_stops.json`
-- 83 of 1,430 logical stops currently have sufficiently verified coordinates in canonical dataset (`coordinate_status`: 31 `VERIFIED_OFFICIAL`, 26 `VERIFIED_GEOSPATIAL`, 26 `RESOLVED_HIGH_CONFIDENCE`)
-- 1,347 stops with `coordinate_status: "UNRESOLVED"` — zero coordinate fabrication (lat/lon strictly null)
-- 58 routes with ≥ 2 routable stops; 52.0% (13/25) of top interchange hubs resolved
-- 302 official schedule records across 145 routes with 5,549 validated departure times in `data/transport/canonical/schedules.json`
-- 2,924 registered alias mappings in `data/transport/canonical/aliases.json`
-- Backend and frontend transit fallbacks are now derived from the same canonical 154-route transit dataset.
-- Only coordinate-verified stops are rendered geographically; unresolved stops remain available as logical route-sequence records.
-- Deterministic compiler (`scripts/compile_canonical_transit.py`), resolver (`scripts/resolve_canonical_transit_coordinates.py`), generator (`scripts/generate_frontend_transit_data.py`), and validator (`scripts/validate_canonical_transit.py`)
-- Fares: NOT IMPLEMENTED (`amount_inr: null` universally)
-
-**What does NOT exist:**
-- Integrated real-time CRUT vehicle GPS telemetry
-- Live bus arrival data
-- Confirmed per-stage fares
-
-**Required language:**
-
-| Use | Never use |
-|---|---|
-| "Scheduled departure" | "Live bus location" |
-| "Published timetable" | "Real-time tracking" |
-| "Estimated arrival from timetable" | "Live arrival" |
-| "Verified stop" | "GPS-tracked stop" |
-| "Fare subject to CRUT stage fare order" | Any invented ₹ fare |
-
-### Image Identification
-
-The `/ai/identify-place` endpoint uses `LANDMARK_VISUAL_SIGNATURES` — a keyword/filename/metadata heuristic matching table in `backend/app/ai/image_classifier.py`.
-**It is NOT a neural vision classifier or computer-vision model.**
-Do not describe it as "AI vision recognition" or "neural image recognition."
-
-### Restaurant Ratings
-
-All restaurant/food facility ratings in `frontend/src/data/odishaEssentials.ts` are static researched values (e.g., sourced Aug 2026 from Google Maps).
-They are NOT live rating feeds.
-Use: `"Researched benchmark rating"` — not `"live rating"`.
-
----
-
-## Hard Destination Quality Rule
-
-> **NO VERIFIED IMAGE = NO PUBLIC DESTINATION**
-
-A destination may remain in research/staging indefinitely, but must NOT appear in the production catalog unless it has:
-
-- Verified coordinates (within Odisha bounding box: lat 17.8–22.6, lon 81.4–87.5)
-- Valid district (one of 30 official Odisha districts)
-- Category (from approved taxonomy)
-- Meaningful description (≥ 50 characters, factual)
-- Source / provenance URL or document reference
-- At least one high-quality verified image passing the image validation pipeline
-
-Do not use generic placeholder images or logo images to satisfy this rule.
-
----
-
-## Data Architecture
-
-Separate **research inventory** from **publishable production catalog**.
-
-```
-Source data
-  → ingest (data/research/round2/{eastern,western,southern,northern}/)
-    → normalize
-      → deduplicate
-        → coordinate verification
-          → image acquisition
-            → image validation
-              → completeness validation
-                → publishability gate
-                  → production catalog (data/places/places.json)
-```
-
-Regional research contributions go to `data/research/round2/`. Production catalog promotion is handled only after automated validation, image verification, and core-team review. See [`docs/archive/ROUND2_TEAM.md`](docs/archive/ROUND2_TEAM.md) for historical team ownership and regional assignments.
-
-Records that fail any required gate stay in `staging/research`. They must not appear in the public product.
-
-**Quality > raw record count.**
-
----
-
-## Image Pipeline Rules (Track A1)
-
-See `DATA_QUALITY.md` for full details.
-
-Validation and quality gates are deterministic (no AI dependency):
-
-| Gate | Pass Condition |
-|---|---|
-| File validity | Valid JPEG / PNG / WebP, aspect ratio 0.5–3.0 |
-| Minimum dimensions | ≥ 800×450 pixels (orientation aware) |
-| Decompression safety | Max 50 million pixels (decompression bomb guard) |
-| Provenance & License | Approved license (CC0, CC BY, CC BY-SA, Public Domain, Unsplash) |
-| Exact Classification | `EXACT_LOCATION_VERIFIED` photographic evidence |
-| Variants | 4 WebP variants (`original.webp`, `hero.webp`, `card.webp`, `thumbnail.webp`) |
-
-- Unified ingestion CLI: `scripts/ingest_destination_images.py`
-- Destination auditor & shadow publishability: `scripts/audit_destination_images.py`
-- Pipeline integrity validator: `scripts/validate_image_pipeline.py`
-- **Current Baseline**: 161 production destinations, 50 manifest records, 45 exact verified images, 45 shadow-publishable destinations (27.95%). Shadow mode only — public catalog visibility not yet altered.
-
----
-
-## Transit Direction
-
-See `TRANSIT_DATA.md` for full data model.
-
-**One canonical transit source of truth.** Frontend fallback data must be generated from or directly consume the canonical transit files.
-
-Do not maintain a separate backend transit universe and a separate frontend transit universe.
-
----
-
-## Primary Round 2 Novelty
-
-**Smart Multimodal Transit Alternative**
-
-For an itinerary leg where the verified transit graph supports it, compare:
-
-**Private option:**
-- Haversine-based estimated road distance and duration
-
-**Public transit option:**
-- Verified boarding stop (from canonical stop registry)
-- Verified CRUT route number
-- Exit stop
-- Walking distance to boarding stop
-- Next scheduled departure (from published timetable)
-- Estimated total transit duration
-- Provenance and confidence label
-
-If no verified transit connection exists for a leg:
-> `No verified public-transit option is currently available for this leg.`
-
-Do NOT fabricate a bus recommendation because a nearby stop exists. The transit graph must actually support the leg.
-
----
-
-## Resilience Levels
-
-| Level | Condition | Behavior |
-|---|---|---|
-| L1 — Full Live | All services healthy | All features active |
-| L2 — AI Degraded | AI provider timeout / error | Rule-based planner; "Using offline recommendations" banner |
-| L3 — Backend Degraded | Backend unreachable (HTTP 503) | Frontend serves bundled local datasets |
-| L4 — Demo Safe Mode | `?demo=true` URL param | Force local fallbacks, disable OAuth, show demo badge |
-
-No fallback mode should be presented as live data.
-
----
-
-## Known P0 Bug (as of 2026-08-31 — verify at HEAD before fixing)
-
-A confirmed crash path existed in `backend/app/ai/conversation.py` where `grounded_msg` could be used before assignment on a no-tool conversational path (e.g., a greeting), causing `UnboundLocalError`.
-
-**Before touching related code:**
-1. Inspect current HEAD to determine if it has already been fixed.
-2. If already fixed, ensure regression coverage exists.
-3. If still present, the fix is: initialize `grounded_msg` to a safe fallback value before the conditional assignment block.
-
-Never assume stale documentation means the bug is still present. Inspect first.
-
----
-
-## System Design Principle
-
-```
-UI
-  → Orchestration Layer
-    → Domain Services
-      → Canonical Data / Verified Providers
-```
-
-Do not place business logic directly inside React components when it belongs in domain services.
-Do not perform large architectural rewrites purely for cleanliness — only when it improves correctness, reliability, testability, or Round 2 delivery.
-
----
-
-## Development Rules
-
-**Before modifying code:**
-1. Inspect current HEAD of relevant files.
-2. Understand existing implementation.
-3. Check recent Git history when relevant.
-4. Make the smallest safe change that achieves the goal.
-
-**After modifying code:**
-1. Run focused tests for the changed module.
-2. Run relevant broader test suites.
-3. Run TypeScript build check (`tsc`) after frontend changes.
-4. Inspect the diff.
-5. Leave the repository in a runnable state.
-
-Do not silently delete or downgrade working functionality.
-
----
-
-## Git Rules
-
-- Prefer small, atomic commits.
-- Every major commit must leave the app runnable.
-- Never rewrite large areas without a rollback path.
-- Do not commit `.env` files or secrets.
-- Do not commit temporary analysis output without a documented reason.
-
----
-
-## Truthfulness Rules
-
-Never present the following as live verified functionality unless genuinely implemented:
-
-- Mocked results
-- Simulated GPS positions
-- Static ratings as live ratings
-- Heuristic matching as neural vision
-- Estimated routing as GPS navigation
-
-Prefer explicit labels:
-
-`Verified` · `Scheduled` · `Estimated` · `Researched` · `Live` · `Fallback` · `Curated`
-
----
-
-## Demo Philosophy
-
-The Round 2 story:
-
-```
-DISCOVER  →  Verified Odisha destinations
-PLAN      →  Grounded, constraint-aware itinerary
-WHY       →  Explainable recommendations
-MOVE      →  Verified mobility alternatives (multimodal)
-ADAPT     →  Graceful degradation and contextual adjustment
-```
-
-Show working functionality — do not describe functionality that does not exist.
-
----
-
-## Round 1 Judge Feedback
-
-Actual Round 1 judge feedback must be added to this section when received.
-
-**Never invent judge comments.**
-
-*(Awaiting feedback — add here when available)*
+## 4. Anti-Vibe-Code Product Rules (Permanent Constraints)
+
+* **BANNED VISUALS**: Purple/neon gradients, gratuitous glassmorphism, floating cards with massive blur shadows, random blobs, cursor particles, scroll-jacking, emoji icons in core UI.
+* **BANNED METRICS**: Fake traveler counts, fake booking urgency banners, fake user reviews, fake bus positions, AI-generated tourist photography.
+* **BANNED COPY**: Marketing clichés ("Unlock unforgettable journeys", "Experience the magic"), "Made with AI", "AI powered". Zero em dash (`—`) characters in customer-facing copy.
+* **REQUIRED TRUST PAGES**: Privacy Policy, Terms & Conditions, and About ("Built by Algoryxz").
+* **EXPRESSIVE EDITORIAL DESIGN**: Anti-vibe-coded does **not** mean bland. O-TRAVELZ embraces high editorial gravity, commanding typography, authentic photography, and cultural resonance inspired by Odisha landscape and stone.

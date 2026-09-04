@@ -1,4 +1,4 @@
-# O-TRAVELZ V4 — Mobile Worktree
+﻿# O-TRAVELZ V4 — Mobile Worktree
 
 ```
 mobile/
@@ -7,4 +7,4 @@ mobile/
 └── ios/        # Fresh Swift + SwiftUI iOS application
 ```
 
-See [`docs/V4_PRODUCT_ARCHITECTURE.md`](../docs/V4_PRODUCT_ARCHITECTURE.md) for full architectural specifications.
+See [`docs/v4/ARCHITECTURE.md`](../docs/v4/ARCHITECTURE.md) and [`docs/v4/PRODUCT.md`](../docs/v4/PRODUCT.md) for full architectural specifications.

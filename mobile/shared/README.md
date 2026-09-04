@@ -1,5 +1,5 @@
-# O-TRAVELZ V4 — Shared Core (Kotlin Multiplatform)
+﻿# O-TRAVELZ V4 — Shared Core (Kotlin Multiplatform)
 
 > Target Artifacts: **JVM/Android AAR & Apple XCFramework (`OTravelzCore.xcframework`)**
 
-See [`docs/V4_SHARED_CORE_SCOPE.md`](../../docs/V4_SHARED_CORE_SCOPE.md) for full module boundaries.
+See [`docs/v4/ARCHITECTURE.md`](../../docs/v4/ARCHITECTURE.md) for full module boundaries.
