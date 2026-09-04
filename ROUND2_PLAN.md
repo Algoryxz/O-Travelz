@@ -197,7 +197,7 @@ Goal: The planner explains its recommendations. Source/confidence labels are vis
 
 Goal: Expand destination catalog across all 30 districts via structured regional research. All additions must pass automated staging validation and publishability gates.
 
-- [ ] **6.1** Regional research staging & team assignments (see [`ROUND2_TEAM.md`](ROUND2_TEAM.md))
+- [ ] **6.1** Regional research staging & team assignments (see [`docs/archive/ROUND2_TEAM.md`](docs/archive/ROUND2_TEAM.md))
   - Eastern: Rudra (Cuttack, Jagatsinghpur, Jajpur, Bhadrak, Kendrapara, Dhenkanal, Angul)
   - Western: Akriti (Sambalpur, Bargarh, Jharsuguda, Balangir, Subarnapur, Nuapada, Deogarh, Sundargarh)
   - Southern: Susmita (Ganjam, Gajapati, Koraput, Rayagada, Nabarangpur, Malkangiri, Kalahandi, Kandhamal, Boudh)

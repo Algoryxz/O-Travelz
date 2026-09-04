@@ -258,7 +258,7 @@ Source data
                   → production catalog (data/places/places.json)
 ```
 
-Regional research contributions go to `data/research/round2/`. Production catalog promotion is handled only after automated validation, image verification, and core-team review. See [`ROUND2_TEAM.md`](ROUND2_TEAM.md) for team ownership and regional assignments.
+Regional research contributions go to `data/research/round2/`. Production catalog promotion is handled only after automated validation, image verification, and core-team review. See [`docs/archive/ROUND2_TEAM.md`](docs/archive/ROUND2_TEAM.md) for historical team ownership and regional assignments.
 
 Records that fail any required gate stay in `staging/research`. They must not appear in the public product.
 
