@@ -1,0 +1,110 @@
+{
+  "audit_metadata": {
+    "title": "O-TRAVELZ V4 Wave C2.1 Five-Region Ama Bus Stop Universe Coverage Audit",
+    "generated_at": "2026-09-04T13:01:24.056176+00:00",
+    "target_wave": "Wave C2.1 / C3 Network Expansion",
+    "rule_enforcement": "Zero Canonical Transit Mutation; Explicit Gap Accounting"
+  },
+  "network_totals": {
+    "total_regions": 5,
+    "total_source_documents": 9,
+    "total_staged_routes": 153,
+    "total_distinct_published_stops": 1417,
+    "total_extracted_stops": 1430,
+    "total_staged_stops": 481,
+    "total_missing_staging_stops": 949,
+    "total_locality_resolution_stops": 481,
+    "total_coordinate_resolved_stops": 40,
+    "total_locality_only_stops": 441
+  },
+  "regions": [
+    {
+      "region": "CAPITAL_REGION",
+      "source_documents": [
+        "Latest_MO_BUS_Full_Network_Final_English_2_For_Odia_and_English_compressed.pdf",
+        "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf"
+      ],
+      "source_document_count": 2,
+      "staged_routes_count": 95,
+      "distinct_published_stops_count": 358,
+      "extracted_stops_count": 362,
+      "staging_stops_count": 0,
+      "locality_resolution_stops_count": 0,
+      "coordinate_resolved_count": 0,
+      "locality_only_count": 0,
+      "missing_staging_stops_count": 362,
+      "status": "PENDING_EXTRACTION_INGESTION"
+    },
+    {
+      "region": "ROURKELA",
+      "source_documents": [
+        "01dd4cef-b9c3-4a5a-8b3d-00a80578469d_Rourkela-Updated-Route-w.e.f-11.04.26.pdf",
+        "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf"
+      ],
+      "source_document_count": 2,
+      "staged_routes_count": 25,
+      "distinct_published_stops_count": 294,
+      "extracted_stops_count": 294,
+      "staging_stops_count": 0,
+      "locality_resolution_stops_count": 0,
+      "coordinate_resolved_count": 0,
+      "locality_only_count": 0,
+      "missing_staging_stops_count": 294,
+      "status": "PENDING_EXTRACTION_INGESTION"
+    },
+    {
+      "region": "SAMBALPUR",
+      "source_documents": [
+        "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+        "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf"
+      ],
+      "source_document_count": 2,
+      "staged_routes_count": 17,
+      "distinct_published_stops_count": 368,
+      "extracted_stops_count": 374,
+      "staging_stops_count": 374,
+      "locality_resolution_stops_count": 374,
+      "coordinate_resolved_count": 33,
+      "locality_only_count": 341,
+      "missing_staging_stops_count": 0,
+      "status": "LOCALITY_RESOLVED"
+    },
+    {
+      "region": "BERHAMPUR",
+      "source_documents": [
+        "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
+        "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf"
+      ],
+      "source_document_count": 2,
+      "staged_routes_count": 10,
+      "distinct_published_stops_count": 292,
+      "extracted_stops_count": 293,
+      "staging_stops_count": 0,
+      "locality_resolution_stops_count": 0,
+      "coordinate_resolved_count": 0,
+      "locality_only_count": 0,
+      "missing_staging_stops_count": 293,
+      "status": "PENDING_EXTRACTION_INGESTION"
+    },
+    {
+      "region": "KEONJHAR",
+      "source_documents": [
+        "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf"
+      ],
+      "source_document_count": 1,
+      "staged_routes_count": 6,
+      "distinct_published_stops_count": 105,
+      "extracted_stops_count": 107,
+      "staging_stops_count": 107,
+      "locality_resolution_stops_count": 107,
+      "coordinate_resolved_count": 7,
+      "locality_only_count": 100,
+      "missing_staging_stops_count": 0,
+      "status": "LOCALITY_RESOLVED"
+    }
+  ],
+  "forensic_finding": {
+    "summary": "Staged Ama Bus routes cover the full five-region network (153 routes across Capital Region, Rourkela, Sambalpur, Berhampur, Keonjhar). In contrast, staged stops (481) represent only Sambalpur (374) and Keonjhar (107). Exactly 949 stops across Capital Region (362), Rourkela (294), and Berhampur (293) were extracted from official schedule PDFs ('stops_extracted.json') but have not yet been ingested into staging 'stops.json'. 481 is NOT the complete five-region universe.",
+    "promotion_boundary_warning": "Passing validator promotion (--profile promotion) on locality_resolution.json proves strict schema and truth compliance for the staged Sambalpur and Keonjhar slice ONLY. It does NOT prove five-region stop identity closure or canonical promotion readiness for the full network."
+  }
+}

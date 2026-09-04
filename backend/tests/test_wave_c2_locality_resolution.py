@@ -198,3 +198,122 @@ def test_staged_locality_resolution_dataset():
 
     errors = [i for i in report.issues if i.severity == ValidationSeverity.ERROR]
     assert len(errors) == 0, f"Found {len(errors)} validation errors in locality_resolution.json: {[e.message for e in errors[:5]]}"
+
+
+# =========================================================================
+# WAVE C2.1 TESTS — LOCALITY ACCOUNTING & FIVE-REGION GAP CLOSURE
+# =========================================================================
+
+DISCREPANCY_FILE = REPO_ROOT / "data" / "transport" / "staging" / "ama_bus" / "coordinate_overlap_discrepancy.json"
+REGIONAL_COVERAGE_FILE = REPO_ROOT / "data" / "transport" / "staging" / "ama_bus" / "regional_stop_coverage.json"
+
+
+def test_coordinate_overlap_discrepancy_accounting():
+    assert DISCREPANCY_FILE.exists(), f"Missing {DISCREPANCY_FILE}"
+    with open(DISCREPANCY_FILE, encoding="utf-8") as f:
+        records = json.load(f)
+
+    # 1. Total candidate overlap links evaluated MUST be 43
+    assert len(records) == 43
+
+    # 2. Included in C2 resolutions MUST be exactly 40
+    included = [r for r in records if r["included_in_c2"]]
+    assert len(included) == 40
+    for r in included:
+        assert r["exclusion_reason"] is None
+        assert r["lat"] is not None
+        assert r["lon"] is not None
+        assert r["coordinate_status"] in {
+            "VERIFIED_OFFICIAL",
+            "VERIFIED_GEOSPATIAL",
+            "EXTRACTION_OFFICIAL_RECOVERY",
+            "EXTRACTION_PUBLIC_GEOSPATIAL",
+        }
+
+    # 3. Excluded records MUST be exactly 3 with explicit forensic reasons
+    excluded = [r for r in records if not r["included_in_c2"]]
+    assert len(excluded) == 3
+    excluded_names = {r["staging_name"] for r in excluded}
+    assert excluded_names == {"AINTHAPALI BUS TERMINAL", "PADIABAHAL", "KHETRAJPUR RLY. STATION"}
+
+    for r in excluded:
+        assert r["exclusion_reason"] is not None and len(r["exclusion_reason"]) > 20
+        assert r["match_method"] in {"RAW_EXTRACTION_OVERLAP", "CANONICAL_ALIAS_MATCH"}
+
+
+def test_five_region_stop_universe_coverage():
+    assert REGIONAL_COVERAGE_FILE.exists(), f"Missing {REGIONAL_COVERAGE_FILE}"
+    with open(REGIONAL_COVERAGE_FILE, encoding="utf-8") as f:
+        data = json.load(f)
+
+    net = data["network_totals"]
+    assert net["total_regions"] == 5
+    assert net["total_source_documents"] == 9
+    assert net["total_staged_routes"] == 153
+    assert net["total_extracted_stops"] == 1430
+    assert net["total_staged_stops"] == 481
+    assert net["total_missing_staging_stops"] == 949
+    assert net["total_coordinate_resolved_stops"] == 40
+    assert net["total_locality_only_stops"] == 441
+
+    # Regional breakdown assertions
+    reg_map = {r["region"]: r for r in data["regions"]}
+    assert set(reg_map.keys()) == {
+        "CAPITAL_REGION",
+        "ROURKELA",
+        "SAMBALPUR",
+        "BERHAMPUR",
+        "KEONJHAR",
+    }
+
+    assert reg_map["CAPITAL_REGION"]["staged_routes_count"] == 95
+    assert reg_map["CAPITAL_REGION"]["extracted_stops_count"] == 362
+    assert reg_map["CAPITAL_REGION"]["staging_stops_count"] == 0
+    assert reg_map["CAPITAL_REGION"]["missing_staging_stops_count"] == 362
+
+    assert reg_map["ROURKELA"]["staged_routes_count"] == 25
+    assert reg_map["ROURKELA"]["extracted_stops_count"] == 294
+    assert reg_map["ROURKELA"]["staging_stops_count"] == 0
+    assert reg_map["ROURKELA"]["missing_staging_stops_count"] == 294
+
+    assert reg_map["SAMBALPUR"]["staged_routes_count"] == 17
+    assert reg_map["SAMBALPUR"]["extracted_stops_count"] == 374
+    assert reg_map["SAMBALPUR"]["staging_stops_count"] == 374
+    assert reg_map["SAMBALPUR"]["coordinate_resolved_count"] == 33
+    assert reg_map["SAMBALPUR"]["locality_only_count"] == 341
+    assert reg_map["SAMBALPUR"]["missing_staging_stops_count"] == 0
+
+    assert reg_map["BERHAMPUR"]["staged_routes_count"] == 10
+    assert reg_map["BERHAMPUR"]["extracted_stops_count"] == 293
+    assert reg_map["BERHAMPUR"]["staging_stops_count"] == 0
+    assert reg_map["BERHAMPUR"]["missing_staging_stops_count"] == 293
+
+    assert reg_map["KEONJHAR"]["staged_routes_count"] == 6
+    assert reg_map["KEONJHAR"]["extracted_stops_count"] == 107
+    assert reg_map["KEONJHAR"]["staging_stops_count"] == 107
+    assert reg_map["KEONJHAR"]["coordinate_resolved_count"] == 7
+    assert reg_map["KEONJHAR"]["locality_only_count"] == 100
+    assert reg_map["KEONJHAR"]["missing_staging_stops_count"] == 0
+
+
+def test_explicit_region_resolver():
+    import sys
+    sys.path.insert(0, str(REPO_ROOT))
+    from scripts.enrich_ama_bus_localities import resolve_region
+
+    assert resolve_region("Sambalpur Service Area") == "SAMBALPUR"
+    assert resolve_region("Keonjhar Urban") == "KEONJHAR"
+    assert resolve_region("Rourkela Steel City") == "ROURKELA"
+    assert resolve_region("Berhampur Silk City") == "BERHAMPUR"
+    assert resolve_region("Brahmapur") == "BERHAMPUR"
+    assert resolve_region("Bhubaneswar Smart City") == "CAPITAL_REGION"
+    assert resolve_region("Cuttack Silver City") == "CAPITAL_REGION"
+    assert resolve_region("Puri Coastal") == "CAPITAL_REGION"
+    assert resolve_region("Capital Region Transit") == "CAPITAL_REGION"
+
+    # UNKNOWN MUST remain UNKNOWN without guessing
+    assert resolve_region("Kolkata") == "UNKNOWN"
+    assert resolve_region("Hyderabad") == "UNKNOWN"
+    assert resolve_region(None, None, None) == "UNKNOWN"
+    assert resolve_region("", "", "") == "UNKNOWN"
+
