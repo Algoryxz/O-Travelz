@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
   "profile": "AUDIT",
-  "generated_at": "2026-09-04T11:17:54.804511+00:00",
+  "generated_at": "2026-09-04T11:53:21.242928+00:00",
   "summary": {
     "errors": 0,
-    "warnings": 230,
+    "warnings": 277,
     "infos": 0
   },
   "issues": [
@@ -2871,6 +2871,743 @@
           "transit_stop"
         ]
       }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "lingaraj",
+      "field": "storage_directory",
+      "message": "Directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\lingaraj' does not map to any place in places.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\lingaraj"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_005/4e56a105e3a5",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_005\\4e56a105e3a5' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_005\\4e56a105e3a5"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_007/6d8254429a6a",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_007\\6d8254429a6a' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_007\\6d8254429a6a"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_012/a917c9873b59",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_012\\a917c9873b59' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_012\\a917c9873b59"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_013/a2d24252c0ce",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_013\\a2d24252c0ce' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_013\\a2d24252c0ce"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_014/30f7ed6f5755",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_014\\30f7ed6f5755' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_014\\30f7ed6f5755"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_018/3fdcd749885b",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_018\\3fdcd749885b' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_018\\3fdcd749885b"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_019/79d401a75a62",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_019\\79d401a75a62' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_019\\79d401a75a62"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_020/eaedc027e860",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_020\\eaedc027e860' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_020\\eaedc027e860"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_021/40dbffdb3896",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_021\\40dbffdb3896' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_021\\40dbffdb3896"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_022/250c5fb998e6",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_022\\250c5fb998e6' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_022\\250c5fb998e6"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_023/993614bac0d4",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_023\\993614bac0d4' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_023\\993614bac0d4"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_024/c24a920d9ea5",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_024\\c24a920d9ea5' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_024\\c24a920d9ea5"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_025/32de32c1a13d",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_025\\32de32c1a13d' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_025\\32de32c1a13d"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_026/37aea0eff98c",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_026\\37aea0eff98c' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_026\\37aea0eff98c"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_027/17b31b2b4531",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_027\\17b31b2b4531' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_027\\17b31b2b4531"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_028/cd738a94a267",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_028\\cd738a94a267' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_028\\cd738a94a267"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_029/4878025f4210",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_029\\4878025f4210' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_029\\4878025f4210"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_030/dd18b0f33834",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_030\\dd18b0f33834' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_030\\dd18b0f33834"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_031/420159c383f2",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_031\\420159c383f2' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_031\\420159c383f2"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_032/1b4f7e6f8b2e",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_032\\1b4f7e6f8b2e' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_032\\1b4f7e6f8b2e"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_bbsr_001/95eb7c9a1274",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_bbsr_001\\95eb7c9a1274' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_bbsr_001\\95eb7c9a1274"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_bbsr_001/abc12345",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_bbsr_001\\abc12345' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_bbsr_001\\abc12345"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_bbsr_001/b4c97bb3044b",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_bbsr_001\\b4c97bb3044b' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_bbsr_001\\b4c97bb3044b"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_chilika_001/e3007c197f3b",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_chilika_001\\e3007c197f3b' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_chilika_001\\e3007c197f3b"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_cuttack_001/edeaa939a80c",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_cuttack_001\\edeaa939a80c' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_cuttack_001\\edeaa939a80c"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_cuttack_002/14877b098df9",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_cuttack_002\\14877b098df9' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_cuttack_002\\14877b098df9"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_daringbadi_001/76083e315cec",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_daringbadi_001\\76083e315cec' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_daringbadi_001\\76083e315cec"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_food_001/e6fb3a71867e",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_001\\e6fb3a71867e' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_001\\e6fb3a71867e"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_food_002/e0850b09b5ca",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_002\\e0850b09b5ca' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_002\\e0850b09b5ca"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_food_003/5a13e730e909",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_003\\5a13e730e909' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_003\\5a13e730e909"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_food_004/4e765c230837",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_004\\4e765c230837' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_004\\4e765c230837"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_food_005/daeb11d5893b",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_005\\daeb11d5893b' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_005\\daeb11d5893b"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_food_006/88f959c50d0e",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_006\\88f959c50d0e' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_006\\88f959c50d0e"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_food_007/a0a492f880a5",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_007\\a0a492f880a5' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_007\\a0a492f880a5"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_food_008/35cde5e9e0e8",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_008\\35cde5e9e0e8' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_008\\35cde5e9e0e8"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_food_009/0b3143c9ea24",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_009\\0b3143c9ea24' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_009\\0b3143c9ea24"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_food_010/abcf1ef01835",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_010\\abcf1ef01835' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_010\\abcf1ef01835"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_food_011/cb1d3fcc1b6c",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_011\\cb1d3fcc1b6c' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_food_011\\cb1d3fcc1b6c"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_kendrapara_001/9f848ce9dd1c",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_kendrapara_001\\9f848ce9dd1c' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_kendrapara_001\\9f848ce9dd1c"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_konark_001/dadad62e6578",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_konark_001\\dadad62e6578' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_konark_001\\dadad62e6578"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_koraput_001/17d13f161748",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_koraput_001\\17d13f161748' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_koraput_001\\17d13f161748"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_koraput_003/b8491bd13242",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_koraput_003\\b8491bd13242' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_koraput_003\\b8491bd13242"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_mayurbhanj_001/1018a32ef1a4",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_mayurbhanj_001\\1018a32ef1a4' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_mayurbhanj_001\\1018a32ef1a4"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_puri_001/46bc44872d9d",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_puri_001\\46bc44872d9d' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_puri_001\\46bc44872d9d"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_sambalpur_001/d31c0247861c",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_sambalpur_001\\d31c0247861c' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_sambalpur_001\\d31c0247861c"
+      }
+    },
+    {
+      "code": "MED_ORPHAN_STORAGE_ASSET",
+      "severity": "WARNING",
+      "domain": "media",
+      "entity_type": "media_asset",
+      "entity_id": "place_sambalpur_001/f9bd5d208c25",
+      "field": "storage_directory",
+      "message": "Nested asset directory 'C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_sambalpur_001\\f9bd5d208c25' is not referenced by manifest.json",
+      "evidence": {
+        "path": "C:\\Users\\smara\\Desktop\\o-travelz\\data\\images\\places\\place_sambalpur_001\\f9bd5d208c25"
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "source": "data/places/places.json",
+      "status": "VALIDATED",
+      "records_loaded": 161,
+      "records_validated": 161,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "identity",
+        "localization",
+        "provenance",
+        "geospatial"
+      ]
+    },
+    {
+      "source": "data/research/food/odisha_food_research.json",
+      "status": "VALIDATED",
+      "records_loaded": 43,
+      "records_validated": 43,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "identity",
+        "localization",
+        "provenance",
+        "geospatial"
+      ]
+    },
+    {
+      "source": "data/services/odisha_services.json",
+      "status": "VALIDATED",
+      "records_loaded": 61,
+      "records_validated": 61,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "identity",
+        "localization",
+        "provenance",
+        "geospatial"
+      ]
+    },
+    {
+      "source": "data/transport/canonical/stops.json",
+      "status": "VALIDATED",
+      "records_loaded": 1430,
+      "records_validated": 1430,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "identity",
+        "transit",
+        "geospatial",
+        "localization"
+      ]
+    },
+    {
+      "source": "data/transport/canonical/routes.json",
+      "status": "VALIDATED",
+      "records_loaded": 154,
+      "records_validated": 154,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "identity",
+        "transit"
+      ]
+    },
+    {
+      "source": "data/transport/canonical/route_stops.json",
+      "status": "VALIDATED",
+      "records_loaded": 164,
+      "records_validated": 164,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "transit"
+      ]
+    },
+    {
+      "source": "data/transport/canonical/schedules.json",
+      "status": "VALIDATED",
+      "records_loaded": 302,
+      "records_validated": 302,
+      "records_skipped": 0,
+      "reason_skipped": "Encompasses 5549 chronological departure times",
+      "validation_domains_executed": [
+        "transit"
+      ]
+    },
+    {
+      "source": "data/images/sources/manifest.json",
+      "status": "VALIDATED",
+      "records_loaded": 70,
+      "records_validated": 70,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "media",
+        "provenance"
+      ]
+    },
+    {
+      "source": "data/images/sources/strict_photo_evidence_registry.json",
+      "status": "VALIDATED",
+      "records_loaded": 112,
+      "records_validated": 112,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "media",
+        "provenance"
+      ]
+    },
+    {
+      "source": "data/images/places/",
+      "status": "VALIDATED",
+      "records_loaded": 82,
+      "records_validated": 82,
+      "records_skipped": 0,
+      "reason_skipped": "Reconciled 70 manifest pairs against 82 storage directories",
+      "validation_domains_executed": [
+        "media"
+      ]
+    },
+    {
+      "source": "db:place_images",
+      "status": "VALIDATED",
+      "records_loaded": 70,
+      "records_validated": 70,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "media",
+        "provenance"
+      ]
+    },
+    {
+      "source": "db:media_assets",
+      "status": "VALIDATED",
+      "records_loaded": 0,
+      "records_validated": 0,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "media"
+      ]
+    },
+    {
+      "source": "db:entity_media",
+      "status": "VALIDATED",
+      "records_loaded": 0,
+      "records_validated": 0,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "media",
+        "relationships"
+      ]
+    },
+    {
+      "source": "db:entity_relationships",
+      "status": "VALIDATED",
+      "records_loaded": 0,
+      "records_validated": 0,
+      "records_skipped": 0,
+      "reason_skipped": null,
+      "validation_domains_executed": [
+        "relationships"
+      ]
     }
   ]
 }

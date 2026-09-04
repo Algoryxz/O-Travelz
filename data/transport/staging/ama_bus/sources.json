@@ -1,0 +1,139 @@
+[
+  {
+    "source_id": "src_e09eaede95f0",
+    "filename": "01dd4cef-b9c3-4a5a-8b3d-00a80578469d_Rourkela-Updated-Route-w.e.f-11.04.26.pdf",
+    "clean_title": "Rourkela Updated Route w.e.f 11.04.26",
+    "file_size_bytes": 6562435,
+    "sha256": "e09eaede95f0387f3dfa240ae18ae9f58d8652fe547275859a572cd25a3cae7d",
+    "page_count": 28,
+    "operator": "CRUT",
+    "network_type": "Mo Bus",
+    "service_area": [
+      "Rourkela"
+    ],
+    "apparent_date": "11.04.26",
+    "extraction_engine": "pymupdf"
+  },
+  {
+    "source_id": "src_f710d1995616",
+    "filename": "15f6873f-e2b0-4c96-a329-600699454bad_Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
+    "clean_title": "Updated Berhampur Detailed stoppages 24april2026",
+    "file_size_bytes": 2027278,
+    "sha256": "f710d1995616abadf2b009222f07d6023be9459b9b78390834af006080162884",
+    "page_count": 14,
+    "operator": "CRUT",
+    "network_type": "Mo Bus",
+    "service_area": [
+      "Berhampur"
+    ],
+    "apparent_date": "24april2026",
+    "extraction_engine": "pymupdf"
+  },
+  {
+    "source_id": "src_757ab3c03594",
+    "filename": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+    "clean_title": "06 Brahmapur Schedule wef 01.06.26",
+    "file_size_bytes": 215919,
+    "sha256": "757ab3c035946dc5df009e7ede3ab081dd7ff81227fc0ad20cca7619f80b2a11",
+    "page_count": 3,
+    "operator": "CRUT",
+    "network_type": "Mo Bus",
+    "service_area": [
+      "Berhampur"
+    ],
+    "apparent_date": "01.06.26",
+    "extraction_engine": "pymupdf"
+  },
+  {
+    "source_id": "src_cac69fe8f1c1",
+    "filename": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+    "clean_title": "RKL   Schedule w.e.f.11.04.26  New ",
+    "file_size_bytes": 469621,
+    "sha256": "cac69fe8f1c1a0241a79e5def73f0e1c8bdffb65b678baaa6c5fbe3abcdce409",
+    "page_count": 5,
+    "operator": "CRUT",
+    "network_type": "Mo Bus",
+    "service_area": [
+      "Rourkela"
+    ],
+    "apparent_date": "11.04.26",
+    "extraction_engine": "pymupdf"
+  },
+  {
+    "source_id": "src_2e1aed709933",
+    "filename": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+    "clean_title": "07 New Schedule CR  w.e.f 21.08.2026",
+    "file_size_bytes": 234037,
+    "sha256": "2e1aed709933c365789bbaf06fe689ee8f4fbb24be5803d83469e9b78e4cdff5",
+    "page_count": 20,
+    "operator": "CRUT",
+    "network_type": "Mo Bus",
+    "service_area": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri"
+    ],
+    "apparent_date": "21.08.2026",
+    "extraction_engine": "pymupdf"
+  },
+  {
+    "source_id": "src_52bc3ef41bcb",
+    "filename": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+    "clean_title": "Ama Bus Sambalpur Schedule   w.e.f.01.07 2026",
+    "file_size_bytes": 51385,
+    "sha256": "52bc3ef41bcbcc0dbc8c5fea698ca99f4c2121961981e5c3a86d0769e866733b",
+    "page_count": 4,
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "service_area": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "apparent_date": null,
+    "extraction_engine": "pymupdf"
+  },
+  {
+    "source_id": "src_4ddaf032f1e0",
+    "filename": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+    "clean_title": "Sambalpur Ama Bus Stoppage Details 5 7 2026",
+    "file_size_bytes": 2509378,
+    "sha256": "4ddaf032f1e05f3b4f66d53ec99d0507666d8e20fcce7567e7571df65083a417",
+    "page_count": 12,
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "service_area": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "apparent_date": null,
+    "extraction_engine": "pymupdf"
+  },
+  {
+    "source_id": "src_6d0b7bab7cda",
+    "filename": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+    "clean_title": "Keonjhar Detailed Stoppages",
+    "file_size_bytes": 22268686,
+    "sha256": "6d0b7bab7cda7954002c0a9ac3565af5fd41669d72aa0d98e2b1b87e2b2e92b9",
+    "page_count": 6,
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "service_area": [
+      "Keonjhar"
+    ],
+    "apparent_date": null,
+    "extraction_engine": "pymupdf"
+  },
+  {
+    "source_id": "src_117e0b076d54",
+    "filename": "Latest_MO_BUS_Full_Network_Final_English_2_For_Odia_and_English_compressed.pdf",
+    "clean_title": "Latest MO BUS Full Network Final English 2 For Odia and English compressed",
+    "file_size_bytes": 3243293,
+    "sha256": "117e0b076d54ceba637388bfd7cec7bef9742fd17f788a626c6bceeb4f1305e8",
+    "page_count": 2,
+    "operator": "CRUT",
+    "network_type": "Mo Bus",
+    "service_area": [],
+    "apparent_date": null,
+    "extraction_engine": "pymupdf"
+  }
+]

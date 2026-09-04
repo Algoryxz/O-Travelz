@@ -1,0 +1,6736 @@
+[
+  {
+    "stop_id": "",
+    "canonical_name": "AINTHAPALI BUS TERMINAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "GEOCODED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": "nominatim_osm"
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NUAJAMADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "AINTHAPALI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TPWODL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PANCHAGOCHHIA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "VIKASH SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BAREIPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TRUCK ASSOCIATION",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RMC OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOPALPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "REMED CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BHANGAMUNDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TIKIRAPADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SAINATH COLONY",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RK RICE MILL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LARPANK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RAJA PADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HIRAKUD COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NUAGUJATAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NUAJAMADA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GUNDURUPADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ALIND CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SMELTER MAIN GATE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DURGA MANDIR CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "IDC CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SAMALESWARI TEMPLE, HIRAKUD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ITI COLONY",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "VSS CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HIRAKUD SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HINDALCO CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HIRAKUD P.S.",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HIL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHANKARPADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SHAKTINAGAR, HIRAKUD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NARADIHI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NUAGUJATAL VILLAGE ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NUAGUJATALA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HIRAKUD P.S",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SIDHESWAR TEMPLE CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DUANPALI ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "FCI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MAHAVIR SQUARE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DHANUPALI SQUARE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PETROL PUMP, GOVINDTOLA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOVINDTOLA DURGA MANDAP",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CHARBHATI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HANUMAN MANDIR CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KULUTHKANI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MARUTI VIHAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SHREE RAM CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NSCB COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NSCB COLLEGE BYPASS",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SHIV MANDIR CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GENGUTIPALI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GENGUTIPALI U P SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DHANKAUDA FIELD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SONAPALI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DEER PARK SQUARE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RAZA NAGAR CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SP VIGILANCE OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BIRSA MUNDA CHOWK, AINTHAPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "AMRUTH VIHAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SAKHIPADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CITY RAILWAY STATION SQUARE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DHANKAUDA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "UPHC DHANKAUDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DHANKAUDA HIGH SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MOTIJHARAN CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ECHS POLYCLINIC",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BHUTAPADA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MAHINDRA SHOWROOM",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LAKSHMI DUNGURI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOHIRA TIKIRA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "P.C BRIDGE CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MCL,ANAND VIHAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "VSSUT, BURLA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KIRBA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SOURAV VIHAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MEDICAL CHOWK,BURLA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GARGI LADIES HOSTEL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GANGADHAR MEHER CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PHED OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BURLA HOSPITAL BACK GATE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DHANUPALI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BURLA HOSPITAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CITY RAILWAY STATION, AINTHAPALI BUS TERMINAL, REMED",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MCL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOVT. WOMEN COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JAMADARPALI DYKE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KARAM TOLI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CITY PALACE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GAYATRI COLONY",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LIC COLONY",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MASTER COLONY",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KAINSIR VILLAGE ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SINGHPALI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MAHAVIR CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GAYATRI NURSING",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "COLLEGE CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JAMADARPALI VILLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JATTU PADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DALE PADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TIPU PADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JOGIPALI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DANIEL PUBLIC SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ANISHA LADIES HOSTEL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHARSUGUDA NEW BUS TERMINAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BIRSA MUNDA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SRIRAM VIHAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KAMAKHYA TEMPLE MALIPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BHALUPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BAIDARNUAPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "FISHERIES OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PARDHIAPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PARDHIAPALI ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KIA SAMBALPUR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GUPTESWAR NAGAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RENGALI FIRE OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TALAB",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HANUMAN TEMPLE DEBEIPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CHC DEBEIPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BADRIPRASAD COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SASON VILLAGE ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KANKHINDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "AMBA PADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BHALUBAHAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SASON TOLL GATE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PRADHANPALI ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KILASAMA ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NUARAMPELA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "POLICE STATION RENGALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RENGALI BYPASS SQUARE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CHC RENGALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BUS STAND RENGALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HANUMAN TEMPLE RENGALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PURUNA BASTI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RAMCHANDRA NAGAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "FIRE OFFICE RENGALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SHYAM METALLICS G-1",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SHYAM METALLICS G-2",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PANDALOI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "VIRAJ STEEL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GURUPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ADITYA ALUMINIUM",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LAPANGA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BANSIMAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KHINDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PAULEPADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "THELKOLOI HIGH SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "POLICE STATION THELKOLOI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "THELKOLOI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JSW MAIN GATE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JSW PLAZA GATE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SRIPURA ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TARAIKELA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TUMBEKELA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KHERUAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SAHAPADA ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SAHAPADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BADMAL POLICE STATION",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BADMAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHARSUGUDA BYPASS",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "POWER HOUSE ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SAROSMAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BEHERAPAT CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BTM BYPASS OVERBRIDGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BTM BYPASS",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SHIV MANDIR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BOMBAY CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BIJJU NAGAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BEHERAMAL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MCL AUDITORIUM",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MAA TARINI TEMPLE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DISTRICT COLLECTORATE OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHARSUGUDA NEW BUS STAND BYPASS",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BARGARH",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HIRAKUD RAILWAY STATION",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOLGUNDA VILLAGE ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "A.KATAPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MUDHI MILL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SILVERMOON HOTEL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ATTABIRA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ATTABIRA MARKET",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ATTABIRA RAILWAY STATION",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SARANDA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SARANDA HIGH SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CHAKULI FAM",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SHIVA MANDIR, GARTIAPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GODBHAGA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SARASWAT MAHAVIDYALAYA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GODBHAGA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GODBHAGA RAILWAY STATION",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LADUKHAI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BHOITIKIRA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BABUBANDH",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOSHALA MARKET",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JNV, GOSHALA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SAMBALPUR DAIRY",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BAIJAMUNDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LATHI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ATTABIRA COLLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KANDPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LADERPALI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RENGALI CAMP",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DE-BAAHAAL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JANHAPADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SUKTAPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KALAPANI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BARAHAGODA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "VIKASH HOSPITAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NAGENPALI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "FCI WEREHOUSE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GURUDUWARA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PRIVATE BUS STAND, BARAGARH",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GANDHI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "S.P OFFICE, BARGARH",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BARAGARH GOVT. BUS STAND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "7",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BELAPAHAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KIA SHOWROOM",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BADRIPRASAD COLLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOVT. HIGH SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CHARPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BARPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DUN - DUN CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KURLA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TURITIKIRA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SALAD UP SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOVT. POLYTECHNIC COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RENGALI BLOCK OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HANUMAN TEMPLE, RENGALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BUS STAND, RENGALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "POLICE STATION, RENGALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "AMBAPADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KUMARBANDH COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KUMARBANDH CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RAMPELA POST OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PUMP HOUSE MARKET",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TELENPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "IB THERMAL BUS STAND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PARVATI NAGAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KHADAM",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KARPABAHAL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BANAHARPALI THANA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LAXMI MARKET BUS STAND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CENTRAL WORKSHOP BUS STOP",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GUMADERA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MAUSI MANDIR BUS STOP",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BELPAHAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "8",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RENGALI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOVT. HIGH SCHOOL, CHARPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HANUMAN TEMPLE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KHAMAR DIHI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PUJA MANDAP DALGAON",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ANCHALIK GOVT. HIGH SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DALGAON",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SARANDAMAL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PHATA PRIMARY SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SARANDAMAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BANDHABAHAL BUS STOP",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CGM OFFICE, LAKHANPUR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SUKHAPATTNAIK CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JORABAGA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KURPABAHAL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "9",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KUCHINDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "GEOCODED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": "nominatim_osm"
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SATSANG VIHAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HANUMAN TEMPLE,DHANKAUDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TAKBA SQUARE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SINDURPANK NH BYPASS",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SINDURPANK CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SINDURPANK DURGA MANDAP",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DANDEIPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KUDOPALI ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SBI THEMRA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PADARPARA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "THEMRA VILLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "THEMRA BYPASS",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GUDESINGHA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KHULIA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MALGUND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SERSUATALA VILLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SERSUATALA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GAMBHARIPANK ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JAMPALI ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JUNADIHI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JUNADIHI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KHINDAPADA VILLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LUHAKHANDI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RUNIMAHUL VILLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RUNIMAHUL P.U.P SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LAUMAL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHANKARPALI VILLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHANKARPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KENDUTIKRA MARKET",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MENDHABAHAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GUMULOI FOREST OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GUMULOI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TAMPARKELA VILLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TAMPARKELA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KUSUMDIHI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HANUMAN TEMPLE, ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BARADUNGURI VILLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BARADUNGURI ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NUAMUNDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ADARSHA VIDYALA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PARMANPUR COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PARMANPUR BUS STAND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SALEPALI ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BHIKHAMPUR ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BHALUBAHALA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LANGABAHAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LANGABAHAL VILLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KATAPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JARLI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DEHURIPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LAIDA ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LAIDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BAIJAPALI ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PURNAPANI VILLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PURNAPANI ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KUTRACHUAN SQUARE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SATKHAMA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SATKHAMA U.P SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ST. THOMAS SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CATHALIC CHURCH",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BANDHUBAS CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KUCHINDA BUS STAND UP",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RAJIV GANDHI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CIVIL COURT, KUCHINDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KUCHINDA COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "FOREST OFFICE, KUCHINDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MAHABIR NAGAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KUCHINDA BUS STAND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "10",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PADIABAHAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "GEOCODED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": "nominatim_osm"
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SADAR POLICE STATION",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KUDOPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CHANDAMUNDA ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SHREE RAM VATIKA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KENDGHATI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PADIABAHAL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KHASUPALI, PATUBAHAL ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOUDAPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PRIMARY SCHOOL, PADIABAHAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KHALIAPALI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BINAYAK DERA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SANATANPALI ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NILDUNGURI TOLL PLAZA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TURIPADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KABRAPALI CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KABRAPALI HIGH SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DAKDERA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HAPRIABAHAL ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NURSHING COLLEGE ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "11",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HANUMAN TEMPLE, DHANKAUDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "12",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SINDURPANK UP",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": "12",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOVT HOSPITAL, SUAKATI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RIMULI HIGHWAY",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JAIL ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BSNL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BIJU PATTANAIK CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "COLLECTORATE CIRCLE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LABANYA BUS STAND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NEW COURT CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RTO OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOVT. WOMENS COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MANDUA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TASAR SILK PARK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TANGARPALSA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NARANPUR RAAILWAY STN. ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NARANPUR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NARANPUR DUBURI JN.",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NARANPUR HIGH SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KISS CAMPUS",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RIMULI HIGHWAY CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SUAKATI SQUARE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JAMUDIA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SARUKUDARA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BADA GHAGHARA VILLAGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "UPARJAGARA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BADA GHAGHARA WATERFALL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SANAGHAGHARA PARK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "GEOCODED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": "canonical_place_repository"
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HATI TOWER",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "FIRE STATION",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MUMBAI HIGHWAY ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "OLD TOWN POST OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DUKHIA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DHENKAPUR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DISTRICT HOSPITAL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "1",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DDU CAMPUS",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "REGIONAL COLLGE, BABARTAPOSI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SERAJUDDIN CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RAILWAY STATION, KEONJHAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KARANJIA BUS STAND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RABINDRA VIDHYA NIKETAN",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GHUTUR SQUARE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GURUDWARA, MUKTAPUR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SHANKARPUR STADIUM",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "REGIONAL COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BABARTAPOSI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SIDHHI MATHA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "AGNISHWAR MAHADEV TEMPLE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JUDIA CHAURA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NIHAL SINGH CHAKA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DHANGARAPADA TIRAHA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ATOPUR ROAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "TELKOI BUS STAND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "2",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CHAKA NUA SAHI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LAW COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ODISHA SCHOOL OF",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MINING ENGINEERING OSME",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SILUA MUKUNDAPUR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SIVA TEMPLE,GOVINDAPUR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOVINDAPUR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SIRIDISAI, BAMPARA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CHAKA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "3",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SARAS",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DAKSHINA KALI MANDIR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BADADERA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DISTRICT LIBRARY",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BHALUKIPATALA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SIDHIMATHA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HUDCO PARK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SHREE GANESH SIKHYANUSTHAN",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "THAKURPATNA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RANKI",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "K.V, KEONJHAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BALABHADRAPUR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BELDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "4",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KEONJHAR BUS STAND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DHARANIDHAR MEDICAL COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "L.V PRASAD",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "LORD JAGANNATH COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BANIAPAT CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HARIHAR COLONY",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DD UNVERSITY",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GST OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "5",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHUMPURA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "YOGI MATHA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PADMPUR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MSP SPONGE IRON",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HUNDULA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JAMUDIHA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PALASPANGA CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GREEN FIELD SCHOOL",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "OSISL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHUMPURA BYPASS",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHUMPURA BLOCK CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHUMPURA MARKET",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHUMPURA BUS STAND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHUMPURA P.S",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "V-MART",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SAMBAD OFFICE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JODA BARBIL BUS STAND",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MOHIGAON",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DHURPADA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BALIAGUDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RAISUN",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RAISUN COLLEGE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "RAISUAN AIRSTRIP",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "OMFED",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": "6",
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KHETRAJPUR RAILWAY STATION",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 1,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CITY RAILWAY STATION",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 1,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GHANTESWARI TEMPLE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 1,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ATAL CHOWK",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 1,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HIRAKUD DAM",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 2,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MANESWAR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 2,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "NUAJAMDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 2,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SAMALESWARI TEMPLE",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 2,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "DHAMA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 3,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "KHETRAJPUR RLY. STATION",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 3,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "OSOU SAMBALPUR",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 3,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "JHARSUGUDA",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 3,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "BARAGARH",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 4,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "CITY RAILWAY STATION, AINTHAPALI BUS TERMINAL, REMED)",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": 3,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "SARASWAT MAHAVIDYALAYA,",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": 7,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "GOVT. HIGH SCHOOL,",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": 8,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "HANUMAN TEMPLE,",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": 9,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "ANCHALIK GOVT. HIGH SCHOOL,",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": 9,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "PHATA PRIMARY SCHOOL,",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "a3817262-412a-4538-97c0-4453f9e0ebd1_Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+      "source_page": 9,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "REGIONAL COLLEGE,",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": 2,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  },
+  {
+    "stop_id": "",
+    "canonical_name": "MINING ENGINEERING(OSME)",
+    "service_area": "Sambalpur",
+    "lat": null,
+    "lon": null,
+    "coordinate_status": "UNRESOLVED",
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": 3,
+      "table_index": null,
+      "coordinate_source": null
+    }
+  }
+]

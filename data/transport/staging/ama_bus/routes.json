@@ -1,0 +1,3459 @@
+[
+  {
+    "route_id": "route_ama_F1",
+    "route_number": "F1",
+    "route_name": "Damana Square - KIIT Square",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Damana Square",
+    "destination": "KIIT Square",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 1,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_DD1",
+    "route_number": "DD1",
+    "route_name": "Bhubaneswar Railway Station – Shree Mandira Parking, Puri (Via",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Shree Mandira Parking, Puri",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 1,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_08",
+    "route_number": "08",
+    "route_name": "IGKC Multispecialty Hospital – Sum Hospital (Campus -2) (via Sum Hospital",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "IGKC Multispecialty Hospital",
+    "destination": "Sum Hospital",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 1,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_09",
+    "route_number": "09",
+    "route_name": "Bhubaneswar Railway Station - Patia (via Niladri Vihar)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Patia",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 2,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_10",
+    "route_number": "10",
+    "route_name": "Bhubaneswar Airport – Maulana Azad National Urdu University,",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Airport",
+    "destination": "Maulana Azad National Urdu University",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 2,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_11",
+    "route_number": "11",
+    "route_name": "Trishulia Bus Stand – Bhubaneswar Railway Station(via Nandankana, Acharya",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Trishulia Bus Stand",
+    "destination": "Bhubaneswar Railway Station",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 2,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_12",
+    "route_number": "12",
+    "route_name": "Nandankanan - Bhubaneswar Railway Station (via Jaydev Vihar)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Nandankanan",
+    "destination": "Bhubaneswar Railway Station",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 3,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_13",
+    "route_number": "13",
+    "route_name": "Nandankanan Botanical Garden –Lingipur (via AG Square)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Nandankanan Botanical Garden",
+    "destination": "Lingipur",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 3,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_13E",
+    "route_number": "13E",
+    "route_name": "Nandankanan Botanical Garden – Dhauli(via AG Square)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Nandankanan Botanical Garden",
+    "destination": "Dhauli",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 3,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_14",
+    "route_number": "14",
+    "route_name": "Kalinga Vihar – Bhubaneswar Railway Station (Via Sum Ultimate,BSABT,OUAT,AG)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Kalinga Vihar",
+    "destination": "Bhubaneswar Railway Station",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 4,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_15",
+    "route_number": "15",
+    "route_name": "Cuttack Netaji Bus Terminus (CNBT) – Utkal Hospital (Via Judicial Square,",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Cuttack Netaji Bus Terminus (CNBT)",
+    "destination": "Utkal Hospital",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 4,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_15E",
+    "route_number": "15E",
+    "route_name": "Cuttack Netaji Bus Terminus (CNBT) – Salia Sahi (Via Judicial Square,",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Cuttack Netaji Bus Terminus (CNBT)",
+    "destination": "Salia Sahi",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 4,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_16",
+    "route_number": "16",
+    "route_name": "Bhubaneswar Railway Station – Sri Sri University, Kataka (via NH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Sri Sri University, Kataka",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 4,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_17",
+    "route_number": "17",
+    "route_name": "Biju Patnaik International Airport, BBSR- Barabati Stadium, Cuttack (via NH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Biju Patnaik International Airport, BBSR",
+    "destination": "Barabati Stadium, Cuttack",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 5,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_18",
+    "route_number": "18",
+    "route_name": "Baramunda BSABT – Jagatpur (via Nandankanan)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Baramunda BSABT",
+    "destination": "Jagatpur",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 5,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_19",
+    "route_number": "19",
+    "route_name": "AIIMS - OMP Square-Mahanadi Vihar (via NH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "AIIMS",
+    "destination": "OMP Square-Mahanadi Vihar",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 5,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_20",
+    "route_number": "20",
+    "route_name": "Bhubaneswar Railway Station – Khordha New Bus Stand (via Vani Vihar)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Khordha New Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 6,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_21",
+    "route_number": "21",
+    "route_name": "Bhubaneswar Railway Station - Khordha New Bus Stand (via OUAT)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Khordha New Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 6,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_22A",
+    "route_number": "22A",
+    "route_name": "Bhubaneswar Railway Station - Khordha Road Station",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Khordha Road Station",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 6,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_22B",
+    "route_number": "22B",
+    "route_name": "Jatani Gate- Khordha New Bus Stand (via Jatani)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Jatani Gate",
+    "destination": "Khordha New Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 6,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_23",
+    "route_number": "23",
+    "route_name": "Bhubaneswar Railway Station – Sum Hospital-IGKC",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Sum Hospital-IGKC",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 7,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_24",
+    "route_number": "24",
+    "route_name": "Kalinga Vihar- Sai Temple",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Kalinga Vihar",
+    "destination": "Sai Temple",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 7,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_24E",
+    "route_number": "24E",
+    "route_name": "Kalinga Vihar- Bainchua (via-Sai Temple)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Kalinga Vihar",
+    "destination": "Bainchua",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 7,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_25",
+    "route_number": "25",
+    "route_name": "Dumduma – Gadakana (Via – Mastercanteen, Mancheswar)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Dumduma",
+    "destination": "Gadakana",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 7,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_26",
+    "route_number": "26",
+    "route_name": "Dumduma (Jadupur) – Rokat, Rajdhani Engineering College (Via Chaikeisiani)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Dumduma (Jadupur)",
+    "destination": "Rokat, Rajdhani Engineering College",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 8,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_27",
+    "route_number": "27",
+    "route_name": "Bhubaneswar Railway Station – Bhagwanpur (via AIIMS)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Bhagwanpur",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 8,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_28",
+    "route_number": "28",
+    "route_name": "Master Canteen - Kalinga Nagar (Trident)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Master Canteen",
+    "destination": "Kalinga Nagar",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 8,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_29",
+    "route_number": "29",
+    "route_name": "Bhagwanpur – Sai Mandir",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhagwanpur",
+    "destination": "Sai Mandir",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 8,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_29E",
+    "route_number": "29E",
+    "route_name": "Bhagwanpur – SBI Colony Via(Sai Mandir)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhagwanpur",
+    "destination": "SBI Colony",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 8,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_30",
+    "route_number": "30",
+    "route_name": "Bhubaneswar Railway Station – Chhatabar -Mahatma Gandhi Academy of",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Chhatabar -Mahatma Gandhi Academy of",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 9,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_31",
+    "route_number": "31",
+    "route_name": "Bhubaneswar Railway Station – Hi-Tech Hospital (via Toshali Bhawan,",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Hi-Tech Hospital",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 9,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_32",
+    "route_number": "32",
+    "route_name": "Baramunda BSABT – Lingaraj Temple (Via Bhubaneswar Railway Station)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Baramunda BSABT",
+    "destination": "Lingaraj Temple",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 9,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_33",
+    "route_number": "33",
+    "route_name": "Bhubaneswar Railway Station – Pipili",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Pipili",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 9,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_34",
+    "route_number": "34",
+    "route_name": "Bhubaneswar Railway Station – Balakati (Sai Hospital)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Balakati",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 10,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_34E",
+    "route_number": "34E",
+    "route_name": "Bhubaneswar Railway Station - Trahi Achyut(Via-Balakati)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Trahi Achyut",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 10,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_36",
+    "route_number": "36",
+    "route_name": "Bhubaneswar Railway Station – Mundali (via Judicial Academy)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Mundali",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 10,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_37",
+    "route_number": "37",
+    "route_name": "Baramunda BSABT – Naraj Railway Station (via Trisulia Square, OMFED Dairy)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Baramunda BSABT",
+    "destination": "Naraj Railway Station",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 10,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_38",
+    "route_number": "38",
+    "route_name": "Bhubaneswar Railway Station – Trimal (via Khordha Bypass, IIT)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Trimal",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 10,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_39",
+    "route_number": "39",
+    "route_name": "Bhubaneswar Railway Station - AIIMS (via Capital Hospital, Bhimtangi)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "AIIMS",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 11,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_40",
+    "route_number": "40",
+    "route_name": "AIIMS - Sai Mandir (Kesora) (via Capital Hospital, Badagada Brit Colony)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "AIIMS",
+    "destination": "Sai Mandir",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 11,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_41",
+    "route_number": "41",
+    "route_name": "Baramunda BSABT – Tangi (via NH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Baramunda BSABT",
+    "destination": "Tangi",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 11,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_42",
+    "route_number": "42",
+    "route_name": "Baramunda BSABT – Nandankanan (via Chandaka)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Baramunda BSABT",
+    "destination": "Nandankanan",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 11,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_43",
+    "route_number": "43",
+    "route_name": "Baramunda BSABT – Banamalipur (via Rasulgarh ,Kalapana Sqr)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Baramunda BSABT",
+    "destination": "Banamalipur",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 11,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_43E",
+    "route_number": "43E",
+    "route_name": "Baramunda BSABT – Abhyamukhi (via Rasulgarh ,Kalapana Sqr,Banamalipur)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Baramunda BSABT",
+    "destination": "Abhyamukhi",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 11,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_44",
+    "route_number": "44",
+    "route_name": "Baramunda BSABT - SVNIRTAR,Olatpur (via Master Canteen, ,Kalapana",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Baramunda BSABT",
+    "destination": "SVNIRTAR,Olatpur",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 12,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_45",
+    "route_number": "45",
+    "route_name": "Bhubaneswar Railway Station - Jayadev Pitha (via Brahman Sarangi,Khamanga)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Jayadev Pitha",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 12,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_46",
+    "route_number": "46",
+    "route_name": "Bhubaneswar Railway Station - Nandankanan (via Kalayanpur,Gandarpur)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Nandankanan",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 12,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_47",
+    "route_number": "47",
+    "route_name": "Sum Hospital - SCB Medical,Cuttack (via Ekamra Kanan,Mayfair)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Sum Hospital",
+    "destination": "SCB Medical,Cuttack",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 12,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_48",
+    "route_number": "48",
+    "route_name": "Khordha New Bus Stand - Jagatpur,Cuttack (via Pitapalli, Chandaka)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Khordha New Bus Stand",
+    "destination": "Jagatpur,Cuttack",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 12,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_49",
+    "route_number": "49",
+    "route_name": "Bhubaneswar Railway Station – Delanga Hata (via Pipili)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Delanga Hata",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 12,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_50",
+    "route_number": "50",
+    "route_name": "Bhubaneswar Railway Station - Puri Bus Stand",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Puri Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 12,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_51",
+    "route_number": "51",
+    "route_name": "Baramunda BSABT - Puri Bus Stand (via Vani Vihar,Rasulgarh Square)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Baramunda BSABT",
+    "destination": "Puri Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 13,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_52",
+    "route_number": "52",
+    "route_name": "Puri Bus Stand – Mangalahata (Via Puri Railway Station,Beach",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Puri Bus Stand",
+    "destination": "Mangalahata",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 13,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_53",
+    "route_number": "53",
+    "route_name": "Malatipatpur Bus Stand – Shree Mandira (via Puri Bus Stand)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Malatipatpur Bus Stand",
+    "destination": "Shree Mandira",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 13,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_54",
+    "route_number": "54",
+    "route_name": "NLU, Cuttack - Puri Bus Stand (via Badambadi, Puri Bypass)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "NLU, Cuttack",
+    "destination": "Puri Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 13,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_56",
+    "route_number": "56",
+    "route_name": "Khordha New Bus Stand – Puri Bus Stand (via Jatani,Pipili)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Khordha New Bus Stand",
+    "destination": "Puri Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 13,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_56E",
+    "route_number": "56E",
+    "route_name": "Puri Bus Stand - Khordha Road Station (via Jatani,Pipili)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Puri Bus Stand",
+    "destination": "Khordha Road Station",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 14,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_57",
+    "route_number": "57",
+    "route_name": "Puri Bus Stand - Astaranga",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Puri Bus Stand",
+    "destination": "Astaranga",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 14,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_58",
+    "route_number": "58",
+    "route_name": "Jagatpur,Cuttack – Puri Bus Stand (via Badambadi,Link Road)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Jagatpur,Cuttack",
+    "destination": "Puri Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 14,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_59",
+    "route_number": "59",
+    "route_name": "Mahanadi Vihar,Cuttack – Puri Bus Stand (via Badambadi,Link Road)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Mahanadi Vihar,Cuttack",
+    "destination": "Puri Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 14,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_61",
+    "route_number": "61",
+    "route_name": "Puri Bus Stand – Satapada Bus Stand",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Puri Bus Stand",
+    "destination": "Satapada Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 14,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_62",
+    "route_number": "62",
+    "route_name": "Bhubaneswar Railway Station – Suando (via-Kalpana Square, Pipili Bypass,",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Suando",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 14,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_63",
+    "route_number": "63",
+    "route_name": "BSABT -Madhabananda Temple, Niali (Via-Vani Vihar, Master Canteen,",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "BSABT",
+    "destination": "Madhabananda Temple, Niali",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 14,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_64",
+    "route_number": "64",
+    "route_name": "Bhubaneswar Railway Station – Jatani Gate (via-Vani vihar, Gohiria square,",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Jatani Gate",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 15,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_65",
+    "route_number": "65",
+    "route_name": "Bhubaneswar Railway Station – Wonderla Amusement Park (Via - Vani Vihar)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Wonderla Amusement Park",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 15,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_66",
+    "route_number": "66",
+    "route_name": "Bhubaneswar Railway Station - Pathargadia Square (Via- Kiss College, Kelucharan",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Pathargadia Square",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 15,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_70",
+    "route_number": "70",
+    "route_name": "Bhubaneswar Railway Station - Konark",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Konark",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 15,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_71",
+    "route_number": "71",
+    "route_name": "Baramunda ISBT – Konark (via Rasulgarh Square)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Baramunda ISBT",
+    "destination": "Konark",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 15,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_72",
+    "route_number": "72",
+    "route_name": "Shree Mandira – Madhabnanda Temple, Niali",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Shree Mandira",
+    "destination": "Madhabnanda Temple, Niali",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 15,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_73",
+    "route_number": "73",
+    "route_name": "Puri Bus Stand – Talabania",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Puri Bus Stand",
+    "destination": "Talabania",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 16,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_74",
+    "route_number": "74",
+    "route_name": "Puri Railway Station – Shree Mandira (Via – Puri Bus Stand)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Puri Railway Station",
+    "destination": "Shree Mandira",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 16,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_75",
+    "route_number": "75",
+    "route_name": "Shree Mandira – Kakatpur (Via Puri Bus Stand, Balighai, Marine Drive, Konark)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Shree Mandira",
+    "destination": "Kakatpur",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 16,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_76",
+    "route_number": "76",
+    "route_name": "Puri Bus Stand – Sakhigopal Temple",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Puri Bus Stand",
+    "destination": "Sakhigopal Temple",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 16,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_77",
+    "route_number": "77",
+    "route_name": "Puri Bus Stand – Nimapada Bus Stand",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Puri Bus Stand",
+    "destination": "Nimapada Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 16,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_78",
+    "route_number": "78",
+    "route_name": "Puri Bus Stand– Alarnath (Brahamgiri New Bus Stand)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Puri Bus Stand",
+    "destination": "Alarnath",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 16,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_79",
+    "route_number": "79",
+    "route_name": "Shree Mandira – Light House (Via Police line, SCS College, Kacheri,",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Shree Mandira",
+    "destination": "Light House",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 17,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_80",
+    "route_number": "80",
+    "route_name": "Naraj Police Outpost – Agrahat, Charbatia (via NLU, Badambadi, SCB Medical)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Naraj Police Outpost",
+    "destination": "Agrahat, Charbatia",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 17,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_80E",
+    "route_number": "80E",
+    "route_name": "Naraj Police Outpost – Mangarajpur (via NLU, Badambadi, SCB Medical)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Naraj Police Outpost",
+    "destination": "Mangarajpur",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 17,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_81",
+    "route_number": "81",
+    "route_name": "Barabati Stadium – Jagannath Temple, Salepur (via SCB Medical, OMP",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Barabati Stadium",
+    "destination": "Jagannath Temple, Salepur",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 17,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_82",
+    "route_number": "82",
+    "route_name": "AIRPORT - MASTER CANTEEN - SCB Medical (Settlement Office) (via NH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "AIRPORT",
+    "destination": "MASTER CANTEEN - SCB Medical",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 18,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_83",
+    "route_number": "83",
+    "route_name": "Dhabaleswar - Kandarpur (via 42 Mouza)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Dhabaleswar",
+    "destination": "Kandarpur",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 18,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_83A",
+    "route_number": "83A",
+    "route_name": "CDA9 - Nuapatana",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "CDA9",
+    "destination": "Nuapatana",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 18,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_84",
+    "route_number": "84",
+    "route_name": "Biju pattanaik Park,CDA – Madhabananda Temple, Niali (via",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Biju pattanaik Park,CDA",
+    "destination": "Madhabananda Temple, Niali",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 18,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_85",
+    "route_number": "85",
+    "route_name": "Cuttack Netaji Bus Terminal - Gadama (via OMP, Kandarpur)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Cuttack Netaji Bus Terminal",
+    "destination": "Gadama",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 18,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_86",
+    "route_number": "86",
+    "route_name": "CDA 9 OD terminal – Driems,Tangi",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "CDA 9 OD terminal",
+    "destination": "Driems,Tangi",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 19,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_87",
+    "route_number": "87",
+    "route_name": "Biju Patanaik Park – Mahanadi Vihar (Via CDA, Judicial Square, Link Road)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Biju Patanaik Park",
+    "destination": "Mahanadi Vihar",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 19,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_87E",
+    "route_number": "87E",
+    "route_name": "Judicial Academy– Nuapada(Via Barabati,SCB)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Judicial Academy",
+    "destination": "Nuapada",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 19,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_88",
+    "route_number": "88",
+    "route_name": "National Law University (O) – SCB Hospital (Via CDA, Raj Kishor Marg,",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "National Law University (O)",
+    "destination": "SCB Hospital",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 19,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_89",
+    "route_number": "89",
+    "route_name": "SCB Medical – Jagadguru Krupalu University (JKU)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "SCB Medical",
+    "destination": "Jagadguru Krupalu University",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 19,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_89A",
+    "route_number": "89A",
+    "route_name": "SCB Medical – Judicial Square",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "SCB Medical",
+    "destination": "Judicial Square",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 19,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_90",
+    "route_number": "90",
+    "route_name": "Khordha New Bus Stand – Jagatpur, Cuttack (Via NH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Khordha New Bus Stand",
+    "destination": "Jagatpur, Cuttack",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 20,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_91",
+    "route_number": "91",
+    "route_name": "Baramunda BSABT – Biju Patnaik Park, Cuttack (Via NH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Baramunda BSABT",
+    "destination": "Biju Patnaik Park, Cuttack",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 20,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_92",
+    "route_number": "92",
+    "route_name": "IGKC – Sai Temple (Via Khandagiri, Lingraj Station, Bhim Tangi,",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "IGKC",
+    "destination": "Sai Temple",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 20,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_93",
+    "route_number": "93",
+    "route_name": "Bhubaneswar Railway Station – Biju Patnaik Park, CDA (Via Fire",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Bhubaneswar Railway Station",
+    "destination": "Biju Patnaik Park, CDA",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 20,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_94",
+    "route_number": "94",
+    "route_name": "Babasaheb Bhimrao Ambedkar Bus Terminal (BSABT) – SIEP, JATNI",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Babasaheb Bhimrao Ambedkar Bus Terminal (BSABT)",
+    "destination": "SIEP, JATNI",
+    "direction": "bidirectional",
+    "service_area": "Capital Region",
+    "cities": [
+      "Bhubaneswar",
+      "Cuttack",
+      "Puri",
+      "Khordha",
+      "Jatani"
+    ],
+    "provenance": {
+      "source_document": "6129b717-fd3d-46e4-84f4-3609fa7121b7_07-New-Schedule-CR--w.e.f-21.08.2026.pdf",
+      "source_page": 20,
+      "effective_date": "2026-08-21",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_100",
+    "route_number": "100",
+    "route_name": "Rourkela New Bus Stand - Birsa Munda Hockey Stadium (via Ring Road, IGH, Chend Colony)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Birsa Munda Hockey Stadium",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 1,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_101",
+    "route_number": "101",
+    "route_name": "Rourkela New Bus Stand - Laukera (via Udit Nagar, Hanuman Vatika Chowk, Chhend, Airport)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Laukera",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 1,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_101E",
+    "route_number": "101E",
+    "route_name": "Rourkela New Bus Stand – Panposh Station(",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Panposh Station",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 1,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_102",
+    "route_number": "102",
+    "route_name": "Vedvyas - Jhirpani (via Panposh,Chhend Chowk, Koel Nagar)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Vedvyas",
+    "destination": "Jhirpani",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 1,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_103",
+    "route_number": "103",
+    "route_name": "Rourkela New Bus Stand – Panposh( Via-Uditnagar,Hanuman Vatika Chowk,Chhend)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Panposh",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 2,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_104",
+    "route_number": "104",
+    "route_name": "Rourkela New Bus Stand - Jhirpani(via Sector-2,Nit,Jagda Chowk)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Jhirpani",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 2,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_105",
+    "route_number": "105",
+    "route_name": "Rourkela New Bus Stand - Rajgangpur (via NH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Rajgangpur",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 2,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_106",
+    "route_number": "106",
+    "route_name": "Rourkela New Bus Stand - Birmitrapur (via Ring Road, NH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Birmitrapur",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 2,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_107",
+    "route_number": "107",
+    "route_name": "Rourkela New Bus Stand - Teterkela (via Bondamunda)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Teterkela",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 3,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_108",
+    "route_number": "108",
+    "route_name": "Rourkela New Bus Stand – Nuagaon (via Jagda Chowk, Jhirpani, Khuntagaon)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Nuagaon",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 3,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_109",
+    "route_number": "109",
+    "route_name": "Rourkela New Bus Stand – Lathikata (via NH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Lathikata",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 3,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_110",
+    "route_number": "110",
+    "route_name": "Rourkela New Bus Stand – Kalunga (via Raghunathpali)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Kalunga",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 3,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_111",
+    "route_number": "111",
+    "route_name": "Rourkela New Bus Stand – Bonaigarh",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Bonaigarh",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 3,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_112",
+    "route_number": "112",
+    "route_name": "Rourkela New Bus Stand – Lahunipara",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Lahunipara",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 3,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_113",
+    "route_number": "113",
+    "route_name": "Rourkela New Bus Stand – Ushra (via NH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Ushra",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 3,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_114",
+    "route_number": "114",
+    "route_name": "Rourkela New Bus Stand - Nuagaon (via Hatibari)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Nuagaon",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 4,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_115",
+    "route_number": "115",
+    "route_name": "Rourkela New Bus Stand – Potab (via Hatibari)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Potab",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 4,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_116",
+    "route_number": "116",
+    "route_name": "Rourkela New Bus Stand – Loram (via NIT, Jagda Chowk, Khutagaon, Sorda)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Loram",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 4,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_117",
+    "route_number": "117",
+    "route_name": "Rourkela New Bus Stand – Jaraikela (via Bondamunda, Bisra)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Jaraikela",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 4,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_118",
+    "route_number": "118",
+    "route_name": "Rourkela New Bus Stand – Salangabahal (via Kuarmunda,Biramitrapur)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Salangabahal",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 4,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_119",
+    "route_number": "119",
+    "route_name": "Rourkela New Bus Stand – Kutra (via Rajgangpur Bypass)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Kutra",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 4,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_120",
+    "route_number": "120",
+    "route_name": "Rourkela New Bus Stand – Gurundia (via Disco Chowk,Soldega)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Gurundia",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 4,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_121",
+    "route_number": "121",
+    "route_name": "DAV POND – Radio Station (Kantajhor) (via Basanti Colony, New Bus Stand, NIT)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "DAV POND",
+    "destination": "Radio Station",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 5,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_122",
+    "route_number": "122",
+    "route_name": "Shakti Nagar – Tarapur Filter House (Laxmi Market)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Shakti Nagar",
+    "destination": "Tarapur Filter House",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 5,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_124",
+    "route_number": "124",
+    "route_name": "Rourkela New Bus Stand – Hamirpur (via Malgodown, Basanti Colony, Chennd Colony, IGH)",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Rourkela New Bus Stand",
+    "destination": "Hamirpur",
+    "direction": "bidirectional",
+    "service_area": "Rourkela",
+    "cities": [
+      "Rourkela"
+    ],
+    "provenance": {
+      "source_document": "3c8bec83-b7ab-4042-bb94-ff4adf6b511a_RKL---Schedule-w.e.f.11.04.26--New-.pdf",
+      "source_page": 5,
+      "effective_date": "2026-04-11",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_300",
+    "route_number": "300",
+    "route_name": "NIST college - Duduma Colony Bus stand",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "NIST college",
+    "destination": "Duduma Colony Bus stand",
+    "direction": "bidirectional",
+    "service_area": "Berhampur",
+    "cities": [
+      "Berhampur"
+    ],
+    "provenance": {
+      "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "source_page": 1,
+      "effective_date": "2026-06-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_301",
+    "route_number": "301",
+    "route_name": "Berhampur Rail Stn. - Parala maharaja college (Via- MKCG Medical, Engineering",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Berhampur Rail Stn.",
+    "destination": "Parala maharaja college",
+    "direction": "bidirectional",
+    "service_area": "Berhampur",
+    "cities": [
+      "Berhampur"
+    ],
+    "provenance": {
+      "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "source_page": 1,
+      "effective_date": "2026-06-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_302",
+    "route_number": "302",
+    "route_name": "Berhampur Railway Station – Regidi",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Berhampur Railway Station",
+    "destination": "Regidi",
+    "direction": "bidirectional",
+    "service_area": "Berhampur",
+    "cities": [
+      "Berhampur"
+    ],
+    "provenance": {
+      "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "source_page": 1,
+      "effective_date": "2026-06-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_303",
+    "route_number": "303",
+    "route_name": "Duduma Colony Bus Stand – Gopalpur Bus Stand (Via- Amba market, gandhi nagar, Courtpeta",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Duduma Colony Bus Stand",
+    "destination": "Gopalpur Bus Stand",
+    "direction": "bidirectional",
+    "service_area": "Berhampur",
+    "cities": [
+      "Berhampur"
+    ],
+    "provenance": {
+      "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "source_page": 1,
+      "effective_date": "2026-06-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_303E",
+    "route_number": "303E",
+    "route_name": "Duduma Colony Bus stand – Dhabaleswar (Via- Railway station P.F-4, Lanjipali Village, Ankuli ,ARMY",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Duduma Colony Bus stand",
+    "destination": "Dhabaleswar",
+    "direction": "bidirectional",
+    "service_area": "Berhampur",
+    "cities": [
+      "Berhampur"
+    ],
+    "provenance": {
+      "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "source_page": 2,
+      "effective_date": "2026-06-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_304",
+    "route_number": "304",
+    "route_name": "Berhampur Railway Station -D.patapur",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Berhampur Railway Station",
+    "destination": "D.patapur",
+    "direction": "bidirectional",
+    "service_area": "Berhampur",
+    "cities": [
+      "Berhampur"
+    ],
+    "provenance": {
+      "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "source_page": 2,
+      "effective_date": "2026-06-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_304E",
+    "route_number": "304E",
+    "route_name": "Berhampur Railway Station - Ralaba",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Berhampur Railway Station",
+    "destination": "Ralaba",
+    "direction": "bidirectional",
+    "service_area": "Berhampur",
+    "cities": [
+      "Berhampur"
+    ],
+    "provenance": {
+      "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "source_page": 2,
+      "effective_date": "2026-06-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_305",
+    "route_number": "305",
+    "route_name": "Haladiapadar Bus Stand– Chatrapur",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Haladiapadar Bus Stand",
+    "destination": "Chatrapur",
+    "direction": "bidirectional",
+    "service_area": "Berhampur",
+    "cities": [
+      "Berhampur"
+    ],
+    "provenance": {
+      "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "source_page": 2,
+      "effective_date": "2026-06-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_306",
+    "route_number": "306",
+    "route_name": "Mahatma Gandhi Stadium - Sonapur beach (Via- Railway Station,Haldiapadar New Bus Stand,Kanisi Hata,Sidhha",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Mahatma Gandhi Stadium",
+    "destination": "Sonapur beach",
+    "direction": "bidirectional",
+    "service_area": "Berhampur",
+    "cities": [
+      "Berhampur"
+    ],
+    "provenance": {
+      "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "source_page": 2,
+      "effective_date": "2026-06-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_307",
+    "route_number": "307",
+    "route_name": "Duduma Colony Bus stand - Engg.School",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Duduma Colony Bus stand",
+    "destination": "Engg.School",
+    "direction": "bidirectional",
+    "service_area": "Berhampur",
+    "cities": [
+      "Berhampur"
+    ],
+    "provenance": {
+      "source_document": "2ec5da99-3b73-4e1a-88f5-de6ebbbba32b_06-Brahmapur-Schedule-wef-01.06.26.pdf",
+      "source_page": 3,
+      "effective_date": "2026-06-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_200",
+    "route_number": "200",
+    "route_name": "Khetrajpur Railway station - City Railway station",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Khetrajpur Railway station",
+    "destination": "City Railway station",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 1,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_201",
+    "route_number": "201",
+    "route_name": "Ainthapali Bus Terminal – Ghanteswari Temple",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Ghanteswari Temple",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 1,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_202",
+    "route_number": "202",
+    "route_name": "Ainthapali Bus Terminal – Atal Chowk",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Atal Chowk",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 1,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_203",
+    "route_number": "203",
+    "route_name": "Ainthapali Bus Terminal - Hirakud Dam",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Hirakud Dam",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 2,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_204",
+    "route_number": "204",
+    "route_name": "Ainthapali Bus Terminal - Maneswar",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Maneswar",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 2,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_205",
+    "route_number": "205",
+    "route_name": "Ainthapali Bus Terminal - Nuajamda",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Nuajamda",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 2,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_206",
+    "route_number": "206",
+    "route_name": "Samaleswari Temple - Ghanteswari Temple",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Samaleswari Temple",
+    "destination": "Ghanteswari Temple",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 2,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_207",
+    "route_number": "207",
+    "route_name": "Ainthapali Bus Terminal – Dhama",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Dhama",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 3,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_208",
+    "route_number": "208",
+    "route_name": "Dhanupali Chowk – Burla Hospital",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Dhanupali Chowk",
+    "destination": "Burla Hospital",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 3,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_209",
+    "route_number": "209",
+    "route_name": "Khetrajpur Rly. Station – Osou Sambalpur",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Khetrajpur Rly. Station",
+    "destination": "Osou Sambalpur",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 3,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_210",
+    "route_number": "210",
+    "route_name": "Ainthapali Bus Terminal – Jamadarpali Dyke",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Jamadarpali Dyke",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 3,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_211",
+    "route_number": "211",
+    "route_name": "Ainthapali Bus Terminal – Jharsuguda",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Jharsuguda",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 3,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_212",
+    "route_number": "212",
+    "route_name": "Ainthapali Bus Terminal – Baragarh",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Baragarh",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 4,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_213",
+    "route_number": "213",
+    "route_name": "Ainthapali Bus Terminal – Belpahar",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Belpahar",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 4,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_213A",
+    "route_number": "213A",
+    "route_name": "Ainthapali Bus Terminal – Belpahar",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Belpahar",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 4,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_214",
+    "route_number": "214",
+    "route_name": "Ainthapali Bus Terminal – Kuchinda",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Kuchinda",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 4,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_215",
+    "route_number": "215",
+    "route_name": "Ainthapali Bus Terminal – Padiabahal",
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": "Ainthapali Bus Terminal",
+    "destination": "Padiabahal",
+    "direction": "bidirectional",
+    "service_area": "Sambalpur",
+    "cities": [
+      "Sambalpur",
+      "Jharsuguda"
+    ],
+    "provenance": {
+      "source_document": "8d3f76fe-9637-44d3-8801-e4c08aaab7e9_Ama-Bus-Sambalpur-Schedule---w.e.f.01.07-2026.pdf",
+      "source_page": 4,
+      "effective_date": "2026-07-01",
+      "verification_status": "verified_from_official_document"
+    }
+  },
+  {
+    "route_id": "route_ama_400",
+    "route_number": "400",
+    "route_name": null,
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": null,
+    "destination": null,
+    "direction": null,
+    "service_area": "Keonjhar",
+    "cities": [
+      "Keonjhar"
+    ],
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": null,
+      "effective_date": null,
+      "verification_status": "partial_from_stoppage_document"
+    }
+  },
+  {
+    "route_id": "route_ama_401",
+    "route_number": "401",
+    "route_name": null,
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": null,
+    "destination": null,
+    "direction": null,
+    "service_area": "Keonjhar",
+    "cities": [
+      "Keonjhar"
+    ],
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": null,
+      "effective_date": null,
+      "verification_status": "partial_from_stoppage_document"
+    }
+  },
+  {
+    "route_id": "route_ama_402",
+    "route_number": "402",
+    "route_name": null,
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": null,
+    "destination": null,
+    "direction": null,
+    "service_area": "Keonjhar",
+    "cities": [
+      "Keonjhar"
+    ],
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": null,
+      "effective_date": null,
+      "verification_status": "partial_from_stoppage_document"
+    }
+  },
+  {
+    "route_id": "route_ama_403",
+    "route_number": "403",
+    "route_name": null,
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": null,
+    "destination": null,
+    "direction": null,
+    "service_area": "Keonjhar",
+    "cities": [
+      "Keonjhar"
+    ],
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": null,
+      "effective_date": null,
+      "verification_status": "partial_from_stoppage_document"
+    }
+  },
+  {
+    "route_id": "route_ama_404",
+    "route_number": "404",
+    "route_name": null,
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": null,
+    "destination": null,
+    "direction": null,
+    "service_area": "Keonjhar",
+    "cities": [
+      "Keonjhar"
+    ],
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": null,
+      "effective_date": null,
+      "verification_status": "partial_from_stoppage_document"
+    }
+  },
+  {
+    "route_id": "route_ama_405",
+    "route_number": "405",
+    "route_name": null,
+    "operator": "CRUT",
+    "network_type": "AMA Bus",
+    "origin": null,
+    "destination": null,
+    "direction": null,
+    "service_area": "Keonjhar",
+    "cities": [
+      "Keonjhar"
+    ],
+    "provenance": {
+      "source_document": "cca2228e-e268-4655-9aa6-6807b770bce8_Keonjhar-Detailed-Stoppages.pdf",
+      "source_page": null,
+      "effective_date": null,
+      "verification_status": "partial_from_stoppage_document"
+    }
+  }
+]

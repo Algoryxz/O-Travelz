@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "title": "O-TRAVELZ V4 Ama Bus C1 Staging vs Canonical Gap Analysis",
+    "generated_at": "2026-09-04T11:43:17.104699+00:00",
+    "target_promotion_wave": "Wave C2 (Ama Bus Promotion)"
+  },
+  "network_summary": {
+    "total_staged_routes": 153,
+    "total_staged_stops": 481,
+    "geocoded_stops": 4,
+    "unresolved_stops": 477,
+    "geocoding_deficit_percent": 99.2,
+    "total_staged_schedules": 302,
+    "total_staged_departures": 5553
+  },
+  "service_areas": {
+    "Sambalpur": {
+      "routes_count": 17,
+      "schedules_present": true,
+      "fare_table_status": "PENDING_INGESTION",
+      "promotion_readiness": "NEAR_TERM_C2"
+    },
+    "Keonjhar": {
+      "routes_count": 6,
+      "schedules_present": false,
+      "notes": "Route stops extracted; waiting for CRUT timetable gazette notification",
+      "promotion_readiness": "BLOCKED_ON_OFFICIAL_TIMETABLE"
+    },
+    "Berhampur": {
+      "routes_count": 10,
+      "schedules_present": true,
+      "promotion_readiness": "NEAR_TERM_C2"
+    },
+    "Rourkela": {
+      "routes_count": 25,
+      "schedules_present": true,
+      "promotion_readiness": "NEAR_TERM_C2"
+    }
+  },
+  "promotion_prerequisites": [
+    "1. Ingestion of official CRUT Ama Bus fare stage tables (fares remain null until ingested)",
+    "2. High-confidence geospatial geocoding for primary terminal nodes (Ainthapali, Khetrajpur, VSSUT, Burla)",
+    "3. Validation through universal validator with --profile promotion"
+  ]
+}

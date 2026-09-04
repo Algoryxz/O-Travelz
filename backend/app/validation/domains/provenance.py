@@ -1,4 +1,4 @@
-﻿"""
+"""
 Provenance Domain Validator.
 Validates sources, verification status, evidence citations, and verification timestamps.
 """
@@ -105,8 +105,8 @@ def validate_provenance(
                     now = datetime.now(timezone.utc) if parsed_dt.tzinfo else datetime.utcnow()
                     if parsed_dt > now:
                         report.add_issue(
-                            code=codes.PRV_STALE_VERIFICATION,
-                            severity=ValidationSeverity.WARNING,
+                            code=codes.PRV_FUTURE_VERIFICATION_DATE,
+                            severity=ValidationSeverity.ERROR,
                             domain="provenance",
                             entity_type=entity_type,
                             entity_id=str(entity_id),

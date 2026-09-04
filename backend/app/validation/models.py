@@ -1,4 +1,4 @@
-﻿"""
+"""
 Data Models for O-TRAVELZ V4 Universal Canonical Validation Framework.
 """
 from __future__ import annotations
@@ -20,6 +20,23 @@ class ValidationProfile(str, Enum):
     AUDIT = "AUDIT"
     PROMOTION = "PROMOTION"
     CI = "CI"
+
+
+class CoverageStatus(str, Enum):
+    VALIDATED = "VALIDATED"
+    NOT_APPLICABLE = "NOT_APPLICABLE"
+    UNAVAILABLE = "UNAVAILABLE"
+    SKIPPED_WITH_REASON = "SKIPPED_WITH_REASON"
+
+
+class SourceCoverage(BaseModel):
+    source: str = Field(..., description="File path, dataset identifier, or source name")
+    status: CoverageStatus = Field(..., description="VALIDATED | NOT_APPLICABLE | UNAVAILABLE | SKIPPED_WITH_REASON")
+    records_loaded: int = Field(0, description="Total records parsed/loaded from source")
+    records_validated: int = Field(0, description="Total records evaluated by domain rules")
+    records_skipped: int = Field(0, description="Total records bypassed or unvalidated")
+    reason_skipped: Optional[str] = Field(None, description="Explicit rationale if records were skipped or unavailable")
+    validation_domains_executed: List[str] = Field(default_factory=list, description="Domains evaluated (e.g. identity, transit)")
 
 
 class ValidationIssue(BaseModel):
@@ -49,6 +66,31 @@ class ValidationReport(BaseModel):
     generated_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     summary: ValidationSummary = Field(default_factory=ValidationSummary)
     issues: List[ValidationIssue] = Field(default_factory=list)
+    coverage: List[SourceCoverage] = Field(default_factory=list)
+
+    def record_coverage(
+        self,
+        source: str,
+        status: CoverageStatus | str,
+        records_loaded: int = 0,
+        records_validated: int = 0,
+        records_skipped: int = 0,
+        reason_skipped: Optional[str] = None,
+        validation_domains_executed: Optional[List[str]] = None,
+    ) -> SourceCoverage:
+        if isinstance(status, str):
+            status = CoverageStatus(status.upper())
+        cov = SourceCoverage(
+            source=source,
+            status=status,
+            records_loaded=records_loaded,
+            records_validated=records_validated,
+            records_skipped=records_skipped,
+            reason_skipped=reason_skipped,
+            validation_domains_executed=validation_domains_executed or [],
+        )
+        self.coverage.append(cov)
+        return cov
 
     def add_issue(
         self,
@@ -124,6 +166,20 @@ class ValidationReport(BaseModel):
             lines.append(
                 f"  - {dom:<15}: {counts['ERROR']} Errors, {counts['WARNING']} Warnings, {counts['INFO']} Info"
             )
+
+        # Coverage breakdown
+        if self.coverage:
+            lines.append("-" * 70)
+            lines.append("SOURCE COVERAGE ACCOUNTING:")
+            lines.append(f"  {'Source':<38} | {'Status':<14} | {'Loaded':<6} | {'Valid':<6} | {'Skip':<4} | Domains")
+            lines.append("  " + "-" * 85)
+            for c in self.coverage:
+                doms = ",".join(c.validation_domains_executed) if c.validation_domains_executed else "none"
+                lines.append(
+                    f"  {c.source:<38} | {c.status.value:<14} | {c.records_loaded:<6} | {c.records_validated:<6} | {c.records_skipped:<4} | {doms}"
+                )
+                if c.reason_skipped:
+                    lines.append(f"    -> Note: {c.reason_skipped}")
 
         if self.summary.errors > 0:
             lines.append("-" * 70)

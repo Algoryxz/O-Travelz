@@ -1,4 +1,4 @@
-﻿"""
+"""
 Media Domain Validator.
 Enforces content SHA-256 formatting, storage key validity, public publication guards,
 vector vs photography semantic separation, and cross-entity reuse auditing.
@@ -7,7 +7,8 @@ from __future__ import annotations
 
 import re
 from collections import defaultdict
-from typing import Any, Dict, List, Optional, Set
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Set, Tuple
 from app.validation import codes
 from app.validation.models import ValidationReport, ValidationSeverity
 
@@ -145,3 +146,150 @@ def validate_entity_media(
                 message=f"Media asset '{asset_id}' is reused across {len(entities)} distinct entities",
                 evidence={"asset_id": asset_id, "reused_by_entities": sorted(list(entities))},
             )
+
+
+def validate_media_filesystem_reconciliation(
+    manifest_records: List[Dict[str, Any]],
+    places_img_dir: Path,
+    known_place_ids: Set[str],
+    report: ValidationReport,
+    required_variants: Optional[List[str]] = None,
+) -> Dict[str, Any]:
+    """
+    Reconciles manifest items against filesystem on disk:
+    1. Checks if all required variants (hero, card, thumbnail, original) exist on disk (MED_MISSING_FILE -> ERROR).
+    2. Checks if directories on disk map to known places (MED_ORPHAN_STORAGE_ASSET -> WARNING).
+    3. Checks if nested asset directories are referenced in manifest (MED_ORPHAN_STORAGE_ASSET -> WARNING).
+    """
+    if required_variants is None:
+        required_variants = ["original", "hero", "card", "thumbnail"]
+
+    manifest_pairs: Set[Tuple[str, str]] = set()
+    for m in manifest_records:
+        pid = str(m.get("place_id", ""))
+        ahash = str(m.get("asset_hash", ""))
+        manifest_pairs.add((pid, ahash))
+
+        # Check files on disk
+        asset_dir = places_img_dir / pid / ahash
+        if not asset_dir.exists() or not asset_dir.is_dir():
+            report.add_issue(
+                code=codes.MED_MISSING_FILE,
+                severity=ValidationSeverity.ERROR,
+                domain="media",
+                entity_type="media_asset",
+                entity_id=f"{pid}/{ahash}",
+                field="storage_key",
+                message=f"Media asset directory '{asset_dir}' does not exist on disk",
+                evidence={"place_id": pid, "asset_hash": ahash, "expected_path": str(asset_dir)},
+            )
+            continue
+
+        for var_name in required_variants:
+            var_file = asset_dir / f"{var_name}.webp"
+            if not var_file.exists() or not var_file.is_file():
+                report.add_issue(
+                    code=codes.MED_MISSING_FILE,
+                    severity=ValidationSeverity.ERROR,
+                    domain="media",
+                    entity_type="media_asset",
+                    entity_id=f"{pid}/{ahash}",
+                    field=var_name,
+                    message=f"Required media variant '{var_name}.webp' is missing from disk: {var_file}",
+                    evidence={"place_id": pid, "asset_hash": ahash, "variant": var_name},
+                )
+            elif var_file.stat().st_size == 0:
+                report.add_issue(
+                    code=codes.MED_MISSING_FILE,
+                    severity=ValidationSeverity.ERROR,
+                    domain="media",
+                    entity_type="media_asset",
+                    entity_id=f"{pid}/{ahash}",
+                    field=var_name,
+                    message=f"Media variant '{var_name}.webp' on disk is 0 bytes: {var_file}",
+                    evidence={"place_id": pid, "asset_hash": ahash, "variant": var_name},
+                )
+
+    # Check disk for orphans
+    orphan_destination_dirs: List[str] = []
+    orphan_asset_dirs: List[str] = []
+    if places_img_dir.exists():
+        for p_dir in sorted(places_img_dir.iterdir()):
+            if not p_dir.is_dir():
+                continue
+            pid = p_dir.name
+            if known_place_ids and pid not in known_place_ids:
+                orphan_destination_dirs.append(pid)
+                report.add_issue(
+                    code=codes.MED_ORPHAN_STORAGE_ASSET,
+                    severity=ValidationSeverity.WARNING,
+                    domain="media",
+                    entity_type="media_asset",
+                    entity_id=pid,
+                    field="storage_directory",
+                    message=f"Directory '{p_dir}' does not map to any place in places.json",
+                    evidence={"path": str(p_dir)},
+                )
+                continue
+            for sub in p_dir.iterdir():
+                if sub.is_dir():
+                    ahash = sub.name
+                    if (pid, ahash) not in manifest_pairs:
+                        orphan_asset_dirs.append(f"{pid}/{ahash}")
+                        report.add_issue(
+                            code=codes.MED_ORPHAN_STORAGE_ASSET,
+                            severity=ValidationSeverity.WARNING,
+                            domain="media",
+                            entity_type="media_asset",
+                            entity_id=f"{pid}/{ahash}",
+                            field="storage_directory",
+                            message=f"Nested asset directory '{sub}' is not referenced by manifest.json",
+                            evidence={"path": str(sub)},
+                        )
+
+    return {
+        "total_manifest_pairs": len(manifest_pairs),
+        "orphan_destination_dirs": orphan_destination_dirs,
+        "orphan_asset_dirs": orphan_asset_dirs,
+    }
+
+
+def validate_strict_photo_evidence_registry(
+    strict_items: List[Dict[str, Any]],
+    manifest_by_place_id: Dict[str, Dict[str, Any]],
+    report: ValidationReport,
+) -> None:
+    """
+    Validates strict_photo_evidence_registry.json items and checks reconciliation with manifest.
+    """
+    for item in strict_items:
+        rid = str(item.get("research_id") or item.get("place_id") or "strict_item")
+        classification = str(item.get("classification", "")).strip().lower()
+        source_url = item.get("source_url") or item.get("image_source_url")
+
+        if not source_url:
+            report.add_issue(
+                code=codes.PRV_MISSING_SOURCE,
+                severity=ValidationSeverity.ERROR,
+                domain="provenance",
+                entity_type="strict_evidence_item",
+                entity_id=rid,
+                field="source_url",
+                message=f"Strict evidence item '{rid}' missing source_url",
+            )
+
+        # Check conflict with manifest if present
+        if rid in manifest_by_place_id:
+            m_rec = manifest_by_place_id[rid]
+            m_status = str(m_rec.get("verification_status", "")).strip().upper()
+            if classification in ("related_location_only", "generic_image") and m_status == "EXACT_LOCATION_VERIFIED":
+                report.add_issue(
+                    code=codes.MED_REGISTRY_DESYNC,
+                    severity=ValidationSeverity.WARNING,
+                    domain="media",
+                    entity_type="media_asset",
+                    entity_id=rid,
+                    field="classification",
+                    message=f"Classification conflict: Strict registry is '{classification}' while manifest status is '{m_status}'",
+                    evidence={"strict_classification": classification, "manifest_status": m_status},
+                )

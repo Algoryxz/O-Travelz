@@ -1,4 +1,4 @@
-﻿"""
+"""
 Validation Fixture Suites for O-TRAVELZ V4.
 
 FIXTURE SET A:
@@ -255,6 +255,49 @@ SYNTHETIC_DEFECT_FIXTURES: List[Dict[str, Any]] = [
             "departure_times": ["10:30", "09:15"],
         },
         "entity_type": "schedule",
+    },
+    {
+        "defect": "PRV_OFFICIAL_UNVERIFIED",
+        "record": {
+            "id": "def_official_no_evidence",
+            "name": "Sovereign Monument",
+            "source": "",
+            "verification_status": "VERIFIED_OFFICIAL",
+        },
+        "entity_type": "place",
+    },
+    {
+        "defect": "PRV_INVALID_STATUS",
+        "record": {
+            "id": "def_bad_status",
+            "name": "Bad Status Entity",
+            "source": "survey",
+            "verification_status": "SUPER_VERIFIED_100",
+        },
+        "entity_type": "place",
+    },
+    {
+        "defect": "PRV_FUTURE_VERIFICATION_DATE",
+        "record": {
+            "id": "def_future_date",
+            "name": "Future Verified Entity",
+            "source": "survey",
+            "verification_status": "VERIFIED",
+            "verified_at": "2099-01-01T00:00:00Z",
+        },
+        "entity_type": "place",
+    },
+    {
+        "defect": "TRN_COORDINATE_WITHOUT_PROVENANCE",
+        "record": {
+            "stop_id": "def_stop_no_prov",
+            "canonical_name": "No Prov Stop",
+            "lat": 20.29,
+            "lon": 85.82,
+            "coordinate_status": "VERIFIED_OFFICIAL",
+            "coordinate_source": "REQUIRED",
+        },
+        "entity_type": "stop",
     },
 ]
 
