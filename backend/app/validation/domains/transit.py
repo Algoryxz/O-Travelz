@@ -78,10 +78,18 @@ def validate_transit_stop(
 ) -> None:
     sid = str(stop.get("stop_id") or stop.get("id") or "stop")
     provider = stop.get("provider") or stop.get("operator") or stop.get("provider_id")
-    c_status = str(stop.get("coordinate_status", "")).strip().upper()
-    lat = stop.get("lat")
-    lon = stop.get("lon")
-    source = stop.get("coordinate_source") or stop.get("source")
+    # Coordinate and status resolution (supports flat and nested structures)
+    coord_obj = stop.get("coordinate")
+    if isinstance(coord_obj, dict):
+        c_status = str(coord_obj.get("status", "")).strip().upper()
+        lat = coord_obj.get("lat") if coord_obj.get("lat") is not None else coord_obj.get("latitude")
+        lon = coord_obj.get("lon") if coord_obj.get("lon") is not None else coord_obj.get("longitude")
+        source = coord_obj.get("source") or coord_obj.get("coordinate_source")
+    else:
+        c_status = str(stop.get("coordinate_status", "")).strip().upper()
+        lat = stop.get("lat") if stop.get("lat") is not None else stop.get("latitude")
+        lon = stop.get("lon") if stop.get("lon") is not None else stop.get("longitude")
+        source = stop.get("coordinate_source") or stop.get("source")
 
     # 1. Provider Identity Check
     if valid_providers is not None and provider:
@@ -99,7 +107,7 @@ def validate_transit_stop(
             )
 
     # 2. Split Transit Truth: Coordinate Without Provenance (Correction #3)
-    if c_status in {"VERIFIED_OFFICIAL", "VERIFIED_GEOSPATIAL", "RESOLVED_HIGH_CONFIDENCE"}:
+    if c_status in {"VERIFIED_OFFICIAL", "VERIFIED_GEOSPATIAL", "RESOLVED_HIGH_CONFIDENCE", "GEOCODED"}:
         if lat is not None and lon is not None:
             if not source or str(source).strip().lower() in {"", "none", "null", "required"}:
                 report.add_issue(
@@ -112,6 +120,122 @@ def validate_transit_stop(
                     message=f"Stop '{sid}' coordinate ({lat}, {lon}) promoted as '{c_status}' without verified coordinate source",
                     evidence={"coordinate_status": c_status, "source": source},
                 )
+
+    # 3. Wave C2 Locality & BigDataCloud Truth Boundary Rules
+    locality = stop.get("locality")
+    locality_status = stop.get("locality_status")
+    locality_source = stop.get("locality_source")
+    map_behavior = stop.get("map_behavior") or {}
+    evidence = stop.get("evidence")
+
+    # TRN_LOCALITY_WITHOUT_PROVENANCE
+    # Trigger: locality or status is declared without verifiable source or document evidence
+    if locality_status in {"VERIFIED_LOCALITY", "OFFICIAL_SERVICE_AREA", "ROUTE_CONTEXT_ONLY"} or locality:
+        if not locality_source or str(locality_source).strip().lower() in {"", "none", "null"}:
+            report.add_issue(
+                code=codes.TRN_LOCALITY_WITHOUT_PROVENANCE,
+                severity=ValidationSeverity.ERROR,
+                domain="transit",
+                entity_type="stop",
+                entity_id=sid,
+                field="locality_source",
+                message=f"Stop '{sid}' asserts locality status '{locality_status}' without verified locality source",
+                evidence={"locality_status": locality_status, "locality_source": locality_source},
+            )
+        elif locality_status == "OFFICIAL_SERVICE_AREA" and not evidence and not stop.get("provenance", {}).get("source_document"):
+            report.add_issue(
+                code=codes.TRN_LOCALITY_WITHOUT_PROVENANCE,
+                severity=ValidationSeverity.ERROR,
+                domain="transit",
+                entity_type="stop",
+                entity_id=sid,
+                field="evidence",
+                message=f"Stop '{sid}' asserts official service area locality without document citation in evidence or provenance",
+                evidence={"locality_status": locality_status},
+            )
+
+    # TRN_LOCALITY_INVALID_STATE
+    # Trigger: Asserting a locality with state other than Odisha or country other than India
+    if isinstance(locality, dict):
+        state = locality.get("state")
+        country = locality.get("country")
+        if state is not None and str(state).strip().lower() != "odisha":
+            report.add_issue(
+                code=codes.TRN_LOCALITY_INVALID_STATE,
+                severity=ValidationSeverity.ERROR,
+                domain="transit",
+                entity_type="stop",
+                entity_id=sid,
+                field="locality.state",
+                message=f"Stop '{sid}' locality specifies invalid state '{state}', expected 'Odisha'",
+                evidence={"state": state, "locality": locality},
+            )
+        if country is not None and str(country).strip().lower() not in {"india", "in"}:
+            report.add_issue(
+                code=codes.TRN_LOCALITY_INVALID_STATE,
+                severity=ValidationSeverity.ERROR,
+                domain="transit",
+                entity_type="stop",
+                entity_id=sid,
+                field="locality.country",
+                message=f"Stop '{sid}' locality specifies invalid country '{country}', expected 'India'",
+                evidence={"country": country, "locality": locality},
+            )
+
+    # TRN_LOCALITY_EXACT_PIN_WITHOUT_COORDINATE
+    # Trigger: Attempting to render an exact map pin when physical coordinates are missing/unresolved
+    is_unresolved = (lat is None or lon is None or c_status == "UNRESOLVED")
+    renders_exact_marker = (
+        map_behavior.get("render_exact_marker") is True
+        or stop.get("render_exact_marker") is True
+        or stop.get("map_display_type") == "EXACT_PIN"
+    )
+    if is_unresolved and renders_exact_marker:
+        report.add_issue(
+            code=codes.TRN_LOCALITY_EXACT_PIN_WITHOUT_COORDINATE,
+            severity=ValidationSeverity.ERROR,
+            domain="transit",
+            entity_type="stop",
+            entity_id=sid,
+            field="map_behavior.render_exact_marker",
+            message=f"Stop '{sid}' authorizes exact pin display without verified physical coordinates",
+            evidence={"coordinate_status": c_status, "lat": lat, "lon": lon},
+        )
+
+    # TRN_FIRST_MILE_ON_LOCALITY_ONLY
+    # Trigger: Calculating or claiming first-mile walking distance on locality-only / unresolved stop
+    claims_first_mile = (
+        map_behavior.get("participates_in_first_mile") is True
+        or stop.get("participates_in_first_mile") is True
+        or stop.get("first_mile_distance_meters") is not None
+        or stop.get("has_walking_distance") is True
+    )
+    if is_unresolved and claims_first_mile:
+        report.add_issue(
+            code=codes.TRN_FIRST_MILE_ON_LOCALITY_ONLY,
+            severity=ValidationSeverity.ERROR,
+            domain="transit",
+            entity_type="stop",
+            entity_id=sid,
+            field="map_behavior.participates_in_first_mile",
+            message=f"Stop '{sid}' authorizes first-mile walking calculation without verified physical coordinates",
+            evidence={"coordinate_status": c_status, "lat": lat, "lon": lon},
+        )
+
+    # TRN_BIGDATACLOUD_WITHOUT_INPUT_COORDINATE
+    # Trigger: Claiming BigDataCloud reverse geocode provenance without input coordinates
+    if locality_source and "bigdatacloud" in str(locality_source).strip().lower():
+        if lat is None or lon is None:
+            report.add_issue(
+                code=codes.TRN_BIGDATACLOUD_WITHOUT_INPUT_COORDINATE,
+                severity=ValidationSeverity.ERROR,
+                domain="transit",
+                entity_type="stop",
+                entity_id=sid,
+                field="coordinate",
+                message=f"Stop '{sid}' claims BigDataCloud reverse geocoding provenance without valid input coordinates",
+                evidence={"locality_source": locality_source, "lat": lat, "lon": lon},
+            )
 
 
 def validate_transit_route(

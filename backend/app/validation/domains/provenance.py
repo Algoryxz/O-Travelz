@@ -42,7 +42,13 @@ def validate_provenance(
     status_field: str = "verification_status",
 ) -> None:
     entity_id = record.get("id") or record.get("research_id") or record.get("stop_id") or "unknown"
-    src = record.get(source_field)
+    src = record.get(source_field) or record.get("source") or record.get("locality_source")
+    if not src and isinstance(record.get("provenance"), dict):
+        src = record["provenance"].get("source_document") or record["provenance"].get("coordinate_source")
+    if not src and record.get("evidence"):
+        ev = record["evidence"]
+        if isinstance(ev, list) and len(ev) > 0 and isinstance(ev[0], dict):
+            src = ev[0].get("source_document") or ev[0].get("source")
     status = record.get(status_field)
 
     # 1. Source requirement

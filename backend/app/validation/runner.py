@@ -81,6 +81,8 @@ class UniversalValidator:
             lat_field=lat_field,
             lon_field=lon_field,
         )
+        if entity_type in ("stop", "transit_stop", "locality_resolution"):
+            validate_transit_stop(record, report)
 
     def validate_collection(
         self,

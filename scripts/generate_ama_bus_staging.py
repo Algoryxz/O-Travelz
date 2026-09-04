@@ -130,14 +130,20 @@ def generate_staging():
             src_doc = str(s.get("source_document", "")).lower()
 
             if "sambalpur" in s_area or "keonjhar" in s_area or "sambalpur" in src_doc or "keonjhar" in src_doc or "ama" in src_doc:
+                lat = s.get("latitude", s.get("lat"))
+                lon = s.get("longitude", s.get("lon"))
                 raw_c_status = str(s.get("coordinate_status", "unresolved")).strip().lower()
-                c_status = "GEOCODED" if raw_c_status in ("geocoded", "verified_geospatial", "verified_official") else "UNRESOLVED"
+                if lat is not None and lon is not None:
+                    c_status = "GEOCODED"
+                else:
+                    c_status = "UNRESOLVED"
+
                 ama_stops.append({
                     "stop_id": sid,
                     "canonical_name": s_name,
-                    "service_area": s.get("service_area", "Sambalpur"),
-                    "lat": s.get("lat"),
-                    "lon": s.get("lon"),
+                    "service_area": s.get("service_area") or s.get("city") or "Sambalpur",
+                    "lat": lat,
+                    "lon": lon,
                     "coordinate_status": c_status,
                     "provenance": {
                         "source_document": s.get("source_document"),
