@@ -1,0 +1,2876 @@
+{
+  "schema_version": "1.0.0",
+  "profile": "AUDIT",
+  "generated_at": "2026-09-04T11:17:54.804511+00:00",
+  "summary": {
+    "errors": 0,
+    "warnings": 230,
+    "infos": 0
+  },
+  "issues": [
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_013",
+      "field": "localized_names",
+      "message": "place 'place_013' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Museum of Tribal Arts and Artifacts"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_012",
+      "field": "localized_names",
+      "message": "place 'place_012' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Regional Museum of Natural History"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_032",
+      "field": "localized_names",
+      "message": "place 'place_032' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Buddha Jayanti Park"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_031",
+      "field": "localized_names",
+      "message": "place 'place_031' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Indira Gandhi Park"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_014",
+      "field": "localized_names",
+      "message": "place 'place_014' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Pathani Samanta Planetarium"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_008",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_008' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Odisha State Museum"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_006",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_006' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Dhauli Shanti Stupa"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_030",
+      "field": "localized_names",
+      "message": "place 'place_030' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Regional Science Centre, Bhubaneswar"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_024",
+      "field": "localized_names",
+      "message": "place 'place_024' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bharati Matha Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_019",
+      "field": "localized_names",
+      "message": "place 'place_019' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Brahmeswar Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_007",
+      "field": "localized_names",
+      "message": "place 'place_007' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Chausathi Yogini Temple, Hirapur"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_029",
+      "field": "localized_names",
+      "message": "place 'place_029' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Kapilesvara Siva Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_025",
+      "field": "localized_names",
+      "message": "place 'place_025' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Kedar Gouri Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_026",
+      "field": "localized_names",
+      "message": "place 'place_026' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Megheswar Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_027",
+      "field": "localized_names",
+      "message": "place 'place_027' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Nageshwar Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_puri_002",
+      "field": "localized_names",
+      "message": "place 'place_puri_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Puri Golden Beach"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_005",
+      "field": "localized_names",
+      "message": "place 'place_005' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Parasurameswar Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_022",
+      "field": "localized_names",
+      "message": "place 'place_022' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ram Mandir, Bhubaneswar"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_021",
+      "field": "localized_names",
+      "message": "place 'place_021' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Rameshwar Deula"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_028",
+      "field": "localized_names",
+      "message": "place 'place_028' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Talesvara Siva Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_023",
+      "field": "localized_names",
+      "message": "place 'place_023' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Chitrakarini Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_020",
+      "field": "localized_names",
+      "message": "place 'place_020' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bhaskareswar Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_018",
+      "field": "localized_names",
+      "message": "place 'place_018' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Baitala Deula"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_004",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ananta Vasudeva Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_005",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_005' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Udayagiri and Khandagiri Caves"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_002",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Mukteswar Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_012",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_012' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bindu Sagar"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_007",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_007' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Nandankanan Zoological Park"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_konark_003",
+      "field": "localized_names",
+      "message": "place 'place_konark_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ramachandi Beach & Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_chilika_002",
+      "field": "localized_names",
+      "message": "place 'place_chilika_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Kalijai Island Temple, Chilika"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_puri_003",
+      "field": "localized_names",
+      "message": "place 'place_puri_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Gundicha Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_puri_001",
+      "field": "localized_names",
+      "message": "place 'place_puri_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Jagannath Temple, Puri"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_sambalpur_002",
+      "field": "localized_names",
+      "message": "place 'place_sambalpur_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Samaleswari Temple, Sambalpur"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_011",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_011' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Kalinga Stadium"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_puri_004",
+      "field": "localized_names",
+      "message": "place 'place_puri_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Swargadwar Beach"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_cuttack_001",
+      "field": "localized_names",
+      "message": "place 'place_cuttack_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Barabati Fort"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_rourkela_001",
+      "field": "localized_names",
+      "message": "place 'place_rourkela_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Hanuman Vatika, Rourkela"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_sambalpur_001",
+      "field": "localized_names",
+      "message": "place 'place_sambalpur_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Hirakud Dam & Reservoir"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_rourkela_003",
+      "field": "localized_names",
+      "message": "place 'place_rourkela_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Khandadhar Waterfall, Sundargarh"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_konark_002",
+      "field": "localized_names",
+      "message": "place 'place_konark_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Chandrabhaga Beach"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_koraput_001",
+      "field": "localized_names",
+      "message": "place 'place_koraput_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Gupteswar Cave Temple, Koraput"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_mayurbhanj_002",
+      "field": "localized_names",
+      "message": "place 'place_mayurbhanj_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Barehipani & Joranda Falls"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_chilika_003",
+      "field": "localized_names",
+      "message": "place 'place_chilika_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Mangalajodi Bird Sanctuary"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_kendrapara_001",
+      "field": "localized_names",
+      "message": "place 'place_kendrapara_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bhitarkanika National Park"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_koraput_005",
+      "field": "localized_names",
+      "message": "place 'place_koraput_005' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Kolab Reservoir & Botanical Garden"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_konark_001",
+      "field": "localized_names",
+      "message": "place 'place_konark_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Konark Sun Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_ganjam_001",
+      "field": "localized_names",
+      "message": "place 'place_ganjam_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Gopalpur-on-Sea Beach"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_cuttack_004",
+      "field": "localized_names",
+      "message": "place 'place_cuttack_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Netaji Birth Place Museum"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_sambalpur_003",
+      "field": "localized_names",
+      "message": "place 'place_sambalpur_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Huma Leaning Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_ganjam_002",
+      "field": "localized_names",
+      "message": "place 'place_ganjam_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Tara Tarini Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_konark_004",
+      "field": "localized_names",
+      "message": "place 'place_konark_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Konark Archaeological Museum"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_daringbadi_003",
+      "field": "localized_names",
+      "message": "place 'place_daringbadi_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Coffee Gardens, Daringbadi"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_mayurbhanj_001",
+      "field": "localized_names",
+      "message": "place 'place_mayurbhanj_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Similipal National Park"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_koraput_003",
+      "field": "localized_names",
+      "message": "place 'place_koraput_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Deomali Peak, Koraput"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_chilika_001",
+      "field": "localized_names",
+      "message": "place 'place_chilika_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Chilika Lake - Satapada"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_balasore_001",
+      "field": "localized_names",
+      "message": "place 'place_balasore_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Chandipur Beach"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_daringbadi_004",
+      "field": "localized_names",
+      "message": "place 'place_daringbadi_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Belghar Nature Camp"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_009",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_009' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Odisha Crafts Museum Kala Bhoomi"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_sambalpur_004",
+      "field": "localized_names",
+      "message": "place 'place_sambalpur_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Debrigarh Wildlife Sanctuary"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_cuttack_003",
+      "field": "localized_names",
+      "message": "place 'place_cuttack_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Odisha State Maritime Museum"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_010",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_010' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ekamra Haat"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_cuttack_002",
+      "field": "localized_names",
+      "message": "place 'place_cuttack_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Cuttack Chandi Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_koraput_004",
+      "field": "localized_names",
+      "message": "place 'place_koraput_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Tribal Museum, Koraput"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_koraput_002",
+      "field": "localized_names",
+      "message": "place 'place_koraput_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Duduma Waterfall"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_rayagada_001",
+      "field": "localized_names",
+      "message": "place 'place_rayagada_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Maa Majhigouri Temple, Rayagada"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_001",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Lingaraj Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_daringbadi_002",
+      "field": "localized_names",
+      "message": "place 'place_daringbadi_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Midubanda Waterfall, Daringbadi"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_daringbadi_001",
+      "field": "localized_names",
+      "message": "place 'place_daringbadi_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Daringbadi Hill Station"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bbsr_003",
+      "field": "localized_names",
+      "message": "place 'place_bbsr_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Rajarani Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_rourkela_002",
+      "field": "localized_names",
+      "message": "place 'place_rourkela_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Mandira Dam, Sundargarh"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_food_001",
+      "field": "localized_names",
+      "message": "place 'place_food_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Pahala Rasagola Sweet Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_food_002",
+      "field": "localized_names",
+      "message": "place 'place_food_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Nimapada Chhena Jhili Market"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_food_003",
+      "field": "localized_names",
+      "message": "place 'place_food_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ananda Bazar, Puri"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_food_004",
+      "field": "localized_names",
+      "message": "place 'place_food_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Choudhury Bazar Dahibara Hub, Cuttack"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_food_005",
+      "field": "localized_names",
+      "message": "place 'place_food_005' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bikalananda Kar Rasagola Hub, Salepur"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_food_006",
+      "field": "localized_names",
+      "message": "place 'place_food_006' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "OTDC Nimantran Restaurant, Bhubaneswar"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_food_007",
+      "field": "localized_names",
+      "message": "place 'place_food_007' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bapuji Nagar Food Corridor, Bhubaneswar"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_food_008",
+      "field": "localized_names",
+      "message": "place 'place_food_008' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Unit-4 Traditional Food & Fish Market, Bhubaneswar"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_food_009",
+      "field": "localized_names",
+      "message": "place 'place_food_009' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "OTDC Panthasala Odia Cuisine Centre, Konark"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_food_010",
+      "field": "localized_names",
+      "message": "place 'place_food_010' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Maa Mangala Temple Food & Pitha Precinct, Kakatpur"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_food_011",
+      "field": "localized_names",
+      "message": "place 'place_food_011' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Raghunathpur Culinary Corner, Bhubaneswar"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_angul_001",
+      "field": "localized_names",
+      "message": "place 'place_angul_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Satkosia Gorge Sanctuary"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_angul_002",
+      "field": "localized_names",
+      "message": "place 'place_angul_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Tikarpada Nature Camp"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_angul_003",
+      "field": "localized_names",
+      "message": "place 'place_angul_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Rengali Dam & Reservoir"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_balangir_001",
+      "field": "localized_names",
+      "message": "place 'place_balangir_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Harishankar Temple & Stream"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_balangir_002",
+      "field": "localized_names",
+      "message": "place 'place_balangir_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ranipur Jharial 64 Yogini Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_balangir_003",
+      "field": "localized_names",
+      "message": "place 'place_balangir_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Sailashree Palace"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bhadrak_001",
+      "field": "localized_names",
+      "message": "place 'place_bhadrak_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Maa Akhandalamani Temple (Aradi)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bhadrak_002",
+      "field": "localized_names",
+      "message": "place 'place_bhadrak_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Dhamra Port & Marine Estuary"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bhadrak_003",
+      "field": "localized_names",
+      "message": "place 'place_bhadrak_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Chandbali River Gateway"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_boudh_001",
+      "field": "localized_names",
+      "message": "place 'place_boudh_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Boudh Colossal Buddha Statues"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_boudh_002",
+      "field": "localized_names",
+      "message": "place 'place_boudh_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Rameswar Temple Complex"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_deogarh_001",
+      "field": "localized_names",
+      "message": "place 'place_deogarh_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Pradhanpat Waterfall"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_deogarh_002",
+      "field": "localized_names",
+      "message": "place 'place_deogarh_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Kailash Palace (Raja Palace)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_dhenkanal_001",
+      "field": "localized_names",
+      "message": "place 'place_dhenkanal_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Kapilash Temple & Sanctuary"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_dhenkanal_002",
+      "field": "localized_names",
+      "message": "place 'place_dhenkanal_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Joranda Gadi (Mahima Dharma Seat)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_dhenkanal_003",
+      "field": "localized_names",
+      "message": "place 'place_dhenkanal_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Saptasajya Hill Sanctuary"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_gajapati_001",
+      "field": "localized_names",
+      "message": "place 'place_gajapati_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Mahendragiri Mountain Peak"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_gajapati_002",
+      "field": "localized_names",
+      "message": "place 'place_gajapati_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Khasada Waterfall (Chandragiri)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_gajapati_003",
+      "field": "localized_names",
+      "message": "place 'place_gajapati_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Gandahati Waterfall"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_jagatsinghpur_001",
+      "field": "localized_names",
+      "message": "place 'place_jagatsinghpur_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Maa Sarala Temple (Jhankad)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_jagatsinghpur_002",
+      "field": "localized_names",
+      "message": "place 'place_jagatsinghpur_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Paradip Sea Beach & Lighthouse"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_jagatsinghpur_003",
+      "field": "localized_names",
+      "message": "place 'place_jagatsinghpur_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Siali Sea Beach"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_jajpur_001",
+      "field": "localized_names",
+      "message": "place 'place_jajpur_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Maa Biraja Temple (Shakti Peetha)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_jajpur_002",
+      "field": "localized_names",
+      "message": "place 'place_jajpur_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ratnagiri Buddhist Monastery"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_jajpur_003",
+      "field": "localized_names",
+      "message": "place 'place_jajpur_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Udayagiri Buddhist Complex"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_jharsuguda_001",
+      "field": "localized_names",
+      "message": "place 'place_jharsuguda_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Koilighugar Waterfall"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_jharsuguda_002",
+      "field": "localized_names",
+      "message": "place 'place_jharsuguda_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bikramkhol Prehistoric Rock Art"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_kalahandi_001",
+      "field": "localized_names",
+      "message": "place 'place_kalahandi_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Phurlijharan Waterfall"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_kalahandi_002",
+      "field": "localized_names",
+      "message": "place 'place_kalahandi_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Asurgarh Ancient Fortified City"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_kalahandi_003",
+      "field": "localized_names",
+      "message": "place 'place_kalahandi_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Maa Manikeswari Temple (Bhawanipatna)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_keonjhar_001",
+      "field": "localized_names",
+      "message": "place 'place_keonjhar_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Sanaghagara Waterfall"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_keonjhar_002",
+      "field": "localized_names",
+      "message": "place 'place_keonjhar_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Badaghagara Waterfall"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_keonjhar_003",
+      "field": "localized_names",
+      "message": "place 'place_keonjhar_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Khandadhar Waterfall (Keonjhar)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_keonjhar_004",
+      "field": "localized_names",
+      "message": "place 'place_keonjhar_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Gonasika (Baitarani Source)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_malkangiri_001",
+      "field": "localized_names",
+      "message": "place 'place_malkangiri_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Balimela Dam & Hydro Reservoir"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_malkangiri_002",
+      "field": "localized_names",
+      "message": "place 'place_malkangiri_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Satiguda Eco Dam"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_malkangiri_003",
+      "field": "localized_names",
+      "message": "place 'place_malkangiri_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ammakunda Natural Pool"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_nabarangpur_001",
+      "field": "localized_names",
+      "message": "place 'place_nabarangpur_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Shahid Minar Papadahandi"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_nabarangpur_002",
+      "field": "localized_names",
+      "message": "place 'place_nabarangpur_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Chandandhara Waterfall"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_nayagarh_001",
+      "field": "localized_names",
+      "message": "place 'place_nayagarh_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Kantilo Nilamadhaba Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_nayagarh_002",
+      "field": "localized_names",
+      "message": "place 'place_nayagarh_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Sarankul Ladubaba Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_nayagarh_003",
+      "field": "localized_names",
+      "message": "place 'place_nayagarh_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Baisipalli Wildlife Sanctuary"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_nuapada_001",
+      "field": "localized_names",
+      "message": "place 'place_nuapada_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Patora Dam & Yogeswar Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_nuapada_002",
+      "field": "localized_names",
+      "message": "place 'place_nuapada_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Maraguda Valley Archaeological Site"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_subarnapur_001",
+      "field": "localized_names",
+      "message": "place 'place_subarnapur_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Maa Sureswari Temple (Sonepur)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_subarnapur_002",
+      "field": "localized_names",
+      "message": "place 'place_subarnapur_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Patali Srikhetra (Kotsamalai)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_subarnapur_003",
+      "field": "localized_names",
+      "message": "place 'place_subarnapur_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Subarnameru Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_balasore_002",
+      "field": "localized_names",
+      "message": "place 'place_balasore_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Talasari Beach & Palm Fringes"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_balasore_003",
+      "field": "localized_names",
+      "message": "place 'place_balasore_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Panchalingeswar Temple & Springs"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_bargarh_002",
+      "field": "localized_names",
+      "message": "place 'place_bargarh_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Nrusinghanath Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_ganjam_003",
+      "field": "localized_names",
+      "message": "place 'place_ganjam_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Maa Tara Tarini Shakti Peetha"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_kendrapara_002",
+      "field": "localized_names",
+      "message": "place 'place_kendrapara_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Baladevjew Temple (Ichhapur)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_mayurbhanj_003",
+      "field": "localized_names",
+      "message": "place 'place_mayurbhanj_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Khiching Kichakeswari Temple"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_rayagada_002",
+      "field": "localized_names",
+      "message": "place 'place_rayagada_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Chatikona Waterfall & Hanging Bridge"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_sambalpur_005",
+      "field": "localized_names",
+      "message": "place 'place_sambalpur_005' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Maa Ghanteswari Temple (Chiplima)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_001",
+      "field": "localized_names",
+      "message": "place 'place_med_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "All India Institute of Medical Sciences (AIIMS) Bhubaneswar"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_002",
+      "field": "localized_names",
+      "message": "place 'place_med_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "SCB Medical College & Hospital"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_003",
+      "field": "localized_names",
+      "message": "place 'place_med_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "MKCG Medical College & Hospital"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_004",
+      "field": "localized_names",
+      "message": "place 'place_med_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_005",
+      "field": "localized_names",
+      "message": "place 'place_med_005' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Capital Hospital Bhubaneswar"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_006",
+      "field": "localized_names",
+      "message": "place 'place_med_006' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ispat General Hospital (IGH)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_007",
+      "field": "localized_names",
+      "message": "place 'place_med_007' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "SLN Medical College & Hospital Koraput"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_008",
+      "field": "localized_names",
+      "message": "place 'place_med_008' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "PRM Medical College & Hospital Baripada"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_009",
+      "field": "localized_names",
+      "message": "place 'place_med_009' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bhima Bhoi Medical College & Hospital"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_010",
+      "field": "localized_names",
+      "message": "place 'place_med_010' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Fakir Mohan Medical College & Hospital"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_011",
+      "field": "localized_names",
+      "message": "place 'place_med_011' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Dharanidhar Medical College & Hospital"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_012",
+      "field": "localized_names",
+      "message": "place 'place_med_012' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "District Headquarter Hospital (DHH) Puri"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_med_013",
+      "field": "localized_names",
+      "message": "place 'place_med_013' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "District Headquarter Hospital (DHH) Angul"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_001",
+      "field": "localized_names",
+      "message": "place 'place_transit_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Biju Patnaik International Airport (BBI)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_002",
+      "field": "localized_names",
+      "message": "place 'place_transit_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Veer Surendra Sai Airport Jharsuguda (JRG)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_003",
+      "field": "localized_names",
+      "message": "place 'place_transit_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Rourkela Airport (RRK)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_004",
+      "field": "localized_names",
+      "message": "place 'place_transit_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bhubaneswar Railway Station (BBS)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_005",
+      "field": "localized_names",
+      "message": "place 'place_transit_005' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Cuttack Junction Railway Station (CTC)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_006",
+      "field": "localized_names",
+      "message": "place 'place_transit_006' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Puri Railway Station (PURI)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_007",
+      "field": "localized_names",
+      "message": "place 'place_transit_007' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Berhampur Railway Station (BAM)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_008",
+      "field": "localized_names",
+      "message": "place 'place_transit_008' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Sambalpur Junction Railway Station (SBP)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_009",
+      "field": "localized_names",
+      "message": "place 'place_transit_009' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Rourkela Junction Railway Station (ROU)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_010",
+      "field": "localized_names",
+      "message": "place 'place_transit_010' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Balasore Railway Station (BLS)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_011",
+      "field": "localized_names",
+      "message": "place 'place_transit_011' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Baramunda Inter State Bus Terminal (ISBT)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "place",
+      "entity_id": "place_transit_012",
+      "field": "localized_names",
+      "message": "place 'place_transit_012' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Badambadi Bus Stand (Cuttack)"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_khurda_001",
+      "field": "localized_names",
+      "message": "food_place 'food_khurda_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Pahala Rasagola & Chhena Gaja Sweet Cluster"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_khurda_002",
+      "field": "localized_names",
+      "message": "food_place 'food_khurda_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "OTDC Nimantran Authentic Odia Cuisine Centre"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_khurda_003",
+      "field": "localized_names",
+      "message": "food_place 'food_khurda_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bapuji Nagar Food & Tiffin Corridor"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_khurda_004",
+      "field": "localized_names",
+      "message": "food_place 'food_khurda_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Old Town Lingaraj Temple Kora Khai Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_cuttack_001",
+      "field": "localized_names",
+      "message": "food_place 'food_cuttack_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Choudhury Bazar Dahibara Aloodum Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_cuttack_002",
+      "field": "localized_names",
+      "message": "food_place 'food_cuttack_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bikalananda Kar Rasagola Heritage Confectionery"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_cuttack_003",
+      "field": "localized_names",
+      "message": "food_place 'food_cuttack_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Barabati Fort Bidanasi Dahibara Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_puri_001",
+      "field": "localized_names",
+      "message": "food_place 'food_puri_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ananda Bazar Sacred Mahaprasad Food Court"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_puri_002",
+      "field": "localized_names",
+      "message": "food_place 'food_puri_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Nimapada Chhena Jhili Sweet Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_puri_003",
+      "field": "localized_names",
+      "message": "food_place 'food_puri_003' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Pipili Highway Applique & Snacking Junction"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_puri_004",
+      "field": "localized_names",
+      "message": "food_place 'food_puri_004' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "OTDC Panthasala Odia Cuisine Centre, Konark"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_puri_005",
+      "field": "localized_names",
+      "message": "food_place 'food_puri_005' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Satapada Chilika Fresh Crab & Seafood Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_ganjam_001",
+      "field": "localized_names",
+      "message": "food_place 'food_ganjam_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Berhampur Girija Square Tiffin & Dosa Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_ganjam_002",
+      "field": "localized_names",
+      "message": "food_place 'food_ganjam_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Old Bus Stand Achar & Papad Bajar, Berhampur"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_sambalpur_001",
+      "field": "localized_names",
+      "message": "food_place 'food_sambalpur_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Golbazar Chaula Bara & Tiffin Corner, Sambalpur"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_sambalpur_002",
+      "field": "localized_names",
+      "message": "food_place 'food_sambalpur_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ainthapali Transit Food Corridor, Sambalpur"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_sundargarh_001",
+      "field": "localized_names",
+      "message": "food_place 'food_sundargarh_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Sector-5 Commercial Food Hub, Rourkela"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_sundargarh_002",
+      "field": "localized_names",
+      "message": "food_place 'food_sundargarh_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Panposh Vedvyas Highway Confluence Dhaba Cluster"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_keonjhar_001",
+      "field": "localized_names",
+      "message": "food_place 'food_keonjhar_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Keonjhar Phula Badi Heritage Artisan Market"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_keonjhar_002",
+      "field": "localized_names",
+      "message": "food_place 'food_keonjhar_002' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Ghatgaon Maa Tarini Pitha & Prasad Stall Precinct"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_balasore_001",
+      "field": "localized_names",
+      "message": "food_place 'food_balasore_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Sahadevkhunta Coastal Seafood Market & Dhaba Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_bhadrak_001",
+      "field": "localized_names",
+      "message": "food_place 'food_bhadrak_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Puruna Bazar Palua Ladoo Heritage Confectionery"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_mayurbhanj_001",
+      "field": "localized_names",
+      "message": "food_place 'food_mayurbhanj_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Baripada Mudhi Mansa Traditional Food Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_kendrapara_001",
+      "field": "localized_names",
+      "message": "food_place 'food_kendrapara_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Kendrapara Baladevjew Rasabali Confectionery Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_jajpur_001",
+      "field": "localized_names",
+      "message": "food_place 'food_jajpur_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Chandikhole Mahavinayak Rasagola & Highway Dhaba Junction"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_dhenkanal_001",
+      "field": "localized_names",
+      "message": "food_place 'food_dhenkanal_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Dhenkanal Bara & Magji Ladoo Heritage Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_angul_001",
+      "field": "localized_names",
+      "message": "food_place 'food_angul_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bantala Mati Handi Desi Meat & Thali Junction"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_koraput_001",
+      "field": "localized_names",
+      "message": "food_place 'food_koraput_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Koraput Tribal Coffee Experience & Mandia Tiffin Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_rayagada_001",
+      "field": "localized_names",
+      "message": "food_place 'food_rayagada_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Rayagada Station Road Andhra-Odia Confluence Tiffin Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_kalahandi_001",
+      "field": "localized_names",
+      "message": "food_place 'food_kalahandi_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bhawanipatna Main Road Ragi & Traditional Thali Centre"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_nuapada_001",
+      "field": "localized_names",
+      "message": "food_place 'food_nuapada_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Khariar Road Highway Tiffin & Chaula Bara Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_bolangir_001",
+      "field": "localized_names",
+      "message": "food_place 'food_bolangir_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Balangir Daily Market Chaula Bara & Mithai Corner"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_bargarh_001",
+      "field": "localized_names",
+      "message": "food_place 'food_bargarh_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Bargarh Dhanu Yatra Cultural Food Street"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_nayagarh_001",
+      "field": "localized_names",
+      "message": "food_place 'food_nayagarh_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Nayagarh Khandapada Chhena Poda Birthplace Confectionery"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_jagatsinghpur_001",
+      "field": "localized_names",
+      "message": "food_place 'food_jagatsinghpur_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Paradeep Port Fish Harbour & Coastal Kitchens"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_deogarh_001",
+      "field": "localized_names",
+      "message": "food_place 'food_deogarh_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Pradhanpat Waterfalls Approach Traditional Tiffin Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_subarnapur_001",
+      "field": "localized_names",
+      "message": "food_place 'food_subarnapur_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Sonepur Suvarnameru Sweets & Pitha Heritage Stall"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_boudh_001",
+      "field": "localized_names",
+      "message": "food_place 'food_boudh_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Boudh Mahanadi Ghat Traditional Chhena Gaja Corner"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_kandhamal_001",
+      "field": "localized_names",
+      "message": "food_place 'food_kandhamal_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Daringbadi Hill Station Organic Coffee & Spice Kitchen"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_malkangiri_001",
+      "field": "localized_names",
+      "message": "food_place 'food_malkangiri_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Malkangiri Tribal Hatpada Millet & Forest Kitchen"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_nabarangpur_001",
+      "field": "localized_names",
+      "message": "food_place 'food_nabarangpur_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Nabarangpur Lac & Grain Corridor Traditional Tiffin Centre"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_gajapati_001",
+      "field": "localized_names",
+      "message": "food_place 'food_gajapati_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Paralakhemundi Maharaja Palace Street Tiffin & Sweet Hub"
+      }
+    },
+    {
+      "code": "LOC_ODIA_ABSENT",
+      "severity": "WARNING",
+      "domain": "localization",
+      "entity_type": "food_place",
+      "entity_id": "food_jharsuguda_001",
+      "field": "localized_names",
+      "message": "food_place 'food_jharsuguda_001' has no Odia translation registered",
+      "evidence": {
+        "canonical_name": "Jharsuguda Marwari Para Traditional Chaat & Thali Hub"
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_berhampur_dpatapur",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'D.patapur' with existing transit_stop 'stop_crut_berhampur_d_patapur' in same scope",
+      "evidence": {
+        "name": "D.patapur",
+        "colliding_with": "stop_crut_berhampur_d_patapur",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_berhampur_dpatapur_village",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'D.patapur Village' with existing transit_stop 'stop_crut_berhampur_d_patapur_village' in same scope",
+      "evidence": {
+        "name": "D.patapur Village",
+        "colliding_with": "stop_crut_berhampur_d_patapur_village",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_berhampur_police_station_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Police Station,' with existing transit_stop 'stop_crut_berhampur_police_station' in same scope",
+      "evidence": {
+        "name": "Police Station,",
+        "colliding_with": "stop_crut_berhampur_police_station",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_berhampur_rajarani_apartment",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Rajarani Apartment' with existing transit_stop 'stop_crut_berhampur_raja_rani_apartment' in same scope",
+      "evidence": {
+        "name": "Rajarani Apartment",
+        "colliding_with": "stop_crut_berhampur_raja_rani_apartment",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_bhubaneswar_babasaheb_bhimrao_ambedkar_bus_terminal_bsabt_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Babasaheb Bhimrao Ambedkar Bus Terminal Bsabt' with existing transit_stop 'stop_crut_bhubaneswar_babasaheb_bhimrao_ambedkar_bus_terminal_bsabt' in same scope",
+      "evidence": {
+        "name": "Babasaheb Bhimrao Ambedkar Bus Terminal Bsabt",
+        "colliding_with": "stop_crut_bhubaneswar_babasaheb_bhimrao_ambedkar_bus_terminal_bsabt",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_bhubaneswar_bhubaneswar_railway_station_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Bhubaneswar Railway Station.' with existing transit_stop 'stop_crut_bhubaneswar_bhubaneswar_railway_station' in same scope",
+      "evidence": {
+        "name": "Bhubaneswar Railway Station.",
+        "colliding_with": "stop_crut_bhubaneswar_bhubaneswar_railway_station",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_bhubaneswar_cuttack_netaji_bus_terminus_cnbt_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Cuttack Netaji Bus Terminus Cnbt' with existing transit_stop 'stop_crut_bhubaneswar_cuttack_netaji_bus_terminus_cnbt' in same scope",
+      "evidence": {
+        "name": "Cuttack Netaji Bus Terminus Cnbt",
+        "colliding_with": "stop_crut_bhubaneswar_cuttack_netaji_bus_terminus_cnbt",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_bhubaneswar_dumduma_jadupur_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Dumduma Jadupur' with existing transit_stop 'stop_crut_bhubaneswar_dumduma_jadupur' in same scope",
+      "evidence": {
+        "name": "Dumduma Jadupur",
+        "colliding_with": "stop_crut_bhubaneswar_dumduma_jadupur",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_bhubaneswar_jagatpurcuttack",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Jagatpur,cuttack' with existing transit_stop 'stop_crut_bhubaneswar_jagatpur_cuttack' in same scope",
+      "evidence": {
+        "name": "Jagatpur,cuttack",
+        "colliding_with": "stop_crut_bhubaneswar_jagatpur_cuttack",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_bhubaneswar_mastercanteen",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Mastercanteen' with existing transit_stop 'stop_crut_bhubaneswar_master_canteen' in same scope",
+      "evidence": {
+        "name": "Mastercanteen",
+        "colliding_with": "stop_crut_bhubaneswar_master_canteen",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_bhubaneswar_national_law_university_o_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'National Law University O' with existing transit_stop 'stop_crut_bhubaneswar_national_law_university_o' in same scope",
+      "evidence": {
+        "name": "National Law University O",
+        "colliding_with": "stop_crut_bhubaneswar_national_law_university_o",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_keonjhar_mining_engineeringosme",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Mining Engineering(osme)' with existing transit_stop 'stop_crut_keonjhar_mining_engineering_osme' in same scope",
+      "evidence": {
+        "name": "Mining Engineering(osme)",
+        "colliding_with": "stop_crut_keonjhar_mining_engineering_osme",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_keonjhar_regional_college_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Regional College,' with existing transit_stop 'stop_crut_keonjhar_regional_college' in same scope",
+      "evidence": {
+        "name": "Regional College,",
+        "colliding_with": "stop_crut_keonjhar_regional_college",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_rourkela_uditnagar",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Uditnagar' with existing transit_stop 'stop_crut_rourkela_udit_nagar' in same scope",
+      "evidence": {
+        "name": "Uditnagar",
+        "colliding_with": "stop_crut_rourkela_udit_nagar",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_ambapada",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Ambapada' with existing transit_stop 'stop_crut_sambalpur_amba_pada' in same scope",
+      "evidence": {
+        "name": "Ambapada",
+        "colliding_with": "stop_crut_sambalpur_amba_pada",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_anchalik_govt_high_school_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Anchalik Govt. High School,' with existing transit_stop 'stop_crut_sambalpur_anchalik_govt_high_school' in same scope",
+      "evidence": {
+        "name": "Anchalik Govt. High School,",
+        "colliding_with": "stop_crut_sambalpur_anchalik_govt_high_school",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_bus_stand_rengali_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Bus Stand, Rengali' with existing transit_stop 'stop_crut_sambalpur_bus_stand_rengali' in same scope",
+      "evidence": {
+        "name": "Bus Stand, Rengali",
+        "colliding_with": "stop_crut_sambalpur_bus_stand_rengali",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_city_railway_station_ainthapali_bus_terminal_remed_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'City Railway Station, Ainthapali Bus Terminal, Remed)' with existing transit_stop 'stop_crut_sambalpur_city_railway_station_ainthapali_bus_terminal_remed' in same scope",
+      "evidence": {
+        "name": "City Railway Station, Ainthapali Bus Terminal, Remed)",
+        "colliding_with": "stop_crut_sambalpur_city_railway_station_ainthapali_bus_terminal_remed",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_govt_high_school_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Govt. High School,' with existing transit_stop 'stop_crut_sambalpur_govt_high_school' in same scope",
+      "evidence": {
+        "name": "Govt. High School,",
+        "colliding_with": "stop_crut_sambalpur_govt_high_school",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_hanuman_temple_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Hanuman Temple,' with existing transit_stop 'stop_crut_sambalpur_hanuman_temple' in same scope",
+      "evidence": {
+        "name": "Hanuman Temple,",
+        "colliding_with": "stop_crut_sambalpur_hanuman_temple",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_hanuman_temple_rengali_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Hanuman Temple, Rengali' with existing transit_stop 'stop_crut_sambalpur_hanuman_temple_rengali' in same scope",
+      "evidence": {
+        "name": "Hanuman Temple, Rengali",
+        "colliding_with": "stop_crut_sambalpur_hanuman_temple_rengali",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_hanuman_templedhankauda",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Hanuman Temple,dhankauda' with existing transit_stop 'stop_crut_sambalpur_hanuman_temple_dhankauda' in same scope",
+      "evidence": {
+        "name": "Hanuman Temple,dhankauda",
+        "colliding_with": "stop_crut_sambalpur_hanuman_temple_dhankauda",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_hirakud_ps_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Hirakud P.s.' with existing transit_stop 'stop_crut_sambalpur_hirakud_ps' in same scope",
+      "evidence": {
+        "name": "Hirakud P.s.",
+        "colliding_with": "stop_crut_sambalpur_hirakud_ps",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_phata_primary_school_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Phata Primary School,' with existing transit_stop 'stop_crut_sambalpur_phata_primary_school' in same scope",
+      "evidence": {
+        "name": "Phata Primary School,",
+        "colliding_with": "stop_crut_sambalpur_phata_primary_school",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_police_station_rengali_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Police Station, Rengali' with existing transit_stop 'stop_crut_sambalpur_police_station_rengali' in same scope",
+      "evidence": {
+        "name": "Police Station, Rengali",
+        "colliding_with": "stop_crut_sambalpur_police_station_rengali",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    },
+    {
+      "code": "ID_NAME_COLLISION",
+      "severity": "WARNING",
+      "domain": "identity",
+      "entity_type": "transit_stop",
+      "entity_id": "stop_crut_sambalpur_saraswat_mahavidyalaya_2",
+      "field": "canonical_name",
+      "message": "Normalized name collision for 'Saraswat Mahavidyalaya,' with existing transit_stop 'stop_crut_sambalpur_saraswat_mahavidyalaya' in same scope",
+      "evidence": {
+        "name": "Saraswat Mahavidyalaya,",
+        "colliding_with": "stop_crut_sambalpur_saraswat_mahavidyalaya",
+        "scope": [
+          "transit_stop"
+        ]
+      }
+    }
+  ]
+}
