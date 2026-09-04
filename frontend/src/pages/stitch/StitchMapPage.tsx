@@ -24,6 +24,8 @@ import { TransitTimetableModal } from '../../components/transit/TransitTimetable
 import seedPlacesData from '../../../../data/places/places.json';
 import L from 'leaflet';
 import type { MapPlaceMarker } from '../../components/map/MapLibreCanvas';
+import { getPlaceOdiaName } from '../../data/canonicalOdiaPlaces';
+import { StitchDestinationDetailModal } from '../../components/stitch/StitchDestinationDetailModal';
 
 const MapLibreCanvas = React.lazy(() =>
   import('../../components/map/MapLibreCanvas').then((m) => ({ default: m.MapLibreCanvas }))
@@ -100,7 +102,8 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   const [viewMode, setViewMode] = useState<MapViewMode>(initialMode);
   const [showAllTransitStops, setShowAllTransitStops] = useState(false);
   const [activeRouteTarget, setActiveRouteTarget] = useState<ActiveRouteTarget | null>(null);
-  const [mapEngine, setMapEngine] = useState<'leaflet' | 'maplibre'>('leaflet');
+  const [mapEngine, setMapEngine] = useState<'leaflet' | 'maplibre'>('maplibre');
+  const [detailModalPlace, setDetailModalPlace] = useState<PlaceDetail | null>(null);
 
   const mapLibrePlaces: MapPlaceMarker[] = useMemo(() => {
     return (places || [])
@@ -1742,6 +1745,67 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
         </aside>
       </div>
 
+      {/* Responsive Mobile Bottom Sheet */}
+      {selectedPlace && (
+        <div
+          data-testid="mobile-place-bottom-sheet"
+          className="md:hidden fixed bottom-4 left-3 right-3 z-40 bg-white border border-[#E5DFD5] shadow-2xl rounded-2xl p-4 max-h-[70vh] overflow-y-auto animate-in slide-in-from-bottom duration-300"
+        >
+          <div className="w-10 h-1 bg-[#E5DFD5] rounded-full mx-auto mb-2.5" />
+          <div className="flex items-start justify-between gap-3 mb-1.5">
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-2 mb-0.5">
+                <span className="text-[10px] font-mono uppercase tracking-wider font-semibold text-[#B87B22]">
+                  {selectedPlace.category}
+                </span>
+                <span className="text-[9px] font-mono text-[#0D5C3A] bg-[#0D5C3A]/10 px-1.5 py-0.5 rounded font-bold">
+                  ✓ CANONICAL
+                </span>
+              </div>
+              <h3 className="font-display font-bold text-base text-[#12161E] truncate">
+                {selectedPlace.name}
+              </h3>
+              <p className="font-odia text-xs text-[#B87B22] font-semibold truncate">
+                {getPlaceOdiaName(selectedPlace)}
+              </p>
+            </div>
+            <button
+              onClick={() => setSelectedPlaceId(null)}
+              className="w-7 h-7 rounded-full bg-[#FAF7F2] text-[#70798B] hover:text-[#12161E] flex items-center justify-center border border-[#E5DFD5] cursor-pointer shrink-0"
+            >
+              <span className="material-symbols-outlined text-sm">close</span>
+            </button>
+          </div>
+
+          <p className="font-body text-xs text-[#3D4654] line-clamp-2 leading-relaxed mb-3">
+            {selectedPlace.description || 'Verified Odisha cultural and ecological sanctuary.'}
+          </p>
+
+          <div className="flex items-center justify-between gap-2 pt-2 border-t border-[#E5DFD5]">
+            {selectedPlace.district && (
+              <span className="text-[11px] font-mono text-[#70798B]">
+                {selectedPlace.district}
+              </span>
+            )}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setDetailModalPlace(selectedPlace)}
+                className="px-3 py-1.5 rounded-lg bg-[#FAF7F2] hover:bg-[#F2EEE7] text-[#12161E] border border-[#E5DFD5] text-xs font-semibold cursor-pointer"
+              >
+                Details
+              </button>
+              <button
+                onClick={() => onNavigate('plan', { placeId: selectedPlace.id })}
+                className="px-3 py-1.5 rounded-lg bg-[#B87B22] text-white text-xs font-semibold flex items-center gap-1 cursor-pointer"
+              >
+                <span>Plan</span>
+                <span className="material-symbols-outlined text-xs">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Accessible SSR Items Representation */}
       <div className="sr-only" data-testid="active-mode-items" aria-hidden="true">
         {displayedEssentials.map((e) => (
@@ -1756,6 +1820,18 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
       <TransitTimetableModal
         routeNumber={activeTimetableRoute}
         onClose={() => setActiveTimetableRoute(null)}
+      />
+
+      {/* Destination Detail Modal */}
+      <StitchDestinationDetailModal
+        place={detailModalPlace}
+        isOpen={Boolean(detailModalPlace)}
+        onClose={() => setDetailModalPlace(null)}
+        onPlanTrip={(p) => onNavigate('plan', { placeId: p.id })}
+        onViewOnMap={(p) => {
+          setSelectedPlaceId(p.id);
+          setDetailModalPlace(null);
+        }}
       />
     </div>
   );

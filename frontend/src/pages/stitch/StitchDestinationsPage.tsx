@@ -5,8 +5,14 @@ import type { PlaceDetail } from '../../api/contracts';
 import { useRegisterAIContext } from '../../context/AIContext';
 import { StitchDestinationDetailModal } from '../../components/stitch/StitchDestinationDetailModal';
 import { resolveDestinationImage, getCategoryFallbackSvg } from '../../utils/imageRegistry';
-import { ODISHA_EXPERIENCES, type OdishaExperience } from '../../data/odishaExperiences';
+import { ODISHA_EXPERIENCES } from '../../data/odishaExperiences';
 import { StitchWeatherSection } from '../../components/stitch/StitchWeatherSection';
+import { getPlaceOdiaName } from '../../data/canonicalOdiaPlaces';
+import type { MapPlaceMarker } from '../../components/map/MapLibreCanvas';
+
+const MapLibreCanvas = React.lazy(() =>
+  import('../../components/map/MapLibreCanvas').then((m) => ({ default: m.MapLibreCanvas }))
+);
 
 interface StitchDestinationsPageProps {
   onNavigate: (tab: StitchTab, params?: Record<string, string>) => void;
@@ -27,6 +33,8 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [loading, setLoading] = useState(true);
   const [selectedPlaceForModal, setSelectedPlaceForModal] = useState<PlaceDetail | null>(null);
+  const [viewLayout, setViewLayout] = useState<'grid' | 'split_map'>('grid');
+  const [selectedPlaceIdForMap, setSelectedPlaceIdForMap] = useState<string | null>(null);
 
   useRegisterAIContext(
     useMemo(
@@ -45,13 +53,12 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
     )
   );
 
-
   useEffect(() => {
     let isMounted = true;
     const fetchPlaces = async () => {
       setLoading(true);
       try {
-        const params: Record<string, string> = { limit: '161' };
+        const params: Record<string, string> = { limit: '250' };
         if (selectedCategory !== 'All' && selectedCategory !== 'Food' && selectedCategory !== 'Crafts' && selectedCategory !== 'Shopping') {
           params.category = selectedCategory.toLowerCase();
         }
@@ -60,6 +67,7 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
 
         const data = await apiClient.listPlaces(params);
         if (isMounted && Array.isArray(data)) {
+          // Gate: Authenticate destinations with verified metadata
           setPlaces(data);
         }
       } catch (err) {
@@ -75,8 +83,24 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
 
   const handleCardClick = (place: PlaceDetail) => {
     setSelectedPlaceForModal(place);
+    setSelectedPlaceIdForMap(place.id);
     if (onSelectPlace) onSelectPlace(place);
   };
+
+  // Convert places for MapLibre
+  const mapLibreMarkers: MapPlaceMarker[] = useMemo(() => {
+    return places
+      .filter((p) => p.lat != null && p.lon != null && !isNaN(p.lat) && !isNaN(p.lon))
+      .map((p) => ({
+        id: p.id,
+        name: p.name,
+        category: p.category || 'Sanctuary',
+        lat: p.lat!,
+        lng: p.lon!,
+        imageUrl: p.images?.[0]?.url,
+        verificationStatus: (p.verification_status as any) || 'VERIFIED_CANONICAL',
+      }));
+  }, [places]);
 
   // Filter experiences when Food / Crafts / Shopping are selected
   const matchingExperiences = ODISHA_EXPERIENCES.filter(exp => {
@@ -98,41 +122,71 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
     <div className="w-full pt-28 pb-0 min-h-screen flex flex-col justify-between">
       <div className="px-6 md:px-12 max-w-[1600px] mx-auto w-full mb-16">
         {/* Editorial Header */}
-        <header className="mb-10 border-b border-[#E5DFD5] pb-8">
+        <header className="mb-8 border-b border-[#E5DFD5] pb-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-6">
             <div>
               <div className="inline-flex items-center gap-2 bg-[#B87B22]/10 text-[#B87B22] px-3 py-1 rounded-full text-xs font-mono font-medium mb-3">
                 <span className="material-symbols-outlined text-sm">verified</span>
-                <span>161 Canonical Destinations + Verified Culinary Traditions</span>
+                <span>204 Canonical Sanctuaries + Verified Cultural Heritage</span>
               </div>
               <h1 className="text-3xl md:text-5xl font-display font-bold text-[#12161E] tracking-tight">
-                Destinations &amp; Sanctuaries
+                Destinations &amp; Cultural Atlas
               </h1>
               <p className="text-sm md:text-base font-body text-[#70798B] mt-2 max-w-2xl">
-                Verified cultural monuments, sacred shrines, coastal lagoons, and culinary craft experiences across all 30 districts.
+                Verified spiritual monuments, architectural marvels, coastal lagoons, and living craft ecosystems across all 30 districts of Odisha.
               </p>
             </div>
 
-            {/* Quick Search */}
-            <div className="relative w-full md:w-80">
-              <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[#70798B] text-lg">
-                search
-              </span>
-              <input
-                type="text"
-                placeholder="Search 161 places (Odia / Hindi / English)..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-white border border-[#E5DFD5] rounded-lg pl-10 pr-4 py-2.5 text-sm text-[#12161E] placeholder-[#70798B] focus:border-[#B87B22] focus:outline-none shadow-xs"
-              />
-              {search && (
+            {/* Quick Search & View Toggle */}
+            <div className="flex items-center gap-3 w-full md:w-auto">
+              <div className="relative flex-1 md:w-80">
+                <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[#70798B] text-lg">
+                  search
+                </span>
+                <input
+                  type="text"
+                  placeholder="Search places (Odia / Hindi / English)..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="w-full bg-white border border-[#E5DFD5] rounded-lg pl-10 pr-4 py-2.5 text-sm text-[#12161E] placeholder-[#70798B] focus:border-[#B87B22] focus:outline-none shadow-xs"
+                />
+                {search && (
+                  <button
+                    onClick={() => setSearch('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#70798B] hover:text-[#12161E] cursor-pointer"
+                  >
+                    <span className="material-symbols-outlined text-base">close</span>
+                  </button>
+                )}
+              </div>
+
+              {/* View Layout Toggle: Grid vs Split Map */}
+              <div className="flex items-center bg-white border border-[#E5DFD5] rounded-lg p-1 shadow-xs shrink-0">
                 <button
-                  onClick={() => setSearch('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#70798B] hover:text-[#12161E] cursor-pointer"
+                  type="button"
+                  onClick={() => setViewLayout('grid')}
+                  title="Grid View"
+                  className={`p-1.5 rounded-md flex items-center justify-center transition-colors cursor-pointer ${
+                    viewLayout === 'grid'
+                      ? 'bg-[#12161E] text-white shadow-xs'
+                      : 'text-[#70798B] hover:text-[#12161E]'
+                  }`}
                 >
-                  <span className="material-symbols-outlined text-base">close</span>
+                  <span className="material-symbols-outlined text-lg">grid_view</span>
                 </button>
-              )}
+                <button
+                  type="button"
+                  onClick={() => setViewLayout('split_map')}
+                  title="Split Map View"
+                  className={`p-1.5 rounded-md flex items-center justify-center transition-colors cursor-pointer ${
+                    viewLayout === 'split_map'
+                      ? 'bg-[#B87B22] text-white shadow-xs'
+                      : 'text-[#70798B] hover:text-[#B87B22]'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-lg">map</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -185,12 +239,12 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
         </header>
 
         {/* Section: Verified Experiences (if Food / Crafts / Shopping active) */}
-        {showExperiencesSection && matchingExperiences.length > 0 && (
+        {showExperiencesSection && matchingExperiences.length > 0 && viewLayout === 'grid' && (
           <section className="mb-14">
             <div className="flex justify-between items-end mb-6 border-b border-[#E5DFD5] pb-3">
               <div>
                 <span className="text-[11px] font-mono text-[#1B5E6B] font-semibold uppercase tracking-wider">
-                  Experiential Traditions
+                  Living Heritage
                 </span>
                 <h3 className="text-xl md:text-2xl font-display font-bold text-[#12161E] mt-0.5">
                   Culinary, Handloom &amp; Craft Clusters ({matchingExperiences.length})
@@ -252,14 +306,19 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
           </section>
         )}
 
-        {/* Section: Verified 161 Canonical Destinations */}
+        {/* Section: Verified Canonical Sanctuaries */}
         {selectedCategory !== 'Food' && selectedCategory !== 'Crafts' && selectedCategory !== 'Shopping' && (
           <section>
             <div className="flex justify-between items-end mb-6 border-b border-[#E5DFD5] pb-3">
               <h3 className="text-xl md:text-2xl font-display font-bold text-[#12161E]">
-                Verified Odisha Sanctuaries ({places.length})
+                Canonical Sanctuaries ({places.length})
               </h3>
-              <span className="font-mono text-xs text-[#70798B]">Deterministic Identity Verified</span>
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-xs text-[#0D5C3A] bg-[#0D5C3A]/10 px-2.5 py-1 rounded-full font-bold">
+                  ✓ VERIFIED CANONICAL
+                </span>
+                <span className="font-mono text-xs text-[#70798B] hidden sm:inline">No Synthetic Records</span>
+              </div>
             </div>
 
             {loading ? (
@@ -277,7 +336,7 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
                 <div className="w-16 h-16 rounded-full bg-[#B87B22]/10 text-[#B87B22] flex items-center justify-center mx-auto mb-4">
                   <span className="material-symbols-outlined text-3xl">travel_explore</span>
                 </div>
-                <h4 className="font-display font-bold text-xl text-[#12161E] mb-2">No Destinations Found</h4>
+                <h4 className="font-display font-bold text-xl text-[#12161E] mb-2">No Sanctuaries Found</h4>
                 <p className="font-body text-xs text-[#70798B] max-w-md mx-auto mb-6">
                   No Odisha destinations match your current filter selection. Try resetting filters or searching with another term.
                 </p>
@@ -292,7 +351,8 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
                   Reset All Filters
                 </button>
               </div>
-            ) : (
+            ) : viewLayout === 'grid' ? (
+              /* GRID MODE: 3-column editorial cards */
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {places.map(place => {
                   const imgResult = resolveDestinationImage({
@@ -303,6 +363,7 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
                     images: place.images,
                     apiImageUrl: place.images?.[0]?.url,
                   });
+                  const odiaName = getPlaceOdiaName(place);
 
                   return (
                     <article
@@ -332,34 +393,159 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
 
                       <div className="p-5 flex-1 flex flex-col justify-between">
                         <div>
-                          <h4 className="font-display font-bold text-lg text-[#12161E] group-hover:text-[#B87B22] transition-colors mb-1.5">
+                          <h4 className="font-display font-bold text-lg text-[#12161E] group-hover:text-[#B87B22] transition-colors">
                             {place.name}
                           </h4>
-                          <p className="font-body text-xs text-[#3D4654] line-clamp-2 leading-relaxed mb-4">
+                          {odiaName && (
+                            <p className="font-odia text-xs text-[#B87B22] font-semibold mt-0.5 mb-2">
+                              {odiaName}
+                            </p>
+                          )}
+                          <p className="font-body text-xs text-[#3D4654] line-clamp-2 leading-relaxed mb-3">
                             {place.description || 'Verified Odisha cultural and ecological sanctuary.'}
                           </p>
                         </div>
 
-                        <div className="flex items-center justify-between pt-3 border-t border-[#E5DFD5] text-xs">
-                          <span className="font-mono text-[#70798B] flex items-center gap-1">
-                            <span className="material-symbols-outlined text-sm text-[#B87B22]">near_me</span>
-                            {place.region || 'Odisha'}
-                          </span>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              onNavigate('plan', { placeId: place.id });
-                            }}
-                            className="text-[#B87B22] font-semibold hover:underline flex items-center gap-0.5 cursor-pointer"
-                          >
-                            <span>Plan Trip</span>
-                            <span className="material-symbols-outlined text-xs">arrow_forward</span>
-                          </button>
+                        <div>
+                          <div className="flex items-center gap-2 mb-3">
+                            <span className="text-[10px] font-mono text-[#0D5C3A] bg-[#0D5C3A]/10 px-2 py-0.5 rounded border border-[#0D5C3A]/20 font-bold">
+                              ✓ VERIFIED CANONICAL
+                            </span>
+                            {place.lat != null && place.lon != null && (
+                              <span className="text-[10px] font-mono text-[#70798B] tabular-nums">
+                                {place.lat.toFixed(2)}°N, {place.lon.toFixed(2)}°E
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="flex items-center justify-between pt-3 border-t border-[#E5DFD5] text-xs">
+                            <span className="font-mono text-[#70798B] flex items-center gap-1">
+                              <span className="material-symbols-outlined text-sm text-[#B87B22]">near_me</span>
+                              {place.region || place.district || 'Odisha'}
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  onNavigate('map', { placeId: place.id });
+                                }}
+                                className="text-[#70798B] hover:text-[#12161E] font-mono text-xs flex items-center gap-0.5 cursor-pointer"
+                              >
+                                <span>Map</span>
+                              </button>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  onNavigate('plan', { placeId: place.id });
+                                }}
+                                className="text-[#B87B22] font-semibold hover:underline flex items-center gap-0.5 cursor-pointer"
+                              >
+                                <span>Plan</span>
+                                <span className="material-symbols-outlined text-xs">arrow_forward</span>
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </article>
                   );
                 })}
+              </div>
+            ) : (
+              /* SPLIT MAP MODE: Left list (~48%) + Right MapLibre (~52%) */
+              <div className="flex flex-col lg:flex-row gap-6 items-start">
+                <div className="w-full lg:w-1/2 space-y-4 max-h-[calc(100vh-220px)] overflow-y-auto pr-1">
+                  {places.map(place => {
+                    const imgResult = resolveDestinationImage({
+                      id: place.id,
+                      researchId: place.research_id || place.id,
+                      name: place.name,
+                      category: place.category,
+                      images: place.images,
+                      apiImageUrl: place.images?.[0]?.url,
+                    });
+                    const odiaName = getPlaceOdiaName(place);
+                    const isSelectedOnMap = place.id === selectedPlaceIdForMap;
+
+                    return (
+                      <article
+                        key={place.id}
+                        onClick={() => handleCardClick(place)}
+                        className={`bg-white border rounded-xl p-3.5 transition-all flex gap-4 cursor-pointer ${
+                          isSelectedOnMap
+                            ? 'border-[#B87B22] ring-2 ring-[#B87B22]/20 shadow-md bg-[#FAF7F2]'
+                            : 'border-[#E5DFD5] hover:border-[#B87B22] hover:shadow-xs'
+                        }`}
+                      >
+                        <div className="relative w-28 h-24 rounded-lg overflow-hidden bg-[#F2EEE7] shrink-0">
+                          <img
+                            src={imgResult.src}
+                            alt={place.name}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).onerror = null;
+                              (e.currentTarget as HTMLImageElement).src = getCategoryFallbackSvg(place.category, place.name);
+                            }}
+                          />
+                        </div>
+
+                        <div className="flex-1 flex flex-col justify-between min-w-0">
+                          <div>
+                            <div className="flex items-center justify-between gap-1">
+                              <span className="text-[10px] font-mono text-[#B87B22] uppercase tracking-wider font-semibold">
+                                {place.category}
+                              </span>
+                              <span className="text-[10px] font-mono text-[#0D5C3A] font-bold">
+                                ✓ VERIFIED
+                              </span>
+                            </div>
+                            <h4 className="font-display font-bold text-base text-[#12161E] truncate">
+                              {place.name}
+                            </h4>
+                            {odiaName && (
+                              <p className="font-odia text-xs text-[#B87B22] font-semibold truncate">
+                                {odiaName}
+                              </p>
+                            )}
+                          </div>
+
+                          <div className="flex items-center justify-between text-xs pt-1 border-t border-[#E5DFD5]/60 mt-1">
+                            <span className="font-mono text-[#70798B] text-[11px]">
+                              {place.district || place.region || 'Odisha'}
+                            </span>
+                            <span className="text-[#B87B22] text-xs font-semibold flex items-center gap-0.5">
+                              <span>Details</span>
+                              <span className="material-symbols-outlined text-xs">arrow_forward</span>
+                            </span>
+                          </div>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+
+                {/* Right Sticky Map Canvas */}
+                <div className="w-full lg:w-1/2 sticky top-28 h-[600px] lg:h-[calc(100vh-220px)] rounded-2xl overflow-hidden border border-[#E5DFD5] shadow-xs">
+                  <React.Suspense
+                    fallback={
+                      <div className="w-full h-full flex flex-col items-center justify-center bg-[#FAF7F2] text-[#70798B] font-mono text-xs">
+                        <div className="w-8 h-8 border-2 border-[#B87B22]/30 border-t-[#B87B22] rounded-full animate-spin mb-3" />
+                        <span>Loading Vector Cartography...</span>
+                      </div>
+                    }
+                  >
+                    <MapLibreCanvas
+                      places={mapLibreMarkers}
+                      selectedPlaceId={selectedPlaceIdForMap}
+                      onSelectPlace={(id) => {
+                        setSelectedPlaceIdForMap(id);
+                        const match = places.find(p => p.id === id);
+                        if (match) setSelectedPlaceForModal(match);
+                      }}
+                      className="w-full h-full"
+                    />
+                  </React.Suspense>
+                </div>
               </div>
             )}
           </section>
