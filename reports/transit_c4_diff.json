@@ -1,0 +1,65 @@
+{
+  "diff_timestamp": "2026-09-04T14:40:08.148529+00:00",
+  "phase": "WAVE_C4_PROMOTION_DIFF",
+  "stops_count": {
+    "before": 1430,
+    "after": 1430,
+    "delta": 0
+  },
+  "geocoded_stops_count": {
+    "before": 179,
+    "after": 173,
+    "delta": -6,
+    "explanation": "179 baseline - 8 cross-region anomalies cleansed + 2 verified staging coords added = 173"
+  },
+  "unresolved_stops_count": {
+    "before": 1251,
+    "after": 1257,
+    "delta": 6
+  },
+  "route_stops_count": {
+    "before": 1491,
+    "after": 1491,
+    "delta": 0
+  },
+  "schedules_count": {
+    "before": 302,
+    "after": 302,
+    "delta": 0
+  },
+  "departures_count": {
+    "before": 5549,
+    "after": 5549,
+    "delta": 0
+  },
+  "keonjhar_dhh_coordinate_correction": {
+    "stop_id": "stop_crut_keonjhar_district_hospital",
+    "old_coordinates": [
+      19.8167,
+      85.8333
+    ],
+    "new_coordinates": [
+      21.6285,
+      85.582
+    ],
+    "old_provenance": "Puri DHH conflation",
+    "new_provenance": "official_district_portal_gis (hosp_north_013)",
+    "distance_to_anchor_km": 0.05
+  },
+  "cross_region_anomalies_cleansed": [
+    "stop_crut_berhampur_bus_stand",
+    "stop_crut_berhampur_police_station",
+    "stop_crut_berhampur_police_station_2",
+    "stop_crut_berhampur_station",
+    "stop_crut_berhampur_temple",
+    "stop_crut_puri_sea_beach_road",
+    "stop_crut_rourkela_mangala_temple",
+    "stop_crut_rourkela_tarini_temple"
+  ],
+  "locality_contract_summary": {
+    "verified_locality_count": 173,
+    "official_service_area_count": 1257,
+    "route_context_only_count": 0,
+    "fully_unresolved_count": 0
+  }
+}

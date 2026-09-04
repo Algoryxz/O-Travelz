@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-09-04T14:40:08.148529+00:00",
+  "phase": "WAVE_C4_DB_DRY_RUN",
+  "database_target": "Aiven PostgreSQL (defaultdb)",
+  "row_deltas": {
+    "inserted_stops": 0,
+    "updated_stops": 1430,
+    "unchanged_stops": 0,
+    "deleted_stops": 0,
+    "coordinate_corrections": 1,
+    "coordinate_cleanses": 8,
+    "route_stop_changes": 0,
+    "routes_changed": 0,
+    "schedules_changed": 0
+  },
+  "expected_deletions": 0,
+  "dry_run_status": "PASS",
+  "approval_gate": "APPROVED_FOR_AIVEN_PROMOTION"
+}

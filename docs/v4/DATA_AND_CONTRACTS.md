@@ -19,9 +19,9 @@ When the canonical database bootstrap script (`scripts/bootstrap_database.py`) e
 | **Interests** | **12** | Travel intent tags (Architecture, Heritage, Wildlife, Handlooms, etc.) | `[CURRENT]` |
 | **Transport Providers** | **3** | CRUT (Mo Bus), OSRTC (Ama Bus), Indian Railways | `[CURRENT]` |
 | **Transit Routes** | **154** | Official urban & intercity transit corridors | `[CURRENT]` |
-| **Transit Stops** | **1,430** | Verified transit network stops | `[CURRENT]` |
-| **Geocoded Stops** | **41** | High-confidence audited coordinates within Odisha bounding box | `[CURRENT]` |
-| **Unresolved Stops** | **1,389** | Legitimate stops with null coordinates (strictly **no fabrication**) | `[CURRENT]` |
+| **Transit Stops** | **1,430** | Verified transit network stops across 5 regions | `[PROMOTED - WAVE C4]` |
+| **Geocoded Stops** | **173** | High-confidence audited coordinates (103 official + 70 geospatial) | `[PROMOTED - WAVE C4]` |
+| **Unresolved Stops** | **1,257** | Legitimate stops with official service area locality (strictly **no fabrication**) | `[PROMOTED - WAVE C4]` |
 | **Route-Stops (Sequences)** | **1,487** | Ordered topological stop sequences per route | `[CURRENT]` |
 | **Schedule Trip Groups** | **302** | Timetable frequency blocks (weekday, weekend, peak) | `[CURRENT]` |
 | **Scheduled Departures** | **5,553** | Individual departure timestamps mapped to IST blocks | `[CURRENT]` |

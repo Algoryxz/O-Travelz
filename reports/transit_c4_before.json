@@ -1,0 +1,54 @@
+{
+  "snapshot_timestamp": "2026-09-04T14:15:15.856944+00:00",
+  "phase": "WAVE_C4_BEFORE",
+  "files": {
+    "routes.json": {
+      "path": "data/transport/canonical/routes.json",
+      "sha256": "5bb09c9fbc9098130dc7eeea3646497da6122787495f3f558763cfe6d6352268",
+      "bytes": 108963
+    },
+    "stops.json": {
+      "path": "data/transport/canonical/stops.json",
+      "sha256": "79f5098ac1b3677608c2fb34b31987cf074c30fef1e88e000d3fca75c0632895",
+      "bytes": 952476
+    },
+    "route_stops.json": {
+      "path": "data/transport/canonical/route_stops.json",
+      "sha256": "2e3b9f8c313d72f9c0567d84b0d456b0340f3f87166dcedfa2ae81dcabdeb7ce",
+      "bytes": 493221
+    },
+    "schedules.json": {
+      "path": "data/transport/canonical/schedules.json",
+      "sha256": "5dc055e71df836d8eab164a25e52a39e217b1b1567511f095d80ffd823f96c19",
+      "bytes": 285943
+    },
+    "network.json": {
+      "path": "data/transport/canonical/network.json",
+      "sha256": "36d3f3c2e33a4ac8462a67a8e9bb69fdf82291e20a7be463f715cef7352cceb0",
+      "bytes": 1961587
+    }
+  },
+  "metrics": {
+    "total_routes": 154,
+    "total_stops": 1430,
+    "geocoded_stops": 179,
+    "unresolved_stops": 1251,
+    "total_route_stop_sequences": 164,
+    "total_route_stop_links": 1491,
+    "total_schedule_groups": 302,
+    "total_departures": 5549
+  },
+  "coordinate_status_breakdown": {
+    "VERIFIED_OFFICIAL": 108,
+    "VERIFIED_GEOSPATIAL": 71,
+    "UNRESOLVED": 1251
+  },
+  "known_defects": [
+    {
+      "stop_id": "stop_crut_keonjhar_district_hospital",
+      "current_lat": 19.8167,
+      "current_lon": 85.8333,
+      "issue": "Conflated with Puri District Headquarters Hospital on Grand Road, Puri (203.4 km away)"
+    }
+  ]
+}

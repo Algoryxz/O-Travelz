@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ V4 — Mapping, Geospatial & Transit Architecture
+# O-TRAVELZ V4 — Mapping, Geospatial & Transit Architecture
 
 > **Authoritative Geospatial & Mobility Specification**  
 > Map Renderers: **Web: MapLibre GL JS | iOS: Apple MapKit | Android: Google Maps SDK**  
@@ -71,14 +71,20 @@ To avoid expensive runtime routing APIs while giving travelers the best possible
 
 ## 3. Transit Source of Truth: CRUT Mo Bus & Ama Bus
 
-### 3.1 Network Inventory `[CURRENT]`
-* **Routes**: 154 active routes covering the Capital Region (Bhubaneswar, Cuttack, Puri, Khurda) and regional corridors (Rourkela, Berhampur, Sambalpur).
-* **Stops**: 1,430 stops (41 geocoded with high-confidence WGS84 coordinates; 1,389 tracked as legitimate unresolved stops awaiting field GPS audit).
+### 3.1 Network Inventory `[PROMOTED - WAVE C4]`
+* **Operational Regions**: 5 regions (Capital Region, Rourkela, Berhampur, Sambalpur, Keonjhar).
+* **Routes**: 154 active routes across CRUT Mo Bus and Ama Bus networks.
+* **Stops**: 1,430 total canonical stops:
+  * **173 verified coordinates** (103 `VERIFIED_OFFICIAL` + 70 `VERIFIED_GEOSPATIAL`) mapped to `VERIFIED_LOCALITY`.
+  * **1,257 locality-only stops** mapped to `OFFICIAL_SERVICE_AREA` (with explicit administrative boundary, district, and document citations; zero fabricated coordinates).
+  * Repaired legacy geocoding anomalies (e.g., Keonjhar DHH corrected from Puri to `21.6285, 85.5820`; 8 cross-region bounding box violations cleansed).
+* **Route Sequences**: 164 sequences encompassing 1,491 canonical stop links (100% resolved).
 * **Departures**: 302 schedule trip groups and 5,553 individual scheduled departure times.
 
 ### 3.2 Scheduled Truth Boundary (Zero Fake GPS)
 * Departures are calculated deterministically against official schedule tables using Indian Standard Time (IST / UTC+05:30).
 * Output format: `Scheduled · 08:30 IST (Route 10)`.
+* Locality-only stops display an administrative boundary chip (`OFFICIAL_SERVICE_AREA`) and participate in topological route sequencing, but strictly suppress exact map pins and first-mile walking calculations until physical GPS coordinates are verified.
 * Fares are recorded as `null` until an official audited fare matrix is ingested (zero invented ₹ values).
 * Real-time vehicle tracking will be introduced **only** when an authenticated, reliable GTFS-Realtime or CRUT API integration is established.
 

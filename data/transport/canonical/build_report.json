@@ -1,6 +1,6 @@
 {
-  "build_timestamp": "2026-09-01T21:27:58.162177+00:00",
-  "compiler_version": "1.5.0",
+  "build_timestamp": "2026-09-04T14:40:08.148529+00:00",
+  "compiler_version": "2.2.0",
   "inputs": {
     "routes_extracted_count": 154,
     "stops_extracted_count": 1430,
@@ -9,12 +9,12 @@
   },
   "outputs": {
     "logical_stops_total": 1430,
-    "coordinate_verified_official": 108,
-    "coordinate_verified_geospatial": 71,
+    "coordinate_verified_official": 103,
+    "coordinate_verified_geospatial": 70,
     "coordinate_high_confidence": 0,
     "coordinate_review_required": 0,
-    "coordinate_unresolved": 1251,
-    "routable_stops_total": 179,
+    "coordinate_unresolved": 1257,
+    "routable_stops_total": 173,
     "tier1_internal_recovered": 173,
     "tier2_places_cross_referenced": 0,
     "tier3_external_resolved": 0,
@@ -22,11 +22,12 @@
     "routes_with_majority_routable_stops": 94,
     "fully_geocoded_routes": 23,
     "top_25_interchanges_resolution_rate": "56.0% (14/25)",
-    "corridor_anomalies_detected": 20
+    "corridor_anomalies_detected": 0
   },
   "gates": {
     "zero_fabrication_gate": "PASSED",
     "provenance_required_gate": "PASSED",
-    "bounded_coordinates_gate": "PASSED"
+    "bounded_coordinates_gate": "PASSED",
+    "promotion_readiness_gate": "PASSED"
   }
 }

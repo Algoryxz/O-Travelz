@@ -97,6 +97,16 @@ def bootstrap_database() -> int:
             f"{transit_summary.schedules_upserted} schedule groups."
         )
 
+        # Synchronize authoritative canonical stops coordinates and locality contracts
+        print("\n[3b/5] Synchronizing authoritative canonical transit stops into database...")
+        from scripts.promote_ama_bus_c3_to_canonical import sync_canonical_stops_to_database
+        sync_result = sync_canonical_stops_to_database(db)
+        print(
+            f"      Canonical stops synchronized: "
+            f"{sync_result['updated']} stops updated "
+            f"({sync_result['geocoded']} geocoded, {sync_result['unresolved']} unresolved)."
+        )
+
         print("\n[4/5] Importing Phase 6A transit intelligence research layer...")
         from app.transport.research_importer import TransitIntelligenceImporter
         intel_importer = TransitIntelligenceImporter(db)
@@ -178,14 +188,20 @@ def bootstrap_database() -> int:
         total_evidence = db.query(EvidenceCitation).count()
         exact_routes = db.query(RouteIntelligence).filter(RouteIntelligence.geometry_status == "EXACT").count()
 
+        # Authoritative canonical expectations from build report (C4E)
+        build_rep_path = WORKSPACE_ROOT / "data" / "transport" / "canonical" / "build_report.json"
+        build_rep = json.loads(build_rep_path.read_text(encoding="utf-8")) if build_rep_path.exists() else {}
+        expected_geocoded = build_rep.get("outputs", {}).get("routable_stops_total", 173)
+        expected_unresolved = build_rep.get("outputs", {}).get("coordinate_unresolved", 1257)
+
         print(f"  Places:             {total_places:<6} (Expected: 204 = 161 sanctuaries + 43 food)")
         print(f"  Categories:         {total_categories:<6} (Expected: >= 19)")
         print(f"  Interests:          {total_interests:<6} (Expected: 12)")
         print(f"  Providers:          {total_providers:<6} (Expected: 3)")
         print(f"  Routes:             {total_routes:<6} (Expected: 154)")
         print(f"  Stops:              {total_stops:<6} (Expected: 1,430)")
-        print(f"  Geocoded Stops:     {geocoded_stops:<6} (Expected: 41)")
-        print(f"  Unresolved Stops:   {unresolved_stops:<6} (Expected: 1,389)")
+        print(f"  Geocoded Stops:     {geocoded_stops:<6} (Expected: {expected_geocoded})")
+        print(f"  Unresolved Stops:   {unresolved_stops:<6} (Expected: {expected_unresolved})")
         print(f"  Route-Stops:        {total_route_stops:<6} (Expected: 1,487)")
         print(f"  Schedule Groups:    {total_schedules:<6} (Expected: 302)")
         print(f"  Departures:         {total_departures:<6} (Expected: 5,553)")
@@ -203,8 +219,8 @@ def bootstrap_database() -> int:
         assert total_providers == 3, f"FAIL: Expected 3 providers, found {total_providers}"
         assert total_routes == 154, f"FAIL: Expected 154 routes, found {total_routes}"
         assert total_stops == 1430, f"FAIL: Expected 1430 stops, found {total_stops}"
-        assert geocoded_stops == 41, f"FAIL: Expected 41 geocoded stops, found {geocoded_stops}"
-        assert unresolved_stops == 1389, f"FAIL: Expected 1389 unresolved stops, found {unresolved_stops}"
+        assert geocoded_stops == expected_geocoded, f"FAIL: Expected {expected_geocoded} geocoded stops, found {geocoded_stops}"
+        assert unresolved_stops == expected_unresolved, f"FAIL: Expected {expected_unresolved} unresolved stops, found {unresolved_stops}"
         assert total_route_stops == 1487, f"FAIL: Expected 1487 route stops, found {total_route_stops}"
         assert total_schedules == 302, f"FAIL: Expected 302 schedule groups, found {total_schedules}"
         assert total_departures == 5553, f"FAIL: Expected 5553 departures, found {total_departures}"

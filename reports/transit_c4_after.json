@@ -1,0 +1,62 @@
+{
+  "snapshot_timestamp": "2026-09-04T14:40:08.148529+00:00",
+  "phase": "WAVE_C4_AFTER",
+  "files": {
+    "routes.json": {
+      "path": "data/transport/canonical/routes.json",
+      "sha256": "5bb09c9fbc9098130dc7eeea3646497da6122787495f3f558763cfe6d6352268"
+    },
+    "stops.json": {
+      "path": "data/transport/canonical/stops.json",
+      "sha256": "62757946d292592c0ec598f4155019ac4f842e69b11709c2fed3934b8da844d6"
+    },
+    "route_stops.json": {
+      "path": "data/transport/canonical/route_stops.json",
+      "sha256": "2254d9beb75234dcfc2e2249d6476763db031c354d0b5ced0f045feaf04a14bb"
+    },
+    "schedules.json": {
+      "path": "data/transport/canonical/schedules.json",
+      "sha256": "5dc055e71df836d8eab164a25e52a39e217b1b1567511f095d80ffd823f96c19"
+    },
+    "network.json": {
+      "path": "data/transport/canonical/network.json",
+      "sha256": "3fc5958895736c53dc6f6fe6b3c138b98ab4cabbf819a8189faf8b1ec28fddf3"
+    }
+  },
+  "metrics": {
+    "total_routes": 154,
+    "total_stops": 1430,
+    "geocoded_stops": 173,
+    "unresolved_stops": 1257,
+    "total_route_stop_sequences": 164,
+    "total_route_stop_links": 1491,
+    "total_schedule_groups": 302,
+    "total_departures": 5549
+  },
+  "coordinate_status_breakdown": {
+    "VERIFIED_OFFICIAL": 103,
+    "VERIFIED_GEOSPATIAL": 70,
+    "UNRESOLVED": 1257
+  },
+  "repairs_applied": [
+    {
+      "stop_id": "stop_crut_keonjhar_district_hospital",
+      "old_lat": 19.8167,
+      "old_lon": 85.8333,
+      "new_lat": 21.6285,
+      "new_lon": 85.582,
+      "provenance": "official_district_portal_gis",
+      "source": "Keonjhar District Health Directory (hosp_north_013, https://keonjhar.nic.in/public-utility-category/hospitals/)"
+    }
+  ],
+  "anomalies_cleansed": [
+    "stop_crut_berhampur_bus_stand",
+    "stop_crut_berhampur_police_station",
+    "stop_crut_berhampur_police_station_2",
+    "stop_crut_berhampur_station",
+    "stop_crut_berhampur_temple",
+    "stop_crut_puri_sea_beach_road",
+    "stop_crut_rourkela_mangala_temple",
+    "stop_crut_rourkela_tarini_temple"
+  ]
+}

@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ PROJECT CONTEXT
+# O-TRAVELZ PROJECT CONTEXT
 
 > **Canonical shared context for all AI coding assistants.**  
 > Product Name: **O-TRAVELZ**  
@@ -92,7 +92,7 @@ It combines:
 * **204** places across all 30 districts.
 * **23** canonical categories & **12** canonical travel interests.
 * **3** transport providers (CRUT Mo Bus, OSRTC Ama Bus, Indian Railways).
-* **154** routes & **1,430** stops (41 geocoded, 1,389 tracked as legitimate unresolved stops).
+* **154** routes & **1,430** stops (173 verified coordinates, 1,257 tracked with official service area locality).
 * **1,487** route-stops (topological sequences) & $\ge 1$ EXACT route with verified GPS sequence.
 * **302** schedule trip groups & **5,553** individual scheduled departure times.
 * **70** verified place images passing strict multi-resolution WebP gates.

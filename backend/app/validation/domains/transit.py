@@ -161,9 +161,10 @@ def validate_transit_stop(
     # 3. Wave C2 Locality & BigDataCloud Truth Boundary Rules
     locality = stop.get("locality")
     locality_status = stop.get("locality_status")
-    locality_source = stop.get("locality_source")
+    locality_source = stop.get("locality_source") or stop.get("locality_provenance")
     map_behavior = stop.get("map_behavior") or {}
     evidence = stop.get("evidence")
+    has_source_doc = bool(evidence or stop.get("source_document") or stop.get("provenance", {}).get("source_document"))
 
     # TRN_LOCALITY_WITHOUT_PROVENANCE
     # Trigger: locality or status is declared without verifiable source or document evidence
@@ -179,7 +180,7 @@ def validate_transit_stop(
                 message=f"Stop '{sid}' asserts locality status '{locality_status}' without verified locality source",
                 evidence={"locality_status": locality_status, "locality_source": locality_source},
             )
-        elif locality_status == "OFFICIAL_SERVICE_AREA" and not evidence and not stop.get("provenance", {}).get("source_document"):
+        elif locality_status == "OFFICIAL_SERVICE_AREA" and not has_source_doc:
             report.add_issue(
                 code=codes.TRN_LOCALITY_WITHOUT_PROVENANCE,
                 severity=ValidationSeverity.ERROR,
