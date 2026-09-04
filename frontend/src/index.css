@@ -140,6 +140,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   font-feature-settings: "tnum" 1;
 }
 
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
 .font-odia {
   font-family: var(--font-odia);
 }

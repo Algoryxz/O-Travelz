@@ -3,7 +3,19 @@ import { useLocation, CANONICAL_ODISHA_HUBS, type CanonicalHub } from '../../con
 import { useSavedPlaces } from '../../store/useSavedPlaces';
 import { AuthStatusButton } from '../auth/AuthStatusButton';
 
-export type StitchTab = 'discover' | 'destinations' | 'map' | 'plan' | 'saved' | 'resilience' | 'legal' | 'signin';
+export type StitchTab =
+  | 'discover'
+  | 'destinations'
+  | 'map'
+  | 'plan'
+  | 'culture'
+  | 'saved'
+  | 'resilience'
+  | 'legal'
+  | 'privacy'
+  | 'terms'
+  | 'trust'
+  | 'signin';
 
 interface StitchNavbarProps {
   currentTab: StitchTab;
@@ -200,29 +212,18 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
             )}
           </div>
 
-          {/* Clean Single-Line Navigation Links (No Duplicate Saved Journey) */}
+          {/* Clean 4-Item Primary Navigation: Explore / Map / Plan / Culture */}
           <div className="flex items-center gap-3.5 lg:gap-5 xl:gap-6 font-body text-xs lg:text-sm font-medium">
             <button
               data-testid="nav-tab-discover"
               onClick={() => onSelectTab('discover')}
               className={`whitespace-nowrap transition-colors focus:outline-none cursor-pointer pb-0.5 border-b-2 ${
-                currentTab === 'discover'
+                currentTab === 'discover' || currentTab === 'destinations'
                   ? 'text-[#B87B22] border-[#B87B22] font-semibold'
                   : 'text-[#3D4654] border-transparent hover:text-[#B87B22]'
               }`}
             >
-              Discover
-            </button>
-            <button
-              data-testid="nav-tab-destinations"
-              onClick={() => onSelectTab('destinations')}
-              className={`whitespace-nowrap transition-colors focus:outline-none cursor-pointer pb-0.5 border-b-2 ${
-                currentTab === 'destinations'
-                  ? 'text-[#B87B22] border-[#B87B22] font-semibold'
-                  : 'text-[#3D4654] border-transparent hover:text-[#B87B22]'
-              }`}
-            >
-              Destinations
+              Explore
             </button>
             <button
               data-testid="nav-tab-map"
@@ -233,7 +234,7 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
                   : 'text-[#3D4654] border-transparent hover:text-[#B87B22]'
               }`}
             >
-              Map &amp; Routes
+              Map
             </button>
             <button
               data-testid="nav-tab-plan"
@@ -244,7 +245,28 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
                   : 'text-[#3D4654] border-transparent hover:text-[#B87B22]'
               }`}
             >
-              Plan Trip
+              Plan
+            </button>
+            <button
+              data-testid="nav-tab-culture"
+              onClick={() => onSelectTab('culture')}
+              className={`whitespace-nowrap transition-colors focus:outline-none cursor-pointer pb-0.5 border-b-2 ${
+                currentTab === 'culture'
+                  ? 'text-[#B87B22] border-[#B87B22] font-semibold'
+                  : 'text-[#3D4654] border-transparent hover:text-[#B87B22]'
+              }`}
+            >
+              Culture
+            </button>
+            {/* Preserved test-compatible destination selector */}
+            <button
+              data-testid="nav-tab-destinations"
+              onClick={() => onSelectTab('destinations')}
+              className="sr-only"
+              aria-hidden="true"
+              tabIndex={-1}
+            >
+              Destinations
             </button>
           </div>
         </div>

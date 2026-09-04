@@ -13,25 +13,37 @@ export type AppNavTab =
   | "destinations"
   | "map"
   | "plan"
+  | "culture"
   | "saved"
   | "revisit"
   | "category"
   | "settings"
   | "privacy"
   | "terms"
+  | "trust"
+  | "legal"
+  | "resilience"
   | "contact"
   | "shared"
   | "signin";
 
 export const SUPPORTED_HASH_TABS: Record<string, AppNavTab> = {
   discover: "discover",
+  explore: "discover",
   destinations: "destinations",
   map: "map",
   plan: "plan",
+  culture: "culture",
+  heritage: "culture",
   saved: "saved",
-  revisit: "revisit",
+  revisit: "saved",
   privacy: "privacy",
   terms: "terms",
+  trust: "trust",
+  "data-trust": "trust",
+  disclaimers: "trust",
+  legal: "legal",
+  resilience: "resilience",
   contact: "contact",
   shared: "shared",
   signin: "signin",
@@ -102,6 +114,8 @@ export function getHashForTab(tab: AppNavTab | string): string {
       return "#map";
     case "plan":
       return "#plan";
+    case "culture":
+      return "#culture";
     case "saved":
       return "#saved";
     case "revisit":
@@ -112,6 +126,12 @@ export function getHashForTab(tab: AppNavTab | string): string {
       return "#privacy";
     case "terms":
       return "#terms";
+    case "trust":
+      return "#trust";
+    case "legal":
+      return "#legal";
+    case "resilience":
+      return "#resilience";
     case "contact":
       return "#contact";
     case "shared":

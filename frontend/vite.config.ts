@@ -61,6 +61,12 @@ export default defineConfig({
           if (id.includes("node_modules/leaflet")) {
             return "leaflet-vendor";
           }
+          if (id.includes("node_modules/maplibre-gl")) {
+            return "maplibre-vendor";
+          }
+          if (id.includes("node_modules/three") || id.includes("node_modules/@mkkellogg/gaussian-splats-3d")) {
+            return "three-vendor";
+          }
           if (id.includes("node_modules/react/") || id.includes("node_modules/react-dom/")) {
             return "react-vendor";
           }

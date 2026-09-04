@@ -35,6 +35,7 @@ import {
   getHashForTab,
   normalizeHash,
   extractShareIdFromHash,
+  type AppNavTab,
 } from "../utils/navigation";
 import {
   Bot,
@@ -108,7 +109,7 @@ function findClosestOdishaHub(lat: number, lon: number): { name: string; distanc
 
 type PlanningMode = "structured" | "ai";
 type ResultViewTab = "itinerary" | "map";
-type AppView = NavTab | "category" | "settings" | "privacy" | "terms" | "contact" | "shared" | "signin";
+type AppView = AppNavTab;
 
 interface ItineraryPlannerPageProps {
   apiClient?: ApiClient;
@@ -254,7 +255,7 @@ export const ItineraryPlannerPage: React.FC<ItineraryPlannerPageProps> = ({
       const currentTab = getTabFromHash(window.location.hash);
       const shareId = extractShareIdFromHash(window.location.hash);
       setCurrentShareId(shareId);
-      setActiveTab((prev) => (prev !== currentTab ? currentTab : prev));
+      setActiveTab((prev: AppView) => (prev !== currentTab ? currentTab : prev));
     };
 
     window.addEventListener("hashchange", handleHashChange);

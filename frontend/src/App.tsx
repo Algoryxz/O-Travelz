@@ -12,12 +12,25 @@ import { AISidebar } from './components/ai/AISidebar';
 
 import { StitchHomePage } from './pages/stitch/StitchHomePage';
 import { StitchDestinationsPage } from './pages/stitch/StitchDestinationsPage';
-import { StitchMapPage, type MapViewMode } from './pages/stitch/StitchMapPage';
-import { StitchPlannerPage } from './pages/stitch/StitchPlannerPage';
-import { StitchSavedPage } from './pages/stitch/StitchSavedPage';
-import { StitchResiliencePage } from './pages/stitch/StitchResiliencePage';
-import { StitchLegalPage } from './pages/stitch/StitchLegalPage';
-import { StitchSignInPage } from './pages/stitch/StitchSignInPage';
+import type { MapViewMode } from './pages/stitch/StitchMapPage';
+
+const StitchMapPage = React.lazy(() => import('./pages/stitch/StitchMapPage').then((m) => ({ default: m.StitchMapPage })));
+const StitchPlannerPage = React.lazy(() => import('./pages/stitch/StitchPlannerPage').then((m) => ({ default: m.StitchPlannerPage })));
+const StitchSavedPage = React.lazy(() => import('./pages/stitch/StitchSavedPage').then((m) => ({ default: m.StitchSavedPage })));
+const StitchResiliencePage = React.lazy(() => import('./pages/stitch/StitchResiliencePage').then((m) => ({ default: m.StitchResiliencePage })));
+const StitchLegalPage = React.lazy(() => import('./pages/stitch/StitchLegalPage').then((m) => ({ default: m.StitchLegalPage })));
+const StitchPrivacyPage = React.lazy(() => import('./pages/stitch/StitchPrivacyPage').then((m) => ({ default: m.StitchPrivacyPage })));
+const StitchTermsPage = React.lazy(() => import('./pages/stitch/StitchTermsPage').then((m) => ({ default: m.StitchTermsPage })));
+const StitchDataTrustPage = React.lazy(() => import('./pages/stitch/StitchDataTrustPage').then((m) => ({ default: m.StitchDataTrustPage })));
+const StitchSignInPage = React.lazy(() => import('./pages/stitch/StitchSignInPage').then((m) => ({ default: m.StitchSignInPage })));
+
+const PageLoadingFallback: React.FC = () => (
+  <div className="w-full min-h-[60vh] flex flex-col items-center justify-center font-body text-[#70798B]">
+    <div className="w-8 h-8 border-2 border-[#B87B22]/30 border-t-[#B87B22] rounded-full animate-spin mb-3" />
+    <span className="font-mono text-xs text-[#3D4654]">Loading travel intelligence...</span>
+  </div>
+);
+
 import { getTabFromHash, getHashForTab } from './utils/navigation';
 
 export const AppContent: React.FC = () => {
@@ -133,66 +146,94 @@ export const AppContent: React.FC = () => {
         onOpenPreferences={() => setIsPreferencesOpen(true)}
       />
 
-      {/* Main View Container */}
+      {/* Main View Container with Graceful Suspense Fallback */}
       <main className="flex-1 w-full pt-16 sm:pt-18">
-        {currentTab === 'discover' && (
-          <StitchHomePage
-            onNavigate={handleNavigate}
-            onSearch={handleSearch}
-            onOpenOnboarding={() => setIsOnboardingOpen(true)}
-          />
-        )}
+        <React.Suspense fallback={<PageLoadingFallback />}>
+          {currentTab === 'discover' && (
+            <StitchHomePage
+              onNavigate={handleNavigate}
+              onSearch={handleSearch}
+              onOpenOnboarding={() => setIsOnboardingOpen(true)}
+            />
+          )}
 
-        {currentTab === 'destinations' && (
-          <StitchDestinationsPage
-            onNavigate={handleNavigate}
-            initialQuery={searchQuery}
-            initialCategory={selectedCategory}
-          />
-        )}
+          {currentTab === 'destinations' && (
+            <StitchDestinationsPage
+              onNavigate={handleNavigate}
+              initialQuery={searchQuery}
+              initialCategory={selectedCategory}
+            />
+          )}
 
-        {currentTab === 'map' && (
-          <StitchMapPage
-            onNavigate={handleNavigate}
-            onOpenShare={() => setIsShareOpen(true)}
-            initialPlaceId={navParams.placeId}
-            initialMode={(navParams.mode as MapViewMode) || 'destinations'}
-          />
-        )}
+          {currentTab === 'culture' && (
+            <StitchDestinationsPage
+              onNavigate={handleNavigate}
+              initialQuery=""
+              initialCategory="Heritage"
+            />
+          )}
 
-        {currentTab === 'plan' && (
-          <StitchPlannerPage
-            onNavigate={handleNavigate}
-            onOpenShare={() => setIsShareOpen(true)}
-            onOpenOnboarding={() => setIsOnboardingOpen(true)}
-            initialPlaceId={navParams.placeId}
-          />
-        )}
+          {currentTab === 'map' && (
+            <StitchMapPage
+              onNavigate={handleNavigate}
+              onOpenShare={() => setIsShareOpen(true)}
+              initialPlaceId={navParams.placeId}
+              initialMode={(navParams.mode as MapViewMode) || 'destinations'}
+            />
+          )}
 
-        {currentTab === 'saved' && (
-          <StitchSavedPage
-            onNavigate={handleNavigate}
-            onOpenShare={() => setIsShareOpen(true)}
-          />
-        )}
+          {currentTab === 'plan' && (
+            <StitchPlannerPage
+              onNavigate={handleNavigate}
+              onOpenShare={() => setIsShareOpen(true)}
+              onOpenOnboarding={() => setIsOnboardingOpen(true)}
+              initialPlaceId={navParams.placeId}
+            />
+          )}
 
-        {currentTab === 'resilience' && (
-          <StitchResiliencePage
-            onNavigate={handleNavigate}
-          />
-        )}
+          {currentTab === 'saved' && (
+            <StitchSavedPage
+              onNavigate={handleNavigate}
+              onOpenShare={() => setIsShareOpen(true)}
+            />
+          )}
 
-        {currentTab === 'legal' && (
-          <StitchLegalPage
-            onNavigate={handleNavigate}
-          />
-        )}
+          {currentTab === 'resilience' && (
+            <StitchResiliencePage
+              onNavigate={handleNavigate}
+            />
+          )}
 
-        {currentTab === 'signin' && (
-          <StitchSignInPage
-            onNavigate={handleNavigate}
-          />
-        )}
+          {currentTab === 'legal' && (
+            <StitchLegalPage
+              onNavigate={handleNavigate}
+            />
+          )}
+
+          {currentTab === 'privacy' && (
+            <StitchPrivacyPage
+              onNavigate={handleNavigate}
+            />
+          )}
+
+          {currentTab === 'terms' && (
+            <StitchTermsPage
+              onNavigate={handleNavigate}
+            />
+          )}
+
+          {currentTab === 'trust' && (
+            <StitchDataTrustPage
+              onNavigate={handleNavigate}
+            />
+          )}
+
+          {currentTab === 'signin' && (
+            <StitchSignInPage
+              onNavigate={handleNavigate}
+            />
+          )}
+        </React.Suspense>
       </main>
 
       {/* Persistent Floating AI Copilot Trigger [ ✦ AI ] */}

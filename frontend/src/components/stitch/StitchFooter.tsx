@@ -42,34 +42,46 @@ export const StitchFooter: React.FC<StitchFooterProps> = ({
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-6 font-body text-xs uppercase tracking-widest text-[#70798B]">
+      <div className="flex flex-wrap justify-center gap-6 font-body text-xs uppercase tracking-wider text-[#70798B]">
         <button
           onClick={() => onSelectTab('discover')}
-          className="hover:text-[#B87B22] transition-colors focus:outline-none"
+          className="hover:text-[#B87B22] transition-colors focus:outline-none cursor-pointer"
         >
-          Discover
-        </button>
-        <button
-          onClick={() => onSelectTab('destinations')}
-          className="hover:text-[#B87B22] transition-colors focus:outline-none"
-        >
-          Destinations
+          Explore
         </button>
         <button
           onClick={() => onSelectTab('map')}
-          className="hover:text-[#B87B22] transition-colors focus:outline-none"
+          className="hover:text-[#B87B22] transition-colors focus:outline-none cursor-pointer"
         >
-          Spatial Map
+          Map
         </button>
         <button
-          onClick={() => onSelectTab('resilience')}
-          className="hover:text-[#B87B22] transition-colors focus:outline-none"
+          onClick={() => onSelectTab('culture')}
+          className="hover:text-[#B87B22] transition-colors focus:outline-none cursor-pointer"
         >
-          System Resilience
+          Culture
+        </button>
+        <button
+          onClick={() => onSelectTab('trust')}
+          className="hover:text-[#B87B22] transition-colors focus:outline-none cursor-pointer"
+        >
+          Data Trust &amp; Disclaimers
+        </button>
+        <button
+          onClick={() => onSelectTab('privacy')}
+          className="hover:text-[#B87B22] transition-colors focus:outline-none cursor-pointer"
+        >
+          Privacy Policy
+        </button>
+        <button
+          onClick={() => onSelectTab('terms')}
+          className="hover:text-[#B87B22] transition-colors focus:outline-none cursor-pointer"
+        >
+          Terms of Service
         </button>
         <button
           onClick={() => onSelectTab('legal')}
-          className="hover:text-[#B87B22] transition-colors focus:outline-none"
+          className="hover:text-[#B87B22] transition-colors focus:outline-none cursor-pointer"
         >
           Heritage Governance
         </button>

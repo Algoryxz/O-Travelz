@@ -16,7 +16,10 @@ import {
 } from 'lucide-react';
 import type { HeritageScene } from '../../types/heritage';
 import { fetchHeritageScenes, FALLBACK_HERITAGE_SCENES } from '../../api/heritageApi';
-import { HeritageSceneViewer } from '../heritage/HeritageSceneViewer';
+
+const HeritageSceneViewer = React.lazy(() =>
+  import('../heritage/HeritageSceneViewer').then((mod) => ({ default: mod.HeritageSceneViewer }))
+);
 
 interface Heritage3DSectionProps {
   onExplorePlace?: (placeId: string, name: string) => void;
@@ -135,12 +138,21 @@ export const Heritage3DSection: React.FC<Heritage3DSectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* 3D Viewport Column */}
           <div className="lg:col-span-8 w-full">
-            <HeritageSceneViewer
-              scene={activeScene}
-              availableScenes={scenes}
-              onSelectScene={(id) => setSelectedSceneId(id)}
-              heightClass="h-[460px] sm:h-[500px] lg:h-[560px]"
-            />
+            <React.Suspense
+              fallback={
+                <div className="h-[460px] sm:h-[500px] lg:h-[560px] flex flex-col items-center justify-center bg-slate-950/80 rounded-3xl border border-slate-800 text-slate-400 font-mono text-xs">
+                  <div className="w-8 h-8 border-2 border-emerald-500/30 border-t-emerald-400 rounded-full animate-spin mb-3" />
+                  <span>Loading 3D Architectural Model...</span>
+                </div>
+              }
+            >
+              <HeritageSceneViewer
+                scene={activeScene}
+                availableScenes={scenes}
+                onSelectScene={(id) => setSelectedSceneId(id)}
+                heightClass="h-[460px] sm:h-[500px] lg:h-[560px]"
+              />
+            </React.Suspense>
           </div>
 
           {/* Monument Architectural & Provenance Intelligence Card */}

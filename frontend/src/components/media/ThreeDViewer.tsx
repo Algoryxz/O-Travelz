@@ -6,7 +6,10 @@ import React, { useMemo } from 'react';
 import type { Model3DContract } from '../../types/api';
 import type { HeritageScene } from '../../types/heritage';
 import { FALLBACK_HERITAGE_SCENES } from '../../api/heritageApi';
-import { HeritageSceneViewer } from '../heritage/HeritageSceneViewer';
+
+const HeritageSceneViewer = React.lazy(() =>
+  import('../heritage/HeritageSceneViewer').then((m) => ({ default: m.HeritageSceneViewer }))
+);
 
 interface ThreeDViewerProps {
   model?: Model3DContract | null;
@@ -45,12 +48,21 @@ export const ThreeDViewer: React.FC<ThreeDViewerProps> = ({
   }, [placeName, model]);
 
   return (
-    <HeritageSceneViewer
-      scene={matchedScene}
-      availableScenes={FALLBACK_HERITAGE_SCENES}
-      className={className}
-      heightClass={heightClass}
-      autoRotateDefault={autoRotateDefault}
-    />
+    <React.Suspense
+      fallback={
+        <div className={`flex flex-col items-center justify-center bg-slate-950/80 rounded-2xl border border-slate-800 text-slate-400 font-mono text-xs ${heightClass} ${className}`}>
+          <div className="w-8 h-8 border-2 border-emerald-500/30 border-t-emerald-400 rounded-full animate-spin mb-3" />
+          <span>Loading 3D Monument Reconstruction...</span>
+        </div>
+      }
+    >
+      <HeritageSceneViewer
+        scene={matchedScene}
+        availableScenes={FALLBACK_HERITAGE_SCENES}
+        className={className}
+        heightClass={heightClass}
+        autoRotateDefault={autoRotateDefault}
+      />
+    </React.Suspense>
   );
 };

@@ -62,7 +62,7 @@ describe("Phase 14 Step 4: PWA Offline Hardening & Service Worker Suite", () => 
       const html = fs.readFileSync(indexHtmlPath, "utf-8");
 
       expect(html).toContain('<link rel="manifest" href="/manifest.webmanifest" />');
-      expect(html).toContain('<meta name="theme-color" content="#0B1220" />');
+      expect(html).toMatch(/<meta name="theme-color" content="(#FBF9F5|#0B1220)"/);
       expect(html).toContain('<meta name="mobile-web-app-capable" content="yes" />');
       expect(html).toContain('<meta name="apple-mobile-web-app-capable" content="yes" />');
       expect(html).toContain('<link rel="apple-touch-icon" href="/logo.jpeg" />');

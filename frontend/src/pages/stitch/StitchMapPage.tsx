@@ -23,6 +23,11 @@ import { TransitStopDetailPanel } from '../../components/transit/TransitStopDeta
 import { TransitTimetableModal } from '../../components/transit/TransitTimetableModal';
 import seedPlacesData from '../../../../data/places/places.json';
 import L from 'leaflet';
+import type { MapPlaceMarker } from '../../components/map/MapLibreCanvas';
+
+const MapLibreCanvas = React.lazy(() =>
+  import('../../components/map/MapLibreCanvas').then((m) => ({ default: m.MapLibreCanvas }))
+);
 
 export type MapViewMode =
   | 'destinations'
@@ -95,6 +100,21 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   const [viewMode, setViewMode] = useState<MapViewMode>(initialMode);
   const [showAllTransitStops, setShowAllTransitStops] = useState(false);
   const [activeRouteTarget, setActiveRouteTarget] = useState<ActiveRouteTarget | null>(null);
+  const [mapEngine, setMapEngine] = useState<'leaflet' | 'maplibre'>('leaflet');
+
+  const mapLibrePlaces: MapPlaceMarker[] = useMemo(() => {
+    return (places || [])
+      .map((p) => ({
+        id: p.id,
+        name: p.name,
+        category: p.category || 'Heritage',
+        lat: (p as any).coordinates?.latitude ?? (p as any).lat ?? 0,
+        lng: (p as any).coordinates?.longitude ?? (p as any).lon ?? (p as any).lng ?? 0,
+        imageUrl: p.images?.[0]?.url ?? (p as any).imageUrl,
+        verificationStatus: (p.verification_status as any) || 'VERIFIED_CANONICAL',
+      }))
+      .filter((p) => p.lat !== 0 && p.lng !== 0);
+  }, [places]);
 
   // Search & "Search This Area"
   const [searchQuery, setSearchQuery] = useState('');
@@ -1372,19 +1392,66 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               {showAllTransitStops ? 'All 46 Stops' : 'Hubs'}
             </button>
           )}
+          {/* Map Engine Toggle: Leaflet Classic vs MapLibre Vector */}
+          <div className="flex items-center gap-1 bg-[#FAF7F2] p-0.5 rounded-full border border-[#E5DFD5] shrink-0">
+            <button
+              type="button"
+              onClick={() => setMapEngine('leaflet')}
+              className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold transition cursor-pointer ${
+                mapEngine === 'leaflet'
+                  ? 'bg-white text-[#12161E] shadow-xs border border-[#E5DFD5]'
+                  : 'text-[#70798B] hover:text-[#12161E]'
+              }`}
+            >
+              Classic
+            </button>
+            <button
+              type="button"
+              onClick={() => setMapEngine('maplibre')}
+              className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold transition cursor-pointer ${
+                mapEngine === 'maplibre'
+                  ? 'bg-[#B87B22] text-white shadow-xs'
+                  : 'text-[#70798B] hover:text-[#B87B22]'
+              }`}
+            >
+              Vector (Liberty)
+            </button>
+          </div>
         </div>
       </header>
 
       {/* 2. TWO-COLUMN WORKSPACE: LEFT MAP (~68%) + RIGHT DETAILS (~32%) */}
       <div className="flex-1 flex flex-col md:flex-row overflow-hidden max-w-[1920px] mx-auto w-full p-2 sm:p-3 md:p-4 gap-3 md:gap-4 min-h-0">
         
-        {/* Left Column: Dedicated Leaflet Map Canvas */}
+        {/* Left Column: Dedicated Map Canvas (Leaflet Classic / MapLibre Vector) */}
         <section className="flex-1 md:w-[65%] lg:w-[68%] h-[50vh] md:h-full relative rounded-2xl overflow-hidden border border-[#E5DFD5] shadow-xs bg-[#E5DFD5]">
           <div
             ref={mapContainerRef}
             data-testid="map-canvas-container"
-            className="absolute inset-0 w-full h-full"
+            className={`absolute inset-0 w-full h-full ${mapEngine === 'leaflet' ? 'block' : 'hidden'}`}
           />
+          {mapEngine === 'maplibre' && (
+            <React.Suspense
+              fallback={
+                <div className="w-full h-full flex flex-col items-center justify-center bg-[#FAF7F2] text-[#70798B] font-mono text-xs">
+                  <div className="w-8 h-8 border-2 border-[#B87B22]/30 border-t-[#B87B22] rounded-full animate-spin mb-3" />
+                  <span>Loading Vector Cartography (OpenFreeMap Liberty)...</span>
+                </div>
+              }
+            >
+              <MapLibreCanvas
+                places={mapLibrePlaces}
+                selectedPlaceId={selectedPlaceId}
+                onSelectPlace={(id) => {
+                  setSelectedPlaceId(id);
+                  setSelectedExperience(null);
+                  setSelectedEssential(null);
+                  setSelectedTransitStop(null);
+                }}
+                className="w-full h-full"
+              />
+            </React.Suspense>
+          )}
         </section>
 
         {/* Right Column: Place Information & Routing Details Panel */}
