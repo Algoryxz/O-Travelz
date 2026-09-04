@@ -32,9 +32,12 @@ class TestTransitCoordinateResolution:
 
     @pytest.fixture(scope="class", autouse=True)
     def ensure_pipeline_output(self):
+        import subprocess
         # Run resolution with cache enabled (0 network calls in test environment)
         from scripts.resolve_canonical_transit_coordinates import run_coordinate_resolution
         run_coordinate_resolution(REPO_ROOT, enable_external=True, max_external_lookups=0)
+        yield
+        subprocess.run(["git", "checkout", "--", "data/transport/canonical/"], cwd=str(REPO_ROOT), check=False)
 
     def test_01_frontend_verified_coordinate_maps_to_canonical_stop(self):
         with open(CANONICAL_DIR / "stops.json", encoding="utf-8") as f:

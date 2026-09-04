@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-09-04T13:47:34.340068+00:00",
+  "total_extracted_records": 1430,
+  "distinct_published_names": 1417,
+  "resolved_physical_identities": 1421,
+  "aliases_collapsed": 5,
+  "same_name_distinct_entities": 2,
+  "ambiguous_unresolved_entities": 3,
+  "exact_verified_coordinates": 171,
+  "locality_only_stops": 1250,
+  "route_context_only_stops": 0,
+  "fully_unresolved_stops": 0,
+  "total_route_stop_sequences": 159,
+  "total_route_stop_links": 1491,
+  "resolved_route_stop_links": 1491,
+  "regional_breakdown": {
+    "CAPITAL_REGION": {
+      "total_stops": 355,
+      "exact_verified_coordinates": 75,
+      "locality_only_stops": 280,
+      "route_context_only_stops": 0,
+      "fully_unresolved_stops": 0
+    },
+    "ROURKELA": {
+      "total_stops": 294,
+      "exact_verified_coordinates": 28,
+      "locality_only_stops": 266,
+      "route_context_only_stops": 0,
+      "fully_unresolved_stops": 0
+    },
+    "SAMBALPUR": {
+      "total_stops": 374,
+      "exact_verified_coordinates": 33,
+      "locality_only_stops": 341,
+      "route_context_only_stops": 0,
+      "fully_unresolved_stops": 0
+    },
+    "BERHAMPUR": {
+      "total_stops": 290,
+      "exact_verified_coordinates": 28,
+      "locality_only_stops": 262,
+      "route_context_only_stops": 0,
+      "fully_unresolved_stops": 0
+    },
+    "KEONJHAR": {
+      "total_stops": 108,
+      "exact_verified_coordinates": 7,
+      "locality_only_stops": 101,
+      "route_context_only_stops": 0,
+      "fully_unresolved_stops": 0
+    }
+  }
+}

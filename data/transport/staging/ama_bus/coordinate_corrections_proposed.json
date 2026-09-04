@@ -1,0 +1,22 @@
+[
+  {
+    "stop_id": "stop_crut_keonjhar_district_hospital",
+    "old_lat": 19.8167,
+    "old_lon": 85.8333,
+    "proposed_lat": 21.6285,
+    "proposed_lon": 85.582,
+    "old_provenance": "staticTransitStops_verified_survey (erroneous conflation with Puri DHH on Grand Road, Puri)",
+    "new_provenance": "official_district_portal_gis",
+    "source": "Keonjhar District Health Directory (hosp_north_013, https://keonjhar.nic.in/public-utility-category/hospitals/)",
+    "facility_details": {
+      "id": "hosp_north_013",
+      "official_name": "District Headquarters Hospital, Keonjhar",
+      "address": "Hospital Road, Keonjhar, Odisha - 758001",
+      "town_city": "Keonjhar",
+      "district": "Keonjhar"
+    },
+    "distance_to_anchor_km": 0.05,
+    "verification_status": "VERIFIED_OFFICIAL",
+    "review_status": "PROPOSED_REPAIR"
+  }
+]

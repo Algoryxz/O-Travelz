@@ -46,10 +46,12 @@ class TestCanonicalBackendRouting:
 
     @pytest.fixture(scope="class", autouse=True)
     def repo(self):
+        import subprocess
         from scripts.resolve_canonical_transit_coordinates import run_coordinate_resolution
         run_coordinate_resolution(REPO_ROOT, enable_external=False, max_external_lookups=0)
         CanonicalTransitRepository.reset_instance()
-        return get_canonical_transit_repository()
+        yield get_canonical_transit_repository()
+        subprocess.run(["git", "checkout", "--", "data/transport/canonical/"], cwd=str(REPO_ROOT), check=False)
 
     def test_01_canonical_loader_reads_all_154_routes(self, repo: CanonicalTransitRepository):
         assert len(repo.routes_by_id) == 154

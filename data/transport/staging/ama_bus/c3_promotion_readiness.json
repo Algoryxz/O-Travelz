@@ -1,0 +1,25 @@
+{
+  "evaluated_at": "2026-09-04T13:47:34.341572+00:00",
+  "canonical_mutation_ready": true,
+  "do_not_promote_automatically_rule_honored": true,
+  "checklist": {
+    "zero_blocking_identity_ambiguities_affecting_route_topology": true,
+    "zero_regional_coordinate_fail_items": true,
+    "all_stop_ids_stable": true,
+    "all_route_stop_references_resolve": true,
+    "all_five_regions_represented": true,
+    "no_invented_coordinates": true,
+    "canonical_validator_would_remain_green": true,
+    "schedule_counts_remain_302_5553": true
+  },
+  "audit_metrics": {
+    "total_physical_stops": 1421,
+    "exact_verified_coordinates": 171,
+    "locality_only_stops": 1250,
+    "total_route_sequences": 159,
+    "total_route_stop_links": 1491,
+    "resolved_route_stop_links": 1491
+  },
+  "recommended_action": "READY_FOR_CANONICAL_PROMOTION_REVIEW",
+  "notes": "All five regions staged with 100% resolved route topology, zero coordinate fabrication, and Keonjhar DHH repaired. Canonical directory remains untouched pending user approval."
+}
