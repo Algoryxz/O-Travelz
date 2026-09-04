@@ -95,6 +95,7 @@ class Stop(Base):
     effective_date = Column(Date, nullable=True)
     verified_at = Column(DateTime, nullable=True)
     notes = Column(Text, nullable=True)
+    localized_names = Column(JSON, nullable=True)
 
 
 class Route(Base):

@@ -62,6 +62,11 @@ class Place(Base):
     highway_corridor = Column(String, nullable=True)
     food_category = Column(String, nullable=True)
 
+    # Wave A1 additions: Localized identity & explicit confidence tracking
+    localized_names = Column(JSON, nullable=True)
+    confidence = Column(String(16), nullable=True)
+    last_verified_at = Column(DateTime(timezone=True), nullable=True)
+
     # Category relationship
     category = relationship("Category")
 

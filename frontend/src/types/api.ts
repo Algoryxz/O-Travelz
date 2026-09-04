@@ -432,6 +432,28 @@ export const ALL_CANONICAL_CATEGORIES = [
   ...CANONICAL_TRANSIT_CATEGORIES,
 ] as const;
 
+export interface LocalizedNames {
+  en: string;
+  or?: string | null;
+  hi?: string | null;
+}
+
+export function resolveLocalizedName(
+  localized?: LocalizedNames | null,
+  fallbackName: string = "",
+  langCode: string = "en"
+): string {
+  if (!localized) return fallbackName;
+  const normalized = (langCode || "en").trim().toLowerCase();
+  if (normalized === "or" || normalized === "odi" || normalized === "odia") {
+    return localized.or || localized.en || fallbackName;
+  }
+  if (normalized === "hi" || normalized === "hin" || normalized === "hindi") {
+    return localized.hi || localized.en || fallbackName;
+  }
+  return localized.en || fallbackName;
+}
+
 export interface PlaceDetail {
   id: string;
   research_id?: string | null;
@@ -458,7 +480,11 @@ export interface PlaceDetail {
   cuisine?: string | null;
   images?: PlaceImageContract[];
   interests?: string[];
+  localized_names?: LocalizedNames | null;
+  confidence?: string | null;
+  last_verified_at?: string | null;
 }
+
 
 
 export interface PlaceListParams {

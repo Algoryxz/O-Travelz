@@ -24,3 +24,6 @@ from app.models.user import User                 # noqa: E402,F401
 from app.models.session import (                 # noqa: E402,F401
     UserSession, UserSavedPlace, UserSavedTrip, SharedTripSnapshot,
 )
+from app.models.entity_relationship import EntityRelationship  # noqa: E402,F401
+from app.models.media_asset import MediaAsset, EntityMedia      # noqa: E402,F401
+

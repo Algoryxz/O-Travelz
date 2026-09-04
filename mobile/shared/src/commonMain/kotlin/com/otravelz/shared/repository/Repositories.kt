@@ -1,6 +1,7 @@
 package com.otravelz.shared.repository
 
 import com.otravelz.shared.geo.GeoPoint
+import com.otravelz.shared.i18n.LocalizedNames
 import com.otravelz.shared.provenance.WeatherState
 
 /**
@@ -13,7 +14,8 @@ data class PlaceSummary(
     val district: String?,
     val coordinate: GeoPoint?,
     val description: String?,
-    val isVerified: Boolean = false
+    val isVerified: Boolean = false,
+    val localizedNames: LocalizedNames? = null
 )
 
 /**
@@ -24,7 +26,8 @@ data class TransitStopSummary(
     val name: String,
     val coordinate: GeoPoint?,
     val isInterchange: Boolean = false,
-    val servedRoutes: List<String> = emptyList()
+    val servedRoutes: List<String> = emptyList(),
+    val localizedNames: LocalizedNames? = null
 )
 
 /**

@@ -11,6 +11,7 @@ from app.models.category import Category
 from app.models.place import Place
 from app.models.interest import Interest, PlaceInterest
 from app.schemas.image import PlaceImageResponse
+from app.schemas.localization import LocalizedNames
 from app.core.regions import get_region_for_place
 from app.services.search.search_models import SearchQueryParams
 from app.services.search.search_service import SearchService
@@ -48,6 +49,10 @@ class PlaceDetailResponse(BaseModel):
     highway_corridor: Optional[str] = None
     food_category: Optional[str] = None
     images: List[PlaceImageResponse] = []
+    localized_names: Optional[LocalizedNames] = None
+    confidence: Optional[str] = None
+    last_verified_at: Optional[str] = None
+
 
 
 def _extract_interests(place: Place) -> List[str]:
@@ -86,6 +91,14 @@ def _to_place_detail_response(place: Place, cat_name: str) -> PlaceDetailRespons
 
     place_region = get_region_for_place(place.district, place.research_id or str(place.id))
 
+    loc_names = None
+    raw_loc = getattr(place, "localized_names", None)
+    if raw_loc and isinstance(raw_loc, dict):
+        try:
+            loc_names = LocalizedNames.model_validate(raw_loc)
+        except Exception:
+            pass
+
     return PlaceDetailResponse(
         id=str(place.id),
         research_id=place.research_id,
@@ -116,6 +129,9 @@ def _to_place_detail_response(place: Place, cat_name: str) -> PlaceDetailRespons
         highway_corridor=getattr(place, "highway_corridor", None),
         food_category=getattr(place, "food_category", None),
         images=image_responses,
+        localized_names=loc_names,
+        confidence=getattr(place, "confidence", None),
+        last_verified_at=str(place.last_verified_at) if getattr(place, "last_verified_at", None) else None,
     )
 
 

@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ V4 — Media Pipelines, Language & Editorial Voice
+# O-TRAVELZ V4 — Media Pipelines, Language & Editorial Voice
 
 > **Authoritative Media & Localization Specification**  
 > Visual Rule: **NO VERIFIED IMAGE = NO PUBLIC DESTINATION**  
@@ -30,7 +30,20 @@ Each image record in PostgreSQL (`place_images`) and the Git manifest (`data/ima
 * `attribution`: Exact photographer credit and institution.
 * `verification_notes`: Verification rationale confirming the photo depicts the genuine Odisha landmark.
 
+### 1.4 Canonical Media Registry Architecture (`media_assets` & `entity_media`) `[CURRENT]`
+Introduced in Wave A1 (ADR-003) to eliminate asset duplication and support all domain entity types:
+* **Single Source of Truth**: All media assets (photography, video, audio) are uniquely registered in `media_assets` addressed by content SHA-256 (`content_sha256`).
+* **Multi-Entity Associations**: The `entity_media` table links media assets to places, transit stops, artisan clusters, or craft traditions with explicit roles (`primary`, `gallery`, `hero`, `thumbnail`).
+* **Verification Status Model**: Every media record enforces a photographic truth gate:
+  - `EXACT_LOCATION_VERIFIED`: Directly captured at and verified against the specific landmark.
+  - `RELATED_LOCATION`: Captured within the immediate precinct/corridor, clearly labeled.
+  - `TECHNICAL_VECTOR`: Illustrative or architectural vector representation.
+  - `UNVERIFIED`: In research pipeline; strictly quarantined from public catalog.
+  - `REJECTED`: Fails authentic Odisha provenance gates; never served.
+* **Compatibility Layer**: Legacy `place_images` table is maintained as an operational projection for legacy clients while `media_assets` serves as the authoritative media registry.
+
 ---
+
 
 ## 2. Cinematic Video & Heritage 3D Pipeline Design
 
@@ -90,7 +103,24 @@ Kotlin Multiplatform standardizes all customer-facing strings across platforms:
 * `LABEL_FIRST_MILE_WALK`: "Reasonable Walk" / "ପାଦଚଲା ଦୂରତା"
 * `LABEL_FIRST_MILE_AUTO`: "Short Auto Recommended" / "ଅଟୋ ରିକ୍ସା ଉପଯୁକ୍ତ"
 
+### 3.4 Universal Localized Entity Identity Contract `[CURRENT]`
+Introduced in Wave A1 (ADR-002) for consistent multilingual naming:
+* **Contract**:
+  ```json
+  {
+    "en": "Konark Sun Temple",
+    "or": "କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର",
+    "hi": "कोणार्क सूर्य मंदिर"
+  }
+  ```
+* **Supported Layers**:
+  - Python Pydantic (`app.schemas.localization.LocalizedNames`)
+  - TypeScript (`frontend/src/types/api.ts`)
+  - Kotlin Multiplatform (`mobile/shared/src/commonMain/kotlin/.../LocalizedNames.kt`)
+* **Deterministic Fallback**: Whenever an Odia (`or`) or Hindi (`hi`) script translation is absent, the resolver falls back to the canonical English (`en`) name without breaking the UI.
+
 ---
+
 
 ## 4. Editorial Voice & Tone Guidelines
 

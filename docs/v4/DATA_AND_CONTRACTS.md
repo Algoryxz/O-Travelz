@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ V4 — Data Entities, Schemas & API Contracts
+# O-TRAVELZ V4 — Data Entities, Schemas & API Contracts
 
 > **Authoritative Data Specification**  
 > Database Engine: **Aiven Managed PostgreSQL 16 + PostGIS 3.4**  
@@ -60,13 +60,78 @@ CREATE TABLE places (
     address TEXT,
     cuisine VARCHAR(128),
     highway_corridor VARCHAR(128),
-    food_category VARCHAR(64)
+    food_category VARCHAR(64),
+    localized_names JSON,
+    confidence VARCHAR(16),
+    last_verified_at TIMESTAMPTZ
 );
 CREATE INDEX idx_places_location ON places USING GIST(location);
 CREATE INDEX idx_places_district ON places(district);
+CREATE INDEX idx_places_confidence ON places(confidence);
 ```
 
-### 2.2 Living Heritage & Artisan Schema `[PLANNED]`
+### 2.2 Normalized Cross-Entity Relationships (`app.models.entity_relationship.EntityRelationship`) `[CURRENT]`
+```sql
+CREATE TABLE entity_relationships (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    source_entity_type VARCHAR(32) NOT NULL,
+    source_entity_id UUID NOT NULL,
+    target_entity_type VARCHAR(32) NOT NULL,
+    target_entity_id UUID NOT NULL,
+    relationship_type VARCHAR(64) NOT NULL,
+    confidence VARCHAR(16), -- Never defaulted to HIGH; must be computed or assigned from evidence
+    provenance VARCHAR(255),
+    properties JSON,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    CONSTRAINT uq_entity_relationship UNIQUE (
+        source_entity_type, source_entity_id, target_entity_type, target_entity_id, relationship_type
+    )
+);
+CREATE INDEX ix_entity_rel_source ON entity_relationships(source_entity_type, source_entity_id);
+CREATE INDEX ix_entity_rel_target ON entity_relationships(target_entity_type, target_entity_id);
+CREATE INDEX ix_entity_rel_type ON entity_relationships(relationship_type);
+```
+
+### 2.3 Canonical Media Registry & Entity Association `[CURRENT]`
+```sql
+CREATE TABLE media_assets (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    media_type VARCHAR(16) NOT NULL DEFAULT 'image', -- 'image' | 'video' | 'audio'
+    content_sha256 VARCHAR(64) UNIQUE NOT NULL,
+    mime_type VARCHAR(64) NOT NULL,
+    width INTEGER,
+    height INTEGER,
+    duration_ms INTEGER,
+    storage_backend VARCHAR(32) NOT NULL DEFAULT 'local',
+    storage_key VARCHAR(255) UNIQUE NOT NULL,
+    variants JSON,
+    perceptual_hash VARCHAR(64),
+    license VARCHAR(64),
+    creator VARCHAR(128),
+    attribution VARCHAR(255),
+    source_url VARCHAR(512),
+    verification_status VARCHAR(32) NOT NULL DEFAULT 'UNVERIFIED',
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE TABLE entity_media (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    entity_type VARCHAR(32) NOT NULL,
+    entity_id UUID NOT NULL,
+    media_asset_id UUID NOT NULL REFERENCES media_assets(id) ON DELETE CASCADE,
+    association_type VARCHAR(32) NOT NULL DEFAULT 'primary', -- 'primary' | 'gallery' | 'hero' | 'thumbnail'
+    sort_order INTEGER NOT NULL DEFAULT 0,
+    alt_text VARCHAR(255),
+    caption VARCHAR(255),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    CONSTRAINT uq_entity_media_assoc UNIQUE (entity_type, entity_id, media_asset_id, association_type)
+);
+CREATE INDEX ix_entity_media_entity ON entity_media(entity_type, entity_id);
+CREATE INDEX ix_entity_media_asset ON entity_media(media_asset_id);
+```
+> Note: `place_images` is preserved as a legacy compatibility store for existing client endpoints and bootstrap invariant checking. `media_assets` serves as the sole canonical registry.
+
+### 2.4 Living Heritage & Artisan Schema `[PLANNED]`
 ```sql
 CREATE TABLE craft_traditions (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -110,9 +175,25 @@ CREATE TABLE stops (
     name VARCHAR(255) NOT NULL,
     city VARCHAR(100),
     location GEOGRAPHY(Point, 4326),
-    coordinate_provenance VARCHAR(64) -- 'OFFICIAL', 'GEOCODED', 'UNRESOLVED'
+    coordinate_provenance VARCHAR(64), -- 'OFFICIAL', 'GEOCODED', 'UNRESOLVED'
+    localized_names JSON
 );
 ```
+
+### 2.6 Universal Localized Entity Identity Contract `[CURRENT]`
+Every domain entity (Place, Stop, CraftTradition, ArtisanCluster, RailwayStation) supports the universal localization contract:
+```json
+{
+  "en": "Konark Sun Temple",
+  "or": "କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର",
+  "hi": "कोणार्क सूर्य मंदिर"
+}
+```
+* **Python**: `app.schemas.localization.LocalizedNames` (with `or` alias for Odia and `resolve(lang)`).
+* **TypeScript**: `export interface LocalizedNames { en: string; or?: string | null; hi?: string | null; }`.
+* **Kotlin Multiplatform**: `com.otravelz.shared.i18n.LocalizedNames(val en: String, val orName: String? = null, val hi: String? = null)`.
+* **Fallback Contract**: Always resolves to `en` if the requested language or script translation is unavailable.
+
 
 ---
 
