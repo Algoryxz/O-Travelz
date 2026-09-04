@@ -105,6 +105,10 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
   const [mapEngine, setMapEngine] = useState<'leaflet' | 'maplibre'>('maplibre');
   const [detailModalPlace, setDetailModalPlace] = useState<PlaceDetail | null>(null);
 
+  const isDevOrDebug = Boolean(
+    import.meta.env.DEV || (typeof window !== 'undefined' && window.location.search.includes('debug=true'))
+  );
+
   const mapLibrePlaces: MapPlaceMarker[] = useMemo(() => {
     return (places || [])
       .map((p) => ({
@@ -1395,31 +1399,34 @@ export const StitchMapPage: React.FC<StitchMapPageProps> = ({
               {showAllTransitStops ? 'All 46 Stops' : 'Hubs'}
             </button>
           )}
-          {/* Map Engine Toggle: Leaflet Classic vs MapLibre Vector */}
-          <div className="flex items-center gap-1 bg-[#FAF7F2] p-0.5 rounded-full border border-[#E5DFD5] shrink-0">
-            <button
-              type="button"
-              onClick={() => setMapEngine('leaflet')}
-              className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold transition cursor-pointer ${
-                mapEngine === 'leaflet'
-                  ? 'bg-white text-[#12161E] shadow-xs border border-[#E5DFD5]'
-                  : 'text-[#70798B] hover:text-[#12161E]'
-              }`}
-            >
-              Classic
-            </button>
-            <button
-              type="button"
-              onClick={() => setMapEngine('maplibre')}
-              className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold transition cursor-pointer ${
-                mapEngine === 'maplibre'
-                  ? 'bg-[#B87B22] text-white shadow-xs'
-                  : 'text-[#70798B] hover:text-[#B87B22]'
-              }`}
-            >
-              Vector (Liberty)
-            </button>
-          </div>
+          {/* Map Engine Toggle: Retained for developer parity verification; hidden from tourist production UI */}
+          {isDevOrDebug && (
+            <div className="flex items-center gap-1 bg-[#FAF7F2] p-0.5 rounded-full border border-[#E5DFD5] shrink-0" data-testid="map-engine-dev-toggle">
+              <span className="text-[10px] font-mono text-[#70798B] px-1 hidden sm:inline">[DEV]</span>
+              <button
+                type="button"
+                onClick={() => setMapEngine('leaflet')}
+                className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold transition cursor-pointer ${
+                  mapEngine === 'leaflet'
+                    ? 'bg-white text-[#12161E] shadow-xs border border-[#E5DFD5]'
+                    : 'text-[#70798B] hover:text-[#12161E]'
+                }`}
+              >
+                Classic (Dev)
+              </button>
+              <button
+                type="button"
+                onClick={() => setMapEngine('maplibre')}
+                className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold transition cursor-pointer ${
+                  mapEngine === 'maplibre'
+                    ? 'bg-[#B87B22] text-white shadow-xs'
+                    : 'text-[#70798B] hover:text-[#B87B22]'
+                }`}
+              >
+                Vector (Liberty)
+              </button>
+            </div>
+          )}
         </div>
       </header>
 

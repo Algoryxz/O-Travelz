@@ -133,7 +133,7 @@ def list_places(
     near_lat: Optional[float] = Query(None, ge=17.0, le=23.5, description="Reference latitude for proximity search"),
     near_lon: Optional[float] = Query(None, ge=81.0, le=88.0, description="Reference longitude for proximity search"),
     radius_km: Optional[float] = Query(None, gt=0, le=500.0, description="Proximity search radius in kilometers"),
-    limit: int = Query(200, ge=1, le=200, description="Maximum number of items to return"),
+    limit: int = Query(200, ge=1, le=500, description="Maximum number of items to return"),
     offset: int = Query(0, ge=0, description="Number of items to skip"),
     db: Session = Depends(get_db),
 ) -> List[PlaceDetailResponse]:

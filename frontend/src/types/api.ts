@@ -455,6 +455,7 @@ export interface PlaceDetail {
   contact_phone?: string | null;
   emergency_phone?: string | null;
   address?: string | null;
+  cuisine?: string | null;
   images?: PlaceImageContract[];
   interests?: string[];
 }

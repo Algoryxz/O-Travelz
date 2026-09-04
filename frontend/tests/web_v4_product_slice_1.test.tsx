@@ -58,7 +58,7 @@ describe('Web V4 Product Slice 1 — Cultural Atlas & Multidimensional Truth', (
       expect(meta?.architecturalEra).toContain('13th Century');
       expect(meta?.architecturalStyle).toContain('Kalinga Architectural Style');
       expect(meta?.nearestHub).toBe('Puri');
-      expect(meta?.hubDistanceKm).toBe(35);
+      expect(meta?.approxStraightLineKm).toBe(31);
       expect(meta?.sanctuaryEtiquette).toContain('Footwear prohibited');
     });
   });
@@ -67,16 +67,42 @@ describe('Web V4 Product Slice 1 — Cultural Atlas & Multidimensional Truth', (
     const mockPlace: PlaceDetail = {
       id: 'place_konark',
       name: 'Konark Sun Temple',
-      category: 'temple',
+      category: 'monument',
       district: 'Puri',
       region: 'Coastal Belt',
       lat: 19.8876,
       lon: 86.0945,
       description: '13th-century Sun Temple built by King Narasimhadeva I of the Eastern Ganga Dynasty.',
       verification_status: 'VERIFIED_CANONICAL',
+      verified_at: '2026-08-15T00:00:00Z',
     };
 
-    it('renders English title, Odia script, and multidimensional truth badges', () => {
+    const mockSacredPlace: PlaceDetail = {
+      id: 'place_jagannath',
+      name: 'Shree Jagannath Temple',
+      category: 'temple',
+      district: 'Puri',
+      region: 'Coastal Belt',
+      lat: 19.8048,
+      lon: 85.8179,
+      description: 'Sacred 12th-century Jagannath temple sanctum.',
+      verification_status: 'VERIFIED_CANONICAL',
+      verified_at: '2026-08-15T00:00:00Z',
+    };
+
+    const mockNaturePlace: PlaceDetail = {
+      id: 'place_chandrabhaga',
+      name: 'Chandrabhaga Beach',
+      category: 'beach',
+      district: 'Puri',
+      region: 'Coastal Belt',
+      lat: 19.8667,
+      lon: 86.1111,
+      description: 'Pristine coastal stretch along the Bay of Bengal.',
+      verification_status: 'VERIFIED_CANONICAL',
+    };
+
+    it('renders English title, Odia script, and dynamic verified truth badges', () => {
       render(
         <StitchDestinationDetailModal
           place={mockPlace}
@@ -91,13 +117,62 @@ describe('Web V4 Product Slice 1 — Cultural Atlas & Multidimensional Truth', (
       expect(screen.getByText('Konark Sun Temple')).toBeDefined();
       expect(screen.getByText('କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର')).toBeDefined();
 
-      // Multidimensional truth model badges
+      // Multidimensional truth model badges (strictly grounded to database fields)
       expect(screen.getByText('VERIFIED_CANONICAL')).toBeDefined();
-      expect(screen.getByText('FRESH (09/2026)')).toBeDefined();
-      expect(screen.getByText('OPERATIONAL')).toBeDefined();
+      expect(screen.getByText('Audited Aug 2026')).toBeDefined();
+      // Unsupported fake badges like OPERATIONAL and FRESH (09/2026) must NOT exist
+      expect(screen.queryByText('OPERATIONAL')).toBeNull();
+      expect(screen.queryByText('FRESH (09/2026)')).toBeNull();
     });
 
-    it('renders grounded transit connections and zero-hallucination governance notes', () => {
+    it('renders conditional domain sections for sacred shrines and excludes them from nature places', () => {
+      // 1. Render temple place: should show Sanctum Etiquette and Sacred Sanctuary Protocol
+      const { unmount: unmountSacred } = render(
+        <StitchDestinationDetailModal
+          place={mockSacredPlace}
+          isOpen={true}
+          onClose={vi.fn()}
+          onPlanTrip={vi.fn()}
+          onViewOnMap={vi.fn()}
+        />
+      );
+
+      expect(screen.getByText('Sacred Architecture & Lineage')).toBeDefined();
+      expect(screen.getByText('Sacred Sanctuary Protocol')).toBeDefined();
+      unmountSacred();
+
+      // 2. Render heritage monument: should show Architectural & Archaeological Provenance
+      const { unmount: unmountHeritage } = render(
+        <StitchDestinationDetailModal
+          place={mockPlace}
+          isOpen={true}
+          onClose={vi.fn()}
+          onPlanTrip={vi.fn()}
+          onViewOnMap={vi.fn()}
+        />
+      );
+
+      expect(screen.getByText('Architectural & Archaeological Provenance')).toBeDefined();
+      expect(screen.queryByText('Sacred Sanctuary Protocol')).toBeNull();
+      unmountHeritage();
+
+      // 3. Render nature/beach place: must NOT show sacred protocols, but ecological guidelines
+      render(
+        <StitchDestinationDetailModal
+          place={mockNaturePlace}
+          isOpen={true}
+          onClose={vi.fn()}
+          onPlanTrip={vi.fn()}
+          onViewOnMap={vi.fn()}
+        />
+      );
+
+      expect(screen.queryByText('Sacred Architecture & Lineage')).toBeNull();
+      expect(screen.queryByText('Sacred Sanctuary Protocol')).toBeNull();
+      expect(screen.getByText('Ecological Reserve & Visitor Guidelines')).toBeDefined();
+    });
+
+    it('renders grounded transit guidance and straight-line air distance truth', () => {
       render(
         <StitchDestinationDetailModal
           place={mockPlace}
@@ -108,9 +183,10 @@ describe('Web V4 Product Slice 1 — Cultural Atlas & Multidimensional Truth', (
         />
       );
 
-      // Grounded transit
-      expect(screen.getByText('Grounded Transit Connections')).toBeDefined();
-      expect(screen.getByText('~35 km')).toBeDefined();
+      // Grounded transit guidance
+      expect(screen.getByText('Grounded Transit Guidance')).toBeDefined();
+      expect(screen.getByText('Approx. Straight-Line')).toBeDefined();
+      expect(screen.getByText('~31 km (Air)')).toBeDefined();
       expect(screen.getByText(/Scheduled arrival data only; live GPS telemetry is strictly not active/i)).toBeDefined();
 
       // Zero-hallucination visiting governance
@@ -144,7 +220,7 @@ describe('Web V4 Product Slice 1 — Cultural Atlas & Multidimensional Truth', (
   });
 
   describe('Surface 1: Explore (Cultural Atlas)', () => {
-    it('renders canonical header with 204 verified sanctuaries and view mode toggle', async () => {
+    it('renders canonical header with 204 places and view mode toggle', async () => {
       const { StitchDestinationsPage } = await import('../src/pages/stitch/StitchDestinationsPage');
       const { AIProvider } = await import('../src/context/AIContext');
 
@@ -154,8 +230,8 @@ describe('Web V4 Product Slice 1 — Cultural Atlas & Multidimensional Truth', (
         </AIProvider>
       );
 
-      // Header verification
-      expect(screen.getByText(/204 Canonical Sanctuaries \+ Verified Cultural Heritage/i)).toBeDefined();
+      // Header verification: 204 Canonical Places (not "204 Sanctuaries")
+      expect(screen.getByText(/204 Canonical Places • Cultural Destinations, Nature & Living Heritage/i)).toBeDefined();
       expect(screen.getByText('Destinations & Cultural Atlas')).toBeDefined();
 
       // Mode toggles

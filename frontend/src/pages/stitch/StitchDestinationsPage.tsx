@@ -9,6 +9,7 @@ import { ODISHA_EXPERIENCES } from '../../data/odishaExperiences';
 import { StitchWeatherSection } from '../../components/stitch/StitchWeatherSection';
 import { getPlaceOdiaName } from '../../data/canonicalOdiaPlaces';
 import type { MapPlaceMarker } from '../../components/map/MapLibreCanvas';
+import seedPlacesData from '../../../../data/places/places.json';
 
 const MapLibreCanvas = React.lazy(() =>
   import('../../components/map/MapLibreCanvas').then((m) => ({ default: m.MapLibreCanvas }))
@@ -66,12 +67,39 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
         if (search.trim()) params.search = search.trim();
 
         const data = await apiClient.listPlaces(params);
-        if (isMounted && Array.isArray(data)) {
-          // Gate: Authenticate destinations with verified metadata
+        if (isMounted && Array.isArray(data) && data.length > 0) {
           setPlaces(data);
+        } else if (isMounted) {
+          // Fallback to local canonical places catalog
+          let fallback = seedPlacesData as unknown as PlaceDetail[];
+          if (selectedCategory !== 'All' && selectedCategory !== 'Food' && selectedCategory !== 'Crafts' && selectedCategory !== 'Shopping') {
+            fallback = fallback.filter((p) => p.category?.toLowerCase() === selectedCategory.toLowerCase());
+          }
+          if (selectedRegion !== 'All') {
+            fallback = fallback.filter((p) => p.region === selectedRegion || p.district === selectedRegion);
+          }
+          if (search.trim()) {
+            const q = search.toLowerCase().trim();
+            fallback = fallback.filter((p) => p.name.toLowerCase().includes(q) || p.description?.toLowerCase().includes(q));
+          }
+          setPlaces(fallback);
         }
       } catch (err) {
         console.warn('API error fetching places, falling back to local dataset:', err);
+        if (isMounted) {
+          let fallback = seedPlacesData as unknown as PlaceDetail[];
+          if (selectedCategory !== 'All' && selectedCategory !== 'Food' && selectedCategory !== 'Crafts' && selectedCategory !== 'Shopping') {
+            fallback = fallback.filter((p) => p.category?.toLowerCase() === selectedCategory.toLowerCase());
+          }
+          if (selectedRegion !== 'All') {
+            fallback = fallback.filter((p) => p.region === selectedRegion || p.district === selectedRegion);
+          }
+          if (search.trim()) {
+            const q = search.toLowerCase().trim();
+            fallback = fallback.filter((p) => p.name.toLowerCase().includes(q) || p.description?.toLowerCase().includes(q));
+          }
+          setPlaces(fallback);
+        }
       } finally {
         if (isMounted) setLoading(false);
       }
@@ -127,7 +155,7 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
             <div>
               <div className="inline-flex items-center gap-2 bg-[#B87B22]/10 text-[#B87B22] px-3 py-1 rounded-full text-xs font-mono font-medium mb-3">
                 <span className="material-symbols-outlined text-sm">verified</span>
-                <span>204 Canonical Sanctuaries + Verified Cultural Heritage</span>
+                <span>204 Canonical Places • Cultural Destinations, Nature &amp; Living Heritage</span>
               </div>
               <h1 className="text-3xl md:text-5xl font-display font-bold text-[#12161E] tracking-tight">
                 Destinations &amp; Cultural Atlas
@@ -311,7 +339,7 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
           <section>
             <div className="flex justify-between items-end mb-6 border-b border-[#E5DFD5] pb-3">
               <h3 className="text-xl md:text-2xl font-display font-bold text-[#12161E]">
-                Canonical Sanctuaries ({places.length})
+                Canonical Destinations &amp; Regional Hubs ({places.length})
               </h3>
               <div className="flex items-center gap-3">
                 <span className="font-mono text-xs text-[#0D5C3A] bg-[#0D5C3A]/10 px-2.5 py-1 rounded-full font-bold">
@@ -402,15 +430,21 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
                             </p>
                           )}
                           <p className="font-body text-xs text-[#3D4654] line-clamp-2 leading-relaxed mb-3">
-                            {place.description || 'Verified Odisha cultural and ecological sanctuary.'}
+                            {place.description || 'Verified Odisha destination.'}
                           </p>
                         </div>
 
                         <div>
                           <div className="flex items-center gap-2 mb-3">
-                            <span className="text-[10px] font-mono text-[#0D5C3A] bg-[#0D5C3A]/10 px-2 py-0.5 rounded border border-[#0D5C3A]/20 font-bold">
-                              ✓ VERIFIED CANONICAL
-                            </span>
+                            {place.verification_status === 'VERIFIED_CANONICAL' || place.verification_status === 'VERIFIED' || (place as any).audit_status === 'verified' ? (
+                              <span className="text-[10px] font-mono text-[#0D5C3A] bg-[#0D5C3A]/10 px-2 py-0.5 rounded border border-[#0D5C3A]/20 font-bold">
+                                ✓ VERIFIED CANONICAL
+                              </span>
+                            ) : (
+                              <span className="text-[10px] font-mono text-amber-800 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20 font-bold">
+                                PROVISIONAL
+                              </span>
+                            )}
                             {place.lat != null && place.lon != null && (
                               <span className="text-[10px] font-mono text-[#70798B] tabular-nums">
                                 {place.lat.toFixed(2)}°N, {place.lon.toFixed(2)}°E
@@ -495,9 +529,15 @@ export const StitchDestinationsPage: React.FC<StitchDestinationsPageProps> = ({
                               <span className="text-[10px] font-mono text-[#B87B22] uppercase tracking-wider font-semibold">
                                 {place.category}
                               </span>
-                              <span className="text-[10px] font-mono text-[#0D5C3A] font-bold">
-                                ✓ VERIFIED
-                              </span>
+                              {place.verification_status === 'VERIFIED_CANONICAL' || place.verification_status === 'VERIFIED' || (place as any).audit_status === 'verified' ? (
+                                <span className="text-[10px] font-mono text-[#0D5C3A] font-bold">
+                                  ✓ VERIFIED
+                                </span>
+                              ) : (
+                                <span className="text-[10px] font-mono text-amber-800 font-bold">
+                                  PROVISIONAL
+                                </span>
+                              )}
                             </div>
                             <h4 className="font-display font-bold text-base text-[#12161E] truncate">
                               {place.name}
