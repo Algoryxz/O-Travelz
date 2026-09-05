@@ -131,8 +131,8 @@ class RouteStop(Base):
     route_id = Column(UUID(as_uuid=True), ForeignKey("routes.id"), nullable=False)
     stop_id = Column(UUID(as_uuid=True), ForeignKey("stops.id"), nullable=False)
     sequence_order = Column(Integer, nullable=False)
-    direction = Column(String, nullable=True)
-    sequence_id = Column(String, nullable=False)
+    direction = Column(String(64), nullable=False)
+    sequence_id = Column(String(128), nullable=False)
 
 
 
