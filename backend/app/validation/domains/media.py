@@ -162,7 +162,7 @@ def validate_entity_media(
         asset = media_assets_by_id[asset_id]
         asset_status = str(asset.get("verification_status", "")).strip().upper()
 
-        # 2. REJECTED Asset Cannot Be Public (Blocking ERROR)
+        # 2. Publication Safety Rules (Blocking ERRORs)
         if asset_status == "REJECTED":
             report.add_issue(
                 code=codes.MED_REJECTED_PUBLIC,
@@ -174,6 +174,54 @@ def validate_entity_media(
                 message=f"EntityMedia links public entity '{ent_id}' to REJECTED media asset '{asset_id}'",
                 evidence={"entity_id": ent_id, "asset_id": asset_id, "status": asset_status},
             )
+
+        if asset_status == "UNVERIFIED":
+            if display_role == "HERO":
+                report.add_issue(
+                    code=codes.MED_UNVERIFIED_PUBLIC_HERO,
+                    severity=ValidationSeverity.ERROR,
+                    domain="media",
+                    entity_type="entity_media",
+                    entity_id=assoc_id,
+                    field="display_role",
+                    message=f"EntityMedia links public entity '{ent_id}' to UNVERIFIED media asset '{asset_id}' as HERO",
+                    evidence={"entity_id": ent_id, "asset_id": asset_id, "display_role": display_role},
+                )
+            elif display_role == "CARD":
+                report.add_issue(
+                    code=codes.MED_UNVERIFIED_PUBLIC_CARD,
+                    severity=ValidationSeverity.ERROR,
+                    domain="media",
+                    entity_type="entity_media",
+                    entity_id=assoc_id,
+                    field="display_role",
+                    message=f"EntityMedia links public entity '{ent_id}' to UNVERIFIED media asset '{asset_id}' as CARD",
+                    evidence={"entity_id": ent_id, "asset_id": asset_id, "display_role": display_role},
+                )
+
+        if asset_status == "RELATED_LOCATION":
+            if display_role == "HERO":
+                report.add_issue(
+                    code=codes.MED_RELATED_LOCATION_AS_HERO,
+                    severity=ValidationSeverity.ERROR,
+                    domain="media",
+                    entity_type="entity_media",
+                    entity_id=assoc_id,
+                    field="display_role",
+                    message=f"EntityMedia links public entity '{ent_id}' to RELATED_LOCATION media asset '{asset_id}' as HERO (only GALLERY/CONTEXTUAL allowed)",
+                    evidence={"entity_id": ent_id, "asset_id": asset_id, "display_role": display_role},
+                )
+            elif display_role == "CARD":
+                report.add_issue(
+                    code=codes.MED_RELATED_LOCATION_AS_CARD,
+                    severity=ValidationSeverity.ERROR,
+                    domain="media",
+                    entity_type="entity_media",
+                    entity_id=assoc_id,
+                    field="display_role",
+                    message=f"EntityMedia links public entity '{ent_id}' to RELATED_LOCATION media asset '{asset_id}' as CARD (only GALLERY/CONTEXTUAL allowed)",
+                    evidence={"entity_id": ent_id, "asset_id": asset_id, "display_role": display_role},
+                )
 
         asset_to_entities[asset_id].add(ent_id)
 

@@ -1,0 +1,151 @@
+{
+  "wave": "A3b.1",
+  "generated_at": "2026-09-05T13:06:02.733559+00:00",
+  "git_head": "8118e978f42ae675fedaeebe31cbcfa58b9f8a3e",
+  "safety_status": "PASSED",
+  "before_unsafe_counts": {
+    "unverified_hero": 14,
+    "unverified_card": 0,
+    "related_location_hero": 8,
+    "related_location_card": 0,
+    "rejected_public": 0
+  },
+  "after_unsafe_counts": {
+    "unverified_hero": 0,
+    "unverified_card": 0,
+    "related_location_hero": 0,
+    "related_location_card": 0,
+    "rejected_public": 0
+  },
+  "legacy_valid_unverified_disposition": {
+    "total_assets": 14,
+    "action": "QUARANTINED_IN_MEDIA_ASSETS_ZERO_ENTITY_MEDIA",
+    "rationale": "Option B: Retained in media_assets as UNVERIFIED to preserve assets without data loss. Removed entity_media associations to prevent unverified media from being served publicly as HERO or CARD.",
+    "assets": [
+      {
+        "storage_key": "place_024/c24a920d9ea5",
+        "place_id": "place_024",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_028/cd738a94a267",
+        "place_id": "place_028",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_032/1b4f7e6f8b2e",
+        "place_id": "place_032",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_food_001/e6fb3a71867e",
+        "place_id": "place_food_001",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_food_002/e0850b09b5ca",
+        "place_id": "place_food_002",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_food_003/5a13e730e909",
+        "place_id": "place_food_003",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_food_004/4e765c230837",
+        "place_id": "place_food_004",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_food_005/daeb11d5893b",
+        "place_id": "place_food_005",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_food_006/88f959c50d0e",
+        "place_id": "place_food_006",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_food_007/a0a492f880a5",
+        "place_id": "place_food_007",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_food_008/35cde5e9e0e8",
+        "place_id": "place_food_008",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_food_009/0b3143c9ea24",
+        "place_id": "place_food_009",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_food_010/abcf1ef01835",
+        "place_id": "place_food_010",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      },
+      {
+        "storage_key": "place_food_011/cb1d3fcc1b6c",
+        "place_id": "place_food_011",
+        "verification_status": "UNVERIFIED",
+        "content_kind": "FIELD_PHOTOGRAPH",
+        "entity_media_associations": 0
+      }
+    ]
+  },
+  "place_images_projection_summary": {
+    "total": 70,
+    "matched_canonical": 62,
+    "legacy_only_allowed": 8,
+    "desync": 0,
+    "invalid_public": 0,
+    "status": "PARTIAL"
+  },
+  "reuse_groups_resolution": {
+    "total_entities": 16,
+    "status": "RESEARCH_ONLY_RESOLVED",
+    "db_contamination": 0
+  },
+  "validator_changes": [
+    "Added MED_UNVERIFIED_PUBLIC_HERO: blocks UNVERIFIED asset linked as HERO",
+    "Added MED_UNVERIFIED_PUBLIC_CARD: blocks UNVERIFIED asset linked as CARD",
+    "Added MED_RELATED_LOCATION_AS_HERO: blocks RELATED_LOCATION asset linked as HERO",
+    "Added MED_RELATED_LOCATION_AS_CARD: blocks RELATED_LOCATION asset linked as CARD",
+    "Enforced joined validation across entity_media -> media_assets"
+  ],
+  "exact_live_aiven_counts": {
+    "media_assets": 116,
+    "entity_media": 70,
+    "place_images": 70,
+    "places": 204
+  }
+}

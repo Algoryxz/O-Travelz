@@ -1,7 +1,7 @@
 {
-  "wave": "A3b",
-  "generated_at": "2026-09-05T12:39:48.635926+00:00",
-  "git_head": "6d1166e7907bcdbdb90bb546b19b66ee5e49c571",
+  "wave": "A3b.1",
+  "generated_at": "2026-09-05T13:06:02.735212+00:00",
+  "git_head": "8118e978f42ae675fedaeebe31cbcfa58b9f8a3e",
   "mode": "APPLY",
   "summary": {
     "total_physical_files": 461,
@@ -25,7 +25,7 @@
   },
   "database_counts": {
     "media_assets": 116,
-    "entity_media": 84,
+    "entity_media": 70,
     "place_images_compatibility": 70,
     "places": 204
   },
@@ -42,7 +42,8 @@
       "RELATED_LOCATION": 8
     },
     "display_role": {
-      "HERO": 84
+      "HERO": 62,
+      "GALLERY": 8
     }
   },
   "reconciliation_status": "SUCCESS",

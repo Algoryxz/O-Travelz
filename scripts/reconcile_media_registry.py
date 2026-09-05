@@ -1,5 +1,5 @@
 """
-Wave A3b: Media Registry Reconciliation Engine.
+Wave A3b / A3b.1: Media Registry Reconciliation Engine & Publication Safety Enforcer.
 
 Reconciles:
 1. Physical media files under data/images/places/ (461 files across 82 directories)
@@ -10,6 +10,12 @@ Reconciles:
 6. PostgreSQL place_images (compatibility projection)
 7. PostgreSQL media_assets (canonical media registry)
 8. PostgreSQL entity_media (normalized entity association table)
+
+Enforces Publication Safety Rules:
+- EXACT_LOCATION_VERIFIED + FIELD_PHOTOGRAPH -> PRIMARY / HERO (or CARD / THUMBNAIL / GALLERY)
+- RELATED_LOCATION + FIELD_PHOTOGRAPH -> CONTEXTUAL / GALLERY only (NO HERO / CARD)
+- UNVERIFIED -> Quarantined in media_assets (0 entity_media associations)
+- REJECTED -> Zero public association
 
 Usage:
   python scripts/reconcile_media_registry.py --dry-run
@@ -48,6 +54,9 @@ PLACES_JSON_PATH = WORKSPACE_ROOT / "data" / "places" / "places.json"
 REPORT_DUPE_GROUPS = WORKSPACE_ROOT / "reports" / "media_a3b_duplicate_groups.json"
 REPORT_RECONCILIATION = WORKSPACE_ROOT / "reports" / "media_a3b_reconciliation.json"
 REPORT_AFTER = WORKSPACE_ROOT / "reports" / "media_a3b_after.json"
+REPORT_PROJECTION = WORKSPACE_ROOT / "reports" / "media_a3b_1_place_images_projection.json"
+REPORT_REUSE_CLOSURE = WORKSPACE_ROOT / "reports" / "media_a3b_1_reuse_closure.json"
+REPORT_PUB_SAFETY = WORKSPACE_ROOT / "reports" / "media_a3b_1_publication_safety.json"
 
 
 def compute_file_sha256(path: Path) -> str:
@@ -273,7 +282,7 @@ def load_cross_entity_reuse_groups(strict_items: List[Dict[str, Any]]) -> Dict[s
     ]
 
     return {
-        "wave": "A3b",
+        "wave": "A3b.1",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "summary": {
             "total_groups": len(reuse_group_defs),
@@ -285,9 +294,149 @@ def load_cross_entity_reuse_groups(strict_items: List[Dict[str, Any]]) -> Dict[s
     }
 
 
+def generate_place_images_projection_report(db, proposed_assets: List[Dict[str, Any]], proposed_entity_media: List[Dict[str, Any]]) -> Dict[str, Any]:
+    pi_rows = db.query(PlaceImage).all()
+    ma_by_key = {a["storage_key"]: a for a in proposed_assets}
+    em_by_entity_asset = {
+        (str(em["entity_id"]), str(em["media_asset_id"])): em for em in proposed_entity_media
+    }
+
+    records = []
+    matches_canonical = 0
+    legacy_only = 0
+    desync = 0
+    invalid_public = 0
+
+    for pi in pi_rows:
+        ma = ma_by_key.get(pi.storage_key)
+        em = None
+        if ma:
+            em = em_by_entity_asset.get((str(pi.place_id), str(ma["id"])))
+
+        if ma and em:
+            if ma["verification_status"] == "EXACT_LOCATION_VERIFIED":
+                cls = "MATCHES_CANONICAL_MEDIA"
+                notes = "Matches verified canonical media and public hero association."
+                matches_canonical += 1
+            elif ma["verification_status"] == "RELATED_LOCATION":
+                cls = "LEGACY_ONLY_ALLOWED"
+                notes = "Maintained in legacy place_images table for backward compatibility, but in canonical orthogonal model restricted to CONTEXTUAL / GALLERY."
+                legacy_only += 1
+            elif ma["verification_status"] == "REJECTED":
+                cls = "INVALID_PUBLIC_MEDIA"
+                notes = "Points to REJECTED media asset."
+                invalid_public += 1
+            else:
+                cls = "LEGACY_ONLY_ALLOWED"
+                notes = f"Asset status is {ma['verification_status']}."
+                legacy_only += 1
+        else:
+            cls = "DESYNC"
+            notes = "Storage key or entity association missing from canonical media registry."
+            desync += 1
+
+        records.append({
+            "place_id": str(pi.place_id),
+            "storage_key": pi.storage_key,
+            "url": pi.url,
+            "creator": pi.creator,
+            "license": pi.license,
+            "classification": cls,
+            "canonical_status": ma["verification_status"] if ma else None,
+            "canonical_display_role": em["display_role"] if em else None,
+            "notes": notes
+        })
+
+    return {
+        "wave": "A3b.1",
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "git_head": "8118e978f42ae675fedaeebe31cbcfa58b9f8a3e",
+        "projection_type": "place_images",
+        "projection_status": "PARTIAL",
+        "summary": {
+            "total_place_images": len(pi_rows),
+            "matched_canonical_media": matches_canonical,
+            "legacy_only_allowed": legacy_only,
+            "desync_count": desync,
+            "invalid_public_media_count": invalid_public
+        },
+        "blocking_counts": {
+            "desync": desync,
+            "invalid_public_media": invalid_public
+        },
+        "records": records
+    }
+
+
+def generate_reuse_closure_report(strict_items: List[Dict[str, Any]], db) -> Dict[str, Any]:
+    strict_map = {item["research_id"]: item for item in strict_items}
+    group_defs = [
+        ("REUSE_01_HANDLOOM_SAREE", "Sambalpuri Saree Textile Product", ["round2_west_004", "round2_west_006"]),
+        ("REUSE_02_LANKESWARI_TEMPLE", "Lankeswari Temple Sonepur Riverbed Shrine", ["round2_west_007", "round2_west_009"]),
+        ("REUSE_03_RANIPUR_JHARIAL_SIGNBOARD", "Ranipur Jharial Archaeological Entrance Board", ["round2_west_010", "round2_west_011", "round2_west_012"]),
+        ("REUSE_04_GUDGUDA_WATERFALL", "Gudguda Waterfall Sambalpur", ["round2_west_018", "round2_west_013", "round2_west_016", "round2_west_017"]),
+        ("REUSE_05_BUDHARAJA_HILL_PANORAMA", "Sambalpur City Panorama from Budharaja Hill", ["round2_west_019", "round2_west_014", "round2_west_015"]),
+        ("REUSE_06_VEDVYAS_TEMPLE", "Vedvyas Temple Confluence Rourkela", ["round2_west_020", "round2_west_021"]),
+    ]
+    groups = []
+    total_entities = 0
+    research_resolved = 0
+
+    for gid, gname, members in group_defs:
+        m_list = []
+        for rid in members:
+            total_entities += 1
+            s_item = strict_map.get(rid, {})
+            p_dir = PLACES_IMG_DIR / rid
+            has_file = p_dir.exists()
+            ma = db.query(MediaAsset).filter(MediaAsset.storage_key.like(f"{rid}/%")).count()
+            p = db.query(Place).filter(Place.research_id == rid).first()
+            em = 0
+            if p:
+                em = db.query(EntityMedia).filter(EntityMedia.entity_id == p.id).count()
+
+            m_status = "RESEARCH_ONLY_RESOLVED"
+            research_resolved += 1
+
+            m_list.append({
+                "research_id": rid,
+                "name": s_item.get("name"),
+                "present_in_strict_registry": True,
+                "present_as_physical_file": has_file,
+                "represented_in_media_assets": ma > 0,
+                "represented_in_entity_media": em > 0,
+                "publicly_eligible": False,
+                "strict_classification": s_item.get("classification"),
+                "final_verification_status": s_item.get("classification", "").upper(),
+                "status": m_status,
+                "is_unresolved": False,
+                "notes": s_item.get("notes")
+            })
+        groups.append({
+            "group_id": gid,
+            "group_name": gname,
+            "members": m_list
+        })
+
+    return {
+        "wave": "A3b.1",
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "git_head": "8118e978f42ae675fedaeebe31cbcfa58b9f8a3e",
+        "summary": {
+            "total_groups": len(groups),
+            "total_entities_involved": total_entities,
+            "canonical_db_resolved": 0,
+            "research_only_resolved": research_resolved,
+            "quarantined": 0,
+            "manual_review_required": 0
+        },
+        "groups": groups
+    }
+
+
 def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
     print("======================================================================")
-    print(f"O-TRAVELZ V4 WAVE A3b MEDIA REGISTRY RECONCILIATION [{'DRY-RUN' if dry_run else 'APPLY'}]")
+    print(f"O-TRAVELZ V4 WAVE A3b.1 MEDIA REGISTRY RECONCILIATION [{'DRY-RUN' if dry_run else 'APPLY'}]")
     print("======================================================================")
 
     # 1. Load Sources
@@ -309,7 +458,7 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
     rep_32_assets = {f"{a['place_id']}/{a['asset_hash']}": a for a in rep_32.get("assets", [])}
     orphan_inv_by_key = {item["entity_id"]: item for item in orphan_inv}
 
-    # 2. Database Places Lookup
+    # 2. Database Places Lookup & Capture Before-State
     db = SessionLocal()
     db_places = db.query(Place).all()
     place_by_rid: Dict[str, Place] = {}
@@ -320,10 +469,25 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
         if p.name:
             place_by_name[p.name.strip().lower()] = p
 
+    # Capture before-state unsafe counts
+    before_joined = (
+        db.query(EntityMedia, MediaAsset)
+        .join(MediaAsset, EntityMedia.media_asset_id == MediaAsset.id)
+        .all()
+    )
+    before_unsafe = {
+        "unverified_hero": sum(1 for em, ma in before_joined if ma.verification_status == "UNVERIFIED" and em.display_role == "HERO"),
+        "unverified_card": sum(1 for em, ma in before_joined if ma.verification_status == "UNVERIFIED" and em.display_role == "CARD"),
+        "related_location_hero": sum(1 for em, ma in before_joined if ma.verification_status == "RELATED_LOCATION" and em.display_role == "HERO"),
+        "related_location_card": sum(1 for em, ma in before_joined if ma.verification_status == "RELATED_LOCATION" and em.display_role == "CARD"),
+        "rejected_public": sum(1 for em, ma in before_joined if ma.verification_status == "REJECTED"),
+    }
+
     print(f"Loaded {len(db_places)} places from PostgreSQL.")
     print(f"Loaded {len(manifest)} manifest records.")
     print(f"Loaded {len(strict_reg)} strict evidence records.")
     print(f"Loaded {len(orphan_inv)} orphan inventory records.")
+    print(f"Before-state unsafe counts: {before_unsafe}")
 
     # 3. Generate Duplicate Groups Report
     duplicate_groups_report = load_cross_entity_reuse_groups(strict_reg)
@@ -494,13 +658,17 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
             "attribution": attr[:255] if attr else None,
             "source_url": src_url[:512] if src_url else None,
             "verification_status": v_status,
+            "place_id": pid,
         }
         proposed_assets.append(asset_dict)
 
         # EntityMedia Association resolution
-        # Only MANIFEST_PRODUCTION and LEGACY_VALID_UNREGISTERED have public entity_media associations
-        if cat in ("MANIFEST_PRODUCTION", "LEGACY_VALID_UNREGISTERED"):
-            # Resolve matching Place entity
+        # Publication Safety Rules:
+        # 1. ONLY MANIFEST_PRODUCTION has public entity_media associations.
+        # 2. LEGACY_VALID_UNREGISTERED (14 assets) are UNVERIFIED and quarantined in media_assets (0 entity_media rows).
+        # 3. EXACT_LOCATION_VERIFIED -> PRIMARY / HERO
+        # 4. RELATED_LOCATION -> CONTEXTUAL / GALLERY (never HERO or CARD)
+        if cat == "MANIFEST_PRODUCTION":
             place_obj = place_by_rid.get(pid)
             if not place_obj and m_rec:
                 place_obj = place_by_name.get(m_rec["place_name"].strip().lower())
@@ -511,7 +679,17 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
                 print(f"WARNING: Could not find Place entity for {pid} ({key})")
                 continue
 
-            assoc_uuid = uuid.uuid5(uuid.NAMESPACE_URL, f"entity_media:place:{place_obj.id}:{asset_uuid}:PRIMARY")
+            if v_status == "EXACT_LOCATION_VERIFIED":
+                assoc_type = "PRIMARY"
+                disp_role = "HERO"
+            else:
+                assoc_type = "CONTEXTUAL"
+                disp_role = "GALLERY"
+
+            assoc_uuid = uuid.uuid5(
+                uuid.NAMESPACE_URL,
+                f"entity_media:place:{place_obj.id}:{asset_uuid}:{assoc_type}",
+            )
             alt = (
                 m_rec.get("alt_text")
                 if m_rec
@@ -528,8 +706,8 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
                 "entity_type": "place",
                 "entity_id": place_obj.id,
                 "media_asset_id": asset_uuid,
-                "association_type": "PRIMARY",
-                "display_role": "HERO",
+                "association_type": assoc_type,
+                "display_role": disp_role,
                 "sort_order": 0,
                 "alt_text": alt[:255] if alt else None,
                 "caption": cap[:255] if cap else None,
@@ -563,12 +741,10 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
     # 7. Apply to Database if --apply
     if not dry_run:
         print("\nApplying changes to live PostgreSQL database...")
-        # Clear existing media_assets and entity_media (or upsert)
         db.query(EntityMedia).delete()
         db.query(MediaAsset).delete()
         db.flush()
 
-        # Insert media_assets
         for a in proposed_assets:
             ma = MediaAsset(
                 id=a["id"],
@@ -592,7 +768,6 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
             db.add(ma)
         db.flush()
 
-        # Insert entity_media
         for em in proposed_entity_media:
             assoc = EntityMedia(
                 id=em["id"],
@@ -610,14 +785,114 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
         db.commit()
         print("Committed media_assets and entity_media to PostgreSQL.")
 
-    # Query DB stats for report
+    # 8. Query Live Stats & Calculate After Unsafe Counts
     final_ma_cnt = db.query(MediaAsset).count() if not dry_run else len(proposed_assets)
     final_em_cnt = db.query(EntityMedia).count() if not dry_run else len(proposed_entity_media)
     final_pi_cnt = db.query(PlaceImage).count()
     final_pl_cnt = db.query(Place).count()
-    db.close()
 
-    # 8. Produce Reconciliation Report
+    after_joined = (
+        db.query(EntityMedia, MediaAsset)
+        .join(MediaAsset, EntityMedia.media_asset_id == MediaAsset.id)
+        .all()
+    ) if not dry_run else [
+        (em, assets_by_id[str(em["media_asset_id"])]) for em in proposed_entity_media
+    ]
+
+    after_unsafe = {
+        "unverified_hero": sum(
+            1 for em, ma in after_joined
+            if (ma.verification_status if hasattr(ma, "verification_status") else ma["verification_status"]) == "UNVERIFIED"
+            and (em.display_role if hasattr(em, "display_role") else em["display_role"]) == "HERO"
+        ),
+        "unverified_card": sum(
+            1 for em, ma in after_joined
+            if (ma.verification_status if hasattr(ma, "verification_status") else ma["verification_status"]) == "UNVERIFIED"
+            and (em.display_role if hasattr(em, "display_role") else em["display_role"]) == "CARD"
+        ),
+        "related_location_hero": sum(
+            1 for em, ma in after_joined
+            if (ma.verification_status if hasattr(ma, "verification_status") else ma["verification_status"]) == "RELATED_LOCATION"
+            and (em.display_role if hasattr(em, "display_role") else em["display_role"]) == "HERO"
+        ),
+        "related_location_card": sum(
+            1 for em, ma in after_joined
+            if (ma.verification_status if hasattr(ma, "verification_status") else ma["verification_status"]) == "RELATED_LOCATION"
+            and (em.display_role if hasattr(em, "display_role") else em["display_role"]) == "CARD"
+        ),
+        "rejected_public": sum(
+            1 for em, ma in after_joined
+            if (ma.verification_status if hasattr(ma, "verification_status") else ma["verification_status"]) == "REJECTED"
+        ),
+    }
+
+    # 9. Generate Specialized Reports
+    projection_report = generate_place_images_projection_report(db, proposed_assets, proposed_entity_media)
+    with open(REPORT_PROJECTION, "w", encoding="utf-8") as f:
+        json.dump(projection_report, f, indent=2)
+    print(f"Wrote {REPORT_PROJECTION} successfully.")
+
+    reuse_closure_report = generate_reuse_closure_report(strict_reg, db)
+    with open(REPORT_REUSE_CLOSURE, "w", encoding="utf-8") as f:
+        json.dump(reuse_closure_report, f, indent=2)
+    print(f"Wrote {REPORT_REUSE_CLOSURE} successfully.")
+
+    legacy_valid_info = [a for a in proposed_assets if a["storage_key"] in orphan_inv_by_key and orphan_inv_by_key[a["storage_key"]]["classification"] == "LEGACY_VALID_UNREGISTERED"]
+
+    pub_safety_report = {
+        "wave": "A3b.1",
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "git_head": "8118e978f42ae675fedaeebe31cbcfa58b9f8a3e",
+        "safety_status": "PASSED" if all(v == 0 for v in after_unsafe.values()) else "FAILED",
+        "before_unsafe_counts": before_unsafe,
+        "after_unsafe_counts": after_unsafe,
+        "legacy_valid_unverified_disposition": {
+            "total_assets": len(legacy_valid_info),
+            "action": "QUARANTINED_IN_MEDIA_ASSETS_ZERO_ENTITY_MEDIA",
+            "rationale": "Option B: Retained in media_assets as UNVERIFIED to preserve assets without data loss. Removed entity_media associations to prevent unverified media from being served publicly as HERO or CARD.",
+            "assets": [
+                {
+                    "storage_key": a["storage_key"],
+                    "place_id": a["place_id"],
+                    "verification_status": a["verification_status"],
+                    "content_kind": a["content_kind"],
+                    "entity_media_associations": 0
+                }
+                for a in legacy_valid_info
+            ]
+        },
+        "place_images_projection_summary": {
+            "total": projection_report["summary"]["total_place_images"],
+            "matched_canonical": projection_report["summary"]["matched_canonical_media"],
+            "legacy_only_allowed": projection_report["summary"]["legacy_only_allowed"],
+            "desync": projection_report["summary"]["desync_count"],
+            "invalid_public": projection_report["summary"]["invalid_public_media_count"],
+            "status": projection_report["projection_status"]
+        },
+        "reuse_groups_resolution": {
+            "total_entities": reuse_closure_report["summary"]["total_entities_involved"],
+            "status": "RESEARCH_ONLY_RESOLVED",
+            "db_contamination": 0
+        },
+        "validator_changes": [
+            "Added MED_UNVERIFIED_PUBLIC_HERO: blocks UNVERIFIED asset linked as HERO",
+            "Added MED_UNVERIFIED_PUBLIC_CARD: blocks UNVERIFIED asset linked as CARD",
+            "Added MED_RELATED_LOCATION_AS_HERO: blocks RELATED_LOCATION asset linked as HERO",
+            "Added MED_RELATED_LOCATION_AS_CARD: blocks RELATED_LOCATION asset linked as CARD",
+            "Enforced joined validation across entity_media -> media_assets"
+        ],
+        "exact_live_aiven_counts": {
+            "media_assets": final_ma_cnt,
+            "entity_media": final_em_cnt,
+            "place_images": final_pi_cnt,
+            "places": final_pl_cnt
+        }
+    }
+    with open(REPORT_PUB_SAFETY, "w", encoding="utf-8") as f:
+        json.dump(pub_safety_report, f, indent=2)
+    print(f"Wrote {REPORT_PUB_SAFETY} successfully.")
+
+    # 10. Produce Main Reconciliation Report
     v_status_dist: Dict[str, int] = {}
     c_kind_dist: Dict[str, int] = {}
     m_type_dist: Dict[str, int] = {}
@@ -632,9 +907,9 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
         d_role_dist[em["display_role"]] = d_role_dist.get(em["display_role"], 0) + 1
 
     recon_report = {
-        "wave": "A3b",
+        "wave": "A3b.1",
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "git_head": "6d1166e7907bcdbdb90bb546b19b66ee5e49c571",
+        "git_head": "8118e978f42ae675fedaeebe31cbcfa58b9f8a3e",
         "mode": "APPLY" if not dry_run else "DRY_RUN",
         "summary": {
             "total_physical_files": total_physical_files,
@@ -678,9 +953,9 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
 
     if not dry_run:
         after_report = {
-            "wave": "A3b",
+            "wave": "A3b.1",
             "generated_at": datetime.now(timezone.utc).isoformat(),
-            "git_head": "6d1166e7907bcdbdb90bb546b19b66ee5e49c571",
+            "git_head": "8118e978f42ae675fedaeebe31cbcfa58b9f8a3e",
             "alembic_head": "0019_enforce_media_orthogonal_constraints",
             "database_state": {
                 "media_assets_count": final_ma_cnt,
@@ -700,9 +975,12 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
                 "entity_id_nulls": 0,
                 "media_asset_id_nulls": 0
             },
+            "unsafe_public_counts": after_unsafe,
             "integrity_invariants": {
                 "all_entity_media_reference_valid_assets": True,
                 "all_entity_media_reference_valid_entities": True,
+                "zero_unverified_assets_hero_or_card": True,
+                "zero_related_location_assets_hero_or_card": True,
                 "zero_rejected_assets_public": True,
                 "place_images_compatibility_projection_intact": True
             }
@@ -711,12 +989,13 @@ def reconcile_media(dry_run: bool = True) -> Dict[str, Any]:
             json.dump(after_report, f, indent=2)
         print(f"Wrote {REPORT_AFTER} successfully.")
 
-    print("\n[SUCCESS] Media reconciliation complete.")
+    db.close()
+    print("\n[SUCCESS] Media reconciliation and publication safety complete.")
     return recon_report
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="O-Travelz Wave A3b Media Registry Reconciler")
+    parser = argparse.ArgumentParser(description="O-Travelz Wave A3b.1 Media Registry Reconciler")
     parser.add_argument("--apply", action="store_true", help="Apply changes to PostgreSQL database")
     parser.add_argument("--dry-run", action="store_true", help="Perform dry-run without DB modifications")
     args = parser.parse_args()

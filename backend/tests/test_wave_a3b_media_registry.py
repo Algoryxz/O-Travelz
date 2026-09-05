@@ -25,6 +25,9 @@ from app.db.session import SessionLocal
 from app.models.media_asset import MediaAsset, EntityMedia
 from app.models.place_image import PlaceImage
 from app.models.place import Place
+from app.validation.models import ValidationReport, ValidationProfile
+from app.validation.domains.media import validate_entity_media
+from app.validation import codes
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent.parent
 PLACES_IMG_DIR = WORKSPACE_ROOT / "data" / "images" / "places"
@@ -34,6 +37,10 @@ REP_DUPE_GROUPS = WORKSPACE_ROOT / "reports" / "media_a3b_duplicate_groups.json"
 REP_RECONCILIATION = WORKSPACE_ROOT / "reports" / "media_a3b_reconciliation.json"
 REP_AFTER = WORKSPACE_ROOT / "reports" / "media_a3b_after.json"
 REP_BEFORE = WORKSPACE_ROOT / "reports" / "media_a3b_before.json"
+REP_PROJECTION = WORKSPACE_ROOT / "reports" / "media_a3b_1_place_images_projection.json"
+REP_REUSE_CLOSURE = WORKSPACE_ROOT / "reports" / "media_a3b_1_reuse_closure.json"
+REP_PUB_SAFETY = WORKSPACE_ROOT / "reports" / "media_a3b_1_publication_safety.json"
+
 
 
 @pytest.fixture(scope="module")
@@ -84,9 +91,9 @@ def test_media_assets_database_counts(db_session):
 
 
 def test_entity_media_database_counts(db_session):
-    """Verify entity_media contains 84 associations (70 manifest + 14 legacy-valid)."""
+    """Verify entity_media contains 70 associations (62 EXACT_LOCATION_VERIFIED HERO + 8 RELATED_LOCATION GALLERY)."""
     count = db_session.query(EntityMedia).count()
-    assert count == 84, f"Expected 84 EntityMedia associations, got {count}"
+    assert count == 70, f"Expected 70 EntityMedia associations, got {count}"
 
 
 def test_place_images_compatibility_projection(db_session):
@@ -197,3 +204,232 @@ def test_orthogonal_taxonomy_domain_values(db_session):
     for em in db_session.query(EntityMedia).all():
         assert em.display_role in allowed_roles, f"Invalid display_role: {em.display_role}"
         assert em.association_type in allowed_assocs, f"Invalid association_type: {em.association_type}"
+
+
+# ==============================================================================
+# Wave A3b.1 Publication Safety & Compatibility Projection Regression Suite
+# ==============================================================================
+
+def test_regression_unverified_hero_blocked():
+    """Regression: UNVERIFIED media asset linked as HERO must be blocked with MED_UNVERIFIED_PUBLIC_HERO."""
+    report = ValidationReport(profile=ValidationProfile.PROMOTION)
+    assoc = {
+        "id": "test-em-unverified-hero",
+        "entity_id": "test-place-1",
+        "entity_type": "place",
+        "media_asset_id": "asset-unverified",
+        "association_type": "PRIMARY",
+        "display_role": "HERO",
+    }
+    assets = {
+        "asset-unverified": {
+            "id": "asset-unverified",
+            "verification_status": "UNVERIFIED",
+            "content_kind": "FIELD_PHOTOGRAPH",
+        }
+    }
+    validate_entity_media([assoc], assets, report, known_entity_ids={"test-place-1"})
+    issue_codes = [i.code for i in report.issues]
+    assert codes.MED_UNVERIFIED_PUBLIC_HERO in issue_codes, f"Expected MED_UNVERIFIED_PUBLIC_HERO, got {issue_codes}"
+
+
+def test_regression_unverified_card_blocked():
+    """Regression: UNVERIFIED media asset linked as CARD must be blocked with MED_UNVERIFIED_PUBLIC_CARD."""
+    report = ValidationReport(profile=ValidationProfile.PROMOTION)
+    assoc = {
+        "id": "test-em-unverified-card",
+        "entity_id": "test-place-1",
+        "entity_type": "place",
+        "media_asset_id": "asset-unverified",
+        "association_type": "PRIMARY",
+        "display_role": "CARD",
+    }
+    assets = {
+        "asset-unverified": {
+            "id": "asset-unverified",
+            "verification_status": "UNVERIFIED",
+            "content_kind": "FIELD_PHOTOGRAPH",
+        }
+    }
+    validate_entity_media([assoc], assets, report, known_entity_ids={"test-place-1"})
+    issue_codes = [i.code for i in report.issues]
+    assert codes.MED_UNVERIFIED_PUBLIC_CARD in issue_codes, f"Expected MED_UNVERIFIED_PUBLIC_CARD, got {issue_codes}"
+
+
+def test_regression_related_location_as_hero_blocked():
+    """Regression: RELATED_LOCATION media asset linked as HERO must be blocked with MED_RELATED_LOCATION_AS_HERO."""
+    report = ValidationReport(profile=ValidationProfile.PROMOTION)
+    assoc = {
+        "id": "test-em-related-hero",
+        "entity_id": "test-place-1",
+        "entity_type": "place",
+        "media_asset_id": "asset-related",
+        "association_type": "PRIMARY",
+        "display_role": "HERO",
+    }
+    assets = {
+        "asset-related": {
+            "id": "asset-related",
+            "verification_status": "RELATED_LOCATION",
+            "content_kind": "FIELD_PHOTOGRAPH",
+        }
+    }
+    validate_entity_media([assoc], assets, report, known_entity_ids={"test-place-1"})
+    issue_codes = [i.code for i in report.issues]
+    assert codes.MED_RELATED_LOCATION_AS_HERO in issue_codes, f"Expected MED_RELATED_LOCATION_AS_HERO, got {issue_codes}"
+
+
+def test_regression_related_location_as_card_blocked():
+    """Regression: RELATED_LOCATION media asset linked as CARD must be blocked with MED_RELATED_LOCATION_AS_CARD."""
+    report = ValidationReport(profile=ValidationProfile.PROMOTION)
+    assoc = {
+        "id": "test-em-related-card",
+        "entity_id": "test-place-1",
+        "entity_type": "place",
+        "media_asset_id": "asset-related",
+        "association_type": "PRIMARY",
+        "display_role": "CARD",
+    }
+    assets = {
+        "asset-related": {
+            "id": "asset-related",
+            "verification_status": "RELATED_LOCATION",
+            "content_kind": "FIELD_PHOTOGRAPH",
+        }
+    }
+    validate_entity_media([assoc], assets, report, known_entity_ids={"test-place-1"})
+    issue_codes = [i.code for i in report.issues]
+    assert codes.MED_RELATED_LOCATION_AS_CARD in issue_codes, f"Expected MED_RELATED_LOCATION_AS_CARD, got {issue_codes}"
+
+
+def test_regression_rejected_media_asset_public_association_blocked():
+    """Regression: REJECTED media asset must be blocked with MED_REJECTED_PUBLIC regardless of role."""
+    report = ValidationReport(profile=ValidationProfile.PROMOTION)
+    assoc = {
+        "id": "test-em-rejected",
+        "entity_id": "test-place-1",
+        "entity_type": "place",
+        "media_asset_id": "asset-rejected",
+        "association_type": "CONTEXTUAL",
+        "display_role": "GALLERY",
+    }
+    assets = {
+        "asset-rejected": {
+            "id": "asset-rejected",
+            "verification_status": "REJECTED",
+            "content_kind": "FIELD_PHOTOGRAPH",
+        }
+    }
+    validate_entity_media([assoc], assets, report, known_entity_ids={"test-place-1"})
+    issue_codes = [i.code for i in report.issues]
+    assert codes.MED_REJECTED_PUBLIC in issue_codes, f"Expected MED_REJECTED_PUBLIC, got {issue_codes}"
+
+
+def test_regression_exact_location_verified_field_photograph_hero_accepted():
+    """Regression: EXACT_LOCATION_VERIFIED + FIELD_PHOTOGRAPH linked as HERO must be accepted without errors."""
+    report = ValidationReport(profile=ValidationProfile.PROMOTION)
+    assoc = {
+        "id": "test-em-verified-hero",
+        "entity_id": "test-place-1",
+        "entity_type": "place",
+        "media_asset_id": "asset-verified",
+        "association_type": "PRIMARY",
+        "display_role": "HERO",
+    }
+    assets = {
+        "asset-verified": {
+            "id": "asset-verified",
+            "verification_status": "EXACT_LOCATION_VERIFIED",
+            "content_kind": "FIELD_PHOTOGRAPH",
+        }
+    }
+    validate_entity_media([assoc], assets, report, known_entity_ids={"test-place-1"})
+    assert report.summary.errors == 0, f"Expected 0 errors, got {report.summary.errors}"
+    assert len(report.issues) == 0, f"Expected 0 issues, got {len(report.issues)}"
+
+
+
+def test_regression_place_images_projection_safety_and_partial_status():
+    """Regression: place_images projection must be documented as PARTIAL with zero desync and zero invalid media."""
+    assert REP_PROJECTION.exists(), f"Missing {REP_PROJECTION}"
+    with open(REP_PROJECTION, "r", encoding="utf-8") as f:
+        proj = json.load(f)
+
+    assert proj["projection_status"] == "PARTIAL"
+    assert proj["summary"]["desync_count"] == 0
+    assert proj["summary"]["invalid_public_media_count"] == 0
+    assert proj["blocking_counts"]["desync"] == 0
+    assert proj["blocking_counts"]["invalid_public_media"] == 0
+    assert proj["summary"]["total_place_images"] == 70
+    assert proj["summary"]["matched_canonical_media"] == 62
+    assert proj["summary"]["legacy_only_allowed"] == 8
+
+
+def test_regression_public_image_selector_cannot_return_quarantined_media(db_session):
+    """Regression: Live DB must contain zero UNVERIFIED or REJECTED assets in entity_media,
+    and all 14 legacy-valid assets must be quarantined with zero public associations."""
+    # 1. Zero UNVERIFIED or REJECTED in entity_media
+    unsafe_links = (
+        db_session.query(EntityMedia)
+        .join(MediaAsset, EntityMedia.media_asset_id == MediaAsset.id)
+        .filter(MediaAsset.verification_status.in_(["UNVERIFIED", "REJECTED"]))
+        .count()
+    )
+    assert unsafe_links == 0, f"Found {unsafe_links} entity_media rows pointing to UNVERIFIED/REJECTED assets!"
+
+    # 2. Zero RELATED_LOCATION as HERO or CARD
+    unsafe_related = (
+        db_session.query(EntityMedia)
+        .join(MediaAsset, EntityMedia.media_asset_id == MediaAsset.id)
+        .filter(
+            MediaAsset.verification_status == "RELATED_LOCATION",
+            EntityMedia.display_role.in_(["HERO", "CARD"]),
+        )
+        .count()
+    )
+    assert unsafe_related == 0, f"Found {unsafe_related} RELATED_LOCATION assets linked as HERO or CARD!"
+
+    # 3. Exactly 14 legacy-valid quarantined assets with 0 associations
+    quarantined_storage_keys = [
+        "place_024/c24a920d9ea5",
+        "place_028/cd738a94a267",
+        "place_032/1b4f7e6f8b2e",
+        "place_food_001/e6fb3a71867e",
+        "place_food_002/e0850b09b5ca",
+        "place_food_003/5a13e730e909",
+        "place_food_004/4e765c230837",
+        "place_food_005/daeb11d5893b",
+        "place_food_006/88f959c50d0e",
+        "place_food_007/a0a492f880a5",
+        "place_food_008/35cde5e9e0e8",
+        "place_food_009/0b3143c9ea24",
+        "place_food_010/abcf1ef01835",
+        "place_food_011/cb1d3fcc1b6c",
+    ]
+    for key in quarantined_storage_keys:
+        asset = db_session.query(MediaAsset).filter(MediaAsset.storage_key == key).first()
+        assert asset is not None, f"Quarantined asset for {key} missing from media_assets!"
+        assert asset.verification_status == "UNVERIFIED"
+        assoc_count = db_session.query(EntityMedia).filter(EntityMedia.media_asset_id == asset.id).count()
+        assert assoc_count == 0, f"Quarantined asset {key} has {assoc_count} entity_media associations!"
+
+
+
+def test_wave_a3b_1_reports_exist_and_pass():
+    """Verify all Wave A3b.1 reports exist, are valid JSON, and pass all closure assertions."""
+    assert REP_PUB_SAFETY.exists(), f"Missing {REP_PUB_SAFETY}"
+    assert REP_REUSE_CLOSURE.exists(), f"Missing {REP_REUSE_CLOSURE}"
+
+    with open(REP_PUB_SAFETY, "r", encoding="utf-8") as f:
+        pub = json.load(f)
+    assert pub["safety_status"] == "PASSED"
+    for metric, count in pub["after_unsafe_counts"].items():
+        assert count == 0, f"Unsafe count for {metric} is {count}, expected 0"
+
+    with open(REP_REUSE_CLOSURE, "r", encoding="utf-8") as f:
+        reuse = json.load(f)
+    assert reuse["summary"]["total_groups"] == 6
+    assert reuse["summary"]["total_entities_involved"] == 16
+    assert reuse["summary"]["canonical_db_resolved"] == 0
+    assert reuse["summary"]["research_only_resolved"] == 16
+    assert reuse["summary"]["manual_review_required"] == 0

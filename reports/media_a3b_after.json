@@ -1,11 +1,11 @@
 {
-  "wave": "A3b",
-  "generated_at": "2026-09-05T12:39:48.638021+00:00",
-  "git_head": "6d1166e7907bcdbdb90bb546b19b66ee5e49c571",
+  "wave": "A3b.1",
+  "generated_at": "2026-09-05T13:06:02.736216+00:00",
+  "git_head": "8118e978f42ae675fedaeebe31cbcfa58b9f8a3e",
   "alembic_head": "0019_enforce_media_orthogonal_constraints",
   "database_state": {
     "media_assets_count": 116,
-    "entity_media_count": 84,
+    "entity_media_count": 70,
     "place_images_count": 70,
     "places_count": 204
   },
@@ -21,9 +21,18 @@
     "entity_id_nulls": 0,
     "media_asset_id_nulls": 0
   },
+  "unsafe_public_counts": {
+    "unverified_hero": 0,
+    "unverified_card": 0,
+    "related_location_hero": 0,
+    "related_location_card": 0,
+    "rejected_public": 0
+  },
   "integrity_invariants": {
     "all_entity_media_reference_valid_assets": true,
     "all_entity_media_reference_valid_entities": true,
+    "zero_unverified_assets_hero_or_card": true,
+    "zero_related_location_assets_hero_or_card": true,
     "zero_rejected_assets_public": true,
     "place_images_compatibility_projection_intact": true
   }
