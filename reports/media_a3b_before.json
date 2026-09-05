@@ -1,0 +1,41 @@
+{
+  "wave": "A3b",
+  "timestamp": "2026-09-05T12:35:00Z",
+  "git_head": "6d1166e7907bcdbdb90bb546b19b66ee5e49c571",
+  "alembic_head": "0017_enforce_route_stops_direction_not_null",
+  "database_baseline": {
+    "media_assets_count": 0,
+    "entity_media_count": 0,
+    "place_images_count": 70,
+    "places_count": 204
+  },
+  "filesystem_baseline": {
+    "places_image_root": "data/images/places",
+    "top_level_place_directories": 82,
+    "total_physical_files": 461,
+    "manifest_tracked_assets": 70,
+    "manifest_tracked_files": 280,
+    "orphan_entries_count": 47,
+    "orphan_breakdown": {
+      "legacy_valid_unregistered_assets": 14,
+      "legacy_valid_unregistered_files": 56,
+      "archival_derivative_entries": 33,
+      "archival_derivative_files": 125
+    }
+  },
+  "accounting_equation": {
+    "total_physical_files": 461,
+    "manifest_tracked_files": 280,
+    "legacy_valid_unregistered_files": 56,
+    "archival_derivative_files": 125,
+    "unaccounted_files": 0
+  },
+  "taxonomy_status": {
+    "schema_orthogonal_dimensions": false,
+    "missing_columns": [
+      "media_assets.content_kind",
+      "entity_media.display_role"
+    ],
+    "cross_entity_reuse_groups_resolved_in_db": false
+  }
+}

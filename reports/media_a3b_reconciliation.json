@@ -1,0 +1,50 @@
+{
+  "wave": "A3b",
+  "generated_at": "2026-09-05T12:39:48.635926+00:00",
+  "git_head": "6d1166e7907bcdbdb90bb546b19b66ee5e49c571",
+  "mode": "APPLY",
+  "summary": {
+    "total_physical_files": 461,
+    "manifest_source_variants": 280,
+    "legacy_valid_variants": 56,
+    "archival_derivative_variants": 125,
+    "unaccounted_files": 0,
+    "unclassified_files": 0,
+    "deleted_files": 0
+  },
+  "accounting_equation": {
+    "formula": "total_physical_files == manifest_source_variants + legacy_valid_variants + archival_derivative_variants",
+    "evaluation": "461 == 280 + 56 + 125",
+    "holds": true
+  },
+  "inventory": {
+    "manifest_assets": 70,
+    "legacy_valid_unregistered_assets": 14,
+    "archival_derivative_assets": 33,
+    "total_classified_directories": 117
+  },
+  "database_counts": {
+    "media_assets": 116,
+    "entity_media": 84,
+    "place_images_compatibility": 70,
+    "places": 204
+  },
+  "orthogonal_model_distribution": {
+    "media_type": {
+      "IMAGE": 116
+    },
+    "content_kind": {
+      "FIELD_PHOTOGRAPH": 116
+    },
+    "verification_status": {
+      "UNVERIFIED": 46,
+      "EXACT_LOCATION_VERIFIED": 62,
+      "RELATED_LOCATION": 8
+    },
+    "display_role": {
+      "HERO": 84
+    }
+  },
+  "reconciliation_status": "SUCCESS",
+  "blocking_errors": 0
+}

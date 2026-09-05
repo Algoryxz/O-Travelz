@@ -1,0 +1,30 @@
+{
+  "wave": "A3b",
+  "generated_at": "2026-09-05T12:39:48.638021+00:00",
+  "git_head": "6d1166e7907bcdbdb90bb546b19b66ee5e49c571",
+  "alembic_head": "0019_enforce_media_orthogonal_constraints",
+  "database_state": {
+    "media_assets_count": 116,
+    "entity_media_count": 84,
+    "place_images_count": 70,
+    "places_count": 204
+  },
+  "media_assets_null_checks": {
+    "content_kind_nulls": 0,
+    "verification_status_nulls": 0,
+    "storage_key_nulls": 0,
+    "content_sha256_nulls": 0
+  },
+  "entity_media_null_checks": {
+    "display_role_nulls": 0,
+    "association_type_nulls": 0,
+    "entity_id_nulls": 0,
+    "media_asset_id_nulls": 0
+  },
+  "integrity_invariants": {
+    "all_entity_media_reference_valid_assets": true,
+    "all_entity_media_reference_valid_entities": true,
+    "zero_rejected_assets_public": true,
+    "place_images_compatibility_projection_intact": true
+  }
+}

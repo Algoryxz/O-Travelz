@@ -401,7 +401,8 @@ class UniversalValidator:
                     "content_sha256": m.get("content_sha256"),
                     "storage_key": f"{m.get('place_id')}/{m.get('asset_hash')}",
                     "verification_status": "EXACT_LOCATION_VERIFIED",
-                    "media_kind": "photograph",
+                    "media_type": "IMAGE",
+                    "content_kind": "FIELD_PHOTOGRAPH",
                     "is_photograph": True,
                 }
                 validate_media_asset(m_asset, report)

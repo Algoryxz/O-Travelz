@@ -1,0 +1,220 @@
+{
+  "wave": "A3b",
+  "generated_at": "2026-09-05T12:39:47.383331+00:00",
+  "summary": {
+    "total_groups": 6,
+    "total_entities_involved": 16,
+    "exact_binary_duplicate_groups": 0,
+    "cross_entity_photo_reuse_groups": 6
+  },
+  "reuse_groups": [
+    {
+      "group_id": "REUSE_01_HANDLOOM_SAREE",
+      "group_name": "Sambalpuri Saree Textile Product",
+      "description": "Sambalpuri Saree textile craft photograph reused for hill landscape",
+      "source_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Sambalpuri_saree1.jpg",
+      "members": [
+        {
+          "research_id": "round2_west_004",
+          "name": "Barpali Handloom Heritage Village",
+          "role_in_group": "ORIGINAL_CRAFT_CONTEXT",
+          "classification": "generic_image",
+          "verification_status": "RELATED_LOCATION",
+          "hero_eligible": false,
+          "resolution": "Permitted as supporting craft context only; not eligible for hero photograph.",
+          "notes": "File depicts a Sambalpuri saree textile product, not the physical weaving village, looms, or workshops of Barpali."
+        },
+        {
+          "research_id": "round2_west_006",
+          "name": "Papanga Hill",
+          "role_in_group": "SUBJECT_MISMATCH",
+          "classification": "generic_image",
+          "verification_status": "REJECTED",
+          "hero_eligible": false,
+          "resolution": "REJECTED. Textile product photograph cannot represent a geographical hill.",
+          "notes": "File depicts a Sambalpuri saree textile product assigned to Papanga Hill \u2014 a complete subject mismatch."
+        }
+      ]
+    },
+    {
+      "group_id": "REUSE_02_LANKESWARI_TEMPLE",
+      "group_name": "Lankeswari Temple Sonepur Riverbed Shrine",
+      "description": "Mahanadi rocky outcrop temple photo reused across related shrines",
+      "source_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Lankeswari_Thakurani_Sonepur_Subarnapur_Odisha.jpg",
+      "members": [
+        {
+          "research_id": "round2_west_007",
+          "name": "Lankeswari Temple, Sonepur",
+          "role_in_group": "CANONICAL_AUTHENTIC_PHOTO",
+          "classification": "exact_location_verified",
+          "verification_status": "EXACT_LOCATION_VERIFIED",
+          "hero_eligible": true,
+          "resolution": "CANONICAL. Authentic camera photograph depicting exact location.",
+          "notes": "Confirmed authentic camera photograph depicting exact destination Lankeswari Temple, Sonepur."
+        },
+        {
+          "research_id": "round2_west_009",
+          "name": "Metakani Temple, Ullunda",
+          "role_in_group": "CROSS_TOWN_REUSE",
+          "classification": "related_location_only",
+          "verification_status": "RELATED_LOCATION",
+          "hero_eligible": false,
+          "resolution": "RELATED_LOCATION. Depicts Lankeswari in Sonepur, assigned to Metakani in Ullunda block.",
+          "notes": "File depicts Lankeswari Temple in Sonepur town, assigned to Metakani Temple in Ullunda block \u2014 different temple in another block."
+        }
+      ]
+    },
+    {
+      "group_id": "REUSE_03_RANIPUR_JHARIAL_SIGNBOARD",
+      "group_name": "Ranipur Jharial Archaeological Entrance Board",
+      "description": "ASI archaeological entrance signboard reused across unrelated temples",
+      "source_image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/ASI_signboard_for_Ranipur_Jharial_and_Inndralath_Temple.jpg",
+      "members": [
+        {
+          "research_id": "round2_west_011",
+          "name": "Indralath Brick Temple, Ranipur Jharial",
+          "role_in_group": "ARCHAEOLOGICAL_SIGNBOARD_CONTEXT",
+          "classification": "related_location_only",
+          "verification_status": "RELATED_LOCATION",
+          "hero_eligible": false,
+          "resolution": "CONTEXTUAL. Entrance signboard provides official identity context but is not hero architecture.",
+          "notes": "File is an ASI entrance signboard at Ranipur Jharial. Signboards support site identity but do not qualify as hero architectural photographs."
+        },
+        {
+          "research_id": "round2_west_010",
+          "name": "Maa Patneswari Temple, Patnagarh",
+          "role_in_group": "GEOGRAPHIC_MISMATCH",
+          "classification": "generic_image",
+          "verification_status": "REJECTED",
+          "hero_eligible": false,
+          "resolution": "REJECTED. Signboard at Ranipur Jharial is 90+ km away from Patnagarh.",
+          "notes": "File depicts an ASI signboard at Ranipur Jharial, assigned to Patneswari Temple in Patnagarh (90+ km away)."
+        },
+        {
+          "research_id": "round2_west_012",
+          "name": "Saintala Chandi Temple Archaeological Site",
+          "role_in_group": "GEOGRAPHIC_MISMATCH",
+          "classification": "generic_image",
+          "verification_status": "REJECTED",
+          "hero_eligible": false,
+          "resolution": "REJECTED. Signboard for Ranipur Jharial cannot represent Saintala Chandi site.",
+          "notes": "File depicts an ASI signboard for Ranipur Jharial, assigned to Saintala Chandi Temple Archaeological Site \u2014 different site."
+        }
+      ]
+    },
+    {
+      "group_id": "REUSE_04_GUDGUDA_WATERFALL",
+      "group_name": "Gudguda Waterfall Sambalpur",
+      "description": "Authentic Gudguda waterfall photo reused for dam, fort, and another waterfall",
+      "source_image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Gudguda_waterfall_front_view.jpg",
+      "members": [
+        {
+          "research_id": "round2_west_018",
+          "name": "Gudguda Waterfall",
+          "role_in_group": "CANONICAL_AUTHENTIC_PHOTO",
+          "classification": "exact_location_verified",
+          "verification_status": "EXACT_LOCATION_VERIFIED",
+          "hero_eligible": true,
+          "resolution": "CANONICAL. Authentic camera photograph depicting exact waterfall.",
+          "notes": "Confirmed authentic camera photograph depicting exact destination Gudguda Waterfall."
+        },
+        {
+          "research_id": "round2_west_013",
+          "name": "Ulapgarh Fort & Rock Enclosure",
+          "role_in_group": "CATEGORY_MISMATCH",
+          "classification": "generic_image",
+          "verification_status": "REJECTED",
+          "hero_eligible": false,
+          "resolution": "REJECTED. Waterfall photograph cannot represent a ruined fort and rock shelter.",
+          "notes": "File depicts Gudguda Waterfall in Sambalpur, assigned to Ulapgarh Fort in Jharsuguda \u2014 waterfall assigned to a fort."
+        },
+        {
+          "research_id": "round2_west_016",
+          "name": "Gohira Dam & Reservoir",
+          "role_in_group": "CATEGORY_MISMATCH",
+          "classification": "generic_image",
+          "verification_status": "REJECTED",
+          "hero_eligible": false,
+          "resolution": "REJECTED. Natural waterfall cannot represent an irrigation dam structure.",
+          "notes": "File depicts Gudguda Waterfall in Sambalpur, assigned to Gohira Dam in Deogarh district \u2014 waterfall assigned to a dam."
+        },
+        {
+          "research_id": "round2_west_017",
+          "name": "Kurudkut Waterfall & Historic Hydro Site",
+          "role_in_group": "CROSS_DISTRICT_REUSE",
+          "classification": "related_location_only",
+          "verification_status": "REJECTED",
+          "hero_eligible": false,
+          "resolution": "REJECTED. Gudguda waterfall in Sambalpur cannot represent Kurudkut in Deogarh.",
+          "notes": "File depicts Gudguda Waterfall in Sambalpur, assigned to Kurudkut Waterfall in Deogarh \u2014 different waterfall in another district."
+        }
+      ]
+    },
+    {
+      "group_id": "REUSE_05_BUDHARAJA_HILL_PANORAMA",
+      "group_name": "Sambalpur City Panorama from Budharaja Hill",
+      "description": "Sambalpur city panorama from Budharaja hill reused for ruined fort and cave temple",
+      "source_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sambalpur.jpg",
+      "members": [
+        {
+          "research_id": "round2_west_019",
+          "name": "Budharaja Temple & Hill Park",
+          "role_in_group": "REGIONAL_PANORAMA",
+          "classification": "related_location_only",
+          "verification_status": "RELATED_LOCATION",
+          "hero_eligible": false,
+          "resolution": "RELATED_LOCATION. City panorama from hill; supports landscape view but not hero temple architecture.",
+          "notes": "File is a city panorama taken from Budharaja Hill, showing the town view rather than the Budharaja Shiva temple structure."
+        },
+        {
+          "research_id": "round2_west_014",
+          "name": "Kolabira Fort",
+          "role_in_group": "CROSS_DISTRICT_MISMATCH",
+          "classification": "related_location_only",
+          "verification_status": "REJECTED",
+          "hero_eligible": false,
+          "resolution": "REJECTED. Sambalpur town panorama cannot represent Kolabira Fort in Jharsuguda district.",
+          "notes": "File depicts a panoramic city view of Sambalpur town, assigned to Kolabira Fort in Jharsuguda district \u2014 different district."
+        },
+        {
+          "research_id": "round2_west_015",
+          "name": "Jhadeswar Temple & Cave, Jharsuguda",
+          "role_in_group": "CROSS_DISTRICT_MISMATCH",
+          "classification": "related_location_only",
+          "verification_status": "REJECTED",
+          "hero_eligible": false,
+          "resolution": "REJECTED. Sambalpur city panorama cannot represent Jhadeswar Temple in Jharsuguda.",
+          "notes": "File depicts a panoramic city view of Sambalpur town, assigned to Jhadeswar Temple & Cave in Jharsuguda town \u2014 different town/district."
+        }
+      ]
+    },
+    {
+      "group_id": "REUSE_06_VEDVYAS_TEMPLE",
+      "group_name": "Vedvyas Temple Confluence Rourkela",
+      "description": "Vedvyas river confluence temple photo reused for Tensa hill station",
+      "source_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ved_Vyas%2C_Rourkela_-_1.jpg",
+      "members": [
+        {
+          "research_id": "round2_west_020",
+          "name": "Vedvyas Temple & Confluence, Rourkela",
+          "role_in_group": "CANONICAL_AUTHENTIC_PHOTO",
+          "classification": "exact_location_verified",
+          "verification_status": "EXACT_LOCATION_VERIFIED",
+          "hero_eligible": true,
+          "resolution": "CANONICAL. Authentic camera photograph depicting exact destination.",
+          "notes": "Confirmed authentic camera photograph depicting exact destination Vedvyas Temple & Confluence, Rourkela."
+        },
+        {
+          "research_id": "round2_west_021",
+          "name": "Tensa Hill Station & Nature Camp",
+          "role_in_group": "CATEGORY_MISMATCH",
+          "classification": "generic_image",
+          "verification_status": "REJECTED",
+          "hero_eligible": false,
+          "resolution": "REJECTED. Vedvyas temple in Rourkela cannot represent Tensa Hill Station.",
+          "notes": "File depicts Vedvyas Temple in Rourkela, assigned to Tensa Hill Station & Nature Camp \u2014 temple assigned to a hill station."
+        }
+      ]
+    }
+  ]
+}

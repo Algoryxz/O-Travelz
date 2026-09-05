@@ -1,4 +1,4 @@
-﻿"""
+"""
 Canonical Media Registry and Entity Association Models.
 
 Fulfills Wave A1 Media Registry architecture:
@@ -47,6 +47,11 @@ class MediaAsset(Base):
         nullable=False,
         default="UNVERIFIED",
     )  # EXACT_LOCATION_VERIFIED | RELATED_LOCATION | TECHNICAL_VECTOR | UNVERIFIED | REJECTED
+    content_kind = Column(
+        String(32),
+        nullable=False,
+        default="FIELD_PHOTOGRAPH",
+    )  # FIELD_PHOTOGRAPH | TECHNICAL_VECTOR | ARCHIVAL_SCAN | RENDER_3D
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
 
     associations = relationship(
@@ -84,6 +89,11 @@ class EntityMedia(Base):
         nullable=False,
         default="primary",
     )  # primary | gallery | hero | thumbnail | floorplan
+    display_role = Column(
+        String(32),
+        nullable=False,
+        default="HERO",
+    )  # HERO | CARD | THUMBNAIL | GALLERY | DIAGRAM | BANNER
     sort_order = Column(Integer, nullable=False, default=0)
     alt_text = Column(String(255), nullable=True)
     caption = Column(String(255), nullable=True)

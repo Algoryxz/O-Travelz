@@ -24,6 +24,35 @@ def validate_media_asset(
     storage_key = str(asset.get("storage_key", "")).strip()
     status = str(asset.get("verification_status", "")).strip().upper()
     media_kind = str(asset.get("media_kind") or asset.get("media_type") or "image").lower()
+    VALID_MEDIA_TYPES = {"IMAGE", "VIDEO", "AUDIO", "DOCUMENT_PDF"}
+    VALID_CONTENT_KINDS = {"FIELD_PHOTOGRAPH", "TECHNICAL_VECTOR", "ARCHIVAL_SCAN", "RENDER_3D", "PHOTOGRAPH"}
+
+    media_type_raw = str(asset.get("media_type") or "IMAGE").strip().upper()
+    content_kind_raw = str(asset.get("content_kind") or asset.get("media_kind") or "FIELD_PHOTOGRAPH").strip().upper()
+
+    if media_type_raw not in VALID_MEDIA_TYPES:
+        report.add_issue(
+            code=codes.MED_INVALID_STORAGE_KEY,
+            severity=ValidationSeverity.ERROR,
+            domain="media",
+            entity_type="media_asset",
+            entity_id=asset_id,
+            field="media_type",
+            message=f"Media asset '{asset_id}' has invalid media_type '{media_type_raw}'",
+            evidence={"media_type": media_type_raw},
+        )
+
+    if content_kind_raw not in VALID_CONTENT_KINDS:
+        report.add_issue(
+            code=codes.MED_INVALID_STORAGE_KEY,
+            severity=ValidationSeverity.ERROR,
+            domain="media",
+            entity_type="media_asset",
+            entity_id=asset_id,
+            field="content_kind",
+            message=f"Media asset '{asset_id}' has invalid content_kind '{content_kind_raw}'",
+            evidence={"content_kind": content_kind_raw},
+        )
 
     # 1. SHA256 Format (Blocking ERROR)
     if not SHA256_HEX_PATTERN.match(sha):
@@ -58,9 +87,10 @@ def validate_media_asset(
         asset.get("is_photograph") is True
         or asset.get("claim_type") == "field_photograph"
         or "camera" in str(asset.get("attribution", "")).lower()
-        or status == "EXACT_LOCATION_VERIFIED" and (status == "TECHNICAL_VECTOR" or media_kind == "vector")
+        or (status == "EXACT_LOCATION_VERIFIED" and (status == "TECHNICAL_VECTOR" or media_kind == "vector" or content_kind_raw == "TECHNICAL_VECTOR"))
+        or (content_kind_raw == "TECHNICAL_VECTOR" and status == "EXACT_LOCATION_VERIFIED")
     )
-    if (status == "TECHNICAL_VECTOR" or media_kind == "vector") and claims_photo:
+    if (status == "TECHNICAL_VECTOR" or media_kind == "vector" or content_kind_raw == "TECHNICAL_VECTOR") and claims_photo:
         report.add_issue(
             code=codes.MED_TECHNICAL_AS_PHOTO,
             severity=ValidationSeverity.ERROR,
@@ -69,7 +99,7 @@ def validate_media_asset(
             entity_id=asset_id,
             field="verification_status",
             message=f"Media asset '{asset_id}' is a TECHNICAL_VECTOR but is represented as authentic photography",
-            evidence={"verification_status": status, "media_kind": media_kind},
+            evidence={"verification_status": status, "media_kind": media_kind, "content_kind": content_kind_raw},
         )
 
 
@@ -88,6 +118,20 @@ def validate_entity_media(
         ent_id = str(assoc.get("entity_id", "")).strip()
         asset_id = str(assoc.get("media_asset_id", "")).strip()
         assoc_type = str(assoc.get("association_type", "primary")).strip()
+        display_role = str(assoc.get("display_role", "HERO")).strip().upper()
+
+        VALID_DISPLAY_ROLES = {"HERO", "CARD", "THUMBNAIL", "GALLERY", "DIAGRAM", "BANNER"}
+        if display_role not in VALID_DISPLAY_ROLES:
+            report.add_issue(
+                code=codes.MED_INVALID_STORAGE_KEY,
+                severity=ValidationSeverity.ERROR,
+                domain="media",
+                entity_type="entity_media",
+                entity_id=assoc_id,
+                field="display_role",
+                message=f"EntityMedia record '{assoc_id}' has invalid display_role '{display_role}'",
+                evidence={"display_role": display_role},
+            )
 
         # 1. Orphan Association Check
         if asset_id not in media_assets_by_id:
