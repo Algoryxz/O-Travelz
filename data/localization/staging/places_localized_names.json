@@ -1,0 +1,2575 @@
+[
+  {
+    "entity_id": "place_013",
+    "canonical_name": "Museum of Tribal Arts and Artifacts",
+    "localized_names": {
+      "en": "Museum of Tribal Arts and Artifacts",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_012",
+    "canonical_name": "Regional Museum of Natural History",
+    "localized_names": {
+      "en": "Regional Museum of Natural History",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_032",
+    "canonical_name": "Buddha Jayanti Park",
+    "localized_names": {
+      "en": "Buddha Jayanti Park",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_031",
+    "canonical_name": "Indira Gandhi Park",
+    "localized_names": {
+      "en": "Indira Gandhi Park",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_014",
+    "canonical_name": "Pathani Samanta Planetarium",
+    "localized_names": {
+      "en": "Pathani Samanta Planetarium",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bbsr_008",
+    "canonical_name": "Odisha State Museum",
+    "localized_names": {
+      "en": "Odisha State Museum",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bbsr_006",
+    "canonical_name": "Dhauli Shanti Stupa",
+    "localized_names": {
+      "en": "Dhauli Shanti Stupa",
+      "or": "ଧଉଳି ଶାନ୍ତି ସ୍ତୂପ",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Kalinga Edicts of Ashoka (c. 261 BCE) • Indo-Japanese Peace Pagoda"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_030",
+    "canonical_name": "Regional Science Centre, Bhubaneswar",
+    "localized_names": {
+      "en": "Regional Science Centre, Bhubaneswar",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_024",
+    "canonical_name": "Bharati Matha Temple",
+    "localized_names": {
+      "en": "Bharati Matha Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_019",
+    "canonical_name": "Brahmeswar Temple",
+    "localized_names": {
+      "en": "Brahmeswar Temple",
+      "or": "ବ୍ରହ୍ମେଶ୍ୱର ମନ୍ଦିର",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "ASI Protected Monument N-OR-8 • Somavamsi Dynasty"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_007",
+    "canonical_name": "Chausathi Yogini Temple, Hirapur",
+    "localized_names": {
+      "en": "Chausathi Yogini Temple, Hirapur",
+      "or": "ଚଉଷଠି ଯୋଗିନୀ ମନ୍ଦିର",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "ASI Protected Monument N-OR-10 • Hypaethral Tantric Circular Temple"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_029",
+    "canonical_name": "Kapilesvara Siva Temple",
+    "localized_names": {
+      "en": "Kapilesvara Siva Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_025",
+    "canonical_name": "Kedar Gouri Temple",
+    "localized_names": {
+      "en": "Kedar Gouri Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_026",
+    "canonical_name": "Megheswar Temple",
+    "localized_names": {
+      "en": "Megheswar Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_027",
+    "canonical_name": "Nageshwar Temple",
+    "localized_names": {
+      "en": "Nageshwar Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_puri_002",
+    "canonical_name": "Puri Golden Beach",
+    "localized_names": {
+      "en": "Puri Golden Beach",
+      "or": "ପୁରୀ ବେଳାଭୂମି",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "FEE Blue Flag Certified Beach • Bay of Bengal"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_005",
+    "canonical_name": "Parasurameswar Temple",
+    "localized_names": {
+      "en": "Parasurameswar Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_022",
+    "canonical_name": "Ram Mandir, Bhubaneswar",
+    "localized_names": {
+      "en": "Ram Mandir, Bhubaneswar",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_021",
+    "canonical_name": "Rameshwar Deula",
+    "localized_names": {
+      "en": "Rameshwar Deula",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_028",
+    "canonical_name": "Talesvara Siva Temple",
+    "localized_names": {
+      "en": "Talesvara Siva Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_023",
+    "canonical_name": "Chitrakarini Temple",
+    "localized_names": {
+      "en": "Chitrakarini Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_020",
+    "canonical_name": "Bhaskareswar Temple",
+    "localized_names": {
+      "en": "Bhaskareswar Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_018",
+    "canonical_name": "Baitala Deula",
+    "localized_names": {
+      "en": "Baitala Deula",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bbsr_004",
+    "canonical_name": "Ananta Vasudeva Temple",
+    "localized_names": {
+      "en": "Ananta Vasudeva Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bbsr_005",
+    "canonical_name": "Udayagiri and Khandagiri Caves",
+    "localized_names": {
+      "en": "Udayagiri and Khandagiri Caves",
+      "or": "ଉଦୟଗିରି ଏବଂ ଖଣ୍ଡଗିରି ଗୁମ୍ଫା",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "ASI Protected Monument N-OR-17 to N-OR-34 • Emperor Kharavela"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_bbsr_002",
+    "canonical_name": "Mukteswar Temple",
+    "localized_names": {
+      "en": "Mukteswar Temple",
+      "or": "ମୁକ୍ତେଶ୍ୱର ମନ୍ଦିର",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "ASI Protected Monument N-OR-14 • Gem of Odisha Architecture"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_bbsr_012",
+    "canonical_name": "Bindu Sagar",
+    "localized_names": {
+      "en": "Bindu Sagar",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bbsr_007",
+    "canonical_name": "Nandankanan Zoological Park",
+    "localized_names": {
+      "en": "Nandankanan Zoological Park",
+      "or": "ପର୍ଶୁରାମେଶ୍ୱର ମନ୍ଦିର",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "ASI Protected Monument N-OR-16 • Sailodbhava Dynasty"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_konark_003",
+    "canonical_name": "Ramachandi Beach & Temple",
+    "localized_names": {
+      "en": "Ramachandi Beach & Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_chilika_002",
+    "canonical_name": "Kalijai Island Temple, Chilika",
+    "localized_names": {
+      "en": "Kalijai Island Temple, Chilika",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_puri_003",
+    "canonical_name": "Gundicha Temple",
+    "localized_names": {
+      "en": "Gundicha Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_puri_001",
+    "canonical_name": "Jagannath Temple, Puri",
+    "localized_names": {
+      "en": "Jagannath Temple, Puri",
+      "or": "ଶ୍ରୀ ଜଗନ୍ନାଥ ମନ୍ଦିର",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "ASI Protected Monument N-OR-54 • Srimandir Act 1955"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_sambalpur_002",
+    "canonical_name": "Samaleswari Temple, Sambalpur",
+    "localized_names": {
+      "en": "Samaleswari Temple, Sambalpur",
+      "or": "ସମଲେଶ୍ୱରୀ ମନ୍ଦିର",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "SAMALEI Heritage Corridor • 16th Century Chauhan Shrine"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_bbsr_011",
+    "canonical_name": "Kalinga Stadium",
+    "localized_names": {
+      "en": "Kalinga Stadium",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_puri_004",
+    "canonical_name": "Swargadwar Beach",
+    "localized_names": {
+      "en": "Swargadwar Beach",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_cuttack_001",
+    "canonical_name": "Barabati Fort",
+    "localized_names": {
+      "en": "Barabati Fort",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_rourkela_001",
+    "canonical_name": "Hanuman Vatika, Rourkela",
+    "localized_names": {
+      "en": "Hanuman Vatika, Rourkela",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_sambalpur_001",
+    "canonical_name": "Hirakud Dam & Reservoir",
+    "localized_names": {
+      "en": "Hirakud Dam & Reservoir",
+      "or": "ହୀରାକୁଦ ବନ୍ଧ ଓ ଜଳାଶୟ",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Mahanadi River • One of the longest earthen dams in the world (25.8 km)"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_rourkela_003",
+    "canonical_name": "Khandadhar Waterfall, Sundargarh",
+    "localized_names": {
+      "en": "Khandadhar Waterfall, Sundargarh",
+      "or": "ଖଣ୍ଡାଧାର ଜଳପ୍ରପାତ (ସୁନ୍ଦରଗଡ଼)",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Korapani Nala • 244m perennial horsetail-style cascade"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_konark_002",
+    "canonical_name": "Chandrabhaga Beach",
+    "localized_names": {
+      "en": "Chandrabhaga Beach",
+      "or": "ଚନ୍ଦ୍ରଭାଗା ବେଳାଭୂମି",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "First Blue Flag Certified Beach in Asia • Sacred Magha Saptami Tirtha"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_koraput_001",
+    "canonical_name": "Gupteswar Cave Temple, Koraput",
+    "localized_names": {
+      "en": "Gupteswar Cave Temple, Koraput",
+      "or": "ଗୁପ୍ତେଶ୍ୱର ଶୈବପୀଠ",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Kolab River Valley • Sacred Natural Limestone Cave Shrine"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_mayurbhanj_002",
+    "canonical_name": "Barehipani & Joranda Falls",
+    "localized_names": {
+      "en": "Barehipani & Joranda Falls",
+      "or": "ବରେହିପାଣି ଓ ଯୋରନ୍ଦା ଜଳପ୍ରପାତ",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Budhabalanga River • Second highest waterfall in India (399m)"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_chilika_003",
+    "canonical_name": "Mangalajodi Bird Sanctuary",
+    "localized_names": {
+      "en": "Mangalajodi Bird Sanctuary",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_kendrapara_001",
+    "canonical_name": "Bhitarkanika National Park",
+    "localized_names": {
+      "en": "Bhitarkanika National Park",
+      "or": "ଭିତରକନିକା ଜାତୀୟ ଉଦ୍ୟାନ",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Ramsar Wetland Site #1210 • Second Largest Mangrove Ecosystem in India"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_koraput_005",
+    "canonical_name": "Kolab Reservoir & Botanical Garden",
+    "localized_names": {
+      "en": "Kolab Reservoir & Botanical Garden",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_konark_001",
+    "canonical_name": "Konark Sun Temple",
+    "localized_names": {
+      "en": "Konark Sun Temple",
+      "or": "କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "UNESCO World Heritage Site #242 • ASI National Monument N-OR-1"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_ganjam_001",
+    "canonical_name": "Gopalpur-on-Sea Beach",
+    "localized_names": {
+      "en": "Gopalpur-on-Sea Beach",
+      "or": "ଗୋପାଳପୁର ବେଳାଭୂମି",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Historic seaport and colonial-era beach retreat"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_cuttack_004",
+    "canonical_name": "Netaji Birth Place Museum",
+    "localized_names": {
+      "en": "Netaji Birth Place Museum",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_sambalpur_003",
+    "canonical_name": "Huma Leaning Temple",
+    "localized_names": {
+      "en": "Huma Leaning Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_ganjam_002",
+    "canonical_name": "Tara Tarini Temple",
+    "localized_names": {
+      "en": "Tara Tarini Temple",
+      "or": "ତାରାତାରିଣୀ ମନ୍ଦିର",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Rushikulya River • Ancient Shakti Peetha on Kumari Hill"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_konark_004",
+    "canonical_name": "Konark Archaeological Museum",
+    "localized_names": {
+      "en": "Konark Archaeological Museum",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_daringbadi_003",
+    "canonical_name": "Coffee Gardens, Daringbadi",
+    "localized_names": {
+      "en": "Coffee Gardens, Daringbadi",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_mayurbhanj_001",
+    "canonical_name": "Similipal National Park",
+    "localized_names": {
+      "en": "Similipal National Park",
+      "or": "ଶିମିଳିପାଳ ଜାତୀୟ ଉଦ୍ୟାନ",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "UNESCO World Network of Biosphere Reserves (2009) • Project Tiger Reserve"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_koraput_003",
+    "canonical_name": "Deomali Peak, Koraput",
+    "localized_names": {
+      "en": "Deomali Peak, Koraput",
+      "or": "ଦେଓମାଳୀ ପର୍ବତ ଶୃଙ୍ଗ",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Highest mountain peak in Odisha (1,672m) • Eastern Ghats"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_chilika_001",
+    "canonical_name": "Chilika Lake - Satapada",
+    "localized_names": {
+      "en": "Chilika Lake - Satapada",
+      "or": "ଚିଲିକା ହ୍ରଦ",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Ramsar Wetland Site #229 • Mangalajodi, Nalabana & Satapada"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_balasore_001",
+    "canonical_name": "Chandipur Beach",
+    "localized_names": {
+      "en": "Chandipur Beach",
+      "or": "ଚାନ୍ଦିପୁର ବେଳାଭୂମି",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Unique receding sea phenomenon (up to 5 km during low tide)"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_daringbadi_004",
+    "canonical_name": "Belghar Nature Camp",
+    "localized_names": {
+      "en": "Belghar Nature Camp",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bbsr_009",
+    "canonical_name": "Odisha Crafts Museum Kala Bhoomi",
+    "localized_names": {
+      "en": "Odisha Crafts Museum Kala Bhoomi",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_sambalpur_004",
+    "canonical_name": "Debrigarh Wildlife Sanctuary",
+    "localized_names": {
+      "en": "Debrigarh Wildlife Sanctuary",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_cuttack_003",
+    "canonical_name": "Odisha State Maritime Museum",
+    "localized_names": {
+      "en": "Odisha State Maritime Museum",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bbsr_010",
+    "canonical_name": "Ekamra Haat",
+    "localized_names": {
+      "en": "Ekamra Haat",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_cuttack_002",
+    "canonical_name": "Cuttack Chandi Temple",
+    "localized_names": {
+      "en": "Cuttack Chandi Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_koraput_004",
+    "canonical_name": "Tribal Museum, Koraput",
+    "localized_names": {
+      "en": "Tribal Museum, Koraput",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_koraput_002",
+    "canonical_name": "Duduma Waterfall",
+    "localized_names": {
+      "en": "Duduma Waterfall",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_rayagada_001",
+    "canonical_name": "Maa Majhigouri Temple, Rayagada",
+    "localized_names": {
+      "en": "Maa Majhigouri Temple, Rayagada",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bbsr_001",
+    "canonical_name": "Lingaraj Temple",
+    "localized_names": {
+      "en": "Lingaraj Temple",
+      "or": "ଲିଙ୍ଗରାଜ ମନ୍ଦିର",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "ASI Protected Monument N-OR-12 • Somavamsi Dynasty"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_daringbadi_002",
+    "canonical_name": "Midubanda Waterfall, Daringbadi",
+    "localized_names": {
+      "en": "Midubanda Waterfall, Daringbadi",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_daringbadi_001",
+    "canonical_name": "Daringbadi Hill Station",
+    "localized_names": {
+      "en": "Daringbadi Hill Station",
+      "or": "ଦାରିଙ୍ଗବାଡ଼ି",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "Eastern Ghats Hill Station • Pine forests and coffee plantations"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_bbsr_003",
+    "canonical_name": "Rajarani Temple",
+    "localized_names": {
+      "en": "Rajarani Temple",
+      "or": "ରାଜାରାଣୀ ମନ୍ଦିର",
+      "hi": null
+    },
+    "odia_source": {
+      "type": "EXISTING_PROJECT_RESEARCH",
+      "reference": "frontend/src/data/canonicalOdiaPlaces.ts",
+      "verified_at": "2026-09-05T13:23:47.093519+00:00",
+      "notes": "ASI Protected Monument N-OR-15 • Indreswara Temple"
+    },
+    "hindi_source": null,
+    "status": "READY"
+  },
+  {
+    "entity_id": "place_rourkela_002",
+    "canonical_name": "Mandira Dam, Sundargarh",
+    "localized_names": {
+      "en": "Mandira Dam, Sundargarh",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_food_001",
+    "canonical_name": "Pahala Rasagola Sweet Hub",
+    "localized_names": {
+      "en": "Pahala Rasagola Sweet Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_food_002",
+    "canonical_name": "Nimapada Chhena Jhili Market",
+    "localized_names": {
+      "en": "Nimapada Chhena Jhili Market",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_food_003",
+    "canonical_name": "Ananda Bazar, Puri",
+    "localized_names": {
+      "en": "Ananda Bazar, Puri",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_food_004",
+    "canonical_name": "Choudhury Bazar Dahibara Hub, Cuttack",
+    "localized_names": {
+      "en": "Choudhury Bazar Dahibara Hub, Cuttack",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_food_005",
+    "canonical_name": "Bikalananda Kar Rasagola Hub, Salepur",
+    "localized_names": {
+      "en": "Bikalananda Kar Rasagola Hub, Salepur",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_food_006",
+    "canonical_name": "OTDC Nimantran Restaurant, Bhubaneswar",
+    "localized_names": {
+      "en": "OTDC Nimantran Restaurant, Bhubaneswar",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_food_007",
+    "canonical_name": "Bapuji Nagar Food Corridor, Bhubaneswar",
+    "localized_names": {
+      "en": "Bapuji Nagar Food Corridor, Bhubaneswar",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_food_008",
+    "canonical_name": "Unit-4 Traditional Food & Fish Market, Bhubaneswar",
+    "localized_names": {
+      "en": "Unit-4 Traditional Food & Fish Market, Bhubaneswar",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_food_009",
+    "canonical_name": "OTDC Panthasala Odia Cuisine Centre, Konark",
+    "localized_names": {
+      "en": "OTDC Panthasala Odia Cuisine Centre, Konark",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_food_010",
+    "canonical_name": "Maa Mangala Temple Food & Pitha Precinct, Kakatpur",
+    "localized_names": {
+      "en": "Maa Mangala Temple Food & Pitha Precinct, Kakatpur",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_food_011",
+    "canonical_name": "Raghunathpur Culinary Corner, Bhubaneswar",
+    "localized_names": {
+      "en": "Raghunathpur Culinary Corner, Bhubaneswar",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_angul_001",
+    "canonical_name": "Satkosia Gorge Sanctuary",
+    "localized_names": {
+      "en": "Satkosia Gorge Sanctuary",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_angul_002",
+    "canonical_name": "Tikarpada Nature Camp",
+    "localized_names": {
+      "en": "Tikarpada Nature Camp",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_angul_003",
+    "canonical_name": "Rengali Dam & Reservoir",
+    "localized_names": {
+      "en": "Rengali Dam & Reservoir",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_balangir_001",
+    "canonical_name": "Harishankar Temple & Stream",
+    "localized_names": {
+      "en": "Harishankar Temple & Stream",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_balangir_002",
+    "canonical_name": "Ranipur Jharial 64 Yogini Temple",
+    "localized_names": {
+      "en": "Ranipur Jharial 64 Yogini Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_balangir_003",
+    "canonical_name": "Sailashree Palace",
+    "localized_names": {
+      "en": "Sailashree Palace",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bhadrak_001",
+    "canonical_name": "Maa Akhandalamani Temple (Aradi)",
+    "localized_names": {
+      "en": "Maa Akhandalamani Temple (Aradi)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bhadrak_002",
+    "canonical_name": "Dhamra Port & Marine Estuary",
+    "localized_names": {
+      "en": "Dhamra Port & Marine Estuary",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bhadrak_003",
+    "canonical_name": "Chandbali River Gateway",
+    "localized_names": {
+      "en": "Chandbali River Gateway",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_boudh_001",
+    "canonical_name": "Boudh Colossal Buddha Statues",
+    "localized_names": {
+      "en": "Boudh Colossal Buddha Statues",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_boudh_002",
+    "canonical_name": "Rameswar Temple Complex",
+    "localized_names": {
+      "en": "Rameswar Temple Complex",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_deogarh_001",
+    "canonical_name": "Pradhanpat Waterfall",
+    "localized_names": {
+      "en": "Pradhanpat Waterfall",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_deogarh_002",
+    "canonical_name": "Kailash Palace (Raja Palace)",
+    "localized_names": {
+      "en": "Kailash Palace (Raja Palace)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_dhenkanal_001",
+    "canonical_name": "Kapilash Temple & Sanctuary",
+    "localized_names": {
+      "en": "Kapilash Temple & Sanctuary",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_dhenkanal_002",
+    "canonical_name": "Joranda Gadi (Mahima Dharma Seat)",
+    "localized_names": {
+      "en": "Joranda Gadi (Mahima Dharma Seat)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_dhenkanal_003",
+    "canonical_name": "Saptasajya Hill Sanctuary",
+    "localized_names": {
+      "en": "Saptasajya Hill Sanctuary",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_gajapati_001",
+    "canonical_name": "Mahendragiri Mountain Peak",
+    "localized_names": {
+      "en": "Mahendragiri Mountain Peak",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_gajapati_002",
+    "canonical_name": "Khasada Waterfall (Chandragiri)",
+    "localized_names": {
+      "en": "Khasada Waterfall (Chandragiri)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_gajapati_003",
+    "canonical_name": "Gandahati Waterfall",
+    "localized_names": {
+      "en": "Gandahati Waterfall",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_jagatsinghpur_001",
+    "canonical_name": "Maa Sarala Temple (Jhankad)",
+    "localized_names": {
+      "en": "Maa Sarala Temple (Jhankad)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_jagatsinghpur_002",
+    "canonical_name": "Paradip Sea Beach & Lighthouse",
+    "localized_names": {
+      "en": "Paradip Sea Beach & Lighthouse",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_jagatsinghpur_003",
+    "canonical_name": "Siali Sea Beach",
+    "localized_names": {
+      "en": "Siali Sea Beach",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_jajpur_001",
+    "canonical_name": "Maa Biraja Temple (Shakti Peetha)",
+    "localized_names": {
+      "en": "Maa Biraja Temple (Shakti Peetha)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_jajpur_002",
+    "canonical_name": "Ratnagiri Buddhist Monastery",
+    "localized_names": {
+      "en": "Ratnagiri Buddhist Monastery",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_jajpur_003",
+    "canonical_name": "Udayagiri Buddhist Complex",
+    "localized_names": {
+      "en": "Udayagiri Buddhist Complex",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_jharsuguda_001",
+    "canonical_name": "Koilighugar Waterfall",
+    "localized_names": {
+      "en": "Koilighugar Waterfall",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_jharsuguda_002",
+    "canonical_name": "Bikramkhol Prehistoric Rock Art",
+    "localized_names": {
+      "en": "Bikramkhol Prehistoric Rock Art",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_kalahandi_001",
+    "canonical_name": "Phurlijharan Waterfall",
+    "localized_names": {
+      "en": "Phurlijharan Waterfall",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_kalahandi_002",
+    "canonical_name": "Asurgarh Ancient Fortified City",
+    "localized_names": {
+      "en": "Asurgarh Ancient Fortified City",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_kalahandi_003",
+    "canonical_name": "Maa Manikeswari Temple (Bhawanipatna)",
+    "localized_names": {
+      "en": "Maa Manikeswari Temple (Bhawanipatna)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_keonjhar_001",
+    "canonical_name": "Sanaghagara Waterfall",
+    "localized_names": {
+      "en": "Sanaghagara Waterfall",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_keonjhar_002",
+    "canonical_name": "Badaghagara Waterfall",
+    "localized_names": {
+      "en": "Badaghagara Waterfall",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_keonjhar_003",
+    "canonical_name": "Khandadhar Waterfall (Keonjhar)",
+    "localized_names": {
+      "en": "Khandadhar Waterfall (Keonjhar)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_keonjhar_004",
+    "canonical_name": "Gonasika (Baitarani Source)",
+    "localized_names": {
+      "en": "Gonasika (Baitarani Source)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_malkangiri_001",
+    "canonical_name": "Balimela Dam & Hydro Reservoir",
+    "localized_names": {
+      "en": "Balimela Dam & Hydro Reservoir",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_malkangiri_002",
+    "canonical_name": "Satiguda Eco Dam",
+    "localized_names": {
+      "en": "Satiguda Eco Dam",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_malkangiri_003",
+    "canonical_name": "Ammakunda Natural Pool",
+    "localized_names": {
+      "en": "Ammakunda Natural Pool",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_nabarangpur_001",
+    "canonical_name": "Shahid Minar Papadahandi",
+    "localized_names": {
+      "en": "Shahid Minar Papadahandi",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_nabarangpur_002",
+    "canonical_name": "Chandandhara Waterfall",
+    "localized_names": {
+      "en": "Chandandhara Waterfall",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_nayagarh_001",
+    "canonical_name": "Kantilo Nilamadhaba Temple",
+    "localized_names": {
+      "en": "Kantilo Nilamadhaba Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_nayagarh_002",
+    "canonical_name": "Sarankul Ladubaba Temple",
+    "localized_names": {
+      "en": "Sarankul Ladubaba Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_nayagarh_003",
+    "canonical_name": "Baisipalli Wildlife Sanctuary",
+    "localized_names": {
+      "en": "Baisipalli Wildlife Sanctuary",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_nuapada_001",
+    "canonical_name": "Patora Dam & Yogeswar Temple",
+    "localized_names": {
+      "en": "Patora Dam & Yogeswar Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_nuapada_002",
+    "canonical_name": "Maraguda Valley Archaeological Site",
+    "localized_names": {
+      "en": "Maraguda Valley Archaeological Site",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_subarnapur_001",
+    "canonical_name": "Maa Sureswari Temple (Sonepur)",
+    "localized_names": {
+      "en": "Maa Sureswari Temple (Sonepur)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_subarnapur_002",
+    "canonical_name": "Patali Srikhetra (Kotsamalai)",
+    "localized_names": {
+      "en": "Patali Srikhetra (Kotsamalai)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_subarnapur_003",
+    "canonical_name": "Subarnameru Temple",
+    "localized_names": {
+      "en": "Subarnameru Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_balasore_002",
+    "canonical_name": "Talasari Beach & Palm Fringes",
+    "localized_names": {
+      "en": "Talasari Beach & Palm Fringes",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_balasore_003",
+    "canonical_name": "Panchalingeswar Temple & Springs",
+    "localized_names": {
+      "en": "Panchalingeswar Temple & Springs",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_bargarh_002",
+    "canonical_name": "Nrusinghanath Temple",
+    "localized_names": {
+      "en": "Nrusinghanath Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_ganjam_003",
+    "canonical_name": "Maa Tara Tarini Shakti Peetha",
+    "localized_names": {
+      "en": "Maa Tara Tarini Shakti Peetha",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_kendrapara_002",
+    "canonical_name": "Baladevjew Temple (Ichhapur)",
+    "localized_names": {
+      "en": "Baladevjew Temple (Ichhapur)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_mayurbhanj_003",
+    "canonical_name": "Khiching Kichakeswari Temple",
+    "localized_names": {
+      "en": "Khiching Kichakeswari Temple",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_rayagada_002",
+    "canonical_name": "Chatikona Waterfall & Hanging Bridge",
+    "localized_names": {
+      "en": "Chatikona Waterfall & Hanging Bridge",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_sambalpur_005",
+    "canonical_name": "Maa Ghanteswari Temple (Chiplima)",
+    "localized_names": {
+      "en": "Maa Ghanteswari Temple (Chiplima)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_001",
+    "canonical_name": "All India Institute of Medical Sciences (AIIMS) Bhubaneswar",
+    "localized_names": {
+      "en": "All India Institute of Medical Sciences (AIIMS) Bhubaneswar",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_002",
+    "canonical_name": "SCB Medical College & Hospital",
+    "localized_names": {
+      "en": "SCB Medical College & Hospital",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_003",
+    "canonical_name": "MKCG Medical College & Hospital",
+    "localized_names": {
+      "en": "MKCG Medical College & Hospital",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_004",
+    "canonical_name": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences)",
+    "localized_names": {
+      "en": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_005",
+    "canonical_name": "Capital Hospital Bhubaneswar",
+    "localized_names": {
+      "en": "Capital Hospital Bhubaneswar",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_006",
+    "canonical_name": "Ispat General Hospital (IGH)",
+    "localized_names": {
+      "en": "Ispat General Hospital (IGH)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_007",
+    "canonical_name": "SLN Medical College & Hospital Koraput",
+    "localized_names": {
+      "en": "SLN Medical College & Hospital Koraput",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_008",
+    "canonical_name": "PRM Medical College & Hospital Baripada",
+    "localized_names": {
+      "en": "PRM Medical College & Hospital Baripada",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_009",
+    "canonical_name": "Bhima Bhoi Medical College & Hospital",
+    "localized_names": {
+      "en": "Bhima Bhoi Medical College & Hospital",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_010",
+    "canonical_name": "Fakir Mohan Medical College & Hospital",
+    "localized_names": {
+      "en": "Fakir Mohan Medical College & Hospital",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_011",
+    "canonical_name": "Dharanidhar Medical College & Hospital",
+    "localized_names": {
+      "en": "Dharanidhar Medical College & Hospital",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_012",
+    "canonical_name": "District Headquarter Hospital (DHH) Puri",
+    "localized_names": {
+      "en": "District Headquarter Hospital (DHH) Puri",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_med_013",
+    "canonical_name": "District Headquarter Hospital (DHH) Angul",
+    "localized_names": {
+      "en": "District Headquarter Hospital (DHH) Angul",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_001",
+    "canonical_name": "Biju Patnaik International Airport (BBI)",
+    "localized_names": {
+      "en": "Biju Patnaik International Airport (BBI)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_002",
+    "canonical_name": "Veer Surendra Sai Airport Jharsuguda (JRG)",
+    "localized_names": {
+      "en": "Veer Surendra Sai Airport Jharsuguda (JRG)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_003",
+    "canonical_name": "Rourkela Airport (RRK)",
+    "localized_names": {
+      "en": "Rourkela Airport (RRK)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_004",
+    "canonical_name": "Bhubaneswar Railway Station (BBS)",
+    "localized_names": {
+      "en": "Bhubaneswar Railway Station (BBS)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_005",
+    "canonical_name": "Cuttack Junction Railway Station (CTC)",
+    "localized_names": {
+      "en": "Cuttack Junction Railway Station (CTC)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_006",
+    "canonical_name": "Puri Railway Station (PURI)",
+    "localized_names": {
+      "en": "Puri Railway Station (PURI)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_007",
+    "canonical_name": "Berhampur Railway Station (BAM)",
+    "localized_names": {
+      "en": "Berhampur Railway Station (BAM)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_008",
+    "canonical_name": "Sambalpur Junction Railway Station (SBP)",
+    "localized_names": {
+      "en": "Sambalpur Junction Railway Station (SBP)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_009",
+    "canonical_name": "Rourkela Junction Railway Station (ROU)",
+    "localized_names": {
+      "en": "Rourkela Junction Railway Station (ROU)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_010",
+    "canonical_name": "Balasore Railway Station (BLS)",
+    "localized_names": {
+      "en": "Balasore Railway Station (BLS)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_011",
+    "canonical_name": "Baramunda Inter State Bus Terminal (ISBT)",
+    "localized_names": {
+      "en": "Baramunda Inter State Bus Terminal (ISBT)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "place_transit_012",
+    "canonical_name": "Badambadi Bus Stand (Cuttack)",
+    "localized_names": {
+      "en": "Badambadi Bus Stand (Cuttack)",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_khurda_001",
+    "canonical_name": "Pahala Rasagola & Chhena Gaja Sweet Cluster",
+    "localized_names": {
+      "en": "Pahala Rasagola & Chhena Gaja Sweet Cluster",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_khurda_002",
+    "canonical_name": "OTDC Nimantran Authentic Odia Cuisine Centre",
+    "localized_names": {
+      "en": "OTDC Nimantran Authentic Odia Cuisine Centre",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_khurda_003",
+    "canonical_name": "Bapuji Nagar Food & Tiffin Corridor",
+    "localized_names": {
+      "en": "Bapuji Nagar Food & Tiffin Corridor",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_khurda_004",
+    "canonical_name": "Old Town Lingaraj Temple Kora Khai Hub",
+    "localized_names": {
+      "en": "Old Town Lingaraj Temple Kora Khai Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_cuttack_001",
+    "canonical_name": "Choudhury Bazar Dahibara Aloodum Hub",
+    "localized_names": {
+      "en": "Choudhury Bazar Dahibara Aloodum Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_cuttack_002",
+    "canonical_name": "Bikalananda Kar Rasagola Heritage Confectionery",
+    "localized_names": {
+      "en": "Bikalananda Kar Rasagola Heritage Confectionery",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_cuttack_003",
+    "canonical_name": "Barabati Fort Bidanasi Dahibara Hub",
+    "localized_names": {
+      "en": "Barabati Fort Bidanasi Dahibara Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_puri_001",
+    "canonical_name": "Ananda Bazar Sacred Mahaprasad Food Court",
+    "localized_names": {
+      "en": "Ananda Bazar Sacred Mahaprasad Food Court",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_puri_002",
+    "canonical_name": "Nimapada Chhena Jhili Sweet Hub",
+    "localized_names": {
+      "en": "Nimapada Chhena Jhili Sweet Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_puri_003",
+    "canonical_name": "Pipili Highway Applique & Snacking Junction",
+    "localized_names": {
+      "en": "Pipili Highway Applique & Snacking Junction",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_puri_004",
+    "canonical_name": "OTDC Panthasala Odia Cuisine Centre, Konark",
+    "localized_names": {
+      "en": "OTDC Panthasala Odia Cuisine Centre, Konark",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_puri_005",
+    "canonical_name": "Satapada Chilika Fresh Crab & Seafood Hub",
+    "localized_names": {
+      "en": "Satapada Chilika Fresh Crab & Seafood Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_ganjam_001",
+    "canonical_name": "Berhampur Girija Square Tiffin & Dosa Hub",
+    "localized_names": {
+      "en": "Berhampur Girija Square Tiffin & Dosa Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_ganjam_002",
+    "canonical_name": "Old Bus Stand Achar & Papad Bajar, Berhampur",
+    "localized_names": {
+      "en": "Old Bus Stand Achar & Papad Bajar, Berhampur",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_sambalpur_001",
+    "canonical_name": "Golbazar Chaula Bara & Tiffin Corner, Sambalpur",
+    "localized_names": {
+      "en": "Golbazar Chaula Bara & Tiffin Corner, Sambalpur",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_sambalpur_002",
+    "canonical_name": "Ainthapali Transit Food Corridor, Sambalpur",
+    "localized_names": {
+      "en": "Ainthapali Transit Food Corridor, Sambalpur",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_sundargarh_001",
+    "canonical_name": "Sector-5 Commercial Food Hub, Rourkela",
+    "localized_names": {
+      "en": "Sector-5 Commercial Food Hub, Rourkela",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_sundargarh_002",
+    "canonical_name": "Panposh Vedvyas Highway Confluence Dhaba Cluster",
+    "localized_names": {
+      "en": "Panposh Vedvyas Highway Confluence Dhaba Cluster",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_keonjhar_001",
+    "canonical_name": "Keonjhar Phula Badi Heritage Artisan Market",
+    "localized_names": {
+      "en": "Keonjhar Phula Badi Heritage Artisan Market",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_keonjhar_002",
+    "canonical_name": "Ghatgaon Maa Tarini Pitha & Prasad Stall Precinct",
+    "localized_names": {
+      "en": "Ghatgaon Maa Tarini Pitha & Prasad Stall Precinct",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_balasore_001",
+    "canonical_name": "Sahadevkhunta Coastal Seafood Market & Dhaba Hub",
+    "localized_names": {
+      "en": "Sahadevkhunta Coastal Seafood Market & Dhaba Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_bhadrak_001",
+    "canonical_name": "Puruna Bazar Palua Ladoo Heritage Confectionery",
+    "localized_names": {
+      "en": "Puruna Bazar Palua Ladoo Heritage Confectionery",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_mayurbhanj_001",
+    "canonical_name": "Baripada Mudhi Mansa Traditional Food Hub",
+    "localized_names": {
+      "en": "Baripada Mudhi Mansa Traditional Food Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_kendrapara_001",
+    "canonical_name": "Kendrapara Baladevjew Rasabali Confectionery Hub",
+    "localized_names": {
+      "en": "Kendrapara Baladevjew Rasabali Confectionery Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_jajpur_001",
+    "canonical_name": "Chandikhole Mahavinayak Rasagola & Highway Dhaba Junction",
+    "localized_names": {
+      "en": "Chandikhole Mahavinayak Rasagola & Highway Dhaba Junction",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_dhenkanal_001",
+    "canonical_name": "Dhenkanal Bara & Magji Ladoo Heritage Hub",
+    "localized_names": {
+      "en": "Dhenkanal Bara & Magji Ladoo Heritage Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_angul_001",
+    "canonical_name": "Bantala Mati Handi Desi Meat & Thali Junction",
+    "localized_names": {
+      "en": "Bantala Mati Handi Desi Meat & Thali Junction",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_koraput_001",
+    "canonical_name": "Koraput Tribal Coffee Experience & Mandia Tiffin Hub",
+    "localized_names": {
+      "en": "Koraput Tribal Coffee Experience & Mandia Tiffin Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_rayagada_001",
+    "canonical_name": "Rayagada Station Road Andhra-Odia Confluence Tiffin Hub",
+    "localized_names": {
+      "en": "Rayagada Station Road Andhra-Odia Confluence Tiffin Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_kalahandi_001",
+    "canonical_name": "Bhawanipatna Main Road Ragi & Traditional Thali Centre",
+    "localized_names": {
+      "en": "Bhawanipatna Main Road Ragi & Traditional Thali Centre",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_nuapada_001",
+    "canonical_name": "Khariar Road Highway Tiffin & Chaula Bara Hub",
+    "localized_names": {
+      "en": "Khariar Road Highway Tiffin & Chaula Bara Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_bolangir_001",
+    "canonical_name": "Balangir Daily Market Chaula Bara & Mithai Corner",
+    "localized_names": {
+      "en": "Balangir Daily Market Chaula Bara & Mithai Corner",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_bargarh_001",
+    "canonical_name": "Bargarh Dhanu Yatra Cultural Food Street",
+    "localized_names": {
+      "en": "Bargarh Dhanu Yatra Cultural Food Street",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_nayagarh_001",
+    "canonical_name": "Nayagarh Khandapada Chhena Poda Birthplace Confectionery",
+    "localized_names": {
+      "en": "Nayagarh Khandapada Chhena Poda Birthplace Confectionery",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_jagatsinghpur_001",
+    "canonical_name": "Paradeep Port Fish Harbour & Coastal Kitchens",
+    "localized_names": {
+      "en": "Paradeep Port Fish Harbour & Coastal Kitchens",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_deogarh_001",
+    "canonical_name": "Pradhanpat Waterfalls Approach Traditional Tiffin Hub",
+    "localized_names": {
+      "en": "Pradhanpat Waterfalls Approach Traditional Tiffin Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_subarnapur_001",
+    "canonical_name": "Sonepur Suvarnameru Sweets & Pitha Heritage Stall",
+    "localized_names": {
+      "en": "Sonepur Suvarnameru Sweets & Pitha Heritage Stall",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_boudh_001",
+    "canonical_name": "Boudh Mahanadi Ghat Traditional Chhena Gaja Corner",
+    "localized_names": {
+      "en": "Boudh Mahanadi Ghat Traditional Chhena Gaja Corner",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_kandhamal_001",
+    "canonical_name": "Daringbadi Hill Station Organic Coffee & Spice Kitchen",
+    "localized_names": {
+      "en": "Daringbadi Hill Station Organic Coffee & Spice Kitchen",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_malkangiri_001",
+    "canonical_name": "Malkangiri Tribal Hatpada Millet & Forest Kitchen",
+    "localized_names": {
+      "en": "Malkangiri Tribal Hatpada Millet & Forest Kitchen",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_nabarangpur_001",
+    "canonical_name": "Nabarangpur Lac & Grain Corridor Traditional Tiffin Centre",
+    "localized_names": {
+      "en": "Nabarangpur Lac & Grain Corridor Traditional Tiffin Centre",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_gajapati_001",
+    "canonical_name": "Paralakhemundi Maharaja Palace Street Tiffin & Sweet Hub",
+    "localized_names": {
+      "en": "Paralakhemundi Maharaja Palace Street Tiffin & Sweet Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  },
+  {
+    "entity_id": "food_jharsuguda_001",
+    "canonical_name": "Jharsuguda Marwari Para Traditional Chaat & Thali Hub",
+    "localized_names": {
+      "en": "Jharsuguda Marwari Para Traditional Chaat & Thali Hub",
+      "or": null,
+      "hi": null
+    },
+    "odia_source": null,
+    "hindi_source": null,
+    "status": "MISSING"
+  }
+]

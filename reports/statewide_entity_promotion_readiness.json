@@ -1,0 +1,130 @@
+{
+  "wave": "A3a_B1",
+  "generated_at": "2026-09-05T13:23:47.093519+00:00",
+  "git_head": "1c5277d6be391add16315b426b062d0b86149209",
+  "summary": {
+    "total_candidates": 1198,
+    "high_confidence_promotable": 1179,
+    "review_required": 19,
+    "rejected": 0,
+    "categories": {
+      "HERITAGE_SITE": {
+        "total_candidates": 24,
+        "coordinates_complete": 24,
+        "district_complete": 24,
+        "high_confidence_count": 24,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": false
+      },
+      "RELIGIOUS_SITE": {
+        "total_candidates": 24,
+        "coordinates_complete": 24,
+        "district_complete": 24,
+        "high_confidence_count": 24,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": false
+      },
+      "NATURAL_SITE": {
+        "total_candidates": 27,
+        "coordinates_complete": 27,
+        "district_complete": 27,
+        "high_confidence_count": 27,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": false
+      },
+      "RESTAURANT": {
+        "total_candidates": 100,
+        "coordinates_complete": 100,
+        "district_complete": 100,
+        "high_confidence_count": 100,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": false
+      },
+      "HOTEL": {
+        "total_candidates": 176,
+        "coordinates_complete": 176,
+        "district_complete": 176,
+        "high_confidence_count": 176,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": false
+      },
+      "HOSPITAL": {
+        "total_candidates": 282,
+        "coordinates_complete": 282,
+        "district_complete": 282,
+        "high_confidence_count": 282,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": true
+      },
+      "POLICE_STATION": {
+        "total_candidates": 147,
+        "coordinates_complete": 147,
+        "district_complete": 147,
+        "high_confidence_count": 147,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": true
+      },
+      "FIRE_STATION": {
+        "total_candidates": 17,
+        "coordinates_complete": 17,
+        "district_complete": 17,
+        "high_confidence_count": 17,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": true
+      },
+      "ATM": {
+        "total_candidates": 178,
+        "coordinates_complete": 178,
+        "district_complete": 178,
+        "high_confidence_count": 178,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": true
+      },
+      "BANK": {
+        "total_candidates": 13,
+        "coordinates_complete": 13,
+        "district_complete": 13,
+        "high_confidence_count": 13,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": false
+      },
+      "FUEL_STATION": {
+        "total_candidates": 166,
+        "coordinates_complete": 166,
+        "district_complete": 166,
+        "high_confidence_count": 166,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": true
+      },
+      "TRANSIT_HUB": {
+        "total_candidates": 17,
+        "coordinates_complete": 17,
+        "district_complete": 17,
+        "high_confidence_count": 17,
+        "review_required_count": 0,
+        "readiness_status": "HIGH_CONFIDENCE",
+        "recommended_for_first_batch": false
+      },
+      "PUBLIC_SERVICE": {
+        "total_candidates": 27,
+        "coordinates_complete": 8,
+        "district_complete": 27,
+        "high_confidence_count": 8,
+        "review_required_count": 19,
+        "readiness_status": "REVIEW_REQUIRED",
+        "recommended_for_first_batch": false
+      }
+    }
+  }
+}

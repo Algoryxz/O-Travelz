@@ -1,0 +1,114 @@
+[
+  {
+    "duplicate_id": "hotel_west_053",
+    "canonical_candidate_id": "c_c04fd61875d3",
+    "name": "Hotel Hill View Phulbani",
+    "entity_type": "HOTEL",
+    "district": "Kandhamal",
+    "source_dataset": "data/accommodation/hotels_western_odisha.json"
+  },
+  {
+    "duplicate_id": "hosp_west_067",
+    "canonical_candidate_id": "c_5539c8c97d05",
+    "name": "Sub-Divisional Hospital Dharamgarh",
+    "entity_type": "HOSPITAL",
+    "district": "Kalahandi",
+    "source_dataset": "data/health/hospitals_western_odisha.json"
+  },
+  {
+    "duplicate_id": "police_west_040",
+    "canonical_candidate_id": "c_442155e39963",
+    "name": "Bhawanipatna Town Police Station",
+    "entity_type": "POLICE_STATION",
+    "district": "Kalahandi",
+    "source_dataset": "data/safety/police_stations_western_odisha.json"
+  },
+  {
+    "duplicate_id": "police_west_042",
+    "canonical_candidate_id": "c_c94dc7c90c07",
+    "name": "Dharamgarh Police Station",
+    "entity_type": "POLICE_STATION",
+    "district": "Kalahandi",
+    "source_dataset": "data/safety/police_stations_western_odisha.json"
+  },
+  {
+    "duplicate_id": "police_west_043",
+    "canonical_candidate_id": "c_1918031f062d",
+    "name": "Kesinga Police Station",
+    "entity_type": "POLICE_STATION",
+    "district": "Kalahandi",
+    "source_dataset": "data/safety/police_stations_western_odisha.json"
+  },
+  {
+    "duplicate_id": "police_west_047",
+    "canonical_candidate_id": "c_52897c9b31a8",
+    "name": "Phulbani Town Police Station",
+    "entity_type": "POLICE_STATION",
+    "district": "Kandhamal",
+    "source_dataset": "data/safety/police_stations_western_odisha.json"
+  },
+  {
+    "duplicate_id": "police_west_051",
+    "canonical_candidate_id": "c_0a4b5f3de14f",
+    "name": "Daringbadi Police Station",
+    "entity_type": "POLICE_STATION",
+    "district": "Kandhamal",
+    "source_dataset": "data/safety/police_stations_western_odisha.json"
+  },
+  {
+    "duplicate_id": "police_west_059",
+    "canonical_candidate_id": "c_eb22a1977cd5",
+    "name": "Khariar Police Station",
+    "entity_type": "POLICE_STATION",
+    "district": "Nuapada",
+    "source_dataset": "data/safety/police_stations_western_odisha.json"
+  },
+  {
+    "duplicate_id": "police_west_064",
+    "canonical_candidate_id": "c_466fcb8f8310",
+    "name": "Baunsuni Police Station",
+    "entity_type": "POLICE_STATION",
+    "district": "Boudh",
+    "source_dataset": "data/safety/police_stations_western_odisha.json"
+  },
+  {
+    "duplicate_id": "police_west_065",
+    "canonical_candidate_id": "c_aaa2c6c90914",
+    "name": "Purunakatak Police Station",
+    "entity_type": "POLICE_STATION",
+    "district": "Boudh",
+    "source_dataset": "data/safety/police_stations_western_odisha.json"
+  },
+  {
+    "duplicate_id": "police_west_067",
+    "canonical_candidate_id": "c_dc6de52eb270",
+    "name": "Kantamal Police Station",
+    "entity_type": "POLICE_STATION",
+    "district": "Boudh",
+    "source_dataset": "data/safety/police_stations_western_odisha.json"
+  },
+  {
+    "duplicate_id": "atm_west_093",
+    "canonical_candidate_id": "c_5bb3300c1aad",
+    "name": "Axis Bank ATM Khariar",
+    "entity_type": "ATM",
+    "district": "Nuapada",
+    "source_dataset": "data/finance/atms_western_odisha.json"
+  },
+  {
+    "duplicate_id": "round2_east_010",
+    "canonical_candidate_id": "c_b36cbaeca310",
+    "name": "Sadeibereni Dokra Craft Village",
+    "entity_type": "PUBLIC_SERVICE",
+    "district": "Dhenkanal",
+    "source_dataset": "data/services/destination_safety_advisories.json"
+  },
+  {
+    "duplicate_id": "round2_east_021",
+    "canonical_candidate_id": "c_32a0bef0d3cf",
+    "name": "Nuapatna Handloom Heritage Village",
+    "entity_type": "PUBLIC_SERVICE",
+    "district": "Cuttack",
+    "source_dataset": "data/services/destination_safety_advisories.json"
+  }
+]

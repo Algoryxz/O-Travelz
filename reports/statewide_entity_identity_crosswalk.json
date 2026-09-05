@@ -1,0 +1,2614 @@
+{
+  "wave": "A3a_B1",
+  "generated_at": "2026-09-05T13:23:47.093519+00:00",
+  "git_head": "1c5277d6be391add16315b426b062d0b86149209",
+  "summary": {
+    "total_raw_records": 1212,
+    "unique_entities": 1198,
+    "duplicates_collapsed": 14,
+    "conflicts_detected": 3,
+    "canonical_matches": 5
+  },
+  "crosswalk": [
+    {
+      "candidate_id": "hosp_scb_cuttack",
+      "original_id": "hosp_scb_cuttack",
+      "name": "SCB Medical College and Hospital",
+      "entity_type": "HOSPITAL",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4735,
+        85.8828
+      ]
+    },
+    {
+      "candidate_id": "hosp_athagarh_sdh",
+      "original_id": "hosp_athagarh_sdh",
+      "name": "Sub-Divisional Hospital Athagarh",
+      "entity_type": "HOSPITAL",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5286,
+        85.7865
+      ]
+    },
+    {
+      "candidate_id": "hosp_banki_sdh",
+      "original_id": "hosp_banki_sdh",
+      "name": "Sub-Divisional Hospital Banki",
+      "entity_type": "HOSPITAL",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.3789,
+        85.5342
+      ]
+    },
+    {
+      "candidate_id": "hosp_tigiria_chc",
+      "original_id": "hosp_tigiria_chc",
+      "name": "Community Health Centre Tigiria",
+      "entity_type": "HOSPITAL",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4632,
+        85.5185
+      ]
+    },
+    {
+      "candidate_id": "hosp_baramba_chc",
+      "original_id": "hosp_baramba_chc",
+      "name": "Community Health Centre Baramba",
+      "entity_type": "HOSPITAL",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4206,
+        85.3456
+      ]
+    },
+    {
+      "candidate_id": "hosp_barchana_chc",
+      "original_id": "hosp_barchana_chc",
+      "name": "Community Health Centre Barchana",
+      "entity_type": "HOSPITAL",
+      "district": "Jajpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6654,
+        86.1287
+      ]
+    },
+    {
+      "candidate_id": "police_athagarh_ps",
+      "original_id": "police_athagarh_ps",
+      "name": "Athagarh Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5298,
+        85.7834
+      ]
+    },
+    {
+      "candidate_id": "police_dhabaleswar_outpost",
+      "original_id": "police_dhabaleswar_outpost",
+      "name": "Dhabaleswar Police Outpost",
+      "entity_type": "POLICE_STATION",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5082,
+        85.8241
+      ]
+    },
+    {
+      "candidate_id": "police_banki_ps",
+      "original_id": "police_banki_ps",
+      "name": "Banki Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.3802,
+        85.5315
+      ]
+    },
+    {
+      "candidate_id": "police_tigiria_ps",
+      "original_id": "police_tigiria_ps",
+      "name": "Tigiria Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4611,
+        85.5162
+      ]
+    },
+    {
+      "candidate_id": "police_baramba_ps",
+      "original_id": "police_baramba_ps",
+      "name": "Baramba Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4225,
+        85.3421
+      ]
+    },
+    {
+      "candidate_id": "police_balichandrapur_ps",
+      "original_id": "police_balichandrapur_ps",
+      "name": "Balichandrapur Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Jajpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6124,
+        86.1952
+      ]
+    },
+    {
+      "candidate_id": "hotel_otdc_panthanivas_cuttack",
+      "original_id": "hotel_otdc_panthanivas_cuttack",
+      "name": "OTDC Panthanivas Cuttack",
+      "entity_type": "HOTEL",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4682,
+        85.8794
+      ]
+    },
+    {
+      "candidate_id": "hotel_ansupa_eco_resort",
+      "original_id": "hotel_ansupa_eco_resort",
+      "name": "Ansupa Eco-Tourism Nature Camp",
+      "entity_type": "HOTEL",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4578,
+        85.6012
+      ]
+    },
+    {
+      "candidate_id": "hotel_dhabaleswar_yatri_nivas",
+      "original_id": "hotel_dhabaleswar_yatri_nivas",
+      "name": "Dhabaleswar Yatri Nivas & Pilgrim Rest House",
+      "entity_type": "HOTEL",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5061,
+        85.8272
+      ]
+    },
+    {
+      "candidate_id": "hotel_lalitgiri_tourist_complex",
+      "original_id": "hotel_lalitgiri_tourist_complex",
+      "name": "OTDC Lalitgiri Buddhist Tourist Complex",
+      "entity_type": "HOTEL",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5892,
+        86.2505
+      ]
+    },
+    {
+      "candidate_id": "hotel_nuapatna_weaver_guest_house",
+      "original_id": "hotel_nuapatna_weaver_guest_house",
+      "name": "Boyanika Artisan Guest House Nuapatna",
+      "entity_type": "HOTEL",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4435,
+        85.5068
+      ]
+    },
+    {
+      "candidate_id": "rest_ansupa_lake_view_dhaba",
+      "original_id": "rest_ansupa_lake_view_dhaba",
+      "name": "Ansupa Lakeview Odia Rasoi",
+      "entity_type": "RESTAURANT",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4565,
+        85.6025
+      ]
+    },
+    {
+      "candidate_id": "rest_dhabaleswar_bhojanalaya",
+      "original_id": "rest_dhabaleswar_bhojanalaya",
+      "name": "Maa Dhabaleswar Temple Bhojanalaya",
+      "entity_type": "RESTAURANT",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5075,
+        85.8262
+      ]
+    },
+    {
+      "candidate_id": "rest_lalitgiri_heritage_cafe",
+      "original_id": "rest_lalitgiri_heritage_cafe",
+      "name": "Diamond Triangle Heritage Restaurant",
+      "entity_type": "RESTAURANT",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5912,
+        86.2518
+      ]
+    },
+    {
+      "candidate_id": "fuel_ioc_athagarh",
+      "original_id": "fuel_ioc_athagarh",
+      "name": "Indian Oil Fuel Station - Athagarh",
+      "entity_type": "FUEL_STATION",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5245,
+        85.7892
+      ]
+    },
+    {
+      "candidate_id": "fuel_hp_banki",
+      "original_id": "fuel_hp_banki",
+      "name": "HPCL Petrol Pump - Banki",
+      "entity_type": "FUEL_STATION",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.3842,
+        85.5398
+      ]
+    },
+    {
+      "candidate_id": "fuel_bpcl_balichandrapur",
+      "original_id": "fuel_bpcl_balichandrapur",
+      "name": "Bharat Petroleum - Balichandrapur",
+      "entity_type": "FUEL_STATION",
+      "district": "Jajpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6158,
+        86.1985
+      ]
+    },
+    {
+      "candidate_id": "transit_cuttack_railway_station",
+      "original_id": "transit_cuttack_railway_station",
+      "name": "Cuttack Railway Junction (CTC)",
+      "entity_type": "TRANSIT_HUB",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4638,
+        85.8942
+      ]
+    },
+    {
+      "candidate_id": "transit_badambadi_bus_stand",
+      "original_id": "transit_badambadi_bus_stand",
+      "name": "Netaji Subhash Chandra Bose Bus Terminal (Badambadi)",
+      "entity_type": "TRANSIT_HUB",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4572,
+        85.8765
+      ]
+    },
+    {
+      "candidate_id": "transit_athagarh_bus_stand",
+      "original_id": "transit_athagarh_bus_stand",
+      "name": "Athagarh Central Bus Stand",
+      "entity_type": "TRANSIT_HUB",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5271,
+        85.7852
+      ]
+    },
+    {
+      "candidate_id": "atm_sbi_athagarh",
+      "original_id": "atm_sbi_athagarh",
+      "name": "State Bank of India ATM - Athagarh",
+      "entity_type": "ATM",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5282,
+        85.7845
+      ]
+    },
+    {
+      "candidate_id": "atm_sbi_banki",
+      "original_id": "atm_sbi_banki",
+      "name": "SBI ATM - Banki Market",
+      "entity_type": "ATM",
+      "district": "Cuttack",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.3815,
+        85.5332
+      ]
+    },
+    {
+      "candidate_id": "atm_pnb_balichandrapur",
+      "original_id": "atm_pnb_balichandrapur",
+      "name": "Punjab National Bank ATM - Balichandrapur",
+      "entity_type": "ATM",
+      "district": "Jajpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6135,
+        86.1968
+      ]
+    },
+    {
+      "candidate_id": "hosp_rajnagar_chc",
+      "original_id": "hosp_rajnagar_chc",
+      "name": "Community Health Centre Rajnagar",
+      "entity_type": "HOSPITAL",
+      "district": "Kendrapara",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5786,
+        86.7412
+      ]
+    },
+    {
+      "candidate_id": "hosp_rajkanika_chc",
+      "original_id": "hosp_rajkanika_chc",
+      "name": "Community Health Centre Rajkanika",
+      "entity_type": "HOSPITAL",
+      "district": "Kendrapara",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.7321,
+        86.7024
+      ]
+    },
+    {
+      "candidate_id": "hosp_aul_chc",
+      "original_id": "hosp_aul_chc",
+      "name": "Community Health Centre Aul",
+      "entity_type": "HOSPITAL",
+      "district": "Kendrapara",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6745,
+        86.6458
+      ]
+    },
+    {
+      "candidate_id": "police_rajnagar_ps",
+      "original_id": "police_rajnagar_ps",
+      "name": "Rajnagar Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Kendrapara",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5798,
+        86.7395
+      ]
+    },
+    {
+      "candidate_id": "police_talchua_coastal_ps",
+      "original_id": "police_talchua_coastal_ps",
+      "name": "Talchua Coastal Marine Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Kendrapara",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.7612,
+        86.9685
+      ]
+    },
+    {
+      "candidate_id": "police_jamboo_marine_ps",
+      "original_id": "police_jamboo_marine_ps",
+      "name": "Jamboo Marine Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Kendrapara",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4285,
+        86.7215
+      ]
+    },
+    {
+      "candidate_id": "hotel_aranya_nivas_rajnagar",
+      "original_id": "hotel_aranya_nivas_rajnagar",
+      "name": "OTDC Aranya Nivas Rajnagar",
+      "entity_type": "HOTEL",
+      "district": "Kendrapara",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5752,
+        86.7445
+      ]
+    },
+    {
+      "candidate_id": "fuel_ioc_rajnagar",
+      "original_id": "fuel_ioc_rajnagar",
+      "name": "Indian Oil Petrol Pump - Rajnagar",
+      "entity_type": "FUEL_STATION",
+      "district": "Kendrapara",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5815,
+        86.7382
+      ]
+    },
+    {
+      "candidate_id": "atm_sbi_rajnagar",
+      "original_id": "atm_sbi_rajnagar",
+      "name": "State Bank of India ATM - Rajnagar",
+      "entity_type": "ATM",
+      "district": "Kendrapara",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5791,
+        86.7405
+      ]
+    },
+    {
+      "candidate_id": "hosp_bhadrak_dhh",
+      "original_id": "hosp_bhadrak_dhh",
+      "name": "District Headquarters Hospital Bhadrak",
+      "entity_type": "HOSPITAL",
+      "district": "Bhadrak",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        21.0585,
+        86.5124
+      ]
+    },
+    {
+      "candidate_id": "hosp_basudevpur_chc",
+      "original_id": "hosp_basudevpur_chc",
+      "name": "Community Health Centre Basudevpur",
+      "entity_type": "HOSPITAL",
+      "district": "Bhadrak",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        21.1412,
+        86.7534
+      ]
+    },
+    {
+      "candidate_id": "police_basudevpur_ps",
+      "original_id": "police_basudevpur_ps",
+      "name": "Basudevpur Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Bhadrak",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        21.1435,
+        86.7512
+      ]
+    },
+    {
+      "candidate_id": "police_bhadrak_town_ps",
+      "original_id": "police_bhadrak_town_ps",
+      "name": "Bhadrak Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Bhadrak",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        21.0572,
+        86.5098
+      ]
+    },
+    {
+      "candidate_id": "hotel_bhadrak_tourist_lodge",
+      "original_id": "hotel_bhadrak_tourist_lodge",
+      "name": "OTDC Approved Tourist Lodge Bhadrak",
+      "entity_type": "HOTEL",
+      "district": "Bhadrak",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        21.0645,
+        86.5212
+      ]
+    },
+    {
+      "candidate_id": "transit_bhadrak_railway_station",
+      "original_id": "transit_bhadrak_railway_station",
+      "name": "Bhadrak Railway Junction (BHC)",
+      "entity_type": "TRANSIT_HUB",
+      "district": "Bhadrak",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        21.0662,
+        86.5245
+      ]
+    },
+    {
+      "candidate_id": "atm_sbi_bhadrak_town",
+      "original_id": "atm_sbi_bhadrak_town",
+      "name": "SBI ATM - Main Branch Bhadrak",
+      "entity_type": "ATM",
+      "district": "Bhadrak",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        21.0542,
+        86.5078
+      ]
+    },
+    {
+      "candidate_id": "hosp_dhenkanal_dhh",
+      "original_id": "hosp_dhenkanal_dhh",
+      "name": "District Headquarters Hospital Dhenkanal",
+      "entity_type": "HOSPITAL",
+      "district": "Dhenkanal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6612,
+        85.5985
+      ]
+    },
+    {
+      "candidate_id": "hosp_kamakhyanagar_sdh",
+      "original_id": "hosp_kamakhyanagar_sdh",
+      "name": "Sub-Divisional Hospital Kamakhyanagar",
+      "entity_type": "HOSPITAL",
+      "district": "Dhenkanal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.9312,
+        85.5585
+      ]
+    },
+    {
+      "candidate_id": "police_parjang_ps",
+      "original_id": "police_parjang_ps",
+      "name": "Parjang Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Dhenkanal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.8912,
+        85.2915
+      ]
+    },
+    {
+      "candidate_id": "hotel_otdc_panthanivas_dhenkanal",
+      "original_id": "hotel_otdc_panthanivas_dhenkanal",
+      "name": "OTDC Panthanivas Dhenkanal",
+      "entity_type": "HOTEL",
+      "district": "Dhenkanal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6585,
+        85.6025
+      ]
+    },
+    {
+      "candidate_id": "hosp_chandikhole_chc",
+      "original_id": "hosp_chandikhole_chc",
+      "name": "Community Health Centre Chandikhole",
+      "entity_type": "HOSPITAL",
+      "district": "Jajpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6185,
+        86.1395
+      ]
+    },
+    {
+      "candidate_id": "police_chandikhole_outpost",
+      "original_id": "police_chandikhole_outpost",
+      "name": "Chandikhole Police Outpost",
+      "entity_type": "POLICE_STATION",
+      "district": "Jajpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6162,
+        86.1382
+      ]
+    },
+    {
+      "candidate_id": "hotel_otdc_panthanivas_chandikhole",
+      "original_id": "hotel_otdc_panthanivas_chandikhole",
+      "name": "OTDC Panthanivas Chandikhole",
+      "entity_type": "HOTEL",
+      "district": "Jajpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6178,
+        86.1412
+      ]
+    },
+    {
+      "candidate_id": "hosp_jagatsinghpur_dhh",
+      "original_id": "hosp_jagatsinghpur_dhh",
+      "name": "District Headquarters Hospital Jagatsinghpur",
+      "entity_type": "HOSPITAL",
+      "district": "Jagatsinghpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.2612,
+        86.1725
+      ]
+    },
+    {
+      "candidate_id": "hosp_kujang_chc",
+      "original_id": "hosp_kujang_chc",
+      "name": "Community Health Centre Kujang",
+      "entity_type": "HOSPITAL",
+      "district": "Jagatsinghpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.2854,
+        86.5412
+      ]
+    },
+    {
+      "candidate_id": "police_kujang_ps",
+      "original_id": "police_kujang_ps",
+      "name": "Kujang Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Jagatsinghpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.2872,
+        86.5395
+      ]
+    },
+    {
+      "candidate_id": "police_jagatsinghpur_town_ps",
+      "original_id": "police_jagatsinghpur_town_ps",
+      "name": "Jagatsinghpur Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Jagatsinghpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.2595,
+        86.1738
+      ]
+    },
+    {
+      "candidate_id": "hosp_athmallik_sdh",
+      "original_id": "hosp_athmallik_sdh",
+      "name": "Sub-Divisional Hospital Athmallik",
+      "entity_type": "HOSPITAL",
+      "district": "Angul",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.7185,
+        84.5425
+      ]
+    },
+    {
+      "candidate_id": "hosp_talcher_sdh",
+      "original_id": "hosp_talcher_sdh",
+      "name": "Sub-Divisional Hospital Talcher",
+      "entity_type": "HOSPITAL",
+      "district": "Angul",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.9525,
+        85.2285
+      ]
+    },
+    {
+      "candidate_id": "police_athmallik_ps",
+      "original_id": "police_athmallik_ps",
+      "name": "Athmallik Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Angul",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.7202,
+        84.5408
+      ]
+    },
+    {
+      "candidate_id": "police_talcher_town_ps",
+      "original_id": "police_talcher_town_ps",
+      "name": "Talcher Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Angul",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.9542,
+        85.2312
+      ]
+    },
+    {
+      "candidate_id": "hotel_otdc_panthanivas_angul",
+      "original_id": "hotel_otdc_panthanivas_angul",
+      "name": "OTDC Panthanivas Angul",
+      "entity_type": "HOTEL",
+      "district": "Angul",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.8385,
+        85.1012
+      ]
+    },
+    {
+      "candidate_id": "c_d38c1f35e124",
+      "original_id": "round2_south_service_001",
+      "name": "District Headquarters Hospital (DHH) Boudh",
+      "entity_type": "HOSPITAL",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.8402,
+        84.3245
+      ]
+    },
+    {
+      "candidate_id": "c_7298655d3ea3",
+      "original_id": "round2_south_service_002",
+      "name": "Community Health Centre (CHC) Kantamal",
+      "entity_type": "HOSPITAL",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6514,
+        83.7428
+      ]
+    },
+    {
+      "candidate_id": "c_95e7cc1bf1c8",
+      "original_id": "round2_south_service_003",
+      "name": "Community Health Centre (CHC) Purunakatak",
+      "entity_type": "HOSPITAL",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5218,
+        84.3015
+      ]
+    },
+    {
+      "candidate_id": "c_23abb9ff83e8",
+      "original_id": "round2_south_service_004",
+      "name": "Community Health Centre (CHC) Baunsuni",
+      "entity_type": "HOSPITAL",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.7812,
+        84.0531
+      ]
+    },
+    {
+      "candidate_id": "c_3427657a526e",
+      "original_id": "round2_south_service_005",
+      "name": "State Bank of India (SBI) ATM - Boudh Main Branch",
+      "entity_type": "ATM",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.8391,
+        84.3262
+      ]
+    },
+    {
+      "candidate_id": "c_d3561285858d",
+      "original_id": "round2_south_service_006",
+      "name": "HDFC Bank ATM - Boudh",
+      "entity_type": "ATM",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.8381,
+        84.3278
+      ]
+    },
+    {
+      "candidate_id": "c_834e5df02b8e",
+      "original_id": "round2_south_service_007",
+      "name": "Punjab National Bank (PNB) ATM - Purunakatak",
+      "entity_type": "ATM",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5225,
+        84.3032
+      ]
+    },
+    {
+      "candidate_id": "c_a32121246121",
+      "original_id": "round2_south_service_008",
+      "name": "Axis Bank ATM - Baunsuni",
+      "entity_type": "ATM",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.782,
+        84.0545
+      ]
+    },
+    {
+      "candidate_id": "c_382885d748e8",
+      "original_id": "round2_south_service_009",
+      "name": "IndianOil Fuel Station - Maa Bhairabi Filling Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.523,
+        84.3045
+      ]
+    },
+    {
+      "candidate_id": "c_a1b3d0680986",
+      "original_id": "round2_south_service_010",
+      "name": "Bharat Petroleum (BPCL) - Boudh Auto Service",
+      "entity_type": "FUEL_STATION",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.8365,
+        84.3218
+      ]
+    },
+    {
+      "candidate_id": "c_5c98fe6af933",
+      "original_id": "round2_south_service_011",
+      "name": "Hindustan Petroleum (HPCL) - Kantamal Filling Centre",
+      "entity_type": "FUEL_STATION",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6528,
+        83.745
+      ]
+    },
+    {
+      "candidate_id": "c_3082d4d2c9d3",
+      "original_id": "round2_south_service_012",
+      "name": "Boudh Model Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.8395,
+        84.3255
+      ]
+    },
+    {
+      "candidate_id": "c_aaa2c6c90914",
+      "original_id": "round2_south_service_013",
+      "name": "Purunakatak Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.521,
+        84.302
+      ]
+    },
+    {
+      "candidate_id": "c_dc6de52eb270",
+      "original_id": "round2_south_service_014",
+      "name": "Kantamal Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.6508,
+        83.7415
+      ]
+    },
+    {
+      "candidate_id": "c_466fcb8f8310",
+      "original_id": "round2_south_service_015",
+      "name": "Baunsuni Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.7805,
+        84.052
+      ]
+    },
+    {
+      "candidate_id": "c_8323e42637bb",
+      "original_id": "round2_south_service_016",
+      "name": "Boudh Hotel & Tourist Lodge",
+      "entity_type": "HOTEL",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.8415,
+        84.327
+      ]
+    },
+    {
+      "candidate_id": "c_847649cee148",
+      "original_id": "round2_south_service_017",
+      "name": "Maa Bhairabi Guest House Purunakatak",
+      "entity_type": "HOTEL",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.5235,
+        84.305
+      ]
+    },
+    {
+      "candidate_id": "c_8cc77c842d7a",
+      "original_id": "round2_south_service_018",
+      "name": "Government Circuit House Boudh",
+      "entity_type": "HOTEL",
+      "district": "Boudh",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.8428,
+        84.329
+      ]
+    },
+    {
+      "candidate_id": "c_0bc50d7c7989",
+      "original_id": "round2_south_service_019",
+      "name": "District Headquarters Hospital (DHH) Paralakhemundi",
+      "entity_type": "HOSPITAL",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.7765,
+        84.0912
+      ]
+    },
+    {
+      "candidate_id": "c_35a88d31a6f2",
+      "original_id": "round2_south_service_020",
+      "name": "Sub-Divisional Hospital (SDH) R.Udayagiri",
+      "entity_type": "HOSPITAL",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.1625,
+        84.1415
+      ]
+    },
+    {
+      "candidate_id": "c_035ab83cd3e6",
+      "original_id": "round2_south_service_021",
+      "name": "Community Health Centre (CHC) Chandragiri",
+      "entity_type": "HOSPITAL",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.273,
+        84.2625
+      ]
+    },
+    {
+      "candidate_id": "c_873eb718bc8b",
+      "original_id": "round2_south_service_022",
+      "name": "Community Health Centre (CHC) Mohana",
+      "entity_type": "HOSPITAL",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.4325,
+        84.268
+      ]
+    },
+    {
+      "candidate_id": "c_c639e445f338",
+      "original_id": "round2_south_service_023",
+      "name": "State Bank of India (SBI) ATM - Paralakhemundi Main Branch",
+      "entity_type": "ATM",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.775,
+        84.0935
+      ]
+    },
+    {
+      "candidate_id": "c_9322378b7ce5",
+      "original_id": "round2_south_service_024",
+      "name": "HDFC Bank ATM - Paralakhemundi",
+      "entity_type": "ATM",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.7782,
+        84.092
+      ]
+    },
+    {
+      "candidate_id": "c_d70da8d60a7e",
+      "original_id": "round2_south_service_025",
+      "name": "Axis Bank ATM - Chandragiri",
+      "entity_type": "ATM",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.2715,
+        84.264
+      ]
+    },
+    {
+      "candidate_id": "c_67293343b284",
+      "original_id": "round2_south_service_026",
+      "name": "Canara Bank ATM - Mohana",
+      "entity_type": "ATM",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.4318,
+        84.2692
+      ]
+    },
+    {
+      "candidate_id": "c_db36d906ded3",
+      "original_id": "round2_south_service_027",
+      "name": "IndianOil Fuel Station - Parala Auto Care",
+      "entity_type": "FUEL_STATION",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.7735,
+        84.0955
+      ]
+    },
+    {
+      "candidate_id": "c_fefa3ebea4f0",
+      "original_id": "round2_south_service_028",
+      "name": "Bharat Petroleum (BPCL) - Mohana Highway Filling Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.434,
+        84.2665
+      ]
+    },
+    {
+      "candidate_id": "c_9a0f65c571cf",
+      "original_id": "round2_south_service_029",
+      "name": "Hindustan Petroleum (HPCL) - Chandragiri Fuel Point",
+      "entity_type": "FUEL_STATION",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.2745,
+        84.261
+      ]
+    },
+    {
+      "candidate_id": "c_60e3de8c479b",
+      "original_id": "round2_south_service_030",
+      "name": "Paralakhemundi Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.7758,
+        84.0925
+      ]
+    },
+    {
+      "candidate_id": "c_0e2c321f6fa3",
+      "original_id": "round2_south_service_031",
+      "name": "Mohana Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.4312,
+        84.2675
+      ]
+    },
+    {
+      "candidate_id": "c_8842e36cd2c1",
+      "original_id": "round2_south_service_032",
+      "name": "R.Udayagiri Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.1618,
+        84.1428
+      ]
+    },
+    {
+      "candidate_id": "c_161ddd33306a",
+      "original_id": "round2_south_service_033",
+      "name": "OTDC Yatri Nivas Chandragiri",
+      "entity_type": "HOTEL",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.2722,
+        84.2635
+      ]
+    },
+    {
+      "candidate_id": "c_2fdb4992a5b4",
+      "original_id": "round2_south_service_034",
+      "name": "Hotel Kalinga Paralakhemundi",
+      "entity_type": "HOTEL",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.777,
+        84.094
+      ]
+    },
+    {
+      "candidate_id": "c_e96f9cf71e7b",
+      "original_id": "round2_south_service_035",
+      "name": "Government Circuit House Paralakhemundi",
+      "entity_type": "HOTEL",
+      "district": "Gajapati",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.779,
+        84.091
+      ]
+    },
+    {
+      "candidate_id": "c_f715606ca242",
+      "original_id": "round2_south_service_036",
+      "name": "MKCG Medical College & Hospital",
+      "entity_type": "HOSPITAL",
+      "district": "Ganjam",
+      "classification": "EXACT_EXISTING_ENTITY",
+      "matched_canonical_id": "place_med_003",
+      "coordinates": [
+        19.3082,
+        84.8055
+      ]
+    },
+    {
+      "candidate_id": "c_18238586f4b3",
+      "original_id": "round2_south_service_037",
+      "name": "District Headquarters Hospital (DHH) Chhatrapur",
+      "entity_type": "HOSPITAL",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.3542,
+        84.9865
+      ]
+    },
+    {
+      "candidate_id": "c_e4209943efe7",
+      "original_id": "round2_south_service_038",
+      "name": "Sub-Divisional Hospital (SDH) Bhanjanagar",
+      "entity_type": "HOSPITAL",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.932,
+        84.5825
+      ]
+    },
+    {
+      "candidate_id": "c_f8cf540262be",
+      "original_id": "round2_south_service_039",
+      "name": "Community Health Centre (CHC) Gopalpur-on-Sea",
+      "entity_type": "HOSPITAL",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.2625,
+        84.908
+      ]
+    },
+    {
+      "candidate_id": "c_6ce863eaf02b",
+      "original_id": "round2_south_service_040",
+      "name": "State Bank of India (SBI) ATM - Berhampur Main Branch",
+      "entity_type": "ATM",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.3145,
+        84.7925
+      ]
+    },
+    {
+      "candidate_id": "c_c0431cf66cfa",
+      "original_id": "round2_south_service_041",
+      "name": "HDFC Bank ATM - Chhatrapur",
+      "entity_type": "ATM",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.3528,
+        84.989
+      ]
+    },
+    {
+      "candidate_id": "c_297a7afc39b4",
+      "original_id": "round2_south_service_042",
+      "name": "ICICI Bank ATM - Gopalpur-on-Sea",
+      "entity_type": "ATM",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.2612,
+        84.9055
+      ]
+    },
+    {
+      "candidate_id": "c_bf475a395842",
+      "original_id": "round2_south_service_043",
+      "name": "Axis Bank ATM - Aska",
+      "entity_type": "ATM",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.6085,
+        84.654
+      ]
+    },
+    {
+      "candidate_id": "c_67c9cae74f19",
+      "original_id": "round2_south_service_044",
+      "name": "IndianOil Auto Care - NH-16 Highway Station Chhatrapur",
+      "entity_type": "FUEL_STATION",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.3585,
+        84.992
+      ]
+    },
+    {
+      "candidate_id": "c_84fa5129d064",
+      "original_id": "round2_south_service_045",
+      "name": "Bharat Petroleum (BPCL) - Gopalpur Junction Service Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.285,
+        84.862
+      ]
+    },
+    {
+      "candidate_id": "c_b93cb2647733",
+      "original_id": "round2_south_service_046",
+      "name": "Hindustan Petroleum (HPCL) - Aska Road Auto Service",
+      "entity_type": "FUEL_STATION",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.321,
+        84.7815
+      ]
+    },
+    {
+      "candidate_id": "c_f2348dd382da",
+      "original_id": "round2_south_service_047",
+      "name": "Berhampur Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.316,
+        84.795
+      ]
+    },
+    {
+      "candidate_id": "c_c2fb145b27ad",
+      "original_id": "round2_south_service_048",
+      "name": "Gopalpur Marine Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.2605,
+        84.904
+      ]
+    },
+    {
+      "candidate_id": "c_99be55ef20d3",
+      "original_id": "round2_south_service_049",
+      "name": "Chhatrapur Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.353,
+        84.9875
+      ]
+    },
+    {
+      "candidate_id": "c_a6f24d8cce40",
+      "original_id": "round2_south_service_050",
+      "name": "OTDC Panthanivas Gopalpur-on-Sea",
+      "entity_type": "HOTEL",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.2588,
+        84.9062
+      ]
+    },
+    {
+      "candidate_id": "c_cb95f367c2af",
+      "original_id": "round2_south_service_051",
+      "name": "Mayfair Palm Beach Resort Gopalpur",
+      "entity_type": "HOTEL",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.257,
+        84.9085
+      ]
+    },
+    {
+      "candidate_id": "c_ac2d8e188a55",
+      "original_id": "round2_south_service_052",
+      "name": "OTDC Panthanivas Rambha (Chilika)",
+      "entity_type": "HOTEL",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.5185,
+        85.0995
+      ]
+    },
+    {
+      "candidate_id": "c_5f1463b72982",
+      "original_id": "round2_south_service_053",
+      "name": "Hotel Moti Berhampur",
+      "entity_type": "HOTEL",
+      "district": "Ganjam",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.3125,
+        84.796
+      ]
+    },
+    {
+      "candidate_id": "c_6776721eb406",
+      "original_id": "round2_south_service_054",
+      "name": "District Headquarters Hospital (DHH) Bhawanipatna",
+      "entity_type": "HOSPITAL",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.9055,
+        83.1678
+      ]
+    },
+    {
+      "candidate_id": "c_6789f2752b9c",
+      "original_id": "round2_south_service_055",
+      "name": "Sub-Divisional Hospital (SDH) Dharamgarh",
+      "entity_type": "HOSPITAL",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.8785,
+        82.782
+      ]
+    },
+    {
+      "candidate_id": "c_7f5b05e9599e",
+      "original_id": "round2_south_service_056",
+      "name": "Community Health Centre (CHC) Junagarh",
+      "entity_type": "HOSPITAL",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.8615,
+        82.9345
+      ]
+    },
+    {
+      "candidate_id": "c_0bba0bf0a69c",
+      "original_id": "round2_south_service_057",
+      "name": "Community Health Centre (CHC) Kesinga",
+      "entity_type": "HOSPITAL",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.2015,
+        83.2285
+      ]
+    },
+    {
+      "candidate_id": "c_c820dd4246c3",
+      "original_id": "round2_south_service_058",
+      "name": "State Bank of India (SBI) ATM - Bhawanipatna Main Branch",
+      "entity_type": "ATM",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.9025,
+        83.1645
+      ]
+    },
+    {
+      "candidate_id": "c_e01a70ace505",
+      "original_id": "round2_south_service_059",
+      "name": "HDFC Bank ATM - Bhawanipatna",
+      "entity_type": "ATM",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.9042,
+        83.169
+      ]
+    },
+    {
+      "candidate_id": "c_a792cf72a366",
+      "original_id": "round2_south_service_060",
+      "name": "Axis Bank ATM - Dharamgarh",
+      "entity_type": "ATM",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.877,
+        82.7845
+      ]
+    },
+    {
+      "candidate_id": "c_862a6eb751a6",
+      "original_id": "round2_south_service_061",
+      "name": "Punjab National Bank (PNB) ATM - Kesinga",
+      "entity_type": "ATM",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.203,
+        83.226
+      ]
+    },
+    {
+      "candidate_id": "c_b46c6a45e900",
+      "original_id": "round2_south_service_062",
+      "name": "IndianOil Fuel Station - Maa Manikeswari Filling Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.8985,
+        83.161
+      ]
+    },
+    {
+      "candidate_id": "c_fb8e84dfc7a9",
+      "original_id": "round2_south_service_063",
+      "name": "Bharat Petroleum (BPCL) - Dharamgarh Auto Care",
+      "entity_type": "FUEL_STATION",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.8805,
+        82.781
+      ]
+    },
+    {
+      "candidate_id": "c_08adbd2b00e2",
+      "original_id": "round2_south_service_064",
+      "name": "Hindustan Petroleum (HPCL) - Kesinga Highway Fuel Point",
+      "entity_type": "FUEL_STATION",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.1985,
+        83.2315
+      ]
+    },
+    {
+      "candidate_id": "c_442155e39963",
+      "original_id": "round2_south_service_065",
+      "name": "Bhawanipatna Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.904,
+        83.166
+      ]
+    },
+    {
+      "candidate_id": "c_c94dc7c90c07",
+      "original_id": "round2_south_service_066",
+      "name": "Dharamgarh Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.8765,
+        82.783
+      ]
+    },
+    {
+      "candidate_id": "c_1918031f062d",
+      "original_id": "round2_south_service_067",
+      "name": "Kesinga Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.2005,
+        83.227
+      ]
+    },
+    {
+      "candidate_id": "c_84b5ef25d581",
+      "original_id": "round2_south_service_068",
+      "name": "Hotel Bhagirathi Bhawanipatna",
+      "entity_type": "HOTEL",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.9015,
+        83.1685
+      ]
+    },
+    {
+      "candidate_id": "c_d3a7264ee23e",
+      "original_id": "round2_south_service_069",
+      "name": "OTDC Panthanivas Bhawanipatna",
+      "entity_type": "HOTEL",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.907,
+        83.162
+      ]
+    },
+    {
+      "candidate_id": "c_7de8a9a962fd",
+      "original_id": "round2_south_service_070",
+      "name": "Government Circuit House Bhawanipatna",
+      "entity_type": "HOTEL",
+      "district": "Kalahandi",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.9095,
+        83.165
+      ]
+    },
+    {
+      "candidate_id": "c_71cca79e57ff",
+      "original_id": "round2_south_service_071",
+      "name": "District Headquarters Hospital (DHH) Phulbani",
+      "entity_type": "HOSPITAL",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4785,
+        84.234
+      ]
+    },
+    {
+      "candidate_id": "c_7e1db9c74fd3",
+      "original_id": "round2_south_service_072",
+      "name": "Sub-Divisional Hospital (SDH) Baliguda",
+      "entity_type": "HOSPITAL",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.2045,
+        83.908
+      ]
+    },
+    {
+      "candidate_id": "c_bb797ab69fa4",
+      "original_id": "round2_south_service_073",
+      "name": "Community Health Centre (CHC) Daringbadi",
+      "entity_type": "HOSPITAL",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.9055,
+        84.132
+      ]
+    },
+    {
+      "candidate_id": "c_16c6e8813dc9",
+      "original_id": "round2_south_service_074",
+      "name": "Community Health Centre (CHC) G.Udayagiri",
+      "entity_type": "HOSPITAL",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.134,
+        84.3725
+      ]
+    },
+    {
+      "candidate_id": "c_a8c9e8e98c23",
+      "original_id": "round2_south_service_075",
+      "name": "State Bank of India (SBI) ATM - Phulbani Main Branch",
+      "entity_type": "ATM",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.476,
+        84.2325
+      ]
+    },
+    {
+      "candidate_id": "c_e21589b4edef",
+      "original_id": "round2_south_service_076",
+      "name": "State Bank of India (SBI) ATM - Daringbadi",
+      "entity_type": "ATM",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.9042,
+        84.1345
+      ]
+    },
+    {
+      "candidate_id": "c_87283420cae5",
+      "original_id": "round2_south_service_077",
+      "name": "HDFC Bank ATM - Phulbani",
+      "entity_type": "ATM",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4775,
+        84.236
+      ]
+    },
+    {
+      "candidate_id": "c_d65d05e6dc39",
+      "original_id": "round2_south_service_078",
+      "name": "Axis Bank ATM - Baliguda",
+      "entity_type": "ATM",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.203,
+        83.9095
+      ]
+    },
+    {
+      "candidate_id": "c_b893eb9d7a08",
+      "original_id": "round2_south_service_079",
+      "name": "IndianOil Auto Service - Phulbani Filling Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4725,
+        84.238
+      ]
+    },
+    {
+      "candidate_id": "c_3456dacc5db5",
+      "original_id": "round2_south_service_080",
+      "name": "Bharat Petroleum (BPCL) - Daringbadi Hill Station Fuel Point",
+      "entity_type": "FUEL_STATION",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.9075,
+        84.131
+      ]
+    },
+    {
+      "candidate_id": "c_371e857ce4ab",
+      "original_id": "round2_south_service_081",
+      "name": "Hindustan Petroleum (HPCL) - Baliguda Auto Service",
+      "entity_type": "FUEL_STATION",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.206,
+        83.9065
+      ]
+    },
+    {
+      "candidate_id": "c_52897c9b31a8",
+      "original_id": "round2_south_service_082",
+      "name": "Phulbani Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.479,
+        84.2355
+      ]
+    },
+    {
+      "candidate_id": "c_0a4b5f3de14f",
+      "original_id": "round2_south_service_083",
+      "name": "Daringbadi Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.9035,
+        84.133
+      ]
+    },
+    {
+      "candidate_id": "c_e77cae07e6c1",
+      "original_id": "round2_south_service_084",
+      "name": "Baliguda Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.2025,
+        83.9085
+      ]
+    },
+    {
+      "candidate_id": "c_0e1fd8a734f3",
+      "original_id": "round2_south_service_085",
+      "name": "OTDC Panthanivas Daringbadi",
+      "entity_type": "HOTEL",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.9065,
+        84.135
+      ]
+    },
+    {
+      "candidate_id": "c_a5bf27c9579a",
+      "original_id": "round2_south_service_086",
+      "name": "Eco-Tour Nature Camp Daringbadi",
+      "entity_type": "HOTEL",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.912,
+        84.1385
+      ]
+    },
+    {
+      "candidate_id": "c_c04fd61875d3",
+      "original_id": "round2_south_service_087",
+      "name": "Hotel Hill View Phulbani",
+      "entity_type": "HOTEL",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        20.4755,
+        84.237
+      ]
+    },
+    {
+      "candidate_id": "c_203d15e1c95f",
+      "original_id": "round2_south_service_088",
+      "name": "Belghar Nature Camp Cottages",
+      "entity_type": "HOTEL",
+      "district": "Kandhamal",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.825,
+        83.782
+      ]
+    },
+    {
+      "candidate_id": "c_0effe29a39d7",
+      "original_id": "round2_south_service_089",
+      "name": "SLN Medical College & Hospital Koraput",
+      "entity_type": "HOSPITAL",
+      "district": "Koraput",
+      "classification": "EXACT_EXISTING_ENTITY",
+      "matched_canonical_id": "place_med_007",
+      "coordinates": [
+        18.8165,
+        82.714
+      ]
+    },
+    {
+      "candidate_id": "c_caabbc5926e8",
+      "original_id": "round2_south_service_090",
+      "name": "District Headquarters Hospital (DHH) Jeypore",
+      "entity_type": "HOSPITAL",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.854,
+        82.571
+      ]
+    },
+    {
+      "candidate_id": "c_1459a08e77a8",
+      "original_id": "round2_south_service_091",
+      "name": "Sub-Divisional Hospital (SDH) Sunabeda",
+      "entity_type": "HOSPITAL",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.736,
+        82.8025
+      ]
+    },
+    {
+      "candidate_id": "c_7f9e640e6d38",
+      "original_id": "round2_south_service_092",
+      "name": "Community Health Centre (CHC) Semiliguda",
+      "entity_type": "HOSPITAL",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.709,
+        82.8685
+      ]
+    },
+    {
+      "candidate_id": "c_84bbef3443f7",
+      "original_id": "round2_south_service_093",
+      "name": "State Bank of India (SBI) ATM - Koraput Main Branch",
+      "entity_type": "ATM",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.8115,
+        82.716
+      ]
+    },
+    {
+      "candidate_id": "c_8bf64ad04263",
+      "original_id": "round2_south_service_094",
+      "name": "HDFC Bank ATM - Jeypore",
+      "entity_type": "ATM",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.8582,
+        82.5695
+      ]
+    },
+    {
+      "candidate_id": "c_636ecce360bf",
+      "original_id": "round2_south_service_095",
+      "name": "Axis Bank ATM - Semiliguda",
+      "entity_type": "ATM",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.7075,
+        82.869
+      ]
+    },
+    {
+      "candidate_id": "c_d7c3eab38f7b",
+      "original_id": "round2_south_service_096",
+      "name": "ICICI Bank ATM - Sunabeda",
+      "entity_type": "ATM",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.7345,
+        82.805
+      ]
+    },
+    {
+      "candidate_id": "c_9b777770be19",
+      "original_id": "round2_south_service_097",
+      "name": "IndianOil Auto Care - Koraput Bypass Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.8145,
+        82.721
+      ]
+    },
+    {
+      "candidate_id": "c_b152761628c1",
+      "original_id": "round2_south_service_098",
+      "name": "Bharat Petroleum (BPCL) - Jeypore Main Road Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.852,
+        82.5735
+      ]
+    },
+    {
+      "candidate_id": "c_34bc786d2429",
+      "original_id": "round2_south_service_099",
+      "name": "Hindustan Petroleum (HPCL) - Semiliguda Deomali Fuel Point",
+      "entity_type": "FUEL_STATION",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.711,
+        82.866
+      ]
+    },
+    {
+      "candidate_id": "c_59a3e90d45b5",
+      "original_id": "round2_south_service_100",
+      "name": "Koraput Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.813,
+        82.7155
+      ]
+    },
+    {
+      "candidate_id": "c_2db140ee2bd4",
+      "original_id": "round2_south_service_101",
+      "name": "Jeypore Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.8565,
+        82.5705
+      ]
+    },
+    {
+      "candidate_id": "c_b2bb4f2e024b",
+      "original_id": "round2_south_service_102",
+      "name": "Sunabeda Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.735,
+        82.804
+      ]
+    },
+    {
+      "candidate_id": "c_072eb31cde4c",
+      "original_id": "round2_south_service_103",
+      "name": "Damanjodi Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.7845,
+        82.897
+      ]
+    },
+    {
+      "candidate_id": "c_0d5ebfdb1250",
+      "original_id": "round2_south_service_104",
+      "name": "Hotel Hello Jeypore",
+      "entity_type": "HOTEL",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.8575,
+        82.568
+      ]
+    },
+    {
+      "candidate_id": "c_830d48adc0bb",
+      "original_id": "round2_south_service_105",
+      "name": "Hotel MM Residency Koraput",
+      "entity_type": "HOTEL",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.8105,
+        82.7175
+      ]
+    },
+    {
+      "candidate_id": "c_4aa3daa3cfda",
+      "original_id": "round2_south_service_106",
+      "name": "OTDC Panthanivas Koraput",
+      "entity_type": "HOTEL",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.815,
+        82.7125
+      ]
+    },
+    {
+      "candidate_id": "c_5f189c28b278",
+      "original_id": "round2_south_service_107",
+      "name": "Deomali Eco Cottages (Doliamba)",
+      "entity_type": "HOTEL",
+      "district": "Koraput",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.675,
+        82.982
+      ]
+    },
+    {
+      "candidate_id": "c_8436afeebcad",
+      "original_id": "round2_south_service_108",
+      "name": "District Headquarters Hospital (DHH) Malkangiri",
+      "entity_type": "HOSPITAL",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.3585,
+        81.8925
+      ]
+    },
+    {
+      "candidate_id": "c_b289d371466e",
+      "original_id": "round2_south_service_109",
+      "name": "Sub-Divisional Hospital (SDH) Mathili",
+      "entity_type": "HOSPITAL",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.572,
+        82.195
+      ]
+    },
+    {
+      "candidate_id": "c_734bf6019933",
+      "original_id": "round2_south_service_110",
+      "name": "Community Health Centre (CHC) Balimela",
+      "entity_type": "HOSPITAL",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.2415,
+        82.134
+      ]
+    },
+    {
+      "candidate_id": "c_793953113228",
+      "original_id": "round2_south_service_111",
+      "name": "Community Health Centre (CHC) Chitrakonda",
+      "entity_type": "HOSPITAL",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.1185,
+        82.086
+      ]
+    },
+    {
+      "candidate_id": "c_70dc23eafc90",
+      "original_id": "round2_south_service_112",
+      "name": "State Bank of India (SBI) ATM - Malkangiri Main Branch",
+      "entity_type": "ATM",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.354,
+        81.8965
+      ]
+    },
+    {
+      "candidate_id": "c_04f5b5059763",
+      "original_id": "round2_south_service_113",
+      "name": "HDFC Bank ATM - Malkangiri",
+      "entity_type": "ATM",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.3565,
+        81.894
+      ]
+    },
+    {
+      "candidate_id": "c_8afd554fd7d3",
+      "original_id": "round2_south_service_114",
+      "name": "Axis Bank ATM - Balimela",
+      "entity_type": "ATM",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.2405,
+        82.1325
+      ]
+    },
+    {
+      "candidate_id": "c_414a2d9b9641",
+      "original_id": "round2_south_service_115",
+      "name": "Union Bank of India ATM - Chitrakonda",
+      "entity_type": "ATM",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.117,
+        82.0875
+      ]
+    },
+    {
+      "candidate_id": "c_8c57adb649fb",
+      "original_id": "round2_south_service_116",
+      "name": "IndianOil Fuel Station - Malkangiri Auto Service",
+      "entity_type": "FUEL_STATION",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.351,
+        81.9015
+      ]
+    },
+    {
+      "candidate_id": "c_0a0c79eb4ab3",
+      "original_id": "round2_south_service_117",
+      "name": "Bharat Petroleum (BPCL) - Balimela Road Filling Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.2435,
+        82.131
+      ]
+    },
+    {
+      "candidate_id": "c_b435559df1b0",
+      "original_id": "round2_south_service_118",
+      "name": "Hindustan Petroleum (HPCL) - Chitrakonda Fuel Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.1195,
+        82.0845
+      ]
+    },
+    {
+      "candidate_id": "c_d776f8625b93",
+      "original_id": "round2_south_service_119",
+      "name": "Malkangiri Model Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.357,
+        81.8935
+      ]
+    },
+    {
+      "candidate_id": "c_669e32ce41c8",
+      "original_id": "round2_south_service_120",
+      "name": "Chitrakonda Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.1175,
+        82.0855
+      ]
+    },
+    {
+      "candidate_id": "c_522918ccbc1e",
+      "original_id": "round2_south_service_121",
+      "name": "Balimela Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.241,
+        82.133
+      ]
+    },
+    {
+      "candidate_id": "c_9f59e335b8ea",
+      "original_id": "round2_south_service_122",
+      "name": "Hotel Balimela Residency",
+      "entity_type": "HOTEL",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.242,
+        82.132
+      ]
+    },
+    {
+      "candidate_id": "c_c7625dde19d5",
+      "original_id": "round2_south_service_123",
+      "name": "Hotel Golden Palace Malkangiri",
+      "entity_type": "HOTEL",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.3555,
+        81.895
+      ]
+    },
+    {
+      "candidate_id": "c_7f78bf9bc0a0",
+      "original_id": "round2_south_service_124",
+      "name": "Government Circuit House Malkangiri",
+      "entity_type": "HOTEL",
+      "district": "Malkangiri",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        18.359,
+        81.891
+      ]
+    },
+    {
+      "candidate_id": "c_03069f43e95c",
+      "original_id": "round2_south_service_125",
+      "name": "District Headquarters Hospital (DHH) Nabarangpur",
+      "entity_type": "HOSPITAL",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.2315,
+        82.5485
+      ]
+    },
+    {
+      "candidate_id": "c_207d88426c79",
+      "original_id": "round2_south_service_126",
+      "name": "Sub-Divisional Hospital (SDH) Umerkote",
+      "entity_type": "HOSPITAL",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.664,
+        82.2085
+      ]
+    },
+    {
+      "candidate_id": "c_27f068eccc82",
+      "original_id": "round2_south_service_127",
+      "name": "Community Health Centre (CHC) Papadahandi",
+      "entity_type": "HOSPITAL",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.362,
+        82.584
+      ]
+    },
+    {
+      "candidate_id": "c_ccd44c998bdc",
+      "original_id": "round2_south_service_128",
+      "name": "Community Health Centre (CHC) Tentulikhunti",
+      "entity_type": "HOSPITAL",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.294,
+        82.7215
+      ]
+    },
+    {
+      "candidate_id": "c_9abc3fa41bf3",
+      "original_id": "round2_south_service_129",
+      "name": "State Bank of India (SBI) ATM - Nabarangpur Main Branch",
+      "entity_type": "ATM",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.2305,
+        82.551
+      ]
+    },
+    {
+      "candidate_id": "c_c9f4e59f8b9b",
+      "original_id": "round2_south_service_130",
+      "name": "HDFC Bank ATM - Nabarangpur",
+      "entity_type": "ATM",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.232,
+        82.5535
+      ]
+    },
+    {
+      "candidate_id": "c_229ddad0b9b2",
+      "original_id": "round2_south_service_131",
+      "name": "Axis Bank ATM - Umerkote",
+      "entity_type": "ATM",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.6625,
+        82.2105
+      ]
+    },
+    {
+      "candidate_id": "c_2b2e6322112e",
+      "original_id": "round2_south_service_132",
+      "name": "Punjab National Bank (PNB) ATM - Papadahandi",
+      "entity_type": "ATM",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.3635,
+        82.5825
+      ]
+    },
+    {
+      "candidate_id": "c_83bcc2b1ec26",
+      "original_id": "round2_south_service_133",
+      "name": "IndianOil Fuel Station - Shahid Minar Auto Service",
+      "entity_type": "FUEL_STATION",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.3645,
+        82.5855
+      ]
+    },
+    {
+      "candidate_id": "c_8285fbc176cb",
+      "original_id": "round2_south_service_134",
+      "name": "Bharat Petroleum (BPCL) - Nabarangpur Bypass Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.2285,
+        82.546
+      ]
+    },
+    {
+      "candidate_id": "c_de6ed50cc2ce",
+      "original_id": "round2_south_service_135",
+      "name": "Hindustan Petroleum (HPCL) - Umerkote Filling Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.6655,
+        82.207
+      ]
+    },
+    {
+      "candidate_id": "c_7d220a7f0440",
+      "original_id": "round2_south_service_136",
+      "name": "Nabarangpur Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.231,
+        82.55
+      ]
+    },
+    {
+      "candidate_id": "c_90f1be2949b9",
+      "original_id": "round2_south_service_137",
+      "name": "Umerkote Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.663,
+        82.2095
+      ]
+    },
+    {
+      "candidate_id": "c_3850f1d95f26",
+      "original_id": "round2_south_service_138",
+      "name": "Papadahandi Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.361,
+        82.583
+      ]
+    },
+    {
+      "candidate_id": "c_14238d8671a0",
+      "original_id": "round2_south_service_139",
+      "name": "Hotel Maa Ujjayini Nabarangpur",
+      "entity_type": "HOTEL",
+      "district": "Nabarangpur",
+      "classification": "NEW_ENTITY",
+      "matched_canonical_id": null,
+      "coordinates": [
+        19.2325,
+        82.552
+      ]
+    }
+  ]
+}

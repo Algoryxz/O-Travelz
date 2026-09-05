@@ -1,0 +1,50 @@
+[
+  {
+    "candidate_id": "police_west_064",
+    "existing_candidate_id": "c_466fcb8f8310",
+    "name": "Baunsuni Police Station",
+    "conflict_type": "CONFLICTING_COORDINATES",
+    "coord_1": [
+      20.7805,
+      84.052
+    ],
+    "coord_2": [
+      20.8412,
+      84.1812
+    ],
+    "source_1": "data/research/round2/southern/services.json",
+    "source_2": "data/safety/police_stations_western_odisha.json"
+  },
+  {
+    "candidate_id": "police_west_065",
+    "existing_candidate_id": "c_aaa2c6c90914",
+    "name": "Purunakatak Police Station",
+    "conflict_type": "CONFLICTING_COORDINATES",
+    "coord_1": [
+      20.521,
+      84.302
+    ],
+    "coord_2": [
+      20.7512,
+      84.4212
+    ],
+    "source_1": "data/research/round2/southern/services.json",
+    "source_2": "data/safety/police_stations_western_odisha.json"
+  },
+  {
+    "candidate_id": "police_west_067",
+    "existing_candidate_id": "c_dc6de52eb270",
+    "name": "Kantamal Police Station",
+    "conflict_type": "CONFLICTING_COORDINATES",
+    "coord_1": [
+      20.6508,
+      83.7415
+    ],
+    "coord_2": [
+      20.6124,
+      83.8812
+    ],
+    "source_1": "data/research/round2/southern/services.json",
+    "source_2": "data/safety/police_stations_western_odisha.json"
+  }
+]

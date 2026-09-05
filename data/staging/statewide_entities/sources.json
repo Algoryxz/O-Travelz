@@ -1,0 +1,134 @@
+[
+  {
+    "source_path": "data/services/odisha_services.json",
+    "region": "STATEWIDE",
+    "source_name": "Directorate of Medical Education & Training (DMET) Odisha",
+    "records_contributed": 61
+  },
+  {
+    "source_path": "data/research/round2/southern/services.json",
+    "region": "SOUTHERN",
+    "source_name": "District Administration Boudh",
+    "records_contributed": 373
+  },
+  {
+    "source_path": "data/accommodation/hotels_northern_odisha.json",
+    "region": "NORTHERN",
+    "source_name": "The Belgadia Palace Official Portal",
+    "records_contributed": 19
+  },
+  {
+    "source_path": "data/accommodation/hotels_western_odisha.json",
+    "region": "WESTERN",
+    "source_name": "MAYFAIR Hotels & Resorts Official Portal",
+    "records_contributed": 77
+  },
+  {
+    "source_path": "data/dining/restaurants_northern_odisha.json",
+    "region": "NORTHERN",
+    "source_name": "Mayurbhanj Tourism Directory",
+    "records_contributed": 12
+  },
+  {
+    "source_path": "data/dining/restaurants_western_odisha.json",
+    "region": "WESTERN",
+    "source_name": "The Grand Siba Official Portal",
+    "records_contributed": 88
+  },
+  {
+    "source_path": "data/health/hospitals_northern_odisha.json",
+    "region": "NORTHERN",
+    "source_name": "PRMMCH Baripada Official Portal",
+    "records_contributed": 26
+  },
+  {
+    "source_path": "data/health/hospitals_western_odisha.json",
+    "region": "WESTERN",
+    "source_name": "VIMSAR Burla Official Portal",
+    "records_contributed": 75
+  },
+  {
+    "source_path": "data/safety/police_stations_northern_odisha.json",
+    "region": "NORTHERN",
+    "source_name": "Mayurbhanj District Police Directory",
+    "records_contributed": 24
+  },
+  {
+    "source_path": "data/safety/police_stations_western_odisha.json",
+    "region": "WESTERN",
+    "source_name": "Sambalpur District Administration & Police Directory",
+    "records_contributed": 62
+  },
+  {
+    "source_path": "data/safety/fire_stations_northern_odisha.json",
+    "region": "NORTHERN",
+    "source_name": "Odisha Fire and Emergency Services",
+    "records_contributed": 17
+  },
+  {
+    "source_path": "data/finance/atms_northern_odisha.json",
+    "region": "NORTHERN",
+    "source_name": "SBI Official Locator",
+    "records_contributed": 15
+  },
+  {
+    "source_path": "data/finance/atms_western_odisha.json",
+    "region": "WESTERN",
+    "source_name": "SBI Official Locator",
+    "records_contributed": 111
+  },
+  {
+    "source_path": "data/finance/banks_northern_odisha.json",
+    "region": "NORTHERN",
+    "source_name": "SBI Official Branch Locator",
+    "records_contributed": 13
+  },
+  {
+    "source_path": "data/fuel/petrol_pumps_northern_odisha.json",
+    "region": "NORTHERN",
+    "source_name": "IndianOil Retail Outlet Locator",
+    "records_contributed": 12
+  },
+  {
+    "source_path": "data/fuel/petrol_pumps_western_odisha.json",
+    "region": "WESTERN",
+    "source_name": "IndianOil Retail Outlet Locator",
+    "records_contributed": 98
+  },
+  {
+    "source_path": "data/transport/transport_hubs_northern_odisha.json",
+    "region": "NORTHERN",
+    "source_name": "Mayurbhanj Transport Directory",
+    "records_contributed": 13
+  },
+  {
+    "source_path": "data/research/round2/eastern/candidates.json",
+    "region": "EASTERN",
+    "source_name": "Government/Field Staging",
+    "records_contributed": 21
+  },
+  {
+    "source_path": "data/research/round2/northern/candidates.json",
+    "region": "NORTHERN",
+    "source_name": "Government/Field Staging",
+    "records_contributed": 25
+  },
+  {
+    "source_path": "data/research/round2/southern/candidates.json",
+    "region": "SOUTHERN",
+    "source_name": "Government/Field Staging",
+    "records_contributed": 16
+  },
+  {
+    "source_path": "data/research/round2/western/candidates.json",
+    "region": "WESTERN",
+    "source_name": "Government/Field Staging",
+    "records_contributed": 21
+  },
+  {
+    "source_path": "data/services/destination_safety_advisories.json",
+    "region": "STATEWIDE",
+    "source_name": "Odisha Forest Dept (Rajnagar Mangrove Wildlife Division) & Coastal Security",
+    "records_contributed": 19
+  }
+]
