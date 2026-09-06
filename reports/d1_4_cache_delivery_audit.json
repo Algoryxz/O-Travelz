@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-06T12:29:30.440883+00:00",
+  "timestamp": "2026-09-06T12:58:44.639554+00:00",
   "wave": "D1.4",
   "phase": "Phase 8 \u2014 Cache / CDN Reality",
   "cdn_provider": "GitHub Pages (Fastly CDN)",
@@ -9,21 +9,21 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "cache_control": "max-age=600",
-      "etag": "\"6a9d536d-8dc\"",
-      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
+      "etag": "\"6a9d6337-8dc\"",
+      "last_modified": "Sun, 06 Sep 2026 12:57:27 GMT",
       "content_length": 2268,
-      "age": "78",
+      "age": "41",
       "x_cache": "HIT"
     },
     "hashed_js": {
-      "url": "https://algoryxz.github.io/O-Travelz/assets/index-CT6WiVG5.js",
+      "url": "https://algoryxz.github.io/O-Travelz/assets/index-CmYcNlW9.js",
       "status": 200,
       "content_type": "application/javascript; charset=utf-8",
       "cache_control": "max-age=600",
-      "etag": "\"6a9d536d-4d84f\"",
-      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
+      "etag": "\"6a9d6337-4d84f\"",
+      "last_modified": "Sun, 06 Sep 2026 12:57:27 GMT",
       "content_length": 317519,
-      "age": "78",
+      "age": "40",
       "x_cache": "HIT"
     },
     "hashed_css": {
@@ -31,21 +31,21 @@
       "status": 200,
       "content_type": "text/css; charset=utf-8",
       "cache_control": "max-age=600",
-      "etag": "\"6a9d536d-30906\"",
-      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
+      "etag": "\"6a9d6337-30906\"",
+      "last_modified": "Sun, 06 Sep 2026 12:57:27 GMT",
       "content_length": 198918,
-      "age": "78",
+      "age": "40",
       "x_cache": "HIT"
     },
     "webp_canonical_projection": {
-      "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_konark_001/dadad62e6578/hero.webp",
+      "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_konark_001/03b959a8abef/hero.webp",
       "status": 200,
       "content_type": "image/webp",
       "cache_control": "max-age=600",
-      "etag": "\"6a9d536d-3c4\"",
-      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
-      "content_length": 964,
-      "age": "25",
+      "etag": "\"6a9d6337-5d1fc\"",
+      "last_modified": "Sun, 06 Sep 2026 12:57:27 GMT",
+      "content_length": 381436,
+      "age": "6",
       "x_cache": "HIT"
     },
     "webp_destination_legacy": {
@@ -53,10 +53,10 @@
       "status": 200,
       "content_type": "image/webp",
       "cache_control": "max-age=600",
-      "etag": "\"6a9d536d-29cc6\"",
-      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
+      "etag": "\"6a9d6337-29cc6\"",
+      "last_modified": "Sun, 06 Sep 2026 12:57:27 GMT",
       "content_length": 171206,
-      "age": "62",
+      "age": "40",
       "x_cache": "HIT"
     },
     "svg_asset": {
@@ -64,10 +64,10 @@
       "status": 200,
       "content_type": "image/svg+xml",
       "cache_control": "max-age=600",
-      "etag": "\"6a9d536d-88b\"",
-      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
+      "etag": "\"6a9d6337-88b\"",
+      "last_modified": "Sun, 06 Sep 2026 12:57:27 GMT",
       "content_length": 2187,
-      "age": "21",
+      "age": "40",
       "x_cache": "HIT"
     },
     "service_worker": {
@@ -75,10 +75,10 @@
       "status": 200,
       "content_type": "application/javascript; charset=utf-8",
       "cache_control": "max-age=600",
-      "etag": "\"6a9d536c-1aca\"",
-      "last_modified": "Sun, 06 Sep 2026 11:50:04 GMT",
+      "etag": "\"6a9d6337-1aca\"",
+      "last_modified": "Sun, 06 Sep 2026 12:57:27 GMT",
       "content_length": 6858,
-      "age": "77",
+      "age": "39",
       "x_cache": "HIT"
     }
   },

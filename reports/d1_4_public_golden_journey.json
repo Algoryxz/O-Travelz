@@ -1,7 +1,7 @@
 {
   "wave": "D1.4",
   "phase": "Phase 12 \u2014 Public Golden Journey",
-  "generated_at": "2026-09-06T12:37:35.738914+00:00",
+  "generated_at": "2026-09-06T12:59:39.348070+00:00",
   "target_url": "https://algoryxz.github.io/O-Travelz/",
   "steps": [
     {
@@ -10,18 +10,18 @@
       "status_code": 200,
       "title": "O-TRAVELZ \u2014 Odisha Travel Intelligence & Cultural Atlas | Built by Algoryxz",
       "build_info": {
-        "git_sha": "e39dac0360d1f5d64370524e80665a400eb107e1",
-        "built_at": "2026-09-06T11:49:27.831Z",
+        "git_sha": "be15d44199015fe3fa7ad232dc580f591d2c08dd",
+        "built_at": "2026-09-06T12:56:50.066Z",
         "version": "4.0.0"
       },
-      "elapsed_ms": 2507.88,
+      "elapsed_ms": 2613.65,
       "pass": true
     },
     {
       "step": 2,
       "name": "discover_view_loads_places",
       "places_detected": 171,
-      "elapsed_ms": 2601.16,
+      "elapsed_ms": 2594.16,
       "pass": true
     },
     {
@@ -30,7 +30,7 @@
       "place_name": "Lingaraj Temple",
       "card_clicked": true,
       "modal_opened": true,
-      "elapsed_ms": 1559.72,
+      "elapsed_ms": 1543.72,
       "pass": true
     },
     {
@@ -38,7 +38,7 @@
       "name": "hero_media_renders",
       "media_info": {
         "total_images": 174,
-        "verified_media_count": 153,
+        "verified_media_count": 145,
         "sample_sources": [
           "https://algoryxz.github.io/O-Travelz/images/manual/food_khurda_001.webp",
           "https://algoryxz.github.io/O-Travelz/images/manual/food_puri_001.webp",
@@ -46,7 +46,7 @@
           "https://algoryxz.github.io/O-Travelz/images/manual/food_nayagarh_001.webp"
         ]
       },
-      "elapsed_ms": 1.83,
+      "elapsed_ms": 4.0,
       "pass": true
     },
     {
@@ -56,7 +56,7 @@
         "weather_present": true,
         "fake_default_detected": false
       },
-      "elapsed_ms": 3.05,
+      "elapsed_ms": 3.0,
       "pass": true
     },
     {
@@ -65,7 +65,7 @@
       "prompt": "1-day cultural heritage itinerary in Bhubaneswar",
       "copilot_opened": true,
       "prompt_submitted": false,
-      "elapsed_ms": 4019.1,
+      "elapsed_ms": 4018.41,
       "pass": true
     },
     {
@@ -73,7 +73,7 @@
       "name": "planner_prompt_2_refinement",
       "refinement_prompt": "Include Mo Bus Route 09 and authentic Dalma culinary stop",
       "submitted": false,
-      "elapsed_ms": 3021.01,
+      "elapsed_ms": 3010.24,
       "pass": true
     },
     {
@@ -81,7 +81,7 @@
       "name": "non_degraded_itinerary_generated",
       "generate_button_clicked": true,
       "itinerary_rendered": true,
-      "elapsed_ms": 5043.23,
+      "elapsed_ms": 5037.0,
       "pass": true
     },
     {
@@ -93,14 +93,14 @@
         "height": 580,
         "tag": "CANVAS"
       },
-      "elapsed_ms": 17816.36,
+      "elapsed_ms": 4531.72,
       "pass": true
     },
     {
       "step": 10,
       "name": "road_following_geometry",
       "transit_mode_toggled": true,
-      "elapsed_ms": 2041.63,
+      "elapsed_ms": 2017.2,
       "pass": true
     },
     {
@@ -108,7 +108,7 @@
       "name": "essentials_utilities_isolation",
       "essentials_toggle_found": true,
       "isolated_from_destinations": true,
-      "elapsed_ms": 1528.32,
+      "elapsed_ms": 1531.75,
       "pass": true
     },
     {
@@ -116,7 +116,7 @@
       "name": "save_place_interaction",
       "saved_place_id": "place_bbsr_001",
       "persisted_in_storage": true,
-      "elapsed_ms": 5.56,
+      "elapsed_ms": 12.31,
       "pass": true
     },
     {
@@ -126,7 +126,7 @@
         "saved_count": 1,
         "has_lingaraj": true
       },
-      "elapsed_ms": 4233.17,
+      "elapsed_ms": 4299.36,
       "pass": true
     },
     {
@@ -139,7 +139,7 @@
         "no_horizontal_overflow": true,
         "hamburger_visible": true
       },
-      "elapsed_ms": 1536.56,
+      "elapsed_ms": 1534.38,
       "pass": true
     }
   ],
@@ -149,26 +149,55 @@
     "[error] Failed to load resource: the server responded with a status of 404 ()",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
-    "[error] Failed to load resource: the server responded with a status of 429 ()",
-    "[error] Failed to load resource: the server responded with a status of 429 ()",
-    "[error] Failed to load resource: the server responded with a status of 429 ()",
-    "[error] Failed to load resource: the server responded with a status of 429 ()",
-    "[error] Failed to load resource: the server responded with a status of 429 ()",
-    "[error] Failed to load resource: the server responded with a status of 429 ()",
-    "[error] Failed to load resource: the server responded with a status of 429 ()",
-    "[error] Failed to load resource: the server responded with a status of 429 ()",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
-    "[error] Failed to load places for map: ApiError: HTTP 404: Request failed\n    at ka.request (https://algoryxz.github.io/O-Travelz/assets/index-CT6WiVG5.js:2:4296)",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
     "[error] Failed to load resource: the server responded with a status of 404 ()",
-    "[error] Failed to load places for map: ApiError: HTTP 404: Request failed\n    at ka.request (https://algoryxz.github.io/O-Travelz/assets/index-CT6WiVG5.js:2:4296)",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load places for map: ApiError: HTTP 404: Request failed\n    at ka.request (https://algoryxz.github.io/O-Travelz/assets/index-CmYcNlW9.js:2:4296)",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load places for map: ApiError: HTTP 404: Request failed\n    at ka.request (https://algoryxz.github.io/O-Travelz/assets/index-CmYcNlW9.js:2:4296)",
     "[error] Failed to load resource: the server responded with a status of 404 ()"
   ],
   "all_steps_passed": true

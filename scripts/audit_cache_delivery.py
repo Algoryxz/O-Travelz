@@ -22,7 +22,7 @@ def audit_cache_delivery():
         ("html", base_url),
         ("hashed_js", js_url),
         ("hashed_css", css_url),
-        ("webp_canonical_projection", urllib.parse.urljoin(base_url, "static/images/places/place_konark_001/dadad62e6578/hero.webp")),
+        ("webp_canonical_projection", urllib.parse.urljoin(base_url, "static/images/places/place_konark_001/03b959a8abef/hero.webp")),
         ("webp_destination_legacy", urllib.parse.urljoin(base_url, "images/destinations/chandrabhaga_beach.webp")),
         ("svg_asset", urllib.parse.urljoin(base_url, "icon.svg")),
         ("service_worker", urllib.parse.urljoin(base_url, "sw.js"))

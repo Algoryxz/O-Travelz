@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-06T12:30:13.831630+00:00",
+  "timestamp": "2026-09-06T12:59:23.630697+00:00",
   "wave": "D1.4",
   "phase": "Phase 9 \u2014 Media Performance Budget",
   "budget_limits": {
@@ -21,16 +21,48 @@
       {
         "view": "home",
         "total_requests": 34,
-        "total_transferred_kb": 6397.89,
+        "total_transferred_kb": 6165.2,
         "media_count": 13,
         "media": [
           {
-            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_daringbadi_001/49e608c2405f/hero.webp",
+            "status": 404,
+            "content_type": "text/html; charset=utf-8",
+            "size_bytes": 302,
+            "size_kb": 0.29,
+            "category": "hero"
+          },
+          {
+            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_puri_001/02287867dc89/hero.webp",
             "status": 200,
             "content_type": "image/webp",
-            "size_bytes": 381436,
-            "size_kb": 372.5,
+            "size_bytes": 159340,
+            "size_kb": 155.61,
             "category": "hero"
+          },
+          {
+            "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuBqOOikBJZ-5aej8Mblj0xhbGmiY5GW8Kj_DZfPgIWPyUvZ5vc_sVEWY7JWPXCXQFb-2br6r-8CWlxMzqLYIwHeuqC4S-BO4olt2McZxM0XMwm60bFF5jTHCJ9RzglXhmXsGtAeSglMXMTLvTeF6ylfKJbb15-N2Q_MhYfOTwaeSmGiir3D4rZv5iaAKQdKSvnn6b27mSb6nL5tXkFAD46fn4NVUcipQQcUR9MuzEOiMzaGlkR4n4fVqdjyPmY_H0PQ4XiMl9yCMb0",
+            "status": 200,
+            "content_type": "image/jpeg",
+            "size_bytes": 52589,
+            "size_kb": 51.36,
+            "category": "other"
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=1200&q=80",
+            "status": 200,
+            "content_type": "image/avif",
+            "size_bytes": 130907,
+            "size_kb": 127.84,
+            "category": "other"
+          },
+          {
+            "url": "https://algoryxz.github.io/O-Travelz/images/destinations/puri_beach.webp",
+            "status": 200,
+            "content_type": "image/webp",
+            "size_bytes": 65798,
+            "size_kb": 64.26,
+            "category": "other"
           },
           {
             "url": "https://algoryxz.github.io/O-Travelz/logo.jpeg",
@@ -41,6 +73,14 @@
             "category": "logo"
           },
           {
+            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+            "status": 200,
+            "content_type": "image/webp",
+            "size_bytes": 381436,
+            "size_kb": 372.5,
+            "category": "hero"
+          },
+          {
             "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
             "status": 200,
             "content_type": "image/webp",
@@ -49,20 +89,12 @@
             "category": "hero"
           },
           {
-            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_daringbadi_001/49e608c2405f/hero.webp",
+            "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
             "status": 200,
-            "content_type": "image/webp",
-            "size_bytes": 238574,
-            "size_kb": 232.98,
-            "category": "hero"
-          },
-          {
-            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_puri_001/02287867dc89/hero.webp",
-            "status": 200,
-            "content_type": "image/webp",
-            "size_bytes": 159340,
-            "size_kb": 155.61,
-            "category": "hero"
+            "content_type": "image/avif",
+            "size_bytes": 113299,
+            "size_kb": 110.64,
+            "category": "other"
           },
           {
             "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_sambalpur_001/319e1fc78ef8/hero.webp",
@@ -89,56 +121,17 @@
             "category": "hero"
           },
           {
-            "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuBqOOikBJZ-5aej8Mblj0xhbGmiY5GW8Kj_DZfPgIWPyUvZ5vc_sVEWY7JWPXCXQFb-2br6r-8CWlxMzqLYIwHeuqC4S-BO4olt2McZxM0XMwm60bFF5jTHCJ9RzglXhmXsGtAeSglMXMTLvTeF6ylfKJbb15-N2Q_MhYfOTwaeSmGiir3D4rZv5iaAKQdKSvnn6b27mSb6nL5tXkFAD46fn4NVUcipQQcUR9MuzEOiMzaGlkR4n4fVqdjyPmY_H0PQ4XiMl9yCMb0",
-            "status": 200,
-            "content_type": "image/jpeg",
-            "size_bytes": 52589,
-            "size_kb": 51.36,
-            "category": "other"
-          },
-          {
             "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_puri_002/8146170ae9b7/hero.webp",
             "status": 200,
             "content_type": "image/webp",
             "size_bytes": 104514,
             "size_kb": 102.06,
             "category": "hero"
-          },
-          {
-            "url": "https://algoryxz.github.io/O-Travelz/images/destinations/puri_beach.webp",
-            "status": 200,
-            "content_type": "image/webp",
-            "size_bytes": 65798,
-            "size_kb": 64.26,
-            "category": "other"
-          },
-          {
-            "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-            "status": 200,
-            "content_type": "image/avif",
-            "size_bytes": 113299,
-            "size_kb": 110.64,
-            "category": "other"
-          },
-          {
-            "url": "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=1200&q=80",
-            "status": 200,
-            "content_type": "image/avif",
-            "size_bytes": 130907,
-            "size_kb": 127.84,
-            "category": "other"
           }
         ]
       },
       {
         "view": "discover",
-        "total_requests": 0,
-        "total_transferred_kb": 0.0,
-        "media_count": 0,
-        "media": []
-      },
-      {
-        "view": "place_detail",
         "total_requests": 1,
         "total_transferred_kb": 167.19,
         "media_count": 1,
@@ -152,14 +145,21 @@
             "category": "other"
           }
         ]
+      },
+      {
+        "view": "place_detail",
+        "total_requests": 0,
+        "total_transferred_kb": 0.0,
+        "media_count": 0,
+        "media": []
       }
     ],
     "mobile": [
       {
         "view": "home",
-        "total_requests": 34,
-        "total_transferred_kb": 6397.89,
-        "media_count": 13,
+        "total_requests": 35,
+        "total_transferred_kb": 6537.7,
+        "media_count": 14,
         "media": [
           {
             "url": "https://algoryxz.github.io/O-Travelz/logo.jpeg",
@@ -170,19 +170,11 @@
             "category": "logo"
           },
           {
-            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
             "status": 200,
             "content_type": "image/webp",
-            "size_bytes": 381436,
-            "size_kb": 372.5,
-            "category": "hero"
-          },
-          {
-            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_daringbadi_001/49e608c2405f/hero.webp",
-            "status": 200,
-            "content_type": "image/webp",
-            "size_bytes": 238574,
-            "size_kb": 232.98,
+            "size_bytes": 98666,
+            "size_kb": 96.35,
             "category": "hero"
           },
           {
@@ -194,11 +186,27 @@
             "category": "hero"
           },
           {
-            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
+            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_konark_001/03b959a8abef/hero.webp",
             "status": 200,
             "content_type": "image/webp",
-            "size_bytes": 98666,
-            "size_kb": 96.35,
+            "size_bytes": 381436,
+            "size_kb": 372.5,
+            "category": "hero"
+          },
+          {
+            "url": "https://algoryxz.github.io/O-Travelz/images/destinations/puri_beach.webp",
+            "status": 200,
+            "content_type": "image/webp",
+            "size_bytes": 65798,
+            "size_kb": 64.26,
+            "category": "other"
+          },
+          {
+            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_daringbadi_001/49e608c2405f/hero.webp",
+            "status": 404,
+            "content_type": "text/html; charset=utf-8",
+            "size_bytes": 302,
+            "size_kb": 0.29,
             "category": "hero"
           },
           {
@@ -210,27 +218,11 @@
             "category": "other"
           },
           {
-            "url": "https://algoryxz.github.io/O-Travelz/images/destinations/puri_beach.webp",
+            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_konark_001/03b959a8abef/hero.webp",
             "status": 200,
             "content_type": "image/webp",
-            "size_bytes": 65798,
-            "size_kb": 64.26,
-            "category": "other"
-          },
-          {
-            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_puri_002/8146170ae9b7/hero.webp",
-            "status": 200,
-            "content_type": "image/webp",
-            "size_bytes": 104514,
-            "size_kb": 102.06,
-            "category": "hero"
-          },
-          {
-            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_sambalpur_001/319e1fc78ef8/hero.webp",
-            "status": 200,
-            "content_type": "image/webp",
-            "size_bytes": 223364,
-            "size_kb": 218.13,
+            "size_bytes": 381436,
+            "size_kb": 372.5,
             "category": "hero"
           },
           {
@@ -242,14 +234,6 @@
             "category": "hero"
           },
           {
-            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_koraput_003/d706510f47e0/hero.webp",
-            "status": 200,
-            "content_type": "image/webp",
-            "size_bytes": 124582,
-            "size_kb": 121.66,
-            "category": "hero"
-          },
-          {
             "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
             "status": 200,
             "content_type": "image/avif",
@@ -258,12 +242,36 @@
             "category": "other"
           },
           {
+            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_sambalpur_001/319e1fc78ef8/hero.webp",
+            "status": 200,
+            "content_type": "image/webp",
+            "size_bytes": 223364,
+            "size_kb": 218.13,
+            "category": "hero"
+          },
+          {
+            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_koraput_003/d706510f47e0/hero.webp",
+            "status": 200,
+            "content_type": "image/webp",
+            "size_bytes": 124582,
+            "size_kb": 121.66,
+            "category": "hero"
+          },
+          {
             "url": "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=1200&q=80",
             "status": 200,
             "content_type": "image/avif",
             "size_bytes": 130907,
             "size_kb": 127.84,
             "category": "other"
+          },
+          {
+            "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_puri_002/8146170ae9b7/hero.webp",
+            "status": 200,
+            "content_type": "image/webp",
+            "size_bytes": 104514,
+            "size_kb": 102.06,
+            "category": "hero"
           }
         ]
       },
