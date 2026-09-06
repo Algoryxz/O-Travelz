@@ -1,0 +1,100 @@
+{
+  "timestamp": "2026-09-06T11:46:45Z",
+  "targetUrl": "https://algoryxz.github.io/O-Travelz/",
+  "desktop": {
+    "totalRequests": 36,
+    "imageRequests": 15,
+    "failures": [
+      {
+        "url": "https://algoryxz.github.io/auth/me",
+        "method": "GET",
+        "status": 404,
+        "status_text": "",
+        "content_type": "text/html; charset=utf-8",
+        "resource_type": "fetch",
+        "size_bytes": 5142
+      },
+      {
+        "url": "https://algoryxz.github.io/auth/me",
+        "method": "GET",
+        "status": 404,
+        "status_text": "",
+        "content_type": "text/html; charset=utf-8",
+        "resource_type": "fetch",
+        "size_bytes": 5142
+      },
+      {
+        "url": "https://algoryxz.github.io/heritage/scenes",
+        "method": "GET",
+        "status": 404,
+        "status_text": "",
+        "content_type": "text/html; charset=utf-8",
+        "resource_type": "fetch",
+        "size_bytes": 5142
+      }
+    ],
+    "consoleErrors": [
+      "error: Failed to load resource: the server responded with a status of 404 ()",
+      "error: Failed to load resource: the server responded with a status of 404 ()",
+      "error: Failed to load resource: the server responded with a status of 404 ()"
+    ],
+    "destinationInteractions": [
+      {
+        "name": "Chandrabhaga",
+        "clicked": true
+      },
+      {
+        "name": "Gopalpur",
+        "clicked": true
+      },
+      {
+        "name": "Konark",
+        "clicked": true
+      },
+      {
+        "name": "Puri",
+        "clicked": true
+      }
+    ]
+  },
+  "mobile": {
+    "totalRequests": 34,
+    "imageRequests": 13,
+    "failures": [
+      {
+        "url": "https://algoryxz.github.io/auth/me",
+        "method": "GET",
+        "status": 404,
+        "status_text": "",
+        "content_type": "text/html; charset=utf-8",
+        "resource_type": "fetch",
+        "size_bytes": 5142
+      },
+      {
+        "url": "https://algoryxz.github.io/heritage/scenes",
+        "method": "GET",
+        "status": 404,
+        "status_text": "",
+        "content_type": "text/html; charset=utf-8",
+        "resource_type": "fetch",
+        "size_bytes": 5142
+      },
+      {
+        "url": "https://algoryxz.github.io/auth/me",
+        "method": "GET",
+        "status": 404,
+        "status_text": "",
+        "content_type": "text/html; charset=utf-8",
+        "resource_type": "fetch",
+        "size_bytes": 5142
+      }
+    ],
+    "consoleErrors": [
+      "error: Failed to load resource: the server responded with a status of 404 ()",
+      "error: Failed to load resource: the server responded with a status of 404 ()",
+      "error: Failed to load resource: the server responded with a status of 404 ()"
+    ]
+  },
+  "criticalMediaFailures": [],
+  "verdict": "PASSED"
+}

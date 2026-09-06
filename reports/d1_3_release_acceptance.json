@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-09-06T11:46:45Z",
+  "wave": "Wave D1.3",
+  "releaseTarget": "Production Public Web",
+  "canonicalHost": "GitHub Pages (https://algoryxz.github.io/O-Travelz/)",
+  "checks": {
+    "zeroCriticalMedia404s": true,
+    "zeroRawMultiMegabyteOriginals": true,
+    "noDeadLocalhostTunnelCalls": true,
+    "swRegistered": true,
+    "logoResolved": true,
+    "maxImageMediaUnderBudget": true,
+    "desktopRenderPass": true,
+    "mobileRenderPass": true
+  },
+  "PUBLIC_WEB_READY": "YES"
+}

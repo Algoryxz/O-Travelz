@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-09-06T11:46:45Z",
+  "desktopTransferredBytes": 7176823,
+  "desktopTransferredMB": 6.84,
+  "mobileTransferredBytes": 6551439,
+  "mobileTransferredMB": 6.25,
+  "maxSingleImageBytes": 454178,
+  "maxSingleImageKB": 443.53,
+  "maxSingleResourceBytes": 3969688,
+  "maxSingleResourceKB": 3876.65,
+  "rawWikimediaDownloaded": false,
+  "verdict": "PASSED"
+}
