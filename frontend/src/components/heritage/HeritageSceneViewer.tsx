@@ -125,7 +125,11 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
     });
 
     // 6. Pause auto-rotation on user pointer interaction
-    const handlePointerDown = () => {
+    const handlePointerDown = (e: PointerEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && target.closest('select, button, input, option, [role="button"]')) {
+        return;
+      }
       if (cameraControllerRef.current) {
         cameraControllerRef.current.autoRotate = false;
         setIsAutoRotating(false);
@@ -308,10 +312,18 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
 
       {/* Top Right: Monument Switcher (4 Canonical Monuments) */}
       {availableScenes.length > 1 && onSelectScene && (
-        <div className="absolute top-4 right-4 z-20 pointer-events-auto">
+        <div
+          className="absolute top-4 right-4 z-20 pointer-events-auto"
+          onPointerDown={(e) => e.stopPropagation()}
+          onMouseDown={(e) => e.stopPropagation()}
+        >
           <select
+            data-testid="heritage-monument-selector"
+            aria-label="Select heritage monument"
             value={scene.id}
             onChange={(e) => onSelectScene(e.target.value)}
+            onPointerDown={(e) => e.stopPropagation()}
+            onMouseDown={(e) => e.stopPropagation()}
             className="bg-slate-900/90 text-amber-300 text-xs font-semibold px-3 py-2 rounded-xl border border-amber-500/30 backdrop-blur-md shadow-lg outline-none focus:ring-2 focus:ring-amber-400 cursor-pointer"
           >
             {availableScenes.map((s) => (
@@ -324,7 +336,11 @@ export const HeritageSceneViewer: React.FC<HeritageSceneViewerProps> = ({
       )}
 
       {/* Bottom Center / Right: Interactive Controls Strip */}
-      <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2 flex-wrap pointer-events-auto">
+      <div
+        className="absolute bottom-4 right-4 z-20 flex items-center gap-2 flex-wrap pointer-events-auto"
+        onPointerDown={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
+      >
         {/* Lighting Selector */}
         <div className="flex items-center bg-slate-900/90 border border-slate-800 backdrop-blur-md rounded-xl p-1 shadow-lg">
           <button

@@ -98,6 +98,10 @@ export class HeritageCameraController {
     const el = this.domElement;
 
     const onMouseDown = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && target.closest('select, button, input, option, [role="button"]')) {
+        return;
+      }
       e.preventDefault();
       if (e.button === 0) this.isDragging = true;
       if (e.button === 2) this.isRightDragging = true;
@@ -130,6 +134,10 @@ export class HeritageCameraController {
     };
 
     const onWheel = (e: WheelEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && target.closest('select, button, input, option, [role="button"]')) {
+        return;
+      }
       e.preventDefault();
       const zoomDelta = e.deltaY * 0.003;
       this.desiredSpherical.radius = THREE.MathUtils.clamp(
@@ -143,6 +151,10 @@ export class HeritageCameraController {
 
     // Touch support for mobile
     const onTouchStart = (e: TouchEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && target.closest('select, button, input, option, [role="button"]')) {
+        return;
+      }
       if (e.touches.length === 1) {
         this.isDragging = true;
         this.prevMouseX = e.touches[0].clientX;
