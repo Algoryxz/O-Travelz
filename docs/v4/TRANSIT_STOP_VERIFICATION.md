@@ -1,121 +1,98 @@
 # O-TRAVELZ V4 — Transit Stop Crowdsourced & Local Verification Specification
 
 > **Authoritative Specification Document**  
-> Document Version: `1.0.0` | Last Updated: `2026-09-06`  
-> Purpose: **Framework for Passenger Observations, Field Verification, and Epistemic Promotion for Transit Stops**  
+> Document Version: `1.1.0` | Last Updated: `2026-09-06` (Wave C5.4)  
+> Purpose: **Framework for Rider Trace Ingestion, Passenger Observations, Field Verification, and Epistemic Promotion for Transit Stops**  
 > Credit: **Built by Algoryxz**
 
 ---
 
 ## 1. Executive Summary & Core Mission
 
-A critical challenge across Odisha's transit networks (CRUT Mo Bus and Ama Bus) is that official timetables describe 1,430 stops, but only a fraction have official GPS coordinates. Traditional tech platforms either invent approximate coordinates via naive geometric interpolation (strictly banned in O-TRAVELZ) or drop the stops entirely.
+A critical challenge across Odisha's transit networks (CRUT Mo Bus and Ama Bus) is that official timetables describe 1,430 stops, but only 173 have verified exact GPS coordinates. Traditional tech platforms either invent approximate coordinates via naive geometric interpolation (strictly banned in O-TRAVELZ) or drop the stops entirely.
 
-O-TRAVELZ solves this through a **two-tier epistemic architecture**:
-1. **Algorithmic Topology & Candidate Ranking (Wave C5)**: Binds real external physical objects (OSM transit nodes, civic amenities, places, settlements) to route sequences without mathematical fabrication.
-2. **Crowdsourced Field Observations (Wave C6 / Mobile Foundation)**: Enables riders and local cultural contributors to record ground-truth boarding points, physical shelters, and route boards with privacy-first data minimization.
+O-TRAVELZ solves this through a **multi-tier epistemic architecture**:
+1. **Algorithmic Topology & Candidate Ranking (Wave C5/C5.1)**: Binds real external physical objects (OSM transit nodes, civic amenities, places, settlements) to route sequences without mathematical fabrication.
+2. **Road-Following Transit Polylines (Wave C5.2/C5.3)**: Provides 27.05% continuous road geometry while strictly isolating stop-pole uncertainty from route-line rendering.
+3. **Rider Trace & Local Verification (Wave C5.4)**: Converts real bus rides and local confirmations into auditable, privacy-preserving transit evidence.
 
 ---
 
 ## 2. Privacy & Data Minimization Architecture
 
 > [!IMPORTANT]
-> **Zero Invasive Tracking Policy**:
-> O-TRAVELZ does NOT record, track, or retain continuous user GPS breadcrumbs. The observation system operates strictly on **event-driven, explicit user action**.
+> **Strict Privacy Boundary**:
+> O-TRAVELZ enforces strict privacy boundaries. Continuous tracking is active ONLY during an explicit user-initiated ride verification session, and no personally identifiable information (PII) is ever written to observation logs.
 
 ### 2.1 Core Privacy Rules
-- **Explicit Opt-in**: Observation recording triggers only when a user explicitly taps "I am boarding here", "I alighted here", or "Submit Stop Evidence".
-- **Ephemeral Session Hashes**: Contributor identities are hashed using a salted rotating daily key (`device_session_hash`). No raw hardware UDIDs, phone numbers, or user account IDs are linked to physical coordinate logs.
-- **Immediate Spatial Truncation**: Coordinate readings are snapped to a 5-meter boundary; high-frequency background GPS is never requested.
+- **Explicit Opt-in Only**: Ride recording triggers only when a rider explicitly selects a route, direction, and taps "Start verification ride".
+- **Visible Recording Indicator**: The application displays a persistent, non-dismissable banner/pill showing active recording status with elapsed time and sample count.
+- **Explicit Stop Control**: The rider has immediate, one-tap control to pause or stop recording at any point.
+- **Zero Indefinite Background Tracking**: Telemetry polling immediately terminates upon tapping "Finish Ride", session timeout (max 4 hours), or app termination.
+- **Pseudonymous Rotating Session Identity**: No raw emails, names, phone numbers, or hardware UDIDs are stored. Contributor identities are represented by an ephemeral `session_hash = SHA256(device_salt + date + session_id)`.
+- **Zero Public Exposure of Raw Traces**: Raw GPS coordinates in `transit_ride_samples` are internal operational data and are never exposed via public APIs. Only aggregated stop clusters and validated route geometries are surfaced publicly.
+- **Data Retention & Deletion**:
+  - High-frequency GPS samples (`transit_ride_samples`) are retained for 30 days for map-matching and cluster verification, after which raw points are pruned.
+  - Aggregated stop observations (`transit_stop_observations`) retain only the cluster centroid, accuracy, and consensus metadata.
+  - A contributor may request deletion of all samples linked to their rotating `session_hash` via the privacy API.
 
 ---
 
-## 3. Observation Data Schema (`stop_observations`)
+## 3. Observation Data Schema
 
-Observations submitted by passengers or local contributors conform to the following schema:
+Wave C5.4 uses three distinct relational tables, completely separated from canonical stop truth:
 
+### 3.1 `transit_ride_sessions`
+Tracks active and completed ride recordings with consent verification:
 ```json
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "StopObservation",
-  "type": "object",
-  "required": [
-    "observation_id",
-    "canonical_stop_id",
-    "route_id",
-    "timestamp",
-    "latitude",
-    "longitude",
-    "accuracy_m",
-    "observation_type",
-    "session_hash"
-  ],
-  "properties": {
-    "observation_id": {
-      "type": "string",
-      "format": "uuid",
-      "description": "Unique observation identifier"
-    },
-    "canonical_stop_id": {
-      "type": "string",
-      "description": "Canonical stop ID from data/transport/canonical/stops.json"
-    },
-    "route_id": {
-      "type": "string",
-      "description": "Serving route ID being ridden or observed"
-    },
-    "timestamp": {
-      "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 UTC timestamp of observation"
-    },
-    "latitude": {
-      "type": "number",
-      "minimum": 17.5,
-      "maximum": 23.0
-    },
-    "longitude": {
-      "type": "number",
-      "minimum": 81.0,
-      "maximum": 88.0
-    },
-    "accuracy_m": {
-      "type": "number",
-      "minimum": 0.5,
-      "maximum": 100.0,
-      "description": "Reported GPS horizontal accuracy in meters"
-    },
-    "observation_type": {
-      "type": "string",
-      "enum": [
-        "BOARDED_BUS",
-        "ALIGHTED_BUS",
-        "STOP_SIGN_SEEN",
-        "SHELTER_SEEN",
-        "ROUTE_BOARD_SEEN",
-        "MANUAL_PIN_CONFIRMATION"
-      ]
-    },
-    "session_hash": {
-      "type": "string",
-      "description": "Salted SHA-256 hash of device session for deduplication"
-    },
-    "photo_evidence_uri": {
-      "type": "string",
-      "nullable": true,
-      "description": "Optional local photo path of shelter or signage"
-    },
-    "signage_text": {
-      "type": "string",
-      "nullable": true,
-      "description": "Observed text on route board (English or Odia)"
-    },
-    "route_number_seen": {
-      "type": "string",
-      "nullable": true,
-      "description": "Bus route number displayed on vehicle"
-    }
-  }
+  "session_id": "UUID",
+  "route_number": "09",
+  "sequence_id": "rt_crut_09_forward",
+  "direction": "forward",
+  "session_hash": "a1b2c3d4e5f6... (64-char hex)",
+  "consent_version": "1.0",
+  "status": "ACTIVE | COMPLETED | QUARANTINED | DISCARDED",
+  "started_at": "ISO-8601 UTC",
+  "ended_at": "ISO-8601 UTC",
+  "sample_count": 240
+}
+```
+
+### 3.2 `transit_ride_samples`
+Batched GPS telemetry captured at ~1Hz during active rides:
+```json
+{
+  "session_id": "UUID",
+  "timestamp": "ISO-8601 UTC",
+  "latitude": 20.2961,
+  "longitude": 85.8245,
+  "accuracy_m": 8.5,
+  "speed_mps": 6.2,
+  "heading_deg": 182.0,
+  "is_filtered": false
+}
+```
+
+### 3.3 `transit_stop_observations`
+Ground-truth point observations generated by explicit rider taps or passive cluster analysis:
+```json
+{
+  "observation_id": "UUID",
+  "session_id": "UUID (nullable)",
+  "canonical_stop_id": "stop_crut_bhubaneswar_master_canteen (when matched)",
+  "route_number": "09",
+  "sequence_id": "rt_crut_09_forward",
+  "direction": "forward",
+  "observation_type": "BOARDING | ALIGHTING | BUS_STOPPED | LOCAL_CONFIRMATION",
+  "latitude": 20.2961,
+  "longitude": 85.8245,
+  "accuracy_m": 8.0,
+  "observed_at": "ISO-8601 UTC",
+  "contributor_hash": "a1b2c3... (64-char hex)",
+  "confirmation_value": "YES | NO | UNSURE (for LOCAL_CONFIRMATION)",
+  "consensus_status": "OBSERVED_ONCE | COMMUNITY_SUPPORTED | PROMOTION_REVIEW_READY",
+  "stop_association_status": "CONFIRMS_EXISTING_EXACT | SUPPORTS_CANDIDATE | NEW_LOCATION_HYPOTHESIS | AMBIGUOUS_STOP_ASSOCIATION | CONTRADICTS_CURRENT_CANDIDATE"
 }
 ```
 
@@ -125,30 +102,31 @@ Observations submitted by passengers or local contributors conform to the follow
 
 > [!CAUTION]
 > **Anti-Vibe Rule: One observation NEVER auto-promotes to canonical truth.**
+> Multiple samples from the same ride session are NOT independent votes.
 
 ### 4.1 Rejection Gates (Automatic Outlier Filtration)
-1. **Speed Gate**: If recorded velocity at trigger exceeds $15\text{ km/h}$, the observation is rejected as an "in-motion" misfire.
-2. **Accuracy Gate**: Readings with `accuracy_m > 30.0` are rejected as degraded GPS fixes.
-3. **Bounding Gate**: Coordinates must lie within $2.5\text{ km}$ of the expected route corridor segment.
+1. **Speed Gate**: If recorded velocity at trigger exceeds $15\text{ km/h}$ ($4.17\text{ m/s}$), passive pause detection is rejected as a moving bus.
+2. **Accuracy Gate**: Readings with `accuracy_m > 30.0` are filtered out.
+3. **Regional Bounding Gate**: Coordinates must fall within the route's designated service region (e.g. Sambalpur, Rourkela, Capital Region).
+4. **Impossible Jump Gate**: Successive samples with calculated velocity $> 120\text{ km/h}$ ($33.3\text{ m/s}$) are flagged and filtered.
 
-### 4.2 Clustering & Consensus Ladder
-To graduate from an observation to canonical verification, observations must meet the **3-Tier Consensus Ladder**:
+### 4.2 Consensus Progression Ladder
+To graduate from an raw observation to promotion review, observations must meet the **Deterministic Consensus Ladder**:
 
 | Tier | Required Consensus | Resulting Epistemic Status | UI Map Behavior | First-Mile Allowed |
 |---|---|---|---|---|
-| **Tier 1: Single Observation** | 1 observation from 1 user | Logged in `stop_observations` table | Invisible to public catalog | NO |
-| **Tier 2: Multi-User Cluster** | $\ge 3$ distinct `session_hash` events within $25\text{ m}$ radius across $\ge 2$ separate calendar days | `CANDIDATE_HIGH` in staging registry | Estimated stop marker with pending badge | NO |
-| **Tier 3: Audited Consensus** | $\ge 5$ distinct user clusters OR 1 photo-verified signage upload audited by team | `VERIFIED_GEOSPATIAL` promoted to canonical `stops.json` | Exact stop marker | YES |
+| **Tier 1: Single Observation** | 1 session from 1 contributor | `OBSERVED_ONCE` in observation registry | Invisible to public catalog | NO |
+| **Tier 2: Multi-Session Cluster** | $\ge 2$ independent sessions with spatial dispersion $\le 50\text{ m}$ | `COMMUNITY_SUPPORTED` (`CANDIDATE_HIGH` in staging registry) | Estimated stop marker with candidate badge | NO |
+| **Tier 3: Promotion Review Ready** | $\ge 3$ independent sessions across $\ge 2$ distinct contributors, monotonic sequence order, no contradiction | `PROMOTION_REVIEW_READY` | Human review queue in staging | NO (until audited) |
+| **Tier 4: Audited Consensus** | Audited and verified by team, signed into canonical dataset | `VERIFIED_GEOSPATIAL` in canonical `stops.json` | Exact stop marker | YES |
 
 ---
 
-## 5. Mobile & Frontend Implementation Roadmap
+## 5. Local Non-Rider Verification
 
-### 5.1 Passenger Feedback Flow
-1. When a user opens an active route or itinerary leg, a non-intrusive action button appears:  
-   `[Tap when boarding at {stop_name}]`.
-2. When tapped, the client captures the current single GPS fix, verifies accuracy $\le 20\text{ m}$, prompts optional photo capture of the bus stop board, and queues the encrypted observation payload.
-3. Offline submissions are buffered in local device storage (SwiftData / Room / LocalStorage) and synced when connectivity returns.
+For stops where riders do not take a full route trace, local residents and shopkeepers can submit stationary confirmations:
+- Prompt: "Does Route {route_number} stop at {stop_name}?"
+- Allowed values: `YES`, `NO`, `UNSURE`
+- Optional evidence: current GPS lock, photograph of route board or bus shelter.
+- **Epistemic boundary**: Text-only confirmation confirms existence/name alignment, but **cannot** establish exact GPS coordinate truth without a high-accuracy GPS lock or surveyed photo.
 
-### 5.2 Contributor Verification Dashboard
-Local contributors and survey volunteers access the prioritized queue generated in `reports/transit_c5_manual_resolution_queue.json`. The dashboard presents one-click Mapillary, Overpass, and search queries for each unresolved stop, allowing manual reviews to resolve ambiguous clusters efficiently.

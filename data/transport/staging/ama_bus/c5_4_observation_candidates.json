@@ -1,0 +1,10 @@
+{
+  "registry_name": "c5_4_observation_candidates",
+  "timestamp": "2026-09-06T06:29:22.921645+00:00",
+  "real_ride_sessions_count": 0,
+  "real_observations_count": 0,
+  "candidate_stops_count": 0,
+  "review_ready_stops_count": 0,
+  "canonical_stop_coordinates_changed": 0,
+  "candidates": []
+}

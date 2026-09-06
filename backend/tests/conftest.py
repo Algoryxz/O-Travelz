@@ -14,6 +14,11 @@ from app.models.user import User
 from app.models.session import UserSession, SharedTripSnapshot, UserSavedPlace, UserSavedTrip
 from app.models.category import Category
 from app.models.interest import Interest, PlaceInterest
+from app.models.transit_observation import (
+    TransitRideSession,
+    TransitRideSample,
+    TransitStopObservation,
+)
 
 
 # Shared in-memory SQLite engine for unit tests
@@ -36,6 +41,9 @@ def setup_unit_test_tables():
     Category.__table__.create(SQLITE_TEST_ENGINE, checkfirst=True)
     Interest.__table__.create(SQLITE_TEST_ENGINE, checkfirst=True)
     PlaceInterest.__table__.create(SQLITE_TEST_ENGINE, checkfirst=True)
+    TransitRideSession.__table__.create(SQLITE_TEST_ENGINE, checkfirst=True)
+    TransitRideSample.__table__.create(SQLITE_TEST_ENGINE, checkfirst=True)
+    TransitStopObservation.__table__.create(SQLITE_TEST_ENGINE, checkfirst=True)
 
     with SQLITE_TEST_ENGINE.connect() as conn:
         conn.execute(text("""

@@ -33,6 +33,11 @@ from app.models.transit_intelligence import (
     StopAlias,
     UnresolvedStopRegistry,
 )
+from app.models.transit_observation import (
+    TransitRideSession,
+    TransitRideSample,
+    TransitStopObservation,
+)
 
 __all__ = [
     "Category",
@@ -57,4 +62,7 @@ __all__ = [
     "UserSavedPlace",
     "UserSavedTrip",
     "SharedTripSnapshot",
+    "TransitRideSession",
+    "TransitRideSample",
+    "TransitStopObservation",
 ]

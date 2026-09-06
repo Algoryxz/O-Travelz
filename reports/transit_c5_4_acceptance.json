@@ -1,0 +1,65 @@
+{
+  "report_name": "transit_c5_4_acceptance",
+  "timestamp": "2026-09-06T06:37:34.054765+00:00",
+  "wave": "Wave C5.4 \u2014 Rider Trace & Local Stop Verification",
+  "status": "PASSED",
+  "db_schema_changes": [
+    "transit_ride_sessions (table created via alembic 0020)",
+    "transit_ride_samples (table created via alembic 0020)",
+    "transit_stop_observations (table created via alembic 0020)"
+  ],
+  "apis_added": [
+    "POST /api/transport/rides/sessions (Start ride verification session)",
+    "POST /api/transport/rides/sessions/{session_id}/samples (Append batch GPS samples with filtering)",
+    "POST /api/transport/rides/sessions/{session_id}/events (Record explicit stop observation)",
+    "POST /api/transport/rides/sessions/{session_id}/finish (Finish ride, clean trace, map-match, detect pauses)",
+    "POST /api/transport/stops/confirm (Local non-rider stop confirmation)"
+  ],
+  "mobile_changes": [
+    "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/verification/RideVerificationEngine.kt (State machine, single-tap actions, live GPS gating)",
+    "mobile/shared/src/commonTest/kotlin/com/otravelz/shared/verification/RideVerificationEngineTest.kt (Unit tests covering lifecycle and reference datum rejection)"
+  ],
+  "test_fixture_count": 16,
+  "honest_real_evidence_accounting": {
+    "real_ride_sessions": 0,
+    "real_observations": 0,
+    "candidate_stops_from_real_observations": 0,
+    "review_ready_stops_from_real_observations": 0,
+    "canonical_coordinates_changed": 0
+  },
+  "leverage_analysis": {
+    "total_unresolved_sequences": 79,
+    "best_1_route": "Route 211 (Ainthapali Bus Terminal -> Jharsuguda, 66 unresolved stops, 13 indirect sequences benefiting)",
+    "four_hour_recommendation_for_smarak": [
+      "Route 75 (Shree Mandira -> Kakatpur)",
+      "Route 41 (Baramunda BSABT -> Tangi)",
+      "Route 45 (Bhubaneswar Railway Station -> Jayadev Pitha)"
+    ],
+    "four_hour_coverage_impact": {
+      "estimated_duration_hours": 1.05,
+      "unique_uncertain_stops_touched": 8,
+      "unique_uncertain_segments_touched": 10,
+      "other_routes_indirectly_benefiting": 15
+    }
+  },
+  "validation_results": {
+    "backend_c5_4_tests": "16/16 PASSED",
+    "backend_c5_3_tests": "13/13 PASSED",
+    "backend_c5_2_tests": "11/11 PASSED",
+    "backend_c5_tests": "27/27 PASSED",
+    "mobile_kmp_tests": "35/35 PASSED (allTests)",
+    "validate_canonical_transit": "PASS",
+    "validate_canonical_data_promotion": "0 Errors, 310 Warnings (PROMOTION APPROVED)",
+    "check_project_context": "PASS",
+    "canonical_hashes_unchanged": "6/6 IDENTICAL (0 mutations)"
+  },
+  "privacy_and_truth_invariants": {
+    "explicit_opt_in_only": true,
+    "visible_recording_status": true,
+    "pseudonymous_rotating_identity": true,
+    "zero_pii_in_observation_tables": true,
+    "raw_traces_isolated_from_public_api": true,
+    "candidate_stops_never_get_first_mile": true,
+    "canonical_stops_never_overwritten_by_unverified_traces": true
+  }
+}

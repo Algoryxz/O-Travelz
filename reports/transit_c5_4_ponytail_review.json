@@ -1,0 +1,63 @@
+{
+  "report_name": "transit_c5_4_ponytail_review",
+  "timestamp": "2026-09-06T05:38:36.469861+00:00",
+  "wave": "Wave C5.4 \u2014 Rider Trace & Local Stop Verification",
+  "governance": "Ponytail governs implementation simplicity; O-TRAVELZ truth/provenance rules override any simplification.",
+  "summary": {
+    "total_findings": 7,
+    "required_c5_4_fixes": 2,
+    "safe_simplifications": 4,
+    "rejected_suggestions": 1
+  },
+  "findings": [
+    {
+      "id": "PT-C5.4-01",
+      "surface": "Storage model for Ride Observations",
+      "finding": "Avoid complex streaming pipelines (Kafka, Redis, Celery); use minimal relational tables within existing SQLite/Postgres runtime.",
+      "classification": "SAFE_SIMPLIFICATION",
+      "action": "Define transit_ride_sessions, transit_ride_samples, transit_stop_observations in SQLAlchemy reusing base conventions."
+    },
+    {
+      "id": "PT-C5.4-02",
+      "surface": "Map-matching and trace validation engine",
+      "finding": "Do not add Valhalla/OSRM daemons; reuse existing polyline distance and bounding box helpers from DeterministicGeometryEngine.",
+      "classification": "REQUIRED_C5_4_FIX",
+      "action": "Implement pure-python deterministic trace matcher and cleaner using existing coordinates and regional envelopes."
+    },
+    {
+      "id": "PT-C5.4-03",
+      "surface": "Consensus and promotion model",
+      "finding": "Avoid complex Dempster-Shafer belief engines; use clear deterministic state ladder (OBSERVED_ONCE, COMMUNITY_SUPPORTED, PROMOTION_REVIEW_READY).",
+      "classification": "SAFE_SIMPLIFICATION",
+      "action": "Implement explicit counting gates: >=3 independent sessions, >=2 contributors, <=50m spatial cluster dispersion."
+    },
+    {
+      "id": "PT-C5.4-04",
+      "surface": "Mobile UI / Contributor ergonomics",
+      "finding": "Avoid gamification, leaderboards, and interactive typing while bus is moving.",
+      "classification": "SAFE_SIMPLIFICATION",
+      "action": "Single-tap actions only: Start ride, Bus stopped here, Boarded, Alighted, Finish."
+    },
+    {
+      "id": "PT-C5.4-05",
+      "surface": "Privacy and identity boundary",
+      "finding": "Do not store email, phone, or raw user ID in observation tables.",
+      "classification": "REQUIRED_C5_4_FIX",
+      "action": "Enforce pseudonymous session identity via rotating salted hash (session_hash)."
+    },
+    {
+      "id": "PT-C5.4-06",
+      "surface": "Synthetic test fixtures quarantine",
+      "finding": "Ponytail might suggest sharing test trace formats directly with staging registry.",
+      "classification": "REJECT_PONYTAIL_SUGGESTION",
+      "action": "Strictly reject: test traces must be flagged TEST_FIXTURE_ONLY and structurally blocked from production observation registry."
+    },
+    {
+      "id": "PT-C5.4-07",
+      "surface": "Local non-rider verification form",
+      "finding": "Reuse observation API endpoint and schema with LOCAL_CONFIRMATION rather than building a separate survey service.",
+      "classification": "SAFE_SIMPLIFICATION",
+      "action": "Support observation_type LOCAL_CONFIRMATION with optional GPS/photo evidence."
+    }
+  ]
+}
