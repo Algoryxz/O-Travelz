@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-09-06T21:10:00Z",
+  "wave": "D1_MEDIA_SUITE_TRUTH",
+  "desktop_tests": {
+    "place_bbsr_008_odisha_state_museum": {
+      "title_visible_in_header": true,
+      "title_y_position": 75.5,
+      "modal_top_y": 0,
+      "photos_tab_label": "Photos (1)",
+      "has_3d_tab": false,
+      "has_video_tab": false,
+      "has_navigation_arrows": false,
+      "screenshot": "reports\\desktop_odisha_state_museum_modal.png",
+      "status": "PASS"
+    },
+    "place_konark_001_sun_temple": {
+      "title_visible_in_header": true,
+      "has_3d_tab": true,
+      "screenshot": "reports\\desktop_konark_modal.png",
+      "status": "PASS"
+    }
+  },
+  "mobile_tests": {
+    "place_bbsr_008_odisha_state_museum": {
+      "title_visible_in_header": true,
+      "title_y_position": 73.265625,
+      "screenshot": "reports\\mobile_odisha_state_museum_modal.png",
+      "status": "PASS"
+    }
+  },
+  "overall_status": "PASS"
+}

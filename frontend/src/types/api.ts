@@ -1034,6 +1034,7 @@ export interface PlaceMediaResponse {
   district?: string | null;
   images: PlaceImageContract[];
   video_preview?: VideoPreviewContract | null;
+  video?: VideoPreviewContract | null;
   model_3d?: Model3DContract | null;
   available_tabs: ("photos" | "video" | "3d")[];
   has_video: boolean;

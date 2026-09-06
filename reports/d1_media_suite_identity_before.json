@@ -1,0 +1,112 @@
+{
+  "audit_timestamp": "2026-09-06T20:55:00Z",
+  "status": "BEFORE_REPAIR",
+  "summary": "Audited 7 representative destinations for visual suite truth, photo deduplication, video availability, and 3D boundary leaks.",
+  "findings": [
+    {
+      "place_id": "place_bbsr_008",
+      "place_name": "Odisha State Museum",
+      "manifest_raw_entries": 1,
+      "distinct_photographs_count": 1,
+      "has_curated_video": false,
+      "is_canonical_3d_monument": false,
+      "canonical_3d_scene_id": null,
+      "prior_flaws": {
+        "erroneous_3d_konark_leak": true,
+        "photo_count_inflated_by_variants": true,
+        "fake_video_controls_on_empty": true,
+        "title_hidden_below_fold": true
+      }
+    },
+    {
+      "place_id": "place_konark_001",
+      "place_name": "Konark Sun Temple",
+      "manifest_raw_entries": 1,
+      "distinct_photographs_count": 1,
+      "has_curated_video": true,
+      "is_canonical_3d_monument": true,
+      "canonical_3d_scene_id": "konark-sun-temple",
+      "prior_flaws": {
+        "erroneous_3d_konark_leak": false,
+        "photo_count_inflated_by_variants": true,
+        "fake_video_controls_on_empty": false,
+        "title_hidden_below_fold": true
+      }
+    },
+    {
+      "place_id": "place_bbsr_001",
+      "place_name": "Lingaraj Temple",
+      "manifest_raw_entries": 1,
+      "distinct_photographs_count": 1,
+      "has_curated_video": false,
+      "is_canonical_3d_monument": true,
+      "canonical_3d_scene_id": "lingaraj-temple",
+      "prior_flaws": {
+        "erroneous_3d_konark_leak": false,
+        "photo_count_inflated_by_variants": true,
+        "fake_video_controls_on_empty": true,
+        "title_hidden_below_fold": true
+      }
+    },
+    {
+      "place_id": "place_puri_001",
+      "place_name": "Puri Jagannath Temple",
+      "manifest_raw_entries": 1,
+      "distinct_photographs_count": 1,
+      "has_curated_video": true,
+      "is_canonical_3d_monument": true,
+      "canonical_3d_scene_id": "puri-jagannath-temple",
+      "prior_flaws": {
+        "erroneous_3d_konark_leak": false,
+        "photo_count_inflated_by_variants": true,
+        "fake_video_controls_on_empty": false,
+        "title_hidden_below_fold": true
+      }
+    },
+    {
+      "place_id": "place_puri_002",
+      "place_name": "Puri Golden Beach",
+      "manifest_raw_entries": 1,
+      "distinct_photographs_count": 1,
+      "has_curated_video": false,
+      "is_canonical_3d_monument": false,
+      "canonical_3d_scene_id": null,
+      "prior_flaws": {
+        "erroneous_3d_konark_leak": true,
+        "photo_count_inflated_by_variants": true,
+        "fake_video_controls_on_empty": true,
+        "title_hidden_below_fold": true
+      }
+    },
+    {
+      "place_id": "place_gop_001",
+      "place_name": "Gopalpur Beach",
+      "manifest_raw_entries": 0,
+      "distinct_photographs_count": 1,
+      "has_curated_video": false,
+      "is_canonical_3d_monument": false,
+      "canonical_3d_scene_id": null,
+      "prior_flaws": {
+        "erroneous_3d_konark_leak": true,
+        "photo_count_inflated_by_variants": true,
+        "fake_video_controls_on_empty": true,
+        "title_hidden_below_fold": true
+      }
+    },
+    {
+      "place_id": "place_bbsr_005",
+      "place_name": "Brahmeswar Temple",
+      "manifest_raw_entries": 1,
+      "distinct_photographs_count": 1,
+      "has_curated_video": false,
+      "is_canonical_3d_monument": true,
+      "canonical_3d_scene_id": "brahmeswara-temple",
+      "prior_flaws": {
+        "erroneous_3d_konark_leak": false,
+        "photo_count_inflated_by_variants": true,
+        "fake_video_controls_on_empty": true,
+        "title_hidden_below_fold": true
+      }
+    }
+  ]
+}

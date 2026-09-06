@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-09-06T21:10:00Z",
+  "wave": "D1_MEDIA_SUITE_TRUTH",
+  "verifications": [
+    {
+      "id": "VERIFY-01",
+      "claim": "place_bbsr_008 (Odisha State Museum) never displays 3D tab or Konark 3D model",
+      "status": "PASS",
+      "evidence": true
+    },
+    {
+      "id": "VERIFY-02",
+      "claim": "place_bbsr_008 displays Photos (1) and does not inflate count with webp variants",
+      "status": "PASS",
+      "evidence": true
+    },
+    {
+      "id": "VERIFY-03",
+      "claim": "place_bbsr_008 does not display fake video controls or video tab",
+      "status": "PASS",
+      "evidence": true
+    },
+    {
+      "id": "VERIFY-04",
+      "claim": "Destination name is directly visible in header bar upon modal open without scrolling",
+      "status": "PASS",
+      "evidence": true
+    },
+    {
+      "id": "VERIFY-05",
+      "claim": "place_konark_001 retains authentic 3D reconstruction tab and models",
+      "status": "PASS",
+      "evidence": true
+    }
+  ],
+  "final_gate": "PASSED"
+}

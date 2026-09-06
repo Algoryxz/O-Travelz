@@ -23,7 +23,7 @@ CURATED_3D_HERITAGE_MODELS: Dict[str, Dict[str, Any]] = {
         "name": "Konark Sun Temple — Surya Chakra & Vimana",
         "format": "procedural",
         "procedural_type": "konark_wheel",
-        "thumbnail_url": "https://images.unsplash.com/photo-1599831104321-4f0563467439?auto=format&fit=crop&w=600&q=80",
+        "thumbnail_url": "/static/images/places/place_konark_001/03b959a8abef/hero.webp",
         "is_ai_generated": False,
         "badge_label": "3D Heritage Model",
         "transparency_notice": "Interactive 3D representation of the 13th-century 24-spoke Konark Surya Chakra sundial.",
@@ -41,7 +41,7 @@ CURATED_3D_HERITAGE_MODELS: Dict[str, Dict[str, Any]] = {
         "name": "Puri Jagannath Temple — Sacred Shikhara",
         "format": "procedural",
         "procedural_type": "jagannath_temple",
-        "thumbnail_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80",
+        "thumbnail_url": "/static/images/places/place_puri_001/02287867dc89/hero.webp",
         "is_ai_generated": False,
         "badge_label": "3D Heritage Model",
         "transparency_notice": "Interactive 3D model of the 65-meter Jagannath Temple deula and sanctum sanctorum.",
@@ -125,6 +125,40 @@ CURATED_3D_HERITAGE_MODELS: Dict[str, Dict[str, Any]] = {
             {"label": "Lagoon Waters", "description": "Calm brackish waters of Chilika, sanctuary to Irrawaddy dolphins.", "position": [0.0, -0.6, 0.0]},
         ],
     },
+    "place_bbsr_001": {
+        "model_id": "model_lingaraj_temple_001",
+        "name": "Lingaraj Temple — 55m Rekha Deula & Sanctum",
+        "format": "procedural",
+        "procedural_type": "lingaraj_temple",
+        "thumbnail_url": "/static/images/places/place_bbsr_001/06a456469886/hero.webp",
+        "is_ai_generated": False,
+        "badge_label": "3D Heritage Model",
+        "transparency_notice": "Interactive 3D model of the 11th-century Somavamsi masterpiece of Ekamra Kshetra.",
+        "scale_factor": 1.1,
+        "initial_camera_position": [0.0, 2.6, 6.2],
+        "recommended_lighting": "golden_hour",
+        "annotations": [
+            {"label": "Rekha Deula", "description": "55-meter monumental curvilinear tower with vertical pagas.", "position": [0.0, 2.8, 0.0]},
+            {"label": "Yoni-Linga Sanctum", "description": "Combined manifestation of Shiva and Vishnu (Harihara).", "position": [0.0, 0.0, 0.0]},
+        ],
+    },
+    "place_019": {  # Brahmeswar Temple
+        "model_id": "model_brahmeswara_temple_001",
+        "name": "Brahmeswara Temple — Classic Panchayatana Complex",
+        "format": "procedural",
+        "procedural_type": "brahmeswara_temple",
+        "thumbnail_url": "/static/images/places/place_019/5ef73cb02061/hero.webp",
+        "is_ai_generated": False,
+        "badge_label": "3D Heritage Model",
+        "transparency_notice": "Interactive 3D architectural model of the 11th-century Panchayatana layout.",
+        "scale_factor": 1.0,
+        "initial_camera_position": [0.0, 2.2, 5.5],
+        "recommended_lighting": "golden_hour",
+        "annotations": [
+            {"label": "Central Vimana", "description": "18.96m central shikhara with intricate chlorite carvings.", "position": [0.0, 1.8, 0.0]},
+            {"label": "Corner Shrines", "description": "Four subsidiary corner shrines forming the classic Panchayatana layout.", "position": [1.8, 0.6, 1.8]},
+        ],
+    },
 }
 
 GENERIC_HERITAGE_3D = {
@@ -172,10 +206,14 @@ class Model3DProvider(ABC):
         pass
 
     def get_curated_model(self, place_id: str) -> Optional[Model3DContract]:
-        """Resolves built-in curated 3D model if available."""
+        """Resolves built-in curated 3D model if available. Returns None if uncurated."""
         meta = CURATED_3D_HERITAGE_MODELS.get(place_id)
+        if not meta and place_id == "place_001":
+            meta = CURATED_3D_HERITAGE_MODELS.get("place_bbsr_001")
+        if not meta and place_id == "place_bbsr_005":
+            meta = CURATED_3D_HERITAGE_MODELS.get("place_019")
         if not meta:
-            meta = GENERIC_HERITAGE_3D
+            return None
 
         return Model3DContract(
             model_id=meta["model_id"],

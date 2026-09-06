@@ -123,21 +123,12 @@ class VideoProvider(ABC):
         pass
 
     def get_curated_preview(self, place_id: str) -> Optional[VideoPreviewContract]:
-        """Resolves built-in curated video preview if available."""
+        """Resolves built-in curated video preview if available. Returns None if uncurated."""
         meta = CURATED_DESTINATION_VIDEOS.get(place_id)
+        if not meta and place_id == "place_bbsr_001":
+            meta = CURATED_DESTINATION_VIDEOS.get("place_001")
         if not meta:
-            # Fallback for prominent categories
-            return VideoPreviewContract(
-                video_url=GENERIC_ODISHA_VIDEO["video_url"],
-                poster_url=GENERIC_ODISHA_VIDEO["poster_url"],
-                provider="curated",
-                duration_seconds=GENERIC_ODISHA_VIDEO["duration_seconds"],
-                is_ai_generated=False,
-                badge_label="Curated Video Preview",
-                title=GENERIC_ODISHA_VIDEO["title"],
-                description=GENERIC_ODISHA_VIDEO["description"],
-                attribution=GENERIC_ODISHA_VIDEO["attribution"],
-            )
+            return None
         return VideoPreviewContract(
             video_url=meta["video_url"],
             poster_url=meta["poster_url"],

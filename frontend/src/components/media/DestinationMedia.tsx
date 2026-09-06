@@ -6,13 +6,12 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
-  Layers,
-  Compass,
 } from "lucide-react";
-import type { PlaceImageContract, PlaceMediaResponse, VideoPreviewContract, Model3DContract } from "../../types/api";
+import type { PlaceImageContract, PlaceMediaResponse } from "../../types/api";
 import { apiClient } from "../../api/client";
-import { resolvePlaceGallery, getVariantUrl } from "../../utils/imageAdapter";
-import { ThreeDViewer } from "./ThreeDViewer";
+import { resolvePlaceGallery } from "../../utils/imageAdapter";
+import { getPlaceImageUrl } from "../../utils/imageService";
+import { ThreeDViewer, is3DHeritageAvailable } from "./ThreeDViewer";
 import { VideoPreview } from "./VideoPreview";
 
 interface DestinationMediaProps {
@@ -43,6 +42,13 @@ export const DestinationMedia: React.FC<DestinationMediaProps> = ({
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
   const [isLoadingMedia, setIsLoadingMedia] = useState(false);
 
+  // Reset state on placeId change to prevent stale flashes across destinations
+  useEffect(() => {
+    setSelectedPhotoIndex(0);
+    setActiveTab(initialTab || "photos");
+    setMediaData(null);
+  }, [placeId, initialTab]);
+
   // Fetch complete media suite from backend
   useEffect(() => {
     let isMounted = true;
@@ -52,9 +58,11 @@ export const DestinationMedia: React.FC<DestinationMediaProps> = ({
         const res = await apiClient.getPlaceMedia(placeId);
         if (isMounted && res) {
           setMediaData(res);
-          // If initial tab requested has data, respect it
-          if (initialTab === "3d" && res.has_3d) setActiveTab("3d");
-          else if (initialTab === "video" && res.has_video) setActiveTab("video");
+          const hasVid = Boolean(res.has_video && (res.video_preview?.video_url || res.video?.video_url));
+          const has3d = Boolean(res.has_3d && res.model_3d) || is3DHeritageAvailable(placeId, placeName, res.model_3d);
+
+          if (initialTab === "3d" && has3d) setActiveTab("3d");
+          else if (initialTab === "video" && hasVid) setActiveTab("video");
         }
       } catch (e) {
         // Graceful fallback to provided images
@@ -68,31 +76,71 @@ export const DestinationMedia: React.FC<DestinationMediaProps> = ({
     return () => {
       isMounted = false;
     };
-  }, [placeId, initialTab]);
+  }, [placeId, initialTab, placeName]);
+
+  const isVideoAvailable = useMemo(() => {
+    return Boolean(mediaData?.has_video && (mediaData?.video_preview?.video_url || mediaData?.video?.video_url));
+  }, [mediaData]);
+
+  const is3DAvailable = useMemo(() => {
+    if (mediaData?.has_3d && mediaData?.model_3d) return true;
+    return is3DHeritageAvailable(placeId, placeName, mediaData?.model_3d);
+  }, [mediaData, placeId, placeName]);
+
+  // Auto-switch to photos if currently active tab becomes unavailable
+  useEffect(() => {
+    if (!isLoadingMedia) {
+      if (activeTab === "video" && !isVideoAvailable) {
+        setActiveTab("photos");
+      } else if (activeTab === "3d" && !is3DAvailable) {
+        setActiveTab("photos");
+      }
+    }
+  }, [activeTab, isVideoAvailable, is3DAvailable, isLoadingMedia]);
 
   const handleTabSwitch = (tab: "photos" | "video" | "3d") => {
     setActiveTab(tab);
     onTabChange?.(tab);
   };
 
+  // Deduplicate images so variants (hero, card, thumbnail) do NOT inflate photo count
   const resolvedImages = useMemo(() => {
+    const seen = new Set<string>();
+    const result: { url: string; title: string; alt_text: string }[] = [];
+
     if (mediaData?.images && mediaData.images.length > 0) {
-      return mediaData.images.map((img) => ({
-        url: img.url,
-        title: img.title || placeName,
-        alt_text: img.alt_text || placeName,
-      }));
+      for (const img of mediaData.images) {
+        const u = img.url;
+        if (u && !seen.has(u)) {
+          seen.add(u);
+          result.push({
+            url: u,
+            title: img.title || placeName,
+            alt_text: img.alt_text || placeName,
+          });
+        }
+      }
+      if (result.length > 0) return result;
     }
+
     const gallery = resolvePlaceGallery({ id: placeId, name: placeName, category, images });
-    return gallery.map((item) => ({
-      url: item.url,
-      title: item.attribution || item.alt || placeName,
-      alt_text: item.alt || placeName,
-    }));
+    for (const item of gallery) {
+      const u = item.url;
+      if (u && !seen.has(u)) {
+        seen.add(u);
+        result.push({
+          url: u,
+          title: item.attribution || item.alt || placeName,
+          alt_text: item.alt || placeName,
+        });
+      }
+    }
+
+    return result;
   }, [placeId, placeName, category, images, mediaData?.images]);
 
   const currentPhoto = resolvedImages[selectedPhotoIndex] || resolvedImages[0];
-  const fallbackUrl = currentPhoto?.url || "https://images.unsplash.com/photo-1599831104321-4f0563467439?auto=format&fit=crop&w=1200&q=80";
+  const fallbackUrl = currentPhoto?.url || getPlaceImageUrl(placeId || placeName, category);
 
   return (
     <div className={`flex flex-col w-full ${className}`}>
@@ -101,6 +149,7 @@ export const DestinationMedia: React.FC<DestinationMediaProps> = ({
         <div className="flex items-center gap-1.5 p-1 bg-[#12161E]/5 rounded-2xl border border-[#E5DFD5]">
           <button
             type="button"
+            data-testid="media-tab-photos"
             onClick={() => handleTabSwitch("photos")}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
               activeTab === "photos"
@@ -109,38 +158,43 @@ export const DestinationMedia: React.FC<DestinationMediaProps> = ({
             }`}
           >
             <ImageIcon className="w-3.5 h-3.5 text-[#C69214]" />
-            <span>Photos ({resolvedImages.length || 1})</span>
+            <span>{`Photos (${resolvedImages.length || 1})`}</span>
           </button>
 
-          <button
-            type="button"
-            onClick={() => handleTabSwitch("video")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
-              activeTab === "video"
-                ? "bg-[#0D5C3A] text-white shadow-sm"
-                : "text-[#70798B] hover:text-[#12161E]"
-            }`}
-          >
-            <Film className="w-3.5 h-3.5 text-[#C69214]" />
-            <span>Video Preview</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C69214] animate-pulse" />
-          </button>
+          {isVideoAvailable && (
+            <button
+              type="button"
+              data-testid="media-tab-video"
+              onClick={() => handleTabSwitch("video")}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                activeTab === "video"
+                  ? "bg-[#0D5C3A] text-white shadow-sm"
+                  : "text-[#70798B] hover:text-[#12161E]"
+              }`}
+            >
+              <Film className="w-3.5 h-3.5 text-[#C69214]" />
+              <span>Video Preview</span>
+            </button>
+          )}
 
-          <button
-            type="button"
-            onClick={() => handleTabSwitch("3d")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
-              activeTab === "3d"
-                ? "bg-[#B87B22] text-white shadow-sm"
-                : "text-[#70798B] hover:text-[#12161E]"
-            }`}
-          >
-            <Box className="w-3.5 h-3.5 text-white" />
-            <span>3D Experience</span>
-            <span className="text-[10px] font-mono bg-white/20 text-white px-1.5 py-0.2 rounded-full font-normal">
-              Interactive
-            </span>
-          </button>
+          {is3DAvailable && (
+            <button
+              type="button"
+              data-testid="media-tab-3d"
+              onClick={() => handleTabSwitch("3d")}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                activeTab === "3d"
+                  ? "bg-[#B87B22] text-white shadow-sm"
+                  : "text-[#70798B] hover:text-[#12161E]"
+              }`}
+            >
+              <Box className="w-3.5 h-3.5 text-white" />
+              <span>3D Experience</span>
+              <span className="text-[10px] font-mono bg-white/20 text-white px-1.5 py-0.2 rounded-full font-normal">
+                Interactive
+              </span>
+            </button>
+          )}
         </div>
 
         <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-[#B87B22]">
@@ -174,28 +228,32 @@ export const DestinationMedia: React.FC<DestinationMediaProps> = ({
             {/* Gradient Overlays */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
 
-            {/* Photo Navigation Arrows */}
+            {/* Photo Navigation Arrows: only when strictly > 1 distinct photo */}
             {resolvedImages.length > 1 && (
               <>
                 <button
                   type="button"
+                  data-testid="gallery-prev-btn"
                   onClick={() =>
                     setSelectedPhotoIndex((prev) =>
                       prev === 0 ? resolvedImages.length - 1 : prev - 1
                     )
                   }
                   className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all opacity-0 group-hover:opacity-100 cursor-pointer z-20"
+                  aria-label="Previous photo"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   type="button"
+                  data-testid="gallery-next-btn"
                   onClick={() =>
                     setSelectedPhotoIndex((prev) =>
                       prev === resolvedImages.length - 1 ? 0 : prev + 1
                     )
                   }
                   className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all opacity-0 group-hover:opacity-100 cursor-pointer z-20"
+                  aria-label="Next photo"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -219,7 +277,7 @@ export const DestinationMedia: React.FC<DestinationMediaProps> = ({
         {/* TAB 2: CINEMATIC VIDEO PREVIEW */}
         {activeTab === "video" && (
           <VideoPreview
-            video={mediaData?.video_preview}
+            video={mediaData?.video_preview || mediaData?.video}
             placeId={placeId}
             placeName={placeName}
             placeCategory={category}
@@ -234,6 +292,7 @@ export const DestinationMedia: React.FC<DestinationMediaProps> = ({
         {/* TAB 3: 3D HERITAGE EXPERIENCE */}
         {activeTab === "3d" && (
           <ThreeDViewer
+            placeId={placeId}
             model={mediaData?.model_3d}
             placeName={placeName}
             fallbackImageUrl={fallbackUrl}

@@ -80,35 +80,43 @@ export const StitchDestinationDetailModal: React.FC<StitchDestinationDetailModal
       {/* Modal Card */}
       <div className="relative bg-[#FFFFFF] border border-[#E5DFD5] rounded-2xl shadow-2xl w-full max-w-4xl max-h-[92vh] overflow-y-auto z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col">
         {/* Header Strip: Grounded Truth Badges Derived From Canonical Schema */}
-        <div className="px-5 py-3 bg-[#FAF7F2] border-b border-[#E5DFD5] flex items-center justify-between gap-3 shrink-0">
-          <div className="flex flex-wrap items-center gap-2">
-            {isVerifiedCanonical ? (
-              <span className="inline-flex items-center gap-1 bg-[#0D5C3A]/10 text-[#0D5C3A] px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold">
-                <ShieldCheck size={13} />
-                <span>VERIFIED_CANONICAL</span>
-              </span>
-            ) : (
-              <span className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-800 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold">
-                <span>PROVISIONAL_RECORD</span>
-              </span>
-            )}
+        {/* Header Strip: Grounded Truth Badges Derived From Canonical Schema */}
+        <div className="px-5 py-3.5 bg-[#FAF7F2] border-b border-[#E5DFD5] flex items-center justify-between gap-4 shrink-0">
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-2 mb-1">
+              {isVerifiedCanonical ? (
+                <span className="inline-flex items-center gap-1 bg-[#0D5C3A]/10 text-[#0D5C3A] px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold">
+                  <ShieldCheck size={13} />
+                  <span>VERIFIED_CANONICAL</span>
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-800 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold">
+                  <span>PROVISIONAL_RECORD</span>
+                </span>
+              )}
 
-            {verifiedDateLabel && (
-              <span className="inline-flex items-center gap-1 bg-[#B87B22]/10 text-[#B87B22] px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold">
-                {verifiedDateLabel}
-              </span>
-            )}
+              {verifiedDateLabel && (
+                <span className="inline-flex items-center gap-1 bg-[#B87B22]/10 text-[#B87B22] px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold">
+                  {verifiedDateLabel}
+                </span>
+              )}
 
-            {place.district && (
-              <span className="text-xs text-[#70798B] font-body hidden sm:inline">
-                • {place.district}
-              </span>
-            )}
+              {place.district && (
+                <span className="text-xs text-[#70798B] font-body hidden sm:inline">
+                  • {place.district}
+                </span>
+              )}
+            </div>
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-[#12161E] tracking-tight truncate">
+              {place.name}
+            </h2>
           </div>
 
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white hover:bg-[#F2EEE7] text-[#12161E] flex items-center justify-center transition-colors cursor-pointer border border-[#E5DFD5] shadow-xs"
+            data-testid="close-destination-detail-modal"
+            className="w-8 h-8 rounded-full bg-white hover:bg-[#F2EEE7] text-[#12161E] flex items-center justify-center transition-colors cursor-pointer border border-[#E5DFD5] shadow-xs shrink-0"
+            aria-label="Close modal"
           >
             <X size={16} />
           </button>
@@ -126,7 +134,7 @@ export const StitchDestinationDetailModal: React.FC<StitchDestinationDetailModal
             heightClass="h-[280px] sm:h-[360px] md:h-[400px]"
           />
 
-          {/* Place Title & Authentic Odia Script */}
+          {/* Place Subtitle, Authentic Odia Script & Badges */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#E5DFD5] pb-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
@@ -137,9 +145,6 @@ export const StitchDestinationDetailModal: React.FC<StitchDestinationDetailModal
                   • Ref: {place.id}
                 </span>
               </div>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#12161E] tracking-tight">
-                {place.name}
-              </h2>
               {odiaName && (
                 <p className="font-odia text-base sm:text-lg text-[#B87B22] font-semibold mt-0.5">
                   {odiaName}

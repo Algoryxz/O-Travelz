@@ -30,6 +30,10 @@ interface VideoPreviewProps {
   onVideoGenerated?: (video: VideoPreviewContract) => void;
 }
 
+export function isVideoPreviewAvailable(video?: VideoPreviewContract | null): boolean {
+  return Boolean(video?.video_url && video.video_url.trim().length > 0);
+}
+
 export const VideoPreview: React.FC<VideoPreviewProps> = ({
   video,
   placeId,
@@ -160,6 +164,7 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({
 
   const videoUrl = video?.video_url;
   const posterUrl = video?.poster_url || fallbackImageUrl;
+  const hasRealVideo = Boolean(videoUrl && !videoError);
 
   return (
     <div
@@ -169,7 +174,7 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({
       className={`relative w-full ${heightClass} bg-[#12161E] rounded-2xl overflow-hidden select-none border border-white/10 shadow-2xl group ${className}`}
     >
       {/* Video Element */}
-      {videoUrl && !videoError ? (
+      {hasRealVideo ? (
         <video
           ref={videoRef}
           src={videoUrl}
@@ -196,47 +201,60 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({
         </div>
       )}
 
+      {/* Honest Unavailable Overlay when no real video */}
+      {!hasRealVideo && (
+        <div
+          data-testid="video-unavailable-overlay"
+          className="absolute inset-0 flex flex-col items-center justify-center p-6 bg-black/60 backdrop-blur-xs text-white text-center z-20 pointer-events-none select-none"
+        >
+          <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-3 border border-white/20">
+            <Film className="w-6 h-6 text-[#C69214]" />
+          </div>
+          <h4 className="font-display font-bold text-sm sm:text-base text-white mb-1">
+            Video Preview Unavailable
+          </h4>
+          <p className="text-xs text-[#E5DFD5] max-w-xs">
+            Curated cinematic video preview is not yet available for {placeName}.
+          </p>
+        </div>
+      )}
+
       {/* Top Header Bar: Badge & Action Buttons */}
       <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-3 pointer-events-none z-20">
         <div className="flex flex-wrap items-center gap-2 pointer-events-auto">
           {/* Badge */}
           <div className="inline-flex items-center gap-1.5 bg-[#0D5C3A]/90 text-white backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono font-semibold border border-white/20 shadow-md">
             <Film className="w-3.5 h-3.5 text-[#C69214]" />
-            <span>{video?.badge_label || "Video Preview"}</span>
+            <span>{hasRealVideo ? (video?.badge_label || "Video Preview") : "Preview Unavailable"}</span>
           </div>
 
           {/* Attribution pill */}
-          <div className="hidden sm:inline-flex items-center gap-1 bg-black/50 text-[#E5DFD5] backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-body border border-white/10">
-            <Info className="w-3 h-3 text-[#C69214]" />
-            <span className="truncate max-w-[200px]">
-              {video?.attribution || "Odisha Tourism Media Engine"}
-            </span>
+          {hasRealVideo && (
+            <div className="hidden sm:inline-flex items-center gap-1 bg-black/50 text-[#E5DFD5] backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-body border border-white/10">
+              <Info className="w-3 h-3 text-[#C69214]" />
+              <span className="truncate max-w-[200px]">
+                {video?.attribution || "Odisha Tourism Media Engine"}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Fullscreen Button only when real video */}
+        {hasRealVideo && (
+          <div className="flex items-center gap-2 pointer-events-auto">
+            <button
+              onClick={toggleFullscreen}
+              className="p-2 rounded-xl bg-black/60 hover:bg-black/80 text-white/90 hover:text-white backdrop-blur-md border border-white/15 transition-all shadow-md cursor-pointer"
+              title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+            >
+              {isFullscreen ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5" />}
+            </button>
           </div>
-        </div>
-
-        {/* Generate New Video Button & Fullscreen */}
-        <div className="flex items-center gap-2 pointer-events-auto">
-          <button
-            onClick={() => setIsGenerateModalOpen(true)}
-            className="px-3 py-1.5 rounded-xl bg-[#C69214] hover:bg-[#B87B22] text-white text-xs font-semibold flex items-center gap-1.5 backdrop-blur-md transition-all shadow-md cursor-pointer"
-            title="Generate custom AI video preview"
-          >
-            <Wand2 className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">AI Generate</span>
-          </button>
-
-          <button
-            onClick={toggleFullscreen}
-            className="p-2 rounded-xl bg-black/60 hover:bg-black/80 text-white/90 hover:text-white backdrop-blur-md border border-white/15 transition-all shadow-md cursor-pointer"
-            title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
-          >
-            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5" />}
-          </button>
-        </div>
+        )}
       </div>
 
-      {/* Centered Large Play Button (when paused) */}
-      {!isPlaying && (
+      {/* Centered Large Play Button (when paused and real video exists) */}
+      {hasRealVideo && !isPlaying && (
         <button
           onClick={togglePlay}
           className="absolute inset-0 m-auto w-16 h-16 rounded-full bg-white/20 hover:bg-white/30 text-white backdrop-blur-xl border border-white/40 flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-2xl z-20 cursor-pointer"
@@ -245,12 +263,13 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({
         </button>
       )}
 
-      {/* Bottom Controls Bar (Visible on hover or paused) */}
-      <div
-        className={`absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 transition-opacity duration-300 z-20 ${
-          isHovered || !isPlaying ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      >
+      {/* Bottom Controls Bar (Visible only when real video exists) */}
+      {hasRealVideo && (
+        <div
+          className={`absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 transition-opacity duration-300 z-20 ${
+            isHovered || !isPlaying ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        >
         {/* Scrubber */}
         <div className="flex items-center gap-2 mb-2">
           <input
@@ -293,6 +312,7 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({
           </div>
         </div>
       </div>
+      )}
 
       {/* AI Video Generation Modal */}
       {isGenerateModalOpen && (

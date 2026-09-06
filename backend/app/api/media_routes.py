@@ -101,11 +101,15 @@ def get_place_media(
     return PlaceMediaResponse(
         place_id=place_id,
         place_name=place_name,
+        name=place_name,
         category=place_cat,
         district=place_district,
         images=image_responses,
         video=video_preview,
+        video_preview=video_preview,
         model_3d=model_3d,
+        available_tabs=available_tabs,
+        hero_poster_url=hero_poster,
         has_video=bool(video_preview),
         has_3d=bool(model_3d),
     )

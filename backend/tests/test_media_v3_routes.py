@@ -40,12 +40,38 @@ def test_place_media_puri():
     assert data["model_3d"]["procedural_type"] == "jagannath_temple"
 
 
-def test_place_media_generic_fallback():
+def test_place_media_uncurated_destination():
     response = client.get("/api/v1/media/places/place_random_999?place_name=Sample%20Sanctuary")
     assert response.status_code == 200
     data = response.json()
     assert data["place_id"] == "place_random_999"
-    assert data["has_video"] is True
+    assert data["has_video"] is False
+    assert data["has_3d"] is False
+    assert data["video"] is None
+    assert data["model_3d"] is None
+    assert data["available_tabs"] == ["photos"]
+
+
+def test_place_media_museum_no_3d_leak():
+    response = client.get("/api/v1/media/places/place_bbsr_008")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["place_id"] == "place_bbsr_008"
+    assert data["has_3d"] is False
+    assert data["model_3d"] is None
+    assert data["has_video"] is False
+    assert data["video"] is None
+    assert data["available_tabs"] == ["photos"]
+
+
+def test_place_media_lingaraj_3d():
+    response = client.get("/api/v1/media/places/place_bbsr_001")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["place_id"] == "place_bbsr_001"
+    assert data["has_3d"] is True
+    assert data["model_3d"] is not None
+    assert data["model_3d"]["procedural_type"] == "lingaraj_temple"
 
 
 def test_generate_video_preview():

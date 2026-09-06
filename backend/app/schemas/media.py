@@ -44,12 +44,16 @@ class PlaceMediaResponse(BaseModel):
     model_config = ConfigDict(protected_namespaces=())
     place_id: str
     place_name: str
+    name: Optional[str] = None
     category: Optional[str] = None
     district: Optional[str] = None
     has_video: bool = False
     has_3d: bool = False
     video: Optional[VideoPreviewContract] = None
+    video_preview: Optional[VideoPreviewContract] = None
     model_3d: Optional[Model3DContract] = None
+    available_tabs: List[str] = Field(default_factory=lambda: ["photos"])
+    hero_poster_url: Optional[str] = None
     images: List[PlaceImageResponse] = Field(default_factory=list)
 
 

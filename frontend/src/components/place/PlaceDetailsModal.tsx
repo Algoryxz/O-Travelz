@@ -103,7 +103,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
     });
   };
 
-  const canonicalId = place.id || "place_konark_001";
+  const canonicalId = place.id || "";
 
   return (
     <div
@@ -116,18 +116,28 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
         className="relative w-full max-w-3xl max-h-[92vh] bg-[#FFFFFF] rounded-2xl border border-[#E5DFD5] shadow-2xl overflow-hidden flex flex-col animate-in zoom-in-95 duration-200 text-[#12161E]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header Bar */}
-        <div className="px-5 py-3.5 bg-[#FAF7F2] border-b border-[#E5DFD5] flex items-center justify-between gap-3 shrink-0">
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#0D5C3A] shrink-0" />
-            <span className="font-mono text-[11px] font-semibold text-[#0D5C3A] uppercase tracking-wider truncate">
-              {place.category}
-            </span>
-            {region && (
-              <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[#70798B] font-body truncate">
-                • {region}
+        {/* Top Header Bar with Destination Identity */}
+        <div className="px-5 py-3.5 bg-[#FAF7F2] border-b border-[#E5DFD5] flex items-center justify-between gap-4 shrink-0">
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-2 flex-wrap mb-1">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#0D5C3A] shrink-0" />
+              <span className="font-mono text-[11px] font-semibold text-[#0D5C3A] uppercase tracking-wider truncate">
+                {place.category}
               </span>
-            )}
+              {region && (
+                <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[#70798B] font-body truncate">
+                  • {region}
+                </span>
+              )}
+              {place.badge && (
+                <span className="px-2 py-0.5 rounded-full bg-[#0D5C3A] text-white text-[10px] font-semibold font-mono shadow-xs">
+                  {place.badge}
+                </span>
+              )}
+            </div>
+            <h2 className="text-xl sm:text-2xl font-display font-bold text-[#12161E] tracking-tight truncate">
+              {place.name}
+            </h2>
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
@@ -158,7 +168,7 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
         </div>
 
         {/* Scrollable Modal Content */}
-        <div className="overflow-y-auto flex-1 p-5 sm:p-6 space-y-6">
+        <div className="overflow-y-auto flex-1 p-5 sm:p-6 space-y-5">
           {/* V3 Destination Media Suite (Photos / Cinematic Video / 3D Experience) */}
           <DestinationMedia
             placeId={canonicalId}
@@ -170,30 +180,23 @@ export const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
             heightClass="h-[280px] sm:h-[340px] md:h-[400px]"
           />
 
-          {/* Place Title & Quick Details */}
-          <div className="space-y-2 border-b border-[#E5DFD5] pb-4">
+          {/* Place Quick Details Bar */}
+          <div className="space-y-1.5 border-b border-[#E5DFD5] pb-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <h2 className="text-2xl sm:text-3xl font-display font-bold text-[#12161E] tracking-tight">
-                {place.name}
-              </h2>
-              {place.badge && (
-                <span className="px-3 py-1 rounded-full bg-[#0D5C3A] text-white text-xs font-semibold font-mono shadow-xs">
-                  {place.badge}
-                </span>
-              )}
-            </div>
-
-            {region && (
-              <div className="flex items-center gap-1.5 text-xs text-[#70798B]">
-                <MapPin size={13} className="text-[#C69214]" />
-                <span>{region}</span>
+              <div className="flex items-center gap-1.5 text-xs text-[#70798B] flex-wrap">
+                {region && (
+                  <span className="inline-flex items-center gap-1 font-medium text-[#12161E]">
+                    <MapPin size={13} className="text-[#C69214]" />
+                    {region}
+                  </span>
+                )}
                 {place.verified_at && (
-                  <span className="text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-mono font-medium ml-2">
+                  <span className="text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-mono font-medium">
                     ✓ Verified Destination
                   </span>
                 )}
               </div>
-            )}
+            </div>
           </div>
 
           {/* Segmented Content Tabs: Overview & Heritage vs Essentials */}
