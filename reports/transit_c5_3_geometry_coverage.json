@@ -1,0 +1,34 @@
+{
+  "report_name": "transit_c5_3_geometry_coverage",
+  "timestamp": "2026-09-06T04:57:34.460130+00:00",
+  "total_sequence_groups": 164,
+  "total_segments": 1327,
+  "classification_breakdown": {
+    "RENDERABLE_EXACT": 37,
+    "RENDERABLE_ROAD_FOLLOWING": 322,
+    "ANCHOR_ONLY": 558,
+    "CORRIDOR_ONLY": 387,
+    "SUPPRESSED_OUTLIER": 23,
+    "UNAVAILABLE": 0
+  },
+  "confidence_breakdown": {
+    "VERIFIED_ROUTE_GEOMETRY": 103,
+    "HIGH_CONFIDENCE_ROUTE_GEOMETRY": 814,
+    "MEDIUM_CONFIDENCE_ROUTE_GEOMETRY": 410,
+    "UNAVAILABLE": 0
+  },
+  "renderable_accounting": {
+    "safe_renderable_segment_count": 359,
+    "safe_product_polyline_coverage_pct": 27.05,
+    "baseline_c5_2_safe_coverage_pct": 2.79,
+    "delta_recovered_segments": 322,
+    "route_geometry_evidence_coverage_pct": 69.1
+  },
+  "sequence_level_summary": {
+    "total_sequences": 164,
+    "renderable_exact_sequences": 23,
+    "renderable_road_following_sequences": 62,
+    "anchor_only_sequences": 76,
+    "corridor_only_sequences": 3
+  }
+}

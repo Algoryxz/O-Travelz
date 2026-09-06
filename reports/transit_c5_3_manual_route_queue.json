@@ -1,0 +1,1751 @@
+{
+  "report_name": "transit_c5_3_manual_route_queue",
+  "timestamp": "2026-09-06T04:57:34.460130+00:00",
+  "total_unresolved_sequences": 79,
+  "priority_breakdown": {
+    "P0": 26,
+    "P1": 1,
+    "P2": 35,
+    "P3": 17
+  },
+  "routes": [
+    {
+      "route_number": "101",
+      "sequence_id": "rt_crut_101_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Laukera",
+      "total_stops": 6,
+      "unresolved_segments_count": 5,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 101 from Rourkela New Bus Stand to Laukera with GPS logger to recover 5 segments in a single ride."
+    },
+    {
+      "route_number": "104",
+      "sequence_id": "rt_crut_104_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Jhirpani",
+      "total_stops": 5,
+      "unresolved_segments_count": 4,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 104 from Rourkela New Bus Stand to Jhirpani with GPS logger to recover 4 segments in a single ride."
+    },
+    {
+      "route_number": "105",
+      "sequence_id": "rt_crut_105_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Rajgangpur",
+      "total_stops": 3,
+      "unresolved_segments_count": 2,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 105 from Rourkela New Bus Stand to Rajgangpur with GPS logger to recover 2 segments in a single ride."
+    },
+    {
+      "route_number": "106",
+      "sequence_id": "rt_crut_106_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Birmitrapur",
+      "total_stops": 4,
+      "unresolved_segments_count": 3,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 106 from Rourkela New Bus Stand to Birmitrapur with GPS logger to recover 3 segments in a single ride."
+    },
+    {
+      "route_number": "107",
+      "sequence_id": "rt_crut_107_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Teterkela",
+      "total_stops": 3,
+      "unresolved_segments_count": 2,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 107 from Rourkela New Bus Stand to Teterkela with GPS logger to recover 2 segments in a single ride."
+    },
+    {
+      "route_number": "108",
+      "sequence_id": "rt_crut_108_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Nuagaon",
+      "total_stops": 5,
+      "unresolved_segments_count": 4,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 108 from Rourkela New Bus Stand to Nuagaon with GPS logger to recover 4 segments in a single ride."
+    },
+    {
+      "route_number": "109",
+      "sequence_id": "rt_crut_109_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Lathikata",
+      "total_stops": 3,
+      "unresolved_segments_count": 2,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 109 from Rourkela New Bus Stand to Lathikata with GPS logger to recover 2 segments in a single ride."
+    },
+    {
+      "route_number": "110",
+      "sequence_id": "rt_crut_110_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Kalunga",
+      "total_stops": 3,
+      "unresolved_segments_count": 2,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 110 from Rourkela New Bus Stand to Kalunga with GPS logger to recover 2 segments in a single ride."
+    },
+    {
+      "route_number": "111",
+      "sequence_id": "rt_crut_111_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Bonaigarh",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 111 from Rourkela New Bus Stand to Bonaigarh with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "112",
+      "sequence_id": "rt_crut_112_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Lahunipara",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 112 from Rourkela New Bus Stand to Lahunipara with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "113",
+      "sequence_id": "rt_crut_113_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Ushra",
+      "total_stops": 3,
+      "unresolved_segments_count": 2,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 113 from Rourkela New Bus Stand to Ushra with GPS logger to recover 2 segments in a single ride."
+    },
+    {
+      "route_number": "114",
+      "sequence_id": "rt_crut_114_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Nuagaon",
+      "total_stops": 3,
+      "unresolved_segments_count": 2,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 114 from Rourkela New Bus Stand to Nuagaon with GPS logger to recover 2 segments in a single ride."
+    },
+    {
+      "route_number": "115",
+      "sequence_id": "rt_crut_115_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Potab",
+      "total_stops": 3,
+      "unresolved_segments_count": 2,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 115 from Rourkela New Bus Stand to Potab with GPS logger to recover 2 segments in a single ride."
+    },
+    {
+      "route_number": "116",
+      "sequence_id": "rt_crut_116_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Loram",
+      "total_stops": 6,
+      "unresolved_segments_count": 5,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 116 from Rourkela New Bus Stand to Loram with GPS logger to recover 5 segments in a single ride."
+    },
+    {
+      "route_number": "118",
+      "sequence_id": "rt_crut_118_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Salangabahal",
+      "total_stops": 4,
+      "unresolved_segments_count": 3,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 118 from Rourkela New Bus Stand to Salangabahal with GPS logger to recover 3 segments in a single ride."
+    },
+    {
+      "route_number": "119",
+      "sequence_id": "rt_crut_119_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Kutra",
+      "total_stops": 3,
+      "unresolved_segments_count": 2,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 119 from Rourkela New Bus Stand to Kutra with GPS logger to recover 2 segments in a single ride."
+    },
+    {
+      "route_number": "120",
+      "sequence_id": "rt_crut_120_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Gurundia",
+      "total_stops": 4,
+      "unresolved_segments_count": 3,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 120 from Rourkela New Bus Stand to Gurundia with GPS logger to recover 3 segments in a single ride."
+    },
+    {
+      "route_number": "121",
+      "sequence_id": "rt_crut_121_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Dav Pond",
+      "destination": "Radio Station",
+      "total_stops": 5,
+      "unresolved_segments_count": 4,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 121 from Dav Pond to Radio Station with GPS logger to recover 4 segments in a single ride."
+    },
+    {
+      "route_number": "122",
+      "sequence_id": "rt_crut_122_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Shakti Nagar",
+      "destination": "Tarapur Filter House",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 122 from Shakti Nagar to Tarapur Filter House with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "124",
+      "sequence_id": "rt_crut_124_forward",
+      "direction": "forward",
+      "region": "Rourkela",
+      "origin": "Rourkela New Bus Stand",
+      "destination": "Hamirpur",
+      "total_stops": 6,
+      "unresolved_segments_count": 5,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 124 from Rourkela New Bus Stand to Hamirpur with GPS logger to recover 5 segments in a single ride."
+    },
+    {
+      "route_number": "15E",
+      "sequence_id": "rt_crut_15e_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Cuttack Netaji Bus Terminus Cnbt",
+      "destination": "Salia Sahi",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 15E from Cuttack Netaji Bus Terminus Cnbt to Salia Sahi with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "202",
+      "sequence_id": "rt_crut_202_forward",
+      "direction": "forward",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Atal Chowk",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 202 from Ainthapali Bus Terminal to Atal Chowk with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "205",
+      "sequence_id": "rt_crut_205_down",
+      "direction": "down",
+      "region": "Sambalpur",
+      "origin": "Nuajamada",
+      "destination": "Fci",
+      "total_stops": 35,
+      "unresolved_segments_count": 34,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 205 from Nuajamada to Fci with GPS logger to recover 34 segments in a single ride."
+    },
+    {
+      "route_number": "205",
+      "sequence_id": "rt_crut_205_forward",
+      "direction": "forward",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Nuajamda",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 205 from Ainthapali Bus Terminal to Nuajamda with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "205",
+      "sequence_id": "rt_crut_205_up",
+      "direction": "up",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Nuagujatal Village Road",
+      "total_stops": 36,
+      "unresolved_segments_count": 35,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 205 from Ainthapali Bus Terminal to Nuagujatal Village Road with GPS logger to recover 35 segments in a single ride."
+    },
+    {
+      "route_number": "208",
+      "sequence_id": "rt_crut_208_down",
+      "direction": "down",
+      "region": "Sambalpur",
+      "origin": "Burla Hospital",
+      "destination": "Mahavir Square",
+      "total_stops": 55,
+      "unresolved_segments_count": 54,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 208 from Burla Hospital to Mahavir Square with GPS logger to recover 54 segments in a single ride."
+    },
+    {
+      "route_number": "208",
+      "sequence_id": "rt_crut_208_up",
+      "direction": "up",
+      "region": "Sambalpur",
+      "origin": "Mahavir Square",
+      "destination": "City Railway Station, Ainthapali Bus Terminal, Remed",
+      "total_stops": 55,
+      "unresolved_segments_count": 54,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 208 from Mahavir Square to City Railway Station, Ainthapali Bus Terminal, Remed with GPS logger to recover 54 segments in a single ride."
+    },
+    {
+      "route_number": "210",
+      "sequence_id": "rt_crut_210_forward",
+      "direction": "forward",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Anisha Ladies Hostel",
+      "total_stops": 20,
+      "unresolved_segments_count": 19,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 210 from Ainthapali Bus Terminal to Anisha Ladies Hostel with GPS logger to recover 19 segments in a single ride."
+    },
+    {
+      "route_number": "211",
+      "sequence_id": "rt_crut_211_forward",
+      "direction": "forward",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Jharsuguda",
+      "total_stops": 73,
+      "unresolved_segments_count": 72,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 211 from Ainthapali Bus Terminal to Jharsuguda with GPS logger to recover 72 segments in a single ride."
+    },
+    {
+      "route_number": "212",
+      "sequence_id": "rt_crut_212_forward",
+      "direction": "forward",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Baragarh",
+      "total_stops": 59,
+      "unresolved_segments_count": 58,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 212 from Ainthapali Bus Terminal to Baragarh with GPS logger to recover 58 segments in a single ride."
+    },
+    {
+      "route_number": "213",
+      "sequence_id": "rt_crut_213_forward",
+      "direction": "forward",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Belpahar",
+      "total_stops": 56,
+      "unresolved_segments_count": 55,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 213 from Ainthapali Bus Terminal to Belpahar with GPS logger to recover 55 segments in a single ride."
+    },
+    {
+      "route_number": "213A",
+      "sequence_id": "rt_crut_213a_forward",
+      "direction": "forward",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Belpahar",
+      "total_stops": 63,
+      "unresolved_segments_count": 62,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 213A from Ainthapali Bus Terminal to Belpahar with GPS logger to recover 62 segments in a single ride."
+    },
+    {
+      "route_number": "214",
+      "sequence_id": "rt_crut_214_forward",
+      "direction": "forward",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Kuchinda Bus Stand",
+      "total_stops": 76,
+      "unresolved_segments_count": 75,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 214 from Ainthapali Bus Terminal to Kuchinda Bus Stand with GPS logger to recover 75 segments in a single ride."
+    },
+    {
+      "route_number": "215",
+      "sequence_id": "rt_crut_215_down",
+      "direction": "down",
+      "region": "Sambalpur",
+      "origin": "Padiabahal",
+      "destination": "Chandamunda Road",
+      "total_stops": 29,
+      "unresolved_segments_count": 28,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 215 from Padiabahal to Chandamunda Road with GPS logger to recover 28 segments in a single ride."
+    },
+    {
+      "route_number": "215",
+      "sequence_id": "rt_crut_215_up",
+      "direction": "up",
+      "region": "Sambalpur",
+      "origin": "Ainthapali Bus Terminal",
+      "destination": "Nurshing College Road",
+      "total_stops": 31,
+      "unresolved_segments_count": 30,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 215 from Ainthapali Bus Terminal to Nurshing College Road with GPS logger to recover 30 segments in a single ride."
+    },
+    {
+      "route_number": "29E",
+      "sequence_id": "rt_crut_29e_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Bhagwanpur",
+      "destination": "Sbi Colony",
+      "total_stops": 3,
+      "unresolved_segments_count": 2,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 29E from Bhagwanpur to Sbi Colony with GPS logger to recover 2 segments in a single ride."
+    },
+    {
+      "route_number": "300",
+      "sequence_id": "rt_crut_300_forward",
+      "direction": "forward",
+      "region": "Berhampur",
+      "origin": "Duduma Colony",
+      "destination": "Duduma Colony Bus Stand",
+      "total_stops": 46,
+      "unresolved_segments_count": 45,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 300 from Duduma Colony to Duduma Colony Bus Stand with GPS logger to recover 45 segments in a single ride."
+    },
+    {
+      "route_number": "301",
+      "sequence_id": "rt_crut_301_forward",
+      "direction": "forward",
+      "region": "Berhampur",
+      "origin": "Berhampur Railway Station",
+      "destination": "Berhampur Rail Stn.",
+      "total_stops": 35,
+      "unresolved_segments_count": 34,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 301 from Berhampur Railway Station to Berhampur Rail Stn. with GPS logger to recover 34 segments in a single ride."
+    },
+    {
+      "route_number": "302",
+      "sequence_id": "rt_crut_302_down",
+      "direction": "down",
+      "region": "Berhampur",
+      "origin": "Jagadalpur Gramapanchayat",
+      "destination": "Brahmapur Railway Station",
+      "total_stops": 50,
+      "unresolved_segments_count": 49,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 302 from Jagadalpur Gramapanchayat to Brahmapur Railway Station with GPS logger to recover 49 segments in a single ride."
+    },
+    {
+      "route_number": "302",
+      "sequence_id": "rt_crut_302_forward",
+      "direction": "forward",
+      "region": "Berhampur",
+      "origin": "Berhampur Railway Station",
+      "destination": "Regidi",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 302 from Berhampur Railway Station to Regidi with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "302",
+      "sequence_id": "rt_crut_302_up",
+      "direction": "up",
+      "region": "Berhampur",
+      "origin": "G Jagganathpur",
+      "destination": "Brahmapur Railway Station",
+      "total_stops": 30,
+      "unresolved_segments_count": 29,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 302 from G Jagganathpur to Brahmapur Railway Station with GPS logger to recover 29 segments in a single ride."
+    },
+    {
+      "route_number": "303",
+      "sequence_id": "rt_crut_303_forward",
+      "direction": "forward",
+      "region": "Berhampur",
+      "origin": "Mkcg State Bank",
+      "destination": "Duduma Colony Bus Stand",
+      "total_stops": 57,
+      "unresolved_segments_count": 56,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 303 from Mkcg State Bank to Duduma Colony Bus Stand with GPS logger to recover 56 segments in a single ride."
+    },
+    {
+      "route_number": "303E",
+      "sequence_id": "rt_crut_303e_forward",
+      "direction": "forward",
+      "region": "Berhampur",
+      "origin": "Duduma Colony Bus Stand",
+      "destination": "Dhabaleswar",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 303E from Duduma Colony Bus Stand to Dhabaleswar with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "304",
+      "sequence_id": "rt_crut_304_down",
+      "direction": "down",
+      "region": "Berhampur",
+      "origin": "Old Jugiyapalli",
+      "destination": "Berhampur Railway Station",
+      "total_stops": 58,
+      "unresolved_segments_count": 57,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 304 from Old Jugiyapalli to Berhampur Railway Station with GPS logger to recover 57 segments in a single ride."
+    },
+    {
+      "route_number": "304",
+      "sequence_id": "rt_crut_304_up",
+      "direction": "up",
+      "region": "Berhampur",
+      "origin": "New Jugiyapalli",
+      "destination": "Old Jugiyapalli",
+      "total_stops": 38,
+      "unresolved_segments_count": 37,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 304 from New Jugiyapalli to Old Jugiyapalli with GPS logger to recover 37 segments in a single ride."
+    },
+    {
+      "route_number": "306",
+      "sequence_id": "rt_crut_306_forward",
+      "direction": "forward",
+      "region": "Berhampur",
+      "origin": "Haldiapadar Village",
+      "destination": "Haldiapadar Over Bridge",
+      "total_stops": 47,
+      "unresolved_segments_count": 46,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 306 from Haldiapadar Village to Haldiapadar Over Bridge with GPS logger to recover 46 segments in a single ride."
+    },
+    {
+      "route_number": "307",
+      "sequence_id": "rt_crut_307_forward",
+      "direction": "forward",
+      "region": "Berhampur",
+      "origin": "Duduma Colony Bus Stand",
+      "destination": "Engg.school",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 307 from Duduma Colony Bus Stand to Engg.school with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "34E",
+      "sequence_id": "rt_crut_34e_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Trahi Achyut",
+      "total_stops": 3,
+      "unresolved_segments_count": 2,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 34E from Bhubaneswar Railway Station to Trahi Achyut with GPS logger to recover 2 segments in a single ride."
+    },
+    {
+      "route_number": "400",
+      "sequence_id": "rt_crut_400_forward",
+      "direction": "forward",
+      "region": "Keonjhar",
+      "origin": "Govt Hospital, Suakati",
+      "destination": "District Hospital",
+      "total_stops": 33,
+      "unresolved_segments_count": 32,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 400 from Govt Hospital, Suakati to District Hospital with GPS logger to recover 32 segments in a single ride."
+    },
+    {
+      "route_number": "401",
+      "sequence_id": "rt_crut_401_forward",
+      "direction": "forward",
+      "region": "Keonjhar",
+      "origin": "Ddu Campus",
+      "destination": "Telkoi Bus Stand",
+      "total_stops": 20,
+      "unresolved_segments_count": 19,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 401 from Ddu Campus to Telkoi Bus Stand with GPS logger to recover 19 segments in a single ride."
+    },
+    {
+      "route_number": "402",
+      "sequence_id": "rt_crut_402_forward",
+      "direction": "forward",
+      "region": "Keonjhar",
+      "origin": "Sanaghaghara Park",
+      "destination": "Collectorate Circle",
+      "total_stops": 20,
+      "unresolved_segments_count": 19,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 402 from Sanaghaghara Park to Collectorate Circle with GPS logger to recover 19 segments in a single ride."
+    },
+    {
+      "route_number": "403",
+      "sequence_id": "rt_crut_403_forward",
+      "direction": "forward",
+      "region": "Keonjhar",
+      "origin": "Ddu Campus",
+      "destination": "Belda",
+      "total_stops": 23,
+      "unresolved_segments_count": 22,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 403 from Ddu Campus to Belda with GPS logger to recover 22 segments in a single ride."
+    },
+    {
+      "route_number": "404",
+      "sequence_id": "rt_crut_404_forward",
+      "direction": "forward",
+      "region": "Keonjhar",
+      "origin": "Keonjhar Bus Stand",
+      "destination": "Gst Office",
+      "total_stops": 11,
+      "unresolved_segments_count": 10,
+      "priority": "P1",
+      "suggested_action": "OSM_RELATION_MAPPING_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 404 from Keonjhar Bus Stand to Gst Office with GPS logger to recover 10 segments in a single ride."
+    },
+    {
+      "route_number": "405",
+      "sequence_id": "rt_crut_405_forward",
+      "direction": "forward",
+      "region": "Keonjhar",
+      "origin": "Keonjhar Bus Stand",
+      "destination": "Omfed",
+      "total_stops": 27,
+      "unresolved_segments_count": 26,
+      "priority": "P0",
+      "suggested_action": "RIDE_ROUTE_AND_CAPTURE_TRACE",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 405 from Keonjhar Bus Stand to Omfed with GPS logger to recover 26 segments in a single ride."
+    },
+    {
+      "route_number": "41",
+      "sequence_id": "rt_crut_41_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Baramunda Bsabt",
+      "destination": "Tangi",
+      "total_stops": 3,
+      "unresolved_segments_count": 2,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 41 from Baramunda Bsabt to Tangi with GPS logger to recover 2 segments in a single ride."
+    },
+    {
+      "route_number": "43",
+      "sequence_id": "rt_crut_43_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Baramunda Bsabt",
+      "destination": "Banamalipur",
+      "total_stops": 4,
+      "unresolved_segments_count": 3,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 43 from Baramunda Bsabt to Banamalipur with GPS logger to recover 3 segments in a single ride."
+    },
+    {
+      "route_number": "43E",
+      "sequence_id": "rt_crut_43e_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Baramunda Bsabt",
+      "destination": "Abhyamukhi",
+      "total_stops": 5,
+      "unresolved_segments_count": 4,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 43E from Baramunda Bsabt to Abhyamukhi with GPS logger to recover 4 segments in a single ride."
+    },
+    {
+      "route_number": "44",
+      "sequence_id": "rt_crut_44_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Baramunda Bsabt",
+      "destination": "Svnirtar,olatpur",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 44 from Baramunda Bsabt to Svnirtar,olatpur with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "45",
+      "sequence_id": "rt_crut_45_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Jayadev Pitha",
+      "total_stops": 4,
+      "unresolved_segments_count": 3,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 45 from Bhubaneswar Railway Station to Jayadev Pitha with GPS logger to recover 3 segments in a single ride."
+    },
+    {
+      "route_number": "46",
+      "sequence_id": "rt_crut_46_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Nandankanan",
+      "total_stops": 4,
+      "unresolved_segments_count": 3,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 46 from Bhubaneswar Railway Station to Nandankanan with GPS logger to recover 3 segments in a single ride."
+    },
+    {
+      "route_number": "48",
+      "sequence_id": "rt_crut_48_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Khordha New Bus Stand",
+      "destination": "Jagatpur,cuttack",
+      "total_stops": 4,
+      "unresolved_segments_count": 3,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 48 from Khordha New Bus Stand to Jagatpur,cuttack with GPS logger to recover 3 segments in a single ride."
+    },
+    {
+      "route_number": "57",
+      "sequence_id": "rt_crut_57_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Puri Bus Stand",
+      "destination": "Astaranga",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 57 from Puri Bus Stand to Astaranga with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "62",
+      "sequence_id": "rt_crut_62_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Suando",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 62 from Bhubaneswar Railway Station to Suando with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "66",
+      "sequence_id": "rt_crut_66_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Bhubaneswar Railway Station",
+      "destination": "Pathargadia Square",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 66 from Bhubaneswar Railway Station to Pathargadia Square with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "73",
+      "sequence_id": "rt_crut_73_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Puri Bus Stand",
+      "destination": "Talabania",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 73 from Puri Bus Stand to Talabania with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "75",
+      "sequence_id": "rt_crut_75_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Shree Mandira",
+      "destination": "Kakatpur",
+      "total_stops": 6,
+      "unresolved_segments_count": 5,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 75 from Shree Mandira to Kakatpur with GPS logger to recover 5 segments in a single ride."
+    },
+    {
+      "route_number": "78",
+      "sequence_id": "rt_crut_78_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Puri Bus Stand",
+      "destination": "Alarnath",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 78 from Puri Bus Stand to Alarnath with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "79",
+      "sequence_id": "rt_crut_79_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Shree Mandira",
+      "destination": "Light House",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 79 from Shree Mandira to Light House with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "80E",
+      "sequence_id": "rt_crut_80e_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Naraj Police Outpost",
+      "destination": "Mangarajpur",
+      "total_stops": 5,
+      "unresolved_segments_count": 4,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 80E from Naraj Police Outpost to Mangarajpur with GPS logger to recover 4 segments in a single ride."
+    },
+    {
+      "route_number": "83A",
+      "sequence_id": "rt_crut_83a_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Cda9",
+      "destination": "Nuapatana",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 83A from Cda9 to Nuapatana with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "84",
+      "sequence_id": "rt_crut_84_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Biju Pattanaik Park,cda",
+      "destination": "Madhabananda Temple, Niali",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 84 from Biju Pattanaik Park,cda to Madhabananda Temple, Niali with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "85",
+      "sequence_id": "rt_crut_85_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Cuttack Netaji Bus Terminal",
+      "destination": "Gadama",
+      "total_stops": 4,
+      "unresolved_segments_count": 3,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 85 from Cuttack Netaji Bus Terminal to Gadama with GPS logger to recover 3 segments in a single ride."
+    },
+    {
+      "route_number": "86",
+      "sequence_id": "rt_crut_86_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "CDA 9 Od Terminal",
+      "destination": "Driems,tangi",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 86 from CDA 9 Od Terminal to Driems,tangi with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "87",
+      "sequence_id": "rt_crut_87_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Biju Patanaik Park",
+      "destination": "Mahanadi Vihar",
+      "total_stops": 5,
+      "unresolved_segments_count": 4,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 87 from Biju Patanaik Park to Mahanadi Vihar with GPS logger to recover 4 segments in a single ride."
+    },
+    {
+      "route_number": "87E",
+      "sequence_id": "rt_crut_87e_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Judicial Academy",
+      "destination": "Nuapada",
+      "total_stops": 4,
+      "unresolved_segments_count": 3,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 87E from Judicial Academy to Nuapada with GPS logger to recover 3 segments in a single ride."
+    },
+    {
+      "route_number": "89A",
+      "sequence_id": "rt_crut_89a_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Scb Medical",
+      "destination": "Judicial Square",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 89A from Scb Medical to Judicial Square with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "92",
+      "sequence_id": "rt_crut_92_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Igkc",
+      "destination": "Sai Temple",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P2",
+      "suggested_action": "MAPILLARY_CORRIDOR_VERIFICATION",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 92 from Igkc to Sai Temple with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "94",
+      "sequence_id": "rt_crut_94_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Babasaheb Bhimrao Ambedkar Bus Terminal Bsabt",
+      "destination": "Siep, Jatni",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride 94 from Babasaheb Bhimrao Ambedkar Bus Terminal Bsabt to Siep, Jatni with GPS logger to recover 1 segments in a single ride."
+    },
+    {
+      "route_number": "F1",
+      "sequence_id": "rt_crut_f1_forward",
+      "direction": "forward",
+      "region": "Capital Region",
+      "origin": "Damana Square",
+      "destination": "Kiit Square",
+      "total_stops": 2,
+      "unresolved_segments_count": 1,
+      "priority": "P3",
+      "suggested_action": "LOCALITY_SURVEY",
+      "capture_trace_specification": {
+        "trace_requirements": [
+          "Continuous phone GPS trace (1Hz)",
+          "Horizontal accuracy <= 10m",
+          "Start at terminal before departure",
+          "Stop taps or photo confirmation at major intersections"
+        ],
+        "privacy_policy": "Session-scoped random UUID; stripped of user identity"
+      },
+      "quick_action_prompt": "Ride F1 from Damana Square to Kiit Square with GPS logger to recover 1 segments in a single ride."
+    }
+  ]
+}

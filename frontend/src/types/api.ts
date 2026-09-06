@@ -745,6 +745,8 @@ export interface TransportMapRoute {
   }>;
   osm_relations_matched?: number[];
   suppressed_outliers?: Array<Record<string, any>>;
+  provenance?: Record<string, any>;
+  validation_metrics?: Record<string, any>;
   stops_count: number;
   stops: TransportMapStop[];
 }

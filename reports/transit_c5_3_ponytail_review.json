@@ -1,0 +1,69 @@
+{
+  "report_name": "transit_c5_3_ponytail_review",
+  "timestamp": "2026-09-06T04:40:00+00:00",
+  "principles_applied": [
+    "Prefer one boring deterministic compiler over a pipeline of disjoint heuristic scripts",
+    "Cache external Overpass geometry once in staging to eliminate redundant network roundtrips",
+    "Use O(1) indexed route-number and directional lookup instead of O(N*M) quadratic iteration",
+    "Deprecate legacy SQL RouteIntelligence fallbacks in favor of the clean canonical transit core",
+    "Preserve O-TRAVELZ truth invariants: inferred shortest road path is NEVER VERIFIED_ROUTE_GEOMETRY"
+  ],
+  "classifications": [
+    {
+      "finding_id": "PT3-01",
+      "category": "REQUIRED_C5_3_FIX",
+      "component": "OSM Bus Relation Ingestion & Assembly",
+      "issue": "C5.1 only audited relation tags (87 relations) without downloading and assembling their actual ordered way geometries for product polyline emission.",
+      "resolution": "Fetch and cache full way member geometries for all matched CRUT/Mo Bus relations into a single deterministic cache, assembling contiguous LineStrings by endpoint node connectivity.",
+      "ponytail_verdict": "ACCEPTED"
+    },
+    {
+      "finding_id": "PT3-02",
+      "category": "REQUIRED_C5_3_FIX",
+      "component": "Epistemic Route Confidence Grading",
+      "issue": "Shortest-road routing between anchors must never be labeled VERIFIED_ROUTE_GEOMETRY, and candidate stops must never be upgraded or given first-mile access.",
+      "resolution": "Enforce strict 3-tier grading: VERIFIED_ROUTE_GEOMETRY (only authoritative OSM relation / surveyed transit way), HIGH_CONFIDENCE_ROUTE_GEOMETRY (bounded arterial highway / high-confidence corridor road path), MEDIUM_CONFIDENCE_ROUTE_GEOMETRY (inferred road-network path between verified/bounded anchors).",
+      "ponytail_verdict": "ACCEPTED"
+    },
+    {
+      "finding_id": "PT3-03",
+      "category": "REQUIRED_C5_3_FIX",
+      "component": "Directional Identity & Sequence Keying",
+      "issue": "Forward and backward/alternate sequences have distinct stop sequences and frequently run along one-way road pairs or different avenues (e.g. Master Canteen vs Station Plaza).",
+      "resolution": "Key all compiled geometry strictly by canonical sequence_id (e.g. rt_crut_10_forward, rt_crut_10_backward). Do not collapse directions into a single unoriented line.",
+      "ponytail_verdict": "ACCEPTED"
+    },
+    {
+      "finding_id": "PT3-04",
+      "category": "SAFE_SIMPLIFICATION",
+      "component": "Single Deterministic Staging Compiler",
+      "issue": "Route geometry was previously assembled via fragmented scratch scripts (test_route_geometry.py, prototype_c5_1.py, apply_c5_1_engine.py).",
+      "resolution": "Unify all geometry resolution into scripts/compile_c5_route_geometry.py as a single self-contained, reproducible compiler that reads canonical inputs and emits staging artifacts in one run.",
+      "ponytail_verdict": "ACCEPTED"
+    },
+    {
+      "finding_id": "PT3-05",
+      "category": "SAFE_SIMPLIFICATION",
+      "component": "Local Geometry Cache vs Live Overpass Calls",
+      "issue": "Querying Overpass on every compiler run causes rate-limiting, network flakiness, and non-deterministic builds.",
+      "resolution": "Persist full OSM relation geometries in data/transport/staging/ama_bus/osm_odisha_bus_relations_cache.json. Compiler runs 100% offline from local staging artifacts.",
+      "ponytail_verdict": "ACCEPTED"
+    },
+    {
+      "finding_id": "PT3-06",
+      "category": "SAFE_SIMPLIFICATION",
+      "component": "Route-to-Relation Indexing",
+      "issue": "Matching 164 sequences against 87 relations with regex/text similarity inside nested loops is O(N*M).",
+      "resolution": "Build a hash map keyed by normalized route ref (e.g. lstrip(0) -> 08 -> 8), filtering candidates in O(1) before directional terminal matching.",
+      "ponytail_verdict": "ACCEPTED"
+    },
+    {
+      "finding_id": "PT3-07",
+      "category": "REJECT_PONYTAIL_SUGGESTION",
+      "component": "Segment-Level Metadata Granularity",
+      "issue": "Ponytail might suggest omitting per-segment metadata and emitting only sequence-level polylines to save LOC and JSON payload size.",
+      "resolution": "REJECT. Segment-level metadata (1,327 segments) is essential for fail-closed gap suppression, transparent truth audit, contributor queues, and first-mile safety gating.",
+      "ponytail_verdict": "REJECTED"
+    }
+  ]
+}

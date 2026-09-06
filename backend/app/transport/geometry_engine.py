@@ -36,7 +36,7 @@ logger = logging.getLogger(__name__)
 REGION_BOUNDS: Dict[str, Dict[str, float]] = {
     "Capital Region": {"lat_min": 19.5, "lat_max": 20.8, "lon_min": 85.3, "lon_max": 86.4},
     "Rourkela": {"lat_min": 21.9, "lat_max": 22.6, "lon_min": 84.5, "lon_max": 85.3},
-    "Sambalpur": {"lat_min": 21.1, "lat_max": 21.8, "lon_min": 83.6, "lon_max": 84.5},
+    "Sambalpur": {"lat_min": 21.1, "lat_max": 22.0, "lon_min": 83.6, "lon_max": 84.5},
     "Berhampur": {"lat_min": 19.0, "lat_max": 19.7, "lon_min": 84.5, "lon_max": 85.3},
     "Keonjhar": {"lat_min": 21.2, "lat_max": 22.3, "lon_min": 85.2, "lon_max": 86.1},
 }
@@ -116,6 +116,8 @@ class RouteGeometryPayload:
     segments: List[Dict[str, Any]] = field(default_factory=list)
     osm_relations_matched: List[int] = field(default_factory=list)
     suppressed_outliers: List[Dict[str, Any]] = field(default_factory=list)
+    provenance: Optional[Dict[str, Any]] = None
+    validation_metrics: Optional[Dict[str, Any]] = None
     notes: Optional[str] = None
 
 
@@ -234,6 +236,13 @@ class DeterministicGeometryEngine:
                     is_verified = False
 
             # 4. Build anchor stop metadata with decoupled epistemic flags
+            is_candidate = (
+                not is_verified
+                and lat is not None
+                and lon is not None
+                and (coord_status in ("CANDIDATE_HIGH", "CANDIDATE_MEDIUM") or (c5_res and c5_res.get("render_candidate_marker")))
+            )
+
             if is_verified and lat is not None and lon is not None:
                 geocoded_count += 1
                 verified_coords.append((round(lat, 6), round(lon, 6)))
@@ -250,7 +259,7 @@ class DeterministicGeometryEngine:
                     "participates_in_first_mile": True,
                     "coordinate_source": coord_source,
                 })
-            elif coord_status == "CANDIDATE_HIGH" and lat is not None and lon is not None:
+            elif is_candidate:
                 anchor_stops.append({
                     "stop_id": str(s.id),
                     "canonical_stop_id": s.canonical_stop_id,
@@ -258,7 +267,7 @@ class DeterministicGeometryEngine:
                     "sequence_order": rs.sequence_order,
                     "latitude": round(lat, 6),
                     "longitude": round(lon, 6),
-                    "stop_resolution_status": "CANDIDATE_HIGH",
+                    "stop_resolution_status": c5_status.upper() if c5_status else coord_status.upper(),
                     "render_exact_marker": False,
                     "render_candidate_marker": True,
                     "participates_in_first_mile": False,
@@ -324,6 +333,11 @@ class DeterministicGeometryEngine:
             final_coords = verified_coords
             is_avail = True
             notes = "Full verified sequence geometry available."
+        elif c5_geo and c5_geo.get("geometry_render_status") == "RENDERABLE_ROAD_FOLLOWING" and c5_geo.get("coordinates"):
+            render_status = "RENDERABLE_ROAD_FOLLOWING"
+            final_coords = [tuple(p) for p in c5_geo["coordinates"]]
+            is_avail = True
+            notes = "Continuous road-following route geometry verified."
         elif has_anchor_pins:
             render_status = "ANCHOR_ONLY"
             final_coords = []  # Fail-closed! Do not connect stops across unresolved gaps!
@@ -383,6 +397,8 @@ class DeterministicGeometryEngine:
             segments=segments,
             osm_relations_matched=osm_relations,
             suppressed_outliers=suppressed_outliers,
+            provenance=c5_geo.get("provenance") if c5_geo else None,
+            validation_metrics=c5_geo.get("validation_metrics") if c5_geo else None,
             notes=notes,
         )
 

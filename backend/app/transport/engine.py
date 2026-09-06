@@ -280,6 +280,8 @@ class TransitEngine:
                 "segments": payload.segments,
                 "osm_relations_matched": payload.osm_relations_matched,
                 "suppressed_outliers": payload.suppressed_outliers,
+                "provenance": payload.provenance,
+                "validation_metrics": payload.validation_metrics,
                 "stops_count": len(payload.anchor_stops),
                 "stops": [
                     {

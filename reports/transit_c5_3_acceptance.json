@@ -1,0 +1,77 @@
+{
+  "report_name": "transit_c5_3_acceptance",
+  "timestamp": "2026-09-06T05:01:56.228743+00:00",
+  "wave": "Wave C5.3 \u2014 Real Ama Bus / Mo Bus Route Geometry Recovery",
+  "status": "PASSED",
+  "baseline_coverage_c5_2": {
+    "safe_renderable_segment_count": 37,
+    "safe_product_polyline_coverage_pct": 2.79,
+    "total_segments": 1327
+  },
+  "achieved_coverage_c5_3": {
+    "safe_renderable_segment_count": 359,
+    "safe_product_polyline_coverage_pct": 27.05,
+    "total_segments": 1327,
+    "delta_recovered_segments": 322,
+    "growth_factor": 9.7
+  },
+  "segment_classification_breakdown": {
+    "RENDERABLE_EXACT": 37,
+    "RENDERABLE_ROAD_FOLLOWING": 322,
+    "ANCHOR_ONLY": 558,
+    "CORRIDOR_ONLY": 387,
+    "SUPPRESSED_OUTLIER": 23,
+    "UNAVAILABLE": 0
+  },
+  "route_geometry_confidence_breakdown": {
+    "VERIFIED_ROUTE_GEOMETRY": 103,
+    "HIGH_CONFIDENCE_ROUTE_GEOMETRY": 814,
+    "MEDIUM_CONFIDENCE_ROUTE_GEOMETRY": 410,
+    "UNAVAILABLE": 0
+  },
+  "sequence_level_summary": {
+    "total_sequences": 164,
+    "renderable_exact_sequences": 23,
+    "renderable_road_following_sequences": 62,
+    "anchor_only_sequences": 76,
+    "corridor_only_sequences": 3
+  },
+  "validation_results": {
+    "test_wave_c5_3_route_geometry_recovery": "13/13 PASSED",
+    "test_wave_c5_2_route_rendering": "11/11 PASSED",
+    "test_wave_c5_stop_resolution": "27/27 PASSED",
+    "frontend_vitest_transit_geometry_rendering": "4/4 PASSED",
+    "validate_canonical_transit": "PASS",
+    "validate_canonical_data_promotion": "0 Errors, 310 Warnings (PROMOTION APPROVED)",
+    "check_project_context": "PASS"
+  },
+  "canonical_invariants": {
+    "canonical_files_checked": 6,
+    "canonical_mutations": 0,
+    "status": "FULLY_PRESERVED"
+  },
+  "epistemic_truth_guarantees": {
+    "inferred_road_paths_classified_as": "HIGH_CONFIDENCE_ROUTE_GEOMETRY",
+    "osm_relations_classified_as": "VERIFIED_ROUTE_GEOMETRY",
+    "inferred_road_paths_never_verified": true,
+    "candidate_stops_participate_in_first_mile": false,
+    "fail_closed_unresolved_gaps_emit_empty_coords": true
+  },
+  "ponytail_review": {
+    "total_findings": 7,
+    "required_c5_3_fixes": 3,
+    "safe_simplifications": 3,
+    "rejected_suggestions": 1,
+    "governance": "Truth, provenance, and canonical invariants took absolute precedence."
+  },
+  "artifacts_generated": [
+    "scripts/compile_c5_route_geometry.py",
+    "data/transport/staging/ama_bus/osm_odisha_bus_relations_cache.json",
+    "data/transport/staging/ama_bus/road_network_geometry_cache.json",
+    "data/transport/staging/ama_bus/c5_route_geometry.json",
+    "data/transport/staging/ama_bus/c5_3_segment_resolution.json",
+    "reports/transit_c5_3_geometry_coverage.json",
+    "reports/transit_c5_3_manual_route_queue.json",
+    "reports/transit_c5_3_acceptance.json"
+  ]
+}

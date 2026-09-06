@@ -1,0 +1,34 @@
+{
+  "report_name": "transit_c5_3_before",
+  "timestamp": "2026-09-06T04:38:00+00:00",
+  "canonical_hashes": {
+    "routes.json": "5bb09c9fbc9098130dc7eeea3646497da6122787495f3f558763cfe6d6352268",
+    "stops.json": "62757946d292592c0ec598f4155019ac4f842e69b11709c2fed3934b8da844d6",
+    "route_stops.json": "2254d9beb75234dcfc2e2249d6476763db031c354d0b5ced0f045feaf04a14bb",
+    "schedules.json": "5dc055e71df836d8eab164a25e52a39e217b1b1567511f095d80ffd823f96c19",
+    "network.json": "3fc5958895736c53dc6f6fe6b3c138b98ab4cabbf819a8189faf8b1ec28fddf3",
+    "aliases.json": "96264b2868fc32ccca9b21421220be87dd3bab1c5f508a5f221cfd4be0693f7f"
+  },
+  "aliases_json_invariant_status": "PART_OF_CANONICAL_INVARIANT_SET",
+  "invariants": {
+    "total_routes": 154,
+    "total_route_sequence_groups": 164,
+    "total_canonical_stops": 1430,
+    "exact_geocoded_stops": 173,
+    "exact_stop_percentage": 12.1,
+    "canonical_schedules_count": 302,
+    "unique_departures": 5549
+  },
+  "c5_2_baseline_renderability": {
+    "total_segments": 1327,
+    "renderable_exact": 37,
+    "renderable_road_following": 0,
+    "anchor_only": 868,
+    "corridor_only": 388,
+    "suppressed_outlier": 34,
+    "unavailable": 0,
+    "safe_product_polyline_coverage_pct": 2.79,
+    "route_geometry_evidence_coverage_pct": 43.86
+  },
+  "status": "FORENSIC_SYNC_VERIFIED"
+}

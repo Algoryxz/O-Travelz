@@ -124,6 +124,8 @@ def get_route_geometry(route_id: str, db: Session = Depends(get_db)) -> dict[str
         "segments": payload.segments,
         "osm_relations_matched": payload.osm_relations_matched,
         "suppressed_outliers": payload.suppressed_outliers,
+        "provenance": payload.provenance,
+        "validation_metrics": payload.validation_metrics,
         "notes": payload.notes,
     }
 
