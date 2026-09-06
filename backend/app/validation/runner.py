@@ -13,7 +13,7 @@ from app.validation.profiles import CI_BLOCKING_CODES
 from app.validation.domains.identity import validate_identity
 from app.validation.domains.localization import validate_localization
 from app.validation.domains.provenance import validate_provenance
-from app.validation.domains.geospatial import validate_geospatial
+from app.validation.domains.geospatial import validate_geospatial, validate_geospatial_collection
 from app.validation.domains.relationships import validate_relationships
 from app.validation.domains.media import (
     validate_media_asset,
@@ -49,7 +49,13 @@ class UniversalValidator:
         check_translations: bool = True,
     ) -> None:
         # Check identifier
-        rec_id = record.get("id") or record.get("research_id") or record.get("stop_id") or record.get("route_id")
+        rec_id = (
+            record.get("id")
+            or record.get("candidate_id")
+            or record.get("research_id")
+            or record.get("stop_id")
+            or record.get("route_id")
+        )
         if not rec_id:
             from app.validation import codes
             report.add_issue(
@@ -61,25 +67,31 @@ class UniversalValidator:
                 evidence={"keys": list(record.keys())},
             )
 
+        # Fallback field resolution if specified fields are not directly present
+        actual_name_field = name_field if name_field in record else ("canonical_name" if "canonical_name" in record else name_field)
+        actual_source_field = source_field if source_field in record else ("provenance" if "provenance" in record else source_field)
+        actual_lat_field = lat_field if lat_field in record else ("latitude" if "latitude" in record else lat_field)
+        actual_lon_field = lon_field if lon_field in record else ("longitude" if "longitude" in record else lon_field)
+
         validate_localization(
             record=record,
             entity_type=entity_type,
             report=report,
-            name_field=name_field,
+            name_field=actual_name_field,
             check_translations=check_translations,
         )
         validate_provenance(
             record=record,
             entity_type=entity_type,
             report=report,
-            source_field=source_field,
+            source_field=actual_source_field,
         )
         validate_geospatial(
             record=record,
             entity_type=entity_type,
             report=report,
-            lat_field=lat_field,
-            lon_field=lon_field,
+            lat_field=actual_lat_field,
+            lon_field=actual_lon_field,
         )
         if entity_type in ("stop", "transit_stop", "locality_resolution"):
             validate_transit_stop(record, report)
@@ -102,6 +114,12 @@ class UniversalValidator:
             id_field=id_field,
             name_field=name_field,
             scope_fields=scope_fields,
+        )
+        validate_geospatial_collection(
+            records=records,
+            entity_type=entity_type,
+            report=report,
+            id_field=id_field,
         )
         for rec in records:
             self.validate_entity(

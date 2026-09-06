@@ -1,0 +1,734 @@
+[
+  {
+    "candidate_id": "c_134ef92cd26e",
+    "original_id": "round2_south_service_182",
+    "canonical_name": "Bharat Petroleum",
+    "entity_type": "FUEL_STATION",
+    "category": "petrol",
+    "district": "Ganjam",
+    "locality": "Ganjam",
+    "latitude": 19.0299,
+    "longitude": 84.619,
+    "coordinate_status": "APPROXIMATE_CENTROID",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/2278573823",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "Bharat Petroleum",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "STREET_SEGMENT",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "NEW_ENTITY",
+    "canonical_target_id": null,
+    "canonical_target_name": null,
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  },
+  {
+    "candidate_id": "c_387ee29b97e9",
+    "original_id": "round2_south_service_198",
+    "canonical_name": "Bharat Petroleum",
+    "entity_type": "FUEL_STATION",
+    "category": "petrol",
+    "district": "Nuapada",
+    "locality": "Nuapada",
+    "latitude": 20.896,
+    "longitude": 82.511,
+    "coordinate_status": "APPROXIMATE_CENTROID",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/5257365222",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "Bharat Petroleum",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "STREET_SEGMENT",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "NEW_ENTITY",
+    "canonical_target_id": null,
+    "canonical_target_name": null,
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  },
+  {
+    "candidate_id": "c_ed4d8f94ba23",
+    "original_id": "round2_south_service_199",
+    "canonical_name": "POLICE STATION",
+    "entity_type": "POLICE_STATION",
+    "category": "police",
+    "district": "Gajapati",
+    "locality": "Gajapati",
+    "latitude": 18.7734,
+    "longitude": 84.0971,
+    "coordinate_status": "VERIFIED_GEOSPATIAL",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/5529879781",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "POLICE STATION",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "FACILITY_FOOTPRINT",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "COLOCATED_DISTINCT",
+    "canonical_target_id": "stop_crut_berhampur_police_station",
+    "canonical_target_name": "Police Station",
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  },
+  {
+    "candidate_id": "c_cc29708be49b",
+    "original_id": "round2_south_service_200",
+    "canonical_name": "HP Petrol Pump",
+    "entity_type": "FUEL_STATION",
+    "category": "petrol",
+    "district": "Gajapati",
+    "locality": "Gajapati",
+    "latitude": 18.7855,
+    "longitude": 84.0905,
+    "coordinate_status": "VERIFIED_GEOSPATIAL",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/5531712977",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "HP Petrol Pump",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "FACILITY_FOOTPRINT",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "NEW_ENTITY",
+    "canonical_target_id": null,
+    "canonical_target_name": null,
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  },
+  {
+    "candidate_id": "c_d857a17c14bc",
+    "original_id": "round2_south_service_335",
+    "canonical_name": "Bharat Petroleum",
+    "entity_type": "FUEL_STATION",
+    "category": "petrol",
+    "district": "Malkangiri",
+    "locality": "Malkangiri",
+    "latitude": 18.4375,
+    "longitude": 81.6765,
+    "coordinate_status": "VERIFIED_GEOSPATIAL",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/8823242360",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "Bharat Petroleum",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "FACILITY_FOOTPRINT",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "NEW_ENTITY",
+    "canonical_target_id": null,
+    "canonical_target_name": null,
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  },
+  {
+    "candidate_id": "c_ba2bfcee609c",
+    "original_id": "round2_south_service_339",
+    "canonical_name": "HP Petrol Pump",
+    "entity_type": "FUEL_STATION",
+    "category": "petrol",
+    "district": "Nuapada",
+    "locality": "Nuapada",
+    "latitude": 20.4777,
+    "longitude": 82.9245,
+    "coordinate_status": "VERIFIED_GEOSPATIAL",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/9375565066",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "HP Petrol Pump",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "FACILITY_FOOTPRINT",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "NEW_ENTITY",
+    "canonical_target_id": null,
+    "canonical_target_name": null,
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  },
+  {
+    "candidate_id": "c_edc9d46d1489",
+    "original_id": "round2_south_service_345",
+    "canonical_name": "HP",
+    "entity_type": "FUEL_STATION",
+    "category": "petrol",
+    "district": "Malkangiri",
+    "locality": "Malkangiri",
+    "latitude": 18.0439,
+    "longitude": 82.035,
+    "coordinate_status": "APPROXIMATE_CENTROID",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/11573749340",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "HP",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "STREET_SEGMENT",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "NEW_ENTITY",
+    "canonical_target_id": null,
+    "canonical_target_name": null,
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  },
+  {
+    "candidate_id": "c_651182ff6750",
+    "original_id": "round2_south_service_355",
+    "canonical_name": "Indian Oil",
+    "entity_type": "FUEL_STATION",
+    "category": "petrol",
+    "district": "Gajapati",
+    "locality": "Gajapati",
+    "latitude": 18.716,
+    "longitude": 84.3528,
+    "coordinate_status": "APPROXIMATE_CENTROID",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/11828831661",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "Indian Oil",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "STREET_SEGMENT",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "NEW_ENTITY",
+    "canonical_target_id": null,
+    "canonical_target_name": null,
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  },
+  {
+    "candidate_id": "c_0b8fdcbb52b0",
+    "original_id": "round2_south_service_356",
+    "canonical_name": "Indian Oil",
+    "entity_type": "FUEL_STATION",
+    "category": "petrol",
+    "district": "Ganjam",
+    "locality": "Ganjam",
+    "latitude": 19.05,
+    "longitude": 84.6362,
+    "coordinate_status": "APPROXIMATE_CENTROID",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/11828831740",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "Indian Oil",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "LOCALITY",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "NEW_ENTITY",
+    "canonical_target_id": null,
+    "canonical_target_name": null,
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  },
+  {
+    "candidate_id": "c_640076cc9654",
+    "original_id": "round2_south_service_357",
+    "canonical_name": "HP",
+    "entity_type": "FUEL_STATION",
+    "category": "petrol",
+    "district": "Koraput",
+    "locality": "Koraput",
+    "latitude": 18.5267,
+    "longitude": 83.1329,
+    "coordinate_status": "VERIFIED_GEOSPATIAL",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/11829080778",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "HP",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "FACILITY_FOOTPRINT",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "NEW_ENTITY",
+    "canonical_target_id": null,
+    "canonical_target_name": null,
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  },
+  {
+    "candidate_id": "c_7af057f7635f",
+    "original_id": "round2_south_service_359",
+    "canonical_name": "Indian Oil",
+    "entity_type": "FUEL_STATION",
+    "category": "petrol",
+    "district": "Koraput",
+    "locality": "Koraput",
+    "latitude": 18.5994,
+    "longitude": 83.1783,
+    "coordinate_status": "VERIFIED_GEOSPATIAL",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/11933454448",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "Indian Oil",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "FACILITY_FOOTPRINT",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "NEW_ENTITY",
+    "canonical_target_id": null,
+    "canonical_target_name": null,
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  },
+  {
+    "candidate_id": "c_1d49973b06ea",
+    "original_id": "round2_south_service_364",
+    "canonical_name": "Bharat Petroleum",
+    "entity_type": "FUEL_STATION",
+    "category": "petrol",
+    "district": "Gajapati",
+    "locality": "Gajapati",
+    "latitude": 18.7144,
+    "longitude": 84.346,
+    "coordinate_status": "APPROXIMATE_CENTROID",
+    "locality_status": "VERIFIED_LOCALITY",
+    "phone": null,
+    "provenance": "OpenStreetMap (OSM)",
+    "source_url": "https://www.openstreetmap.org/node/12096810032",
+    "source_dataset": "data/research/round2/southern/services.json",
+    "verification_status": "VERIFIED_STAGED",
+    "localized_names": {
+      "en": "Bharat Petroleum",
+      "or": null,
+      "hi": null
+    },
+    "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+    "source": "OpenStreetMap (OSM)",
+    "source_authority": "PUBLIC_GEOSPATIAL",
+    "coordinate_precision": "STREET_SEGMENT",
+    "identity_status": "AMBIGUOUS_IDENTITY",
+    "canonical_overlap": "NEW_ENTITY",
+    "canonical_target_id": null,
+    "canonical_target_name": null,
+    "field_provenance": {
+      "name": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "coordinates": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": false
+      },
+      "district": {
+        "source": "OpenStreetMap (OSM)",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "category": {
+        "source": "data/research/round2/southern/services.json",
+        "authority": "PUBLIC_GEOSPATIAL",
+        "verified": true
+      },
+      "phone": {
+        "source": null,
+        "authority": null,
+        "verified": false
+      }
+    },
+    "blocking_reasons": [
+      "ID_AMBIGUOUS: Generic facility name unresolvable to a specific physical location."
+    ]
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-09-06T02:20:36.443962+00:00",
+  "total_candidates": 790,
+  "partition_counts": {
+    "READY_FOR_CANONICAL_NEW": 189,
+    "READY_FOR_CANONICAL_ENRICHMENT": 12,
+    "REVIEW_REQUIRED": 577,
+    "BLOCKED": 12
+  },
+  "category_summary": {
+    "HOSPITAL": {
+      "total": 282,
+      "ready_new": 52,
+      "ready_enrichment": 12,
+      "review_required": 218,
+      "blocked": 0
+    },
+    "POLICE_STATION": {
+      "total": 147,
+      "ready_new": 34,
+      "ready_enrichment": 0,
+      "review_required": 112,
+      "blocked": 1
+    },
+    "FUEL_STATION": {
+      "total": 166,
+      "ready_new": 31,
+      "ready_enrichment": 0,
+      "review_required": 124,
+      "blocked": 11
+    },
+    "ATM": {
+      "total": 178,
+      "ready_new": 63,
+      "ready_enrichment": 0,
+      "review_required": 115,
+      "blocked": 0
+    },
+    "FIRE_STATION": {
+      "total": 17,
+      "ready_new": 9,
+      "ready_enrichment": 0,
+      "review_required": 8,
+      "blocked": 0
+    }
+  },
+  "accounting_invariant_passed": true
+}

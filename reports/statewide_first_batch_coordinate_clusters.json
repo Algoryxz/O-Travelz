@@ -1,0 +1,4341 @@
+{
+  "generated_at": "2026-09-06T02:20:36.431953+00:00",
+  "total_clusters": 86,
+  "classification_breakdown": {
+    "LIKELY_TOWN_CENTROID": 56,
+    "SHARED_COMPLEX": 1,
+    "SUSPECTED_CROSS_CATEGORY_REUSE": 27,
+    "PLAUSIBLE_COLOCATION": 2
+  },
+  "clusters": [
+    {
+      "coordinate": {
+        "latitude": 21.5035,
+        "longitude": 83.8712
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "burla",
+        "burla town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_001",
+          "canonical_name": "Veer Surendra Sai Institute of Medical Sciences and Research (VIMSAR)",
+          "entity_type": "HOSPITAL",
+          "district": "Sambalpur",
+          "locality": "Burla",
+          "provenance": "VIMSAR Burla Official Portal",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_004",
+          "canonical_name": "Burla Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Sambalpur",
+          "locality": "Burla Town",
+          "provenance": "Sambalpur Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_003",
+          "canonical_name": "SBI ATM VIMSAR Campus Burla",
+          "entity_type": "ATM",
+          "district": "Sambalpur",
+          "locality": "Burla",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_006",
+          "canonical_name": "Burla Service Station (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sambalpur",
+          "locality": "Burla",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.7481,
+        "longitude": 84.3542
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "kuchinda",
+        "kuchinda town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_003",
+          "canonical_name": "Sub-Divisional Hospital Kuchinda",
+          "entity_type": "HOSPITAL",
+          "district": "Sambalpur",
+          "locality": "Kuchinda Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_007",
+          "canonical_name": "Kuchinda Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Sambalpur",
+          "locality": "Kuchinda",
+          "provenance": "Sambalpur Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_013",
+          "canonical_name": "Bank of Baroda ATM Kuchinda",
+          "entity_type": "ATM",
+          "district": "Sambalpur",
+          "locality": "Kuchinda",
+          "provenance": "Bank of Baroda Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_008",
+          "canonical_name": "Kuchinda Auto Care (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sambalpur",
+          "locality": "Kuchinda Town",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.0094,
+        "longitude": 84.3421
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "rairakhol",
+        "rairakhol town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_004",
+          "canonical_name": "Sub-Divisional Hospital Rairakhol",
+          "entity_type": "HOSPITAL",
+          "district": "Sambalpur",
+          "locality": "Rairakhol Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_008",
+          "canonical_name": "Rairakhol Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Sambalpur",
+          "locality": "Rairakhol",
+          "provenance": "Sambalpur Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_014",
+          "canonical_name": "Union Bank of India ATM Rairakhol",
+          "entity_type": "ATM",
+          "district": "Sambalpur",
+          "locality": "Rairakhol",
+          "provenance": "Union Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_009",
+          "canonical_name": "Rairakhol Highway Station (BPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sambalpur",
+          "locality": "Rairakhol",
+          "provenance": "Bharat Petroleum Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.4891,
+        "longitude": 83.9764
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "ainthapali"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_011",
+          "canonical_name": "Ashwini Hospital Sambalpur",
+          "entity_type": "HOSPITAL",
+          "district": "Sambalpur",
+          "locality": "Ainthapali",
+          "provenance": "Ashwini Hospital Group",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_003",
+          "canonical_name": "Ainthapali Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Sambalpur",
+          "locality": "Ainthapali",
+          "provenance": "Sambalpur Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_008",
+          "canonical_name": "ICICI Bank ATM Ainthapali",
+          "entity_type": "ATM",
+          "district": "Sambalpur",
+          "locality": "Ainthapali",
+          "provenance": "ICICI Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_011",
+          "canonical_name": "Jio-bp Mobility Station Sambalpur",
+          "entity_type": "FUEL_STATION",
+          "district": "Sambalpur",
+          "locality": "Ainthapali",
+          "provenance": "Jio-bp Station Finder",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.9981,
+        "longitude": 83.0642
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "bargarh"
+      ],
+      "localities": [
+        "padampur",
+        "padampur town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_014",
+          "canonical_name": "Sub-Divisional Hospital Padampur",
+          "entity_type": "HOSPITAL",
+          "district": "Bargarh",
+          "locality": "Padampur Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_023",
+          "canonical_name": "Padampur Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Bargarh",
+          "locality": "Padampur",
+          "provenance": "Bargarh Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_023",
+          "canonical_name": "Axis Bank ATM Padampur",
+          "entity_type": "ATM",
+          "district": "Bargarh",
+          "locality": "Padampur",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_016",
+          "canonical_name": "L N Gasoline (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Bargarh",
+          "locality": "Padampur",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.3982,
+        "longitude": 83.7781
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "bargarh"
+      ],
+      "localities": [
+        "attabira"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_016",
+          "canonical_name": "Community Health Centre Attabira",
+          "entity_type": "HOSPITAL",
+          "district": "Bargarh",
+          "locality": "Attabira",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_025",
+          "canonical_name": "Attabira Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Bargarh",
+          "locality": "Attabira",
+          "provenance": "Bargarh Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_021",
+          "canonical_name": "ICICI Bank ATM Attabira",
+          "entity_type": "ATM",
+          "district": "Bargarh",
+          "locality": "Attabira",
+          "provenance": "ICICI Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_020",
+          "canonical_name": "Attabira Highway Station (BPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Bargarh",
+          "locality": "Attabira",
+          "provenance": "Bharat Petroleum Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.1642,
+        "longitude": 83.4215
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "bargarh"
+      ],
+      "localities": [
+        "sohela"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_018",
+          "canonical_name": "Community Health Centre Sohela",
+          "entity_type": "HOSPITAL",
+          "district": "Bargarh",
+          "locality": "Sohela",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_024",
+          "canonical_name": "Sohela Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Bargarh",
+          "locality": "Sohela",
+          "provenance": "Bargarh Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_025",
+          "canonical_name": "Bank of Baroda ATM Sohela",
+          "entity_type": "ATM",
+          "district": "Bargarh",
+          "locality": "Sohela",
+          "provenance": "Bank of Baroda Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_021",
+          "canonical_name": "Sohela Kisan Seva Kendra (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Bargarh",
+          "locality": "Sohela",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.9182,
+        "longitude": 82.8124
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "bargarh"
+      ],
+      "localities": [
+        "paikmal"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_021",
+          "canonical_name": "Community Health Centre Paikmal",
+          "entity_type": "HOSPITAL",
+          "district": "Bargarh",
+          "locality": "Paikmal",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_026",
+          "canonical_name": "Paikmal Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Bargarh",
+          "locality": "Paikmal",
+          "provenance": "Bargarh Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_026",
+          "canonical_name": "Canara Bank ATM Paikmal",
+          "entity_type": "ATM",
+          "district": "Bargarh",
+          "locality": "Paikmal",
+          "provenance": "Canara Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_023",
+          "canonical_name": "Paikmal Service Station (Nayara Energy)",
+          "entity_type": "FUEL_STATION",
+          "district": "Bargarh",
+          "locality": "Paikmal",
+          "provenance": "Nayara Energy Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.7582,
+        "longitude": 83.7214
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "jharsuguda"
+      ],
+      "localities": [
+        "lakhanpur"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_024",
+          "canonical_name": "Sub-Divisional Hospital Lakhanpur",
+          "entity_type": "HOSPITAL",
+          "district": "Jharsuguda",
+          "locality": "Lakhanpur",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_032",
+          "canonical_name": "Lakhanpur Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Jharsuguda",
+          "locality": "Lakhanpur",
+          "provenance": "Jharsuguda Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_036",
+          "canonical_name": "Punjab National Bank ATM Lakhanpur",
+          "entity_type": "ATM",
+          "district": "Jharsuguda",
+          "locality": "Lakhanpur",
+          "provenance": "PNB Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_031",
+          "canonical_name": "Lakhanpur Highway Fuel Point (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Jharsuguda",
+          "locality": "Lakhanpur",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.8214,
+        "longitude": 83.8642
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "jharsuguda"
+      ],
+      "localities": [
+        "belpahar"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_026",
+          "canonical_name": "Community Health Centre Belpahar",
+          "entity_type": "HOSPITAL",
+          "district": "Jharsuguda",
+          "locality": "Belpahar",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_030",
+          "canonical_name": "Belpahar Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Jharsuguda",
+          "locality": "Belpahar",
+          "provenance": "Jharsuguda Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_027",
+          "canonical_name": "SBI ATM Belpahar",
+          "entity_type": "ATM",
+          "district": "Jharsuguda",
+          "locality": "Belpahar",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_030",
+          "canonical_name": "Belpahar Service Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Jharsuguda",
+          "locality": "Belpahar",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.8541,
+        "longitude": 84.0052
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "jharsuguda"
+      ],
+      "localities": [
+        "gandhi chowk",
+        "railway colony",
+        "sarbahal",
+        "town center"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_031",
+          "canonical_name": "Railway Hospital Jharsuguda",
+          "entity_type": "HOSPITAL",
+          "district": "Jharsuguda",
+          "locality": "Railway Colony",
+          "provenance": "South Eastern Railway Medical Division",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_028",
+          "canonical_name": "Jharsuguda Sadar Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Jharsuguda",
+          "locality": "Sarbahal",
+          "provenance": "Jharsuguda Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_028",
+          "canonical_name": "SBI Branch Attached ATM Jharsuguda Main",
+          "entity_type": "ATM",
+          "district": "Jharsuguda",
+          "locality": "Town Center",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_026",
+          "canonical_name": "Annapurna Fuel Centre (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Jharsuguda",
+          "locality": "Gandhi Chowk",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.1182,
+        "longitude": 84.0321
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "sundargarh town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_034",
+          "canonical_name": "District Headquarters Hospital Sundargarh",
+          "entity_type": "HOSPITAL",
+          "district": "Sundargarh",
+          "locality": "Sundargarh Town",
+          "provenance": "District Administration Sundargarh",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_017",
+          "canonical_name": "Sundargarh Town Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Sundargarh",
+          "locality": "Sundargarh Town",
+          "provenance": "Sundargarh District Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_050",
+          "canonical_name": "Axis Bank ATM Sundargarh Main",
+          "entity_type": "ATM",
+          "district": "Sundargarh",
+          "locality": "Sundargarh Town",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_040",
+          "canonical_name": "Sundargarh Town Filling Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Sundargarh Town",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.8152,
+        "longitude": 84.9621
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "bonaigarh"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_038",
+          "canonical_name": "Sub-Divisional Hospital Bonai",
+          "entity_type": "HOSPITAL",
+          "district": "Sundargarh",
+          "locality": "Bonaigarh",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_018",
+          "canonical_name": "Bonai Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Sundargarh",
+          "locality": "Bonaigarh",
+          "provenance": "Sundargarh Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_052",
+          "canonical_name": "Bank of Baroda ATM Bonai",
+          "entity_type": "ATM",
+          "district": "Sundargarh",
+          "locality": "Bonaigarh",
+          "provenance": "Bank of Baroda Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_042",
+          "canonical_name": "Bonai Highway Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Bonaigarh",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.1852,
+        "longitude": 84.5821
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "rajgangpur",
+        "rajgangpur town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_039",
+          "canonical_name": "Sub-Divisional Hospital Rajgangpur",
+          "entity_type": "HOSPITAL",
+          "district": "Sundargarh",
+          "locality": "Rajgangpur Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_016",
+          "canonical_name": "Rajgangpur Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Sundargarh",
+          "locality": "Rajgangpur",
+          "provenance": "Sundargarh District Administration",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_051",
+          "canonical_name": "Punjab National Bank ATM Rajgangpur",
+          "entity_type": "ATM",
+          "district": "Sundargarh",
+          "locality": "Rajgangpur",
+          "provenance": "PNB Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_041",
+          "canonical_name": "Rajgangpur Fuel Center (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Rajgangpur",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.7152,
+        "longitude": 83.1321
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "balangir"
+      ],
+      "localities": [
+        "patnagarh",
+        "patnagarh town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_045",
+          "canonical_name": "Sub-Divisional Hospital Patnagarh",
+          "entity_type": "HOSPITAL",
+          "district": "Balangir",
+          "locality": "Patnagarh Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_035",
+          "canonical_name": "Patnagarh Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Balangir",
+          "locality": "Patnagarh",
+          "provenance": "Balangir Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_064",
+          "canonical_name": "Axis Bank ATM Patnagarh",
+          "entity_type": "ATM",
+          "district": "Balangir",
+          "locality": "Patnagarh",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_054",
+          "canonical_name": "Patnagarh Fuel Centre (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Balangir",
+          "locality": "Patnagarh",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.2981,
+        "longitude": 83.1481
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "balangir"
+      ],
+      "localities": [
+        "titilagarh",
+        "titilagarh town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_046",
+          "canonical_name": "Sub-Divisional Hospital Titilagarh",
+          "entity_type": "HOSPITAL",
+          "district": "Balangir",
+          "locality": "Titilagarh Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_036",
+          "canonical_name": "Titilagarh Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Balangir",
+          "locality": "Titilagarh",
+          "provenance": "Balangir Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_059",
+          "canonical_name": "HDFC Bank ATM Titilagarh Road",
+          "entity_type": "ATM",
+          "district": "Balangir",
+          "locality": "Titilagarh",
+          "provenance": "HDFC Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_055",
+          "canonical_name": "Titilagarh Junction Service Station (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Balangir",
+          "locality": "Titilagarh",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.4782,
+        "longitude": 82.9152
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "balangir"
+      ],
+      "localities": [
+        "kantabanji",
+        "kantabanji town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_047",
+          "canonical_name": "Community Health Centre Kantabanji",
+          "entity_type": "HOSPITAL",
+          "district": "Balangir",
+          "locality": "Kantabanji Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_037",
+          "canonical_name": "Kantabanji Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Balangir",
+          "locality": "Kantabanji",
+          "provenance": "Balangir Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_062",
+          "canonical_name": "ICICI Bank ATM Kantabanji",
+          "entity_type": "ATM",
+          "district": "Balangir",
+          "locality": "Kantabanji",
+          "provenance": "ICICI Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_056",
+          "canonical_name": "Kantabanji Highway Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Balangir",
+          "locality": "Kantabanji",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.8852,
+        "longitude": 84.0512
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "subarnapur"
+      ],
+      "localities": [
+        "birmaharajpur"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_051",
+          "canonical_name": "Sub-Divisional Hospital Birmaharajpur",
+          "entity_type": "HOSPITAL",
+          "district": "Subarnapur",
+          "locality": "Birmaharajpur",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_054",
+          "canonical_name": "Birmaharajpur Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Subarnapur",
+          "locality": "Birmaharajpur",
+          "provenance": "Subarnapur Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_090",
+          "canonical_name": "Punjab National Bank ATM Birmaharajpur",
+          "entity_type": "ATM",
+          "district": "Subarnapur",
+          "locality": "Birmaharajpur",
+          "provenance": "PNB Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_078",
+          "canonical_name": "Maa Santoshi Filling Station (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Subarnapur",
+          "locality": "Birmaharajpur",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.7381,
+        "longitude": 83.7812
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "subarnapur"
+      ],
+      "localities": [
+        "tarbha"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_053",
+          "canonical_name": "Community Health Centre Tarbha",
+          "entity_type": "HOSPITAL",
+          "district": "Subarnapur",
+          "locality": "Tarbha",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_055",
+          "canonical_name": "Tarbha Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Subarnapur",
+          "locality": "Tarbha",
+          "provenance": "Subarnapur Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_089",
+          "canonical_name": "SBI ATM Tarbha",
+          "entity_type": "ATM",
+          "district": "Subarnapur",
+          "locality": "Tarbha",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_077",
+          "canonical_name": "Om Shree Sai Filling Station (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Subarnapur",
+          "locality": "Tarbha",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.5582,
+        "longitude": 84.9512
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "deogarh"
+      ],
+      "localities": [
+        "barkote",
+        "masinta"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_055",
+          "canonical_name": "Community Health Centre Barkote",
+          "entity_type": "HOSPITAL",
+          "district": "Deogarh",
+          "locality": "Barkote",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_069",
+          "canonical_name": "Barkote Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Deogarh",
+          "locality": "Barkote",
+          "provenance": "Deogarh Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_111",
+          "canonical_name": "SBI ATM Barkote",
+          "entity_type": "ATM",
+          "district": "Deogarh",
+          "locality": "Barkote",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_096",
+          "canonical_name": "Sahil Fuel Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Deogarh",
+          "locality": "Masinta",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.8512,
+        "longitude": 83.9812
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "boudh"
+      ],
+      "localities": [
+        "manamunda"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_058",
+          "canonical_name": "Community Health Centre Manamunda",
+          "entity_type": "HOSPITAL",
+          "district": "Boudh",
+          "locality": "Manamunda",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_066",
+          "canonical_name": "Manamunda Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Boudh",
+          "locality": "Manamunda",
+          "provenance": "Boudh Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_105",
+          "canonical_name": "SBI ATM Manamunda",
+          "entity_type": "ATM",
+          "district": "Boudh",
+          "locality": "Manamunda",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_091",
+          "canonical_name": "Manamunda Highway Fuel Station (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Boudh",
+          "locality": "Manamunda",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.1812,
+        "longitude": 82.5812
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "nuapada"
+      ],
+      "localities": [
+        "sinapali"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_064",
+          "canonical_name": "Community Health Centre Sinapali",
+          "entity_type": "HOSPITAL",
+          "district": "Nuapada",
+          "locality": "Sinapali",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_061",
+          "canonical_name": "Sinapali Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Nuapada",
+          "locality": "Sinapali",
+          "provenance": "Nuapada Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_097",
+          "canonical_name": "ICICI Bank ATM Sinapali",
+          "entity_type": "ATM",
+          "district": "Nuapada",
+          "locality": "Sinapali",
+          "provenance": "ICICI Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_086",
+          "canonical_name": "Jagabandhu Fuels (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Nuapada",
+          "locality": "Sinapali",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 19.9052,
+        "longitude": 83.1681
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "kalahandi"
+      ],
+      "localities": [
+        "college road",
+        "g chowk",
+        "ghodaghat chowk",
+        "town center"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_066",
+          "canonical_name": "District Headquarters Hospital Kalahandi",
+          "entity_type": "HOSPITAL",
+          "district": "Kalahandi",
+          "locality": "Town Center",
+          "provenance": "District Administration Kalahandi",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_041",
+          "canonical_name": "Bhawanipatna Sadar Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Kalahandi",
+          "locality": "Ghodaghat Chowk",
+          "provenance": "Kalahandi Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_068",
+          "canonical_name": "ICICI Bank ATM College Road Bhawanipatna",
+          "entity_type": "ATM",
+          "district": "Kalahandi",
+          "locality": "College Road",
+          "provenance": "ICICI Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_058",
+          "canonical_name": "Hare Krishna Filling Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kalahandi",
+          "locality": "G Chowk",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 19.8612,
+        "longitude": 82.9381
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "kalahandi"
+      ],
+      "localities": [
+        "junagarh"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_069",
+          "canonical_name": "Community Health Centre Junagarh",
+          "entity_type": "HOSPITAL",
+          "district": "Kalahandi",
+          "locality": "Junagarh",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_044",
+          "canonical_name": "Junagarh Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Kalahandi",
+          "locality": "Junagarh",
+          "provenance": "Kalahandi Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_072",
+          "canonical_name": "Punjab National Bank ATM Junagarh",
+          "entity_type": "ATM",
+          "district": "Kalahandi",
+          "locality": "Junagarh",
+          "provenance": "PNB Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_065",
+          "canonical_name": "Junagarh Service Station (BPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kalahandi",
+          "locality": "Junagarh",
+          "provenance": "Bharat Petroleum Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 19.7124,
+        "longitude": 83.3812
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "kalahandi"
+      ],
+      "localities": [
+        "lanjigarh"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_071",
+          "canonical_name": "Community Health Centre Lanjigarh",
+          "entity_type": "HOSPITAL",
+          "district": "Kalahandi",
+          "locality": "Lanjigarh",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_046",
+          "canonical_name": "Lanjigarh Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Kalahandi",
+          "locality": "Lanjigarh",
+          "provenance": "Kalahandi Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_074",
+          "canonical_name": "Union Bank of India ATM Lanjigarh",
+          "entity_type": "ATM",
+          "district": "Kalahandi",
+          "locality": "Lanjigarh",
+          "provenance": "Union Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_066",
+          "canonical_name": "Lanjigarh Industrial Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kalahandi",
+          "locality": "Lanjigarh",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.4781,
+        "longitude": 84.2312
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "kandhamal"
+      ],
+      "localities": [
+        "dapaju",
+        "hatapada",
+        "phulbani town",
+        "ziringpada"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_072",
+          "canonical_name": "District Headquarters Hospital Phulbani",
+          "entity_type": "HOSPITAL",
+          "district": "Kandhamal",
+          "locality": "Phulbani Town",
+          "provenance": "District Administration Kandhamal",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_048",
+          "canonical_name": "Phulbani Sadar Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Kandhamal",
+          "locality": "Dapaju",
+          "provenance": "Kandhamal Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_075",
+          "canonical_name": "Axis Bank ATM Hatapada Phulbani",
+          "entity_type": "ATM",
+          "district": "Kandhamal",
+          "locality": "Hatapada",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_067",
+          "canonical_name": "Sainath Fuels (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kandhamal",
+          "locality": "Ziringpada",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.2081,
+        "longitude": 83.9112
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "kandhamal"
+      ],
+      "localities": [
+        "balliguda",
+        "balliguda town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_073",
+          "canonical_name": "Sub-Divisional Hospital Balliguda",
+          "entity_type": "HOSPITAL",
+          "district": "Kandhamal",
+          "locality": "Balliguda Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_049",
+          "canonical_name": "Balliguda Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Kandhamal",
+          "locality": "Balliguda",
+          "provenance": "Kandhamal Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_079",
+          "canonical_name": "SBI ATM Balliguda",
+          "entity_type": "ATM",
+          "district": "Kandhamal",
+          "locality": "Balliguda",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_069",
+          "canonical_name": "Balliguda Service Station (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kandhamal",
+          "locality": "Balliguda",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.1312,
+        "longitude": 84.3812
+      },
+      "member_count": 4,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "kandhamal"
+      ],
+      "localities": [
+        "g. udayagiri"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 4 unrelated facilities across 4 categories (ATM, FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_074",
+          "canonical_name": "Community Health Centre G. Udayagiri",
+          "entity_type": "HOSPITAL",
+          "district": "Kandhamal",
+          "locality": "G. Udayagiri",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_050",
+          "canonical_name": "G. Udayagiri Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Kandhamal",
+          "locality": "G. Udayagiri",
+          "provenance": "Kandhamal Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_080",
+          "canonical_name": "SBI ATM G. Udayagiri",
+          "entity_type": "ATM",
+          "district": "Kandhamal",
+          "locality": "G. Udayagiri",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_070",
+          "canonical_name": "G. Udayagiri Fuel Centre (BPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kandhamal",
+          "locality": "G. Udayagiri",
+          "provenance": "Bharat Petroleum Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.4682,
+        "longitude": 83.9785
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "hill view colony",
+        "kacheri chhak",
+        "modipara"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_002",
+          "canonical_name": "District Headquarters Hospital Sambalpur",
+          "entity_type": "HOSPITAL",
+          "district": "Sambalpur",
+          "locality": "Kacheri Chhak",
+          "provenance": "District Administration Sambalpur",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_001",
+          "canonical_name": "SBI ATM Hill View Colony",
+          "entity_type": "ATM",
+          "district": "Sambalpur",
+          "locality": "Hill View Colony",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_001",
+          "canonical_name": "Sambalpur Filling Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sambalpur",
+          "locality": "Modipara",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.4589,
+        "longitude": 83.9682
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "khetrajpur"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_012",
+          "canonical_name": "Railway Hospital Sambalpur",
+          "entity_type": "HOSPITAL",
+          "district": "Sambalpur",
+          "locality": "Khetrajpur",
+          "provenance": "East Coast Railway Medical Division",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_002",
+          "canonical_name": "Sambalpur Sadar Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Sambalpur",
+          "locality": "Khetrajpur",
+          "provenance": "Sambalpur District Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_004",
+          "canonical_name": "SBI ATM Sambalpur Junction Railway Station",
+          "entity_type": "ATM",
+          "district": "Sambalpur",
+          "locality": "Khetrajpur",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.8152,
+        "longitude": 83.9214
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "jharsuguda"
+      ],
+      "localities": [
+        "brajrajnagar",
+        "brajrajnagar town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_025",
+          "canonical_name": "Community Health Centre Brajrajnagar",
+          "entity_type": "HOSPITAL",
+          "district": "Jharsuguda",
+          "locality": "Brajrajnagar Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_033",
+          "canonical_name": "ICICI Bank ATM Brajrajnagar",
+          "entity_type": "ATM",
+          "district": "Jharsuguda",
+          "locality": "Brajrajnagar",
+          "provenance": "ICICI Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_024",
+          "canonical_name": "Shree Fuels (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Jharsuguda",
+          "locality": "Brajrajnagar",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.8124,
+        "longitude": 84.1352
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "jharsuguda"
+      ],
+      "localities": [
+        "kolabira"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_027",
+          "canonical_name": "Community Health Centre Kolabira",
+          "entity_type": "HOSPITAL",
+          "district": "Jharsuguda",
+          "locality": "Kolabira",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_037",
+          "canonical_name": "Union Bank of India ATM Kolabira",
+          "entity_type": "ATM",
+          "district": "Jharsuguda",
+          "locality": "Kolabira",
+          "provenance": "Union Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_032",
+          "canonical_name": "Kolabira Service Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Jharsuguda",
+          "locality": "Kolabira",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.8612,
+        "longitude": 84.0182
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "jharsuguda"
+      ],
+      "localities": [
+        "sarbahal"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_032",
+          "canonical_name": "Heritage Hospital Jharsuguda",
+          "entity_type": "HOSPITAL",
+          "district": "Jharsuguda",
+          "locality": "Sarbahal",
+          "provenance": "District Administration Jharsuguda",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_032",
+          "canonical_name": "ICICI Bank ATM Sarbahal Road",
+          "entity_type": "ATM",
+          "district": "Jharsuguda",
+          "locality": "Sarbahal",
+          "provenance": "ICICI Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_033",
+          "canonical_name": "Jio-bp Mobility Station Jharsuguda",
+          "entity_type": "FUEL_STATION",
+          "district": "Jharsuguda",
+          "locality": "Sarbahal",
+          "provenance": "Jio-bp Station Finder",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.2341,
+        "longitude": 84.8252
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "panposh"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_037",
+          "canonical_name": "Rourkela Government Hospital (RGH)",
+          "entity_type": "HOSPITAL",
+          "district": "Sundargarh",
+          "locality": "Panposh",
+          "provenance": "District Administration Sundargarh",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_045",
+          "canonical_name": "HDFC Bank ATM Panposh",
+          "entity_type": "ATM",
+          "district": "Sundargarh",
+          "locality": "Panposh",
+          "provenance": "HDFC Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_037",
+          "canonical_name": "Utkal Automotive Petrol Pump (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Panposh",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.7124,
+        "longitude": 83.4881
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "balangir"
+      ],
+      "localities": [
+        "balangir town",
+        "sambalpur road",
+        "town center"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_044",
+          "canonical_name": "District Headquarters Hospital Balangir",
+          "entity_type": "HOSPITAL",
+          "district": "Balangir",
+          "locality": "Balangir Town",
+          "provenance": "District Administration Balangir",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_056",
+          "canonical_name": "SBI Branch Attached ATM Balangir Main",
+          "entity_type": "ATM",
+          "district": "Balangir",
+          "locality": "Town Center",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_048",
+          "canonical_name": "Siddha Filling Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Balangir",
+          "locality": "Sambalpur Road",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.4321,
+        "longitude": 83.3621
+      },
+      "member_count": 3,
+      "categories": [
+        "FUEL_STATION",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "balangir"
+      ],
+      "localities": [
+        "saintala"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (FUEL_STATION, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_048",
+          "canonical_name": "Community Health Centre Saintala",
+          "entity_type": "HOSPITAL",
+          "district": "Balangir",
+          "locality": "Saintala",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_038",
+          "canonical_name": "Saintala Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Balangir",
+          "locality": "Saintala",
+          "provenance": "Balangir Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_057",
+          "canonical_name": "Saintala Kisan Seva Kendra (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Balangir",
+          "locality": "Saintala",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.8412,
+        "longitude": 83.9152
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "subarnapur"
+      ],
+      "localities": [
+        "biramitra road",
+        "sonepur bazar",
+        "sonepur town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_050",
+          "canonical_name": "District Headquarters Hospital Subarnapur",
+          "entity_type": "HOSPITAL",
+          "district": "Subarnapur",
+          "locality": "Sonepur Town",
+          "provenance": "District Administration Subarnapur",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_084",
+          "canonical_name": "Axis Bank ATM Biramitra Road Sonepur",
+          "entity_type": "ATM",
+          "district": "Subarnapur",
+          "locality": "Biramitra Road",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_074",
+          "canonical_name": "Jai Jawan Filling Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Subarnapur",
+          "locality": "Sonepur Bazar",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.9312,
+        "longitude": 83.9512
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "subarnapur"
+      ],
+      "localities": [
+        "ullunda"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_052",
+          "canonical_name": "Community Health Centre Ullunda",
+          "entity_type": "HOSPITAL",
+          "district": "Subarnapur",
+          "locality": "Ullunda",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_057",
+          "canonical_name": "Ullunda Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Subarnapur",
+          "locality": "Ullunda",
+          "provenance": "Subarnapur Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_091",
+          "canonical_name": "UCO Bank ATM Ullunda",
+          "entity_type": "ATM",
+          "district": "Subarnapur",
+          "locality": "Ullunda",
+          "provenance": "UCO Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.5352,
+        "longitude": 84.7352
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "deogarh"
+      ],
+      "localities": [
+        "balam",
+        "deogarh town",
+        "vitiriasahi"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_054",
+          "canonical_name": "District Headquarters Hospital Deogarh",
+          "entity_type": "HOSPITAL",
+          "district": "Deogarh",
+          "locality": "Deogarh Town",
+          "provenance": "District Administration Deogarh",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_107",
+          "canonical_name": "Axis Bank ATM Vitiriasahi Deogarh",
+          "entity_type": "ATM",
+          "district": "Deogarh",
+          "locality": "Vitiriasahi",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_094",
+          "canonical_name": "Dhanpatrai & Sons Fuel Centre (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Deogarh",
+          "locality": "Balam",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.3412,
+        "longitude": 84.6312
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "deogarh"
+      ],
+      "localities": [
+        "reamal"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_056",
+          "canonical_name": "Community Health Centre Reamal",
+          "entity_type": "HOSPITAL",
+          "district": "Deogarh",
+          "locality": "Reamal",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_070",
+          "canonical_name": "Reamal Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Deogarh",
+          "locality": "Reamal",
+          "provenance": "Deogarh Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_112",
+          "canonical_name": "Punjab National Bank ATM Reamal",
+          "entity_type": "ATM",
+          "district": "Deogarh",
+          "locality": "Reamal",
+          "provenance": "PNB Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.8412,
+        "longitude": 84.3252
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "boudh"
+      ],
+      "localities": [
+        "boudh town",
+        "boudhgarh",
+        "gambhari padar"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_057",
+          "canonical_name": "District Headquarters Hospital Boudh",
+          "entity_type": "HOSPITAL",
+          "district": "Boudh",
+          "locality": "Boudh Town",
+          "provenance": "District Administration Boudh",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_100",
+          "canonical_name": "Axis Bank ATM LICI Building Boudh",
+          "entity_type": "ATM",
+          "district": "Boudh",
+          "locality": "Boudhgarh",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_088",
+          "canonical_name": "Aditya Filling Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Boudh",
+          "locality": "Gambhari Padar",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.7124,
+        "longitude": 84.5124
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "boudh"
+      ],
+      "localities": [
+        "harbhanga"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_059",
+          "canonical_name": "Community Health Centre Harbhanga",
+          "entity_type": "HOSPITAL",
+          "district": "Boudh",
+          "locality": "Harbhanga",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_106",
+          "canonical_name": "Punjab National Bank ATM Harbhanga",
+          "entity_type": "ATM",
+          "district": "Boudh",
+          "locality": "Harbhanga",
+          "provenance": "PNB Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_093",
+          "canonical_name": "Harbhanga Kisan Seva Kendra (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Boudh",
+          "locality": "Harbhanga",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.8352,
+        "longitude": 82.5182
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "nuapada"
+      ],
+      "localities": [
+        "forest office road",
+        "nuapada town",
+        "parkod"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_061",
+          "canonical_name": "District Headquarters Hospital Nuapada",
+          "entity_type": "HOSPITAL",
+          "district": "Nuapada",
+          "locality": "Nuapada Town",
+          "provenance": "District Administration Nuapada",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_092",
+          "canonical_name": "Axis Bank ATM Shreeram Complex Nuapada",
+          "entity_type": "ATM",
+          "district": "Nuapada",
+          "locality": "Forest Office Road",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_081",
+          "canonical_name": "Lakhmania Service Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Nuapada",
+          "locality": "Parkod",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.3981,
+        "longitude": 82.5412
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "HOSPITAL",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "nuapada"
+      ],
+      "localities": [
+        "boden"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, HOSPITAL, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_063",
+          "canonical_name": "Community Health Centre Boden",
+          "entity_type": "HOSPITAL",
+          "district": "Nuapada",
+          "locality": "Boden",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "police_west_062",
+          "canonical_name": "Boden Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Nuapada",
+          "locality": "Boden",
+          "provenance": "Nuapada Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_098",
+          "canonical_name": "Punjab National Bank ATM Boden",
+          "entity_type": "ATM",
+          "district": "Nuapada",
+          "locality": "Boden",
+          "provenance": "PNB Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.2012,
+        "longitude": 83.2281
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "kalahandi"
+      ],
+      "localities": [
+        "kesinga",
+        "kesinga town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_068",
+          "canonical_name": "Sub-Divisional Hospital Kesinga",
+          "entity_type": "HOSPITAL",
+          "district": "Kalahandi",
+          "locality": "Kesinga Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_071",
+          "canonical_name": "SBI ATM Kesinga Railway Station",
+          "entity_type": "ATM",
+          "district": "Kalahandi",
+          "locality": "Kesinga",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_064",
+          "canonical_name": "Kesinga Railway Fuel Center (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kalahandi",
+          "locality": "Kesinga",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 19.9112,
+        "longitude": 84.1312
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "kandhamal"
+      ],
+      "localities": [
+        "daringbadi",
+        "daringbadi town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_075",
+          "canonical_name": "Community Health Centre Daringbadi",
+          "entity_type": "HOSPITAL",
+          "district": "Kandhamal",
+          "locality": "Daringbadi Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_081",
+          "canonical_name": "SBI ATM Daringbadi Hill Station",
+          "entity_type": "ATM",
+          "district": "Kandhamal",
+          "locality": "Daringbadi",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_071",
+          "canonical_name": "Daringbadi Hill Fuel Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kandhamal",
+          "locality": "Daringbadi",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.2812,
+        "longitude": 84.2612
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "kandhamal"
+      ],
+      "localities": [
+        "tikabali"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, HOSPITAL) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_076",
+          "canonical_name": "Community Health Centre Tikabali",
+          "entity_type": "HOSPITAL",
+          "district": "Kandhamal",
+          "locality": "Tikabali",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_082",
+          "canonical_name": "Punjab National Bank ATM Tikabali",
+          "entity_type": "ATM",
+          "district": "Kandhamal",
+          "locality": "Tikabali",
+          "provenance": "PNB Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_072",
+          "canonical_name": "Tikabali Kisan Seva Kendra (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kandhamal",
+          "locality": "Tikabali",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.5214,
+        "longitude": 83.8781
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "hirakud",
+        "hirakud town"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "police_west_005",
+          "canonical_name": "Hirakud Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Sambalpur",
+          "locality": "Hirakud Town",
+          "provenance": "Sambalpur Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_015",
+          "canonical_name": "Canara Bank ATM Hirakud",
+          "entity_type": "ATM",
+          "district": "Sambalpur",
+          "locality": "Hirakud",
+          "provenance": "Canara Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_007",
+          "canonical_name": "Hirakud Fuel Centre (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sambalpur",
+          "locality": "Hirakud",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.2381,
+        "longitude": 84.8312
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "civil township",
+        "panposh"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "police_west_010",
+          "canonical_name": "Uditnagar Police Station Rourkela",
+          "entity_type": "POLICE_STATION",
+          "district": "Sundargarh",
+          "locality": "Civil Township",
+          "provenance": "Rourkela Police Official Website",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_041",
+          "canonical_name": "SBI ATM Civil Township Rourkela",
+          "entity_type": "ATM",
+          "district": "Sundargarh",
+          "locality": "Civil Township",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_046",
+          "canonical_name": "Jio-bp Mobility Station Rourkela",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Panposh",
+          "provenance": "Jio-bp Station Finder",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.2412,
+        "longitude": 84.8212
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "chhend colony"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "police_west_011",
+          "canonical_name": "Chhend Police Station Rourkela",
+          "entity_type": "POLICE_STATION",
+          "district": "Sundargarh",
+          "locality": "Chhend Colony",
+          "provenance": "Rourkela Police Official Website",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_046",
+          "canonical_name": "HDFC Bank ATM Chhend Colony",
+          "entity_type": "ATM",
+          "district": "Sundargarh",
+          "locality": "Chhend Colony",
+          "provenance": "HDFC Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_036",
+          "canonical_name": "V Care Fuels (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Chhend Colony",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.3365,
+        "longitude": 83.6215
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "bargarh"
+      ],
+      "localities": [
+        "ambaa paali",
+        "bhatli road"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "police_west_021",
+          "canonical_name": "Bargarh Sadar Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Bargarh",
+          "locality": "Bhatli Road",
+          "provenance": "Bargarh Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_016",
+          "canonical_name": "SBI ATM Ambaa Paali",
+          "entity_type": "ATM",
+          "district": "Bargarh",
+          "locality": "Ambaa Paali",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_013",
+          "canonical_name": "Tuli Gasoline (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Bargarh",
+          "locality": "Bhatli Road",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.1833,
+        "longitude": 83.5972
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "bargarh"
+      ],
+      "localities": [
+        "barpali"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "police_west_022",
+          "canonical_name": "Barpali Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Bargarh",
+          "locality": "Barpali",
+          "provenance": "Bargarh Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_019",
+          "canonical_name": "HDFC Bank ATM Barpali",
+          "entity_type": "ATM",
+          "district": "Bargarh",
+          "locality": "Barpali",
+          "provenance": "HDFC Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_019",
+          "canonical_name": "Barpali Fuel Junction (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Bargarh",
+          "locality": "Barpali",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.7182,
+        "longitude": 83.4952
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "balangir"
+      ],
+      "localities": [
+        "shantipara",
+        "tikrapara"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "police_west_034",
+          "canonical_name": "Balangir Sadar Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Balangir",
+          "locality": "Tikrapara",
+          "provenance": "Balangir Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_058",
+          "canonical_name": "HDFC Bank ATM Shantipara",
+          "entity_type": "ATM",
+          "district": "Balangir",
+          "locality": "Shantipara",
+          "provenance": "HDFC Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_052",
+          "canonical_name": "Dinesh Chandra Bhammer Station (BPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Balangir",
+          "locality": "Tikrapara",
+          "provenance": "Bharat Petroleum Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 19.5512,
+        "longitude": 83.0512
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "kalahandi"
+      ],
+      "localities": [
+        "thuamul rampur"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "police_west_045",
+          "canonical_name": "Thuamul Rampur Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Kalahandi",
+          "locality": "Thuamul Rampur",
+          "provenance": "Kalahandi Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_073",
+          "canonical_name": "Bank of Baroda ATM Th. Rampur",
+          "entity_type": "ATM",
+          "district": "Kalahandi",
+          "locality": "Thuamul Rampur",
+          "provenance": "Bank of Baroda Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_062",
+          "canonical_name": "Shiv Shankar Fuels (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kalahandi",
+          "locality": "Thuamul Rampur",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.0612,
+        "longitude": 84.2312
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "kandhamal"
+      ],
+      "localities": [
+        "raikia"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "police_west_052",
+          "canonical_name": "Raikia Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Kandhamal",
+          "locality": "Raikia",
+          "provenance": "Kandhamal Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_083",
+          "canonical_name": "Bank of Baroda ATM Raikia",
+          "entity_type": "ATM",
+          "district": "Kandhamal",
+          "locality": "Raikia",
+          "provenance": "Bank of Baroda Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_073",
+          "canonical_name": "Raikia Fuel Center (Nayara Energy)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kandhamal",
+          "locality": "Raikia",
+          "provenance": "Nayara Energy Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.8812,
+        "longitude": 82.5312
+      },
+      "member_count": 3,
+      "categories": [
+        "ATM",
+        "FUEL_STATION",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "nuapada"
+      ],
+      "localities": [
+        "khariar road"
+      ],
+      "classification": "LIKELY_TOWN_CENTROID",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cluster of 3 unrelated facilities across 3 categories (ATM, FUEL_STATION, POLICE_STATION) sharing identical coordinate. Evidence indicates town centroid / locality default coordinate assignment.",
+      "entities": [
+        {
+          "candidate_id": "police_west_060",
+          "canonical_name": "Khariar Road Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Nuapada",
+          "locality": "Khariar Road",
+          "provenance": "Nuapada Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_096",
+          "canonical_name": "SBI ATM Khariar Road",
+          "entity_type": "ATM",
+          "district": "Nuapada",
+          "locality": "Khariar Road",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_085",
+          "canonical_name": "Imdad Ali Kasam Ali Station (BPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Nuapada",
+          "locality": "Khariar Road",
+          "provenance": "Bharat Petroleum Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 19.0717,
+        "longitude": 83.8093
+      },
+      "member_count": 2,
+      "categories": [
+        "HOSPITAL"
+      ],
+      "districts": [
+        "rayagada"
+      ],
+      "localities": [
+        "gunupur"
+      ],
+      "classification": "SHARED_COMPLEX",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Multiple facilities of category HOSPITAL co-located in shared zone.",
+      "entities": [
+        {
+          "candidate_id": "c_1f009c99f2ed",
+          "canonical_name": "Sub-Divisional Hospital (SDH) Gunupur",
+          "entity_type": "HOSPITAL",
+          "district": "Rayagada",
+          "locality": "Gunupur",
+          "provenance": "Rayagada Health Directory",
+          "source_dataset": "data/research/round2/southern/services.json"
+        },
+        {
+          "candidate_id": "c_79cf5fd2564f",
+          "canonical_name": "Govt. Hospital, Gunupur",
+          "entity_type": "HOSPITAL",
+          "district": "Rayagada",
+          "locality": "gunupur",
+          "provenance": "OpenStreetMap (OSM)",
+          "source_dataset": "data/research/round2/southern/services.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.3215,
+        "longitude": 84.1524
+      },
+      "member_count": 2,
+      "categories": [
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "jujumura"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between FUEL_STATION, HOSPITAL.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_005",
+          "canonical_name": "Community Health Centre Jujumura",
+          "entity_type": "HOSPITAL",
+          "district": "Sambalpur",
+          "locality": "Jujumura",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_010",
+          "canonical_name": "Jujumura Fuel Center (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sambalpur",
+          "locality": "Jujumura",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.2641,
+        "longitude": 83.9852
+      },
+      "member_count": 2,
+      "categories": [
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "dhama"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between FUEL_STATION, HOSPITAL.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_006",
+          "canonical_name": "Community Health Centre Dhama",
+          "entity_type": "HOSPITAL",
+          "district": "Sambalpur",
+          "locality": "Dhama",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_012",
+          "canonical_name": "Nayara Energy Station Dhama",
+          "entity_type": "FUEL_STATION",
+          "district": "Sambalpur",
+          "locality": "Dhama",
+          "provenance": "Nayara Energy Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.4721,
+        "longitude": 83.9712
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "town center",
+        "vss marg"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "ATM and hospital share coordinate without explicit campus co-location evidence.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_009",
+          "canonical_name": "Samaleswari Hospital Sambalpur",
+          "entity_type": "HOSPITAL",
+          "district": "Sambalpur",
+          "locality": "Town Center",
+          "provenance": "District Administration Sambalpur",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_012",
+          "canonical_name": "Punjab National Bank ATM Sambalpur",
+          "entity_type": "ATM",
+          "district": "Sambalpur",
+          "locality": "VSS Marg",
+          "provenance": "PNB Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.4654,
+        "longitude": 83.9741
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "dhanupali",
+        "kacheri chhak"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "ATM and hospital share coordinate without explicit campus co-location evidence.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_010",
+          "canonical_name": "Sanjeevani Hospital Sambalpur",
+          "entity_type": "HOSPITAL",
+          "district": "Sambalpur",
+          "locality": "Dhanupali",
+          "provenance": "District Administration Sambalpur",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_002",
+          "canonical_name": "SBI Branch Attached ATM Sambalpur Main",
+          "entity_type": "ATM",
+          "district": "Sambalpur",
+          "locality": "Kacheri Chhak",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.1812,
+        "longitude": 83.5954
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "bargarh"
+      ],
+      "localities": [
+        "barpali town",
+        "college chowk"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "ATM and hospital share coordinate without explicit campus co-location evidence.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_015",
+          "canonical_name": "Community Health Centre Barpali",
+          "entity_type": "HOSPITAL",
+          "district": "Bargarh",
+          "locality": "Barpali Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_022",
+          "canonical_name": "ICICI Bank ATM Barpali College Chowk",
+          "entity_type": "ATM",
+          "district": "Bargarh",
+          "locality": "College Chowk",
+          "provenance": "ICICI Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.4231,
+        "longitude": 83.5214
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "bargarh"
+      ],
+      "localities": [
+        "bhatli"
+      ],
+      "classification": "PLAUSIBLE_COLOCATION",
+      "readiness_effect": "PERMITS_READY_IF_VERIFIED",
+      "rationale": "ATM located at hospital campus or community health complex represents plausible co-location.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_017",
+          "canonical_name": "Community Health Centre Bhatli",
+          "entity_type": "HOSPITAL",
+          "district": "Bargarh",
+          "locality": "Bhatli",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_024",
+          "canonical_name": "Punjab National Bank ATM Bhatli",
+          "entity_type": "ATM",
+          "district": "Bargarh",
+          "locality": "Bhatli",
+          "provenance": "PNB Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.2781,
+        "longitude": 83.6421
+      },
+      "member_count": 2,
+      "categories": [
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "bargarh"
+      ],
+      "localities": [
+        "bheden"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between FUEL_STATION, HOSPITAL.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_019",
+          "canonical_name": "Community Health Centre Bheden",
+          "entity_type": "HOSPITAL",
+          "district": "Bargarh",
+          "locality": "Bheden",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_022",
+          "canonical_name": "Bheden Fuel Center (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Bargarh",
+          "locality": "Bheden",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.3654,
+        "longitude": 83.6381
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "bargarh"
+      ],
+      "localities": [
+        "barahagoda",
+        "deras"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "ATM and hospital share coordinate without explicit campus co-location evidence.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_022",
+          "canonical_name": "Vikash Multi-Specialty Hospital Bargarh",
+          "entity_type": "HOSPITAL",
+          "district": "Bargarh",
+          "locality": "Deras",
+          "provenance": "Vikash Knowledge Hub Healthcare",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_020",
+          "canonical_name": "ICICI Bank ATM Barahagoda",
+          "entity_type": "ATM",
+          "district": "Bargarh",
+          "locality": "Barahagoda",
+          "provenance": "ICICI Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.1214,
+        "longitude": 84.0381
+      },
+      "member_count": 2,
+      "categories": [
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "chhatenpali"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between FUEL_STATION, HOSPITAL.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_033",
+          "canonical_name": "Government Medical College & Hospital Sundargarh",
+          "entity_type": "HOSPITAL",
+          "district": "Sundargarh",
+          "locality": "Chhatenpali",
+          "provenance": "Government Medical College Sundargarh",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_047",
+          "canonical_name": "Nayara Energy Station Sundargarh",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Chhatenpali",
+          "provenance": "Nayara Energy Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.2582,
+        "longitude": 84.8481
+      },
+      "member_count": 2,
+      "categories": [
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "sector 19",
+        "sector 2"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between FUEL_STATION, HOSPITAL.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_035",
+          "canonical_name": "Ispat General Hospital (IGH) Rourkela",
+          "entity_type": "HOSPITAL",
+          "district": "Sundargarh",
+          "locality": "Sector 19",
+          "provenance": "SAIL Rourkela Steel Plant Medical Division",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_035",
+          "canonical_name": "Jma Filling Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Sector 2",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.2124,
+        "longitude": 84.3412
+      },
+      "member_count": 2,
+      "categories": [
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "bargaon"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between FUEL_STATION, HOSPITAL.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_040",
+          "canonical_name": "Community Health Centre Bargaon",
+          "entity_type": "HOSPITAL",
+          "district": "Sundargarh",
+          "locality": "Bargaon",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_044",
+          "canonical_name": "Bargaon Kisan Seva Kendra (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Bargaon",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.2452,
+        "longitude": 84.9812
+      },
+      "member_count": 2,
+      "categories": [
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "bisra"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between FUEL_STATION, HOSPITAL.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_041",
+          "canonical_name": "Community Health Centre Bisra",
+          "entity_type": "HOSPITAL",
+          "district": "Sundargarh",
+          "locality": "Bisra",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_045",
+          "canonical_name": "Bisra Border Fuel Station (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Bisra",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.6124,
+        "longitude": 83.8912
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "boudh"
+      ],
+      "localities": [
+        "kantamal"
+      ],
+      "classification": "PLAUSIBLE_COLOCATION",
+      "readiness_effect": "PERMITS_READY_IF_VERIFIED",
+      "rationale": "ATM located at hospital campus or community health complex represents plausible co-location.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_060",
+          "canonical_name": "Community Health Centre Kantamal",
+          "entity_type": "HOSPITAL",
+          "district": "Boudh",
+          "locality": "Kantamal",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "atm_west_101",
+          "canonical_name": "Axis Bank ATM Kantamal",
+          "entity_type": "ATM",
+          "district": "Boudh",
+          "locality": "Kantamal",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.2852,
+        "longitude": 82.7612
+      },
+      "member_count": 2,
+      "categories": [
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "nuapada"
+      ],
+      "localities": [
+        "khariar town",
+        "rajkhariar"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between FUEL_STATION, HOSPITAL.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_062",
+          "canonical_name": "Sub-Divisional Hospital Khariar",
+          "entity_type": "HOSPITAL",
+          "district": "Nuapada",
+          "locality": "Khariar Town",
+          "provenance": "National Health Mission Odisha",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_084",
+          "canonical_name": "Monarc Service Center (BPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Nuapada",
+          "locality": "Rajkhariar",
+          "provenance": "Bharat Petroleum Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 19.8912,
+        "longitude": 83.1781
+      },
+      "member_count": 2,
+      "categories": [
+        "FUEL_STATION",
+        "HOSPITAL"
+      ],
+      "districts": [
+        "kalahandi"
+      ],
+      "localities": [
+        "bhawanipatna outer",
+        "ichhapur"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between FUEL_STATION, HOSPITAL.",
+      "entities": [
+        {
+          "candidate_id": "hosp_west_065",
+          "canonical_name": "Saheed Rendo Majhi Medical College & Hospital (SRMMCH)",
+          "entity_type": "HOSPITAL",
+          "district": "Kalahandi",
+          "locality": "Bhawanipatna Outer",
+          "provenance": "Saheed Rendo Majhi Medical College",
+          "source_dataset": "data/health/hospitals_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_060",
+          "canonical_name": "Maa Jagat Janani Service Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kalahandi",
+          "locality": "Ichhapur",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.8212,
+        "longitude": 83.9182
+      },
+      "member_count": 2,
+      "categories": [
+        "FUEL_STATION",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "jharsuguda"
+      ],
+      "localities": [
+        "brajrajnagar"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Police station and commercial fuel station sharing identical coordinate indicates centroid reuse.",
+      "entities": [
+        {
+          "candidate_id": "police_west_029",
+          "canonical_name": "Brajrajnagar Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Jharsuguda",
+          "locality": "Brajrajnagar",
+          "provenance": "Jharsuguda Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_027",
+          "canonical_name": "Vijaylaxmi Fuels (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Jharsuguda",
+          "locality": "Brajrajnagar",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.5381,
+        "longitude": 83.4512
+      },
+      "member_count": 2,
+      "categories": [
+        "FUEL_STATION",
+        "POLICE_STATION"
+      ],
+      "districts": [
+        "balangir"
+      ],
+      "localities": [
+        "tusra"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Police station and commercial fuel station sharing identical coordinate indicates centroid reuse.",
+      "entities": [
+        {
+          "candidate_id": "police_west_039",
+          "canonical_name": "Tusra Police Station",
+          "entity_type": "POLICE_STATION",
+          "district": "Balangir",
+          "locality": "Tusra",
+          "provenance": "Balangir Police Directory",
+          "source_dataset": "data/safety/police_stations_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_053",
+          "canonical_name": "Bharpai Devi Filling Station (BPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Balangir",
+          "locality": "Tusra",
+          "provenance": "Bharat Petroleum Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.4792,
+        "longitude": 83.9789
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "sambalpur"
+      ],
+      "localities": [
+        "budharaja"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_007",
+          "canonical_name": "HDFC Bank ATM Budharaja",
+          "entity_type": "ATM",
+          "district": "Sambalpur",
+          "locality": "Budharaja",
+          "provenance": "HDFC Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_004",
+          "canonical_name": "Sambalpur Fuels (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sambalpur",
+          "locality": "Budharaja",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.3312,
+        "longitude": 83.6182
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "bargarh"
+      ],
+      "localities": [
+        "bargarh bazar",
+        "bargarh town"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_017",
+          "canonical_name": "SBI Branch Attached ATM Bargarh Main",
+          "entity_type": "ATM",
+          "district": "Bargarh",
+          "locality": "Bargarh Town",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_015",
+          "canonical_name": "Onkarmal Agarwal Filling Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Bargarh",
+          "locality": "Bargarh Bazar",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.8561,
+        "longitude": 84.0082
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "jharsuguda"
+      ],
+      "localities": [
+        "beheramal"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_035",
+          "canonical_name": "Axis Bank ATM Beheramal",
+          "entity_type": "ATM",
+          "district": "Jharsuguda",
+          "locality": "Beheramal",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_025",
+          "canonical_name": "B B Filling Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Jharsuguda",
+          "locality": "Beheramal",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.2281,
+        "longitude": 84.8621
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "bisra chowk",
+        "bisra road"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_039",
+          "canonical_name": "SBI ATM Bisra Chowk Rourkela",
+          "entity_type": "ATM",
+          "district": "Sundargarh",
+          "locality": "Bisra Chowk",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_039",
+          "canonical_name": "Hindustan Automobiles (BPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Bisra Road",
+          "provenance": "Bharat Petroleum Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.2214,
+        "longitude": 84.8512
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "udit nagar"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_042",
+          "canonical_name": "SBI ATM Uditnagar Rourkela",
+          "entity_type": "ATM",
+          "district": "Sundargarh",
+          "locality": "Udit Nagar",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_038",
+          "canonical_name": "Ramsewak Kashinath Petrol Pump (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Udit Nagar",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 22.2472,
+        "longitude": 84.7736
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "sundargarh"
+      ],
+      "localities": [
+        "vedvyas"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_053",
+          "canonical_name": "Canara Bank ATM Vedvyas",
+          "entity_type": "ATM",
+          "district": "Sundargarh",
+          "locality": "Vedvyas",
+          "provenance": "Canara Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_043",
+          "canonical_name": "Vedvyas Service Station (BPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Sundargarh",
+          "locality": "Vedvyas",
+          "provenance": "Bharat Petroleum Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.7152,
+        "longitude": 83.4912
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "balangir"
+      ],
+      "localities": [
+        "daily market",
+        "tikrapara"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_057",
+          "canonical_name": "HDFC Bank ATM Daily Market Balangir",
+          "entity_type": "ATM",
+          "district": "Balangir",
+          "locality": "Daily Market",
+          "provenance": "HDFC Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_050",
+          "canonical_name": "Baba Amarnathji Filling Station (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Balangir",
+          "locality": "Tikrapara",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 19.9012,
+        "longitude": 83.1652
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "kalahandi"
+      ],
+      "localities": [
+        "bazarpada",
+        "statue square"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_065",
+          "canonical_name": "Axis Bank ATM Statue Square Bhawanipatna",
+          "entity_type": "ATM",
+          "district": "Kalahandi",
+          "locality": "Statue Square",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_059",
+          "canonical_name": "Jain Petrol Pump (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kalahandi",
+          "locality": "Bazarpada",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 19.9021,
+        "longitude": 83.1661
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "kalahandi"
+      ],
+      "localities": [
+        "bazarpada"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_066",
+          "canonical_name": "Axis Bank ATM Bazarpada",
+          "entity_type": "ATM",
+          "district": "Kalahandi",
+          "locality": "Bazarpada",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_061",
+          "canonical_name": "Bhawanipatna BPCL Station (BPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kalahandi",
+          "locality": "Bazarpada",
+          "provenance": "Bharat Petroleum Station Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 19.8652,
+        "longitude": 82.7812
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "kalahandi"
+      ],
+      "localities": [
+        "dharamgarh"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_070",
+          "canonical_name": "SBI ATM Dharamgarh",
+          "entity_type": "ATM",
+          "district": "Kalahandi",
+          "locality": "Dharamgarh",
+          "provenance": "SBI Official Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_063",
+          "canonical_name": "Dharamgarh Highway Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kalahandi",
+          "locality": "Dharamgarh",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 20.4752,
+        "longitude": 84.2281
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "kandhamal"
+      ],
+      "localities": [
+        "ganesh bazar",
+        "phulbani town"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_076",
+          "canonical_name": "HDFC Bank ATM Ganesh Bazar",
+          "entity_type": "ATM",
+          "district": "Kandhamal",
+          "locality": "Ganesh Bazar",
+          "provenance": "HDFC Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_068",
+          "canonical_name": "Maa Filling Station (IndianOil)",
+          "entity_type": "FUEL_STATION",
+          "district": "Kandhamal",
+          "locality": "Phulbani Town",
+          "provenance": "IndianOil Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    },
+    {
+      "coordinate": {
+        "latitude": 21.0512,
+        "longitude": 83.7124
+      },
+      "member_count": 2,
+      "categories": [
+        "ATM",
+        "FUEL_STATION"
+      ],
+      "districts": [
+        "subarnapur"
+      ],
+      "localities": [
+        "dunguripali"
+      ],
+      "classification": "SUSPECTED_CROSS_CATEGORY_REUSE",
+      "readiness_effect": "PREVENTS_READY_NEW",
+      "rationale": "Cross-category coordinate sharing between ATM, FUEL_STATION.",
+      "entities": [
+        {
+          "candidate_id": "atm_west_085",
+          "canonical_name": "Axis Bank ATM Dunguripali",
+          "entity_type": "ATM",
+          "district": "Subarnapur",
+          "locality": "Dunguripali",
+          "provenance": "Axis Bank Locator",
+          "source_dataset": "data/finance/atms_western_odisha.json"
+        },
+        {
+          "candidate_id": "fuel_west_080",
+          "canonical_name": "Bajrang Fuels (HPCL)",
+          "entity_type": "FUEL_STATION",
+          "district": "Subarnapur",
+          "locality": "Dunguripali",
+          "provenance": "HPCL Retail Outlet Locator",
+          "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "captured_at": "2026-09-06T02:21:51.462889+00:00",
+  "alembic_version": "0019_enforce_media_orthogonal_constraints",
+  "database_counts": {
+    "places": 204,
+    "media_assets": 116,
+    "entity_media": 70,
+    "place_images": 70,
+    "entity_relationships": 0,
+    "routes": 154,
+    "stops": 1430,
+    "route_stops": 1491,
+    "schedules": 302,
+    "departures": 5553
+  }
+}

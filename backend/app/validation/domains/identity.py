@@ -1,4 +1,4 @@
-﻿"""
+"""
 Identity Domain Validator.
 Validates identifiers, duplicate primary keys, and scoped name collisions.
 """
@@ -95,3 +95,41 @@ def validate_identity(
                     )
                 else:
                     seen_scoped_names[scoped_key] = rec_id_str
+
+        # 4. Generic Unadorned Name & Ambiguity Detection
+        if rec_name and str(rec_name).strip():
+            cname_str = str(rec_name).strip()
+            generic_patterns = [
+                r"^(police\s*station|thana)$",
+                r"^(hospital|govt\.?\s*hospital|district\s*hospital)$",
+                r"^(atm|sbi\s*atm|hdfc\s*atm|icici\s*atm|axis\s*atm)$",
+                r"^(fire\s*station)$",
+                r"^(petrol\s*pump|fuel\s*station|indian\s*oil|hp\s*petrol\s*pump|bharat\s*petroleum|hp)$",
+            ]
+            is_generic = any(re.match(pat, cname_str, re.IGNORECASE) for pat in generic_patterns)
+            if is_generic:
+                loc = str(rec.get("locality") or "").strip()
+                dist = str(rec.get("district") or "").strip()
+                is_staged = bool(rec.get("promotion_tier") or rec.get("candidate_id") or rec.get("verification_status") == "VERIFIED_STAGED")
+                if not loc or loc.lower() == dist.lower() or loc.lower() in {"town", "center", "main"}:
+                    report.add_issue(
+                        code=codes.ID_AMBIGUOUS_ENTITY,
+                        severity=ValidationSeverity.ERROR if (report.profile.value == "PROMOTION" and is_staged) else ValidationSeverity.WARNING,
+                        domain="identity",
+                        entity_type=entity_type,
+                        entity_id=rec_id_str,
+                        field=name_field,
+                        message=f"Unadorned generic facility name '{cname_str}' in district '{dist}' lacks distinct locality/branch context",
+                        evidence={"name": cname_str, "locality": loc, "district": dist},
+                    )
+                else:
+                    report.add_issue(
+                        code=codes.ID_GENERIC_NAME_COLLISION,
+                        severity=ValidationSeverity.WARNING,
+                        domain="identity",
+                        entity_type=entity_type,
+                        entity_id=rec_id_str,
+                        field=name_field,
+                        message=f"Generic facility name '{cname_str}' partially contextualized by locality '{loc}'",
+                        evidence={"name": cname_str, "locality": loc, "district": dist},
+                    )

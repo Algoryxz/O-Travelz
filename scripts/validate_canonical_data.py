@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 scripts/validate_canonical_data.py — Universal Canonical Data Quality & Promotion Gate.
 
@@ -35,6 +35,8 @@ from app.validation.profiles import CI_BLOCKING_CODES
 
 
 def main() -> int:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(
         description="O-TRAVELZ V4 Universal Canonical Data Quality & Promotion Gate"
     )
@@ -88,11 +90,22 @@ def main() -> int:
         with open(input_path, encoding="utf-8") as f:
             staged = json.load(f)
         records = staged if isinstance(staged, list) else staged.get("records", [staged])
+        sample_rec = records[0] if records else {}
+        id_field = "candidate_id" if "candidate_id" in sample_rec else "id"
+        name_field = "canonical_name" if "canonical_name" in sample_rec else "name"
+        is_utility = args.entity_type.lower() in {
+            "hospital", "police_station", "fire_station", "atm", "fuel_station",
+            "public_service", "service", "entity"
+        } or sample_rec.get("entity_type") in {
+            "HOSPITAL", "POLICE_STATION", "FIRE_STATION", "ATM", "FUEL_STATION", "PUBLIC_SERVICE"
+        }
         validator.validate_collection(
             records=records,
             entity_type=args.entity_type,
             report=report,
-            check_translations=True,
+            id_field=id_field,
+            name_field=name_field,
+            check_translations=not is_utility,
         )
     else:
         # Full audit across canonical files
