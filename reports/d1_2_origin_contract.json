@@ -1,0 +1,74 @@
+{
+  "wave": "D1.2",
+  "phase": "8_public_origin_contract",
+  "timestamp": "2026-09-06T09:24:00+00:00",
+  "frontend_origin": "https://algoryxz.github.io",
+  "backend_url": "https://d545e17cf07e7f.lhr.life",
+  "cors_configuration": {
+    "allow_origin": "https://algoryxz.github.io",
+    "allow_credentials": true,
+    "allow_methods": [
+      "DELETE",
+      "GET",
+      "HEAD",
+      "OPTIONS",
+      "PATCH",
+      "POST",
+      "PUT"
+    ],
+    "allow_headers": [
+      "*"
+    ],
+    "max_age": 600
+  },
+  "probed_endpoints": {
+    "/health": {
+      "status": 200,
+      "cors_verified": true,
+      "response": {
+        "status": "ok",
+        "git_sha": "593d20263bc3b2442fe3f9ef12dffaefde17b74b",
+        "alembic_version": "0020_transit_ride_observations",
+        "database": "connected"
+      }
+    },
+    "/api/places?limit=5": {
+      "status": 200,
+      "cors_verified": true,
+      "result_count": 5
+    },
+    "/weather/current?lat=20.2961&lon=85.8245": {
+      "status": 200,
+      "cors_verified": true,
+      "location": "Bhubaneswar",
+      "provider": "Open-Meteo"
+    },
+    "/ai/converse": {
+      "status": 200,
+      "cors_verified": true,
+      "rule_based_fallback_active": true
+    },
+    "/api/transport/routes?limit=5": {
+      "status": 200,
+      "cors_verified": true,
+      "total_routes": 154
+    },
+    "/api/transport/routes/10/geometry": {
+      "status": 200,
+      "cors_verified": true,
+      "route_number": "10",
+      "geometry_status": "PARTIAL"
+    },
+    "/api/v1/services/nearby?lat=20.2961&lon=85.8245&radius_km=5": {
+      "status": 200,
+      "cors_verified": true,
+      "active_radius_km": 5.0
+    }
+  },
+  "security_invariants": {
+    "wildcard_with_credentials_prevented": true,
+    "https_enforced": true,
+    "credentials_mode": "include",
+    "options_preflight_supported": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "wave": "D1.2",
+  "phase": "4_render_backend_config_repair",
+  "timestamp": "2026-09-06T09:20:00+00:00",
+  "observed_failure": "Render backend https://otravelz-backend.onrender.com timed out (>120s) with 0 bytes returned from edge proxy (216.24.57.15).",
+  "verified_root_cause": [
+    "render.yaml blueprint was bound to otravelz-db via fromDatabase property: connectionString.",
+    "Render free-tier database expired/deleted after 30-day limit (backup saved to backup_otravelz_render_20260904-1110.dump).",
+    "PostgreSQL migrated to Aiven Cloud, but render.yaml was never updated to decouple from otravelz-db.",
+    "Service startup in Render failed without valid DATABASE_URL, leading to suspension.",
+    "Render control plane requires human operator dashboard login to un-suspend."
+  ],
+  "files_changed": [
+    "render.yaml",
+    "backend/app/main.py",
+    "backend/tests/test_health.py",
+    "backend/tests/test_phase_4d_performance_hardening.py"
+  ],
+  "configuration_repairs_applied": [
+    "Decoupled DATABASE_URL from fromDatabase: otravelz-db in render.yaml and marked sync: false for secure dashboard injection.",
+    "Removed obsolete databases: block for deleted otravelz-db from render.yaml.",
+    "Set PYTHON_VERSION: 3.12.5 in render.yaml.",
+    "Configured CORS_ORIGINS default in render.yaml to include https://algoryxz.github.io, https://otravelz.in, https://www.otravelz.in, http://localhost:5173.",
+    "Added automatic GitHub Pages origin inclusion in backend/app/main.py CORSMiddleware.",
+    "Added machine-readable release identity contract on /health and / with git_sha, alembic_version, status, and database connectivity."
+  ],
+  "deployed_backend_url": "https://otravelz-backend.onrender.com",
+  "public_health_response": {
+    "remote_status": "TIMEOUT_SUSPENDED_PENDING_OPERATOR_RESUME",
+    "local_runtime_health": {
+      "status": "ok",
+      "git_sha": "593d20263bc3b2442fe3f9ef12dffaefde17b74b",
+      "alembic_version": "0020_transit_ride_observations",
+      "database": "connected"
+    }
+  },
+  "deployed_sha": "593d20263bc3b2442fe3f9ef12dffaefde17b74b",
+  "alembic_revision": "0020_transit_ride_observations",
+  "db_connectivity_result": "CONNECTED (Aiven Managed PostgreSQL 18.6 + PostGIS 3.6)",
+  "remaining_operator_actions": [
+    "Sign into https://dashboard.render.com.",
+    "Under Web Services, click otravelz-backend and select Resume Service.",
+    "Under Environment, set DATABASE_URL to Aiven connection URI with sslmode=require.",
+    "Under Manual Deploy, click Deploy latest commit from feature/v4-platform-rebuild."
+  ]
+}

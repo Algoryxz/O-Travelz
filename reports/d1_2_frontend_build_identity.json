@@ -1,0 +1,20 @@
+{
+  "wave": "D1.2",
+  "phase": "6_frontend_build_identity",
+  "timestamp": "2026-09-06T09:22:00+00:00",
+  "source_release_sha": "593d20263bc3b2442fe3f9ef12dffaefde17b74b",
+  "build_mechanism": "vite build with define injection of import.meta.env.VITE_BUILD_SHA and VITE_BUILD_TIME in frontend/vite.config.ts",
+  "runtime_surface": "window.__OTRAVELZ_BUILD__",
+  "runtime_contract": {
+    "git_sha": "593d20263bc3b2442fe3f9ef12dffaefde17b74b",
+    "version": "4.0.0",
+    "built_at_present": true
+  },
+  "ui_impact": "Zero clutter in customer-facing UI; release proof accessible programmatically via window.__OTRAVELZ_BUILD__ and HTML inspection",
+  "bundle_manifest": {
+    "index_html": "frontend/dist/index.html",
+    "entry_js": "frontend/dist/assets/index-fGI_p7bs.js",
+    "maplibre_vendor": "frontend/dist/assets/maplibre-vendor-Dc2kNF77.js",
+    "three_vendor": "frontend/dist/assets/three-vendor-BjZnDsz6.js"
+  }
+}

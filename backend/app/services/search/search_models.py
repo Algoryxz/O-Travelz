@@ -19,7 +19,7 @@ class SearchQueryParams(BaseModel):
     near_lat: Optional[float] = Field(None, ge=17.0, le=23.5, description="Reference latitude for proximity retrieval")
     near_lon: Optional[float] = Field(None, ge=81.0, le=88.0, description="Reference longitude for proximity retrieval")
     radius_km: Optional[float] = Field(None, gt=0, le=500.0, description="Proximity search radius in kilometers")
-    limit: int = Field(50, ge=1, le=200, description="Maximum number of items to return (max 200)")
+    limit: int = Field(50, ge=1, le=500, description="Maximum number of items to return (max 500)")
     offset: int = Field(0, ge=0, description="Number of items to skip for pagination")
 
 

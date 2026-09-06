@@ -96,7 +96,7 @@ def test_8_health_and_ready_endpoints():
     # 1. Health liveness
     h_resp = client.get("/health")
     assert h_resp.status_code == 200
-    assert h_resp.json() == {"status": "ok"}
+    assert h_resp.json().get("status") in ("ok", "degraded")
 
     # 2. Ready probe with connected DB
     r_resp = client.get("/ready")

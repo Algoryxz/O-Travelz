@@ -1,0 +1,17 @@
+{
+  "alembic_version_match": true,
+  "alembic_version": "0020_transit_ride_observations",
+  "expected_alembic_version": "0020_transit_ride_observations",
+  "total_table_deltas": {
+    "places": 0,
+    "routes": 0,
+    "stops": 0,
+    "route_stops": 0,
+    "scheduled_trip_groups": 0,
+    "media_assets": 0,
+    "entity_media": 0,
+    "place_images": 0
+  },
+  "unexplained_mutations": 0,
+  "verdict": "ZERO_MUTATION_VERIFIED"
+}

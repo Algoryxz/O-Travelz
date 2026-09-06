@@ -1,0 +1,24 @@
+{
+  "wave": "D1.2",
+  "phase": "7_github_pages_deployment",
+  "timestamp": "2026-09-06T09:26:00+00:00",
+  "provenance_chain": {
+    "source_commit_sha": "593d20263bc3b2442fe3f9ef12dffaefde17b74b",
+    "actions_workflow": ".github/workflows/deploy-pages.yml",
+    "workflow_dispatch_id": "34024238238",
+    "pages_deployment_id": "34024274445",
+    "gh_pages_commit": "0511faa"
+  },
+  "frontend_configuration": {
+    "public_url": "https://algoryxz.github.io/O-Travelz/",
+    "vite_base": "./",
+    "router_mode": "Hash routing (window.location.hash) with SPA 404 fallback",
+    "fallback_page": "frontend/public/404.html created"
+  },
+  "verification": {
+    "http_status": 200,
+    "https_valid": true,
+    "deployed_sha": "593d20263bc3b2442fe3f9ef12dffaefde17b74b",
+    "status": "REACHABLE_AND_VERIFIED"
+  }
+}

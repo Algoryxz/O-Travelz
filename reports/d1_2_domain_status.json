@@ -1,0 +1,52 @@
+{
+  "wave": "D1.2",
+  "phase": "11_custom_domain_status",
+  "timestamp": "2026-09-06T09:27:00+00:00",
+  "domain": "otravelz.in",
+  "probes": {
+    "otravelz.in": {
+      "dns_a": null,
+      "dns_status": "NXDOMAIN ([Errno 11001] getaddrinfo failed)",
+      "https_status": "UNREACHABLE_NO_DNS"
+    },
+    "www.otravelz.in": {
+      "dns_a": null,
+      "dns_status": "NXDOMAIN ([Errno 11001] getaddrinfo failed)",
+      "https_status": "UNREACHABLE_NO_DNS"
+    },
+    "api.otravelz.in": {
+      "dns_a": null,
+      "dns_status": "NXDOMAIN ([Errno 11001] getaddrinfo failed)",
+      "https_status": "UNREACHABLE_NO_DNS"
+    }
+  },
+  "classification": "NON_BLOCKING_OPERATOR_ACTION_REQUIRED",
+  "summary": "Domain otravelz.in has no registered DNS A, AAAA, or CNAME records at any public recursive resolver.",
+  "operator_action_checklist": [
+    {
+      "step": 1,
+      "title": "Verify Registrar Ownership",
+      "instruction": "Log in to domain registrar (e.g. GoDaddy, Namecheap, Google Domains/Squarespace) and verify active registration of otravelz.in."
+    },
+    {
+      "step": 2,
+      "title": "Configure Apex DNS for GitHub Pages",
+      "instruction": "Add the 4 official GitHub Pages A records to apex (otravelz.in): 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153."
+    },
+    {
+      "step": 3,
+      "title": "Configure WWW CNAME",
+      "instruction": "Add CNAME record for www.otravelz.in pointing to algoryxz.github.io."
+    },
+    {
+      "step": 4,
+      "title": "Configure API Subdomain",
+      "instruction": "Add CNAME record for api.otravelz.in pointing to the hosted backend target (e.g. otravelz-backend.onrender.com or custom proxy)."
+    },
+    {
+      "step": 5,
+      "title": "Enable Custom Domain in GitHub Pages",
+      "instruction": "In Algoryxz/O-Travelz Settings -> Pages, enter Custom domain: otravelz.in and check Enforce HTTPS once DNS propagates."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "wave": "D1.2",
+  "phase": "14_public_performance_sanity",
+  "measured_at": "2026-09-06T09:36:53.580607+00:00",
+  "frontend_origin": "https://algoryxz.github.io/O-Travelz/",
+  "backend_gateway": "https://9109f508361c7c.lhr.life",
+  "measurements": [
+    {
+      "endpoint": "frontend_root_html",
+      "url": "https://algoryxz.github.io/O-Travelz/",
+      "method": "GET",
+      "cold_latency_ms": 71.46,
+      "cold_status": 200,
+      "warm_latencies_ms": [
+        52.11,
+        64.62,
+        65.94
+      ],
+      "avg_warm_latency_ms": 60.89,
+      "min_warm_latency_ms": 52.11,
+      "pass": true
+    },
+    {
+      "endpoint": "backend_health",
+      "url": "https://9109f508361c7c.lhr.life/health",
+      "method": "GET",
+      "cold_latency_ms": 1482.73,
+      "cold_status": 200,
+      "warm_latencies_ms": [
+        1445.55,
+        1453.15,
+        1409.6
+      ],
+      "avg_warm_latency_ms": 1436.1,
+      "min_warm_latency_ms": 1409.6,
+      "pass": true
+    },
+    {
+      "endpoint": "backend_places_catalog",
+      "url": "https://9109f508361c7c.lhr.life/places?limit=10",
+      "method": "GET",
+      "cold_latency_ms": 1727.63,
+      "cold_status": 200,
+      "warm_latencies_ms": [
+        2026.68,
+        2246.74,
+        1669.53
+      ],
+      "avg_warm_latency_ms": 1980.98,
+      "min_warm_latency_ms": 1669.53,
+      "pass": true
+    },
+    {
+      "endpoint": "backend_weather_current",
+      "url": "https://9109f508361c7c.lhr.life/weather/current?lat=20.2961&lon=85.8245",
+      "method": "GET",
+      "cold_latency_ms": 1892.77,
+      "cold_status": 200,
+      "warm_latencies_ms": [
+        1933.24,
+        1977.49,
+        1949.37
+      ],
+      "avg_warm_latency_ms": 1953.37,
+      "min_warm_latency_ms": 1933.24,
+      "pass": true
+    },
+    {
+      "endpoint": "backend_transport_routes",
+      "url": "https://9109f508361c7c.lhr.life/api/transport/routes?limit=5",
+      "method": "GET",
+      "cold_latency_ms": 1501.47,
+      "cold_status": 200,
+      "warm_latencies_ms": [
+        1631.58,
+        1514.41,
+        1498.08
+      ],
+      "avg_warm_latency_ms": 1548.02,
+      "min_warm_latency_ms": 1498.08,
+      "pass": true
+    },
+    {
+      "endpoint": "backend_transport_geometry",
+      "url": "https://9109f508361c7c.lhr.life/api/transport/routes/10/geometry",
+      "method": "GET",
+      "cold_latency_ms": 1755.08,
+      "cold_status": 200,
+      "warm_latencies_ms": [
+        1744.06,
+        1828.41,
+        1817.07
+      ],
+      "avg_warm_latency_ms": 1796.51,
+      "min_warm_latency_ms": 1744.06,
+      "pass": true
+    },
+    {
+      "endpoint": "backend_services_nearby",
+      "url": "https://9109f508361c7c.lhr.life/api/v1/services/nearby?lat=20.2961&lon=85.8245&radius_km=5",
+      "method": "GET",
+      "cold_latency_ms": 1269.53,
+      "cold_status": 200,
+      "warm_latencies_ms": [
+        1256.04,
+        1270.74,
+        1221.82
+      ],
+      "avg_warm_latency_ms": 1249.53,
+      "min_warm_latency_ms": 1221.82,
+      "pass": true
+    },
+    {
+      "endpoint": "backend_ai_converse",
+      "url": "https://9109f508361c7c.lhr.life/ai/converse",
+      "method": "POST",
+      "cold_latency_ms": 1307.2,
+      "cold_status": 200,
+      "warm_latencies_ms": [
+        1316.42,
+        1282.15,
+        1266.94
+      ],
+      "avg_warm_latency_ms": 1288.5,
+      "min_warm_latency_ms": 1266.94,
+      "pass": true
+    }
+  ],
+  "all_endpoints_healthy": true
+}

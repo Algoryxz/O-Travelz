@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feature/v4-platform-rebuild
   workflow_dispatch:
 
 permissions:
@@ -35,6 +36,7 @@ jobs:
         working-directory: frontend
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL || secrets.VITE_API_URL || '' }}
+          VITE_BASE_PATH: /O-Travelz/
         run: npm run build
 
       - name: Deploy to gh-pages branch

@@ -1,0 +1,25 @@
+{
+  "wave": "D1.2",
+  "phase": "10_public_github_pages_identity_proof",
+  "timestamp": "2026-09-06T09:25:00+00:00",
+  "public_url": "https://algoryxz.github.io/O-Travelz/",
+  "provenance_chain": {
+    "source_branch": "feature/v4-platform-rebuild",
+    "source_sha": "593d20263bc3b2442fe3f9ef12dffaefde17b74b",
+    "ci_workflow_run": "https://github.com/Algoryxz/O-Travelz/actions/runs/34024238238",
+    "pages_deploy_run": "https://github.com/Algoryxz/O-Travelz/actions/runs/34024274445",
+    "deployed_gh_pages_commit": "0511faa (deploy: 593d20263bc3b2442fe3f9ef12dffaefde17b74b)"
+  },
+  "verification_results": {
+    "http_status": 200,
+    "https_enforced": true,
+    "page_title": "O-TRAVELZ \u2014 Odisha Travel Intelligence & Cultural Atlas | Built by Algoryxz",
+    "design_shell": "Modern Cultural Atlas (#FBF9F5 theme, Noto Sans Oriya, Plus Jakarta Sans)",
+    "legacy_bundle_status": "REPLACED_AND_PURGED",
+    "legacy_commit_purged": "fa73c2f (pre-V4 Leaflet build)",
+    "current_entrypoint_js": "assets/index-0ouwIxqc.js",
+    "maplibre_present": true,
+    "leaflet_vendor_purged_from_head": true
+  },
+  "verdict": "LEGACY_DEPLOYMENT_REPLACED_WITH_CURRENT_V4"
+}

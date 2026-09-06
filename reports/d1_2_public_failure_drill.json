@@ -1,0 +1,52 @@
+{
+  "wave": "D1.2",
+  "phase": "13_public_failure_drill",
+  "generated_at": "2026-09-06T09:35:02.349215+00:00",
+  "target_url": "https://algoryxz.github.io/O-Travelz/",
+  "drills": [
+    {
+      "drill": 1,
+      "name": "weather_failure_fallback",
+      "description": "Weather service unreachable \u2014 verify no fake 0\u00b0C and UI remains stable",
+      "metrics": {
+        "page_intact": true,
+        "fake_zero_absent": true,
+        "honest_fallback": true
+      },
+      "pass": true
+    },
+    {
+      "drill": 2,
+      "name": "ai_service_fallback",
+      "description": "AI endpoint down (503) \u2014 deterministic client planner synthesized plan",
+      "metrics": {
+        "deterministic_plan_rendered": true,
+        "no_unhandled_crash": true
+      },
+      "pass": true
+    },
+    {
+      "drill": 3,
+      "name": "media_404_fallback",
+      "description": "WebP images return 404 \u2014 fallback SVGs load gracefully without breaking page layout",
+      "metrics": {
+        "total_images": 12,
+        "fallback_svgs_active": 7,
+        "page_functional": true
+      },
+      "pass": true
+    },
+    {
+      "drill": 4,
+      "name": "geolocation_denied_fallback",
+      "description": "User denies location permissions \u2014 map defaults gracefully to Bhubaneswar hub without crash",
+      "metrics": {
+        "map_rendered": true,
+        "no_geolocation_exception": true,
+        "default_hub_retained": true
+      },
+      "pass": true
+    }
+  ],
+  "all_drills_passed": true
+}

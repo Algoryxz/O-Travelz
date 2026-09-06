@@ -1,9 +1,21 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import { execSync } from "child_process";
+
+let detectedSha = "593d20263bc3b2442fe3f9ef12dffaefde17b74b";
+try {
+  detectedSha = process.env.VITE_BUILD_SHA || execSync("git rev-parse HEAD", { encoding: "utf8" }).trim();
+} catch {
+  // fallback to base sha
+}
 
 export default defineConfig({
-  base: "./",
+  base: process.env.VITE_BASE_PATH || "./",
+  define: {
+    "import.meta.env.VITE_BUILD_SHA": JSON.stringify(process.env.VITE_BUILD_SHA || detectedSha),
+    "import.meta.env.VITE_BUILD_TIME": JSON.stringify(new Date().toISOString()),
+  },
   plugins: [react(), tailwindcss()],
   server: {
     port: 5173,

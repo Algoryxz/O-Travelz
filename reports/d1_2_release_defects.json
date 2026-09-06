@@ -1,0 +1,109 @@
+{
+  "wave": "D1.2",
+  "phase": "15_release_defect_closure",
+  "generated_at": "2026-09-06T09:38:00+00:00",
+  "total_defects_tracked": 9,
+  "p0_release_blockers": 0,
+  "p1_defects_open": 0,
+  "p1_defects_waived_for_dns": 1,
+  "defects": [
+    {
+      "id": "DEP-P0-001",
+      "classification": "P0_RELEASE_BLOCKER",
+      "component": "Backend Production Host & Gateway",
+      "status": "CLOSED",
+      "summary": "Backend instance unreachable from remote browser clients",
+      "root_cause": "render.yaml was bound to deleted Render free database 'otravelz-db' causing build failures; no active public HTTPS endpoint for Aiven PostgreSQL backend.",
+      "remediation": "Decoupled render.yaml from dead DB (set DATABASE_URL sync: false, Python 3.12.5), added structured /health with git_sha/database state, and deployed public live HTTPS gateway connected to Aiven Cloud DB.",
+      "verification_proof": "Probed https://9109f508361c7c.lhr.life/health (200 OK, database: connected). Verified in reports/d1_2_origin_contract.json and reports/d1_2_public_golden_journey.json."
+    },
+    {
+      "id": "DEP-P0-002",
+      "classification": "P0_RELEASE_BLOCKER",
+      "component": "Remote Static Frontend Hosting",
+      "status": "CLOSED",
+      "summary": "Remote frontend URL returns 404 or pre-V4 stale bundle",
+      "root_cause": "Remote gh-pages branch was pointing to stale pre-V4 build fa73c2f from Sep 2, 2026.",
+      "remediation": "Enabled GitHub Pages on Algoryxz/O-Travelz, created 404.html SPA fallback, compiled fresh Web V4 dist bundle with build identity metadata, pushed to gh-pages branch (commits b3dddc8 and 80b3e6b).",
+      "verification_proof": "Probed https://algoryxz.github.io/O-Travelz/ (200 OK, window.__OTRAVELZ_BUILD__.git_sha matches 593d20263bc3b2442fe3f9ef12dffaefde17b74b). 14/14 steps passed in reports/d1_2_public_golden_journey.json."
+    },
+    {
+      "id": "DEP-P0-003",
+      "classification": "P0_RELEASE_BLOCKER",
+      "component": "GitHub Actions Deployment Workflow",
+      "status": "CLOSED",
+      "summary": "deploy-pages.yml built frontend without passing VITE_API_URL or build SHA",
+      "root_cause": "Build step executed 'npm run build' without binding VITE_API_URL or VITE_BUILD_SHA.",
+      "remediation": "Configured environment variables in deploy-pages.yml and vite.config.ts to inject git SHA and API base URL at build time.",
+      "verification_proof": "Verified in .github/workflows/deploy-pages.yml and reports/d1_2_frontend_build_identity.json."
+    },
+    {
+      "id": "DEP-P1-001",
+      "classification": "P1_PRODUCTION_DEFECT",
+      "component": "CORS Origins Configuration",
+      "status": "CLOSED",
+      "summary": "CORS policy blocked requests from https://algoryxz.github.io",
+      "root_cause": "Default CORS allowed list did not automatically include the GitHub Pages public origin.",
+      "remediation": "Updated backend/app/main.py to dynamically and unconditionally include https://algoryxz.github.io and localhost origins with credentials=True.",
+      "verification_proof": "Confirmed access-control-allow-origin: https://algoryxz.github.io header present on live backend responses in reports/d1_2_origin_contract.json."
+    },
+    {
+      "id": "DEP-P1-002",
+      "classification": "P1_PRODUCTION_DEFECT",
+      "component": "SPA Deep Routing Fallback",
+      "status": "CLOSED",
+      "summary": "Direct navigation to sub-routes on static hosts could 404",
+      "root_cause": "Static GitHub Pages web server requires 404.html redirect shim or hash-based routing.",
+      "remediation": "Created frontend/public/404.html redirect script and confirmed Web V4 navigation layer uses hash routing (#discover, #map, #plan, #saved).",
+      "verification_proof": "Verified direct deep links load correctly in headless Chromium without 404 errors."
+    },
+    {
+      "id": "DEP-P1-003",
+      "classification": "P1_PRODUCTION_DEFECT",
+      "component": "Custom Domain DNS Delegation",
+      "status": "WAIVED_PENDING_DNS",
+      "summary": "otravelz.in and api.otravelz.in have NXDOMAIN status",
+      "root_cause": "Domain registrar DNS records have not yet been delegated to GitHub Pages / Render by human operator.",
+      "remediation": "Documented exact DNS CNAME and ALIAS records in reports/d1_2_operator_actions_required.json and reports/d1_2_domain_status.json. Non-blocking for D1.2 release proof as primary public URL https://algoryxz.github.io/O-Travelz/ is fully operational.",
+      "verification_proof": "DNS probe documented in reports/d1_2_domain_status.json."
+    },
+    {
+      "id": "DEP-P1-004",
+      "classification": "P1_PRODUCTION_DEFECT",
+      "component": "Frontend Vite Proxy",
+      "status": "CLOSED",
+      "summary": "Vite preview lacked image proxy",
+      "root_cause": "Missing /images proxy entry in preview server config.",
+      "remediation": "Added /images proxy configuration to vite.config.ts in D1.1.",
+      "verification_proof": "Verified in frontend/vite.config.ts."
+    },
+    {
+      "id": "DEP-P1-005",
+      "classification": "P1_PRODUCTION_DEFECT",
+      "component": "Mobile Navigation Component Accessibility",
+      "status": "CLOSED",
+      "summary": "Mobile drawer lacked verified test hooks and touch targets",
+      "root_cause": "Mobile drawer items lacked data-testid attributes.",
+      "remediation": "Added test hooks and verified responsive layout for mobile viewport 390x844.",
+      "verification_proof": "Step 14 passed in reports/d1_2_public_golden_journey.json."
+    },
+    {
+      "id": "DEP-P1-006",
+      "classification": "P1_PRODUCTION_DEFECT",
+      "component": "Backend SearchQueryParams Limit Constraint",
+      "status": "CLOSED",
+      "summary": "Backend threw 500 ValidationError when frontend requested limit=250",
+      "root_cause": "SearchQueryParams in backend/app/services/search/search_models.py enforced le=200 while route query param allowed up to 500.",
+      "remediation": "Updated SearchQueryParams limit constraint to le=500, aligning Pydantic validation with FastAPI route definition.",
+      "verification_proof": "Verified GET /places?limit=250 returns HTTP 200 OK with CORS headers."
+    }
+  ],
+  "summary": {
+    "total": 9,
+    "p0_blockers_remaining": 0,
+    "p1_defects_open": 0,
+    "closed_count": 8,
+    "waived_count": 1,
+    "release_blocker_verdict": "ZERO_P0_BLOCKERS"
+  }
+}

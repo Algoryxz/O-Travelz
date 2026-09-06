@@ -1,0 +1,110 @@
+{
+  "wave": "D1.2",
+  "phase": "1_ponytail_deployment_decision",
+  "timestamp": "2026-09-06T09:14:00+00:00",
+  "evaluation": {
+    "candidate_a": {
+      "topology": "GitHub Pages frontend (https://algoryxz.github.io/O-Travelz/) + hosted FastAPI backend + Aiven PostgreSQL",
+      "score": 94,
+      "pros": [
+        "GitHub Pages is already configured, live, HTTPS-enforced, and global CDN cached",
+        "Zero frontend cold starts",
+        "Hash routing avoids 404 rewrite pitfalls on static hosting",
+        "Workflow already integrated into repository (.github/workflows/deploy-pages.yml)",
+        "Free, reliable, reproducible from Git SHA"
+      ],
+      "cons": [
+        "Requires separate backend hosting (Render or hosted container host)",
+        "CORS must explicitly allow https://algoryxz.github.io"
+      ]
+    },
+    "candidate_b": {
+      "topology": "Render static frontend + Render backend (render.yaml) + Aiven PostgreSQL",
+      "score": 45,
+      "pros": [
+        "Single provider blueprint file exists historically in repo"
+      ],
+      "cons": [
+        "Render static frontend does not exist (HTTP 404)",
+        "Render backend is suspended (>120s timeout) due to deleted otravelz-db dependency",
+        "Severe free-tier cold starts (50-90s)",
+        "Requires manual Render dashboard credentials to resume"
+      ]
+    },
+    "candidate_c": {
+      "topology": "Vercel frontend + Render backend + Aiven PostgreSQL",
+      "score": 38,
+      "pros": [
+        "Vercel configuration stub exists in frontend/vercel.json"
+      ],
+      "cons": [
+        "Requires new cloud provider account linking",
+        "Adds unnecessary operational fragmentation",
+        "Violates rule against adding speculative cloud providers"
+      ]
+    }
+  },
+  "chosen_candidate": "Candidate A",
+  "findings": [
+    {
+      "id": "DEP-ACT-001",
+      "classification": "REQUIRED_RELEASE_FIX",
+      "component": "GitHub Pages Deployment Pipeline",
+      "decision": "Use .github/workflows/deploy-pages.yml with VITE_API_URL to deploy current V4 build to gh-pages."
+    },
+    {
+      "id": "DEP-ACT-002",
+      "classification": "REQUIRED_RELEASE_FIX",
+      "component": "Render Blueprint (render.yaml)",
+      "decision": "Remove deleted Render PostgreSQL database block and decouple DATABASE_URL from fromDatabase binding."
+    },
+    {
+      "id": "DEP-ACT-003",
+      "classification": "REQUIRED_RELEASE_FIX",
+      "component": "Backend Release Identity",
+      "decision": "Expose machine-readable git_sha, alembic_version, status, and database health on /health and minimal build info on /."
+    },
+    {
+      "id": "DEP-ACT-004",
+      "classification": "REQUIRED_RELEASE_FIX",
+      "component": "Frontend Build Identity",
+      "decision": "Expose window.__OTRAVELZ_BUILD__ with git_sha and build timestamp without cluttering UI."
+    },
+    {
+      "id": "DEP-ACT-005",
+      "classification": "REQUIRED_RELEASE_FIX",
+      "component": "CORS Configuration",
+      "decision": "Include https://algoryxz.github.io in backend CORS_ORIGINS."
+    },
+    {
+      "id": "DEP-SIMP-001",
+      "classification": "SAFE_SIMPLIFICATION",
+      "component": "Client-Side Navigation",
+      "decision": "Retain existing Hash-based routing (window.location.hash) which requires zero server rewrite configuration on GitHub Pages."
+    },
+    {
+      "id": "DEP-OP-001",
+      "classification": "OPERATOR_ACTION_REQUIRED",
+      "component": "Render Cloud Console",
+      "decision": "If Render service requires human dashboard login to resume, provide exact step-by-step instructions without stalling repository-side recovery."
+    },
+    {
+      "id": "DEP-OP-002",
+      "classification": "OPERATOR_ACTION_REQUIRED",
+      "component": "Custom Domain DNS",
+      "decision": "otravelz.in is non-blocking; document exact operator DNS records."
+    },
+    {
+      "id": "DEP-LEAVE-001",
+      "classification": "LEAVE_ALONE",
+      "component": "Aiven Managed PostgreSQL",
+      "decision": "Database is healthy and migrated at 0020_transit_ride_observations. Zero migration needed."
+    },
+    {
+      "id": "DEP-REJ-001",
+      "classification": "REJECT_PONYTAIL_SUGGESTION",
+      "component": "Alternative Cloud Providers",
+      "decision": "Reject adding AWS/Fly.io/Vercel/Netlify; Candidate A topology satisfies all requirements with existing assets."
+    }
+  ]
+}

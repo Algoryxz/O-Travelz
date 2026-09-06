@@ -14,11 +14,11 @@ services:
       - key: ENVIRONMENT
         value: production
       - key: DATABASE_URL
-        fromDatabase:
-          name: otravelz-db
-          property: connectionString
-      - key: CORS_ORIGINS
         sync: false
+      - key: CORS_ORIGINS
+        value: https://algoryxz.github.io,https://otravelz.in,https://www.otravelz.in,http://localhost:5173
+      - key: PYTHON_VERSION
+        value: 3.12.5
       - key: AUTH_SESSION_SECRET
         generateValue: true
       - key: AUTH_COOKIE_SECURE
@@ -88,11 +88,4 @@ services:
       - key: VITE_API_URL
         sync: false
 
-databases:
-  # ---------------------------------------------------------------------------
-  # 3. O-TRAVELZ POSTGRESQL DATABASE (Free Tier)
-  # ---------------------------------------------------------------------------
-  - name: otravelz-db
-    plan: free
-    databaseName: otravelz
-    user: otravelz
+

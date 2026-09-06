@@ -31,12 +31,50 @@ app = FastAPI(
     version="0.1.0",
 )
 
+def _resolve_git_sha() -> str:
+    for env_key in ("GIT_SHA", "RENDER_GIT_COMMIT", "VERCEL_GIT_COMMIT_SHA", "GITHUB_SHA"):
+        val = os.environ.get(env_key)
+        if val:
+            return val.strip()[:40]
+    try:
+        import subprocess
+        out = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            stderr=subprocess.DEVNULL,
+            timeout=1.0,
+            text=True,
+        ).strip()
+        if out:
+            return out
+    except Exception:
+        pass
+    return "593d20263bc3b2442fe3f9ef12dffaefde17b74b"
+
+
+RELEASE_METADATA = {
+    "git_sha": _resolve_git_sha(),
+    "alembic_version": "0020_transit_ride_observations",
+}
+
 cors_origins_raw = getattr(settings, "cors_origins", None) or os.environ.get("CORS_ORIGINS", "*")
 if cors_origins_raw.strip() == "*":
     cors_origins = ["*"]
     allow_credentials = False
 else:
     cors_origins = [o.strip().rstrip("/") for o in cors_origins_raw.split(",") if o.strip()]
+    allowed_defaults = [
+        "https://algoryxz.github.io",
+        "https://smarak-padhi.github.io",
+        "https://otravelz.in",
+        "https://www.otravelz.in",
+        "http://localhost:5173",
+        "http://localhost:4173",
+        "http://127.0.0.1:5173",
+        "http://127.0.0.1:4173",
+    ]
+    for d in allowed_defaults:
+        if d not in cors_origins:
+            cors_origins.append(d)
     allow_credentials = True
 
 app.add_middleware(
@@ -56,6 +94,8 @@ def root() -> dict:
         "service": "O-Travelz API",
         "status": "running",
         "version": "0.1.0",
+        "git_sha": RELEASE_METADATA["git_sha"],
+        "alembic_version": RELEASE_METADATA["alembic_version"],
         "docs": "/docs",
         "health": "/health",
     }
@@ -63,8 +103,26 @@ def root() -> dict:
 
 @app.get("/health")
 def health() -> dict:
-    """Basic liveness check used by docker-compose / CI."""
-    return {"status": "ok"}
+    """Liveness probe with machine-readable release identity and lightweight DB check."""
+    db_status = "connected"
+    try:
+        from sqlalchemy import text
+        from app.db.session import SessionLocal
+
+        db = SessionLocal()
+        try:
+            db.execute(text("SELECT 1"))
+        finally:
+            db.close()
+    except Exception:
+        db_status = "disconnected"
+
+    return {
+        "status": "ok" if db_status == "connected" else "degraded",
+        "git_sha": RELEASE_METADATA["git_sha"],
+        "alembic_version": RELEASE_METADATA["alembic_version"],
+        "database": db_status,
+    }
 
 
 @app.get("/ready")

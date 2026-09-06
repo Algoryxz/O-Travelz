@@ -65,6 +65,16 @@ export function getApiBaseUrl(): string {
       return normalizeBaseUrl(candidate);
     }
   }
+  if (typeof window !== "undefined") {
+    const storageVal = typeof localStorage !== "undefined" ? localStorage.getItem("otravelz_api_url") : null;
+    const runtimeOverride = (window as any).__OTRAVELZ_API_URL__ || storageVal;
+    if (runtimeOverride) {
+      return normalizeBaseUrl(runtimeOverride);
+    }
+    if (window.location && typeof window.location.hostname === "string" && window.location.hostname.includes("github.io")) {
+      return normalizeBaseUrl("https://9109f508361c7c.lhr.life");
+    }
+  }
   return "";
 }
 

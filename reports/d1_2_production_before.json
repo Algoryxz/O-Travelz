@@ -1,0 +1,50 @@
+{
+  "wave": "D1.2",
+  "phase": "0_read_only_forensic_sync",
+  "timestamp": "2026-09-06T09:12:00+00:00",
+  "git_sha": "593d20263bc3b2442fe3f9ef12dffaefde17b74b",
+  "branch": "feature/v4-platform-rebuild",
+  "worktree_clean": true,
+  "alembic_version": "0020_transit_ride_observations",
+  "public_urls_documented": {
+    "frontend": [
+      "https://algoryxz.github.io/O-Travelz/",
+      "https://o-travelz.onrender.com",
+      "https://otravelz.in",
+      "https://www.otravelz.in"
+    ],
+    "backend": [
+      "https://otravelz-backend.onrender.com",
+      "https://api.otravelz.in"
+    ]
+  },
+  "deployment_workflow_files_present": [
+    ".github/workflows/ci.yml",
+    ".github/workflows/deploy-pages.yml"
+  ],
+  "current_vite_base_config": "./",
+  "current_api_url_strategy": "VITE_API_URL or VITE_API_BASE_URL via frontend/src/api/config.ts; falls back to same-origin relative",
+  "current_router_mode": "Hash-based routing (window.location.hash via getTabFromHash/getHashForTab) + internal component state",
+  "expected_public_topology": {
+    "frontend": "GitHub Pages (https://algoryxz.github.io/O-Travelz/)",
+    "backend": "Hosted FastAPI Web Service (https://otravelz-backend.onrender.com or active HTTPS gateway)",
+    "database": "Aiven Managed PostgreSQL 18.6 with PostGIS 3.6",
+    "custom_domain": "otravelz.in (non-blocking pending DNS operator actions)"
+  },
+  "database_baseline": {
+    "provider": "Aiven Managed PostgreSQL",
+    "postgresql_version": "18.6",
+    "postgis_version": "3.6 USE_GEOS=1 USE_PROJ=1 USE_STATS=1",
+    "alembic_version": "0020_transit_ride_observations",
+    "counts": {
+      "places": 204,
+      "routes": 154,
+      "stops": 1430,
+      "route_stops": 1491,
+      "scheduled_trip_groups": 302,
+      "media_assets": 116,
+      "entity_media": 70,
+      "place_images": 70
+    }
+  }
+}
