@@ -1,0 +1,35 @@
+{
+  "wave": "D1.6",
+  "phase": "Phase 4 - Render Deployment Trigger Required",
+  "git_commit_pushed": "3946cb1",
+  "git_branch": "feature/v4-platform-rebuild",
+  "root_causes_repaired_in_commit": [
+    "Fixed FATAL production startup crash caused by unconfigured AUTH_SESSION_SECRET in backend/app/core/config.py",
+    "Fixed start.py terminating the container before Uvicorn binds port when alembic migrations run",
+    "Configured CORS middleware in backend/app/main.py with credentials: true and allow_origin_regex for https://*.github.io and localhost",
+    "Added automatic fallback to https://otravelz-backend.onrender.com in frontend/src/api/config.ts when running on github.io"
+  ],
+  "render_dashboard_operator_action_required": {
+    "url": "https://dashboard.render.com",
+    "service": "otravelz-backend",
+    "action": "Manual Deploy -> Clear build cache & deploy (or Deploy latest commit: 3946cb1)",
+    "branch_verification": "Ensure Branch is set to: feature/v4-platform-rebuild",
+    "env_vars_recommended": [
+      "DATABASE_URL: (Existing Aiven PostgreSQL URI)",
+      "ENVIRONMENT: production",
+      "AUTH_SESSION_SECRET: (Optional: 32+ char secret, auto-handled by code if omitted)",
+      "CORS_ORIGINS: https://algoryxz.github.io,http://localhost:5173"
+    ]
+  },
+  "expected_post_deploy_result": {
+    "endpoint": "https://otravelz-backend.onrender.com/health",
+    "http_status": 200,
+    "expected_response_json": {
+      "status": "ok",
+      "version": "4.0.0",
+      "git_sha": "3946cb1",
+      "alembic_version": "0020_transit_ride_observations",
+      "database": "connected"
+    }
+  }
+}

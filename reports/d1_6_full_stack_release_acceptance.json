@@ -1,0 +1,56 @@
+{
+  "timestamp": "2026-09-06T18:46:30Z",
+  "wave": "D1.6",
+  "branch": "feature/v4-platform-rebuild",
+  "commit_sha": "3946cb1",
+  "status_matrix": {
+    "LOCAL_WEB_READY": "YES",
+    "PUBLIC_STATIC_WEB_READY": "YES",
+    "PUBLIC_BACKEND_READY": "PENDING_OPERATOR_MANUAL_DEPLOY",
+    "PUBLIC_FULL_STACK_READY": "PENDING_RENDER_DEPLOYMENT_HANDSHAKE",
+    "ANDROID_APP_READY": "PARTIALLY",
+    "O_TRAVELZ_OVERALL_READY": "PARTIALLY",
+    "WEB_V4_FEATURE_FREEZE": true
+  },
+  "canonical_data_hashes_verified": {
+    "routes.json": "5bb09c9fbc9098130dc7eeea3646497da6122787495f3f558763cfe6d6352268",
+    "stops.json": "62757946d292592c0ec598f4155019ac4f842e69b11709c2fed3934b8da844d6",
+    "route_stops.json": "2254d9beb75234dcfc2e2249d6476763db031c354d0b5ced0f045feaf04a14bb",
+    "schedules.json": "5dc055e71df836d8eab164a25e52a39e217b1b1567511f095d80ffd823f96c19",
+    "network.json": "3fc5958895736c53dc6f6fe6b3c138b98ab4cabbf819a8189faf8b1ec28fddf3",
+    "aliases.json": "96264b2868fc32ccca9b21421220be87dd3bab1c5f508a5f221cfd4be0693f7f"
+  },
+  "aiven_database_truth": {
+    "engine": "PostgreSQL 18.6 on x86_64-pc-linux-gnu",
+    "postgis": "3.6 USE_GEOS=1 USE_PROJ=1 USE_STATS=1",
+    "alembic_head": "0020_transit_ride_observations",
+    "places_count": 204,
+    "routes_count": 154,
+    "stops_count": 1430,
+    "media_assets_count": 116,
+    "place_images_count": 70
+  },
+  "local_runtime_endpoint_verification_against_aiven": {
+    "GET /": "200 OK",
+    "GET /health": "200 OK",
+    "GET /ready": "200 OK",
+    "GET /places?limit=5": "200 OK",
+    "GET /weather/current?lat=20.2961&lon=85.8245": "200 OK",
+    "POST /ai/converse": "200 OK",
+    "POST /itinerary/plan": "200 OK",
+    "GET /transport/stops/nearby?lat=20.2961&lon=85.8245&radius_m=3000": "200 OK",
+    "GET /api/v1/services/nearby?lat=20.2961&lon=85.8245&radius_km=5": "200 OK",
+    "OPTIONS /places (CORS)": "200 OK (access-control-allow-credentials: true, access-control-allow-origin: https://algoryxz.github.io)"
+  },
+  "test_suites_summary": {
+    "python_pytest": "1357 passed, 2 skipped, 109 deselected in 109s",
+    "frontend_vitest": "84 test files passed, 672 passed, 5 skipped in 14.56s",
+    "frontend_build": "SUCCESS (vite build + public media projection compiled in 9.27s)"
+  },
+  "operator_action_required": {
+    "dashboard": "https://dashboard.render.com",
+    "service": "otravelz-backend",
+    "action": "Manual Deploy -> Clear build cache & deploy",
+    "commit_to_deploy": "3946cb1"
+  }
+}
