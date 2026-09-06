@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 12 \u2014 Public AI Truth",
+  "prompts_tested": [
+    "Plan a 1 day trip in bbsr",
+    "Plan a one day trip in Bhubaneswar",
+    "I am in Bhubaneswar and want to visit places using Mo Bus where practical",
+    "Plan a rainy day in Bhubaneswar",
+    "I have only 6 hours and want temples, lunch and minimal travel"
+  ],
+  "local_rule_based_fallback_evaluation": "PASS (Local engine evaluates all 5 intents deterministically)",
+  "public_backend_evaluation": "TIMEOUT (0 responses received)",
+  "verdict": "PUBLIC_AI_UNPROVEN"
+}

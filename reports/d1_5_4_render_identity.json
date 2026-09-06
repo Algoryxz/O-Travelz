@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 1 \u2014 Render-Side Truth Only",
+  "service_name": {
+    "value": "otravelz-backend",
+    "evidence_source": "render.yaml & documented service URI",
+    "observed": true
+  },
+  "repository_connected_to_render": {
+    "value": "https://github.com/Algoryxz/O-Travelz",
+    "evidence_source": "render.yaml and git remote origin",
+    "observed": true
+  },
+  "configured_branch": {
+    "value": "UNKNOWN",
+    "evidence_source": "Render dashboard UI settings not directly inspectable in local CLI session; render.yaml specifies feature/v4-platform-rebuild",
+    "observed": false
+  },
+  "deployed_commit_sha": {
+    "value": "UNKNOWN",
+    "evidence_source": "HTTP probes time out; no response headers or RENDER_GIT_COMMIT returned",
+    "observed": false
+  },
+  "deployment_id": {
+    "value": "UNKNOWN",
+    "evidence_source": "Render dashboard UI required for deployment ID",
+    "observed": false
+  },
+  "deployment_timestamp": {
+    "value": "UNKNOWN",
+    "evidence_source": "Render dashboard UI required for deployment timestamp",
+    "observed": false
+  },
+  "build_status": {
+    "value": "UNKNOWN",
+    "evidence_source": "Render build tab not queryable via local HTTP endpoint",
+    "observed": false
+  },
+  "service_runtime_status": {
+    "value": "UPSTREAM_UNRESPONSIVE",
+    "evidence_source": "Network probe to https://otravelz-backend.onrender.com/ (TLS ok, upstream timeout)",
+    "observed": true
+  },
+  "build_command": {
+    "value": "pip install --no-cache-dir -r requirements.txt",
+    "evidence_source": "render.yaml",
+    "observed": true
+  },
+  "start_command": {
+    "value": "python start.py",
+    "evidence_source": "render.yaml",
+    "observed": true
+  },
+  "health_check_path": {
+    "value": "/health",
+    "evidence_source": "render.yaml",
+    "observed": true
+  },
+  "configured_root_directory": {
+    "value": "backend",
+    "evidence_source": "render.yaml",
+    "observed": true
+  },
+  "port_runtime_environment_behavior": {
+    "value": "Render default port 10000 injected into env PORT; edge proxy terminates TLS on 443 and proxies to internal container",
+    "evidence_source": "Render platform specification & render.yaml",
+    "observed": true
+  }
+}

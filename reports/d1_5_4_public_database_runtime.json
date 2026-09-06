@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 8 \u2014 Database Through Public Application",
+  "direct_aiven_database": {
+    "status": "VERIFIED_ONLINE",
+    "places_count": 204,
+    "routes_count": 154,
+    "stops_count": 1430,
+    "services_count": 211,
+    "alembic_revision": "0020_transit_ride_observations"
+  },
+  "public_application_retrieval": {
+    "GET /places": "TIMEOUT",
+    "GET /api/transport/routes": "TIMEOUT",
+    "GET /api/v1/services/nearby": "TIMEOUT"
+  },
+  "PUBLIC_RUNTIME_USES_AIVEN": "UNPROVEN",
+  "verdict": "UNPROVEN"
+}

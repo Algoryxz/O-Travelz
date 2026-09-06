@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 11 \u2014 Backend Availability Quality",
+  "cold_latency": ">15.0s (TIMEOUT)",
+  "warm_min": null,
+  "warm_p50": null,
+  "warm_p95": null,
+  "warm_max": null,
+  "failure_rate": "100%",
+  "classification": "UNACCEPTABLE",
+  "verdict": "HOSTING_AVAILABILITY_UNACCEPTABLE"
+}

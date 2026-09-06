@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 2 \u2014 Environment Contract",
+  "variables": {
+    "DATABASE_URL": {
+      "classification": "PRESENT_VALID",
+      "sanitized_value": "postgresql://avnadmin:<REDACTED>@otravelz-db-smarakpadhi58-98d3.d.aivencloud.com:25047/defaultdb?sslmode=require",
+      "host": "otravelz-db-smarakpadhi58-98d3.d.aivencloud.com",
+      "port": 25047,
+      "database": "defaultdb",
+      "sslmode": "require",
+      "is_aiven": true,
+      "references_deleted_render_db": false
+    },
+    "CORS_ORIGINS": {
+      "classification": "PRESENT_VALID",
+      "value": "https://algoryxz.github.io,http://localhost:5173",
+      "includes_public_frontend": true
+    },
+    "ENVIRONMENT": {
+      "classification": "PRESENT_VALID",
+      "value": "production"
+    },
+    "PYTHON_VERSION": {
+      "classification": "PRESENT_VALID",
+      "value": "3.12.5"
+    },
+    "AI_PROVIDER": {
+      "classification": "PRESENT_VALID",
+      "value": "multi_provider"
+    },
+    "AI_FALLBACK_PROVIDER": {
+      "classification": "PRESENT_VALID",
+      "value": "rule_based"
+    },
+    "WEATHER_PROVIDER": {
+      "classification": "PRESENT_VALID",
+      "value": "Open-Meteo"
+    },
+    "WEATHER_BASE_URL": {
+      "classification": "PRESENT_VALID",
+      "value": "https://api.open-meteo.com/v1/forecast"
+    },
+    "AUTH_COOKIE_SECURE": {
+      "classification": "PRESENT_VALID",
+      "value": "true"
+    },
+    "AUTH_COOKIE_SAMESITE": {
+      "classification": "PRESENT_VALID",
+      "value": "none"
+    },
+    "AI_API_KEY": {
+      "classification": "OPTIONAL_MISSING",
+      "details": "External LLM key optional; rule_based fallback handles queries deterministically"
+    }
+  },
+  "verdict": "ENVIRONMENT_CONTRACT_VALID"
+}

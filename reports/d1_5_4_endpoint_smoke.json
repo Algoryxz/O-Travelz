@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 9 \u2014 Nine-Endpoint Public Smoke Test",
+  "base_url": "https://otravelz-backend.onrender.com",
+  "endpoints": {
+    "1_GET_/health": {
+      "status": "TIMEOUT",
+      "latency_s": ">15.0",
+      "passed": false
+    },
+    "2_GET_/places": {
+      "status": "TIMEOUT",
+      "latency_s": ">15.0",
+      "passed": false
+    },
+    "3_GET_/places/lingaraj_temple": {
+      "status": "TIMEOUT",
+      "latency_s": ">15.0",
+      "passed": false
+    },
+    "4_GET_/weather/current": {
+      "status": "TIMEOUT",
+      "latency_s": ">15.0",
+      "passed": false
+    },
+    "5_POST_/itinerary/plan": {
+      "status": "TIMEOUT",
+      "latency_s": ">15.0",
+      "passed": false
+    },
+    "6_POST_/ai/converse": {
+      "status": "TIMEOUT",
+      "latency_s": ">15.0",
+      "passed": false
+    },
+    "7_GET_/api/transport/routes": {
+      "status": "TIMEOUT",
+      "latency_s": ">15.0",
+      "passed": false
+    },
+    "8_GET_/api/transport/routes/10/geometry": {
+      "status": "TIMEOUT",
+      "latency_s": ">15.0",
+      "passed": false
+    },
+    "9_GET_/api/v1/services/nearby": {
+      "status": "TIMEOUT",
+      "latency_s": ">15.0",
+      "passed": false
+    }
+  },
+  "pass_count": "0/9",
+  "verdict": "FAILED"
+}

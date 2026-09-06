@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 15 \u2014 True Full-Stack Playwright Journey",
+  "frontend_url": "https://algoryxz.github.io/O-Travelz/",
+  "backend_url": "https://otravelz-backend.onrender.com",
+  "strict_rule": "Frontend fallback counts as FAILED for full-stack proof",
+  "steps": {
+    "1_Home": "PASS (static)",
+    "2_Discover": "PASS (static catalog)",
+    "3_Lingaraj_detail": "PASS (modal)",
+    "4_verified_hero": "PASS (CDN)",
+    "5_WEATHER_FROM_RENDER": "FAILED (Render timeout, client fail-safe used)",
+    "6_planner": "PASS (client UI)",
+    "7_AI_CONVERSE_FROM_RENDER": "FAILED (Render timeout, client rule-based used)",
+    "8_itinerary_result": "PASS (client rendered)",
+    "9_map": "PASS (MapLibre active)",
+    "10_TRANSIT_GEOMETRY_FROM_RENDER": "FAILED (Render timeout, static fallback used)",
+    "11_CIVIC_SERVICES_FROM_RENDER": "PASS (verified static dataset)",
+    "12_save": "PASS (localStorage)",
+    "13_reload": "PASS (localStorage hydrated)",
+    "14_mobile_viewport": "PASS (390x844 responsive)"
+  },
+  "full_stack_steps_passed": "0 / 4 (Steps 5, 7, 10, 11: 3 failed live backend, 1 static)",
+  "total_journey_steps_passed": "10 / 14",
+  "verdict": "STATIC_WEB_AUTONOMOUS_PASS_FULL_STACK_FAILED"
+}

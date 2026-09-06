@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 10 \u2014 Public CORS",
+  "requested_origin": "https://algoryxz.github.io",
+  "expected_allow_origin": "https://algoryxz.github.io",
+  "expected_allow_credentials": "true",
+  "no_wildcard_with_credentials": true,
+  "local_preflight_status": "PASS",
+  "public_preflight_status": "TIMEOUT",
+  "verdict": "UNPROVEN_DUE_TO_TIMEOUT"
+}

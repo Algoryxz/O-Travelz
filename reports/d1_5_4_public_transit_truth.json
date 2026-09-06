@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 14 \u2014 Public Transit Truth",
+  "regions_covered": [
+    "Capital Region",
+    "Rourkela",
+    "Sambalpur",
+    "Berhampur",
+    "Keonjhar"
+  ],
+  "canonical_truth_checks": {
+    "road_following_geometry": true,
+    "fail_closed_gaps": true,
+    "candidate_stop_excluded_from_first_mile": true,
+    "no_synthetic_two_point_chord": true
+  },
+  "local_evaluation": "PASS (154 routes, 1430 stops in Aiven PostGIS)",
+  "public_backend_evaluation": "TIMEOUT",
+  "verdict": "PUBLIC_TRANSIT_UNPROVEN"
+}

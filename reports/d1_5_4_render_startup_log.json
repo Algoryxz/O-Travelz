@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 4 \u2014 Startup Log Forensics",
+  "observation_method": "EXTERNAL_OBSERVATION_AND_LOCAL_EMULATION",
+  "local_startup_trace": {
+    "migrations": "SUCCESS (Applied to head: 0020_transit_ride_observations)",
+    "verification": "SUCCESS (204 places, 23 categories, 154 routes)",
+    "uvicorn": "SUCCESS (Started server process on 0.0.0.0:8000)",
+    "runtime_exit_code": 0
+  },
+  "public_cloud_startup_observation": "PROCESS_HANG_OR_CRASH_LOOP_UPSTREAM",
+  "classification": "UNKNOWN",
+  "first_causal_error": "Upstream web service returns 0 bytes and does not respond to HTTP traffic over port 443 within 90s.",
+  "verdict": "UPSTREAM_UNRESPONSIVE_PENDING_DASHBOARD_INSPECTION"
+}

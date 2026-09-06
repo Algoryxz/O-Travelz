@@ -26,20 +26,30 @@ def run_migrations() -> None:
         )
         if res.returncode != 0:
             print(
-                f"[STARTUP WARNING] Database migration returned non-zero code {res.returncode}. "
-                f"Proceeding with server start to allow health monitoring...",
+                f"[STARTUP ERROR] Database migration returned non-zero code {res.returncode}. "
+                f"Aborting startup to prevent unmigrated schema state.",
                 file=sys.stderr,
                 flush=True,
             )
+            sys.exit(res.returncode)
         else:
             print("[STARTUP] Database migrations successfully applied to head.", flush=True)
-    except Exception as exc:
+    except subprocess.TimeoutExpired as exc:
         print(
-            f"[STARTUP WARNING] Database migration execution exception: {exc}. "
-            f"Proceeding with server start to allow health monitoring...",
+            f"[STARTUP ERROR] Database migration timed out after 60s: {exc}. "
+            f"Aborting startup.",
             file=sys.stderr,
             flush=True,
         )
+        sys.exit(1)
+    except Exception as exc:
+        print(
+            f"[STARTUP ERROR] Database migration execution exception: {exc}. "
+            f"Aborting startup.",
+            file=sys.stderr,
+            flush=True,
+        )
+        sys.exit(1)
 
 
 def seed_database_if_empty() -> None:

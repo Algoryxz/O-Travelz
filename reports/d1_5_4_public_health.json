@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 7 \u2014 Public Health Gate",
+  "probes": {
+    "root_url": "https://otravelz-backend.onrender.com/",
+    "health_url": "https://otravelz-backend.onrender.com/health"
+  },
+  "http_status": "TIMEOUT",
+  "version": null,
+  "git_sha": null,
+  "alembic_revision": null,
+  "database_availability": "UNPROVEN_DUE_TO_TIMEOUT",
+  "intended_feature_branch_sha": "e4a9140c5aa4cb364ab466cf1c0ab0f12dbe0ab0",
+  "acceptance": "FAIL_TIMEOUT",
+  "verdict": "PUBLIC_HEALTH_FAIL"
+}

@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-09-06T14:17:02.063159+00:00",
+  "wave": "D1.5.4",
+  "phase": "Phase 13 \u2014 Public Weather Truth",
+  "provider": "Open-Meteo",
+  "zero_celsius_sentinel_prevented": true,
+  "fake_sunny_prevented": true,
+  "local_evaluation": "PASS (Fails closed when coords are invalid; passes Open-Meteo live data)",
+  "public_backend_evaluation": "TIMEOUT",
+  "verdict": "PUBLIC_WEATHER_UNPROVEN"
+}
