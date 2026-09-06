@@ -1,0 +1,31 @@
+{
+  "report_name": "transit_c5_2_before",
+  "canonical_file_hashes": {
+    "routes.json": "5bb09c9fbc9098130dc7eeea3646497da6122787495f3f558763cfe6d6352268",
+    "stops.json": "62757946d292592c0ec598f4155019ac4f842e69b11709c2fed3934b8da844d6",
+    "route_stops.json": "2254d9beb75234dcfc2e2249d6476763db031c354d0b5ced0f045feaf04a14bb",
+    "schedules.json": "5dc055e71df836d8eab164a25e52a39e217b1b1567511f095d80ffd823f96c19",
+    "aliases.json": "96264b2868fc32ccca9b21421220be87dd3bab1c5f508a5f221cfd4be0693f7f"
+  },
+  "invariants": {
+    "total_routes": 154,
+    "total_route_sequence_groups": 164,
+    "total_canonical_stops": 1430,
+    "total_route_stop_links": 1491,
+    "exact_geocoded_stops": 173,
+    "canonical_schedules_count": 302,
+    "unique_departures": 5549,
+    "total_departure_entries": 5549,
+    "total_c5_route_geometry_segments": 1327,
+    "c5_segment_breakdown": {
+      "HIGH_CONFIDENCE_ROUTE_GEOMETRY": 452,
+      "VERIFIED_ROUTE_GEOMETRY": 130,
+      "MEDIUM_CONFIDENCE_ROUTE_GEOMETRY": 745
+    }
+  },
+  "metrics_distinction": {
+    "exact_stop_coordinate_coverage": 12.1,
+    "route_geometry_evidence_coverage": 43.86,
+    "note": "safe_product_polyline_coverage will be determined in Phase 3 based on actual renderable coordinate geometry versus corridor intelligence."
+  }
+}

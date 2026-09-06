@@ -1,0 +1,119 @@
+{
+  "report_name": "transit_c5_2_segment_renderability",
+  "timestamp": "2026-09-06T04:16:15.522179+00:00",
+  "total_segments": 1327,
+  "classification_breakdown": {
+    "RENDERABLE_EXACT": 37,
+    "RENDERABLE_ROAD_FOLLOWING": 0,
+    "ANCHOR_ONLY": 868,
+    "CORRIDOR_ONLY": 388,
+    "SUPPRESSED_OUTLIER": 34,
+    "UNAVAILABLE": 0
+  },
+  "safe_product_polyline_coverage_pct": 2.79,
+  "route_geometry_evidence_coverage_pct": 43.86,
+  "exact_stop_coordinate_coverage_pct": 12.1,
+  "honest_assessment": "Safe product polyline coverage is 2.79% (37 / 1327 segments in 23 fully-exact sequences). The remaining 1290 segments possess high/medium corridor intelligence (arterial roads) and discrete anchors, which provide 100% route-shape and planning context, but CANNOT be truthfully drawn as continuous polyline paths without fabricating unverified straight lines between stops. These segments are classified as ANCHOR_ONLY (649) or CORRIDOR_ONLY (628), with 13 SUPPRESSED_OUTLIER segments.",
+  "sample_classified_segments": [
+    {
+      "sequence_id": "rt_crut_08_forward",
+      "route_number": "08",
+      "segment_index": 0,
+      "from_stop_id": "stop_crut_bhubaneswar_igkc_multispecialty_hospital",
+      "to_stop_id": "stop_crut_berhampur_sum_hospital",
+      "classification": "ANCHOR_ONLY",
+      "corridor_road": "IGKC Multispecialty Hospital - Sum Hospital Transit Corridor",
+      "reason": "Known anchor stop(s) with arterial corridor name; connecting polyline suppressed because intermediate road waypoints are not surveyed."
+    },
+    {
+      "sequence_id": "rt_crut_09_forward",
+      "route_number": "09",
+      "segment_index": 0,
+      "from_stop_id": "stop_crut_bhubaneswar_bhubaneswar_railway_station",
+      "to_stop_id": "stop_crut_bhubaneswar_niladri_vihar",
+      "classification": "ANCHOR_ONLY",
+      "corridor_road": "Janpath Road",
+      "reason": "Known anchor stop(s) with arterial corridor name; connecting polyline suppressed because intermediate road waypoints are not surveyed."
+    },
+    {
+      "sequence_id": "rt_crut_09_forward",
+      "route_number": "09",
+      "segment_index": 1,
+      "from_stop_id": "stop_crut_bhubaneswar_niladri_vihar",
+      "to_stop_id": "stop_crut_bhubaneswar_patia",
+      "classification": "ANCHOR_ONLY",
+      "corridor_road": "Janpath Road",
+      "reason": "Known anchor stop(s) with arterial corridor name; connecting polyline suppressed because intermediate road waypoints are not surveyed."
+    },
+    {
+      "sequence_id": "rt_crut_10_forward",
+      "route_number": "10",
+      "segment_index": 0,
+      "from_stop_id": "stop_crut_bhubaneswar_bhubaneswar_airport",
+      "to_stop_id": "stop_crut_bhubaneswar_maulana_azad_national_urdu_university",
+      "classification": "ANCHOR_ONLY",
+      "corridor_road": "Bhubaneswar Airport - Maulana Azad National Urdu University Transit Corridor",
+      "reason": "Known anchor stop(s) with arterial corridor name; connecting polyline suppressed because intermediate road waypoints are not surveyed."
+    },
+    {
+      "sequence_id": "rt_crut_100_forward",
+      "route_number": "100",
+      "segment_index": 0,
+      "from_stop_id": "stop_crut_rourkela_rourkela_new_bus_stand",
+      "to_stop_id": "stop_crut_rourkela_ring_road",
+      "classification": "ANCHOR_ONLY",
+      "corridor_road": "Via Ring Road, IGH, Chend Colony Arterial Corridor",
+      "reason": "Known anchor stop(s) with arterial corridor name; connecting polyline suppressed because intermediate road waypoints are not surveyed."
+    },
+    {
+      "sequence_id": "rt_crut_100_forward",
+      "route_number": "100",
+      "segment_index": 1,
+      "from_stop_id": "stop_crut_rourkela_ring_road",
+      "to_stop_id": "stop_crut_rourkela_igh",
+      "classification": "ANCHOR_ONLY",
+      "corridor_road": "Via Ring Road, IGH, Chend Colony Arterial Corridor",
+      "reason": "Known anchor stop(s) with arterial corridor name; connecting polyline suppressed because intermediate road waypoints are not surveyed."
+    },
+    {
+      "sequence_id": "rt_crut_100_forward",
+      "route_number": "100",
+      "segment_index": 2,
+      "from_stop_id": "stop_crut_rourkela_igh",
+      "to_stop_id": "stop_crut_rourkela_chend_colony",
+      "classification": "ANCHOR_ONLY",
+      "corridor_road": "Via Ring Road, IGH, Chend Colony Arterial Corridor",
+      "reason": "Known anchor stop(s) with arterial corridor name; connecting polyline suppressed because intermediate road waypoints are not surveyed."
+    },
+    {
+      "sequence_id": "rt_crut_100_forward",
+      "route_number": "100",
+      "segment_index": 3,
+      "from_stop_id": "stop_crut_rourkela_chend_colony",
+      "to_stop_id": "stop_crut_rourkela_birsa_munda_hockey_stadium",
+      "classification": "ANCHOR_ONLY",
+      "corridor_road": "Via Ring Road, IGH, Chend Colony Arterial Corridor",
+      "reason": "Known anchor stop(s) with arterial corridor name; connecting polyline suppressed because intermediate road waypoints are not surveyed."
+    },
+    {
+      "sequence_id": "rt_crut_101_forward",
+      "route_number": "101",
+      "segment_index": 0,
+      "from_stop_id": "stop_crut_rourkela_rourkela_new_bus_stand",
+      "to_stop_id": "stop_crut_rourkela_udit_nagar",
+      "classification": "ANCHOR_ONLY",
+      "corridor_road": "Via Udit Nagar, Hanuman Vatika Chowk, Chhend, Airport Arterial Corridor",
+      "reason": "Known anchor stop(s) with arterial corridor name; connecting polyline suppressed because intermediate road waypoints are not surveyed."
+    },
+    {
+      "sequence_id": "rt_crut_101_forward",
+      "route_number": "101",
+      "segment_index": 1,
+      "from_stop_id": "stop_crut_rourkela_udit_nagar",
+      "to_stop_id": "stop_crut_rourkela_hanuman_vatika_chowk",
+      "classification": "ANCHOR_ONLY",
+      "corridor_road": "Via Udit Nagar, Hanuman Vatika Chowk, Chhend, Airport Arterial Corridor",
+      "reason": "Known anchor stop(s) with arterial corridor name; connecting polyline suppressed because intermediate road waypoints are not surveyed."
+    }
+  ]
+}

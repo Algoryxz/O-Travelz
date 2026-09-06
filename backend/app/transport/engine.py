@@ -240,16 +240,12 @@ class TransitEngine:
         """
         Generate map data bundle for frontend transit visualization.
         """
+        from app.transport.geometry_engine import DeterministicGeometryEngine
+
+        geo_engine = DeterministicGeometryEngine(self.session)
         routes_query = self.session.query(Route)
         routes = routes_query.all()
-        # Load RouteIntelligence lookups in batch
-        from app.models.transit_intelligence import RouteIntelligence, RouteCorridorIntelligence
 
-        ri_by_num: dict[str, RouteIntelligence] = {}
-        for ri in self.session.query(RouteIntelligence).all():
-            ri_by_num[ri.route_number] = ri
-
-        # Map routes with ordered stops and intelligence
         map_routes = []
         for r in routes:
             notes = {}
@@ -262,71 +258,44 @@ class TransitEngine:
             if region and not matches_region_filter(route_region, region):
                 continue
 
-            ri = ri_by_num.get(r.name)
-
-            route_stops = (
-                self.session.query(RouteStop, Stop)
-                .join(Stop, RouteStop.stop_id == Stop.id)
-                .filter(RouteStop.route_id == r.id)
-                .order_by(RouteStop.sequence_order)
-                .all()
-            )
-
-            stops_list = []
-            verified_coords = []
-            for rs, s in route_stops:
-                lat, lon = None, None
-                if s.location is not None:
-                    try:
-                        shape = to_shape(s.location)
-                        lon, lat = shape.x, shape.y
-                    except Exception:
-                        pass
-
-                if lat is not None and lon is not None:
-                    verified_coords.append([round(lat, 6), round(lon, 6)])
-
-                stops_list.append({
-                    "stop_id": str(s.id),
-                    "stop_name": s.name,
-                    "published_name": s.published_name,
-                    "sequence_order": rs.sequence_order,
-                    "latitude": round(lat, 6) if lat is not None else None,
-                    "longitude": round(lon, 6) if lon is not None else None,
-                    "coordinate_status": s.coordinate_status or "unresolved",
-                })
-
-            geo_status = ri.geometry_status if ri else ("EXACT" if len(stops_list) > 2 and len(verified_coords) == len(stops_list) else "NONE")
-            confidence = ri.overall_confidence if ri else "SUPPORTED"
-
-            corridors_list = []
-            if ri and ri.corridors:
-                for c in ri.corridors:
-                    corridors_list.append({
-                        "sequence": c.sequence,
-                        "from_label": c.from_label,
-                        "to_label": c.to_label,
-                        "road_names": c.road_names,
-                        "major_junctions": c.major_junctions,
-                        "landmarks": c.landmarks,
-                        "status": c.status,
-                    })
+            payload = geo_engine.get_route_geometry(r.id)
+            if not payload:
+                continue
 
             map_routes.append({
-                "route_id": str(r.id),
-                "route_number": r.name,
+                "route_id": payload.route_id,
+                "route_number": payload.route_number,
                 "route_name": r.route_name,
                 "region": route_region,
                 "origin": notes.get("origin"),
                 "destination": notes.get("destination"),
                 "via": notes.get("via"),
-                "geometry_status": geo_status,
-                "overall_confidence": confidence,
-                "is_geometry_available": (geo_status == "EXACT"),
-                "verified_coordinates": verified_coords if geo_status == "EXACT" else [],
-                "corridors": corridors_list,
-                "stops_count": len(stops_list),
-                "stops": stops_list,
+                "geometry_status": payload.geometry_status,
+                "route_geometry_confidence": payload.route_geometry_confidence,
+                "geometry_render_status": payload.geometry_render_status,
+                "overall_confidence": payload.confidence,
+                "is_geometry_available": payload.is_geometry_available,
+                "verified_coordinates": payload.coordinates,
+                "corridors": payload.corridors,
+                "segments": payload.segments,
+                "osm_relations_matched": payload.osm_relations_matched,
+                "suppressed_outliers": payload.suppressed_outliers,
+                "stops_count": len(payload.anchor_stops),
+                "stops": [
+                    {
+                        "stop_id": a["stop_id"],
+                        "canonical_stop_id": a["canonical_stop_id"],
+                        "stop_name": a["name"],
+                        "sequence_order": a["sequence_order"],
+                        "latitude": a["latitude"],
+                        "longitude": a["longitude"],
+                        "coordinate_status": a["stop_resolution_status"],
+                        "render_exact_marker": a["render_exact_marker"],
+                        "render_candidate_marker": a["render_candidate_marker"],
+                        "participates_in_first_mile": a["participates_in_first_mile"],
+                    }
+                    for a in payload.anchor_stops
+                ],
             })
 
         # All geocoded stops for map markers
@@ -352,14 +321,24 @@ class TransitEngine:
             if region and not matches_region_filter(s_city, region):
                 continue
 
+            is_verified = (
+                lat is not None
+                and lon is not None
+                and (s.coordinate_status in ("official", "geocoded", "osm_verified", "VERIFIED_OFFICIAL", "VERIFIED_GEOSPATIAL"))
+            )
+
             map_stops.append({
                 "stop_id": str(s.id),
+                "canonical_stop_id": s.canonical_stop_id,
                 "name": s.name,
                 "published_name": s.published_name or s.name,
                 "city": s_city,
                 "latitude": round(lat, 6) if lat is not None else None,
                 "longitude": round(lon, 6) if lon is not None else None,
-                "coordinate_status": s.coordinate_status or "unresolved",
+                "coordinate_status": "VERIFIED_OFFICIAL" if is_verified else (s.coordinate_status or "unresolved"),
+                "render_exact_marker": is_verified,
+                "render_candidate_marker": False,
+                "participates_in_first_mile": is_verified,
             })
 
         return {

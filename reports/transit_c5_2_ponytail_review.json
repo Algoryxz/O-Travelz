@@ -1,0 +1,75 @@
+{
+  "report_name": "transit_c5_2_ponytail_review",
+  "timestamp": "2026-09-06T04:15:35.645540+00:00",
+  "flow_traced": "c5_route_geometry.json/c5_stop_resolution.json -> DeterministicGeometryEngine -> transport API -> map payload -> frontend transitGeometry.ts -> rendered line/pins",
+  "findings": [
+    {
+      "id": "PONYTAIL-C52-01",
+      "component": "frontend/src/utils/transitGeometry.ts (Tier 2 fallback)",
+      "issue": "Client-side straight-line interpolation: transitGeometry.ts connects any >=2 geocoded stops with a line when route is not EXACT, even when intermediate stops are unresolved, creating false straight lines across miles.",
+      "classification": "REQUIRED_C5_2_FIX",
+      "ladder_rung": "Rung 1 (YAGNI/Elimination): Delete the client-side straight-line generation for incomplete sequences.",
+      "rationale": "O-TRAVELZ truth invariant: never draw fake straight lines across unresolved stops.",
+      "action": "Disable polyline drawing in transitGeometry.ts when intermediate stops are unresolved; return discrete anchor pins and corridor disclosure only."
+    },
+    {
+      "id": "PONYTAIL-C52-02",
+      "component": "backend/app/transport/geometry_engine.py",
+      "issue": "Runtime isolation from staging: DeterministicGeometryEngine only queries DB route_intelligence table and Stop.location, returning empty coordinates for non-exact routes and completely ignoring C5 staging geometry.",
+      "classification": "REQUIRED_C5_2_FIX",
+      "ladder_rung": "Rung 2 (Reuse existing): Wire c5_route_geometry.json and c5_stop_resolution.json directly into DeterministicGeometryEngine.",
+      "rationale": "Allows product to serve real segment-level corridor intelligence and decoupled confidence metadata.",
+      "action": "Incorporate C5 staging data with in-memory caching."
+    },
+    {
+      "id": "PONYTAIL-C52-03",
+      "component": "backend/app/transport/geometry_engine.py (Caching & Lookups)",
+      "issue": "Repeated JSON parsing / O(N*M) lookups: Loading staging JSON on every request would cause redundant disk I/O and linear scans across 1,430 stops and 164 sequences.",
+      "classification": "SAFE_SIMPLIFICATION",
+      "ladder_rung": "Rung 3 (Stdlib): Use class-level in-memory dict indexing (_geo_by_route_num, _stops_by_id) to achieve O(1) lookups.",
+      "rationale": "Zero external dependency, single load on first access, blazing fast O(1) response times.",
+      "action": "Cache staging datasets into dictionary indexes on module/engine initialization."
+    },
+    {
+      "id": "PONYTAIL-C52-04",
+      "component": "backend/app/api/transport_routes.py & DB",
+      "issue": "Avoid schema bloat: temptation to build a new PostgreSQL table and Alembic migration for route segments.",
+      "classification": "SAFE_SIMPLIFICATION",
+      "ladder_rung": "Rung 1 (YAGNI): Do not create DB migrations for staged route geometry when read-only file adapter serves it cleanly.",
+      "rationale": "No DB migration needed, no risk to live PostgreSQL tables, zero schema drift.",
+      "action": "Serve directly from staging catalog adapter."
+    },
+    {
+      "id": "PONYTAIL-C52-05",
+      "component": "backend/app/api/transport_routes.py",
+      "issue": "Avoid API proliferation: temptation to add new endpoints like /api/transport/c5-geometry.",
+      "classification": "SAFE_SIMPLIFICATION",
+      "ladder_rung": "Rung 2 (Reuse existing): Extend existing /api/transport/routes/{route_id}/geometry and /api/transport/map.",
+      "rationale": "Clients only need one canonical geometry contract with backward compatibility.",
+      "action": "Extend existing response schemas with decoupled confidence and segment breakdown."
+    },
+    {
+      "id": "PONYTAIL-C52-06",
+      "component": "backend/app/transport/geometry_engine.py (Regional Outliers)",
+      "issue": "Cross-region coordinate leakage: generic names like AIRPORT in Rourkela resolving to Bhubaneswar Airport 250km away.",
+      "classification": "REQUIRED_C5_2_FIX",
+      "ladder_rung": "Rung 7 (Minimum code that works): Add a 10-line regional bounding envelope check in backend.",
+      "rationale": "Suppresses dangerous cross-region anomalies from rendering on the map.",
+      "action": "Filter anchor stop coordinates against route service area bounds."
+    },
+    {
+      "id": "PONYTAIL-C52-07",
+      "component": "client-side geometry synthesis",
+      "issue": "Ponytail suggestion to let frontend synthesize polylines between candidate stops.",
+      "classification": "REJECT_PONYTAIL_SUGGESTION",
+      "ladder_rung": "N/A: Conflicts with O-TRAVELZ truth policy.",
+      "rationale": "Anti-vibe-code rule: Frontend must never synthesize or interpolate coordinates. Truth authority resides on backend.",
+      "action": "Reject client synthesis; backend dictates geometry renderability."
+    }
+  ],
+  "summary": {
+    "REQUIRED_C5_2_FIX": 3,
+    "SAFE_SIMPLIFICATION": 3,
+    "REJECT_PONYTAIL_SUGGESTION": 1
+  }
+}

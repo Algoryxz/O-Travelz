@@ -1,0 +1,51 @@
+{
+  "report_name": "transit_c5_2_product_flow_before",
+  "timestamp": "2026-09-06T04:02:31.625822+00:00",
+  "stages": {
+    "1_canonical_route_sequences": {
+      "source": "data/transport/canonical/route_stops.json & PostgreSQL route_stops table",
+      "status": "VERIFIED_PRISTINE",
+      "details": "154 routes, 164 sequence groups, 1,491 route-stop links with strict sequence_order."
+    },
+    "2_c5_route_geometry_registry": {
+      "source": "data/transport/staging/ama_bus/c5_route_geometry.json & c5_stop_resolution.json",
+      "status": "STAGED_UNWIRED",
+      "details": "1,327 inter-stop segments with 100% useful route-shape corridor classification, but not yet wired to backend runtime service."
+    },
+    "3_backend_service": {
+      "component": "backend/app/transport/geometry_engine.py & engine.py",
+      "status": "DISCONNECTED_FROM_STAGING",
+      "details": "DeterministicGeometryEngine queries route_intelligence and stops in DB. For non-exact routes, coordinates are returned as empty list []."
+    },
+    "4_http_api_contract": {
+      "endpoints": [
+        "/api/transport/routes/{route_id}/geometry",
+        "/api/transport/map"
+      ],
+      "status": "OMITS_SEGMENT_GEOMETRY",
+      "details": "Returns geometry_status (CORRIDOR/PARTIAL/NONE) and empty coordinates list, without segment-level corridor roads, confidence tiers, or OSM relation IDs."
+    },
+    "5_web_map": {
+      "component": "frontend/src/utils/transitGeometry.ts",
+      "status": "STRAIGHT_LINE_LEAKAGE",
+      "details": "When backend returns empty verified_coordinates, Tier 2 in resolveRouteMapGeometry connects any >=2 geocoded stops with a straight line, even when intermediate stops are unresolved."
+    },
+    "6_mobile_map": {
+      "component": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/repository/",
+      "status": "NOT_YET_CONSUMING_ROUTE_POLYLINES",
+      "details": "Mobile shared core defines TransitStopSummary and PlacesRepository, but does not yet consume route polyline endpoints."
+    }
+  },
+  "answers_to_prompt_questions": {
+    "A_uses_c5_route_geometry": false,
+    "B_still_draws_straight_stop_to_stop_lines": true,
+    "C_falls_back_to_canonical_projection": true,
+    "D_duplicates_geometry_logic_client_side": true,
+    "E_sends_confidence_metadata_to_clients": false
+  },
+  "root_causes": [
+    "geometry_engine.py only queries DB route_intelligence table and does not read c5_route_geometry.json",
+    "transitGeometry.ts has fallback that connects sparse validStops into a polyline across gaps",
+    "API lacks segment breakdown and decoupled confidence metadata"
+  ]
+}

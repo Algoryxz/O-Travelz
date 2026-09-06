@@ -694,11 +694,15 @@ export interface NearbyStopResponse {
 
 export interface TransportMapStop {
   stop_id: string;
+  canonical_stop_id?: string;
   stop_name: string;
   sequence_order: number;
   latitude?: number | null;
   longitude?: number | null;
-  coordinate_status: "official" | "geocoded" | "ambiguous" | "unresolved";
+  coordinate_status: string;
+  render_exact_marker?: boolean;
+  render_candidate_marker?: boolean;
+  participates_in_first_mile?: boolean;
 }
 
 export interface TransportMapRoute {
@@ -713,6 +717,8 @@ export interface TransportMapRoute {
   destination?: string | null;
   via?: string | null;
   geometry_status?: "EXACT" | "CORRIDOR" | "PARTIAL" | "NONE";
+  route_geometry_confidence?: "VERIFIED_ROUTE_GEOMETRY" | "HIGH_CONFIDENCE_ROUTE_GEOMETRY" | "MEDIUM_CONFIDENCE_ROUTE_GEOMETRY" | "UNAVAILABLE";
+  geometry_render_status?: "RENDERABLE_EXACT" | "RENDERABLE_ROAD_FOLLOWING" | "ANCHOR_ONLY" | "CORRIDOR_ONLY" | "UNAVAILABLE";
   overall_confidence?: "CONFIRMED" | "SUPPORTED" | "INFERRED" | "UNKNOWN";
   is_geometry_available?: boolean;
   verified_coordinates?: Array<[number, number]>;
@@ -721,10 +727,24 @@ export interface TransportMapRoute {
     from_label?: string;
     to_label?: string;
     road_names: string[];
-    major_junctions: string[];
-    landmarks: string[];
-    status: string;
+    major_junctions?: string[];
+    landmarks?: string[];
+    status?: string;
+    confidence?: string;
   }>;
+  segments?: Array<{
+    segment_index: number;
+    from_stop_id: string;
+    from_stop_name?: string | null;
+    to_stop_id: string;
+    to_stop_name?: string | null;
+    geometry_status: string;
+    confidence: string;
+    is_useful_for_route_shaping: boolean;
+    corridor_road?: string | null;
+  }>;
+  osm_relations_matched?: number[];
+  suppressed_outliers?: Array<Record<string, any>>;
   stops_count: number;
   stops: TransportMapStop[];
 }

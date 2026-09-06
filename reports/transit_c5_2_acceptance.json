@@ -1,0 +1,54 @@
+{
+  "report_name": "transit_c5_2_acceptance",
+  "timestamp": "2026-09-06T04:24:05.505351+00:00",
+  "acceptance_gate_verdict": "ACCEPTED",
+  "invariants": {
+    "canonical_transit_hashes_unchanged": true,
+    "zero_candidate_stop_auto_promoted": true,
+    "zero_candidate_stop_participates_in_first_mile": true,
+    "zero_cross_region_outlier_rendered": true,
+    "zero_fake_straight_line_gap_connectors": true,
+    "all_existing_c5_tests_passed": true,
+    "all_new_c5_2_tests_passed": true
+  },
+  "stop_accounting": {
+    "total_stops": 1430,
+    "exact_coordinate_stops": 173,
+    "first_mile_eligible_stop_count": 173,
+    "candidate_stop_counts_by_tier": {
+      "LOCALITY_ONLY": 754,
+      "VERIFIED_GEOSPATIAL": 70,
+      "CANDIDATE_LOW": 248,
+      "CANDIDATE_MEDIUM": 147,
+      "VERIFIED_OFFICIAL": 103,
+      "CANDIDATE_HIGH": 108
+    },
+    "exact_stop_coordinate_coverage_pct": 12.1
+  },
+  "segment_renderability_accounting": {
+    "total_route_segments": 1327,
+    "route_geometry_evidence_counts_by_confidence": {
+      "VERIFIED_ROUTE_GEOMETRY": 130,
+      "HIGH_CONFIDENCE_ROUTE_GEOMETRY": 452,
+      "MEDIUM_CONFIDENCE_ROUTE_GEOMETRY": 745
+    },
+    "renderable_exact_segments": 37,
+    "renderable_road_following_segments": 0,
+    "anchor_only_segments": 868,
+    "corridor_only_segments": 388,
+    "suppressed_outlier_segments": 34,
+    "unavailable_segments": 0,
+    "route_geometry_evidence_coverage_pct": 43.86,
+    "safe_product_polyline_coverage_pct": 2.79
+  },
+  "visual_audit_accounting": {
+    "matrix_size": 20,
+    "pass_count": 20,
+    "fail_count": 0,
+    "pass_rate_pct": 100.0,
+    "straight_line_leakage_cases": 0,
+    "outlier_leakage_cases": 0,
+    "screenshot_review_status": "NOT_EXECUTED (headless execution environment; property verification executed across all 20 cases)"
+  },
+  "honest_narrative": "Wave C5.2 successfully takes C5.1 geometry into product runtime with truth-safe boundaries. 100% of routes expose structured arterial corridors, 43.86% possess verified/high geometry evidence, and 2.79% (37 segments in 23 sequences) possess fully-verified continuous polylines. Remaining segments fail-closed as ANCHOR_ONLY (868) and CORRIDOR_ONLY (388), completely preventing misleading straight-line connectors across unverified intermediate stops. Zero candidate stops participate in first-mile walking."
+}

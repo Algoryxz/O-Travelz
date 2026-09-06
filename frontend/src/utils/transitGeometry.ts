@@ -74,9 +74,14 @@ export function resolveRouteMapGeometry(route: TransportMapRoute | null | undefi
   }
 
   const geoStatus = (route.geometry_status || "NONE").toUpperCase();
+  const renderStatus = (route.geometry_render_status || "").toUpperCase();
 
-  // Tier 1: EXACT Survey LineString geometry
-  if (geoStatus === "EXACT" && Array.isArray(route.verified_coordinates) && route.verified_coordinates.length >= 2) {
+  // Tier 1: EXACT Survey LineString geometry / RENDERABLE_EXACT
+  if (
+    (geoStatus === "EXACT" || renderStatus === "RENDERABLE_EXACT" || renderStatus === "RENDERABLE_ROAD_FOLLOWING") &&
+    Array.isArray(route.verified_coordinates) &&
+    route.verified_coordinates.length >= 2
+  ) {
     const validVerifiedPoints: [number, number][] = [];
     for (const pt of route.verified_coordinates) {
       if (Array.isArray(pt) && pt.length >= 2 && isValidPoint(pt[0], pt[1])) {
@@ -101,9 +106,26 @@ export function resolveRouteMapGeometry(route: TransportMapRoute | null | undefi
 
   // Tier 2: Stop-Sequence Corridor Fallback (>= 2 geocoded stops)
   if (validStops.length >= 2) {
+    const isFullCoverage = unresolvedStops.length === 0;
+
+    // FAIL-CLOSED INVARIANT: If intermediate stops are unresolved, suppress continuous polyline
+    // to prevent drawing misleading straight lines across towns/rivers!
+    if (!isFullCoverage) {
+      return {
+        kind: "ANCHOR",
+        coordinates: [], // Suppress straight-line connectors across unresolved gaps!
+        confidence: "ESTIMATED_CORRIDOR",
+        label: "Discrete Anchor Stops",
+        reason: "Discrete anchor stops available; connecting line suppressed because intermediate geometry is not verified",
+        validStops,
+        unresolvedStops,
+        totalStops: stops.length,
+        resolvedStopCount: validStops.length,
+      };
+    }
+
+    // When 100% of stops in the sequence are verified
     const rawCoords: [number, number][] = validStops.map((s) => [s.latitude!, s.longitude!]);
-    
-    // Deduplicate consecutive identical coordinates (e.g. multi-branch stop groups at the same hub)
     const stopCoords: [number, number][] = [];
     for (const pt of rawCoords) {
       if (
@@ -116,28 +138,12 @@ export function resolveRouteMapGeometry(route: TransportMapRoute | null | undefi
     }
 
     if (stopCoords.length >= 2) {
-      const isFullCoverage = unresolvedStops.length === 0;
-
       return {
         kind: "CORRIDOR",
         coordinates: stopCoords,
-        confidence: "ESTIMATED_CORRIDOR",
-        label: isFullCoverage ? "Verified Stop Corridor" : "Estimated Stop Corridor",
-        reason: isFullCoverage
-          ? `Rendered directly across all ${validStops.length} verified stops in sequence`
-          : `Rendered across ${validStops.length} verified anchor stops (${unresolvedStops.length} stops pending coordinates)`,
-        validStops,
-        unresolvedStops,
-        totalStops: stops.length,
-        resolvedStopCount: validStops.length,
-      };
-    } else if (stopCoords.length === 1) {
-      return {
-        kind: "ANCHOR",
-        coordinates: stopCoords,
-        confidence: "SINGLE_ANCHOR",
-        label: "Single Stop Anchor",
-        reason: `Route stops resolve to single unique coordinate point: ${validStops[0].stop_name || "Anchor Stop"}`,
+        confidence: "VERIFIED_EXACT",
+        label: "Verified Stop Corridor",
+        reason: `Rendered directly across all ${validStops.length} verified stops in sequence`,
         validStops,
         unresolvedStops,
         totalStops: stops.length,
@@ -148,13 +154,12 @@ export function resolveRouteMapGeometry(route: TransportMapRoute | null | undefi
 
   // Tier 3: Single Anchor Stop (1 geocoded stop)
   if (validStops.length === 1) {
-    const singleCoord: [number, number] = [validStops[0].latitude!, validStops[0].longitude!];
     return {
       kind: "ANCHOR",
-      coordinates: [singleCoord],
+      coordinates: [],
       confidence: "SINGLE_ANCHOR",
       label: "Single Stop Anchor",
-      reason: `Route centered at ${validStops[0].stop_name || "Anchor Stop"} (remaining stops pending geocoding)`,
+      reason: `Route centered at ${validStops[0].stop_name || "Anchor Stop"} (remaining stops pending coordinates)`,
       validStops,
       unresolvedStops,
       totalStops: stops.length,
