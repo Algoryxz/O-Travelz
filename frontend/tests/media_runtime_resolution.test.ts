@@ -140,4 +140,16 @@ describe("Wave D1.3: Media Runtime Resolution Regression Test Suite", () => {
       expect(world.posterUrl).toMatch(/\.webp$/);
     }
   });
+
+  // 11. Idempotent resolution
+  it("11. idempotent resolution: calling resolveAssetUrl multiple times never duplicates path or base", () => {
+    const original = "static/images/places/place_konark_001/03b959a8abef/hero.webp";
+    const once = resolveAssetUrl(original);
+    const twice = resolveAssetUrl(once);
+    const thrice = resolveAssetUrl(twice);
+
+    expect(once).not.toContain("static/images/static/images");
+    expect(twice).toBe(once);
+    expect(thrice).toBe(once);
+  });
 });

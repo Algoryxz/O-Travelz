@@ -50,19 +50,26 @@ export function getBackendAssetUrl(storageKeyOrPath?: string | null): string {
   }
 
   const appBase = getAppBasePath();
+  const rawBaseName = appBase.replace(/^\/+|\/+$/g, "");
 
-  // If path is a client-side public asset (images/destinations, images/heritage, images/manual, logo.jpeg, etc.)
+  let normalized = cleanPath;
+  if (rawBaseName && normalized.startsWith(`${rawBaseName}/`)) {
+    normalized = normalized.slice(rawBaseName.length + 1);
+  }
+
+  // If path is a client-side public asset (images/destinations, images/heritage, images/manual, logo.jpeg, sw.js, etc.)
   if (
-    cleanPath.startsWith("images/") ||
-    cleanPath === "logo.jpeg" ||
-    cleanPath.startsWith("icons/") ||
-    cleanPath.startsWith("heritage/")
+    normalized.startsWith("images/") ||
+    normalized === "logo.jpeg" ||
+    normalized === "sw.js" ||
+    normalized.startsWith("icons/") ||
+    normalized.startsWith("heritage/")
   ) {
-    return `${appBase}${cleanPath}`;
+    return `${appBase}${normalized}`;
   }
 
   // Ensure canonical storage path starts with static/images/
-  let finalPath = cleanPath;
+  let finalPath = normalized;
   if (!finalPath.startsWith("static/images/") && !finalPath.startsWith("api/v1/images/")) {
     finalPath = `static/images/${finalPath}`;
   }
