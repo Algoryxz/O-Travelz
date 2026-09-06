@@ -1,0 +1,62 @@
+﻿{
+  "timestamp": "2026-09-06T16:28:30+05:30",
+  "git_sha": "22a1249e09ecb36a653e2d707e041ef7e36a0325",
+  "branch": "feature/v4-platform-rebuild",
+  "modules": [
+    ":shared"
+  ],
+  "android_app_module_present_on_branch": false,
+  "android_app_module_historical_source": "feature/mobile-v3 (commit b63fdef71803e6cad005ba20b125515a2a629521)",
+  "android_application_id": "com.otravelz.android",
+  "min_sdk": 26,
+  "target_sdk": 34,
+  "compile_sdk": 34,
+  "compose_version": "Compose BOM 2024.09.02 (compiler built into Kotlin 2.0.20)",
+  "kotlin_version": "2.0.20",
+  "production_api_url_currently_used_by_android": "https://otravelz-backend.onrender.com/",
+  "persistence_mechanism_currently_used": "Room 2.6.1 (AppDatabase with SavedPlaceEntity, SavedTripEntity, etc.) + DataStore Preferences 1.1.1 (UserPreferencesDataStore)",
+  "maps_implementation_currently_used": "Interactive 2D Canvas with spatial projection (InteractiveOdishaMapCanvas) in MapScreen.kt",
+  "navigation_tabs_screens_currently_present": [
+    "Home (Screen.Home)",
+    "Discover (Screen.Discover)",
+    "Planner (Screen.Planner)",
+    "Trips (Screen.Trips)",
+    "You (Screen.You)",
+    "Global Search (global_search)",
+    "Place Detail (place/{placeId})",
+    "Trip Mode (trip_mode/{tripId})",
+    "Transit (Screen.Transit)",
+    "Map (Screen.Map)",
+    "Community Staging (community_staging)"
+  ],
+  "build_status": {
+    ":shared": "BUILD SUCCESSFUL (all 35 tasks up to date)",
+    ":app": "NO MODULE FOUND ON CURRENT BRANCH (mobile/android contains only README.md)"
+  },
+  "test_status": {
+    ":shared:allTests": "PASSED (all 35 tasks passed/up-to-date)",
+    "android_tests": "NOT EXECUTED - app module not in settings.gradle.kts on feature/v4-platform-rebuild"
+  },
+  "physical_device_known_state": {
+    "target_device": "Vivo 1920 (Android 12 / API 31)",
+    "adb_executable_found": true,
+    "adb_path": "C:\\Users\\smara\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb.exe",
+    "adb_devices_output": "List of devices attached: (empty)",
+    "device_connected": false,
+    "blocker": "Vivo 1920 is not currently detected by adb on this workstation. USB debugging may need to be enabled or cable connected."
+  },
+  "missing_pieces": [
+    "mobile/android app source tree is missing from feature/v4-platform-rebuild (was reset in commit d6745fe)",
+    "mobile/settings.gradle.kts does not include :app or :android",
+    "Physical Vivo 1920 device not attached via adb"
+  ],
+  "blockers": [
+    "P0: Current git branch feature/v4-platform-rebuild lacks the Android app module (it exists on feature/mobile-v3).",
+    "P0: Vivo 1920 device is not visible in `adb devices -l`."
+  ],
+  "dead_legacy_mobile_paths_discovered": [
+    "mobile/android/README.md placeholder exists without source code on feature/v4-platform-rebuild",
+    "mobile/android in feature/mobile-v3 was standalone project rather than integrated with mobile/shared KMP module"
+  ],
+  "forensic_truth": "The actual HEAD of feature/v4-platform-rebuild contains ONLY the KMP :shared module. The full Kotlin + Jetpack Compose Android app module exists in the repository on branch feature/mobile-v3. As instructed by Phase 0 ('STOP if the actual repository no longer contains a usable Android app module. If so, report that truth before attempting reconstruction.'), execution is paused to report this truth to the user."
+}

@@ -1,0 +1,124 @@
+{
+  "wave": "D1.3",
+  "phase": "0_forensic_sync",
+  "timestamp": "2026-09-06T11:18:00+00:00",
+  "feature_branch_sha": "22a1249e09ecb36a653e2d707e041ef7e36a0325",
+  "gh_pages_sha": "6dc650b6aeecf50879b10bcb6e0364ed72418eee",
+  "frontend_build_identity": {
+    "git_sha": "22a1249e09ecb36a653e2d707e041ef7e36a0325",
+    "built_at": "2026-09-06T10:36:04.402Z",
+    "version": "4.0.0",
+    "surface": "window.__OTRAVELZ_BUILD__"
+  },
+  "backend_identity": {
+    "configured_in_code": "https://9109f508361c7c.lhr.life",
+    "canonical_provider_url": "https://otravelz-backend.onrender.com",
+    "live_probe_status": {
+      "https://9109f508361c7c.lhr.life/health": "HTTP 503 Service Unavailable / CORS Blocked",
+      "https://otravelz-backend.onrender.com/health": "Timeout / Suspended in Render Dashboard"
+    }
+  },
+  "public_frontend_url": "https://algoryxz.github.io/O-Travelz/",
+  "broken_requests": [
+    {
+      "url": "https://algoryxz.github.io/logo.jpeg",
+      "status": 404,
+      "initiator": "index.html / StitchNavbar.tsx / TopNav.tsx",
+      "content_type": "text/html; charset=utf-8",
+      "transferred_bytes": 9180,
+      "expected_url": "https://algoryxz.github.io/O-Travelz/logo.jpeg"
+    },
+    {
+      "url": "https://algoryxz.github.io/images/destinations/puri_beach.webp",
+      "status": 404,
+      "initiator": "destinationWorldAssets.ts / DestinationWorldScene.tsx",
+      "content_type": "text/html; charset=utf-8",
+      "transferred_bytes": 9180,
+      "expected_url": "https://algoryxz.github.io/O-Travelz/images/destinations/puri_beach.webp"
+    },
+    {
+      "url": "https://algoryxz.github.io/images/destinations/puri_beach.webp",
+      "status": 404,
+      "initiator": "destinationWorldAssets.ts / DestinationWorldScene.tsx (duplicate call)",
+      "content_type": "text/html; charset=utf-8",
+      "transferred_bytes": 9180,
+      "expected_url": "https://algoryxz.github.io/O-Travelz/images/destinations/puri_beach.webp"
+    },
+    {
+      "url": "https://algoryxz.github.io/images/destinations/chandrabhaga_beach.webp",
+      "status": 404,
+      "initiator": "destinationWorldAssets.ts / DestinationWorldScene.tsx",
+      "content_type": "text/html; charset=utf-8",
+      "transferred_bytes": 9180,
+      "expected_url": "https://algoryxz.github.io/O-Travelz/images/destinations/chandrabhaga_beach.webp"
+    },
+    {
+      "url": "https://algoryxz.github.io/images/destinations/gopalpur_beach.webp",
+      "status": 404,
+      "initiator": "destinationWorldAssets.ts / DestinationWorldScene.tsx",
+      "content_type": "text/html; charset=utf-8",
+      "transferred_bytes": 9180,
+      "expected_url": "https://algoryxz.github.io/O-Travelz/images/destinations/gopalpur_beach.webp"
+    },
+    {
+      "url": "https://algoryxz.github.io/sw.js",
+      "status": 404,
+      "initiator": "registerServiceWorker.ts",
+      "content_type": "text/html; charset=utf-8",
+      "transferred_bytes": 9180,
+      "expected_url": "https://algoryxz.github.io/O-Travelz/sw.js"
+    }
+  ],
+  "fallback_chain_observed": [
+    {
+      "target": "Chandrabhaga Beach",
+      "step_1_primary": {
+        "url": "https://algoryxz.github.io/images/destinations/chandrabhaga_beach.webp",
+        "status": 404,
+        "size_bytes": 9180
+      },
+      "step_2_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Chandrabhaga_Beach_in_Odisha_02.jpg",
+        "status": 200,
+        "content_type": "image/jpeg",
+        "size_bytes": 12850973
+      }
+    },
+    {
+      "target": "Gopalpur-on-Sea",
+      "step_1_primary": {
+        "url": "https://algoryxz.github.io/images/destinations/gopalpur_beach.webp",
+        "status": 404,
+        "size_bytes": 9180
+      },
+      "step_2_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Gopalpur_beach%2CBrahmapur%2CGanjam%2COdisha.jpg",
+        "status": 200,
+        "content_type": "image/jpeg",
+        "size_bytes": 4843903
+      }
+    },
+    {
+      "target": "Puri Golden Beach",
+      "step_1_primary": {
+        "url": "https://algoryxz.github.io/images/destinations/puri_beach.webp",
+        "status": 404,
+        "size_bytes": 9180
+      },
+      "step_2_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Puri_sea_beach_005.jpg",
+        "status": 200,
+        "content_type": "image/jpeg",
+        "size_bytes": 2490000
+      }
+    }
+  ],
+  "duplicate_requests_count": 1,
+  "total_image_bytes_downloaded_first_page_load": 20250000,
+  "root_causes_identified": [
+    "Vite BASE_URL bypass: Static image paths in destinationWorldAssets.ts, heritageApi.ts, imageRegistry.ts, imageService.ts, index.html, and nav components hardcode leading slashes (/images/..., /logo.jpeg, /static/...) which causes the browser to request from https://algoryxz.github.io/ instead of project subpath https://algoryxz.github.io/O-Travelz/.",
+    "Unsafe legacy fallback chain: DestinationWorldScene.tsx contains an onerror fallback directly linking to raw uncompressed Wikimedia commons JPEGs, triggering a 12.85 MB download for Chandrabhaga alone.",
+    "Hardcoded ephemeral tunnel URL in frontend/src/api/config.ts (9109f508361c7c.lhr.life) which died and causes 503/CORS errors on every authenticated and heritage scene request.",
+    "PWA Service Worker registered at root scope /sw.js instead of respecting import.meta.env.BASE_URL."
+  ]
+}

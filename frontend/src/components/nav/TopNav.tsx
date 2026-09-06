@@ -15,6 +15,7 @@ import {
   Sliders,
 } from "lucide-react";
 import { AuthStatusButton } from "../auth/AuthStatusButton";
+import { resolveAssetUrl } from "../../utils/imageService";
 
 export type NavTab =
   | "discover"
@@ -142,7 +143,7 @@ export const TopNav: React.FC<TopNavProps> = ({
             >
               <div className="relative flex items-center justify-center shrink-0">
                 <img
-                  src="/logo.jpeg"
+                  src={resolveAssetUrl("logo.jpeg")}
                   alt="O-Travelz Logo"
                   className="w-8 h-8 rounded-lg object-cover ring-1 ring-[#B87B22]/30 shadow-xs shrink-0"
                   onError={(e) => {

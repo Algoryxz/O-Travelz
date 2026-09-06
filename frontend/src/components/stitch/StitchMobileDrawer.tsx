@@ -2,6 +2,7 @@ import React from 'react';
 import type { StitchTab } from './StitchNavbar';
 import { useLocation } from '../../context/LocationContext';
 import { useSavedPlaces } from '../../store/useSavedPlaces';
+import { resolveAssetUrl } from '../../utils/imageService';
 
 interface StitchMobileDrawerProps {
   isOpen: boolean;
@@ -42,7 +43,7 @@ export const StitchMobileDrawer: React.FC<StitchMobileDrawerProps> = ({
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center gap-2.5">
               <img
-                src="/logo.jpeg"
+                src={resolveAssetUrl("logo.jpeg")}
                 alt="O-Travelz Logo"
                 className="w-7 h-7 rounded-lg object-cover ring-1 ring-[#B87B22]/30 shadow-xs shrink-0"
                 onError={(e) => {

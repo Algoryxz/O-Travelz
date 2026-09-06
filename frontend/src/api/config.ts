@@ -71,9 +71,6 @@ export function getApiBaseUrl(): string {
     if (runtimeOverride) {
       return normalizeBaseUrl(runtimeOverride);
     }
-    if (window.location && typeof window.location.hostname === "string" && window.location.hostname.includes("github.io")) {
-      return normalizeBaseUrl("https://9109f508361c7c.lhr.life");
-    }
   }
   return "";
 }

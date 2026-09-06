@@ -1,5 +1,6 @@
 import React from "react";
 import { ShieldCheck, MapPin } from "lucide-react";
+import { resolveAssetUrl } from "../../utils/imageService";
 
 export interface FooterProps {
   selectedLocation?: string;
@@ -38,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="space-y-3 md:col-span-2">
             <div className="flex items-center gap-2.5">
               <img
-                src="/logo.jpeg"
+                src={resolveAssetUrl("logo.jpeg")}
                 alt="O-Travelz Logo"
                 className="w-8 h-8 rounded-lg object-cover ring-1 ring-[#B87B22]/30 shadow-xs shrink-0"
                 onError={(e) => {

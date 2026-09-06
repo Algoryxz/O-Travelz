@@ -1,0 +1,42 @@
+{
+  "wave": "D1.3",
+  "phase": "2_canonical_media_contract_reassertion",
+  "timestamp": "2026-09-06T11:22:00+00:00",
+  "authority_model": {
+    "canonical_registry": "media_assets (content_sha256, storage_key, verification_status, content_kind)",
+    "canonical_associations": "entity_media (entity_id, media_asset_id, display_role, sort_order)",
+    "legacy_projection": "place_images (backward compatibility view only, strictly read-only, non-authoritative)"
+  },
+  "runtime_publication_invariants": {
+    "EXACT_LOCATION_VERIFIED": {
+      "allowed_display_roles": ["HERO", "CARD", "THUMBNAIL", "GALLERY"],
+      "public_reachability": "Public tourism cards, hero spotlights, and modals"
+    },
+    "RELATED_LOCATION": {
+      "allowed_display_roles": ["GALLERY", "CONTEXTUAL"],
+      "prohibited_display_roles": ["HERO", "CARD"],
+      "public_reachability": "Contextual gallery and provenance view only"
+    },
+    "UNVERIFIED": {
+      "allowed_display_roles": [],
+      "prohibited_display_roles": ["HERO", "CARD", "THUMBNAIL", "GALLERY"],
+      "public_reachability": "Zero public visibility; neutral SVG fallback rendered"
+    },
+    "REJECTED": {
+      "allowed_display_roles": [],
+      "prohibited_display_roles": ["*"],
+      "public_reachability": "Zero public association, quarantined"
+    }
+  },
+  "prohibited_frontend_behaviors": [
+    "No client-side path guessing (e.g. constructing `/${slug}/hero.webp` or `/${placeName}.jpg`)",
+    "No hardcoded root paths bypassing Vite base (`/images/...`, `/logo.jpeg`, `/static/...`)",
+    "No raw multi-megabyte JPEG fallback in onError handlers",
+    "No promotion of unverified or related-location media to hero/card slots",
+    "No reliance on ephemeral external tunnels for canonical static asset resolution"
+  ],
+  "safe_fallback_contract": {
+    "missing_or_unverified": "Return explicit category-specific SVG fallback or neutral architectural SVG fallback",
+    "guarantee": "Never cross-contaminate photography across distinct destinations"
+  }
+}

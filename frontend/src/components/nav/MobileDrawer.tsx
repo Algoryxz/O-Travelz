@@ -1,4 +1,5 @@
 import React from "react";
+import { resolveAssetUrl } from "../../utils/imageService";
 import {
   Compass,
   MapPin,
@@ -72,7 +73,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
         <div className="p-5 border-b border-[#E5DFD5] flex items-center justify-between bg-[#FBF9F5]">
           <div className="flex items-center gap-2.5">
             <img
-              src="/logo.jpeg"
+              src={resolveAssetUrl("logo.jpeg")}
               alt="O-Travelz Logo"
               className="w-8 h-8 rounded-lg object-cover ring-1 ring-[#B87B22]/30 shadow-xs shrink-0"
               onError={(e) => {

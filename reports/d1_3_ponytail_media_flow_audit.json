@@ -1,0 +1,99 @@
+{
+  "wave": "D1.3",
+  "phase": "1_ponytail_media_flow_audit",
+  "timestamp": "2026-09-06T11:20:00+00:00",
+  "key_question": "Why is the public browser requesting broken hero.webp and legacy filenames instead of one canonical media URL?",
+  "root_cause_analysis": {
+    "vite_base_path_mismatch": true,
+    "absolute_images_path_misuse": true,
+    "stale_generated_frontend_data": true,
+    "legacy_fallback_chain": true,
+    "backend_static_media_path_mismatch": true,
+    "bad_manifest_storage_key_mapping": false,
+    "gh_pages_deployment_layout": true,
+    "detailed_synthesis": [
+      "Root Cause 1 (Path Misuse): Files including destinationWorldAssets.ts, heritageApi.ts, imageRegistry.ts, imageService.ts, index.html, registerServiceWorker.ts, and navigation components hardcode absolute paths starting with leading slashes (/images/..., /logo.jpeg, /sw.js, /static/...). On GitHub Pages with project base /O-Travelz/, the browser strips the subpath and requests from https://algoryxz.github.io/, causing 404s.",
+      "Root Cause 2 (Unsafe Heavy Fallback): DestinationWorldScene.tsx contains an onerror fallback that directly links to raw uncompressed Wikimedia commons JPEGs, such as Chandrabhaga Beach at 12.85 MB. When the primary WebP 404s, the 12.85 MB JPEG is downloaded, degrading page load.",
+      "Root Cause 3 (Deployment Layout Gap): Canonical destination images in data/images/places (49 MB) and data/images/categories (5.8 MB) were only accessible via the backend proxy (/static/images/...) and were never copied to frontend/public/static/images during build. When backend is down or unreachable from GitHub Pages, all place card/hero WebP requests 404.",
+      "Root Cause 4 (Dead Backend Tunnel): frontend/src/api/config.ts had a hardcoded localhost.run ephemeral tunnel (https://9109f508361c7c.lhr.life) which died, throwing CORS and 503 errors on every API request from github.io.",
+      "Root Cause 5 (Duplicated Inconsistent Resolvers): getBackendAssetUrl in imageService.ts prepends static/images/ incorrectly to paths already containing images/, and returns /{finalPath} without prepending import.meta.env.BASE_URL when baseUrl is empty."
+    ]
+  },
+  "classified_paths": [
+    {
+      "path": "frontend/src/utils/imageService.ts -> getBackendAssetUrl",
+      "classification": "REQUIRED",
+      "action": "Refactor to be single deterministic deployment-aware resolver using import.meta.env.BASE_URL; handle both relative assets and backend API URLs cleanly."
+    },
+    {
+      "path": "frontend/src/utils/imageAdapter.ts -> getVariantUrl",
+      "classification": "REQUIRED",
+      "action": "Keep as canonical bridge from backend PlaceImageContract to frontend PlaceImage."
+    },
+    {
+      "path": "frontend/src/data/destinationWorldAssets.ts -> posterUrl",
+      "classification": "REQUIRED",
+      "action": "Wrap with canonical deployment-aware asset URL resolver."
+    },
+    {
+      "path": "frontend/src/data/destinationWorldAssets.ts -> fallbackPosterUrl (12.8MB raw JPEG)",
+      "classification": "UNSAFE",
+      "action": "REMOVE raw uncompressed multi-megabyte fallback URLs; replace with optimized WebP fallback or graceful missing-image state."
+    },
+    {
+      "path": "frontend/src/components/destination/DestinationWorldScene.tsx -> raw JPEG fallback onError",
+      "classification": "UNSAFE",
+      "action": "REMOVE raw JPEG fallback onError trigger that loads 12.8MB images."
+    },
+    {
+      "path": "frontend/src/api/config.ts -> hardcoded lhr.life tunnel",
+      "classification": "DEAD",
+      "action": "REMOVE hardcoded ephemeral lhr.life tunnel URL; respect VITE_API_URL or canonical backend."
+    },
+    {
+      "path": "frontend/public/images/destinations/",
+      "classification": "REQUIRED",
+      "action": "Retain verified WebP destination hero images."
+    },
+    {
+      "path": "frontend/public/images/heritage/",
+      "classification": "REQUIRED",
+      "action": "Retain verified WebP heritage images."
+    },
+    {
+      "path": "frontend/public/images/manual/",
+      "classification": "REQUIRED",
+      "action": "Retain verified WebP manual/food/place images."
+    },
+    {
+      "path": "data/images/places/ (49 verified places)",
+      "classification": "REQUIRED",
+      "action": "Sync/bundle into frontend static distribution so public web can serve all 49 places without depending on an active backend tunnel."
+    },
+    {
+      "path": "data/images/categories/",
+      "classification": "REQUIRED",
+      "action": "Sync/bundle into frontend static distribution so category cards resolve statically."
+    },
+    {
+      "path": "frontend/src/utils/imageRegistry.ts -> PLACE_IMAGE_OVERRIDES",
+      "classification": "COMPATIBILITY_ONLY",
+      "action": "Normalize paths through centralized assetUrl helper so base path is prepended."
+    },
+    {
+      "path": "frontend/src/utils/registerServiceWorker.ts -> /sw.js",
+      "classification": "UNSAFE",
+      "action": "Update to use import.meta.env.BASE_URL + 'sw.js' with proper scope."
+    },
+    {
+      "path": "frontend/index.html -> /logo.jpeg",
+      "classification": "REMOVE",
+      "action": "Change /logo.jpeg to relative logo.jpeg or %BASE_URL%logo.jpeg."
+    },
+    {
+      "path": "Navigation components -> src=\"/logo.jpeg\"",
+      "classification": "REMOVE",
+      "action": "Change to use centralized assetUrl('logo.jpeg')."
+    }
+  ]
+}

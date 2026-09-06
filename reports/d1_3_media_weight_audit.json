@@ -1,0 +1,1172 @@
+{
+  "wave": "D1.3",
+  "phase": "4_media_weight_audit",
+  "timestamp": "2026-09-06T11:23:00+00:00",
+  "summary": {
+    "total_public_assets_count": 103,
+    "total_legacy_fallback_bytes": 36557678,
+    "max_webp_asset_bytes": 786014,
+    "avg_webp_asset_bytes": 99752,
+    "max_legacy_fallback_bytes": 12850973,
+    "action_taken": "Removed legacy raw JPEG fallback chain in DestinationWorldScene and destinationWorldAssets. Canonical optimized WebP variants are used exclusively."
+  },
+  "fallback_poster_urls_audited": [
+    {
+      "id": "puri-beach",
+      "name": "Puri Golden Beach",
+      "verified_webp_variant": {
+        "local_path": "/images/destinations/puri_beach.webp",
+        "bytes": 65798,
+        "dimensions": "1600x1200",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Puri_sea_beach_005.jpg",
+        "bytes": 2490000,
+        "dimensions": "3264x2448",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    },
+    {
+      "id": "chandrabhaga-beach",
+      "name": "Chandrabhaga Beach",
+      "verified_webp_variant": {
+        "local_path": "/images/destinations/chandrabhaga_beach.webp",
+        "bytes": 171206,
+        "dimensions": "1920x1280",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Chandrabhaga_Beach_in_Odisha_02.jpg",
+        "bytes": 12850973,
+        "dimensions": "4608x3456",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    },
+    {
+      "id": "gopalpur-on-sea",
+      "name": "Gopalpur-on-Sea",
+      "verified_webp_variant": {
+        "local_path": "/images/destinations/gopalpur_beach.webp",
+        "bytes": 454178,
+        "dimensions": "1920x1440",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Gopalpur_beach%2CBrahmapur%2CGanjam%2COdisha.jpg",
+        "bytes": 4843903,
+        "dimensions": "4160x3120",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    },
+    {
+      "id": "chilika-satapada",
+      "name": "Chilika Lagoon & Satapada",
+      "verified_webp_variant": {
+        "local_path": "/images/destinations/chilika_satapada.webp",
+        "bytes": 212144,
+        "dimensions": "1920x1271",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Satapada_12.jpg",
+        "bytes": 8689975,
+        "dimensions": "unknown",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    },
+    {
+      "id": "daringbadi",
+      "name": "Daringbadi Pine Valleys",
+      "verified_webp_variant": {
+        "local_path": "/images/destinations/daringbadi_valleys.webp",
+        "bytes": 740618,
+        "dimensions": "1920x1440",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Daringbadi%2Corissa.jpg",
+        "bytes": 6569338,
+        "dimensions": "unknown",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    },
+    {
+      "id": "similipal",
+      "name": "Similipal Biosphere Reserve",
+      "verified_webp_variant": {
+        "local_path": "/images/destinations/similipal_falls.webp",
+        "bytes": 574038,
+        "dimensions": "1920x1440",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Barehipani_Falls.jpg",
+        "bytes": 1113489,
+        "dimensions": "unknown",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    },
+    {
+      "id": "konark-chariot",
+      "name": "Konark Sun Temple Precinct",
+      "verified_webp_variant": {
+        "local_path": "/images/destinations/konark_sun_temple.webp",
+        "bytes": 542966,
+        "dimensions": "1920x1276",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Closeup_of_the_center_of_a_stone_wheel_-_Konark_Sun_Temple%2C_Orissa%2C_India.jpg",
+        "bytes": null,
+        "dimensions": "unknown",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    },
+    {
+      "id": "dhauli-valley",
+      "name": "Dhauli Shanti Stupa & Daya Valley",
+      "verified_webp_variant": {
+        "local_path": "/images/destinations/dhauli_shanti_stupa.webp",
+        "bytes": 257774,
+        "dimensions": "1920x1280",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Dhauli_Shanti_Stupa%2C_Bhubaneswar.jpg",
+        "bytes": null,
+        "dimensions": "unknown",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    },
+    {
+      "id": "lingaraj-heritage",
+      "name": "Lingaraj Temple & Ekamra Kshetra",
+      "verified_webp_variant": {
+        "local_path": "/images/heritage/lingaraj_temple.webp",
+        "bytes": 273796,
+        "dimensions": "1920x1280",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Lingaraja_Temple_Bhubaneswar_Orissa_India.jpg",
+        "bytes": null,
+        "dimensions": "unknown",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    },
+    {
+      "id": "puri-jagannath-heritage",
+      "name": "Puri Jagannath Temple & Bada Danda",
+      "verified_webp_variant": {
+        "local_path": "/images/heritage/puri_jagannath_temple.webp",
+        "bytes": 550092,
+        "dimensions": "1920x1297",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Jagannath_Temple%2C_Puri%2C_Odisha.jpg",
+        "bytes": null,
+        "dimensions": "unknown",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    },
+    {
+      "id": "barabati-citadel",
+      "name": "Barabati Fort & Mahanadi Citadel",
+      "verified_webp_variant": {
+        "local_path": "/images/heritage/barabati_fort.webp",
+        "bytes": 368360,
+        "dimensions": "1642x1130",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Barabati_Fort_Gate_Cuttack.jpg",
+        "bytes": null,
+        "dimensions": "unknown",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    },
+    {
+      "id": "udayagiri-monasteries",
+      "name": "Udayagiri & Khandagiri Caves",
+      "verified_webp_variant": {
+        "local_path": "/images/heritage/udayagiri_caves.webp",
+        "bytes": 786014,
+        "dimensions": "1920x1279",
+        "format": "WEBP",
+        "verification_status": "EXACT_LOCATION_VERIFIED",
+        "display_role": "HERO/CINEMATIC"
+      },
+      "legacy_fallback": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Rani_Gumpha_Udayagiri_Caves.jpg",
+        "bytes": null,
+        "dimensions": "unknown",
+        "format": "JPEG",
+        "action": "REMOVE_RUNTIME_PATH"
+      }
+    }
+  ],
+  "publicly_reachable_hero_card_assets": [
+    {
+      "storage_key": "images/destinations/chandrabhaga_beach.webp",
+      "format": "WEBP",
+      "bytes": 171206,
+      "dimensions": "1920x1280",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/destinations/chandrabhaga_beach.webp"
+    },
+    {
+      "storage_key": "images/destinations/chilika_satapada.webp",
+      "format": "WEBP",
+      "bytes": 212144,
+      "dimensions": "1920x1271",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/destinations/chilika_satapada.webp"
+    },
+    {
+      "storage_key": "images/destinations/daringbadi_valleys.webp",
+      "format": "WEBP",
+      "bytes": 740618,
+      "dimensions": "1920x1440",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/destinations/daringbadi_valleys.webp"
+    },
+    {
+      "storage_key": "images/destinations/dhauli_shanti_stupa.webp",
+      "format": "WEBP",
+      "bytes": 257774,
+      "dimensions": "1920x1280",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/destinations/dhauli_shanti_stupa.webp"
+    },
+    {
+      "storage_key": "images/destinations/gopalpur_beach.webp",
+      "format": "WEBP",
+      "bytes": 454178,
+      "dimensions": "1920x1440",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/destinations/gopalpur_beach.webp"
+    },
+    {
+      "storage_key": "images/destinations/konark_sun_temple.webp",
+      "format": "WEBP",
+      "bytes": 542966,
+      "dimensions": "1920x1276",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/destinations/konark_sun_temple.webp"
+    },
+    {
+      "storage_key": "images/destinations/puri_beach.webp",
+      "format": "WEBP",
+      "bytes": 65798,
+      "dimensions": "1600x1200",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/destinations/puri_beach.webp"
+    },
+    {
+      "storage_key": "images/destinations/similipal_falls.webp",
+      "format": "WEBP",
+      "bytes": 574038,
+      "dimensions": "1920x1440",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/destinations/similipal_falls.webp"
+    },
+    {
+      "storage_key": "images/heritage/barabati_fort.webp",
+      "format": "WEBP",
+      "bytes": 368360,
+      "dimensions": "1642x1130",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/heritage/barabati_fort.webp"
+    },
+    {
+      "storage_key": "images/heritage/dhauli_shanti_stupa.webp",
+      "format": "WEBP",
+      "bytes": 257774,
+      "dimensions": "1920x1280",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/heritage/dhauli_shanti_stupa.webp"
+    },
+    {
+      "storage_key": "images/heritage/konark_sun_temple.webp",
+      "format": "WEBP",
+      "bytes": 542966,
+      "dimensions": "1920x1276",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/heritage/konark_sun_temple.webp"
+    },
+    {
+      "storage_key": "images/heritage/lingaraj_temple.webp",
+      "format": "WEBP",
+      "bytes": 273796,
+      "dimensions": "1920x1280",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/heritage/lingaraj_temple.webp"
+    },
+    {
+      "storage_key": "images/heritage/puri_jagannath_temple.webp",
+      "format": "WEBP",
+      "bytes": 550092,
+      "dimensions": "1920x1297",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/heritage/puri_jagannath_temple.webp"
+    },
+    {
+      "storage_key": "images/heritage/udayagiri_caves.webp",
+      "format": "WEBP",
+      "bytes": 786014,
+      "dimensions": "1920x1279",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "HERO",
+      "browser_url": "/O-Travelz/images/heritage/udayagiri_caves.webp"
+    },
+    {
+      "storage_key": "images/manual/food_angul_001.webp",
+      "format": "WEBP",
+      "bytes": 62706,
+      "dimensions": "1360x765",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_angul_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_balasore_001.webp",
+      "format": "WEBP",
+      "bytes": 500904,
+      "dimensions": "2000x1500",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_balasore_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_balasore_002.webp",
+      "format": "WEBP",
+      "bytes": 18668,
+      "dimensions": "250x250",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_balasore_002.webp"
+    },
+    {
+      "storage_key": "images/manual/food_bhadrak_001.webp",
+      "format": "WEBP",
+      "bytes": 100944,
+      "dimensions": "574x1020",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_bhadrak_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_bolangir_001.webp",
+      "format": "WEBP",
+      "bytes": 74740,
+      "dimensions": "817x1020",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_bolangir_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_boudh_001.webp",
+      "format": "WEBP",
+      "bytes": 37838,
+      "dimensions": "687x476",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_boudh_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_boudh_002.webp",
+      "format": "WEBP",
+      "bytes": 3628,
+      "dimensions": "129x129",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_boudh_002.webp"
+    },
+    {
+      "storage_key": "images/manual/food_cuttack_002.webp",
+      "format": "WEBP",
+      "bytes": 37160,
+      "dimensions": "360x640",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_cuttack_002.webp"
+    },
+    {
+      "storage_key": "images/manual/food_cuttack_003.webp",
+      "format": "WEBP",
+      "bytes": 9352,
+      "dimensions": "176x126",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_cuttack_003.webp"
+    },
+    {
+      "storage_key": "images/manual/food_deogarh_001.webp",
+      "format": "WEBP",
+      "bytes": 7864,
+      "dimensions": "279x79",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_deogarh_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_dhenkanal_001.webp",
+      "format": "WEBP",
+      "bytes": 132692,
+      "dimensions": "1032x581",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_dhenkanal_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_dhenkanal_002.webp",
+      "format": "WEBP",
+      "bytes": 11680,
+      "dimensions": "213x160",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_dhenkanal_002.webp"
+    },
+    {
+      "storage_key": "images/manual/food_gajapati_001.webp",
+      "format": "WEBP",
+      "bytes": 72152,
+      "dimensions": "736x416",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_gajapati_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_gajapati_002.webp",
+      "format": "WEBP",
+      "bytes": 12458,
+      "dimensions": "250x250",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_gajapati_002.webp"
+    },
+    {
+      "storage_key": "images/manual/food_ganjam_001.webp",
+      "format": "WEBP",
+      "bytes": 3366,
+      "dimensions": "110x82",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_ganjam_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_ganjam_002.webp",
+      "format": "WEBP",
+      "bytes": 12426,
+      "dimensions": "165x220",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_ganjam_002.webp"
+    },
+    {
+      "storage_key": "images/manual/food_jagatsinghpur_001.webp",
+      "format": "WEBP",
+      "bytes": 54124,
+      "dimensions": "335x597",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_jagatsinghpur_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_jagatsinghpur_002.webp",
+      "format": "WEBP",
+      "bytes": 33508,
+      "dimensions": "335x597",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_jagatsinghpur_002.webp"
+    },
+    {
+      "storage_key": "images/manual/food_jajpur_001.webp",
+      "format": "WEBP",
+      "bytes": 5686,
+      "dimensions": "129x129",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_jajpur_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_jharsuguda_001.webp",
+      "format": "WEBP",
+      "bytes": 223712,
+      "dimensions": "1359x1020",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_jharsuguda_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_kalahandi_001.webp",
+      "format": "WEBP",
+      "bytes": 11780,
+      "dimensions": "165x220",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_kalahandi_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_kandhamal_001.webp",
+      "format": "WEBP",
+      "bytes": 2822,
+      "dimensions": "92x92",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_kandhamal_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_kendrapara_001.webp",
+      "format": "WEBP",
+      "bytes": 18606,
+      "dimensions": "294x220",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_kendrapara_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_keonjhar_001.webp",
+      "format": "WEBP",
+      "bytes": 67878,
+      "dimensions": "735x735",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_keonjhar_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_keonjhar_002.webp",
+      "format": "WEBP",
+      "bytes": 30260,
+      "dimensions": "399x501",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_keonjhar_002.webp"
+    },
+    {
+      "storage_key": "images/manual/food_khurda_001.webp",
+      "format": "WEBP",
+      "bytes": 43952,
+      "dimensions": "700x933",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_khurda_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_khurda_002.webp",
+      "format": "WEBP",
+      "bytes": 61040,
+      "dimensions": "399x501",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_khurda_002.webp"
+    },
+    {
+      "storage_key": "images/manual/food_khurda_003.webp",
+      "format": "WEBP",
+      "bytes": 35508,
+      "dimensions": "387x516",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_khurda_003.webp"
+    },
+    {
+      "storage_key": "images/manual/food_khurda_004.webp",
+      "format": "WEBP",
+      "bytes": 10718,
+      "dimensions": "259x194",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_khurda_004.webp"
+    },
+    {
+      "storage_key": "images/manual/food_koraput_001.webp",
+      "format": "WEBP",
+      "bytes": 13962,
+      "dimensions": "294x220",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_koraput_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_malkangiri_001.webp",
+      "format": "WEBP",
+      "bytes": 222344,
+      "dimensions": "1365x768",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_malkangiri_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_mayurbhanj_001.webp",
+      "format": "WEBP",
+      "bytes": 43604,
+      "dimensions": "892x492",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_mayurbhanj_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_nabarangpur_001.webp",
+      "format": "WEBP",
+      "bytes": 10896,
+      "dimensions": "294x220",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_nabarangpur_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_nayagarh_001.webp",
+      "format": "WEBP",
+      "bytes": 19862,
+      "dimensions": "466x747",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_nayagarh_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_nayagarh_002.webp",
+      "format": "WEBP",
+      "bytes": 16828,
+      "dimensions": "294x220",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_nayagarh_002.webp"
+    },
+    {
+      "storage_key": "images/manual/food_nuapada_001.webp",
+      "format": "WEBP",
+      "bytes": 10700,
+      "dimensions": "166x250",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_nuapada_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_puri_001.webp",
+      "format": "WEBP",
+      "bytes": 78556,
+      "dimensions": "781x557",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_puri_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_rayagada_001.webp",
+      "format": "WEBP",
+      "bytes": 19232,
+      "dimensions": "294x220",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_rayagada_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_rourkela_001.webp",
+      "format": "WEBP",
+      "bytes": 6870,
+      "dimensions": "165x220",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_rourkela_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_sambalpur_001.webp",
+      "format": "WEBP",
+      "bytes": 51730,
+      "dimensions": "596x335",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_sambalpur_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_sambalpur_002.webp",
+      "format": "WEBP",
+      "bytes": 19996,
+      "dimensions": "360x360",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_sambalpur_002.webp"
+    },
+    {
+      "storage_key": "images/manual/food_subarnapur_001.webp",
+      "format": "WEBP",
+      "bytes": 17786,
+      "dimensions": "250x250",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_subarnapur_001.webp"
+    },
+    {
+      "storage_key": "images/manual/food_sundargarh_001.webp",
+      "format": "WEBP",
+      "bytes": 35738,
+      "dimensions": "596x335",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/food_sundargarh_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_balasore_002.webp",
+      "format": "WEBP",
+      "bytes": 36940,
+      "dimensions": "638x480",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_balasore_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_balasore_003.webp",
+      "format": "WEBP",
+      "bytes": 52348,
+      "dimensions": "335x597",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_balasore_003.webp"
+    },
+    {
+      "storage_key": "images/manual/place_bhadrak_001.webp",
+      "format": "WEBP",
+      "bytes": 28058,
+      "dimensions": "528x626",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_bhadrak_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_bhadrak_002.webp",
+      "format": "WEBP",
+      "bytes": 31852,
+      "dimensions": "736x416",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_bhadrak_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_bolangir_001.webp",
+      "format": "WEBP",
+      "bytes": 7468,
+      "dimensions": "246x158",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_bolangir_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_bolangir_002.webp",
+      "format": "WEBP",
+      "bytes": 73350,
+      "dimensions": "399x501",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_bolangir_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_boudh_001.webp",
+      "format": "WEBP",
+      "bytes": 58018,
+      "dimensions": "680x680",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_boudh_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_boudh_002.webp",
+      "format": "WEBP",
+      "bytes": 44002,
+      "dimensions": "399x501",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_boudh_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_boudh_003.webp",
+      "format": "WEBP",
+      "bytes": 23576,
+      "dimensions": "736x416",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_boudh_003.webp"
+    },
+    {
+      "storage_key": "images/manual/place_cuttack_005.webp",
+      "format": "WEBP",
+      "bytes": 39300,
+      "dimensions": "597x335",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_cuttack_005.webp"
+    },
+    {
+      "storage_key": "images/manual/place_deogarh_001.webp",
+      "format": "WEBP",
+      "bytes": 30788,
+      "dimensions": "399x501",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_deogarh_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_dhenkanal_001.webp",
+      "format": "WEBP",
+      "bytes": 148304,
+      "dimensions": "1200x900",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_dhenkanal_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_dhenkanal_003.webp",
+      "format": "WEBP",
+      "bytes": 44778,
+      "dimensions": "335x597",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_dhenkanal_003.webp"
+    },
+    {
+      "storage_key": "images/manual/place_gajapati_002.webp",
+      "format": "WEBP",
+      "bytes": 72152,
+      "dimensions": "736x416",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_gajapati_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_ganjam_003.webp",
+      "format": "WEBP",
+      "bytes": 49736,
+      "dimensions": "399x501",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_ganjam_003.webp"
+    },
+    {
+      "storage_key": "images/manual/place_ganjam_004.webp",
+      "format": "WEBP",
+      "bytes": 39142,
+      "dimensions": "597x335",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_ganjam_004.webp"
+    },
+    {
+      "storage_key": "images/manual/place_jagatsinghpur_001.webp",
+      "format": "WEBP",
+      "bytes": 56996,
+      "dimensions": "516x387",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_jagatsinghpur_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_jagatsinghpur_002.webp",
+      "format": "WEBP",
+      "bytes": 42814,
+      "dimensions": "447x447",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_jagatsinghpur_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_jagatsinghpur_003.webp",
+      "format": "WEBP",
+      "bytes": 43646,
+      "dimensions": "638x480",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_jagatsinghpur_003.webp"
+    },
+    {
+      "storage_key": "images/manual/place_jajpur_004.webp",
+      "format": "WEBP",
+      "bytes": 52280,
+      "dimensions": "521x383",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_jajpur_004.webp"
+    },
+    {
+      "storage_key": "images/manual/place_jharsuguda_002.webp",
+      "format": "WEBP",
+      "bytes": 60544,
+      "dimensions": "335x597",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_jharsuguda_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_kalahandi_002.webp",
+      "format": "WEBP",
+      "bytes": 59192,
+      "dimensions": "738x414",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_kalahandi_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_kendrapara_002.webp",
+      "format": "WEBP",
+      "bytes": 31918,
+      "dimensions": "596x335",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_kendrapara_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_koraput_003.webp",
+      "format": "WEBP",
+      "bytes": 36630,
+      "dimensions": "693x442",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_koraput_003.webp"
+    },
+    {
+      "storage_key": "images/manual/place_koraput_005.webp",
+      "format": "WEBP",
+      "bytes": 47144,
+      "dimensions": "447x447",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_koraput_005.webp"
+    },
+    {
+      "storage_key": "images/manual/place_malkangiri_001.webp",
+      "format": "WEBP",
+      "bytes": 22294,
+      "dimensions": "597x335",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_malkangiri_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_malkangiri_003.webp",
+      "format": "WEBP",
+      "bytes": 88622,
+      "dimensions": "736x416",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_malkangiri_003.webp"
+    },
+    {
+      "storage_key": "images/manual/place_med_001.webp",
+      "format": "WEBP",
+      "bytes": 27926,
+      "dimensions": "640x380",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_med_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_med_004.webp",
+      "format": "WEBP",
+      "bytes": 68284,
+      "dimensions": "678x452",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_med_004.webp"
+    },
+    {
+      "storage_key": "images/manual/place_med_005.webp",
+      "format": "WEBP",
+      "bytes": 64974,
+      "dimensions": "638x480",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_med_005.webp"
+    },
+    {
+      "storage_key": "images/manual/place_med_008.webp",
+      "format": "WEBP",
+      "bytes": 34608,
+      "dimensions": "578x388",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_med_008.webp"
+    },
+    {
+      "storage_key": "images/manual/place_med_010.webp",
+      "format": "WEBP",
+      "bytes": 14654,
+      "dimensions": "738x246",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_med_010.webp"
+    },
+    {
+      "storage_key": "images/manual/place_nabarangpur_001.webp",
+      "format": "WEBP",
+      "bytes": 63658,
+      "dimensions": "387x516",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_nabarangpur_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_nabarangpur_002.webp",
+      "format": "WEBP",
+      "bytes": 58418,
+      "dimensions": "387x516",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_nabarangpur_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_nayagarh_001.webp",
+      "format": "WEBP",
+      "bytes": 37788,
+      "dimensions": "335x597",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_nayagarh_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_nayagarh_002.webp",
+      "format": "WEBP",
+      "bytes": 10468,
+      "dimensions": "246x179",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_nayagarh_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_nayagarh_003.webp",
+      "format": "WEBP",
+      "bytes": 69094,
+      "dimensions": "654x305",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_nayagarh_003.webp"
+    },
+    {
+      "storage_key": "images/manual/place_nuapada_002.webp",
+      "format": "WEBP",
+      "bytes": 53622,
+      "dimensions": "547x365",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_nuapada_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_nuapada_003.webp",
+      "format": "WEBP",
+      "bytes": 44654,
+      "dimensions": "399x501",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_nuapada_003.webp"
+    },
+    {
+      "storage_key": "images/manual/place_rayagada_002.webp",
+      "format": "WEBP",
+      "bytes": 85164,
+      "dimensions": "638x480",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_rayagada_002.webp"
+    },
+    {
+      "storage_key": "images/manual/place_rayagada_003.webp",
+      "format": "WEBP",
+      "bytes": 50766,
+      "dimensions": "597x335",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_rayagada_003.webp"
+    },
+    {
+      "storage_key": "images/manual/place_subarnapur_001.webp",
+      "format": "WEBP",
+      "bytes": 60158,
+      "dimensions": "736x416",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_subarnapur_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_transit_001.webp",
+      "format": "WEBP",
+      "bytes": 42110,
+      "dimensions": "554x554",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_transit_001.webp"
+    },
+    {
+      "storage_key": "images/manual/place_transit_004.webp",
+      "format": "WEBP",
+      "bytes": 42022,
+      "dimensions": "515x388",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_transit_004.webp"
+    },
+    {
+      "storage_key": "images/manual/place_transit_006.webp",
+      "format": "WEBP",
+      "bytes": 28250,
+      "dimensions": "499x375",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_transit_006.webp"
+    },
+    {
+      "storage_key": "images/manual/place_transit_011.webp",
+      "format": "WEBP",
+      "bytes": 32046,
+      "dimensions": "592x337",
+      "verification_status": "EXACT_LOCATION_VERIFIED",
+      "display_role": "CARD",
+      "browser_url": "/O-Travelz/images/manual/place_transit_011.webp"
+    }
+  ]
+}

@@ -3,6 +3,7 @@
  * atmospheric lighting, subtle parallax, and resilient media loading strategy.
  */
 import React, { useState, useEffect } from 'react';
+import { resolveAssetUrl } from '../../utils/imageService';
 import type { DestinationWorldAsset } from '../../data/destinationWorldAssets';
 import type { ParallaxOffset } from './DestinationWorldMotion';
 
@@ -19,26 +20,22 @@ export const DestinationWorldScene: React.FC<DestinationWorldSceneProps> = ({
   isReducedMotion,
   isActive,
 }) => {
-  const [currentSrc, setCurrentSrc] = useState<string>(world.posterUrl || world.poster_url);
+  const resolvedPoster = resolveAssetUrl(world.posterUrl || world.poster_url);
+  const [currentSrc, setCurrentSrc] = useState<string>(resolvedPoster);
   const [mediaLoaded, setMediaLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     setMediaLoaded(false);
-    const initialSrc = world.posterUrl || world.poster_url;
+    const initialSrc = resolveAssetUrl(world.posterUrl || world.poster_url);
     setCurrentSrc(initialSrc);
 
     const img = new Image();
     img.src = initialSrc;
     img.onload = () => setMediaLoaded(true);
     img.onerror = () => {
-      if (world.fallbackPosterUrl && initialSrc !== world.fallbackPosterUrl) {
-        setCurrentSrc(world.fallbackPosterUrl);
-        const fallbackImg = new Image();
-        fallbackImg.src = world.fallbackPosterUrl;
-        fallbackImg.onload = () => setMediaLoaded(true);
-      }
+      setMediaLoaded(true);
     };
-  }, [world.posterUrl, world.poster_url, world.fallbackPosterUrl]);
+  }, [world.posterUrl, world.poster_url]);
 
   const getAmbientAtmosphere = () => {
     switch (world.ambient_lighting) {

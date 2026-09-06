@@ -21,6 +21,7 @@ import {
   getLocationImageUrl,
   CANONICAL_HUB_IMAGES,
   type HubImageInfo,
+  resolveAssetUrl,
 } from './imageService';
 import type { PlaceImageContract } from '../types/api';
 
@@ -410,23 +411,23 @@ export function resolveDestinationImage(params: {
 
   // 1. Check Manual Overrides strictly by verified researchId, id, or exact place name
   if (researchId && PLACE_IMAGE_OVERRIDES[researchId]) {
-    return { src: PLACE_IMAGE_OVERRIDES[researchId], alt: name || "Odisha Destination", sourceType: 'manual_override' };
+    return { src: resolveAssetUrl(PLACE_IMAGE_OVERRIDES[researchId]), alt: name || "Odisha Destination", sourceType: 'manual_override' };
   }
   if (id && PLACE_IMAGE_OVERRIDES[id]) {
-    return { src: PLACE_IMAGE_OVERRIDES[id], alt: name || "Odisha Destination", sourceType: 'manual_override' };
+    return { src: resolveAssetUrl(PLACE_IMAGE_OVERRIDES[id]), alt: name || "Odisha Destination", sourceType: 'manual_override' };
   }
   if (name && PLACE_IMAGE_OVERRIDES[name]) {
-    return { src: PLACE_IMAGE_OVERRIDES[name], alt: name, sourceType: 'manual_override' };
+    return { src: resolveAssetUrl(PLACE_IMAGE_OVERRIDES[name]), alt: name, sourceType: 'manual_override' };
   }
 
   // 2. Check API verified image URL
-  if (apiImageUrl && (apiImageUrl.startsWith("http") || apiImageUrl.startsWith("/static/") || apiImageUrl.startsWith("/api/"))) {
-    return { src: apiImageUrl, alt: name || "Odisha Destination", sourceType: 'api_verified' };
+  if (apiImageUrl && (apiImageUrl.startsWith("http") || apiImageUrl.startsWith("/static/") || apiImageUrl.startsWith("static/") || apiImageUrl.startsWith("/api/"))) {
+    return { src: resolveAssetUrl(apiImageUrl), alt: name || "Odisha Destination", sourceType: 'api_verified' };
   }
   if (images && images.length > 0 && images[0]?.url) {
     const candidate = images[0].card_url || images[0].url;
-    if (candidate && (candidate.startsWith("http") || candidate.startsWith("/static/") || candidate.startsWith("/api/"))) {
-      return { src: candidate, alt: images[0].alt_text || name || "Odisha Destination", sourceType: 'api_verified' };
+    if (candidate && (candidate.startsWith("http") || candidate.startsWith("/static/") || candidate.startsWith("static/") || candidate.startsWith("/api/"))) {
+      return { src: resolveAssetUrl(candidate), alt: images[0].alt_text || name || "Odisha Destination", sourceType: 'api_verified' };
     }
   }
 

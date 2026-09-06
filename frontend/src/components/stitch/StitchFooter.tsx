@@ -1,5 +1,6 @@
 import React from 'react';
 import type { StitchTab } from './StitchNavbar';
+import { resolveAssetUrl } from '../../utils/imageService';
 
 interface StitchFooterProps {
   onSelectTab: (tab: StitchTab) => void;
@@ -19,7 +20,7 @@ export const StitchFooter: React.FC<StitchFooterProps> = ({
       <div className="flex flex-col items-center md:items-start mb-6 md:mb-0">
         <div className="flex items-center gap-2.5 mb-2">
           <img
-            src="/logo.jpeg"
+            src={resolveAssetUrl("logo.jpeg")}
             alt="O-Travelz Logo"
             className="w-7 h-7 rounded-lg object-cover ring-1 ring-[#B87B22]/30 shadow-xs shrink-0"
             onError={(e) => {

@@ -1,0 +1,110 @@
+{
+  "wave": "D1.3",
+  "phase": "5_frontend_hosting_decision",
+  "timestamp": "2026-09-06T11:25:00+00:00",
+  "candidates_evaluated": [
+    {
+      "provider": "GitHub Pages",
+      "url": "https://algoryxz.github.io/O-Travelz/",
+      "scores": {
+        "vite_spa_handling": 8,
+        "base_path_complexity": 8,
+        "custom_redirects": 7,
+        "asset_path_reliability": 9,
+        "https_cdn": 10,
+        "build_deploy_simplicity": 10,
+        "env_var_support": 9,
+        "api_origin_configuration": 9,
+        "rollbacks": 9,
+        "preview_deployments": 7,
+        "cold_start": 10,
+        "bandwidth_delivery": 9,
+        "cost_free_tier": 10,
+        "repo_integration": 10,
+        "operational_burden_for_smarak": 10
+      },
+      "total_score": 135,
+      "verdict": "SELECTED",
+      "notes": "Native to repository. Zero operational burden for Smarak (no external SaaS login, no credit card, no extra credentials). Fastly edge CDN delivers static WebP in sub-50ms. With canonical assetUrl helper using import.meta.env.BASE_URL, subpath /O-Travelz/ works 100% cleanly."
+    },
+    {
+      "provider": "Cloudflare Pages",
+      "url": "https://o-travelz.pages.dev/",
+      "scores": {
+        "vite_spa_handling": 10,
+        "base_path_complexity": 10,
+        "custom_redirects": 10,
+        "asset_path_reliability": 10,
+        "https_cdn": 10,
+        "build_deploy_simplicity": 9,
+        "env_var_support": 9,
+        "api_origin_configuration": 9,
+        "rollbacks": 10,
+        "preview_deployments": 10,
+        "cold_start": 10,
+        "bandwidth_delivery": 10,
+        "cost_free_tier": 10,
+        "repo_integration": 8,
+        "operational_burden_for_smarak": 6
+      },
+      "total_score": 141,
+      "verdict": "REJECTED_UNNECESSARY_MIGRATION",
+      "notes": "Technically superior for root-base hosting, but requires Smarak to register and authenticate an external Cloudflare account and manage API tokens. Violates Ponytail minimal-complexity rule when GitHub Pages works cleanly with proper URL resolution."
+    },
+    {
+      "provider": "Vercel",
+      "url": "https://o-travelz.vercel.app/",
+      "scores": {
+        "vite_spa_handling": 10,
+        "base_path_complexity": 10,
+        "custom_redirects": 9,
+        "asset_path_reliability": 9,
+        "https_cdn": 10,
+        "build_deploy_simplicity": 9,
+        "env_var_support": 9,
+        "api_origin_configuration": 9,
+        "rollbacks": 9,
+        "preview_deployments": 10,
+        "cold_start": 9,
+        "bandwidth_delivery": 8,
+        "cost_free_tier": 8,
+        "repo_integration": 8,
+        "operational_burden_for_smarak": 5
+      },
+      "total_score": 132,
+      "verdict": "REJECTED",
+      "notes": "Requires additional third-party account and introduces potential commercial licensing/bandwidth throttling limits."
+    },
+    {
+      "provider": "Render Static Site",
+      "url": "https://otravelz-frontend.onrender.com/",
+      "scores": {
+        "vite_spa_handling": 8,
+        "base_path_complexity": 9,
+        "custom_redirects": 7,
+        "asset_path_reliability": 7,
+        "https_cdn": 8,
+        "build_deploy_simplicity": 8,
+        "env_var_support": 9,
+        "api_origin_configuration": 8,
+        "rollbacks": 7,
+        "preview_deployments": 6,
+        "cold_start": 6,
+        "bandwidth_delivery": 7,
+        "cost_free_tier": 7,
+        "repo_integration": 7,
+        "operational_burden_for_smarak": 7
+      },
+      "total_score": 111,
+      "verdict": "REJECTED",
+      "notes": "Slower static caching than GitHub Pages/Fastly CDN. Free tier instance spin-up overhead is unsuitable for frontend static delivery."
+    }
+  ],
+  "final_decision": {
+    "host": "GitHub Pages",
+    "canonical_public_url": "https://algoryxz.github.io/O-Travelz/",
+    "base_path": "/O-Travelz/",
+    "custom_domain_required": false,
+    "justification": "GitHub Pages is already deeply integrated into the CI/CD pipeline via .github/workflows/deploy-pages.yml. The media defects were caused by client-side absolute path hardcoding (/images/...) and missing static bundles, NOT hosting provider deficiencies. Repairing the URL resolver and static packaging solves all issues with zero new external accounts or DNS complexity."
+  }
+}

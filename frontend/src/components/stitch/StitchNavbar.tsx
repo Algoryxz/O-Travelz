@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useLocation, CANONICAL_ODISHA_HUBS, type CanonicalHub } from '../../context/LocationContext';
 import { useSavedPlaces } from '../../store/useSavedPlaces';
 import { AuthStatusButton } from '../auth/AuthStatusButton';
+import { resolveAssetUrl } from '../../utils/imageService';
 
 export type StitchTab =
   | 'discover'
@@ -75,7 +76,7 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
             className="flex items-center gap-2.5 hover:opacity-95 transition-opacity focus:outline-none cursor-pointer text-left select-none"
           >
             <img
-              src="/logo.jpeg"
+              src={resolveAssetUrl("logo.jpeg")}
               alt="O-Travelz Logo"
               className="w-8 h-8 rounded-lg object-cover ring-1 ring-[#B87B22]/30 shadow-xs shrink-0"
               onError={(e) => {

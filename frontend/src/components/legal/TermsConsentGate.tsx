@@ -10,6 +10,7 @@ import {
 import { PrivacyPolicyPage } from "./PrivacyPolicyPage";
 import { TermsConditionsPage } from "./TermsConditionsPage";
 import { CURRENT_TERMS_VERSION } from "../../store/useTermsConsent";
+import { resolveAssetUrl } from "../../utils/imageService";
 
 interface TermsConsentGateProps {
   onAccept: () => void;
@@ -38,7 +39,7 @@ export const TermsConsentGate: React.FC<TermsConsentGateProps> = ({ onAccept }) 
         <div className="flex items-center gap-3">
           <div className="relative flex items-center justify-center">
             <img
-              src="/logo.jpeg"
+              src={resolveAssetUrl("logo.jpeg")}
               alt="O-Travelz Logo"
               className="w-9 h-9 rounded-2xl object-cover ring-1 ring-[#B87B22]/40 shadow-sm shrink-0"
               onError={(e) => {

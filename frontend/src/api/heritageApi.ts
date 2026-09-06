@@ -8,6 +8,7 @@
  */
 import type { HeritageScene } from '../types/heritage';
 import { getApiBaseUrl } from './config';
+import { resolveAssetUrl } from '../utils/imageService';
 
 export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
   {
@@ -28,8 +29,8 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       mesh_quality: "high_fidelity_architectural_model",
       coordinate_system: "Y-Up",
     },
-    thumbnail: "/images/destinations/konark_sun_temple.webp",
-    hero_banner: "/images/destinations/konark_sun_temple.webp",
+    thumbnail: resolveAssetUrl("/images/destinations/konark_sun_temple.webp"),
+    hero_banner: resolveAssetUrl("/images/destinations/konark_sun_temple.webp"),
     reconstruction_notes: "Authentic 3D architectural reconstruction presenting the 13th-century Jagamohana stepped pyramid, Natya Mandap hypostyle pavilion, 24-spoke Surya Chakra chariot wheels, and carved chlorite relief plinth.",
     camera_preset: {
       position: [0.0, 2.4, 5.8],
@@ -146,8 +147,8 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       mesh_quality: "high_fidelity_architectural_model",
       coordinate_system: "Y-Up",
     },
-    thumbnail: "/images/destinations/puri_beach.webp",
-    hero_banner: "/images/destinations/puri_beach.webp",
+    thumbnail: resolveAssetUrl("/images/destinations/puri_beach.webp"),
+    hero_banner: resolveAssetUrl("/images/destinations/puri_beach.webp"),
     reconstruction_notes: "3D architectural reconstruction of the exterior monument skyline (65m Bada Deula, Jagamohana, Singhadwara, and Nilachakra). In accordance with sacred sanctum sanctity rules, interior sanctum geometry is strictly omitted.",
     camera_preset: {
       position: [0.0, 2.8, 6.5],
@@ -242,8 +243,8 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       mesh_quality: "high_fidelity_architectural_model",
       coordinate_system: "Y-Up",
     },
-    thumbnail: "/images/destinations/gopalpur_beach.webp",
-    hero_banner: "/images/destinations/gopalpur_beach.webp",
+    thumbnail: resolveAssetUrl("/images/destinations/gopalpur_beach.webp"),
+    hero_banner: resolveAssetUrl("/images/destinations/gopalpur_beach.webp"),
     reconstruction_notes: "Authentic 3D digital model of the 11th-century Ekamra Kshetra complex, featuring the 55-meter curvilinear pancharatha deula, tiered jagamohana, mandapa pavilions, and surrounding precinct.",
     camera_preset: {
       position: [0.0, 2.6, 6.2],
@@ -337,8 +338,8 @@ export const FALLBACK_HERITAGE_SCENES: HeritageScene[] = [
       mesh_quality: "high_fidelity_architectural_model",
       coordinate_system: "Y-Up",
     },
-    thumbnail: "/images/destinations/chandrabhaga_beach.webp",
-    hero_banner: "/images/destinations/chandrabhaga_beach.webp",
+    thumbnail: resolveAssetUrl("/images/destinations/chandrabhaga_beach.webp"),
+    hero_banner: resolveAssetUrl("/images/destinations/chandrabhaga_beach.webp"),
     reconstruction_notes: "Authentic 3D architectural model of the 11th-century Brahmeswara Panchayatana complex with central rekha deula, pyramidal jagamohana, and four authentic subsidiary corner shrines.",
     camera_preset: {
       position: [0.0, 2.2, 5.5],

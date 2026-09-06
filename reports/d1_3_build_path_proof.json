@@ -1,0 +1,117 @@
+{
+  "timestamp": "2026-09-06T11:30:02.275Z",
+  "basePathConfigured": "/O-Travelz/",
+  "indexHtmlAssetTags": [
+    {
+      "type": "script",
+      "url": "/O-Travelz/assets/index-C7hnBSeV.js"
+    },
+    {
+      "type": "link",
+      "url": "/O-Travelz/manifest.webmanifest"
+    },
+    {
+      "type": "link",
+      "url": "/O-Travelz/icon.svg"
+    },
+    {
+      "type": "link",
+      "url": "/O-Travelz/logo.jpeg"
+    },
+    {
+      "type": "link",
+      "url": "/O-Travelz/logo.jpeg"
+    },
+    {
+      "type": "link",
+      "url": "https://fonts.googleapis.com"
+    },
+    {
+      "type": "link",
+      "url": "https://fonts.gstatic.com"
+    },
+    {
+      "type": "link",
+      "url": "https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    },
+    {
+      "type": "link",
+      "url": "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    },
+    {
+      "type": "link",
+      "url": "/O-Travelz/assets/react-vendor-CAFUplbN.js"
+    },
+    {
+      "type": "link",
+      "url": "/O-Travelz/assets/places-catalog-Bk_-zXi2.js"
+    },
+    {
+      "type": "link",
+      "url": "/O-Travelz/assets/lucide-vendor-D3bmv__9.js"
+    },
+    {
+      "type": "link",
+      "url": "/O-Travelz/assets/index-D9epekAE.css"
+    }
+  ],
+  "allIndexAssetsPrefixed": true,
+  "hardcodedRootLogoInJs": 0,
+  "staticAssetsVerified": [
+    {
+      "path": "logo.jpeg",
+      "exists": true,
+      "sizeBytes": 129742,
+      "expectedPublicUrl": "/O-Travelz/logo.jpeg"
+    },
+    {
+      "path": "sw.js",
+      "exists": true,
+      "sizeBytes": 7072,
+      "expectedPublicUrl": "/O-Travelz/sw.js"
+    },
+    {
+      "path": "images/destinations/chandrabhaga_beach.webp",
+      "exists": true,
+      "sizeBytes": 171206,
+      "expectedPublicUrl": "/O-Travelz/images/destinations/chandrabhaga_beach.webp"
+    },
+    {
+      "path": "images/destinations/gopalpur_beach.webp",
+      "exists": true,
+      "sizeBytes": 454178,
+      "expectedPublicUrl": "/O-Travelz/images/destinations/gopalpur_beach.webp"
+    },
+    {
+      "path": "images/destinations/puri_beach.webp",
+      "exists": true,
+      "sizeBytes": 65798,
+      "expectedPublicUrl": "/O-Travelz/images/destinations/puri_beach.webp"
+    },
+    {
+      "path": "images/destinations/konark_sun_temple.webp",
+      "exists": true,
+      "sizeBytes": 542966,
+      "expectedPublicUrl": "/O-Travelz/images/destinations/konark_sun_temple.webp"
+    },
+    {
+      "path": "static/images/places/place_013/a2d24252c0ce/hero.webp",
+      "exists": true,
+      "sizeBytes": 104182,
+      "expectedPublicUrl": "/O-Travelz/static/images/places/place_013/a2d24252c0ce/hero.webp"
+    },
+    {
+      "path": "static/images/places/place_013/a2d24252c0ce/card.webp",
+      "exists": true,
+      "sizeBytes": 48734,
+      "expectedPublicUrl": "/O-Travelz/static/images/places/place_013/a2d24252c0ce/card.webp"
+    },
+    {
+      "path": "static/images/places/place_013/a2d24252c0ce/thumbnail.webp",
+      "exists": true,
+      "sizeBytes": 9846,
+      "expectedPublicUrl": "/O-Travelz/static/images/places/place_013/a2d24252c0ce/thumbnail.webp"
+    }
+  ],
+  "verdict": "PASSED"
+}

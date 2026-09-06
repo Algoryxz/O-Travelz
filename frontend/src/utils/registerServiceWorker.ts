@@ -16,10 +16,14 @@ export function registerServiceWorker(options?: ServiceWorkerRegistrationOptions
 
   // Register when the window finishes initial loading
   window.addEventListener("load", () => {
-    const swUrl = "/sw.js";
+    const basePath = (typeof import.meta !== "undefined" && import.meta.env && typeof import.meta.env.BASE_URL === "string")
+      ? import.meta.env.BASE_URL
+      : "/";
+    const cleanBase = basePath.endsWith("/") ? basePath : `${basePath}/`;
+    const swUrl = `${cleanBase}sw.js`;
 
     navigator.serviceWorker
-      .register(swUrl, { scope: "/" })
+      .register(swUrl, { scope: cleanBase })
       .then((registration) => {
         if (options?.onSuccess) {
           options.onSuccess(registration);
