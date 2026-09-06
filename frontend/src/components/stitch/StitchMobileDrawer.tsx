@@ -82,6 +82,7 @@ export const StitchMobileDrawer: React.FC<StitchMobileDrawerProps> = ({
         {/* Navigation Links */}
         <nav className="flex-1 overflow-y-auto py-2 divide-y divide-[#E5DFD5]/60 font-body">
           <button
+            data-testid="mobile-nav-discover"
             onClick={() => { onSelectTab('discover'); onClose(); }}
             className={`w-full flex items-center gap-4 px-6 py-4 transition-colors text-left cursor-pointer ${
               currentTab === 'discover'
@@ -94,6 +95,7 @@ export const StitchMobileDrawer: React.FC<StitchMobileDrawerProps> = ({
           </button>
 
           <button
+            data-testid="mobile-nav-destinations"
             onClick={() => { onSelectTab('destinations'); onClose(); }}
             className={`w-full flex items-center gap-4 px-6 py-4 transition-colors text-left cursor-pointer ${
               currentTab === 'destinations'
@@ -106,6 +108,7 @@ export const StitchMobileDrawer: React.FC<StitchMobileDrawerProps> = ({
           </button>
 
           <button
+            data-testid="mobile-nav-map"
             onClick={() => { onSelectTab('map'); onClose(); }}
             className={`w-full flex items-center gap-4 px-6 py-4 transition-colors text-left cursor-pointer ${
               currentTab === 'map'
@@ -118,6 +121,7 @@ export const StitchMobileDrawer: React.FC<StitchMobileDrawerProps> = ({
           </button>
 
           <button
+            data-testid="mobile-nav-plan"
             onClick={() => { onSelectTab('plan'); onClose(); }}
             className={`w-full flex items-center gap-4 px-6 py-4 transition-colors text-left cursor-pointer ${
               currentTab === 'plan'
@@ -130,6 +134,7 @@ export const StitchMobileDrawer: React.FC<StitchMobileDrawerProps> = ({
           </button>
 
           <button
+            data-testid="mobile-nav-saved"
             onClick={() => { onSelectTab('saved'); onClose(); }}
             className={`w-full flex items-center justify-between px-6 py-4 transition-colors text-left cursor-pointer ${
               currentTab === 'saved'

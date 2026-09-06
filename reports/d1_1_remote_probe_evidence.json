@@ -1,0 +1,28 @@
+{
+  "wave": "D1.1",
+  "phase": "3_real_browser_golden_journey",
+  "timestamp": "2026-09-06T07:45:00+00:00",
+  "remote_probes": {
+    "render_frontend": {
+      "url": "https://o-travelz.onrender.com/",
+      "http_status": 404,
+      "title": "",
+      "body_snippet": "Not Found\n",
+      "reachable": false
+    },
+    "github_pages": {
+      "url": "https://algoryxz.github.io/O-Travelz/",
+      "http_status": 404,
+      "title": "Site not found \u00b7 GitHub Pages",
+      "body_snippet": "404\n\nThere isn't a GitHub Pages site here.\n\nIf you're trying to publish one, read the full documentation to learn how to set up GitHub Pages for your repository, organization, or user account.\n\nGitHub",
+      "reachable": false
+    },
+    "custom_domain": {
+      "url": "https://otravelz.in/",
+      "http_status": "FAILED",
+      "error": "Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://otravelz.in/\nCall log:\n  - navigating to \"https://otravelz.in/\", waiting until \"domcontentloaded\"\n",
+      "reachable": false
+    }
+  },
+  "production_preview_journey": {}
+}

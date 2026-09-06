@@ -1,0 +1,58 @@
+{
+  "wave": "D1.1",
+  "phase": "5_persistence_truth",
+  "generated_at": "2026-09-06T07:58:00+00:00",
+  "persistence_model": {
+    "primary_client_mode": "DEVICE_LOCALSTORAGE_ONLY",
+    "authenticated_cloud_mode": "OPTIONAL_BACKEND_SYNC",
+    "cross_device_sync_active_by_default": false
+  },
+  "storage_keys": {
+    "saved_places": "o_travelz_saved_places",
+    "saved_itineraries": "o_travelz_saved_itineraries",
+    "user_preferences": "otravelz_user_preferences_v1",
+    "location_hub": "otravelz_last_selected_hub"
+  },
+  "ui_label_audit": [
+    {
+      "component": "frontend/src/pages/stitch/StitchSavedPage.tsx",
+      "element": "Header badge",
+      "exact_copy": "Personal Sanctuary Archive",
+      "truthful": true
+    },
+    {
+      "component": "frontend/src/pages/stitch/StitchSavedPage.tsx",
+      "element": "Subheader description",
+      "exact_copy": "Your saved places and journeys stay available on this device for offline access across Odisha.",
+      "truthful": true
+    },
+    {
+      "component": "frontend/src/pages/stitch/StitchSavedPage.tsx",
+      "element": "Storage status indicator",
+      "exact_copy": "Stored locally on this device",
+      "truthful": true
+    },
+    {
+      "component": "frontend/src/components/stitch/StitchNavbar.tsx",
+      "element": "Bookmark button title",
+      "exact_copy": "Saved Sanctuaries & Landmarks",
+      "truthful": true
+    }
+  ],
+  "backend_sync_capability": {
+    "sync_endpoints": [
+      "GET /api/v1/sync/saved-places",
+      "POST /api/v1/sync/saved-places"
+    ],
+    "database_tables": [
+      "user_saved_places",
+      "user_saved_trips"
+    ],
+    "auth_required": true,
+    "status": "IMPLEMENTED_BUT_OPTIONAL"
+  },
+  "verdict": {
+    "persistence_honesty": "PASS",
+    "rationale": "Save operates cleanly via LocalStorage without requiring account creation. The UI explicitly informs the traveler that items are stored on the current device for offline resilience, avoiding any deceptive promises of automatic cloud sync."
+  }
+}

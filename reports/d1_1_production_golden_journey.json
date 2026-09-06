@@ -1,0 +1,99 @@
+{
+  "wave": "D1.1",
+  "phase": "3_real_browser_golden_journey",
+  "generated_at": "2026-09-06T07:50:00+00:00",
+  "target_url": "http://127.0.0.1:4173/",
+  "mode": "PRODUCTION_DIST_BUNDLE (Vite preview of dist/)",
+  "steps": [
+    {
+      "step": 1,
+      "name": "home_page_load",
+      "status_code": 200,
+      "title": "O-TRAVELZ \u2014 Odisha Travel Intelligence & Cultural Atlas | Built by Algoryxz",
+      "elapsed_ms": 5346.21,
+      "pass": true
+    },
+    {
+      "step": 2,
+      "name": "navigate_discover",
+      "cards_rendered": 43,
+      "elapsed_ms": 1464.47,
+      "pass": true
+    },
+    {
+      "step": 3,
+      "name": "canonical_place_detail_modal",
+      "element_found": true,
+      "modal_visible": true,
+      "elapsed_ms": 2168.96,
+      "pass": true
+    },
+    {
+      "step": 4,
+      "name": "verified_media_resolution",
+      "sample_images": [
+        "/logo.jpeg",
+        "/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+        "/static/images/places/place_puri_001/02287867dc89/hero.webp",
+        "/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
+        "/static/images/places/place_daringbadi_001/49e608c2405f/hero.webp"
+      ],
+      "has_valid_media": true,
+      "elapsed_ms": 764.7,
+      "pass": true
+    },
+    {
+      "step": 5,
+      "name": "weather_truth_check",
+      "has_fake_vibe_default": false,
+      "elapsed_ms": 65.72,
+      "pass": true
+    },
+    {
+      "step": 6,
+      "name": "itinerary_planning_flow",
+      "plan_tab_active": true,
+      "plan_button_found": true,
+      "elapsed_ms": 4224.56,
+      "pass": true
+    },
+    {
+      "step": 7,
+      "name": "map_canvas_rendering",
+      "map_canvas_present": true,
+      "elapsed_ms": 2097.17,
+      "pass": true
+    },
+    {
+      "step": 8,
+      "name": "civic_essentials_layer",
+      "toggle_present": true,
+      "elapsed_ms": 10.04,
+      "pass": true
+    },
+    {
+      "step": 9,
+      "name": "save_place_persistence",
+      "saved_in_storage": true,
+      "elapsed_ms": 12.93,
+      "pass": true
+    },
+    {
+      "step": 10,
+      "name": "reload_and_state_restoration",
+      "storage_survived": true,
+      "lingaraj_rendered": true,
+      "elapsed_ms": 2933.69,
+      "pass": true
+    }
+  ],
+  "all_steps_passed": true,
+  "console_errors": [
+    "[error] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[error] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[error] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[error] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()"
+  ]
+}

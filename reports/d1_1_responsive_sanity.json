@@ -1,0 +1,93 @@
+{
+  "wave": "D1.1",
+  "phase": "9_responsive_sanity",
+  "generated_at": "2026-09-06T08:16:00+00:00",
+  "target_url": "http://127.0.0.1:4173/",
+  "viewports": {
+    "desktop_1440x900": {
+      "scroll_width": 1440,
+      "inner_width": 1440,
+      "horizontal_overflow": false,
+      "desktop_tabs_visible": {
+        "discover": true,
+        "map": true,
+        "plan": true,
+        "culture": true
+      },
+      "pass": true
+    },
+    "mobile_375x812": {
+      "scroll_width": 375,
+      "inner_width": 375,
+      "horizontal_overflow": false,
+      "mobile_menu_present": true,
+      "mobile_drawer_tabs_visible": {
+        "discover": true,
+        "destinations": true,
+        "map": true,
+        "plan": true,
+        "saved": true
+      },
+      "card_modal_opened": false,
+      "card_modal_no_horizontal_overflow": true,
+      "pass": true
+    }
+  },
+  "touch_targets": {
+    "targets": {
+      "mobile_menu_button": {
+        "width": 40,
+        "height": 46,
+        "meets_target_size": true
+      },
+      "mobile_nav_discover": {
+        "width": 317.8,
+        "height": 56,
+        "meets_target_size": true
+      },
+      "mobile_nav_destinations": {
+        "width": 317.8,
+        "height": 56,
+        "meets_target_size": true
+      },
+      "mobile_nav_map": {
+        "width": 317.8,
+        "height": 56,
+        "meets_target_size": true
+      },
+      "mobile_nav_plan": {
+        "width": 317.8,
+        "height": 56,
+        "meets_target_size": true
+      },
+      "mobile_nav_saved": {
+        "width": 317.8,
+        "height": 56,
+        "meets_target_size": true
+      }
+    },
+    "all_adequate": true
+  },
+  "keyboard_nav": {
+    "focusable_cycle": [
+      "BUTTON",
+      "BUTTON",
+      "BUTTON",
+      "BUTTON",
+      "BUTTON",
+      "BUTTON",
+      "BUTTON",
+      "BUTTON",
+      "BUTTON",
+      "BUTTON",
+      "BUTTON",
+      "BUTTON",
+      "INPUT",
+      "BUTTON",
+      "BUTTON"
+    ],
+    "interactive_elements_focused": true,
+    "pass": true
+  },
+  "all_passed": true
+}

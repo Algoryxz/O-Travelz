@@ -320,6 +320,7 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
           {/* Mobile Drawer Trigger */}
           {onToggleMobileMenu && (
             <button
+              data-testid="mobile-menu-button"
               onClick={onToggleMobileMenu}
               className="md:hidden p-2 rounded-lg text-[#3D4654] hover:text-[#12161E] hover:bg-[#F2EEE7] transition-colors focus:outline-none cursor-pointer ml-1"
               aria-label="Open mobile menu"

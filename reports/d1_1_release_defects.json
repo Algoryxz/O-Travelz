@@ -1,0 +1,95 @@
+{
+  "wave": "D1.1",
+  "phase": "10_release_defects_ledger",
+  "generated_at": "2026-09-06T08:18:00+00:00",
+  "total_defects_tracked": 8,
+  "defects": [
+    {
+      "id": "DEP-P0-001",
+      "classification": "P0_RELEASE_BLOCKER",
+      "component": "Render Backend Infrastructure",
+      "status": "ACTIONABLE_FOR_INFRA_DEPLOYMENT",
+      "summary": "Render backend instance https://otravelz-backend.onrender.com is hibernating/suspended/inaccessible",
+      "root_cause": "Free-tier Render Web Service has timed out (>90s) and does not respond to HTTP health checks. Deployed remote clients cannot communicate with any remote backend.",
+      "evidence": "Probe to https://otravelz-backend.onrender.com/health timed out after 90 seconds. Recorded in reports/d1_1_production_before.json and reports/d1_1_remote_probe_evidence.json.",
+      "remediation_applied_or_required": "Must restart or redeploy backend service on Render or equivalent container host with Aiven DATABASE_URL and CORS_ORIGINS configured."
+    },
+    {
+      "id": "DEP-P0-002",
+      "classification": "P0_RELEASE_BLOCKER",
+      "component": "Remote Static Frontend Hosting",
+      "status": "ACTIONABLE_FOR_INFRA_DEPLOYMENT",
+      "summary": "Remote frontend URLs (GitHub Pages, Render, custom domains) return 404 or DNS failures",
+      "root_cause": "Remote origin/gh-pages branch was last built on Sep 2, 2026 at commit 51ab34ed (pre-V4). https://o-travelz.onrender.com is 404. https://otravelz.in has no DNS records.",
+      "evidence": "Remote probe returned HTTP 404 for https://algoryxz.github.io/O-Travelz/ and https://o-travelz.onrender.com. Recorded in reports/d1_1_deployment_identity.json.",
+      "remediation_applied_or_required": "Merge feature/v4-platform-rebuild to main or run deploy-pages workflow to push compiled V4 bundle to GitHub Pages and configure custom domain DNS."
+    },
+    {
+      "id": "DEP-P0-003",
+      "classification": "P0_RELEASE_BLOCKER",
+      "component": "GitHub Actions Deployment Workflow",
+      "status": "RESOLVED_IN_D1_1",
+      "summary": ".github/workflows/deploy-pages.yml built frontend without passing VITE_API_URL",
+      "root_cause": "The build step executed 'npm run build' without binding VITE_API_URL, causing remote builds on GitHub Pages to fallback to same-origin relative URLs which 404.",
+      "evidence": "Inspected .github/workflows/deploy-pages.yml line 36 before D1.1.",
+      "remediation_applied_or_required": "RESOLVED: Added 'env: VITE_API_URL: ${{ vars.VITE_API_URL || secrets.VITE_API_URL || '' }}' to frontend build step in .github/workflows/deploy-pages.yml."
+    },
+    {
+      "id": "DEP-P1-001",
+      "classification": "P1_PRODUCTION_DEFECT",
+      "component": "CORS Origins Configuration",
+      "status": "ACTIONABLE_FOR_INFRA_DEPLOYMENT",
+      "summary": "CORS_ORIGINS in production template must include actual frontend origin",
+      "root_cause": "backend/.env.example and backend/app/core/config.py provide CORS guidance, but live deployment requires explicit list matching hosting domain.",
+      "evidence": "Audited in reports/d1_1_ponytail_deployment_audit.json.",
+      "remediation_applied_or_required": "Ensure deployed backend environment sets CORS_ORIGINS to include https://algoryxz.github.io and custom domains."
+    },
+    {
+      "id": "DEP-P1-002",
+      "classification": "P1_PRODUCTION_DEFECT",
+      "component": "Vercel SPA Routing Configuration",
+      "status": "ACTIONABLE_FOR_INFRA_DEPLOYMENT",
+      "summary": "frontend/vercel.json SPA rewrite intercepts relative API paths if deployed without external API URL",
+      "root_cause": "Wildcard rewrite /{*} -> /index.html returns HTML for unhandled API calls when no proxy is defined.",
+      "evidence": "Audited in reports/d1_1_ponytail_deployment_audit.json.",
+      "remediation_applied_or_required": "Documented in release notes: when deploying to Vercel, VITE_API_URL must point to the live API endpoint."
+    },
+    {
+      "id": "DEP-P1-003",
+      "classification": "P1_PRODUCTION_DEFECT",
+      "component": "OAuth Callback Configuration",
+      "status": "ACTIONABLE_FOR_INFRA_DEPLOYMENT",
+      "summary": "GOOGLE_OAUTH_REDIRECT_URI in backend/.env points to unresolvable domain",
+      "root_cause": "Domain api.otravelz.in has no DNS records. Guest flow works offline/locally, but cloud OAuth requires DNS.",
+      "evidence": "DNS failure on api.otravelz.in documented in reports/d1_1_production_before.json.",
+      "remediation_applied_or_required": "Update GOOGLE_OAUTH_REDIRECT_URI to match live backend hostname once deployed."
+    },
+    {
+      "id": "DEP-P1-004",
+      "classification": "P1_PRODUCTION_DEFECT",
+      "component": "Frontend Vite Preview Configuration",
+      "status": "RESOLVED_IN_D1_1",
+      "summary": "frontend/vite.config.ts lacked /images proxy in preview configuration",
+      "root_cause": "Preview server on port 4173 did not proxy /images requests to backend 8000, causing local production preview images to return 404.",
+      "evidence": "Step 4 of Golden Journey failed until preview proxy was added to vite.config.ts.",
+      "remediation_applied_or_required": "RESOLVED: Added '/images' proxy to both server and preview blocks in frontend/vite.config.ts."
+    },
+    {
+      "id": "DEP-P1-005",
+      "classification": "P1_PRODUCTION_DEFECT",
+      "component": "Mobile Navigation Component Accessibility",
+      "status": "RESOLVED_IN_D1_1",
+      "summary": "Mobile menu button and mobile drawer navigation links lacked test IDs and touch target verification",
+      "root_cause": "Mobile drawer was only interactive via human tap without programmatic test hooks.",
+      "evidence": "Playwright timeout on mobile viewport click in reports/run_responsive_sanity.py.",
+      "remediation_applied_or_required": "RESOLVED: Added data-testid to mobile-menu-button and all drawer navigation items in StitchNavbar.tsx and StitchMobileDrawer.tsx; verified >= 40px touch targets."
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "p0_count": 3,
+    "p1_count": 5,
+    "resolved_in_d1_1": 3,
+    "actionable_for_infra_deployment": 5
+  }
+}

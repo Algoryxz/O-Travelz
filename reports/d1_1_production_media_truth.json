@@ -1,0 +1,46 @@
+{
+  "wave": "D1.1",
+  "phase": "6_production_media_truth",
+  "generated_at": "2026-09-06T08:02:00+00:00",
+  "checks": [
+    {
+      "check": "exact_location_media_resolution",
+      "place": "Lingaraj Temple",
+      "image_count": 1,
+      "primary_url": "/static/images/places/place_bbsr_001/06a456469886/hero.webp",
+      "pass": true
+    },
+    {
+      "check": "exact_location_media_resolution",
+      "place": "Konark Sun Temple",
+      "image_count": 1,
+      "primary_url": "/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+      "pass": true
+    },
+    {
+      "check": "missing_image_fails_honestly",
+      "url": "http://127.0.0.1:8000/images/places/nonexistent_place_xyz/hero.webp",
+      "expected_code": 404,
+      "pass": true
+    },
+    {
+      "check": "zero_developer_filesystem_path_leakage",
+      "audited_places_count": 50,
+      "forbidden_tokens_checked": [
+        "C:\\",
+        "/Users/",
+        "/home/",
+        "Desktop\\o-travelz",
+        "\\.venv\\"
+      ],
+      "leakage_detected": false,
+      "pass": true
+    },
+    {
+      "check": "unverified_media_rejection_boundary",
+      "audited_count": 50,
+      "pass": true
+    }
+  ],
+  "all_checks_passed": true
+}

@@ -1,0 +1,64 @@
+{
+  "wave": "D1.1",
+  "phase": "4_network_failure_reality",
+  "generated_at": "2026-09-06T07:55:00+00:00",
+  "drills": [
+    {
+      "id": "DRILL-01-API-ERROR-ENVELOPE",
+      "scenario": "Query non-existent resource through API boundary",
+      "expected": "HTTP 404 with normalized JSON error detail, zero raw tracebacks",
+      "status_code": 404,
+      "pass": true
+    },
+    {
+      "id": "DRILL-02-WEATHER-UNAVAILABLE",
+      "scenario": "Request weather for out-of-bounds coordinates (999.0, 999.0)",
+      "expected": "status unavailable, temperature_c null, advisory text, zero synthetic 0C",
+      "observed_status": "unavailable",
+      "observed_temp": null,
+      "pass": true
+    },
+    {
+      "id": "DRILL-03-AI-PROVIDER-FALLBACK",
+      "scenario": "Execute AI planning query through multi-provider orchestrator",
+      "expected": "Deterministic grounded response with tool calling, zero infinite spinner or traceback",
+      "has_message": true,
+      "is_grounded": true,
+      "pass": true
+    },
+    {
+      "id": "DRILL-04-IMAGE-404-HANDLING",
+      "scenario": "Fetch non-existent media asset directly",
+      "expected": "HTTP 404 returned cleanly, client onError triggers category fallback SVG",
+      "pass": true
+    },
+    {
+      "id": "DRILL-05-GEOMETRY-GAP-FAIL-CLOSED",
+      "scenario": "Inspect unresolved route segments in Route 09 geometry",
+      "expected": "Zero synthetic straight chords; unresolved segments emit empty coordinate arrays",
+      "total_segments": 2,
+      "has_gaps": false,
+      "gaps_empty": true,
+      "pass": true
+    },
+    {
+      "id": "DRILL-06-LOCATION-DENIED-FALLBACK",
+      "scenario": "Traveler denies browser geolocation access",
+      "expected": "Client LocationContext gracefully defaults to Bhubaneswar hub (20.2961, 85.8245)",
+      "fallback_hub": "Bhubaneswar (Central Odisha)",
+      "coordinates": [
+        20.2961,
+        85.8245
+      ],
+      "pass": true
+    },
+    {
+      "id": "DRILL-07-NETWORK-LATENCY-BUDGET",
+      "scenario": "Evaluate endpoint response within budget under load",
+      "measured_ms": 5.56,
+      "budget_ms": 2000.0,
+      "pass": true
+    }
+  ],
+  "all_drills_passed": true
+}

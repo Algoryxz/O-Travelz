@@ -1,0 +1,78 @@
+{
+  "wave": "D1.1",
+  "phase": "8_production_ai_truth",
+  "generated_at": "2026-09-06T08:14:00+00:00",
+  "evaluations": [
+    {
+      "id": "PROMPT-01",
+      "prompt": "Plan a 1 day trip in bbsr",
+      "expected_tool": "build_itinerary",
+      "observed_tools": [
+        "build_itinerary"
+      ],
+      "expected_days": 1,
+      "observed_days": 1,
+      "is_grounded": true,
+      "response_preview": "I have built a verified 1-day itinerary starting from Bhubaneswar with 3 planned stops across Odisha.\n\nPlanned Schedule:",
+      "divergence_from_d1": "NONE",
+      "pass": true
+    },
+    {
+      "id": "PROMPT-02",
+      "prompt": "Plan a one day trip in Bhubaneswar",
+      "expected_tool": "build_itinerary",
+      "observed_tools": [
+        "build_itinerary"
+      ],
+      "expected_days": 1,
+      "observed_days": 1,
+      "is_grounded": true,
+      "response_preview": "I have built a verified 1-day itinerary starting from Bhubaneswar with 3 planned stops across Odisha.\n\nPlanned Schedule:",
+      "divergence_from_d1": "NONE",
+      "pass": true
+    },
+    {
+      "id": "PROMPT-03",
+      "prompt": "I am in Bhubaneswar and want to visit places using Mo Bus where practical",
+      "expected_tool": "build_itinerary",
+      "observed_tools": [
+        "build_itinerary"
+      ],
+      "expected_days": 2,
+      "observed_days": 2,
+      "is_grounded": true,
+      "response_preview": "I have built a verified 2-day itinerary starting from Bhubaneswar with 6 planned stops across Odisha.\n\nPlanned Schedule:",
+      "divergence_from_d1": "NONE",
+      "pass": true
+    },
+    {
+      "id": "PROMPT-04",
+      "prompt": "Plan a rainy day in Bhubaneswar",
+      "expected_tool": "build_itinerary",
+      "observed_tools": [
+        "build_itinerary"
+      ],
+      "expected_days": 1,
+      "observed_days": 1,
+      "is_grounded": true,
+      "response_preview": "I have built a verified 1-day itinerary starting from Bhubaneswar focused on culture with 3 planned stops across Odisha.",
+      "divergence_from_d1": "NONE",
+      "pass": true
+    },
+    {
+      "id": "PROMPT-05",
+      "prompt": "I have only 6 hours and want temples, lunch and minimal travel",
+      "expected_tool": "build_itinerary",
+      "observed_tools": [
+        "build_itinerary"
+      ],
+      "expected_days": 1,
+      "observed_days": 1,
+      "is_grounded": true,
+      "response_preview": "I have built a verified 1-day itinerary starting from Bhubaneswar focused on spirituality, food with 3 planned stops acr",
+      "divergence_from_d1": "NONE",
+      "pass": true
+    }
+  ],
+  "all_prompts_match_d1": true
+}

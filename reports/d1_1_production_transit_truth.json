@@ -1,0 +1,56 @@
+{
+  "wave": "D1.1",
+  "phase": "7_production_transit_truth",
+  "generated_at": "2026-09-06T08:05:00+00:00",
+  "route_audits": [
+    {
+      "route_number": "09",
+      "total_segments": 2,
+      "has_road_following": false,
+      "unresolved_fail_closed": true,
+      "pass": true
+    },
+    {
+      "route_number": "100",
+      "total_segments": 4,
+      "has_road_following": false,
+      "unresolved_fail_closed": true,
+      "pass": true
+    },
+    {
+      "route_number": "300",
+      "total_segments": 45,
+      "has_road_following": false,
+      "unresolved_fail_closed": true,
+      "pass": true
+    },
+    {
+      "route_number": "201",
+      "total_segments": 1,
+      "has_road_following": false,
+      "unresolved_fail_closed": true,
+      "pass": true
+    },
+    {
+      "route_number": "400",
+      "total_segments": 32,
+      "has_road_following": false,
+      "unresolved_fail_closed": true,
+      "pass": true
+    },
+    {
+      "check": "first_mile_candidate_filtering",
+      "returned_stops_count": 15,
+      "valid_coordinates": true,
+      "candidate_stops_excluded": true,
+      "pass": true
+    },
+    {
+      "check": "no_legacy_static_frontend_route_override",
+      "canonical_routes_count": 154,
+      "static_routes_count": 154,
+      "pass": true
+    }
+  ],
+  "all_transit_truth_passed": true
+}

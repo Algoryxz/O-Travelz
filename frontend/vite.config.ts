@@ -52,6 +52,27 @@ export default defineConfig({
         target: "http://127.0.0.1:8000",
         changeOrigin: true,
       },
+      "/images": {
+        target: "http://127.0.0.1:8000",
+        changeOrigin: true,
+      },
+    },
+  },
+  preview: {
+    port: 4173,
+    proxy: {
+      "/places": { target: "http://127.0.0.1:8000", changeOrigin: true },
+      "/api": { target: "http://127.0.0.1:8000", changeOrigin: true },
+      "/static": { target: "http://127.0.0.1:8000", changeOrigin: true },
+      "/itinerary": { target: "http://127.0.0.1:8000", changeOrigin: true },
+      "/ai": { target: "http://127.0.0.1:8000", changeOrigin: true },
+      "/map": { target: "http://127.0.0.1:8000", changeOrigin: true },
+      "/transport": { target: "http://127.0.0.1:8000", changeOrigin: true },
+      "/weather": { target: "http://127.0.0.1:8000", changeOrigin: true },
+      "/auth": { target: "http://127.0.0.1:8000", changeOrigin: true },
+      "/location": { target: "http://127.0.0.1:8000", changeOrigin: true },
+      "/health": { target: "http://127.0.0.1:8000", changeOrigin: true },
+      "/images": { target: "http://127.0.0.1:8000", changeOrigin: true },
     },
   },
   build: {

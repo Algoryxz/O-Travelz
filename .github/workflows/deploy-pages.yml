@@ -33,6 +33,8 @@ jobs:
 
       - name: Build frontend static site
         working-directory: frontend
+        env:
+          VITE_API_URL: ${{ vars.VITE_API_URL || secrets.VITE_API_URL || '' }}
         run: npm run build
 
       - name: Deploy to gh-pages branch
