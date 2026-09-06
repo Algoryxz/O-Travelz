@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-09-06T13:56:42.822890+00:00",
+  "wave": "D1.5.1",
+  "phase": "Phase 2 \u2014 Aiven Database Proof Through Backend",
+  "database": {
+    "provider": "Aiven Cloud PostgreSQL",
+    "host": "otravelz-db-smarakpadhi58-98d3.d.aivencloud.com",
+    "port": 25047,
+    "sslmode": "require",
+    "direct_connectivity": true,
+    "alembic_version": "0020_transit_ride_observations",
+    "entities": {
+      "places_count": 204,
+      "routes_count": 154,
+      "stops_count": 1430,
+      "services_count": 211,
+      "media_assets_count": 116,
+      "entity_media_count": 70
+    }
+  },
+  "backend_runtime_proof": {
+    "canonical_place_resolved": true,
+    "sample_place_id": "7b420000-0000-0000-0000-000000000003",
+    "sample_place_name": "Lingaraj Temple",
+    "canonical_route_resolved": true,
+    "sample_route_id": "route_capital_001",
+    "public_cloud_proxy_status": "TIMEOUT"
+  },
+  "verdict": "DATABASE_VERIFIED_CLOUD_SERVICE_SUSPENDED"
+}

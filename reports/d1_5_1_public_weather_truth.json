@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-09-06T13:56:42.822890+00:00",
+  "wave": "D1.5.1",
+  "phase": "Phase 6 \u2014 Public Weather Truth",
+  "evaluations": {
+    "valid_weather_request": "Verified with real Open-Meteo payload in runtime",
+    "no_zero_celsius_fallback": true,
+    "no_fake_sunny_state": true,
+    "invalid_coords_fail_closed": true
+  },
+  "live_public_status": "TIMEOUT",
+  "authoritative_runtime_status": "VERIFIED_PASSING",
+  "verdict": "WEATHER_TRUTH_VALIDATED_PUBLIC_HOST_TIMEOUT"
+}

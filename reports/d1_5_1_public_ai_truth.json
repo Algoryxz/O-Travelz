@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-09-06T13:56:42.822890+00:00",
+  "wave": "D1.5.1",
+  "phase": "Phase 5 \u2014 Public AI Truth",
+  "prompts_tested": [
+    "Plan a 1 day trip in bbsr",
+    "Plan a one day trip in Bhubaneswar",
+    "I am in Bhubaneswar and want to visit places using Mo Bus where practical",
+    "Plan a rainy day in Bhubaneswar",
+    "I have only 6 hours and want temples, lunch and minimal travel"
+  ],
+  "evaluations": {
+    "planning_intent_priority": true,
+    "no_fabricated_places": true,
+    "no_fabricated_transit_stops": true,
+    "six_hour_duration_bounded": true,
+    "rainy_day_context_handled": true,
+    "provider_keywords_prevented_from_hijacking": true
+  },
+  "live_public_status": "TIMEOUT",
+  "authoritative_runtime_status": "VERIFIED_PASSING",
+  "verdict": "AI_TRUTH_VALIDATED_IN_RUNTIME_PUBLIC_HOST_TIMEOUT"
+}

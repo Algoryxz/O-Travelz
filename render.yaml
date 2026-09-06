@@ -4,6 +4,7 @@ services:
   # ---------------------------------------------------------------------------
   - type: web
     name: otravelz-backend
+    branch: feature/v4-platform-rebuild
     runtime: python
     plan: free
     rootDir: backend
@@ -69,6 +70,7 @@ services:
   # ---------------------------------------------------------------------------
   - type: web
     name: otravelz-frontend
+    branch: feature/v4-platform-rebuild
     runtime: static
     rootDir: frontend
     buildCommand: npm ci && npm run build

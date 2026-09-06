@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-09-06T13:56:42.822890+00:00",
+  "wave": "D1.5.1",
+  "phase": "Phase 3 \u2014 Core Endpoint Smoke",
+  "public_backend_url": "https://otravelz-backend.onrender.com",
+  "endpoints": {
+    "/places": {
+      "method": "GET",
+      "status": "TIMEOUT",
+      "live_reachable": false,
+      "local_testclient_status": 200
+    },
+    "/places/7b420000-0000-0000-0000-000000000001": {
+      "method": "GET",
+      "status": "TIMEOUT",
+      "live_reachable": false,
+      "local_testclient_status": 200
+    },
+    "/weather/current": {
+      "method": "GET",
+      "status": "TIMEOUT",
+      "live_reachable": false,
+      "local_testclient_status": 200
+    },
+    "/itinerary/plan": {
+      "method": "POST",
+      "status": "TIMEOUT",
+      "live_reachable": false,
+      "local_testclient_status": 200
+    },
+    "/ai/converse": {
+      "method": "POST",
+      "status": "TIMEOUT",
+      "live_reachable": false,
+      "local_testclient_status": 200
+    },
+    "/api/transport/routes": {
+      "method": "GET",
+      "status": "TIMEOUT",
+      "live_reachable": false,
+      "local_testclient_status": 200
+    },
+    "/api/transport/routes/route_capital_001/geometry": {
+      "method": "GET",
+      "status": "TIMEOUT",
+      "live_reachable": false,
+      "local_testclient_status": 200
+    },
+    "/api/v1/services/nearby": {
+      "method": "GET",
+      "status": "TIMEOUT",
+      "live_reachable": false,
+      "local_testclient_status": 200
+    }
+  },
+  "verdict": "CORE_ENDPOINTS_TIMEOUT_ON_PUBLIC_HOST"
+}

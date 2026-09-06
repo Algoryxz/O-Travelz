@@ -1,0 +1,94 @@
+{
+  "timestamp": "2026-09-06T13:56:42.822890+00:00",
+  "wave": "D1.5.1",
+  "phase": "Phase 1 \u2014 Public Health Proof",
+  "target_url": "https://otravelz-backend.onrender.com/health",
+  "probes_executed": {
+    "cold_probe": {
+      "url": "https://otravelz-backend.onrender.com/health",
+      "timeout_seconds": 90,
+      "status": "TIMEOUT",
+      "latency_ms": 90160,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "warm_probes_10_samples": [
+      {
+        "probe": 1,
+        "status": "TIMEOUT",
+        "latency_ms": 10100,
+        "error": "TimeoutError: The read operation timed out"
+      },
+      {
+        "probe": 2,
+        "status": "TIMEOUT",
+        "latency_ms": 10100,
+        "error": "TimeoutError: The read operation timed out"
+      },
+      {
+        "probe": 3,
+        "status": "TIMEOUT",
+        "latency_ms": 10100,
+        "error": "TimeoutError: The read operation timed out"
+      },
+      {
+        "probe": 4,
+        "status": "TIMEOUT",
+        "latency_ms": 10100,
+        "error": "TimeoutError: The read operation timed out"
+      },
+      {
+        "probe": 5,
+        "status": "TIMEOUT",
+        "latency_ms": 10100,
+        "error": "TimeoutError: The read operation timed out"
+      },
+      {
+        "probe": 6,
+        "status": "TIMEOUT",
+        "latency_ms": 10100,
+        "error": "TimeoutError: The read operation timed out"
+      },
+      {
+        "probe": 7,
+        "status": "TIMEOUT",
+        "latency_ms": 10100,
+        "error": "TimeoutError: The read operation timed out"
+      },
+      {
+        "probe": 8,
+        "status": "TIMEOUT",
+        "latency_ms": 10100,
+        "error": "TimeoutError: The read operation timed out"
+      },
+      {
+        "probe": 9,
+        "status": "TIMEOUT",
+        "latency_ms": 10100,
+        "error": "TimeoutError: The read operation timed out"
+      },
+      {
+        "probe": 10,
+        "status": "TIMEOUT",
+        "latency_ms": 10100,
+        "error": "TimeoutError: The read operation timed out"
+      }
+    ]
+  },
+  "summary": {
+    "probes_count": 11,
+    "success_count": 0,
+    "timeout_count": 11,
+    "timeout_rate": 1.0,
+    "http_status": null,
+    "version": null,
+    "git_sha": null,
+    "alembic_version": null,
+    "verdict": "BACKEND_UNREACHABLE_ON_RENDER"
+  },
+  "root_cause_analysis": [
+    "Render edge router (216.24.57.15) accepts TLS connection and performs 301 redirect for HTTP, but times out waiting for upstream container bytes.",
+    "Remote repository default HEAD branch is 'main', which contains outdated commit 51ab34e pointing to deleted 'otravelz-db'.",
+    "feature/v4-platform-rebuild contains the decoupled Aiven configuration and hardened start.py, but render.yaml previously omitted explicit branch tracking for feature/v4-platform-rebuild.",
+    "Until Render dashboard service is explicitly pointed to feature/v4-platform-rebuild, attempts to redeploy main fail upstream."
+  ]
+}

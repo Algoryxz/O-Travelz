@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-09-06T13:56:42.822890+00:00",
+  "wave": "D1.5.1",
+  "phase": "Phase 8 \u2014 Public Services Truth",
+  "categories_verified": [
+    "hospital",
+    "police",
+    "atm",
+    "fuel",
+    "fire"
+  ],
+  "evaluations": {
+    "services_available": true,
+    "boundary_isolation_verified": true,
+    "civic_services_leakage_into_tourism": 0
+  },
+  "live_public_status": "TIMEOUT",
+  "authoritative_runtime_status": "VERIFIED_PASSING",
+  "verdict": "SERVICES_TRUTH_VALIDATED_PUBLIC_HOST_TIMEOUT"
+}

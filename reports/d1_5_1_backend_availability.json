@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-09-06T13:56:42.822890+00:00",
+  "wave": "D1.5.1",
+  "phase": "Phase 10 \u2014 Availability Classification",
+  "measured_metrics": {
+    "cold_boot": ">90s timeout",
+    "warm_latency": "N/A (unreachable)",
+    "timeout_frequency": "100%",
+    "sleep_behavior": "Service suspended / upstream unreachable on Render edge"
+  },
+  "classification": "UNACCEPTABLE",
+  "rationale": "Requests regularly time out with 100% failure rate; upstream container does not complete HTTP responses.",
+  "verdict": "BACKEND_UNACCEPTABLE_PENDING_PROPER_BRANCH_DEPLOYMENT"
+}

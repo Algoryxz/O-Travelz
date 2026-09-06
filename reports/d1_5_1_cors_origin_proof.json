@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-09-06T13:56:42.822890+00:00",
+  "wave": "D1.5.1",
+  "phase": "Phase 4 \u2014 CORS / Public Origin Proof",
+  "tested_origin": "https://algoryxz.github.io",
+  "backend_configuration": {
+    "cors_origins_configured": "https://algoryxz.github.io,http://localhost:5173",
+    "allow_credentials": true,
+    "wildcard_with_credentials": false,
+    "localhost_dependency": false,
+    "options_preflight_supported": true
+  },
+  "verification": {
+    "testclient_preflight_status": 200,
+    "access_control_allow_origin": "https://algoryxz.github.io",
+    "access_control_allow_credentials": "true",
+    "public_host_live_probe": "TIMEOUT"
+  },
+  "verdict": "CORS_CONTRACT_COMPLIANT_CLOUD_HOST_TIMEOUT"
+}

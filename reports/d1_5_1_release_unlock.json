@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-09-06T13:56:42.822890+00:00",
+  "wave": "D1.5.1",
+  "phase": "Phase 11 \u2014 Release Blocker Reconciliation",
+  "acceptance_criteria": {
+    "backend_reachable": false,
+    "endpoint_smoke_passes": false,
+    "cors_passes": false,
+    "aiven_data_used_by_deployed_host": false,
+    "ai_passes_live": false,
+    "weather_passes_live": false,
+    "transit_passes_live": false,
+    "services_pass_live": false,
+    "browser_golden_journey_live_backend": false,
+    "backend_availability_acceptable": false,
+    "p0_release_blockers_remaining": 1
+  },
+  "root_blocker_detail": "Render backend instance is configured to default branch 'main' which points to deleted Render PostgreSQL. Branch must be switched to feature/v4-platform-rebuild in Render dashboard.",
+  "verdicts": {
+    "LOCAL_WEB_READY": "YES",
+    "PUBLIC_STATIC_WEB_READY": "YES",
+    "PUBLIC_FULL_STACK_READY": "NO",
+    "ANDROID_APP_READY": "PARTIALLY",
+    "O_TRAVELZ_OVERALL_READY": "PARTIALLY",
+    "WEB_V4_FEATURE_FREEZE": true
+  }
+}

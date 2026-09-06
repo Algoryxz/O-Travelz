@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-09-06T13:56:42.822890+00:00",
+  "wave": "D1.5.1",
+  "phase": "Phase 7 \u2014 Public Transit Truth",
+  "representative_regions": [
+    "Capital Region",
+    "Rourkela",
+    "Sambalpur",
+    "Berhampur",
+    "Keonjhar"
+  ],
+  "evaluations": {
+    "canonical_route_ids": true,
+    "road_following_geometry_where_supported": true,
+    "unresolved_gaps_fail_closed": true,
+    "no_synthetic_straight_lines": true,
+    "candidate_stops_excluded_from_first_mile": true
+  },
+  "live_public_status": "TIMEOUT",
+  "authoritative_runtime_status": "VERIFIED_PASSING",
+  "verdict": "TRANSIT_TRUTH_VALIDATED_PUBLIC_HOST_TIMEOUT"
+}
