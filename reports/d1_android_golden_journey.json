@@ -1,0 +1,27 @@
+{
+  "wave": "D1",
+  "phase": "12_mobile_kmp_reality",
+  "generated_at": "2026-09-06T07:28:00+00:00",
+  "native_android_ui": {
+    "present": false,
+    "status": "PLANNED (Checkpoint 4 in docs/v4/ROADMAP.md and docs/v4/ARCHITECTURE.md)",
+    "historical_branch": "feature/mobile-v3-rapid-features (commits d4254a6, etc.)",
+    "app_module_in_settings": false,
+    "honest_verdict": "Native Android UI is absent on feature/v4-platform-rebuild. Native Android end-to-end golden journey cannot be executed until Checkpoint 4 is implemented."
+  },
+  "kmp_shared_core": {
+    "module": ":shared",
+    "status": "ACTIVE_AND_AUTHORITATIVE",
+    "gradle_test_result": "BUILD SUCCESSFUL (35 actionable tasks up-to-date, all unit tests passed)",
+    "domain_parity_contracts_covered": [
+      "RideVerificationEngine (LiveDeviceLocation gating, stationary cluster detector)",
+      "FirstMileEngine (haversine distance, walking limits, verified vs candidate stop rules)",
+      "TimetableEngine (deterministic departure evaluation, schedule groups)",
+      "GeoPoint & OdishaBounds (spatial containment boundaries)",
+      "WeatherState (AVAILABLE, UNAVAILABLE, ERROR enum states)",
+      "LocationState (LiveDeviceLocation vs ReferenceOrigin vs PermissionDenied)",
+      "LocalizedNames & Odia strings"
+    ]
+  },
+  "conclusion": "Do not conflate KMP shared unit test green status with an Android UI acceptance pass. Android UI remains queued for Checkpoint 4 after Web V4 and iOS V4."
+}

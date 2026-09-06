@@ -1,0 +1,140 @@
+{
+  "wave": "D1",
+  "phase": "3_api_contract_matrix",
+  "generated_at": "2026-09-06T07:10:00+00:00",
+  "apis": [
+    {
+      "name": "list_places",
+      "active_urls": [
+        "/places",
+        "/api/places"
+      ],
+      "method": "GET",
+      "request_params": "category, interest, district, region, search, verification_status, near_lat, near_lon, radius_km, limit, offset",
+      "response_model": "List[PlaceDetail]",
+      "frontend_consumer": "apiClient.listPlaces() -> StitchDestinationsPage, StitchHomePage, MapLibreCanvas",
+      "mobile_consumer": "KMP PlaceRepository (mobile/shared)",
+      "source_of_truth": "PostgreSQL places table with fallback to data/places/places.json",
+      "error_behavior": "HTTP 200 with empty list [] on zero matches",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "get_place_detail",
+      "active_urls": [
+        "/places/{place_id}",
+        "/api/places/{place_id}"
+      ],
+      "method": "GET",
+      "request_params": "place_id (UUID or slug/alias)",
+      "response_model": "PlaceDetail",
+      "frontend_consumer": "apiClient.getPlace() -> StitchDestinationDetailModal",
+      "mobile_consumer": "KMP PlaceRepository (mobile/shared)",
+      "source_of_truth": "PostgreSQL places table (resolves UUIDs and slug IDs like place_bbsr_001)",
+      "error_behavior": "HTTP 404 with error detail when place does not exist",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "plan_itinerary",
+      "active_urls": [
+        "/itinerary/plan",
+        "/api/itinerary/plan"
+      ],
+      "method": "POST",
+      "request_model": "PlanningConstraints (days, interests, start, pace, dates, etc.)",
+      "response_model": "ItineraryResponse (itinerary_id, constraints, days: List[ItineraryDayContract], explanation)",
+      "frontend_consumer": "apiClient.planItinerary() -> StitchPlannerPage, ConstraintForm",
+      "mobile_consumer": "KMP TimetableEngine / ItineraryService",
+      "source_of_truth": "Deterministic ItineraryService with verified places and transport hops",
+      "error_behavior": "HTTP 422 with validation_error if unpermitted fields passed",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "ai_converse",
+      "active_urls": [
+        "/ai/converse",
+        "/api/ai/converse"
+      ],
+      "method": "POST",
+      "request_model": "AIConversationRequest (messages: List[ChatMessage], constraints, context)",
+      "response_model": "GroundedConversationResponse (message, status, is_grounded, tool_calls, evidence_items, itinerary_preview)",
+      "frontend_consumer": "apiClient.converseWithAi() -> useAI, AIConversationPanel, AISidebar",
+      "mobile_consumer": "KMP AI Copilot client",
+      "source_of_truth": "GroundedConversationOrchestrator with tool-calling boundary (build_itinerary, search_places, get_provider_status)",
+      "error_behavior": "HTTP 422 if messages missing; falls back gracefully to deterministic tools if LLM unavailable",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "current_weather",
+      "active_urls": [
+        "/weather/current",
+        "/api/weather/current"
+      ],
+      "method": "GET",
+      "request_params": "lat, lon, location_name",
+      "response_model": "WeatherResponse (location_name, current: {temp_c, condition, rain_prob, status})",
+      "frontend_consumer": "apiClient.getWeather() -> StitchNavbar, StitchWeatherSection",
+      "mobile_consumer": "KMP WeatherState",
+      "source_of_truth": "Open-Meteo adapter with fail-closed UNAVAILABLE/ERROR states (no fake 0C)",
+      "error_behavior": "HTTP 200 with status=UNAVAILABLE / ERROR when upstream fails",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "list_routes",
+      "active_urls": [
+        "/transport/routes",
+        "/api/transport/routes"
+      ],
+      "method": "GET",
+      "request_params": "operator, origin, destination",
+      "response_model": "List[TransportRouteSummary]",
+      "frontend_consumer": "apiClient.getTransportMap(), transitGeometry.ts",
+      "mobile_consumer": "KMP TransitGraph",
+      "source_of_truth": "data/transport/canonical/routes.json",
+      "error_behavior": "HTTP 200 with empty list on no matches",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "route_geometry",
+      "active_urls": [
+        "/transport/routes/{route_id}/geometry",
+        "/api/transport/routes/{route_id}/geometry"
+      ],
+      "method": "GET",
+      "request_params": "route_id (e.g. 09, rt_crut_09_forward)",
+      "response_model": "TransitRouteGeometryResponse (geometry_status, coordinates, epistemic_level, segments)",
+      "frontend_consumer": "transitGeometry.ts -> MapLibreCanvas route rendering",
+      "mobile_consumer": "KMP RouteGeometryRenderer",
+      "source_of_truth": "C5.2/C5.3 geometry engine + road_network_geometry_cache.json",
+      "error_behavior": "HTTP 404 if route unknown; fails closed with ANCHOR_ONLY/CORRIDOR_ONLY and empty coordinates if gaps exist",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "services_nearby",
+      "active_urls": [
+        "/api/v1/services/nearby"
+      ],
+      "method": "GET",
+      "request_params": "lat, lon, category, subcategory, radius_km, limit",
+      "response_model": "NearbyServicesResponse (services: List[NearbyServiceResult], active_radius_km, is_expanded)",
+      "frontend_consumer": "apiClient.getNearbyServices() -> EssentialsSection, MapLibreCanvas civic layer",
+      "mobile_consumer": "KMP EssentialsRepository",
+      "source_of_truth": "data/services/odisha_services.json (211 verified civic amenities)",
+      "error_behavior": "HTTP 200 with services: [] if none within radius",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "sync_saved_places",
+      "active_urls": [
+        "/api/v1/sync/saved-places"
+      ],
+      "method": "GET, POST",
+      "request_model": "SyncSavedPlacesRequest (items: List[SyncPlaceItem])",
+      "response_model": "SyncSavedPlacesResponse (synced_count, items)",
+      "frontend_consumer": "apiClient.syncSavedPlaces() -> useSavedPlaces",
+      "mobile_consumer": "KMP SavedPlacesStore",
+      "source_of_truth": "PostgreSQL saved_places table (requires auth or returns empty)",
+      "error_behavior": "HTTP 401 if unauthenticated for private sync",
+      "status": "ACTIVE"
+    }
+  ]
+}

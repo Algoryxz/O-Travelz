@@ -351,7 +351,7 @@ def run_coordinate_resolution(
                 s["lon"] = best_fs["lon"]
                 src = best_fs.get("coordinate_source") or "staticTransitStops_verified_survey"
                 s["coordinate_source"] = src
-                if "OSM" in src:
+                if "OSM" in src.upper() or "NOMINATIM" in src.upper():
                     s["coordinate_status"] = "VERIFIED_GEOSPATIAL"
                     s["verification_status"] = "VERIFIED_GEOSPATIAL"
                 elif "canonical_place" in src:

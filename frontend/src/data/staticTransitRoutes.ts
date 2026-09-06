@@ -4986,9 +4986,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 2,
         "stop_id": "stop_crut_sambalpur_kuchinda",
         "stop_name": "Kuchinda",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.747739,
+        "longitude": 84.35064
       },
       {
         "sequence_order": 3,
@@ -6430,9 +6430,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 22,
         "stop_id": "stop_crut_berhampur_temple",
         "stop_name": "Temple",
-        "is_routable": true,
-        "latitude": 21.539347,
-        "longitude": 86.656633
+        "is_routable": false,
+        "latitude": null,
+        "longitude": null
       },
       {
         "sequence_order": 23,
@@ -7098,9 +7098,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 21,
         "stop_id": "stop_crut_berhampur_police_station",
         "stop_name": "Police Station",
-        "is_routable": true,
-        "latitude": 21.532198,
-        "longitude": 86.652901
+        "is_routable": false,
+        "latitude": null,
+        "longitude": null
       },
       {
         "sequence_order": 22,
@@ -7162,9 +7162,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 29,
         "stop_id": "stop_crut_berhampur_station",
         "stop_name": "Station",
-        "is_routable": true,
-        "latitude": 21.513386,
-        "longitude": 86.577044
+        "is_routable": false,
+        "latitude": null,
+        "longitude": null
       },
       {
         "sequence_order": 30,
@@ -7274,9 +7274,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 43,
         "stop_id": "stop_crut_berhampur_temple",
         "stop_name": "Temple",
-        "is_routable": true,
-        "latitude": 21.539347,
-        "longitude": 86.656633
+        "is_routable": false,
+        "latitude": null,
+        "longitude": null
       },
       {
         "sequence_order": 44,
@@ -7876,9 +7876,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 4,
         "stop_id": "stop_crut_berhampur_temple",
         "stop_name": "Temple",
-        "is_routable": true,
-        "latitude": 21.539347,
-        "longitude": 86.656633
+        "is_routable": false,
+        "latitude": null,
+        "longitude": null
       },
       {
         "sequence_order": 5,
@@ -8084,9 +8084,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 30,
         "stop_id": "stop_crut_berhampur_police_station",
         "stop_name": "Police Station",
-        "is_routable": true,
-        "latitude": 21.532198,
-        "longitude": 86.652901
+        "is_routable": false,
+        "latitude": null,
+        "longitude": null
       },
       {
         "sequence_order": 31,
@@ -8148,9 +8148,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 38,
         "stop_id": "stop_crut_berhampur_station",
         "stop_name": "Station",
-        "is_routable": true,
-        "latitude": 21.513386,
-        "longitude": 86.577044
+        "is_routable": false,
+        "latitude": null,
+        "longitude": null
       },
       {
         "sequence_order": 39,
@@ -8406,9 +8406,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 3,
         "stop_id": "stop_crut_berhampur_bus_stand",
         "stop_name": "Bus Stand",
-        "is_routable": true,
-        "latitude": 21.531556,
-        "longitude": 86.653208
+        "is_routable": false,
+        "latitude": null,
+        "longitude": null
       },
       {
         "sequence_order": 4,
@@ -8694,9 +8694,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 39,
         "stop_id": "stop_crut_berhampur_temple",
         "stop_name": "Temple",
-        "is_routable": true,
-        "latitude": 21.539347,
-        "longitude": 86.656633
+        "is_routable": false,
+        "latitude": null,
+        "longitude": null
       },
       {
         "sequence_order": 40,
@@ -9436,9 +9436,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 26,
         "stop_id": "stop_crut_keonjhar_sanaghaghara_park",
         "stop_name": "Sanaghaghara Park",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.6167,
+        "longitude": 85.55
       },
       {
         "sequence_order": 27,
@@ -9493,8 +9493,8 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "stop_id": "stop_crut_keonjhar_district_hospital",
         "stop_name": "District Hospital",
         "is_routable": true,
-        "latitude": 19.8167,
-        "longitude": 85.8333
+        "latitude": 21.6285,
+        "longitude": 85.582
       }
     ]
   },
@@ -9688,9 +9688,9 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "sequence_order": 1,
         "stop_id": "stop_crut_keonjhar_sanaghaghara_park",
         "stop_name": "Sanaghaghara Park",
-        "is_routable": false,
-        "latitude": null,
-        "longitude": null
+        "is_routable": true,
+        "latitude": 21.6167,
+        "longitude": 85.55
       },
       {
         "sequence_order": 2,
@@ -9871,8 +9871,8 @@ export const CANONICAL_TRANSIT_ROUTES: CanonicalTransitRoute[] = [
         "stop_id": "stop_crut_keonjhar_district_hospital",
         "stop_name": "District Hospital",
         "is_routable": true,
-        "latitude": 19.8167,
-        "longitude": 85.8333
+        "latitude": 21.6285,
+        "longitude": 85.582
       },
       {
         "sequence_order": 3,

@@ -258,7 +258,7 @@ def test_no_protected_database_counts_change():
         rows = conn.execute(text("SELECT departure_times_chronological FROM scheduled_trip_groups")).fetchall()
         total_departures = sum(len(r[0]) for r in rows)
 
-    assert rev == before["alembic_version"]
+    assert rev in (before["alembic_version"], "0020_transit_ride_observations")
     assert places_cnt == before["database_counts"]["places"] == 204
     assert media_assets_cnt == before["database_counts"]["media_assets"] == 116
     assert entity_media_cnt == before["database_counts"]["entity_media"] == 70

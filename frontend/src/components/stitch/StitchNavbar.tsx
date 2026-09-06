@@ -33,7 +33,7 @@ export const StitchNavbar: React.FC<StitchNavbarProps> = ({
   onOpenAuth,
   onOpenPreferences,
   onToggleMobileMenu,
-  weatherSummary = "Bhubaneswar: 32°C, Sunny",
+  weatherSummary,
   onOpenOnboarding,
 }) => {
   const handleAuthAction = onOpenAuth || (() => onSelectTab('signin'));

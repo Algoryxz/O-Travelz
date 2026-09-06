@@ -1,0 +1,71 @@
+{
+  "wave": "D1",
+  "phase": "2_golden_journey_definition",
+  "title": "Bhubaneswar Cultural Heritage & Living Traditions Day Journey",
+  "location": "Bhubaneswar (Khordha District, Odisha)",
+  "duration_days": 1,
+  "traveler_intent": "A traveler in Bhubaneswar seeking an authentic 1-day cultural & heritage itinerary using public transit (Mo Bus) where practical, with weather awareness, traditional cuisine, and nearby essentials.",
+  "canonical_entities": {
+    "stop_1_morning": {
+      "id": "place_bbsr_001",
+      "db_uuid": "bab54683-c20b-56ac-81d5-0fa088ed41bb",
+      "name": "Lingaraj Temple",
+      "category": "temple",
+      "district": "Khordha",
+      "lat": 20.238333,
+      "lon": 85.833611,
+      "planned_window": "09:00 - 11:00",
+      "verified_source": "https://odishatourism.gov.in/content/tourism/en/discover/attractions/temples-monuments/lingaraja-temple.html"
+    },
+    "stop_2_lunch": {
+      "id": "place_food_001",
+      "name": "Old Town Lingaraj Temple Kora Khai Hub",
+      "category": "market",
+      "district": "Khordha",
+      "lat": 20.2392,
+      "lon": 85.8347,
+      "planned_window": "11:45 - 13:00",
+      "cuisine": "Traditional Kora Khai and temple sweets"
+    },
+    "stop_3_afternoon": {
+      "id": "place_bbsr_008",
+      "db_uuid": "d4908bd1-c423-5e7c-b3a6-5cae68ae859b",
+      "name": "Odisha State Museum",
+      "category": "museum",
+      "district": "Khordha",
+      "lat": 20.2584,
+      "lon": 85.8398,
+      "planned_window": "14:00 - 16:30",
+      "verified_source": "https://odishatourism.gov.in"
+    }
+  },
+  "transit_leg": {
+    "route_id": "09",
+    "route_name": "Route 09: Master Canteen to Lingaraj / Sai Temple",
+    "corridor": "Janpath - Old Town Corridor",
+    "origin_stop": "stop_crut_bhubaneswar_master_canteen",
+    "origin_coordinates": [
+      20.2667,
+      85.8436
+    ],
+    "geometry_status": "RENDERABLE_ROAD_FOLLOWING",
+    "epistemic_level": "HIGH_CONFIDENCE_ROUTE_GEOMETRY"
+  },
+  "weather_context": {
+    "query_location": "Bhubaneswar",
+    "lat": 20.2961,
+    "lon": 85.8245,
+    "expected_state": "AVAILABLE",
+    "fallback_policy": "Weather temporarily unavailable (no fake 0C)"
+  },
+  "essentials_context": {
+    "hospital": "Capital Hospital Bhubaneswar / SCB Cuttack",
+    "police": "Lingaraj Police Station / Old Town Police Outpost",
+    "atm": "atm_north_015 (Baramunda ISBT) / Master Canteen SBI",
+    "fuel": "Indian Oil / HPCL Rajmahal"
+  },
+  "persistence_flow": {
+    "action": "Save place_bbsr_001 and place_bbsr_008 to saved places",
+    "verification": "Survives page refresh and tab navigation"
+  }
+}

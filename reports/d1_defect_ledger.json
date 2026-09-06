@@ -1,0 +1,108 @@
+{
+  "wave": "D1",
+  "phase": "14_defect_repairs",
+  "generated_at": "2026-09-06T07:44:00+00:00",
+  "defects": [
+    {
+      "id": "D1-P0-001",
+      "severity": "P0",
+      "flow": "ESSENTIALS / BUILD",
+      "symptom": "Frontend build fails with TS2353 coordinate_status does not exist in type ServiceRecord",
+      "root_cause": "ServiceRecord interface in frontend/src/types/services.ts missing coordinate_status, coordinate_source, original_candidate_id, source_dataset, and fire_station subcategory added in Wave B1.2",
+      "files": [
+        "frontend/src/types/services.ts"
+      ],
+      "minimum_fix": "Add missing properties to ServiceRecord and subcategories to frontend/src/types/services.ts",
+      "regression_test": "npm run build (tsc && vite build)",
+      "status": "RESOLVED",
+      "verified_at": "2026-09-06T07:13:07Z"
+    },
+    {
+      "id": "D1-P0-002",
+      "severity": "P0",
+      "flow": "PLAN / AI",
+      "symptom": "Planning queries containing Mo Bus return Provider status: ok instead of itinerary",
+      "root_cause": "is_planning_query evaluated after is_transit_query and misses visit keywords, allowing transit keywords to hijack planning intent",
+      "files": [
+        "backend/app/ai/model.py"
+      ],
+      "minimum_fix": "Add visit keywords to is_planning_query and evaluate planning intent prior to transit intent",
+      "regression_test": "pytest backend/tests/test_ai_global_copilot_context.py",
+      "status": "RESOLVED",
+      "verified_at": "2026-09-06T07:11:00Z"
+    },
+    {
+      "id": "D1-P0-003",
+      "severity": "P0",
+      "flow": "PLAN / AI",
+      "symptom": "Plan a rainy day in Bhubaneswar returns weather temperature instead of building an itinerary",
+      "root_cause": "is_weather_query evaluated before is_planning_query and checks rain without checking not is_planning_query",
+      "files": [
+        "backend/app/ai/model.py"
+      ],
+      "minimum_fix": "Ensure is_planning_query takes priority over is_weather_query when user explicitly asks to plan a day",
+      "regression_test": "pytest backend/tests/test_ai_global_copilot_context.py",
+      "status": "RESOLVED",
+      "verified_at": "2026-09-06T07:11:00Z"
+    },
+    {
+      "id": "D1-P1-001",
+      "severity": "P1",
+      "flow": "WEATHER",
+      "symptom": "StitchNavbar hardcodes weatherSummary default to Bhubaneswar: 32C, Sunny",
+      "root_cause": "Hardcoded default prop in StitchNavbar.tsx line 36 risks displaying fake weather when unavailable",
+      "files": [
+        "frontend/src/components/stitch/StitchNavbar.tsx"
+      ],
+      "minimum_fix": "Remove hardcoded default prop string",
+      "regression_test": "npm run build && npm test",
+      "status": "RESOLVED",
+      "verified_at": "2026-09-06T07:13:00Z"
+    },
+    {
+      "id": "D1-P1-002",
+      "severity": "P1",
+      "flow": "DATABASE / TEST",
+      "symptom": "test_wave_b1_1_first_batch_provenance.py asserts alembic_version == 0019, failing on current migration 0020",
+      "root_cause": "Hardcoded version check in historical Wave B1.1 snapshot test",
+      "files": [
+        "backend/tests/test_wave_b1_1_first_batch_provenance.py"
+      ],
+      "minimum_fix": "Assert alembic_version in (0019_enforce_media_orthogonal_constraints, 0020_transit_ride_observations)",
+      "regression_test": "pytest backend/tests/test_wave_b1_1_first_batch_provenance.py",
+      "status": "RESOLVED",
+      "verified_at": "2026-09-06T07:11:48Z"
+    },
+    {
+      "id": "D1-P1-003",
+      "severity": "P1",
+      "flow": "TRANSIT / TEST",
+      "symptom": "tests/canonical_frontend_transit_sync.test.tsx expects 173 geocoded stops, receives 179",
+      "root_cause": "frontend/src/data/staticTransitStops.ts was out of sync with data/transport/canonical/stops.json",
+      "files": [
+        "frontend/src/data/staticTransitStops.ts",
+        "frontend/src/data/staticTransitRoutes.ts",
+        "frontend/src/data/transitTimetables.ts"
+      ],
+      "minimum_fix": "Regenerate frontend transit fallback files via python scripts/generate_frontend_transit_data.py",
+      "regression_test": "python scripts/generate_frontend_transit_data.py --check && npm test -- tests/canonical_frontend_transit_sync.test.tsx",
+      "status": "RESOLVED",
+      "verified_at": "2026-09-06T07:12:26Z"
+    },
+    {
+      "id": "D1-P1-004",
+      "severity": "P1",
+      "flow": "PLAN / AI",
+      "symptom": "I have only 6 hours query generates a 2-day itinerary instead of 1-day",
+      "root_cause": "extract_multilingual_days does not handle hour-based queries (e.g. 6 hours), defaulting days to 2",
+      "files": [
+        "backend/app/ai/multilingual.py",
+        "backend/app/ai/model.py"
+      ],
+      "minimum_fix": "Detect hour-based duration (e.g. 6 hours, half day) and return 1 day",
+      "regression_test": "pytest backend/tests/test_ai_global_copilot_context.py",
+      "status": "RESOLVED",
+      "verified_at": "2026-09-06T07:11:00Z"
+    }
+  ]
+}

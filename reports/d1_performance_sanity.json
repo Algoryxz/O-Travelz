@@ -1,0 +1,108 @@
+{
+  "wave": "D1",
+  "phase": "18_performance_sanity",
+  "generated_at": "2026-09-06T07:58:00+00:00",
+  "endpoints": [
+    {
+      "endpoint": "health",
+      "url": "/health",
+      "method": "GET",
+      "status_code": 200,
+      "avg_latency_ms": 23.49,
+      "min_latency_ms": 14.81,
+      "max_latency_ms": 34.0,
+      "p95_compliant": true
+    },
+    {
+      "endpoint": "ready",
+      "url": "/ready",
+      "method": "GET",
+      "status_code": 200,
+      "avg_latency_ms": 181.71,
+      "min_latency_ms": 172.63,
+      "max_latency_ms": 190.69,
+      "p95_compliant": true
+    },
+    {
+      "endpoint": "places_search",
+      "url": "/places?search=Lingaraj",
+      "method": "GET",
+      "status_code": 200,
+      "avg_latency_ms": 417.63,
+      "min_latency_ms": 306.35,
+      "max_latency_ms": 619.83,
+      "p95_compliant": true
+    },
+    {
+      "endpoint": "place_detail",
+      "url": "/places/bab54683-c20b-56ac-81d5-0fa088ed41bb",
+      "method": "GET",
+      "status_code": 200,
+      "avg_latency_ms": 242.54,
+      "min_latency_ms": 225.48,
+      "max_latency_ms": 253.65,
+      "p95_compliant": true
+    },
+    {
+      "endpoint": "itinerary_plan",
+      "url": "/itinerary/plan",
+      "method": "POST",
+      "status_code": 200,
+      "avg_latency_ms": 694.7,
+      "min_latency_ms": 609.06,
+      "max_latency_ms": 800.64,
+      "p95_compliant": true
+    },
+    {
+      "endpoint": "route_detail",
+      "url": "/transport/routes/09",
+      "method": "GET",
+      "status_code": 200,
+      "avg_latency_ms": 21.59,
+      "min_latency_ms": 7.41,
+      "max_latency_ms": 30.71,
+      "p95_compliant": true
+    },
+    {
+      "endpoint": "route_geometry",
+      "url": "/transport/routes/09/geometry",
+      "method": "GET",
+      "status_code": 200,
+      "avg_latency_ms": 317.28,
+      "min_latency_ms": 308.53,
+      "max_latency_ms": 333.07,
+      "p95_compliant": true
+    },
+    {
+      "endpoint": "weather_current",
+      "url": "/weather/current?lat=20.2961&lon=85.8245",
+      "method": "GET",
+      "status_code": 200,
+      "avg_latency_ms": 679.42,
+      "min_latency_ms": 653.71,
+      "max_latency_ms": 715.53,
+      "p95_compliant": true
+    },
+    {
+      "endpoint": "services_nearby",
+      "url": "/api/v1/services/nearby?lat=20.2382&lon=85.8335&radius_km=5.0",
+      "method": "GET",
+      "status_code": 200,
+      "avg_latency_ms": 17.31,
+      "min_latency_ms": 12.38,
+      "max_latency_ms": 25.44,
+      "p95_compliant": true
+    },
+    {
+      "endpoint": "ai_converse",
+      "url": "/ai/converse",
+      "method": "POST",
+      "status_code": 200,
+      "avg_latency_ms": 792.97,
+      "min_latency_ms": 695.11,
+      "max_latency_ms": 848.04,
+      "p95_compliant": true
+    }
+  ],
+  "all_compliant": true
+}

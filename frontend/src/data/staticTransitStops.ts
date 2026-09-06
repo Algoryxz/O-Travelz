@@ -371,32 +371,6 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
-    "stop_id": "stop_crut_berhampur_bus_stand",
-    "name": "Bus Stand",
-    "published_name": "BUS STAND",
-    "canonical_stop_id": "stop_crut_berhampur_bus_stand",
-    "city": "Berhampur",
-    "district": "Berhampur",
-    "locality": "Berhampur",
-    "latitude": 21.531556,
-    "longitude": 86.653208,
-    "coordinate_status": "official",
-    "coordinate_source": "staticTransitStops_verified_survey",
-    "agency": "CRUT (Capital Region Urban Transport)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_crut_306",
-        "route_number": "306",
-        "route_name": "Mahatma Gandhi Stadium - Sonapur beach (Via- Railway Station,Haldiapadar New Bus Stand,Kanisi Hata,Sidhha",
-        "sequence_order": 3,
-        "service_area": null,
-        "origin": null,
-        "destination": null
-      }
-    ]
-  },
-  {
     "stop_id": "stop_crut_berhampur_chatrapur",
     "name": "Chatrapur",
     "published_name": "Chatrapur",
@@ -878,57 +852,6 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
-    "stop_id": "stop_crut_berhampur_police_station",
-    "name": "Police Station",
-    "published_name": "POLICE STATION,",
-    "canonical_stop_id": "stop_crut_berhampur_police_station",
-    "city": "Berhampur",
-    "district": "Berhampur",
-    "locality": "Berhampur",
-    "latitude": 21.532198,
-    "longitude": 86.652901,
-    "coordinate_status": "geocoded",
-    "coordinate_source": "OSM_Nominatim:way/1393454654",
-    "agency": "CRUT (Capital Region Urban Transport)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_crut_302",
-        "route_number": "302",
-        "route_name": "Berhampur Railway Station \u2013 Regidi",
-        "sequence_order": 21,
-        "service_area": null,
-        "origin": null,
-        "destination": null
-      },
-      {
-        "route_id": "rt_crut_304",
-        "route_number": "304",
-        "route_name": "Berhampur Railway Station -D.patapur",
-        "sequence_order": 30,
-        "service_area": null,
-        "origin": null,
-        "destination": null
-      }
-    ]
-  },
-  {
-    "stop_id": "stop_crut_berhampur_police_station_2",
-    "name": "Police Station,",
-    "published_name": "POLICE STATION,",
-    "canonical_stop_id": "stop_crut_berhampur_police_station_2",
-    "city": "Berhampur",
-    "district": "Berhampur",
-    "locality": "Berhampur",
-    "latitude": 21.532198,
-    "longitude": 86.652901,
-    "coordinate_status": "geocoded",
-    "coordinate_source": "OSM_Nominatim:way/1393454654",
-    "agency": "CRUT (Capital Region Urban Transport)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": []
-  },
-  {
     "stop_id": "stop_crut_berhampur_railway_station_pf_4",
     "name": "Railway Station P.f-4",
     "published_name": "RAILWAY STATION P.F-4",
@@ -973,94 +896,6 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
         "route_number": "304",
         "route_name": "Berhampur Railway Station -D.patapur",
         "sequence_order": 8,
-        "service_area": null,
-        "origin": null,
-        "destination": null
-      }
-    ]
-  },
-  {
-    "stop_id": "stop_crut_berhampur_station",
-    "name": "Station",
-    "published_name": "STATION",
-    "canonical_stop_id": "stop_crut_berhampur_station",
-    "city": "Berhampur",
-    "district": "Berhampur",
-    "locality": "Berhampur",
-    "latitude": 21.513386,
-    "longitude": 86.577044,
-    "coordinate_status": "official",
-    "coordinate_source": "staticTransitStops_verified_survey",
-    "agency": "CRUT (Capital Region Urban Transport)",
-    "stop_type": "bus_terminal",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_crut_302",
-        "route_number": "302",
-        "route_name": "Berhampur Railway Station \u2013 Regidi",
-        "sequence_order": 29,
-        "service_area": null,
-        "origin": null,
-        "destination": null
-      },
-      {
-        "route_id": "rt_crut_304",
-        "route_number": "304",
-        "route_name": "Berhampur Railway Station -D.patapur",
-        "sequence_order": 38,
-        "service_area": null,
-        "origin": null,
-        "destination": null
-      }
-    ]
-  },
-  {
-    "stop_id": "stop_crut_berhampur_temple",
-    "name": "Temple",
-    "published_name": "TEMPLE",
-    "canonical_stop_id": "stop_crut_berhampur_temple",
-    "city": "Berhampur",
-    "district": "Berhampur",
-    "locality": "Berhampur",
-    "latitude": 21.539347,
-    "longitude": 86.656633,
-    "coordinate_status": "official",
-    "coordinate_source": "staticTransitStops_verified_survey",
-    "agency": "CRUT (Capital Region Urban Transport)",
-    "stop_type": "bus_stop",
-    "routes_serving_stop": [
-      {
-        "route_id": "rt_crut_300",
-        "route_number": "300",
-        "route_name": "NIST college - Duduma Colony Bus stand",
-        "sequence_order": 22,
-        "service_area": null,
-        "origin": null,
-        "destination": null
-      },
-      {
-        "route_id": "rt_crut_302",
-        "route_number": "302",
-        "route_name": "Berhampur Railway Station \u2013 Regidi",
-        "sequence_order": 43,
-        "service_area": null,
-        "origin": null,
-        "destination": null
-      },
-      {
-        "route_id": "rt_crut_304",
-        "route_number": "304",
-        "route_name": "Berhampur Railway Station -D.patapur",
-        "sequence_order": 4,
-        "service_area": null,
-        "origin": null,
-        "destination": null
-      },
-      {
-        "route_id": "rt_crut_306",
-        "route_number": "306",
-        "route_name": "Mahatma Gandhi Stadium - Sonapur beach (Via- Railway Station,Haldiapadar New Bus Stand,Kanisi Hata,Sidhha",
-        "sequence_order": 39,
         "service_area": null,
         "origin": null,
         "destination": null
@@ -3759,10 +3594,10 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     "city": "Keonjhar",
     "district": "Keonjhar",
     "locality": "Keonjhar",
-    "latitude": 19.8167,
-    "longitude": 85.8333,
+    "latitude": 21.6285,
+    "longitude": 85.582,
     "coordinate_status": "official",
-    "coordinate_source": "staticTransitStops_verified_survey",
+    "coordinate_source": "official_district_portal_gis",
     "agency": "CRUT (Capital Region Urban Transport)",
     "stop_type": "bus_stop",
     "routes_serving_stop": [
@@ -3900,6 +3735,41 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
+    "stop_id": "stop_crut_keonjhar_sanaghaghara_park",
+    "name": "Sanaghaghara Park",
+    "published_name": "SANAGHAGHARA PARK",
+    "canonical_stop_id": "stop_crut_keonjhar_sanaghaghara_park",
+    "city": "Keonjhar",
+    "district": "Keonjhar",
+    "locality": "Keonjhar",
+    "latitude": 21.6167,
+    "longitude": 85.55,
+    "coordinate_status": "official",
+    "coordinate_source": "canonical_place_repository",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_400",
+        "route_number": "400",
+        "route_name": "Route 400",
+        "sequence_order": 26,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      },
+      {
+        "route_id": "rt_crut_402",
+        "route_number": "402",
+        "route_name": "Route 402",
+        "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
     "stop_id": "stop_crut_puri_malatipatpur",
     "name": "Malatipatpur",
     "published_name": "MALATIPATPUR",
@@ -3909,22 +3779,6 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     "locality": "Puri",
     "latitude": 19.866147,
     "longitude": 85.829336,
-    "coordinate_status": "official",
-    "coordinate_source": "staticTransitStops_verified_survey",
-    "agency": "CRUT (Capital Region Urban Transport)",
-    "stop_type": "bus_stop",
-    "routes_serving_stop": []
-  },
-  {
-    "stop_id": "stop_crut_puri_sea_beach_road",
-    "name": "Sea Beach Road",
-    "published_name": "SEA BEACH ROAD",
-    "canonical_stop_id": "stop_crut_puri_sea_beach_road",
-    "city": "Puri",
-    "district": "Puri",
-    "locality": "Puri",
-    "latitude": 19.261111,
-    "longitude": 84.908333,
     "coordinate_status": "official",
     "coordinate_source": "staticTransitStops_verified_survey",
     "agency": "CRUT (Capital Region Urban Transport)",
@@ -4347,22 +4201,6 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
     ]
   },
   {
-    "stop_id": "stop_crut_rourkela_mangala_temple",
-    "name": "Mangala Temple",
-    "published_name": "MANGALA TEMPLE",
-    "canonical_stop_id": "stop_crut_rourkela_mangala_temple",
-    "city": "Rourkela",
-    "district": "Rourkela",
-    "locality": "Rourkela",
-    "latitude": 20.0,
-    "longitude": 86.1948,
-    "coordinate_status": "official",
-    "coordinate_source": "staticTransitStops_verified_survey",
-    "agency": "CRUT (Capital Region Urban Transport)",
-    "stop_type": "bus_stop",
-    "routes_serving_stop": []
-  },
-  {
     "stop_id": "stop_crut_rourkela_nit",
     "name": "NIT",
     "published_name": "Nit",
@@ -4601,22 +4439,6 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
         "destination": null
       }
     ]
-  },
-  {
-    "stop_id": "stop_crut_rourkela_tarini_temple",
-    "name": "Tarini Temple",
-    "published_name": "TARINI TEMPLE",
-    "canonical_stop_id": "stop_crut_rourkela_tarini_temple",
-    "city": "Rourkela",
-    "district": "Rourkela",
-    "locality": "Rourkela",
-    "latitude": 19.491667,
-    "longitude": 84.9,
-    "coordinate_status": "official",
-    "coordinate_source": "staticTransitStops_verified_survey",
-    "agency": "CRUT (Capital Region Urban Transport)",
-    "stop_type": "bus_stop",
-    "routes_serving_stop": []
   },
   {
     "stop_id": "stop_crut_rourkela_udit_nagar",
@@ -5642,6 +5464,32 @@ export const VERIFIED_TRANSIT_STOPS: VerifiedTransitStop[] = [
         "route_number": "209",
         "route_name": "Khetrajpur Rly. Station \u2013 Osou Sambalpur",
         "sequence_order": 1,
+        "service_area": null,
+        "origin": null,
+        "destination": null
+      }
+    ]
+  },
+  {
+    "stop_id": "stop_crut_sambalpur_kuchinda",
+    "name": "Kuchinda",
+    "published_name": "KUCHINDA",
+    "canonical_stop_id": "stop_crut_sambalpur_kuchinda",
+    "city": "Sambalpur",
+    "district": "Sambalpur",
+    "locality": "Sambalpur",
+    "latitude": 21.747739,
+    "longitude": 84.35064,
+    "coordinate_status": "geocoded",
+    "coordinate_source": "nominatim_osm",
+    "agency": "CRUT (Capital Region Urban Transport)",
+    "stop_type": "bus_stop",
+    "routes_serving_stop": [
+      {
+        "route_id": "rt_crut_214",
+        "route_number": "214",
+        "route_name": "Ainthapali Bus Terminal \u2013 Kuchinda",
+        "sequence_order": 2,
         "service_area": null,
         "origin": null,
         "destination": null

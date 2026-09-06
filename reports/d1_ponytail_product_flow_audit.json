@@ -1,0 +1,153 @@
+{
+  "wave": "D1",
+  "phase": "1_ponytail_runtime_flow_audit",
+  "generated_at": "2026-09-06T07:05:00+00:00",
+  "flows": [
+    {
+      "flow_id": "FLOW_A_DISCOVER",
+      "name": "Discover: Home -> Discover -> Place Detail -> Map",
+      "frontend_entry": "StitchHomePage.tsx / StitchDestinationsPage.tsx",
+      "api_client": "apiClient.listPlaces(), apiClient.getPlace()",
+      "backend_endpoint": "GET /places, GET /places/{id}",
+      "service": "app.api.places_routes (SQLAlchemyPlaceRepository)",
+      "repository": "places table in PostgreSQL with fallback to data/places/places.json",
+      "response_formatter": "PlaceDetail schema",
+      "ui_consumer": "DestinationCard, StitchDestinationDetailModal, MapLibreCanvas",
+      "findings": [
+        {
+          "id": "DISCOVER-01",
+          "classification": "LEAVE_ALONE",
+          "description": "Places list and detail endpoints properly resolve both UUIDs and slug/alias IDs with verified metadata and coordinates."
+        },
+        {
+          "id": "DISCOVER-02",
+          "classification": "SAFE_SIMPLIFICATION",
+          "description": "Local fallback to places.json is well-encapsulated for offline operation and does not duplicate API transforms."
+        }
+      ]
+    },
+    {
+      "flow_id": "FLOW_B_PLAN",
+      "name": "Plan: User request -> AI orchestration -> deterministic tools -> itinerary -> result",
+      "frontend_entry": "StitchPlannerPage.tsx / ConstraintForm.tsx / AIConversationPanel.tsx",
+      "api_client": "apiClient.planItinerary(), apiClient.converseWithAi()",
+      "backend_endpoint": "POST /itinerary/plan, POST /ai/converse",
+      "service": "ItineraryService (app.services.itinerary), GroundedConversationOrchestrator (app.ai.conversation)",
+      "repository": "places table, canonical transport datasets, RuleBasedModelAdapter/LLM adapter",
+      "response_formatter": "ItineraryResponse / GroundedConversationResponse",
+      "ui_consumer": "ItineraryView, ItineraryDaySection, CopilotItineraryCard",
+      "findings": [
+        {
+          "id": "PLAN-01",
+          "classification": "P1_TRUTH_OR_CONTRACT_DEFECT",
+          "description": "Snapshot test in test_wave_b1_1_first_batch_provenance.py asserts alembic_version == 0019, failing because C5.4 applied migration 0020_transit_ride_observations."
+        },
+        {
+          "id": "PLAN-02",
+          "classification": "LEAVE_ALONE",
+          "description": "AI intent parsing correctly distinguishes planning requests from provider status checks and triggers build_itinerary tool."
+        }
+      ]
+    },
+    {
+      "flow_id": "FLOW_C_TRANSIT",
+      "name": "Transit: Plan/place -> transport -> route -> geometry -> map",
+      "frontend_entry": "StitchMapPage.tsx / ItineraryStopCard.tsx / StitchTransitModal.tsx",
+      "api_client": "apiClient.getNearbyStops(), apiClient.getRouteDetail(), apiClient.getTransportMap()",
+      "backend_endpoint": "GET /transport/stops/nearby, GET /transport/routes/{id}, GET /transport/routes/{id}/geometry",
+      "service": "app.transport.engine, app.transport.geometry_engine",
+      "repository": "data/transport/canonical/ (routes.json, stops.json, route_stops.json, schedules.json, network.json)",
+      "response_formatter": "RouteDetailResponse, TransitRouteGeometryResponse",
+      "ui_consumer": "MapLibreCanvas.tsx, transitGeometry.ts, MapCanvas.tsx",
+      "findings": [
+        {
+          "id": "TRANSIT-01",
+          "classification": "P1_TRUTH_OR_CONTRACT_DEFECT",
+          "description": "Frontend test canonical_frontend_transit_sync.test.tsx has hardcoded count expectation of 173 instead of current sync count 179 in VERIFIED_TRANSIT_STOPS."
+        },
+        {
+          "id": "TRANSIT-02",
+          "classification": "LEAVE_ALONE",
+          "description": "Transit geometry rendering fails closed for unresolved gaps (emits empty coordinates) and only renders road-following polylines."
+        }
+      ]
+    },
+    {
+      "flow_id": "FLOW_D_ESSENTIALS",
+      "name": "Essentials: Location/place -> hospital/police/ATM/fuel -> result/map",
+      "frontend_entry": "EssentialsSection.tsx / StitchHomePage.tsx / StitchMapPage.tsx",
+      "api_client": "apiClient.getNearbyServices(), apiClient.getDestinationSafety()",
+      "backend_endpoint": "GET /api/v1/services/nearby, GET /api/v1/services/safety/{id}",
+      "service": "app.api.services_routes",
+      "repository": "data/services/odisha_services.json, data/services/odisha_safety_advisories.json",
+      "response_formatter": "NearbyServiceResult, DestinationSafetyAdvisory",
+      "ui_consumer": "EssentialsSection, CivicLayerToggle on Map",
+      "findings": [
+        {
+          "id": "ESSENTIALS-01",
+          "classification": "P0_PRODUCT_BREAK",
+          "description": "Frontend compilation error: ServiceRecord interface in frontend/src/types/services.ts is missing coordinate_status, breaking tsc in npm run build."
+        },
+        {
+          "id": "ESSENTIALS-02",
+          "classification": "LEAVE_ALONE",
+          "description": "B1.2 domain boundaries are strictly maintained; civic utilities do not leak into destination catalog or itinerary recommendations."
+        }
+      ]
+    },
+    {
+      "flow_id": "FLOW_E_PERSISTENCE",
+      "name": "Persistence: Save -> restart/session reload -> saved content",
+      "frontend_entry": "Bookmark buttons, useSavedPlaces.ts, StitchSavedPage.tsx",
+      "api_client": "LocalStorage (otravelz_saved_places_v1) + apiClient.syncSavedPlaces()",
+      "backend_endpoint": "GET /api/v1/sync/saved-places, POST /api/v1/sync/saved-places",
+      "service": "app.api.sync_routes (SQLAlchemySavedPlaceRepository)",
+      "repository": "LocalStorage on client; saved_places table in PostgreSQL for authenticated sync",
+      "response_formatter": "SyncSavedPlacesResponse",
+      "ui_consumer": "StitchSavedPage, SavedPlacesPage, header bookmark counter",
+      "findings": [
+        {
+          "id": "PERSISTENCE-01",
+          "classification": "SAFE_SIMPLIFICATION",
+          "description": "LocalStorage provides immediate zero-friction guest saving; authenticated backend sync layers seamlessly without race conditions."
+        },
+        {
+          "id": "PERSISTENCE-02",
+          "classification": "LEAVE_ALONE",
+          "description": "Saved items correctly survive page refreshes, browser restarts, and tab switching."
+        }
+      ]
+    },
+    {
+      "flow_id": "FLOW_F_WEATHER",
+      "name": "Weather: Place -> backend weather -> client presentation",
+      "frontend_entry": "StitchNavbar.tsx, StitchWeatherSection.tsx, useWeatherLiveRefresh.ts",
+      "api_client": "apiClient.getWeather()",
+      "backend_endpoint": "GET /weather/current",
+      "service": "app.api.weather_routes, app.services.weather.adapter",
+      "repository": "Open-Meteo / IMD upstream live weather adapter with deterministic cache",
+      "response_formatter": "WeatherResponse",
+      "ui_consumer": "Navbar weather badge, StitchWeatherSection, Destination detail weather tab",
+      "findings": [
+        {
+          "id": "WEATHER-01",
+          "classification": "P1_TRUTH_OR_CONTRACT_DEFECT",
+          "description": "StitchNavbar.tsx line 36 provides a hardcoded fallback: weatherSummary = Bhubaneswar: 32C, Sunny, violating the anti-vibe weather truth rule."
+        },
+        {
+          "id": "WEATHER-02",
+          "classification": "LEAVE_ALONE",
+          "description": "Backend weather endpoints fail honestly with status UNAVAILABLE or ERROR when upstream fails, without synthesizing fake 0C."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "P0_PRODUCT_BREAK": 1,
+    "P1_TRUTH_OR_CONTRACT_DEFECT": 3,
+    "P2_UX_FRICTION": 0,
+    "SAFE_SIMPLIFICATION": 2,
+    "DEAD_OR_DUPLICATE_PATH": 0,
+    "LEAVE_ALONE": 6
+  }
+}

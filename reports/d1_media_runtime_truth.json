@@ -1,0 +1,27 @@
+{
+  "wave": "D1",
+  "phase": "9_media_runtime_truth",
+  "total_entity_media_inspected": 70,
+  "database_violations_count": 0,
+  "violations": [],
+  "sample_place_media": {
+    "place_bbsr_001": {
+      "status": 200,
+      "hero_image": null,
+      "gallery_count": 0,
+      "available_tabs": null
+    },
+    "place_bbsr_006": {
+      "status": 200,
+      "hero_image": null,
+      "gallery_count": 0,
+      "available_tabs": null
+    },
+    "place_bbsr_008": {
+      "status": 200,
+      "hero_image": null,
+      "gallery_count": 0,
+      "available_tabs": null
+    }
+  }
+}

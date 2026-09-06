@@ -1,0 +1,64 @@
+{
+  "wave": "D1",
+  "phase": "20_product_convergence_acceptance",
+  "generated_at": "2026-09-06T07:28:00+00:00",
+  "base_commit": "6e69fb185e9a90a8506f4621423a173bc9765599",
+  "traveler_readiness_verdict": "YES",
+  "verdict_rationale": "A real traveler can open O-TRAVELZ Web V4, discover verified sanctuaries and food hubs (Lingaraj, Old Town Kora Khai Hub, Odisha State Museum), observe authentic live weather conditions without fake 0C/clear sky synthesis, plan deterministic multi-day and single-day itineraries via natural language or constraints, inspect road-following Mo Bus Route 09 geometry without chord hallucination, toggle isolated civic utilities (ATMs, fuel, police, fire, healthcare) with verified coordinate status, save places across sessions via LocalStorage, and resume without broken screens, infinite spinners, or fabricated vibe data. On Android, the KMP shared core evaluates all fixtures identically and passes 100% of tests, while native Android UI remains transparently tracked as [PLANNED] for Checkpoint 4.",
+  "audited_flows": {
+    "FLOW_A_DISCOVER": "PASS",
+    "FLOW_B_PLAN": "PASS",
+    "FLOW_C_TRANSIT": "PASS",
+    "FLOW_D_ESSENTIALS": "PASS",
+    "FLOW_E_PERSISTENCE": "PASS",
+    "FLOW_F_WEATHER": "PASS"
+  },
+  "defects_resolved": [
+    {
+      "id": "D1-P0-001",
+      "severity": "P0",
+      "summary": "Added missing B1.2 coordinate and source fields to ServiceRecord in frontend/src/types/services.ts, resolving tsc build failure."
+    },
+    {
+      "id": "D1-P0-002",
+      "severity": "P0",
+      "summary": "Corrected AI copilot intent ordering in backend/app/ai/model.py so planning requests outrank transit keyword lookup."
+    },
+    {
+      "id": "D1-P0-003",
+      "severity": "P0",
+      "summary": "Separated rainy day planning queries from direct weather lookups in backend/app/ai/model.py."
+    },
+    {
+      "id": "D1-P1-001",
+      "severity": "P1",
+      "summary": "Removed fake hardcoded weather summary default ('Bhubaneswar: 32C, Sunny') from StitchNavbar.tsx."
+    },
+    {
+      "id": "D1-P1-002",
+      "severity": "P1",
+      "summary": "Updated backend/tests/test_wave_b1_1_first_batch_provenance.py to accept current Alembic migration 0020."
+    },
+    {
+      "id": "D1-P1-003",
+      "severity": "P1",
+      "summary": "Regenerated frontend static transit fallback datasets to achieve 100% sync with canonical transit data."
+    },
+    {
+      "id": "D1-P1-004",
+      "severity": "P1",
+      "summary": "Updated duration parsing in backend/app/ai/multilingual.py to handle hour-based queries (e.g. 6 hours -> 1 day)."
+    }
+  ],
+  "verification_summary": {
+    "backend_pytest": "1,353 passed, 0 failed, 2 skipped, 102 deselected",
+    "frontend_vitest": "628 passed across 80 test files, 0 failed",
+    "frontend_production_build": "PASS (0 errors, 7.7s)",
+    "kmp_shared_tests": "PASS (35 actionable tasks up-to-date)",
+    "canonical_promotion_check": "PASS (0 errors, [PROMOTION APPROVED])",
+    "image_pipeline_check": "PASS (0 critical errors)",
+    "canonical_transit_check": "PASS (0 errors)",
+    "services_layer_check": "PASS (0 errors)",
+    "project_context_check": "PASS (24 required files present, all cross-references valid)"
+  }
+}

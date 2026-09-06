@@ -23,6 +23,7 @@ export type ServiceSubcategory =
   | "police_outpost"
   | "tourist_police"
   | "coastal_police"
+  | "fire_station"
   | "hotel_otdc_panthanivas"
   | "hotel_resort"
   | "hotel_heritage"
@@ -78,6 +79,10 @@ export interface ServiceRecord {
   data_type: "static" | "dynamic";
   last_verified: string;
   notes?: string | null;
+  coordinate_status?: "EXACT_SURVEYED" | "GEOCODED_PIN" | "APPROXIMATE_LOCALITY" | string;
+  coordinate_source?: string;
+  original_candidate_id?: string;
+  source_dataset?: string;
 }
 
 export type DistanceSemantics =

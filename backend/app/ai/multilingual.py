@@ -96,8 +96,8 @@ def extract_multilingual_days(text: str) -> Optional[int]:
         if val and 1 <= val <= 14:
             return val
 
-    # 3. Single day phrases: "a day trip", "day trip", "day tour", "one day", "ଦିନିକିଆ", "एक दिवसीय"
-    if re.search(r"\b(?:a\s+)?day\s*(?:trip|tour|itinerary|visit|outing)\b|\bଦିନିକିଆ\b|\bଏକ\s*ଦିନ\b|\bएक\s*दिवसीय\b|\bएक\s*दिन\b", text, re.IGNORECASE):
+    # 3. Single day / hours / half day phrases: "a day trip", "day trip", "day tour", "one day", "rainy day", "a day", "6 hours", "half day", "ଦିନିକିଆ", "एक दिवसीय"
+    if re.search(r"\b(?:a\s+)?(?:rainy\s+)?day\b|\b(?:half\s*[- ]?day)\b|\b([0-9୦-୯०-९]+|few|only)\s*(?:hour|hours|hr|hrs|ଘଣ୍ଟା|घंटे)\b|\bଦିନିକିଆ\b|\bଏକ\s*ଦିନ\b|\bएक\s*दिवसीय\b|\bएक\s*दिन\b", text, re.IGNORECASE):
         return 1
 
     # 4. Standalone day pattern if query is short

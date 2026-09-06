@@ -1,0 +1,46 @@
+{
+  "wave": "D1",
+  "phase": "17_failure_drill",
+  "generated_at": "2026-09-06T07:55:00+00:00",
+  "drills": [
+    {
+      "drill_id": "DRILL-01-WEATHER-UNAVAILABLE",
+      "scenario": "Out of bounds coordinates passed to weather API",
+      "expected": "status unavailable, temperature None, helpful traveler advice, zero synthetic 0C",
+      "observed_status": "unavailable",
+      "observed_temp": null,
+      "observed_advice": "Weather data is temporarily unavailable. Check local forecasts before traveling.",
+      "pass": true
+    },
+    {
+      "drill_id": "DRILL-02-NONEXISTENT-ROUTE",
+      "scenario": "Request geometry for invalid route 999999",
+      "expected": "HTTP 404 with clear error envelope",
+      "observed_code": 404,
+      "pass": true
+    },
+    {
+      "drill_id": "DRILL-03-MISSING-PLACE",
+      "scenario": "Request place details for unknown identifier",
+      "expected": "HTTP 404 with normalized error envelope",
+      "observed_code": 404,
+      "pass": true
+    },
+    {
+      "drill_id": "DRILL-04-AI-EMPTY-MESSAGES",
+      "scenario": "Send empty conversation messages array",
+      "observed": "Please provide a message to begin planning.",
+      "pass": true
+    },
+    {
+      "drill_id": "DRILL-05-OFFLINE-TRANSIT-FALLBACK",
+      "scenario": "Frontend static offline dataset availability when backend unreachable",
+      "expected": "All static fallback files exist and verified non-empty",
+      "stops_present": true,
+      "routes_present": true,
+      "timetables_present": true,
+      "pass": true
+    }
+  ],
+  "all_drills_passed": true
+}

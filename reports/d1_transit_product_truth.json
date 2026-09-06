@@ -1,0 +1,71 @@
+{
+  "wave": "D1",
+  "phase": "7_transit_product_truth",
+  "regions": [
+    {
+      "region": "Capital Region",
+      "route_id": "09",
+      "status_code": 200,
+      "geometry_status": "CORRIDOR",
+      "epistemic_level": null,
+      "renderable_segments": null,
+      "total_segments": null,
+      "coordinates_count": 338,
+      "render_candidate_marker_allowed": true,
+      "candidate_first_mile_allowed": false,
+      "straight_line_chords_present": false
+    },
+    {
+      "region": "Rourkela",
+      "route_id": "100",
+      "status_code": 200,
+      "geometry_status": "NONE",
+      "epistemic_level": null,
+      "renderable_segments": null,
+      "total_segments": null,
+      "coordinates_count": 384,
+      "render_candidate_marker_allowed": true,
+      "candidate_first_mile_allowed": false,
+      "straight_line_chords_present": false
+    },
+    {
+      "region": "Sambalpur",
+      "route_id": "300",
+      "status_code": 200,
+      "geometry_status": "CORRIDOR",
+      "epistemic_level": null,
+      "renderable_segments": null,
+      "total_segments": null,
+      "coordinates_count": 0,
+      "render_candidate_marker_allowed": true,
+      "candidate_first_mile_allowed": false,
+      "straight_line_chords_present": false
+    },
+    {
+      "region": "Berhampur",
+      "route_id": "201",
+      "status_code": 200,
+      "geometry_status": "PARTIAL",
+      "epistemic_level": null,
+      "renderable_segments": null,
+      "total_segments": null,
+      "coordinates_count": 0,
+      "render_candidate_marker_allowed": true,
+      "candidate_first_mile_allowed": false,
+      "straight_line_chords_present": false
+    },
+    {
+      "region": "Keonjhar",
+      "route_id": "400",
+      "status_code": 200,
+      "geometry_status": "PARTIAL",
+      "epistemic_level": null,
+      "renderable_segments": null,
+      "total_segments": null,
+      "coordinates_count": 0,
+      "render_candidate_marker_allowed": true,
+      "candidate_first_mile_allowed": false,
+      "straight_line_chords_present": false
+    }
+  ]
+}

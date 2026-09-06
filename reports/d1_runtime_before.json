@@ -1,0 +1,87 @@
+{
+  "wave": "D1",
+  "phase": "0_runtime_forensic_sync",
+  "generated_at": "2026-09-06T07:01:00+00:00",
+  "git": {
+    "sha": "6e69fb185e9a90a8506f4621423a173bc9765599",
+    "branch": "feature/v4-platform-rebuild",
+    "worktree_clean": false,
+    "untracked": [
+      "reports/d1_runtime_before.json"
+    ]
+  },
+  "database": {
+    "provider": "Aiven PostgreSQL",
+    "host": "otravelz-db-smarakpadhi58-98d3.d.aivencloud.com:25047",
+    "alembic_head": "0020_transit_ride_observations",
+    "migration_applied": true,
+    "connection_test": "PASS (database: connected)"
+  },
+  "backend_runtime": {
+    "local_server_startup": "PASS (Uvicorn running on http://127.0.0.1:8000)",
+    "health_endpoint": "PASS (/health -> status: ok)",
+    "ready_endpoint": "PASS (/ready -> status: ready, database: connected)"
+  },
+  "frontend_runtime": {
+    "vitest_baseline": {
+      "passed": 621,
+      "failed": 2,
+      "skipped": 5,
+      "test_files_passed": 79,
+      "test_files_failed": 1,
+      "failures": [
+        "tests/canonical_frontend_transit_sync.test.tsx: count expected 173, received 179",
+        "tests/canonical_frontend_transit_sync.test.tsx: unresolved stops test"
+      ]
+    },
+    "build_baseline": {
+      "status": "FAILED",
+      "error": "TS2353: Object literal may only specify known properties, and coordinate_status does not exist in type ServiceRecord in src/types/services.ts"
+    }
+  },
+  "mobile_forensic_evidence": {
+    "native_android_app_status": "ABSENT_ON_THIS_BRANCH (Superseded by V4 Roadmap)",
+    "historical_branch": "feature/mobile-v3-rapid-features (commits d4254a6, etc.)",
+    "active_module": "mobile/shared (KMP Shared Core: OTravelzMobile:shared)",
+    "settings_gradle_kts_includes": [
+      ":shared"
+    ],
+    "kmp_all_tests_passed": true,
+    "kmp_actionable_tasks": 35,
+    "roadmap_v4_alignment": "Checkpoint 4 (Android V4 Native Implementation) is [PLANNED] per docs/v4/ROADMAP.md and docs/v4/ARCHITECTURE.md"
+  },
+  "canonical_dataset_counts": {
+    "places_destinations": 161,
+    "food_items": 43,
+    "civic_services": 211,
+    "services_breakdown": {
+      "healthcare": 53,
+      "police": 45,
+      "hotel": 10,
+      "restaurant": 3,
+      "fuel": 33,
+      "transit": 4,
+      "atm": 63
+    },
+    "transit_stops": 1430,
+    "transit_stops_exact": 173,
+    "transit_routes": 154,
+    "transit_route_sequences": 164,
+    "transit_route_stop_links": 1491,
+    "transit_schedule_groups": 302,
+    "transit_departures": 5549,
+    "transit_segments": 1327,
+    "transit_renderable_segments": 359,
+    "media_manifest_pairs": 70,
+    "strict_photo_evidence_items": 112,
+    "storage_directories": 82,
+    "db_media_assets": 116,
+    "db_entity_media": 70
+  },
+  "deployment_state": {
+    "production_backend_url": "https://otravelz-backend.onrender.com",
+    "production_backend_status": "TIMEOUT_UNREACHABLE (Render free-tier inactive/hibernating)",
+    "production_frontend_url": "https://o-travelz.onrender.com",
+    "project_context_check": "PASS (All 24 required context files present, cross-refs valid)"
+  }
+}

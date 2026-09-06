@@ -331,9 +331,30 @@ class RuleBasedModelAdapter(ModelAdapter):
 
         # Resolve starting location if mentioned
         detected_start = self._resolve_start_location(text)
+        detected_days = extract_multilingual_days(text)
+        found_interests = self._extract_interests(text)
 
-        # Context-aware: Weather query ("Will it rain in Puri?", "Weather in Bhubaneswar", "ପାଣିପାଗ", "मौसम")
-        is_weather_query = any(w in text_lower for w in ("weather", "rain", "temperature", "forecast", "climate", "hot outside", "sunny", "ବାଦଲ", "ପାଣିପାଗ", "ବର୍ଷା", "ତାପମାତ୍ରା", "मौसम", "बारिश", "तापमान"))
+        # Planning Intent Priority: Queries asking to plan trips/itineraries must take priority over incidental transit or weather keywords
+        has_nearby_term = any(w in text_lower for w in ("near me", "nearby", "near by", "near here", "around here", "what is near", "explore near", "ପାଖରେ", "पास में"))
+        planning_keywords = (
+            "plan", "trip", "itinerary", "day trip", "1 day", "one day", "tour", "daytour", "day-tour", "guide me",
+            "visit", "want to visit", "visit places", "places to see", "places to explore", "sightseeing", "places to visit",
+            "ଯୋଜନା", "ଭ୍ରମଣ", "ଦିନ", "ଦେଖିବା", "यात्रा", "योजना", "घूमना", "देखना"
+        )
+        is_planning_query = not has_nearby_term and (any(w in text_lower for w in planning_keywords) or (detected_days is not None and bool(detected_start or found_interests)))
+
+        # If user is planning a trip and requests public transit / Mo Bus, reflect in preferences
+        if is_planning_query and any(w in text_lower for w in ("mo bus", "bus", "public transit", "public transport", "ମୋ ବସ")):
+            detected_prefs["public_transport_preferred"] = True
+
+        # If user is planning for a rainy day, adapt preferences for low walking / indoor cultural activities
+        if is_planning_query and any(w in text_lower for w in ("rain", "rainy", "monsoon", "ବର୍ଷା", "बारिश")):
+            detected_prefs["low_walking"] = True
+            if "culture" not in found_interests and "heritage" not in found_interests:
+                found_interests.append("culture")
+
+        # Context-aware: Weather query (only if not an itinerary planning query)
+        is_weather_query = not is_planning_query and any(w in text_lower for w in ("weather", "rain", "temperature", "forecast", "climate", "hot outside", "sunny", "ବାଦଲ", "ପାଣିପାଗ", "ବର୍ଷା", "ତାପମାତ୍ରା", "मौसम", "बारिश", "तापमान"))
         if is_weather_query:
             weather_loc = detected_start or dest_name or dest_district or loc_city or loc_district or "Puri"
             return {
@@ -368,9 +389,6 @@ class RuleBasedModelAdapter(ModelAdapter):
                 ],
             }
 
-        # Resolve starting location if mentioned
-        detected_start = self._resolve_start_location(text)
-
         # Contextual fallback for starting location if not explicitly stated in query
         if not detected_start:
             if dest_name:
@@ -383,12 +401,6 @@ class RuleBasedModelAdapter(ModelAdapter):
                 detected_start = self._resolve_start_location(loc_city) or loc_city
             elif saved_sample_places:
                 detected_start = self._resolve_start_location(saved_sample_places[0]) or saved_sample_places[0]
-
-        detected_days = extract_multilingual_days(text)
-        found_interests = self._extract_interests(text)
-
-        # Planning Intent Priority: Queries asking to plan trips/itineraries must take priority over incidental transit keywords
-        is_planning_query = any(w in text_lower for w in ("plan", "trip", "itinerary", "day trip", "1 day", "one day", "tour", "daytour", "day-tour", "guide me", "ଯୋଜନା", "ଭ୍ରମଣ", "ଦିନ", "यात्रा", "योजना")) or (detected_days is not None and bool(detected_start or found_interests))
 
         # Check if user query is a specific food/dish discovery query ("Where can I get Pahala Rasgulla?", "Where to eat Dahibara?")
         is_food_search = any(w in text_lower for w in ("where can i get", "where to get", "where to eat", "where is", "famous for", "best place for", "କେଉଁଠି", "କେଉଁଠାରେ", "कहाँ मिलेगा", "कहाँ मिलता")) and any(w in text_lower for w in ("rasgulla", "rasagola", "chhena poda", "kora khai", "khaja", "dahibara", "sweets", "food", "cuisine", "sweet", "ପାହାଳ", "ରସଗୋଲା", "ଛେନାପୋଡ଼"))

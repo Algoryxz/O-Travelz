@@ -1,0 +1,81 @@
+{
+  "wave": "D1",
+  "phase": "11_web_golden_journey",
+  "generated_at": "2026-09-06T07:25:00+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "surface": "HOME",
+      "action": "User navigates to http://127.0.0.1:5173/#discover",
+      "component": "StitchHomePage.tsx",
+      "api_calls": [
+        "GET /weather/current",
+        "GET /places?limit=10"
+      ],
+      "result": "PASS: Renders Odisha Cultural Atlas hero, circuits ticker, and quick search"
+    },
+    {
+      "step": 2,
+      "surface": "DISCOVER",
+      "action": "User explores destinations and selects Lingaraj Temple (place_bbsr_001)",
+      "component": "StitchDestinationsPage.tsx / StitchDestinationDetailModal.tsx",
+      "api_calls": [
+        "GET /places?limit=250",
+        "GET /places/place_bbsr_001"
+      ],
+      "result": "PASS: Displays 161 verified destinations, opens verified detail modal with Kalinga architectural description and coordinates 20.2383, 85.8336"
+    },
+    {
+      "step": 3,
+      "surface": "PLAN",
+      "action": "User fills ConstraintForm with 1 day, Heritage & Temples in Bhubaneswar",
+      "component": "StitchPlannerPage.tsx / ConstraintForm.tsx",
+      "api_calls": [
+        "POST /itinerary/plan"
+      ],
+      "result": "PASS: Returns verified 1-day itinerary with 3 stops and 2 transport hops"
+    },
+    {
+      "step": 4,
+      "surface": "TRANSIT",
+      "action": "User inspects transit connectivity on Route 09",
+      "component": "StitchMapPage.tsx / MapLibreCanvas.tsx / transitGeometry.ts",
+      "api_calls": [
+        "GET /transport/routes/09/geometry",
+        "GET /transport/stops/nearby"
+      ],
+      "result": "PASS: Renders road-following continuous polyline with 338 coordinate vertices; no straight-line chords"
+    },
+    {
+      "step": 5,
+      "surface": "ESSENTIALS",
+      "action": "User views nearby emergency and civic utilities in Old Town",
+      "component": "EssentialsSection.tsx",
+      "api_calls": [
+        "GET /api/v1/services/nearby?lat=20.2961&lon=85.8245&radius_km=30"
+      ],
+      "result": "PASS: Returns Capital Hospital / SCB Cuttack, Pipili Fire Station, ICICI ATM Baramunda, IOCL Fuel with exact verified distances"
+    },
+    {
+      "step": 6,
+      "surface": "WEATHER",
+      "action": "User checks current temperature and rainfall forecast",
+      "component": "StitchWeatherSection.tsx",
+      "api_calls": [
+        "GET /weather/current?lat=20.2961&lon=85.8245"
+      ],
+      "result": "PASS: Displays live Open-Meteo weather with condition and rain probability; zero fake defaults"
+    },
+    {
+      "step": 7,
+      "surface": "PERSISTENCE",
+      "action": "User bookmarks Lingaraj Temple and reloads page",
+      "component": "useSavedPlaces.ts / StitchSavedPage.tsx",
+      "api_calls": [
+        "localStorage read/write"
+      ],
+      "result": "PASS: Place preserved across page reloads and listed in Personal Sanctuary Archive"
+    }
+  ],
+  "verdict": "WEB_GOLDEN_JOURNEY_FUNCTIONALLY_VERIFIED"
+}

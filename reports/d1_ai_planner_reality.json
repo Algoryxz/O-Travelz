@@ -1,0 +1,56 @@
+{
+  "wave": "D1",
+  "phase": "5_ai_planner_reality",
+  "results": [
+    {
+      "prompt": "Plan a 1 day trip in bbsr",
+      "status": 200,
+      "tool_calls": [
+        "build_itinerary"
+      ],
+      "is_grounded": true,
+      "message": "I have built a verified 1-day itinerary starting from Bhubaneswar with 3 planned stops across Odisha.\n\nPlanned Schedule:\n\u2022 09:00\u201311:00: Lingaraj Temple\n\u2022 11:45\u201313:30: Old Town Lingaraj Temple Kora Khai Hub\n\u2022 14:15\u201316:30: Chitrakarini Temple",
+      "itinerary_preview": null
+    },
+    {
+      "prompt": "Plan a one day trip in Bhubaneswar",
+      "status": 200,
+      "tool_calls": [
+        "build_itinerary"
+      ],
+      "is_grounded": true,
+      "message": "I have built a verified 1-day itinerary starting from Bhubaneswar with 3 planned stops across Odisha.\n\nPlanned Schedule:\n\u2022 09:00\u201311:00: Lingaraj Temple\n\u2022 11:45\u201313:30: Old Town Lingaraj Temple Kora Khai Hub\n\u2022 14:15\u201316:30: Chitrakarini Temple",
+      "itinerary_preview": null
+    },
+    {
+      "prompt": "I am in Bhubaneswar and want to visit places using Mo Bus where practical",
+      "status": 200,
+      "tool_calls": [
+        "get_provider_status"
+      ],
+      "is_grounded": true,
+      "message": "Provider status: ok. ",
+      "itinerary_preview": null
+    },
+    {
+      "prompt": "Plan a rainy day in Bhubaneswar",
+      "status": 200,
+      "tool_calls": [
+        "get_weather"
+      ],
+      "is_grounded": true,
+      "message": "Current weather in Bhubaneswar: 32.3\u00b0C, Overcast.",
+      "itinerary_preview": null
+    },
+    {
+      "prompt": "I have only 6 hours and want temples, lunch and minimal travel",
+      "status": 200,
+      "tool_calls": [
+        "build_itinerary"
+      ],
+      "is_grounded": true,
+      "message": "I have built a verified 2-day itinerary starting from Bhubaneswar focused on spirituality, food with 6 planned stops across Odisha.\n\nPlanned Schedule:\n\u2022 09:00\u201311:00: Ananta Vasudeva Temple\n\u2022 11:45\u201313:30: Lingaraj Temple\n\u2022 14:15\u201316:30: Old Town Lingaraj Temple Kora Khai Hub\n\u2022 09:00\u201311:00: Chitrakarini Temple\n\u2022 11:45\u201313:30: Bharati Matha Temple\n\u2022 14:15\u201316:30: Bindu Sagar",
+      "itinerary_preview": null
+    }
+  ]
+}
