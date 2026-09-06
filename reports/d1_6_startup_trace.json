@@ -1,0 +1,27 @@
+{
+  "wave": "D1.6",
+  "phase": 3,
+  "startup_trace": {
+    "reproduction_command": "ENVIRONMENT=production python start.py",
+    "initial_failure_trace": [
+      "subprocess.run([sys.executable, -m, alembic, upgrade, head])",
+      "RuntimeError: FATAL: Insecure or default AUTH_SESSION_SECRET configured for production.",
+      "Alembic exit code: 1",
+      "start.py aborting with sys.exit(1)"
+    ],
+    "post_fix_startup_trace": [
+      "[STARTUP] Running database migrations (alembic upgrade head)...",
+      "[STARTUP] Database migrations successfully applied to head.",
+      "[STARTUP] Database verified: 204 places, 154 routes, 1430 stops.",
+      "[STARTUP] Starting Uvicorn server on 0.0.0.0:8000..."
+    ],
+    "health_endpoint_response_simulation": {
+      "status": "ok",
+      "version": "4.0.0",
+      "git_sha": "8b1132e082888ebbfb50be1d43bd9c3c7a20a929",
+      "alembic_version": "0020_transit_ride_observations",
+      "database": "connected"
+    },
+    "conclusion": "Local production simulation successfully verifies port binding and health check readiness."
+  }
+}

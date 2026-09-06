@@ -1,0 +1,29 @@
+{
+  "wave": "D1.6",
+  "phase": 2,
+  "render_service_name": "otravelz-backend",
+  "render_service_url": "https://otravelz-backend.onrender.com",
+  "render_service_type": "web",
+  "target_branch": "feature/v4-platform-rebuild",
+  "blueprint_sync_state": {
+    "blueprint_file": "render.yaml",
+    "env_vars_in_blueprint": [
+      "ENVIRONMENT=production",
+      "DATABASE_URL (sync: false)",
+      "CORS_ORIGINS=https://algoryxz.github.io,http://localhost:5173",
+      "PYTHON_VERSION=3.12.5",
+      "AUTH_SESSION_SECRET (generateValue: true)",
+      "AUTH_COOKIE_SECURE=true",
+      "AUTH_COOKIE_SAMESITE=none"
+    ],
+    "manual_service_discrepancy": "If created as a free manual Web Service rather than Blueprint instance, AUTH_SESSION_SECRET was missing and caused previous startup crash."
+  },
+  "port_binding_contract": {
+    "configured_start_command": "python start.py",
+    "host_env": "HOST (defaults to 0.0.0.0)",
+    "port_env": "PORT (injected by Render, defaults to 8000/10000)",
+    "health_check_path": "/health",
+    "health_expected_http_code": 200
+  },
+  "runtime_readiness": "READY_TO_DEPLOY"
+}

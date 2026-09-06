@@ -71,6 +71,10 @@ export function getApiBaseUrl(): string {
     if (runtimeOverride) {
       return normalizeBaseUrl(runtimeOverride);
     }
+    // When running on GitHub Pages (e.g. algoryxz.github.io), fall back to public Render backend
+    if (window.location && typeof window.location.hostname === "string" && window.location.hostname.endsWith("github.io")) {
+      return "https://otravelz-backend.onrender.com";
+    }
   }
   return "";
 }

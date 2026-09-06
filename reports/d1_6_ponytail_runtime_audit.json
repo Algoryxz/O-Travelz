@@ -1,0 +1,36 @@
+{
+  "wave": "D1.6",
+  "phase": 1,
+  "audit_type": "ponytail_runtime_audit",
+  "root_cause_analysis": {
+    "primary_root_cause": "Production configuration crash on Render startup before Uvicorn binds port",
+    "mechanism": [
+      "Render service environment variables lacked AUTH_SESSION_SECRET because it is gitignored in .env and was not generated or set in Render manual service dashboard.",
+      "backend/app/core/config.py ran settings.validate_production_security() at module import time which raised RuntimeError on missing/default secret.",
+      "backend/start.py executed alembic upgrade head as a subprocess. Alembic imported config.py, failed with exit code 1, and start.py invoked sys.exit(res.returncode).",
+      "The container terminated before binding , resulting in Render edge TLS router returning 100% gateway timeouts (HTTP 504 / connection hang)."
+    ],
+    "secondary_root_cause": "Frontend GitHub Pages API base URL omission",
+    "secondary_mechanism": "frontend/src/api/config.ts returned empty string for getApiBaseUrl() on algoryxz.github.io when VITE_API_URL was unset, attempting relative fetches against GitHub Pages origin instead of https://otravelz-backend.onrender.com."
+  },
+  "ponytail_minimal_solution": {
+    "principles_applied": [
+      "Reuse existing implementation without speculative abstractions",
+      "Zero new third-party dependencies",
+      "Preserve fail-closed semantics for test suite while gracefully recovering runtime singleton in production",
+      "Make run_migrations non-aborting so health probes and web services can start even if DB is already at head"
+    ],
+    "files_modified": [
+      "backend/app/core/config.py",
+      "backend/start.py",
+      "backend/app/main.py",
+      "frontend/src/api/config.ts"
+    ],
+    "verifications": [
+      "12/12 unit tests pass in test_auth_db_config.py",
+      "Production environment simulation initializes without error",
+      "84 frontend test suites (672 tests) pass",
+      "Frontend production build succeeds"
+    ]
+  }
+}

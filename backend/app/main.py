@@ -56,29 +56,30 @@ RELEASE_METADATA = {
     "alembic_version": "0020_transit_ride_observations",
 }
 
-cors_origins_raw = getattr(settings, "cors_origins", None) or os.environ.get("CORS_ORIGINS", "*")
-if cors_origins_raw.strip() == "*":
-    cors_origins = ["*"]
-    allow_credentials = False
+cors_origins_raw = getattr(settings, "cors_origins", None) or os.environ.get("CORS_ORIGINS", "")
+allowed_defaults = [
+    "https://algoryxz.github.io",
+    "https://smarak-padhi.github.io",
+    "http://localhost:5173",
+    "http://localhost:4173",
+    "http://localhost:3000",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:4173",
+    "http://127.0.0.1:3000",
+]
+if not cors_origins_raw or cors_origins_raw.strip() == "*":
+    cors_origins = list(allowed_defaults)
 else:
     cors_origins = [o.strip().rstrip("/") for o in cors_origins_raw.split(",") if o.strip()]
-    allowed_defaults = [
-        "https://algoryxz.github.io",
-        "https://smarak-padhi.github.io",
-        "http://localhost:5173",
-        "http://localhost:4173",
-        "http://127.0.0.1:5173",
-        "http://127.0.0.1:4173",
-    ]
     for d in allowed_defaults:
         if d not in cors_origins:
             cors_origins.append(d)
-    allow_credentials = True
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=cors_origins,
-    allow_credentials=allow_credentials,
+    allow_origin_regex=r"https://.*\.github\.io|http://localhost:\d+|http://127\.0\.0\.1:\d+",
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=["*"],
