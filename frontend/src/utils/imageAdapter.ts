@@ -51,7 +51,7 @@ export function getVariantUrl(img: PlaceImageContract, variant: ImageVariant = "
 /**
  * Sorts and selects images, ensuring primary image comes first.
  */
-function sortPlaceImages(images: PlaceImageContract[]): PlaceImageContract[] {
+export function sortPlaceImages(images: PlaceImageContract[]): PlaceImageContract[] {
   return [...images].sort((a, b) => {
     // 1. Primary image takes absolute priority
     if (a.is_primary && !b.is_primary) return -1;
@@ -165,5 +165,67 @@ export function resolvePlaceGallery(
 
   // Graceful fallback to imageService.ts
   return getPlaceGallery(place?.name, place?.category);
+}
+
+/**
+ * Resolves the canonical source photograph identity key for deduplication.
+ * Hierarchy per Wave Media Suite Truth:
+ * 1. media_asset_id
+ * 2. content_sha256
+ * 3. asset_hash / source asset directory identity
+ * 4. canonical source image ID (id)
+ * 5. fallback: normalized base url without responsive variant suffix
+ */
+export function getSourcePhotoIdentity(img: any): string {
+  if (!img) return "";
+
+  // 1. media_asset_id
+  if (img.media_asset_id && typeof img.media_asset_id === "string") {
+    return `media_asset_id:${img.media_asset_id.trim()}`;
+  }
+
+  // 2. content_sha256
+  if (img.content_sha256 && typeof img.content_sha256 === "string") {
+    return `content_sha256:${img.content_sha256.trim().toLowerCase()}`;
+  }
+
+  // 3. asset_hash / source asset identity
+  if (img.asset_hash && typeof img.asset_hash === "string") {
+    return `asset_hash:${img.asset_hash.trim().toLowerCase()}`;
+  }
+
+  // Check storage_key for asset directory hash, e.g. places/.../<hash>/(hero|card|thumbnail).webp
+  const storageKey = img.storage_key;
+  if (storageKey && typeof storageKey === "string") {
+    const match = storageKey.match(/(?:^|\/)([a-f0-9]{8,64})\/(?:hero|card|thumbnail|original)\.[a-z0-9]+$/i);
+    if (match) {
+      return `asset_hash:${match[1].toLowerCase()}`;
+    }
+  }
+
+  // Check url/src for asset directory hash, e.g. /static/images/places/.../<hash>/(hero|card|thumbnail).webp
+  const urlCandidate = typeof img === "string" ? img : (img.url || img.src || "");
+  if (urlCandidate && typeof urlCandidate === "string") {
+    const hashMatch = urlCandidate.match(/(?:^|\/)([a-f0-9]{8,64})\/(?:hero|card|thumbnail|original)\.[a-z0-9]+$/i);
+    if (hashMatch) {
+      return `asset_hash:${hashMatch[1].toLowerCase()}`;
+    }
+  }
+
+  // 4. canonical source image ID
+  if (img.id && typeof img.id === "string") {
+    return `image_id:${img.id.trim()}`;
+  }
+
+  // 5. Normalization fallback: strip variant suffix (hero, card, thumbnail, thumb) so variants share key
+  if (urlCandidate && typeof urlCandidate === "string") {
+    const cleanUrl = urlCandidate
+      .split("?")[0]
+      .replace(/[_-](?:hero|card|thumbnail|thumb|small|medium|large)\.([a-z0-9]+)$/i, ".$1")
+      .replace(/\/(?:hero|card|thumbnail|original)\.webp$/i, "");
+    return `url_base:${cleanUrl.trim().toLowerCase()}`;
+  }
+
+  return `unknown:${Math.random()}`;
 }
 

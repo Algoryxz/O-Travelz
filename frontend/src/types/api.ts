@@ -394,6 +394,8 @@ export interface MapProjectionResponse {
 
 export interface PlaceImageContract {
   id?: string;
+  media_asset_id?: string | null;
+  asset_hash?: string | null;
   storage_key?: string | null;
   url: string;
   thumbnail_url?: string | null;

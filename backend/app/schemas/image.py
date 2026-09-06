@@ -9,6 +9,8 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 class PlaceImageBase(BaseModel):
+    media_asset_id: Optional[UUID] = Field(None, description="Canonical media asset registry identifier")
+    asset_hash: Optional[str] = Field(None, description="Asset folder or content identity hash")
     storage_key: Optional[str] = Field(None, description="Provider-neutral storage key/path")
     url: str = Field(..., description="Publicly accessible delivery URL or relative path")
     thumbnail_url: Optional[str] = Field(None, description="Thumbnail variant URL")

@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import type { PlaceImageContract, PlaceMediaResponse } from "../../types/api";
 import { apiClient } from "../../api/client";
-import { resolvePlaceGallery } from "../../utils/imageAdapter";
+import { resolvePlaceGallery, getSourcePhotoIdentity, sortPlaceImages } from "../../utils/imageAdapter";
 import { getPlaceImageUrl } from "../../utils/imageService";
 import { ThreeDViewer, is3DHeritageAvailable } from "./ThreeDViewer";
 import { VideoPreview } from "./VideoPreview";
@@ -59,7 +59,7 @@ export const DestinationMedia: React.FC<DestinationMediaProps> = ({
         if (isMounted && res) {
           setMediaData(res);
           const hasVid = Boolean(res.has_video && (res.video_preview?.video_url || res.video?.video_url));
-          const has3d = Boolean(res.has_3d && res.model_3d) || is3DHeritageAvailable(placeId, placeName, res.model_3d);
+          const has3d = Boolean(res.has_3d && res.model_3d);
 
           if (initialTab === "3d" && has3d) setActiveTab("3d");
           else if (initialTab === "video" && hasVid) setActiveTab("video");
@@ -83,8 +83,14 @@ export const DestinationMedia: React.FC<DestinationMediaProps> = ({
   }, [mediaData]);
 
   const is3DAvailable = useMemo(() => {
-    if (mediaData?.has_3d && mediaData?.model_3d) return true;
-    return is3DHeritageAvailable(placeId, placeName, mediaData?.model_3d);
+    // 1. Authoritative Backend Check: when backend responded, its has_3d && model_3d is decisive.
+    // Frontend MUST NEVER override backend has_3d=false to true.
+    if (mediaData !== null) {
+      return Boolean(mediaData.has_3d && mediaData.model_3d);
+    }
+    // 2. Offline/Fallback check: only runs when backend media request is unavailable (mediaData === null)
+    // AND canonical place identity maps explicitly to one of the 4 scenes.
+    return is3DHeritageAvailable(placeId, placeName);
   }, [mediaData, placeId, placeName]);
 
   // Auto-switch to photos if currently active tab becomes unavailable
@@ -103,37 +109,45 @@ export const DestinationMedia: React.FC<DestinationMediaProps> = ({
     onTabChange?.(tab);
   };
 
-  // Deduplicate images so variants (hero, card, thumbnail) do NOT inflate photo count
+  // Deduplicate images by canonical source identity so responsive variants do NOT inflate photo count
   const resolvedImages = useMemo(() => {
-    const seen = new Set<string>();
+    const seenIdentities = new Set<string>();
     const result: { url: string; title: string; alt_text: string }[] = [];
 
+    const processItem = (img: any, defaultTitle: string, defaultAlt: string) => {
+      const identity = getSourcePhotoIdentity(img);
+      if (!identity || seenIdentities.has(identity)) return;
+      seenIdentities.add(identity);
+
+      const url = typeof img === "string" ? img : (img.url || img.card_url || img.thumbnail_url || img.src || "");
+      if (url) {
+        result.push({
+          url,
+          title: (typeof img === "object" && (img.title || img.attribution)) || defaultTitle,
+          alt_text: (typeof img === "object" && (img.alt_text || img.alt)) || defaultAlt,
+        });
+      }
+    };
+
     if (mediaData?.images && mediaData.images.length > 0) {
-      for (const img of mediaData.images) {
-        const u = img.url;
-        if (u && !seen.has(u)) {
-          seen.add(u);
-          result.push({
-            url: u,
-            title: img.title || placeName,
-            alt_text: img.alt_text || placeName,
-          });
-        }
+      const sorted = sortPlaceImages(mediaData.images);
+      for (const img of sorted) {
+        processItem(img, placeName, placeName);
+      }
+      if (result.length > 0) return result;
+    }
+
+    if (images && images.length > 0) {
+      const sorted = sortPlaceImages(images);
+      for (const img of sorted) {
+        processItem(img, placeName, placeName);
       }
       if (result.length > 0) return result;
     }
 
     const gallery = resolvePlaceGallery({ id: placeId, name: placeName, category, images });
     for (const item of gallery) {
-      const u = item.url;
-      if (u && !seen.has(u)) {
-        seen.add(u);
-        result.push({
-          url: u,
-          title: item.attribution || item.alt || placeName,
-          alt_text: item.alt || placeName,
-        });
-      }
+      processItem(item, placeName, placeName);
     }
 
     return result;
