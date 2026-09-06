@@ -1,0 +1,56 @@
+{
+  "report_name": "transit_c5_coverage",
+  "total_stops": 1430,
+  "counts": {
+    "VERIFIED_OFFICIAL": 103,
+    "VERIFIED_GEOSPATIAL": 70,
+    "CANDIDATE_HIGH": 87,
+    "CANDIDATE_MEDIUM": 99,
+    "CANDIDATE_LOW": 384,
+    "LOCALITY_ONLY": 687,
+    "ROUTE_CONTEXT_ONLY": 0,
+    "UNRESOLVED": 0
+  },
+  "percentages": {
+    "VERIFIED_OFFICIAL": 7.2,
+    "VERIFIED_GEOSPATIAL": 4.9,
+    "CANDIDATE_HIGH": 6.08,
+    "CANDIDATE_MEDIUM": 6.92,
+    "CANDIDATE_LOW": 26.85,
+    "LOCALITY_ONLY": 48.04,
+    "ROUTE_CONTEXT_ONLY": 0.0,
+    "UNRESOLVED": 0.0
+  },
+  "coverage_metrics": {
+    "exact_coordinate_coverage": {
+      "count": 173,
+      "percentage": 12.1
+    },
+    "high_confidence_map_coverage": {
+      "count": 260,
+      "percentage": 18.18,
+      "formula": "verified + candidate_high"
+    },
+    "route_shape_useful_coverage": {
+      "count": 359,
+      "percentage": 25.1,
+      "formula": "verified + candidate_high + candidate_medium",
+      "reaches_90_pct_goal": false
+    },
+    "locality_known_coverage": {
+      "count": 1430,
+      "percentage": 100.0
+    },
+    "truly_unresolved_coverage": {
+      "count": 0,
+      "percentage": 0.0
+    }
+  },
+  "honest_assessment": {
+    "limiting_factors": [
+      "Strict anti-fabrication constraint: Mathematical interpolation alone cannot create a candidate point.",
+      "Every candidate coordinate strictly requires a real externally verified physical object.",
+      "Rural feeder routes in Keonjhar, Sambalpur, and Sundargarh lack OSM transit micro-mapping."
+    ]
+  }
+}

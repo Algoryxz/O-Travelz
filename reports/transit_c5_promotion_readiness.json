@@ -1,0 +1,10 @@
+{
+  "report_name": "transit_c5_promotion_readiness",
+  "canonical_exact_stops_preserved": 173,
+  "newly_promoted_exact_stops": 0,
+  "candidate_only_stops": 570,
+  "manual_review_required_stops": 1071,
+  "unresolved_locality_stops": 687,
+  "promotion_gate_decision": "NO_CANONICAL_EXACT_MUTATION",
+  "rationale": "All resolved points represent estimated candidate objects for route shape assistance. In strict accordance with project rules, candidate points remain isolated in staging (c5_stop_resolution.json) and are never promoted to canonical exact truth without field survey verification."
+}

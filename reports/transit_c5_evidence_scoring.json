@@ -1,0 +1,549 @@
+{
+  "report_name": "transit_c5_evidence_scoring",
+  "scoring_model": "Multi-channel independent evidence weighting with distance-decay penalty",
+  "total_scored": 186,
+  "sample_scored_records": [
+    {
+      "stop_id": "stop_crut_berhampur_aryapalli_beach",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 59.675000000000004,
+      "independent_channels": [
+        "STATEWIDE_NATURAL_SITE",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.35
+    },
+    {
+      "stop_id": "stop_crut_berhampur_berhampur_radio_station",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 72.8125,
+      "independent_channels": [
+        "PLACE_TRANSIT_HUB",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.417
+    },
+    {
+      "stop_id": "stop_crut_berhampur_berhampur_rail_stn",
+      "status": "CANDIDATE_HIGH",
+      "score": 73.5,
+      "independent_channels": [
+        "PLACE_TRANSIT_HUB",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.667
+    },
+    {
+      "stop_id": "stop_crut_berhampur_bhaba_nagar_square",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 65.9375,
+      "independent_channels": [
+        "NOMINATIM_POI",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.417
+    },
+    {
+      "stop_id": "stop_crut_berhampur_bhima_nagar",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 65.9375,
+      "independent_channels": [
+        "NOMINATIM_POI",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.417
+    },
+    {
+      "stop_id": "stop_crut_berhampur_bijipur_state_bank",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 73.625,
+      "independent_channels": [
+        "STATEWIDE_ATM",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.583
+    },
+    {
+      "stop_id": "stop_crut_berhampur_braja_nagar",
+      "status": "CANDIDATE_HIGH",
+      "score": 95.5625,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.35
+    },
+    {
+      "stop_id": "stop_crut_berhampur_dpatapur",
+      "status": "CANDIDATE_HIGH",
+      "score": 82.1875,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_dpatapur_village",
+      "status": "CANDIDATE_HIGH",
+      "score": 82.1875,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_dhabaleswar_temple",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 56.6375,
+      "independent_channels": [
+        "NOMINATIM_POI",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.35
+    },
+    {
+      "stop_id": "stop_crut_berhampur_disha_college",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 65.9375,
+      "independent_channels": [
+        "NOMINATIM_POI",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.417
+    },
+    {
+      "stop_id": "stop_crut_berhampur_duduma_colony_new_bus_stand",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 65.5,
+      "independent_channels": [
+        "NOMINATIM_POI",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.667
+    },
+    {
+      "stop_id": "stop_crut_berhampur_engineering_school_chowk_berhampur",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 71.03125,
+      "independent_channels": [
+        "PLACE_TRANSIT_HUB",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.375
+    },
+    {
+      "stop_id": "stop_crut_berhampur_gandhi_college",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 65.9375,
+      "independent_channels": [
+        "NOMINATIM_POI",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.417
+    },
+    {
+      "stop_id": "stop_crut_berhampur_goilundi_square",
+      "status": "CANDIDATE_HIGH",
+      "score": 88.25,
+      "independent_channels": [
+        "NOMINATIM_POI",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.0
+    },
+    {
+      "stop_id": "stop_crut_berhampur_golanthra_village",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 61.25,
+      "independent_channels": [
+        "OSM_BUS_STATION",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_gopalpur_bus_stand",
+      "status": "CANDIDATE_HIGH",
+      "score": 115.25,
+      "independent_channels": [
+        "OSM_BUS_STATION",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.45
+    },
+    {
+      "stop_id": "stop_crut_berhampur_gopalpur_college",
+      "status": "CANDIDATE_HIGH",
+      "score": 83.75,
+      "independent_channels": [
+        "OSM_BUS_STATION",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.75
+    },
+    {
+      "stop_id": "stop_crut_berhampur_gopalpur_junction",
+      "status": "CANDIDATE_HIGH",
+      "score": 85.4375,
+      "independent_channels": [
+        "STATEWIDE_FUEL_STATION",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.875
+    },
+    {
+      "stop_id": "stop_crut_berhampur_gosaninugaa_police_station",
+      "status": "CANDIDATE_HIGH",
+      "score": 77.0,
+      "independent_channels": [
+        "STATEWIDE_POLICE_STATION",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.667
+    },
+    {
+      "stop_id": "stop_crut_berhampur_govindpur",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 65.75,
+      "independent_channels": [
+        "OSM_BUS_STATION",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.35
+    },
+    {
+      "stop_id": "stop_crut_berhampur_govindpur_square",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 61.25,
+      "independent_channels": [
+        "OSM_BUS_STATION",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_haldiapadar_new",
+      "status": "CANDIDATE_HIGH",
+      "score": 72.0625,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.95
+    },
+    {
+      "stop_id": "stop_crut_berhampur_haldiapadar_new_bus_stand",
+      "status": "CANDIDATE_HIGH",
+      "score": 82.0625,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.95
+    },
+    {
+      "stop_id": "stop_crut_berhampur_haldiapadar_over_bridge",
+      "status": "CANDIDATE_HIGH",
+      "score": 79.25,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.867
+    },
+    {
+      "stop_id": "stop_crut_berhampur_haldiapadar_village",
+      "status": "CANDIDATE_HIGH",
+      "score": 92.1875,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_jagadalpur_gramapanchayat",
+      "status": "CANDIDATE_HIGH",
+      "score": 82.0625,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.95
+    },
+    {
+      "stop_id": "stop_crut_berhampur_jagadalpur_ri_office",
+      "status": "CANDIDATE_HIGH",
+      "score": 79.25,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.867
+    },
+    {
+      "stop_id": "stop_crut_berhampur_jagadalpur_up_school",
+      "status": "CANDIDATE_HIGH",
+      "score": 79.25,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.867
+    },
+    {
+      "stop_id": "stop_crut_berhampur_jagadalpur_village",
+      "status": "CANDIDATE_HIGH",
+      "score": 92.1875,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_jayaprakash_nagar",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 65.9375,
+      "independent_channels": [
+        "NOMINATIM_POI",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.417
+    },
+    {
+      "stop_id": "stop_crut_berhampur_karapalli_village",
+      "status": "CANDIDATE_HIGH",
+      "score": 92.1875,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_kirtipur_village",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 61.25,
+      "independent_channels": [
+        "OSM_PLATFORM",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_lic_office_berhampur",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 71.03125,
+      "independent_channels": [
+        "PLACE_TRANSIT_HUB",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.375
+    },
+    {
+      "stop_id": "stop_crut_berhampur_lochapada_ganesh_bazaar",
+      "status": "CANDIDATE_HIGH",
+      "score": 79.25,
+      "independent_channels": [
+        "OSM_PLACE_SUBURB",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.867
+    },
+    {
+      "stop_id": "stop_crut_berhampur_lochapada_hanuman_mandir",
+      "status": "CANDIDATE_HIGH",
+      "score": 79.25,
+      "independent_channels": [
+        "OSM_PLACE_SUBURB",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.867
+    },
+    {
+      "stop_id": "stop_crut_berhampur_lochapada_hanuman_mandir_square",
+      "status": "CANDIDATE_HIGH",
+      "score": 79.25,
+      "independent_channels": [
+        "OSM_PLACE_SUBURB",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.867
+    },
+    {
+      "stop_id": "stop_crut_berhampur_mandiapalli_junction",
+      "status": "CANDIDATE_HIGH",
+      "score": 92.1875,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_mandiapalli_village",
+      "status": "CANDIDATE_HIGH",
+      "score": 92.1875,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_mkcg_state_bank",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 73.625,
+      "independent_channels": [
+        "STATEWIDE_ATM",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.583
+    },
+    {
+      "stop_id": "stop_crut_berhampur_nalini_nagar",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 65.9375,
+      "independent_channels": [
+        "NOMINATIM_POI",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.417
+    },
+    {
+      "stop_id": "stop_crut_berhampur_narayanpur",
+      "status": "CANDIDATE_HIGH",
+      "score": 95.5625,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.35
+    },
+    {
+      "stop_id": "stop_crut_berhampur_new_jugiyapalli",
+      "status": "CANDIDATE_HIGH",
+      "score": 78.6875,
+      "independent_channels": [
+        "NOMINATIM_POI",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.75
+    },
+    {
+      "stop_id": "stop_crut_berhampur_nimakhandi_ri_office",
+      "status": "CANDIDATE_HIGH",
+      "score": 79.25,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.867
+    },
+    {
+      "stop_id": "stop_crut_berhampur_old_bus_stand",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 74.75,
+      "independent_channels": [
+        "OSM_BUS_STATION",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.55
+    },
+    {
+      "stop_id": "stop_crut_berhampur_police_station",
+      "status": "CANDIDATE_HIGH",
+      "score": 100.625,
+      "independent_channels": [
+        "STATEWIDE_POLICE_STATION",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_prem_nagar_square",
+      "status": "CANDIDATE_HIGH",
+      "score": 90.5,
+      "independent_channels": [
+        "OSM_PLACE_NEIGHBOURHOOD",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.2
+    },
+    {
+      "stop_id": "stop_crut_berhampur_rangeilunda_village",
+      "status": "CANDIDATE_HIGH",
+      "score": 92.1875,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.25
+    },
+    {
+      "stop_id": "stop_crut_berhampur_sai_temple",
+      "status": "CANDIDATE_MEDIUM",
+      "score": 65.75,
+      "independent_channels": [
+        "OSM_PLATFORM",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 1.35
+    },
+    {
+      "stop_id": "stop_crut_berhampur_sataya_narayanpur",
+      "status": "CANDIDATE_HIGH",
+      "score": 82.0625,
+      "independent_channels": [
+        "OSM_PLACE_VILLAGE",
+        "ROUTE_TOPOLOGY_CONSISTENCY",
+        "ADMINISTRATIVE_BOUNDS"
+      ],
+      "name_sim": 0.95
+    }
+  ]
+}

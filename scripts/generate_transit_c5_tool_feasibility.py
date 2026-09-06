@@ -1,0 +1,209 @@
+#!/usr/bin/env python3
+"""
+scripts/generate_transit_c5_tool_feasibility.py — Generate Phase 1 Tool Feasibility Report for Wave C5.
+"""
+
+import json
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+REPORTS = REPO_ROOT / "reports"
+REPORTS.mkdir(parents=True, exist_ok=True)
+
+tools = [
+    {
+        "tool_name": "GTFS Janitor",
+        "repository_url": "https://github.com/tjhorner/gtfs-janitor",
+        "license": "MIT",
+        "last_maintenance": "2024 (Active)",
+        "runtime_language": "TypeScript / Browser Web Application",
+        "expected_input_format": "GTFS Zip Archive (.zip with stops.txt, routes.txt, trips.txt, stop_times.txt)",
+        "accepts_incomplete_data": False,
+        "useful_components": [
+            "Mapper-in-the-loop browser UI for disambiguating ambiguous matches",
+            "Jaro-Winkler + Levenshtein name distance metric combined with spatial proximity threshold",
+            "osmChange diff generation for verifiable manual inspection"
+        ],
+        "integration_cost": "Moderate (Requires converting canonical stops into mock GTFS stops.txt)",
+        "recommendation": "BORROW_IDEA",
+        "rationale": "Our canonical dataset is schedule-rich but not formatted as a strict GTFS bundle. Its human-in-the-loop disambiguation principles and confidence thresholds are adopted directly in our staging queue."
+    },
+    {
+        "tool_name": "GO_Sync (gtfs-osm-sync)",
+        "repository_url": "https://github.com/CUTR-at-USF/GO_Sync",
+        "license": "Apache 2.0",
+        "last_maintenance": "2012 (Deprecated / Unmaintained)",
+        "runtime_language": "Java Desktop (Swing)",
+        "expected_input_format": "GTFS + OSM XML",
+        "accepts_incomplete_data": False,
+        "useful_components": [
+            "Early precedent for bus stop conflation and agency ID tagging"
+        ],
+        "integration_cost": "High (Outdated dependencies, legacy Java desktop UI)",
+        "recommendation": "REJECT",
+        "rationale": "Widely deprecated across the OSM transit community; uses obsolete OSM transit tagging schemas (pre-Public Transport V2)."
+    },
+    {
+        "tool_name": "gtfs-osm-import",
+        "repository_url": "https://github.com/geofabrik/gtfs-osm-import",
+        "license": "GPL-3.0",
+        "last_maintenance": "2022 (Project-maintained)",
+        "runtime_language": "Python 3",
+        "expected_input_format": "GTFS Directory / SQLite Database",
+        "accepts_incomplete_data": False,
+        "useful_components": [
+            "Spatial candidate clustering within configurable distance buffers (50m, 150m, 500m)",
+            "Transliteration and abbreviation normalization for transit stops"
+        ],
+        "integration_cost": "Moderate",
+        "recommendation": "BORROW_IDEA",
+        "rationale": "Useful spatial buffer and stop name normalization concepts. We adopt its spatial threshold tiers into our multi-source evidence fusion model."
+    },
+    {
+        "tool_name": "OSM Conflate (osm-conflate)",
+        "repository_url": "https://github.com/mapsme/osm-conflate",
+        "license": "Apache 2.0",
+        "last_maintenance": "2023 (Active)",
+        "runtime_language": "Python 3",
+        "expected_input_format": "GeoJSON / JSON / CSV + Overpass API query",
+        "accepts_incomplete_data": True,
+        "useful_components": [
+            "Configurable profile-based matching (tag filters, distance bounds, name weights)",
+            "Generates JOSM review files (.osm) with proposed tags and conflict flags",
+            "Supports non-GTFS external candidate datasets natively"
+        ],
+        "integration_cost": "Low (Direct Python integration)",
+        "recommendation": "ADAPT",
+        "rationale": "Highly relevant for conflating non-GTFS canonical stop lists against Overpass OSM data. Its profile-based scoring model matches our requirements."
+    },
+    {
+        "tool_name": "Osmose Backend Transit Conflator",
+        "repository_url": "https://github.com/osm-fr/osmose-backend",
+        "license": "GPL-3.0",
+        "last_maintenance": "2026 (Active)",
+        "runtime_language": "Python 3",
+        "expected_input_format": "Open Data feeds (GTFS, GeoJSON, WFS)",
+        "accepts_incomplete_data": True,
+        "useful_components": [
+            "Continuous QA comparison detecting missing transit stops and misplaced platforms",
+            "Distance-decay scoring function preventing distant false positives"
+        ],
+        "integration_cost": "High (Requires full Osmose infrastructure)",
+        "recommendation": "BORROW_IDEA",
+        "rationale": "The full engine is an oversized QA pipeline, but its distance-decay formula and false-positive prevention heuristics are directly applicable."
+    },
+    {
+        "tool_name": "gtfs2osm",
+        "repository_url": "https://github.com/geofabrik/gtfs2osm",
+        "license": "GPL-2.0",
+        "last_maintenance": "2021 (Maintained)",
+        "runtime_language": "Python / C++",
+        "expected_input_format": "GTFS Zip",
+        "accepts_incomplete_data": False,
+        "useful_components": [
+            "Route-relation reconstruction from ordered stop sequences"
+        ],
+        "integration_cost": "High",
+        "recommendation": "REJECT",
+        "rationale": "Designed specifically for generating raw OSM XML for upstream mapping, not for internal platform coordinate resolution."
+    },
+    {
+        "tool_name": "Overpass API (Odisha Transit Extract)",
+        "repository_url": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+        "license": "ODbL",
+        "last_maintenance": "2026 (Live Infrastructure)",
+        "runtime_language": "Overpass QL / REST HTTP API",
+        "expected_input_format": "Spatial bounding box + tag queries",
+        "accepts_incomplete_data": True,
+        "useful_components": [
+            "Direct query of all highway=bus_stop, public_transport=platform, amenity=bus_station, and bus=yes nodes/ways in Odisha (17.5-23.0 N, 81.0-88.0 E)",
+            "Deterministic point geometries with OSM IDs, tags, and spatial coordinates",
+            "Zero cost, official community infrastructure"
+        ],
+        "integration_cost": "Low (HTTP queries cached locally)",
+        "recommendation": "USE",
+        "rationale": "Primary source for real, physical OSM transit candidate objects across Odisha's 5 transit regions."
+    },
+    {
+        "tool_name": "Mapillary Street-Level Imagery API",
+        "repository_url": "https://www.mapillary.com/developer/api-documentation/",
+        "license": "CC BY-SA 4.0 / Meta Developer Agreement",
+        "last_maintenance": "2026 (Active)",
+        "runtime_language": "REST API v4",
+        "expected_input_format": "Vector tile / Bounding box spatial queries",
+        "accepts_incomplete_data": True,
+        "useful_components": [
+            "Sequence image lookups along major highway corridors (NH-16, NH-55, NH-26)",
+            "AI-detected traffic signs and public transport infrastructure tags"
+        ],
+        "integration_cost": "Moderate (Requires client token and manual image inspection)",
+        "recommendation": "BORROW_IDEA",
+        "rationale": "Valuable for human verification of stop shelters, boards, and signage during manual review, but cannot be an automated primary coordinate provider."
+    }
+]
+
+sources_audit = {
+    "repository_evidence": {
+        "canonical_stops": "1,430 stops (173 geocoded)",
+        "official_pdfs": [
+            "15f6873f-..._Updated-Berhampur-Detailed-stoppages-24april2026.pdf",
+            "01dd4cef-..._Rourkela-Updated-Route-w.e.f-11.04.26.pdf",
+            "a3817262-..._Sambalpur-Ama-Bus-Stoppage-Details-5-7-2026.pdf",
+            "cca2228e-..._Keonjhar-Detailed-Stoppages.pdf",
+            "Latest_MO_BUS_Full_Network_Final_English_2_For_Odia_and_English_compressed.pdf"
+        ],
+        "canonical_services": "211 verified civic amenities (hospitals, police stations, atms, fuel stations) in data/services/odisha_services.json",
+        "canonical_places": "161 verified cultural/heritage/nature destinations in data/places/places.json",
+        "geocoding_cache": "723 queries cached in data/transport/canonical/geocoding_cache.json (96 positive WGS84 coordinates)",
+        "phase_6_research": "Verified and candidate stop resolutions in data/research/transit/phase_6a and phase_6c"
+    },
+    "osm_transit_features": {
+        "query_tags": [
+            "highway=bus_stop",
+            "public_transport=platform",
+            "public_transport=stop_position",
+            "public_transport=station",
+            "amenity=bus_station",
+            "bus=yes"
+        ],
+        "bounding_box": {
+            "min_lat": 17.5,
+            "max_lat": 23.0,
+            "min_lon": 81.0,
+            "max_lon": 88.0
+        },
+        "role": "Source of truth for real candidate objects on the ground"
+    },
+    "official_gis_sources": {
+        "bhubaneswar_one": "http://bhubaneswarone.in (Municipal GIS for BMC/BDA, interactive web maps)",
+        "crut_portal": "https://www.capitalregiontransport.in (Mo Bus schedule directory and route maps)",
+        "odisha_transport": "http://odishatransport.gov.in (OSRTC routes and inter-district bus stands)",
+        "accessibility": "Public web endpoints; raw shapefiles restricted to governmental use"
+    },
+    "big_data_cloud_policy": {
+        "allowed_usage": "Reverse-geocoding validation of an EXISTING candidate coordinate (e.g. confirming coordinate is inside Odisha / correct district)",
+        "strictly_forbidden": "Forward geocoding from stop name/locality to synthesize a coordinate"
+    }
+}
+
+feasibility_report = {
+    "wave": "C5",
+    "report_name": "transit_c5_tool_feasibility",
+    "tools_evaluated": tools,
+    "sources_audit": sources_audit,
+    "conflation_strategy_summary": {
+        "candidate_generation": "Retrieve real candidate physical objects from OSM (bus stops, platforms, stations), canonical places, and canonical services.",
+        "topology_filtering": "Constrain and rank candidate objects using route sequence order, distance between trusted anchors, and road corridors.",
+        "prohibited_actions": [
+            "No geometric interpolation of points (no midpoints, no equal spacing along vectors).",
+            "No town centroids as stop coordinates.",
+            "No dropping unresolved stops onto arbitrary roads without external object evidence."
+        ]
+    }
+}
+
+out_file = REPORTS / "transit_c5_tool_feasibility.json"
+with open(out_file, "w", encoding="utf-8") as f:
+    json.dump(feasibility_report, f, indent=2, ensure_ascii=False)
+
+print(f"Generated {out_file} ({out_file.stat().st_size} bytes).")

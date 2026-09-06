@@ -1,0 +1,458 @@
+{
+  "report_name": "transit_c5_topology_resolution",
+  "total_topology_resolutions": 186,
+  "two_sided_corridor_matches": 99,
+  "one_sided_corridor_matches": 64,
+  "sample_topology_matches": [
+    {
+      "stop_id": "stop_crut_berhampur_aryapalli_beach",
+      "canonical_name": "Aryapalli Beach",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "statewide_entities:c_02ece4a78c07",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_berhampur_radio_station",
+      "canonical_name": "Berhampur Radio Station",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "places:place_transit_007",
+      "perp_dist_km": 0.1404350372889281,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_berhampur_rail_stn",
+      "canonical_name": "Berhampur Rail Stn.",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "places:place_transit_007",
+      "perp_dist_km": 6.980289502703547,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_bhaba_nagar_square",
+      "canonical_name": "Bhaba Nagar Square",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/239274077",
+      "perp_dist_km": 2.5277811789895788,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_bhima_nagar",
+      "canonical_name": "Bhima Nagar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/239274077",
+      "perp_dist_km": 4.002173276856364,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_bijipur_state_bank",
+      "canonical_name": "Bijipur State Bank",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:c_7724d9af7013",
+      "perp_dist_km": 2.0370448904536467,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_braja_nagar",
+      "canonical_name": "Braja Nagar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/11795506481",
+      "perp_dist_km": 0.9693011883594227,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_dpatapur",
+      "canonical_name": "D.patapur",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/11683994911",
+      "perp_dist_km": 17.79476964577916,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_dpatapur_village",
+      "canonical_name": "D.patapur Village",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/11683994911",
+      "perp_dist_km": 17.79476964577916,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_dhabaleswar_temple",
+      "canonical_name": "Dhabaleswar Temple",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "Nominatim:node/4551321639",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_disha_college",
+      "canonical_name": "Disha College",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/343270816",
+      "perp_dist_km": 0.5421704048815557,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_duduma_colony_new_bus_stand",
+      "canonical_name": "Duduma Colony New Bus Stand",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/343270557",
+      "perp_dist_km": 1.0195381201644036,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_engineering_school_chowk_berhampur",
+      "canonical_name": "Engineering School Chowk Berhampur",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "places:place_transit_007",
+      "perp_dist_km": 2.9810608151444415,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_gandhi_college",
+      "canonical_name": "Gandhi College",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:node/2447829360",
+      "perp_dist_km": 2.4064837175520322e-05,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_goilundi_square",
+      "canonical_name": "Goilundi Square",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/340234206",
+      "perp_dist_km": 2.8779518915834964e-05,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_golanthra_village",
+      "canonical_name": "Golanthra Village",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/2522855836",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_gopalpur_bus_stand",
+      "canonical_name": "Gopalpur Bus Stand",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/11390744712",
+      "perp_dist_km": 4.934659940475726,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_gopalpur_college",
+      "canonical_name": "Gopalpur College",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/11390744712",
+      "perp_dist_km": 4.934659940475726,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_gopalpur_junction",
+      "canonical_name": "Gopalpur Junction",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:c_84fa5129d064",
+      "perp_dist_km": 4.214932942302476,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_gosaninugaa_police_station",
+      "canonical_name": "Gosaninugaa Police Station",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:c_f2348dd382da",
+      "perp_dist_km": 0.20108228554247554,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_govindpur",
+      "canonical_name": "Govindpur",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/6186589307",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_govindpur_square",
+      "canonical_name": "Govindpur Square",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/6186589307",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_haldiapadar_new",
+      "canonical_name": "Haldiapadar New",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/11691160406",
+      "perp_dist_km": 4.5026198149321575,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_haldiapadar_new_bus_stand",
+      "canonical_name": "Haldiapadar New Bus Stand",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/11691160406",
+      "perp_dist_km": 4.5026198149321575,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_haldiapadar_over_bridge",
+      "canonical_name": "Haldiapadar Over Bridge",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/11691160406",
+      "perp_dist_km": 4.5026198149321575,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_haldiapadar_village",
+      "canonical_name": "Haldiapadar Village",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/11691160406",
+      "perp_dist_km": 4.5026198149321575,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_jagadalpur_gramapanchayat",
+      "canonical_name": "Jagadalpur Gramapanchayat",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2962597032",
+      "perp_dist_km": 3.0623899190014683,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_jagadalpur_ri_office",
+      "canonical_name": "Jagadalpur Ri Office",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2962597032",
+      "perp_dist_km": 3.0623899190014683,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_jagadalpur_up_school",
+      "canonical_name": "Jagadalpur Up School",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2962597032",
+      "perp_dist_km": 3.0623899190014683,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_jagadalpur_village",
+      "canonical_name": "Jagadalpur Village",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2962597032",
+      "perp_dist_km": 3.0623899190014683,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_jayaprakash_nagar",
+      "canonical_name": "Jayaprakash Nagar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/239274077",
+      "perp_dist_km": 4.002173276856364,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_karapalli_village",
+      "canonical_name": "Karapalli Village",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2532369157",
+      "perp_dist_km": 1.733768789832702,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_kirtipur_village",
+      "canonical_name": "Kirtipur Village",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/2476722111",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_lic_office_berhampur",
+      "canonical_name": "Lic Office Berhampur",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "places:place_transit_007",
+      "perp_dist_km": 2.9810608151444415,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_lochapada_ganesh_bazaar",
+      "canonical_name": "Lochapada Ganesh Bazaar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:suburb/2962598838",
+      "perp_dist_km": 2.032273262768533,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_lochapada_hanuman_mandir",
+      "canonical_name": "Lochapada Hanuman Mandir",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:suburb/2962598838",
+      "perp_dist_km": 2.032273262768533,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_lochapada_hanuman_mandir_square",
+      "canonical_name": "Lochapada Hanuman Mandir Square",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:suburb/2962598838",
+      "perp_dist_km": 2.0196645374900504,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_mandiapalli_junction",
+      "canonical_name": "Mandiapalli Junction",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2532369160",
+      "perp_dist_km": 0.5478794111280537,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_mandiapalli_village",
+      "canonical_name": "Mandiapalli Village",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2532369160",
+      "perp_dist_km": 0.5478794111280537,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_mkcg_state_bank",
+      "canonical_name": "Mkcg State Bank",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:c_7724d9af7013",
+      "perp_dist_km": 0.29338790742404086,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_nalini_nagar",
+      "canonical_name": "Nalini Nagar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/239274077",
+      "perp_dist_km": 1.6782680861348716,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_narayanpur",
+      "canonical_name": "Narayanpur",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/11390744755",
+      "perp_dist_km": 3.3299650744584204,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_new_jugiyapalli",
+      "canonical_name": "New Jugiyapalli",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/343270557",
+      "perp_dist_km": 1.1115485701904972,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_nimakhandi_ri_office",
+      "canonical_name": "Nimakhandi Ri Office",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2962598840",
+      "perp_dist_km": 2.6846559483693975,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_old_bus_stand",
+      "canonical_name": "Old Bus Stand",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/12593431151",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_police_station",
+      "canonical_name": "Police Station",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:c_f2348dd382da",
+      "perp_dist_km": 0.2375078349848787,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_prem_nagar_square",
+      "canonical_name": "Prem Nagar Square",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:neighbourhood/2460606578",
+      "perp_dist_km": 0.2853918437327486,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_rangeilunda_village",
+      "canonical_name": "Rangeilunda Village",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2532369162",
+      "perp_dist_km": 0.6844493970133047,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_sai_temple",
+      "canonical_name": "Sai Temple",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/12176828710",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_sataya_narayanpur",
+      "canonical_name": "Sataya Narayanpur",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/11390744755",
+      "perp_dist_km": 3.3299650744584204,
+      "status": "CANDIDATE_HIGH"
+    }
+  ]
+}
