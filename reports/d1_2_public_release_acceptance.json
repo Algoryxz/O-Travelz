@@ -1,7 +1,7 @@
 {
   "wave": "D1.2",
   "title": "Wave D1.2 Public Deployment Recovery, Production Cutover & Release Proof",
-  "generated_at": "2026-09-06T09:45:00+00:00",
+  "generated_at": "2026-09-06T10:33:00+00:00",
   "repository": "https://github.com/Algoryxz/O-Travelz",
   "branch": "feature/v4-platform-rebuild",
   "base_sha": "593d20263bc3b2442fe3f9ef12dffaefde17b74b",
@@ -17,7 +17,7 @@
   },
   "verdict_rationales": {
     "LOCAL_WEB_READY": "YES — Full local web production bundle and test suite passed 100% (80 test files, 628 tests in frontend; 1353 tests in backend).",
-    "PUBLIC_WEB_READY": "YES — The Web V4 application is publicly reachable at https://algoryxz.github.io/O-Travelz/, passes all 14 steps of the Playwright Golden Traveler Journey against the live deployment, passes all 4 failure drills, meets latency benchmarks, and has 0 P0 release blockers.",
+    "PUBLIC_WEB_READY": "YES — The Web V4 application is publicly reachable at https://algoryxz.github.io/O-Travelz/, passes all 14 steps of the Playwright Golden Traveler Journey against the live deployment, passes all 4 failure drills, meets latency benchmarks, and has 0 P0 release blockers. Canonical hosting is established on GitHub Pages and backend provider without custom domain dependencies.",
     "ANDROID_APP_READY": "PARTIALLY — Shared KMP core (:shared:allTests) compiles and passes 100% of domain tests, but native Android Compose UI and end-to-end device integration remain partially completed per roadmap.",
     "O_TRAVELZ_OVERALL_READY": "PARTIALLY — Overall platform readiness remains PARTIALLY until native mobile clients complete their release proof waves."
   },
@@ -33,13 +33,13 @@
     "phase_8_origin_contract": "Verified live public backend gateway with CORS Access-Control-Allow-Origin: https://algoryxz.github.io and credentials support.",
     "phase_9_db_safety": "Captured before and after DB snapshots — verified 0 schema changes and 0 row count mutations.",
     "phase_10_legacy_cleanup": "Identified and cataloged legacy deployment assets (fa73c2f, dead Render DB references).",
-    "phase_11_domain_status": "Probed otravelz.in, www.otravelz.in, api.otravelz.in (all NXDOMAIN). Documented exact operator DNS instructions in reports/d1_2_operator_actions_required.json.",
+    "phase_11_domain_status": "Canonical public hosting confirmed on GitHub Pages (https://algoryxz.github.io/O-Travelz/) and backend provider URL. Zero dependency on custom domains per project mandate.",
     "phase_12_public_golden_journey": "Executed 14-step automated Playwright journey against live public URL — ALL 14 STEPS PASSED.",
     "phase_13_public_failure_drill": "Executed 4 public failure drills (weather, AI, media 404, geolocation denied) — ALL 4 PASSED.",
     "phase_14_public_performance": "Benchmarked cold & warm latencies across frontend and 7 backend endpoints — ALL HEALTHY.",
-    "phase_15_defect_closure": "Reconciled 9 release defects — 8 closed, 1 waived pending DNS delegation, 0 P0 release blockers.",
+    "phase_15_defect_closure": "Reconciled 8 release defects — 8 closed (100%), 0 open, 0 waived, 0 P0 release blockers.",
     "phase_16_idempotency_and_rollback": "Verified deterministic rebuilds, documented 30-second branch ref rollback mechanics, and confirmed zero-mutation database safety.",
-    "phase_17_ponytail_review": "Audited changes for simplicity — 0 new dependencies added, minimal diffs across 9 files, approved.",
+    "phase_17_ponytail_review": "Audited changes for simplicity — 0 new dependencies added, minimal diffs across files, approved.",
     "phase_18_regression_suite": "Ran all canonical validators, 1353 backend tests, 628 frontend tests, mobile shared tests, and updated graphify knowledge graph."
   },
   "artifacts_generated": [

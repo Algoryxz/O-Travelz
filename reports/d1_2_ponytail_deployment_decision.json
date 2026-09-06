@@ -90,9 +90,9 @@
     },
     {
       "id": "DEP-OP-002",
-      "classification": "OPERATOR_ACTION_REQUIRED",
-      "component": "Custom Domain DNS",
-      "decision": "otravelz.in is non-blocking; document exact operator DNS records."
+      "classification": "POLICY_DECISION",
+      "component": "Custom Domain",
+      "decision": "Custom domains (including otravelz.in) are excluded per project mandate; GitHub Pages and backend provider host are canonical."
     },
     {
       "id": "DEP-LEAVE-001",

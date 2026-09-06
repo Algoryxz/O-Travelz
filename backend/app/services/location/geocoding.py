@@ -98,7 +98,7 @@ def reverse_geocode_coordinates(lat: float, lon: float) -> Dict[str, Any]:
         req = urllib.request.Request(
             url,
             headers={
-                "User-Agent": "OTravelz-Travel-Platform/1.0 (travel@otravelz.in)",
+                "User-Agent": "OTravelz-Travel-Platform/1.0 (https://github.com/Algoryxz/O-Travelz)",
                 "Accept-Language": "en,or",
             },
         )

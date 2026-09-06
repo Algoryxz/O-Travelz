@@ -38,13 +38,12 @@ Frontend calls GET /auth/me to restore authenticated traveler profile
 Add both local development and production origins:
 - `http://localhost:5173` (Vite dev server)
 - `http://127.0.0.1:5173` (Vite local loopback)
-- `https://otravelz.in` (Production domain)
-- `https://www.otravelz.in` (Production canonical www)
+- `https://algoryxz.github.io` (GitHub Pages canonical frontend)
 
 ### Step 3: Configure Authorized Redirect URIs
 Add both local and production callback URIs:
 - `http://127.0.0.1:8000/auth/google/callback` (Local development FastAPI backend)
-- `https://api.otravelz.in/auth/google/callback` (Production API domain)
+- `https://otravelz-backend.onrender.com/auth/google/callback` (Production backend provider URL)
 
 ---
 
@@ -72,10 +71,10 @@ AUTH_COOKIE_SAMESITE=lax
 AUTH_FRONTEND_REDIRECT_URL=http://localhost:5173
 ```
 
-### Production Render Environment Overrides
-- `GOOGLE_OAUTH_REDIRECT_URI=https://api.otravelz.in/auth/google/callback`
+### Production Environment Overrides
+- `GOOGLE_OAUTH_REDIRECT_URI=https://otravelz-backend.onrender.com/auth/google/callback`
 - `AUTH_COOKIE_SECURE=true`
-- `AUTH_FRONTEND_REDIRECT_URL=https://otravelz.in`
+- `AUTH_FRONTEND_REDIRECT_URL=https://algoryxz.github.io/O-Travelz/`
 
 ---
 

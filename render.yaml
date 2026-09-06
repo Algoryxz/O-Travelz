@@ -16,7 +16,7 @@ services:
       - key: DATABASE_URL
         sync: false
       - key: CORS_ORIGINS
-        value: https://algoryxz.github.io,https://otravelz.in,https://www.otravelz.in,http://localhost:5173
+        value: https://algoryxz.github.io,http://localhost:5173
       - key: PYTHON_VERSION
         value: 3.12.5
       - key: AUTH_SESSION_SECRET

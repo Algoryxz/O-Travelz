@@ -20,7 +20,7 @@
     "Decoupled DATABASE_URL from fromDatabase: otravelz-db in render.yaml and marked sync: false for secure dashboard injection.",
     "Removed obsolete databases: block for deleted otravelz-db from render.yaml.",
     "Set PYTHON_VERSION: 3.12.5 in render.yaml.",
-    "Configured CORS_ORIGINS default in render.yaml to include https://algoryxz.github.io, https://otravelz.in, https://www.otravelz.in, http://localhost:5173.",
+    "Configured CORS_ORIGINS default in render.yaml to include https://algoryxz.github.io, http://localhost:5173.",
     "Added automatic GitHub Pages origin inclusion in backend/app/main.py CORSMiddleware.",
     "Added machine-readable release identity contract on /health and / with git_sha, alembic_version, status, and database connectivity."
   ],

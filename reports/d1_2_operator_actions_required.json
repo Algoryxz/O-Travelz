@@ -1,7 +1,7 @@
 {
   "wave": "D1.2",
   "phase": "2_backend_production_forensics",
-  "timestamp": "2026-09-06T09:16:00+00:00",
+  "timestamp": "2026-09-06T10:32:00+00:00",
   "provider": "Render (https://dashboard.render.com)",
   "service_name": "otravelz-backend",
   "service_url": "https://otravelz-backend.onrender.com",
@@ -9,7 +9,7 @@
   "diagnosed_root_cause": [
     "Obsolete blueprint binding: render.yaml declares fromDatabase: name: otravelz-db which was retired on 2026-09-04 when PostgreSQL was migrated to Aiven Cloud.",
     "Render free-tier database expiration: otravelz-db was deleted by Render after 30 days, causing the service build/start sequence to fail due to missing or invalid DATABASE_URL.",
-    "Service hibernation/suspension: Inactivity or crash-looping during startup (alembic migration attempt) caused Render to mark the web service suspended.",
+    "Service hibernation/suspension: Inactivity or crash-looping during startup caused Render to mark the web service suspended.",
     "Control-plane boundary: No Render API tokens or CLI credentials exist in this local or CI environment; human dashboard access is required to un-suspend."
   ],
   "operator_action_checklist": [
@@ -26,7 +26,7 @@
     {
       "step": 3,
       "title": "Update Environment Variables",
-      "action": "Go to the Environment tab of otravelz-backend. Verify/set the following environment variables: DATABASE_URL (set to the approved Aiven PostgreSQL connection URI with sslmode=require), ENVIRONMENT=production, CORS_ORIGINS=https://algoryxz.github.io,https://otravelz.in,https://www.otravelz.in,http://localhost:5173, STORAGE_BACKEND=local, LOCAL_STORAGE_BASE_PATH=./data/images."
+      "action": "Go to the Environment tab of otravelz-backend. Verify/set the following environment variables: DATABASE_URL (set to the approved Aiven PostgreSQL connection URI with sslmode=require), ENVIRONMENT=production, CORS_ORIGINS=https://algoryxz.github.io,http://localhost:5173, STORAGE_BACKEND=local, LOCAL_STORAGE_BASE_PATH=./data/images."
     },
     {
       "step": 4,

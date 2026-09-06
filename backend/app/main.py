@@ -65,8 +65,6 @@ else:
     allowed_defaults = [
         "https://algoryxz.github.io",
         "https://smarak-padhi.github.io",
-        "https://otravelz.in",
-        "https://www.otravelz.in",
         "http://localhost:5173",
         "http://localhost:4173",
         "http://127.0.0.1:5173",

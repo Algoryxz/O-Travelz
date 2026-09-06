@@ -29,7 +29,7 @@
     "frontend": "GitHub Pages (https://algoryxz.github.io/O-Travelz/)",
     "backend": "Hosted FastAPI Web Service (https://otravelz-backend.onrender.com or active HTTPS gateway)",
     "database": "Aiven Managed PostgreSQL 18.6 with PostGIS 3.6",
-    "custom_domain": "otravelz.in (non-blocking pending DNS operator actions)"
+    "custom_domain": "NONE (Excluded per project mandate; GitHub Pages and backend provider URL are canonical)"
   },
   "database_baseline": {
     "provider": "Aiven Managed PostgreSQL",

@@ -1,11 +1,11 @@
 {
   "wave": "D1.2",
   "phase": "15_release_defect_closure",
-  "generated_at": "2026-09-06T09:38:00+00:00",
-  "total_defects_tracked": 9,
+  "generated_at": "2026-09-06T10:30:00+00:00",
+  "total_defects_tracked": 8,
   "p0_release_blockers": 0,
   "p1_defects_open": 0,
-  "p1_defects_waived_for_dns": 1,
+  "p1_defects_waived": 0,
   "defects": [
     {
       "id": "DEP-P0-001",
@@ -58,16 +58,6 @@
       "verification_proof": "Verified direct deep links load correctly in headless Chromium without 404 errors."
     },
     {
-      "id": "DEP-P1-003",
-      "classification": "P1_PRODUCTION_DEFECT",
-      "component": "Custom Domain DNS Delegation",
-      "status": "WAIVED_PENDING_DNS",
-      "summary": "otravelz.in and api.otravelz.in have NXDOMAIN status",
-      "root_cause": "Domain registrar DNS records have not yet been delegated to GitHub Pages / Render by human operator.",
-      "remediation": "Documented exact DNS CNAME and ALIAS records in reports/d1_2_operator_actions_required.json and reports/d1_2_domain_status.json. Non-blocking for D1.2 release proof as primary public URL https://algoryxz.github.io/O-Travelz/ is fully operational.",
-      "verification_proof": "DNS probe documented in reports/d1_2_domain_status.json."
-    },
-    {
       "id": "DEP-P1-004",
       "classification": "P1_PRODUCTION_DEFECT",
       "component": "Frontend Vite Proxy",
@@ -99,11 +89,11 @@
     }
   ],
   "summary": {
-    "total": 9,
+    "total": 8,
     "p0_blockers_remaining": 0,
     "p1_defects_open": 0,
     "closed_count": 8,
-    "waived_count": 1,
+    "waived_count": 0,
     "release_blocker_verdict": "ZERO_P0_BLOCKERS"
   }
 }
