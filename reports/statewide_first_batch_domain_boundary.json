@@ -1,0 +1,85 @@
+{
+  "report": "statewide_first_batch_domain_boundary",
+  "generated_at": "2026-09-06T02:35:00.000000+00:00",
+  "git_head": "7106c33395c559f9b45ec555c59a0ac839664294",
+  "audit_verdict": "STOP_PROMOTION_DOMAIN_MODEL_CORRECTION_REQUIRED",
+  "summary": "Canonical 'places' table is currently specialized for cultural atlas destinations (Job 1). Inserting 189 utility entities (ATM, FUEL_STATION, POLICE_STATION, FIRE_STATION, local CHC/HOSPITAL) into 'places' without domain-model corrections will cause severe leaks into tourist discovery, itinerary solvers, and search suggestions, and violates the 'NO VERIFIED IMAGE = NO PUBLIC DESTINATION' invariant.",
+  "surfaces_audited": {
+    "sqlalchemy_models_and_categories": {
+      "status": "UNSAFE_WITHOUT_SCHEMA_OR_TAXONOMY_CHANGE",
+      "findings": [
+        "Place model has no 'domain_type' or 'entity_domain' discriminator (all rows treated as places/destinations).",
+        "Category table contains 23 categories: 20 leisure categories, plus 'hospital', 'emergency_facility', and 'transit_hub'.",
+        "Categories 'police_station', 'fire_station', 'atm', 'fuel_station' DO NOT EXIST in the database.",
+        "Attempting to insert candidates with new category foreign keys requires inserting unclassified categories."
+      ]
+    },
+    "api_places_discovery": {
+      "status": "LEAK_IDENTIFIED",
+      "findings": [
+        "GET /api/places executes SearchService.search_places.",
+        "Non-leisure suppression is hardcoded via NON_LEISURE_CATEGORIES: frozenset({'hospital', 'emergency_facility', 'transit_hub'}).",
+        "If 'police_station', 'fire_station', 'atm', 'fuel_station' are added, they are NOT in NON_LEISURE_CATEGORIES.",
+        "General /api/places browse queries will return ATMs and petrol pumps alongside Konark Sun Temple and Chilika Lake."
+      ]
+    },
+    "itinerary_and_ai_ranking": {
+      "status": "LEAK_IDENTIFIED",
+      "findings": [
+        "ItineraryService and replacement engines call SQLAlchemyPlaceRepository.list_verified_places(include_non_leisure=False).",
+        "This query filters ~Category.name.in_(NON_LEISURE_CATEGORIES).",
+        "Because ATM, police_station, fire_station, and fuel_station are absent from NON_LEISURE_CATEGORIES, they WILL be loaded as leisure destinations and scheduled into tourist day itineraries."
+      ]
+    },
+    "search_correction_and_suggestions": {
+      "status": "LEAK_IDENTIFIED",
+      "findings": [
+        "SearchCorrectionService._initialize_targets inspects Place table.",
+        "Line 75 contains a legacy check 'if cat_id in (14, 15, 16): continue' which fails on UUID PKs.",
+        "Adding 189 utility entities to places table will flood destination search suggestions with bank branches and petrol pumps."
+      ]
+    },
+    "media_and_publication_invariants": {
+      "status": "INVARIANT_VIOLATION_RISK",
+      "findings": [
+        "Core project rule: 'NO VERIFIED IMAGE = NO PUBLIC DESTINATION'.",
+        "Validation runner and media pipeline require verified authentic WebP photographs for public places in places.json / places table.",
+        "Utility entities (ATMs, fuel pumps, police outposts) do not have tourist photographs in manifest.json and cannot satisfy this gate without breaking or exempting the rule."
+      ]
+    },
+    "frontend_and_mobile_rendering": {
+      "status": "LEAK_IDENTIFIED",
+      "findings": [
+        "DestinationsPage and Explore Atlas render places fetched from GET /api/places.",
+        "Utility places would appear as destination cards with 'Plan Trip', 'Save Place', and hero images.",
+        "In contrast, the frontend ALREADY possesses a dedicated 'EssentialsSection' and 'NearbyFacilities' component consuming /api/v1/services/* from 'data/services/odisha_services.json'."
+      ]
+    }
+  },
+  "existing_architecture_alignment": {
+    "job_1_discover_places": "Curated catalog of 204 verified places spanning heritage, craft, nature, coastal, and culinary destinations (data/places/places.json, PostgreSQL places table).",
+    "job_8_find_nearby_services": "Audited civic amenities mapped to destinations via precomputed proximity relationships (data/services/odisha_services.json, EssentialsService, /api/services/*)."
+  },
+  "proposed_domain_model_corrections": {
+    "option_1_recommended": {
+      "name": "Clean Domain Separation via Services Layer",
+      "description": "Quarantine the 189 utility candidates to the dedicated services domain (data/services/odisha_services.json or a dedicated PostgreSQL services table) rather than polluting the tourist places catalog.",
+      "hospital_enrichment": "Perform in-place enrichment on the 12 existing canonical hospitals in places table (since they already exist in places and are already protected by NON_LEISURE_CATEGORIES).",
+      "utility_promotion": "Insert the approved utility write-set into the services dataset/table consumed by EssentialsService and /api/services/nearby.",
+      "benefits": [
+        "Zero leakage into tourist discovery, itineraries, or recommendations.",
+        "Preserves 'NO VERIFIED IMAGE = NO PUBLIC DESTINATION' invariant intact.",
+        "Aligns 100% with PRODUCT.md Job 1 vs Job 8 boundary."
+      ]
+    },
+    "option_2": {
+      "name": "Unified Places Schema with Domain Classifier & Non-Leisure Quarantine",
+      "description": "Add domain_type (DESTINATION vs CIVIC_UTILITY) to places table, insert categories into categories table, and extend NON_LEISURE_CATEGORIES across all backend search, ranking, and suggestion services.",
+      "tradeoffs": [
+        "Requires database migration on places table.",
+        "Requires modifying NON_LEISURE_CATEGORIES across multiple files.",
+        "Requires updating media validation rules to exempt CIVIC_UTILITY from image requirements."
+      ]
+    }
+  }
+}

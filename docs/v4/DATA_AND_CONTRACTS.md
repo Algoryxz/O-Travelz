@@ -15,6 +15,7 @@ When the canonical database bootstrap script (`scripts/bootstrap_database.py`) e
 | Entity / Layer | Bootstrap Record Count | Provenance & Validation Gate | Status |
 |---|---|---|---|
 | **Places / Destinations** | **204** | Master catalog across all 30 districts; verified WGS84 coordinates | `[CURRENT]` |
+| **Civic Services** | **211** | Audited facilities (hospitals, police, fire, ATMs, fuel) in `data/services/odisha_services.json` | `[PROMOTED - WAVE B1.2]` |
 | **Categories** | **23** | Canonical taxonomy (Monument, Temple, Craft Village, Beach, etc.) | `[CURRENT]` |
 | **Interests** | **12** | Travel intent tags (Architecture, Heritage, Wildlife, Handlooms, etc.) | `[CURRENT]` |
 | **Transport Providers** | **3** | CRUT (Mo Bus), OSRTC (Ama Bus), Indian Railways | `[CURRENT]` |
@@ -131,7 +132,33 @@ CREATE INDEX ix_entity_media_asset ON entity_media(media_asset_id);
 ```
 > Note: `place_images` is preserved as a legacy compatibility store for existing client endpoints and bootstrap invariant checking. `media_assets` serves as the sole canonical registry.
 
-### 2.4 Living Heritage & Artisan Schema `[PLANNED]`
+### 2.4 Civic Services Domain Schema (`data/services/odisha_services.json`) `[CURRENT]`
+Civic utilities (Job 8) are strictly segregated from tourism destinations (`places`) to prevent data leakage into tourist discovery, itinerary generation, and search feeds.
+
+```json
+{
+  "id": "hosp_scb_cuttack",
+  "name": "SCB Medical College & Hospital",
+  "service_type": "hospital",
+  "district": "Cuttack",
+  "address": "Mangalabag, Cuttack, Odisha 753007",
+  "contact_phone": "+91-671-2414080",
+  "emergency_phone": "108",
+  "latitude": 20.4725,
+  "longitude": 85.8864,
+  "confidence": "HIGH",
+  "source_type": "health_department",
+  "source_url": "https://scbmch.in",
+  "last_verified_at": "2026-09-06T00:00:00Z"
+}
+```
+
+**API Contracts (`EssentialsService`)**:
+- `GET /api/services/all`: Returns all 211 verified civic service facilities across Odisha.
+- `GET /api/services/by-type/{service_type}`: Filter by `hospital`, `police`, `fire_station`, `atm`, `fuel_station`.
+- `GET /api/services/nearby?lat={lat}&lon={lon}&radius_km={r}`: Geodetic Haversine proximity query for travelers.
+
+### 2.5 Living Heritage & Artisan Schema `[PLANNED]`
 ```sql
 CREATE TABLE craft_traditions (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

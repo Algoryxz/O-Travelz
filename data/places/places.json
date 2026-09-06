@@ -3091,7 +3091,9 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_002",
@@ -3110,7 +3112,9 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_003",
@@ -3129,7 +3133,9 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_004",
@@ -3148,7 +3154,9 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_005",
@@ -3167,7 +3175,9 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_006",
@@ -3186,7 +3196,9 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_007",
@@ -3204,7 +3216,10 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "contact_phone": "06852-250101",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_008",
@@ -3222,7 +3237,10 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "contact_phone": "06792-252102",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_009",
@@ -3240,7 +3258,10 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "contact_phone": "06652-230300",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_010",
@@ -3258,7 +3279,10 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "contact_phone": "06782-255010",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_011",
@@ -3276,7 +3300,10 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "contact_phone": "06766-255100",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_012",
@@ -3294,7 +3321,10 @@
     "verified_at": "2026-08-22T00:00:00Z",
     "coordinate_audit_status": "high",
     "coordinate_verification": "official institutional registry",
-    "audit_status": "verified"
+    "audit_status": "verified",
+    "contact_phone": "06752-222044",
+    "confidence": "HIGH",
+    "last_verified_at": "2026-09-06T00:00:00Z"
   },
   {
     "id": "place_med_013",

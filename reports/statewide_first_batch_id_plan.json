@@ -1,0 +1,1508 @@
+{
+  "report": "statewide_first_batch_id_plan",
+  "total_new_service_entities": 150,
+  "zero_existing_collision_verified": true,
+  "all_ids_unique_verified": true,
+  "id_plan": [
+    {
+      "original_candidate_id": "c_d38c1f35e124",
+      "assigned_service_id": "hosp_boudh_town_dhh",
+      "canonical_name": "District Headquarters Hospital (DHH) Boudh",
+      "entity_type": "HOSPITAL",
+      "district": "Boudh",
+      "locality": "Boudh Town",
+      "source_record_id": "round2_south_service_001",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_7298655d3ea3",
+      "assigned_service_id": "hosp_kantamal_chc",
+      "canonical_name": "Community Health Centre (CHC) Kantamal",
+      "entity_type": "HOSPITAL",
+      "district": "Boudh",
+      "locality": "Kantamal",
+      "source_record_id": "round2_south_service_002",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_95e7cc1bf1c8",
+      "assigned_service_id": "hosp_purunakatak_chc",
+      "canonical_name": "Community Health Centre (CHC) Purunakatak",
+      "entity_type": "HOSPITAL",
+      "district": "Boudh",
+      "locality": "Purunakatak",
+      "source_record_id": "round2_south_service_003",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_23abb9ff83e8",
+      "assigned_service_id": "hosp_baunsuni_chc",
+      "canonical_name": "Community Health Centre (CHC) Baunsuni",
+      "entity_type": "HOSPITAL",
+      "district": "Boudh",
+      "locality": "Baunsuni",
+      "source_record_id": "round2_south_service_004",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_3427657a526e",
+      "assigned_service_id": "atm_sbi_boudh_town",
+      "canonical_name": "State Bank of India (SBI) ATM - Boudh Main Branch",
+      "entity_type": "ATM",
+      "district": "Boudh",
+      "locality": "Boudh Town",
+      "source_record_id": "round2_south_service_005",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_d3561285858d",
+      "assigned_service_id": "atm_hdfc_boudh_town",
+      "canonical_name": "HDFC Bank ATM - Boudh",
+      "entity_type": "ATM",
+      "district": "Boudh",
+      "locality": "Boudh Town",
+      "source_record_id": "round2_south_service_006",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_834e5df02b8e",
+      "assigned_service_id": "atm_pnb_purunakatak",
+      "canonical_name": "Punjab National Bank (PNB) ATM - Purunakatak",
+      "entity_type": "ATM",
+      "district": "Boudh",
+      "locality": "Purunakatak",
+      "source_record_id": "round2_south_service_007",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_a1b3d0680986",
+      "assigned_service_id": "fuel_bpcl_boudh_town",
+      "canonical_name": "Bharat Petroleum (BPCL) - Boudh Auto Service",
+      "entity_type": "FUEL_STATION",
+      "district": "Boudh",
+      "locality": "Boudh Town",
+      "source_record_id": "round2_south_service_010",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_dc6de52eb270",
+      "assigned_service_id": "police_kantamal_ps",
+      "canonical_name": "Kantamal Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Boudh",
+      "locality": "Kantamal",
+      "source_record_id": "round2_south_service_014",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_0bc50d7c7989",
+      "assigned_service_id": "hosp_paralakhemundi_dhh",
+      "canonical_name": "District Headquarters Hospital (DHH) Paralakhemundi",
+      "entity_type": "HOSPITAL",
+      "district": "Gajapati",
+      "locality": "Paralakhemundi",
+      "source_record_id": "round2_south_service_019",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_35a88d31a6f2",
+      "assigned_service_id": "hosp_rudayagiri_sdh",
+      "canonical_name": "Sub-Divisional Hospital (SDH) R.Udayagiri",
+      "entity_type": "HOSPITAL",
+      "district": "Gajapati",
+      "locality": "R.Udayagiri",
+      "source_record_id": "round2_south_service_020",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_67293343b284",
+      "assigned_service_id": "atm_canara_mohana",
+      "canonical_name": "Canara Bank ATM - Mohana",
+      "entity_type": "ATM",
+      "district": "Gajapati",
+      "locality": "Mohana",
+      "source_record_id": "round2_south_service_026",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_60e3de8c479b",
+      "assigned_service_id": "police_paralakhemundi_ps",
+      "canonical_name": "Paralakhemundi Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Gajapati",
+      "locality": "Paralakhemundi",
+      "source_record_id": "round2_south_service_030",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_0e2c321f6fa3",
+      "assigned_service_id": "police_mohana_ps",
+      "canonical_name": "Mohana Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Gajapati",
+      "locality": "Mohana",
+      "source_record_id": "round2_south_service_031",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_8842e36cd2c1",
+      "assigned_service_id": "police_rudayagiri_ps",
+      "canonical_name": "R.Udayagiri Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Gajapati",
+      "locality": "R.Udayagiri",
+      "source_record_id": "round2_south_service_032",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_18238586f4b3",
+      "assigned_service_id": "hosp_chhatrapur_dhh",
+      "canonical_name": "District Headquarters Hospital (DHH) Chhatrapur",
+      "entity_type": "HOSPITAL",
+      "district": "Ganjam",
+      "locality": "Chhatrapur",
+      "source_record_id": "round2_south_service_037",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_6ce863eaf02b",
+      "assigned_service_id": "atm_sbi_berhampur",
+      "canonical_name": "State Bank of India (SBI) ATM - Berhampur Main Branch",
+      "entity_type": "ATM",
+      "district": "Ganjam",
+      "locality": "Berhampur",
+      "source_record_id": "round2_south_service_040",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_297a7afc39b4",
+      "assigned_service_id": "atm_icici_gopalpur",
+      "canonical_name": "ICICI Bank ATM - Gopalpur-on-Sea",
+      "entity_type": "ATM",
+      "district": "Ganjam",
+      "locality": "Gopalpur",
+      "source_record_id": "round2_south_service_042",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_6776721eb406",
+      "assigned_service_id": "hosp_bhawanipatna_dhh",
+      "canonical_name": "District Headquarters Hospital (DHH) Bhawanipatna",
+      "entity_type": "HOSPITAL",
+      "district": "Kalahandi",
+      "locality": "Bhawanipatna",
+      "source_record_id": "round2_south_service_054",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_7f5b05e9599e",
+      "assigned_service_id": "hosp_junagarh_chc",
+      "canonical_name": "Community Health Centre (CHC) Junagarh",
+      "entity_type": "HOSPITAL",
+      "district": "Kalahandi",
+      "locality": "Junagarh",
+      "source_record_id": "round2_south_service_056",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_0bba0bf0a69c",
+      "assigned_service_id": "hosp_kesinga_chc",
+      "canonical_name": "Community Health Centre (CHC) Kesinga",
+      "entity_type": "HOSPITAL",
+      "district": "Kalahandi",
+      "locality": "Kesinga",
+      "source_record_id": "round2_south_service_057",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_c820dd4246c3",
+      "assigned_service_id": "atm_sbi_bhawanipatna",
+      "canonical_name": "State Bank of India (SBI) ATM - Bhawanipatna Main Branch",
+      "entity_type": "ATM",
+      "district": "Kalahandi",
+      "locality": "Bhawanipatna",
+      "source_record_id": "round2_south_service_058",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_08adbd2b00e2",
+      "assigned_service_id": "fuel_hp_kesinga",
+      "canonical_name": "Hindustan Petroleum (HPCL) - Kesinga Highway Fuel Point",
+      "entity_type": "FUEL_STATION",
+      "district": "Kalahandi",
+      "locality": "Kesinga",
+      "source_record_id": "round2_south_service_064",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_e21589b4edef",
+      "assigned_service_id": "atm_sbi_daringbadi",
+      "canonical_name": "State Bank of India (SBI) ATM - Daringbadi",
+      "entity_type": "ATM",
+      "district": "Kandhamal",
+      "locality": "Daringbadi",
+      "source_record_id": "round2_south_service_076",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_e77cae07e6c1",
+      "assigned_service_id": "police_baliguda_ps",
+      "canonical_name": "Baliguda Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Kandhamal",
+      "locality": "Baliguda",
+      "source_record_id": "round2_south_service_084",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_8bf64ad04263",
+      "assigned_service_id": "atm_hdfc_jeypore",
+      "canonical_name": "HDFC Bank ATM - Jeypore",
+      "entity_type": "ATM",
+      "district": "Koraput",
+      "locality": "Jeypore",
+      "source_record_id": "round2_south_service_094",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_2db140ee2bd4",
+      "assigned_service_id": "police_jeypore_ps",
+      "canonical_name": "Jeypore Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Koraput",
+      "locality": "Jeypore",
+      "source_record_id": "round2_south_service_101",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_8436afeebcad",
+      "assigned_service_id": "hosp_malkangiri_dhh",
+      "canonical_name": "District Headquarters Hospital (DHH) Malkangiri",
+      "entity_type": "HOSPITAL",
+      "district": "Malkangiri",
+      "locality": "Malkangiri",
+      "source_record_id": "round2_south_service_108",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_8afd554fd7d3",
+      "assigned_service_id": "atm_axis_balimela",
+      "canonical_name": "Axis Bank ATM - Balimela",
+      "entity_type": "ATM",
+      "district": "Malkangiri",
+      "locality": "Balimela",
+      "source_record_id": "round2_south_service_114",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_b435559df1b0",
+      "assigned_service_id": "fuel_hp_chitrakonda",
+      "canonical_name": "Hindustan Petroleum (HPCL) - Chitrakonda Fuel Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Malkangiri",
+      "locality": "Chitrakonda",
+      "source_record_id": "round2_south_service_118",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_669e32ce41c8",
+      "assigned_service_id": "police_chitrakonda_ps",
+      "canonical_name": "Chitrakonda Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Malkangiri",
+      "locality": "Chitrakonda",
+      "source_record_id": "round2_south_service_120",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_03069f43e95c",
+      "assigned_service_id": "hosp_nabarangpur_dhh",
+      "canonical_name": "District Headquarters Hospital (DHH) Nabarangpur",
+      "entity_type": "HOSPITAL",
+      "district": "Nabarangpur",
+      "locality": "Nabarangpur",
+      "source_record_id": "round2_south_service_125",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_229ddad0b9b2",
+      "assigned_service_id": "atm_axis_umerkote",
+      "canonical_name": "Axis Bank ATM - Umerkote",
+      "entity_type": "ATM",
+      "district": "Nabarangpur",
+      "locality": "Umerkote",
+      "source_record_id": "round2_south_service_131",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_2b2e6322112e",
+      "assigned_service_id": "atm_pnb_papadahandi",
+      "canonical_name": "Punjab National Bank (PNB) ATM - Papadahandi",
+      "entity_type": "ATM",
+      "district": "Nabarangpur",
+      "locality": "Papadahandi",
+      "source_record_id": "round2_south_service_132",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_83bcc2b1ec26",
+      "assigned_service_id": "fuel_fuel_papadahandi",
+      "canonical_name": "IndianOil Fuel Station - Shahid Minar Auto Service",
+      "entity_type": "FUEL_STATION",
+      "district": "Nabarangpur",
+      "locality": "Papadahandi",
+      "source_record_id": "round2_south_service_133",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_5bb3300c1aad",
+      "assigned_service_id": "atm_axis_khariar",
+      "canonical_name": "Axis Bank ATM - Khariar",
+      "entity_type": "ATM",
+      "district": "Nuapada",
+      "locality": "Khariar",
+      "source_record_id": "round2_south_service_148",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_2f439545d4c7",
+      "assigned_service_id": "atm_sbi_komna",
+      "canonical_name": "State Bank of India (SBI) ATM - Komna",
+      "entity_type": "ATM",
+      "district": "Nuapada",
+      "locality": "Komna",
+      "source_record_id": "round2_south_service_149",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_e1b5cb722947",
+      "assigned_service_id": "fuel_fuel_nuapada",
+      "canonical_name": "IndianOil Auto Service - Nuapada Bypass",
+      "entity_type": "FUEL_STATION",
+      "district": "Nuapada",
+      "locality": "Nuapada",
+      "source_record_id": "round2_south_service_150",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_3b5ea86f77cf",
+      "assigned_service_id": "fuel_bpcl_khariar_road",
+      "canonical_name": "Bharat Petroleum (BPCL) - Khariar Road Filling Station",
+      "entity_type": "FUEL_STATION",
+      "district": "Nuapada",
+      "locality": "Khariar Road",
+      "source_record_id": "round2_south_service_151",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_eb22a1977cd5",
+      "assigned_service_id": "police_khariar_ps",
+      "canonical_name": "Khariar Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Nuapada",
+      "locality": "Khariar",
+      "source_record_id": "round2_south_service_155",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "c_64577fabfe6a",
+      "assigned_service_id": "atm_icici_gunupur",
+      "canonical_name": "ICICI Bank ATM - Gunupur",
+      "entity_type": "ATM",
+      "district": "Rayagada",
+      "locality": "Gunupur",
+      "source_record_id": "round2_south_service_165",
+      "source_dataset": "data/research/round2/southern/services.json"
+    },
+    {
+      "original_candidate_id": "hosp_north_002",
+      "assigned_service_id": "hosp_north_002",
+      "canonical_name": "District Headquarters Hospital Baripada",
+      "entity_type": "HOSPITAL",
+      "district": "Mayurbhanj",
+      "locality": "Town Center",
+      "source_record_id": "hosp_north_002",
+      "source_dataset": "data/health/hospitals_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_north_004",
+      "assigned_service_id": "hosp_north_004",
+      "canonical_name": "Sub-Divisional Hospital Karanjia",
+      "entity_type": "HOSPITAL",
+      "district": "Mayurbhanj",
+      "locality": "Karanjia Town",
+      "source_record_id": "hosp_north_004",
+      "source_dataset": "data/health/hospitals_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_north_005",
+      "assigned_service_id": "hosp_north_005",
+      "canonical_name": "Sub-Divisional Hospital Udala",
+      "entity_type": "HOSPITAL",
+      "district": "Mayurbhanj",
+      "locality": "Udala",
+      "source_record_id": "hosp_north_005",
+      "source_dataset": "data/health/hospitals_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_north_006",
+      "assigned_service_id": "hosp_north_006",
+      "canonical_name": "Community Health Centre Jashipur",
+      "entity_type": "HOSPITAL",
+      "district": "Mayurbhanj",
+      "locality": "Jashipur",
+      "source_record_id": "hosp_north_006",
+      "source_dataset": "data/health/hospitals_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_north_008",
+      "assigned_service_id": "hosp_north_008",
+      "canonical_name": "District Headquarters Hospital Balasore",
+      "entity_type": "HOSPITAL",
+      "district": "Balasore",
+      "locality": "Balasore Town",
+      "source_record_id": "hosp_north_008",
+      "source_dataset": "data/health/hospitals_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_north_009",
+      "assigned_service_id": "hosp_north_009",
+      "canonical_name": "Sub-Divisional Hospital Nilagiri",
+      "entity_type": "HOSPITAL",
+      "district": "Balasore",
+      "locality": "Nilagiri",
+      "source_record_id": "hosp_north_009",
+      "source_dataset": "data/health/hospitals_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_north_010",
+      "assigned_service_id": "hosp_north_010",
+      "canonical_name": "Community Health Centre Chandipur",
+      "entity_type": "HOSPITAL",
+      "district": "Balasore",
+      "locality": "Chandipur",
+      "source_record_id": "hosp_north_010",
+      "source_dataset": "data/health/hospitals_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_north_014",
+      "assigned_service_id": "hosp_north_014",
+      "canonical_name": "Sub-Divisional Hospital Anandapur",
+      "entity_type": "HOSPITAL",
+      "district": "Keonjhar",
+      "locality": "Anandapur",
+      "source_record_id": "hosp_north_014",
+      "source_dataset": "data/health/hospitals_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_north_015",
+      "assigned_service_id": "hosp_north_015",
+      "canonical_name": "Sub-Divisional Hospital Champua",
+      "entity_type": "HOSPITAL",
+      "district": "Keonjhar",
+      "locality": "Champua Town",
+      "source_record_id": "hosp_north_015",
+      "source_dataset": "data/health/hospitals_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_north_017",
+      "assigned_service_id": "hosp_north_017",
+      "canonical_name": "District Headquarters Hospital Nayagarh",
+      "entity_type": "HOSPITAL",
+      "district": "Nayagarh",
+      "locality": "Nayagarh Town",
+      "source_record_id": "hosp_north_017",
+      "source_dataset": "data/health/hospitals_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_007",
+      "assigned_service_id": "hosp_west_007",
+      "canonical_name": "Community Health Centre Naktideul",
+      "entity_type": "HOSPITAL",
+      "district": "Sambalpur",
+      "locality": "Naktideul",
+      "source_record_id": "hosp_west_007",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_008",
+      "assigned_service_id": "hosp_west_008",
+      "canonical_name": "Community Health Centre Jamankira",
+      "entity_type": "HOSPITAL",
+      "district": "Sambalpur",
+      "locality": "Jamankira",
+      "source_record_id": "hosp_west_008",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_013",
+      "assigned_service_id": "hosp_west_013",
+      "canonical_name": "District Headquarters Hospital Bargarh",
+      "entity_type": "HOSPITAL",
+      "district": "Bargarh",
+      "locality": "Tukurla",
+      "source_record_id": "hosp_west_013",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_017",
+      "assigned_service_id": "hosp_west_017",
+      "canonical_name": "Community Health Centre Bhatli",
+      "entity_type": "HOSPITAL",
+      "district": "Bargarh",
+      "locality": "Bhatli",
+      "source_record_id": "hosp_west_017",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_020",
+      "assigned_service_id": "hosp_west_020",
+      "canonical_name": "Community Health Centre Gaisilet",
+      "entity_type": "HOSPITAL",
+      "district": "Bargarh",
+      "locality": "Gaisilet",
+      "source_record_id": "hosp_west_020",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_023",
+      "assigned_service_id": "hosp_west_023",
+      "canonical_name": "District Headquarters Hospital Jharsuguda",
+      "entity_type": "HOSPITAL",
+      "district": "Jharsuguda",
+      "locality": "Malimunda",
+      "source_record_id": "hosp_west_023",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_028",
+      "assigned_service_id": "hosp_west_028",
+      "canonical_name": "Community Health Centre Laikera",
+      "entity_type": "HOSPITAL",
+      "district": "Jharsuguda",
+      "locality": "Laikera",
+      "source_record_id": "hosp_west_028",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_029",
+      "assigned_service_id": "hosp_west_029",
+      "canonical_name": "Central Hospital Brajrajnagar (MCL)",
+      "entity_type": "HOSPITAL",
+      "district": "Jharsuguda",
+      "locality": "MCL Colony",
+      "source_record_id": "hosp_west_029",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_030",
+      "assigned_service_id": "hosp_west_030",
+      "canonical_name": "NTPC Hospital Darlipali",
+      "entity_type": "HOSPITAL",
+      "district": "Jharsuguda",
+      "locality": "Darlipali",
+      "source_record_id": "hosp_west_030",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_036",
+      "assigned_service_id": "hosp_west_036",
+      "canonical_name": "Hi-Tech Medical College & Hospital Rourkela",
+      "entity_type": "HOSPITAL",
+      "district": "Sundargarh",
+      "locality": "Panposh Road",
+      "source_record_id": "hosp_west_036",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_049",
+      "assigned_service_id": "hosp_west_049",
+      "canonical_name": "Community Health Centre Loisingha",
+      "entity_type": "HOSPITAL",
+      "district": "Balangir",
+      "locality": "Loisingha",
+      "source_record_id": "hosp_west_049",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_060",
+      "assigned_service_id": "hosp_west_060",
+      "canonical_name": "Community Health Centre Kantamal",
+      "entity_type": "HOSPITAL",
+      "district": "Boudh",
+      "locality": "Kantamal",
+      "source_record_id": "hosp_west_060",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "hosp_west_070",
+      "assigned_service_id": "hosp_west_070",
+      "canonical_name": "Community Health Centre Jaipatna",
+      "entity_type": "HOSPITAL",
+      "district": "Kalahandi",
+      "locality": "Jaipatna",
+      "source_record_id": "hosp_west_070",
+      "source_dataset": "data/health/hospitals_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "police_north_011",
+      "assigned_service_id": "police_north_011",
+      "canonical_name": "Ghatagaon Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Keonjhar",
+      "locality": "Ghatagaon",
+      "source_record_id": "police_north_011",
+      "source_dataset": "data/safety/police_stations_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "police_west_006",
+      "assigned_service_id": "police_west_006",
+      "canonical_name": "Rengali Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Sambalpur",
+      "locality": "Rengali",
+      "source_record_id": "police_west_006",
+      "source_dataset": "data/safety/police_stations_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "police_west_015",
+      "assigned_service_id": "police_west_015",
+      "canonical_name": "Biramitrapur Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Sundargarh",
+      "locality": "Biramitrapur",
+      "source_record_id": "police_west_015",
+      "source_dataset": "data/safety/police_stations_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "police_west_019",
+      "assigned_service_id": "police_west_019",
+      "canonical_name": "Lahunipara Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Sundargarh",
+      "locality": "Lahunipara",
+      "source_record_id": "police_west_019",
+      "source_dataset": "data/safety/police_stations_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "police_west_020",
+      "assigned_service_id": "police_west_020",
+      "canonical_name": "Bargarh Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Bargarh",
+      "locality": "Bargarh Bazar",
+      "source_record_id": "police_west_020",
+      "source_dataset": "data/safety/police_stations_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "police_west_027",
+      "assigned_service_id": "police_west_027",
+      "canonical_name": "Jharsuguda Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Jharsuguda",
+      "locality": "Main Market",
+      "source_record_id": "police_west_027",
+      "source_dataset": "data/safety/police_stations_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "police_west_031",
+      "assigned_service_id": "police_west_031",
+      "canonical_name": "Banharpali Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Jharsuguda",
+      "locality": "Banharpali",
+      "source_record_id": "police_west_031",
+      "source_dataset": "data/safety/police_stations_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "police_west_053",
+      "assigned_service_id": "police_west_053",
+      "canonical_name": "Sonepur Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Subarnapur",
+      "locality": "Bazar Road",
+      "source_record_id": "police_west_053",
+      "source_dataset": "data/safety/police_stations_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "police_west_056",
+      "assigned_service_id": "police_west_056",
+      "canonical_name": "Binika Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Subarnapur",
+      "locality": "Binika",
+      "source_record_id": "police_west_056",
+      "source_dataset": "data/safety/police_stations_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "police_west_058",
+      "assigned_service_id": "police_west_058",
+      "canonical_name": "Nuapada Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Nuapada",
+      "locality": "Nuapada Town",
+      "source_record_id": "police_west_058",
+      "source_dataset": "data/safety/police_stations_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "police_west_071",
+      "assigned_service_id": "police_west_071",
+      "canonical_name": "Tileibani Police Station",
+      "entity_type": "POLICE_STATION",
+      "district": "Deogarh",
+      "locality": "Tileibani",
+      "source_record_id": "police_west_071",
+      "source_dataset": "data/safety/police_stations_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fire_north_001",
+      "assigned_service_id": "fire_north_001",
+      "canonical_name": "Baripada Fire Station",
+      "entity_type": "FIRE_STATION",
+      "district": "Mayurbhanj",
+      "locality": "Kacheri Road",
+      "source_record_id": "fire_north_001",
+      "source_dataset": "data/safety/fire_stations_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "fire_north_003",
+      "assigned_service_id": "fire_north_003",
+      "canonical_name": "Jashipur Fire Station",
+      "entity_type": "FIRE_STATION",
+      "district": "Mayurbhanj",
+      "locality": "Jashipur",
+      "source_record_id": "fire_north_003",
+      "source_dataset": "data/safety/fire_stations_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "fire_north_004",
+      "assigned_service_id": "fire_north_004",
+      "canonical_name": "Balasore Town Fire Station",
+      "entity_type": "FIRE_STATION",
+      "district": "Balasore",
+      "locality": "OT Road",
+      "source_record_id": "fire_north_004",
+      "source_dataset": "data/safety/fire_stations_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "fire_north_006",
+      "assigned_service_id": "fire_north_006",
+      "canonical_name": "Bhogarai Fire Station",
+      "entity_type": "FIRE_STATION",
+      "district": "Balasore",
+      "locality": "Bhogarai",
+      "source_record_id": "fire_north_006",
+      "source_dataset": "data/safety/fire_stations_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "fire_north_007",
+      "assigned_service_id": "fire_north_007",
+      "canonical_name": "Keonjhar Town Fire Station",
+      "entity_type": "FIRE_STATION",
+      "district": "Keonjhar",
+      "locality": "Station Road",
+      "source_record_id": "fire_north_007",
+      "source_dataset": "data/safety/fire_stations_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "fire_north_010",
+      "assigned_service_id": "fire_north_010",
+      "canonical_name": "Nayagarh Town Fire Station",
+      "entity_type": "FIRE_STATION",
+      "district": "Nayagarh",
+      "locality": "Old Town",
+      "source_record_id": "fire_north_010",
+      "source_dataset": "data/safety/fire_stations_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "fire_north_013",
+      "assigned_service_id": "fire_north_013",
+      "canonical_name": "Puri Sea Beach Fire Station",
+      "entity_type": "FIRE_STATION",
+      "district": "Puri",
+      "locality": "Sea Beach Road",
+      "source_record_id": "fire_north_013",
+      "source_dataset": "data/safety/fire_stations_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "fire_north_014",
+      "assigned_service_id": "fire_north_014",
+      "canonical_name": "Konark Fire Station",
+      "entity_type": "FIRE_STATION",
+      "district": "Puri",
+      "locality": "Konark",
+      "source_record_id": "fire_north_014",
+      "source_dataset": "data/safety/fire_stations_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "fire_north_015",
+      "assigned_service_id": "fire_north_015",
+      "canonical_name": "Pipili Fire Station",
+      "entity_type": "FIRE_STATION",
+      "district": "Puri",
+      "locality": "Pipili",
+      "source_record_id": "fire_north_015",
+      "source_dataset": "data/safety/fire_stations_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_north_003",
+      "assigned_service_id": "atm_north_003",
+      "canonical_name": "SBI ATM Jashipur (Similipal Entry)",
+      "entity_type": "ATM",
+      "district": "Mayurbhanj",
+      "locality": "Jashipur",
+      "source_record_id": "atm_north_003",
+      "source_dataset": "data/finance/atms_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_north_006",
+      "assigned_service_id": "atm_north_006",
+      "canonical_name": "SBI ATM Balasore Railway Station",
+      "entity_type": "ATM",
+      "district": "Balasore",
+      "locality": "Station Road",
+      "source_record_id": "atm_north_006",
+      "source_dataset": "data/finance/atms_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_north_015",
+      "assigned_service_id": "atm_north_015",
+      "canonical_name": "ICICI Bank ATM Baramunda ISBT",
+      "entity_type": "ATM",
+      "district": "Khordha",
+      "locality": "Baramunda",
+      "source_record_id": "atm_north_015",
+      "source_dataset": "data/finance/atms_northern_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_005",
+      "assigned_service_id": "atm_west_005",
+      "canonical_name": "HDFC Bank ATM Khetrajpur",
+      "entity_type": "ATM",
+      "district": "Sambalpur",
+      "locality": "Khetrajpur",
+      "source_record_id": "atm_west_005",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_006",
+      "assigned_service_id": "atm_west_006",
+      "canonical_name": "HDFC Bank ATM Dhanupali",
+      "entity_type": "ATM",
+      "district": "Sambalpur",
+      "locality": "Dhanupali",
+      "source_record_id": "atm_west_006",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_009",
+      "assigned_service_id": "atm_west_009",
+      "canonical_name": "ICICI Bank ATM Nayapada",
+      "entity_type": "ATM",
+      "district": "Sambalpur",
+      "locality": "Nayapada",
+      "source_record_id": "atm_west_009",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_010",
+      "assigned_service_id": "atm_west_010",
+      "canonical_name": "ICICI Bank ATM Burla MCL",
+      "entity_type": "ATM",
+      "district": "Sambalpur",
+      "locality": "Burla",
+      "source_record_id": "atm_west_010",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_011",
+      "assigned_service_id": "atm_west_011",
+      "canonical_name": "Axis Bank ATM Budharaja",
+      "entity_type": "ATM",
+      "district": "Sambalpur",
+      "locality": "Budharaja",
+      "source_record_id": "atm_west_011",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_018",
+      "assigned_service_id": "atm_west_018",
+      "canonical_name": "HDFC Bank ATM Daily Market Bargarh",
+      "entity_type": "ATM",
+      "district": "Bargarh",
+      "locality": "Daily Market",
+      "source_record_id": "atm_west_018",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_024",
+      "assigned_service_id": "atm_west_024",
+      "canonical_name": "Punjab National Bank ATM Bhatli",
+      "entity_type": "ATM",
+      "district": "Bargarh",
+      "locality": "Bhatli",
+      "source_record_id": "atm_west_024",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_029",
+      "assigned_service_id": "atm_west_029",
+      "canonical_name": "SBI ATM Jharsuguda Railway Station",
+      "entity_type": "ATM",
+      "district": "Jharsuguda",
+      "locality": "Railway Colony",
+      "source_record_id": "atm_west_029",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_030",
+      "assigned_service_id": "atm_west_030",
+      "canonical_name": "HDFC Bank ATM Jharsuguda",
+      "entity_type": "ATM",
+      "district": "Jharsuguda",
+      "locality": "Main Road",
+      "source_record_id": "atm_west_030",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_031",
+      "assigned_service_id": "atm_west_031",
+      "canonical_name": "ICICI Bank ATM Kali Mandir Road",
+      "entity_type": "ATM",
+      "district": "Jharsuguda",
+      "locality": "Kali Mandir Road",
+      "source_record_id": "atm_west_031",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_034",
+      "assigned_service_id": "atm_west_034",
+      "canonical_name": "ICICI Bank ATM Vedanta Township",
+      "entity_type": "ATM",
+      "district": "Jharsuguda",
+      "locality": "Vedanta Township",
+      "source_record_id": "atm_west_034",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_038",
+      "assigned_service_id": "atm_west_038",
+      "canonical_name": "SBI ATM Sector 1 Rourkela",
+      "entity_type": "ATM",
+      "district": "Sundargarh",
+      "locality": "Sector 1",
+      "source_record_id": "atm_west_038",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_040",
+      "assigned_service_id": "atm_west_040",
+      "canonical_name": "SBI ATM Daily Market Rourkela",
+      "entity_type": "ATM",
+      "district": "Sundargarh",
+      "locality": "Daily Market",
+      "source_record_id": "atm_west_040",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_043",
+      "assigned_service_id": "atm_west_043",
+      "canonical_name": "SBI ATM Koel Nagar Rourkela",
+      "entity_type": "ATM",
+      "district": "Sundargarh",
+      "locality": "Koel Nagar",
+      "source_record_id": "atm_west_043",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_044",
+      "assigned_service_id": "atm_west_044",
+      "canonical_name": "SBI ATM NIT Rourkela Campus",
+      "entity_type": "ATM",
+      "district": "Sundargarh",
+      "locality": "NIT Campus",
+      "source_record_id": "atm_west_044",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_047",
+      "assigned_service_id": "atm_west_047",
+      "canonical_name": "ICICI Bank ATM Civil Township Rourkela",
+      "entity_type": "ATM",
+      "district": "Sundargarh",
+      "locality": "Civil Township",
+      "source_record_id": "atm_west_047",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_048",
+      "assigned_service_id": "atm_west_048",
+      "canonical_name": "ICICI Bank ATM Bisra Road Rourkela",
+      "entity_type": "ATM",
+      "district": "Sundargarh",
+      "locality": "Bisra Road",
+      "source_record_id": "atm_west_048",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_049",
+      "assigned_service_id": "atm_west_049",
+      "canonical_name": "ICICI Bank ATM Udit Nagar Rourkela",
+      "entity_type": "ATM",
+      "district": "Sundargarh",
+      "locality": "Udit Nagar",
+      "source_record_id": "atm_west_049",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_054",
+      "assigned_service_id": "atm_west_054",
+      "canonical_name": "SBI ATM Muribahal",
+      "entity_type": "ATM",
+      "district": "Balangir",
+      "locality": "Muribahal",
+      "source_record_id": "atm_west_054",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_055",
+      "assigned_service_id": "atm_west_055",
+      "canonical_name": "SBI ATM Sindhekela",
+      "entity_type": "ATM",
+      "district": "Balangir",
+      "locality": "Sindhekela",
+      "source_record_id": "atm_west_055",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_060",
+      "assigned_service_id": "atm_west_060",
+      "canonical_name": "ICICI Bank ATM Tikrapara",
+      "entity_type": "ATM",
+      "district": "Balangir",
+      "locality": "Tikrapara",
+      "source_record_id": "atm_west_060",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_061",
+      "assigned_service_id": "atm_west_061",
+      "canonical_name": "ICICI Bank ATM Rajendra College Square",
+      "entity_type": "ATM",
+      "district": "Balangir",
+      "locality": "Rajendra College Square",
+      "source_record_id": "atm_west_061",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_063",
+      "assigned_service_id": "atm_west_063",
+      "canonical_name": "ICICI Bank ATM Ganapatrapali",
+      "entity_type": "ATM",
+      "district": "Balangir",
+      "locality": "Ganapatrapali",
+      "source_record_id": "atm_west_063",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_067",
+      "assigned_service_id": "atm_west_067",
+      "canonical_name": "HDFC Bank ATM Manikeswari Chowk",
+      "entity_type": "ATM",
+      "district": "Kalahandi",
+      "locality": "Manikeswari Chowk",
+      "source_record_id": "atm_west_067",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_069",
+      "assigned_service_id": "atm_west_069",
+      "canonical_name": "SBI Branch Attached ATM Bhawanipatna Main",
+      "entity_type": "ATM",
+      "district": "Kalahandi",
+      "locality": "Town Center",
+      "source_record_id": "atm_west_069",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_077",
+      "assigned_service_id": "atm_west_077",
+      "canonical_name": "ICICI Bank ATM Ganesh Bazaar",
+      "entity_type": "ATM",
+      "district": "Kandhamal",
+      "locality": "Ganesh Bazaar",
+      "source_record_id": "atm_west_077",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_078",
+      "assigned_service_id": "atm_west_078",
+      "canonical_name": "SBI Branch Attached ATM Phulbani Main",
+      "entity_type": "ATM",
+      "district": "Kandhamal",
+      "locality": "Town Center",
+      "source_record_id": "atm_west_078",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_086",
+      "assigned_service_id": "atm_west_086",
+      "canonical_name": "HDFC Bank ATM Gokarneswar Para",
+      "entity_type": "ATM",
+      "district": "Subarnapur",
+      "locality": "Gokarneswar Para",
+      "source_record_id": "atm_west_086",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_087",
+      "assigned_service_id": "atm_west_087",
+      "canonical_name": "ICICI Bank ATM Palace Garden Chhak",
+      "entity_type": "ATM",
+      "district": "Subarnapur",
+      "locality": "Palace Garden",
+      "source_record_id": "atm_west_087",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_088",
+      "assigned_service_id": "atm_west_088",
+      "canonical_name": "SBI Branch Attached ATM Sonepur Main",
+      "entity_type": "ATM",
+      "district": "Subarnapur",
+      "locality": "Town Center",
+      "source_record_id": "atm_west_088",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_094",
+      "assigned_service_id": "atm_west_094",
+      "canonical_name": "HDFC Bank ATM Labour Office Nuapada",
+      "entity_type": "ATM",
+      "district": "Nuapada",
+      "locality": "Labour Office Road",
+      "source_record_id": "atm_west_094",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_095",
+      "assigned_service_id": "atm_west_095",
+      "canonical_name": "SBI Branch Attached ATM Nuapada Main",
+      "entity_type": "ATM",
+      "district": "Nuapada",
+      "locality": "Town Center",
+      "source_record_id": "atm_west_095",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_099",
+      "assigned_service_id": "atm_west_099",
+      "canonical_name": "Bank of Baroda ATM Komna",
+      "entity_type": "ATM",
+      "district": "Nuapada",
+      "locality": "Komna",
+      "source_record_id": "atm_west_099",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_101",
+      "assigned_service_id": "atm_west_101",
+      "canonical_name": "Axis Bank ATM Kantamal",
+      "entity_type": "ATM",
+      "district": "Boudh",
+      "locality": "Kantamal",
+      "source_record_id": "atm_west_101",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_102",
+      "assigned_service_id": "atm_west_102",
+      "canonical_name": "HDFC Bank ATM NAC Chhak Boudh",
+      "entity_type": "ATM",
+      "district": "Boudh",
+      "locality": "NAC Chhak",
+      "source_record_id": "atm_west_102",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_103",
+      "assigned_service_id": "atm_west_103",
+      "canonical_name": "ICICI Bank ATM Shibani Market Boudh",
+      "entity_type": "ATM",
+      "district": "Boudh",
+      "locality": "Boudhgarh",
+      "source_record_id": "atm_west_103",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_104",
+      "assigned_service_id": "atm_west_104",
+      "canonical_name": "SBI Branch Attached ATM Boudh Main",
+      "entity_type": "ATM",
+      "district": "Boudh",
+      "locality": "Boudh Town",
+      "source_record_id": "atm_west_104",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_108",
+      "assigned_service_id": "atm_west_108",
+      "canonical_name": "ICICI Bank ATM Rounak Plaza Deogarh",
+      "entity_type": "ATM",
+      "district": "Deogarh",
+      "locality": "Gopabandhu Chowk",
+      "source_record_id": "atm_west_108",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_109",
+      "assigned_service_id": "atm_west_109",
+      "canonical_name": "SBI Branch Attached ATM Deogarh Main",
+      "entity_type": "ATM",
+      "district": "Deogarh",
+      "locality": "Town Center",
+      "source_record_id": "atm_west_109",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "atm_west_110",
+      "assigned_service_id": "atm_west_110",
+      "canonical_name": "HDFC Bank ATM Private Bus Stand Deogarh",
+      "entity_type": "ATM",
+      "district": "Deogarh",
+      "locality": "Bus Stand Road",
+      "source_record_id": "atm_west_110",
+      "source_dataset": "data/finance/atms_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_002",
+      "assigned_service_id": "fuel_west_002",
+      "canonical_name": "Sanjukta Petroleum (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Sambalpur",
+      "locality": "Tumbesingha",
+      "source_record_id": "fuel_west_002",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_003",
+      "assigned_service_id": "fuel_west_003",
+      "canonical_name": "Poddar Agencies (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Sambalpur",
+      "locality": "Batemura",
+      "source_record_id": "fuel_west_003",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_005",
+      "assigned_service_id": "fuel_west_005",
+      "canonical_name": "Anantaram Beriha Filling Station (BPCL)",
+      "entity_type": "FUEL_STATION",
+      "district": "Sambalpur",
+      "locality": "Sahu Colony",
+      "source_record_id": "fuel_west_005",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_014",
+      "assigned_service_id": "fuel_west_014",
+      "canonical_name": "Adishakti Fuels (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Bargarh",
+      "locality": "Chicholi",
+      "source_record_id": "fuel_west_014",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_017",
+      "assigned_service_id": "fuel_west_017",
+      "canonical_name": "Ambuja Fuels (HPCL)",
+      "entity_type": "FUEL_STATION",
+      "district": "Bargarh",
+      "locality": "Nagaon Dus Mile",
+      "source_record_id": "fuel_west_017",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_018",
+      "assigned_service_id": "fuel_west_018",
+      "canonical_name": "Sreeram Service Station (BPCL)",
+      "entity_type": "FUEL_STATION",
+      "district": "Bargarh",
+      "locality": "Padampur",
+      "source_record_id": "fuel_west_018",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_028",
+      "assigned_service_id": "fuel_west_028",
+      "canonical_name": "DHP Shah Filling Station (HPCL)",
+      "entity_type": "FUEL_STATION",
+      "district": "Jharsuguda",
+      "locality": "Bypass",
+      "source_record_id": "fuel_west_028",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_029",
+      "assigned_service_id": "fuel_west_029",
+      "canonical_name": "Baldevji Filling Station (BPCL)",
+      "entity_type": "FUEL_STATION",
+      "district": "Jharsuguda",
+      "locality": "Bandhabahal",
+      "source_record_id": "fuel_west_029",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_034",
+      "assigned_service_id": "fuel_west_034",
+      "canonical_name": "Satyam Service Station (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Sundargarh",
+      "locality": "Sector 17",
+      "source_record_id": "fuel_west_034",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_049",
+      "assigned_service_id": "fuel_west_049",
+      "canonical_name": "Shree Panigrahi Fuels (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Balangir",
+      "locality": "Ankriapadar",
+      "source_record_id": "fuel_west_049",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_051",
+      "assigned_service_id": "fuel_west_051",
+      "canonical_name": "Kanha Filling Station (HPCL)",
+      "entity_type": "FUEL_STATION",
+      "district": "Balangir",
+      "locality": "Bangomunda",
+      "source_record_id": "fuel_west_051",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_075",
+      "assigned_service_id": "fuel_west_075",
+      "canonical_name": "Adyasha Filling Station (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Subarnapur",
+      "locality": "Baidyanath",
+      "source_record_id": "fuel_west_075",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_076",
+      "assigned_service_id": "fuel_west_076",
+      "canonical_name": "Shriya Filling Station (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Subarnapur",
+      "locality": "Sonepur Town",
+      "source_record_id": "fuel_west_076",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_079",
+      "assigned_service_id": "fuel_west_079",
+      "canonical_name": "Sarada Filling Station (BPCL)",
+      "entity_type": "FUEL_STATION",
+      "district": "Subarnapur",
+      "locality": "Rampur Road",
+      "source_record_id": "fuel_west_079",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_082",
+      "assigned_service_id": "fuel_west_082",
+      "canonical_name": "Khushi Kisan Seva Kendra (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Nuapada",
+      "locality": "Beltukri",
+      "source_record_id": "fuel_west_082",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_083",
+      "assigned_service_id": "fuel_west_083",
+      "canonical_name": "Guru Kripa Filling Station (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Nuapada",
+      "locality": "Amsena",
+      "source_record_id": "fuel_west_083",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_087",
+      "assigned_service_id": "fuel_west_087",
+      "canonical_name": "Ranjit Filling Station (HPCL)",
+      "entity_type": "FUEL_STATION",
+      "district": "Nuapada",
+      "locality": "Dangargaon",
+      "source_record_id": "fuel_west_087",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_089",
+      "assigned_service_id": "fuel_west_089",
+      "canonical_name": "Chandra Chuda Filling Station (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Boudh",
+      "locality": "Baunsuni",
+      "source_record_id": "fuel_west_089",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_090",
+      "assigned_service_id": "fuel_west_090",
+      "canonical_name": "Om Shanti Fuels (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Boudh",
+      "locality": "Badachhapalli",
+      "source_record_id": "fuel_west_090",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_092",
+      "assigned_service_id": "fuel_west_092",
+      "canonical_name": "Purunakatak Service Station (BPCL)",
+      "entity_type": "FUEL_STATION",
+      "district": "Boudh",
+      "locality": "Purunakatak",
+      "source_record_id": "fuel_west_092",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_095",
+      "assigned_service_id": "fuel_west_095",
+      "canonical_name": "Bajarangi Fuels (IndianOil)",
+      "entity_type": "FUEL_STATION",
+      "district": "Deogarh",
+      "locality": "Purunagarh",
+      "source_record_id": "fuel_west_095",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_097",
+      "assigned_service_id": "fuel_west_097",
+      "canonical_name": "Maa Tarini Fuel Centre (HPCL)",
+      "entity_type": "FUEL_STATION",
+      "district": "Deogarh",
+      "locality": "Balam",
+      "source_record_id": "fuel_west_097",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    },
+    {
+      "original_candidate_id": "fuel_west_098",
+      "assigned_service_id": "fuel_west_098",
+      "canonical_name": "Maa Ambe Jee Fuels (HPCL)",
+      "entity_type": "FUEL_STATION",
+      "district": "Deogarh",
+      "locality": "Kalla",
+      "source_record_id": "fuel_west_098",
+      "source_dataset": "data/fuel/petrol_pumps_western_odisha.json"
+    }
+  ]
+}

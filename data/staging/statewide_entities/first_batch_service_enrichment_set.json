@@ -1,0 +1,3005 @@
+[
+  {
+    "candidate_id": "hosp_athagarh_sdh",
+    "existing_service_id": "hosp_athagarh_sdh",
+    "existing_name": "Sub-Divisional Hospital Athagarh",
+    "candidate_name": "Sub-Divisional Hospital Athagarh",
+    "category": "healthcare",
+    "subcategory": "hospital",
+    "district": "Cuttack",
+    "locality": "Athagarh",
+    "lat": 20.5286,
+    "lon": 85.7865,
+    "source_candidate": {
+      "candidate_id": "hosp_athagarh_sdh",
+      "original_id": "hosp_athagarh_sdh",
+      "canonical_name": "Sub-Divisional Hospital Athagarh",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Cuttack",
+      "locality": "Athagarh",
+      "latitude": 20.5286,
+      "longitude": 85.7865,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06723-220224",
+      "provenance": "District Health Society Cuttack / National Health Mission",
+      "source_url": "https://cuttack.nic.in/health-facilities/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Sub-Divisional Hospital Athagarh",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "District Health Society Cuttack / National Health Mission",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "District Health Society Cuttack / National Health Mission",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "District Health Society Cuttack / National Health Mission",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "District Health Society Cuttack / National Health Mission",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "District Health Society Cuttack / National Health Mission",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_banki_sdh",
+    "existing_service_id": "hosp_banki_sdh",
+    "existing_name": "Sub-Divisional Hospital Banki",
+    "candidate_name": "Sub-Divisional Hospital Banki",
+    "category": "healthcare",
+    "subcategory": "hospital",
+    "district": "Cuttack",
+    "locality": "Banki",
+    "lat": 20.3789,
+    "lon": 85.5342,
+    "source_candidate": {
+      "candidate_id": "hosp_banki_sdh",
+      "original_id": "hosp_banki_sdh",
+      "canonical_name": "Sub-Divisional Hospital Banki",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Cuttack",
+      "locality": "Banki",
+      "latitude": 20.3789,
+      "longitude": 85.5342,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06723-240232",
+      "provenance": "Health & Family Welfare Dept, Odisha",
+      "source_url": "https://health.odisha.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Sub-Divisional Hospital Banki",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Health & Family Welfare Dept, Odisha",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_tigiria_chc",
+    "existing_service_id": "hosp_tigiria_chc",
+    "existing_name": "Community Health Centre Tigiria",
+    "candidate_name": "Community Health Centre Tigiria",
+    "category": "healthcare",
+    "subcategory": "chc",
+    "district": "Cuttack",
+    "locality": "Tigiria",
+    "lat": 20.4632,
+    "lon": 85.5185,
+    "source_candidate": {
+      "candidate_id": "hosp_tigiria_chc",
+      "original_id": "hosp_tigiria_chc",
+      "canonical_name": "Community Health Centre Tigiria",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Cuttack",
+      "locality": "Tigiria",
+      "latitude": 20.4632,
+      "longitude": 85.5185,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06723-234220",
+      "provenance": "District Health Society Cuttack",
+      "source_url": "https://cuttack.nic.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Community Health Centre Tigiria",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "District Health Society Cuttack",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "District Health Society Cuttack",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "District Health Society Cuttack",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "District Health Society Cuttack",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "District Health Society Cuttack",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_baramba_chc",
+    "existing_service_id": "hosp_baramba_chc",
+    "existing_name": "Community Health Centre Baramba",
+    "candidate_name": "Community Health Centre Baramba",
+    "category": "healthcare",
+    "subcategory": "chc",
+    "district": "Cuttack",
+    "locality": "Baramba",
+    "lat": 20.4206,
+    "lon": 85.3456,
+    "source_candidate": {
+      "candidate_id": "hosp_baramba_chc",
+      "original_id": "hosp_baramba_chc",
+      "canonical_name": "Community Health Centre Baramba",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Cuttack",
+      "locality": "Baramba",
+      "latitude": 20.4206,
+      "longitude": 85.3456,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06723-252225",
+      "provenance": "Health & Family Welfare Dept, Odisha",
+      "source_url": "https://health.odisha.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Community Health Centre Baramba",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Health & Family Welfare Dept, Odisha",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_barchana_chc",
+    "existing_service_id": "hosp_barchana_chc",
+    "existing_name": "Community Health Centre Barchana",
+    "candidate_name": "Community Health Centre Barchana",
+    "category": "healthcare",
+    "subcategory": "chc",
+    "district": "Jajpur",
+    "locality": "Barchana",
+    "lat": 20.6654,
+    "lon": 86.1287,
+    "source_candidate": {
+      "candidate_id": "hosp_barchana_chc",
+      "original_id": "hosp_barchana_chc",
+      "canonical_name": "Community Health Centre Barchana",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Jajpur",
+      "locality": "Barchana",
+      "latitude": 20.6654,
+      "longitude": 86.1287,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06725-271223",
+      "provenance": "District Administration Jajpur",
+      "source_url": "https://jajpur.nic.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Community Health Centre Barchana",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "District Administration Jajpur",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "District Administration Jajpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "District Administration Jajpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "District Administration Jajpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "District Administration Jajpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_banki_ps",
+    "existing_service_id": "police_banki_ps",
+    "existing_name": "Banki Police Station",
+    "candidate_name": "Banki Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Cuttack",
+    "locality": "Banki",
+    "lat": 20.3802,
+    "lon": 85.5315,
+    "source_candidate": {
+      "candidate_id": "police_banki_ps",
+      "original_id": "police_banki_ps",
+      "canonical_name": "Banki Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Cuttack",
+      "locality": "Banki",
+      "latitude": 20.3802,
+      "longitude": 85.5315,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06723-240233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Banki Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_tigiria_ps",
+    "existing_service_id": "police_tigiria_ps",
+    "existing_name": "Tigiria Police Station",
+    "candidate_name": "Tigiria Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Cuttack",
+    "locality": "Tigiria",
+    "lat": 20.4611,
+    "lon": 85.5162,
+    "source_candidate": {
+      "candidate_id": "police_tigiria_ps",
+      "original_id": "police_tigiria_ps",
+      "canonical_name": "Tigiria Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Cuttack",
+      "locality": "Tigiria",
+      "latitude": 20.4611,
+      "longitude": 85.5162,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06723-234233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Tigiria Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_baramba_ps",
+    "existing_service_id": "police_baramba_ps",
+    "existing_name": "Baramba Police Station",
+    "candidate_name": "Baramba Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Cuttack",
+    "locality": "Baramba",
+    "lat": 20.4225,
+    "lon": 85.3421,
+    "source_candidate": {
+      "candidate_id": "police_baramba_ps",
+      "original_id": "police_baramba_ps",
+      "canonical_name": "Baramba Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Cuttack",
+      "locality": "Baramba",
+      "latitude": 20.4225,
+      "longitude": 85.3421,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06723-252233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Baramba Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_balichandrapur_ps",
+    "existing_service_id": "police_balichandrapur_ps",
+    "existing_name": "Balichandrapur Police Station",
+    "candidate_name": "Balichandrapur Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Jajpur",
+    "locality": "Balichandrapur",
+    "lat": 20.6124,
+    "lon": 86.1952,
+    "source_candidate": {
+      "candidate_id": "police_balichandrapur_ps",
+      "original_id": "police_balichandrapur_ps",
+      "canonical_name": "Balichandrapur Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Jajpur",
+      "locality": "Balichandrapur",
+      "latitude": 20.6124,
+      "longitude": 86.1952,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06725-244233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Balichandrapur Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "fuel_hp_banki",
+    "existing_service_id": "fuel_hp_banki",
+    "existing_name": "HPCL Petrol Pump - Banki",
+    "candidate_name": "HPCL Petrol Pump - Banki",
+    "category": "fuel",
+    "subcategory": "petrol_pump",
+    "district": "Cuttack",
+    "locality": "Banki",
+    "lat": 20.3842,
+    "lon": 85.5398,
+    "source_candidate": {
+      "candidate_id": "fuel_hp_banki",
+      "original_id": "fuel_hp_banki",
+      "canonical_name": "HPCL Petrol Pump - Banki",
+      "entity_type": "FUEL_STATION",
+      "category": "fuel",
+      "district": "Cuttack",
+      "locality": "Banki",
+      "latitude": 20.3842,
+      "longitude": 85.5398,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06723-240180",
+      "provenance": "Hindustan Petroleum Retail Network",
+      "source_url": "https://www.hindustanpetroleum.com/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "HPCL Petrol Pump - Banki",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Hindustan Petroleum Retail Network",
+      "source_authority": "OFFICIAL_SECONDARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Hindustan Petroleum Retail Network",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Hindustan Petroleum Retail Network",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Hindustan Petroleum Retail Network",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Hindustan Petroleum Retail Network",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_SECONDARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "fuel_bpcl_balichandrapur",
+    "existing_service_id": "fuel_bpcl_balichandrapur",
+    "existing_name": "Bharat Petroleum - Balichandrapur",
+    "candidate_name": "Bharat Petroleum - Balichandrapur",
+    "category": "fuel",
+    "subcategory": "petrol_pump",
+    "district": "Jajpur",
+    "locality": "Balichandrapur",
+    "lat": 20.6158,
+    "lon": 86.1985,
+    "source_candidate": {
+      "candidate_id": "fuel_bpcl_balichandrapur",
+      "original_id": "fuel_bpcl_balichandrapur",
+      "canonical_name": "Bharat Petroleum - Balichandrapur",
+      "entity_type": "FUEL_STATION",
+      "category": "fuel",
+      "district": "Jajpur",
+      "locality": "Balichandrapur",
+      "latitude": 20.6158,
+      "longitude": 86.1985,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06725-244190",
+      "provenance": "Bharat Petroleum Dealer Directory",
+      "source_url": "https://www.bharatpetroleum.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Bharat Petroleum - Balichandrapur",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Bharat Petroleum Dealer Directory",
+      "source_authority": "OFFICIAL_SECONDARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Bharat Petroleum Dealer Directory",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Bharat Petroleum Dealer Directory",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Bharat Petroleum Dealer Directory",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Bharat Petroleum Dealer Directory",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_SECONDARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "atm_sbi_athagarh",
+    "existing_service_id": "atm_sbi_athagarh",
+    "existing_name": "State Bank of India ATM - Athagarh",
+    "candidate_name": "State Bank of India ATM - Athagarh",
+    "category": "atm",
+    "subcategory": "sbi_atm",
+    "district": "Cuttack",
+    "locality": "Athagarh",
+    "lat": 20.5282,
+    "lon": 85.7845,
+    "source_candidate": {
+      "candidate_id": "atm_sbi_athagarh",
+      "original_id": "atm_sbi_athagarh",
+      "canonical_name": "State Bank of India ATM - Athagarh",
+      "entity_type": "ATM",
+      "category": "atm",
+      "district": "Cuttack",
+      "locality": "Athagarh",
+      "latitude": 20.5282,
+      "longitude": 85.7845,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": null,
+      "provenance": "State Bank of India ATM Locator",
+      "source_url": "https://bank.sbi/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "State Bank of India ATM - Athagarh",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "State Bank of India ATM Locator",
+      "source_authority": "OFFICIAL_SECONDARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "State Bank of India ATM Locator",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "State Bank of India ATM Locator",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "district": {
+          "source": "State Bank of India ATM Locator",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "phone": {
+          "source": null,
+          "authority": null,
+          "verified": false
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_SECONDARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "atm_sbi_banki",
+    "existing_service_id": "atm_sbi_banki",
+    "existing_name": "SBI ATM - Banki Market",
+    "candidate_name": "SBI ATM - Banki Market",
+    "category": "atm",
+    "subcategory": "sbi_atm",
+    "district": "Cuttack",
+    "locality": "Banki",
+    "lat": 20.3815,
+    "lon": 85.5332,
+    "source_candidate": {
+      "candidate_id": "atm_sbi_banki",
+      "original_id": "atm_sbi_banki",
+      "canonical_name": "SBI ATM - Banki Market",
+      "entity_type": "ATM",
+      "category": "atm",
+      "district": "Cuttack",
+      "locality": "Banki",
+      "latitude": 20.3815,
+      "longitude": 85.5332,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": null,
+      "provenance": "State Level Bankers' Committee (SLBC) Odisha",
+      "source_url": "https://slbcodisha.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "SBI ATM - Banki Market",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "State Level Bankers' Committee (SLBC) Odisha",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "State Level Bankers' Committee (SLBC) Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "State Level Bankers' Committee (SLBC) Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "State Level Bankers' Committee (SLBC) Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": null,
+          "authority": null,
+          "verified": false
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "atm_pnb_balichandrapur",
+    "existing_service_id": "atm_pnb_balichandrapur",
+    "existing_name": "Punjab National Bank ATM - Balichandrapur",
+    "candidate_name": "Punjab National Bank ATM - Balichandrapur",
+    "category": "atm",
+    "subcategory": "bank_atm",
+    "district": "Jajpur",
+    "locality": "Balichandrapur",
+    "lat": 20.6135,
+    "lon": 86.1968,
+    "source_candidate": {
+      "candidate_id": "atm_pnb_balichandrapur",
+      "original_id": "atm_pnb_balichandrapur",
+      "canonical_name": "Punjab National Bank ATM - Balichandrapur",
+      "entity_type": "ATM",
+      "category": "atm",
+      "district": "Jajpur",
+      "locality": "Balichandrapur",
+      "latitude": 20.6135,
+      "longitude": 86.1968,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": null,
+      "provenance": "SLBC Odisha / PNB Directory",
+      "source_url": "https://pnbindia.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Punjab National Bank ATM - Balichandrapur",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "SLBC Odisha / PNB Directory",
+      "source_authority": "OFFICIAL_SECONDARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "SLBC Odisha / PNB Directory",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "SLBC Odisha / PNB Directory",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "district": {
+          "source": "SLBC Odisha / PNB Directory",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "phone": {
+          "source": null,
+          "authority": null,
+          "verified": false
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_SECONDARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_rajnagar_chc",
+    "existing_service_id": "hosp_rajnagar_chc",
+    "existing_name": "Community Health Centre Rajnagar",
+    "candidate_name": "Community Health Centre Rajnagar",
+    "category": "healthcare",
+    "subcategory": "chc",
+    "district": "Kendrapara",
+    "locality": "Rajnagar",
+    "lat": 20.5786,
+    "lon": 86.7412,
+    "source_candidate": {
+      "candidate_id": "hosp_rajnagar_chc",
+      "original_id": "hosp_rajnagar_chc",
+      "canonical_name": "Community Health Centre Rajnagar",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Kendrapara",
+      "locality": "Rajnagar",
+      "latitude": 20.5786,
+      "longitude": 86.7412,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06729-272224",
+      "provenance": "District Administration Kendrapara",
+      "source_url": "https://kendrapara.nic.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Community Health Centre Rajnagar",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "District Administration Kendrapara",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "District Administration Kendrapara",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "District Administration Kendrapara",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "District Administration Kendrapara",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "District Administration Kendrapara",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_rajkanika_chc",
+    "existing_service_id": "hosp_rajkanika_chc",
+    "existing_name": "Community Health Centre Rajkanika",
+    "candidate_name": "Community Health Centre Rajkanika",
+    "category": "healthcare",
+    "subcategory": "chc",
+    "district": "Kendrapara",
+    "locality": "Rajkanika",
+    "lat": 20.7321,
+    "lon": 86.7024,
+    "source_candidate": {
+      "candidate_id": "hosp_rajkanika_chc",
+      "original_id": "hosp_rajkanika_chc",
+      "canonical_name": "Community Health Centre Rajkanika",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Kendrapara",
+      "locality": "Rajkanika",
+      "latitude": 20.7321,
+      "longitude": 86.7024,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06729-278225",
+      "provenance": "Health & Family Welfare Dept, Odisha",
+      "source_url": "https://health.odisha.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Community Health Centre Rajkanika",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Health & Family Welfare Dept, Odisha",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_aul_chc",
+    "existing_service_id": "hosp_aul_chc",
+    "existing_name": "Community Health Centre Aul",
+    "candidate_name": "Community Health Centre Aul",
+    "category": "healthcare",
+    "subcategory": "chc",
+    "district": "Kendrapara",
+    "locality": "Aul",
+    "lat": 20.6745,
+    "lon": 86.6458,
+    "source_candidate": {
+      "candidate_id": "hosp_aul_chc",
+      "original_id": "hosp_aul_chc",
+      "canonical_name": "Community Health Centre Aul",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Kendrapara",
+      "locality": "Aul",
+      "latitude": 20.6745,
+      "longitude": 86.6458,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06729-275220",
+      "provenance": "District Health Society Kendrapara",
+      "source_url": "https://kendrapara.nic.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Community Health Centre Aul",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "District Health Society Kendrapara",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "District Health Society Kendrapara",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "District Health Society Kendrapara",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "District Health Society Kendrapara",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "District Health Society Kendrapara",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_rajnagar_ps",
+    "existing_service_id": "police_rajnagar_ps",
+    "existing_name": "Rajnagar Police Station",
+    "candidate_name": "Rajnagar Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Kendrapara",
+    "locality": "Rajnagar",
+    "lat": 20.5798,
+    "lon": 86.7395,
+    "source_candidate": {
+      "candidate_id": "police_rajnagar_ps",
+      "original_id": "police_rajnagar_ps",
+      "canonical_name": "Rajnagar Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Kendrapara",
+      "locality": "Rajnagar",
+      "latitude": 20.5798,
+      "longitude": 86.7395,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06729-272233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Rajnagar Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_talchua_coastal_ps",
+    "existing_service_id": "police_talchua_coastal_ps",
+    "existing_name": "Talchua Coastal Marine Police Station",
+    "candidate_name": "Talchua Coastal Marine Police Station",
+    "category": "police",
+    "subcategory": "coastal_police",
+    "district": "Kendrapara",
+    "locality": "Talchua",
+    "lat": 20.7612,
+    "lon": 86.9685,
+    "source_candidate": {
+      "candidate_id": "police_talchua_coastal_ps",
+      "original_id": "police_talchua_coastal_ps",
+      "canonical_name": "Talchua Coastal Marine Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Kendrapara",
+      "locality": "Talchua",
+      "latitude": 20.7612,
+      "longitude": 86.9685,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06729-273233",
+      "provenance": "Coastal Security Wing, Odisha Police",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Talchua Coastal Marine Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Coastal Security Wing, Odisha Police",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Coastal Security Wing, Odisha Police",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Coastal Security Wing, Odisha Police",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Coastal Security Wing, Odisha Police",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Coastal Security Wing, Odisha Police",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_jamboo_marine_ps",
+    "existing_service_id": "police_jamboo_marine_ps",
+    "existing_name": "Jamboo Marine Police Station",
+    "candidate_name": "Jamboo Marine Police Station",
+    "category": "police",
+    "subcategory": "coastal_police",
+    "district": "Kendrapara",
+    "locality": "Jamboo",
+    "lat": 20.4285,
+    "lon": 86.7215,
+    "source_candidate": {
+      "candidate_id": "police_jamboo_marine_ps",
+      "original_id": "police_jamboo_marine_ps",
+      "canonical_name": "Jamboo Marine Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Kendrapara",
+      "locality": "Jamboo",
+      "latitude": 20.4285,
+      "longitude": 86.7215,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06729-276233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Jamboo Marine Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "atm_sbi_rajnagar",
+    "existing_service_id": "atm_sbi_rajnagar",
+    "existing_name": "State Bank of India ATM - Rajnagar",
+    "candidate_name": "State Bank of India ATM - Rajnagar",
+    "category": "atm",
+    "subcategory": "sbi_atm",
+    "district": "Kendrapara",
+    "locality": "Rajnagar",
+    "lat": 20.5791,
+    "lon": 86.7405,
+    "source_candidate": {
+      "candidate_id": "atm_sbi_rajnagar",
+      "original_id": "atm_sbi_rajnagar",
+      "canonical_name": "State Bank of India ATM - Rajnagar",
+      "entity_type": "ATM",
+      "category": "atm",
+      "district": "Kendrapara",
+      "locality": "Rajnagar",
+      "latitude": 20.5791,
+      "longitude": 86.7405,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": null,
+      "provenance": "SLBC Odisha",
+      "source_url": "https://slbcodisha.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "State Bank of India ATM - Rajnagar",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "SLBC Odisha",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "SLBC Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "SLBC Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "SLBC Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": null,
+          "authority": null,
+          "verified": false
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_bhadrak_dhh",
+    "existing_service_id": "hosp_bhadrak_dhh",
+    "existing_name": "District Headquarters Hospital Bhadrak",
+    "candidate_name": "District Headquarters Hospital Bhadrak",
+    "category": "healthcare",
+    "subcategory": "hospital",
+    "district": "Bhadrak",
+    "locality": "Bhadrak Town",
+    "lat": 21.0585,
+    "lon": 86.5124,
+    "source_candidate": {
+      "candidate_id": "hosp_bhadrak_dhh",
+      "original_id": "hosp_bhadrak_dhh",
+      "canonical_name": "District Headquarters Hospital Bhadrak",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Bhadrak",
+      "locality": "Bhadrak Town",
+      "latitude": 21.0585,
+      "longitude": 86.5124,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06784-251224",
+      "provenance": "District Administration Bhadrak",
+      "source_url": "https://bhadrak.nic.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "District Headquarters Hospital Bhadrak",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "District Administration Bhadrak",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "District Administration Bhadrak",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "District Administration Bhadrak",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "District Administration Bhadrak",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "District Administration Bhadrak",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_basudevpur_chc",
+    "existing_service_id": "hosp_basudevpur_chc",
+    "existing_name": "Community Health Centre Basudevpur",
+    "candidate_name": "Community Health Centre Basudevpur",
+    "category": "healthcare",
+    "subcategory": "chc",
+    "district": "Bhadrak",
+    "locality": "Basudevpur",
+    "lat": 21.1412,
+    "lon": 86.7534,
+    "source_candidate": {
+      "candidate_id": "hosp_basudevpur_chc",
+      "original_id": "hosp_basudevpur_chc",
+      "canonical_name": "Community Health Centre Basudevpur",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Bhadrak",
+      "locality": "Basudevpur",
+      "latitude": 21.1412,
+      "longitude": 86.7534,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06784-271225",
+      "provenance": "Health & Family Welfare Dept, Odisha",
+      "source_url": "https://health.odisha.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Community Health Centre Basudevpur",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Health & Family Welfare Dept, Odisha",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_basudevpur_ps",
+    "existing_service_id": "police_basudevpur_ps",
+    "existing_name": "Basudevpur Police Station",
+    "candidate_name": "Basudevpur Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Bhadrak",
+    "locality": "Basudevpur",
+    "lat": 21.1435,
+    "lon": 86.7512,
+    "source_candidate": {
+      "candidate_id": "police_basudevpur_ps",
+      "original_id": "police_basudevpur_ps",
+      "canonical_name": "Basudevpur Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Bhadrak",
+      "locality": "Basudevpur",
+      "latitude": 21.1435,
+      "longitude": 86.7512,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06784-271233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Basudevpur Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_bhadrak_town_ps",
+    "existing_service_id": "police_bhadrak_town_ps",
+    "existing_name": "Bhadrak Town Police Station",
+    "candidate_name": "Bhadrak Town Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Bhadrak",
+    "locality": "Bhadrak Town",
+    "lat": 21.0572,
+    "lon": 86.5098,
+    "source_candidate": {
+      "candidate_id": "police_bhadrak_town_ps",
+      "original_id": "police_bhadrak_town_ps",
+      "canonical_name": "Bhadrak Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Bhadrak",
+      "locality": "Bhadrak Town",
+      "latitude": 21.0572,
+      "longitude": 86.5098,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06784-251233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Bhadrak Town Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "atm_sbi_bhadrak_town",
+    "existing_service_id": "atm_sbi_bhadrak_town",
+    "existing_name": "SBI ATM - Main Branch Bhadrak",
+    "candidate_name": "SBI ATM - Main Branch Bhadrak",
+    "category": "atm",
+    "subcategory": "sbi_atm",
+    "district": "Bhadrak",
+    "locality": "Kacheri Bazar",
+    "lat": 21.0542,
+    "lon": 86.5078,
+    "source_candidate": {
+      "candidate_id": "atm_sbi_bhadrak_town",
+      "original_id": "atm_sbi_bhadrak_town",
+      "canonical_name": "SBI ATM - Main Branch Bhadrak",
+      "entity_type": "ATM",
+      "category": "atm",
+      "district": "Bhadrak",
+      "locality": "Kacheri Bazar",
+      "latitude": 21.0542,
+      "longitude": 86.5078,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": null,
+      "provenance": "State Bank of India ATM Network",
+      "source_url": "https://bank.sbi/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "SBI ATM - Main Branch Bhadrak",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "State Bank of India ATM Network",
+      "source_authority": "OFFICIAL_SECONDARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "State Bank of India ATM Network",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "State Bank of India ATM Network",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "district": {
+          "source": "State Bank of India ATM Network",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_SECONDARY",
+          "verified": true
+        },
+        "phone": {
+          "source": null,
+          "authority": null,
+          "verified": false
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_SECONDARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_dhenkanal_dhh",
+    "existing_service_id": "hosp_dhenkanal_dhh",
+    "existing_name": "District Headquarters Hospital Dhenkanal",
+    "candidate_name": "District Headquarters Hospital Dhenkanal",
+    "category": "healthcare",
+    "subcategory": "hospital",
+    "district": "Dhenkanal",
+    "locality": "Dhenkanal Town",
+    "lat": 20.6612,
+    "lon": 85.5985,
+    "source_candidate": {
+      "candidate_id": "hosp_dhenkanal_dhh",
+      "original_id": "hosp_dhenkanal_dhh",
+      "canonical_name": "District Headquarters Hospital Dhenkanal",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Dhenkanal",
+      "locality": "Dhenkanal Town",
+      "latitude": 20.6612,
+      "longitude": 85.5985,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06762-226224",
+      "provenance": "District Administration Dhenkanal",
+      "source_url": "https://dhenkanal.nic.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "District Headquarters Hospital Dhenkanal",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "District Administration Dhenkanal",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "District Administration Dhenkanal",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "District Administration Dhenkanal",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "District Administration Dhenkanal",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "District Administration Dhenkanal",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_kamakhyanagar_sdh",
+    "existing_service_id": "hosp_kamakhyanagar_sdh",
+    "existing_name": "Sub-Divisional Hospital Kamakhyanagar",
+    "candidate_name": "Sub-Divisional Hospital Kamakhyanagar",
+    "category": "healthcare",
+    "subcategory": "hospital",
+    "district": "Dhenkanal",
+    "locality": "Kamakhyanagar",
+    "lat": 20.9312,
+    "lon": 85.5585,
+    "source_candidate": {
+      "candidate_id": "hosp_kamakhyanagar_sdh",
+      "original_id": "hosp_kamakhyanagar_sdh",
+      "canonical_name": "Sub-Divisional Hospital Kamakhyanagar",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Dhenkanal",
+      "locality": "Kamakhyanagar",
+      "latitude": 20.9312,
+      "longitude": 85.5585,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06769-270224",
+      "provenance": "Health & Family Welfare Dept, Odisha",
+      "source_url": "https://health.odisha.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Sub-Divisional Hospital Kamakhyanagar",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Health & Family Welfare Dept, Odisha",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_parjang_ps",
+    "existing_service_id": "police_parjang_ps",
+    "existing_name": "Parjang Police Station",
+    "candidate_name": "Parjang Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Dhenkanal",
+    "locality": "Parjang",
+    "lat": 20.8912,
+    "lon": 85.2915,
+    "source_candidate": {
+      "candidate_id": "police_parjang_ps",
+      "original_id": "police_parjang_ps",
+      "canonical_name": "Parjang Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Dhenkanal",
+      "locality": "Parjang",
+      "latitude": 20.8912,
+      "longitude": 85.2915,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06768-261233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Parjang Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_chandikhole_chc",
+    "existing_service_id": "hosp_chandikhole_chc",
+    "existing_name": "Community Health Centre Chandikhole",
+    "candidate_name": "Community Health Centre Chandikhole",
+    "category": "healthcare",
+    "subcategory": "chc",
+    "district": "Jajpur",
+    "locality": "Chandikhole",
+    "lat": 20.6185,
+    "lon": 86.1395,
+    "source_candidate": {
+      "candidate_id": "hosp_chandikhole_chc",
+      "original_id": "hosp_chandikhole_chc",
+      "canonical_name": "Community Health Centre Chandikhole",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Jajpur",
+      "locality": "Chandikhole",
+      "latitude": 20.6185,
+      "longitude": 86.1395,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06725-241224",
+      "provenance": "District Administration Jajpur",
+      "source_url": "https://jajpur.nic.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Community Health Centre Chandikhole",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "District Administration Jajpur",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "District Administration Jajpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "District Administration Jajpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "District Administration Jajpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "District Administration Jajpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_chandikhole_outpost",
+    "existing_service_id": "police_chandikhole_outpost",
+    "existing_name": "Chandikhole Police Outpost",
+    "candidate_name": "Chandikhole Police Outpost",
+    "category": "police",
+    "subcategory": "police_outpost",
+    "district": "Jajpur",
+    "locality": "Chandikhole",
+    "lat": 20.6162,
+    "lon": 86.1382,
+    "source_candidate": {
+      "candidate_id": "police_chandikhole_outpost",
+      "original_id": "police_chandikhole_outpost",
+      "canonical_name": "Chandikhole Police Outpost",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Jajpur",
+      "locality": "Chandikhole",
+      "latitude": 20.6162,
+      "longitude": 86.1382,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06725-241233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Chandikhole Police Outpost",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_jagatsinghpur_dhh",
+    "existing_service_id": "hosp_jagatsinghpur_dhh",
+    "existing_name": "District Headquarters Hospital Jagatsinghpur",
+    "candidate_name": "District Headquarters Hospital Jagatsinghpur",
+    "category": "healthcare",
+    "subcategory": "hospital",
+    "district": "Jagatsinghpur",
+    "locality": "Jagatsinghpur Town",
+    "lat": 20.2612,
+    "lon": 86.1725,
+    "source_candidate": {
+      "candidate_id": "hosp_jagatsinghpur_dhh",
+      "original_id": "hosp_jagatsinghpur_dhh",
+      "canonical_name": "District Headquarters Hospital Jagatsinghpur",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Jagatsinghpur",
+      "locality": "Jagatsinghpur Town",
+      "latitude": 20.2612,
+      "longitude": 86.1725,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06724-220224",
+      "provenance": "District Administration Jagatsinghpur",
+      "source_url": "https://jagatsinghpur.nic.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "District Headquarters Hospital Jagatsinghpur",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "District Administration Jagatsinghpur",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "District Administration Jagatsinghpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "District Administration Jagatsinghpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "District Administration Jagatsinghpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "District Administration Jagatsinghpur",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_kujang_chc",
+    "existing_service_id": "hosp_kujang_chc",
+    "existing_name": "Community Health Centre Kujang",
+    "candidate_name": "Community Health Centre Kujang",
+    "category": "healthcare",
+    "subcategory": "chc",
+    "district": "Jagatsinghpur",
+    "locality": "Kujang",
+    "lat": 20.2854,
+    "lon": 86.5412,
+    "source_candidate": {
+      "candidate_id": "hosp_kujang_chc",
+      "original_id": "hosp_kujang_chc",
+      "canonical_name": "Community Health Centre Kujang",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Jagatsinghpur",
+      "locality": "Kujang",
+      "latitude": 20.2854,
+      "longitude": 86.5412,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06722-244224",
+      "provenance": "Health & Family Welfare Dept, Odisha",
+      "source_url": "https://health.odisha.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Community Health Centre Kujang",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Health & Family Welfare Dept, Odisha",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_kujang_ps",
+    "existing_service_id": "police_kujang_ps",
+    "existing_name": "Kujang Police Station",
+    "candidate_name": "Kujang Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Jagatsinghpur",
+    "locality": "Kujang",
+    "lat": 20.2872,
+    "lon": 86.5395,
+    "source_candidate": {
+      "candidate_id": "police_kujang_ps",
+      "original_id": "police_kujang_ps",
+      "canonical_name": "Kujang Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Jagatsinghpur",
+      "locality": "Kujang",
+      "latitude": 20.2872,
+      "longitude": 86.5395,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06722-244233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Kujang Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_jagatsinghpur_town_ps",
+    "existing_service_id": "police_jagatsinghpur_town_ps",
+    "existing_name": "Jagatsinghpur Town Police Station",
+    "candidate_name": "Jagatsinghpur Town Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Jagatsinghpur",
+    "locality": "Jagatsinghpur Town",
+    "lat": 20.2595,
+    "lon": 86.1738,
+    "source_candidate": {
+      "candidate_id": "police_jagatsinghpur_town_ps",
+      "original_id": "police_jagatsinghpur_town_ps",
+      "canonical_name": "Jagatsinghpur Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Jagatsinghpur",
+      "locality": "Jagatsinghpur Town",
+      "latitude": 20.2595,
+      "longitude": 86.1738,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06724-220233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Jagatsinghpur Town Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_athmallik_sdh",
+    "existing_service_id": "hosp_athmallik_sdh",
+    "existing_name": "Sub-Divisional Hospital Athmallik",
+    "candidate_name": "Sub-Divisional Hospital Athmallik",
+    "category": "healthcare",
+    "subcategory": "hospital",
+    "district": "Angul",
+    "locality": "Athmallik",
+    "lat": 20.7185,
+    "lon": 84.5425,
+    "source_candidate": {
+      "candidate_id": "hosp_athmallik_sdh",
+      "original_id": "hosp_athmallik_sdh",
+      "canonical_name": "Sub-Divisional Hospital Athmallik",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Angul",
+      "locality": "Athmallik",
+      "latitude": 20.7185,
+      "longitude": 84.5425,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06763-220224",
+      "provenance": "District Administration Angul",
+      "source_url": "https://angul.nic.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Sub-Divisional Hospital Athmallik",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "District Administration Angul",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "District Administration Angul",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "District Administration Angul",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "District Administration Angul",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "District Administration Angul",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "hosp_talcher_sdh",
+    "existing_service_id": "hosp_talcher_sdh",
+    "existing_name": "Sub-Divisional Hospital Talcher",
+    "candidate_name": "Sub-Divisional Hospital Talcher",
+    "category": "healthcare",
+    "subcategory": "hospital",
+    "district": "Angul",
+    "locality": "Talcher",
+    "lat": 20.9525,
+    "lon": 85.2285,
+    "source_candidate": {
+      "candidate_id": "hosp_talcher_sdh",
+      "original_id": "hosp_talcher_sdh",
+      "canonical_name": "Sub-Divisional Hospital Talcher",
+      "entity_type": "HOSPITAL",
+      "category": "healthcare",
+      "district": "Angul",
+      "locality": "Talcher",
+      "latitude": 20.9525,
+      "longitude": 85.2285,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06760-240224",
+      "provenance": "Health & Family Welfare Dept, Odisha",
+      "source_url": "https://health.odisha.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Sub-Divisional Hospital Talcher",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Health & Family Welfare Dept, Odisha",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Health & Family Welfare Dept, Odisha",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_athmallik_ps",
+    "existing_service_id": "police_athmallik_ps",
+    "existing_name": "Athmallik Police Station",
+    "candidate_name": "Athmallik Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Angul",
+    "locality": "Athmallik",
+    "lat": 20.7202,
+    "lon": 84.5408,
+    "source_candidate": {
+      "candidate_id": "police_athmallik_ps",
+      "original_id": "police_athmallik_ps",
+      "canonical_name": "Athmallik Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Angul",
+      "locality": "Athmallik",
+      "latitude": 20.7202,
+      "longitude": 84.5408,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06763-220233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Athmallik Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  },
+  {
+    "candidate_id": "police_talcher_town_ps",
+    "existing_service_id": "police_talcher_town_ps",
+    "existing_name": "Talcher Town Police Station",
+    "candidate_name": "Talcher Town Police Station",
+    "category": "police",
+    "subcategory": "police_station",
+    "district": "Angul",
+    "locality": "Talcher",
+    "lat": 20.9542,
+    "lon": 85.2312,
+    "source_candidate": {
+      "candidate_id": "police_talcher_town_ps",
+      "original_id": "police_talcher_town_ps",
+      "canonical_name": "Talcher Town Police Station",
+      "entity_type": "POLICE_STATION",
+      "category": "police",
+      "district": "Angul",
+      "locality": "Talcher",
+      "latitude": 20.9542,
+      "longitude": 85.2312,
+      "coordinate_status": "VERIFIED_OFFICIAL",
+      "locality_status": "VERIFIED_LOCALITY",
+      "phone": "06760-240233",
+      "provenance": "Odisha State Police Directory",
+      "source_url": "https://odishapolice.gov.in/",
+      "source_dataset": "data/services/odisha_services.json",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "localized_names": {
+        "en": "Talcher Town Police Station",
+        "or": null,
+        "hi": null
+      },
+      "promotion_tier": "HIGH_CONFIDENCE_PROMOTABLE",
+      "source": "Odisha State Police Directory",
+      "source_authority": "OFFICIAL_PRIMARY",
+      "coordinate_precision": "FACILITY_ENTRANCE",
+      "identity_status": "VERIFIED_IDENTITY",
+      "canonical_overlap": "NEW_ENTITY",
+      "canonical_target_id": null,
+      "canonical_target_name": null,
+      "field_provenance": {
+        "name": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "coordinates": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "district": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "category": {
+          "source": "data/services/odisha_services.json",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        },
+        "phone": {
+          "source": "Odisha State Police Directory",
+          "authority": "OFFICIAL_PRIMARY",
+          "verified": true
+        }
+      },
+      "readiness_rationale": [
+        "Source verified under OFFICIAL_PRIMARY authority.",
+        "Facility-level coordinate confirmed at FACILITY_ENTRANCE precision.",
+        "Identity uniquely resolved without canonical overlap or collision.",
+        "All domain truth gates satisfied."
+      ]
+    },
+    "overlap_type": "EXACT_EXISTING_ID"
+  }
+]

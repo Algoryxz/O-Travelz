@@ -1,0 +1,1014 @@
+{
+  "report": "statewide_first_batch_enrichment_diff",
+  "total_targets": 12,
+  "enrichment_diffs": [
+    {
+      "canonical_place_id": "77ba0e93-fdaf-5a15-99f3-3946f6183912",
+      "canonical_research_id": "place_med_002",
+      "candidate_id": "hosp_scb_cuttack",
+      "fields": {
+        "name": {
+          "canonical_before": "SCB Medical College & Hospital",
+          "staged_candidate": "SCB Medical College and Hospital",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "SCB Medical College & Hospital",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Cuttack",
+          "staged_candidate": "Cuttack",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Cuttack",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Mangalabag, Cuttack, Odisha 753007",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Mangalabag, Cuttack, Odisha 753007",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": "+91-671-2414080",
+          "staged_candidate": "0671-2414080",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "+91-671-2414080",
+          "rationale": "Canonical value preserved"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "Health & Family Welfare Dept Govt of Odisha",
+          "staged_candidate": "Directorate of Medical Education & Training (DMET) Odisha",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Health & Family Welfare Dept Govt of Odisha",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://scbmch.in",
+          "staged_candidate": "https://dmetodisha.gov.in/",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://scbmch.in",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 20.4725,
+          "staged_candidate": 20.4735,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 20.4725,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 85.8864,
+          "staged_candidate": 85.8828,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 85.8864,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    },
+    {
+      "canonical_place_id": "87ba22f4-f109-541b-95f0-aba771603d6e",
+      "canonical_research_id": "place_med_003",
+      "candidate_id": "c_f715606ca242",
+      "fields": {
+        "name": {
+          "canonical_before": "MKCG Medical College & Hospital",
+          "staged_candidate": "MKCG Medical College & Hospital",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "MKCG Medical College & Hospital",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Ganjam",
+          "staged_candidate": "Ganjam",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Ganjam",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Medical College Road, Berhampur, Odisha 760004",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Medical College Road, Berhampur, Odisha 760004",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": "+91-680-2292746",
+          "staged_candidate": "0680-2292746",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "+91-680-2292746",
+          "rationale": "Canonical value preserved"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "Health & Family Welfare Dept Govt of Odisha",
+          "staged_candidate": "MKCG Official Portal / Health Dept",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Health & Family Welfare Dept Govt of Odisha",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://mkcgmch.org",
+          "staged_candidate": "https://mkcgmch.org/",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://mkcgmch.org",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 19.3083,
+          "staged_candidate": 19.3082,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 19.3083,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 84.8083,
+          "staged_candidate": 84.8055,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 84.8083,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    },
+    {
+      "canonical_place_id": "630be443-c7b1-5b25-8ea2-70e89e30505d",
+      "canonical_research_id": "place_med_007",
+      "candidate_id": "c_0effe29a39d7",
+      "fields": {
+        "name": {
+          "canonical_before": "SLN Medical College & Hospital Koraput",
+          "staged_candidate": "SLN Medical College & Hospital Koraput",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "SLN Medical College & Hospital Koraput",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Koraput",
+          "staged_candidate": "Koraput",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Koraput",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Koraput, Odisha 764020",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Koraput, Odisha 764020",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": null,
+          "staged_candidate": "06852-250101",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "06852-250101",
+          "rationale": "Enriched null canonical field with verified staging data"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "Health & Family Welfare Dept Govt of Odisha",
+          "staged_candidate": "SLN MCH Official / Health Dept",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Health & Family Welfare Dept Govt of Odisha",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://slnmch.nic.in",
+          "staged_candidate": "https://slnmch.nic.in/",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://slnmch.nic.in",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 18.8236,
+          "staged_candidate": 18.8165,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 18.8236,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 82.7231,
+          "staged_candidate": 82.714,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 82.7231,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    },
+    {
+      "canonical_place_id": "2e4ada02-9def-589b-be20-0ad2b6fde117",
+      "canonical_research_id": "place_med_008",
+      "candidate_id": "hosp_north_001",
+      "fields": {
+        "name": {
+          "canonical_before": "PRM Medical College & Hospital Baripada",
+          "staged_candidate": "Pandit Raghunath Murmu Medical College & Hospital (PRMMCH)",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "PRM Medical College & Hospital Baripada",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Mayurbhanj",
+          "staged_candidate": "Mayurbhanj",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Mayurbhanj",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Baripada, Mayurbhanj, Odisha 757107",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Baripada, Mayurbhanj, Odisha 757107",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": null,
+          "staged_candidate": "06792-252102",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "06792-252102",
+          "rationale": "Enriched null canonical field with verified staging data"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "Health & Family Welfare Dept Govt of Odisha",
+          "staged_candidate": "PRMMCH Baripada Official Portal",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Health & Family Welfare Dept Govt of Odisha",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://prmmch.nic.in",
+          "staged_candidate": "https://mayurbhanj.nic.in/public-utility-category/hospitals/",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://prmmch.nic.in",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 21.9333,
+          "staged_candidate": 21.9333,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 21.9333,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 86.7333,
+          "staged_candidate": 86.7333,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 86.7333,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    },
+    {
+      "canonical_place_id": "bd0b3da1-4314-5993-87b2-02c77e19b0d4",
+      "canonical_research_id": "place_med_010",
+      "candidate_id": "hosp_north_007",
+      "fields": {
+        "name": {
+          "canonical_before": "Fakir Mohan Medical College & Hospital",
+          "staged_candidate": "Fakir Mohan Medical College & Hospital (FMMCH)",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Fakir Mohan Medical College & Hospital",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Balasore",
+          "staged_candidate": "Balasore",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Balasore",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Remuna, Balasore, Odisha 756019",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Remuna, Balasore, Odisha 756019",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": null,
+          "staged_candidate": "06782-255010",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "06782-255010",
+          "rationale": "Enriched null canonical field with verified staging data"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "Health & Family Welfare Dept Govt of Odisha",
+          "staged_candidate": "FMMCH Balasore Official Portal",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Health & Family Welfare Dept Govt of Odisha",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://fmmch.nic.in",
+          "staged_candidate": "https://balasore.nic.in/public-utility-category/hospitals/",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://fmmch.nic.in",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 21.4833,
+          "staged_candidate": 21.4833,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 21.4833,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 86.9167,
+          "staged_candidate": 86.9167,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 86.9167,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    },
+    {
+      "canonical_place_id": "28927b4c-67c5-5067-aad2-7fc499cd1b73",
+      "canonical_research_id": "place_med_011",
+      "candidate_id": "hosp_north_012",
+      "fields": {
+        "name": {
+          "canonical_before": "Dharanidhar Medical College & Hospital",
+          "staged_candidate": "Dharanidhar Medical College & Hospital (DDMCH)",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Dharanidhar Medical College & Hospital",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Keonjhar",
+          "staged_candidate": "Keonjhar",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Keonjhar",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Keonjhar, Odisha 758001",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Keonjhar, Odisha 758001",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": null,
+          "staged_candidate": "06766-255100",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "06766-255100",
+          "rationale": "Enriched null canonical field with verified staging data"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "Health & Family Welfare Dept Govt of Odisha",
+          "staged_candidate": "DDMCH Keonjhar Official Portal",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Health & Family Welfare Dept Govt of Odisha",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://ddmch.nic.in",
+          "staged_candidate": "https://keonjhar.nic.in/public-utility-category/hospitals/",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://ddmch.nic.in",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 21.6333,
+          "staged_candidate": 21.6333,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 21.6333,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 85.5833,
+          "staged_candidate": 85.5833,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 85.5833,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    },
+    {
+      "canonical_place_id": "7c64cede-0169-54d0-8841-09416591a7cc",
+      "canonical_research_id": "place_med_012",
+      "candidate_id": "hosp_north_021",
+      "fields": {
+        "name": {
+          "canonical_before": "District Headquarter Hospital (DHH) Puri",
+          "staged_candidate": "District Headquarters Hospital Puri",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "District Headquarter Hospital (DHH) Puri",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Puri",
+          "staged_candidate": "Puri",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Puri",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Grand Road, Puri, Odisha 752001",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Grand Road, Puri, Odisha 752001",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": null,
+          "staged_candidate": "06752-222044",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "06752-222044",
+          "rationale": "Enriched null canonical field with verified staging data"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "District Administration Puri & Health Dept",
+          "staged_candidate": "Puri District Health Directory",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "District Administration Puri & Health Dept",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://puri.nic.in",
+          "staged_candidate": "https://puri.nic.in/public-utility-category/hospitals/",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://puri.nic.in",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 19.8167,
+          "staged_candidate": 19.8167,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 19.8167,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 85.8333,
+          "staged_candidate": 85.8333,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 85.8333,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    },
+    {
+      "canonical_place_id": "f5bcd96c-3ee5-53d5-b362-8d65cc1b3c39",
+      "canonical_research_id": "place_med_001",
+      "candidate_id": "hosp_north_024",
+      "fields": {
+        "name": {
+          "canonical_before": "All India Institute of Medical Sciences (AIIMS) Bhubaneswar",
+          "staged_candidate": "All India Institute of Medical Sciences (AIIMS) Bhubaneswar",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "All India Institute of Medical Sciences (AIIMS) Bhubaneswar",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Khordha",
+          "staged_candidate": "Khordha",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Khordha",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Sijua, Patrapada, Bhubaneswar, Odisha 751019",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Sijua, Patrapada, Bhubaneswar, Odisha 751019",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": "+91-674-2476789",
+          "staged_candidate": "0674-2476789",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "+91-674-2476789",
+          "rationale": "Canonical value preserved"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "Ministry of Health & Family Welfare Govt of India",
+          "staged_candidate": "AIIMS Bhubaneswar Official Portal",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Ministry of Health & Family Welfare Govt of India",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://aiimsbhubaneswar.nic.in",
+          "staged_candidate": "https://aiimsbhubaneswar.nic.in/",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://aiimsbhubaneswar.nic.in",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 20.2312,
+          "staged_candidate": 20.2312,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 20.2312,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 85.7891,
+          "staged_candidate": 85.7891,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 85.7891,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    },
+    {
+      "canonical_place_id": "adb7186f-b914-5f8c-a654-786a680a0c7c",
+      "canonical_research_id": "place_med_005",
+      "candidate_id": "hosp_north_025",
+      "fields": {
+        "name": {
+          "canonical_before": "Capital Hospital Bhubaneswar",
+          "staged_candidate": "Capital Hospital Bhubaneswar",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Capital Hospital Bhubaneswar",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Khordha",
+          "staged_candidate": "Khordha",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Khordha",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Unit-6, Ganga Nagar, Bhubaneswar, Odisha 751001",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Unit-6, Ganga Nagar, Bhubaneswar, Odisha 751001",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": "+91-674-2391983",
+          "staged_candidate": "0674-2391983",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "+91-674-2391983",
+          "rationale": "Canonical value preserved"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "Health & Family Welfare Dept Govt of Odisha",
+          "staged_candidate": "Capital Hospital Official Portal",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Health & Family Welfare Dept Govt of Odisha",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://capitalhospital.nic.in",
+          "staged_candidate": "https://khordha.nic.in/public-utility-category/hospitals/",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://capitalhospital.nic.in",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 20.2611,
+          "staged_candidate": 20.2611,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 20.2611,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 85.8278,
+          "staged_candidate": 85.8278,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 85.8278,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    },
+    {
+      "canonical_place_id": "09bd3315-df3a-5744-afc2-bb0a15f29994",
+      "canonical_research_id": "place_med_004",
+      "candidate_id": "hosp_west_001",
+      "fields": {
+        "name": {
+          "canonical_before": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences)",
+          "staged_candidate": "Veer Surendra Sai Institute of Medical Sciences and Research (VIMSAR)",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences)",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Sambalpur",
+          "staged_candidate": "Sambalpur",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Sambalpur",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Burla, Sambalpur, Odisha 768017",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Burla, Sambalpur, Odisha 768017",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": "+91-663-2430768",
+          "staged_candidate": "0663-2430768",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "+91-663-2430768",
+          "rationale": "Canonical value preserved"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "Health & Family Welfare Dept Govt of Odisha",
+          "staged_candidate": "VIMSAR Burla Official Portal",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Health & Family Welfare Dept Govt of Odisha",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://vimsar.ac.in",
+          "staged_candidate": "https://www.vimsar.ac.in/",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://vimsar.ac.in",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 21.4917,
+          "staged_candidate": 21.5035,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 21.4917,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 83.875,
+          "staged_candidate": 83.8712,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 83.875,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    },
+    {
+      "canonical_place_id": "8ee8eacc-f410-5542-9e9a-a9373474b49d",
+      "canonical_research_id": "place_med_006",
+      "candidate_id": "hosp_west_035",
+      "fields": {
+        "name": {
+          "canonical_before": "Ispat General Hospital (IGH)",
+          "staged_candidate": "Ispat General Hospital (IGH) Rourkela",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Ispat General Hospital (IGH)",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Sundargarh",
+          "staged_candidate": "Sundargarh",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Sundargarh",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Sector 19, Rourkela, Odisha 769005",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Sector 19, Rourkela, Odisha 769005",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": "+91-661-2510340",
+          "staged_candidate": "0661-2510101",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "+91-661-2510340",
+          "rationale": "Canonical value preserved"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "SAIL Rourkela Steel Plant & Health Dept",
+          "staged_candidate": "SAIL Rourkela Steel Plant Medical Division",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "SAIL Rourkela Steel Plant & Health Dept",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://sail.co.in",
+          "staged_candidate": "https://www.sail.co.in/en/plants/rourkela-steel-plant",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://sail.co.in",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 22.2583,
+          "staged_candidate": 22.2582,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 22.2583,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 84.8583,
+          "staged_candidate": 84.8481,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 84.8583,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    },
+    {
+      "canonical_place_id": "5b589227-1225-5ce3-b203-fb5900c138b7",
+      "canonical_research_id": "place_med_009",
+      "candidate_id": "hosp_west_043",
+      "fields": {
+        "name": {
+          "canonical_before": "Bhima Bhoi Medical College & Hospital",
+          "staged_candidate": "Bhima Bhoi Medical College and Hospital (BBMCH)",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Bhima Bhoi Medical College & Hospital",
+          "rationale": "Canonical value preserved"
+        },
+        "district": {
+          "canonical_before": "Balangir",
+          "staged_candidate": "Balangir",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Balangir",
+          "rationale": "Canonical value preserved"
+        },
+        "address": {
+          "canonical_before": "Balangir, Odisha 767001",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Balangir, Odisha 767001",
+          "rationale": "Canonical value preserved"
+        },
+        "contact_phone": {
+          "canonical_before": null,
+          "staged_candidate": "06652-230300",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "06652-230300",
+          "rationale": "Enriched null canonical field with verified staging data"
+        },
+        "emergency_phone": {
+          "canonical_before": "108",
+          "staged_candidate": null,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "108",
+          "rationale": "Canonical value preserved"
+        },
+        "source": {
+          "canonical_before": "Health & Family Welfare Dept Govt of Odisha",
+          "staged_candidate": "Bhima Bhoi Medical College Balangir",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "Health & Family Welfare Dept Govt of Odisha",
+          "rationale": "Canonical value preserved"
+        },
+        "source_url": {
+          "canonical_before": "https://bbmch.nic.in",
+          "staged_candidate": "https://bbmchbalangir.nic.in/",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "https://bbmch.nic.in",
+          "rationale": "Canonical value preserved"
+        },
+        "latitude": {
+          "canonical_before": 20.7167,
+          "staged_candidate": 20.7092,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 20.7167,
+          "rationale": "Canonical value preserved"
+        },
+        "longitude": {
+          "canonical_before": 83.4833,
+          "staged_candidate": 83.4912,
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": 83.4833,
+          "rationale": "Canonical value preserved"
+        },
+        "verification_status": {
+          "canonical_before": "VERIFIED",
+          "staged_candidate": "VERIFIED_OFFICIAL",
+          "proposed_action": "KEEP_EXISTING",
+          "chosen_value": "VERIFIED",
+          "rationale": "Canonical value preserved"
+        },
+        "confidence": {
+          "canonical_before": null,
+          "staged_candidate": "HIGH",
+          "proposed_action": "FILL_NULL",
+          "chosen_value": "HIGH",
+          "rationale": "Enriched null canonical field with verified staging data"
+        }
+      }
+    }
+  ]
+}

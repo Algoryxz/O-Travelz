@@ -1,0 +1,69 @@
+{
+  "report": "statewide_first_batch_b1_2_db_diff",
+  "verified_at": "2026-09-06T02:42:55.042928+00:00",
+  "zero_places_mutation_verified": true,
+  "exact_service_delta_verified": true,
+  "database_table_diffs": {
+    "places": {
+      "before": 204,
+      "after": 204,
+      "delta": 0
+    },
+    "categories": {
+      "before": 23,
+      "after": 23,
+      "delta": 0
+    },
+    "media_assets": {
+      "before": 116,
+      "after": 116,
+      "delta": 0
+    },
+    "entity_media": {
+      "before": 70,
+      "after": 70,
+      "delta": 0
+    },
+    "place_images": {
+      "before": 70,
+      "after": 70,
+      "delta": 0
+    },
+    "entity_relationships": {
+      "before": 0,
+      "after": 0,
+      "delta": 0
+    },
+    "routes": {
+      "before": 154,
+      "after": 154,
+      "delta": 0
+    },
+    "stops": {
+      "before": 1430,
+      "after": 1430,
+      "delta": 0
+    },
+    "route_stops": {
+      "before": 1491,
+      "after": 1491,
+      "delta": 0
+    },
+    "schedules": {
+      "before": 302,
+      "after": 302,
+      "delta": 0
+    },
+    "departures": {
+      "before": 5553,
+      "after": 5553,
+      "delta": 0
+    }
+  },
+  "services_dataset_diff": {
+    "before": 61,
+    "after": 211,
+    "delta": 150,
+    "expected_delta": 150
+  }
+}

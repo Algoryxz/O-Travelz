@@ -79,6 +79,9 @@ _PLACE_FIELDS = frozenset(
         "contact_phone",
         "emergency_phone",
         "address",
+        "confidence",
+        "last_verified_at",
+        "localized_names",
         "_comment",
     }
 )
@@ -291,10 +294,15 @@ def _validate_places(
             "contact_phone",
             "emergency_phone",
             "address",
+            "confidence",
+            "last_verified_at",
         ):
             value = record.get(field)
             if value is not None and not isinstance(value, str):
                 raise ImportValidationError(f"{label}.{field} must be a string or null")
+        localized_names = record.get("localized_names")
+        if localized_names is not None and not isinstance(localized_names, dict):
+            raise ImportValidationError(f"{label}.localized_names must be an object or null")
         coordinate_audit_status = record.get("coordinate_audit_status")
         if lat is not None and lon is not None and coordinate_audit_status not in (None, "high"):
             raise ImportValidationError(
@@ -655,6 +663,9 @@ def import_records(
                 "contact_phone": record.get("contact_phone"),
                 "emergency_phone": record.get("emergency_phone"),
                 "address": record.get("address"),
+                "confidence": record.get("confidence"),
+                "last_verified_at": _parse_verified_at(record.get("last_verified_at")),
+                "localized_names": record.get("localized_names"),
             }
 
             existing = None

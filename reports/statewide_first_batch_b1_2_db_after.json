@@ -1,0 +1,28 @@
+{
+  "report": "statewide_first_batch_b1_2_db_after",
+  "captured_at": "2026-09-06T02:42:55.000383+00:00",
+  "alembic_version": "0019_enforce_media_orthogonal_constraints",
+  "database_counts": {
+    "places": 204,
+    "categories": 23,
+    "media_assets": 116,
+    "entity_media": 70,
+    "place_images": 70,
+    "entity_relationships": 0,
+    "routes": 154,
+    "stops": 1430,
+    "route_stops": 1491,
+    "schedules": 302,
+    "departures": 5553
+  },
+  "services_dataset": {
+    "file": "data/services/odisha_services.json",
+    "record_count": 211,
+    "sha256": "a1a33b0e194d2a08a2ab13e6b5ff608032398376b4d1a0cd8a87cef6412ff964"
+  },
+  "places_dataset": {
+    "file": "data/places/places.json",
+    "total_records": 161,
+    "sha256": "736907a0d1c4376c702cbb42c518c1b7f74de7ccbeeab88f8b081d0452867e75"
+  }
+}

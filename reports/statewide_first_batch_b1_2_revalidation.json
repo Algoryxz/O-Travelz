@@ -1,0 +1,16 @@
+{
+  "report": "statewide_first_batch_b1_2_revalidation",
+  "total_evaluated": 189,
+  "ready_service_insert_count": 150,
+  "service_enrichment_count": 39,
+  "demoted_review_count": 0,
+  "blocked_count": 0,
+  "accounting_equation": "189 == 150 + 39 + 0 + 0",
+  "accounting_verified": true,
+  "category_distribution_write_set": {
+    "atm": 58,
+    "fuel": 29,
+    "healthcare": 35,
+    "police": 28
+  }
+}

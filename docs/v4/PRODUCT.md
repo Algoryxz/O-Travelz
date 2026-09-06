@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ V4 — Product Requirements Document (PRD)
+# O-TRAVELZ V4 — Product Requirements Document (PRD)
 
 > **Authoritative Product Specification**  
 > Product Name: **O-TRAVELZ**  
@@ -49,6 +49,24 @@ O-TRAVELZ prioritizes solving concrete traveler problems with verifiable truth o
 | **Job 9** | **Understand weather constraints** | *"Will extreme heat, coastal humidity, or monsoon rain disrupt this plan?"* | Live weather, heat indices, precipitation probability, and sunset times via Open-Meteo. | `[CURRENT]` |
 | **Job 10** | **Save trips offline** | *"Can I view my planned route and destination facts without cellular data?"* | Local client persistence (SwiftData on iOS, Room on Android, LocalStorage on Web). | `[PLANNED]` |
 | **Job 11** | **Contribute verified local knowledge** | *"Can local guides and cultural experts submit corrections and discoveries?"* | Moderated community submission pipeline with photo evidence verification gates. | `[FUTURE / DEFERRED]` |
+
+### 3.1 Architectural Domain Boundary: Tourism Destinations (Job 1) vs Civic Services (Job 8) `[CURRENT]`
+
+O-TRAVELZ maintains strict architectural separation between cultural/tourist destinations and civic utility services to protect product integrity:
+
+1. **Tourism Destination Domain (`places`)**:
+   - **Product Role**: Fulfills **Job 1 (Discover places)**, cultural exploration, trip planning, and vector map landmark rendering.
+   - **Canonical Storage**: PostgreSQL `places` table and `data/places/places.json`.
+   - **Invariant**: Strictly limited to heritage sites, temples, craft villages, natural attractions, beaches, and curated culinary destinations.
+   - **Media Gate**: Governed by the permanent rule: `NO VERIFIED IMAGE = NO PUBLIC DESTINATION`. Every published destination requires authentic photographic evidence.
+   - **Prohibited Entities**: ATMs, fuel stations, police stations, fire stations, and ordinary civic clinics are strictly banned from the `places` domain.
+
+2. **Civic & Practical Services Domain (`services`)**:
+   - **Product Role**: Fulfills **Job 8 (Find nearby practical services)**. Delivers emergency, safety, cash access, and transit support to travelers.
+   - **Canonical Storage**: `data/services/odisha_services.json`, served deterministically via `EssentialsService` and `/api/services/*` endpoints.
+   - **Audited Facilities**: 211 verified facilities across all 30 districts covering `hospitals`, `police`, `fire_stations`, `atms`, and `fuel_stations`.
+   - **Isolation Boundary**: Civic services are **never leaked** into tourist discovery feeds, category filters, itinerary route optimizers, or general destination search cards. They are exposed exclusively via context-aware proximity lookups (e.g. nearby hospital/police within emergency reach of an itinerary or destination).
+   - **Media Gate**: Utility services do **not** require tourist landscape photography; identity and coordinate provenance are verified via official department registries and institutional records.
 
 ---
 

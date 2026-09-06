@@ -1,0 +1,241 @@
+{
+  "report": "statewide_first_batch_service_overlap",
+  "existing_services_count": 61,
+  "exact_service_overlaps": 39,
+  "overlaps": [
+    {
+      "candidate_id": "hosp_athagarh_sdh",
+      "service_id": "hosp_athagarh_sdh",
+      "name": "Sub-Divisional Hospital Athagarh",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_banki_sdh",
+      "service_id": "hosp_banki_sdh",
+      "name": "Sub-Divisional Hospital Banki",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_tigiria_chc",
+      "service_id": "hosp_tigiria_chc",
+      "name": "Community Health Centre Tigiria",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_baramba_chc",
+      "service_id": "hosp_baramba_chc",
+      "name": "Community Health Centre Baramba",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_barchana_chc",
+      "service_id": "hosp_barchana_chc",
+      "name": "Community Health Centre Barchana",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_banki_ps",
+      "service_id": "police_banki_ps",
+      "name": "Banki Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_tigiria_ps",
+      "service_id": "police_tigiria_ps",
+      "name": "Tigiria Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_baramba_ps",
+      "service_id": "police_baramba_ps",
+      "name": "Baramba Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_balichandrapur_ps",
+      "service_id": "police_balichandrapur_ps",
+      "name": "Balichandrapur Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "fuel_hp_banki",
+      "service_id": "fuel_hp_banki",
+      "name": "HPCL Petrol Pump - Banki",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "fuel_bpcl_balichandrapur",
+      "service_id": "fuel_bpcl_balichandrapur",
+      "name": "Bharat Petroleum - Balichandrapur",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "atm_sbi_athagarh",
+      "service_id": "atm_sbi_athagarh",
+      "name": "State Bank of India ATM - Athagarh",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "atm_sbi_banki",
+      "service_id": "atm_sbi_banki",
+      "name": "SBI ATM - Banki Market",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "atm_pnb_balichandrapur",
+      "service_id": "atm_pnb_balichandrapur",
+      "name": "Punjab National Bank ATM - Balichandrapur",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_rajnagar_chc",
+      "service_id": "hosp_rajnagar_chc",
+      "name": "Community Health Centre Rajnagar",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_rajkanika_chc",
+      "service_id": "hosp_rajkanika_chc",
+      "name": "Community Health Centre Rajkanika",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_aul_chc",
+      "service_id": "hosp_aul_chc",
+      "name": "Community Health Centre Aul",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_rajnagar_ps",
+      "service_id": "police_rajnagar_ps",
+      "name": "Rajnagar Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_talchua_coastal_ps",
+      "service_id": "police_talchua_coastal_ps",
+      "name": "Talchua Coastal Marine Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_jamboo_marine_ps",
+      "service_id": "police_jamboo_marine_ps",
+      "name": "Jamboo Marine Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "atm_sbi_rajnagar",
+      "service_id": "atm_sbi_rajnagar",
+      "name": "State Bank of India ATM - Rajnagar",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_bhadrak_dhh",
+      "service_id": "hosp_bhadrak_dhh",
+      "name": "District Headquarters Hospital Bhadrak",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_basudevpur_chc",
+      "service_id": "hosp_basudevpur_chc",
+      "name": "Community Health Centre Basudevpur",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_basudevpur_ps",
+      "service_id": "police_basudevpur_ps",
+      "name": "Basudevpur Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_bhadrak_town_ps",
+      "service_id": "police_bhadrak_town_ps",
+      "name": "Bhadrak Town Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "atm_sbi_bhadrak_town",
+      "service_id": "atm_sbi_bhadrak_town",
+      "name": "SBI ATM - Main Branch Bhadrak",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_dhenkanal_dhh",
+      "service_id": "hosp_dhenkanal_dhh",
+      "name": "District Headquarters Hospital Dhenkanal",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_kamakhyanagar_sdh",
+      "service_id": "hosp_kamakhyanagar_sdh",
+      "name": "Sub-Divisional Hospital Kamakhyanagar",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_parjang_ps",
+      "service_id": "police_parjang_ps",
+      "name": "Parjang Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_chandikhole_chc",
+      "service_id": "hosp_chandikhole_chc",
+      "name": "Community Health Centre Chandikhole",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_chandikhole_outpost",
+      "service_id": "police_chandikhole_outpost",
+      "name": "Chandikhole Police Outpost",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_jagatsinghpur_dhh",
+      "service_id": "hosp_jagatsinghpur_dhh",
+      "name": "District Headquarters Hospital Jagatsinghpur",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_kujang_chc",
+      "service_id": "hosp_kujang_chc",
+      "name": "Community Health Centre Kujang",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_kujang_ps",
+      "service_id": "police_kujang_ps",
+      "name": "Kujang Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_jagatsinghpur_town_ps",
+      "service_id": "police_jagatsinghpur_town_ps",
+      "name": "Jagatsinghpur Town Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_athmallik_sdh",
+      "service_id": "hosp_athmallik_sdh",
+      "name": "Sub-Divisional Hospital Athmallik",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "hosp_talcher_sdh",
+      "service_id": "hosp_talcher_sdh",
+      "name": "Sub-Divisional Hospital Talcher",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_athmallik_ps",
+      "service_id": "police_athmallik_ps",
+      "name": "Athmallik Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    },
+    {
+      "candidate_id": "police_talcher_town_ps",
+      "service_id": "police_talcher_town_ps",
+      "name": "Talcher Town Police Station",
+      "overlap_type": "EXACT_EXISTING_ID"
+    }
+  ]
+}

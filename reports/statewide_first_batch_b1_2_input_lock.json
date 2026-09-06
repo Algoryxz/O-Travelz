@@ -1,0 +1,32 @@
+{
+  "report": "statewide_first_batch_b1_2_input_lock",
+  "git_head": "7106c33395c559f9b45ec555c59a0ac839664294",
+  "input_hashes": {
+    "data/staging/statewide_entities/first_batch_ready_new.json": "296805976e15b7fde01100a43d8f7fe985d2acc131276911ff92195e72f3ed26",
+    "data/staging/statewide_entities/first_batch_ready_enrichment.json": "58d1475a592a8006d7948fff4fabc1fbfb11c341d07e4994dc8e9ec540d9df73",
+    "data/staging/statewide_entities/first_batch_review.json": "cf6d574d99a886d04d240d93995b0283e35d18d918a5296be7bb657d03d041d0",
+    "data/staging/statewide_entities/first_batch_blocked.json": "dbfef3c42aec0718bedae76e714ccadb9489453ed669ac01e3ea3b1fbab04689",
+    "reports/statewide_first_batch_provenance_audit.json": "c6e4815b0a8d211c7f3e7dd3255ae18ce7c10879e93c334fec117ae8055449ca",
+    "reports/statewide_first_batch_identity_audit.json": "b407a84adcf07a0f332ce521a2d6e77c51cc826af1fb6e6e05a200f4540ce83b",
+    "reports/statewide_first_batch_coordinate_audit.json": "41a1da6d9bce832b85d41bb3cfef5f21f39bace762c7cba3d344ec327a904489",
+    "reports/statewide_first_batch_canonical_overlap.json": "7c6248861ce7fa2ad05d0525965f0c549ccb156508da6d4a643302bc458571bd"
+  },
+  "counts": {
+    "ready_new": 189,
+    "ready_enrichment": 12,
+    "review_required": 577,
+    "blocked": 12,
+    "total": 790
+  },
+  "ready_new_category_counts": {
+    "HOSPITAL": 52,
+    "POLICE_STATION": 34,
+    "FUEL_STATION": 31,
+    "ATM": 63,
+    "FIRE_STATION": 9
+  },
+  "b1_1_accounting_equation": {
+    "equation": "790 == 189 ready_new + 12 ready_enrichment + 577 review_required + 12 blocked",
+    "verified": true
+  }
+}
