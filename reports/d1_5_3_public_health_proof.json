@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-09-06T14:10:36.491431+00:00",
+  "wave": "D1.5.3",
+  "phase": "Phase 5 \u2014 Public Health Proof",
+  "target_url": "https://otravelz-backend.onrender.com/health",
+  "http_status": "TIMEOUT",
+  "version": null,
+  "git_sha": null,
+  "alembic_version": null,
+  "expected_git_sha": "b9184652dc76bd42da23efa1385178ff815afcdd",
+  "health_proof_result": "FAILED_TIMEOUT",
+  "verdict": "PUBLIC_HEALTH_NOT_ACCEPTED"
+}

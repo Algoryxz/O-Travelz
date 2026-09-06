@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-09-06T14:10:36.491431+00:00",
+  "wave": "D1.5.3",
+  "phase": "Phase 7 \u2014 Public Endpoint Smoke",
+  "backend_url": "https://otravelz-backend.onrender.com",
+  "target_pass_count": "9 / 9",
+  "actual_pass_count": "0 / 9",
+  "endpoints": {
+    "GET /health": "TIMEOUT",
+    "GET /places": "TIMEOUT",
+    "GET /places/{id}": "TIMEOUT",
+    "GET /weather/current": "TIMEOUT",
+    "POST /itinerary/plan": "TIMEOUT",
+    "POST /ai/converse": "TIMEOUT",
+    "GET /api/transport/routes": "TIMEOUT",
+    "GET /api/transport/routes/{id}/geometry": "TIMEOUT",
+    "GET /api/v1/services/nearby": "TIMEOUT"
+  },
+  "verdict": "PUBLIC_ENDPOINT_SMOKE_FAILED"
+}

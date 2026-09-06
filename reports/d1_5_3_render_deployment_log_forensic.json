@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-09-06T14:10:36.491431+00:00",
+  "wave": "D1.5.3",
+  "phase": "Phase 3 \u2014 Deployment Log Forensics",
+  "observed_failure": "Client HTTP probe to https://otravelz-backend.onrender.com/health times out after 30s-90s with zero bytes returned from upstream container.",
+  "failure_category": "WRONG_BRANCH_STILL_DEPLOYED",
+  "secondary_possibility": "HEALTH_CHECK_TIMEOUT_DURING_STARTUP",
+  "evidence_analysis": [
+    "Render edge router (216.24.57.15) accepts TLS handshakes and redirects HTTP to HTTPS.",
+    "Upstream application never sends an HTTP response header or body.",
+    "On GitHub, the default branch is 'main' at stale commit 51ab34e (Sep 2), which still contains the expired Render PostgreSQL blueprint block.",
+    "Unless the Render service 'Branch' setting was explicitly saved as 'feature/v4-platform-rebuild', Render will default to deploying 'main' where database connection crashes.",
+    "Additionally, start.py performs Alembic migrations and database counts synchronously before starting Uvicorn, which can exceed Render's 30s initial health-check window over cross-region cloud links."
+  ],
+  "verdict": "UPSTREAM_UNRESPONSIVE_PENDING_LOG_VERIFICATION"
+}

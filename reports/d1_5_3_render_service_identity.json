@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-09-06T14:10:36.491431+00:00",
+  "wave": "D1.5.3",
+  "phase": "Phase 1 \u2014 Render Dashboard Deployment Identity",
+  "service_name": "otravelz-backend",
+  "configured_git_repository": "https://github.com/Algoryxz/O-Travelz",
+  "expected_branch": "feature/v4-platform-rebuild",
+  "repository_head_sha": "b9184652dc76bd42da23efa1385178ff815afcdd",
+  "runtime": "Python 3.12.5",
+  "build_command": "pip install --no-cache-dir -r requirements.txt",
+  "start_command": "python start.py",
+  "health_check_path": "/health",
+  "live_edge_probes": {
+    "root_url": "https://otravelz-backend.onrender.com/",
+    "health_url": "https://otravelz-backend.onrender.com/health",
+    "edge_ip": "216.24.57.15",
+    "tls_handshake": "SUCCESS",
+    "http_to_https_redirect": "HTTP 301 Moved Permanently",
+    "upstream_response_status": "TIMEOUT (>30s-90s, 0 bytes returned from upstream container)"
+  },
+  "instance_service_state": "SUSPENDED_OR_CRASH_LOOP_UPSTREAM",
+  "verdict": "UPSTREAM_CONTAINER_UNREACHABLE"
+}

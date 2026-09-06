@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-09-06T14:10:36.491431+00:00",
+  "wave": "D1.5.3",
+  "phase": "Phase 8 \u2014 CORS Reality",
+  "allowed_origin": "https://algoryxz.github.io",
+  "credentials_mode": true,
+  "wildcard_with_credentials": false,
+  "local_verification": "PASS (TestClient OPTIONS returns 200 with Allow-Origin)",
+  "public_host_verification": "TIMEOUT",
+  "verdict": "CORS_SPEC_PASS_PUBLIC_TIMEOUT"
+}

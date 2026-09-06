@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-09-06T14:10:36.491431+00:00",
+  "wave": "D1.5.3",
+  "phase": "Phase 2 \u2014 Environment Contract Audit",
+  "service": "otravelz-backend",
+  "environment_variables_contract": {
+    "ENVIRONMENT": "production",
+    "DATABASE_URL": {
+      "structure_verified": true,
+      "sanitized_uri": "postgresql://avnadmin:<REDACTED>@otravelz-db-smarakpadhi58-98d3.d.aivencloud.com:25047/defaultdb?sslmode=require",
+      "target_host": "otravelz-db-smarakpadhi58-98d3.d.aivencloud.com",
+      "port": 25047,
+      "database_name": "defaultdb",
+      "sslmode": "require",
+      "is_aiven_cloud": true,
+      "is_not_old_render_db": true,
+      "is_not_empty": true
+    },
+    "CORS_ORIGINS": {
+      "configured_value": "https://algoryxz.github.io,http://localhost:5173",
+      "includes_public_github_pages": true,
+      "no_wildcard_with_credentials": true
+    },
+    "PYTHON_VERSION": "3.12.5",
+    "AUTH_COOKIE_SECURE": "true",
+    "AUTH_COOKIE_SAMESITE": "none",
+    "AI_PROVIDER": "multi_provider",
+    "AI_FALLBACK_PROVIDER": "rule_based",
+    "WEATHER_PROVIDER": "Open-Meteo",
+    "WEATHER_BASE_URL": "https://api.open-meteo.com/v1/forecast"
+  },
+  "verdict": "ENVIRONMENT_SPECIFICATION_VALID"
+}

@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-09-06T14:10:36.491431+00:00",
+  "wave": "D1.5.3",
+  "phase": "Phase 10 \u2014 True Public Full-Stack Browser Journey",
+  "frontend_url": "https://algoryxz.github.io/O-Travelz/",
+  "backend_url": "https://otravelz-backend.onrender.com",
+  "mocking_intercepting_policy": "STRICTLY_PROHIBITED",
+  "journey_steps": {
+    "1_home": "PASS (static bundle)",
+    "2_discover": "PASS (static places catalog)",
+    "3_place_detail": "PASS (Lingaraj Temple modal)",
+    "4_hero_media": "PASS (Fastly CDN WebP)",
+    "5_backend_weather": "FAIL_FALLBACK (Render timeout, client fail-safe)",
+    "6_planner": "PASS (client planner UI)",
+    "7_backend_ai": "FAIL_FALLBACK (Render timeout, client rule-based)",
+    "8_itinerary": "PASS (rendered)",
+    "9_maplibre": "PASS (canvas active)",
+    "10_backend_transit": "FAIL_FALLBACK (Render timeout, static route)",
+    "11_civic_services": "PASS (verified static dataset)",
+    "12_save_place": "PASS (localStorage)",
+    "13_reload_restore": "PASS (localStorage hydrated)",
+    "14_mobile_viewport": "PASS (390x844 responsive)"
+  },
+  "verdict": "STATIC_AUTONOMOUS_PASS_FULL_STACK_BLOCKED"
+}

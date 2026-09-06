@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-09-06T14:10:36.491431+00:00",
+  "wave": "D1.5.3",
+  "phase": "Phase 4 \u2014 Minimal Root-Cause Repair",
+  "root_cause": "The public Render service is not serving HTTP traffic on /health because the upstream instance is either suspended, failed during startup, or deploying the wrong branch.",
+  "evidence": "100% timeout rate across 20+ probe cycles at 5s, 10s, 30s, 60s, 90s, 120s timeouts.",
+  "required_fix": "Operator must open Render Dashboard, inspect actual build and deploy logs for otravelz-backend, ensure Branch is set to feature/v4-platform-rebuild, and click 'Clear build cache & deploy'.",
+  "files_changed": [
+    "backend/app/core/config.py (normalized postgres:// to postgresql:// and enforced sslmode=require for Aiven hosts)"
+  ],
+  "dashboard_changes_required": [
+    "1. Check Render Deploy Logs: Verify if latest build status is Succeeded or Failed.",
+    "2. If Failed: Review the exact error trace in the Render deploy log tab.",
+    "3. If Succeeded but Suspended: Click 'Resume Service'.",
+    "4. Verify Branch: In Settings, verify Branch = feature/v4-platform-rebuild.",
+    "5. Re-trigger: Click Manual Deploy -> Clear build cache & deploy."
+  ],
+  "why_fix_is_minimal": "Follows Ponytail mandate: zero speculative code changes without real deploy log evidence; fixes only known database URL format discrepancies."
+}
