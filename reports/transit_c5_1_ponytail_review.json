@@ -1,0 +1,112 @@
+{
+  "report_name": "transit_c5_1_ponytail_review",
+  "timestamp": "2026-09-06T03:39:09.514286+00:00",
+  "codebase_analyzed": [
+    "scripts/resolve_wave_c5_transit_stops.py",
+    "scripts/generate_transit_c5_baseline.py",
+    "scripts/generate_transit_c5_tool_feasibility.py",
+    "scripts/fetch_osm_transit_nodes.py",
+    "scripts/fetch_osm_place_nodes.py",
+    "backend/tests/test_wave_c5_stop_resolution.py",
+    "docs/v4/TRANSIT_STOP_VERIFICATION.md"
+  ],
+  "findings": [
+    {
+      "id": "PT-01",
+      "file": "scripts/resolve_wave_c5_transit_stops.py",
+      "line_range": "490-570",
+      "tag": "shrink",
+      "finding": "O(N*M) unindexed nested loop: 1,430 stops scanning 21,554 candidate objects (30.8M comparisons) without geographic blocking.",
+      "replacement": "Spatial grid index (0.1 deg lat/lon bins) + region partition to prune 95% of candidates before similarity scoring.",
+      "classification": "REQUIRED_C5_FIX"
+    },
+    {
+      "id": "PT-02",
+      "file": "scripts/resolve_wave_c5_transit_stops.py",
+      "line_range": "555-560",
+      "tag": "yagni",
+      "finding": "Ad-hoc floating-point weighting formula (effective_sim * 45.0 * p_weight + 30.0 + 15.0 + 10.0 >= 52.0) creates decorative precision.",
+      "replacement": "Deterministic tiered matching cascade: exact name+corridor -> generic category+corridor -> high token overlap.",
+      "classification": "REQUIRED_C5_FIX"
+    },
+    {
+      "id": "PT-03",
+      "file": "scripts/resolve_wave_c5_transit_stops.py",
+      "line_range": "244-370",
+      "tag": "native",
+      "finding": "Candidate objects pool only ingested basic transit and place nodes, ignoring amenity=police, hospital, clinic, fuel, railway, school in OSM and latest B1.2 civic services.",
+      "replacement": "Expand candidate ingestion to include all high-value civic POI classes (police, hospital, fuel, college, bus stand) mapped to known stops.",
+      "classification": "REQUIRED_C5_FIX"
+    },
+    {
+      "id": "PT-04",
+      "file": "scripts/fetch_osm_transit_nodes.py & fetch_osm_place_nodes.py",
+      "line_range": "1-70",
+      "tag": "shrink",
+      "finding": "Two separate scripts copying 60 lines of Overpass HTTP boilerplate.",
+      "replacement": "Consolidate into single shared fetcher or inline Overpass query utility.",
+      "classification": "SAFE_SIMPLIFICATION"
+    },
+    {
+      "id": "PT-05",
+      "file": "scripts/resolve_wave_c5_transit_stops.py",
+      "line_range": "800-970",
+      "tag": "shrink",
+      "finding": "Emitted 7 individual JSON reports where 3 core operational artifacts carry 98% of actionable data.",
+      "replacement": "Keep required core reports (c5_stop_resolution, coverage, manual_queue, topology) and remove dead/redundant fields.",
+      "classification": "SAFE_SIMPLIFICATION"
+    },
+    {
+      "id": "PT-06",
+      "file": "backend/tests/test_wave_c5_stop_resolution.py",
+      "line_range": "108-120",
+      "tag": "yagni",
+      "finding": "Test 4 asserts on exact string prefixes in a hardcoded whitelist rather than verifying the invariant that candidates are physical objects.",
+      "replacement": "Assert candidate_object_type in ALLOWED_PHYSICAL_TYPES and candidate_source is non-empty and non-interpolated.",
+      "classification": "SAFE_SIMPLIFICATION"
+    },
+    {
+      "id": "PT-07",
+      "file": "scripts/resolve_wave_c5_transit_stops.py",
+      "line_range": "420-465",
+      "tag": "delete",
+      "finding": "Redundant provenance structures generated on every execution for unchanged canonical stops.",
+      "replacement": "Store compact single-provenance record for candidate inferences.",
+      "classification": "SAFE_SIMPLIFICATION"
+    },
+    {
+      "id": "PT-08",
+      "file": "docs/v4/TRANSIT_STOP_VERIFICATION.md",
+      "line_range": "100-240",
+      "tag": "yagni",
+      "finding": "Multi-tier consensus engine with complex decay half-lives specified before passenger app telemetry client exists.",
+      "replacement": "Keep specification lean: smallest viable observation schema + 3-tier consensus ladder + opt-in privacy.",
+      "classification": "SAFE_SIMPLIFICATION"
+    },
+    {
+      "id": "PT-09",
+      "file": "scripts/resolve_wave_c5_transit_stops.py",
+      "line_range": "1-972",
+      "tag": "delete",
+      "finding": "Delete entire staging and regenerate from raw scratch.",
+      "replacement": "Do not delete working logic; enhance resolution cascade and geometry generation directly.",
+      "classification": "REJECT_PONYTAIL_SUGGESTION"
+    },
+    {
+      "id": "PT-10",
+      "file": "backend/tests/test_wave_c5_stop_resolution.py",
+      "line_range": "1-266",
+      "tag": "delete",
+      "finding": "Reduce 20 tests to a single smoke test.",
+      "replacement": "Reject: O-TRAVELZ truth and multi-dimensional contract requirements necessitate comprehensive property tests for stops, anchors, and arithmetic.",
+      "classification": "REJECT_PONYTAIL_SUGGESTION"
+    }
+  ],
+  "summary": {
+    "REQUIRED_C5_FIX": 3,
+    "SAFE_SIMPLIFICATION": 5,
+    "FUTURE_DEBT": 0,
+    "REJECT_PONYTAIL_SUGGESTION": 2,
+    "net_estimated_lines_saved": 240
+  }
+}

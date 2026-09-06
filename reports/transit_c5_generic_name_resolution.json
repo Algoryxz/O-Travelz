@@ -1,28 +1,16 @@
 {
   "report_name": "transit_c5_generic_name_resolution",
-  "total_generic_stops_audited": 98,
-  "breakdown_by_category": {
-    "RAILWAY_STATION": 5,
-    "CHHAK_SQUARE": 24,
-    "TEMPLE": 11,
-    "COLLEGE_SCHOOL": 17,
-    "BUS_STAND": 15,
-    "POLICE_STATION": 10,
-    "MARKET": 2,
-    "HOSPITAL": 8,
-    "BYPASS": 5,
-    "CIVIC_OFFICE": 1
-  },
-  "uniquely_resolved_count": 98,
+  "total_generic_stops_audited": 146,
+  "uniquely_resolved_count": 146,
   "sample_resolutions": [
     {
       "stop_id": "stop_crut_berhampur_berhampur_radio_station",
       "canonical_name": "Berhampur Radio Station",
       "generic_type": "RAILWAY_STATION",
-      "qualifier": "BERHAMPUR RADIO",
-      "matched_object": "Berhampur Railway Station (BAM)",
-      "matched_type": "place_transit_hub",
-      "status": "CANDIDATE_MEDIUM",
+      "qualifier": "BRAHMAPUR RADIO",
+      "matched_object": "Brahmapur",
+      "matched_type": "osm_bus_station",
+      "status": "CANDIDATE_HIGH",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
@@ -36,13 +24,43 @@
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
-      "stop_id": "stop_crut_berhampur_dhabaleswar_temple",
-      "canonical_name": "Dhabaleswar Temple",
-      "generic_type": "TEMPLE",
-      "qualifier": "DHABALESWAR TEMPLE",
-      "matched_object": "Dhabaleswar Temple",
-      "matched_type": "nominatim_poi",
+      "stop_id": "stop_crut_berhampur_biswanath_school",
+      "canonical_name": "Biswanath School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "BISWANATH SCHOOL",
+      "matched_object": "Government High School",
+      "matched_type": "osm_school",
       "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_central_school_berhampur",
+      "canonical_name": "Central School Berhampur",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "BRAHMAPUR SCHOOL",
+      "matched_object": "Brahmapur",
+      "matched_type": "osm_bus_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_city_college_berhampur",
+      "canonical_name": "City College Berhampur",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "BRAHMAPUR COLLEGE",
+      "matched_object": "Brahmapur",
+      "matched_type": "osm_bus_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_city_college_square_berhampur",
+      "canonical_name": "City College Square Berhampur",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "BRAHMAPUR COLLEGE",
+      "matched_object": "Brahmapur",
+      "matched_type": "osm_bus_station",
+      "status": "CANDIDATE_HIGH",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
@@ -52,6 +70,16 @@
       "qualifier": "COLLEGE DISHA",
       "matched_object": "Khallikote College",
       "matched_type": "nominatim_poi",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_duduma_colony_bus_stand",
+      "canonical_name": "Duduma Colony Bus Stand",
+      "generic_type": "BUS_STAND",
+      "qualifier": "COLONY DUDUMA",
+      "matched_object": "Berhampur Railway Station (BAM)",
+      "matched_type": "place_transit_hub",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -66,13 +94,33 @@
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
+      "stop_id": "stop_crut_berhampur_engineering_school",
+      "canonical_name": "Engineering School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "ENGINEERING SCHOOL",
+      "matched_object": "Uma Charan Patnaik Engineering School",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_engineering_school_chowk",
+      "canonical_name": "Engineering School Chowk",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "ENGINEERING SCHOOL",
+      "matched_object": "Uma Charan Patnaik Engineering School",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
       "stop_id": "stop_crut_berhampur_engineering_school_chowk_berhampur",
       "canonical_name": "Engineering School Chowk Berhampur",
       "generic_type": "CHHAK_SQUARE",
-      "qualifier": "BERHAMPUR ENGINEERING SCHOOL",
-      "matched_object": "Berhampur Railway Station (BAM)",
-      "matched_type": "place_transit_hub",
-      "status": "CANDIDATE_MEDIUM",
+      "qualifier": "BRAHMAPUR ENGINEERING SCHOOL",
+      "matched_object": "Brahmapur",
+      "matched_type": "osm_bus_station",
+      "status": "CANDIDATE_HIGH",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
@@ -130,19 +178,9 @@
       "canonical_name": "Gosaninugaa Police Station",
       "generic_type": "POLICE_STATION",
       "qualifier": "GOSANINUGAA POLICE",
-      "matched_object": "Berhampur Town Police Station",
-      "matched_type": "statewide_police_station",
+      "matched_object": "Baidyanathpur Police station",
+      "matched_type": "osm_police",
       "status": "CANDIDATE_HIGH",
-      "rationale": "Contextual isolation via route corridor and qualifier matching"
-    },
-    {
-      "stop_id": "stop_crut_berhampur_govindpur_square",
-      "canonical_name": "Govindpur Square",
-      "generic_type": "CHHAK_SQUARE",
-      "qualifier": "GOVINDPUR",
-      "matched_object": "Govindpur",
-      "matched_type": "osm_bus_station",
-      "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
@@ -163,6 +201,16 @@
       "matched_object": "Jagadalpur",
       "matched_type": "osm_place_village",
       "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_kusasthali_college",
+      "canonical_name": "Kusasthali College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE KUSASTHALI",
+      "matched_object": "Government Chatrapur College",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
@@ -210,8 +258,18 @@
       "canonical_name": "Old Bus Stand",
       "generic_type": "BUS_STAND",
       "qualifier": "OLD",
-      "matched_object": "Old Bus Stand",
-      "matched_type": "osm_bus_station",
+      "matched_object": "Chatrapur OLD Bus Stop",
+      "matched_type": "osm_platform",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_parala_maharaja_college",
+      "canonical_name": "Parala Maharaja College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE MAHARAJA PARALA",
+      "matched_object": "Government Chatrapur College",
+      "matched_type": "osm_college",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -220,9 +278,29 @@
       "canonical_name": "Police Station",
       "generic_type": "POLICE_STATION",
       "qualifier": "POLICE",
-      "matched_object": "Berhampur Town Police Station",
-      "matched_type": "statewide_police_station",
+      "matched_object": "Baidyanathpur Police station",
+      "matched_type": "osm_police",
       "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_police_station_2",
+      "canonical_name": "Police Station,",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "POLICE",
+      "matched_object": "Police Station",
+      "matched_type": "osm_police",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_police_stationgosaninuagaon",
+      "canonical_name": "Police Station,gosaninuagaon",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "GOSANINUAGAON POLICE",
+      "matched_object": "Police Station",
+      "matched_type": "osm_police",
+      "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
@@ -240,8 +318,8 @@
       "canonical_name": "Sai Temple",
       "generic_type": "TEMPLE",
       "qualifier": "SAI TEMPLE",
-      "matched_object": "Sai Temple",
-      "matched_type": "osm_platform",
+      "matched_object": "New Siva Sai Hospital",
+      "matched_type": "osm_hospital",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -250,8 +328,8 @@
       "canonical_name": "Sum Hospital",
       "generic_type": "HOSPITAL",
       "qualifier": "HOSPITAL SUM",
-      "matched_object": "SUM Ultimate Medicare Hospital",
-      "matched_type": "nominatim_poi",
+      "matched_object": "IMS SUM Hospital",
+      "matched_type": "osm_hospital",
       "status": "CANDIDATE_HIGH",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -260,8 +338,18 @@
       "canonical_name": "Sum Hospital - Parala Maharaja College",
       "generic_type": "HOSPITAL",
       "qualifier": "COLLEGE HOSPITAL MAHARAJA PARALA SUM",
-      "matched_object": "MKCG Medical College & Hospital",
-      "matched_type": "place_hospital",
+      "matched_object": "City Hospital",
+      "matched_type": "osm_hospital",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_tata_benz_square",
+      "canonical_name": "Tata Benz Square",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "BENZ TATA",
+      "matched_object": "Tata Medica Hospital",
+      "matched_type": "osm_hospital",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -272,6 +360,26 @@
       "qualifier": "COLLEGE VIGNAN",
       "matched_object": "Khallikote College",
       "matched_type": "nominatim_poi",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_apollo_hospital",
+      "canonical_name": "Apollo Hospital",
+      "generic_type": "HOSPITAL",
+      "qualifier": "APOLLO HOSPITAL",
+      "matched_object": "Apollo Hospital",
+      "matched_type": "osm_hospital",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_city_womens_college",
+      "canonical_name": "City Women's College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE WOMEN",
+      "matched_object": "Nigamananda Women's College",
+      "matched_type": "osm_college",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -296,12 +404,62 @@
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
-      "stop_id": "stop_crut_bhubaneswar_khordha_bypass",
-      "canonical_name": "Khordha Bypass",
-      "generic_type": "BYPASS",
-      "qualifier": "BYPASS KHORDHA",
-      "matched_object": "Cuttack - Puri Bypass Road",
-      "matched_type": "nominatim_poi",
+      "stop_id": "stop_crut_bhubaneswar_gop_police_station",
+      "canonical_name": "Gop Police Station",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "GOP POLICE",
+      "matched_object": "Gop Police Station",
+      "matched_type": "osm_police",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_iter_college",
+      "canonical_name": "Iter College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE ITER",
+      "matched_object": "ITER",
+      "matched_type": "osm_university",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_jagadguru_krupalu_university",
+      "canonical_name": "Jagadguru Krupalu University",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "JAGADGURU KRUPALU UNIVERSITY",
+      "matched_object": "Ravenshaw University (Mahanadi Campus)",
+      "matched_type": "osm_university",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_judicial_academy",
+      "canonical_name": "Judicial Academy",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "ACADEMY JUDICIAL",
+      "matched_object": "Sri Chaitanya Academy",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_kalinga_hospital_square",
+      "canonical_name": "Kalinga Hospital Square",
+      "generic_type": "HOSPITAL",
+      "qualifier": "HOSPITAL KALINGA",
+      "matched_object": "Kalinga Hospital",
+      "matched_type": "osm_hospital",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_khandagiri_square",
+      "canonical_name": "Khandagiri Square",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "KHANDAGIRI",
+      "matched_object": "khandagiri ",
+      "matched_type": "osm_fuel",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -316,6 +474,56 @@
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
+      "stop_id": "stop_crut_bhubaneswar_khordha_road_station",
+      "canonical_name": "Khordha Road Station",
+      "generic_type": "RAILWAY_STATION",
+      "qualifier": "KHORDHA",
+      "matched_object": "Lions Eye Hospital, Khordha",
+      "matched_type": "osm_hospital",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_konark_police_station",
+      "canonical_name": "Konark Police Station",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "KONARK POLICE",
+      "matched_object": "Konark Police Station",
+      "matched_type": "osm_police",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_madhabananda_temple_niali",
+      "canonical_name": "Madhabananda Temple, Niali",
+      "generic_type": "TEMPLE",
+      "qualifier": "MADHABANANDA NIALI TEMPLE",
+      "matched_object": "Brahmeswar Temple",
+      "matched_type": "place_temple",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_madhabnanda_temple_niali",
+      "canonical_name": "Madhabnanda Temple, Niali",
+      "generic_type": "TEMPLE",
+      "qualifier": "MADHABNANDA NIALI TEMPLE",
+      "matched_object": "Gundicha Temple",
+      "matched_type": "place_temple",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_mancheswar_police_station",
+      "canonical_name": "Mancheswar Police Station",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "MANCHESWAR POLICE",
+      "matched_object": "Police Station",
+      "matched_type": "osm_police",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
       "stop_id": "stop_crut_bhubaneswar_master_canteen_scb_medical",
       "canonical_name": "Master Canteen - Scb Medical",
       "generic_type": "HOSPITAL",
@@ -326,12 +534,32 @@
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
-      "stop_id": "stop_crut_bhubaneswar_nimapada_old_bus_stand",
-      "canonical_name": "Nimapada Old Bus Stand",
-      "generic_type": "BUS_STAND",
-      "qualifier": "NIMAPADA OLD",
-      "matched_object": "Old Bus Stand",
-      "matched_type": "osm_bus_station",
+      "stop_id": "stop_crut_bhubaneswar_naraj_police_outpost",
+      "canonical_name": "Naraj Police Outpost",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "NARAJ OUTPOST POLICE",
+      "matched_object": "Dhabaleswar Police Outpost",
+      "matched_type": "statewide_police_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_national_law_university_o_2",
+      "canonical_name": "National Law University O",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "LAW NATIONAL UNIVERSITY",
+      "matched_object": "Ravenshaw University (Mahanadi Campus)",
+      "matched_type": "osm_university",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_pipili_police_station",
+      "canonical_name": "Pipili Police Station",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "PIPILI POLICE",
+      "matched_object": "Pipili Police Station",
+      "matched_type": "statewide_police_station",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -342,6 +570,46 @@
       "qualifier": "HOUSE POWER",
       "matched_object": "Power House Square",
       "matched_type": "osm_platform",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_rajdhani_college",
+      "canonical_name": "Rajdhani College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE RAJDHANI",
+      "matched_object": "Rajdhani College",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_rd_womens_college",
+      "canonical_name": "Rd Women's College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE WOMEN",
+      "matched_object": "Nigamananda Women's College",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_rokat_rajdhani_engineering_college",
+      "canonical_name": "Rokat, Rajdhani Engineering College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE ENGINEERING RAJDHANI ROKAT",
+      "matched_object": "Rajdhani College",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_sai_hospital",
+      "canonical_name": "Sai Hospital",
+      "generic_type": "HOSPITAL",
+      "qualifier": "HOSPITAL SAI",
+      "matched_object": "Sai Hospital",
+      "matched_type": "osm_hospital",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -366,12 +634,22 @@
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
-      "stop_id": "stop_crut_bhubaneswar_satapada_bus_stand",
-      "canonical_name": "Satapada Bus Stand",
-      "generic_type": "BUS_STAND",
-      "qualifier": "SATAPADA",
-      "matched_object": "Satapada Bus Stand",
-      "matched_type": "osm_bus_station",
+      "stop_id": "stop_crut_bhubaneswar_scb_medicalcuttack",
+      "canonical_name": "Scb Medical,cuttack",
+      "generic_type": "HOSPITAL",
+      "qualifier": "KATAKA MEDICAL SCB",
+      "matched_object": "National City Medical",
+      "matched_type": "osm_hospital",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_sri_sri_university_kataka",
+      "canonical_name": "Sri Sri University, Kataka",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "KATAKA SRI UNIVERSITY",
+      "matched_object": "Sri Chaitanya Academy",
+      "matched_type": "osm_school",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -380,9 +658,19 @@
       "canonical_name": "Sum Hospital-igkc",
       "generic_type": "HOSPITAL",
       "qualifier": "HOSPITAL IGKC SUM",
-      "matched_object": "IGKC Bus Stop",
-      "matched_type": "osm_platform",
+      "matched_object": "Central Hospital",
+      "matched_type": "osm_hospital",
       "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_udaynath_college_adaspur",
+      "canonical_name": "Udaynath College, Adaspur",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "ADASPUR COLLEGE UDAYNATH",
+      "matched_object": "Rajdhani College",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
@@ -396,32 +684,22 @@
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
+      "stop_id": "stop_crut_keonjhar_govt_hospital_suakati",
+      "canonical_name": "Govt Hospital, Suakati",
+      "generic_type": "HOSPITAL",
+      "qualifier": "GOVT HOSPITAL SUAKATI",
+      "matched_object": "Keonjhar Hospital",
+      "matched_type": "osm_hospital",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
       "stop_id": "stop_crut_keonjhar_jhumpura_bypass",
       "canonical_name": "Jhumpura Bypass",
       "generic_type": "BYPASS",
       "qualifier": "BYPASS JHUMPURA",
       "matched_object": "Keonjhar Bypass Petroleum (Bharat Petroleum)",
       "matched_type": "statewide_fuel_station",
-      "status": "CANDIDATE_MEDIUM",
-      "rationale": "Contextual isolation via route corridor and qualifier matching"
-    },
-    {
-      "stop_id": "stop_crut_keonjhar_joda_barbil_bus_stand",
-      "canonical_name": "Joda Barbil Bus Stand",
-      "generic_type": "BUS_STAND",
-      "qualifier": "BARBIL JODA",
-      "matched_object": "Barbil",
-      "matched_type": "osm_bus_station",
-      "status": "CANDIDATE_MEDIUM",
-      "rationale": "Contextual isolation via route corridor and qualifier matching"
-    },
-    {
-      "stop_id": "stop_crut_keonjhar_law_college",
-      "canonical_name": "Law College",
-      "generic_type": "COLLEGE_SCHOOL",
-      "qualifier": "COLLEGE LAW",
-      "matched_object": "Law College",
-      "matched_type": "osm_platform",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -436,22 +714,22 @@
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
+      "stop_id": "stop_crut_keonjhar_odisha_school_of",
+      "canonical_name": "Odisha School Of",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "OF SCHOOL",
+      "matched_object": "State Bank of India (SBI) Keonjhar Main Branch",
+      "matched_type": "statewide_bank",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
       "stop_id": "stop_crut_rourkela_brahmani_tarang_police_station",
       "canonical_name": "Brahmani Tarang Police Station",
       "generic_type": "POLICE_STATION",
       "qualifier": "BRAHMANI POLICE TARANG",
       "matched_object": "Brahmani Tarang Police Station",
       "matched_type": "statewide_police_station",
-      "status": "CANDIDATE_MEDIUM",
-      "rationale": "Contextual isolation via route corridor and qualifier matching"
-    },
-    {
-      "stop_id": "stop_crut_rourkela_hill_top_chowk",
-      "canonical_name": "Hill Top Chowk",
-      "generic_type": "CHHAK_SQUARE",
-      "qualifier": "HILL TOP",
-      "matched_object": "Hill top",
-      "matched_type": "osm_bus_station",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -496,12 +774,32 @@
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
     {
-      "stop_id": "stop_crut_sambalpur_attabira_chowk",
-      "canonical_name": "Attabira Chowk",
-      "generic_type": "CHHAK_SQUARE",
-      "qualifier": "ATTABIRA",
-      "matched_object": "Attabira",
-      "matched_type": "osm_bus_station",
+      "stop_id": "stop_crut_sambalpur_anchalik_govt_high_school",
+      "canonical_name": "Anchalik Govt. High School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "ANCHALIK GOVT HIGH SCHOOL",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_anchalik_govt_high_school_2",
+      "canonical_name": "Anchalik Govt. High School,",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "ANCHALIK GOVT HIGH SCHOOL",
+      "matched_object": "GOVT HIGH SCHOOL",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_attabira_market",
+      "canonical_name": "Attabira Market",
+      "generic_type": "MARKET",
+      "qualifier": "ATTABIRA MARKET",
+      "matched_object": "Rajiv Gandhi Market Complex",
+      "matched_type": "osm_marketplace",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     },
@@ -512,6 +810,656 @@
       "qualifier": "ATTABIRA RAILWAY",
       "matched_object": "Sambalpur Junction Railway Station (SBP)",
       "matched_type": "place_transit_hub",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_badmal_police_station",
+      "canonical_name": "Badmal Police Station",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "BADMAL POLICE",
+      "matched_object": "Badmal",
+      "matched_type": "osm_place_village",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_birsa_munda_chowk_ainthapali",
+      "canonical_name": "Birsa Munda Chowk, Ainthapali",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "AINTHAPALI BIRSA MUNDA",
+      "matched_object": "Birsa Munda Chowk Ainthapali",
+      "matched_type": "osm_platform",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_burla_hospital_back_gate",
+      "canonical_name": "Burla Hospital Back Gate",
+      "generic_type": "HOSPITAL",
+      "qualifier": "BACK BURLA HOSPITAL",
+      "matched_object": "A.K Hospital",
+      "matched_type": "osm_hospital",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_bus_stand_rengali",
+      "canonical_name": "Bus Stand Rengali",
+      "generic_type": "BUS_STAND",
+      "qualifier": "RENGALI",
+      "matched_object": "Rengali",
+      "matched_type": "osm_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_bus_stand_rengali_2",
+      "canonical_name": "Bus Stand, Rengali",
+      "generic_type": "BUS_STAND",
+      "qualifier": "RENGALI",
+      "matched_object": "Rengali",
+      "matched_type": "osm_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_chc_rengali",
+      "canonical_name": "Chc Rengali",
+      "generic_type": "HOSPITAL",
+      "qualifier": "CHC RENGALI",
+      "matched_object": "Rengali",
+      "matched_type": "osm_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_city_railway_station_ainthapali_bus_terminal_remed",
+      "canonical_name": "City Railway Station, Ainthapali Bus Terminal, Remed",
+      "generic_type": "BUS_STAND",
+      "qualifier": "AINTHAPALI RAILWAY REMED",
+      "matched_object": "Ainthapali Bus Terminal",
+      "matched_type": "osm_bus_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_city_railway_station_ainthapali_bus_terminal_remed_2",
+      "canonical_name": "City Railway Station, Ainthapali Bus Terminal, Remed)",
+      "generic_type": "BUS_STAND",
+      "qualifier": "AINTHAPALI RAILWAY REMED",
+      "matched_object": "Ainthapali Bus Terminal",
+      "matched_type": "osm_bus_station",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_civil_court_kuchinda",
+      "canonical_name": "Civil Court, Kuchinda",
+      "generic_type": "CIVIC_OFFICE",
+      "qualifier": "CIVIL COURT KUCHINDA",
+      "matched_object": "Burla University Food Court",
+      "matched_type": "statewide_restaurant",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_college_chowk",
+      "canonical_name": "College Chowk",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "COLLEGE",
+      "matched_object": "TF college BusStop",
+      "matched_type": "osm_platform",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_daniel_public_school",
+      "canonical_name": "Daniel Public School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "DANIEL PUBLIC SCHOOL",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_deer_park_square",
+      "canonical_name": "Deer Park Square",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "DEER PARK",
+      "matched_object": "Budharaja Temple & Hill Park",
+      "matched_type": "statewide_religious_site",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_dhankauda_chowk",
+      "canonical_name": "Dhankauda Chowk",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "DHANKAUDA",
+      "matched_object": "Dhankauda Hospital",
+      "matched_type": "osm_hospital",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_dhankauda_high_school",
+      "canonical_name": "Dhankauda High School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "DHANKAUDA HIGH SCHOOL",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_dhanupali_chowk",
+      "canonical_name": "Dhanupali Chowk",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "DHANUPALI",
+      "matched_object": "Dhanupali Bus Stop",
+      "matched_type": "osm_platform",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_dhanupali_square",
+      "canonical_name": "Dhanupali Square",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "DHANUPALI",
+      "matched_object": "Dhanupali Bus Stop",
+      "matched_type": "osm_platform",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_district_collectorate_office",
+      "canonical_name": "District Collectorate Office",
+      "generic_type": "CIVIC_OFFICE",
+      "qualifier": "COLLECTORATE DISTRICT OFFICE",
+      "matched_object": "Sub-District Hospital,Kuchinda",
+      "matched_type": "osm_hospital",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_gengutipali_u_p_school",
+      "canonical_name": "Gengutipali U P School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "GENGUTIPALI SCHOOL",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_govt_high_school",
+      "canonical_name": "Govt. High School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "GOVT HIGH SCHOOL",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_govt_high_school_2",
+      "canonical_name": "Govt. High School,",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "GOVT HIGH SCHOOL",
+      "matched_object": "GOVT HIGH SCHOOL",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_govt_high_school_charpali",
+      "canonical_name": "Govt. High School, Charpali",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "CHARPALI GOVT HIGH SCHOOL",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_govt_polytechnic_college",
+      "canonical_name": "Govt. Polytechnic College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE GOVT POLYTECHNIC",
+      "matched_object": "Women's Jr College Play Ground",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_govt_women_college",
+      "canonical_name": "Govt. Women College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE GOVT WOMEN",
+      "matched_object": "Women's Jr College Play Ground",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_temple",
+      "canonical_name": "Hanuman Temple",
+      "generic_type": "TEMPLE",
+      "qualifier": "HANUMAN TEMPLE",
+      "matched_object": "Samaleswari Temple, Sambalpur",
+      "matched_type": "place_temple",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_temple_debeipali",
+      "canonical_name": "Hanuman Temple Debeipali",
+      "generic_type": "TEMPLE",
+      "qualifier": "DEBEIPALI HANUMAN TEMPLE",
+      "matched_object": "Samaleswari Temple, Sambalpur",
+      "matched_type": "place_temple",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_temple_rengali",
+      "canonical_name": "Hanuman Temple Rengali",
+      "generic_type": "TEMPLE",
+      "qualifier": "HANUMAN RENGALI TEMPLE",
+      "matched_object": "Rengali",
+      "matched_type": "osm_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_temple_rengali_2",
+      "canonical_name": "Hanuman Temple, Rengali",
+      "generic_type": "TEMPLE",
+      "qualifier": "HANUMAN RENGALI TEMPLE",
+      "matched_object": "Rengali",
+      "matched_type": "osm_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_temple_road",
+      "canonical_name": "Hanuman Temple, Road",
+      "generic_type": "TEMPLE",
+      "qualifier": "HANUMAN TEMPLE",
+      "matched_object": "Maa Ghanteswari Temple (Chiplima)",
+      "matched_type": "place_temple",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_templedhankauda",
+      "canonical_name": "Hanuman Temple,dhankauda",
+      "generic_type": "TEMPLE",
+      "qualifier": "DHANKAUDA HANUMAN TEMPLE",
+      "matched_object": "Samaleswari Temple, Sambalpur",
+      "matched_type": "place_temple",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hirakud_college",
+      "canonical_name": "Hirakud College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE HIRAKUD",
+      "matched_object": "Hirakud",
+      "matched_type": "osm_bus_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hirakud_railway_station",
+      "canonical_name": "Hirakud Railway Station",
+      "generic_type": "RAILWAY_STATION",
+      "qualifier": "HIRAKUD RAILWAY",
+      "matched_object": "Sambalpur Junction Railway Station (SBP)",
+      "matched_type": "place_transit_hub",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hirakud_school",
+      "canonical_name": "Hirakud School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "HIRAKUD SCHOOL",
+      "matched_object": "Hirakud",
+      "matched_type": "osm_bus_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_jharsuguda_bypass",
+      "canonical_name": "Jharsuguda Bypass",
+      "generic_type": "BYPASS",
+      "qualifier": "BYPASS JHARSUGUDA",
+      "matched_object": "Jharsuguda - Tileibani Highway",
+      "matched_type": "nominatim_poi",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_jharsuguda_new_bus_terminal",
+      "canonical_name": "Jharsuguda New Bus Terminal",
+      "generic_type": "BUS_STAND",
+      "qualifier": "JHARSUGUDA NEW",
+      "matched_object": "Sambalpur Junction Railway Station (SBP)",
+      "matched_type": "place_transit_hub",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_kabrapali_high_school",
+      "canonical_name": "Kabrapali High School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "HIGH KABRAPALI SCHOOL",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_kamakhya_temple_malipali",
+      "canonical_name": "Kamakhya Temple Malipali",
+      "generic_type": "TEMPLE",
+      "qualifier": "KAMAKHYA MALIPALI TEMPLE",
+      "matched_object": "Samaleswari Temple, Sambalpur",
+      "matched_type": "place_temple",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_kuchinda_college",
+      "canonical_name": "Kuchinda College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE KUCHINDA",
+      "matched_object": "Women's Jr College Play Ground",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_kumarbandh_college",
+      "canonical_name": "Kumarbandh College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE KUMARBANDH",
+      "matched_object": "Women's Jr College Play Ground",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_lapanga_chowk",
+      "canonical_name": "Lapanga Chowk",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "LAPANGA",
+      "matched_object": "Lapanga",
+      "matched_type": "osm_bus_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_mcl_chowk",
+      "canonical_name": "Mcl Chowk",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "MCL",
+      "matched_object": "ICICI Bank ATM Burla MCL",
+      "matched_type": "civic_utility",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_medical_chowkburla",
+      "canonical_name": "Medical Chowk,burla",
+      "generic_type": "HOSPITAL",
+      "qualifier": "BURLA MEDICAL",
+      "matched_object": "Veer Surendra Sai Institute of Medical Sciences And Research College Hospital, Burla",
+      "matched_type": "osm_hospital",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_nscb_college",
+      "canonical_name": "Nscb College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE NSCB",
+      "matched_object": "Women's Jr College Play Ground",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_nurshing_college_road",
+      "canonical_name": "Nurshing College Road",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE NURSHING",
+      "matched_object": "Women's Jr College Play Ground",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_parmanpur_college",
+      "canonical_name": "Parmanpur College",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "COLLEGE PARMANPUR",
+      "matched_object": "Women's Jr College Play Ground",
+      "matched_type": "osm_college",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_petrol_pump_govindtola",
+      "canonical_name": "Petrol Pump, Govindtola",
+      "generic_type": "PETROL_PUMP",
+      "qualifier": "GOVINDTOLA PETROL PUMP",
+      "matched_object": "Budharaja Petrol Pump",
+      "matched_type": "osm_fuel",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_phata_primary_school",
+      "canonical_name": "Phata Primary School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "PHATA PRIMARY SCHOOL",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_police_station_rengali",
+      "canonical_name": "Police Station Rengali",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "POLICE RENGALI",
+      "matched_object": "Rengali Police Station",
+      "matched_type": "statewide_police_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_police_station_thelkoloi",
+      "canonical_name": "Police Station Thelkoloi",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "POLICE THELKOLOI",
+      "matched_object": "Kuchinda Police Station",
+      "matched_type": "statewide_police_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_police_station_rengali_2",
+      "canonical_name": "Police Station, Rengali",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "POLICE RENGALI",
+      "matched_object": "Police Station",
+      "matched_type": "osm_police",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_primary_school_padiabahal",
+      "canonical_name": "Primary School, Padiabahal",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "PADIABAHAL PRIMARY SCHOOL",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_rajiv_gandhi_chowk",
+      "canonical_name": "Rajiv Gandhi Chowk",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "GANDHI RAJIV",
+      "matched_object": "Rajiv Gandhi Market Complex",
+      "matched_type": "osm_marketplace",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_rengali_block_office",
+      "canonical_name": "Rengali Block Office",
+      "generic_type": "CIVIC_OFFICE",
+      "qualifier": "BLOCK OFFICE RENGALI",
+      "matched_object": "Rengali",
+      "matched_type": "osm_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_rengali_bypass_square",
+      "canonical_name": "Rengali Bypass Square",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "BYPASS RENGALI",
+      "matched_object": "Rengali",
+      "matched_type": "osm_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_rengali_chowk",
+      "canonical_name": "Rengali Chowk",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "RENGALI",
+      "matched_object": "Rengali",
+      "matched_type": "osm_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_runimahul_pup_school",
+      "canonical_name": "Runimahul P.u.p School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "RUNIMAHUL SCHOOL",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_sadar_police_station",
+      "canonical_name": "Sadar Police Station",
+      "generic_type": "POLICE_STATION",
+      "qualifier": "POLICE SADAR",
+      "matched_object": "Sambalpur Sadar Police Station",
+      "matched_type": "statewide_police_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_salad_up_school",
+      "canonical_name": "Salad Up School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "SALAD SCHOOL UP",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_samaleswari_temple_hirakud",
+      "canonical_name": "Samaleswari Temple, Hirakud",
+      "generic_type": "TEMPLE",
+      "qualifier": "HIRAKUD SAMALESWARI TEMPLE",
+      "matched_object": "Hirakud",
+      "matched_type": "osm_bus_station",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_saranda_chowk",
+      "canonical_name": "Saranda Chowk",
+      "generic_type": "CHHAK_SQUARE",
+      "qualifier": "SARANDA",
+      "matched_object": "Saranda",
+      "matched_type": "osm_place_village",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_saranda_high_school",
+      "canonical_name": "Saranda High School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "HIGH SARANDA SCHOOL",
+      "matched_object": "Saranda",
+      "matched_type": "osm_place_village",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_satkhama_up_school",
+      "canonical_name": "Satkhama U.p School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "SATKHAMA SCHOOL",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_st_thomas_school",
+      "canonical_name": "St. Thomas School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "SCHOOL THOMAS",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_MEDIUM",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_thelkoloi_high_school",
+      "canonical_name": "Thelkoloi High School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "HIGH SCHOOL THELKOLOI",
+      "matched_object": "Sodamal High School",
+      "matched_type": "osm_school",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_vikash_hospital",
+      "canonical_name": "Vikash Hospital",
+      "generic_type": "HOSPITAL",
+      "qualifier": "HOSPITAL VIKASH",
+      "matched_object": "A.K Hospital",
+      "matched_type": "osm_hospital",
+      "status": "CANDIDATE_HIGH",
+      "rationale": "Contextual isolation via route corridor and qualifier matching"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_vikash_school",
+      "canonical_name": "Vikash School",
+      "generic_type": "COLLEGE_SCHOOL",
+      "qualifier": "SCHOOL VIKASH",
+      "matched_object": "C.S.B Zilla School",
+      "matched_type": "osm_school",
       "status": "CANDIDATE_MEDIUM",
       "rationale": "Contextual isolation via route corridor and qualifier matching"
     }

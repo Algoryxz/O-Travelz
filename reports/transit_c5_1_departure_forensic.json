@@ -1,0 +1,62 @@
+{
+  "report_name": "transit_c5_1_departure_forensic",
+  "timestamp": "2026-09-06T03:38:29.527586+00:00",
+  "canonical_schedules_file": "data/transport/canonical/schedules.json",
+  "git_hash_schedules_json": "f2e3cc503131b48df900556194243f65ca85f591",
+  "git_history_verified": true,
+  "git_last_commit_touching_schedules": "d9bdfcf",
+  "did_canonical_schedules_change": false,
+  "did_db_schedules_change": false,
+  "canonical_unique_departures_count": 5549,
+  "db_raw_array_elements_count": 5553,
+  "discrepancy_delta": 4,
+  "root_cause": "DATABASE_DUPLICATE_ARRAY_ENTRIES",
+  "explanation": "Canonical schedules.json has contained 5,549 unique departures since commit d9bdfcf without modification. The 5,553 count previously cited represents raw array length in PostgreSQL scheduled_trip_groups, which contains exactly 4 duplicate departure entries across 3 routes (Route 16, Route 94, Route 201).",
+  "discrepancies_by_route": [
+    {
+      "route_number": "16",
+      "terminus": "SriSriUniversity, Kataka",
+      "db_group_id": "f875db4f-19b7-402f-b899-a4875d5270e3",
+      "db_count": 48,
+      "json_schedule_id": "sched_rt_crut_16_from_srisriuniversity_kataka_26",
+      "json_count": 47,
+      "duplicate_times_in_db": [
+        "20:30"
+      ],
+      "delta": 1
+    },
+    {
+      "route_number": "94",
+      "terminus": "BSABT,Baramunda",
+      "db_group_id": "7c0b0e1f-c18e-4387-856d-0b53cd6c04f6",
+      "db_count": 3,
+      "json_schedule_id": "sched_rt_crut_94_from_bsabtbaramunda_194",
+      "json_count": 2,
+      "duplicate_times_in_db": [
+        "08:30"
+      ],
+      "delta": 1
+    },
+    {
+      "route_number": "201",
+      "terminus": "Ghanteswari Temple",
+      "db_group_id": "162b9817-7c95-42a0-aa41-479ecea896f4",
+      "db_count": 23,
+      "json_schedule_id": "sched_rt_crut_201_from_ghanteswari_temple_272",
+      "json_count": 21,
+      "duplicate_times_in_db": [
+        "18:05",
+        "18:40"
+      ],
+      "delta": 2
+    }
+  ],
+  "c5_mutation_check": {
+    "outside_staging_mutations": false,
+    "canonical_routes_json_modified": false,
+    "canonical_stops_json_modified": false,
+    "canonical_route_stops_json_modified": false,
+    "canonical_schedules_json_modified": false,
+    "canonical_network_json_modified": false
+  }
+}

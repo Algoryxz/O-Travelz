@@ -69,6 +69,26 @@ def generic_report():
     return json.load(open(REPORTS / "transit_c5_generic_name_resolution.json", encoding="utf-8"))
 
 
+@pytest.fixture(scope="module")
+def canonical_route_stops():
+    return json.load(open(CANONICAL / "route_stops.json", encoding="utf-8"))
+
+
+@pytest.fixture(scope="module")
+def route_geometry():
+    return json.load(open(STAGING / "c5_route_geometry.json", encoding="utf-8"))
+
+
+@pytest.fixture(scope="module")
+def route_geo_coverage():
+    return json.load(open(REPORTS / "transit_c5_1_route_geometry_coverage.json", encoding="utf-8"))
+
+
+@pytest.fixture(scope="module")
+def departure_forensic():
+    return json.load(open(REPORTS / "transit_c5_1_departure_forensic.json", encoding="utf-8"))
+
+
 # ---------------------------------------------------------------------------
 # Tests
 # ---------------------------------------------------------------------------
@@ -271,9 +291,105 @@ def test_canonical_exact_coordinates_remain_unchanged(canonical_stops, c5_regist
         assert reg_s["resolution_status"] == cs["coordinate_status"]
 
 
-def test_route_and_schedule_counts_remain_unchanged(canonical_routes, canonical_schedules):
-    """Test 20: Route and schedule counts are completely preserved."""
+def test_route_and_schedule_counts_remain_unchanged(canonical_routes, canonical_schedules, canonical_route_stops):
+    """Test 20: Route, sequence group, and schedule counts are completely preserved."""
     assert len(canonical_routes) == 154
     assert len(canonical_schedules) == 302
+    assert len(canonical_route_stops) == 164
+    total_links = sum(len(g.get("stops", [])) for g in canonical_route_stops)
+    assert total_links == 1491
     total_departures = sum(len(sc.get("departure_times", [])) for sc in canonical_schedules)
     assert total_departures == 5549
+
+
+def test_route_geometry_catalog_validity_and_segment_count(route_geometry):
+    """Test 21: Route geometry catalog covers all 164 sequence groups and exactly 1,327 segments."""
+    assert len(route_geometry) == 164
+    total_segments = sum(len(rg["segments"]) for rg in route_geometry)
+    assert total_segments == 1327
+
+    for rg in route_geometry:
+        assert rg["total_stops"] == len(rg["segments"]) + 1
+        assert "direction" in rg
+        assert "route_number" in rg
+
+
+def test_route_geometry_confidence_separate_from_stop_confidence(route_geometry, c5_registry):
+    """Test 22: Route geometry confidence is decoupled from individual stop pole exactness."""
+    c5_map = {s["stop_id"]: s for s in c5_registry}
+    # Find segments where geometry is VERIFIED or HIGH even if one stop is not verified
+    decoupled_segments_found = False
+    for rg in route_geometry:
+        for seg in rg["segments"]:
+            from_stop = c5_map.get(seg["from_stop_id"])
+            to_stop = c5_map.get(seg["to_stop_id"])
+            if seg["geometry_status"] in ["VERIFIED_ROUTE_GEOMETRY", "HIGH_CONFIDENCE_ROUTE_GEOMETRY"]:
+                # At least some of these segments have intermediate stops that are CANDIDATE or LOCALITY_ONLY
+                if from_stop["existing_lat"] is None or to_stop["existing_lat"] is None:
+                    decoupled_segments_found = True
+                    break
+        if decoupled_segments_found:
+            break
+    assert decoupled_segments_found is True
+
+
+def test_high_route_geometry_may_include_locality_only_stops(route_geometry, c5_registry):
+    """Test 23: HIGH/MEDIUM route geometry successfully guides route polylines through LOCALITY_ONLY stops."""
+    c5_map = {s["stop_id"]: s for s in c5_registry}
+    useful_with_locality_only = 0
+    for rg in route_geometry:
+        for seg in rg["segments"]:
+            if seg["is_useful_for_route_shaping"]:
+                from_res = c5_map.get(seg["from_stop_id"], {})
+                to_res = c5_map.get(seg["to_stop_id"], {})
+                if from_res.get("resolution_status") == "LOCALITY_ONLY" or to_res.get("resolution_status") == "LOCALITY_ONLY":
+                    useful_with_locality_only += 1
+    assert useful_with_locality_only > 0
+
+
+def test_route_shape_useful_coverage_reaches_90_percent(route_geo_coverage):
+    """Test 24: Route-shape-useful coverage reaches or exceeds the >= 90% threshold."""
+    metrics = route_geo_coverage["coverage_metrics"]
+    useful_pct = metrics["route_shape_useful_coverage_pct"]
+    assert useful_pct >= 90.0, f"Expected >= 90.0% route shape useful coverage, got {useful_pct}%"
+    assert metrics["reaches_90_pct_goal"] is True
+    assert route_geo_coverage["total_route_segments"] == 1327
+
+
+def test_manual_queue_uniqueness_and_prompt_completeness(manual_queue, c5_registry):
+    """Test 25: Manual queue contains all review stops exactly once with actionable prompts."""
+    queue = manual_queue["queue"]
+    stop_ids = [item["stop_id"] for item in queue]
+    assert len(stop_ids) == len(set(stop_ids)), "Manual queue contains duplicate stop entries"
+
+    allowed_tiers = {"P0", "P1", "P2", "P3"}
+    allowed_actions = {"GOOGLE_MAPS_SEARCH", "OSM_SEARCH", "MAPILLARY_CHECK", "OFFICIAL_DOCUMENT_CHECK", "ASK_LOCAL", "RIDE_AND_CAPTURE"}
+
+    for item in queue:
+        assert item["priority_tier"] in allowed_tiers
+        assert item["suggested_action"] in allowed_actions
+        assert len(item["ask_local_question"]) > 10
+        assert len(item["ride_and_capture_prompt"]) > 10
+        assert "search_queries" in item
+
+
+def test_departure_forensic_invariant_proof(departure_forensic):
+    """Test 26: Departure forensic report proves 5,549 canonical departures with zero data loss."""
+    assert departure_forensic["canonical_unique_departures_count"] == 5549
+    assert departure_forensic["db_raw_array_elements_count"] == 5553
+    assert departure_forensic["discrepancy_delta"] == 4
+    assert departure_forensic["root_cause"] == "DATABASE_DUPLICATE_ARRAY_ENTRIES"
+    assert departure_forensic["did_canonical_schedules_change"] is False
+    assert departure_forensic["c5_mutation_check"]["outside_staging_mutations"] is False
+
+
+def test_no_locality_centroid_as_candidate_coordinate(c5_registry):
+    """Test 27: No candidate coordinate is manufactured from a bare town/district centroid."""
+    for s in c5_registry:
+        if s.get("candidate_lat") is not None:
+            # Must point to an identifiable real object, not a synthetic centroid
+            obj_type = s.get("candidate_object_type", "")
+            assert "centroid" not in obj_type.lower()
+            assert "interpolated" not in obj_type.lower()
+            assert s.get("candidate_source") is not None
+

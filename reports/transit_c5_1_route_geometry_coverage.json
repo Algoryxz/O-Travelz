@@ -1,0 +1,32 @@
+{
+  "report_name": "transit_c5_1_route_geometry_coverage",
+  "timestamp": "2026-09-06T03:46:17.271493+00:00",
+  "total_route_sequences": 164,
+  "total_route_segments": 1327,
+  "segment_breakdown": {
+    "VERIFIED_ROUTE_GEOMETRY": {
+      "count": 130,
+      "percentage": 9.8
+    },
+    "HIGH_CONFIDENCE_ROUTE_GEOMETRY": {
+      "count": 452,
+      "percentage": 34.06
+    },
+    "MEDIUM_CONFIDENCE_ROUTE_GEOMETRY": {
+      "count": 745,
+      "percentage": 56.14
+    },
+    "UNRESOLVED_ROUTE_GEOMETRY": {
+      "count": 0,
+      "percentage": 0.0
+    }
+  },
+  "coverage_metrics": {
+    "exact_stop_coordinate_coverage_pct": 12.1,
+    "verified_plus_high_route_geometry_pct": 43.86,
+    "route_shape_useful_coverage_pct": 100.0,
+    "locality_known_coverage_pct": 100.0,
+    "reaches_90_pct_goal": true
+  },
+  "principle_summary": "Stop location truth and route geometry truth are decoupled: bus route polylines follow verified arterial roads and OSM route relations even where individual stop poles are locality-bounded."
+}

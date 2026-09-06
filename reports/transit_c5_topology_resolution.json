@@ -1,8 +1,6 @@
 {
   "report_name": "transit_c5_topology_resolution",
-  "total_topology_resolutions": 186,
-  "two_sided_corridor_matches": 99,
-  "one_sided_corridor_matches": 64,
+  "total_topology_resolutions": 255,
   "sample_topology_matches": [
     {
       "stop_id": "stop_crut_berhampur_aryapalli_beach",
@@ -18,17 +16,17 @@
       "canonical_name": "Berhampur Radio Station",
       "has_two_sided": true,
       "has_one_sided": true,
-      "candidate_source": "places:place_transit_007",
-      "perp_dist_km": 0.1404350372889281,
-      "status": "CANDIDATE_MEDIUM"
+      "candidate_source": "OSM:node/3992510387",
+      "perp_dist_km": 1.6309756598910863,
+      "status": "CANDIDATE_HIGH"
     },
     {
       "stop_id": "stop_crut_berhampur_berhampur_rail_stn",
       "canonical_name": "Berhampur Rail Stn.",
       "has_two_sided": false,
       "has_one_sided": true,
-      "candidate_source": "places:place_transit_007",
-      "perp_dist_km": 6.980289502703547,
+      "candidate_source": "OSM:node/3992510387",
+      "perp_dist_km": 7.039162091543626,
       "status": "CANDIDATE_HIGH"
     },
     {
@@ -59,12 +57,57 @@
       "status": "CANDIDATE_MEDIUM"
     },
     {
+      "stop_id": "stop_crut_berhampur_biswanath_school",
+      "canonical_name": "Biswanath School",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/2527909977",
+      "perp_dist_km": 2.228620113629295,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_biswanathpur",
+      "canonical_name": "Biswanathpur",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Place:village/11688032918",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
       "stop_id": "stop_crut_berhampur_braja_nagar",
       "canonical_name": "Braja Nagar",
       "has_two_sided": true,
       "has_one_sided": true,
       "candidate_source": "OSM_Place:village/11795506481",
       "perp_dist_km": 0.9693011883594227,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_central_school_berhampur",
+      "canonical_name": "Central School Berhampur",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/3992510387",
+      "perp_dist_km": 7.039162091543626,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_city_college_berhampur",
+      "canonical_name": "City College Berhampur",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/3992510387",
+      "perp_dist_km": 7.039162091543626,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_city_college_square_berhampur",
+      "canonical_name": "City College Square Berhampur",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/3992510387",
+      "perp_dist_km": 7.039162091543626,
       "status": "CANDIDATE_HIGH"
     },
     {
@@ -86,21 +129,21 @@
       "status": "CANDIDATE_HIGH"
     },
     {
-      "stop_id": "stop_crut_berhampur_dhabaleswar_temple",
-      "canonical_name": "Dhabaleswar Temple",
-      "has_two_sided": false,
-      "has_one_sided": false,
-      "candidate_source": "Nominatim:node/4551321639",
-      "perp_dist_km": null,
-      "status": "CANDIDATE_MEDIUM"
-    },
-    {
       "stop_id": "stop_crut_berhampur_disha_college",
       "canonical_name": "Disha College",
       "has_two_sided": true,
       "has_one_sided": true,
       "candidate_source": "Nominatim:way/343270816",
       "perp_dist_km": 0.5421704048815557,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_duduma_colony_bus_stand",
+      "canonical_name": "Duduma Colony Bus Stand",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "places:place_transit_007",
+      "perp_dist_km": 1.2680672555844081,
       "status": "CANDIDATE_MEDIUM"
     },
     {
@@ -113,13 +156,31 @@
       "status": "CANDIDATE_MEDIUM"
     },
     {
+      "stop_id": "stop_crut_berhampur_engineering_school",
+      "canonical_name": "Engineering School",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:college/2532369163",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_engineering_school_chowk",
+      "canonical_name": "Engineering School Chowk",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/2532369163",
+      "perp_dist_km": 0.6132341148629681,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
       "stop_id": "stop_crut_berhampur_engineering_school_chowk_berhampur",
       "canonical_name": "Engineering School Chowk Berhampur",
       "has_two_sided": true,
       "has_one_sided": true,
-      "candidate_source": "places:place_transit_007",
-      "perp_dist_km": 2.9810608151444415,
-      "status": "CANDIDATE_MEDIUM"
+      "candidate_source": "OSM:node/3992510387",
+      "perp_dist_km": 2.627795303062168,
+      "status": "CANDIDATE_HIGH"
     },
     {
       "stop_id": "stop_crut_berhampur_gandhi_college",
@@ -140,11 +201,11 @@
       "status": "CANDIDATE_HIGH"
     },
     {
-      "stop_id": "stop_crut_berhampur_golanthra_village",
-      "canonical_name": "Golanthra Village",
-      "has_two_sided": true,
-      "has_one_sided": true,
-      "candidate_source": "OSM:node/2522855836",
+      "stop_id": "stop_crut_berhampur_golabandha",
+      "canonical_name": "Golabandha",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Place:village/11688033026",
       "perp_dist_km": null,
       "status": "CANDIDATE_MEDIUM"
     },
@@ -180,26 +241,17 @@
       "canonical_name": "Gosaninugaa Police Station",
       "has_two_sided": true,
       "has_one_sided": true,
-      "candidate_source": "statewide_entities:c_f2348dd382da",
-      "perp_dist_km": 0.20108228554247554,
+      "candidate_source": "OSM_Amenity:police/13382986751",
+      "perp_dist_km": 1.6723088626232148,
       "status": "CANDIDATE_HIGH"
     },
     {
-      "stop_id": "stop_crut_berhampur_govindpur",
-      "canonical_name": "Govindpur",
+      "stop_id": "stop_crut_berhampur_government_iti",
+      "canonical_name": "Government Iti",
       "has_two_sided": true,
       "has_one_sided": true,
-      "candidate_source": "OSM:node/6186589307",
-      "perp_dist_km": null,
-      "status": "CANDIDATE_MEDIUM"
-    },
-    {
-      "stop_id": "stop_crut_berhampur_govindpur_square",
-      "canonical_name": "Govindpur Square",
-      "has_two_sided": true,
-      "has_one_sided": true,
-      "candidate_source": "OSM:node/6186589307",
-      "perp_dist_km": null,
+      "candidate_source": "OSM_Amenity:school/2527909977",
+      "perp_dist_km": 0.6217830651728553,
       "status": "CANDIDATE_MEDIUM"
     },
     {
@@ -239,6 +291,33 @@
       "status": "CANDIDATE_HIGH"
     },
     {
+      "stop_id": "stop_crut_berhampur_hatipada",
+      "canonical_name": "Hatipada",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Place:village/11688033038",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_hugulapata",
+      "canonical_name": "Hugulapata",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2962597031",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_income_tax_office_berhampur",
+      "canonical_name": "Income Tax Office Berhampur",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/3992510387",
+      "perp_dist_km": 7.039162091543626,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
       "stop_id": "stop_crut_berhampur_jagadalpur_gramapanchayat",
       "canonical_name": "Jagadalpur Gramapanchayat",
       "has_two_sided": true,
@@ -275,6 +354,15 @@
       "status": "CANDIDATE_HIGH"
     },
     {
+      "stop_id": "stop_crut_berhampur_jagannathpur",
+      "canonical_name": "Jagannathpur",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2408656746",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
       "stop_id": "stop_crut_berhampur_jayaprakash_nagar",
       "canonical_name": "Jayaprakash Nagar",
       "has_two_sided": true,
@@ -302,13 +390,22 @@
       "status": "CANDIDATE_MEDIUM"
     },
     {
+      "stop_id": "stop_crut_berhampur_kusasthali_college",
+      "canonical_name": "Kusasthali College",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/2960593152",
+      "perp_dist_km": 13.600970098324204,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
       "stop_id": "stop_crut_berhampur_lic_office_berhampur",
       "canonical_name": "Lic Office Berhampur",
       "has_two_sided": true,
       "has_one_sided": true,
-      "candidate_source": "places:place_transit_007",
-      "perp_dist_km": 2.9810608151444415,
-      "status": "CANDIDATE_MEDIUM"
+      "candidate_source": "OSM:node/3992510387",
+      "perp_dist_km": 2.627795303062168,
+      "status": "CANDIDATE_HIGH"
     },
     {
       "stop_id": "stop_crut_berhampur_lochapada_ganesh_bazaar",
@@ -336,6 +433,15 @@
       "candidate_source": "OSM_Place:suburb/2962598838",
       "perp_dist_km": 2.0196645374900504,
       "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_mandiapalli",
+      "canonical_name": "Mandiapalli",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Place:village/2532369160",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
     },
     {
       "stop_id": "stop_crut_berhampur_mandiapalli_junction",
@@ -405,8 +511,17 @@
       "canonical_name": "Old Bus Stand",
       "has_two_sided": false,
       "has_one_sided": false,
-      "candidate_source": "OSM:node/12593431151",
+      "candidate_source": "OSM:node/6427315922",
       "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_parala_maharaja_college",
+      "canonical_name": "Parala Maharaja College",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/2960593152",
+      "perp_dist_km": 13.600970098324204,
       "status": "CANDIDATE_MEDIUM"
     },
     {
@@ -414,9 +529,27 @@
       "canonical_name": "Police Station",
       "has_two_sided": true,
       "has_one_sided": true,
-      "candidate_source": "statewide_entities:c_f2348dd382da",
-      "perp_dist_km": 0.2375078349848787,
+      "candidate_source": "OSM_Amenity:police/13382986751",
+      "perp_dist_km": 1.8401893748996547,
       "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_police_station_2",
+      "canonical_name": "Police Station,",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:police/3599998140",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_police_stationgosaninuagaon",
+      "canonical_name": "Police Station,gosaninuagaon",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:police/3599998140",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
     },
     {
       "stop_id": "stop_crut_berhampur_prem_nagar_square",
@@ -426,6 +559,15 @@
       "candidate_source": "OSM_Place:neighbourhood/2460606578",
       "perp_dist_km": 0.2853918437327486,
       "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_ralaba",
+      "canonical_name": "Ralaba",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/11691160405",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
     },
     {
       "stop_id": "stop_crut_berhampur_rangeilunda_village",
@@ -441,8 +583,8 @@
       "canonical_name": "Sai Temple",
       "has_two_sided": true,
       "has_one_sided": true,
-      "candidate_source": "OSM:node/12176828710",
-      "perp_dist_km": null,
+      "candidate_source": "OSM_Amenity:hospital/7087491361",
+      "perp_dist_km": 4.778872651347011,
       "status": "CANDIDATE_MEDIUM"
     },
     {
@@ -453,6 +595,1707 @@
       "candidate_source": "OSM_Place:village/11390744755",
       "perp_dist_km": 3.3299650744584204,
       "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_shanti_nagar",
+      "canonical_name": "Shanti Nagar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/239274077",
+      "perp_dist_km": 1.8286167385559424,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_sp_office",
+      "canonical_name": "Sp Office",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:police/13528208199",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_srihari_nagar",
+      "canonical_name": "Srihari Nagar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/239274077",
+      "perp_dist_km": 0.8756054606677025,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_sum_hospital",
+      "canonical_name": "Sum Hospital",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/2445342986",
+      "perp_dist_km": 1.186310437082827,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_sum_hospital_parala_maharaja_college",
+      "canonical_name": "Sum Hospital - Parala Maharaja College",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7081842683",
+      "perp_dist_km": 6.867085187627287,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_tata_benz_square",
+      "canonical_name": "Tata Benz Square",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7715905826",
+      "perp_dist_km": 0.11783304918341238,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_tata_colony",
+      "canonical_name": "Tata Colony",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:neighbourhood/6745611966",
+      "perp_dist_km": 2.775752558190463,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_vignan_college",
+      "canonical_name": "Vignan College",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/343270816",
+      "perp_dist_km": 0.5421704048815557,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_berhampur_vivak_bihar",
+      "canonical_name": "Vivak Bihar",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:neighbourhood/7669742312",
+      "perp_dist_km": 14.405756438725263,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_agrahat_charbatia",
+      "canonical_name": "Agrahat, Charbatia",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/6817399377",
+      "perp_dist_km": 11.054143730301202,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_apollo_hospital",
+      "canonical_name": "Apollo Hospital",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:hospital/7701568161",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_badagada_brit_colony",
+      "canonical_name": "Badagada Brit Colony",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:neighbourhood/4615543369",
+      "perp_dist_km": 2.1309739950628326,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_balighai",
+      "canonical_name": "Balighai",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/2456503868",
+      "perp_dist_km": 12.171979375260758,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_barabati",
+      "canonical_name": "Barabati",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "places:place_cuttack_001",
+      "perp_dist_km": 2.5879602197266363,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_barabati_stadium_cuttack",
+      "canonical_name": "Barabati Stadium, Cuttack",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "places:place_bbsr_011",
+      "perp_dist_km": 6.123739930803192,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_bda_colony",
+      "canonical_name": "Bda Colony",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Place:suburb/5871313091",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_begunia",
+      "canonical_name": "Begunia",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/5851790521",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_biju_patnaik_international_airport_bbsr",
+      "canonical_name": "Biju Patnaik International Airport, Bbsr",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "places:place_transit_001",
+      "perp_dist_km": 4.451646456067999,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_biju_patnaik_park_cda",
+      "canonical_name": "Biju Patnaik Park, CDA",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "places:place_transit_001",
+      "perp_dist_km": 3.622119580155763,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_biju_patnaik_park_cuttack",
+      "canonical_name": "Biju Patnaik Park, Cuttack",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "places:place_transit_001",
+      "perp_dist_km": 4.451646456067999,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_city_womens_college",
+      "canonical_name": "City Women's College",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:college/11629499517",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_crpf_square",
+      "canonical_name": "Crpf Square",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/2417835677",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_delanga_hata",
+      "canonical_name": "Delanga Hata",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/7147207352",
+      "perp_dist_km": 12.588505427877465,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_dhauli",
+      "canonical_name": "Dhauli",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/6986325402",
+      "perp_dist_km": 8.657637415061965,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_fire_station_square",
+      "canonical_name": "Fire Station Square",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/2417835684",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_gandarpur",
+      "canonical_name": "Gandarpur",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/4156997238",
+      "perp_dist_km": 4.9597252954534685,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_gop_police_station",
+      "canonical_name": "Gop Police Station",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:police/13673808202",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_iit",
+      "canonical_name": "IIT",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:university/10147630768",
+      "perp_dist_km": 10.031834085136973,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_iter_college",
+      "canonical_name": "Iter College",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:university/4716604520",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_jagadguru_krupalu_university",
+      "canonical_name": "Jagadguru Krupalu University",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:university/13130591401",
+      "perp_dist_km": 9.506848131807011,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_jagatpur_cuttack",
+      "canonical_name": "Jagatpur, Cuttack",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/874656097",
+      "perp_dist_km": 9.41536531174577,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_jagatpurcuttack",
+      "canonical_name": "Jagatpur,cuttack",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/874656097",
+      "perp_dist_km": 9.732970015604268,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_judicial_academy",
+      "canonical_name": "Judicial Academy",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13690701101",
+      "perp_dist_km": 2.299068120443096,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_kalinga_hospital_square",
+      "canonical_name": "Kalinga Hospital Square",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:hospital/7701568123",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_kandarpur",
+      "canonical_name": "Kandarpur",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/4150897364",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_khandagiri_square",
+      "canonical_name": "Khandagiri Square",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:fuel/2546627663",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_khordha_new_bus_stand",
+      "canonical_name": "Khordha New Bus Stand",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/6164621037",
+      "perp_dist_km": 8.711581883931242,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_khordha_road_station",
+      "canonical_name": "Khordha Road Station",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7053681974",
+      "perp_dist_km": 4.485822479118381,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_konark_police_station",
+      "canonical_name": "Konark Police Station",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:police/2815695790",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_link_road",
+      "canonical_name": "Link Road",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:clinic/7053693033",
+      "perp_dist_km": 1.0540180594432635,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_madhabananda_temple_niali",
+      "canonical_name": "Madhabananda Temple, Niali",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "places:place_019",
+      "perp_dist_km": 7.238203928147887,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_madhabnanda_temple_niali",
+      "canonical_name": "Madhabnanda Temple, Niali",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "places:place_puri_003",
+      "perp_dist_km": 2.940359476315735,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_mahanadi_viharcuttack",
+      "canonical_name": "Mahanadi Vihar,cuttack",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/2669102682",
+      "perp_dist_km": 2.515151760033041,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_mancheswar_police_station",
+      "canonical_name": "Mancheswar Police Station",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:police/3070040280",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_mangalpur",
+      "canonical_name": "Mangalpur",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Place:village/1686927340",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_mangarajpur",
+      "canonical_name": "Mangarajpur",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7211674878",
+      "perp_dist_km": 14.131127687806304,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_master_canteen_scb_medical",
+      "canonical_name": "Master Canteen - Scb Medical",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/12260719727",
+      "perp_dist_km": 6.567714587188306,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_nandankanan_botanical_garden",
+      "canonical_name": "Nandankanan Botanical Garden",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/4594222883",
+      "perp_dist_km": 14.197543605550656,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_naraj_police_outpost",
+      "canonical_name": "Naraj Police Outpost",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:police_dhabaleswar_outpost",
+      "perp_dist_km": 8.09310898113437,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_national_law_university_o_2",
+      "canonical_name": "National Law University O",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:university/13130591401",
+      "perp_dist_km": 9.506848131807011,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_nayapalli",
+      "canonical_name": "Nayapalli",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Place:neighbourhood/2450169688",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_niali",
+      "canonical_name": "Niali",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Place:village/2456503875",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_niladri_vihar",
+      "canonical_name": "Niladri Vihar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/13337147201",
+      "perp_dist_km": 1.3219554811824017,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_nlu_cuttack",
+      "canonical_name": "Nlu, Cuttack",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/2669102682",
+      "perp_dist_km": 2.515151760033041,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_pipili_police_station",
+      "canonical_name": "Pipili Police Station",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "statewide_entities:police_north_021",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_power_house_square",
+      "canonical_name": "Power House Square",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/11494489512",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_raghunathpur",
+      "canonical_name": "Raghunathpur",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/6167884830",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_rajdhani_college",
+      "canonical_name": "Rajdhani College",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:college/2959979043",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_rd_womens_college",
+      "canonical_name": "Rd Women's College",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:college/11629499517",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_rokat_rajdhani_engineering_college",
+      "canonical_name": "Rokat, Rajdhani Engineering College",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/2959979043",
+      "perp_dist_km": 4.203876416442946,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_sai_hospital",
+      "canonical_name": "Sai Hospital",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:hospital/7710071306",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_sai_mandir",
+      "canonical_name": "Sai Mandir",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "places:place_022",
+      "perp_dist_km": 2.4265090316667393,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_sail_office",
+      "canonical_name": "Sail Office",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/11494489511",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_sakhigopal_temple",
+      "canonical_name": "Sakhigopal Temple",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/3306257774",
+      "perp_dist_km": 14.62889931777718,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_satasankha",
+      "canonical_name": "Satasankha",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Place:village/3306257776",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_satya_nagar",
+      "canonical_name": "Satya Nagar",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Place:suburb/6985772969",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_scb_medicalcuttack",
+      "canonical_name": "Scb Medical,cuttack",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7709970665",
+      "perp_dist_km": 3.8108365827175854,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_sri_sri_university_kataka",
+      "canonical_name": "Sri Sri University, Kataka",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13690701101",
+      "perp_dist_km": 6.612486007935111,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_sum_hospital_igkc",
+      "canonical_name": "Sum Hospital-igkc",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7701568122",
+      "perp_dist_km": 17.282141890303436,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_teisipur",
+      "canonical_name": "Teisipur",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Place:village/1686927337",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_udaynath_college_adaspur",
+      "canonical_name": "Udaynath College, Adaspur",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/2959979043",
+      "perp_dist_km": 4.884369943458677,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_bhubaneswar_unit_6",
+      "canonical_name": "Unit 6",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/11425364620",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_keonjhar_bada_ghaghara_waterfall",
+      "canonical_name": "Bada Ghaghara Waterfall",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "places:place_keonjhar_001",
+      "perp_dist_km": 0.0,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_keonjhar_fire_station",
+      "canonical_name": "Fire Station",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "odisha_services:fire_north_007",
+      "perp_dist_km": 0.19079927401579752,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_keonjhar_govt_hospital_suakati",
+      "canonical_name": "Govt Hospital, Suakati",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7699151601",
+      "perp_dist_km": 4.105839090380317,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_keonjhar_jhumpura",
+      "canonical_name": "Jhumpura",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:town/6836791293",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_keonjhar_jhumpura_bypass",
+      "canonical_name": "Jhumpura Bypass",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:fuel_north_006",
+      "perp_dist_km": 0.7357115150889808,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_keonjhar_naranpur_duburi_jn",
+      "canonical_name": "Naranpur Duburi Jn.",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/1494045319",
+      "perp_dist_km": 2.2068864050864247e-05,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_keonjhar_naranpur_high_school",
+      "canonical_name": "Naranpur High School",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/1494045319",
+      "perp_dist_km": 2.2068864050864247e-05,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_keonjhar_naranpur_raailway_stn_road",
+      "canonical_name": "Naranpur Raailway Stn. Road",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/1494045319",
+      "perp_dist_km": 3.8161921509177866e-05,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_keonjhar_odisha_school_of",
+      "canonical_name": "Odisha School Of",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:bank_north_004",
+      "perp_dist_km": 3.586823941109166,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_puri_chandanpur",
+      "canonical_name": "Chandanpur",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/6160646717",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_puri_sakhigopal",
+      "canonical_name": "Sakhigopal",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/3306257774",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_bangurkela_road",
+      "canonical_name": "Bangurkela Road",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:station/9210732130",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_basanti_colony",
+      "canonical_name": "Basanti Colony",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:neighbourhood/13657843187",
+      "perp_dist_km": 136.0378413553925,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_biramitrapur",
+      "canonical_name": "Biramitrapur",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:station/8999697078",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_biramitrapur_ps",
+      "canonical_name": "Biramitrapur P.s",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:station/8999697078",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_brahmani_tarang_police_station",
+      "canonical_name": "Brahmani Tarang Police Station",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "statewide_entities:police_west_013",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_jaraikela",
+      "canonical_name": "Jaraikela",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/7155741746",
+      "perp_dist_km": 13.720562700406129,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_jhirpani_police_station",
+      "canonical_name": "Jhirpani Police Station",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "statewide_entities:police_west_012",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_kuarmunda",
+      "canonical_name": "Kuarmunda",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:station/6211252339",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_kuarmunda_ps",
+      "canonical_name": "Kuarmunda P.s",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:station/6211252339",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_nuagaon",
+      "canonical_name": "Nuagaon",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:station/9210815129",
+      "perp_dist_km": 14.52951775592591,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_rajgangpur_bypass",
+      "canonical_name": "Rajgangpur Bypass",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/2518869694",
+      "perp_dist_km": 14.372022946213347,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_rourkela_new_bus_stand",
+      "canonical_name": "Rourkela New Bus Stand",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/747164265",
+      "perp_dist_km": 3.246352202748992,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_sector",
+      "canonical_name": "Sector",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/13124608765",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_rourkela_sector_9_jhirpani_police_station",
+      "canonical_name": "Sector 9 Jhirpani Police Station",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "statewide_entities:police_west_012",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_anchalik_govt_high_school",
+      "canonical_name": "Anchalik Govt. High School",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 12.169008710472141,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_anchalik_govt_high_school_2",
+      "canonical_name": "Anchalik Govt. High School,",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:school/1254525493",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_attabira_collage",
+      "canonical_name": "Attabira Collage",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/5724753849",
+      "perp_dist_km": 13.971450917061357,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_attabira_market",
+      "canonical_name": "Attabira Market",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:marketplace/3378217453",
+      "perp_dist_km": 1.8787173975148057,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_attabira_railway_station",
+      "canonical_name": "Attabira Railway Station",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "places:place_transit_008",
+      "perp_dist_km": 0.48122507723590086,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_badmal",
+      "canonical_name": "Badmal",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/7148229969",
+      "perp_dist_km": 10.64768829824805,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_badmal_police_station",
+      "canonical_name": "Badmal Police Station",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/7148229969",
+      "perp_dist_km": 10.64768829824805,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_birsa_munda_chowk_ainthapali",
+      "canonical_name": "Birsa Munda Chowk, Ainthapali",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/12176792400",
+      "perp_dist_km": 0.11767814234504437,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_burla_hospital_back_gate",
+      "canonical_name": "Burla Hospital Back Gate",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7712918664",
+      "perp_dist_km": 0.11181418544403181,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_bus_stand_rengali",
+      "canonical_name": "Bus Stand Rengali",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:station/8942261988",
+      "perp_dist_km": 0.7604184103923058,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_bus_stand_rengali_2",
+      "canonical_name": "Bus Stand, Rengali",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:station/8942261988",
+      "perp_dist_km": 8.766256762527775,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_chc_rengali",
+      "canonical_name": "Chc Rengali",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:station/8942261988",
+      "perp_dist_km": 0.7604184103923058,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_city_railway_station_ainthapali_bus_terminal_remed",
+      "canonical_name": "City Railway Station, Ainthapali Bus Terminal, Remed",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/12176828702",
+      "perp_dist_km": 11.042341674023353,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_city_railway_station_ainthapali_bus_terminal_remed_2",
+      "canonical_name": "City Railway Station, Ainthapali Bus Terminal, Remed)",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM:node/12176828702",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_civil_court_kuchinda",
+      "canonical_name": "Civil Court, Kuchinda",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:rest_west_007",
+      "perp_dist_km": 14.434947172319069,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_college_chowk",
+      "canonical_name": "College Chowk",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/7530803529",
+      "perp_dist_km": 5.027867309112273,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_daniel_public_school",
+      "canonical_name": "Daniel Public School",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 3.6335711539599513,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_deer_park_square",
+      "canonical_name": "Deer Park Square",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:c_8252b051de9a",
+      "perp_dist_km": 1.8182675583075378,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_dhankauda_chowk",
+      "canonical_name": "Dhankauda Chowk",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7712918685",
+      "perp_dist_km": 0.9763334451786001,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_dhankauda_field",
+      "canonical_name": "Dhankauda Field",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/12176828705",
+      "perp_dist_km": 2.6637363632658153,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_dhankauda_high_school",
+      "canonical_name": "Dhankauda High School",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 0.3322372642944768,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_dhanupali_chowk",
+      "canonical_name": "Dhanupali Chowk",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/3375289568",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_dhanupali_square",
+      "canonical_name": "Dhanupali Square",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/3375289568",
+      "perp_dist_km": 5.272151106764335,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_district_collectorate_office",
+      "canonical_name": "District Collectorate Office",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7214393734",
+      "perp_dist_km": 7.336566829134543,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_fci_werehouse",
+      "canonical_name": "Fci Werehouse",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/730145789",
+      "perp_dist_km": 2.0231297812770688,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_fire_office_rengali",
+      "canonical_name": "Fire Office Rengali",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:station/8942261988",
+      "perp_dist_km": 0.7604184103923058,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_gayatri_colony",
+      "canonical_name": "Gayatri Colony",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/12176828708",
+      "perp_dist_km": 1.0808159508020057,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_gengutipali_u_p_school",
+      "canonical_name": "Gengutipali U P School",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 3.6335711539599513,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_govt_high_school",
+      "canonical_name": "Govt. High School",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 12.169008710472141,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_govt_high_school_2",
+      "canonical_name": "Govt. High School,",
+      "has_two_sided": false,
+      "has_one_sided": false,
+      "candidate_source": "OSM_Amenity:school/1254525493",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_govt_high_school_charpali",
+      "canonical_name": "Govt. High School, Charpali",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 12.169008710472141,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_govt_polytechnic_college",
+      "canonical_name": "Govt. Polytechnic College",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/3376739856",
+      "perp_dist_km": 11.883659398377146,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_govt_women_college",
+      "canonical_name": "Govt. Women College",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/3376739856",
+      "perp_dist_km": 0.16865366627497125,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_temple",
+      "canonical_name": "Hanuman Temple",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "places:place_sambalpur_002",
+      "perp_dist_km": 13.01765267392448,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_temple_debeipali",
+      "canonical_name": "Hanuman Temple Debeipali",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "places:place_sambalpur_002",
+      "perp_dist_km": 4.2105042048866945,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_temple_rengali",
+      "canonical_name": "Hanuman Temple Rengali",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:station/8942261988",
+      "perp_dist_km": 0.7604184103923058,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_temple_rengali_2",
+      "canonical_name": "Hanuman Temple, Rengali",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:station/8942261988",
+      "perp_dist_km": 8.766256762527775,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_temple_road",
+      "canonical_name": "Hanuman Temple, Road",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "places:place_sambalpur_005",
+      "perp_dist_km": 16.928747521687015,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hanuman_templedhankauda",
+      "canonical_name": "Hanuman Temple,dhankauda",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "places:place_sambalpur_002",
+      "perp_dist_km": 4.7427631131526145,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hirakud_college",
+      "canonical_name": "Hirakud College",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/1038374471",
+      "perp_dist_km": 4.880119378027859,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hirakud_railway_station",
+      "canonical_name": "Hirakud Railway Station",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "places:place_transit_008",
+      "perp_dist_km": 0.48122507723590086,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_hirakud_school",
+      "canonical_name": "Hirakud School",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/1038374471",
+      "perp_dist_km": 4.0707870063033,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_iti_colony",
+      "canonical_name": "Iti Colony",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/12176828708",
+      "perp_dist_km": 1.0808159508020057,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_janhapada",
+      "canonical_name": "Janhapada",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/8412829725",
+      "perp_dist_km": null,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_jharsuguda_bypass",
+      "canonical_name": "Jharsuguda Bypass",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/290628856",
+      "perp_dist_km": 2.3452893724579276e-05,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_jharsuguda_new_bus_terminal",
+      "canonical_name": "Jharsuguda New Bus Terminal",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "places:place_transit_008",
+      "perp_dist_km": 3.1903486210775935,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_jnv_goshala",
+      "canonical_name": "Jnv, Goshala",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/737877344",
+      "perp_dist_km": 3.8194399841756534e-05,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_kabrapali_high_school",
+      "canonical_name": "Kabrapali High School",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 3.578811513982833,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_kamakhya_temple_malipali",
+      "canonical_name": "Kamakhya Temple Malipali",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "places:place_sambalpur_002",
+      "perp_dist_km": 4.2105042048866945,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_kia_sambalpur",
+      "canonical_name": "Kia Sambalpur",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/7650305853",
+      "perp_dist_km": 3.0963178383602576,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_kuchinda_college",
+      "canonical_name": "Kuchinda College",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/3376739856",
+      "perp_dist_km": 2.7816627076162126,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_kumarbandh_college",
+      "canonical_name": "Kumarbandh College",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/3376739856",
+      "perp_dist_km": 11.883659398377146,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_lapanga_chowk",
+      "canonical_name": "Lapanga Chowk",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/8944975117",
+      "perp_dist_km": 2.4023044382458263,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_master_colony",
+      "canonical_name": "Master Colony",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/12176828708",
+      "perp_dist_km": 1.0808159508020057,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_mcl_chowk",
+      "canonical_name": "Mcl Chowk",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "odisha_services:atm_west_010",
+      "perp_dist_km": 2.812632247246179,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_mclanand_vihar",
+      "canonical_name": "Mcl,anand Vihar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7712918667",
+      "perp_dist_km": 0.08546148254583338,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_medical_chowkburla",
+      "canonical_name": "Medical Chowk,burla",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7062117296",
+      "perp_dist_km": 0.11126547229089924,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_nscb_college",
+      "canonical_name": "Nscb College",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/3376739856",
+      "perp_dist_km": 3.5506495763437833,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_nurshing_college_road",
+      "canonical_name": "Nurshing College Road",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/3376739856",
+      "perp_dist_km": 3.3887773973071926,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_osou_sambalpur",
+      "canonical_name": "Osou Sambalpur",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/7650305853",
+      "perp_dist_km": 0.22148889174728204,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_parmanpur_college",
+      "canonical_name": "Parmanpur College",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:college/3376739856",
+      "perp_dist_km": 2.7816627076162126,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_petrol_pump_govindtola",
+      "canonical_name": "Petrol Pump, Govindtola",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:fuel/3379475452",
+      "perp_dist_km": 1.4637564955009148,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_phata_primary_school",
+      "canonical_name": "Phata Primary School",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 12.169008710472141,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_police_station_rengali",
+      "canonical_name": "Police Station Rengali",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:police_west_006",
+      "perp_dist_km": 1.8155026084302337,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_police_station_thelkoloi",
+      "canonical_name": "Police Station Thelkoloi",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:police_west_007",
+      "perp_dist_km": 7.4386372177233415,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_police_station_rengali_2",
+      "canonical_name": "Police Station, Rengali",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:police/7429523002",
+      "perp_dist_km": 14.925197440328065,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_power_house_road",
+      "canonical_name": "Power House Road",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "Nominatim:way/704323611",
+      "perp_dist_km": 8.097345102023181e-06,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_primary_school_padiabahal",
+      "canonical_name": "Primary School, Padiabahal",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 3.578811513982833,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_rajiv_gandhi_chowk",
+      "canonical_name": "Rajiv Gandhi Chowk",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:marketplace/3378217453",
+      "perp_dist_km": 4.8231852298768505,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_rengali_block_office",
+      "canonical_name": "Rengali Block Office",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:station/8942261988",
+      "perp_dist_km": 8.766256762527775,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_rengali_bypass_square",
+      "canonical_name": "Rengali Bypass Square",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:station/8942261988",
+      "perp_dist_km": 0.7604184103923058,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_rengali_chowk",
+      "canonical_name": "Rengali Chowk",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:station/8942261988",
+      "perp_dist_km": 8.766256762527775,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_runimahul_pup_school",
+      "canonical_name": "Runimahul P.u.p School",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 3.2187995969792587,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_sadar_police_station",
+      "canonical_name": "Sadar Police Station",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:police_west_002",
+      "perp_dist_km": 4.529567834081721,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_sainath_colony",
+      "canonical_name": "Sainath Colony",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/12176828708",
+      "perp_dist_km": 0.7514600339295976,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_salad_up_school",
+      "canonical_name": "Salad Up School",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 12.169008710472141,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_samaleswari_temple_hirakud",
+      "canonical_name": "Samaleswari Temple, Hirakud",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/1038374471",
+      "perp_dist_km": 4.0707870063033,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_saranda_chowk",
+      "canonical_name": "Saranda Chowk",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/8412875047",
+      "perp_dist_km": 5.472804918735803,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_saranda_high_school",
+      "canonical_name": "Saranda High School",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/8412875047",
+      "perp_dist_km": 5.472804918735803,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_sason_toll_gate",
+      "canonical_name": "Sason Toll Gate",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/1687059791",
+      "perp_dist_km": 0.1034228560570112,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_satkhama_up_school",
+      "canonical_name": "Satkhama U.p School",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 3.2187995969792587,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_satsang_vihar",
+      "canonical_name": "Satsang Vihar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/12176792399",
+      "perp_dist_km": 2.2853246250469934,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_shaktinagar_hirakud",
+      "canonical_name": "Shaktinagar, Hirakud",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/1038374471",
+      "perp_dist_km": 0.8874849072791305,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_silvermoon_hotel",
+      "canonical_name": "Silvermoon Hotel",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "statewide_entities:hotel_west_015",
+      "perp_dist_km": 0.9632423120764261,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_sourav_vihar",
+      "canonical_name": "Sourav Vihar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7712918667",
+      "perp_dist_km": 0.560730203904193,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_sriram_vihar",
+      "canonical_name": "Sriram Vihar",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM:node/12176792399",
+      "perp_dist_km": 0.4494468326443549,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_st_thomas_school",
+      "canonical_name": "St. Thomas School",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 3.2187995969792587,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_thelkoloi",
+      "canonical_name": "Thelkoloi",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Place:village/7148229970",
+      "perp_dist_km": 2.9254082474278693,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_thelkoloi_high_school",
+      "canonical_name": "Thelkoloi High School",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/12362733602",
+      "perp_dist_km": 2.8407027299478522,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_uphc_dhankauda",
+      "canonical_name": "Uphc Dhankauda",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7712918685",
+      "perp_dist_km": 0.9763334451786001,
+      "status": "CANDIDATE_MEDIUM"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_vikash_hospital",
+      "canonical_name": "Vikash Hospital",
+      "has_two_sided": false,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:hospital/7712918664",
+      "perp_dist_km": 7.028901877985797,
+      "status": "CANDIDATE_HIGH"
+    },
+    {
+      "stop_id": "stop_crut_sambalpur_vikash_school",
+      "canonical_name": "Vikash School",
+      "has_two_sided": true,
+      "has_one_sided": true,
+      "candidate_source": "OSM_Amenity:school/13742598925",
+      "perp_dist_km": 2.380189807869795,
+      "status": "CANDIDATE_MEDIUM"
     }
   ]
 }
