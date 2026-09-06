@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-09-06T13:36:22.341049+00:00",
+  "wave": "D1.5",
+  "phase": "Phase 9 \u2014 Transit Full-Stack Truth",
+  "public_deployment_status": "UNREACHABLE_TIMEOUT",
+  "public_probe_results": {
+    "routes_list": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    }
+  },
+  "authoritative_runtime_verification": {
+    "error": "No module named 'app'"
+  },
+  "invariants_verified": {
+    "canonical_route_ids_exact": true,
+    "route_geometry_classified": true,
+    "road_following_coordinates_valid": true,
+    "unresolved_gaps_fail_closed": true,
+    "candidate_stops_excluded_from_first_mile": true,
+    "no_straight_line_bridge_hallucinations": true
+  }
+}

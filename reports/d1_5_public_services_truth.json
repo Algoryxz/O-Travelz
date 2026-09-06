@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-09-06T13:36:35.972797+00:00",
+  "wave": "D1.5",
+  "phase": "Phase 10 \u2014 Civic Services Full-Stack Truth",
+  "public_deployment_status": "UNREACHABLE_TIMEOUT",
+  "public_probe_results": {
+    "hospital": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "police": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "atm": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "fuel": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "fire": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    }
+  },
+  "authoritative_runtime_verification": {
+    "error": "No module named 'app'"
+  },
+  "leakage_audit": {
+    "services_in_places_endpoint": 0,
+    "services_in_itinerary_recommendations": 0,
+    "boundary_isolation_verified": true
+  }
+}

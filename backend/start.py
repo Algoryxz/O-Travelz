@@ -17,19 +17,29 @@ if str(WORKSPACE_ROOT) not in sys.path:
 def run_migrations() -> None:
     print("[STARTUP] Running database migrations (alembic upgrade head)...", flush=True)
     alembic_ini = str(BACKEND_DIR / "alembic.ini")
-    res = subprocess.run(
-        [sys.executable, "-m", "alembic", "-c", alembic_ini, "upgrade", "head"],
-        cwd=str(BACKEND_DIR),
-        check=False,
-    )
-    if res.returncode != 0:
+    try:
+        res = subprocess.run(
+            [sys.executable, "-m", "alembic", "-c", alembic_ini, "upgrade", "head"],
+            cwd=str(BACKEND_DIR),
+            check=False,
+            timeout=60,
+        )
+        if res.returncode != 0:
+            print(
+                f"[STARTUP WARNING] Database migration returned non-zero code {res.returncode}. "
+                f"Proceeding with server start to allow health monitoring...",
+                file=sys.stderr,
+                flush=True,
+            )
+        else:
+            print("[STARTUP] Database migrations successfully applied to head.", flush=True)
+    except Exception as exc:
         print(
-            f"[STARTUP ERROR] Database migration failed with exit code {res.returncode}. Aborting startup.",
+            f"[STARTUP WARNING] Database migration execution exception: {exc}. "
+            f"Proceeding with server start to allow health monitoring...",
             file=sys.stderr,
             flush=True,
         )
-        sys.exit(res.returncode)
-    print("[STARTUP] Database migrations successfully applied to head.", flush=True)
 
 
 def seed_database_if_empty() -> None:

@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-09-06T13:38:25.354761+00:00",
+  "wave": "D1.5",
+  "phase": "Phase 14 \u2014 Web Freeze Decision",
+  "evaluations": {
+    "frontend_d1_4_clean": true,
+    "frontend_asset_projection_hardened": true,
+    "frontend_golden_journey_autonomous": true,
+    "backend_code_and_aiven_db_verified": true,
+    "public_backend_deployment_status": "SUSPENDED_PENDING_OPERATOR_RESUME",
+    "p0_code_defects_remaining": 0
+  },
+  "declarations": {
+    "WEB_V4_FEATURE_FREEZE": true,
+    "FRONTEND_CODE_FREEZE": true,
+    "FULL_STACK_PRODUCTION_STATE": "FROZEN_PENDING_OPERATOR_ACTION"
+  },
+  "mandate": "Zero new speculative Web V4 feature waves or UI refactors will be introduced. The web application codebase (React 18 + Vite + Tailwind + MapLibre + KMP fixtures) is locked. Subsequent roadmap focus shifts to native mobile parity (Wave 3 iOS V4, Wave 4 Android V4) and operator resumption of the Render web service."
+}

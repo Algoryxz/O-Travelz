@@ -13,6 +13,7 @@ if not settings.database_url.startswith("sqlite"):
         "pool_recycle": settings.db_pool_recycle,
         "pool_size": settings.db_pool_size,
         "max_overflow": settings.db_max_overflow,
+        "connect_args": {"connect_timeout": 10},
     })
 else:
     engine_kwargs.update({

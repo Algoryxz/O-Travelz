@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-09-06T13:28:40.286262+00:00",
+  "wave": "D1.5",
+  "phase": "Phase 5 \u2014 Database Production Proof",
+  "database_provider": "Aiven Managed Cloud PostgreSQL",
+  "host": "otravelz-db-smarakpadhi58-98d3.d.aivencloud.com",
+  "port": 25047,
+  "database_name": "defaultdb",
+  "ssl_mode": "require",
+  "proof_results": {
+    "postgresql_reachable": true,
+    "postgresql_version": "PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.1 20260123 (Red Hat 15.2.1-7), 64-bit",
+    "postgis_available": true,
+    "postgis_version": "3.6 USE_GEOS=1 USE_PROJ=1 USE_STATS=1",
+    "alembic_revision": "0020_transit_ride_observations",
+    "counts": {
+      "places": 204,
+      "routes": 154,
+      "stops": 1430,
+      "media_assets": 116,
+      "entity_media": 70,
+      "place_images": 70,
+      "categories": 23
+    }
+  },
+  "verdict": "DATABASE_PRODUCTION_VERIFIED"
+}

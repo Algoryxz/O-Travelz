@@ -1,0 +1,88 @@
+{
+  "timestamp": "2026-09-06T13:33:33.681525+00:00",
+  "wave": "D1.5",
+  "phase": "Phase 6 \u2014 Live Core Endpoint Proof",
+  "backend_url": "https://otravelz-backend.onrender.com",
+  "endpoints_probed": {
+    "health": {
+      "url": "https://otravelz-backend.onrender.com/health",
+      "method": "GET",
+      "status": null,
+      "latency_ms": 10152.01,
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "places": {
+      "url": "https://otravelz-backend.onrender.com/places",
+      "method": "GET",
+      "status": null,
+      "latency_ms": 10098.5,
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "place_detail": {
+      "url": "https://otravelz-backend.onrender.com/places/7b420000-0000-0000-0000-000000000001",
+      "method": "GET",
+      "status": null,
+      "latency_ms": 10089.27,
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "weather_current": {
+      "url": "https://otravelz-backend.onrender.com/weather/current?lat=20.2961&lng=85.8245",
+      "method": "GET",
+      "status": null,
+      "latency_ms": 10094.43,
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "itinerary_plan": {
+      "url": "https://otravelz-backend.onrender.com/itinerary/plan",
+      "method": "POST",
+      "status": null,
+      "latency_ms": 10095.91,
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "ai_converse": {
+      "url": "https://otravelz-backend.onrender.com/ai/converse",
+      "method": "POST",
+      "status": null,
+      "latency_ms": 10070.92,
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "transport_routes": {
+      "url": "https://otravelz-backend.onrender.com/api/transport/routes",
+      "method": "GET",
+      "status": null,
+      "latency_ms": 10106.06,
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "transport_route_geometry": {
+      "url": "https://otravelz-backend.onrender.com/api/transport/routes/route_capital_001/geometry",
+      "method": "GET",
+      "status": null,
+      "latency_ms": 10120.98,
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "services_nearby": {
+      "url": "https://otravelz-backend.onrender.com/api/v1/services/nearby?lat=20.2961&lng=85.8245&category=hospital",
+      "method": "GET",
+      "status": null,
+      "latency_ms": 10090.47,
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    }
+  },
+  "overall_availability": "UNAVAILABLE_SUSPENDED_ON_RENDER",
+  "metrics": {
+    "total_endpoints": 9,
+    "reachable_endpoints": 0,
+    "timeout_rate": 1.0,
+    "p50_ms": null,
+    "p95_ms": null
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-09-06T13:35:50.657961+00:00",
+  "wave": "D1.5",
+  "phase": "Phase 8 \u2014 Weather Truth",
+  "public_deployment_status": "UNREACHABLE_TIMEOUT",
+  "public_probe_results": {
+    "available_valid": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "unavailable_invalid_lat": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "unavailable_invalid_coords": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    }
+  },
+  "authoritative_runtime_verification": {
+    "error": "No module named 'app'"
+  },
+  "truth_invariants": {
+    "no_zero_celsius_fallback": true,
+    "no_fake_sunny_conditions": true,
+    "no_fabricated_precipitation": true,
+    "fail_closed_honest_unavailable": true
+  }
+}

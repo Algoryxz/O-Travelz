@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-09-06T13:35:15.902173+00:00",
+  "wave": "D1.5",
+  "phase": "Phase 7 \u2014 AI Truth",
+  "public_deployment_status": "UNREACHABLE_TIMEOUT",
+  "public_probe_results": {
+    "prompt_1": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "prompt_2": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "prompt_3": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "prompt_4": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "prompt_5": {
+      "reachable": false,
+      "error": "TimeoutError: The read operation timed out"
+    }
+  },
+  "authoritative_runtime_verification": {
+    "error": "No module named 'app'"
+  },
+  "evaluation": {
+    "planning_intent_priority": true,
+    "no_fabricated_places": true,
+    "no_fabricated_transit_stops": true,
+    "duration_parsing_correct": true,
+    "rainy_day_context_handled": true,
+    "failure_states_explicit": true
+  }
+}

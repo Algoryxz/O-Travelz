@@ -1,0 +1,34 @@
+import json
+import datetime
+import os
+
+def generate_availability_verdict():
+    report = {
+        "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "wave": "D1.5",
+        "phase": "Phase 13 — Availability / Cold Start Decision",
+        "service_url": "https://otravelz-backend.onrender.com",
+        "measurements": {
+            "cold_boot_latency": ">90s (timed out across 3 consecutive attempts)",
+            "warm_request_latency": "N/A (unreachable)",
+            "sleep_behavior": "Service suspended / inactive on Render control plane",
+            "timeout_frequency": "100% across all 9 core endpoints",
+            "repeated_wake_behavior": "Failed to wake after 3 multi-attempt probes (10s, 60s, 90s)"
+        },
+        "classification": "UNACCEPTABLE",
+        "detailed_justification": [
+            "A backend that consistently times out at 60-90 seconds with a 100% failure rate cannot be classified as PRODUCTION_ACCEPTABLE or DEMO_ACCEPTABLE in its current deployed state.",
+            "The root cause is a suspended instance on Render control plane following previous expiration of Render PostgreSQL.",
+            "Database has been cleanly migrated to Aiven Cloud PostgreSQL and verified 100% healthy locally, but the public cloud edge router does not route traffic to a live container.",
+            "Once operator resumes the service on dashboard.render.com and sets DATABASE_URL, the architecture will exhibit DEMO_ACCEPTABLE_WITH_COLD_START characteristics (30-50s initial wake)."
+        ],
+        "verdict": "BACKEND_UNACCEPTABLE_PENDING_OPERATOR_RESUME"
+    }
+
+    os.makedirs("reports", exist_ok=True)
+    with open("reports/d1_5_backend_availability_verdict.json", "w", encoding="utf-8") as f:
+        json.dump(report, f, indent=2)
+    print("Generated reports/d1_5_backend_availability_verdict.json")
+
+if __name__ == "__main__":
+    generate_availability_verdict()

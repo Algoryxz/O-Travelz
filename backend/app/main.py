@@ -91,7 +91,7 @@ def root() -> dict:
     return {
         "service": "O-Travelz API",
         "status": "running",
-        "version": "0.1.0",
+        "version": "4.0.0",
         "git_sha": RELEASE_METADATA["git_sha"],
         "alembic_version": RELEASE_METADATA["alembic_version"],
         "docs": "/docs",
@@ -117,6 +117,7 @@ def health() -> dict:
 
     return {
         "status": "ok" if db_status == "connected" else "degraded",
+        "version": "4.0.0",
         "git_sha": RELEASE_METADATA["git_sha"],
         "alembic_version": RELEASE_METADATA["alembic_version"],
         "database": db_status,

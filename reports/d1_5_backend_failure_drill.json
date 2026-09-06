@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-09-06T13:37:54.575039+00:00",
+  "wave": "D1.5",
+  "phase": "Phase 12 \u2014 Failure Mode Retention",
+  "drill_type": "INTENTIONAL_BACKEND_ORIGIN_BLOCK",
+  "blocked_patterns": [
+    "*onrender.com*",
+    "*/api/*"
+  ],
+  "drills": {
+    "ui_no_crash_on_load": {
+      "passed": true,
+      "title": "O-TRAVELZ \u2014 Odisha Travel Intelligence & Cultural Atlas | Built by Algoryxz",
+      "duration_ms": 849.48
+    },
+    "static_discover_available": {
+      "passed": false,
+      "places_rendered": 0,
+      "duration_ms": 1024.03
+    },
+    "weather_honest_unavailable": {
+      "passed": false,
+      "modal_remains_functional": false,
+      "no_white_screen": true,
+      "duration_ms": 12.18
+    },
+    "ai_degradation_disclosed": {
+      "passed": false,
+      "client_fallback_engaged": true,
+      "ui_alive": false,
+      "duration_ms": 1041.07
+    },
+    "transit_no_fabricated_geometry": {
+      "passed": false,
+      "map_canvas_functional": false,
+      "duration_ms": 1519.07
+    },
+    "saved_local_state_usable": {
+      "passed": true,
+      "stored_val": "[\"place_bbsr_001\"]",
+      "duration_ms": 1734.97
+    }
+  },
+  "verdict": "FAILURE_DRILL_FAILED"
+}
