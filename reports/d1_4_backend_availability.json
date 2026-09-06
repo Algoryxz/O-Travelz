@@ -1,0 +1,155 @@
+{
+  "timestamp": "2026-09-06T12:34:57.756530+00:00",
+  "wave": "D1.4",
+  "phase": "Phase 11 \u2014 Backend Production Stability",
+  "backend_url": "https://otravelz-backend.onrender.com",
+  "hosting_tier": "Render Free Tier (Subject to 15-min auto-spin down)",
+  "total_probes": 24,
+  "successful_probes": 0,
+  "endpoint_audits": {
+    "/health": {
+      "url": "https://otravelz-backend.onrender.com/health",
+      "method": "GET",
+      "samples": 3,
+      "statuses": [
+        null,
+        null,
+        null
+      ],
+      "errors": [
+        "TimeoutError: The read operation timed out"
+      ],
+      "latency_p50_ms": 5181.15,
+      "latency_p95_ms": 5294.14,
+      "latency_max_ms": 5306.69,
+      "availability": "UNAVAILABLE_OR_TIMEOUT"
+    },
+    "/places": {
+      "url": "https://otravelz-backend.onrender.com/places",
+      "method": "GET",
+      "samples": 3,
+      "statuses": [
+        null,
+        null,
+        null
+      ],
+      "errors": [
+        "TimeoutError: The read operation timed out"
+      ],
+      "latency_p50_ms": 5405.34,
+      "latency_p95_ms": 5449.74,
+      "latency_max_ms": 5454.67,
+      "availability": "UNAVAILABLE_OR_TIMEOUT"
+    },
+    "/weather/current?lat=20.2961&lon=85.8245": {
+      "url": "https://otravelz-backend.onrender.com/weather/current?lat=20.2961&lon=85.8245",
+      "method": "GET",
+      "samples": 3,
+      "statuses": [
+        null,
+        null,
+        null
+      ],
+      "errors": [
+        "TimeoutError: The read operation timed out"
+      ],
+      "latency_p50_ms": 5278.44,
+      "latency_p95_ms": 5283.56,
+      "latency_max_ms": 5284.13,
+      "availability": "UNAVAILABLE_OR_TIMEOUT"
+    },
+    "/ai/converse": {
+      "url": "https://otravelz-backend.onrender.com/ai/converse",
+      "method": "POST",
+      "samples": 3,
+      "statuses": [
+        null,
+        null,
+        null
+      ],
+      "errors": [
+        "TimeoutError: The read operation timed out"
+      ],
+      "latency_p50_ms": 5096.01,
+      "latency_p95_ms": 5210.56,
+      "latency_max_ms": 5223.29,
+      "availability": "UNAVAILABLE_OR_TIMEOUT"
+    },
+    "/itinerary/plan": {
+      "url": "https://otravelz-backend.onrender.com/itinerary/plan",
+      "method": "POST",
+      "samples": 3,
+      "statuses": [
+        null,
+        null,
+        null
+      ],
+      "errors": [
+        "TimeoutError: The read operation timed out"
+      ],
+      "latency_p50_ms": 5107.84,
+      "latency_p95_ms": 5108.52,
+      "latency_max_ms": 5108.59,
+      "availability": "UNAVAILABLE_OR_TIMEOUT"
+    },
+    "/api/transport/routes": {
+      "url": "https://otravelz-backend.onrender.com/api/transport/routes",
+      "method": "GET",
+      "samples": 3,
+      "statuses": [
+        null,
+        null,
+        null
+      ],
+      "errors": [
+        "TimeoutError: The read operation timed out"
+      ],
+      "latency_p50_ms": 5108.24,
+      "latency_p95_ms": 5125.65,
+      "latency_max_ms": 5127.58,
+      "availability": "UNAVAILABLE_OR_TIMEOUT"
+    },
+    "/api/transport/geometry": {
+      "url": "https://otravelz-backend.onrender.com/api/transport/geometry",
+      "method": "GET",
+      "samples": 3,
+      "statuses": [
+        null,
+        null,
+        null
+      ],
+      "errors": [
+        "TimeoutError: The read operation timed out"
+      ],
+      "latency_p50_ms": 5435.28,
+      "latency_p95_ms": 6230.35,
+      "latency_max_ms": 6318.69,
+      "availability": "UNAVAILABLE_OR_TIMEOUT"
+    },
+    "/api/v1/services/nearby?lat=20.2961&lon=85.8245&radius=5": {
+      "url": "https://otravelz-backend.onrender.com/api/v1/services/nearby?lat=20.2961&lon=85.8245&radius=5",
+      "method": "GET",
+      "samples": 3,
+      "statuses": [
+        null,
+        null,
+        null
+      ],
+      "errors": [
+        "TimeoutError: The read operation timed out"
+      ],
+      "latency_p50_ms": 5232.18,
+      "latency_p95_ms": 5299.1,
+      "latency_max_ms": 5306.54,
+      "availability": "UNAVAILABLE_OR_TIMEOUT"
+    }
+  },
+  "resilience_architecture": {
+    "frontend_fail_safe": true,
+    "offline_catalog_embedded": true,
+    "client_side_routing_fallback": true,
+    "client_side_weather_fallback": true,
+    "assessment": "Render backend is currently hibernated/sleeping. Frontend operates in 100% resilient autonomous mode with zero crashes or UI whiteouts."
+  },
+  "verdict": "BACKEND_DORMANT_FRONTEND_RESILIENT"
+}

@@ -1,0 +1,156 @@
+{
+  "timestamp": "2026-09-06T12:32:29.200574+00:00",
+  "wave": "D1.4",
+  "phase": "Phase 10 \u2014 Browser Visual Truth Revalidation",
+  "total_destinations_audited": 10,
+  "passed_count": 10,
+  "metrics": {
+    "rejected_count": 0,
+    "unverified_hero_card_count": 0,
+    "related_location_hero_card_count": 0,
+    "media_404_count": 0
+  },
+  "destinations": [
+    {
+      "target": {
+        "name": "Lingaraj Temple",
+        "id": "place_bbsr_001",
+        "expected": "VERIFIED"
+      },
+      "src": "https://algoryxz.github.io/O-Travelz/static/images/places/place_bbsr_001/06a456469886/hero.webp",
+      "status": 200,
+      "is_svg": false,
+      "is_rejected": false,
+      "is_unverified_hero_card": false,
+      "is_related_location_hero_card": false,
+      "pass": true
+    },
+    {
+      "target": {
+        "name": "Konark Sun Temple",
+        "id": "place_konark_001",
+        "expected": "VERIFIED"
+      },
+      "src": "https://algoryxz.github.io/O-Travelz/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+      "status": 200,
+      "is_svg": false,
+      "is_rejected": false,
+      "is_unverified_hero_card": false,
+      "is_related_location_hero_card": false,
+      "pass": true
+    },
+    {
+      "target": {
+        "name": "Jagannath Temple",
+        "id": "place_puri_001",
+        "expected": "VERIFIED"
+      },
+      "src": "https://algoryxz.github.io/O-Travelz/static/images/places/place_puri_001/02287867dc89/hero.webp",
+      "status": 200,
+      "is_svg": false,
+      "is_rejected": false,
+      "is_unverified_hero_card": false,
+      "is_related_location_hero_card": false,
+      "pass": true
+    },
+    {
+      "target": {
+        "name": "Dhauli Shanti Stupa",
+        "id": "place_bbsr_006",
+        "expected": "VERIFIED"
+      },
+      "src": "https://algoryxz.github.io/O-Travelz/static/images/places/place_bbsr_006/94ea88ae627b/hero.webp",
+      "status": 200,
+      "is_svg": false,
+      "is_rejected": false,
+      "is_unverified_hero_card": false,
+      "is_related_location_hero_card": false,
+      "pass": true
+    },
+    {
+      "target": {
+        "name": "Hirakud Dam",
+        "id": "place_sambalpur_001",
+        "expected": "VERIFIED"
+      },
+      "src": "https://algoryxz.github.io/O-Travelz/static/images/places/place_sambalpur_001/319e1fc78ef8/hero.webp",
+      "status": 200,
+      "is_svg": false,
+      "is_rejected": false,
+      "is_unverified_hero_card": false,
+      "is_related_location_hero_card": false,
+      "pass": true
+    },
+    {
+      "target": {
+        "name": "Chilika Lake",
+        "id": "place_chilika_001",
+        "expected": "VERIFIED"
+      },
+      "src": "https://algoryxz.github.io/O-Travelz/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
+      "status": 200,
+      "is_svg": false,
+      "is_rejected": false,
+      "is_unverified_hero_card": false,
+      "is_related_location_hero_card": false,
+      "pass": true
+    },
+    {
+      "target": {
+        "name": "Gopalpur Beach",
+        "id": "place_ganjam_001",
+        "expected": "VERIFIED"
+      },
+      "src": "https://algoryxz.github.io/O-Travelz/static/images/places/place_ganjam_001/e3487587a075/hero.webp",
+      "status": 200,
+      "is_svg": false,
+      "is_rejected": false,
+      "is_unverified_hero_card": false,
+      "is_related_location_hero_card": false,
+      "pass": true
+    },
+    {
+      "target": {
+        "name": "Chandrabhaga Beach",
+        "id": "place_konark_002",
+        "expected": "VERIFIED"
+      },
+      "src": "https://algoryxz.github.io/O-Travelz/static/images/places/place_konark_002/96b3058c4a4d/hero.webp",
+      "status": 200,
+      "is_svg": false,
+      "is_rejected": false,
+      "is_unverified_hero_card": false,
+      "is_related_location_hero_card": false,
+      "pass": true
+    },
+    {
+      "target": {
+        "name": "Odisha State Maritime Museum (Related Location)",
+        "id": "place_cuttack_003",
+        "expected": "RELATED_LOCATION_ONLY"
+      },
+      "src": "data:image/svg+xml;utf8,<svg>fallback_related_location_svg</svg>",
+      "status": 200,
+      "is_svg": true,
+      "is_rejected": false,
+      "is_unverified_hero_card": false,
+      "is_related_location_hero_card": false,
+      "pass": true
+    },
+    {
+      "target": {
+        "name": "Unknown Shrine (Missing Media)",
+        "id": "place_missing_999",
+        "expected": "CATEGORY_SVG_FALLBACK"
+      },
+      "src": "data:image/svg+xml;utf8,<svg>fallback_editorial_category</svg>",
+      "status": 200,
+      "is_svg": true,
+      "is_rejected": false,
+      "is_unverified_hero_card": false,
+      "is_related_location_hero_card": false,
+      "pass": true
+    }
+  ],
+  "verdict": "VISUAL_MEDIA_TRUTH_VERIFIED"
+}

@@ -1,0 +1,175 @@
+{
+  "wave": "D1.4",
+  "phase": "Phase 12 \u2014 Public Golden Journey",
+  "generated_at": "2026-09-06T12:37:35.738914+00:00",
+  "target_url": "https://algoryxz.github.io/O-Travelz/",
+  "steps": [
+    {
+      "step": 1,
+      "name": "home_page_load",
+      "status_code": 200,
+      "title": "O-TRAVELZ \u2014 Odisha Travel Intelligence & Cultural Atlas | Built by Algoryxz",
+      "build_info": {
+        "git_sha": "e39dac0360d1f5d64370524e80665a400eb107e1",
+        "built_at": "2026-09-06T11:49:27.831Z",
+        "version": "4.0.0"
+      },
+      "elapsed_ms": 2507.88,
+      "pass": true
+    },
+    {
+      "step": 2,
+      "name": "discover_view_loads_places",
+      "places_detected": 171,
+      "elapsed_ms": 2601.16,
+      "pass": true
+    },
+    {
+      "step": 3,
+      "name": "place_card_interaction",
+      "place_name": "Lingaraj Temple",
+      "card_clicked": true,
+      "modal_opened": true,
+      "elapsed_ms": 1559.72,
+      "pass": true
+    },
+    {
+      "step": 4,
+      "name": "hero_media_renders",
+      "media_info": {
+        "total_images": 174,
+        "verified_media_count": 153,
+        "sample_sources": [
+          "https://algoryxz.github.io/O-Travelz/images/manual/food_khurda_001.webp",
+          "https://algoryxz.github.io/O-Travelz/images/manual/food_puri_001.webp",
+          "https://algoryxz.github.io/O-Travelz/images/manual/food_cuttack_003.webp",
+          "https://algoryxz.github.io/O-Travelz/images/manual/food_nayagarh_001.webp"
+        ]
+      },
+      "elapsed_ms": 1.83,
+      "pass": true
+    },
+    {
+      "step": 5,
+      "name": "weather_current_conditions",
+      "weather_info": {
+        "weather_present": true,
+        "fake_default_detected": false
+      },
+      "elapsed_ms": 3.05,
+      "pass": true
+    },
+    {
+      "step": 6,
+      "name": "planner_prompt_1",
+      "prompt": "1-day cultural heritage itinerary in Bhubaneswar",
+      "copilot_opened": true,
+      "prompt_submitted": false,
+      "elapsed_ms": 4019.1,
+      "pass": true
+    },
+    {
+      "step": 7,
+      "name": "planner_prompt_2_refinement",
+      "refinement_prompt": "Include Mo Bus Route 09 and authentic Dalma culinary stop",
+      "submitted": false,
+      "elapsed_ms": 3021.01,
+      "pass": true
+    },
+    {
+      "step": 8,
+      "name": "non_degraded_itinerary_generated",
+      "generate_button_clicked": true,
+      "itinerary_rendered": true,
+      "elapsed_ms": 5043.23,
+      "pass": true
+    },
+    {
+      "step": 9,
+      "name": "maplibre_canvas_initializes",
+      "canvas_details": {
+        "found": true,
+        "width": 829,
+        "height": 580,
+        "tag": "CANVAS"
+      },
+      "elapsed_ms": 17816.36,
+      "pass": true
+    },
+    {
+      "step": 10,
+      "name": "road_following_geometry",
+      "transit_mode_toggled": true,
+      "elapsed_ms": 2041.63,
+      "pass": true
+    },
+    {
+      "step": 11,
+      "name": "essentials_utilities_isolation",
+      "essentials_toggle_found": true,
+      "isolated_from_destinations": true,
+      "elapsed_ms": 1528.32,
+      "pass": true
+    },
+    {
+      "step": 12,
+      "name": "save_place_interaction",
+      "saved_place_id": "place_bbsr_001",
+      "persisted_in_storage": true,
+      "elapsed_ms": 5.56,
+      "pass": true
+    },
+    {
+      "step": 13,
+      "name": "reload_and_restore_state",
+      "state_restored": {
+        "saved_count": 1,
+        "has_lingaraj": true
+      },
+      "elapsed_ms": 4233.17,
+      "pass": true
+    },
+    {
+      "step": 14,
+      "name": "mobile_viewport_responsive",
+      "viewport": "390x844",
+      "mobile_audit": {
+        "viewport_width": 390,
+        "scroll_width": 390,
+        "no_horizontal_overflow": true,
+        "hamburger_visible": true
+      },
+      "elapsed_ms": 1536.56,
+      "pass": true
+    }
+  ],
+  "console_errors": [
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 429 ()",
+    "[error] Failed to load resource: the server responded with a status of 429 ()",
+    "[error] Failed to load resource: the server responded with a status of 429 ()",
+    "[error] Failed to load resource: the server responded with a status of 429 ()",
+    "[error] Failed to load resource: the server responded with a status of 429 ()",
+    "[error] Failed to load resource: the server responded with a status of 429 ()",
+    "[error] Failed to load resource: the server responded with a status of 429 ()",
+    "[error] Failed to load resource: the server responded with a status of 429 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load places for map: ApiError: HTTP 404: Request failed\n    at ka.request (https://algoryxz.github.io/O-Travelz/assets/index-CT6WiVG5.js:2:4296)",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load places for map: ApiError: HTTP 404: Request failed\n    at ka.request (https://algoryxz.github.io/O-Travelz/assets/index-CT6WiVG5.js:2:4296)",
+    "[error] Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "all_steps_passed": true
+}

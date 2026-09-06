@@ -1,0 +1,1503 @@
+{
+  "generated_at": "2026-09-06T12:52:06.895Z",
+  "compiler": "build-public-media-projection.js",
+  "rules": {
+    "allowed_variants": [
+      "hero.webp",
+      "card.webp",
+      "thumbnail.webp"
+    ],
+    "excluded_variants": [
+      "original.webp"
+    ],
+    "verification_requirement": "EXACT_LOCATION_VERIFIED or VERIFIED_AUTHENTIC_PHOTOGRAPHY",
+    "rejected_policy": "NEVER_PUBLISH"
+  },
+  "places": {
+    "place_bbsr_001": {
+      "place_name": "Lingaraj Temple",
+      "asset_hash": "06a456469886",
+      "title": "Lingaraj Temple",
+      "alt_text": "Authentic photograph of Lingaraj Temple in Odisha",
+      "creator": "Sushant (Bubby)",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sushant (Bubby) via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_001/06a456469886/hero.webp",
+          "size_bytes": 182190
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_001/06a456469886/card.webp",
+          "size_bytes": 45736
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_001/06a456469886/thumbnail.webp",
+          "size_bytes": 6070
+        }
+      }
+    },
+    "place_bbsr_002": {
+      "place_name": "Mukteswar Temple",
+      "asset_hash": "bf6293b73157",
+      "title": "Mukteswar Temple",
+      "alt_text": "Authentic photograph of Mukteswar Temple in Odisha",
+      "creator": "Anandbora2024",
+      "license": "CC0",
+      "attribution": "Photo by Anandbora2024 via Wikimedia Commons, licensed under CC0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_002/bf6293b73157/hero.webp",
+          "size_bytes": 250294
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_002/bf6293b73157/card.webp",
+          "size_bytes": 69830
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_002/bf6293b73157/thumbnail.webp",
+          "size_bytes": 11800
+        }
+      }
+    },
+    "place_bbsr_003": {
+      "place_name": "Rajarani Temple",
+      "asset_hash": "0dd1f614ea63",
+      "title": "Rajarani Temple",
+      "alt_text": "Authentic photograph of Rajarani Temple in Odisha",
+      "creator": "Sourabh.biswas003",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sourabh.biswas003 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_003/0dd1f614ea63/hero.webp",
+          "size_bytes": 373744
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_003/0dd1f614ea63/card.webp",
+          "size_bytes": 90678
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_003/0dd1f614ea63/thumbnail.webp",
+          "size_bytes": 10674
+        }
+      }
+    },
+    "place_bbsr_004": {
+      "place_name": "Ananta Vasudeva Temple",
+      "asset_hash": "b91e7a5f0092",
+      "title": "Ananta Vasudeva Temple",
+      "alt_text": "Authentic photograph of Ananta Vasudeva Temple in Odisha",
+      "creator": "Prateek Pattanaik",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Prateek Pattanaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_004/b91e7a5f0092/hero.webp",
+          "size_bytes": 276818
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_004/b91e7a5f0092/card.webp",
+          "size_bytes": 73534
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_004/b91e7a5f0092/thumbnail.webp",
+          "size_bytes": 9588
+        }
+      }
+    },
+    "place_bbsr_005": {
+      "place_name": "Udayagiri and Khandagiri Caves",
+      "asset_hash": "87c823650f8a",
+      "title": "Udayagiri and Khandagiri Caves",
+      "alt_text": "Authentic photograph of Udayagiri and Khandagiri Caves in Odisha",
+      "creator": "Sourav Das from Santa Barbara, USA",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Sourav Das from Santa Barbara, USA via Wikimedia Commons, licensed under CC BY 2.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_005/87c823650f8a/hero.webp",
+          "size_bytes": 277862
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_005/87c823650f8a/card.webp",
+          "size_bytes": 87056
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_005/87c823650f8a/thumbnail.webp",
+          "size_bytes": 11434
+        }
+      }
+    },
+    "place_bbsr_006": {
+      "place_name": "Dhauli Shanti Stupa",
+      "asset_hash": "94ea88ae627b",
+      "title": "Dhauli Shanti Stupa",
+      "alt_text": "Authentic photograph of Dhauli Shanti Stupa in Odisha",
+      "creator": "Debashis Pradhan",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Debashis Pradhan via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_006/94ea88ae627b/hero.webp",
+          "size_bytes": 207440
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_006/94ea88ae627b/card.webp",
+          "size_bytes": 68828
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_006/94ea88ae627b/thumbnail.webp",
+          "size_bytes": 10040
+        }
+      }
+    },
+    "place_bbsr_007": {
+      "place_name": "Nandankanan Zoological Park",
+      "asset_hash": "83ddf7bcbca3",
+      "title": "Nandankanan Zoological Park",
+      "alt_text": "Authentic photograph of Nandankanan Zoological Park in Odisha",
+      "creator": "DrGSINGH",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by DrGSINGH via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_007/83ddf7bcbca3/hero.webp",
+          "size_bytes": 152750
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_007/83ddf7bcbca3/card.webp",
+          "size_bytes": 43906
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_007/83ddf7bcbca3/thumbnail.webp",
+          "size_bytes": 7220
+        }
+      }
+    },
+    "place_bbsr_008": {
+      "place_name": "Odisha State Museum",
+      "asset_hash": "dc85cc5814e7",
+      "title": "Odisha State Museum",
+      "alt_text": "Authentic photograph of Odisha State Museum in Odisha",
+      "creator": "User:Tinucherian",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by User:Tinucherian via Wikimedia Commons, licensed under CC BY 3.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_008/dc85cc5814e7/hero.webp",
+          "size_bytes": 84656
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_008/dc85cc5814e7/card.webp",
+          "size_bytes": 17638
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_008/dc85cc5814e7/thumbnail.webp",
+          "size_bytes": 3632
+        }
+      }
+    },
+    "place_bbsr_009": {
+      "place_name": "Odisha Crafts Museum Kala Bhoomi",
+      "asset_hash": "d3fdc630c2d8",
+      "title": "Odisha Crafts Museum Kala Bhoomi",
+      "alt_text": "Authentic photograph of Odisha Crafts Museum Kala Bhoomi in Odisha",
+      "creator": "SUDEEP PRAMANIK",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by SUDEEP PRAMANIK via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_009/d3fdc630c2d8/hero.webp",
+          "size_bytes": 79094
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_009/d3fdc630c2d8/card.webp",
+          "size_bytes": 33340
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_009/d3fdc630c2d8/thumbnail.webp",
+          "size_bytes": 7298
+        }
+      }
+    },
+    "place_bbsr_010": {
+      "place_name": "Ekamra Haat",
+      "asset_hash": "78c2ef783f40",
+      "title": "Ekamra Haat",
+      "alt_text": "Authentic photograph of Ekamra Haat in Odisha",
+      "creator": "Subhashish Panigrahi",
+      "license": "CC BY 3.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY 3.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_010/78c2ef783f40/hero.webp",
+          "size_bytes": 200550
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_010/78c2ef783f40/card.webp",
+          "size_bytes": 64792
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_010/78c2ef783f40/thumbnail.webp",
+          "size_bytes": 10508
+        }
+      }
+    },
+    "place_bbsr_011": {
+      "place_name": "Kalinga Stadium",
+      "asset_hash": "36e8a9a95990",
+      "title": "Kalinga Stadium",
+      "alt_text": "Authentic photograph of Kalinga Stadium in Odisha",
+      "creator": "Government of Odisha",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_011/36e8a9a95990/hero.webp",
+          "size_bytes": 314208
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_011/36e8a9a95990/card.webp",
+          "size_bytes": 76656
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_011/36e8a9a95990/thumbnail.webp",
+          "size_bytes": 11346
+        }
+      }
+    },
+    "place_bbsr_012": {
+      "place_name": "Bindu Sagar",
+      "asset_hash": "3e013f8a3fd2",
+      "title": "Bindu Sagar",
+      "alt_text": "Authentic photograph of Bindu Sagar in Odisha",
+      "creator": "Jalmanav",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jalmanav via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_bbsr_012/3e013f8a3fd2/hero.webp",
+          "size_bytes": 206624
+        },
+        "card": {
+          "path": "/static/images/places/place_bbsr_012/3e013f8a3fd2/card.webp",
+          "size_bytes": 56156
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_bbsr_012/3e013f8a3fd2/thumbnail.webp",
+          "size_bytes": 7452
+        }
+      }
+    },
+    "place_puri_001": {
+      "place_name": "Jagannath Temple, Puri",
+      "asset_hash": "02287867dc89",
+      "title": "Jagannath Temple, Puri",
+      "alt_text": "Authentic photograph of Jagannath Temple, Puri in Odisha",
+      "creator": "Kabita.singh",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kabita.singh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_puri_001/02287867dc89/hero.webp",
+          "size_bytes": 159340
+        },
+        "card": {
+          "path": "/static/images/places/place_puri_001/02287867dc89/card.webp",
+          "size_bytes": 48176
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_puri_001/02287867dc89/thumbnail.webp",
+          "size_bytes": 8280
+        }
+      }
+    },
+    "place_puri_002": {
+      "place_name": "Puri Golden Beach",
+      "asset_hash": "8146170ae9b7",
+      "title": "Puri Golden Beach",
+      "alt_text": "Authentic photograph of Puri Golden Beach in Odisha",
+      "creator": "Kritzolina",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_puri_002/8146170ae9b7/hero.webp",
+          "size_bytes": 104514
+        },
+        "card": {
+          "path": "/static/images/places/place_puri_002/8146170ae9b7/card.webp",
+          "size_bytes": 26486
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_puri_002/8146170ae9b7/thumbnail.webp",
+          "size_bytes": 4304
+        }
+      }
+    },
+    "place_puri_003": {
+      "place_name": "Gundicha Temple",
+      "asset_hash": "f14517383b2e",
+      "title": "Gundicha Temple",
+      "alt_text": "Authentic photograph of Gundicha Temple in Odisha",
+      "creator": "Government of Odisha",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_puri_003/f14517383b2e/hero.webp",
+          "size_bytes": 139592
+        },
+        "card": {
+          "path": "/static/images/places/place_puri_003/f14517383b2e/card.webp",
+          "size_bytes": 52898
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_puri_003/f14517383b2e/thumbnail.webp",
+          "size_bytes": 11612
+        }
+      }
+    },
+    "place_konark_001": {
+      "place_name": "Konark Sun Temple",
+      "asset_hash": "03b959a8abef",
+      "title": "Konark Sun Temple",
+      "alt_text": "Authentic photograph of Konark Sun Temple in Odisha",
+      "creator": "Phadke09",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Phadke09 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+          "size_bytes": 381436
+        },
+        "card": {
+          "path": "/static/images/places/place_konark_001/03b959a8abef/card.webp",
+          "size_bytes": 102662
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_konark_001/03b959a8abef/thumbnail.webp",
+          "size_bytes": 13852
+        }
+      }
+    },
+    "place_konark_002": {
+      "place_name": "Chandrabhaga Beach",
+      "asset_hash": "96b3058c4a4d",
+      "title": "Chandrabhaga Beach",
+      "alt_text": "Authentic photograph of Chandrabhaga Beach in Odisha",
+      "creator": "Kritzolina",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Kritzolina via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_konark_002/96b3058c4a4d/hero.webp",
+          "size_bytes": 97774
+        },
+        "card": {
+          "path": "/static/images/places/place_konark_002/96b3058c4a4d/card.webp",
+          "size_bytes": 32680
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_konark_002/96b3058c4a4d/thumbnail.webp",
+          "size_bytes": 4496
+        }
+      }
+    },
+    "place_konark_003": {
+      "place_name": "Ramachandi Beach & Temple",
+      "asset_hash": "05c33a10ed83",
+      "title": "Ramachandi Beach & Temple",
+      "alt_text": "Authentic photograph of Ramachandi Beach & Temple in Odisha",
+      "creator": "Swapnil.sahoo",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Swapnil.sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_konark_003/05c33a10ed83/hero.webp",
+          "size_bytes": 210970
+        },
+        "card": {
+          "path": "/static/images/places/place_konark_003/05c33a10ed83/card.webp",
+          "size_bytes": 54886
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_konark_003/05c33a10ed83/thumbnail.webp",
+          "size_bytes": 9102
+        }
+      }
+    },
+    "place_konark_004": {
+      "place_name": "Konark Archaeological Museum",
+      "asset_hash": "ea4b0bedaa44",
+      "title": "Konark Archaeological Museum",
+      "alt_text": "Authentic photograph of Konark Archaeological Museum in Odisha",
+      "creator": "Pinakpani",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Pinakpani via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_konark_004/ea4b0bedaa44/hero.webp",
+          "size_bytes": 401256
+        },
+        "card": {
+          "path": "/static/images/places/place_konark_004/ea4b0bedaa44/card.webp",
+          "size_bytes": 105982
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_konark_004/ea4b0bedaa44/thumbnail.webp",
+          "size_bytes": 13580
+        }
+      }
+    },
+    "place_cuttack_001": {
+      "place_name": "Barabati Fort",
+      "asset_hash": "02e40272a98d",
+      "title": "Barabati Fort",
+      "alt_text": "Authentic photograph of Barabati Fort in Odisha",
+      "creator": "MysticStone",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by MysticStone via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_cuttack_001/02e40272a98d/hero.webp",
+          "size_bytes": 262420
+        },
+        "card": {
+          "path": "/static/images/places/place_cuttack_001/02e40272a98d/card.webp",
+          "size_bytes": 69746
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_cuttack_001/02e40272a98d/thumbnail.webp",
+          "size_bytes": 9586
+        }
+      }
+    },
+    "place_cuttack_002": {
+      "place_name": "Cuttack Chandi Temple",
+      "asset_hash": "57a31cc80182",
+      "title": "Cuttack Chandi Temple",
+      "alt_text": "Authentic photograph of Cuttack Chandi Temple in Odisha",
+      "creator": "O-Travelz Visual Contributor",
+      "license": "CC BY-SA 4.0",
+      "attribution": "O-Travelz Destination Documentation - Cuttack Chandi Temple",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_cuttack_002/57a31cc80182/hero.webp",
+          "size_bytes": 94236
+        },
+        "card": {
+          "path": "/static/images/places/place_cuttack_002/57a31cc80182/card.webp",
+          "size_bytes": 38056
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_cuttack_002/57a31cc80182/thumbnail.webp",
+          "size_bytes": 10272
+        }
+      }
+    },
+    "place_cuttack_004": {
+      "place_name": "Netaji Birth Place Museum",
+      "asset_hash": "3d8ae5f82b5d",
+      "title": "Netaji Birth Place Museum",
+      "alt_text": "Authentic photograph of Netaji Birth Place Museum in Odisha",
+      "creator": "Subhashish Panigrahi",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_cuttack_004/3d8ae5f82b5d/hero.webp",
+          "size_bytes": 162400
+        },
+        "card": {
+          "path": "/static/images/places/place_cuttack_004/3d8ae5f82b5d/card.webp",
+          "size_bytes": 49478
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_cuttack_004/3d8ae5f82b5d/thumbnail.webp",
+          "size_bytes": 8544
+        }
+      }
+    },
+    "place_chilika_001": {
+      "place_name": "Chilika Lake - Satapada",
+      "asset_hash": "b5a796039cf9",
+      "title": "Chilika Lake - Satapada",
+      "alt_text": "Authentic photograph of Chilika Lake - Satapada in Odisha",
+      "creator": "Rangan Datta Wiki",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Rangan Datta Wiki via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
+          "size_bytes": 98666
+        },
+        "card": {
+          "path": "/static/images/places/place_chilika_001/b5a796039cf9/card.webp",
+          "size_bytes": 26218
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_chilika_001/b5a796039cf9/thumbnail.webp",
+          "size_bytes": 3936
+        }
+      }
+    },
+    "place_chilika_002": {
+      "place_name": "Kalijai Island Temple, Chilika",
+      "asset_hash": "a4ae8ae04351",
+      "title": "Kalijai Island Temple, Chilika",
+      "alt_text": "Authentic photograph of Kalijai Island Temple, Chilika in Odisha",
+      "creator": "Hellohappy",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_chilika_002/a4ae8ae04351/hero.webp",
+          "size_bytes": 224440
+        },
+        "card": {
+          "path": "/static/images/places/place_chilika_002/a4ae8ae04351/card.webp",
+          "size_bytes": 62494
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_chilika_002/a4ae8ae04351/thumbnail.webp",
+          "size_bytes": 9774
+        }
+      }
+    },
+    "place_chilika_003": {
+      "place_name": "Mangalajodi Bird Sanctuary",
+      "asset_hash": "3b306bfaf9fd",
+      "title": "Mangalajodi Bird Sanctuary",
+      "alt_text": "Authentic photograph of Mangalajodi Bird Sanctuary in Odisha",
+      "creator": "Aditya Bhattacharjee",
+      "license": "CC BY 2.0",
+      "attribution": "Photo by Aditya Bhattacharjee via Wikimedia Commons, licensed under CC BY 2.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_chilika_003/3b306bfaf9fd/hero.webp",
+          "size_bytes": 58734
+        },
+        "card": {
+          "path": "/static/images/places/place_chilika_003/3b306bfaf9fd/card.webp",
+          "size_bytes": 19334
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_chilika_003/3b306bfaf9fd/thumbnail.webp",
+          "size_bytes": 3114
+        }
+      }
+    },
+    "place_ganjam_001": {
+      "place_name": "Gopalpur-on-Sea Beach",
+      "asset_hash": "e3487587a075",
+      "title": "Gopalpur-on-Sea Beach",
+      "alt_text": "Authentic photograph of Gopalpur-on-Sea Beach in Odisha",
+      "creator": "Buddy.forever.985",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Buddy.forever.985 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_ganjam_001/e3487587a075/hero.webp",
+          "size_bytes": 244568
+        },
+        "card": {
+          "path": "/static/images/places/place_ganjam_001/e3487587a075/card.webp",
+          "size_bytes": 61704
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_ganjam_001/e3487587a075/thumbnail.webp",
+          "size_bytes": 8384
+        }
+      }
+    },
+    "place_ganjam_002": {
+      "place_name": "Tara Tarini Temple",
+      "asset_hash": "87bc44f63b2d",
+      "title": "Tara Tarini Temple",
+      "alt_text": "Authentic photograph of Tara Tarini Temple in Odisha",
+      "creator": "Government of Odisha",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_ganjam_002/87bc44f63b2d/hero.webp",
+          "size_bytes": 131316
+        },
+        "card": {
+          "path": "/static/images/places/place_ganjam_002/87bc44f63b2d/card.webp",
+          "size_bytes": 42680
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_ganjam_002/87bc44f63b2d/thumbnail.webp",
+          "size_bytes": 6710
+        }
+      }
+    },
+    "place_daringbadi_002": {
+      "place_name": "Midubanda Waterfall, Daringbadi",
+      "asset_hash": "604241c8ef4d",
+      "title": "Midubanda Waterfall, Daringbadi",
+      "alt_text": "Authentic photograph of Midubanda Waterfall, Daringbadi in Odisha",
+      "creator": "সন্দীপ সরকার",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by সন্দীপ সরকার via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_daringbadi_002/604241c8ef4d/hero.webp",
+          "size_bytes": 334090
+        },
+        "card": {
+          "path": "/static/images/places/place_daringbadi_002/604241c8ef4d/card.webp",
+          "size_bytes": 79620
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_daringbadi_002/604241c8ef4d/thumbnail.webp",
+          "size_bytes": 10992
+        }
+      }
+    },
+    "place_daringbadi_003": {
+      "place_name": "Coffee Gardens, Daringbadi",
+      "asset_hash": "18724980adff",
+      "title": "Coffee Gardens, Daringbadi",
+      "alt_text": "Authentic photograph of Coffee Gardens, Daringbadi in Odisha",
+      "creator": "সন্দীপ সরকার",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by সন্দীপ সরকার via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_daringbadi_003/18724980adff/hero.webp",
+          "size_bytes": 297690
+        },
+        "card": {
+          "path": "/static/images/places/place_daringbadi_003/18724980adff/card.webp",
+          "size_bytes": 90406
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_daringbadi_003/18724980adff/thumbnail.webp",
+          "size_bytes": 15422
+        }
+      }
+    },
+    "place_sambalpur_001": {
+      "place_name": "Hirakud Dam & Reservoir",
+      "asset_hash": "319e1fc78ef8",
+      "title": "Hirakud Dam & Reservoir",
+      "alt_text": "Authentic photograph of Hirakud Dam & Reservoir in Odisha",
+      "creator": "Aliva Sahoo",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aliva Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_sambalpur_001/319e1fc78ef8/hero.webp",
+          "size_bytes": 223364
+        },
+        "card": {
+          "path": "/static/images/places/place_sambalpur_001/319e1fc78ef8/card.webp",
+          "size_bytes": 61168
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_sambalpur_001/319e1fc78ef8/thumbnail.webp",
+          "size_bytes": 8174
+        }
+      }
+    },
+    "place_sambalpur_002": {
+      "place_name": "Samaleswari Temple, Sambalpur",
+      "asset_hash": "34272df89ec2",
+      "title": "Samaleswari Temple, Sambalpur",
+      "alt_text": "Authentic photograph of Samaleswari Temple, Sambalpur in Odisha",
+      "creator": "Aditya Mahar",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aditya Mahar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_sambalpur_002/34272df89ec2/hero.webp",
+          "size_bytes": 124228
+        },
+        "card": {
+          "path": "/static/images/places/place_sambalpur_002/34272df89ec2/card.webp",
+          "size_bytes": 39836
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_sambalpur_002/34272df89ec2/thumbnail.webp",
+          "size_bytes": 7290
+        }
+      }
+    },
+    "place_sambalpur_003": {
+      "place_name": "Huma Leaning Temple",
+      "asset_hash": "62ffb7d419a2",
+      "title": "Huma Leaning Temple",
+      "alt_text": "Authentic photograph of Huma Leaning Temple in Odisha",
+      "creator": "Jnanaranjan sahu",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Jnanaranjan sahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_sambalpur_003/62ffb7d419a2/hero.webp",
+          "size_bytes": 177384
+        },
+        "card": {
+          "path": "/static/images/places/place_sambalpur_003/62ffb7d419a2/card.webp",
+          "size_bytes": 47360
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_sambalpur_003/62ffb7d419a2/thumbnail.webp",
+          "size_bytes": 7434
+        }
+      }
+    },
+    "place_sambalpur_004": {
+      "place_name": "Debrigarh Wildlife Sanctuary",
+      "asset_hash": "22d5bc4545b0",
+      "title": "Debrigarh Wildlife Sanctuary",
+      "alt_text": "Authentic photograph of Debrigarh Wildlife Sanctuary in Odisha",
+      "creator": "Amudha HariHaran",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Amudha HariHaran via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_sambalpur_004/22d5bc4545b0/hero.webp",
+          "size_bytes": 412428
+        },
+        "card": {
+          "path": "/static/images/places/place_sambalpur_004/22d5bc4545b0/card.webp",
+          "size_bytes": 109748
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_sambalpur_004/22d5bc4545b0/thumbnail.webp",
+          "size_bytes": 13824
+        }
+      }
+    },
+    "place_rourkela_001": {
+      "place_name": "Hanuman Vatika, Rourkela",
+      "asset_hash": "ae7eb1c0b708",
+      "title": "Hanuman Vatika, Rourkela",
+      "alt_text": "Authentic photograph of Hanuman Vatika, Rourkela in Odisha",
+      "creator": "Akilola",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Akilola via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_rourkela_001/ae7eb1c0b708/hero.webp",
+          "size_bytes": 98416
+        },
+        "card": {
+          "path": "/static/images/places/place_rourkela_001/ae7eb1c0b708/card.webp",
+          "size_bytes": 29926
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_rourkela_001/ae7eb1c0b708/thumbnail.webp",
+          "size_bytes": 5686
+        }
+      }
+    },
+    "place_rourkela_002": {
+      "place_name": "Mandira Dam, Sundargarh",
+      "asset_hash": "00793bab38cf",
+      "title": "Mandira Dam, Sundargarh",
+      "alt_text": "Authentic photograph of Mandira Dam, Sundargarh in Odisha",
+      "creator": "Sidharthkochar",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Sidharthkochar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_rourkela_002/00793bab38cf/hero.webp",
+          "size_bytes": 100276
+        },
+        "card": {
+          "path": "/static/images/places/place_rourkela_002/00793bab38cf/card.webp",
+          "size_bytes": 32466
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_rourkela_002/00793bab38cf/thumbnail.webp",
+          "size_bytes": 4608
+        }
+      }
+    },
+    "place_rourkela_003": {
+      "place_name": "Khandadhar Waterfall, Sundargarh",
+      "asset_hash": "a8c814c32300",
+      "title": "Khandadhar Waterfall, Sundargarh",
+      "alt_text": "Authentic photograph of Khandadhar Waterfall, Sundargarh in Odisha",
+      "creator": "Harichandan kar",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Harichandan kar via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_rourkela_003/a8c814c32300/hero.webp",
+          "size_bytes": 104958
+        },
+        "card": {
+          "path": "/static/images/places/place_rourkela_003/a8c814c32300/card.webp",
+          "size_bytes": 36196
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_rourkela_003/a8c814c32300/thumbnail.webp",
+          "size_bytes": 7102
+        }
+      }
+    },
+    "place_mayurbhanj_001": {
+      "place_name": "Similipal National Park",
+      "asset_hash": "62ca826d15a0",
+      "title": "Similipal National Park",
+      "alt_text": "Authentic photograph of Similipal National Park in Odisha",
+      "creator": "Government of Odisha",
+      "license": "CC BY 4.0",
+      "attribution": "Photo by Government of Odisha via Wikimedia Commons, licensed under CC BY 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/hero.webp",
+          "size_bytes": 202352
+        },
+        "card": {
+          "path": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/card.webp",
+          "size_bytes": 74286
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_mayurbhanj_001/62ca826d15a0/thumbnail.webp",
+          "size_bytes": 14146
+        }
+      }
+    },
+    "place_mayurbhanj_002": {
+      "place_name": "Barehipani & Joranda Falls",
+      "asset_hash": "91f5f250ddfa",
+      "title": "Barehipani & Joranda Falls",
+      "alt_text": "Authentic photograph of Barehipani & Joranda Falls in Odisha",
+      "creator": "Samarth Joel Ram",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Samarth Joel Ram via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/hero.webp",
+          "size_bytes": 249248
+        },
+        "card": {
+          "path": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/card.webp",
+          "size_bytes": 69318
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_mayurbhanj_002/91f5f250ddfa/thumbnail.webp",
+          "size_bytes": 8364
+        }
+      }
+    },
+    "place_balasore_001": {
+      "place_name": "Chandipur Beach",
+      "asset_hash": "7b71840acce2",
+      "title": "Chandipur Beach",
+      "alt_text": "Authentic photograph of Chandipur Beach in Odisha",
+      "creator": "B.Sunita M",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by B.Sunita M via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_balasore_001/7b71840acce2/hero.webp",
+          "size_bytes": 185256
+        },
+        "card": {
+          "path": "/static/images/places/place_balasore_001/7b71840acce2/card.webp",
+          "size_bytes": 44166
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_balasore_001/7b71840acce2/thumbnail.webp",
+          "size_bytes": 5418
+        }
+      }
+    },
+    "place_kendrapara_001": {
+      "place_name": "Bhitarkanika National Park",
+      "asset_hash": "3c1227e192f9",
+      "title": "Bhitarkanika National Park",
+      "alt_text": "Authentic photograph of Bhitarkanika National Park in Odisha",
+      "creator": "Devopam",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Devopam via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_kendrapara_001/3c1227e192f9/hero.webp",
+          "size_bytes": 177662
+        },
+        "card": {
+          "path": "/static/images/places/place_kendrapara_001/3c1227e192f9/card.webp",
+          "size_bytes": 69996
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_kendrapara_001/3c1227e192f9/thumbnail.webp",
+          "size_bytes": 10608
+        }
+      }
+    },
+    "place_koraput_001": {
+      "place_name": "Gupteswar Cave Temple, Koraput",
+      "asset_hash": "ebdb01aa8cee",
+      "title": "Gupteswar Cave Temple, Koraput",
+      "alt_text": "Authentic photograph of Gupteswar Cave Temple, Koraput in Odisha",
+      "creator": "Indopaedia",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Indopaedia via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_koraput_001/ebdb01aa8cee/hero.webp",
+          "size_bytes": 183002
+        },
+        "card": {
+          "path": "/static/images/places/place_koraput_001/ebdb01aa8cee/card.webp",
+          "size_bytes": 55356
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_koraput_001/ebdb01aa8cee/thumbnail.webp",
+          "size_bytes": 7714
+        }
+      }
+    },
+    "place_koraput_002": {
+      "place_name": "Duduma Waterfall",
+      "asset_hash": "da596fb21308",
+      "title": "Duduma Waterfall",
+      "alt_text": "Authentic photograph of Duduma Waterfall in Odisha",
+      "creator": "Parthapratim25",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Parthapratim25 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_koraput_002/da596fb21308/hero.webp",
+          "size_bytes": 224210
+        },
+        "card": {
+          "path": "/static/images/places/place_koraput_002/da596fb21308/card.webp",
+          "size_bytes": 44832
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_koraput_002/da596fb21308/thumbnail.webp",
+          "size_bytes": 6262
+        }
+      }
+    },
+    "place_koraput_003": {
+      "place_name": "Deomali Peak, Koraput",
+      "asset_hash": "d706510f47e0",
+      "title": "Deomali Peak, Koraput",
+      "alt_text": "Authentic photograph of Deomali Peak, Koraput in Odisha",
+      "creator": "Priyadarshini 89",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Priyadarshini 89 via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_koraput_003/d706510f47e0/hero.webp",
+          "size_bytes": 124582
+        },
+        "card": {
+          "path": "/static/images/places/place_koraput_003/d706510f47e0/card.webp",
+          "size_bytes": 38630
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_koraput_003/d706510f47e0/thumbnail.webp",
+          "size_bytes": 5562
+        }
+      }
+    },
+    "place_koraput_005": {
+      "place_name": "Kolab Reservoir & Botanical Garden",
+      "asset_hash": "375b5f789f69",
+      "title": "Kolab Reservoir & Botanical Garden",
+      "alt_text": "Authentic photograph of Kolab Reservoir & Botanical Garden in Odisha",
+      "creator": "w",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by w via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_koraput_005/375b5f789f69/hero.webp",
+          "size_bytes": 165916
+        },
+        "card": {
+          "path": "/static/images/places/place_koraput_005/375b5f789f69/card.webp",
+          "size_bytes": 44166
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_koraput_005/375b5f789f69/thumbnail.webp",
+          "size_bytes": 5568
+        }
+      }
+    },
+    "place_rayagada_001": {
+      "place_name": "Maa Majhigouri Temple, Rayagada",
+      "asset_hash": "a863f4660940",
+      "title": "Maa Majhigouri Temple, Rayagada",
+      "alt_text": "Authentic photograph of Maa Majhigouri Temple, Rayagada in Odisha",
+      "creator": "Hiranyabaahu",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hiranyabaahu via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_rayagada_001/a863f4660940/hero.webp",
+          "size_bytes": 173056
+        },
+        "card": {
+          "path": "/static/images/places/place_rayagada_001/a863f4660940/card.webp",
+          "size_bytes": 71062
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_rayagada_001/a863f4660940/thumbnail.webp",
+          "size_bytes": 16032
+        }
+      }
+    },
+    "place_005": {
+      "place_name": "Parasurameswar Temple",
+      "asset_hash": "ab842f38830d",
+      "title": "Parasurameswar Temple",
+      "alt_text": "Authentic photograph of Parasurameswar Temple in Odisha",
+      "creator": "Balajijagadesh",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Balajijagadesh via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_005/ab842f38830d/hero.webp",
+          "size_bytes": 143814
+        },
+        "card": {
+          "path": "/static/images/places/place_005/ab842f38830d/card.webp",
+          "size_bytes": 67366
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_005/ab842f38830d/thumbnail.webp",
+          "size_bytes": 18962
+        }
+      }
+    },
+    "place_007": {
+      "place_name": "Chausathi Yogini Temple, Hirapur",
+      "asset_hash": "564e4835c3ef",
+      "title": "Chausathi Yogini Temple, Hirapur",
+      "alt_text": "Authentic photograph of Chausathi Yogini Temple, Hirapur in Odisha",
+      "creator": "Rohit Agarwal",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Rohit Agarwal via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_007/564e4835c3ef/hero.webp",
+          "size_bytes": 184526
+        },
+        "card": {
+          "path": "/static/images/places/place_007/564e4835c3ef/card.webp",
+          "size_bytes": 89054
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_007/564e4835c3ef/thumbnail.webp",
+          "size_bytes": 22690
+        }
+      }
+    },
+    "place_019": {
+      "place_name": "Brahmeswar Temple",
+      "asset_hash": "5ef73cb02061",
+      "title": "Brahmeswar Temple",
+      "alt_text": "Authentic photograph of Brahmeswar Temple in Odisha",
+      "creator": "Paramanu Sarkar",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Paramanu Sarkar via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_019/5ef73cb02061/hero.webp",
+          "size_bytes": 253654
+        },
+        "card": {
+          "path": "/static/images/places/place_019/5ef73cb02061/card.webp",
+          "size_bytes": 71948
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_019/5ef73cb02061/thumbnail.webp",
+          "size_bytes": 21396
+        }
+      }
+    },
+    "place_025": {
+      "place_name": "Kedar Gouri Temple",
+      "asset_hash": "c6e8242087d0",
+      "title": "Kedar Gouri Temple",
+      "alt_text": "Authentic photograph of Kedar Gouri Temple in Odisha",
+      "creator": "Prateek Pattanaik",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Prateek Pattanaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_025/c6e8242087d0/hero.webp",
+          "size_bytes": 42324
+        },
+        "card": {
+          "path": "/static/images/places/place_025/c6e8242087d0/card.webp",
+          "size_bytes": 21804
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_025/c6e8242087d0/thumbnail.webp",
+          "size_bytes": 6694
+        }
+      }
+    },
+    "place_030": {
+      "place_name": "Regional Science Centre, Bhubaneswar",
+      "asset_hash": "740d0c7acced",
+      "title": "Regional Science Centre, Bhubaneswar",
+      "alt_text": "Authentic photograph of Regional Science Centre, Bhubaneswar in Odisha",
+      "creator": "Aliva Sahoo",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Aliva Sahoo via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_030/740d0c7acced/hero.webp",
+          "size_bytes": 229044
+        },
+        "card": {
+          "path": "/static/images/places/place_030/740d0c7acced/card.webp",
+          "size_bytes": 104332
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_030/740d0c7acced/thumbnail.webp",
+          "size_bytes": 26512
+        }
+      }
+    },
+    "place_012": {
+      "place_name": "Regional Museum of Natural History",
+      "asset_hash": "ad0d35d110fd",
+      "title": "Regional Museum of Natural History",
+      "alt_text": "Authentic photograph of Regional Museum of Natural History in Odisha",
+      "creator": "Hellohappy",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_012/ad0d35d110fd/hero.webp",
+          "size_bytes": 85372
+        },
+        "card": {
+          "path": "/static/images/places/place_012/ad0d35d110fd/card.webp",
+          "size_bytes": 43102
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_012/ad0d35d110fd/thumbnail.webp",
+          "size_bytes": 12924
+        }
+      }
+    },
+    "place_013": {
+      "place_name": "Museum of Tribal Arts and Artifacts",
+      "asset_hash": "4ddd9a095da7",
+      "title": "Museum of Tribal Arts and Artifacts",
+      "alt_text": "Authentic photograph of Museum of Tribal Arts and Artifacts in Odisha",
+      "creator": "Balajijagadesh",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Photo by Balajijagadesh via Wikimedia Commons, licensed under CC BY-SA 3.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_013/4ddd9a095da7/hero.webp",
+          "size_bytes": 193488
+        },
+        "card": {
+          "path": "/static/images/places/place_013/4ddd9a095da7/card.webp",
+          "size_bytes": 92022
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_013/4ddd9a095da7/thumbnail.webp",
+          "size_bytes": 24686
+        }
+      }
+    },
+    "place_014": {
+      "place_name": "Pathani Samanta Planetarium",
+      "asset_hash": "d6f4657f934a",
+      "title": "Pathani Samanta Planetarium",
+      "alt_text": "Authentic photograph of Pathani Samanta Planetarium in Odisha",
+      "creator": "Subhashish Panigrahi",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhashish Panigrahi via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_014/d6f4657f934a/hero.webp",
+          "size_bytes": 83014
+        },
+        "card": {
+          "path": "/static/images/places/place_014/d6f4657f934a/card.webp",
+          "size_bytes": 32198
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_014/d6f4657f934a/thumbnail.webp",
+          "size_bytes": 10270
+        }
+      }
+    },
+    "place_020": {
+      "place_name": "Bhaskareswar Temple",
+      "asset_hash": "5d7d0f8c3edb",
+      "title": "Bhaskareswar Temple",
+      "alt_text": "Authentic photograph of Bhaskareswar Temple in Odisha",
+      "creator": "Hellohappy",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_020/5d7d0f8c3edb/hero.webp",
+          "size_bytes": 136214
+        },
+        "card": {
+          "path": "/static/images/places/place_020/5d7d0f8c3edb/card.webp",
+          "size_bytes": 39714
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_020/5d7d0f8c3edb/thumbnail.webp",
+          "size_bytes": 11908
+        }
+      }
+    },
+    "place_021": {
+      "place_name": "Rameshwar Deula",
+      "asset_hash": "abf138069a51",
+      "title": "Rameshwar Deula",
+      "alt_text": "Authentic photograph of Rameshwar Deula in Odisha",
+      "creator": "Ssriram mt",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Ssriram mt via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_021/abf138069a51/hero.webp",
+          "size_bytes": 198318
+        },
+        "card": {
+          "path": "/static/images/places/place_021/abf138069a51/card.webp",
+          "size_bytes": 70334
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_021/abf138069a51/thumbnail.webp",
+          "size_bytes": 17864
+        }
+      }
+    },
+    "place_022": {
+      "place_name": "Ram Mandir, Bhubaneswar",
+      "asset_hash": "de61af93e2b1",
+      "title": "Ram Mandir, Bhubaneswar",
+      "alt_text": "Authentic photograph of Ram Mandir, Bhubaneswar in Odisha",
+      "creator": "Chinmayee Mishra",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Chinmayee Mishra via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_022/de61af93e2b1/hero.webp",
+          "size_bytes": 75166
+        },
+        "card": {
+          "path": "/static/images/places/place_022/de61af93e2b1/card.webp",
+          "size_bytes": 35538
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_022/de61af93e2b1/thumbnail.webp",
+          "size_bytes": 11942
+        }
+      }
+    },
+    "place_023": {
+      "place_name": "Chitrakarini Temple",
+      "asset_hash": "7f34ece02179",
+      "title": "Chitrakarini Temple",
+      "alt_text": "Authentic photograph of Chitrakarini Temple in Odisha",
+      "creator": "Sushant (Bubby)",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Sushant (Bubby) via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_023/7f34ece02179/hero.webp",
+          "size_bytes": 172034
+        },
+        "card": {
+          "path": "/static/images/places/place_023/7f34ece02179/card.webp",
+          "size_bytes": 60062
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_023/7f34ece02179/thumbnail.webp",
+          "size_bytes": 15472
+        }
+      }
+    },
+    "place_018": {
+      "place_name": "Baitala Deula",
+      "asset_hash": "e61446a6ba33",
+      "title": "Baitala Deula",
+      "alt_text": "Authentic photograph of Baitala Deula in Odisha",
+      "creator": "Prateek Pattanaik",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Prateek Pattanaik via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_018/e61446a6ba33/hero.webp",
+          "size_bytes": 143870
+        },
+        "card": {
+          "path": "/static/images/places/place_018/e61446a6ba33/card.webp",
+          "size_bytes": 72504
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_018/e61446a6ba33/thumbnail.webp",
+          "size_bytes": 22148
+        }
+      }
+    },
+    "place_026": {
+      "place_name": "Megheswar Temple",
+      "asset_hash": "33b5729ba32a",
+      "title": "Megheswar Temple - Primary Hero Photograph",
+      "alt_text": "High-resolution photograph of Megheswar Temple",
+      "creator": "Hellohappy",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Hellohappy via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_026/33b5729ba32a/hero.webp",
+          "size_bytes": 289382
+        },
+        "card": {
+          "path": "/static/images/places/place_026/33b5729ba32a/card.webp",
+          "size_bytes": 81848
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_026/33b5729ba32a/thumbnail.webp",
+          "size_bytes": 21062
+        }
+      }
+    },
+    "place_027": {
+      "place_name": "Nageshwar Temple",
+      "asset_hash": "95be07c1b213",
+      "title": "Nageshwar Temple - Primary Hero Photograph",
+      "alt_text": "High-resolution photograph of Nageshwar Temple",
+      "creator": "SUDEEP PRAMANIK",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by SUDEEP PRAMANIK via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_027/95be07c1b213/hero.webp",
+          "size_bytes": 109324
+        },
+        "card": {
+          "path": "/static/images/places/place_027/95be07c1b213/card.webp",
+          "size_bytes": 52720
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_027/95be07c1b213/thumbnail.webp",
+          "size_bytes": 15076
+        }
+      }
+    },
+    "place_029": {
+      "place_name": "Kapilesvara Siva Temple",
+      "asset_hash": "526a11476642",
+      "title": "Kapilesvara Siva Temple - Primary Hero Photograph",
+      "alt_text": "High-resolution photograph of Kapilesvara Siva Temple",
+      "creator": "Ssriram mt",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Ssriram mt via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_029/526a11476642/hero.webp",
+          "size_bytes": 179508
+        },
+        "card": {
+          "path": "/static/images/places/place_029/526a11476642/card.webp",
+          "size_bytes": 52572
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_029/526a11476642/thumbnail.webp",
+          "size_bytes": 15824
+        }
+      }
+    },
+    "place_031": {
+      "place_name": "Indira Gandhi Park",
+      "asset_hash": "4df88497ceb1",
+      "title": "Indira Gandhi Park - Primary Hero Photograph",
+      "alt_text": "High-resolution photograph of Indira Gandhi Park",
+      "creator": "Subhrasingh",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Photo by Subhrasingh via Wikimedia Commons, licensed under CC BY-SA 4.0",
+      "variants": {
+        "hero": {
+          "path": "/static/images/places/place_031/4df88497ceb1/hero.webp",
+          "size_bytes": 218218
+        },
+        "card": {
+          "path": "/static/images/places/place_031/4df88497ceb1/card.webp",
+          "size_bytes": 60222
+        },
+        "thumbnail": {
+          "path": "/static/images/places/place_031/4df88497ceb1/thumbnail.webp",
+          "size_bytes": 16912
+        }
+      }
+    }
+  },
+  "categories": {
+    "cat_medical_help": {
+      "category_key": "medical help",
+      "asset_hash": "bf5d0fc229ac",
+      "title": "Hospitals & Medical Services",
+      "variants": {
+        "hero": {
+          "path": "/static/images/categories/cat_medical_help/bf5d0fc229ac/hero.webp",
+          "size_bytes": 112974
+        },
+        "card": {
+          "path": "/static/images/categories/cat_medical_help/bf5d0fc229ac/card.webp",
+          "size_bytes": 36546
+        },
+        "thumbnail": {
+          "path": "/static/images/categories/cat_medical_help/bf5d0fc229ac/thumbnail.webp",
+          "size_bytes": 6006
+        }
+      }
+    },
+    "cat_atms": {
+      "category_key": "atms",
+      "asset_hash": "76647d302131",
+      "title": "Banking & ATM Services",
+      "variants": {
+        "hero": {
+          "path": "/static/images/categories/cat_atms/76647d302131/hero.webp",
+          "size_bytes": 152470
+        },
+        "card": {
+          "path": "/static/images/categories/cat_atms/76647d302131/card.webp",
+          "size_bytes": 48638
+        },
+        "thumbnail": {
+          "path": "/static/images/categories/cat_atms/76647d302131/thumbnail.webp",
+          "size_bytes": 9538
+        }
+      }
+    },
+    "cat_hangout_chill": {
+      "category_key": "hangout & chill",
+      "asset_hash": "840313660e7c",
+      "title": "Cafes, Lounges & Social Spaces",
+      "variants": {
+        "hero": {
+          "path": "/static/images/categories/cat_hangout_chill/840313660e7c/hero.webp",
+          "size_bytes": 202618
+        },
+        "card": {
+          "path": "/static/images/categories/cat_hangout_chill/840313660e7c/card.webp",
+          "size_bytes": 61720
+        },
+        "thumbnail": {
+          "path": "/static/images/categories/cat_hangout_chill/840313660e7c/thumbnail.webp",
+          "size_bytes": 9400
+        }
+      }
+    }
+  }
+}

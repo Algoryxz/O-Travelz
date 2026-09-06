@@ -42,6 +42,12 @@ Introduced in Wave A1 (ADR-003) to eliminate asset duplication and support all d
   - `REJECTED`: Fails authentic Odisha provenance gates; never served.
 * **Compatibility Layer**: Legacy `place_images` table is maintained as an operational projection for legacy clients while `media_assets` serves as the authoritative media registry.
 
+### 1.5 Deterministic Public Media Projection Compiler `[CURRENT - WAVE D1.4]`
+For static client bundle generation (e.g. GitHub Pages and CDN distributions), blindly copying all photographic originals introduces multi-megabyte bundle bloat (`original.webp` files up to ~2.5 MB each). To enforce strict byte efficiency:
+* **Projection Rules**: The build projection compiler (`scripts/build_public_media_projection.py` and `frontend/scripts/build-public-media-projection.js`) only projects variants actively consumed by web clients (`hero.webp`, `card.webp`, `thumbnail.webp`, and category SVGs/WebPs). High-resolution `original.webp` files are excluded from static static dist projection.
+* **Manifest Verification**: The projection emits `frontend/generated/publicMediaManifest.json` listing projected files, byte counts, and relative URIs.
+* **Reproducibility**: Builds support deterministic timestamping (`VITE_BUILD_TIME`) to ensure bitwise byte-for-byte reproducibility across clean builds.
+
 ---
 
 

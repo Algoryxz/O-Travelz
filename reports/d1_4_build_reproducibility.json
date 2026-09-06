@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-09-06T12:25:10Z",
+  "wave": "Wave D1.4 - Phase 6 Build Reproducibility",
+  "source_git_sha": "e39dac0360d1f5d64370524e80665a400eb107e1",
+  "pinned_build_time": "2026-09-06T12:00:00.000Z",
+  "build_1_total_files": 333,
+  "build_2_total_files": 333,
+  "total_dist_bytes": 30920193,
+  "total_dist_mb": 29.49,
+  "missing_in_build_2": [],
+  "missing_in_build_1": [],
+  "differing_files_count": 0,
+  "differing_files": [],
+  "reproducible": true,
+  "verdict": "PASSED"
+}

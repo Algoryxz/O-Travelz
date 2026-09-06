@@ -1,0 +1,134 @@
+{
+  "timestamp": "2026-09-06T12:18:24Z",
+  "wave": "Wave D1.4 - Phase 0 Forensic Sync",
+  "feature_sha": "e39dac0360d1f5d64370524e80665a400eb107e1",
+  "gh_pages_sha": "4c4c92b1de1e43a14b1b9bedd449c38235aa1c0f",
+  "public_build_identity": {
+    "git_sha": "e39dac0360d1f5d64370524e80665a400eb107e1",
+    "built_at": "2026-09-06T11:49:27.831Z",
+    "version": "4.0.0"
+  },
+  "backend_identity": {
+    "canonical_target": "https://otravelz-backend.onrender.com",
+    "status": "unreachable_timeout_hibernated",
+    "note": "Render free-tier instance times out; frontend runs resiliently with local/cached data"
+  },
+  "alembic_revision": "0020_transit_ride_observations",
+  "frontend_dist": {
+    "total_files": 611,
+    "total_bytes": 71948871,
+    "total_mb": 68.62,
+    "media_files_count": 579,
+    "media_total_bytes": 68042896,
+    "media_total_mb": 64.89,
+    "largest_20_media_files": [
+      {
+        "path": "static/images/categories/cat_hangout_chill/840313660e7c/original.webp",
+        "size_bytes": 2619134,
+        "size_kb": 2557.75
+      },
+      {
+        "path": "static/images/places/place_sambalpur_001/319e1fc78ef8/original.webp",
+        "size_bytes": 2437360,
+        "size_kb": 2380.23
+      },
+      {
+        "path": "static/images/categories/cat_medical_help/bf5d0fc229ac/original.webp",
+        "size_bytes": 1575932,
+        "size_kb": 1539.0
+      },
+      {
+        "path": "static/images/categories/cat_atms/76647d302131/original.webp",
+        "size_bytes": 1343374,
+        "size_kb": 1311.89
+      },
+      {
+        "path": "static/images/places/place_daringbadi_001/49e608c2405f/original.webp",
+        "size_bytes": 809082,
+        "size_kb": 790.12
+      },
+      {
+        "path": "static/images/places/place_koraput_004/a54c2ebd04a0/original.webp",
+        "size_bytes": 804504,
+        "size_kb": 785.65
+      },
+      {
+        "path": "images/heritage/udayagiri_caves.webp",
+        "size_bytes": 786014,
+        "size_kb": 767.59
+      },
+      {
+        "path": "images/destinations/daringbadi_valleys.webp",
+        "size_bytes": 740618,
+        "size_kb": 723.26
+      },
+      {
+        "path": "static/images/places/place_bbsr_003/0dd1f614ea63/original.webp",
+        "size_bytes": 679544,
+        "size_kb": 663.62
+      },
+      {
+        "path": "static/images/places/place_019/5ef73cb02061/original.webp",
+        "size_bytes": 673112,
+        "size_kb": 657.34
+      },
+      {
+        "path": "static/images/places/place_026/33b5729ba32a/original.webp",
+        "size_bytes": 659578,
+        "size_kb": 644.12
+      },
+      {
+        "path": "static/images/places/place_sambalpur_004/22d5bc4545b0/original.webp",
+        "size_bytes": 622486,
+        "size_kb": 607.9
+      },
+      {
+        "path": "static/images/places/place_konark_004/ea4b0bedaa44/original.webp",
+        "size_bytes": 602056,
+        "size_kb": 587.95
+      },
+      {
+        "path": "static/images/places/place_030/740d0c7acced/original.webp",
+        "size_bytes": 588452,
+        "size_kb": 574.66
+      },
+      {
+        "path": "static/images/places/place_konark_001/03b959a8abef/original.webp",
+        "size_bytes": 574084,
+        "size_kb": 560.63
+      },
+      {
+        "path": "images/destinations/similipal_falls.webp",
+        "size_bytes": 574038,
+        "size_kb": 560.58
+      },
+      {
+        "path": "static/images/places/place_021/abf138069a51/original.webp",
+        "size_bytes": 569266,
+        "size_kb": 555.92
+      },
+      {
+        "path": "static/images/places/place_031/4df88497ceb1/original.webp",
+        "size_bytes": 558868,
+        "size_kb": 545.77
+      },
+      {
+        "path": "images/heritage/puri_jagannath_temple.webp",
+        "size_bytes": 550092,
+        "size_kb": 537.2
+      },
+      {
+        "path": "images/destinations/konark_sun_temple.webp",
+        "size_bytes": 542966,
+        "size_kb": 530.24
+      }
+    ]
+  },
+  "browser_live_behavior": {
+    "total_requests": 34,
+    "failed_requests_count": 3,
+    "critical_media_404_count": 0,
+    "total_first_page_transfer_bytes": 6551442,
+    "total_first_page_transfer_mb": 6.25
+  }
+}

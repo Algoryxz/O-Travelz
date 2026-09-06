@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import os
 import pytest
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, text, event
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
@@ -27,6 +27,14 @@ SQLITE_TEST_ENGINE = create_engine(
     connect_args={"check_same_thread": False},
     poolclass=StaticPool,
 )
+
+
+@event.listens_for(SQLITE_TEST_ENGINE, "connect")
+def _register_sqlite_spatial_shims(dbapi_connection, connection_record):
+    dbapi_connection.create_function("AsBinary", 1, lambda val: val.encode() if isinstance(val, str) else (val or b""))
+    dbapi_connection.create_function("ST_AsBinary", 1, lambda val: val.encode() if isinstance(val, str) else (val or b""))
+
+
 TestingSessionLocal = sessionmaker(bind=SQLITE_TEST_ENGINE, autoflush=False, autocommit=False)
 
 
@@ -77,16 +85,62 @@ def setup_unit_test_tables():
             dietary_tags JSON,
             speciality_dishes JSON,
             highway_corridor VARCHAR,
-            food_category VARCHAR
+            food_category VARCHAR,
+            localized_names JSON,
+            confidence VARCHAR(16),
+            last_verified_at DATETIME
         );
         """))
-        # Seed canonical places for place validation in unit tests
+
         conn.execute(text("""
-        INSERT OR IGNORE INTO places (id, research_id, name, source, verification_status)
+        CREATE TABLE IF NOT EXISTS place_images (
+            id VARCHAR(36) PRIMARY KEY,
+            place_id VARCHAR(36) NOT NULL,
+            storage_key VARCHAR,
+            url VARCHAR NOT NULL,
+            thumbnail_url VARCHAR,
+            card_url VARCHAR,
+            alt_text VARCHAR,
+            title VARCHAR,
+            source_url VARCHAR,
+            source_name VARCHAR NOT NULL DEFAULT 'Wikimedia Commons',
+            creator VARCHAR,
+            license VARCHAR NOT NULL DEFAULT 'CC BY-SA 4.0',
+            attribution TEXT NOT NULL DEFAULT '',
+            retrieval_timestamp DATETIME,
+            width INTEGER,
+            height INTEGER,
+            aspect_ratio FLOAT,
+            content_sha256 VARCHAR(64),
+            content_type VARCHAR(64) DEFAULT 'image/webp',
+            size_bytes INTEGER,
+            status VARCHAR NOT NULL DEFAULT 'verified',
+            sort_order INTEGER NOT NULL DEFAULT 0,
+            is_primary BOOLEAN NOT NULL DEFAULT 0,
+            created_at DATETIME,
+            updated_at DATETIME,
+            FOREIGN KEY (place_id) REFERENCES places(id) ON DELETE CASCADE
+        );
+        """))
+
+        # Seed canonical categories, places, and images for unit tests
+        conn.execute(text("""
+        INSERT OR IGNORE INTO categories (id, name, display_name, description)
+        VALUES ('7b420000-0000-0000-0000-000000000010', 'temple', 'Temples', 'Heritage Temples of Odisha');
+        """))
+
+        conn.execute(text("""
+        INSERT OR IGNORE INTO places (id, research_id, name, category_id, source, verification_status, verified_at, coordinate_verification)
         VALUES 
-            ('7b420000-0000-0000-0000-000000000001', 'puri', 'Puri', 'official', 'VERIFIED'),
-            ('7b420000-0000-0000-0000-000000000002', 'konark', 'Konark Sun Temple', 'official', 'VERIFIED'),
-            ('7b420000-0000-0000-0000-000000000003', 'bhubaneswar', 'Lingaraj Temple', 'official', 'VERIFIED');
+            ('7b420000-0000-0000-0000-000000000001', 'puri', 'Puri', '7b420000-0000-0000-0000-000000000010', 'official', 'VERIFIED', '2026-01-01 00:00:00', 'EXACT_COORDINATES_VERIFIED'),
+            ('7b420000-0000-0000-0000-000000000002', 'konark', 'Konark Sun Temple', '7b420000-0000-0000-0000-000000000010', 'official', 'VERIFIED', '2026-01-01 00:00:00', 'EXACT_COORDINATES_VERIFIED'),
+            ('7b420000-0000-0000-0000-000000000003', 'place_bbsr_001', 'Lingaraj Temple', '7b420000-0000-0000-0000-000000000010', 'official', 'VERIFIED', '2026-01-01 00:00:00', 'EXACT_COORDINATES_VERIFIED');
+        """))
+
+        conn.execute(text("""
+        INSERT OR IGNORE INTO place_images (id, place_id, storage_key, url, thumbnail_url, card_url, alt_text, status, is_primary)
+        VALUES
+            ('7b420000-0000-0000-0000-000000000020', '7b420000-0000-0000-0000-000000000003', 'places/place_bbsr_001/06a456469886/hero.webp', '/static/images/places/place_bbsr_001/06a456469886/hero.webp', '/static/images/places/place_bbsr_001/06a456469886/thumbnail.webp', '/static/images/places/place_bbsr_001/06a456469886/card.webp', 'Lingaraj Temple', 'verified', 1);
         """))
         conn.commit()
     yield

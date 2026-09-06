@@ -16,6 +16,8 @@ import pytest
 from fastapi.testclient import TestClient
 from app.main import app
 
+pytestmark = pytest.mark.integration
+
 # Connect to the live running backend server when available, or fallback to TestClient
 try:
     _probe = httpx.get("http://127.0.0.1:8000/health", timeout=1.5)

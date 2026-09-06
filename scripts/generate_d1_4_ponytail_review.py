@@ -1,0 +1,63 @@
+import json
+import time
+
+report = {
+  "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+  "wave": "Wave D1.4 - Phase 1 Ponytail Review of D1.3",
+  "philosophy": "REUSE -> VERIFY -> REMOVE DUPLICATION -> SIMPLIFY -> ADD ONLY IF NECESSARY",
+  "findings": [
+    {
+      "target": "frontend/scripts/copy-static-media.js",
+      "classification": "OVERBUILT",
+      "verdict": "REPLACE_WITH_PROJECTION",
+      "analysis": "Blindly copies all of data/images/places (49 MB) and data/images/categories (5.8 MB) using recursive directory copy. This bundles 579 media files (64.89 MB), including 2.6 MB unscaled original.webp files, unreferenced places, and potentially unverified assets that the public UI never displays."
+    },
+    {
+      "target": "frontend/src/utils/imageService.ts (getAppBasePath & getBackendAssetUrl)",
+      "classification": "REQUIRED",
+      "verdict": "LEAVE_ALONE",
+      "analysis": "Dynamic detection of import.meta.env.BASE_URL with idempotent normalization is strictly required for GitHub Pages /O-Travelz/ hosting while remaining fully portable to root-host environments."
+    },
+    {
+      "target": "frontend/src/utils/imageService.ts (PLACE_IMAGE_MANIFEST inline dictionary)",
+      "classification": "DUPLICATE",
+      "verdict": "SAFE_SIMPLIFICATION",
+      "analysis": "Inline dictionary contains 6,000+ lines mapping place keys to static image paths. Should be verified against canonical data/images/sources/manifest.json and media_assets to ensure only verified, publishable assets are projected."
+    },
+    {
+      "target": "frontend/src/utils/imageRegistry.ts",
+      "classification": "REQUIRED",
+      "verdict": "LEAVE_ALONE",
+      "analysis": "Provides strict editorial category-themed SVG fallbacks (temple, beach, waterfall, wildlife, transit, food) and neutral SVG fallback. Preserves the cardinal invariant that missing destinations fail-closed to SVG rather than borrowing photos of other places."
+    },
+    {
+      "target": "frontend/src/data/destinationWorldAssets.ts",
+      "classification": "REQUIRED",
+      "verdict": "LEAVE_ALONE",
+      "analysis": "12 curated cinematic stages. In D1.3, unscaled 12.85 MB / 4.8 MB raw JPEGs were replaced with 1280px thumbnails (~150 KB). Live browser validation proved 0 MB raw downloads."
+    },
+    {
+      "target": "frontend/vite.config.ts",
+      "classification": "REQUIRED",
+      "verdict": "LEAVE_ALONE",
+      "analysis": "Clean Rollup chunk splitting and VITE_BASE_PATH injection. Does not overcomplicate bundling."
+    },
+    {
+      "target": "frontend/package.json build flow",
+      "classification": "SAFE_SIMPLIFICATION",
+      "verdict": "REPLACE_COPY_STEP",
+      "analysis": "Currently executes tsc && vite build && node scripts/copy-static-media.js. Replacing copy-static-media.js with a deterministic public asset projection compiler (e.g. scripts/build_public_media_projection.py) will prune ~35-40 MB of unused original.webp files."
+    },
+    {
+      "target": "All Image / Media Fallback Handlers",
+      "classification": "REQUIRED",
+      "verdict": "LEAVE_ALONE",
+      "analysis": "All components fall back safely to SVG data URIs or verified thumbnails. No raw Wikimedia URLs are requested on error in DestinationWorldScene."
+    }
+  ]
+}
+
+with open("reports/d1_4_ponytail_review.json", "w", encoding="utf-8") as f:
+    json.dump(report, f, indent=2)
+
+print("Saved reports/d1_4_ponytail_review.json successfully!")

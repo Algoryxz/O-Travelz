@@ -14,7 +14,7 @@ export default defineConfig({
   base: process.env.VITE_BASE_PATH || "./",
   define: {
     "import.meta.env.VITE_BUILD_SHA": JSON.stringify(process.env.VITE_BUILD_SHA || detectedSha),
-    "import.meta.env.VITE_BUILD_TIME": JSON.stringify(new Date().toISOString()),
+    "import.meta.env.VITE_BUILD_TIME": JSON.stringify(process.env.VITE_BUILD_TIME || new Date().toISOString()),
   },
   plugins: [react(), tailwindcss()],
   server: {

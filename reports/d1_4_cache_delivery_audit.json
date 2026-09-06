@@ -1,0 +1,93 @@
+{
+  "timestamp": "2026-09-06T12:29:30.440883+00:00",
+  "wave": "D1.4",
+  "phase": "Phase 8 \u2014 Cache / CDN Reality",
+  "cdn_provider": "GitHub Pages (Fastly CDN)",
+  "asset_probes": {
+    "html": {
+      "url": "https://algoryxz.github.io/O-Travelz/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "cache_control": "max-age=600",
+      "etag": "\"6a9d536d-8dc\"",
+      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
+      "content_length": 2268,
+      "age": "78",
+      "x_cache": "HIT"
+    },
+    "hashed_js": {
+      "url": "https://algoryxz.github.io/O-Travelz/assets/index-CT6WiVG5.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "cache_control": "max-age=600",
+      "etag": "\"6a9d536d-4d84f\"",
+      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
+      "content_length": 317519,
+      "age": "78",
+      "x_cache": "HIT"
+    },
+    "hashed_css": {
+      "url": "https://algoryxz.github.io/O-Travelz/assets/index-DneyX4KQ.css",
+      "status": 200,
+      "content_type": "text/css; charset=utf-8",
+      "cache_control": "max-age=600",
+      "etag": "\"6a9d536d-30906\"",
+      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
+      "content_length": 198918,
+      "age": "78",
+      "x_cache": "HIT"
+    },
+    "webp_canonical_projection": {
+      "url": "https://algoryxz.github.io/O-Travelz/static/images/places/place_konark_001/dadad62e6578/hero.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "cache_control": "max-age=600",
+      "etag": "\"6a9d536d-3c4\"",
+      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
+      "content_length": 964,
+      "age": "25",
+      "x_cache": "HIT"
+    },
+    "webp_destination_legacy": {
+      "url": "https://algoryxz.github.io/O-Travelz/images/destinations/chandrabhaga_beach.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "cache_control": "max-age=600",
+      "etag": "\"6a9d536d-29cc6\"",
+      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
+      "content_length": 171206,
+      "age": "62",
+      "x_cache": "HIT"
+    },
+    "svg_asset": {
+      "url": "https://algoryxz.github.io/O-Travelz/icon.svg",
+      "status": 200,
+      "content_type": "image/svg+xml",
+      "cache_control": "max-age=600",
+      "etag": "\"6a9d536d-88b\"",
+      "last_modified": "Sun, 06 Sep 2026 11:50:05 GMT",
+      "content_length": 2187,
+      "age": "21",
+      "x_cache": "HIT"
+    },
+    "service_worker": {
+      "url": "https://algoryxz.github.io/O-Travelz/sw.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "cache_control": "max-age=600",
+      "etag": "\"6a9d536c-1aca\"",
+      "last_modified": "Sun, 06 Sep 2026 11:50:04 GMT",
+      "content_length": 6858,
+      "age": "77",
+      "x_cache": "HIT"
+    }
+  },
+  "evaluation": {
+    "all_assets_available": true,
+    "html_freshness": "max-age=600 with ETag ensures cache freshness within 10 minutes or immediate revalidation",
+    "hashed_assets": "Hashed filenames (index-*.js, index-*.css) ensure immutable cache-busting on new deploys",
+    "media_webp": "WebP served with proper image/webp Content-Type, ETag, and Fastly CDN caching",
+    "sw_behavior": "sw.js served with application/javascript and active CDN caching"
+  },
+  "verdict": "CDN_CACHE_ACCEPTABLE"
+}
