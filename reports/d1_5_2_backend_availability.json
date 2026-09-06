@@ -1,0 +1,144 @@
+{
+  "timestamp": "2026-09-06T14:04:52.691707+00:00",
+  "wave": "D1.5.2",
+  "phase": "Phase 2 \u2014 Public Health Availability",
+  "target_url": "https://otravelz-backend.onrender.com/health",
+  "probes": {
+    "cold_request": {
+      "status": "TIMEOUT",
+      "latency_ms": 90150,
+      "success": false
+    },
+    "warm_requests_20": [
+      {
+        "attempt": 1,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 2,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 3,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 4,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 5,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 6,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 7,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 8,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 9,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 10,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 11,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 12,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 13,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 14,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 15,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 16,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 17,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 18,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 19,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      },
+      {
+        "attempt": 20,
+        "status": "TIMEOUT",
+        "latency_ms": 10200,
+        "success": false
+      }
+    ]
+  },
+  "summary": {
+    "cold_latency_ms": ">90000",
+    "warm_p50_ms": null,
+    "warm_p95_ms": null,
+    "warm_max_ms": null,
+    "failure_rate": 1.0,
+    "classification": "UNACCEPTABLE"
+  },
+  "verdict": "BACKEND_UNACCEPTABLE_TIMEOUT"
+}

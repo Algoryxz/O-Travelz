@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-09-06T14:04:52.691707+00:00",
+  "wave": "D1.5.2",
+  "phase": "Phase 0 \u2014 Source / Deployment Identity",
+  "expected_head": "d540693151790c479d29d8ef1cd68c06f7eacadf",
+  "repository": "https://github.com/Algoryxz/O-Travelz",
+  "branch": "feature/v4-platform-rebuild",
+  "public_backend_url": "https://otravelz-backend.onrender.com",
+  "probes": {
+    "root": {
+      "url": "https://otravelz-backend.onrender.com/",
+      "status": "TIMEOUT",
+      "error": "TimeoutError"
+    },
+    "health": {
+      "url": "https://otravelz-backend.onrender.com/health",
+      "status": "TIMEOUT",
+      "error": "TimeoutError"
+    }
+  },
+  "deployed_version": null,
+  "deployed_git_sha": null,
+  "alembic_revision": null,
+  "deployment_identity_verified": false,
+  "verdict": "DEPLOYMENT_IDENTITY_UNVERIFIED_UPSTREAM_TIMEOUT"
+}

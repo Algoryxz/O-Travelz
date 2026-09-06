@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-09-06T14:04:52.691707+00:00",
+  "wave": "D1.5.2",
+  "phase": "Phase 7 \u2014 Weather Public Truth",
+  "live_public_status": "TIMEOUT",
+  "runtime_invariants_verified": true,
+  "verdict": "WEATHER_TRUTH_VALIDATED_PUBLIC_TIMEOUT"
+}

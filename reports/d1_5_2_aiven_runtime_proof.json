@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-09-06T14:04:52.691707+00:00",
+  "wave": "D1.5.2",
+  "phase": "Phase 3 \u2014 Aiven Runtime Proof",
+  "database_info": {
+    "host": "otravelz-db-smarakpadhi58-98d3.d.aivencloud.com",
+    "engine": "PostgreSQL 18.6 + PostGIS 3.6",
+    "alembic_revision": "0020_transit_ride_observations",
+    "canonical_counts": {
+      "places": 204,
+      "routes": 154,
+      "stops": 1430,
+      "services": 211
+    }
+  },
+  "public_runtime_proof": {
+    "via_public_cloud_api": "FAILED_TIMEOUT (cloud host unreachable)",
+    "via_authoritative_runtime": "VERIFIED (resolves 204 places, Lingaraj Temple, route_capital_001)"
+  },
+  "verdict": "DATABASE_HEALTHY_CLOUD_ROUTING_UNAVAILABLE"
+}

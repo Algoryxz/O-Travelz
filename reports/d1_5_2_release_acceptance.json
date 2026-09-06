@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-09-06T14:04:52.691707+00:00",
+  "wave": "D1.5.2",
+  "phase": "Phase 12 \u2014 Release Verdict",
+  "verdicts": {
+    "LOCAL_WEB_READY": "YES",
+    "PUBLIC_STATIC_WEB_READY": "YES",
+    "PUBLIC_FULL_STACK_READY": "NO",
+    "ANDROID_APP_READY": "PARTIALLY",
+    "O_TRAVELZ_OVERALL_READY": "PARTIALLY",
+    "WEB_V4_FEATURE_FREEZE": true
+  },
+  "blocker": "Render backend host is timing out. Operator must set service branch to 'feature/v4-platform-rebuild', verify Aiven DATABASE_URL, and trigger 'Clear build cache & deploy'."
+}

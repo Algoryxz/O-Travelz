@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-09-06T14:04:52.691707+00:00",
+  "wave": "D1.5.2",
+  "phase": "Phase 4 \u2014 Public Endpoint Matrix",
+  "endpoints": {
+    "GET /health": {
+      "status": "TIMEOUT",
+      "schema_sanity": false,
+      "origin": "cloud_edge"
+    },
+    "GET /places": {
+      "status": "TIMEOUT",
+      "schema_sanity": false,
+      "origin": "cloud_edge"
+    },
+    "GET /places/7b420000-0000-0000-0000-000000000001": {
+      "status": "TIMEOUT",
+      "schema_sanity": false,
+      "origin": "cloud_edge"
+    },
+    "GET /weather/current": {
+      "status": "TIMEOUT",
+      "schema_sanity": false,
+      "origin": "cloud_edge"
+    },
+    "POST /itinerary/plan": {
+      "status": "TIMEOUT",
+      "schema_sanity": false,
+      "origin": "cloud_edge"
+    },
+    "POST /ai/converse": {
+      "status": "TIMEOUT",
+      "schema_sanity": false,
+      "origin": "cloud_edge"
+    },
+    "GET /api/transport/routes": {
+      "status": "TIMEOUT",
+      "schema_sanity": false,
+      "origin": "cloud_edge"
+    },
+    "GET /api/transport/routes/route_capital_001/geometry": {
+      "status": "TIMEOUT",
+      "schema_sanity": false,
+      "origin": "cloud_edge"
+    },
+    "GET /api/v1/services/nearby": {
+      "status": "TIMEOUT",
+      "schema_sanity": false,
+      "origin": "cloud_edge"
+    }
+  },
+  "verdict": "PUBLIC_ENDPOINTS_TIMEOUT"
+}

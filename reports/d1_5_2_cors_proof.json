@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-09-06T14:04:52.691707+00:00",
+  "wave": "D1.5.2",
+  "phase": "Phase 5 \u2014 CORS From Real Frontend Origin",
+  "tested_origin": "https://algoryxz.github.io",
+  "runtime_config": {
+    "allow_origins": [
+      "https://algoryxz.github.io",
+      "http://localhost:5173"
+    ],
+    "allow_credentials": true,
+    "wildcard_with_credentials": false,
+    "preflight_status": 200
+  },
+  "public_host_status": "TIMEOUT",
+  "verdict": "CORS_SPEC_COMPLIANT_CLOUD_HOST_TIMEOUT"
+}

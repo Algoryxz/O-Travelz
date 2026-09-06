@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-09-06T14:04:52.691707+00:00",
+  "wave": "D1.5.2",
+  "phase": "Phase 1 \u2014 Startup Forensics",
+  "public_health_status": "TIMEOUT",
+  "primary_failure_category": "WRONG_BRANCH_STILL_DEPLOYED",
+  "secondary_failure_category": "RENDER_PLATFORM_FAILURE",
+  "forensic_details": [
+    "The repository's default remote HEAD branch is 'main', which sits at stale commit 51ab34e from September 2.",
+    "On 'main', render.yaml binds DATABASE_URL to 'fromDatabase: otravelz-db' (the expired/deleted Render PostgreSQL instance).",
+    "In Render dashboard, if the service's Branch setting remains 'main', clicking 'Manual Deploy' redeploys the obsolete main branch instead of feature/v4-platform-rebuild.",
+    "In feature/v4-platform-rebuild, render.yaml was updated to specify 'branch: feature/v4-platform-rebuild' (commit d540693).",
+    "Added backend/app/core/config.py field validator to normalize postgres:// to postgresql:// and automatically append sslmode=require if omitted in Aiven connection strings."
+  ],
+  "repository_fixes_applied": [
+    "render.yaml: Explicitly set branch: feature/v4-platform-rebuild on both backend and frontend services.",
+    "backend/app/core/config.py: Added field_validator('database_url') normalizing postgres:// to postgresql:// and enforcing sslmode=require for Aiven hosts.",
+    "backend/start.py: Hardened run_migrations to non-fatal warning so Uvicorn always starts to answer health checks."
+  ],
+  "exact_operator_dashboard_actions_required": [
+    "1. Open https://dashboard.render.com and click into 'otravelz-backend'.",
+    "2. Go to 'Settings' -> 'Branch' and verify the branch is set to 'feature/v4-platform-rebuild' (NOT 'main').",
+    "3. Go to 'Environment' and verify DATABASE_URL is set to the full Aiven URI: postgresql://avnadmin:...@otravelz-db-smarakpadhi58-98d3.d.aivencloud.com:25047/defaultdb?sslmode=require",
+    "4. Click 'Manual Deploy' -> 'Clear build cache & deploy'."
+  ],
+  "verdict": "BLOCKED_PENDING_OPERATOR_BRANCH_AND_CACHE_CLEAR_DEPLOY"
+}

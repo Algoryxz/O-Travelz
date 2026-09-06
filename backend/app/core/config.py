@@ -112,6 +112,19 @@ class Settings(BaseSettings):
     share_rate_limit_window_seconds: int = 3600
     share_max_payload_bytes: int = 51200  # 50 KB
 
+    @field_validator("database_url", mode="before")
+    @classmethod
+    def normalize_database_url(cls, v: Any) -> str:
+        if isinstance(v, str):
+            val = v.strip()
+            if val.startswith("postgres://"):
+                val = "postgresql://" + val[len("postgres://"):]
+            if "aivencloud.com" in val and "sslmode" not in val:
+                separator = "&" if "?" in val else "?"
+                val = f"{val}{separator}sslmode=require"
+            return val
+        return v
+
     @field_validator("auth_cookie_samesite", mode="before")
     @classmethod
     def normalize_auth_cookie_samesite(cls, v: Any) -> str:
