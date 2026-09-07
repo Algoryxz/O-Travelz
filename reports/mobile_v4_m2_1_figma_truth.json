@@ -1,8 +1,8 @@
 {
   "wave": "M2.1",
   "phase": "PHASE_14_FIGMA_STATE_TRUTH",
-  "timestamp": "2026-09-07T10:12:00Z",
-  "audit_finding": "HTTP reachability (status 405 on empty probe) does NOT constitute authenticated MCP operation. Active token authentication has not been performed.",
+  "timestamp": "2026-09-07T11:15:00+05:30",
+  "audit_finding": "Codex CLI upgraded to 0.153.4. Figma remote endpoint (https://mcp.figma.com/mcp) is registered with OAuth auth requirement. Interactive user authentication has not been completed in the CLI environment, so runtime write operations cannot execute.",
   "figma_state": {
     "FIGMA_MCP_CONFIGURED": true,
     "FIGMA_AUTHENTICATED": false,
@@ -15,8 +15,8 @@
   "canonical_reconstruction_truth": {
     "reconstruction_occurred": false,
     "blueprint_prepared": true,
-    "blueprint_location": "docs/mobile-v4/FIGMA_RECONSTRUCTION_PLAN.md",
-    "m3_impact": "Wave M3 component and prototype specifications are NOT blocked. Prototype specifications will define architecture and states in docs and Stitch, leaving canonical Figma execution staged until credentials are provided."
+    "blueprint_location": "docs/mobile-v4/FIGMA_FILE_ARCHITECTURE.md",
+    "m3_impact": "Wave M3 component architecture, token variables, state matrices, adaptive contracts, and prototype specifications are fully specified in repository documents and machine-readable reports. Authoritative Figma canvas execution is staged until user completes 'codex mcp login figma'."
   },
   "status": "PASS"
 }

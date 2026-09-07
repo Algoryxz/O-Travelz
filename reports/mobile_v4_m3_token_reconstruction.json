@@ -1,0 +1,269 @@
+{
+  "wave": "M3",
+  "phase": "PHASE_3_SEMANTIC_TOKEN_RECONSTRUCTION",
+  "timestamp": "2026-09-07T11:13:30+05:30",
+  "authoritative_source_docs": [
+    "docs/mobile-v4/SEMANTIC_DESIGN_TOKENS.md",
+    "docs/mobile-v4/PLATFORM_TOKEN_MAPPING.md"
+  ],
+  "classification_taxonomy": {
+    "LOCKED_SEMANTIC": "Immutable domain truth, contract semantics, brand/cultural accents, and 4px grid steps.",
+    "PLATFORM_MAPPING": "Direct projection to native Android Material 3 roles or iOS Apple HIG semantic constructs.",
+    "PROVISIONAL_TUNING": "Visual design exploration values subject to interactive prototype validation.",
+    "IMPLEMENTATION_MEASURED_LATER": "Dynamic values, physical touch metrics, and runtime layout values to be verified in M21-M25."
+  },
+  "collections": {
+    "shared_color": {
+      "collection_name": "Shared/Color",
+      "modes": ["Dark Atlas (Default)", "Warm Sandstone (Reading)"],
+      "variables": [
+        {
+          "name": "surface.canvas",
+          "dark_value": "#10141B",
+          "light_value": "#FBF9F5",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Root application background canvas"
+        },
+        {
+          "name": "surface.card",
+          "dark_value": "#161B22",
+          "light_value": "#FFFFFF",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Primary content container and list item background"
+        },
+        {
+          "name": "surface.elevated",
+          "dark_value": "#21262D",
+          "light_value": "#F5EFEB",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Modal surfaces, floating cards, preview sheets"
+        },
+        {
+          "name": "surface.overlay",
+          "dark_value": "rgba(0,0,0,0.65)",
+          "light_value": "rgba(0,0,0,0.40)",
+          "classification": "PROVISIONAL_TUNING",
+          "role": "Backdrop dimming behind bottom sheets and dialogs"
+        },
+        {
+          "name": "border.subtle",
+          "dark_value": "#30363D",
+          "light_value": "#E8E2D8",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Hairline card borders and dividers"
+        },
+        {
+          "name": "border.prominent",
+          "dark_value": "#D4A373",
+          "light_value": "#A87444",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Focus rings, active selection outlines, key contours"
+        },
+        {
+          "name": "text.primary",
+          "dark_value": "#F0F6FC",
+          "light_value": "#1C1917",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Highest-contrast titles, monument names, primary metrics (AAA >= 7:1)"
+        },
+        {
+          "name": "text.secondary",
+          "dark_value": "#8B949E",
+          "light_value": "#78716C",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Secondary metadata, timetable labels, captions (AA >= 4.5:1)"
+        },
+        {
+          "name": "text.tertiary",
+          "dark_value": "#6E7681",
+          "light_value": "#A8A29E",
+          "classification": "PROVISIONAL_TUNING",
+          "role": "Footnotes, provenance citations, timestamps (>= 3.5:1)"
+        },
+        {
+          "name": "text.inverse",
+          "dark_value": "#FFFFFF",
+          "light_value": "#FFFFFF",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Text over photographic scrims or solid badge containers"
+        },
+        {
+          "name": "accent.sandstone",
+          "dark_value": "#D4A373",
+          "light_value": "#A87444",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Primary cultural brand color; heritage and active navigation"
+        },
+        {
+          "name": "accent.chilika",
+          "dark_value": "#38BDF8",
+          "light_value": "#0284C7",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Coastal, aquatic, and transit geography accents"
+        },
+        {
+          "name": "accent.forest",
+          "dark_value": "#34D399",
+          "light_value": "#059669",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Nature reserves, wildlife sanctuaries, eco-tourism"
+        },
+        {
+          "name": "accent.terracotta",
+          "dark_value": "#C86446",
+          "light_value": "#B34728",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Artisan craft clusters, living heritage, cultural highlights"
+        },
+        {
+          "name": "truth.verified",
+          "dark_value": "#064E3B",
+          "light_value": "#D1FAE5",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Verified official inspection; government / CRUT confirmed"
+        },
+        {
+          "name": "truth.scheduled",
+          "dark_value": "#451A03",
+          "light_value": "#FEF3C7",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Timetable scheduled departure; strict non-telemetry label"
+        },
+        {
+          "name": "truth.live",
+          "dark_value": "#082F49",
+          "light_value": "#E0F2FE",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Genuine real-time telemetry (Weather, on-device GPS only)"
+        },
+        {
+          "name": "truth.estimated",
+          "dark_value": "#1E293B",
+          "light_value": "#F1F5F9",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Spherical Haversine calculation; distance band approximation"
+        },
+        {
+          "name": "truth.candidate",
+          "dark_value": "#422006",
+          "light_value": "#FFFBEB",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Unverified candidate stop; field inspection pending"
+        },
+        {
+          "name": "truth.unavailable",
+          "dark_value": "#262626",
+          "light_value": "#F5F5F5",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Missing data or offline network restriction"
+        },
+        {
+          "name": "status.success",
+          "dark_value": "#10B981",
+          "light_value": "#059669",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Affirmative confirmation of completed milestone or save"
+        },
+        {
+          "name": "status.warning",
+          "dark_value": "#F59E0B",
+          "light_value": "#D97706",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Cautionary notice (holiday closure, unpaved first mile)"
+        },
+        {
+          "name": "status.error",
+          "dark_value": "#EF4444",
+          "light_value": "#DC2626",
+          "classification": "LOCKED_SEMANTIC",
+          "role": "Actionable error or network failure retry indicator"
+        }
+      ]
+    },
+    "shared_spacing": {
+      "collection_name": "Shared/Spacing",
+      "variables": [
+        {"name": "space.05", "value": 2, "unit": "px/dp/pt", "classification": "LOCKED_SEMANTIC", "usage": "Hairline offsets and tag internal micro-padding"},
+        {"name": "space.1", "value": 4, "unit": "px/dp/pt", "classification": "LOCKED_SEMANTIC", "usage": "Micro gap between icon and typography"},
+        {"name": "space.2", "value": 8, "unit": "px/dp/pt", "classification": "LOCKED_SEMANTIC", "usage": "Chip padding, compact list item gap"},
+        {"name": "space.3", "value": 12, "unit": "px/dp/pt", "classification": "LOCKED_SEMANTIC", "usage": "Card internal padding"},
+        {"name": "space.4", "value": 16, "unit": "px/dp/pt", "classification": "LOCKED_SEMANTIC", "usage": "Standard screen edge margin, card-to-card gap"},
+        {"name": "space.5", "value": 20, "unit": "px/dp/pt", "classification": "LOCKED_SEMANTIC", "usage": "Section container padding, modal header gap"},
+        {"name": "space.6", "value": 24, "unit": "px/dp/pt", "classification": "LOCKED_SEMANTIC", "usage": "Editorial chapter separation"},
+        {"name": "space.7", "value": 28, "unit": "px/dp/pt", "classification": "PROVISIONAL_TUNING", "usage": "Hero section offset"},
+        {"name": "space.8", "value": 32, "unit": "px/dp/pt", "classification": "LOCKED_SEMANTIC", "usage": "Major section vertical separation"},
+        {"name": "space.9", "value": 36, "unit": "px/dp/pt", "classification": "PROVISIONAL_TUNING", "usage": "Display banner padding"},
+        {"name": "space.10", "value": 40, "unit": "px/dp/pt", "classification": "PROVISIONAL_TUNING", "usage": "Bottom navigation clear zone"},
+        {"name": "space.11", "value": 44, "unit": "px/dp/pt", "classification": "IMPLEMENTATION_MEASURED_LATER", "usage": "Apple minimum hit-target size"},
+        {"name": "space.12", "value": 48, "unit": "px/dp/pt", "classification": "IMPLEMENTATION_MEASURED_LATER", "usage": "Android M3 minimum accessible hit-target"}
+      ]
+    },
+    "shared_radius": {
+      "collection_name": "Shared/Radius",
+      "variables": [
+        {"name": "radius.small", "android_value": 8, "ios_value": 8, "classification": "PLATFORM_MAPPING", "usage": "Chips, truth badges, small tags"},
+        {"name": "radius.medium", "android_value": 16, "ios_value": 12, "classification": "PLATFORM_MAPPING", "usage": "Content cards, image containers"},
+        {"name": "radius.large", "android_value": 28, "ios_value": 18, "classification": "PLATFORM_MAPPING", "usage": "Bottom sheets, preview cards"},
+        {"name": "radius.full", "android_value": 9999, "ios_value": 9999, "classification": "LOCKED_SEMANTIC", "usage": "Pills, circular avatars, search bars"}
+      ]
+    },
+    "shared_opacity": {
+      "collection_name": "Shared/Opacity",
+      "variables": [
+        {"name": "opacity.scrim", "value": 0.65, "classification": "PROVISIONAL_TUNING", "usage": "Modal backdrop scrim"},
+        {"name": "opacity.disabled", "value": 0.38, "classification": "LOCKED_SEMANTIC", "usage": "Standard disabled element opacity"},
+        {"name": "opacity.subtle_divider", "value": 0.15, "classification": "PROVISIONAL_TUNING", "usage": "Hairline separator overlay"}
+      ]
+    },
+    "platform_android": {
+      "collection_name": "Android/MaterialTheme",
+      "variables": [
+        {"alias": "colorScheme.background", "maps_to": "surface.canvas", "classification": "PLATFORM_MAPPING"},
+        {"alias": "colorScheme.surfaceContainer", "maps_to": "surface.card", "classification": "PLATFORM_MAPPING"},
+        {"alias": "colorScheme.surfaceContainerHigh", "maps_to": "surface.elevated", "classification": "PLATFORM_MAPPING"},
+        {"alias": "colorScheme.primary", "maps_to": "accent.sandstone", "classification": "PLATFORM_MAPPING"},
+        {"alias": "colorScheme.secondary", "maps_to": "accent.chilika", "classification": "PLATFORM_MAPPING"},
+        {"alias": "colorScheme.tertiary", "maps_to": "accent.forest", "classification": "PLATFORM_MAPPING"},
+        {"alias": "colorScheme.outlineVariant", "maps_to": "border.subtle", "classification": "PLATFORM_MAPPING"},
+        {"alias": "colorScheme.outline", "maps_to": "border.prominent", "classification": "PLATFORM_MAPPING"},
+        {"alias": "colorScheme.onSurface", "maps_to": "text.primary", "classification": "PLATFORM_MAPPING"},
+        {"alias": "colorScheme.onSurfaceVariant", "maps_to": "text.secondary", "classification": "PLATFORM_MAPPING"},
+        {"alias": "typography.headlineLarge", "maps_to": "type.displayHero", "classification": "PLATFORM_MAPPING"},
+        {"alias": "typography.titleMedium", "maps_to": "type.cardTitle", "classification": "PLATFORM_MAPPING"},
+        {"alias": "shape.small", "maps_to": "radius.small", "classification": "PLATFORM_MAPPING"},
+        {"alias": "shape.medium", "maps_to": "radius.medium", "classification": "PLATFORM_MAPPING"},
+        {"alias": "shape.extraLarge", "maps_to": "radius.large", "classification": "PLATFORM_MAPPING"},
+        {"alias": "touch.minimumTarget", "value": 48, "classification": "IMPLEMENTATION_MEASURED_LATER"}
+      ]
+    },
+    "platform_ios": {
+      "collection_name": "iOS/AppleHIG",
+      "variables": [
+        {"alias": "Color(uiColor: .systemBackground)", "maps_to": "surface.canvas", "classification": "PLATFORM_MAPPING"},
+        {"alias": "Color(uiColor: .secondarySystemGroupedBackground)", "maps_to": "surface.card", "classification": "PLATFORM_MAPPING"},
+        {"alias": "Color(uiColor: .tertiarySystemGroupedBackground)", "maps_to": "surface.elevated", "classification": "PLATFORM_MAPPING"},
+        {"alias": "Color(\"AccentSandstone\")", "maps_to": "accent.sandstone", "classification": "PLATFORM_MAPPING"},
+        {"alias": "Color(\"AccentChilika\")", "maps_to": "accent.chilika", "classification": "PLATFORM_MAPPING"},
+        {"alias": "Color(\"AccentForest\")", "maps_to": "accent.forest", "classification": "PLATFORM_MAPPING"},
+        {"alias": "Color(\"AccentTerracotta\")", "maps_to": "accent.terracotta", "classification": "PLATFORM_MAPPING"},
+        {"alias": "Color(uiColor: .separator)", "maps_to": "border.subtle", "classification": "PLATFORM_MAPPING"},
+        {"alias": "Color.primary", "maps_to": "text.primary", "classification": "PLATFORM_MAPPING"},
+        {"alias": "Color.secondary", "maps_to": "text.secondary", "classification": "PLATFORM_MAPPING"},
+        {"alias": "Font.largeTitle.bold()", "maps_to": "type.displayHero", "classification": "PLATFORM_MAPPING"},
+        {"alias": "Font.headline.weight(.semibold)", "maps_to": "type.cardTitle", "classification": "PLATFORM_MAPPING"},
+        {"alias": "RoundedRectangle(12, .continuous)", "maps_to": "radius.medium", "classification": "PLATFORM_MAPPING"},
+        {"alias": "RoundedRectangle(18, .continuous)", "maps_to": "radius.large", "classification": "PLATFORM_MAPPING"},
+        {"alias": "touch.minimumTarget", "value": 44, "classification": "IMPLEMENTATION_MEASURED_LATER"}
+      ]
+    }
+  },
+  "summary": {
+    "total_variables_reconstructed": 71,
+    "locked_semantic_count": 28,
+    "platform_mapping_count": 31,
+    "provisional_tuning_count": 8,
+    "implementation_measured_later_count": 4,
+    "unsupported_inventions_count": 0
+  },
+  "status": "PASS"
+}

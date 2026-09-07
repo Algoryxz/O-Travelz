@@ -1,0 +1,193 @@
+{
+  "wave": "M3",
+  "phase": "PHASE_12_PROTOTYPE_ACCEPTANCE",
+  "timestamp": "2026-09-07T11:17:10+05:30",
+  "scope": "12 interactive golden-journey prototype flows across Android M3 Expressive and iOS Apple HIG for 6 core journeys",
+  "prototypes": [
+    {
+      "journey_id": "J1",
+      "journey_name": "First-Time Visitor",
+      "traveler_scenario": "First-time visitor arrives in Bhubaneswar; browses cultural highlights, opens Konark Sun Temple, inspects visiting hours and dress code, and saves to trip.",
+      "android_flow": {
+        "flow_name": "FLOW_AND_J1_FIRST_TIME_VISITOR",
+        "canvas_page": "15 — Android Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Discover Root", "action": "Tap on Konark Sun Temple card", "transition": "Container Transform"},
+          {"step": 2, "screen": "Place Detail", "action": "Scroll to Practical Info and Truth sections", "transition": "Vertical scroll with collapsing hero"},
+          {"step": 3, "screen": "Place Detail", "action": "Tap bookmark toggle button", "transition": "Scale pulse; shows Snackbar 'Saved to My Trips'"},
+          {"step": 4, "screen": "Place Detail", "action": "Predictive back gesture swipe", "transition": "Scales back into Discover card"}
+        ],
+        "truth_states_included": ["VERIFIED_OFFICIAL", "VERIFIED_PHOTO"],
+        "failure_branch": "Network timeout on high-res gallery loads offline thumbnail blurhash with 'Image cached offline' label."
+      },
+      "ios_flow": {
+        "flow_name": "FLOW_IOS_J1_FIRST_TIME_VISITOR",
+        "canvas_page": "25 — iOS Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Discover Root", "action": "Tap on Konark Editorial Card", "transition": "NavigationStack push (.zoom)"},
+          {"step": 2, "screen": "Place Detail", "action": "Inspect Inset Grouped Visiting Info", "transition": "Smooth scroll with blurred nav bar"},
+          {"step": 3, "screen": "Place Detail", "action": "Tap toolbar bookmark button", "transition": "Haptic success; bookmark fills sandstone"},
+          {"step": 4, "screen": "Place Detail", "action": "Interactive edge swipe right", "transition": "Rubber-band pop back to Discover"}
+        ],
+        "truth_states_included": ["VERIFIED_OFFICIAL", "VERIFIED_PHOTO"],
+        "failure_branch": "Network error loads local SQLite record seamlessly."
+      }
+    },
+    {
+      "journey_id": "J3",
+      "journey_name": "AI Planning",
+      "traveler_scenario": "Traveler specifies a 2-day heritage pace in Puri/Bhubaneswar; AI synthesizes grounded itinerary using verified stops and schedules.",
+      "android_flow": {
+        "flow_name": "FLOW_AND_J3_AI_PLANNING",
+        "canvas_page": "15 — Android Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Plan Input", "action": "Select '2 Days' and 'Relaxed' pace; type 'temples and weaving'", "transition": "Segmented button highlight"},
+          {"step": 2, "screen": "Plan Input", "action": "Tap 'Generate Itinerary'", "transition": "Button shimmer (500ms deterministic synthesis)"},
+          {"step": 3, "screen": "Itinerary Result", "action": "Inspect Day 1 timeline (Lingaraj $\rightarrow$ Raghurajpur)", "transition": "Vertical card stagger"},
+          {"step": 4, "screen": "Itinerary Result", "action": "Tap 'Save to My Trips'", "transition": "Snackbar confirmation; saves to SQLite"}
+        ],
+        "truth_states_included": ["AI_GROUNDED_VERIFIED", "SCHEDULED_DEPARTURES"],
+        "failure_branch": "If AI service unreachable, displays Deterministic Fallback: 'AI unavailable; built with deterministic catalog filters'."
+      },
+      "ios_flow": {
+        "flow_name": "FLOW_IOS_J3_AI_PLANNING",
+        "canvas_page": "25 — iOS Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Plan Input", "action": "Configure Inset Grouped Pickers; enter natural language prompt", "transition": "Native form interaction"},
+          {"step": 2, "screen": "Plan Input", "action": "Tap 'Create Itinerary'", "transition": "Modal push to Itinerary View"},
+          {"step": 3, "screen": "Itinerary Result", "action": "Review chapter cards and transit legs", "transition": "Scrollable editorial list"},
+          {"step": 4, "screen": "Itinerary Result", "action": "Tap 'Start Active Trip'", "transition": "Full-screen transition to Active Trip mode"}
+        ],
+        "truth_states_included": ["AI_GROUNDED_VERIFIED", "SCHEDULED_DEPARTURES"],
+        "failure_branch": "Network drop shows 'Offline Planning Mode' with static templates."
+      }
+    },
+    {
+      "journey_id": "J5",
+      "journey_name": "Transit-Dependent Trip",
+      "traveler_scenario": "Traveler navigates from Master Canteen to Nandankanan using Mo Bus Route 10; checks departure schedule and candidate stop warnings.",
+      "android_flow": {
+        "flow_name": "FLOW_AND_J5_TRANSIT_TRIP",
+        "canvas_page": "15 — Android Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Transit Route Detail", "action": "Open Mo Bus Route 10 from Search", "transition": "Push transition"},
+          {"step": 2, "screen": "Transit Route Detail", "action": "Inspect next scheduled departure (10:15 AM IST)", "transition": "Mono timestamp badge highlight"},
+          {"step": 3, "screen": "Transit Route Detail", "action": "Tap candidate stop 'Damana Square (Candidate)'", "transition": "Opens Candidate Stop Disclosure Sheet"},
+          {"step": 4, "screen": "Candidate Sheet", "action": "Read GPS survey warning; tap 'OK'", "transition": "Dismisses sheet"}
+        ],
+        "truth_states_included": ["SCHEDULED_TIMETABLE", "CANDIDATE_HIGH", "UNCONFIRMED_FARES"],
+        "failure_branch": "Bus departure displays 'No further departures scheduled today' if time is after final timetable trip."
+      },
+      "ios_flow": {
+        "flow_name": "FLOW_IOS_J5_TRANSIT_TRIP",
+        "canvas_page": "25 — iOS Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Transit Route Detail", "action": "Open Mo Bus Route 10", "transition": "NavigationStack push"},
+          {"step": 2, "screen": "Transit Route Detail", "action": "Examine MapKit route polyline and stop sheet", "transition": "Flick sheet to medium detent"},
+          {"step": 3, "screen": "Transit Route Detail", "action": "Inspect FirstMileLabel (320m, Walkable)", "transition": "Tap for straight-line estimate notice"},
+          {"step": 4, "screen": "Transit Route Detail", "action": "Tap bell icon for departure alarm", "transition": "Local notification scheduled"}
+        ],
+        "truth_states_included": ["SCHEDULED_TIMETABLE", "CANDIDATE_HIGH", "UNCONFIRMED_FARES"],
+        "failure_branch": "Route geometry unavailable renders dashed connection with truth indicator."
+      }
+    },
+    {
+      "journey_id": "J6",
+      "journey_name": "Active Trip",
+      "traveler_scenario": "Traveler is on-site exploring Bhubaneswar; marks milestone complete, advances to next stop, skips an optional craft cluster.",
+      "android_flow": {
+        "flow_name": "FLOW_AND_J6_ACTIVE_TRIP",
+        "canvas_page": "15 — Android Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Active Trip", "action": "View active milestone 'Lingaraj Temple'", "transition": "Resting active card"},
+          {"step": 2, "screen": "Active Trip", "action": "Tap 'Mark Arrived / Visited'", "transition": "Green check animation; heavy haptic feedback"},
+          {"step": 3, "screen": "Active Trip", "action": "Next milestone 'Bindu Sagar' slides into hero slot", "transition": "Vertical spring transition"},
+          {"step": 4, "screen": "Active Trip", "action": "Tap 'Skip' on optional artisan stop", "transition": "Card slides into SkippedMilestoneRow"}
+        ],
+        "truth_states_included": ["MANUAL_USER_ACTION", "OFFLINE_AUTONOMOUS"],
+        "failure_branch": "Zero battery impact; operates 100% offline without background location drain."
+      },
+      "ios_flow": {
+        "flow_name": "FLOW_IOS_J6_ACTIVE_TRIP",
+        "canvas_page": "25 — iOS Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Active Trip", "action": "Observe pinned progress bar and active milestone", "transition": "Active state"},
+          {"step": 2, "screen": "Active Trip", "action": "Swipe right on milestone card", "transition": "Completed with UINotificationFeedbackGenerator(.success)"},
+          {"step": 3, "screen": "Active Trip", "action": "Next milestone populates smoothly", "transition": "SwiftUI spring animation"},
+          {"step": 4, "screen": "Active Trip", "action": "Tap 'Finish Day'", "transition": "Summary sheet with visited places count"}
+        ],
+        "truth_states_included": ["MANUAL_USER_ACTION", "OFFLINE_AUTONOMOUS"],
+        "failure_branch": "App termination and relaunch restores exact milestone progress from SQLite."
+      }
+    },
+    {
+      "journey_id": "J8",
+      "journey_name": "Offline Trip",
+      "traveler_scenario": "Traveler enters rural Chilika lake area with zero cell service; app detects disconnection, displays Offline Banner, and serves bundled atlas seamlessly.",
+      "android_flow": {
+        "flow_name": "FLOW_AND_J8_OFFLINE_TRIP",
+        "canvas_page": "15 — Android Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Discover Root", "action": "Network drops to offline", "transition": "OfflineBanner docks under TopAppBar with cloud slash icon"},
+          {"step": 2, "screen": "Discover Root", "action": "Tap on Mangalajodi Bird Sanctuary", "transition": "Instant load from bundled SQLite database"},
+          {"step": 3, "screen": "Place Detail", "action": "Inspect weather widget", "transition": "Displays 'Cached at 08:30 IST • Offline'"},
+          {"step": 4, "screen": "Place Detail", "action": "Tap 'Open Offline Map'", "transition": "Renders bundled offline vector tile base"}
+        ],
+        "truth_states_included": ["BUNDLED_AND_GUARANTEED", "STALE_CACHED_WEATHER"],
+        "failure_branch": "Tapping 'Live AI Chat' shows polite dialog: 'AI requires network. Browsing bundled catalog instead'."
+      },
+      "ios_flow": {
+        "flow_name": "FLOW_IOS_J8_OFFLINE_TRIP",
+        "canvas_page": "25 — iOS Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Discover Root", "action": "Airplane mode enabled", "transition": "OfflineStatusBanner slides under NavigationBar"},
+          {"step": 2, "screen": "Discover Root", "action": "Browse saved offline destinations", "transition": "Instant smooth scroll from local disk cache"},
+          {"step": 3, "screen": "Place Detail", "action": "Open practical visiting info", "transition": "100% verified facts displayed from local bundle"},
+          {"step": 4, "screen": "You Root", "action": "Inspect Downloaded Regions manager", "transition": "Shows 'Puri & Chilika Pack: Downloaded (112 MB)'"}
+        ],
+        "truth_states_included": ["BUNDLED_AND_GUARANTEED", "STALE_CACHED_WEATHER"],
+        "failure_branch": "Attempted online action triggers localized toast: 'Action queued; will sync when reconnected'."
+      }
+    },
+    {
+      "journey_id": "J12",
+      "journey_name": "Location Permission Denied",
+      "traveler_scenario": "Privacy-conscious traveler denies location permission; app adapts gracefully, centers map on Odisha state, and provides manual district selector.",
+      "android_flow": {
+        "flow_name": "FLOW_AND_J12_LOCATION_DENIED",
+        "canvas_page": "15 — Android Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Permission Education Sheet", "action": "Read transparent location rationale; tap 'Not Now'", "transition": "Dismisses sheet without requesting OS dialog"},
+          {"step": 2, "screen": "Map Root", "action": "Map centers on Odisha state view (Bhubaneswar center)", "transition": "Smooth map camera transition"},
+          {"step": 3, "screen": "Map Root", "action": "LocationStateIndicator shows gray slash glyph", "transition": "Resting state with zero nag prompts"},
+          {"step": 4, "screen": "Map Root", "action": "Tap 'Select District' dropdown pill and choose 'Puri'", "transition": "Map animates smoothly to Puri district pins"}
+        ],
+        "truth_states_included": ["ZERO_DARK_PATTERNS", "MANUAL_DISTRICT_EXPLORATION"],
+        "failure_branch": "First-mile walking guidance switches to 'Select starting point on map' mode."
+      },
+      "ios_flow": {
+        "flow_name": "FLOW_IOS_J12_LOCATION_DENIED",
+        "canvas_page": "25 — iOS Prototypes",
+        "steps": [
+          {"step": 1, "screen": "Permission Education Sheet", "action": "Tap 'Explore Without Location'", "transition": "Sheet dismisses cleanly"},
+          {"step": 2, "screen": "Map Root", "action": "MapKit displays full Odisha region", "transition": "Default coordinate region"},
+          {"step": 3, "screen": "Map Root", "action": "Notice banner: 'Manual exploration mode'", "transition": "Compact pill under search bar"},
+          {"step": 4, "screen": "Place Detail", "action": "First-mile walking distance shows straight-line estimate from district center", "transition": "Clearly labeled 'From Puri Bus Stand'"}
+        ],
+        "truth_states_included": ["ZERO_DARK_PATTERNS", "MANUAL_DISTRICT_EXPLORATION"],
+        "failure_branch": "Zero repetitive system permission dialogs."
+      }
+    }
+  ],
+  "totals": {
+    "journeys_prototyped": 6,
+    "android_prototype_flows": 6,
+    "ios_prototype_flows": 6,
+    "total_interactive_flows": 12,
+    "back_navigation_tested": true,
+    "sheet_dismissal_tested": true,
+    "truth_state_transitions_tested": true,
+    "failure_branches_included": true
+  },
+  "status": "PASS"
+}

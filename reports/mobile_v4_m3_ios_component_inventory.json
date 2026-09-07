@@ -1,0 +1,117 @@
+{
+  "wave": "M3",
+  "phase": "PHASE_6_IOS_COMPONENT_INVENTORY",
+  "timestamp": "2026-09-07T11:15:55+05:30",
+  "design_direction": "IOS_A_EDITORIAL_ATLAS",
+  "platform": "iOS",
+  "framework": "SwiftUI / Apple HIG (iOS 17.0+ Baseline)",
+  "component_families_count": 10,
+  "total_components_count": 44,
+  "families": [
+    {
+      "family_id": "NAVIGATION",
+      "components": [
+        {"component_name": "AtlasTabItem", "swiftui_container": "TabView", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "selectionChanged", "status": "LOCKED_SPEC"},
+        {"component_name": "AtlasNavigationTitle", "swiftui_container": "navigationTitle", "min_touch_target_pt": 0, "dynamic_type_supported": true, "haptic_event": "none", "status": "LOCKED_SPEC"},
+        {"component_name": "AtlasToolbarAction", "swiftui_container": "toolbar", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactLight", "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "DISCOVERY",
+      "components": [
+        {"component_name": "EditorialPlaceCard", "swiftui_container": "NavigationLink", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactLight", "liquid_glass_gated": true, "status": "LOCKED_SPEC"},
+        {"component_name": "CompactPlaceRow", "swiftui_container": "List(insetGrouped)", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "DistrictFilter", "swiftui_container": "ScrollView(.horizontal)", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "selectionChanged", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "CategoryFilter", "swiftui_container": "ScrollView(.horizontal)", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "selectionChanged", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "SearchField", "swiftui_container": "searchable", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "CuratedSectionHeader", "swiftui_container": "SectionHeader", "min_touch_target_pt": 0, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "TRUTH_STATUS",
+      "components": [
+        {"component_name": "IOSTruthBadge", "swiftui_container": "Label", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactMedium", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "OfflineStatusBanner", "swiftui_container": "VStack", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "notificationWarning", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "WeatherSummaryView", "swiftui_container": "GroupBox", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "DataUnavailableView", "swiftui_container": "ContentUnavailableView", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "PLACE_DETAIL",
+      "components": [
+        {"component_name": "PlaceHeroMedia", "swiftui_container": "TabView(page)", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "selectionChanged", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "PlaceIdentityHeader", "swiftui_container": "VStack", "min_touch_target_pt": 0, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "PlacePracticalInfo", "swiftui_container": "Section", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "PlaceTruthSection", "swiftui_container": "Section", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "NearbyPlacesSection", "swiftui_container": "ScrollView(.horizontal)", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "MAP",
+      "components": [
+        {"component_name": "MapAnnotationView", "swiftui_container": "Annotation", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactLight", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "SelectedMapEntitySheet", "swiftui_container": "sheet(detents)", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactMedium", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "MapLayerMenu", "swiftui_container": "Menu", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "selectionChanged", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "LocationStateIndicator", "swiftui_container": "Button", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactLight", "liquid_glass_gated": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "PLANNING",
+      "components": [
+        {"component_name": "PlannerConstraintSection", "swiftui_container": "Section", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "DurationControl", "swiftui_container": "Picker(segmented)", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "selectionChanged", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "PaceControl", "swiftui_container": "Picker(segmented)", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "selectionChanged", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "TransportPreference", "swiftui_container": "HStack", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "selectionChanged", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "NaturalLanguageRefinement", "swiftui_container": "TextField", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "ItineraryDaySection", "swiftui_container": "Section", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "JourneyLegRow", "swiftui_container": "HStack", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "TRIPS",
+      "components": [
+        {"component_name": "ActiveTripHeader", "swiftui_container": "VStack", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "TripTimeline", "swiftui_container": "List", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "ActiveMilestoneCard", "swiftui_container": "VStack", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactHeavy", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "CompletedMilestoneRow", "swiftui_container": "HStack", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "notificationSuccess", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "SkippedMilestoneRow", "swiftui_container": "HStack", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "selectionChanged", "liquid_glass_gated": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "TRANSIT",
+      "components": [
+        {"component_name": "RouteSummaryRow", "swiftui_container": "HStack", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "StopTimelineRow", "swiftui_container": "HStack", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "ScheduledDepartureRow", "swiftui_container": "HStack", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "FirstMileLabel", "swiftui_container": "Label", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "CandidateStopDisclosure", "swiftui_container": "DisclosureGroup", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactLight", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "RouteGeometryDisclosure", "swiftui_container": "DisclosureGroup", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactLight", "liquid_glass_gated": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "ESSENTIALS",
+      "components": [
+        {"component_name": "EssentialServiceRow", "swiftui_container": "HStack", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactMedium", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "EmergencyShortcut", "swiftui_container": "Button", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "notificationWarning", "liquid_glass_gated": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "CONTRIBUTION_SYSTEM",
+      "components": [
+        {"component_name": "ContributionEntryCard", "swiftui_container": "Form", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "notificationSuccess", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "RideVerificationStatus", "swiftui_container": "Label", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "StopConfirmationControl", "swiftui_container": "Button", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactLight", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "ProgressView state", "swiftui_container": "ProgressView", "min_touch_target_pt": 0, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "ContentUnavailableView state", "swiftui_container": "ContentUnavailableView", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "none", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "RetryView", "swiftui_container": "ContentUnavailableView", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactMedium", "liquid_glass_gated": false, "status": "LOCKED_SPEC"},
+        {"component_name": "PermissionEducationSheet", "swiftui_container": "sheet", "min_touch_target_pt": 44, "dynamic_type_supported": true, "haptic_event": "impactMedium", "liquid_glass_gated": false, "status": "LOCKED_SPEC"}
+      ]
+    }
+  ],
+  "accessibility_compliance": {
+    "minimum_touch_target_guarantee": "44pt for all interactive targets",
+    "voiceover_semantics_defined": true,
+    "dynamic_type_tolerance": "Full reflow across xSmall through AX5 without truncation of critical data"
+  },
+  "status": "PASS"
+}

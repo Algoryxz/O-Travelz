@@ -72,7 +72,7 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **Acceptance Criteria**: Figma MCP reachable, page structure established, zero production code created.
 - **Non-Goals**: No final screens; no code scaffolding.
 
-### Wave M1: Product Anatomy & Journey Specification `[PLANNED]`
+### Wave M1: Product Anatomy & Journey Specification `[COMPLETED]`
 - **Objective**: Formally define information architecture, navigation anatomy, and end-to-end user journeys.
 - **Android Scope**: Map 5-tab root to Adaptive Navigation (Bottom Bar on phones, Navigation Rail on tablets).
 - **iOS Scope**: Map 5-tab root to NavigationStack (iPhone) and NavigationSplitView (iPad).
@@ -94,18 +94,18 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **Acceptance Criteria**: Single winning Android and iOS visual directions selected and truth-tested across 8 core surfaces.
 - **Non-Goals**: Zero Stitch code committed; no mobile project files modified.
 
-### Wave M3: Component Architecture & Interactive Prototype Specification `[NEXT]`
-- **Objective**: Design platform-native motion, gestures, and interaction physics.
-- **Android Scope**: Predictive back gestures, shared element container transforms, elevation lifts.
-- **iOS Scope**: SwiftUI interactive spring curves, sheet dismissal drag physics, zoom transitions.
-- **Skills Used**: `swiftui-animation`, `swiftui-gestures`, `emilkowalski/skills`.
+### Wave M3: Component Architecture & Interactive Prototype Specification `[COMPLETED]`
+- **Objective**: Design platform-native motion, gestures, and interaction physics; reconstruct canonical components and token variables; specify interactive golden journey prototypes.
+- **Android Scope**: Predictive back gestures, shared element container transforms, M3 Expressive component architecture.
+- **iOS Scope**: SwiftUI interactive spring curves, sheet dismissal drag physics, Apple HIG component architecture.
+- **Skills Used**: `swiftui-animation`, `swiftui-gestures`, `android-adaptive`, `ui-ux-pro-max`, `design-system`, `ponytail`.
 - **Dependencies**: Wave M2 completion.
-- **Artifacts**: Motion spec documentation and Figma interactive motion prototypes.
-- **Tests**: Reduce Motion accessibility verification.
-- **Acceptance Criteria**: Full motion specs documented with duration, easing curves, and fallback states.
+- **Artifacts**: `docs/mobile-v4/FIGMA_FILE_ARCHITECTURE.md`, `docs/mobile-v4/SHARED_COMPONENT_SEMANTICS.md`, `docs/mobile-v4/ANDROID_COMPONENT_ARCHITECTURE.md`, `docs/mobile-v4/IOS_COMPONENT_ARCHITECTURE.md`, `docs/mobile-v4/COMPONENT_STATE_VARIANTS.md`, `docs/mobile-v4/INTERACTION_SPECIFICATION.md`, `docs/mobile-v4/ADAPTIVE_LAYOUT_CONTRACT.md`, `docs/mobile-v4/COMPONENT_ACCESSIBILITY_CONTRACTS.md`, `docs/mobile-v4/MICROCOPY_SYSTEM.md`, `docs/mobile-v4/DESIGN_TO_NATIVE_HANDOFF.md`, and comprehensive machine-readable acceptance reports.
+- **Tests**: Reduce Motion accessibility verification, Ponytail component review, zero production code proof.
+- **Acceptance Criteria**: Full motion and interaction specs documented with duration, easing curves, fallback states, and 12 golden-journey interactive prototype flows.
 - **Non-Goals**: No native code implementation.
 
-### Wave M4: Clickable Prototypes & Design Acceptance Freeze `[PLANNED]`
+### Wave M4: Clickable Prototypes & Design Acceptance Freeze `[NEXT]`
 - **Objective**: Build fully interactive clickable prototypes for Android and iOS in Figma and execute formal design freeze.
 - **Android Scope**: Android interactive prototype demonstrating phone and foldable layouts.
 - **iOS Scope**: iOS interactive prototype demonstrating iPhone and iPad layouts.

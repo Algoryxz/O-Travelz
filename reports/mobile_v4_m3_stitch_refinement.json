@@ -1,0 +1,207 @@
+{
+  "wave": "M3",
+  "phase": "PHASE_8_STITCH_REFINEMENT",
+  "timestamp": "2026-09-07T11:16:20+05:30",
+  "scope": "Targeted refinement of 8 high-leverage complex compositions across Android M3 Expressive and iOS Apple HIG",
+  "refinement_evaluations": [
+    {
+      "surface_id": "SURF_01_ANDROID_DISCOVER",
+      "platform": "Android",
+      "design_direction": "ANDROID_A_ATLAS_MATERIAL",
+      "alternatives_evaluated": [
+        {
+          "alternative_id": "ALT_A_STICKY_FILTER_EXPANDED_HERO",
+          "description": "Large editorial hero carousel with sticky horizontal filter chips and staggered dual-column destination cards.",
+          "critique": {
+            "truth": "PASS — Truth badges positioned prominently on all card headers.",
+            "platform_idiom": "PASS — Standard M3 TopAppBar scrolling behavior with elevation overlay.",
+            "accessibility": "PASS — High contrast text, touch targets meet 48dp minimum.",
+            "information_hierarchy": "STRONG — Hero introduces cultural context before district cards.",
+            "one_hand_use": "GOOD — Filter chips reachable within thumb arc.",
+            "travel_during_use": "EXCELLENT — Quick district toggle for field transitions.",
+            "offline_states": "PASS — Offline status chip docks cleanly into TopAppBar subtitle.",
+            "visual_restraint": "PASS — Zero neon accents; warm basalt and sandstone ochre palette."
+          },
+          "verdict": "SELECTED_AS_CANONICAL"
+        },
+        {
+          "alternative_id": "ALT_B_COMPACT_FEED_SEARCH_ANCHORED",
+          "description": "Prominent search bar anchored at top with single-column dense list rows.",
+          "critique": {
+            "truth": "PASS",
+            "platform_idiom": "ACCEPTABLE — More utilitarian, less editorial atlas feel.",
+            "accessibility": "PASS",
+            "information_hierarchy": "MODERATE — Lacks cultural storytelling depth.",
+            "one_hand_use": "GOOD",
+            "travel_during_use": "GOOD",
+            "offline_states": "PASS",
+            "visual_restraint": "PASS"
+          },
+          "verdict": "REJECTED_FOR_LACK_OF_EDITORIAL_CHARACTER"
+        }
+      ]
+    },
+    {
+      "surface_id": "SURF_02_ANDROID_PLACE_DETAIL",
+      "platform": "Android",
+      "design_direction": "ANDROID_A_ATLAS_MATERIAL",
+      "alternatives_evaluated": [
+        {
+          "alternative_id": "ALT_A_COLLAPSIBLE_HERO_FAB_NAV",
+          "description": "Collapsible image hero with integrated photographer attribution, Odia title block, practical info card grid, and floating navigation action button.",
+          "critique": {
+            "truth": "PASS — Mandatory verified photo gate; provenance card displays survey agency.",
+            "platform_idiom": "PASS — M3 LargeTopAppBar collapsible behavior with ExtendedFloatingActionButton.",
+            "accessibility": "PASS — Focus order flows logically from identity to practical visiting facts.",
+            "information_hierarchy": "STRONG — Visiting hours and ticket requirements prioritized above narrative.",
+            "one_hand_use": "EXCELLENT — Navigation FAB anchored in bottom right quadrant.",
+            "travel_during_use": "EXCELLENT — Emergency contact and dress code readable in sunlight.",
+            "offline_states": "PASS — Cached indicator clearly displayed if viewing offline pack.",
+            "visual_restraint": "PASS — Restrained typography using Inter/Roboto with Noto Sans Odia."
+          },
+          "verdict": "SELECTED_AS_CANONICAL"
+        }
+      ]
+    },
+    {
+      "surface_id": "SURF_06_ANDROID_ACTIVE_TRIP",
+      "platform": "Android",
+      "design_direction": "ANDROID_A_ATLAS_MATERIAL",
+      "alternatives_evaluated": [
+        {
+          "alternative_id": "ALT_A_HERO_MILESTONE_TIMELINE",
+          "description": "Prominent top card for the current active stop with oversized 'Arrived' button, connected to vertical scrollable timeline of completed and upcoming stops.",
+          "critique": {
+            "truth": "PASS — Strict manual check-in; zero fake automatic GPS simulation.",
+            "platform_idiom": "PASS — M3 tonal card elevations and vertical timeline indicators.",
+            "accessibility": "PASS — Milestone actions exceed 56dp touch targets.",
+            "information_hierarchy": "EXCELLENT — Clear distinction between active task and remaining journey.",
+            "one_hand_use": "EXCELLENT — Primary 'Arrived' button positioned for immediate thumb reach.",
+            "travel_during_use": "SUPERIOR — High glanceability while walking or riding.",
+            "offline_states": "PASS — 100% executable offline with zero network dependency.",
+            "visual_restraint": "PASS — Clean functional typography; no gamified point counters."
+          },
+          "verdict": "SELECTED_AS_CANONICAL"
+        }
+      ]
+    },
+    {
+      "surface_id": "SURF_07_ANDROID_TRANSIT_ROUTE_DETAIL",
+      "platform": "Android",
+      "design_direction": "ANDROID_A_ATLAS_MATERIAL",
+      "alternatives_evaluated": [
+        {
+          "alternative_id": "ALT_A_SPLIT_MAP_STOP_LIST",
+          "description": "Top 35% map view showing surveyed route polyline, bottom 65% scrollable stop sequence with scheduled departure pill and candidate stop disclosures.",
+          "critique": {
+            "truth": "PASS — Labeled as 'Scheduled Timetable'; candidate stops shown with dashed outline.",
+            "platform_idiom": "PASS — M3 BottomSheet / scaffold split layout with MapLibre surface.",
+            "accessibility": "PASS — Full stop list readable linearly via TalkBack.",
+            "information_hierarchy": "STRONG — Next scheduled departure pinned at top of list.",
+            "one_hand_use": "GOOD — Bottom stop list easily flicked and explored.",
+            "travel_during_use": "SUPERIOR — Traveler can confirm upcoming stop while on board.",
+            "offline_states": "PASS — Consumes bundled canonical transit graph offline.",
+            "visual_restraint": "PASS — Sandstone corridor color; no animated fake bus dots."
+          },
+          "verdict": "SELECTED_AS_CANONICAL"
+        }
+      ]
+    },
+    {
+      "surface_id": "SURF_01_IOS_DISCOVER",
+      "platform": "iOS",
+      "design_direction": "IOS_A_EDITORIAL_ATLAS",
+      "alternatives_evaluated": [
+        {
+          "alternative_id": "ALT_A_LARGE_TITLE_EDITORIAL_MAGAZINE",
+          "description": "iOS large navigation title ('Discover') with New York serif font, inset horizontal district capsules, full-width editorial cards with continuous 12pt corners.",
+          "critique": {
+            "truth": "PASS — Verified badges integrated into card metadata pills.",
+            "platform_idiom": "SUPERIOR — Pure Apple HIG publication feel; native navigation transitions.",
+            "accessibility": "PASS — Dynamic Type reflows cards vertically on large text sizes.",
+            "information_hierarchy": "EXCELLENT — Curated cultural collections clearly delineated by section headers.",
+            "one_hand_use": "EXCELLENT — Standard iOS edge swipe back gesture enabled.",
+            "travel_during_use": "GOOD — Quick browsing in high glare.",
+            "offline_states": "PASS — Offline status banner sits cleanly under navigation bar.",
+            "visual_restraint": "PASS — Warm basalt canvas with SF Pro / New York typography."
+          },
+          "verdict": "SELECTED_AS_CANONICAL"
+        }
+      ]
+    },
+    {
+      "surface_id": "SURF_02_IOS_PLACE_DETAIL",
+      "platform": "iOS",
+      "design_direction": "IOS_A_EDITORIAL_ATLAS",
+      "alternatives_evaluated": [
+        {
+          "alternative_id": "ALT_A_INSET_GROUPED_PRACTICAL_ATLAS",
+          "description": "Hero media carousel header with page dots, followed by Inset Grouped sections for Visiting Hours, Cultural Significance, and Verified Provenance.",
+          "critique": {
+            "truth": "PASS — Verified photo requirement strictly respected.",
+            "platform_idiom": "SUPERIOR — Standard iOS List(style: .insetGrouped) pattern.",
+            "accessibility": "PASS — Section headers announced; VoiceOver navigates grouped items cleanly.",
+            "information_hierarchy": "STRONG — Facts segregated cleanly into native grouped cells.",
+            "one_hand_use": "GOOD — Pull down to dismiss modal sheet if presented as sheet.",
+            "travel_during_use": "EXCELLENT — Rapid verification of opening times and ticket costs.",
+            "offline_states": "PASS — Shows local SQLite cached record seamlessly.",
+            "visual_restraint": "PASS — System background colors with subtle hairline separators."
+          },
+          "verdict": "SELECTED_AS_CANONICAL"
+        }
+      ]
+    },
+    {
+      "surface_id": "SURF_06_IOS_ACTIVE_TRIP",
+      "platform": "iOS",
+      "design_direction": "IOS_A_EDITORIAL_ATLAS",
+      "alternatives_evaluated": [
+        {
+          "alternative_id": "ALT_A_NAVIGATION_STACK_ACTIVE_LEG",
+          "description": "Pinned toolbar showing progress gauge, hero card with next destination and 'Mark Arrived' button with CoreHaptics confirmation, swipeable milestone list.",
+          "critique": {
+            "truth": "PASS — Explicit user action required to advance milestones.",
+            "platform_idiom": "SUPERIOR — Native SwiftUI sheet presentation with detents.",
+            "accessibility": "PASS — Custom accessibility actions: 'Mark Visited', 'Skip'.",
+            "information_hierarchy": "EXCELLENT — Active milestone visually isolated from upcoming queue.",
+            "one_hand_use": "SUPERIOR — Action button anchored directly above tab bar.",
+            "travel_during_use": "EXCELLENT — Haptic confirmation allows eyes-free confirmation.",
+            "offline_states": "PASS — Fully autonomous local SQLite state.",
+            "visual_restraint": "PASS — No gamified confetti or fake badges."
+          },
+          "verdict": "SELECTED_AS_CANONICAL"
+        }
+      ]
+    },
+    {
+      "surface_id": "SURF_07_IOS_TRANSIT_ROUTE_DETAIL",
+      "platform": "iOS",
+      "design_direction": "IOS_A_EDITORIAL_ATLAS",
+      "alternatives_evaluated": [
+        {
+          "alternative_id": "ALT_A_MAPKIT_DETENT_SHEET",
+          "description": "Full-screen MapKit view with surveyed route polyline, overlaid with native SwiftUI bottom sheet (.presentationDetents([.fraction(0.35), .large])) containing stop sequence.",
+          "critique": {
+            "truth": "PASS — Timetable clearly labeled 'Scheduled Departures'; fares shown as unconfirmed.",
+            "platform_idiom": "SUPERIOR — Perfect adoption of iOS 17+ MapKit + presentationDetents.",
+            "accessibility": "PASS — Detent changes announced to VoiceOver; full stop list accessible in large detent.",
+            "information_hierarchy": "EXCELLENT — Map and timetable coexist without layout conflict.",
+            "one_hand_use": "EXCELLENT — Single-finger flick between peek and expanded detent.",
+            "travel_during_use": "SUPERIOR — Ideal for transit navigation while walking or waiting at shelter.",
+            "offline_states": "PASS — Offline transit graph rendered locally without network.",
+            "visual_restraint": "PASS — Elegant sandstone polyline with SF Mono schedule timestamps."
+          },
+          "verdict": "SELECTED_AS_CANONICAL"
+        }
+      ]
+    }
+  ],
+  "critique_summary": {
+    "total_surfaces_refined": 8,
+    "total_alternatives_critiqued": 9,
+    "selected_canonical_designs": 8,
+    "rejected_alternatives": 1,
+    "anti_vibe_code_compliance": "100% compliant across all 8 canonical selections"
+  },
+  "status": "PASS"
+}

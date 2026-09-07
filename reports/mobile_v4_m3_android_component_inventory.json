@@ -1,0 +1,117 @@
+{
+  "wave": "M3",
+  "phase": "PHASE_5_ANDROID_COMPONENT_INVENTORY",
+  "timestamp": "2026-09-07T11:15:35+05:30",
+  "design_direction": "ANDROID_A_ATLAS_MATERIAL",
+  "platform": "Android",
+  "framework": "Jetpack Compose / Material 3 Expressive",
+  "component_families_count": 10,
+  "total_components_count": 44,
+  "families": [
+    {
+      "family_id": "NAVIGATION",
+      "components": [
+        {"component_name": "AtlasNavigationBar", "m3_base": "NavigationBar", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "AtlasNavigationRail", "m3_base": "NavigationRail", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "RootDestinationItem", "m3_base": "NavigationBarItem", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "DISCOVERY",
+      "components": [
+        {"component_name": "AtlasPlaceCard", "m3_base": "ElevatedCard", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": true, "status": "LOCKED_SPEC"},
+        {"component_name": "CompactPlaceRow", "m3_base": "ListItem", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "DistrictFilterChip", "m3_base": "FilterChip", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "CategoryFilterChip", "m3_base": "FilterChip", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "SearchField", "m3_base": "SearchBar", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": true, "status": "LOCKED_SPEC"},
+        {"component_name": "CuratedCollectionHeader", "m3_base": "Row", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "TRUTH_STATUS",
+      "components": [
+        {"component_name": "AndroidTruthBadge", "m3_base": "AssistChip", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "OfflineBanner", "m3_base": "Surface", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "WeatherStateCard", "m3_base": "OutlinedCard", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "DataUnavailableCard", "m3_base": "Card", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "PLACE_DETAIL",
+      "components": [
+        {"component_name": "PlaceHeroMedia", "m3_base": "HorizontalPager", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": true, "status": "LOCKED_SPEC"},
+        {"component_name": "PlaceIdentityBlock", "m3_base": "Column", "slot_count": 2, "min_touch_target_dp": 0, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "PlacePracticalInfo", "m3_base": "Card", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "PlaceTruthSection", "m3_base": "Column", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "NearbyPlacesSection", "m3_base": "LazyRow", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "MAP",
+      "components": [
+        {"component_name": "MapAnnotation", "m3_base": "Box", "slot_count": 1, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "SelectedMapEntitySheet", "m3_base": "ModalBottomSheet", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": true, "status": "LOCKED_SPEC"},
+        {"component_name": "MapLayerControl", "m3_base": "FloatingActionButton", "slot_count": 1, "min_touch_target_dp": 56, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "LocationStateIndicator", "m3_base": "SmallFloatingActionButton", "slot_count": 1, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "PLANNING",
+      "components": [
+        {"component_name": "PlannerConstraintGroup", "m3_base": "Column", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "DurationSelector", "m3_base": "SingleChoiceSegmentedButtonRow", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "PaceSelector", "m3_base": "SingleChoiceSegmentedButtonRow", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "TransportPreferenceSelector", "m3_base": "MultiChoiceSegmentedButtonRow", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "NaturalLanguageRefinement", "m3_base": "OutlinedTextField", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "ItineraryDayCard", "m3_base": "ElevatedCard", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "JourneyLegRow", "m3_base": "ListItem", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "TRIPS",
+      "components": [
+        {"component_name": "ActiveTripHeader", "m3_base": "Surface", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "TripTimeline", "m3_base": "LazyColumn", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "ActiveMilestoneCard", "m3_base": "Card", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "CompletedMilestoneRow", "m3_base": "ListItem", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "SkippedMilestoneRow", "m3_base": "ListItem", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "TRANSIT",
+      "components": [
+        {"component_name": "RouteSummaryRow", "m3_base": "ListItem", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "StopTimelineRow", "m3_base": "Row", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "ScheduledDepartureRow", "m3_base": "ListItem", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "FirstMileChip", "m3_base": "AssistChip", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "CandidateStopDisclosure", "m3_base": "OutlinedCard", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "RouteGeometryDisclosure", "m3_base": "OutlinedCard", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "ESSENTIALS",
+      "components": [
+        {"component_name": "EssentialServiceRow", "m3_base": "ListItem", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "EmergencyShortcut", "m3_base": "Button", "slot_count": 2, "min_touch_target_dp": 56, "predictive_back": false, "status": "LOCKED_SPEC"}
+      ]
+    },
+    {
+      "family_id": "CONTRIBUTION_SYSTEM",
+      "components": [
+        {"component_name": "ContributionEntryCard", "m3_base": "Card", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "RideVerificationStatus", "m3_base": "AssistChip", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "StopConfirmationControl", "m3_base": "Button", "slot_count": 2, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "LoadingSkeleton", "m3_base": "Box", "slot_count": 0, "min_touch_target_dp": 0, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "EmptyContentState", "m3_base": "Column", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "RetryState", "m3_base": "Column", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": false, "status": "LOCKED_SPEC"},
+        {"component_name": "PermissionEducationSheet", "m3_base": "ModalBottomSheet", "slot_count": 3, "min_touch_target_dp": 48, "predictive_back": true, "status": "LOCKED_SPEC"}
+      ]
+    }
+  ],
+  "accessibility_compliance": {
+    "minimum_touch_target_guarantee": "48dp for all interactive targets",
+    "talkback_semantics_defined": true,
+    "font_scale_tolerance": "Up to 2.0x without clipping or truncation of critical data"
+  },
+  "status": "PASS"
+}
