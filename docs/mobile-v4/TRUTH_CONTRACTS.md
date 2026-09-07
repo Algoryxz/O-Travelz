@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ Mobile V4 — Truth Contracts & Boundary Specifications
+# O-TRAVELZ Mobile V4 — Truth Contracts & Boundary Specifications
 
 > **Authoritative Epistemic Truth Specification**  
 > Scope: **Categorical Invariants, Fallback Rules, and Fail-Closed Boundaries**  
@@ -18,7 +18,7 @@ O-TRAVELZ maintains a strict separation between verified ground coordinates and 
 | `CANDIDATE_HIGH` | Crowdsourced candidate stop with $\ge 5$ verified independent GPS check-ins. | Dashed halo marker with "Candidate" pill. | **STRICTLY PROHIBITED** from exact first-mile walking math. |
 | `CANDIDATE_MEDIUM` | Candidate stop with 2–4 independent check-ins. | Dashed halo marker. | **STRICTLY PROHIBITED** from exact first-mile walking math. |
 | `CANDIDATE_LOW` | Single-contributor candidate stop. | Visible only in Community Contribution mode. | Excluded from public catalog. |
-| `LOCALITY_ONLY` | Stop exists in official route sequence with administrative locality, but exact physical pole coordinate is pending survey (1,257 stops). | Locality polygon / administrative chip (`OFFICIAL_SERVICE_AREA`). No exact pin. | Topological sequence participation only; zero walking calculations. |
+| `LOCALITY_ONLY` | Stop exists in official route sequence with administrative locality, but exact physical pole coordinate is pending survey (1,257 stops). | Locality administrative chip (`OFFICIAL_SERVICE_AREA`). No exact pin. | Topological sequence participation only; zero walking calculations. |
 | `UNRESOLVED` | Legacy anomaly or ambiguous name requiring manual audit. | Hidden from consumer UI. | None. |
 
 ### 1.2 Transit Invariants
@@ -44,8 +44,8 @@ O-TRAVELZ maintains a strict separation between verified ground coordinates and 
 ### 2.2 Media Rules
 1. **Zero Synthetic Photography**: AI-generated tourist imagery (Midjourney, DALL-E, etc.) is strictly banned across all mobile surfaces.
 2. **Distinct Photo Count**: Any photo count badge (`"8 Photos"`) must count **distinct source photographs**, never resolution variants (`hero.webp`, `thumbnail.webp`).
-3. **Heritage 3D Standards**: 3D interactive models (`.glb` / `.usdz`) are rendered **strictly** for monuments with explicit canonical 3D scans (e.g. Konark Sun Temple, Mukteshwar). Never show 3D controls on destinations lacking 3D assets.
-4. **Authentic Video**: Video loops must be genuine field video recordings. AI video generators (Sora, Runway) are prohibited.
+3. **Curated 3D Assets (`CURATED_DESTINATION_SPECIFIC_3D`)**: 3D interactive models (`.glb` / `.usdz`) appear strictly for monuments with canonical 3D asset metadata (`has_3d=true`), classified by provenance (`PHOTOGRAMMETRY`, `MANUAL_MODEL`, `PROCEDURAL_RECONSTRUCTION`, or `OTHER_VERIFIED_SOURCE`). Never show 3D controls or fallbacks on destinations lacking canonical 3D assets (`has_3d=false` cannot be upgraded by the client).
+4. **Authentic Video**: Video controls appear only for real, playable documentary recordings. AI video generators (Sora, Runway) are prohibited.
 
 ---
 

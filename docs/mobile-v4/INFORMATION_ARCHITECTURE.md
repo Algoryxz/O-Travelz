@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ Mobile V4 — Information Architecture & Structural Product Anatomy
+# O-TRAVELZ Mobile V4 — Information Architecture & Structural Product Anatomy
 
 > **Authoritative Product Anatomy Specification**  
 > Scope: **Structural Hierarchy, Top-Level Navigation, and Functional Domain Mapping**  
@@ -64,7 +64,7 @@ App Root
 ├── 2. Tab: Map (Cartography & Spatial Navigation)
 │   ├── Full-Screen Canvas (Google Maps Compose / Apple MapKit)
 │   ├── Layer Control Pills (Monuments, Crafts, Nature, Transit Hubs, Bus Lines)
-│   ├── District Bounding Box Selection (30 PostGIS Polygons)
+│   ├── District / Regional Browsing & Spatial Filtering (30 Districts)
 │   ├── Dynamic Annotation Clustering (Numerical badges at zoom <= 11)
 │   ├── Selected Node Preview Sheet (Swipeable card -> Place Detail)
 │   └── Contextual Navigation Controls ("Re-center Odisha", "Locate Me")
@@ -97,7 +97,7 @@ App Root
     │   └── Airplane Mode Verification Health Check
     ├── Language Selector (English / Odia - ଓଡ଼ିଆ)
     ├── Theme Preference (Dark Atlas Default / Warm Sandstone Light)
-    ├── Emergency Civic Contacts (Police 112, District Hospitals, Tourist Police)
+    ├── Emergency Civic Contacts (211 Verified Facilities: Police 112, District Hospitals, Tourist Police, Fire, Fuel, ATMs)
     ├── Community Contributions Portal
     │   ├── Submit Place Tip / Correction
     │   ├── Transit Stop Check-In & Ride Verification Mode (Consensus Engine)

@@ -1,0 +1,23 @@
+﻿{
+  "wave": "M1.1",
+  "timestamp": "2026-09-07T04:25:00Z",
+  "topic": "Map Geometry Claims and District Boundary Verification",
+  "audit_findings": {
+    "district_polygon_geometry_claim": {
+      "original_claim": "30 District boundary polygons with district names in Odia/English",
+      "canonical_data_verification": "data/ and backend contain district metadata attributes on destinations and regional bounding boxes (OdishaBounds.ODISHA_BBOX), but zero canonical PostGIS MultiPolygon GeoJSON files exist for 30 district administrative boundaries.",
+      "classification": "DISTRICT_POINT_OR_METADATA_ONLY",
+      "action_taken": "Replaced 'district polygon selection' with 'district/region browsing and spatial filtering across 30 districts'."
+    },
+    "locality_polygon_claim": {
+      "original_claim": "Locality polygon / administrative chip",
+      "verification": "Locality-only stops have textual administrative locality names (OFFICIAL_SERVICE_AREA), not closed spatial polygons.",
+      "action_taken": "Corrected to 'Locality administrative chip (OFFICIAL_SERVICE_AREA). No exact pin.'"
+    },
+    "route_vs_stop_confidence": {
+      "status": "INDEPENDENT_CONFIRMED",
+      "rule": "Route geometry splines (VERIFIED_ROUTE_GEOMETRY, HIGH_CONFIDENCE_ROUTE_GEOMETRY) remain decoupled from stop coordinate verification tiers."
+    }
+  },
+  "verdict": "PASS"
+}

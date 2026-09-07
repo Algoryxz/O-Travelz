@@ -1,0 +1,51 @@
+{
+  "wave": "M1.1",
+  "phase": "PHASE_10_SPEC_CONSISTENCY_CHECK",
+  "timestamp": "2026-09-07T09:51:50Z",
+  "audited_directory": "docs/mobile-v4/",
+  "metrics_consistency": {
+    "transit_routes": {
+      "canonical_value": 154,
+      "audit_result": "CONSISTENT_154_ROUTES"
+    },
+    "transit_stops_total": {
+      "canonical_value": 1430,
+      "audit_result": "CONSISTENT_1430_STOPS"
+    },
+    "verified_transit_stops": {
+      "canonical_value": 173,
+      "audit_result": "CONSISTENT_173_VERIFIED_STOPS"
+    },
+    "departures": {
+      "canonical_value": 5549,
+      "note": "5,549 unique departures in canonical schedules.json; raw PostgreSQL array elements = 5,553 due to 4 historical duplicates across Routes 16, 94, 201",
+      "audit_result": "CONSISTENT_5549_DEPARTURES"
+    },
+    "places_count": {
+      "canonical_db": 204,
+      "places_json_bootstrap": 161,
+      "audit_result": "CONSISTENT_204_DB_161_BOOTSTRAP"
+    },
+    "civic_services_count": {
+      "canonical_value": 211,
+      "audit_result": "CONSISTENT_211_SERVICES"
+    }
+  },
+  "invariant_checks": {
+    "azure_mentions": {
+      "count": 0,
+      "status": "PASS"
+    },
+    "live_gps_bus_tracking_claims": {
+      "count": 0,
+      "status": "PASS",
+      "note": "Live bus claims strictly forbidden; scheduled timetables only; user device GPS puck clearly disambiguated from vehicle telemetry"
+    },
+    "fabricated_fares": {
+      "count": 0,
+      "status": "PASS",
+      "note": "All fares explicitly designated as null until official audited CRUT fare tables are ingested"
+    }
+  },
+  "status": "PASS"
+}

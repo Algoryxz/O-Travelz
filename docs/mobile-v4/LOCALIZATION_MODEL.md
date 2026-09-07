@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ Mobile V4 — Localization & Odia Language Model
+# O-TRAVELZ Mobile V4 — Localization & Odia Language Model
 
 > **Authoritative Localization Specification**  
 > Supported Languages: **English & Odia (ଓଡ଼ିଆ)**  
@@ -25,10 +25,11 @@ O-TRAVELZ is built natively for Odisha. Both English and Odia (ଓଡ଼ିଆ) 
   Mukteshwar Temple
   ମୁକ୍ତେଶ୍ୱର ମନ୍ଦିର · Bhubaneswar, Khordha
   ```
-- **System Fonts**:
-  - Android uses native `Nirmala UI` or standard system Odia font fallback.
-  - iOS uses Apple's native `Kalinga` / Odia Unicode glyph system.
-  - Odia script line-height is given $1.2\times$ relaxation to prevent clipping of upper matras (e.g. ୈ, ୌ) and lower conjuncts (e.g. ୍କ, ୍ତ).
+- **Typography & Glyph Rendering Standards**:
+  - Both platforms must utilize platform-native typography with verified Odia Unicode glyph coverage.
+  - Line-height and baseline metrics must accommodate Odia upper matras (e.g. ୈ, ୌ) and lower conjunct ligatures (e.g. ୍କ, ୍ତ) without clipping.
+  - Full compatibility with iOS Dynamic Type and Android system font scaling must be preserved across all bilingual surfaces.
+  - Specific font family selection and font asset bundling belong to visual implementation and hardware testing (Wave M22 / M25).
 
 ---
 

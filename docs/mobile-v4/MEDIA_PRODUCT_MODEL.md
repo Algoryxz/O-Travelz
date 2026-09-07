@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ Mobile V4 — Media Product Model & Visual Integrity
+# O-TRAVELZ Mobile V4 — Media Product Model & Visual Integrity
 
 > **Authoritative Media Specification**  
 > Philosophy: **Authentic Visual Truth; Zero Synthetic Hallucination**  
@@ -29,10 +29,15 @@ O-TRAVELZ treats photography, video, and 3D assets as **forensic evidence of Odi
 - **Format**: H.264 / H.265 MP4 loops ($< 5\text{ MB}$, maximum 12 seconds).
 - **Rule**: Genuine on-site documentary recordings only (e.g. a master artisan carving stone in Raghurajpur, waves at Chandrabhaga). Muted by default with manual audio toggle.
 
-### 2.3 Heritage 3D Monument Scans
+### 2.3 Curated 3D Heritage Assets (`CURATED_DESTINATION_SPECIFIC_3D`)
 - **Format**: `.glb` (Android) and `.usdz` (iOS).
-- **Strict Gating**: 3D interactive viewer controls appear **strictly** on destinations with official canonical 3D photogrammetry scans (e.g. Konark Sun Temple, Mukteshwar Temple).
-- **Prohibition**: Destinations lacking 3D models **never** display 3D buttons or disabled placeholders.
+- **Provenance Classification**: Each 3D asset must declare its verified provenance:
+  - `PHOTOGRAMMETRY` (High-density camera scan)
+  - `MANUAL_MODEL` (Expert CAD / 3D artist architectural model)
+  - `PROCEDURAL_RECONSTRUCTION` (Procedural temple geometry)
+  - `OTHER_VERIFIED_SOURCE`
+- **Strict Gating**: 3D interactive viewer controls appear **strictly** on destinations with canonical 3D asset metadata (`has_3d=true`).
+- **Prohibition**: Destinations lacking 3D models (`has_3d=false`) **never** display 3D buttons or disabled placeholders (`has_3d=false` cannot be upgraded by the mobile client). Zero generic 3D fallback models.
 
 ---
 

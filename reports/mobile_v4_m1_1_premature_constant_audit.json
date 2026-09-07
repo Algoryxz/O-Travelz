@@ -1,0 +1,66 @@
+{
+  "wave": "M1.1",
+  "phase": "PHASE_9_PREMATURE_CONSTANT_AUDIT",
+  "timestamp": "2026-09-07T09:50:30Z",
+  "audited_constants": [
+    {
+      "constant": "FirstMileEngine distance bands (<=800m walking, 800-1500m short auto/e-rickshaw, >1500m cab)",
+      "location": "docs/mobile-v4/ACTIVE_TRIP_MODEL.md",
+      "classification": "EVIDENCE_BASED_CONSTANT",
+      "rationale": "Directly grounded in repository truth and verified KMP deterministic shared core parity contract."
+    },
+    {
+      "constant": "Accessible touch bounding box (44x44 pt iOS, 48x48 dp Android)",
+      "location": "docs/mobile-v4/ACCESSIBILITY_REQUIREMENTS.md",
+      "classification": "PRODUCT_REQUIREMENT",
+      "rationale": "Mandatory accessibility baseline enforced by Apple HIG, Android Material guidelines, and WCAG 2.2 AA."
+    },
+    {
+      "constant": "Recent search history limit (max 10 items) and retention (30 days max)",
+      "location": "docs/mobile-v4/PERSISTENCE_MODEL.md",
+      "classification": "PRODUCT_REQUIREMENT",
+      "rationale": "User privacy protection and on-device storage hygiene policy."
+    },
+    {
+      "constant": "Ambient video loop clip constraints (< 5 MB, maximum 12 seconds)",
+      "location": "docs/mobile-v4/MEDIA_PRODUCT_MODEL.md",
+      "classification": "PRODUCT_REQUIREMENT",
+      "rationale": "Authoritative media pipeline constraint defined in docs/v4/MEDIA_LANGUAGE_VOICE.md to avoid cellular data drain."
+    },
+    {
+      "constant": "Cartographic zoom level LOD bands (5-7, 8-11, 12-14, 15+)",
+      "location": "docs/mobile-v4/MAP_PRODUCT_MODEL.md",
+      "classification": "DESIGN_TOKEN_LATER",
+      "rationale": "Cartographic clustering thresholds to be calibrated during M2/M11 visual design and map canvas prototyping."
+    },
+    {
+      "constant": "Map contextual preview sheet height (~180 dp)",
+      "location": "docs/mobile-v4/MAP_PRODUCT_MODEL.md",
+      "classification": "DESIGN_TOKEN_LATER",
+      "rationale": "Initial layout dimension token; final sheet detents and snap points belong in M2/M4 interactive prototyping."
+    },
+    {
+      "constant": "Android card corner radius (16-24 dp)",
+      "location": "docs/mobile-v4/DESIGN_SYSTEM_STRATEGY.md",
+      "classification": "DESIGN_TOKEN_LATER",
+      "rationale": "Design token specification for Material 3 Expressive component styling in M2."
+    },
+    {
+      "constant": "Arbitrary 250 MB offline cache size",
+      "location": "docs/mobile-v4/OFFLINE_PRODUCT_MODEL.md (former)",
+      "classification": "REMOVE",
+      "rationale": "Arbitrary ungrounded number removed in Phase 2 in favor of explicit capability tiers (BUNDLED_AND_GUARANTEED, PERSISTED_AFTER_USE, etc.)."
+    },
+    {
+      "constant": "100% Airplane Mode Navigability claim",
+      "location": "docs/mobile-v4/OFFLINE_PRODUCT_MODEL.md (former)",
+      "classification": "REMOVE",
+      "rationale": "Unsupported claim removed in Phase 2; mobile SDK basemaps cannot be guaranteed without network."
+    }
+  ],
+  "preserved_constants": [
+    "FirstMileEngine bands (<=800m, 800-1500m, >1500m)",
+    "Touch target minima (44pt / 48dp)"
+  ],
+  "status": "PASS"
+}

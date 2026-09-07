@@ -1,0 +1,19 @@
+{
+  "wave": "M1.1",
+  "phase": "PHASE_6_LOCALIZATION_FONT_CLAIM_AUDIT",
+  "timestamp": "2026-09-07T09:49:00Z",
+  "audit_target": "docs/mobile-v4/LOCALIZATION_MODEL.md",
+  "desktop_font_mandates_removed": [
+    "Kalinga (Windows desktop legacy font)",
+    "Nirmala UI (Windows desktop UI font)"
+  ],
+  "normative_requirements_established": {
+    "platform_native_typography": "Android must use system font fallback or bundle platform-tested Odia fonts; iOS must use Apple system font cascade (e.g. Kohinoor Odia / system fallback).",
+    "verified_odia_glyph_coverage": "Must correctly render independent vowels, dependent matras, and conjunct ligatures (juktakkhara) without clipping or tofu characters (U+0B00–U+0B7F).",
+    "system_scaling_preservation": "Must preserve Dynamic Type (iOS) and Android font scale factors (sp) across all Odia and English UI components without layout truncation.",
+    "canonical_data_source": "Odia place names and transit stop names must derive from verified canonical datasets (canonical Odia stop names, verified places), never client-side heuristic translation.",
+    "machine_translation_policy": "Zero automatic machine translation for canonical entity names, route titles, bus stops, or legal notices.",
+    "font_bundling_milestone_deferral": "Specific custom font selection, licensing, and asset bundling deferred to implementation waves M22 (Android) and M25 (iOS)."
+  },
+  "status": "PASS"
+}

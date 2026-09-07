@@ -1,37 +1,49 @@
-﻿# O-TRAVELZ Mobile V4 — Offline Product Model & Cache Strategy
+# O-TRAVELZ Mobile V4 — Offline Product Model & Truth Capabilities
 
-> **Authoritative Offline Specification**  
-> Goal: **100% Core Atlas Navigability in Airplane Mode**  
-> Document Version: `4.0.0` | Last Updated: `2026-09-07`
+> **Authoritative Offline Specification**<br>
+> Principle: **Truthful Offline Boundaries; Zero Unsupported Availability Claims**<br>
+> Document Version: `4.1.0` | Last Updated: `2026-09-07` (Audited in Wave M1.1)
 
 ---
 
-## 1. Offline Tier Classification
+## 1. Five-Tier Capability Classification
 
-Every data entity in the application belongs to one of four offline freshness tiers:
+Every capability in O-TRAVELZ Mobile belongs to one of five explicit offline operational categories:
 
-| Offline Freshness Tier | Definition | Examples | Allowed Presentation & Badge |
+| Offline Capability Category | Definition | Components & Assets | Operational Guarantee |
 |---|---|---|---|
-| **`FRESH`** | Data fetched within current active session or within HTTP max-age cache window ($< 30\text{ mins}$). | Live weather observation, latest check-in count. | Standard presentation with live badges. |
-| **`STALE_BUT_USABLE`** | Previously fetched data older than max-age, but still functionally valuable. | Weather observation from 3 hours ago. | Stale badge: `[☁ Cached 3h ago · 29°C]`. |
-| **`OFFLINE_CACHED`** | Pre-bundled canonical dataset or user-saved bookmark stored permanently in local SQLite. | 204 places, 154 routes, 1,430 stops, saved itineraries, emergency contacts. | Standard presentation with subtle top indicator: `[Viewing cached offline atlas]`. |
-| **`NOT_AVAILABLE_OFFLINE`**| Dynamic services requiring live server computation. | Grounded conversational AI chat, live GPS vehicle tracking, cloud sync. | Graceful fallback banner: *"Feature requires internet connection."* |
+| **`BUNDLED_AND_GUARANTEED`** | Core deterministic logic and reference metadata included directly in the application bundle. | KMP math kernels (`HaversineDistance`, `OdishaBounds`, `FirstMileEngine`), 211 emergency civic facilities & phone numbers, canonical place reference attributes (subject to packaging size audit at M5). | **Guaranteed Available** in Airplane Mode without prior usage. |
+| **`PERSISTED_AFTER_USE`** | User data and previously fetched content stored in local platform databases upon user action. | `SavedPlace` bookmarks, `SavedTrip` itineraries, `TripProgress` milestones, locally cached media thumbnails. | **Guaranteed Available** for items previously opened or saved by the traveler. |
+| **`OPTIONAL_DOWNLOAD`** | Explicit offline packages downloaded deliberately by the user to conserve cellular data. | Curated district image bundles, complete regional transit schedule packs. | **Available if Downloaded** via Offline Manager; zero surprise background downloads. |
+| **`NETWORK_REQUIRED`** | Capabilities dependent on remote cloud computation or external service backends. | Conversational AI assistant (`POST /ai/converse`), real-time weather refresh (`GET /weather/current`), crowdsourced check-in sync, account sync. | **Disabled / Graceful Banner** when disconnected. |
+| **`PROVIDER_DEPENDENT`** | Features relying on underlying operating system SDKs or external provider caching. | Basemap vector tiles (Google Maps SDK on Android, Apple MapKit on iOS), external turn-by-turn navigation voice guidance. | **Not Guaranteed Offline** by O-TRAVELZ. Relies on provider cache or external Google/Apple Maps offline areas. |
 
 ---
 
-## 2. Pre-Bundled & Permanently Stored Offline Assets
+## 2. Domain-Specific Offline Truth Rules
 
-The following core assets are pre-bundled in the mobile application binary or seeded on first launch into Room / SwiftData:
-1. **The 204 Canonical Places**: Complete names, dual-script Odia transliterations, historical essays, coordinate pairs, category classifications.
-2. **The 154 Transit Routes & 1,430 Stops**: Full route names, corridor identities, operating agencies (CRUT / OSRTC), and topological stop sequences.
-3. **The 5,553 Scheduled Departure Times**: Complete timetable matrix in Indian Standard Time (IST).
-4. **Emergency Civic Contacts**: Statewide 112, 108 ambulance, district headquarters hospitals, and tourist police stations across all 30 districts.
-5. **Local KMP Math Kernels**: `HaversineDistance`, `OdishaBounds`, and `FirstMileEngine` execute 100% locally with zero network calls.
+### 2.1 Canonical Place & Transit Metadata
+- Canonical place metadata and transit schedules may be bundled or locally cached according to packaging and storage measurements finalized at Wave M5.
+- Where bundled or cached, text metadata (names, cultural essays, coordinates, categories, route stop sequences) remains viewable offline.
 
----
+### 2.2 User Saved Places & Trips
+- All user-saved bookmarks (`SavedPlace`), custom itineraries (`SavedTrip`), and checklist states (`TripProgress`) persist locally in Room SQLite (Android) and SwiftData (iOS).
+- Saved trips remain 100% readable and executable offline.
 
-## 3. Media Caching Strategy
+### 2.3 Base Maps & Spatial Cartography
+- **No Guaranteed Offline Basemap**: O-TRAVELZ does **not** claim guaranteed offline map tile availability through Google Maps SDK or Apple MapKit unless platform caching or dedicated vector tile packaging is verified in later implementation waves.
+- When offline and uncached, the map displays a grid with locally plotted pin coordinates and an informative notice: *"Basemap tiles require connection or external offline maps."*
 
-- **Disk Cache Footprint**: Image loading libraries (Coil on Android, URLCache on iOS) maintain a strict **250 MB LRU disk cache** for high-resolution WebP images.
-- **Offline Place Images**: Once a destination card or detail sheet is viewed online, its WebP photo is cached on disk. In Airplane Mode, cached photos render instantaneously.
-- **Missing Image Grace**: If an uncached photo is opened in Airplane Mode, the card renders a warm sandstone textured placeholder with the destination title and cultural essay—never an ugly broken-image icon.
+### 2.4 Weather Telemetry
+- Offline weather displays the last cached temperature and condition with an explicit timestamp: `[☁ Cached 3h ago · 29°C]`.
+- If no cached observation exists, displays: `[☁ Weather Unavailable]`.
+- **Never** label stale or missing weather as live.
+
+### 2.5 Artificial Intelligence & Planning
+- Remote LLM conversational planning is **strictly unavailable offline**.
+- Only deterministic algorithmic solvers or static golden circuits physically compiled into the client may execute offline.
+
+### 2.6 Media & Photography
+- Media availability offline depends on prior viewing (cached in local disk cache) or explicit offline package download.
+- No fixed arbitrary cache quota (e.g. "250 MB") is enforced until real image weight budgets are measured during production testing.
+- Uncached photos render an informative stone-textured placeholder with title and essay, never an error crash.

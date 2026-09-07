@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ Mobile V4 — Universal State Model & Domain Truth Matrices
+# O-TRAVELZ Mobile V4 — Universal State Model & Domain Truth Matrices
 
 > **Authoritative State Specification**  
 > State Philosophy: **Facts over Speculation; Graceful Fail-Closed Degradation**  
@@ -63,8 +63,9 @@ Every mobile screen, card, and detail sheet must bind to one of the following 12
 - **`ROUTE_GEOMETRY_UNAVAILABLE`**: Route sequence known, but geometry spline unverified. Straight line connections suppressed; stops plotted as connected topological nodes.
 
 ### 2.5 AI Assistant States
-- **`AI_AVAILABLE`**: Cloud LLM (Gemini 1.5 Flash / Groq Llama 3.3) connected. Grounded conversation with claim attribution badges active.
-- **`AI_DETERMINISTIC_FALLBACK`**: Cloud LLM unreachable. RuleBasedAdapter provides deterministic golden circuits and pre-canned Odia cultural FAQs.
+- **`AI_AVAILABLE`**: Remote AI assistant service connected and responding. Grounded conversation with claim attribution badges active.
+- **`AI_DEGRADED`**: Remote AI service experiencing latency; structured summaries returned with cached grounding.
+- **`AI_DETERMINISTIC_FALLBACK`**: Remote AI endpoints unreachable. Deterministic fallback algorithms provide verified golden circuits and pre-canned Odia cultural FAQs.
 - **`AI_UNAVAILABLE`**: Completely offline and user seeks open-ended query. Banner: *"AI Assistant requires network connection. View offline itineraries."*
 
 ### 2.6 Persistence & Sync States

@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ Mobile V4 — Map Product Model & Cartographic Architecture
+# O-TRAVELZ Mobile V4 — Map Product Model & Cartographic Architecture
 
 > **Authoritative Cartographic Specification**  
 > Engine Strategy: **Native Platform GPU Acceleration (Google Maps Compose + Apple MapKit)**  
@@ -49,7 +49,7 @@ To prevent visual chaos ("pin pollution"):
 
 | Zoom Level Range | Geographic Context | Display Behavior & Geometry |
 |---|---|---|
-| **Zoom 5 – 7** | Statewide Odisha Overview | 30 District boundary polygons with district names in Odia/English. All individual place pins cluster into district numerical badges (`"Puri: 14"`). |
+| **Zoom 5 – 7** | Statewide Odisha Overview | District/region browsing and spatial filtering across 30 districts with names in Odia/English. All individual place pins cluster into district numerical badges (`"Puri: 14"`). |
 | **Zoom 8 – 11** | Regional Inter-District | Regional clusters expand into sub-clusters. Major highway corridors (NH-16, NH-316) highlighted. |
 | **Zoom 12 – 14** | Urban / Cluster Scale (e.g. Old Town BBSR) | Individual destination pins render with category glyphs (Temple, Craft, Nature). Transit hubs visible. |
 | **Zoom 15+** | Immediate Street / Stop Scale | Verified bus stop poles render (`VERIFIED_OFFICIAL`). Exact pedestrian walking paths rendered on external handoff. |
@@ -83,7 +83,7 @@ To prevent visual chaos ("pin pollution"):
 
 ---
 
-## 6. External Turn-by-Turn Handoff ($0 API Cost Strategy)
+## 6. External Turn-by-Turn Handoff Strategy
 
 When traveler taps "Navigate":
 - On **Android**: Launches Google Maps navigation intent:
@@ -91,4 +91,4 @@ When traveler taps "Navigate":
   https://www.google.com/maps/dir/?api=1&destination=LAT,LON&travelmode=driving
   ```
 - On **iOS**: Prompts choice between Apple Maps (`maps://?daddr=LAT,LON`) and Google Maps URL based on user preference.
-- Delivers voice turn-by-turn, traffic rerouting, and lane guidance for **$0.00 platform cost**.
+- Delivers voice turn-by-turn, traffic rerouting, and lane guidance via external platform intents without custom routing server dependencies. Provider pricing and quotas are external operational dependencies and must be revalidated before production launch.

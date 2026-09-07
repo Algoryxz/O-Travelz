@@ -1,4 +1,4 @@
-﻿{
+{
   "wave": "M0",
   "timestamp": "2026-09-07T03:47:00Z",
   "topic": "Mobile Mapping SDK Multiplatform Evaluation",
@@ -28,13 +28,13 @@
         "transit_routes_154_polylines": "VERY GOOD — native Polyline on Google Maps Compose; MapPolyline on SwiftUI.Map",
         "custom_atlas_styling": "EXCELLENT — JSON Cloud Styling on Google Maps; SwiftUI.Map standard / hybrid with custom tint and dark mode",
         "offline_vector_tiles": "MODERATE — basemap tiles rely on provider caching; O-TRAVELZ overlays and stops cached locally in Room/SwiftData",
-        "licensing_and_cost": "FREE ($0.00) — Google Maps SDK for mobile provides UNLIMITED free dynamic map loads (verified Sep 2026 pricing). Apple MapKit is 100% free with Apple Developer account.",
+        "licensing_and_cost": "Google Maps SDK for Android and Apple MapKit for iOS are currently utilized under respective developer/platform terms. Provider pricing and quotas are external operational dependencies and must be revalidated before production launch.",
         "ios_native_integration": "SUPERIOR — zero binary bloat, first-party Metal acceleration, native SwiftUI MapReader, Dynamic Type support, 60fps",
         "android_native_integration": "SUPERIOR — official Google Play Services, com.google.maps.android:maps-compose:4.4.1, hardware acceleration, familiar gesture handling",
-        "tile_infrastructure_cost": "ZERO ($0.00) — Google and Apple provide global basemap tiles for free on native mobile",
+        "tile_infrastructure_cost": "Basemap tiles provided via native platform SDKs without self-hosted tile infrastructure. Provider pricing and quotas are external operational dependencies and must be revalidated before production launch.",
         "long_term_maintenance": "HIGHEST — zero third-party bridge fragility; first-party platform support guaranteed"
       },
-      "ponytail_assessment": "The clear winner. Standard platform libraries, $0.00 runtime cost, zero server tile hosting maintenance, zero binary bloat on iOS, and best-in-class hardware acceleration on both platforms."
+      "ponytail_assessment": "The clear winner. Standard platform libraries, zero server tile hosting maintenance, zero binary bloat on iOS, and best-in-class hardware acceleration on both platforms. Provider pricing and quotas are external operational dependencies and must be revalidated before production launch."
     },
     {
       "option_id": "3",

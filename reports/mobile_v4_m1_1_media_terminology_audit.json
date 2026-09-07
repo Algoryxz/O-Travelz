@@ -1,0 +1,24 @@
+﻿{
+  "wave": "M1.1",
+  "timestamp": "2026-09-07T04:20:00Z",
+  "topic": "3D and Video Media Terminology and Truth Audit",
+  "findings": {
+    "previous_terminology": "Universal reference to '3D scans' or 'canonical 3D photogrammetry scans'",
+    "corrected_neutral_language": "CURATED_DESTINATION_SPECIFIC_3D",
+    "provenance_subtypes_established": [
+      "PHOTOGRAMMETRY",
+      "MANUAL_MODEL",
+      "PROCEDURAL_RECONSTRUCTION",
+      "OTHER_VERIFIED_SOURCE"
+    ],
+    "invariants_confirmed": [
+      "No generic 3D fallback models permitted",
+      "Exact canonical place identity required",
+      "Backend has_3d=false cannot be overridden or upgraded by mobile client",
+      "Video controls appear strictly for verified playable video files",
+      "Source photo count strictly reflects distinct source assets, not responsive resolution variants",
+      "RELATED_LOCATION imagery is strictly barred from being used as destination hero media"
+    ]
+  },
+  "verdict": "PASS"
+}

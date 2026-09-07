@@ -1,0 +1,26 @@
+﻿{
+  "wave": "M1.1",
+  "timestamp": "2026-09-07T04:16:00Z",
+  "topic": "Transit Departure Count Correction to Match C5.1 Forensic Truth",
+  "authoritative_truth": {
+    "canonical_unique_departures": 5549,
+    "canonical_source_file": "data/transport/canonical/schedules.json",
+    "postgresql_raw_array_count": 5553,
+    "raw_db_duplicate_entries": 4,
+    "duplicate_details": [
+      { "route": "16", "time": "20:30", "duplicates": 1 },
+      { "route": "94", "time": "08:30", "duplicates": 1 },
+      { "route": "201", "time": "18:05, 18:40", "duplicates": 2 }
+    ]
+  },
+  "correction_applied": {
+    "previous_m1_claim": "5,553 departures",
+    "corrected_normative_claim": "5,549 canonical unique departures",
+    "files_corrected": [
+      "docs/mobile-v4/JOURNEYS.md",
+      "docs/mobile-v4/TRANSIT_PRODUCT_MODEL.md",
+      "docs/mobile-v4/OFFLINE_PRODUCT_MODEL.md"
+    ]
+  },
+  "verdict": "PASS"
+}

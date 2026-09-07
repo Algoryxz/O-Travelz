@@ -1,7 +1,7 @@
-﻿# O-TRAVELZ Mobile V4 — Transit Product Model & Truth Semantics
+# O-TRAVELZ Mobile V4 — Transit Product Model & Truth Semantics
 
-> **Authoritative Mobility Specification**  
-> Operational Reality: **154 Routes, 1,430 Stops, 5,553 Departures across CRUT Mo Bus & Ama Bus**  
+> **Authoritative Mobility Specification**<br>
+> Operational Reality: **154 Routes, 1,430 Stops, 5,549 Canonical Unique Departures across CRUT Mo Bus & Ama Bus**<br>
 > Document Version: `4.0.0` | Last Updated: `2026-09-07`
 
 ---

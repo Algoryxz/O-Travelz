@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ Mobile V4 — Traveler Product Jobs (JTBD)
+# O-TRAVELZ Mobile V4 — Traveler Product Jobs (JTBD)
 
 > **Authoritative Functional Specification**  
 > Framework: **Jobs-to-be-Done (JTBD) & Traveler Outcome Engineering**  
@@ -96,9 +96,9 @@ Mobile O-TRAVELZ is architected around the concrete tasks a traveler performs be
 
 - **User Goal**: Visually contextualize destinations, routes, stops, and personal position across the geography of Odisha.
 - **Trigger**: Traveler switches to the "Map" tab or taps a location pin.
-- **Required Information**: Map basemap tiles, PostGIS projected GeoJSON entities, category icons, cluster counts, live GPS coordinates.
+- **Required Information**: Map basemap tiles, PostGIS projected GeoJSON entities, category icons, cluster counts, traveler device GPS location puck.
 - **Required Actions**: Pan, zoom, double-tap; filter visible layers (Temples, Crafts, Nature, Transit); tap clustered pins to expand; select single pin for preview bottom sheet.
-- **Backend / Data Dependency**: `POST /api/map/projection`, device GPS.
+- **Backend / Data Dependency**: `POST /api/map/projection`, on-device GPS hardware.
 - **Offline Availability**: Local vector/cached basemap viewable; all 204 places and 173 verified stops plotable offline.
 - **Truth Risks**: Plotting unverified candidate coordinates as exact locations.
   - *Mitigation*: Locality-only stops display as boundary regions, never exact misleading pins.
@@ -110,9 +110,9 @@ Mobile O-TRAVELZ is architected around the concrete tasks a traveler performs be
 
 ## Job 7: Find Practical Essentials (Civic & Emergency Utilities)
 
-- **User Goal**: Quickly locate verified emergency services, district hospitals, police stations, ATMs, fuel stations, and major transport hubs.
-- **Trigger**: Emergency need; urgent medical requirement; needing cash or fuel during highway transit.
-- **Required Information**: Verified civic utilities dataset, verified phone numbers, coordinates, address.
+- **User Goal**: Quickly locate verified emergency facilities (police, hospitals, fire, pharmacy, ATMs, fuel) nearest to the traveler's position or destination.
+- **Trigger**: Traveler taps the "Essentials" filter on the Map, uses search, or navigates from Place Detail.
+- **Required Information**: Verified civic utilities dataset (211 audited facilities across all 30 districts), verified emergency phone numbers, coordinates, address.
 - **Required Actions**: Filter essentials by category; tap to call (telephony intent); launch turn-by-turn navigation.
 - **Backend / Data Dependency**: `GET /api/v1/services/nearby`.
 - **Offline Availability**: Critical emergency contacts (Police 112, District Headquarter Hospitals, Tourist Police) bundled permanently offline.

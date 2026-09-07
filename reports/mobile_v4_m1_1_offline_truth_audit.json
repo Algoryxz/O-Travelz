@@ -1,0 +1,28 @@
+﻿{
+  "wave": "M1.1",
+  "timestamp": "2026-09-07T04:18:00Z",
+  "topic": "Offline Capability Truth Audit and De-Claiming",
+  "audit_findings": {
+    "claim_100_percent_airplane_navigability": {
+      "original_m1_claim": "100% Core Atlas Navigability in Airplane Mode",
+      "verdict": "REVISED",
+      "correction": "Reframed into 5 explicit operational tiers: BUNDLED_AND_GUARANTEED, PERSISTED_AFTER_USE, OPTIONAL_DOWNLOAD, NETWORK_REQUIRED, PROVIDER_DEPENDENT."
+    },
+    "claim_fixed_250mb_cache": {
+      "original_m1_claim": "Strict 250 MB LRU disk cache",
+      "verdict": "REMOVED",
+      "correction": "Eliminated arbitrary 250 MB number; cache size deferred to measured production image weight budgets at M23."
+    },
+    "claim_guaranteed_offline_basemap": {
+      "original_m1_claim": "Local vector/cached basemap viewable offline",
+      "verdict": "REVISED",
+      "correction": "Explicitly stated that Google Maps SDK and MapKit do not guarantee offline basemap tiles unless provider caching or external offline areas are present."
+    },
+    "claim_offline_ai": {
+      "original_m1_claim": "AI deterministic offline fallback",
+      "verdict": "CLARIFIED",
+      "correction": "Cloud AI is strictly unavailable offline; only deterministic logic compiled locally in the client can execute."
+    }
+  },
+  "verdict": "PASS"
+}

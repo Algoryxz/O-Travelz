@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ Mobile V4 — AI Assistant Product Model & Grounding Architecture
+# O-TRAVELZ Mobile V4 — AI Assistant Product Model & Grounding Architecture
 
 > **Authoritative AI Behavioral Specification**  
 > Philosophy: **Deterministic Facts Lead; AI Interprets Intent and Explains Outcomes**  
@@ -65,13 +65,14 @@ The AI Assistant does **not** replace structured UI controls (date pickers, cate
 
 ---
 
-## 4. Provider Fallback Chain & Offline State
+## 4. Mobile AI Capability Contracts & Offline States
 
-To ensure zero-cost resilience and high availability:
-1. **Primary Cloud LLM**: Google Gemini 1.5 Flash (zero-cost API tier via Google AI Studio).
-2. **Secondary Cloud Fallback**: Groq Llama 3.3 70B (high-speed fallback).
-3. **Tertiary Cloud Fallback**: NVIDIA NIM Llama 3.1 8B.
-4. **Deterministic Offline Fallback**: `RuleBasedAdapter`.
-   - When network is disconnected, the AI Chat sheet gracefully displays an offline banner:
-     *"AI Assistant requires internet connection. Displaying curated golden circuits for your selected region."*
-   - Zero crashes; zero hallucinations.
+Mobile clients do not encode or select cloud AI providers. The mobile client interacts exclusively with the backend orchestration contract via capability response states:
+
+1. **`AI_AVAILABLE`**: Cloud AI assistant is operational. Conversational intent parsing and grounded itinerary refinement are fully active with cited claims.
+2. **`AI_DEGRADED`**: Cloud AI latency exceeds interactive thresholds or primary inference is degraded; backend returns structured summaries with cached grounding.
+3. **`DETERMINISTIC_FALLBACK`**: Cloud AI endpoints are unreachable. Backend or local client invokes deterministic algorithmic solvers and pre-canned Odia cultural FAQs.
+4. **`AI_UNAVAILABLE`**: Offline or disconnected. The AI chat sheet gracefully displays an informative banner:
+   *"AI Assistant requires internet connection. Displaying curated golden circuits for your selected region."* Zero crashes; zero hallucinations.
+
+> **Current Backend Implementation Reference**: As of V4 backend deployment D1.6, the server-side provider failover chain operates across Gemini 1.5 Flash → Groq Llama 3.3 70B → NVIDIA NIM Llama 3.1 8B → RuleBasedAdapter. Mobile clients remain agnostic to this upstream chain.
