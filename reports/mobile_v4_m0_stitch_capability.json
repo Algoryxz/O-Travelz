@@ -1,0 +1,51 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T03:52:00Z",
+  "tool_name": "StitchMCP",
+  "connection_status": "LOCAL_SCHEMA_VERIFIED",
+  "schema_repository": "C:\\Users\\smara\\.gemini\\antigravity-ide\\mcp\\StitchMCP",
+  "verified_tool_schemas": [
+    "list_projects.json",
+    "get_project.json",
+    "create_project.json",
+    "delete_project.json",
+    "list_screens.json",
+    "get_screen.json",
+    "generate_screen_from_text.json",
+    "generate_variants.json",
+    "edit_screens.json",
+    "create_design_system.json",
+    "update_design_system.json",
+    "list_design_systems.json",
+    "create_design_system_from_design_md.json",
+    "apply_design_system.json",
+    "upload_design_md.json"
+  ],
+  "capabilities": {
+    "concept_generation": "HIGH — generates 2-3 architectural visual alternatives based on text prompt",
+    "layout_exploration": "HIGH — rapid layout generation and spatial variation",
+    "mood_direction_alternatives": "HIGH — supports exploration of dark vs warm sandstone themes",
+    "motion_ideas": "MODERATE — generates conceptual animation transitions and micro-interaction descriptions",
+    "platform_awareness": "RESTRICTED — Stitch produces web/HTML/React-centric layouts; must NOT be used directly as mobile native code",
+    "export_format": "HTML/React DOM tree with Tailwind/CSS classes"
+  },
+  "governance_and_separation_of_concerns": {
+    "stitch_responsibilities": [
+      "Concept generation and mood exploration",
+      "Generating 2-3 visual layout alternatives per major screen (Explore, Detail, Plan, Transit)",
+      "Testing editorial contrast and card density before manual Figma component specification"
+    ],
+    "figma_responsibilities": [
+      "Canonical source-of-truth design",
+      "Semantic design token variables (Color, Typography, Spacing, Radius, Elevation)",
+      "Native component specifications (Auto Layout, Variants, Component Sets)",
+      "Platform-specific visual designs (Material 3 for Android, HIG for iOS)",
+      "Interactive clickable prototypes and handoff specs"
+    ],
+    "hard_rules": [
+      "RULE 1: Stitch-generated HTML/TSX code is NEVER committed to mobile/android or mobile/ios.",
+      "RULE 2: Stitch output is strictly an interim conceptual artifact.",
+      "RULE 3: All mobile production code is written by hand in native Jetpack Compose (Android) and SwiftUI (iOS) referencing approved Figma specifications."
+    ]
+  }
+}

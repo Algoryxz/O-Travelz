@@ -1,0 +1,102 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T03:45:00Z",
+  "topic": "Kotlin Multiplatform (KMP) Architecture Scope Evaluation",
+  "methodology": "Multi-criteria weighted evaluation applying Ponytail minimalism principles",
+  "options_evaluated": [
+    {
+      "id": "A",
+      "name": "Fully Native Android + iOS (Zero Shared KMP)",
+      "description": "Android written in Kotlin/Compose, iOS in Swift/SwiftUI. All math, geofencing, first-mile heuristics, and models implemented twice independently.",
+      "scores": {
+        "implementation_complexity": 7,
+        "swift_interop": 10,
+        "build_complexity": 10,
+        "debugging": 10,
+        "testing": 6,
+        "platform_independence": 10,
+        "team_familiarity": 9,
+        "maintenance": 5,
+        "actual_reusable_logic": 1,
+        "risk_of_kmp_creep": 10
+      },
+      "total_score_out_of_100": 78,
+      "ponytail_verdict": "REJECTED. Duplicating spherical trigonometry (Haversine R=6371.0088km), first-mile walking threshold boundaries (800m/1500m), and consensus verification algorithms invites drift between iOS and Android. Violates deterministic parity contract."
+    },
+    {
+      "id": "B",
+      "name": "KMP Generated Contracts & API Models Only",
+      "description": "KMP project generates serialization DTOs and API contract data classes, but domain algorithms (first-mile, timetable solver) live in platform code.",
+      "scores": {
+        "implementation_complexity": 6,
+        "swift_interop": 7,
+        "build_complexity": 7,
+        "debugging": 8,
+        "testing": 7,
+        "platform_independence": 8,
+        "team_familiarity": 7,
+        "maintenance": 6,
+        "actual_reusable_logic": 4,
+        "risk_of_kmp_creep": 8
+      },
+      "total_score_out_of_100": 68,
+      "ponytail_verdict": "REJECTED. Generates complex Swift mapping overhead for simple JSON DTOs while missing the actual valuable deterministic algorithmic parity."
+    },
+    {
+      "id": "C",
+      "name": "Small KMP Deterministic Domain Core + Fully Native UI (Selected)",
+      "description": "Pure Kotlin stdlib only. No UI, no network, no DB, no serialization, no coroutine runtimes in shared framework. Contains only: GeoPoint, HaversineDistance, OdishaBounds, FirstMileEngine, TimetableEngine, SearchFilterEngine, RideVerificationEngine, and Provenance Enums.",
+      "scores": {
+        "implementation_complexity": 9,
+        "swift_interop": 9,
+        "build_complexity": 8,
+        "debugging": 9,
+        "testing": 10,
+        "platform_independence": 9,
+        "team_familiarity": 8,
+        "maintenance": 9,
+        "actual_reusable_logic": 10,
+        "risk_of_kmp_creep": 9
+      },
+      "total_score_out_of_100": 90,
+      "ponytail_verdict": "SELECTED. The laziest, cleanest solution that guarantees deterministic mathematical parity. 13 files, 0 third-party dependencies, standard library only. Compiles to static XCFramework for iOS and standard Gradle dependency for Android. Zero risk of KMP UI complexity."
+    },
+    {
+      "id": "D",
+      "name": "Large Shared KMP Application Core (Compose Multiplatform / Shared Architecture)",
+      "description": "KMP handles networking (Ktor), local persistence (SQLDelight/Room KMP), state machines (Decompose/Voyager), and/or Compose Multiplatform UI.",
+      "scores": {
+        "implementation_complexity": 3,
+        "swift_interop": 3,
+        "build_complexity": 4,
+        "debugging": 4,
+        "testing": 7,
+        "platform_independence": 5,
+        "team_familiarity": 4,
+        "maintenance": 4,
+        "actual_reusable_logic": 7,
+        "risk_of_kmp_creep": 1
+      },
+      "total_score_out_of_100": 42,
+      "ponytail_verdict": "REJECTED. Gross over-engineering. High maintenance burden, fragile CocoaPods/SPM bridge, crippled SwiftUI idioms, bloated binary size, and severe Swift concurrency friction."
+    }
+  ],
+  "formal_decision": {
+    "selected_option": "C",
+    "retained_shared_scope": [
+      "com.otravelz.shared.geo (GeoPoint, HaversineDistance, OdishaBounds)",
+      "com.otravelz.shared.engine (FirstMileEngine, TimetableEngine, SearchFilterEngine)",
+      "com.otravelz.shared.provenance (DataProvenance, LocationState, WeatherState)",
+      "com.otravelz.shared.i18n (LocalizationKeys, LocalizedNames)",
+      "com.otravelz.shared.verification (RideVerificationEngine)"
+    ],
+    "strictly_excluded_from_kmp": [
+      "UI components or views (No Compose Multiplatform)",
+      "Networking layer (No Ktor in shared; native URLSession and Retrofit/OkHttp)",
+      "Local persistence (No SQLDelight; native SwiftData on iOS and Room on Android)",
+      "Location providers (No multiplatform location libraries; native CoreLocation and FusedLocationProviderClient)",
+      "Dependency injection frameworks (No Koin in shared)"
+    ],
+    "ponytail_guardrail": "Any proposed addition to mobile/shared must pass the 3-question test: 1) Is it pure deterministic domain logic? 2) Does it have zero external dependencies? 3) Does failure to share it create high risk of calculation drift between iOS and Android?"
+  }
+}

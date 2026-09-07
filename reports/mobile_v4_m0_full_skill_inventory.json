@@ -1,0 +1,61 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T03:58:00Z",
+  "summary": "Unified cross-platform and domain skill inventory for O-TRAVELZ Mobile V4",
+  "total_skills_cataloged": 56,
+  "skills_by_tier": {
+    "tier_1_core_architecture_and_governance": [
+      { "name": "ponytail", "source": "local plugin", "platform": "CROSS_PLATFORM", "role": "Simplicity, minimalism, zero-bloat enforcement" },
+      { "name": "ponytail-review", "source": "local plugin", "platform": "CROSS_PLATFORM", "role": "Audit PRs for unnecessary abstractions" },
+      { "name": "ponytail-audit", "source": "local plugin", "platform": "CROSS_PLATFORM", "role": "Repo-wide scan for dead dependencies and over-engineering" },
+      { "name": "graphify", "source": "local config", "platform": "CROSS_PLATFORM", "role": "Knowledge graph AST updates and architecture relationships" }
+    ],
+    "tier_2_design_and_visual_intelligence": [
+      { "name": "ui-ux-pro-max", "source": ".agents/skills/ui-ux-pro-max", "platform": "CROSS_PLATFORM", "role": "Primary UI/UX design intelligence, typography, layouts" },
+      { "name": "frontend-design", "source": ".agents/skills/frontend-design", "platform": "CROSS_PLATFORM", "role": "Editorial styling, cultural framing, anti-template layouts" },
+      { "name": "design-system", "source": ".agents/skills/design-system", "platform": "CROSS_PLATFORM", "role": "3-tier semantic tokens (primitive -> semantic -> component)" },
+      { "name": "brand", "source": ".agents/skills/brand", "platform": "CROSS_PLATFORM", "role": "Brand voice, Odishan cultural tone, asset management" },
+      { "name": "banner-design", "source": ".agents/skills/banner-design", "platform": "CROSS_PLATFORM", "role": "Hero banners, editorial social preview cards" },
+      { "name": "design", "source": ".agents/skills/design", "platform": "CROSS_PLATFORM", "role": "Custom SVG iconography and vector pins" },
+      { "name": "Figma MCP", "source": "https://mcp.figma.com/mcp", "platform": "CROSS_PLATFORM", "role": "Canonical source-of-truth design, variables, components" },
+      { "name": "Stitch MCP", "source": "C:\\Users\\smara\\.gemini\\antigravity-ide\\mcp\\StitchMCP", "platform": "CROSS_PLATFORM", "role": "Conceptual screen generation and visual alternative exploration" }
+    ],
+    "tier_3_native_ios_swift": [
+      { "name": "swiftui-patterns", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "Modern MV + @Observable + View decomposition" },
+      { "name": "swiftui-layout-components", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "Lists, Grids, Stacks, ScrollPosition" },
+      { "name": "swiftui-navigation", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "NavigationStack, NavigationSplitView" },
+      { "name": "swiftui-liquid-glass", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "Native Apple Liquid Glass (Progressive enhancement on iOS 17+)" },
+      { "name": "swiftui-animation", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "Springs, PhaseAnimator, Reduce Motion compliance" },
+      { "name": "swiftui-gestures", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "Drag, sheet physics, interactive gestures" },
+      { "name": "mapkit", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "SwiftUI.Map, custom pins, polylines" },
+      { "name": "swift-architecture", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "Module boundaries, SwiftData models" },
+      { "name": "swift-concurrency", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "Swift 6 strict concurrency, Sendable" },
+      { "name": "swift-codable", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "Codable JSON deserialization" },
+      { "name": "ios-networking", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "URLSession async/await client" },
+      { "name": "ios-accessibility", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "VoiceOver, Dynamic Type XS-XXXL" },
+      { "name": "ios-localization", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "String Catalogs, Odia font rendering" },
+      { "name": "swift-testing", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "Swift Testing @Test suite" },
+      { "name": "swift-security", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "Keychain Services, CryptoKit" },
+      { "name": "debugging-instruments", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "Instruments, Memory Graph, LLDB" },
+      { "name": "swiftui-performance", "source": "swift-ios-skills", "platform": "IOS_ONLY", "role": "60fps frame rate, hitch triage" }
+    ],
+    "tier_4_native_android_compose": [
+      { "name": "android-adaptive", "source": "android/skills", "platform": "ANDROID_ONLY", "role": "Adaptive layout, MediaQuery, Navigation3" },
+      { "name": "android-edge-to-edge", "source": "android/skills", "platform": "ANDROID_ONLY", "role": "enableEdgeToEdge(), WindowInsets.safeDrawing" },
+      { "name": "android-navigation-3", "source": "android/skills", "platform": "ANDROID_ONLY", "role": "Jetpack Navigation 3, backstacks, scenes" },
+      { "name": "android-styles", "source": "android/skills", "platform": "ANDROID_ONLY", "role": "Compose Styles API, Material 3 theming" },
+      { "name": "android-testing-setup", "source": "android/skills", "platform": "ANDROID_ONLY", "role": "Unit tests, Compose UI tests" },
+      { "name": "android-profiler", "source": "android/skills", "platform": "ANDROID_ONLY", "role": "Android Studio profiler, heap dumps, SQL queries" },
+      { "name": "android-r8-analyzer", "source": "android/skills", "platform": "ANDROID_ONLY", "role": "ProGuard keep rules and APK size" },
+      { "name": "android-intent-security", "source": "android/skills", "platform": "ANDROID_ONLY", "role": "Intent redirection prevention, safe Maps URL handoff" },
+      { "name": "android-play-policy-insights", "source": "android/skills", "platform": "ANDROID_ONLY", "role": "Play Store Data Safety, permissions audit" },
+      { "name": "android-camerax", "source": "android/skills", "platform": "ANDROID_ONLY", "role": "CameraX for community photo verification" },
+      { "name": "android-cli", "source": "android/skills", "platform": "ANDROID_ONLY", "role": "CLI build and emulator management" }
+    ],
+    "tier_5_banned_from_mobile": [
+      { "name": "ui-styling", "source": "local skill", "restriction": "WEB_ONLY (Tailwind CSS strictly banned from native Compose and SwiftUI)" },
+      { "name": "Canvas UI", "source": "external reference", "restriction": "REJECTED (Gimmicky canvas animations banned by Anti-Vibe-Code rules)" },
+      { "name": "OpenMotion", "source": "external reference", "restriction": "REJECTED (Non-standard motion library; use native Compose/SwiftUI animations)" }
+    ]
+  }
+}

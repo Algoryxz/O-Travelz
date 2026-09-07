@@ -1,0 +1,20 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T04:14:00Z",
+  "topic": "Repository Layout & Mobile Gradle Project Structure Decision",
+  "decision": "PREFER_EXISTING_MOBILE_GRADLE_ROOT_DECOUPLED_IOS",
+  "layout_architecture": {
+    "root_directory": "mobile/",
+    "planned_modules": {
+      "mobile/shared": "Kotlin Multiplatform domain core (Active, compiles JVM/Android/iOS XCFramework)",
+      "mobile/android": "Android Native application module (To be bootstrapped at Wave M5)",
+      "mobile/ios": "iOS Native Xcode project (To be bootstrapped at Wave M5, consumes compiled OTravelzCore.xcframework)"
+    }
+  },
+  "rationale": [
+    "Retains unified Gradle version catalog (mobile/gradle/libs.versions.toml) for shared and Android dependencies, eliminating version skew.",
+    "Decouples iOS from Gradle execution: iOS engineers open OTravelz.xcodeproj in Xcode directly without executing Gradle build steps during everyday SwiftUI development.",
+    "Applying Ponytail minimalism: avoids creating separate Android root or multi-repo submodules.",
+    "STRICT EXECUTION RULE: Do NOT create :android in mobile/settings.gradle.kts or create build files in mobile/android/ during M0 or M0.5. Bootstrap occurs strictly at Wave M5."
+  ]
+}

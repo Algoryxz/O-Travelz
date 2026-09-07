@@ -1,0 +1,201 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T03:56:00Z",
+  "category": "Official iOS & Swift Skills",
+  "source_repository": "https://github.com/dpearson2699/swift-ios-skills",
+  "local_path": "C:\\Users\\smara\\.gemini\\config\\skills",
+  "inventory": [
+    {
+      "skill_name": "swiftui-patterns",
+      "installed": true,
+      "purpose": "Modern MV with @Observable macro, state ownership, view decomposition, isolated previews",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M1", "M2", "M7", "M8", "M10"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "swiftui-layout-components",
+      "installed": true,
+      "purpose": "VStack/HStack/ZStack, LazyVGrid, List sections, ScrollView with ScrollPosition",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M7", "M8", "M9", "M10", "M14"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "swiftui-navigation",
+      "installed": true,
+      "purpose": "NavigationStack, NavigationSplitView for iPad, modal sheet presentation, programmatic routing",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M7", "M8", "M10", "M14"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "swiftui-liquid-glass",
+      "installed": true,
+      "purpose": "Native Apple Liquid Glass effects. STRICT POLICY: Progressive enhancement on supported Apple hardware; baseline is standard high-contrast materials on iOS 17",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M2", "M3", "M4", "M7", "M10"],
+      "governance": "MANDATORY_PROGRESSIVE_ENHANCEMENT"
+    },
+    {
+      "skill_name": "swiftui-animation",
+      "installed": true,
+      "purpose": "Explicit and scoped implicit animations, springs, PhaseAnimator, KeyframeAnimator, Reduce Motion compliance",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M3", "M4", "M8", "M10"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "swiftui-gestures",
+      "installed": true,
+      "purpose": "Tap, long press, drag, simultaneous gestures, swipe-to-dismiss bottom sheet physics",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M3", "M10", "M11"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "swiftui-performance",
+      "installed": true,
+      "purpose": "SwiftUI Instruments lanes, hitch reduction, lazy-container guardrails, body churn triage",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M23", "M25", "M28"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "mapkit",
+      "installed": true,
+      "purpose": "SwiftUI.Map, custom MapAnnotation markers, MapPolyline, MapReader, CoreLocation streams",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M11", "M12"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "swift-concurrency",
+      "installed": true,
+      "purpose": "Swift 6 strict concurrency checking, Sendable types, actor isolation, TaskGroup offloading",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M5", "M6", "M14", "M18"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "swift-architecture",
+      "installed": true,
+      "purpose": "Module and dependency boundaries, MV with Observation, SwiftData ownership seams",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M0.5", "M5", "M7"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "swift-codable",
+      "installed": true,
+      "purpose": "JSON decoding with custom keys, date strategies, heterogeneous array parsing",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M6"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "ios-networking",
+      "installed": true,
+      "purpose": "URLSession async/await, request middleware, disk caching, reachability monitoring",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M6", "M18"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "ios-accessibility",
+      "installed": true,
+      "purpose": "VoiceOver labels/traits/actions, Dynamic Type XS to XXXL scaling, 44x44pt touch targets",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M21", "M28"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "ios-localization",
+      "installed": true,
+      "purpose": "String Catalogs (.xcstrings), Odia script rendering, locale-aware date/time formatting",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M22"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "swift-testing",
+      "installed": true,
+      "purpose": "Swift Testing framework (@Test, @Suite, #expect, #require), exit tests, async test suites",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M5", "M28"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "swift-security",
+      "installed": true,
+      "purpose": "Keychain Services, Secure Enclave, CryptoKit, secure session tokens storage",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M16", "M24"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "push-notifications",
+      "installed": true,
+      "purpose": "UNUserNotificationCenter, transit departure countdown alerts, rich local notifications",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M17"],
+      "governance": "OPTIONAL"
+    },
+    {
+      "skill_name": "background-processing",
+      "installed": true,
+      "purpose": "BGAppRefreshTask for periodic offline atlas delta syncs and weather updates",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M18"],
+      "governance": "MANDATORY_M18"
+    },
+    {
+      "skill_name": "authentication",
+      "installed": true,
+      "purpose": "Sign in with Apple, ASWebAuthenticationSession, biometric re-authentication with LocalAuthentication",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M16"],
+      "governance": "MANDATORY_M16"
+    },
+    {
+      "skill_name": "debugging-instruments",
+      "installed": true,
+      "purpose": "Instruments, Memory Graph Debugger, LLDB, retain-cycle triage, 60fps scrolling audits",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M23", "M28"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "metrickit",
+      "installed": true,
+      "purpose": "Production hang/crash telemetry and launch performance diagnostics",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M23", "M28"],
+      "governance": "OPTIONAL"
+    },
+    {
+      "skill_name": "permissionkit",
+      "installed": true,
+      "purpose": "Child communication safety (not applicable to adult travel application)",
+      "platform": "IOS_ONLY",
+      "target_waves": ["NONE"],
+      "governance": "NOT_APPLICABLE"
+    },
+    {
+      "skill_name": "app-store-optimization",
+      "installed": true,
+      "purpose": "ASO keyword research, localized metadata, App Store product page optimization",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M28", "M30"],
+      "governance": "MANDATORY_M28"
+    },
+    {
+      "skill_name": "app-store-review",
+      "installed": true,
+      "purpose": "App Store submission readiness, PrivacyInfo.xcprivacy, required-reason APIs audit",
+      "platform": "IOS_ONLY",
+      "target_waves": ["M24", "M28"],
+      "governance": "MANDATORY_M28"
+    }
+  ]
+}

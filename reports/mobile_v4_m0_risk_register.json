@@ -1,0 +1,52 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T04:16:00Z",
+  "topic": "Mobile V4 Master Risk Register",
+  "risks": [
+    {
+      "risk_id": "RISK-001",
+      "category": "Architecture / Scope Creep",
+      "description": "KMP scope expanding into UI, networking, or persistence, leading to brittle cross-platform bridges.",
+      "severity": "HIGH",
+      "probability": "LOW",
+      "mitigation": "Enforced Ponytail guardrail: mobile/shared is strictly standard-library only. Any PR adding external dependencies to shared is automatically rejected.",
+      "trigger": "Attempted addition of Ktor, SQLDelight, or Compose Multiplatform to shared/build.gradle.kts"
+    },
+    {
+      "risk_id": "RISK-002",
+      "category": "Design / Platform Parity Drift",
+      "description": "One platform becoming a superficial visual port of the other, violating native platform idioms.",
+      "severity": "HIGH",
+      "probability": "MEDIUM",
+      "mitigation": "Parallel execution model (M2, M3, M4). Android uses Material 3 Expressive, iOS uses HIG. Semantic parity enforced; visual divergence explicitly allowed.",
+      "trigger": "Attempting to copy SwiftUI component structures into Compose or vice-versa"
+    },
+    {
+      "risk_id": "RISK-003",
+      "category": "Truth Integrity / Transit Data",
+      "description": "Presenting scheduled timetable bus data as live vehicle tracking or fabricating missing fares.",
+      "severity": "CRITICAL",
+      "probability": "LOW",
+      "mitigation": "Truth Contracts document. Badges must be derived from DataProvenance enums. 'Scheduled' label mandatory. Fares strictly null until audited table ingested.",
+      "trigger": "UI using the phrase 'live arrival' or displaying a moving bus icon without telemetry"
+    },
+    {
+      "risk_id": "RISK-004",
+      "category": "Mapping / Cost Spike",
+      "description": "Accidentally introducing paid runtime routing or places autocomplete APIs, creating high ongoing operational costs.",
+      "severity": "HIGH",
+      "probability": "LOW",
+      "mitigation": "Zero-cost external navigation handoff strategy using Google Maps / Apple Maps universal URLs ($0.00 cost). Unlimited free mobile SDK map loads.",
+      "trigger": "Attempt to add Google Routes API or Places Autocomplete SDK to mobile projects"
+    },
+    {
+      "risk_id": "RISK-005",
+      "category": "Toolchain / OS Target Conflict",
+      "description": "Bumping iOS deployment target to iOS 18+ for visual effects, breaking compatibility with older active devices.",
+      "severity": "MEDIUM",
+      "probability": "LOW",
+      "mitigation": "Strict policy: iOS 17.0+ minimum. Liquid Glass is progressive enhancement behind #available(iOS 18, *) checks. Never fake in software.",
+      "trigger": "Changing IPHONEOS_DEPLOYMENT_TARGET above 17.0"
+    }
+  ]
+}

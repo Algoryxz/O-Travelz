@@ -1,0 +1,53 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T04:05:00Z",
+  "platform": "Android",
+  "language": "Kotlin 2.0+",
+  "ui_framework": "Jetpack Compose with Material 3 Expressive",
+  "sdk_targets": {
+    "min_sdk": 26,
+    "min_sdk_status": "PROVISIONALLY_APPROVED",
+    "min_sdk_rationale": "Matches mobile/shared/build.gradle.kts baseline (Android 8.0 Oreo). Covers required Java 8 desugaring and spatial math.",
+    "target_sdk": 35,
+    "compile_sdk": 35,
+    "compile_sdk_status": "VERIFIED_AGAINST_TOOLCHAIN"
+  },
+  "reference_hardware": {
+    "device_model": "Vivo 1920 (Y19)",
+    "os_version": "Android 12 (API 31)",
+    "ram": "8 GB",
+    "processor": "MediaTek Helio P65 / ARM64",
+    "display": "1080x2340, 395 ppi, 6.53 inch LCD",
+    "role": "Real-world physical hardware performance validation baseline"
+  },
+  "edge_to_edge_policy": {
+    "status": "MANDATORY_ENFORCED",
+    "mechanism": "androidx.activity.enableEdgeToEdge() called in ComponentActivity.onCreate()",
+    "insets_rules": [
+      "WindowInsets.safeDrawing for top status bar and bottom navigation gesture bars",
+      "WindowInsets.ime for keyboard animations and search filters",
+      "Zero artificial black bars or letterboxing"
+    ]
+  },
+  "predictive_back_policy": {
+    "status": "MANDATORY",
+    "manifest_declaration": "android:enableOnBackInvokedCallback=true",
+    "compose_api": "PredictiveBackHandler for modal bottom sheets and nested backstacks"
+  },
+  "adaptive_layout_strategy": {
+    "framework": "androidx.compose.material3.adaptive",
+    "window_size_classes": {
+      "compact": "< 600dp (standard smartphones): Bottom Navigation Bar, single-column feed",
+      "medium": "600dp - 840dp (foldables, small tablets): Navigation Rail, list-detail pane",
+      "expanded": "> 840dp (tablets, desktops): Persistent Navigation Rail, dual-pane simultaneous view"
+    }
+  },
+  "color_and_theme_strategy": {
+    "design_system": "Odisha Cultural Atlas branded palette (Sandstone #B87B22 / #D4A373, Charcoal #0A0F1D / #0D1117, Forest #1F3A2B / #34D399, Warm Sand #F9F6F0)",
+    "dynamic_color_policy": "Branded theme is authoritative. Dynamic Color (Material You) may be optionally enabled by user preference, but Atlas cultural pins and truth badges remain branded."
+  },
+  "location_and_permissions": {
+    "policy": "PROGRESSIVE_DISCLOSURE",
+    "rule": "Never ask for location at app launch. Prompt only when user taps 'Near Me' or requests transit first-mile guidance."
+  }
+}

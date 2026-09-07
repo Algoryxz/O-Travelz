@@ -1,0 +1,47 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T04:00:00Z",
+  "reviewer": "Ponytail Architectural Simplicity Engine",
+  "core_commandment": "The laziest solution that actually works, simplest, shortest, most minimal. Reach for standard library before custom code, native platform features before dependencies, one line before fifty.",
+  "evaluations": {
+    "kmp_scope": {
+      "verdict": "PASSED_WITH_RESTRICTIONS",
+      "findings": "Restricting KMP to standard library only (13 pure math and enum files) passes Ponytail. Rejecting Compose Multiplatform, SQLDelight, Ktor, and Koin prevents thousands of lines of fragile multiplatform boilerplate. KMP remains a tiny, deterministic pure-math calculation kernel."
+    },
+    "repo_structure": {
+      "verdict": "PASSED",
+      "findings": "Retaining mobile/ root with mobile/shared, mobile/android, and mobile/ios avoids duplicating repository roots or introducing external submodules. Decoupled Xcode project in mobile/ios/ consumes compiled XCFramework cleanly."
+    },
+    "gradle_structure": {
+      "verdict": "PASSED",
+      "findings": "Single Gradle root in mobile/ with shared libs.versions.toml version catalog prevents dependency divergence between shared and Android. Delaying creation of :android until M5 avoids dead Gradle modules before design acceptance."
+    },
+    "figma_token_model": {
+      "verdict": "PASSED",
+      "findings": "3-tier semantic tokens (Primitive -> Semantic -> Component) map cleanly to native Android Color/Typography and iOS Asset Catalog / ShapeStyles. No intermediate third-party token compiler (e.g. Style Dictionary) needed; standard native code maps 1:1 to Figma variables."
+    },
+    "navigation_architecture": {
+      "verdict": "PASSED",
+      "findings": "Standard native navigation stacks (Jetpack Navigation 3 on Android, NavigationStack on iOS). Zero cross-platform navigation abstractions (no Voyager, no Decompose). Deep links handled via platform-native URI intent filters / Universal Links."
+    },
+    "map_abstraction": {
+      "verdict": "PASSED",
+      "findings": "No unified cross-platform map wrapper interface. Google Maps Compose uses native Compose idioms; SwiftUI.Map uses native iOS 17 Map annotations. Turn-by-turn routing is zero-cost external URL handoff to native Google Maps / Apple Maps. Zero paid routing APIs, zero routing graph code to maintain."
+    },
+    "networking_strategy": {
+      "verdict": "PASSED",
+      "findings": "No shared Ktor client in KMP. Android uses Retrofit 2.11 + OkHttp (industry standard, cached in libs.versions.toml); iOS uses standard URLSession async/await with native Codable. Zero third-party network bridges."
+    },
+    "persistence_strategy": {
+      "verdict": "PASSED",
+      "findings": "No shared multiplatform SQLite database. Android uses standard Room SQLite with KSP; iOS uses first-party SwiftData with @Model containers. Both persist the same canonical JSON schema offline without third-party ORM overhead."
+    }
+  },
+  "overall_ponytail_score": "94/100",
+  "guardrails_for_m1_through_m30": [
+    "Never add an external library if standard library or platform SDK has a working implementation.",
+    "Never create a generic wrapper interface that only has one implementation per platform.",
+    "Never simulate hardware features in software (e.g. fake Liquid Glass or fake GPS).",
+    "Keep mobile/shared strictly zero-dependency."
+  ]
+}

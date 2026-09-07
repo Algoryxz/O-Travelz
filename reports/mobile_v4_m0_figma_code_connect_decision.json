@@ -1,0 +1,26 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T04:10:00Z",
+  "topic": "Figma Code Connect Investigation & Adoption Strategy",
+  "decision": "REVIEW_AT_M5",
+  "options_evaluated": [
+    "USE_NOW (Rejected: No production UI code exists yet; nothing to connect)",
+    "DO_NOT_USE (Rejected: Code Connect provides valuable Dev Mode bridge once production components exist)",
+    "USE_LATER / REVIEW_AT_M5 (Selected: Re-evaluate when production Android Compose and iOS SwiftUI component foundations are bootstrapped at M5)"
+  ],
+  "rationale": {
+    "current_stage": "Wave M0/M0.5 is focused on architecture, design workspace structure, and truth contracts. Zero production composables or SwiftUI views exist in the repository.",
+    "code_connect_prerequisites": [
+      "Stable Figma component set in the O-TRAVELZ design system",
+      "Stable Compose composables in mobile/android/",
+      "Stable SwiftUI views in mobile/ios/",
+      "Figma Dev Mode subscription seat"
+    ],
+    "overhead_evaluation": "Implementing Code Connect files (*.figma.kt, *.figma.swift) prematurely adds maintenance churn while component props are evolving during M1-M4 exploration."
+  },
+  "trigger_conditions_for_m5_review": [
+    "Android and iOS projects successfully bootstrapped with basic design system tokens",
+    "Figma components published and versioned in Team Library",
+    "Automated CLI build pipeline capable of running @figma/code-connect publish"
+  ]
+}

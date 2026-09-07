@@ -1,0 +1,25 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T04:18:00Z",
+  "topic": "Mobile V4 Master Decision Ledger",
+  "decisions": [
+    { "id": "D-M0-01", "decision": "Dual-native architecture with separate Android Compose and iOS SwiftUI codebases sharing a pure KMP domain core", "status": "APPROVED" },
+    { "id": "D-M0-02", "decision": "iOS minimum deployment target locked at iOS 17.0+ (Swift 5.9+ / Swift 6.0 Concurrency)", "status": "APPROVED" },
+    { "id": "D-M0-03", "decision": "Android minSdk provisionally locked at 26 (Android 8.0 Oreo), compileSdk 35, targetSdk 35", "status": "APPROVED" },
+    { "id": "D-M0-04", "decision": "KMP scope strictly bounded to Option C: small deterministic domain core (geo, first-mile, timetables, provenance)", "status": "APPROVED" },
+    { "id": "D-M0-05", "decision": "Mapping SDK strategy locked at Option 2: Google Maps Compose on Android, Apple MapKit (SwiftUI.Map) on iOS", "status": "APPROVED" },
+    { "id": "D-M0-06", "decision": "Turn-by-turn navigation handoff strategy: zero-cost external deep link to native Google Maps / Apple Maps ($0.00 cost)", "status": "APPROVED" },
+    { "id": "D-M0-07", "decision": "Liquid Glass policy: Progressive enhancement on supported Apple hardware; baseline is standard high-contrast system materials on iOS 17. Never fake in software", "status": "APPROVED" },
+    { "id": "D-M0-08", "decision": "Figma MCP integration: Official remote streamable HTTP server configured at https://mcp.figma.com/mcp", "status": "CONFIGURED" },
+    { "id": "D-M0-09", "decision": "Figma workspace structure established: 00 Foundations, 01 Shared Semantics, 10-15 Android, 20-25 iOS, 90 Stitch, 99 Archive", "status": "ESTABLISHED" },
+    { "id": "D-M0-10", "decision": "Stitch MCP role: Concept exploration, mood alternatives, and layout ideas only; Stitch code is NEVER committed to production", "status": "BOUNDED" },
+    { "id": "D-M0-11", "decision": "Figma Code Connect: Decision deferred to REVIEW_AT_M5 when production components are scaffolded", "status": "DEFERRED_M5" },
+    { "id": "D-M0-12", "decision": "Repository structure: Retain mobile/ Gradle root with future mobile/android/ and mobile/shared/; decoupled mobile/ios/ Xcode project", "status": "APPROVED" },
+    { "id": "D-M0-13", "decision": "M0.5 app scaffolding prohibition: Zero production screens, zero app scaffold, zero Xcode project, zero build files in mobile/android during M0.5. Bootstrap at M5", "status": "ENFORCED" },
+    { "id": "D-M0-14", "decision": "Execution sequence: Parallel Android and iOS execution across M0 to M30; neither platform serves as template for the other", "status": "APPROVED" },
+    { "id": "D-M0-15", "decision": "Design philosophy: Capability, truth, contract, and quality parity mandatory; visual, motion, and navigation presentation divergence explicitly allowed", "status": "APPROVED" },
+    { "id": "D-M0-16", "decision": "API contract strategy: Native Retrofit/OkHttp on Android, native URLSession on iOS; zero networking code in KMP", "status": "APPROVED" },
+    { "id": "D-M0-17", "decision": "Truth contract: Transit candidate stops cannot participate in exact walking guidance; scheduled timetable bus departures labeled 'Scheduled', never 'Live'; photo count = distinct source assets", "status": "ENFORCED" },
+    { "id": "D-M0-18", "decision": "Ponytail governance: Standard library over third-party dependencies, native platform capabilities over abstractions", "status": "APPROVED" }
+  ]
+}

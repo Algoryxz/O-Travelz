@@ -1,0 +1,63 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T03:47:00Z",
+  "topic": "Mobile Mapping SDK Multiplatform Evaluation",
+  "methodology": "Comparative benchmark against O-TRAVELZ 154 transit routes, road-following geometry, candidate vs verified markers, custom atlas styling, offline capability, licensing, and runtime costs.",
+  "evaluations": [
+    {
+      "option_id": "1",
+      "name": "MapLibre Native (Android) + MapLibre Native (iOS)",
+      "architecture": "Open-source MapLibre Native C++ core wrapped in Android and iOS SDKs. Shared vector style JSON.",
+      "ratings": {
+        "transit_routes_154_polylines": "EXCELLENT — vector line layers handle 154 routes with ease",
+        "custom_atlas_styling": "EXCELLENT — full control over GL JSON stylesheet (Sandstone/Slate)",
+        "offline_vector_tiles": "EXCELLENT — native MBTiles/PMTiles support",
+        "licensing_and_cost": "OPEN SOURCE (BSD) — $0 runtime licensing",
+        "ios_native_integration": "MODERATE — requires third-party MapLibre iOS framework; larger binary size (~25MB added); missing native SwiftUI camera conveniences",
+        "android_native_integration": "MODERATE — MapLibre Compose is community-maintained; lacks official Google Maps gesture feel",
+        "tile_infrastructure_cost": "HIGH BURDEN — requires maintaining or paying for vector tile hosting (MapTiler, Stadia, or self-hosted PMTiles on R2)",
+        "long_term_maintenance": "MODERATE — dependent on open-source community release cadence"
+      },
+      "ponytail_assessment": "While stylistically elegant, requiring a custom vector tile hosting infrastructure and heavy third-party C++ libraries on both platforms violates the zero-cost, standard-platform ethos."
+    },
+    {
+      "option_id": "2",
+      "name": "Google Maps SDK (Android) + Apple MapKit (iOS) [SELECTED]",
+      "architecture": "Platform-native first-party SDKs on both systems. Google Maps Compose on Android; Apple MapKit (SwiftUI.Map) on iOS.",
+      "ratings": {
+        "transit_routes_154_polylines": "VERY GOOD — native Polyline on Google Maps Compose; MapPolyline on SwiftUI.Map",
+        "custom_atlas_styling": "EXCELLENT — JSON Cloud Styling on Google Maps; SwiftUI.Map standard / hybrid with custom tint and dark mode",
+        "offline_vector_tiles": "MODERATE — basemap tiles rely on provider caching; O-TRAVELZ overlays and stops cached locally in Room/SwiftData",
+        "licensing_and_cost": "FREE ($0.00) — Google Maps SDK for mobile provides UNLIMITED free dynamic map loads (verified Sep 2026 pricing). Apple MapKit is 100% free with Apple Developer account.",
+        "ios_native_integration": "SUPERIOR — zero binary bloat, first-party Metal acceleration, native SwiftUI MapReader, Dynamic Type support, 60fps",
+        "android_native_integration": "SUPERIOR — official Google Play Services, com.google.maps.android:maps-compose:4.4.1, hardware acceleration, familiar gesture handling",
+        "tile_infrastructure_cost": "ZERO ($0.00) — Google and Apple provide global basemap tiles for free on native mobile",
+        "long_term_maintenance": "HIGHEST — zero third-party bridge fragility; first-party platform support guaranteed"
+      },
+      "ponytail_assessment": "The clear winner. Standard platform libraries, $0.00 runtime cost, zero server tile hosting maintenance, zero binary bloat on iOS, and best-in-class hardware acceleration on both platforms."
+    },
+    {
+      "option_id": "3",
+      "name": "MapLibre Native (Android) + Apple MapKit (iOS)",
+      "architecture": "Asymmetric hybrid: MapLibre on Android, native MapKit on iOS.",
+      "ratings": {
+        "transit_routes_154_polylines": "GOOD — split rendering models",
+        "custom_atlas_styling": "DISCORDANT — MapLibre uses Mapbox GL JSON styles, MapKit uses Apple styles",
+        "offline_vector_tiles": "SPLIT — Android offline capable via PMTiles; iOS depends on Apple MapKit",
+        "licensing_and_cost": "LOW — free MapKit on iOS, free MapLibre on Android, but Android tile hosting has operational costs",
+        "ios_native_integration": "SUPERIOR",
+        "android_native_integration": "MODERATE",
+        "tile_infrastructure_cost": "MODERATE — tile server required solely for Android client",
+        "long_term_maintenance": "POOR — worst of both worlds: two completely different map architectures, two different styling tools, zero synergy"
+      },
+      "ponytail_assessment": "REJECTED. Maximum cognitive overhead with asymmetric operational complexity."
+    }
+  ],
+  "decision": {
+    "selected_option": "2",
+    "android_implementation": "com.google.maps.android:maps-compose:4.4.1 + Play Services Maps",
+    "ios_implementation": "First-party SwiftUI.Map (MapKit in iOS 17+)",
+    "free_turn_by_turn_strategy": "Zero-cost external handoff via Google Maps Universal URLs (and Apple Maps URL scheme on iOS) — $0 routing cost",
+    "tile_hosting_cost_savings": "Eliminates need for paid tile servers on mobile; Web remains on MapLibre GL JS where commercial vector tiles are evaluated separately"
+  }
+}

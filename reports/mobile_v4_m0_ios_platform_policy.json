@@ -1,0 +1,43 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T04:07:00Z",
+  "platform": "iOS",
+  "language": "Swift 5.9+ / Swift 6.0 Strict Concurrency",
+  "ui_framework": "SwiftUI",
+  "os_targets": {
+    "minimum_os_version": "17.0",
+    "minimum_os_status": "APPROVED_AUTHORITATIVE",
+    "target_os_version": "18.4",
+    "rationale": "Matches docs/v4/ARCHITECTURE.md Checkpoint 3. Stable SwiftUI.Map annotations, SwiftData @Model containers, and CLLocationUpdate async streams are natively available on iOS 17.0+. No artificial OS exclusion."
+  },
+  "liquid_glass_policy": {
+    "policy": "PROGRESSIVE_ENHANCEMENT_ONLY",
+    "baseline_ios_17": "Standard high-contrast Apple system materials (Material.ultraThinMaterial, Material.thinMaterial, Material.regularMaterial) with crisp hairline borders.",
+    "enhancement_ios_18_plus": "Where supported native Apple visual APIs exist on iOS 18+, apply them via conditional availability checks (#available(iOS 18, *)).",
+    "prohibitions": [
+      "STRICTLY FORBIDDEN: Fake custom software blur shaders simulating Liquid Glass on older iOS versions.",
+      "STRICTLY FORBIDDEN: Unoptimized real-time canvas filters that drop frame rates below 60fps.",
+      "STRICTLY FORBIDDEN: Violating WCAG AA contrast for the sake of translucency."
+    ],
+    "accessibility_adaptations": {
+      "reduce_transparency": "Automatically falls back to opaque high-contrast system background.",
+      "reduce_motion": "Replaces spring animations with direct fade transitions."
+    }
+  },
+  "architecture_patterns": {
+    "state_management": "Modern MV pattern with @Observable macro (iOS 17+ first-party, replacing ObservableObject / @Published).",
+    "concurrency": "Swift 6 strict concurrency checking enabled. All background data fetches isolated via actors and Sendable models.",
+    "persistence": "SwiftData (@Model) for offline saved places and trip itineraries.",
+    "mapping": "First-party SwiftUI.Map (MapKit) with declarative markers, MapPolyline for 154 transit routes, and zero binary bloat."
+  },
+  "accessibility_compliance": {
+    "dynamic_type": "Full support from Extra Small to Accessibility XXXL using relative font scaling.",
+    "voice_over": "Explicit accessibilityLabels, hints, and custom accessibilityActions for trip cards and transit departures.",
+    "minimum_touch_target": "44x44 pt minimum hit target for all interactive controls."
+  },
+  "device_targets": {
+    "iphone": "Compact width, single-column tab navigation with bottom bar.",
+    "ipad": "Regular width, adaptive two/three-column NavigationSplitView with sidebar.",
+    "orientation": "Portrait primary for iPhone; all orientations for iPad."
+  }
+}

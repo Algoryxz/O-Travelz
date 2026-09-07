@@ -1,0 +1,185 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T03:54:00Z",
+  "category": "Official Android Skills",
+  "source_repository": "https://github.com/android/skills",
+  "local_path": "C:\\Users\\smara\\.gemini\\config\\skills",
+  "inventory": [
+    {
+      "skill_name": "android-adaptive",
+      "installed": true,
+      "purpose": "Adaptive layouts across phone, foldable, tablet using Compose MediaQuery and Navigation3 Scenes",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M1", "M2", "M7", "M8", "M25"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "android-agp-9-upgrade",
+      "installed": true,
+      "purpose": "AGP 9 upgrade workflows; not for KMP projects",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M5", "M23"],
+      "governance": "REFERENCE_ONLY"
+    },
+    {
+      "skill_name": "android-appfunctions",
+      "installed": true,
+      "purpose": "AppFunctions integration for AI shortcuts and background agent actions",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M13", "M16"],
+      "governance": "OPTIONAL"
+    },
+    {
+      "skill_name": "android-camerax",
+      "installed": true,
+      "purpose": "CameraX camera capture for community photo contributions and QR code transit scans",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M19", "M20"],
+      "governance": "MANDATORY_M19"
+    },
+    {
+      "skill_name": "android-cli",
+      "installed": true,
+      "purpose": "Android CLI commands, emulator management, UI inspection, SDK package resolution",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M0.5", "M5", "M25"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "android-display-glasses-with-jetpack-compose-glimmer",
+      "installed": true,
+      "purpose": "Compose Glimmer for Android XR display glasses",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["FUTURE"],
+      "governance": "REFERENCE_ONLY"
+    },
+    {
+      "skill_name": "android-edge-to-edge",
+      "installed": true,
+      "purpose": "Edge-to-edge migration, enableEdgeToEdge(), WindowInsets.safeDrawing, IME keyboard insets",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M5", "M7", "M8", "M10"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "android-engage-sdk-integration",
+      "installed": true,
+      "purpose": "Google Play Engage SDK integration for app discovery",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M27", "M30"],
+      "governance": "OPTIONAL"
+    },
+    {
+      "skill_name": "android-intent-security",
+      "installed": true,
+      "purpose": "Intent security auditing, intent redirection prevention, safe external navigation handoff",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M11", "M24"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "android-leanback-to-compose-tv-migration",
+      "installed": true,
+      "purpose": "Leanback TV migration; not applicable to mobile phone/tablet app",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["NONE"],
+      "governance": "REJECTED_FOR_MOBILE"
+    },
+    {
+      "skill_name": "android-media3-cast-integration",
+      "installed": true,
+      "purpose": "Google Cast support for media streaming",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M10"],
+      "governance": "OPTIONAL"
+    },
+    {
+      "skill_name": "android-migrate-xml-views-to-jetpack-compose",
+      "installed": true,
+      "purpose": "Migrate legacy XML to Compose (OTravelz is 100% pure Compose, no XML views to migrate)",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M5"],
+      "governance": "REFERENCE_ONLY"
+    },
+    {
+      "skill_name": "android-navigation-3",
+      "installed": true,
+      "purpose": "Jetpack Navigation 3, deep links, multiple backstacks, list-detail scenes",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M7", "M8", "M9", "M10", "M14"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "android-play-billing-library-version-upgrade",
+      "installed": true,
+      "purpose": "Google Play Billing upgrade (OTravelz is 100% free with $0 booking fees)",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["NONE"],
+      "governance": "NOT_APPLICABLE"
+    },
+    {
+      "skill_name": "android-play-policy-insights",
+      "installed": true,
+      "purpose": "Play Store policy auditing, Data Safety section, location permission disclosures",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M24", "M27"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "android-profiler",
+      "installed": true,
+      "purpose": "Android CPU/GPU profiling, memory leaks, heap dumps, SQL query inspection, 60fps auditing",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M23", "M25", "M27"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "android-r8-analyzer",
+      "installed": true,
+      "purpose": "R8 ProGuard keep rules optimization and APK size reduction",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M23", "M27"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "android-restore-credentials",
+      "installed": true,
+      "purpose": "Android Credential Manager restore keys for silent sign-in across device migrations",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M16"],
+      "governance": "OPTIONAL"
+    },
+    {
+      "skill_name": "android-styles",
+      "installed": true,
+      "purpose": "Jetpack Compose Styles API, unifying component themes with design system tokens",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M2", "M5", "M7"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "android-testing-setup",
+      "installed": true,
+      "purpose": "Unit tests, Compose UI tests, screenshot testing harness, and emulator test runner",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M5", "M25", "M27"],
+      "governance": "MANDATORY"
+    },
+    {
+      "skill_name": "android-verified-email",
+      "installed": true,
+      "purpose": "OTP-less email verification flow via Android Credential Manager",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["M16"],
+      "governance": "OPTIONAL"
+    },
+    {
+      "skill_name": "android-wear-compose-m3",
+      "installed": true,
+      "purpose": "Wear OS Compose Material 3; reserved for future smartwatch transit pass",
+      "platform": "ANDROID_ONLY",
+      "target_waves": ["FUTURE"],
+      "governance": "REFERENCE_ONLY"
+    }
+  ]
+}

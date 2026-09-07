@@ -1,0 +1,47 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T03:50:00Z",
+  "server_name": "figma",
+  "integration_status": "CONFIGURED_REMOTE_HTTP",
+  "official_tooling_source": "https://github.com/figma/mcp-server-guide",
+  "server_url": "https://mcp.figma.com/mcp",
+  "transport": "streamable_http",
+  "connectivity_probe": {
+    "protocol": "HTTPS",
+    "http_method_tested": "HEAD / GET",
+    "status_code": 405,
+    "status_description": "Method Not Allowed (Expected for streamable HTTP MCP which requires POST with JSON-RPC payload)",
+    "request_id_received": "33399ff9-db5d-4c4a-93d4-c560acc72c73",
+    "live_endpoint_verified": true,
+    "cors_headers": {
+      "access_control_allow_origin": "*",
+      "access_control_allow_headers": "Content-Type, X-Figma-Token, Authorization",
+      "access_control_expose_headers": "Retry-After, X-Figma-Plan-Tier, X-Figma-Rate-Limit-Type, X-Figma-Upgrade-Link"
+    }
+  },
+  "authentication": {
+    "status": "AWAITING_USER_AUTH",
+    "supported_auth_methods": [
+      "X-Figma-Token (Personal Access Token)",
+      "Authorization: Bearer <OAuth2_Token>"
+    ],
+    "credential_safety_rule": "NEVER commit Figma API tokens or secrets to git. Tokens must be passed via environment variables (FIGMA_ACCESS_TOKEN) or client auth flow."
+  },
+  "capability_audit": {
+    "READ_SUPPORTED": "SUPPORTED (Extract design context, node tree, frame properties, variables via POST /mcp)",
+    "WRITE_SUPPORTED": "SUPPORTED (Remote server canvas write beta: create/update frames, auto layout)",
+    "VARIABLE_WRITE_SUPPORTED": "SUPPORTED (Create/update design tokens as Figma variables in beta)",
+    "COMPONENT_WRITE_SUPPORTED": "SUPPORTED (Create/update component definitions and variants)",
+    "PROTOTYPE_SUPPORTED": "SUPPORTED (Read prototype interaction links and triggers)",
+    "DEV_MODE_SUPPORTED": "SUPPORTED (Inspect component properties, measurements, CSS/Compose/SwiftUI hints)",
+    "CODE_CONNECT_SUPPORTED": "SUPPORTED (Via @figma/code-connect CLI linking code components to Figma nodes)"
+  },
+  "mcp_config_location": "C:\\Users\\smara\\.gemini\\config\\mcp_config.json",
+  "mcp_config_content": {
+    "mcpServers": {
+      "figma": {
+        "serverUrl": "https://mcp.figma.com/mcp"
+      }
+    }
+  }
+}

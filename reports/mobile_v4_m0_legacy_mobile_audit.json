@@ -1,0 +1,161 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T04:02:00Z",
+  "topic": "Comprehensive Audit and Reclassification of Existing Mobile Codebase",
+  "methodology": "Line-by-line verification against backend V4 truth, Swift interop compatibility, test coverage, and Ponytail necessity",
+  "inventory": [
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/geo/GeoPoint.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — Lat/Lon bounds validation (-90..90, -180..180) matches backend WGS84 GeoJSON schema exactly",
+      "swift_interop": "EXCELLENT — compiles to clean Swift struct with double properties and distanceToKm method",
+      "test_coverage": "Covered by HaversineDistanceTest",
+      "rationale": "Core mathematical coordinate primitive; prevents coordinate inversion errors across platforms."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/geo/HaversineDistance.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — Earth radius R=6371.0088km matches PostGIS ST_Distance(geography) calculation exactly",
+      "swift_interop": "EXCELLENT — pure static calculation function",
+      "test_coverage": "Covered by HaversineDistanceTest with known geo-fixtures",
+      "rationale": "Ensures distance to transit stops evaluates identically on iOS, Android, and Web."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/geo/OdishaBounds.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — Bounding box lat 17.8..22.6, lon 81.3..87.5 matches backend RegionalBoundaries.ODISHA_BBOX",
+      "swift_interop": "EXCELLENT — static constants and contains() method",
+      "test_coverage": "Covered by OdishaBoundsTest",
+      "rationale": "Essential zero-cost query guard to detect out-of-state telemetry without hitting backend API."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/engine/FirstMileEngine.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — Walk bands (<=800m Reasonable, <=1500m Short Auto, >1500m Cab) match docs/v4/MAPS_AND_TRANSPORT.md exactly",
+      "swift_interop": "EXCELLENT — enum with distanceMeters evaluation",
+      "test_coverage": "Covered by FirstMileEngineTest",
+      "rationale": "Enforces critical truth invariant: returns null when isRealGps is false to avoid misleading walking advice."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/engine/TimetableEngine.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — Indian Standard Time (IST / UTC+05:30) schedule departure sorting and frequency evaluation",
+      "swift_interop": "EXCELLENT — pure domain functions with string and minute math",
+      "test_coverage": "Covered by TimetableEngineTest",
+      "rationale": "Guarantees schedule calculations do not present timetable departures as live GPS."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/engine/SearchFilterEngine.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — 23 canonical categories, 30 districts, distance thresholds",
+      "swift_interop": "GOOD — list filtering functions",
+      "test_coverage": "Requires dedicated test expansion in M0.5",
+      "rationale": "Offline search filter parity across all 204 catalog items."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/provenance/DataProvenance.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — ProvenanceSource, DataTier, ClaimType enums match docs/v4/PRODUCT.md truth model",
+      "swift_interop": "EXCELLENT — compiles to native Swift enums",
+      "test_coverage": "Verified by type system",
+      "rationale": "Foundational truth contract governing UI badges (Verified Official, Scheduled, Live, Estimated)."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/provenance/LocationState.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — Sealed hierarchy: LiveDeviceLocation, PermissionDenied, ReferenceOrigin, Unavailable",
+      "swift_interop": "EXCELLENT — compiles to Swift class hierarchy",
+      "test_coverage": "Covered by LocationStateTest",
+      "rationale": "Prevents defaulting to Master Canteen as if it were real user location."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/provenance/WeatherState.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — Prohibits 0°C or fake Sunny defaults; requires explicit Unavailable or Stale with timestamp",
+      "swift_interop": "EXCELLENT — clean data class with nullable properties",
+      "test_coverage": "Covered by WeatherStateTest",
+      "rationale": "Prevents AI or UI hallucinating weather values."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/verification/RideVerificationEngine.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — Multi-rider consensus threshold algorithm for stop candidate promotion",
+      "swift_interop": "GOOD — pure calculation logic",
+      "test_coverage": "Covered by RideVerificationEngineTest",
+      "rationale": "Core domain logic for crowdsourced transit stop validation in M20."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/i18n/LocalizationKeys.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "GOOD — String constants for UI keys across English and Odia",
+      "swift_interop": "EXCELLENT",
+      "test_coverage": "Static constants",
+      "rationale": "Guarantees localization key parity across Android and iOS."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/i18n/LocalizedNames.kt",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "GOOD — Dual-script names for 30 Odisha districts and transit hubs in Odia and English",
+      "swift_interop": "EXCELLENT",
+      "test_coverage": "Static lookup tables",
+      "rationale": "Canonical script transliterations."
+    },
+    {
+      "path": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/repository/Repositories.kt",
+      "classification": "REFERENCE_ONLY",
+      "v4_backend_truth_alignment": "ABSTRACT INTERFACES — Repository contracts defined in Kotlin",
+      "swift_interop": "MODERATE — Swift protocols work better natively in iOS rather than Kotlin interfaces",
+      "test_coverage": "N/A",
+      "rationale": "Keep as reference for repository methods, but native Swift/Kotlin interfaces are preferred on each platform."
+    },
+    {
+      "path": "mobile/shared/build.gradle.kts",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — Pure KMP configuration targeting JVM, Android, and iOS (XCFramework)",
+      "swift_interop": "N/A",
+      "test_coverage": "Compiles clean",
+      "rationale": "Build configuration for the shared core."
+    },
+    {
+      "path": "mobile/gradle/libs.versions.toml",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — Dependency catalog with Kotlin 2.0.20, AGP 8.6.0, Compose BOM 2024.09.02, Room 2.6.1",
+      "swift_interop": "N/A",
+      "test_coverage": "N/A",
+      "rationale": "Version catalog reused for future Android module."
+    },
+    {
+      "path": "mobile/build.gradle.kts",
+      "classification": "REUSE_CONTRACT",
+      "v4_backend_truth_alignment": "PERFECT — Root plugins declaration",
+      "swift_interop": "N/A",
+      "test_coverage": "N/A",
+      "rationale": "Root build file."
+    },
+    {
+      "path": "mobile/settings.gradle.kts",
+      "classification": "LEGACY",
+      "v4_backend_truth_alignment": "CURRENTLY INCLUDES ONLY :shared",
+      "swift_interop": "N/A",
+      "test_coverage": "N/A",
+      "rationale": "Will be updated at M5 to include :android when Android project is bootstrapped."
+    },
+    {
+      "path": "mobile/android/README.md",
+      "classification": "REFERENCE_ONLY",
+      "v4_backend_truth_alignment": "Informational only",
+      "swift_interop": "N/A",
+      "test_coverage": "N/A",
+      "rationale": "Placeholder documentation."
+    },
+    {
+      "path": "mobile/ios/README.md",
+      "classification": "REFERENCE_ONLY",
+      "v4_backend_truth_alignment": "Informational only",
+      "swift_interop": "N/A",
+      "test_coverage": "N/A",
+      "rationale": "Placeholder documentation."
+    }
+  ],
+  "summary_verdict": "All 12 core KMP domain files retain their REUSE_CONTRACT status with proven alignment to V4 backend truth. Repositories.kt is reclassified as REFERENCE_ONLY. Zero legacy code deleted; zero unneeded abstraction added."
+}

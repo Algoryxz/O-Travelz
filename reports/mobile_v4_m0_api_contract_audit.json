@@ -1,0 +1,38 @@
+﻿{
+  "wave": "M0",
+  "timestamp": "2026-09-07T04:12:00Z",
+  "topic": "FastAPI OpenAPI Contract & Mobile Client Generation Strategy",
+  "backend_runtime": "FastAPI + Pydantic V2 (OpenAPI 3.1 schema at /openapi.json)",
+  "networking_architecture": {
+    "kmp_networking_verdict": "REJECTED. Networking is NOT placed in KMP. Putting Ktor in KMP adds unnecessary multiplatform engine configuration, fragile iOS background session handling, and thread isolation complexity.",
+    "android_client": "Retrofit 2.11 + OkHttp with kotlinx.serialization. Native Android coroutines and NetworkCallback.",
+    "ios_client": "URLSession async/await with native Swift Codable. Native NWPathMonitor for network state.",
+    "dto_strategy": "Code generation via openapi-generator or tailored typed DTOs matching backend Pydantic schemas. Zero manual synchronization drift."
+  },
+  "domains_audited": [
+    {
+      "domain": "Places / Cultural Atlas",
+      "endpoints": ["GET /api/places", "GET /api/places/{id}"],
+      "fail_closed_rule": "No verified image = No public card. Unverified places strictly excluded from explore feed.",
+      "offline_cache": "Local database (Room / SwiftData) caches all 204 canonical places."
+    },
+    {
+      "domain": "Transit Routes & Stops",
+      "endpoints": ["GET /api/transport/routes", "GET /api/transport/routes/{id}", "GET /transport/stops/nearby"],
+      "fail_closed_rule": "Candidate stops cannot participate in exact first-mile walking guidance. Departures labeled 'Scheduled', never 'Live'.",
+      "offline_cache": "Bundled canonical transit snapshot (154 routes, 1,430 stops)."
+    },
+    {
+      "domain": "Live Weather",
+      "endpoints": ["GET /weather/current"],
+      "fail_closed_rule": "Missing weather displays explicit 'Unavailable' or stale timestamp; NEVER defaults to 0°C or fake Sunny.",
+      "offline_cache": "Cached with timestamp; flagged as Stale if older than 30 minutes."
+    },
+    {
+      "domain": "AI Planner",
+      "endpoints": ["POST /ai/converse", "POST /itinerary/plan"],
+      "fail_closed_rule": "AI never owns canonical facts. Falls back to offline RuleBasedAdapter if cloud inference unavailable.",
+      "offline_cache": "Local pre-canned Odia cultural tips and rule engine."
+    }
+  ]
+}
