@@ -2,7 +2,8 @@
 
 > **Authoritative iOS Visual Specification**<br>
 > Selected Direction: **`IOS_A_EDITORIAL_ATLAS`** (Apple HIG Publication-Grade System)<br>
-> Wave: `M2` | Document Version: `4.0.0` | Last Updated: `2026-09-07`
+> Status: **`DIRECTION_STATUS = SELECTED_FOR_M3`**<br>
+> Wave: `M2.1` | Document Version: `4.1.0` | Last Updated: `2026-09-07`
 
 ---
 
@@ -17,10 +18,10 @@ Following rigorous multi-concept exploration, truth-state stress testing, access
 
 ## 2. Why Editorial Atlas Won
 
-1. **Unrivaled Accessibility & Dynamic Type**: Complete layout reflow up to Dynamic Type accessibility sizes (AX1–AX5). Cards automatically transition from HStack to VStack layouts without line truncation or overlap.
+1. **Accessibility Architecture (STATIC_LAYOUT_REVIEW)**: Layout containers are designed for Dynamic Type reflow up to AX5 accessibility sizes, using container-relative spacing and flexible stacks. Meets WCAG 2.2 AA contrast targets in both appearances. Actual runtime verification is scheduled for Wave M21.
 2. **Pure Apple Platform Nativeness**: Built entirely with standard SwiftUI containers (`NavigationStack`, `TabView`, `.sheet`, `List`, `Section`). Zero brittle custom bridges or non-standard gesture recognizers.
 3. **Flawless Truth Presentation**: Truth badges render as vibrant system capsule pills (`.tint(.green)`, `.tint(.orange)`, `.tint(.cyan)`) that maintain superb contrast in both Dark and Light system appearances.
-4. **ProMotion & 60fps Stability**: Uses native CoreAnimation and Metal-backed SwiftUI rendering loops, guaranteeing zero frame drops across all supported hardware (iPhone 11 to iPhone 16 Pro).
+4. **Hardware Feasibility Architecture (IOS_PERFORMANCE_DESIGN_RISK: LOW)**: Relies exclusively on standard SwiftUI view layouts and Metal-accelerated system containers. Frame time and hitch-rate verification deferred to Instruments profiling in Wave M23/M25.
 
 ---
 

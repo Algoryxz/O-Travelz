@@ -1,0 +1,57 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_6_LAYOUT_CONSTANT_AUDIT",
+  "timestamp": "2026-09-07T10:08:30Z",
+  "audited_layout_values": [
+    {
+      "value": "180dp bottom preview sheet height",
+      "location": "docs/mobile-v4/MAP_PRODUCT_MODEL.md",
+      "classification": "PROVISIONAL",
+      "tuning_phase": "Wave M3 (Interactive Prototyping)",
+      "rationale": "Represents an initial vertical layout token for destination peek previews; must be calibrated against various screen aspect ratios and navigation bars."
+    },
+    {
+      "value": ".fraction(0.25) and .fraction(0.6) presentation detents",
+      "location": "docs/mobile-v4/IOS_VISUAL_DIRECTION.md",
+      "classification": "PROVISIONAL",
+      "tuning_phase": "Wave M3 (Interactive Prototyping)",
+      "rationale": "Starting SwiftUI detent fractions for compact and medium inspection sheets; requires real device touch testing to ensure reachability."
+    },
+    {
+      "value": "16dp (Android) and 12pt (iOS) card corner radius",
+      "location": "docs/mobile-v4/SEMANTIC_DESIGN_TOKENS.md",
+      "classification": "SEMANTIC_TOKEN",
+      "tuning_phase": "Frozen in Semantic Design Tokens",
+      "rationale": "Maps to radius.medium; standard Material 3 shapeMedium and iOS grouped container curvature."
+    },
+    {
+      "value": "28dp (Android) and 18pt (iOS) sheet corner radius",
+      "location": "docs/mobile-v4/SEMANTIC_DESIGN_TOKENS.md",
+      "classification": "PLATFORM_STANDARD",
+      "tuning_phase": "Frozen in Semantic Design Tokens",
+      "rationale": "Standard M3 ModalBottomSheet top shape (shapeExtraLarge) and iOS continuous corner curve."
+    },
+    {
+      "value": "16:9 photo card aspect ratio",
+      "location": "docs/mobile-v4/SURFACE_INVENTORY.md",
+      "classification": "DEVICE_TEST_REQUIRED",
+      "tuning_phase": "Wave M3 / M10",
+      "rationale": "Standard widescreen photo container; must be tested on compact screens (e.g. 5.4\" iPhone mini or narrow Android viewports) to ensure vertical information balance."
+    },
+    {
+      "value": "44pt (iOS) and 48dp (Android) touch target minimums",
+      "location": "docs/mobile-v4/SEMANTIC_DESIGN_TOKENS.md",
+      "classification": "PLATFORM_STANDARD",
+      "tuning_phase": "Mandatory Platform Baseline",
+      "rationale": "Inviolable accessibility standard enforced by Apple HIG, Android Material guidelines, and WCAG 2.2 AA."
+    },
+    {
+      "value": "4pt / 4dp geometric spacing scale (space.1 to space.12)",
+      "location": "docs/mobile-v4/SEMANTIC_DESIGN_TOKENS.md",
+      "classification": "SEMANTIC_TOKEN",
+      "tuning_phase": "Frozen in Semantic Design Tokens",
+      "rationale": "Core geometric spacing scale governing all component padding and margins."
+    }
+  ],
+  "status": "PASS"
+}

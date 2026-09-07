@@ -1,0 +1,50 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_5_MOTION_CONSTANT_AUDIT",
+  "timestamp": "2026-09-07T10:08:15Z",
+  "audited_constants": [
+    {
+      "constant": "180ms tab switch duration",
+      "original_status": "SPECIFIED_ABSOLUTE",
+      "calibrated_status": "PROVISIONAL_M3_TUNING_VALUE",
+      "classification": "PLATFORM_DEFAULT",
+      "rationale": "Represents Material 3 recommended Shared Axis X transition duration; calibrated as provisional tuning target for M3."
+    },
+    {
+      "constant": "280ms container transform duration",
+      "original_status": "SPECIFIED_ABSOLUTE",
+      "calibrated_status": "PROVISIONAL_M3_TUNING_VALUE",
+      "classification": "OFFICIAL_GUIDANCE",
+      "rationale": "Falls within the official 250-320ms Compose container transform recommendation; finalized during M3 interactive prototyping."
+    },
+    {
+      "constant": "50ms reduced motion crossfade",
+      "original_status": "SPECIFIED_ABSOLUTE",
+      "calibrated_status": "PROVISIONAL_M3_TUNING_VALUE",
+      "classification": "DESIGN_STARTING_POINT",
+      "rationale": "Represents an instantaneous alpha crossfade target when system animator scale is 0."
+    },
+    {
+      "constant": "0.92x predictive back scale factor",
+      "original_status": "SPECIFIED_ABSOLUTE",
+      "calibrated_status": "PROVISIONAL_M3_TUNING_VALUE",
+      "classification": "OFFICIAL_GUIDANCE",
+      "rationale": "Derived from official Android 14+ Predictive Back gesture guidelines."
+    },
+    {
+      "constant": "interactiveSpring(response: 0.35, dampingFraction: 0.82)",
+      "original_status": "SPECIFIED_ABSOLUTE",
+      "calibrated_status": "PROVISIONAL_M3_TUNING_VALUE",
+      "classification": "DESIGN_STARTING_POINT",
+      "rationale": "Standard SwiftUI spring curve starting point; subject to device interaction calibration in M3."
+    },
+    {
+      "constant": "120dp map center bottom offset",
+      "original_status": "SPECIFIED_ABSOLUTE",
+      "calibrated_status": "PROVISIONAL_M3_TUNING_VALUE",
+      "classification": "DESIGN_STARTING_POINT",
+      "rationale": "Offset designed to prevent marker occlusion by bottom preview sheet; tuned on physical screens in M3."
+    }
+  ],
+  "status": "PASS"
+}

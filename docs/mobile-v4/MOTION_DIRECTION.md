@@ -23,27 +23,27 @@ In O-TRAVELZ, motion is not entertainment or decorative flair. Motion serves exa
 Android motion leverages official Jetpack Compose and Material 3 motion tokens, calibrated to ensure smooth 60fps execution on entry-level hardware (e.g., Vivo Y19 / Helio P65):
 
 ### 2.1 Predictive Back Gesture Continuity
-- **Standard**: Follows Android 14+ Predictive Back gesture physics.
-- **Behavior**: As the user swipes from the left or right edge, the current surface scales down slightly ($0.92\times$) and elevates, revealing the parent destination list underneath before committing the back navigation.
-- **Spring Parameters**: `spring(dampingRatio = 0.85f, stiffness = Spring.StiffnessMediumLow)`.
+- **Standard**: Follows official Android 14+ Predictive Back gesture guidelines (`OFFICIAL_GUIDANCE`).
+- **Behavior**: As the user swipes from the left or right edge, the current surface scales down slightly (provisional starting target $\sim 0.92\times$) and elevates, revealing the parent destination list underneath before committing the back navigation.
+- **Spring Parameters**: Uses standard platform spring physics (`Spring.DampingRatioMediumBouncy`, `Spring.StiffnessMediumLow`); exact parameters to be tuned in M3.
 
 ### 2.2 Container Transform & Shared Axis
 - **Card-to-Detail Expansion**: Tapping a cultural place card morphs the container bounds directly into the full-bleed Place Detail surface (`sharedBounds` in Compose Animation).
-- **Duration**: Clamped between $250\text{ ms}$ and $320\text{ ms}$.
-- **Tab Switching**: Uses horizontal Shared Axis ($X$-axis translation, $180\text{ ms}$) between adjacent tabs (Explore $\leftrightarrow$ Map $\leftrightarrow$ Plan $\leftrightarrow$ Transit $\leftrightarrow$ You).
+- **Duration**: Material 3 recommended range ($250\text{--}320\text{ ms}$, `PROVISIONAL_M3_TUNING_VALUE`).
+- **Tab Switching**: Uses horizontal Shared Axis ($X$-axis translation, provisional baseline $\sim 180\text{ ms}$) between adjacent tabs (Explore $\leftrightarrow$ Map $\leftrightarrow$ Plan $\leftrightarrow$ Transit $\leftrightarrow$ You).
 
 ### 2.3 Map Selection & Sheet Physics
-- **Marker Tap**: Map camera smoothly animates to center the selected pin with an intentional bottom offset ($120\text{ dp}$).
-- **Bottom Preview Sheet**: Slides up with `ModalBottomSheetDefaults.properties` using standard M3 decel interpolation (`FastOutSlowInEasing`, $200\text{ ms}$).
+- **Marker Tap**: Map camera smoothly animates to center the selected pin with an intentional bottom offset (provisional offset $\sim 120\text{ dp}$ to prevent marker occlusion by preview sheet).
+- **Bottom Preview Sheet**: Slides up with `ModalBottomSheetDefaults.properties` using standard M3 decel interpolation (`FastOutSlowInEasing`, provisional baseline $\sim 200\text{ ms}$).
 
 ### 2.4 Active Trip Milestone Progress
-- **Mark Visited**: When traveler marks a stop visited, the active checkmark icon triggers a single tactical scale bounce ($1.0 \rightarrow 1.2 \rightarrow 1.0$, $180\text{ ms}$), followed by an immediate upward slide of the timeline list ($250\text{ ms}$).
+- **Mark Visited**: When traveler marks a stop visited, the active checkmark icon triggers a tactile scale bounce (provisional $\sim 1.0 \rightarrow 1.2 \rightarrow 1.0$), followed by an upward slide of the timeline list; exact curves tuned during M3 interactive prototyping.
 
 ### 2.5 Shimmer / Skeleton Loading Policy
-- **Policy**: Clean, subtle tonal pulse ($#161B22 \leftrightarrow #21262D$) at $1.2\text{ Hz}$. Never bright or distracting. Ceases immediately upon data resolution.
+- **Policy**: Clean, subtle tonal pulse ($#161B22 \leftrightarrow #21262D$, `DESIGN_STARTING_POINT`). Never bright or distracting. Ceases immediately upon data resolution.
 
 ### 2.6 Low-End Device / Accessibility Motion Reduction
-- When system `ANIMATOR_DURATION_SCALE == 0` or battery saver is active, all transitions collapse to an instantaneous $50\text{ ms}$ alpha crossfade.
+- When system `ANIMATOR_DURATION_SCALE == 0` or battery saver is active, all transitions collapse to an instantaneous alpha crossfade (`PROVISIONAL_M3_TUNING_VALUE` $\le 50\text{ ms}$).
 
 ---
 
@@ -52,8 +52,8 @@ Android motion leverages official Jetpack Compose and Material 3 motion tokens, 
 iOS motion adheres strictly to Apple Human Interface Guidelines and SwiftUI declarative spring physics:
 
 ### 3.1 SwiftUI Sheet Physics & Presentation Detents
-- **Sheet Physics**: Driven by `.interactiveSpring(response: 0.35, dampingFraction: 0.82, blendDuration: 0)`.
-- **Presentation Detents**: Smooth rubber-band snapping between `.fraction(0.25)` (compact preview), `.fraction(0.6)` (mid inspection), and `.large` (full detail).
+- **Sheet Physics**: Standard Apple interactive spring curve (`PROVISIONAL_M3_TUNING_VALUE`: starting reference `response: 0.35`, `dampingFraction: 0.82`, tuned during M3 prototyping).
+- **Presentation Detents**: Smooth rubber-band snapping between `.fraction(0.25)` (compact preview), `.fraction(0.6)` (mid inspection), and `.large` (full detail); detent fractions represent `PROVISIONAL_M3_TUNING_VALUE` layout guidelines.
 - **Dismissal**: Follows finger velocity; flicking down dismisses the sheet instantaneously with natural inertia.
 
 ### 3.2 NavigationStack Push & Matched Geometry
@@ -61,13 +61,22 @@ iOS motion adheres strictly to Apple Human Interface Guidelines and SwiftUI decl
 - **Matched Geometry**: Used sparingly and strictly for the hero destination photo thumbnail expanding into the header image. Never applied to complex multi-element lists to prevent layout hitches.
 
 ### 3.3 MapKit Selection & Camera Pitch
-- **Annotation Tap**: Map camera executes a smooth pitch and heading rotation with `.easeOut(duration: 0.35)` to focus on the selected cultural monument.
+- **Annotation Tap**: Map camera executes a smooth pitch and heading rotation (standard system `.easeOut`, provisional $\sim 0.35\text{ s}$) to focus on the selected cultural monument.
 
-### 3.4 Tactile Haptic Integration
-- **Haptic Feedback**:
-  - `UIImpactFeedbackGenerator(style: .light)` on bottom tab tap and filter chip selection.
-  - `UIImpactFeedbackGenerator(style: .medium)` on "Save Bookmark" toggle.
-  - `UINotificationFeedbackGenerator().notificationOccurred(.success)` on completing an active trip milestone.
+### 3.4 Semantic Tactile Haptic System
+
+Haptic feedback is strictly reserved for meaningful user interactions and state changes. Zero haptic triggers on passive scrolling or decorative animations.
+
+| Semantic Haptic Event | Trigger & Purpose | Android Native Target | iOS Native Target |
+|---|---|---|---|
+| **`HAPTIC_SELECTION`** | Filter chip selection, bottom tab tap, map annotation selection | `HapticFeedbackConstants.CLOCK_TICK` | `UIImpactFeedbackGenerator(style: .light)` |
+| **`HAPTIC_CONFIRMATION`** | Saving a bookmark, updating trip preferences | `HapticFeedbackConstants.CONFIRM` | `UIImpactFeedbackGenerator(style: .medium)` |
+| **`HAPTIC_WARNING`** | Departure cancellation alert, location permission denied | `HapticFeedbackConstants.REJECT` | `UINotificationFeedbackGenerator(.warning)` |
+| **`HAPTIC_TRIP_MILESTONE`** | Completing an active trip milestone ("Mark Visited") | Custom tick + confirm vibration pattern | `UINotificationFeedbackGenerator(.success)` |
+| **`HAPTIC_RIDE_START`** | Initiating transit check-in recording mode | Two sharp confirmation pulses | Dual impact feedback |
+| **`HAPTIC_RIDE_STOP`** | Finalizing transit ride audit submission | Decelerating pulse | Success notification feedback |
+
+*Note*: Specific API bindings and intensity calibrations will be tuned during Wave M3 interactive prototyping.
 
 ### 3.5 Liquid Glass Transitions (Progressive Enhancement)
 - **Supported Devices (iOS 26+)**: Native `.glassEffect()` controls smoothly morph and increase specular opacity when interacting with touch down states.

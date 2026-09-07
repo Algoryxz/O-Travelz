@@ -2,7 +2,8 @@
 
 > **Authoritative Android Visual Specification**<br>
 > Selected Direction: **`ANDROID_A_ATLAS_MATERIAL`** (Material 3 Expressive Editorial)<br>
-> Wave: `M2` | Document Version: `4.0.0` | Last Updated: `2026-09-07`
+> Status: **`DIRECTION_STATUS = SELECTED_FOR_M3`**<br>
+> Wave: `M2.1` | Document Version: `4.1.0` | Last Updated: `2026-09-07`
 
 ---
 
@@ -18,8 +19,8 @@ Following rigorous multi-concept exploration, truth-state stress testing, access
 ## 2. Why Atlas Material Won
 
 1. **Uncompromised Truth Visibility**: Integrated M3 tonal chips ([● Verified Official], [◷ Scheduled · HH:MM IST], [☁ Live · 31°C]) sit naturally within card headers without visual clutter or commercial marketplace tropes.
-2. **Superior Hardware Feasibility**: Zero dependence on expensive real-time RenderEffect blurs or animated gradients. Achieves steady 60fps rendering on budget devices like the Vivo Y19.
-3. **Accessibility Robustness**: Flawless font reflow up to Android $2.0\times$ font scaling without text clipping; exceeds WCAG 2.2 AA contrast standards ($4.8:1$ to $7.0:1$); fully compliant TalkBack traversal order.
+2. **Hardware Feasibility Architecture (ANDROID_PERFORMANCE_DESIGN_RISK: LOW)**: Zero dependence on expensive real-time RenderEffect blurs or animated gradients. Architectured for budget hardware (e.g. Vivo Y19 / Helio P65), with 60fps runtime profiling deferred to physical validation in Wave M23/M25.
+3. **Accessibility Architecture (STATIC_LAYOUT_REVIEW)**: Layout containers are architected to support Android font scaling from $1.0\times$ up to $2.0\times$ without text truncation; color palette meets WCAG 2.2 AA contrast targets ($4.8:1$ to $7.0:1$); semantics are designed for TalkBack traversal. Actual runtime verification is scheduled for Wave M21.
 4. **Platform-Native Elegance**: Respects modern Android conventions: edge-to-edge NavigationBar, Predictive Back gestures, M3 ModalBottomSheet detents, and adaptive NavigationRail on foldables/tablets.
 
 ---

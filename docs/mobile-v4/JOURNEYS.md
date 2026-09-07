@@ -126,7 +126,7 @@ sequenceDiagram
 - **SYSTEM ACTIONS**: Loads canonical route sequence from bundled transit database.
 - **FAILURE BRANCHES**: If route is temporarily suspended, app shows official CRUT service advisory notice.
 - **OFFLINE BRANCH**: All 154 routes and 5,549 canonical unique departures available offline.
-- **TRUTH SURFACES**: `[◷ Scheduled · 08:30 IST]`, official CRUT operator citation, null fare indicator.
+- **TRUTH SURFACES**: `[◷ Scheduled · 08:30 IST]`, official CRUT operator citation, fare unavailable presentation notice.
 - **END STATE**: Traveler rides transit with full confidence in schedule times and stopping sequences.
 
 ---

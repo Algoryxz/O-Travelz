@@ -1,0 +1,78 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_2_AUDIT_M2_ACCEPTANCE_CLAIMS",
+  "timestamp": "2026-09-07T10:07:00Z",
+  "audited_claims": [
+    {
+      "claim": "Achieves steady 60fps rendering on budget devices like the Vivo Y19",
+      "location": "docs/mobile-v4/ANDROID_VISUAL_DIRECTION.md:21",
+      "original_tone": "RUNTIME_VERIFIED",
+      "calibrated_classification": "DEFER_TO_PHYSICAL_DEVICE",
+      "rationale": "No native Android binary exists. The design avoids blurs and shaders, making 60fps conceptually feasible, but physical verification belongs in M23/M25 via Macrobenchmark."
+    },
+    {
+      "claim": "Guaranteeing zero frame drops across all supported hardware (iPhone 11 to iPhone 16 Pro)",
+      "location": "docs/mobile-v4/IOS_VISUAL_DIRECTION.md:23",
+      "original_tone": "RUNTIME_VERIFIED",
+      "calibrated_classification": "DEFER_TO_PHYSICAL_DEVICE",
+      "rationale": "No native iOS Xcode project exists. Fluidity is conceptually feasible using native SwiftUI containers, but frame time guarantees require Instruments profiling in M23/M25."
+    },
+    {
+      "claim": "TalkBack reading order verified; passes Android font scale 2.0x without clipping",
+      "location": "reports/mobile_v4_m2_accessibility_review.json",
+      "original_tone": "AUTOMATED_RUNTIME_VERIFIED",
+      "calibrated_classification": "DOWNGRADE_TO_CONCEPTUALLY_FEASIBLE",
+      "rationale": "Evaluated against static layout structures and Compose API specifications. Real TalkBack traversal and 2.0x font scaling require runtime instrumentation in M21."
+    },
+    {
+      "claim": "VoiceOver reading order verified; Dynamic Type reflow up to AX5 verified",
+      "location": "reports/mobile_v4_m2_accessibility_review.json",
+      "original_tone": "AUTOMATED_RUNTIME_VERIFIED",
+      "calibrated_classification": "DOWNGRADE_TO_CONCEPTUALLY_FEASIBLE",
+      "rationale": "Static cards support reflow principles, but native accessibility hierarchy requires runtime testing in M21."
+    },
+    {
+      "claim": "ACCESSIBILITY_PASS: true; PERFORMANCE_FEASIBILITY_PASS: true",
+      "location": "reports/mobile_v4_m2_acceptance.json",
+      "original_tone": "RUNTIME_VERIFIED",
+      "calibrated_classification": "DOWNGRADE_TO_CONCEPT_REVIEWED",
+      "rationale": "Pass indicates conceptual design acceptance against anti-vibe-code and accessibility guidelines, not executed automated test passes."
+    },
+    {
+      "claim": "Exact animation timing: Shared Axis X (180ms), Container Transform (280ms), interactiveSpring(0.35, 0.82)",
+      "location": "docs/mobile-v4/MOTION_DIRECTION.md",
+      "original_tone": "SPECIFIED_ABSOLUTE",
+      "calibrated_classification": "DOWNGRADE_TO_CONCEPTUALLY_FEASIBLE",
+      "rationale": "Exact millisecond timings and spring damping fractions are provisional starting values to be calibrated during M3 interactive prototyping."
+    },
+    {
+      "claim": "180dp map preview sheet height; .fraction(0.25) and .fraction(0.6) detents",
+      "location": "docs/mobile-v4/MAP_PRODUCT_MODEL.md",
+      "original_tone": "SPECIFIED_ABSOLUTE",
+      "calibrated_classification": "DOWNGRADE_TO_CONCEPTUALLY_FEASIBLE",
+      "rationale": "Sheet heights and snap detents are provisional layout tokens requiring physical device ergonomics testing in M3."
+    },
+    {
+      "claim": "Google Maps dark atlas JSON styling and exact zoom thresholds (5-7, 12-14, 15+)",
+      "location": "docs/mobile-v4/MAP_PRODUCT_MODEL.md",
+      "original_tone": "SPECIFIED_ABSOLUTE",
+      "calibrated_classification": "DEFER_TO_RUNTIME",
+      "rationale": "Conceptual intent for progressive Level of Detail is sound, but runtime map style configuration and exact clustering thresholds belong in Wave M11."
+    },
+    {
+      "claim": "Odia script renders without clipping in native font cascade",
+      "location": "docs/mobile-v4/LOCALIZATION_MODEL.md",
+      "original_tone": "RUNTIME_VERIFIED",
+      "calibrated_classification": "DOWNGRADE_TO_CONCEPTUALLY_FEASIBLE",
+      "rationale": "Unicode glyph coverage is specified, but native font fallback and vertical line metrics must be verified in M22 runtime."
+    },
+    {
+      "claim": "Figma canonical reconstruction",
+      "location": "docs/mobile-v4/FIGMA_RECONSTRUCTION_PLAN.md",
+      "original_tone": "PREPARED",
+      "calibrated_classification": "SUPPORTED_AS_WRITTEN",
+      "rationale": "Correctly documented as prepared but strictly blocked pending user token authentication."
+    }
+  ],
+  "summary": "10 prominent claims audited; 6 downgraded to CONCEPTUALLY_FEASIBLE or CONCEPT_REVIEWED; 3 deferred to RUNTIME or PHYSICAL_DEVICE; 1 confirmed SUPPORTED_AS_WRITTEN."
+}

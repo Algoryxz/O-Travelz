@@ -1,0 +1,21 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_10_TRANSIT_LIVE_SEMANTIC_RECHECK",
+  "timestamp": "2026-09-07T10:10:00Z",
+  "semantic_separation_rules": {
+    "rule_1": "Scheduled departure != Live departure (Transit timetables are strictly static Scheduled · HH:MM IST)",
+    "rule_2": "User device location != Bus location (User GPS location puck must never be presented as transit telemetry)",
+    "rule_3": "Ride verification recording != Live public vehicle tracking (On-device check-in consensus is crowd audit, not live tracking)",
+    "truth_live_token_allowlist": [
+      "Current live weather telemetry (Open-Meteo fetched now)",
+      "Active user-device recording / transit check-in state",
+      "Explicit real-time telemetry backends if hardware GPS trackers are added in future waves"
+    ],
+    "truth_live_token_denylist": [
+      "CRUT Mo Bus departure schedules",
+      "Ama Bus departure schedules",
+      "Transit route stop arrival countdowns"
+    ]
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,34 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_3_ACCESSIBILITY_CLAIM_CORRECTION",
+  "timestamp": "2026-09-07T10:07:30Z",
+  "correction_summary": "Distinguished ACCESSIBILITY_DESIGN_REQUIREMENT and STATIC_LAYOUT_REVIEW from RUNTIME_ACCESSIBILITY_VERIFICATION_PENDING. Eliminated premature claims of executed TalkBack/VoiceOver traversal passes and dynamic scaling runtime passes.",
+  "calibrated_artifacts": [
+    "docs/mobile-v4/ANDROID_VISUAL_DIRECTION.md",
+    "docs/mobile-v4/IOS_VISUAL_DIRECTION.md",
+    "reports/mobile_v4_m2_accessibility_review.json"
+  ],
+  "eventual_runtime_gates": {
+    "android_m21_gates": [
+      "fontScale 1.0 (baseline standard)",
+      "fontScale 1.3 (common user setting)",
+      "fontScale 2.0 (accessibility maximum reflow test)",
+      "TalkBack programmatic traversal path and semantics node inspection",
+      "48dp minimum physical touch target bounding box measurement",
+      "Calculated and rendered color contrast ratio validation (WCAG 2.2 AA)",
+      "Predictive back gesture semantic continuity",
+      "ModalBottomSheet accessibility focus trap and dismiss restoration"
+    ],
+    "ios_m21_gates": [
+      "Default Dynamic Type size (Large)",
+      "XXXL text size container adaptation",
+      "AX1 through AX5 accessibility text size reflow (HStack to VStack)",
+      "VoiceOver focus order, element grouping, and trait announcements",
+      "44pt minimum physical hit target measurement",
+      "Reduce Motion system preference inspection and crossfade replacement",
+      "Presentation detent sheet focus handling",
+      "MapKit accessibility list alternative accessibilityCustomRotors"
+    ]
+  },
+  "status": "PASS"
+}

@@ -26,8 +26,22 @@ O-TRAVELZ treats photography, video, and 3D assets as **forensic evidence of Odi
 - **Attribution & Provenance**: Every photo displays source photographer or cultural archive attribution (e.g. *"Photo: ASI Odisha Circle / Algoryxz Field Team"*).
 
 ### 2.2 Short-Form Video Loops
-- **Format**: H.264 / H.265 MP4 loops ($< 5\text{ MB}$, maximum 12 seconds).
-- **Rule**: Genuine on-site documentary recordings only (e.g. a master artisan carving stone in Raghurajpur, waves at Chandrabhaga). Muted by default with manual audio toggle.
+
+#### 2.2.1 Presentation Truth (`VIDEO_ASSET_PRESENTATION_TRUTH`)
+- **Strict Gating**: Video playback controls and video badging appear **strictly** when a verified playable destination-specific video asset exists.
+- **No Impersonation**: Still images and photos may **never** impersonate video (e.g. no fake play buttons or faux-video looping frames).
+- **No Cross-Destination Fallback**: Never display a generic or neighboring place video if the active destination lacks a video asset.
+- **Attribution Required**: Video credits and provenance must accompany playback. Muted by default with explicit traveler audio toggle.
+
+#### 2.2.2 Performance Budget (`VIDEO_PERFORMANCE_BUDGET: PROVISIONAL_UNTIL_NATIVE_PROFILING`)
+- **Starting Budget Targets**: H.264 / H.265 MP4 loops ($< 5\text{ MB}$, maximum 12 seconds) represent **initial target guidelines** (`STARTING_BUDGET`), not immutable canonical truth.
+- **Runtime Dependency Factors**: Final production video budgets will be calibrated during native profiling in Waves M23 and M25 based on:
+  - Codec efficiency (H.265 / AV1 vs H.264 fallback)
+  - Display viewport dimensions and pixel density
+  - Target bitrate vs cellular data preservation
+  - Video startup latency and decoder initialization time
+  - GPU memory overhead and battery impact
+  - Network reachability (cellular vs WiFi) and ExoPlayer / AVPlayer caching behavior
 
 ### 2.3 Curated 3D Heritage Assets (`CURATED_DESTINATION_SPECIFIC_3D`)
 - **Format**: `.glb` (Android) and `.usdz` (iOS).
@@ -38,6 +52,7 @@ O-TRAVELZ treats photography, video, and 3D assets as **forensic evidence of Odi
   - `OTHER_VERIFIED_SOURCE`
 - **Strict Gating**: 3D interactive viewer controls appear **strictly** on destinations with canonical 3D asset metadata (`has_3d=true`).
 - **Prohibition**: Destinations lacking 3D models (`has_3d=false`) **never** display 3D buttons or disabled placeholders (`has_3d=false` cannot be upgraded by the mobile client). Zero generic 3D fallback models.
+- **User-Facing Labeling**: The UI must display neutral terminology such as **"3D Experience"** or **"Interactive 3D"**. The term **"3D Scan"** is strictly permitted only when the underlying asset provenance is verified as `PHOTOGRAMMETRY`. Backend `has_3d=false` remains authoritative.
 
 ---
 

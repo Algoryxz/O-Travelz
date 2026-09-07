@@ -47,9 +47,12 @@ A route may have verified road-following geometry even if some intermediate rura
    - Bus departures are calculated against official timetables using Indian Standard Time (IST / UTC+05:30).
    - Display formula: `[◷ Scheduled · 08:30 IST]`.
    - The phrase *"Arriving in 5 mins"* or displaying a moving bus icon without genuine vehicle hardware telemetry is **strictly banned under penalty of immediate code rejection**.
-2. **Fare Policy**:
-   - Bus fares are recorded as `null` until an audited, distance-banded fare matrix is ingested.
-   - UI displays: `Fare: Subject to official CRUT stage ticketing (₹10 - ₹35 typical)`. Never invent exact ₹ values.
+2. **Fare Presentation Policy**:
+   - In data contracts, bus fares remain `null` until an official audited CRUT/OSRTC fare matrix is ingested.
+   - In the traveler UI, the literal implementation token `null` or `₹0` must **never** be displayed.
+   - Presentation semantics:
+     * **`KNOWN_VERIFIED_FARE`**: Display verified stage amount with operator citation (e.g. `₹20 · CRUT Audited Stage`).
+     * **`UNKNOWN_FARE`**: Omit fare amount entirely or display *"Fare information unavailable (subject to conductor stage ticketing)"*. Never infer, estimate, or invent exact ₹ values.
 
 ---
 

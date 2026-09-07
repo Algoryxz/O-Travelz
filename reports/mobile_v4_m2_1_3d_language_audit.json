@@ -1,0 +1,19 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_8_3D_TERMINOLOGY_RECHECK",
+  "timestamp": "2026-09-07T10:09:00Z",
+  "audit_scope": "Verification of 3D terminology across all mobile specifications, components, and reports",
+  "canonical_capability": "CURATED_DESTINATION_SPECIFIC_3D",
+  "provenance_tiers_enforced": [
+    "PHOTOGRAMMETRY",
+    "MANUAL_MODEL",
+    "PROCEDURAL_RECONSTRUCTION",
+    "OTHER_VERIFIED_SOURCE"
+  ],
+  "user_facing_terminology_rules": {
+    "recommended_labels": ["3D Experience", "Interactive 3D"],
+    "restricted_label": "'3D Scan' (Permitted ONLY if verified asset provenance is strictly PHOTOGRAMMETRY)",
+    "prohibition": "Destinations with has_3d=false must never display 3D controls or fallbacks"
+  },
+  "status": "PASS"
+}

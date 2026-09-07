@@ -1,0 +1,29 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_7_VIDEO_PERFORMANCE_BUDGET_CORRECTION",
+  "timestamp": "2026-09-07T10:08:45Z",
+  "presentation_truth_contract": {
+    "rule_name": "VIDEO_ASSET_PRESENTATION_TRUTH",
+    "requirements": [
+      "Only verified playable destination-specific video may expose video UI controls and badging",
+      "Still images and photos may NEVER impersonate video (no fake play buttons or faux loops)",
+      "Zero cross-destination video fallback (missing video = photo view only)",
+      "Attribution and verified source provenance required on all media playback"
+    ]
+  },
+  "calibrated_budget_status": {
+    "budget_status": "PROVISIONAL_UNTIL_NATIVE_PROFILING",
+    "starting_budget_targets": {
+      "duration_maximum_seconds": 12,
+      "file_size_maximum_mb": 5.0,
+      "classification": "STARTING_BUDGET"
+    },
+    "runtime_dependency_matrix": [
+      "Hardware decoder capabilities on budget reference target (Vivo Y19 / MediaTek Helio P65)",
+      "Bitrate tuning vs cellular data conservation across 30 districts",
+      "ExoPlayer (Android) and AVPlayer (iOS) memory and buffer lifecycle",
+      "Battery drain and thermal impact during simultaneous map and active trip inspection"
+    ]
+  },
+  "status": "PASS"
+}

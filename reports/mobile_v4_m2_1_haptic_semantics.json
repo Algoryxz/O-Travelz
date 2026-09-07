@@ -1,0 +1,47 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_13_HAPTICS_CLAIM_AUDIT",
+  "timestamp": "2026-09-07T10:11:30Z",
+  "haptic_design_rules": {
+    "zero_decorative_haptics": "Haptic feedback is strictly prohibited on continuous scroll, decorative layout reveals, or background refreshes.",
+    "semantic_event_model": [
+      {
+        "event": "SELECTION",
+        "purpose": "Affirm tactile selection of a filter chip, navigation tab, or map annotation pin",
+        "provisional_android_binding": "HapticFeedbackConstants.CLOCK_TICK",
+        "provisional_ios_binding": "UIImpactFeedbackGenerator(style: .light)"
+      },
+      {
+        "event": "CONFIRMATION",
+        "purpose": "Confirm persistent state changes (saving a bookmark, toggling offline mode)",
+        "provisional_android_binding": "HapticFeedbackConstants.CONFIRM",
+        "provisional_ios_binding": "UIImpactFeedbackGenerator(style: .medium)"
+      },
+      {
+        "event": "WARNING",
+        "purpose": "Alert traveler to missing schedule, closed venue, or service disruption",
+        "provisional_android_binding": "HapticFeedbackConstants.REJECT",
+        "provisional_ios_binding": "UINotificationFeedbackGenerator(.warning)"
+      },
+      {
+        "event": "TRIP_MILESTONE",
+        "purpose": "Tactile celebration of reaching or completing an active destination milestone",
+        "provisional_android_binding": "Tactile confirmation pulse",
+        "provisional_ios_binding": "UINotificationFeedbackGenerator(.success)"
+      },
+      {
+        "event": "RIDE_RECORDING_START",
+        "purpose": "Double pulse confirming rider verification mode is actively recording on-bus stop sequence",
+        "provisional_android_binding": "Dual tick pattern",
+        "provisional_ios_binding": "Dual impact feedback"
+      },
+      {
+        "event": "RIDE_RECORDING_STOP",
+        "purpose": "Confirmation that audit payload was packaged and stored locally for upload",
+        "provisional_android_binding": "Decelerating vibration tick",
+        "provisional_ios_binding": "Success notification feedback"
+      }
+    ]
+  },
+  "status": "PASS"
+}

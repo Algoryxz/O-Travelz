@@ -47,12 +47,15 @@ To prevent visual chaos ("pin pollution"):
 
 ## 3. Zoom-Dependent Clustering & LOD (Level of Detail)
 
-| Zoom Level Range | Geographic Context | Display Behavior & Geometry |
+> **Evidence Note (`MAP_VISUAL_DIRECTION` vs `MAP_RUNTIME_CONFIGURATION`)**:<br>
+> The zoom thresholds and clustering ranges below represent **conceptual cartographic guidelines** (`MAP_VISUAL_DIRECTION`). Exact camera zoom thresholds, marker clustering radius, and runtime tile JSON styling are `PROVISIONAL` and will be calibrated during native map implementation in Wave M11 (`MAP_RUNTIME_CONFIGURATION`). The 30 districts are browsed and spatially filtered as centroids/regions; zero boundary polygons are assumed.
+
+| Conceptual Zoom Band | Geographic Context | Display Behavior & Geometry |
 |---|---|---|
-| **Zoom 5 – 7** | Statewide Odisha Overview | District/region browsing and spatial filtering across 30 districts with names in Odia/English. All individual place pins cluster into district numerical badges (`"Puri: 14"`). |
-| **Zoom 8 – 11** | Regional Inter-District | Regional clusters expand into sub-clusters. Major highway corridors (NH-16, NH-316) highlighted. |
-| **Zoom 12 – 14** | Urban / Cluster Scale (e.g. Old Town BBSR) | Individual destination pins render with category glyphs (Temple, Craft, Nature). Transit hubs visible. |
-| **Zoom 15+** | Immediate Street / Stop Scale | Verified bus stop poles render (`VERIFIED_OFFICIAL`). Exact pedestrian walking paths rendered on external handoff. |
+| **Statewide Overview (Zoom ~5–7)** | Statewide Odisha Overview | District/region browsing and spatial filtering across 30 districts with names in Odia/English. All individual place pins cluster into district numerical badges (`"Puri: 14"`). |
+| **Regional Inter-District (Zoom ~8–11)** | Regional Inter-District | Regional clusters expand into sub-clusters. Major highway corridors highlighted. |
+| **Urban / Cluster Scale (Zoom ~12–14)** | Urban / Cluster Scale (e.g. Old Town BBSR) | Individual destination pins render with category glyphs (Temple, Craft, Nature). Transit hubs visible. |
+| **Immediate Street Scale (Zoom ~15+)** | Immediate Street / Stop Scale | Verified bus stop poles render (`VERIFIED_OFFICIAL`). Pedestrian routing delegated to external handoff. |
 
 ---
 

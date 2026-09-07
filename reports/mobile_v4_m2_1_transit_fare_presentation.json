@@ -1,0 +1,19 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_9_TRANSIT_FARE_UI_CORRECTION",
+  "timestamp": "2026-09-07T10:09:30Z",
+  "presentation_rules_established": {
+    "data_layer_contract": "Fares remain null in raw JSON/database models until official audited CRUT stage tables are ingested.",
+    "ui_presentation_layer": {
+      "literal_tokens_prohibited": ["null", "NaN", "₹0", "Free"],
+      "KNOWN_VERIFIED_FARE": "Display verified ₹ amount alongside operator citation (e.g. '₹20 · CRUT Audited Stage')",
+      "UNKNOWN_FARE": "Omit fare display or state 'Fare information unavailable (subject to conductor stage ticketing)'"
+    },
+    "forbidden_behaviors": [
+      "Never infer or calculate stage fares without audited fare tables",
+      "Never display ₹0 or suggest bus rides are free",
+      "Never print raw database null tokens to traveler-facing views"
+    ]
+  },
+  "status": "PASS"
+}

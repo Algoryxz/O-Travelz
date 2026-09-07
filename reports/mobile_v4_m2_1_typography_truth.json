@@ -1,0 +1,31 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_12_TYPOGRAPHY_CLAIM_AUDIT",
+  "timestamp": "2026-09-07T10:11:00Z",
+  "typography_classification": {
+    "odia_script_status": {
+      "design_status": "ODIA_DESIGN_READY",
+      "runtime_status": "ODIA_NATIVE_RUNTIME_PENDING",
+      "evidence_level": "CONCEPTUALLY_FEASIBLE",
+      "rationale": "Static layout explorations demonstrate adequate vertical line-height allowances (1.4x-1.6x) and dual-script hierarchy. True native glyph shaping, conjunct ligature rendering, and system font fallback require runtime verification in Wave M22."
+    },
+    "ios_system_fonts": {
+      "display_serif": "Font.system(.largeTitle, design: .serif) [Apple System Serif / New York]",
+      "body_sans": "Font.system(.body, design: .default) [SF Pro]",
+      "odia_cascade": "System Kohinoor Odia font cascade",
+      "status": "PLATFORM_STANDARD (Zero private font APIs)"
+    },
+    "android_system_fonts": {
+      "display_serif": "FontFamily.Serif with platform system font resolution",
+      "body_sans": "FontFamily.Default [Roboto / System Sans]",
+      "odia_cascade": "Android Noto Sans Odia system font fallback",
+      "status": "PLATFORM_STANDARD (Custom font bundling deferred to Wave M22)"
+    }
+  },
+  "runtime_verification_gates_m22": [
+    "Verify no clipping of upper matras (U+0B48, U+0B4C) across display titles",
+    "Verify no clipping of lower conjunct ligatures (juktakkhara) in Body text",
+    "Validate Dynamic Type / Android font scaling with mixed English and Odia strings"
+  ],
+  "status": "PASS"
+}

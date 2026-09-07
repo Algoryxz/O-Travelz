@@ -47,7 +47,7 @@ A semantic token defines **intent, meaning, and hierarchy**. How that token is p
 |---|---|---|
 | `truth.verified` | `VerificationStatus.VERIFIED_OFFICIAL` | Physical inspection confirmed; official government/CRUT source |
 | `truth.scheduled`| `FreshnessStatus.SCHEDULED` | Static timetable departure; HH:MM IST schedule |
-| `truth.live` | `FreshnessStatus.LIVE_TELEMETRY` | Live weather condition (Open-Meteo) |
+| `truth.live` | `FreshnessStatus.LIVE_TELEMETRY` | Genuinely live provider states (Open-Meteo weather, active traveler on-device GPS/recording). STRICTLY PROHIBITED for transit buses (scheduled timetables only). |
 | `truth.estimated`| `DistanceConfidence.HAVERSINE_SPHERICAL` | Straight-line calculation; first-mile distance band |
 | `truth.candidate`| `VerificationStatus.UNVERIFIED_CANDIDATE` | Candidate bus stop; GPS unverified by field inspection |
 | `truth.unavailable`| `FreshnessStatus.STALE / UNAVAILABLE` | Information missing or external endpoint unreachable |

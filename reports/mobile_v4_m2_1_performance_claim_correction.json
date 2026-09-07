@@ -1,0 +1,35 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_4_PERFORMANCE_CLAIM_CORRECTION",
+  "timestamp": "2026-09-07T10:07:50Z",
+  "correction_summary": "Eliminated ungrounded claims of runtime 60fps / 120fps and hardware testing on unbuilt native binaries. Replaced with rigorous design feasibility classifications and designated runtime profiling protocols.",
+  "calibrated_performance_design_risk": {
+    "ANDROID_A_ATLAS_MATERIAL": {
+      "performance_design_risk": "LOW",
+      "rationale": "Design relies on flat container colors (#161B22), hairline borders (#30363D), and standard elevation. Zero RenderEffect blurs, zero custom shaders, zero heavy animated gradients."
+    },
+    "IOS_A_EDITORIAL_ATLAS": {
+      "performance_design_risk": "LOW",
+      "rationale": "Design uses standard Apple system components (NavigationStack, TabView, List). Thin materials limited to system navigation chrome (.bar); zero full-screen blur passes."
+    }
+  },
+  "required_runtime_verification_protocols": {
+    "android_m23_m25": {
+      "profiling_tools": [
+        "Jetpack Macrobenchmark (CompilationMode.Full, StartupMode.COLD)",
+        "JankStats / FrameMetrics (measuring frame deadline misses on 60Hz display)",
+        "Android Studio Memory Profiler (allocations, heap dump triage)",
+        "Physical Device Validation on Vivo Y19 (MediaTek Helio P65 / Android 12 / API 31)"
+      ]
+    },
+    "ios_m23_m25": {
+      "profiling_tools": [
+        "Xcode Instruments (Time Profiler, Allocations, Leaks)",
+        "Core Animation Instrument (FPS, hitch duration per frame, commit time)",
+        "Energy Log (thermal state impact during Active Trip execution)",
+        "Physical Device Validation on physical iPhone hardware"
+      ]
+    }
+  },
+  "status": "PASS"
+}

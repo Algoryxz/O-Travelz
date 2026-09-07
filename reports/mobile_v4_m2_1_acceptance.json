@@ -1,0 +1,34 @@
+{
+  "wave": "M2.1",
+  "phase": "PHASE_18_ACCEPTANCE",
+  "timestamp": "2026-09-07T10:13:00Z",
+  "topic": "Visual-Exploration Evidence Calibration, Token De-Prematuring & M3 Readiness Gate",
+  "calibration_results": {
+    "ANDROID_DIRECTION": "ANDROID_A_ATLAS_MATERIAL",
+    "IOS_DIRECTION": "IOS_A_EDITORIAL_ATLAS",
+    "M2_DIRECTION_CHANGED": false,
+    "OVERCLAIMS_FOUND": 10,
+    "OVERCLAIMS_CORRECTED": 10,
+    "PREMATURE_CONSTANTS_FOUND": 13,
+    "PREMATURE_CONSTANTS_DEFERRED": 13,
+    "ACCESSIBILITY_EVIDENCE_LEVEL": "STATIC_LAYOUT_REVIEW (Runtime verification pending in M21)",
+    "PERFORMANCE_EVIDENCE_LEVEL": "CONCEPTUALLY_FEASIBLE / LOW_DESIGN_RISK (Physical device verification pending in M23/M25)",
+    "VIDEO_BUDGET_STATUS": "PROVISIONAL_UNTIL_NATIVE_PROFILING (Presentation truth enforced; duration/size are starting budgets)",
+    "MAP_RUNTIME_CONSTANT_STATUS": "DEFERRED_TO_M11 (Visual direction established; runtime zoom & style configuration deferred)",
+    "ODIA_RUNTIME_STATUS": "ODIA_DESIGN_READY / ODIA_NATIVE_RUNTIME_PENDING (Wave M22)",
+    "FIGMA_STATUS": "WAITING_USER_AUTH (MCP configured; execution blocked pending user credentials)",
+    "STITCH_EVIDENCE_STATUS": "DESCRIBED_ONLY (48 conceptual surfaces fully specified in architectural briefs; zero interim HTML/React committed)",
+    "M3_READY": true
+  },
+  "zero_code_and_data_proof": {
+    "production_android_source_changed": 0,
+    "production_ios_source_changed": 0,
+    "native_projects_created": 0,
+    "kmp_changed": 0,
+    "backend_changed": 0,
+    "web_v4_changed": 0,
+    "canonical_data_changed": 0
+  },
+  "verdict": "ACCEPTED_M2_1",
+  "next_wave": "M3_COMPONENT_ARCHITECTURE_AND_INTERACTIVE_PROTOTYPES"
+}
