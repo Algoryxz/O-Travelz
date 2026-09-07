@@ -1,0 +1,65 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_9_MAP_DESIGN_ACCEPTANCE",
+  "timestamp": "2026-09-07T12:48:00+05:30",
+  "entity_layers_designed": [
+    "DESTINATIONS",
+    "SAVED",
+    "ITINERARY",
+    "TRANSIT_ROUTES",
+    "VERIFIED_STOPS",
+    "CANDIDATE_STOPS",
+    "ESSENTIALS",
+    "USER_LOCATION"
+  ],
+  "interaction_states_validated": [
+    {
+      "state": "Selected Place",
+      "behavior": "Pivots map camera, highlights marker, displays bottom detent sheet with photo and quick route button"
+    },
+    {
+      "state": "Selected Route",
+      "behavior": "Draws verified polyline where mapped; displays route badge, operator (CRUT Mo Bus), and stop list"
+    },
+    {
+      "state": "Selected Verified Stop",
+      "behavior": "Displays stop name, bilingual label, official stop badge, upcoming scheduled departures"
+    },
+    {
+      "state": "Candidate Stop",
+      "behavior": "Displays candidate warning pill: Candidate stop \u2014 exact location under verification; distance approximate"
+    },
+    {
+      "state": "Locality-Only Stop",
+      "behavior": "Renders centroid circle with locality label; no exact pinpoint pin; first-mile calculation disabled"
+    },
+    {
+      "state": "Geometry Unavailable",
+      "behavior": "Polyline suppressed completely; advisory banner: Schedule only \u2014 route map unavailable; stops listed in sequence"
+    },
+    {
+      "state": "Location Denied",
+      "behavior": "Device location indicator hidden; camera defaults to Odisha state bounds or selected district; manual pan active"
+    },
+    {
+      "state": "Offline Basemap Unavailable",
+      "behavior": "Vector basemap degrades gracefully to cached low-res tiles with clear offline overlay; points of interest remain clickable"
+    },
+    {
+      "state": "Clustered Entities",
+      "behavior": "Grouped cluster badges with count; expanding on tap without artificial lag"
+    },
+    {
+      "state": "Accessible List Alternative",
+      "behavior": "Toggle to full-screen structured list view with identical filter state and VoiceOver/TalkBack traversal"
+    }
+  ],
+  "transit_truth_contract_compliance": {
+    "zero_straight_line_bridges": true,
+    "unresolved_geometry_fail_closed": true,
+    "candidate_stops_prevent_exact_routing": true,
+    "zero_fake_live_vehicle_tracking": true,
+    "user_location_permission_gated": true
+  },
+  "verdict": "MAP_DESIGN_ACCEPTANCE_PASSED"
+}

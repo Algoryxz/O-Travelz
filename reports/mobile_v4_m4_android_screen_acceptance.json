@@ -1,0 +1,149 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_6_ANDROID_CANONICAL_SCREEN_SET",
+  "timestamp": "2026-09-07T12:42:00+05:30",
+  "selected_system": "ANDROID_A_ATLAS_MATERIAL",
+  "design_principles": [
+    "Material 3 Expressive Editorial",
+    "Edge-to-edge support with transparent status and navigation bars",
+    "Adaptive Navigation: NavigationBar (compact) -> NavigationRail (medium/expanded)",
+    "Predictive back gesture container transforms",
+    "Tonal elevation with zero arbitrary drop shadows",
+    "Deep basalt dark surfaces (#12100E) and warm sandstone canvas (#F5F2EB)"
+  ],
+  "core_screens": [
+    {
+      "id": "A01",
+      "name": "Discover Root",
+      "type": "ROOT_SURFACE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A02",
+      "name": "Place Detail",
+      "type": "DETAIL_SURFACE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A03",
+      "name": "Map \u2014 Selected Place",
+      "type": "MAP_INSPECTION",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A04",
+      "name": "Plan Input",
+      "type": "PLAN_FORM",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A05",
+      "name": "Itinerary Result",
+      "type": "PLAN_OUTPUT",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A06",
+      "name": "Trips Root",
+      "type": "ROOT_SURFACE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A07",
+      "name": "Active Trip",
+      "type": "EXECUTION_TIMELINE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A08",
+      "name": "Transit Route Detail",
+      "type": "TRANSIT_SURFACE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A09",
+      "name": "You Root",
+      "type": "ROOT_SURFACE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    }
+  ],
+  "state_siblings": [
+    {
+      "id": "A01-D",
+      "parent": "A01",
+      "name": "Offline Discover",
+      "disclosure": "Offline status banner, cached-only indicator",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A02-D",
+      "parent": "A02",
+      "name": "Missing Media Place",
+      "disclosure": "Text-first layout, verified photo count 0, placeholder prohibited",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A03-D",
+      "parent": "A03",
+      "name": "Location Denied Map",
+      "disclosure": "Centering on state bounds, location disabled banner, manual pan",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A04-D",
+      "parent": "A04",
+      "name": "AI Unavailable Plan",
+      "disclosure": "Network required notice for conversational refinement, structured form active",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A05-D",
+      "parent": "A05",
+      "name": "Partial Itinerary",
+      "disclosure": "Milestones with unmapped legs clearly flagged with transit advisory",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A06-D",
+      "parent": "A06",
+      "name": "No Saved Trips",
+      "disclosure": "Editorial empty state with prompt to generate or explore",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A07-D",
+      "parent": "A07",
+      "name": "Offline Active Trip",
+      "disclosure": "Cached timeline active, external navigation prompt, offline badge",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A08-D",
+      "parent": "A08",
+      "name": "Route Geometry Unavailable",
+      "disclosure": "Schedule only \u2014 route map unavailable banner, polyline suppressed",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "A09-D",
+      "parent": "A09",
+      "name": "Signed-Out / Local State",
+      "disclosure": "Local storage disclosure, optional sign-in button, full access retained",
+      "status": "SPECIFIED"
+    }
+  ],
+  "figma_materialization": {
+    "FRAMES_SPECIFIED": 18,
+    "FRAMES_CREATED_IN_FIGMA": 0,
+    "STATUS": "SPECIFIED_PENDING_FIGMA_AUTH"
+  }
+}

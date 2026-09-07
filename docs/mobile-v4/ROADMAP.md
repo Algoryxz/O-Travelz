@@ -17,9 +17,9 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M0.5** | Figma MCP integration, Stitch capability audit, design workspace setup, architecture closure | `[COMPLETED]` |
 | **M1** | Product anatomy, Information Architecture, and core user journeys | `[COMPLETED]` |
 | **M2** | Parallel Android & iOS visual exploration using Stitch + Figma | `[COMPLETED]` |
-| **M3** | Component Architecture & Interactive Prototype Specification | `[NEXT]` |
-| **M4** | Parallel clickable prototypes and formal design acceptance freeze | `[PLANNED]` |
-| **M5** | Fresh production Android and iOS project bootstrap | `[PLANNED]` |
+| **M3** | Component Architecture & Interactive Prototype Specification | `[COMPLETED]` |
+| **M4** | Parallel clickable prototypes and formal design acceptance freeze | `[COMPLETED]` |
+| **M5** | Fresh production Android and iOS project bootstrap | `[NEXT]` |
 | **M6** | API contracts, DTO generation, and native networking clients | `[PLANNED]` |
 | **M7** | App shells, root navigation, and adaptive chrome | `[PLANNED]` |
 | **M8** | Home / Editorial Cultural Atlas landing screen | `[PLANNED]` |
@@ -105,7 +105,7 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **Acceptance Criteria**: Full motion and interaction specs documented with duration, easing curves, fallback states, and 12 golden-journey interactive prototype flows.
 - **Non-Goals**: No native code implementation.
 
-### Wave M4: Clickable Prototypes & Design Acceptance Freeze `[NEXT]`
+### Wave M4: Clickable Prototypes & Design Acceptance Freeze `[COMPLETED]`
 - **Objective**: Build fully interactive clickable prototypes for Android and iOS in Figma and execute formal design freeze.
 - **Android Scope**: Android interactive prototype demonstrating phone and foldable layouts.
 - **iOS Scope**: iOS interactive prototype demonstrating iPhone and iPad layouts.
@@ -116,7 +116,7 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **Acceptance Criteria**: Formal sign-off on design tokens, typography, and component specifications.
 - **Non-Goals**: No production app code.
 
-### Wave M5: Fresh Android & iOS Project Bootstrap `[PLANNED]`
+### Wave M5: Fresh Android & iOS Project Bootstrap `[NEXT]`
 - **Objective**: Initialize clean production project structures for Android and iOS.
 - **Android Scope**: Bootstrap `mobile/android/` with Kotlin 2.0+, AGP 8.6, Compose BOM, wiring `:shared` Gradle dep.
 - **iOS Scope**: Initialize clean Xcode project `mobile/ios/OTravelz.xcodeproj` targeting iOS 17.0+, link `OTravelzCore.xcframework`.

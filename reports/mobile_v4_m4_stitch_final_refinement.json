@@ -1,0 +1,74 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_5_STITCH_FINAL_REFINEMENT",
+  "timestamp": "2026-09-07T12:40:00+05:30",
+  "surfaces_evaluated_count": 6,
+  "platform_targets": [
+    "ANDROID_M3_EXPRESSIVE",
+    "IOS_HIG_PUBLICATION"
+  ],
+  "rules_enforced": [
+    "No generated React/HTML committed",
+    "No fake commercial marketplace tropes",
+    "No generic AI sparkle UI",
+    "No fake live transport indicators",
+    "Distinct source asset photo counting"
+  ],
+  "surfaces": [
+    {
+      "id": "SURF_01",
+      "name": "Discover Root",
+      "android_focus": "M3 top app bar with embedded search pill; terracotta accent hero card; horizontal filter chips; one-handed bottom navigation",
+      "ios_focus": "Large title navigation with inline search bar; full-width editorial card with hairline divider; system material chips",
+      "odisha_cultural_character": "Deep sandstone canvas (#F5F2EB / #1A1612), authentic verified imagery, zero generic AI travel badges",
+      "truth_assertions": "Verified photo count badge, NO fake star ratings or synthetic reviews",
+      "refinement_verdict": "LOCKED_TO_SELECTED_DIRECTION"
+    },
+    {
+      "id": "SURF_02",
+      "name": "Place Detail",
+      "android_focus": "Predictive back container transform; tonal surface cards for facts; quick-access transit chip; bottom floating action",
+      "ios_focus": "Medium sheet detent transitioning to full screen; grouped list presentation; native MapKit preview thumbnail",
+      "odisha_cultural_character": "Dual-script English and Odia titles; cultural narrative essay block; artisan lineage credit",
+      "truth_assertions": "Distinct source photo count (no thumbnail duplication); media affordances appear only when verified asset exists; no fallback 3D or cross-destination video",
+      "refinement_verdict": "LOCKED_TO_SELECTED_DIRECTION"
+    },
+    {
+      "id": "SURF_03",
+      "name": "Map Selected Entity",
+      "android_focus": "M3 bottom sheet with drag handle; quick route button; transit stop pill chips with candidate status",
+      "ios_focus": "Interactive detent sheet (compact, medium, expanded); native system vibrancy background; SF Symbol icons",
+      "odisha_cultural_character": "Temple/heritage iconography with sandstone markers; verified geographic bounds",
+      "truth_assertions": "Zero fake vehicle tracking; candidate stops clearly marked with candidate disclosure; discontinuous transit gaps suppress polyline",
+      "refinement_verdict": "LOCKED_TO_SELECTED_DIRECTION"
+    },
+    {
+      "id": "SURF_04",
+      "name": "Plan (Constraint Input & Result)",
+      "android_focus": "Segmented button row for pace and transport preference; structured sliders; conversational refinement field at base",
+      "ios_focus": "Grouped form with native Pickers and Steppers; secondary natural language input field with clear keyboard handling",
+      "odisha_cultural_character": "Emphasis on cultural clusters (Golden Triangle, Mayurbhanj artisan belts, Chilika wetland)",
+      "truth_assertions": "Deterministic itinerary engine owns facts; AI input is network-required; offline mode disables conversational generation with clear banner",
+      "refinement_verdict": "LOCKED_TO_SELECTED_DIRECTION"
+    },
+    {
+      "id": "SURF_05",
+      "name": "Active Trip",
+      "android_focus": "Linear vertical timeline with M3 tonal milestone cards; external navigation intent launcher; manual completion toggle",
+      "ios_focus": "Card-based milestone stack with native checkmark buttons; transit countdown indicator; system sheet for essentials",
+      "odisha_cultural_character": "Temple darshan time windows, artisan workshop hours, regional weather precautions",
+      "truth_assertions": "Milestones completed manually or via external nav; no fake automated GPS arrival detection; offline trip bundle cached locally",
+      "refinement_verdict": "LOCKED_TO_SELECTED_DIRECTION"
+    },
+    {
+      "id": "SURF_06",
+      "name": "Transit Route Detail",
+      "android_focus": "Route badge header (CRUT Mo Bus); stop sequence list with official vs candidate stop indicators; departure time chips",
+      "ios_focus": "NavigationStack detail view with grouped stop table; schedule disclosure section; fare status card",
+      "odisha_cultural_character": "Bilingual stop names (English & Odia script); CRUT official route identity",
+      "truth_assertions": "All departures strictly Scheduled - HH:MM IST; fare status is strictly Fare information unavailable; unmapped geometry shows advisory banner with suppressed map polyline",
+      "refinement_verdict": "LOCKED_TO_SELECTED_DIRECTION"
+    }
+  ],
+  "verdict": "ALL_6_CORE_SURFACES_REFINED_AND_CRITICALLY_APPROVED"
+}

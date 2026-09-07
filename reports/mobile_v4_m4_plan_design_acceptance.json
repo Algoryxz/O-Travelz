@@ -1,0 +1,57 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_10_PLAN_DESIGN_ACCEPTANCE",
+  "timestamp": "2026-09-07T12:50:00+05:30",
+  "structured_constraint_inputs": [
+    "Duration (1 day, 2 days, 3 days, 5 days, custom)",
+    "Available Time Window (Start time, end time, rest preferences)",
+    "Interests (Heritage and Temples, Arts and Crafts, Nature and Wildlife, Coastal and Beaches, Culinary)",
+    "Pace (Relaxed, Balanced, Intensive)",
+    "Walking Tolerance (Up to 1 km, up to 3 km, extensive)",
+    "Transport Preference (Transit-First Mo Bus, Private/Cab, Mixed)",
+    "Starting Hub / City (Bhubaneswar, Puri, Cuttack, Rourkela, Sambalpur, Berhampur, Current Location)",
+    "Weather Context (Monsoon-adjusted, summer heat buffer)",
+    "Optional Natural-Language Refinement (Supplementary intent modifier)"
+  ],
+  "plan_states_validated": [
+    {
+      "state": "PLAN_EMPTY",
+      "ui": "Clean structured input form with cultural cluster suggestions and quick starters"
+    },
+    {
+      "state": "PLAN_EDITING",
+      "ui": "Interactive sliders, segmented controls, pill selectors; real-time validation of time constraints"
+    },
+    {
+      "state": "PLAN_INTERPRETING",
+      "ui": "Deterministic solver animation with progress indicator; explanatory copy on optimization factors"
+    },
+    {
+      "state": "PLAN_RESULT",
+      "ui": "Chronological multi-day itinerary with milestones, transport legs, verified darshan times, buffer times"
+    },
+    {
+      "state": "PLAN_PARTIAL",
+      "ui": "Itinerary generated with unmapped transit legs flagged; advisory on local transport hire"
+    },
+    {
+      "state": "AI_DEGRADED",
+      "ui": "Conversational AI refinement slow or unresponsive; structured generator completes deterministically"
+    },
+    {
+      "state": "AI_UNAVAILABLE",
+      "ui": "Conversational chat disabled with banner: AI refinement offline \u2014 structured planning active"
+    },
+    {
+      "state": "OFFLINE",
+      "ui": "Offline banner visible; stored templates and previously generated itineraries viewable; new cloud generation disabled"
+    }
+  ],
+  "truth_assertions": {
+    "deterministic_engine_owns_facts": true,
+    "ai_conversational_strictly_network_required": true,
+    "zero_speculative_local_deterministic_ai": true,
+    "structured_constraints_remain_inspectable": true
+  },
+  "verdict": "PLAN_DESIGN_ACCEPTANCE_PASSED"
+}

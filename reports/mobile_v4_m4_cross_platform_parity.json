@@ -1,0 +1,59 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_22_CROSS_PLATFORM_PARITY_AUDIT",
+  "timestamp": "2026-09-07T13:10:00+05:30",
+  "parity_matrix": [
+    {
+      "surface": "Discover Root",
+      "classification": "BEHAVIOR_PARITY",
+      "native_nuance": "M3 top app bar search vs HIG large title search"
+    },
+    {
+      "surface": "Place Detail",
+      "classification": "BEHAVIOR_PARITY",
+      "native_nuance": "M3 container transform vs HIG sheet detents (.medium/.large)"
+    },
+    {
+      "surface": "Map",
+      "classification": "BEHAVIOR_PARITY",
+      "native_nuance": "Google Maps Compose markers vs MapKit annotations"
+    },
+    {
+      "surface": "Plan",
+      "classification": "BEHAVIOR_PARITY",
+      "native_nuance": "Material segmented buttons vs iOS native Pickers"
+    },
+    {
+      "surface": "Active Trip",
+      "classification": "BEHAVIOR_PARITY",
+      "native_nuance": "Tonal card milestone timeline on both platforms"
+    },
+    {
+      "surface": "Transit Route Detail",
+      "classification": "BEHAVIOR_PARITY",
+      "native_nuance": "Identical schedule copy and fare unavailability string"
+    },
+    {
+      "surface": "Trips Root",
+      "classification": "BEHAVIOR_PARITY",
+      "native_nuance": "Local persistence parity (Room vs SwiftData)"
+    },
+    {
+      "surface": "You Root",
+      "classification": "BEHAVIOR_PARITY",
+      "native_nuance": "Settings and offline cache management parity"
+    },
+    {
+      "surface": "Truth Indicators",
+      "classification": "BEHAVIOR_PARITY",
+      "native_nuance": "TruthBadge maps to M3 tonal chip and HIG capsule"
+    },
+    {
+      "surface": "Offline Handling",
+      "classification": "BEHAVIOR_PARITY",
+      "native_nuance": "Identical cache fallback and offline banner display"
+    }
+  ],
+  "unresolved_parity_gaps_count": 0,
+  "verdict": "CROSS_PLATFORM_PARITY_VERIFIED_ZERO_GAPS"
+}

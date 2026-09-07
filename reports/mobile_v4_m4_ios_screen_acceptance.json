@@ -1,0 +1,151 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_7_IOS_CANONICAL_SCREEN_SET",
+  "timestamp": "2026-09-07T12:44:00+05:30",
+  "selected_system": "IOS_A_EDITORIAL_ATLAS",
+  "design_principles": [
+    "Apple HIG Publication System",
+    "Native TabView root with 5 tabs",
+    "NavigationStack with large title collapses on scroll",
+    "Interactive detent bottom sheets (.medium and .large)",
+    "System materials (ultraThinMaterial, thinMaterial, regularMaterial)",
+    "Dynamic Type compliance (xSmall to xxxLarge, accessibility sizes)",
+    "Hairline borders (0.5pt / Color(uiColor: .separator))",
+    "San Francisco typography with balanced tracking and leading"
+  ],
+  "core_screens": [
+    {
+      "id": "I01",
+      "name": "Discover Root",
+      "type": "ROOT_SURFACE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I02",
+      "name": "Place Detail",
+      "type": "DETAIL_SURFACE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I03",
+      "name": "Map \u2014 Selected Place",
+      "type": "MAP_INSPECTION",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I04",
+      "name": "Plan Input",
+      "type": "PLAN_FORM",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I05",
+      "name": "Itinerary Result",
+      "type": "PLAN_OUTPUT",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I06",
+      "name": "Trips Root",
+      "type": "ROOT_SURFACE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I07",
+      "name": "Active Trip",
+      "type": "EXECUTION_TIMELINE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I08",
+      "name": "Transit Route Detail",
+      "type": "TRANSIT_SURFACE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I09",
+      "name": "You Root",
+      "type": "ROOT_SURFACE",
+      "figma_frame_id": null,
+      "status": "SPECIFIED"
+    }
+  ],
+  "state_siblings": [
+    {
+      "id": "I01-D",
+      "parent": "I01",
+      "name": "Offline Discover",
+      "disclosure": "System offline banner, cached badge",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I02-D",
+      "parent": "I02",
+      "name": "Missing Media Place",
+      "disclosure": "Full text layout, 0 verified photos badge, no generic art",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I03-D",
+      "parent": "I03",
+      "name": "Location Denied Map",
+      "disclosure": "Location arrow slashed, manual pan allowed",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I04-D",
+      "parent": "I04",
+      "name": "AI Unavailable Plan",
+      "disclosure": "Network required notice on chat field, form active",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I05-D",
+      "parent": "I05",
+      "name": "Partial Itinerary",
+      "disclosure": "Leg disclosure with transit unmapped indicator",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I06-D",
+      "parent": "I06",
+      "name": "No Saved Trips",
+      "disclosure": "ContentUnavailableView with trip creation action",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I07-D",
+      "parent": "I07",
+      "name": "Offline Active Trip",
+      "disclosure": "Local execution timeline with offline indicator",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I08-D",
+      "parent": "I08",
+      "name": "Route Geometry Unavailable",
+      "disclosure": "Schedule only \u2014 route map unavailable notice",
+      "status": "SPECIFIED"
+    },
+    {
+      "id": "I09-D",
+      "parent": "I09",
+      "name": "Signed-Out / Local State",
+      "disclosure": "Sign in with Apple option, full local storage support",
+      "status": "SPECIFIED"
+    }
+  ],
+  "figma_materialization": {
+    "FRAMES_SPECIFIED": 18,
+    "FRAMES_CREATED_IN_FIGMA": 0,
+    "STATUS": "SPECIFIED_PENDING_FIGMA_AUTH"
+  }
+}

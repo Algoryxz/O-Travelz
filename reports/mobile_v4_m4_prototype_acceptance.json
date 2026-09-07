@@ -1,0 +1,99 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_13_CLICKABLE_PROTOTYPE_JOURNEYS",
+  "timestamp": "2026-09-07T12:56:00+05:30",
+  "status": "PROTOTYPE_SPECIFIED_NOT_MATERIALIZED",
+  "reason": "Figma write authentication requires interactive browser OAuth grant; remote canvas mutation paused pending user authorization.",
+  "journeys_specified_count": 6,
+  "platforms": [
+    "ANDROID_M3",
+    "IOS_HIG"
+  ],
+  "total_prototype_flows_count": 12,
+  "prototype_flows": [
+    {
+      "journey_id": "J1",
+      "journey_name": "First-Time Visitor Discovery",
+      "android_flow": "FLOW_AND_J1",
+      "ios_flow": "FLOW_IOS_J1",
+      "steps": [
+        "START: Discover Root",
+        "NAV: Tap Hero Destination (Konark)",
+        "TASK: Browse verified photos and cultural essay",
+        "BACK: Predictive back / swipe to Discover",
+        "END: Place saved to trips"
+      ]
+    },
+    {
+      "journey_id": "J3",
+      "journey_name": "Constraint-Based AI Planning",
+      "android_flow": "FLOW_AND_J3",
+      "ios_flow": "FLOW_IOS_J3",
+      "steps": [
+        "START: Plan Tab",
+        "NAV: Select 2-Day Cultural Tour + Transit",
+        "TASK: Refine with prompt Include Raghurajpur artisan village",
+        "FAIL_BRANCH: Network drop -> AI Unavailable banner with structured result",
+        "END: Generated itinerary saved"
+      ]
+    },
+    {
+      "journey_id": "J5",
+      "journey_name": "Transit-Dependent Trip",
+      "android_flow": "FLOW_AND_J5",
+      "ios_flow": "FLOW_IOS_J5",
+      "steps": [
+        "START: Transit Route Detail (Mo Bus Route 10)",
+        "NAV: Inspect stop sequence (Bhubaneswar Station -> AIIMS)",
+        "TASK: Check scheduled departure (Scheduled \u00b7 08:30 IST)",
+        "FAIL_BRANCH: Geometry unmapped -> advisory banner with suppressed polyline",
+        "END: Boarding stop pinned"
+      ]
+    },
+    {
+      "journey_id": "J6",
+      "journey_name": "Active Trip Execution",
+      "android_flow": "FLOW_AND_J6",
+      "ios_flow": "FLOW_IOS_J6",
+      "steps": [
+        "START: Trips Tab -> Launch Active Trip",
+        "NAV: View current milestone (Mukteshwar Temple)",
+        "TASK: Manually complete milestone with haptic feedback",
+        "BACK: External navigation to Google Maps / Apple Maps",
+        "END: Active trip milestone updated"
+      ]
+    },
+    {
+      "journey_id": "J8",
+      "journey_name": "Offline Trip Continuity",
+      "android_flow": "FLOW_AND_J8",
+      "ios_flow": "FLOW_IOS_J8",
+      "steps": [
+        "START: Airplane mode activated",
+        "NAV: App displays offline banner Cached trip mode active",
+        "TASK: Inspect saved destination details and cultural narrative",
+        "FAIL_BRANCH: Conversational AI tapped -> clear network required banner",
+        "END: Traveler navigates using cached data"
+      ]
+    },
+    {
+      "journey_id": "J12",
+      "journey_name": "Location Permission Denied",
+      "android_flow": "FLOW_AND_J12",
+      "ios_flow": "FLOW_IOS_J12",
+      "steps": [
+        "START: Map Tab opened -> Permission dialog dismissed",
+        "NAV: Map centers on Odisha state bounds with sandstone markers",
+        "TASK: Select district filter (Puri) and pan manually",
+        "FAIL_BRANCH: Nearest stop tapped -> locality centroid shown with candidate advisory",
+        "END: Destination selected without device location"
+      ]
+    }
+  ],
+  "truth_boundary": {
+    "fake_prototype_links_avoided": true,
+    "full_interaction_physics_specified": true,
+    "canvas_materialization_status": "PENDING_BROWSER_AUTH"
+  },
+  "verdict": "ALL_12_PROTOTYPE_FLOWS_AUTHORITATIVELY_SPECIFIED"
+}

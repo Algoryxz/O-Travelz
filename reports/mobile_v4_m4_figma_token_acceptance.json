@@ -1,0 +1,518 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_3_MATERIALIZE_DESIGN_TOKENS",
+  "timestamp": "2026-09-07T12:35:00+05:30",
+  "summary": {
+    "TOKENS_SPECIFIED": 71,
+    "TOKENS_CREATED": 0,
+    "TOKENS_SKIPPED": 0,
+    "TOKENS_UNSUPPORTED": 71
+  },
+  "figma_canvas_status": "UNSUPPORTED_PENDING_AUTH",
+  "repository_contract_status": "FROZEN_SPECIFIED_IN_REPO",
+  "tag_breakdown": {
+    "LOCKED_SEMANTIC": 39,
+    "PLATFORM_MAPPING": 23,
+    "PROVISIONAL_DESIGN": 5,
+    "IMPLEMENTATION_MEASURED_LATER": 4
+  },
+  "token_manifest": [
+    {
+      "name": "surface.canvas",
+      "group": "SURFACE",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.surface / surfaceContainer",
+      "ios_target": "Color(uiColor: .systemBackground / .secondarySystemGroupedBackground)"
+    },
+    {
+      "name": "surface.card",
+      "group": "SURFACE",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.surface / surfaceContainer",
+      "ios_target": "Color(uiColor: .systemBackground / .secondarySystemGroupedBackground)"
+    },
+    {
+      "name": "surface.elevated",
+      "group": "SURFACE",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.surface / surfaceContainer",
+      "ios_target": "Color(uiColor: .systemBackground / .secondarySystemGroupedBackground)"
+    },
+    {
+      "name": "surface.overlay",
+      "group": "SURFACE",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.surface / surfaceContainer",
+      "ios_target": "Color(uiColor: .systemBackground / .secondarySystemGroupedBackground)"
+    },
+    {
+      "name": "border.subtle",
+      "group": "BORDER",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.outlineVariant",
+      "ios_target": "Color(uiColor: .separator)"
+    },
+    {
+      "name": "border.prominent",
+      "group": "BORDER",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.outlineVariant",
+      "ios_target": "Color(uiColor: .separator)"
+    },
+    {
+      "name": "text.primary",
+      "group": "TEXT",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.onSurface / onSurfaceVariant",
+      "ios_target": "Color.primary / Color.secondary"
+    },
+    {
+      "name": "text.secondary",
+      "group": "TEXT",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.onSurface / onSurfaceVariant",
+      "ios_target": "Color.primary / Color.secondary"
+    },
+    {
+      "name": "text.tertiary",
+      "group": "TEXT",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.onSurface / onSurfaceVariant",
+      "ios_target": "Color.primary / Color.secondary"
+    },
+    {
+      "name": "text.inverse",
+      "group": "TEXT",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.onSurface / onSurfaceVariant",
+      "ios_target": "Color.primary / Color.secondary"
+    },
+    {
+      "name": "accent.sandstone",
+      "group": "ACCENT",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "ExtendedColorScheme.accent",
+      "ios_target": "Color.accentColor / asset catalog"
+    },
+    {
+      "name": "accent.chilika",
+      "group": "ACCENT",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "ExtendedColorScheme.accent",
+      "ios_target": "Color.accentColor / asset catalog"
+    },
+    {
+      "name": "accent.forest",
+      "group": "ACCENT",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "ExtendedColorScheme.accent",
+      "ios_target": "Color.accentColor / asset catalog"
+    },
+    {
+      "name": "accent.terracotta",
+      "group": "ACCENT",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "ExtendedColorScheme.accent",
+      "ios_target": "Color.accentColor / asset catalog"
+    },
+    {
+      "name": "truth.verified",
+      "group": "TRUTH",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "TruthThemeColors",
+      "ios_target": "TruthBadgeStyle"
+    },
+    {
+      "name": "truth.scheduled",
+      "group": "TRUTH",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "TruthThemeColors",
+      "ios_target": "TruthBadgeStyle"
+    },
+    {
+      "name": "truth.live",
+      "group": "TRUTH",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "TruthThemeColors",
+      "ios_target": "TruthBadgeStyle"
+    },
+    {
+      "name": "truth.estimated",
+      "group": "TRUTH",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "TruthThemeColors",
+      "ios_target": "TruthBadgeStyle"
+    },
+    {
+      "name": "truth.candidate",
+      "group": "TRUTH",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "TruthThemeColors",
+      "ios_target": "TruthBadgeStyle"
+    },
+    {
+      "name": "truth.unavailable",
+      "group": "TRUTH",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "TruthThemeColors",
+      "ios_target": "TruthBadgeStyle"
+    },
+    {
+      "name": "status.success",
+      "group": "STATUS",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.error / custom status",
+      "ios_target": "system semantic colors"
+    },
+    {
+      "name": "status.warning",
+      "group": "STATUS",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.error / custom status",
+      "ios_target": "system semantic colors"
+    },
+    {
+      "name": "status.error",
+      "group": "STATUS",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "colorScheme.error / custom status",
+      "ios_target": "system semantic colors"
+    },
+    {
+      "name": "space.1",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "2.dp",
+      "ios_target": "CGFloat(2)"
+    },
+    {
+      "name": "space.2",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "4.dp",
+      "ios_target": "CGFloat(4)"
+    },
+    {
+      "name": "space.3",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "8.dp",
+      "ios_target": "CGFloat(8)"
+    },
+    {
+      "name": "space.4",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "12.dp",
+      "ios_target": "CGFloat(12)"
+    },
+    {
+      "name": "space.5",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "16.dp",
+      "ios_target": "CGFloat(16)"
+    },
+    {
+      "name": "space.6",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "20.dp",
+      "ios_target": "CGFloat(20)"
+    },
+    {
+      "name": "space.7",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "24.dp",
+      "ios_target": "CGFloat(24)"
+    },
+    {
+      "name": "space.8",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "32.dp",
+      "ios_target": "CGFloat(32)"
+    },
+    {
+      "name": "space.9",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "40.dp",
+      "ios_target": "CGFloat(40)"
+    },
+    {
+      "name": "space.10",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "48.dp",
+      "ios_target": "CGFloat(48)"
+    },
+    {
+      "name": "space.11",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "56.dp",
+      "ios_target": "CGFloat(56)"
+    },
+    {
+      "name": "space.12",
+      "group": "SPACING",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "64.dp",
+      "ios_target": "CGFloat(64)"
+    },
+    {
+      "name": "radius.small",
+      "group": "RADIUS",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "ShapeDefaults",
+      "ios_target": "RoundedRectangle(cornerRadius:)"
+    },
+    {
+      "name": "radius.medium",
+      "group": "RADIUS",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "ShapeDefaults",
+      "ios_target": "RoundedRectangle(cornerRadius:)"
+    },
+    {
+      "name": "radius.large",
+      "group": "RADIUS",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "ShapeDefaults",
+      "ios_target": "RoundedRectangle(cornerRadius:)"
+    },
+    {
+      "name": "radius.full",
+      "group": "RADIUS",
+      "tag": "LOCKED_SEMANTIC",
+      "android_target": "ShapeDefaults",
+      "ios_target": "RoundedRectangle(cornerRadius:)"
+    },
+    {
+      "name": "type.displayLarge",
+      "group": "TYPOGRAPHY",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "MaterialTheme.typography",
+      "ios_target": "Font.system styles"
+    },
+    {
+      "name": "type.displayMedium",
+      "group": "TYPOGRAPHY",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "MaterialTheme.typography",
+      "ios_target": "Font.system styles"
+    },
+    {
+      "name": "type.titleLarge",
+      "group": "TYPOGRAPHY",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "MaterialTheme.typography",
+      "ios_target": "Font.system styles"
+    },
+    {
+      "name": "type.titleMedium",
+      "group": "TYPOGRAPHY",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "MaterialTheme.typography",
+      "ios_target": "Font.system styles"
+    },
+    {
+      "name": "type.bodyLarge",
+      "group": "TYPOGRAPHY",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "MaterialTheme.typography",
+      "ios_target": "Font.system styles"
+    },
+    {
+      "name": "type.bodyMedium",
+      "group": "TYPOGRAPHY",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "MaterialTheme.typography",
+      "ios_target": "Font.system styles"
+    },
+    {
+      "name": "type.bodySmall",
+      "group": "TYPOGRAPHY",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "MaterialTheme.typography",
+      "ios_target": "Font.system styles"
+    },
+    {
+      "name": "type.labelLarge",
+      "group": "TYPOGRAPHY",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "MaterialTheme.typography",
+      "ios_target": "Font.system styles"
+    },
+    {
+      "name": "type.labelSmall",
+      "group": "TYPOGRAPHY",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "MaterialTheme.typography",
+      "ios_target": "Font.system styles"
+    },
+    {
+      "name": "elevation.level0",
+      "group": "ELEVATION",
+      "tag": "PROVISIONAL_DESIGN",
+      "android_target": "ElevationDefaults.level0",
+      "ios_target": "Shadow / Material"
+    },
+    {
+      "name": "elevation.level1",
+      "group": "ELEVATION",
+      "tag": "PROVISIONAL_DESIGN",
+      "android_target": "ElevationDefaults.level1",
+      "ios_target": "Shadow / Material"
+    },
+    {
+      "name": "elevation.level2",
+      "group": "ELEVATION",
+      "tag": "PROVISIONAL_DESIGN",
+      "android_target": "ElevationDefaults.level2",
+      "ios_target": "Shadow / Material"
+    },
+    {
+      "name": "elevation.level3",
+      "group": "ELEVATION",
+      "tag": "PROVISIONAL_DESIGN",
+      "android_target": "ElevationDefaults.level3",
+      "ios_target": "Shadow / Material"
+    },
+    {
+      "name": "elevation.level4",
+      "group": "ELEVATION",
+      "tag": "PROVISIONAL_DESIGN",
+      "android_target": "ElevationDefaults.level4",
+      "ios_target": "Shadow / Material"
+    },
+    {
+      "name": "motion.duration.fast",
+      "group": "MOTION",
+      "tag": "IMPLEMENTATION_MEASURED_LATER",
+      "android_target": "MotionTokens",
+      "ios_target": "Animation.spring"
+    },
+    {
+      "name": "motion.duration.normal",
+      "group": "MOTION",
+      "tag": "IMPLEMENTATION_MEASURED_LATER",
+      "android_target": "MotionTokens",
+      "ios_target": "Animation.spring"
+    },
+    {
+      "name": "motion.duration.slow",
+      "group": "MOTION",
+      "tag": "IMPLEMENTATION_MEASURED_LATER",
+      "android_target": "MotionTokens",
+      "ios_target": "Animation.spring"
+    },
+    {
+      "name": "motion.duration.deliberate",
+      "group": "MOTION",
+      "tag": "IMPLEMENTATION_MEASURED_LATER",
+      "android_target": "MotionTokens",
+      "ios_target": "Animation.spring"
+    },
+    {
+      "name": "platform.android.ripple.alpha",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.android.tonal_elevation",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.android.predictive_back_scale",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.android.scrim_color",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.android.status_bar_contrast",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.android.nav_bar_insets",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.ios.material_regular",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.ios.material_thin",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.ios.material_ultra_thin",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.ios.hairline_width",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.ios.sheet_detent_ratio",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.ios.navigation_bar_blur",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.ios.dynamic_type_scale_min",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    },
+    {
+      "name": "platform.ios.dynamic_type_scale_max",
+      "group": "PLATFORM_SPECIFIC",
+      "tag": "PLATFORM_MAPPING",
+      "android_target": "Compose specific",
+      "ios_target": "SwiftUI specific"
+    }
+  ]
+}

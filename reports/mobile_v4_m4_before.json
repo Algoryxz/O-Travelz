@@ -1,0 +1,30 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_0_FORENSIC_SYNC",
+  "timestamp": "2026-09-07T12:28:00+05:30",
+  "repository": "https://github.com/Algoryxz/O-Travelz",
+  "branch": "feature/v4-platform-rebuild",
+  "expected_starting_sha": "6bab610e40899f79e4a74f0dd191f2bbc1c791be",
+  "actual_starting_sha": "6bab610e40899f79e4a74f0dd191f2bbc1c791be",
+  "working_tree_clean": true,
+  "invariants": {
+    "ANDROID_DIRECTION_UNCHANGED": true,
+    "ANDROID_SELECTED_DIRECTION": "ANDROID_A_ATLAS_MATERIAL",
+    "IOS_DIRECTION_UNCHANGED": true,
+    "IOS_SELECTED_DIRECTION": "IOS_A_EDITORIAL_ATLAS",
+    "ROOT_NAVIGATION_UNCHANGED": true,
+    "ROOT_NAVIGATION_TABS": [
+      "Discover",
+      "Map",
+      "Plan",
+      "Trips",
+      "You"
+    ],
+    "PRODUCT_TRUTH_UNCHANGED": true,
+    "CANONICAL_DEPARTURES_COUNT": 5549,
+    "TRANSIT_GEOMETRY_FABRICATION_PREVENTED": true,
+    "FARE_PRESENTATION_TRUTH_ENFORCED": true,
+    "AI_OFFLINE_TRUTH_CALIBRATED": true,
+    "ZERO_PRODUCTION_MOBILE_CODE": true
+  }
+}

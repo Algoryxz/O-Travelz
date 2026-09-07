@@ -1,0 +1,56 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_18_ODIA_TYPOGRAPHY_DESIGN_QA",
+  "timestamp": "2026-09-07T13:04:00+05:30",
+  "script_pair": "Odia (\u0b13\u0b21\u0b3c\u0b3f\u0b06) + Latin (English)",
+  "tested_strings": [
+    {
+      "type": "Short Place Name",
+      "odia": "\u0b2a\u0b41\u0b30\u0b40",
+      "english": "Puri",
+      "behavior": "Zero wrapping; tight pill chip alignment"
+    },
+    {
+      "type": "Medium Place Name",
+      "odia": "\u0b15\u0b4b\u0b23\u0b3e\u0b30\u0b4d\u0b15 \u0b38\u0b42\u0b30\u0b4d\u0b2f\u0b4d\u0b5f \u0b2e\u0b28\u0b4d\u0b26\u0b3f\u0b30",
+      "english": "Konark Sun Temple",
+      "behavior": "Balanced 2-line dual-script title block"
+    },
+    {
+      "type": "Long Place Name",
+      "odia": "\u0b27\u0b09\u0b33\u0b3f\u0b17\u0b3f\u0b30\u0b3f \u0b36\u0b3e\u0b28\u0b4d\u0b24\u0b3f \u0b38\u0b4d\u0b24\u0b42\u0b2a \u0b0f\u0b2c\u0b02 \u0b36\u0b3f\u0b33\u0b3e\u0b32\u0b47\u0b16",
+      "english": "Dhauli Shanti Stupa & Rock Edicts",
+      "behavior": "Wraps gracefully at natural word boundaries; 1.35x leading prevents matra clipping"
+    },
+    {
+      "type": "Truth Badge",
+      "odia": "\u0b2f\u0b3e\u0b1e\u0b4d\u0b1a \u0b39\u0b4b\u0b07\u0b25\u0b3f\u0b2c\u0b3e \u0b2b\u0b1f\u0b4b",
+      "english": "Verified Photo",
+      "behavior": "Badge height grows by 4dp to clear upper matra marks"
+    },
+    {
+      "type": "Transit Schedule Label",
+      "odia": "\u0b28\u0b3f\u0b30\u0b4d\u0b26\u0b4d\u0b27\u0b3e\u0b30\u0b3f\u0b24 \u0b38\u0b2e\u0b5f: \u0b67\u0b66:\u0b69\u0b66",
+      "english": "Scheduled: 10:30 IST",
+      "behavior": "Clear numerals with Odia script prefix"
+    },
+    {
+      "type": "Fare Status Notice",
+      "odia": "\u0b2d\u0b21\u0b3c\u0b3e \u0b38\u0b42\u0b1a\u0b28\u0b3e \u0b09\u0b2a\u0b32\u0b2c\u0b4d\u0b27 \u0b28\u0b3e\u0b39\u0b3f\u0b01",
+      "english": "Fare information unavailable",
+      "behavior": "Full width advisory notice; legible at labelSmall"
+    },
+    {
+      "type": "Offline Notice",
+      "odia": "\u0b07\u0b23\u0b4d\u0b1f\u0b30\u0b28\u0b47\u0b1f\u0b4d \u0b38\u0b02\u0b2f\u0b4b\u0b17 \u0b28\u0b3e\u0b39\u0b3f\u0b01 \u2014 \u0b05\u0b2b\u0b32\u0b3e\u0b07\u0b28\u0b4d \u0b21\u0b3e\u0b1f\u0b3e \u0b2a\u0b4d\u0b30\u0b26\u0b30\u0b4d\u0b36\u0b3f\u0b24",
+      "english": "No internet connection \u2014 showing cached data",
+      "behavior": "Banner wraps cleanly without text truncation"
+    }
+  ],
+  "typographic_observations": {
+    "line_height_multiplier": "1.35x minimum for Odia vs 1.15x for Latin",
+    "matra_clearance": "Adequate top and bottom padding enforced in chip and button primitives",
+    "native_shaping_status": "NATIVE_SHAPING_VERIFICATION_PENDING_AT_WAVE_M22"
+  },
+  "verdict": "ODIA_DESIGN_QA_PASSED"
+}

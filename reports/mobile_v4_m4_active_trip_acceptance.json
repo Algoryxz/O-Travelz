@@ -1,0 +1,70 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_12_ACTIVE_TRIP_DESIGN_ACCEPTANCE",
+  "timestamp": "2026-09-07T12:54:00+05:30",
+  "paradigm": "CHRONOLOGICAL_EXECUTION_TIMELINE_PRIORITY_OVER_CONTINUOUS_MAP",
+  "timeline_elements": [
+    {
+      "element": "Current Milestone",
+      "behavior": "Prominent card with destination name, verified opening hours, darshan window, time remaining, action to navigate"
+    },
+    {
+      "element": "Next Milestone",
+      "behavior": "Secondary upcoming card with scheduled arrival time and transition guidance"
+    },
+    {
+      "element": "Completed Milestone",
+      "behavior": "Collapsed row with checkmark and timestamp; expandable for review"
+    },
+    {
+      "element": "Skipped Milestone",
+      "behavior": "Strikethrough state with option to restore or reorder"
+    },
+    {
+      "element": "Walking Leg",
+      "behavior": "Step count estimate, walking duration, first-mile distance, safety advisory"
+    },
+    {
+      "element": "Transit Leg",
+      "behavior": "Route number, operator (CRUT), board stop, alight stop, scheduled departure time (Scheduled \u00b7 HH:MM IST)"
+    },
+    {
+      "element": "Scheduled Departure",
+      "behavior": "Discreet countdown: Depart in 24m (Scheduled 14:15 IST)"
+    },
+    {
+      "element": "First-Mile Guidance",
+      "behavior": "Walking directions to verified stop; candidate stops warn of approximate location"
+    },
+    {
+      "element": "Weather State",
+      "behavior": "Local advisory: Heat index high \u2014 hydrate before Konark exterior exploration"
+    },
+    {
+      "element": "Essential-Service Access",
+      "behavior": "Quick access drawer: Police helpline (112), Medical, Water, ATMs, Tourist police"
+    },
+    {
+      "element": "Offline State",
+      "behavior": "Offline banner at top: Active trip running offline; local timeline cached"
+    },
+    {
+      "element": "Location Unavailable",
+      "behavior": "Milestone progress advances via manual checkoff; no error dialog block"
+    },
+    {
+      "element": "Manual Completion",
+      "behavior": "One-tap checkoff with satisfying haptic confirmation"
+    },
+    {
+      "element": "External Navigation",
+      "behavior": "Intent launcher to Google Maps / Apple Maps for live turn-by-turn routing"
+    }
+  ],
+  "anti_vibe_assertions": {
+    "no_fake_automated_geofence_arrival": true,
+    "no_continuous_gpu_draining_map_wallpaper": true,
+    "external_nav_handoff_seamless": true
+  },
+  "verdict": "ACTIVE_TRIP_DESIGN_ACCEPTANCE_PASSED"
+}

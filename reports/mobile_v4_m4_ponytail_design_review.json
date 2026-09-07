@@ -1,0 +1,36 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_21_PONYTAIL_DESIGN_REDUCTION_REVIEW",
+  "timestamp": "2026-09-07T13:08:00+05:30",
+  "audited_surfaces": [
+    {
+      "surface": "Discover",
+      "reduction": "SIMPLIFY: Consolidated 5 filter rows into single unified horizontal category chip bar; removed decorative promotional banner"
+    },
+    {
+      "surface": "Place Detail",
+      "reduction": "REMOVE: Cut decorative weather forecast chart; replaced with compact single-line WeatherSummary pill; cut generic sharing drawer"
+    },
+    {
+      "surface": "Map",
+      "reduction": "MERGE: Combined transit stop amenities and candidate warnings into unified StopTruthRow; eliminated cluttering secondary pins"
+    },
+    {
+      "surface": "Plan",
+      "reduction": "USE_NATIVE_CONTROL: Replaced custom multi-axis slider widgets with native segmented controls and standard range sliders; removed simulated chatbot typing bubble"
+    },
+    {
+      "surface": "Trips / Active Trip",
+      "reduction": "SIMPLIFY: Replaced complex multi-layered card stacks with single chronological vertical timeline; cut continuous map background"
+    },
+    {
+      "surface": "Transit Route Detail",
+      "reduction": "REMOVE: Cut speculative fare breakdown matrix; enforced single authoritative string Fare information unavailable"
+    },
+    {
+      "surface": "You",
+      "reduction": "KEEP: Retained offline cache manager, saved places, language toggle, and contribution history; removed gamified travel badges"
+    }
+  ],
+  "verdict": "PONYTAIL_DESIGN_REDUCTION_APPLIED_AND_ACCEPTED"
+}

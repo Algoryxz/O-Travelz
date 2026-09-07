@@ -1,0 +1,72 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_11_TRANSIT_DESIGN_ACCEPTANCE",
+  "timestamp": "2026-09-07T12:52:00+05:30",
+  "canonical_transit_dataset_summary": {
+    "total_unique_departures": 5549,
+    "routes_count": 154,
+    "operator": "CRUT (Capital Region Urban Transport) \u2014 Mo Bus / Ama Bus",
+    "schedule_model": "FIXED_TIMETABLE_ONLY"
+  },
+  "stop_classification_hierarchy": [
+    {
+      "tier": "VERIFIED_OFFICIAL",
+      "badge": "Official Stop",
+      "behavior": "Exact coordinate confirmed by CRUT gazetteer; full timetable active"
+    },
+    {
+      "tier": "VERIFIED_GEOSPATIAL",
+      "badge": "Verified Stop",
+      "behavior": "Geospatially confirmed through field validation; timetable active"
+    },
+    {
+      "tier": "CANDIDATE_HIGH",
+      "badge": "Candidate (High)",
+      "behavior": "Crowdsourced stop with strong consensus; approximate first-mile banner"
+    },
+    {
+      "tier": "CANDIDATE_MEDIUM",
+      "badge": "Candidate (Medium)",
+      "behavior": "Initial crowdsourced stop; first-mile distance labeled approximate"
+    },
+    {
+      "tier": "CANDIDATE_LOW",
+      "badge": "Candidate (Low)",
+      "behavior": "Single report; stop marked provisional; timetable advisory shown"
+    },
+    {
+      "tier": "LOCALITY_ONLY",
+      "badge": "Locality Stop",
+      "behavior": "Stop belongs to locality polygon without exact bus shelter coords"
+    },
+    {
+      "tier": "UNRESOLVED",
+      "badge": "Unresolved Stop",
+      "behavior": "Named in schedule but unmapped; listed in timetable with no pin"
+    }
+  ],
+  "geometry_classification_hierarchy": [
+    {
+      "tier": "VERIFIED_ROUTE_GEOMETRY",
+      "display": "Solid continuous line adhering strictly to road network"
+    },
+    {
+      "tier": "HIGH_CONFIDENCE_ROUTE_GEOMETRY",
+      "display": "Solid line with route confidence indicator"
+    },
+    {
+      "tier": "MEDIUM_CONFIDENCE_ROUTE_GEOMETRY",
+      "display": "Continuous corridor line with route advisory notice"
+    },
+    {
+      "tier": "UNAVAILABLE",
+      "display": "Polyline suppressed; banner: Schedule only \u2014 route map unavailable"
+    }
+  ],
+  "presentation_rules": {
+    "departure_time_copy": "Scheduled \u00b7 HH:MM IST (Zero Live bus, Arriving in X min, or fake vehicle markers)",
+    "fare_copy_policy": "Fare information unavailable (Zero Pay on Bus, \u20b90, or raw nulls)",
+    "discontinuous_corridor_gaps": "Fail closed; zero straight-line chord bridges >500m"
+  },
+  "verdict": "TRANSIT_DESIGN_ACCEPTANCE_PASSED"
+}

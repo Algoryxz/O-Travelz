@@ -1,0 +1,127 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_2_CANONICAL_FIGMA_FILE_MATERIALIZATION",
+  "timestamp": "2026-09-07T12:32:00+05:30",
+  "file_name": "O-TRAVELZ Mobile V4",
+  "file_key": null,
+  "file_url": null,
+  "creation_timestamp": null,
+  "status": "SPECIFIED_DOCUMENTED_NOT_CREATED_PENDING_AUTH",
+  "pages_planned_count": 18,
+  "pages_created_count": 0,
+  "canonical_page_hierarchy": [
+    {
+      "order": "00",
+      "name": "00 \u2014 Product Foundations",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "01",
+      "name": "01 \u2014 Shared Semantics",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "02",
+      "name": "02 \u2014 Truth & Status",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "03",
+      "name": "03 \u2014 Shared Content Patterns",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "10",
+      "name": "10 \u2014 Android Foundations",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "11",
+      "name": "11 \u2014 Android Components",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "12",
+      "name": "12 \u2014 Android Patterns",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "13",
+      "name": "13 \u2014 Android Core Screens",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "14",
+      "name": "14 \u2014 Android Motion",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "15",
+      "name": "15 \u2014 Android Prototypes",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "20",
+      "name": "20 \u2014 iOS Foundations",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "21",
+      "name": "21 \u2014 iOS Components",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "22",
+      "name": "22 \u2014 iOS Patterns",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "23",
+      "name": "23 \u2014 iOS Core Screens",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "24",
+      "name": "24 \u2014 iOS Motion",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "25",
+      "name": "25 \u2014 iOS Prototypes",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "90",
+      "name": "90 \u2014 Stitch Exploration Archive",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "order": "99",
+      "name": "99 \u2014 Deprecated / Rejected",
+      "figma_page_id": null,
+      "status": "SPECIFIED"
+    }
+  ],
+  "truth_boundary": {
+    "fake_ids_emitted": 0,
+    "remote_materialization_blocked": true,
+    "blueprint_integrity": "EXACT_18_PAGE_SPECIFICATION_PRESERVED"
+  }
+}

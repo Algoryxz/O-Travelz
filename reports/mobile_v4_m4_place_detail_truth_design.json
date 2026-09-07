@@ -1,0 +1,77 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_8_PLACE_DETAIL_DESIGN_TRUTH_STRESS_TEST",
+  "timestamp": "2026-09-07T12:46:00+05:30",
+  "stress_test_states": [
+    {
+      "state_num": 1,
+      "state_name": "One verified source photo",
+      "ui_behavior": "Single hero banner without carousel dots or paging gesture; photo count badge reads 1 verified photo",
+      "truth_assertion": "Zero duplicate thumbnails; attribution banner visible"
+    },
+    {
+      "state_num": 2,
+      "state_name": "Multiple genuinely distinct photos",
+      "ui_behavior": "Paging carousel with discreet dot indicator and distinct asset count Photos (4)",
+      "truth_assertion": "Counts only distinct source assets; zero duplicate card/hero derivatives"
+    },
+    {
+      "state_num": 3,
+      "state_name": "Missing media",
+      "ui_behavior": "Editorial typographic lead; no decorative generic landscape placeholder; terracotta sandstone accent block",
+      "truth_assertion": "NO VERIFIED IMAGE = TEXT-FIRST LAYOUT; clearly marked Photo verification pending"
+    },
+    {
+      "state_num": 4,
+      "state_name": "Verified video available",
+      "ui_behavior": "Play affordance overlay with verified video length badge",
+      "truth_assertion": "Rendered ONLY when genuine destination-specific video asset exists in canonical inventory"
+    },
+    {
+      "state_num": 5,
+      "state_name": "No video available",
+      "ui_behavior": "Video play affordance and video tab completely omitted",
+      "truth_assertion": "Zero disabled video buttons or placeholder clips"
+    },
+    {
+      "state_num": 6,
+      "state_name": "Verified curated 3D available",
+      "ui_behavior": "Interactive 3D model badge (Explore 3D Heritage Model) with model preview trigger",
+      "truth_assertion": "Rendered ONLY for canonical entities with verified 3D assets (e.g., Konark Sun Temple)"
+    },
+    {
+      "state_num": 7,
+      "state_name": "No 3D available",
+      "ui_behavior": "3D viewer affordance completely omitted",
+      "truth_assertion": "Zero generic 3D heritage fallbacks across unmapped temples"
+    },
+    {
+      "state_num": 8,
+      "state_name": "Weather unavailable",
+      "ui_behavior": "Weather card renders Weather data temporarily unavailable with subtle advisory",
+      "truth_assertion": "Zero invented default temperatures or simulated sunny icons"
+    },
+    {
+      "state_num": 9,
+      "state_name": "Offline cached",
+      "ui_behavior": "Offline banner at top: Viewing cached destination information; verified cached photos rendered",
+      "truth_assertion": "Full cultural text and cached coordinates accessible offline"
+    },
+    {
+      "state_num": 10,
+      "state_name": "Candidate information unavailable",
+      "ui_behavior": "Candidate details (operating hours, fees) marked Information not officially verified",
+      "truth_assertion": "Zero speculative opening hours; traveler advised to verify locally"
+    }
+  ],
+  "truth_boundary_assertions": {
+    "distinct_photos_counted_correctly": true,
+    "zero_cross_destination_media_fallback": true,
+    "destination_name_visible_immediately": true,
+    "important_actions_unobscured": true,
+    "zero_fake_star_ratings": true,
+    "attribution_always_available": true,
+    "truth_readable_without_color_alone": true
+  },
+  "verdict": "PLACE_DETAIL_TRUTH_STRESS_TEST_PASSED"
+}

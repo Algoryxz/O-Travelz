@@ -1,0 +1,277 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_4_MATERIALIZE_CORE_COMPONENT_SYSTEM",
+  "timestamp": "2026-09-07T12:38:00+05:30",
+  "status": "SPECIFIED_IN_REPO_PENDING_FIGMA_AUTH",
+  "counts": {
+    "SHARED_PRIMITIVES_SPECIFIED": 17,
+    "ANDROID_FAMILIES_COUNT": 10,
+    "ANDROID_COMPONENTS_SPECIFIED": 33,
+    "IOS_FAMILIES_COUNT": 10,
+    "IOS_COMPONENTS_SPECIFIED": 32,
+    "TOTAL_SPECIFIED": 82,
+    "TOTAL_CREATED_IN_FIGMA": 0
+  },
+  "shared_primitives": [
+    {
+      "name": "TruthBadge",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "StatusBanner",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "WeatherSummary",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "TransitStopTruth",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "RouteGeometryTruth",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "DepartureRow",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "FirstMileGuidance",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "SavedStateIndicator",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "JourneyLeg",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "ItineraryMilestone",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "EssentialServiceSummary",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "OfflineStateBanner",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "AIStateBanner",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "ContributionStatus",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "PermissionEducation",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "EmptyState",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    },
+    {
+      "name": "ErrorState",
+      "figma_component_id": null,
+      "status": "SPECIFIED"
+    }
+  ],
+  "android_component_families": [
+    {
+      "family": "Navigation",
+      "components": [
+        "NavigationSuiteScaffold",
+        "NavigationBarItem",
+        "NavigationRailItem",
+        "TopAppBar"
+      ]
+    },
+    {
+      "family": "Discovery",
+      "components": [
+        "DestinationHeroCard",
+        "CategoryPillFilter",
+        "CuratedClusterRow"
+      ]
+    },
+    {
+      "family": "Truth / Status",
+      "components": [
+        "TruthBadgeM3",
+        "StatusBannerM3",
+        "OfflineStateBannerM3",
+        "AIStateBannerM3"
+      ]
+    },
+    {
+      "family": "Place Detail",
+      "components": [
+        "EditorialMediaPager",
+        "QuickFactsGrid",
+        "CulturalContextEssayCard"
+      ]
+    },
+    {
+      "family": "Map",
+      "components": [
+        "MapEntityBottomSheet",
+        "TransitStopPin",
+        "DestinationPin",
+        "ClusterBadge"
+      ]
+    },
+    {
+      "family": "Planning",
+      "components": [
+        "ConstraintInputForm",
+        "StructuredPaceSlider",
+        "ItineraryMilestoneCard"
+      ]
+    },
+    {
+      "family": "Trips",
+      "components": [
+        "ActiveTripTimeline",
+        "SavedTripCard",
+        "MilestoneCompletionToggle"
+      ]
+    },
+    {
+      "family": "Transit",
+      "components": [
+        "DepartureRowM3",
+        "TransitStopTruthRow",
+        "RouteGeometryBanner"
+      ]
+    },
+    {
+      "family": "Essentials",
+      "components": [
+        "EssentialServiceItem",
+        "EmergencyCallButton",
+        "ArtisanContactCard"
+      ]
+    },
+    {
+      "family": "System",
+      "components": [
+        "PermissionEducationDialog",
+        "EmptyStateView",
+        "ErrorRecoverySurface"
+      ]
+    }
+  ],
+  "ios_component_families": [
+    {
+      "family": "Navigation",
+      "components": [
+        "TabViewScaffold",
+        "NavigationSplitViewSidebar",
+        "NavigationToolbar"
+      ]
+    },
+    {
+      "family": "Discovery",
+      "components": [
+        "EditorialCardHIG",
+        "FilterChipBarHIG",
+        "CuratedSectionHeader"
+      ]
+    },
+    {
+      "family": "Truth / Status",
+      "components": [
+        "TruthBadgeHIG",
+        "StatusBannerHIG",
+        "OfflineStateBannerHIG",
+        "AIStateBannerHIG"
+      ]
+    },
+    {
+      "family": "Place Detail",
+      "components": [
+        "MediaCarouselHIG",
+        "MetadataRowGroup",
+        "CulturalNarrativeBlock"
+      ]
+    },
+    {
+      "family": "Map",
+      "components": [
+        "MapDetentSheet",
+        "MapAnnotationMarker",
+        "TransitStopAnnotation",
+        "MapActionCluster"
+      ]
+    },
+    {
+      "family": "Planning",
+      "components": [
+        "ConstraintPickerForm",
+        "PaceSegmentedControl",
+        "ItineraryMilestoneRow"
+      ]
+    },
+    {
+      "family": "Trips",
+      "components": [
+        "ActiveTripTimelineHIG",
+        "SavedTripTile",
+        "MilestoneCheckmarkButton"
+      ]
+    },
+    {
+      "family": "Transit",
+      "components": [
+        "DepartureRowHIG",
+        "StopTruthDetailRow",
+        "GeometryAdvisoryNotice"
+      ]
+    },
+    {
+      "family": "Essentials",
+      "components": [
+        "EssentialServiceCell",
+        "EmergencyActionButton",
+        "ArtisanProfileRow"
+      ]
+    },
+    {
+      "family": "System",
+      "components": [
+        "PermissionPromptSheet",
+        "ContentUnavailableViewWrapper",
+        "ErrorActionBanner"
+      ]
+    }
+  ],
+  "ponytail_principles_applied": [
+    "Zero giant everything-component abstractions",
+    "Composable primitives over monolithic layouts",
+    "Clear semantic properties: truthState, variant, isOffline, isCandidate",
+    "Strict platform separation: M3 Expressive tokens vs HIG system materials"
+  ]
+}

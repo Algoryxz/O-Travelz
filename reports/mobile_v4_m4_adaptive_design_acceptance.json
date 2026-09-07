@@ -1,0 +1,73 @@
+{
+  "wave": "M4",
+  "phase": "PHASE_17_ADAPTIVE_DESIGN_QA",
+  "timestamp": "2026-09-07T13:02:00+05:30",
+  "android_breakpoints": [
+    {
+      "class": "COMPACT (<600dp)",
+      "target": "Standard Android Phones (e.g. Vivo Y19, Pixel)",
+      "layout_behavior": "Bottom NavigationBar (5 tabs); single-column card feeds; full-width bottom sheets"
+    },
+    {
+      "class": "MEDIUM (600dp - 840dp)",
+      "target": "Foldables unfolded, small tablets in portrait",
+      "layout_behavior": "NavigationRail (left-aligned); 2-column grid for destinations; persistent map inspection side sheet"
+    },
+    {
+      "class": "EXPANDED (>840dp)",
+      "target": "Large tablets, landscape foldables",
+      "layout_behavior": "Extended NavigationRail; 3-column discovery grid; split-pane list-detail view for Discover, Itineraries, and Transit"
+    }
+  ],
+  "ios_size_classes": [
+    {
+      "class": "COMPACT_WIDTH",
+      "target": "All iPhones in portrait",
+      "layout_behavior": "Bottom TabView (5 tabs); NavigationStack with large title collapse; medium and large sheet detents"
+    },
+    {
+      "class": "REGULAR_WIDTH",
+      "target": "iPad in portrait and landscape, iPhone landscape",
+      "layout_behavior": "NavigationSplitView with persistent sidebar; two-column or three-column layout; sheet detents convert to modal popovers or side inspectors"
+    }
+  ],
+  "adaptive_actions_mapped": [
+    {
+      "surface": "Discover",
+      "compact": "CHANGE_NAVIGATION (Bottom bar)",
+      "medium": "EXPAND (2-col grid) + REPOSITION (Nav rail)",
+      "expanded": "SPLIT_VIEW (List + preview panel)"
+    },
+    {
+      "surface": "Place Detail",
+      "compact": "REFLOW (Single column sheet)",
+      "medium": "PERSIST_PANEL (Side sheet alongside map)",
+      "expanded": "SPLIT_VIEW (Fixed media column + scrollable narrative)"
+    },
+    {
+      "surface": "Map",
+      "compact": "COLLAPSE_PANEL (Detent sheet overlay)",
+      "medium": "PERSIST_PANEL (360dp side panel)",
+      "expanded": "PERSIST_PANEL (400dp side panel + full canvas)"
+    },
+    {
+      "surface": "Plan",
+      "compact": "REFLOW (Vertical form stack)",
+      "medium": "REPOSITION (2-col form inputs)",
+      "expanded": "SPLIT_VIEW (Left constraints + right live preview)"
+    },
+    {
+      "surface": "Active Trip",
+      "compact": "REFLOW (Linear timeline)",
+      "medium": "REPOSITION (Timeline + mini-map card)",
+      "expanded": "SPLIT_VIEW (Left timeline + right route & essentials)"
+    },
+    {
+      "surface": "Transit",
+      "compact": "REFLOW (Single list)",
+      "medium": "REPOSITION (Route header + stop table)",
+      "expanded": "SPLIT_VIEW (Left route directory + right stop timetable)"
+    }
+  ],
+  "verdict": "ADAPTIVE_DESIGN_AUDIT_PASSED"
+}
