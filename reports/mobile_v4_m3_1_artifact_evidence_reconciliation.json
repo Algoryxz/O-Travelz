@@ -1,0 +1,69 @@
+{
+  "wave": "M3.1",
+  "phase": "PHASE_9_ARTIFACT_EVIDENCE_RECONCILIATION",
+  "timestamp": "2026-09-07T11:32:00+05:30",
+  "evidence_taxonomy": {
+    "SPECIFIED": "Fully defined in repository architecture documentation and structured machine-readable JSON schemas, but not yet injected into remote canvas.",
+    "STITCH_CONCEPTUAL": "HTML/React structural compositions evaluated and critiqued for layout and information hierarchy; non-production.",
+    "FIGMA_MATERIALIZED": "Physically created on authoritative Figma canvas with returned node IDs.",
+    "FIGMA_PROTOTYPED": "Wired with interactive triggers and springs in Figma canvas prototype mode.",
+    "IMPLEMENTED_NATIVE": "Written as production Kotlin Compose or Swift SwiftUI code in client projects."
+  },
+  "reconciled_artifact_audit": [
+    {
+      "artifact_group": "Figma Variables",
+      "original_claim_tone": "71 variables reconstructed",
+      "reconciled_classification": "SPECIFIED",
+      "actual_figma_count": 0,
+      "repository_schema_count": 71,
+      "clarification": "All 71 tokens are formally defined in reports/mobile_v4_m3_token_reconstruction.json, but canvas variable creation is pending OAuth login."
+    },
+    {
+      "artifact_group": "Figma Components",
+      "original_claim_tone": "88 canonical components created",
+      "reconciled_classification": "SPECIFIED",
+      "actual_figma_count": 0,
+      "repository_schema_count": 88,
+      "clarification": "All 44 Android and 44 iOS components have complete slot structures, accessibility contracts, and variant schemas, but canvas component creation is pending OAuth login."
+    },
+    {
+      "artifact_group": "Android Core Screens",
+      "original_claim_tone": "9 Android canonical screens created",
+      "reconciled_classification": "SPECIFIED",
+      "actual_figma_frames": 0,
+      "repository_schema_frames": 18,
+      "clarification": "9 canonical + 9 degraded screens exist as architectural layout specifications in reports/mobile_v4_m3_core_screen_reconstruction.json. Canvas frame construction belongs to M4."
+    },
+    {
+      "artifact_group": "iOS Core Screens",
+      "original_claim_tone": "9 iOS canonical screens created",
+      "reconciled_classification": "SPECIFIED",
+      "actual_figma_frames": 0,
+      "repository_schema_frames": 18,
+      "clarification": "9 canonical + 9 degraded screens exist as architectural layout specifications in reports/mobile_v4_m3_core_screen_reconstruction.json. Canvas frame construction belongs to M4."
+    },
+    {
+      "artifact_group": "Interactive Prototypes",
+      "original_claim_tone": "12 prototype flows created",
+      "reconciled_classification": "SPECIFIED",
+      "actual_figma_prototypes": 0,
+      "repository_schema_flows": 12,
+      "clarification": "All 12 flows across 6 golden journeys are fully mapped with triggers, states, springs, and failure branches in reports/mobile_v4_m3_prototype_acceptance.json. Clickable wiring belongs to M4."
+    },
+    {
+      "artifact_group": "Stitch Compositions",
+      "original_claim_tone": "8 compositions refined",
+      "reconciled_classification": "STITCH_CONCEPTUAL",
+      "actual_figma_nodes": 0,
+      "repository_schema_count": 8,
+      "clarification": "Explorations critiqued for layout and hierarchy in reports/mobile_v4_m3_stitch_refinement.json; zero interim HTML/React committed to production tree."
+    }
+  ],
+  "reconciliation_summary": {
+    "overclaims_calibrated": 6,
+    "unsupported_classifications_downgraded": 6,
+    "faked_canvas_nodes_prevented": "100%",
+    "evidence_integrity_verdict": "PASS — All artifacts strictly aligned to factual repository state."
+  },
+  "status": "PASS"
+}

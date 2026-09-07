@@ -36,8 +36,8 @@ The voice of O-TRAVELZ Mobile V4 is that of a **dignified digital cultural atlas
 - **Odia**: "ବର୍ତ୍ତମାନର ପାଣିପାଗ ସୂଚନା ଉପଲବ୍ଧ ନାହିଁ। ପାଣିପାଗ ଜାଣିବା ପାଇଁ ଇଣ୍ଟରନେଟ୍ ସଂଯୋଗ କରନ୍ତୁ।"
 
 ### 3.2 AI Assistant Unavailable
-- **English**: "AI Assistant is offline. Browsing the verified Odisha catalog using standard filters."
-- **Odia**: "AI ସହାୟକ ଅଫଲାଇନ୍ ଅଛି। ନିର୍ଦ୍ଧାରିତ ଫିଲ୍ଟର୍ ବ୍ୟବହାର କରି ଯାତ୍ରା ଯୋଜନା କରନ୍ତୁ।"
+- **English**: "AI Assistant requires an internet connection. Browsing the verified Odisha catalog using standard filters."
+- **Odia**: "AI ସହାୟକ ପାଇଁ ଇଣ୍ଟରନେଟ୍ ସଂଯୋଗ ଆବଶ୍ୟକ। ନିର୍ଦ୍ଧାରିତ ଫିଲ୍ଟର୍ ବ୍ୟବହାର କରି ଯାତ୍ରା ଯୋଜନା କରନ୍ତୁ।"
 
 ### 3.3 Candidate Stop Disclosure
 - **English**: "Candidate Stop: This stop is listed in official transit records, but physical GPS coordinates are pending field verification. Approach the nearest chowk or landmark to board."
@@ -64,8 +64,8 @@ The voice of O-TRAVELZ Mobile V4 is that of a **dignified digital cultural atlas
 - **Odia**: "କୌଣସି ଯାତ୍ରା ସାଇତା ହୋଇନାହିଁ। ଓଡ଼ିଶାର ଐତିହ୍ୟ ଓ ପ୍ରକୃତି ଭ୍ରମଣ ପାଇଁ ନୂତନ ଯୋଜନା ଆରମ୍ଭ କରନ୍ତୁ।"
 
 ### 3.9 Transit Fare Unavailable
-- **English**: "Fare: Unconfirmed. Official fare tables are not yet ingested; please pay the conductor on board."
-- **Odia**: "ଭଡ଼ା: ଅନିଶ୍ଚିତ। ସରକାରୀ ଭଡ଼ା ତାଲିକା ଯାଞ୍ଚ ଚାଲିଛି; ଦୟାକରି ବସ୍ କଣ୍ଡକ୍ଟରଙ୍କୁ ଭଡ଼ା ପଚାରି ଦିଅନ୍ତୁ।"
+- **English**: "Fare information unavailable. Check official or operator information before travel."
+- **Odia**: "ଭଡ଼ା ସୂଚନା ଉପଲବ୍ଧ ନାହିଁ। ଯାତ୍ରା ପୂର୍ବରୁ ସରକାରୀ କିମ୍ବା ପରିଚାଳକ ସୂଚନା ଯାଞ୍ଚ କରନ୍ତୁ।"
 
 ### 3.10 Contribution Under Review
 - **English**: "Thank you for contributing! Your photo and stop survey are under editorial review before public publication."

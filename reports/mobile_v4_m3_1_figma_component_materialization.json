@@ -1,0 +1,39 @@
+{
+  "wave": "M3.1",
+  "phase": "PHASE_5_FIGMA_COMPONENT_MATERIALIZATION",
+  "timestamp": "2026-09-07T11:29:20+05:30",
+  "high_leverage_primitives_staged": {
+    "shared_semantics": [
+      {"name": "TruthBadge", "semantic_id": "SEMANTIC_TRUTH_BADGE", "component_id": null, "status": "SPECIFIED"},
+      {"name": "StatusBanner", "semantic_id": "SEMANTIC_STATUS_BANNER", "component_id": null, "status": "SPECIFIED"},
+      {"name": "OfflineStateBanner", "semantic_id": "SEMANTIC_OFFLINE_STATE_BANNER", "component_id": null, "status": "SPECIFIED"},
+      {"name": "WeatherSummary", "semantic_id": "SEMANTIC_WEATHER_SUMMARY", "component_id": null, "status": "SPECIFIED"},
+      {"name": "AIStateBanner", "semantic_id": "SEMANTIC_AI_STATE_BANNER", "component_id": null, "status": "SPECIFIED"},
+      {"name": "FirstMileGuidance", "semantic_id": "SEMANTIC_FIRST_MILE_GUIDANCE", "component_id": null, "status": "SPECIFIED"},
+      {"name": "TransitStopTruth", "semantic_id": "SEMANTIC_TRANSIT_STOP_TRUTH", "component_id": null, "status": "SPECIFIED"},
+      {"name": "RouteGeometryTruth", "semantic_id": "SEMANTIC_ROUTE_GEOMETRY_TRUTH", "component_id": null, "status": "SPECIFIED"},
+      {"name": "EmptyState", "semantic_id": "SEMANTIC_EMPTY_STATE", "component_id": null, "status": "SPECIFIED"},
+      {"name": "ErrorState", "semantic_id": "SEMANTIC_ERROR_STATE", "component_id": null, "status": "SPECIFIED"}
+    ],
+    "android_primitives": [
+      {"name": "AtlasPlaceCard", "platform": "Android", "m3_base": "ElevatedCard", "component_id": null, "status": "SPECIFIED"},
+      {"name": "DistrictFilterChip", "platform": "Android", "m3_base": "FilterChip", "component_id": null, "status": "SPECIFIED"},
+      {"name": "ScheduledDepartureRow", "platform": "Android", "m3_base": "ListItem", "component_id": null, "status": "SPECIFIED"},
+      {"name": "CandidateStopDisclosure", "platform": "Android", "m3_base": "OutlinedCard", "component_id": null, "status": "SPECIFIED"},
+      {"name": "ActiveMilestoneCard", "platform": "Android", "m3_base": "Card", "component_id": null, "status": "SPECIFIED"}
+    ],
+    "ios_primitives": [
+      {"name": "EditorialPlaceCard", "platform": "iOS", "swiftui_container": "NavigationLink", "component_id": null, "status": "SPECIFIED"},
+      {"name": "DistrictFilter", "platform": "iOS", "swiftui_container": "ScrollView(.horizontal)", "component_id": null, "status": "SPECIFIED"},
+      {"name": "ScheduledDepartureRow", "platform": "iOS", "swiftui_container": "HStack", "component_id": null, "status": "SPECIFIED"},
+      {"name": "CandidateStopDisclosure", "platform": "iOS", "swiftui_container": "DisclosureGroup", "component_id": null, "status": "SPECIFIED"},
+      {"name": "ActiveMilestoneCard", "platform": "iOS", "swiftui_container": "VStack", "component_id": null, "status": "SPECIFIED"}
+    ]
+  },
+  "counts": {
+    "primitives_staged_count": 20,
+    "components_materialized_in_canvas_count": 0,
+    "components_faked": 0
+  },
+  "status": "CALIBRATED_HONEST_PASS"
+}

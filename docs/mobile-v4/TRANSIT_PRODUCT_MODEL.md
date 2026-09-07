@@ -33,11 +33,11 @@ A route may have verified road-following geometry even if some intermediate rura
    - Source: Road-following spline resolved deterministically against OpenStreetMap highway relations between verified stops.
    - Mobile Permitted: Solid vector polyline with "High-Confidence Road Alignment" metadata.
 3. **`MEDIUM_CONFIDENCE_ROUTE_GEOMETRY`**:
-   - Source: Road-following spline with minor unpaved or rural bridging gaps.
-   - Mobile Permitted: Dashed polyline; straight-line jumps greater than 500m are flagged with a disclaimer.
+   - Source: Road-following corridor with unresolved intermediate segments.
+   - Mobile Permitted: Obey canonical/product rendering contract and fail closed where continuous road alignment is not defensible. Zero synthetic straight-line chords between unresolved stops.
 4. **`GEOMETRY_UNAVAILABLE`**:
-   - Source: New or temporary route lacking coordinate splines.
-   - Mobile Permitted: Polyline is **suppressed entirely**. The route is presented strictly as a topological sequence list of stops. Never draw straight "spiderweb" lines across forests or mountains.
+   - Source: Unmapped or un-surveyed route geometry.
+   - Mobile Permitted: Polyline is **suppressed entirely**. Continuous coordinates are unavailable. The route is presented strictly as a topological sequence list of stops. Never draw straight-line chords or synthetic bridges across gaps.
 
 ---
 

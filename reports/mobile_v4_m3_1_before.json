@@ -1,0 +1,22 @@
+{
+  "wave": "M3.1",
+  "phase": "PHASE_0_FORENSIC_SYNC",
+  "timestamp": "2026-09-07T11:27:00+05:30",
+  "branch": "feature/v4-platform-rebuild",
+  "expected_starting_sha": "67daa46463a592090f5c30611487b37fd9a14ed7",
+  "actual_starting_sha": "67daa46463a592090f5c30611487b37fd9a14ed7",
+  "git_status": "CLEAN",
+  "objective": "Figma Materialization, Design-Truth Closure & M4 Prototype Readiness Gate",
+  "scope_audit": {
+    "zero_production_code": true,
+    "selected_android_direction": "ANDROID_A_ATLAS_MATERIAL",
+    "selected_ios_direction": "IOS_A_EDITORIAL_ATLAS",
+    "known_truth_reconciliations_required": [
+      "Transit geometry synthetic straight-line chord cleanup across unresolved stops",
+      "Fare presentation cleanup (eliminate 'Pay on Bus' / 'null' claims; enforce 'Fare information unavailable')",
+      "Offline AI capability calibration (distinguish remote NETWORK_REQUIRED from prospective local fallback)",
+      "Artifact evidence taxonomy (distinguish SPECIFIED from FIGMA_MATERIALIZED)"
+    ]
+  },
+  "status": "READY_FOR_M3_1"
+}

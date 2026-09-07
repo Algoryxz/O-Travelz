@@ -1,0 +1,40 @@
+{
+  "wave": "M3.1",
+  "phase": "PHASE_6_TRANSIT_GEOMETRY_TRUTH_CORRECTION",
+  "timestamp": "2026-09-07T11:30:50+05:30",
+  "audit_finding": "Identified residual wording suggesting straight-line route estimates and dashed straight chords across unresolved transit gaps, violating the non-fabrication principles established in Waves C5.2 and C5.3.",
+  "corrections_applied": [
+    {
+      "file": "docs/mobile-v4/TRANSIT_PRODUCT_MODEL.md",
+      "change": "Replaced 'straight-line jumps greater than 500m are flagged with a disclaimer' with fail-closed contract: zero synthetic straight-line chords between unresolved stops; suppressed entirely when geometry is unavailable."
+    },
+    {
+      "file": "docs/mobile-v4/MAP_PRODUCT_MODEL.md",
+      "change": "Enforced strict layer suppression for unmapped route segments; prohibited drawing chords across unverified stops."
+    },
+    {
+      "file": "docs/mobile-v4/COMPONENT_STATE_VARIANTS.md",
+      "change": "Replaced 'straight dotted link between stops' with 'Polyline suppressed entirely; no line drawn; zero straight-line chords between stops'."
+    },
+    {
+      "file": "docs/mobile-v4/SHARED_COMPONENT_SEMANTICS.md",
+      "change": "Replaced 'straight dashed = crow-flies fallback' with fail-closed corridor segment contract; eliminated STRAIGHT_LINE_FALLBACK state."
+    },
+    {
+      "file": "docs/mobile-v4/INTERACTION_SPECIFICATION.md",
+      "change": "Clarified that TransitRouteDetail map polyline is drawn strictly for VERIFIED or HIGH_CONFIDENCE geometry; suppressed entirely across unresolved gaps."
+    },
+    {
+      "file": "reports/mobile_v4_m3_core_screen_reconstruction.json",
+      "change": "Updated FRAME_IOS_07_TRANSIT_GEOMETRY_UNAVAILABLE from 'straight-line dashed connection' to 'polyline suppressed entirely; ordered stop sequence displayed without synthetic straight chords'."
+    }
+  ],
+  "authoritative_tier_rules": {
+    "VERIFIED_ROUTE_GEOMETRY": "Render official surveyed road-following polyline.",
+    "HIGH_CONFIDENCE_ROUTE_GEOMETRY": "Render validated road-following inferred geometry with confidence disclosure.",
+    "MEDIUM_CONFIDENCE_ROUTE_GEOMETRY": "Obey canonical rendering contract and fail closed where continuity is not defensible.",
+    "UNAVAILABLE": "Polyline suppressed entirely. Continuous coordinates unavailable. Route presented strictly as ordered topological stop sequence.",
+    "synthetic_straight_line_bridges_permitted": false
+  },
+  "status": "PASS"
+}

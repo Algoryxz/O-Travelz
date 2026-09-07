@@ -149,7 +149,7 @@ The iOS component inventory comprises 10 functional families encompassing 44 nat
 
 #### `RouteSummaryRow`
 - **Anatomy**: Mo Bus route badge, origin/destination terminal labels, and next scheduled departure.
-- **Content Rules**: Strict timetable indication; fares strictly `null`.
+- **Content Rules**: Strict timetable indication; fares displayed strictly as "Fare information unavailable" (never raw null or invented payment methods).
 
 #### `StopTimelineRow`
 - **Anatomy**: Timeline node, stop name, candidate dashed outline if unverified, and scheduled time in `Font.caption.monospacedDigit()`.

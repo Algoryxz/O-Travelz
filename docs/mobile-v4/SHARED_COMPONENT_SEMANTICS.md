@@ -115,10 +115,10 @@ Instead, the platform enforces **Shared Component Semantics**:
 - **traveler_job**: Understand whether the map polyline represents the exact bus route or a road-network estimation.
 - **meaning**: Visual polyline styling and map legend explaining geometry confidence.
 - **required_data**: `route_id`, `geometry_confidence` (`VERIFIED_ROUTE_GEOMETRY`, `HIGH_CONFIDENCE_ROUTE_GEOMETRY`, `MEDIUM_CONFIDENCE_ROUTE_GEOMETRY`, `UNAVAILABLE`).
-- **truth_contract**: Solid line = surveyed geometry; dashed line = road-network interpolation; straight dashed = crow-flies fallback.
-- **states**: `VERIFIED_SOLID`, `INTERPOLATED_DASHED`, `STRAIGHT_LINE_FALLBACK`, `HIDDEN`.
+- **truth_contract**: VERIFIED_ROUTE_GEOMETRY renders road-following geometry; HIGH_CONFIDENCE_ROUTE_GEOMETRY renders validated road-following inferred geometry with confidence disclosure; MEDIUM_CONFIDENCE fails closed where continuity is not defensible; UNAVAILABLE suppresses polyline entirely. Strictly NO synthetic straight-line bridges or straight chords across unresolved gaps.
+- **states**: `VERIFIED_SOLID`, `INFERRED_ROAD_ALIGNED`, `CORRIDOR_SEGMENT_DISCONTINUOUS`, `HIDDEN_UNMAPPED`.
 - **user_actions**: Tap map legend chip to inspect route alignment confidence notes.
-- **prohibited_claims**: Never claim interpolated geometry is the official municipal alignment.
+- **prohibited_claims**: Never claim unverified geometry is official surveyed alignment. Never draw synthetic straight chords between stops across unresolved gaps.
 - **accessibility_semantics**: Audio explanation of route geometry type when map entity is selected.
 - **offline_behavior**: Bundled in vector transit graph.
 - **platform_specific_presentation_allowed**: Android MapLibre vector line layers. iOS MapKit / MapLibre line overlays.
@@ -130,7 +130,7 @@ Instead, the platform enforces **Shared Component Semantics**:
 - **traveler_job**: Plan when to reach a bus stop based on official published timetables.
 - **meaning**: Individual scheduled bus trip entry showing route number, destination, and departure time.
 - **required_data**: `route_number`, `destination_name`, `scheduled_time_ist`, `fare_inr` (strictly `null` until official fare tables ingested).
-- **truth_contract**: Must be labeled "Scheduled Departure". Fare MUST display as "Fare: Unconfirmed / Pay on Bus" or `null`—never invent ₹10, ₹15, etc.
+- **truth_contract**: Must be labeled "Scheduled Departure". When fare is null or unconfirmed, the UI must strictly display "Fare information unavailable" (with optional secondary note: "Check official/operator information before travel"). Never display raw "null", "₹0", "Pay on Bus", or invent fare amounts or payment methods.
 - **states**: `UPCOMING_SCHEDULED`, `DEPARTED`, `NO_REMAINING_TODAY`.
 - **user_actions**: Tap to view full route stops; tap bell icon for local departure alarm.
 - **prohibited_claims**: STRICTLY PROHIBITED: "Arriving in 4 mins", "Live bus location".

@@ -65,8 +65,8 @@ Governs polyline rendering on MapLibre and MapKit maps.
 |---|---|---|---|
 | `VERIFIED_ROUTE_GEOMETRY` | Solid 4dp/pt sandstone corridor line (`#D4A373`). | Official surveyed road alignment followed by Mo Bus service. | "Surveyed bus corridor route." |
 | `HIGH_CONFIDENCE_ROUTE_GEOMETRY` | Solid 3dp/pt sandstone line with subtle glow. | Road-network routing matched along known sequential stops via OSRM. | "Road-network matched transit route." |
-| `MEDIUM_CONFIDENCE_ROUTE_GEOMETRY` | Dashed 2dp/pt sandstone line. | Generalized road connection between distant surveyed waypoints. | "Estimated highway path between major stops." |
-| `UNAVAILABLE` | Hidden polyline; straight dotted link between stops. | Road network path unavailable in vector data. | "Stop sequence shown. Exact road path unmapped." |
+| `MEDIUM_CONFIDENCE_ROUTE_GEOMETRY` | Discontinuous corridor segment or suppressed polyline. | Fails closed where road continuity is not defensible. Zero synthetic straight-line chords. | "Corridor segment; continuity unconfirmed." |
+| `UNAVAILABLE` | Polyline suppressed entirely; no line drawn. | Continuous coordinates unavailable in vector transit graph. Never draw straight-line chords between stops. | "Stop sequence shown. Route line unmapped." |
 
 ---
 
@@ -89,10 +89,10 @@ Governs the AI planning input, refinement chat, and conversational assistant sur
 
 | Variant Key | UI Presentation | Operational Behavior |
 |---|---|---|
-| `AVAILABLE` | Sandstone accent input field with "Grounded AI Assistant" badge. | Natural language intent parsing active; answers grounded in verified destination and transit database. |
+| `AVAILABLE` | Sandstone accent input field with "Grounded AI Assistant" badge. | Natural language intent parsing active; answers grounded in verified destination and transit database (`NETWORK_REQUIRED`). |
 | `DEGRADED` | Warning header with "Simplified Assistant" notification. | Cloud AI latency high or token budget constrained; falls back to fast extractive summarization. |
-| `DETERMINISTIC_FALLBACK`| Direct filter chips (Duration, Pace, District) replacing text field. | AI service unavailable or offline; users plan using deterministic rule-based engine. |
-| `UNAVAILABLE` | Explicit message: "AI Assistant requires internet connection." | Displays offline itinerary templates and saved trips without conversational features. |
+| `DETERMINISTIC_FALLBACK_AVAILABLE`| Structured filter chips replacing text field. | Available only if a local deterministic solver has been physically packaged and verified in client; not an automatic offline assumption today. |
+| `UNAVAILABLE` | Explicit message: "AI Assistant requires internet connection." | Conversational AI disabled; displays offline catalog browsing without conversational synthesis. |
 
 ---
 

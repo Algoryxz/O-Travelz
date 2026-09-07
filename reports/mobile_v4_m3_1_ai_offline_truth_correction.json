@@ -1,0 +1,31 @@
+{
+  "wave": "M3.1",
+  "phase": "PHASE_8_AI_OFFLINE_TRUTH_CORRECTION",
+  "timestamp": "2026-09-07T11:31:50+05:30",
+  "audit_finding": "Identified premature claims suggesting that deterministic algorithmic fallback automatically and universally exists offline today without verification of packaged on-device solver logic.",
+  "authoritative_capability_taxonomy": {
+    "AI_AVAILABLE": "Remote conversational AI is fully operational via cloud LLM (NETWORK_REQUIRED).",
+    "AI_DEGRADED": "Cloud AI latency high or token budget constrained; simplified extractive summaries returned.",
+    "DETERMINISTIC_FALLBACK_AVAILABLE": "Invoked only if an on-device/server-side algorithmic solver is physically packaged and verified in a later implementation wave; not assumed as an automatic offline capability today.",
+    "AI_UNAVAILABLE": "Offline or disconnected with no packaged local solver. Displays transparent notice that AI requires network connectivity."
+  },
+  "corrections_applied": [
+    {
+      "file": "docs/mobile-v4/AI_PRODUCT_MODEL.md",
+      "change": "Updated section 4 capability states to distinguish DETERMINISTIC_FALLBACK_AVAILABLE and enforce NETWORK_REQUIRED truth boundary."
+    },
+    {
+      "file": "docs/mobile-v4/OFFLINE_PRODUCT_MODEL.md",
+      "change": "Updated section 2.5 to state that offline AI is not automatically guaranteed and local deterministic solvers require packaging verification."
+    },
+    {
+      "file": "docs/mobile-v4/COMPONENT_STATE_VARIANTS.md",
+      "change": "Updated AI Assistant state matrix to require client packaging verification before claiming local fallback."
+    },
+    {
+      "file": "docs/mobile-v4/MICROCOPY_SYSTEM.md",
+      "change": "Updated microcopy to explicitly state: 'AI Assistant requires an internet connection. Browsing the verified Odisha catalog using standard filters.'"
+    }
+  ],
+  "status": "PASS"
+}

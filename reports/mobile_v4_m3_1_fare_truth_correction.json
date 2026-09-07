@@ -1,0 +1,42 @@
+{
+  "wave": "M3.1",
+  "phase": "PHASE_7_FARE_TRUTH_CORRECTION",
+  "timestamp": "2026-09-07T11:31:05+05:30",
+  "audit_finding": "Identified premature UI strings stating 'Pay on Bus', displaying raw 'null' tokens, or inferring stage payment methods without canonical source evidence.",
+  "corrections_applied": [
+    {
+      "file": "docs/mobile-v4/SHARED_COMPONENT_SEMANTICS.md",
+      "change": "Replaced 'Fare: Unconfirmed / Pay on Bus or null' with authoritative rule: when fare is unconfirmed or null, strictly display 'Fare information unavailable' (optional: 'Check official/operator information before travel'). Never display raw null, ₹0, or Pay on Bus."
+    },
+    {
+      "file": "docs/mobile-v4/ANDROID_COMPONENT_ARCHITECTURE.md",
+      "change": "Updated RouteSummaryRow Content Rules from 'Fares displayed as null or Pay on Bus' to 'Fares displayed strictly as Fare information unavailable; never raw null, ₹0, or Pay on Bus'."
+    },
+    {
+      "file": "docs/mobile-v4/IOS_COMPONENT_ARCHITECTURE.md",
+      "change": "Updated RouteSummaryRow Content Rules from 'fares strictly null' to 'fares displayed strictly as Fare information unavailable (never raw null or invented payment methods)'."
+    },
+    {
+      "file": "docs/mobile-v4/MICROCOPY_SYSTEM.md",
+      "change": "Updated section 3.9 from 'Fare: Unconfirmed... please pay the conductor on board' to 'Fare information unavailable. Check official or operator information before travel.' in English and Odia script."
+    },
+    {
+      "file": "reports/mobile_v4_m3_core_screen_reconstruction.json",
+      "change": "Updated FRAME_AND_05_ITINERARY_UNCONFIRMED_FARES from 'Unconfirmed / Pay on Bus with null fare pill' to 'Fare information unavailable per canonical fare integrity policy'."
+    }
+  ],
+  "authoritative_fare_ux_contract": {
+    "data_layer": "Fares remain strictly null until verified CRUT/OSRTC fare tables are ingested.",
+    "presentation_primary": "Fare information unavailable",
+    "presentation_secondary_optional": "Check official/operator information before travel.",
+    "banned_phrases": [
+      "Pay on Bus",
+      "null",
+      "₹0",
+      "Free",
+      "Pay the conductor on board",
+      "Conductor stage ticketing"
+    ]
+  },
+  "status": "PASS"
+}

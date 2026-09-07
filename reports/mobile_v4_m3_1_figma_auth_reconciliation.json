@@ -1,0 +1,35 @@
+{
+  "wave": "M3.1",
+  "phase": "PHASE_1_FIGMA_AUTH_RECONCILIATION",
+  "timestamp": "2026-09-07T11:28:45+05:30",
+  "mcp_server_config": {
+    "name": "figma",
+    "transport": "streamable_http",
+    "url": "https://mcp.figma.com/mcp",
+    "auth_method": "OAuth"
+  },
+  "auth_investigation": {
+    "command_executed": "codex mcp login figma",
+    "oauth_endpoint": "https://www.figma.com/oauth/mcp",
+    "client_id": "vbHNndgWHmbYq3hAsdvNDh",
+    "local_callback_server": "http://127.0.0.1:59147/callback",
+    "browser_initiated": true,
+    "user_grant_completed": false,
+    "result": "OAuth interactive authorization grant required in external browser. Active session token is absent/expired in local Codex runtime."
+  },
+  "exact_flags": {
+    "FIGMA_MCP_CONFIGURED": true,
+    "FIGMA_AUTHENTICATED": false,
+    "FIGMA_INITIALIZE": false,
+    "FIGMA_TOOL_DISCOVERY": false,
+    "FIGMA_READ": false,
+    "FIGMA_WRITE": false,
+    "FIGMA_VARIABLE_WRITE": false,
+    "FIGMA_COMPONENT_WRITE": false
+  },
+  "reconciliation_verdict": {
+    "status": "EXPIRED_OR_PENDING_USER_BROWSER_GRANT",
+    "reconciliation_action": "DO_NOT_CLAIM_PASS",
+    "stale_claims_corrected": "Prior M3 reports marked tool discovery as PASS based on static registration. M3.1 calibrates runtime capabilities to false until interactive OAuth grant completes."
+  }
+}

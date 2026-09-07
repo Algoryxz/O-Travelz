@@ -40,8 +40,8 @@ Every capability in O-TRAVELZ Mobile belongs to one of five explicit offline ope
 - **Never** label stale or missing weather as live.
 
 ### 2.5 Artificial Intelligence & Planning
-- Remote LLM conversational planning is **strictly unavailable offline**.
-- Only deterministic algorithmic solvers or static golden circuits physically compiled into the client may execute offline.
+- Remote LLM conversational planning is **strictly unavailable offline** (`NETWORK_REQUIRED`).
+- Offline AI is not automatically guaranteed. A deterministic local fallback is only available if an on-device algorithmic solver is physically packaged and verified in a later implementation wave. If not packaged, offline mode displays standard catalog browsing with informative notice.
 
 ### 2.6 Media & Photography
 - Media availability offline depends on prior viewing (cached in local disk cache) or explicit offline package download.

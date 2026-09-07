@@ -69,10 +69,10 @@ The AI Assistant does **not** replace structured UI controls (date pickers, cate
 
 Mobile clients do not encode or select cloud AI providers. The mobile client interacts exclusively with the backend orchestration contract via capability response states:
 
-1. **`AI_AVAILABLE`**: Cloud AI assistant is operational. Conversational intent parsing and grounded itinerary refinement are fully active with cited claims.
+1. **`AI_AVAILABLE`**: Cloud AI assistant is operational. Conversational intent parsing and grounded itinerary refinement are fully active with cited claims (NETWORK_REQUIRED).
 2. **`AI_DEGRADED`**: Cloud AI latency exceeds interactive thresholds or primary inference is degraded; backend returns structured summaries with cached grounding.
-3. **`DETERMINISTIC_FALLBACK`**: Cloud AI endpoints are unreachable. Backend or local client invokes deterministic algorithmic solvers and pre-canned Odia cultural FAQs.
-4. **`AI_UNAVAILABLE`**: Offline or disconnected. The AI chat sheet gracefully displays an informative banner:
-   *"AI Assistant requires internet connection. Displaying curated golden circuits for your selected region."* Zero crashes; zero hallucinations.
+3. **`DETERMINISTIC_FALLBACK_AVAILABLE`**: Invoked only when a deterministic local/server-side algorithmic solver is packaged and verified. It is NOT automatically assumed to exist in all offline contexts today.
+4. **`AI_UNAVAILABLE`**: Offline or disconnected with no packaged local solver. The AI assistant surface gracefully displays an informative notice:
+   *"AI Assistant requires an internet connection. Browse the catalog using standard filters."* Zero crashes; zero hallucinations.
 
 > **Current Backend Implementation Reference**: As of V4 backend deployment D1.6, the server-side provider failover chain operates across Gemini 1.5 Flash → Groq Llama 3.3 70B → NVIDIA NIM Llama 3.1 8B → RuleBasedAdapter. Mobile clients remain agnostic to this upstream chain.

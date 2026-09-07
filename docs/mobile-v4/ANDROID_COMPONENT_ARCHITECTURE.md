@@ -176,7 +176,7 @@ The Android component inventory comprises 10 functional families encompassing 44
 
 #### `RouteSummaryRow`
 - **Anatomy**: Route badge (e.g., "Mo Bus 10"), terminal points ("Biju Patnaik Airport $\leftrightarrow$ Nandankanan"), frequency interval, and scheduled departure indicator.
-- **Content Rules**: Fares displayed as `null` or "Pay on Bus". No live arrival countdowns.
+- **Content Rules**: Fares displayed strictly as "Fare information unavailable" (optional: "Check official/operator information before travel"). Never display raw "null", "₹0", or "Pay on Bus". Strictly no live arrival countdowns.
 
 #### `StopTimelineRow`
 - **Anatomy**: Vertical transit line node, stop name (English + Odia), candidate indicator if unverified, and scheduled departure time.

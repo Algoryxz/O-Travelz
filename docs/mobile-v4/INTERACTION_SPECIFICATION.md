@@ -153,7 +153,7 @@ Motion in O-TRAVELZ Mobile V4 reinforces orientation, physical reality, and cult
 
 ### 14. `Open Transit Route`
 - **trigger**: Tap on `RouteSummaryRow`.
-- **transition**: Pushes `TransitRouteDetail` with map polyline and stop sequence.
+- **transition**: Pushes `TransitRouteDetail` with road-following map polyline (only for VERIFIED or HIGH_CONFIDENCE geometry; suppressed entirely if UNAVAILABLE or failing closed across unresolved gaps; strictly zero synthetic straight chords) and stop sequence.
 
 ---
 

@@ -84,7 +84,7 @@
         "canvas_page": "13 — Android Core Screens",
         "dimensions": "412x917dp",
         "layout": "Sticky itinerary header with total duration and distance, scrollable ItineraryDayCards, JourneyLegRows indicating scheduled bus departures and walking segments.",
-        "degraded_sibling_frame": "FRAME_AND_05_ITINERARY_UNCONFIRMED_FARES (explicitly labels bus fares as 'Unconfirmed / Pay on Bus' with null fare pill)."
+        "degraded_sibling_frame": "FRAME_AND_05_ITINERARY_UNCONFIRMED_FARES (explicitly labels bus fares as 'Fare information unavailable' per canonical fare integrity policy)."
       },
       "ios_frame": {
         "frame_id": "FRAME_IOS_05_ITINERARY_RESULT",
@@ -127,7 +127,7 @@
         "canvas_page": "23 — iOS Core Screens",
         "dimensions": "393x852pt",
         "layout": "MapKit polyline header, bottom sheet with route timetable, stop list in Inset Grouped style, Scheduled departure timestamps in SF Mono.",
-        "degraded_sibling_frame": "FRAME_IOS_07_TRANSIT_GEOMETRY_UNAVAILABLE (straight-line dashed connection between stops with geometry confidence chip)."
+        "degraded_sibling_frame": "FRAME_IOS_07_TRANSIT_GEOMETRY_UNAVAILABLE (polyline suppressed entirely; ordered stop sequence displayed without synthetic straight chords)."
       }
     },
     {
