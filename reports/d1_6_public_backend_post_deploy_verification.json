@@ -1,0 +1,434 @@
+{
+  "timestamp": "2026-09-07T02:52:00Z",
+  "repository_sha": "4affea9fba7ac49acbad6eacd0d017c68818385d",
+  "public_deployed_backend_sha": "4affea9fba7ac49acbad6eacd0d017c68818385d",
+  "health_status": 200,
+  "ready_status": 200,
+  "alembic_revision": "0020_transit_ride_observations",
+  "public_runtime_uses_aiven": "YES",
+  "public_endpoint_pass_count": "9/9",
+  "cors_result": "PASS",
+  "browser_backend_binding_proof": "PROVEN (16 live backend requests observed)",
+  "golden_journey_result": "14/14",
+  "cold_latency_s": 1.498,
+  "warm_p50_s": 1.498,
+  "warm_p95_s": 1.572,
+  "remaining_p0_blockers": 0,
+  "verdicts": {
+    "LOCAL_WEB_READY": "YES",
+    "PUBLIC_STATIC_WEB_READY": "YES",
+    "PUBLIC_BACKEND_READY": "YES",
+    "PUBLIC_FULL_STACK_READY": "YES",
+    "ANDROID_APP_READY": "PARTIALLY",
+    "O_TRAVELZ_OVERALL_READY": "PARTIALLY",
+    "WEB_V4_FEATURE_FREEZE": true,
+    "D1_SERIES_CLOSED": true
+  },
+  "detailed_evidence": {
+    "backend_identity": {
+      "health": {
+        "status": 200,
+        "latency_s": 1.936,
+        "data": {
+          "status": "ok",
+          "version": "4.0.0",
+          "git_sha": "4affea9fba7ac49acbad6eacd0d017c68818385d",
+          "alembic_version": "0020_transit_ride_observations",
+          "database": "connected"
+        },
+        "headers": {
+          "Date": "Mon, 07 Sep 2026 02:56:48 GMT",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "rndr-id": "a8723950-761c-4633",
+          "Server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "x-render-origin-server": "uvicorn",
+          "cf-cache-status": "DYNAMIC",
+          "CF-RAY": "a37271369cfd7f8b-MAA",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "ok": true
+      },
+      "ready": {
+        "status": 200,
+        "latency_s": 1.47,
+        "data": {
+          "status": "ready",
+          "database": "connected"
+        },
+        "headers": {
+          "Date": "Mon, 07 Sep 2026 02:56:50 GMT",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "cf-cache-status": "DYNAMIC",
+          "rndr-id": "6c2b29d1-4853-40ff",
+          "Server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "x-render-origin-server": "uvicorn",
+          "CF-RAY": "a37271424bd2f242-MAA",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "ok": true
+      },
+      "root": {
+        "status": 200,
+        "latency_s": 0.385,
+        "data": {
+          "service": "O-Travelz API",
+          "status": "running",
+          "version": "4.0.0",
+          "git_sha": "4affea9fba7ac49acbad6eacd0d017c68818385d",
+          "alembic_version": "0020_transit_ride_observations",
+          "docs": "/docs",
+          "health": "/health"
+        },
+        "headers": {
+          "Date": "Mon, 07 Sep 2026 02:56:50 GMT",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "cf-cache-status": "DYNAMIC",
+          "rndr-id": "aab96bcb-b20d-4d1d",
+          "Server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "x-render-origin-server": "uvicorn",
+          "CF-RAY": "a372714b6efb0803-MAA",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "ok": true
+      },
+      "git_sha": "4affea9fba7ac49acbad6eacd0d017c68818385d",
+      "version": "4.0.0",
+      "alembic_version": "0020_transit_ride_observations",
+      "database": "connected"
+    },
+    "aiven_proof": {
+      "database_connected": true,
+      "alembic_version_match": true,
+      "lingaraj_found": true,
+      "routes_count": 154,
+      "expected_routes_count": 154
+    },
+    "endpoint_matrix": {
+      "places": {
+        "status": 200,
+        "latency_s": 2.996,
+        "ok": true
+      },
+      "place_detail": {
+        "status": 200,
+        "latency_s": 1.815,
+        "ok": true
+      },
+      "weather": {
+        "status": 200,
+        "latency_s": 1.043,
+        "ok": true
+      },
+      "ai_converse": {
+        "status": 200,
+        "latency_s": 5.813,
+        "ok": true
+      },
+      "itinerary_plan": {
+        "status": 200,
+        "latency_s": 3.734,
+        "ok": true
+      },
+      "routes": {
+        "status": 200,
+        "latency_s": 2.0,
+        "ok": true
+      },
+      "route_geometry": {
+        "status": 200,
+        "latency_s": 2.349,
+        "ok": true
+      },
+      "stops_nearby": {
+        "status": 200,
+        "latency_s": 1.482,
+        "ok": true
+      },
+      "services_nearby": {
+        "status": 200,
+        "latency_s": 0.478,
+        "ok": true
+      }
+    },
+    "ai_truth": {
+      "prompt_1_bbsr_1day": {
+        "prompt": "Plan a 1 day trip in bbsr",
+        "status": 200,
+        "is_grounded": true,
+        "has_message": true,
+        "latency_s": 4.947,
+        "sample": "I have built a verified 1-day itinerary starting from Bhubaneswar with 3 planned stops across Odisha.\n\nPlanned Schedule:\n\u2022 09:00\u201311:00: Lingaraj Templ"
+      },
+      "prompt_2_bhubaneswar_oneday": {
+        "prompt": "Plan a one day trip in Bhubaneswar",
+        "status": 200,
+        "is_grounded": true,
+        "has_message": true,
+        "latency_s": 5.014,
+        "sample": "I have built a verified 1-day itinerary starting from Bhubaneswar with 3 planned stops across Odisha.\n\nPlanned Schedule:\n\u2022 09:00\u201311:00: Lingaraj Templ"
+      },
+      "prompt_3_mobus_practical": {
+        "prompt": "I am in Bhubaneswar and want to visit places using Mo Bus where practical",
+        "status": 200,
+        "is_grounded": true,
+        "has_message": true,
+        "latency_s": 7.324,
+        "sample": "I have built a verified 2-day itinerary starting from Bhubaneswar with 6 planned stops across Odisha.\n\nPlanned Schedule:\n\u2022 09:00\u201311:00: Lingaraj Templ"
+      },
+      "prompt_4_rainy_day": {
+        "prompt": "Plan a rainy day in Bhubaneswar",
+        "status": 200,
+        "is_grounded": true,
+        "has_message": true,
+        "latency_s": 5.447,
+        "sample": "I have built a verified 1-day itinerary starting from Bhubaneswar focused on culture with 3 planned stops across Odisha.\n\nPlanned Schedule:\n\u2022 09:00\u201311"
+      },
+      "prompt_5_six_hours_temples": {
+        "prompt": "I have only 6 hours and want temples, lunch and minimal travel",
+        "status": 200,
+        "is_grounded": true,
+        "has_message": true,
+        "latency_s": 5.219,
+        "sample": "I have built a verified 1-day itinerary starting from Bhubaneswar focused on spirituality, food with 3 planned stops across Odisha.\n\nPlanned Schedule:"
+      }
+    },
+    "weather_truth": {
+      "valid_bbsr": {
+        "status": 200,
+        "location": "Bhubaneswar",
+        "current": {
+          "location_name": "Bhubaneswar",
+          "lat": 20.2961,
+          "lon": 85.8245,
+          "observed_at": "2026-09-07T08:15",
+          "temperature_c": 30.5,
+          "apparent_temperature_c": 36.8,
+          "condition": "Clear sky",
+          "condition_code": 0,
+          "is_day": 1,
+          "humidity_pct": 79,
+          "precipitation_probability_pct": null,
+          "precipitation_mm": 0.0,
+          "wind_speed_kmh": 8.9,
+          "wind_direction_deg": 264.0,
+          "wind_gusts_kmh": 21.2,
+          "cloud_cover_pct": 15,
+          "timezone": "Asia/Kolkata",
+          "advice": "Ideal conditions for sightseeing and outdoor exploration.",
+          "provider": "Open-Meteo",
+          "freshness_timestamp": "2026-09-07T02:57:47.391904+00:00",
+          "status": "available",
+          "error_reason": null
+        },
+        "temp_c": 30.5
+      },
+      "invalid_coords": {
+        "status": 200,
+        "error": {
+          "location_name": "Bhubaneswar",
+          "current": {
+            "location_name": "Bhubaneswar",
+            "lat": 999.0,
+            "lon": 999.0,
+            "observed_at": "2026-09-07T02:57:48.379453+00:00",
+            "temperature_c": null,
+            "apparent_temperature_c": null,
+            "condition": null,
+            "condition_code": null,
+            "is_day": null,
+            "humidity_pct": null,
+            "precipitation_probability_pct": null,
+            "precipitation_mm": null,
+            "wind_speed_kmh": null,
+            "wind_direction_deg": null,
+            "wind_gusts_kmh": null,
+            "cloud_cover_pct": null,
+            "timezone": null,
+            "advice": "Weather data is temporarily unavailable. Check local forecasts before traveling.",
+            "provider": "Open-Meteo",
+            "freshness_timestamp": "2026-09-07T02:57:48.379453+00:00",
+            "status": "unavailable",
+            "error_reason": "HTTP Error 400: Bad Request"
+          },
+          "forecast_daily": []
+        }
+      }
+    },
+    "transit_truth": {
+      "46a79a2e-f345-4087-8d95-ab9c9919f93c": {
+        "status": 200,
+        "has_geometry": true,
+        "latency_s": 2.293
+      },
+      "a71f4de0-e939-47d9-a64d-a3abc58fdca0": {
+        "status": 200,
+        "has_geometry": true,
+        "latency_s": 2.306
+      },
+      "cc882630-4cfd-4209-a5b2-1ffbf31d8dc3": {
+        "status": 200,
+        "has_geometry": true,
+        "latency_s": 2.509
+      },
+      "6915ee7b-a1d3-4137-8ee7-e5847ac6a6a4": {
+        "status": 200,
+        "has_geometry": true,
+        "latency_s": 2.35
+      },
+      "94629b92-1db5-400a-882d-55683721840f": {
+        "status": 200,
+        "has_geometry": true,
+        "latency_s": 2.356
+      }
+    },
+    "services_truth": {
+      "services_count": 1,
+      "service_categories": [
+        "atm"
+      ],
+      "places_categories_sample": [
+        "lake",
+        "park",
+        "traditional_temple_food",
+        "temple",
+        "nature",
+        "wildlife",
+        "heritage_sweet_stall",
+        "beach",
+        "waterfall",
+        "restaurant",
+        "market",
+        "street_food_market",
+        "local_food_experience",
+        "monument",
+        "highway_stop"
+      ],
+      "civic_isolated_from_places": true
+    },
+    "performance": {
+      "health": {
+        "cold": 1.498,
+        "p50": 1.498,
+        "max": 1.572,
+        "samples": 3
+      },
+      "places": {
+        "cold": 3.886,
+        "p50": 3.1,
+        "max": 3.886,
+        "samples": 3
+      },
+      "weather": {
+        "cold": 1.043,
+        "p50": 1.043,
+        "max": 1.147,
+        "samples": 3
+      },
+      "ai_converse": {
+        "cold": 3.901,
+        "p50": 3.901,
+        "max": 4.506,
+        "samples": 3
+      },
+      "itinerary_plan": {
+        "cold": 3.908,
+        "p50": 3.874,
+        "max": 3.908,
+        "samples": 3
+      },
+      "routes": {
+        "cold": 1.999,
+        "p50": 2.109,
+        "max": 2.112,
+        "samples": 3
+      },
+      "geometry": {
+        "cold": 2.344,
+        "p50": 2.344,
+        "max": 2.414,
+        "samples": 3
+      },
+      "services": {
+        "cold": 0.347,
+        "p50": 0.401,
+        "max": 0.467,
+        "samples": 3
+      }
+    },
+    "cors": {
+      "authorized_origin_status": 200,
+      "authorized_allow_origin": "https://algoryxz.github.io",
+      "authorized_allow_credentials": "true",
+      "unauthorized_origin_status": 400,
+      "unauthorized_allow_origin": null
+    },
+    "playwright_journey": {
+      "journey_steps": {
+        "step_1_home_load": {
+          "pass": true,
+          "title": "O-TRAVELZ \u2014 Odisha Travel Intelligence & Cultural Atlas | Built by Algoryxz"
+        },
+        "step_2_discover_places": {
+          "pass": true,
+          "cards_found": 15
+        },
+        "step_3_open_destinations": {
+          "pass": true
+        },
+        "step_4_hero_media_renders": {
+          "pass": true,
+          "render_images_count": 8
+        },
+        "step_5_live_weather": {
+          "pass": true
+        },
+        "step_6_7_ai_copilot": {
+          "pass": true
+        },
+        "step_8_itinerary_plan": {
+          "pass": true
+        },
+        "step_9_open_map": {
+          "pass": true
+        },
+        "step_10_11_transit_routes_and_geometry": {
+          "pass": true
+        },
+        "step_12_load_civic_essentials": {
+          "pass": true
+        },
+        "step_13_save_place_persistence": {
+          "pass": true
+        },
+        "step_14_mobile_390x844_responsive": {
+          "pass": true,
+          "viewport": "390x844"
+        }
+      },
+      "total_network_calls": 70,
+      "backend_render_calls": 16,
+      "sample_render_urls": [
+        "https://otravelz-backend.onrender.com/static/images/places/place_konark_001/03b959a8abef/hero.webp",
+        "https://otravelz-backend.onrender.com/static/images/places/place_puri_001/02287867dc89/hero.webp",
+        "https://otravelz-backend.onrender.com/static/images/places/place_chilika_001/b5a796039cf9/hero.webp",
+        "https://otravelz-backend.onrender.com/static/images/places/place_daringbadi_001/49e608c2405f/hero.webp",
+        "https://otravelz-backend.onrender.com/static/images/places/place_puri_002/8146170ae9b7/hero.webp",
+        "https://otravelz-backend.onrender.com/static/images/places/place_koraput_003/d706510f47e0/hero.webp",
+        "https://otravelz-backend.onrender.com/static/images/places/place_ganjam_001/e3487587a075/hero.webp",
+        "https://otravelz-backend.onrender.com/static/images/places/place_sambalpur_001/319e1fc78ef8/hero.webp",
+        "https://otravelz-backend.onrender.com/auth/me",
+        "https://otravelz-backend.onrender.com/auth/me"
+      ],
+      "golden_journey_passed": "14/14"
+    }
+  }
+}
