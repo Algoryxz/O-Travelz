@@ -1,0 +1,23 @@
+{
+  "cold_probe": {
+    "https://otravelz-backend.onrender.com/": {
+      "status": "TimeoutError",
+      "latency_s": 95.255,
+      "error": "The read operation timed out",
+      "ok": false
+    },
+    "https://otravelz-backend.onrender.com/health": {
+      "status": "TimeoutError",
+      "latency_s": 95.136,
+      "error": "The read operation timed out",
+      "ok": false
+    },
+    "https://otravelz-backend.onrender.com/ready": {
+      "status": "TimeoutError",
+      "latency_s": 95.109,
+      "error": "The read operation timed out",
+      "ok": false
+    }
+  },
+  "warm_probes": []
+}

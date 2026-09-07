@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-09-07T02:41:40Z",
+  "wave": "D1.6 Final Public Full-Stack Proof",
+  "git_sha": "60fe5b94d7a578448cd5557ec4311e5967c06c97",
+  "branch": "feature/v4-platform-rebuild",
+  "public_frontend_url": "https://algoryxz.github.io/O-Travelz/",
+  "public_backend_url": "https://otravelz-backend.onrender.com",
+  "verdicts": {
+    "LOCAL_WEB_READY": "YES",
+    "PUBLIC_STATIC_WEB_READY": "YES",
+    "PUBLIC_BACKEND_READY": "NO",
+    "PUBLIC_FULL_STACK_READY": "NO",
+    "ANDROID_APP_READY": "PARTIALLY",
+    "O_TRAVELZ_OVERALL_READY": "PARTIALLY",
+    "WEB_V4_FEATURE_FREEZE": true,
+    "PUBLIC_RUNTIME_USES_AIVEN": "UNPROVEN"
+  },
+  "canonical_data_integrity": {
+    "transit_files_changed": false,
+    "canonical_data_changed": false,
+    "canonical_hashes": {
+      "routes.json": "5bb09c9fbc9098130dc7eeea3646497da6122787495f3f558763cfe6d6352268",
+      "stops.json": "62757946d292592c0ec598f4155019ac4f842e69b11709c2fed3934b8da844d6",
+      "route_stops.json": "2254d9beb75234dcfc2e2249d6476763db031c354d0b5ced0f045feaf04a14bb",
+      "schedules.json": "5dc055e71df836d8eab164a25e52a39e217b1b1567511f095d80ffd823f96c19",
+      "network.json": "3fc5958895736c53dc6f6fe6b3c138b98ab4cabbf819a8189faf8b1ec28fddf3",
+      "aliases.json": "96264b2868fc32ccca9b21421220be87dd3bab1c5f508a5f221cfd4be0693f7f"
+    }
+  },
+  "public_backend_probe_summary": {
+    "GET /": "TIMEOUT (>95s, 0 bytes received)",
+    "GET /health": "TIMEOUT (>95s, 0 bytes received)",
+    "GET /ready": "TIMEOUT (>95s, 0 bytes received)",
+    "tls_edge": "Render edge proxy reachable (IP 216.24.57.15), upstream unresponsive"
+  },
+  "single_remaining_blocker": "The public Render web service (otravelz-backend) has not deployed the commit 3946cb1 / 60fe5b9 or has not been manually resumed/triggered from the Render Dashboard. The deployed instance is either suspended or in an unresponsive upstream state. The operator must trigger Manual Deploy -> Clear build cache & deploy on dashboard.render.com.",
+  "next_steps": "STOP per critical instruction until operator completes Render manual deployment."
+}
