@@ -1,0 +1,62 @@
+﻿{
+  "wave": "M1",
+  "timestamp": "2026-09-07T04:45:00Z",
+  "reviewer": "Ponytail Minimalism Engine",
+  "audit_scope": "Full surface inventory and root navigation reduction analysis",
+  "findings": [
+    {
+      "item": "Dedicated Transit Root Tab",
+      "verdict": "MERGE",
+      "action_taken": "Demoted from permanent root tab. Merged as a high-visibility entry section in Discover, a toggleable layer on the Map, and the routing backbone of Plan and Trips.",
+      "rationale": "A static 154-route directory does not justify 20% of bottom-bar screen real estate for the average traveler. Merging preserves 100% of transit capabilities while reducing navigation clutter."
+    },
+    {
+      "item": "Trips Root Tab",
+      "verdict": "KEEP",
+      "action_taken": "Elevated to Root Tab 3.",
+      "rationale": "Gives the active traveler an instant home for today's itinerary, next bus leg, and saved bookmarks without burying active execution inside Profile/Settings."
+    },
+    {
+      "item": "Standalone Search Results Screen",
+      "verdict": "MERGE",
+      "action_taken": "Merged directly into Discover root via animated SearchBar and Filter Sheet.",
+      "rationale": "Creating a separate full-screen 'Search Activity' duplicates catalog card rendering and creates disjointed back-navigation stacks."
+    },
+    {
+      "item": "Community Contribution Mode",
+      "verdict": "KEEP",
+      "action_taken": "Located cleanly in You -> Contributions and contextual check-in buttons on transit route stops.",
+      "rationale": "Kept appropriately accessible for dedicated contributors without cluttering or confusing ordinary leisure travelers."
+    },
+    {
+      "item": "In-App Audio Voice Turn-by-Turn Navigation Engine",
+      "verdict": "REMOVE",
+      "action_taken": "Replaced with zero-cost headless deep link handoff to Google Maps / Apple Maps.",
+      "rationale": "Building a custom turn-by-turn routing engine would require tens of thousands of lines of code, battery-draining background audio daemons, and paid road networks. External handoff delivers superior navigation for $0.00 cost."
+    },
+    {
+      "item": "Monolithic Global ModeManager.kt",
+      "verdict": "REMOVE",
+      "action_taken": "Replaced with backstack-derived contextual state (Active Trip ID + current route).",
+      "rationale": "A global mode state machine introduces fragile singleton state and synchronization bugs. Platform backstacks own their state naturally."
+    },
+    {
+      "item": "Wear OS / XR Display Glasses Module",
+      "verdict": "DEFER",
+      "action_taken": "Deferred to post-V4 roadmap.",
+      "rationale": "Avoids speculative scaffolding for smartwatches or XR glasses before phone/tablet core is complete."
+    },
+    {
+      "item": "Live Vehicle GPS Telemetry Tracking Code",
+      "verdict": "REMOVE",
+      "action_taken": "Strictly prohibited until physical telemetry hardware is integrated into transit agency APIs.",
+      "rationale": "Prevents writing speculative WebSockets or mock GPS interpolation algorithms that violate truth boundaries."
+    }
+  ],
+  "final_surface_budget": {
+    "total_surfaces_defined": 30,
+    "surfaces_eliminated_or_merged": 6,
+    "net_surface_count": 24,
+    "simplicity_assessment": "The remaining 24 user-facing surfaces map 1:1 to genuine traveler jobs with zero speculative fluff."
+  }
+}

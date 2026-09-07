@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ Mobile V4 — Master Implementation Roadmap (Waves M0 – M30)
+# O-TRAVELZ Mobile V4 — Master Implementation Roadmap (Waves M0 – M30)
 
 > **Authoritative 31-Wave Parallel Execution Roadmap**  
 > Architecture: **Dual-Native (Jetpack Compose + SwiftUI) with KMP Deterministic Shared Core**  
@@ -15,8 +15,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 |---|---|---|
 | **M0** | Repository forensics, skills audit, platform policies, KMP & Map SDK decisions | `[COMPLETED]` |
 | **M0.5** | Figma MCP integration, Stitch capability audit, design workspace setup, architecture closure | `[COMPLETED]` |
-| **M1** | Product anatomy, Information Architecture, and core user journeys | `[NEXT]` |
-| **M2** | Parallel Android & iOS visual exploration using Stitch + Figma | `[PLANNED]` |
+| **M1** | Product anatomy, Information Architecture, and core user journeys | `[COMPLETED]` |
+| **M2** | Parallel Android & iOS visual exploration using Stitch + Figma | `[NEXT]` |
 | **M3** | Parallel Android & iOS motion and interaction design | `[PLANNED]` |
 | **M4** | Parallel clickable prototypes and formal design acceptance freeze | `[PLANNED]` |
 | **M5** | Fresh production Android and iOS project bootstrap | `[PLANNED]` |

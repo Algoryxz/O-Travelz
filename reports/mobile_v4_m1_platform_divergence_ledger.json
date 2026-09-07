@@ -1,0 +1,112 @@
+﻿{
+  "wave": "M1",
+  "timestamp": "2026-09-07T04:40:00Z",
+  "topic": "Platform Divergence Decision Ledger",
+  "features": [
+    {
+      "feature": "navigation",
+      "classification": "SHARED_BEHAVIOR_NATIVE_PRESENTATION",
+      "android_spec": "androidx.compose.material3.adaptive NavigationBar (phone) / NavigationRail (tablet)",
+      "ios_spec": "SwiftUI TabView (iPhone) / NavigationSplitView (iPad)",
+      "shared_behavior": "Identical 5-tab root hierarchy: Discover, Map, Plan, Trips, You"
+    },
+    {
+      "feature": "search",
+      "classification": "SHARED_BEHAVIOR_NATIVE_PRESENTATION",
+      "android_spec": "Material 3 DockedSearchBar with animated full-screen expansion",
+      "ios_spec": "SwiftUI .searchable(placement: .navigationBarDrawer) with scope tokens",
+      "shared_behavior": "Unified fuzzy matching across English and Odia scripts"
+    },
+    {
+      "feature": "place_details",
+      "classification": "SHARED_BEHAVIOR_NATIVE_PRESENTATION",
+      "android_spec": "ModalBottomSheet with drag handle expanding to full-height scaffold",
+      "ios_spec": "SwiftUI .sheet with presentationDetents([.fraction(0.4), .large]) and spring physics",
+      "shared_behavior": "Identical truth badges, verified photo galleries, and weather telemetry"
+    },
+    {
+      "feature": "maps",
+      "classification": "SHARED_BEHAVIOR_NATIVE_PRESENTATION",
+      "android_spec": "Google Maps SDK Compose (maps-compose:4.4.1) with hardware GPU styling",
+      "ios_spec": "Apple MapKit (SwiftUI.Map) with declarative annotations and MapPolyline",
+      "shared_behavior": "Identical marker pin colors, zoom cluster thresholds, and zero-cost deep link handoff"
+    },
+    {
+      "feature": "planner",
+      "classification": "SHARED_BEHAVIOR_SAME_PRESENTATION",
+      "android_spec": "Step form with day-by-day timeline cards",
+      "ios_spec": "Grouped form with day-by-day timeline cards",
+      "shared_behavior": "Identical deterministic solver output, opening hour validation, and AI refinement prompt"
+    },
+    {
+      "feature": "media",
+      "classification": "SHARED_BEHAVIOR_NATIVE_PRESENTATION",
+      "android_spec": "Coil AsyncImage with zoomable double-tap PointerInput",
+      "ios_spec": "Native SwiftUI AsyncImage / TabView with MagnifyGesture",
+      "shared_behavior": "Multi-tier WebP format, distinct source asset counting, zero synthetic AI photos"
+    },
+    {
+      "feature": "transit",
+      "classification": "SHARED_BEHAVIOR_SAME_PRESENTATION",
+      "android_spec": "LazyColumn with tabular IST clocks and stop sequence dots",
+      "ios_spec": "List with tabular IST figures and stop sequence dots",
+      "shared_behavior": "154 routes, 1,430 stops, FirstMileEngine 800m gate, zero fake live bus tracking"
+    },
+    {
+      "feature": "saved_trips",
+      "classification": "SHARED_BEHAVIOR_NATIVE_PRESENTATION",
+      "android_spec": "Room SQLite with KSP and StateFlow",
+      "ios_spec": "SwiftData with @Model and @Query",
+      "shared_behavior": "Identical local offline schema, instant offline availability, sync queue"
+    },
+    {
+      "feature": "settings",
+      "classification": "SHARED_BEHAVIOR_NATIVE_PRESENTATION",
+      "android_spec": "M3 Scaffold with categorized ListItem and Switch composables",
+      "ios_spec": "SwiftUI Form with grouped Section rows and native Toggle",
+      "shared_behavior": "Language toggle (English/Odia), theme toggle, offline storage manager"
+    },
+    {
+      "feature": "permissions",
+      "classification": "SHARED_BEHAVIOR_NATIVE_PRESENTATION",
+      "android_spec": "Pre-permission card -> rememberLauncherForActivityResult",
+      "ios_spec": "Pre-permission card -> CLLocationManager.requestWhenInUseAuthorization",
+      "shared_behavior": "Progressive contextual disclosure; zero launch popups; background location forbidden"
+    },
+    {
+      "feature": "notifications",
+      "classification": "SHARED_BEHAVIOR_NATIVE_PRESENTATION",
+      "android_spec": "AlarmManager / WorkManager local scheduled notifications",
+      "ios_spec": "UNUserNotificationCenter local scheduled alerts",
+      "shared_behavior": "Zero marketing spam; scheduled bus departure alerts only upon explicit user opt-in"
+    },
+    {
+      "feature": "motion",
+      "classification": "SHARED_BEHAVIOR_NATIVE_PRESENTATION",
+      "android_spec": "Predictive Back gesture animations + Material Shared Axis transitions",
+      "ios_spec": "Interactive SwiftUI spring animations + edge swipe back physics",
+      "shared_behavior": "Full Reduce Motion accessibility support replacing motion with instant fades"
+    },
+    {
+      "feature": "haptics",
+      "classification": "PLATFORM_SPECIFIC_ONLY",
+      "android_spec": "LocalHapticFeedback.current.performHapticFeedback(HapticFeedbackType.LongPress)",
+      "ios_spec": "UIImpactFeedbackGenerator(style: .medium).impactOccurred()",
+      "shared_behavior": "Subtle tactile confirmation on bookmarking and transit check-in"
+    },
+    {
+      "feature": "3d_heritage",
+      "classification": "PLATFORM_SPECIFIC_ENHANCEMENT",
+      "android_spec": "Filament / Sceneview rendering canonical .glb models",
+      "ios_spec": "SceneKit / RealityKit rendering canonical .usdz models",
+      "shared_behavior": "Gated strictly to monuments with verified 3D scans; non-3D places hide controls"
+    },
+    {
+      "feature": "video",
+      "classification": "SHARED_BEHAVIOR_NATIVE_PRESENTATION",
+      "android_spec": "Media3 ExoPlayer looping player",
+      "ios_spec": "AVKit AVPlayer looping layer",
+      "shared_behavior": "Muted documentary loops, <5MB, genuine field recordings only"
+    }
+  ]
+}

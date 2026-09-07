@@ -1,0 +1,34 @@
+﻿{
+  "wave": "M1",
+  "timestamp": "2026-09-07T04:25:00Z",
+  "audit_title": "Phase 0 — M0/M0.5 Assumption Sanity Check",
+  "items": {
+    "item_a_figma_mcp_authentication": {
+      "claimed_in_m0": "CONFIGURED_REMOTE_HTTP (Streamable HTTP at https://mcp.figma.com/mcp)",
+      "current_actual_state": "WAITING_USER_AUTH",
+      "detailed_status": {
+        "FIGMA_MCP_CONFIGURED": true,
+        "FIGMA_AUTHENTICATED": false,
+        "FIGMA_READ_VERIFIED": "UNVERIFIED (Requires Personal Access Token or OAuth)",
+        "FIGMA_WRITE_VERIFIED": "UNVERIFIED (Requires authenticated dev/write seat)",
+        "FIGMA_VARIABLE_WRITE_VERIFIED": "UNVERIFIED",
+        "FIGMA_COMPONENT_WRITE_VERIFIED": "UNVERIFIED"
+      },
+      "finding": "HTTP endpoint reachability (405 Method Not Allowed on GET/HEAD) confirms the remote server is live, but authenticated tool calls cannot execute without a valid user token (X-Figma-Token). Status is strictly WAITING_USER_AUTH. M1 proceeds without blocking on design token writes."
+    },
+    "item_b_apple_liquid_glass_availability": {
+      "claimed_in_m0": "Progressive enhancement behind #available(iOS 18, *)",
+      "official_skill_evidence": "swiftui-liquid-glass SKILL.md specifically targets future iOS/Apple platforms with 'if #available(iOS 26, *)' for custom .glassEffect() and GlassEffectContainer APIs.",
+      "corrected_policy": {
+        "BASELINE_IOS_TARGET": "iOS 17.0+ (Standard SwiftUI materials: .ultraThinMaterial, .thinMaterial, .regularMaterial)",
+        "LIQUID_GLASS_API_AVAILABILITY": "Future Apple platform SDKs (iOS 26+ / visionOS); standard system toolbars and sheets adopt system materials automatically in current SDKs",
+        "FALLBACK_STRATEGY": "Crisp hairline borders (1px #30363D / #E8E2D8) with native system materials. Under NO circumstances will fake software blur shaders or canvas filters be written for iOS 17 or 18."
+      }
+    },
+    "item_c_google_maps_mobile_sdk_cost": {
+      "claimed_in_m0": "$0 unlimited mobile map loads as a permanent architectural cost guarantee",
+      "corrected_classification": "SUBJECT_TO_PROVIDER_PRICING",
+      "rationale": "While Google Maps SDK for Android and iOS currently offers free native mobile map loads without billing per dynamic map load, Google Maps Platform terms are subject to vendor price modifications at any time. It must be tracked as a market condition, not an immutable architectural invariant."
+    }
+  }
+}

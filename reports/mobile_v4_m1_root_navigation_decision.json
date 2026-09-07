@@ -1,0 +1,110 @@
+﻿{
+  "wave": "M1",
+  "timestamp": "2026-09-07T04:30:00Z",
+  "topic": "Root Navigation Architecture Multi-Criteria Decision Analysis",
+  "models_evaluated": [
+    {
+      "model_id": "MODEL_A",
+      "tabs": ["Discover", "Map", "Plan", "Trips", "You"],
+      "description": "Discover (Atlas), Map (Spatial & Transit Layers), Plan (Solver & AI), Trips (Active Itinerary & Saved Places), You (Offline, Essentials, Contributions, Settings)",
+      "scores": {
+        "frequency_of_use": 10,
+        "travel_before_during_distinction": 10,
+        "transit_importance": 8,
+        "map_importance": 9,
+        "one_hand_usability": 9,
+        "cognitive_load": 9,
+        "android_conventions": 10,
+        "ios_conventions": 10,
+        "deep_link_behavior": 9,
+        "notification_destinations": 10,
+        "restoration": 9,
+        "state_ownership": 10,
+        "discoverability": 9,
+        "future_community_contribution": 8
+      },
+      "weighted_total_out_of_140": 130,
+      "ponytail_assessment": "WINNER. Elevating 'Trips' gives the active traveler an immediate home for their current itinerary, next bus leg, and saved bookmarks without hiding them inside Settings/Profile. Transit directory is integrated into Discover, Map layers, and Plan hops without consuming a permanent dedicated root slot."
+    },
+    {
+      "model_id": "MODEL_B",
+      "tabs": ["Home", "Explore", "Plan", "Trips", "You"],
+      "description": "Home (Landing Feed), Explore (Catalog & Filter), Plan (Itinerary), Trips (Saved), You (Settings). Map is relegated to contextual modals only.",
+      "scores": {
+        "frequency_of_use": 7,
+        "travel_before_during_distinction": 7,
+        "transit_importance": 6,
+        "map_importance": 4,
+        "one_hand_usability": 7,
+        "cognitive_load": 6,
+        "android_conventions": 7,
+        "ios_conventions": 7,
+        "deep_link_behavior": 7,
+        "notification_destinations": 8,
+        "restoration": 7,
+        "state_ownership": 7,
+        "discoverability": 7,
+        "future_community_contribution": 7
+      },
+      "weighted_total_out_of_140": 89,
+      "ponytail_assessment": "REJECTED. Home and Explore are redundant duplicates in an editorial atlas. Demoting Map to contextual only severely handicaps Odisha's 30-district spatial exploration (Job 6)."
+    },
+    {
+      "model_id": "MODEL_C",
+      "tabs": ["Discover", "Map", "Plan", "Transit", "You"],
+      "description": "M0 Draft Model. Dedicated Transit tab for 154 routes; Trips and Saved Places nested inside 'You'.",
+      "scores": {
+        "frequency_of_use": 8,
+        "travel_before_during_distinction": 6,
+        "transit_importance": 10,
+        "map_importance": 9,
+        "one_hand_usability": 8,
+        "cognitive_load": 8,
+        "android_conventions": 8,
+        "ios_conventions": 8,
+        "deep_link_behavior": 8,
+        "notification_destinations": 7,
+        "restoration": 8,
+        "state_ownership": 7,
+        "discoverability": 9,
+        "future_community_contribution": 8
+      },
+      "weighted_total_out_of_140": 113,
+      "ponytail_assessment": "RUNNER-UP / REVISED. While transit is an O-TRAVELZ pillar, a static route directory is consulted less frequently than an active traveler's itinerary and saved places. Nesting active trips in 'You' overloads Profile and creates friction during active transit execution."
+    },
+    {
+      "model_id": "MODEL_D",
+      "tabs": ["Home", "Discover", "Map", "Trips", "You"],
+      "description": "Home + Discover split; Plan invoked contextually from places or trips.",
+      "scores": {
+        "frequency_of_use": 6,
+        "travel_before_during_distinction": 7,
+        "transit_importance": 6,
+        "map_importance": 8,
+        "one_hand_usability": 7,
+        "cognitive_load": 6,
+        "android_conventions": 7,
+        "ios_conventions": 7,
+        "deep_link_behavior": 6,
+        "notification_destinations": 7,
+        "restoration": 7,
+        "state_ownership": 6,
+        "discoverability": 7,
+        "future_community_contribution": 6
+      },
+      "weighted_total_out_of_140": 88,
+      "ponytail_assessment": "REJECTED. De-emphasizes deterministic itinerary planning (Job 3) which is O-TRAVELZ's primary AI differentiator."
+    }
+  ],
+  "authoritative_decision": {
+    "selected_root_model": "MODEL_A",
+    "root_tabs": [
+      { "tab_index": 0, "id": "discover", "label": "Discover", "role": "Editorial Cultural Atlas, district filters, curated crafts, search" },
+      { "tab_index": 1, "id": "map", "label": "Map", "role": "Full-screen spatial canvas, interactive category filters, transit routes overlay, pin clustering" },
+      { "tab_index": 2, "id": "plan", "label": "Plan", "role": "Deterministic itinerary generator, constraint builder, grounded AI conversational assistant" },
+      { "tab_index": 3, "id": "trips", "label": "Trips", "role": "Active trip execution timeline, saved itineraries, bookmarked places" },
+      { "tab_index": 4, "id": "you", "label": "You", "role": "Offline downloads, language toggle (English/Odia), emergency essentials, contribution portal, settings" }
+    ],
+    "transit_placement": "Transit Directory (154 routes, 1,430 stops) is elevated as a prominent top-level module within Discover, a dedicated filterable layer on the Map, and the backbone of the Plan and Trips engines. This eliminates the redundancy of a separate lonely directory tab while making transit universally accessible across all contexts."
+  }
+}
