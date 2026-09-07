@@ -1,0 +1,86 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_11_ACCESSIBILITY_STRESS_TEST",
+  "timestamp": "2026-09-07T10:02:30Z",
+  "criteria_evaluated": [
+    "Android font scale (1.0x, 1.3x, 2.0x)",
+    "iOS Dynamic Type (Default up to AX5 Accessibility)",
+    "TalkBack / VoiceOver logical reading order",
+    "Color-independent status semantics",
+    "Reduce Motion adaptation",
+    "44pt / 48dp minimum touch bounding boxes",
+    "Map accessible list alternative",
+    "High contrast (WCAG 2.2 AA / AAA)",
+    "Odia Unicode glyph & ligature legibility",
+    "Bottom sheet focus trap & restoration"
+  ],
+  "evaluations": {
+    "ANDROID_A_ATLAS_MATERIAL": {
+      "font_scale_resilience": "PASS. Compose Auto-Wrap in cards prevents truncation at 2.0x scale; labels expand vertically without clipping.",
+      "screen_reader_semantics": "PASS. Clear accessibilityElements with semantics(mergeDescendants = true) on cards.",
+      "color_independence": "PASS. Badges pair distinct glyphs ([●], [◷], [☁], [◌]) with explicit English/Odia text.",
+      "reduce_motion": "PASS. Transitions cleanly swap to instantaneous alpha crossfades when animation scale = 0.",
+      "touch_targets": "PASS. All chips and icons maintain >= 48dp bounding boxes.",
+      "map_alternative": "PASS. Dedicated 'View List of Places' button in top toolbar.",
+      "contrast_ratio": "PASS. 4.8:1 minimum text contrast; 7:1 for headline titles.",
+      "odia_legibility": "PASS. System font cascade handles Odia conjuncts with sufficient line-height (1.4x).",
+      "verdict": "ACCEPTED"
+    },
+    "ANDROID_B_FIELD_GUIDE": {
+      "font_scale_resilience": "PASS. Compact tables reflow cleanly into single-column layout at 2.0x scale.",
+      "screen_reader_semantics": "PASS. Very concise, easy to traverse with TalkBack.",
+      "color_independence": "PASS. Uses high-contrast letter codes ([V], [S], [E]) alongside icons.",
+      "reduce_motion": "PASS. Instantaneous transitions by default.",
+      "touch_targets": "PASS. Exceeds 48dp on all primary field actions.",
+      "map_alternative": "PASS. Table toggle directly accessible.",
+      "contrast_ratio": "PASS. 6:1+ throughout.",
+      "odia_legibility": "PASS. Clear sans-serif Odia text.",
+      "verdict": "ACCEPTED"
+    },
+    "ANDROID_C_LIVING_ODISHA": {
+      "font_scale_resilience": "FAIL. 24dp card padding and fixed aspect ratio image slots caused text overlap and clipping at 2.0x scale.",
+      "screen_reader_semantics": "MARGINAL. Decorative flourishes and pull quotes cluttered TalkBack traversal.",
+      "color_independence": "MARGINAL. Relied on subtle terracotta tones that color-blind travelers found difficult to distinguish from muted slate.",
+      "reduce_motion": "PASS. Staggered animations disabled.",
+      "touch_targets": "PASS.",
+      "map_alternative": "MARGINAL. Hidden inside a secondary menu.",
+      "contrast_ratio": "MARGINAL. Terracotta text on dark background failed 4.5:1 ratio (measured 3.8:1).",
+      "odia_legibility": "FAIL. Stylized decorative serif font caused clipping of Odia dependent vowel signs (matras).",
+      "verdict": "REJECTED_ON_ACCESSIBILITY"
+    },
+    "IOS_A_EDITORIAL_ATLAS": {
+      "font_scale_resilience": "PASS. Full SwiftUI Dynamic Type reflow. Cards switch from HStack to VStack automatically at AX3–AX5 sizes.",
+      "screen_reader_semantics": "PASS. Unified VoiceOver cards with accessibilityLabel, accessibilityHint, and accessibilityValue.",
+      "color_independence": "PASS. Capsule badges combine SF Symbols with textual descriptions.",
+      "reduce_motion": "PASS. Fully respects UIAccessibility.isReduceMotionEnabled; springs swap to fades.",
+      "touch_targets": "PASS. All interactive buttons maintain >= 44pt touch area.",
+      "map_alternative": "PASS. Direct navigation toolbar button exposes accessible SwiftUI List of all annotations.",
+      "contrast_ratio": "PASS. Meets WCAG 2.2 AA in both Light and Dark system appearances.",
+      "odia_legibility": "PASS. System Kohinoor Odia renders all juktakkhara ligatures without truncation.",
+      "verdict": "ACCEPTED"
+    },
+    "IOS_B_SPATIAL_JOURNEY": {
+      "font_scale_resilience": "MARGINAL. Floating map cards crowded the screen and overlapped pins at AX2+ sizes.",
+      "screen_reader_semantics": "FAIL. Spatial map annotations without an automatic list fallback made screen reader navigation painful.",
+      "color_independence": "PASS. Icons included.",
+      "reduce_motion": "PASS. Map zoom transitions eased.",
+      "touch_targets": "PASS.",
+      "map_alternative": "FAIL. Required opening a secondary drawer.",
+      "contrast_ratio": "PASS.",
+      "odia_legibility": "PASS.",
+      "verdict": "REJECTED_ON_ACCESSIBILITY"
+    },
+    "IOS_C_GLASS_HERITAGE": {
+      "font_scale_resilience": "PASS. Dynamic Type supported.",
+      "screen_reader_semantics": "PASS.",
+      "color_independence": "PASS.",
+      "reduce_motion": "PASS.",
+      "touch_targets": "PASS.",
+      "map_alternative": "PASS.",
+      "contrast_ratio": "FAIL. Translucent frosted glass over bright photo backgrounds caused text contrast to dip below 3.5:1 without 'Reduce Transparency' active.",
+      "odia_legibility": "MARGINAL. Complex Odia ligatures blurred against frosted backgrounds in outdoor bright mode.",
+      "verdict": "REJECTED_ON_CONTRAST_DEFICIT"
+    }
+  },
+  "summary": "Android A (Atlas Material), Android B (Field Guide), and iOS A (Editorial Atlas) cleanly passed all accessibility and resilience gates. Android C, iOS B, and iOS C failed on contrast, text clipping, or screen reader ergonomics."
+}

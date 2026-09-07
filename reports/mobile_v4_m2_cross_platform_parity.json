@@ -1,0 +1,65 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_14_CROSS_PLATFORM_PARITY_REVIEW",
+  "timestamp": "2026-09-07T10:03:30Z",
+  "inviolable_semantic_parities": {
+    "traveler_jobs_coverage": {
+      "android": "100% (Jobs 1 through 8 fully supported)",
+      "ios": "100% (Jobs 1 through 8 fully supported)",
+      "parity_status": "IDENTICAL"
+    },
+    "canonical_facts_integrity": {
+      "destinations": "204 canonical places across 30 districts on both platforms",
+      "transit_network": "154 routes, 1,430 stops, 5,549 canonical unique departures on both platforms",
+      "civic_services": "211 audited emergency facilities on both platforms",
+      "parity_status": "IDENTICAL"
+    },
+    "truth_model_semantics": {
+      "verification_states": "[● Verified Official] vs [◌ Candidate Stop · GPS Unverified] mean exactly the same thing on both systems",
+      "schedule_integrity": "Departures strictly labeled Scheduled · HH:MM IST; zero live bus tracking claims on either platform",
+      "fares_policy": "Fares strictly null until official stage ticketing tables ingested",
+      "parity_status": "IDENTICAL"
+    },
+    "trip_persistence_semantics": {
+      "local_storage": "Room SQLite (Android) and SwiftData (iOS) persist identical JSON schemas for SavedPlace, SavedTrip, and TripProgress",
+      "parity_status": "IDENTICAL"
+    },
+    "offline_guarantees": {
+      "tiers": "Identical 5-tier offline capability model (BUNDLED_AND_GUARANTEED, PERSISTED_AFTER_USE, OPTIONAL_DOWNLOAD, NETWORK_REQUIRED, PROVIDER_DEPENDENT)",
+      "parity_status": "IDENTICAL"
+    }
+  },
+  "permitted_platform_divergences": [
+    {
+      "dimension": "Root Navigation Chrome",
+      "android_expression": "Material 3 NavigationBar on phones; left NavigationRail on tablets (>=600dp)",
+      "ios_expression": "SwiftUI TabView on iPhone; NavigationSplitView sidebar on iPad",
+      "justification": "Honors native platform ergonomics and navigation guidelines"
+    },
+    {
+      "dimension": "Sheet & Modal Architecture",
+      "android_expression": "M3 ModalBottomSheet with drag handle and predictive back exit",
+      "ios_expression": "SwiftUI .sheet with presentationDetents and interactive rubber-banding dismiss",
+      "justification": "Aligns with platform-specific gesture expectations"
+    },
+    {
+      "dimension": "Map Interaction & Canvas",
+      "android_expression": "Google Maps Compose with hardware vector rendering and custom dark styling JSON",
+      "ios_expression": "Apple MapKit (SwiftUI.Map) with Metal acceleration and standard Apple vector styling",
+      "justification": "Standard platform-first mapping engines"
+    },
+    {
+      "dimension": "Motion Physics",
+      "android_expression": "Material Shared Axis and Container Transforms (time-based interpolation)",
+      "ios_expression": "Fluid interactive Apple springs (response and dampingFraction physics)",
+      "justification": "Respects native animation toolkits and OS frame choreography"
+    },
+    {
+      "dimension": "Tactile Haptics",
+      "android_expression": "HapticFeedbackConstants (CLOCK_TICK, CONFIRM) via LocalHapticFeedback",
+      "ios_expression": "CoreHaptics / UIImpactFeedbackGenerator (light, medium, notification)",
+      "justification": "Utilizes native Taptic Engine and Android vibrator APIs"
+    }
+  ],
+  "status": "PASS"
+}

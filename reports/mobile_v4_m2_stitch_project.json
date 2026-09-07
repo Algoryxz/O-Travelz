@@ -1,0 +1,54 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_5_STITCH_MASTER_PROJECT_SETUP",
+  "timestamp": "2026-09-07T10:00:00Z",
+  "stitch_project": {
+    "project_id": "proj_otravelz_mobile_v4_m2",
+    "title": "O-TRAVELZ Mobile V4 — M2 Visual Exploration",
+    "description": "Dedicated Stitch project for parallel exploration of Android Material 3 and iOS HIG visual directions across 8 core surfaces.",
+    "isolation_guarantee": "Completely isolated from Web V4 concepts and production mobile codebases.",
+    "conceptual_groups": [
+      {
+        "group_id": "ANDROID_A_ATLAS_MATERIAL",
+        "platform": "Android",
+        "direction": "Atlas Material (M3 Expressive Editorial)",
+        "surfaces_target": 8
+      },
+      {
+        "group_id": "ANDROID_B_FIELD_GUIDE",
+        "platform": "Android",
+        "direction": "Field Guide (Utilitarian & High-Density)",
+        "surfaces_target": 8
+      },
+      {
+        "group_id": "ANDROID_C_LIVING_ODISHA",
+        "platform": "Android",
+        "direction": "Living Odisha (Culturally Expressive)",
+        "surfaces_target": 8
+      },
+      {
+        "group_id": "IOS_A_EDITORIAL_ATLAS",
+        "platform": "iOS",
+        "direction": "Editorial Atlas (Apple HIG Publication)",
+        "surfaces_target": 8
+      },
+      {
+        "group_id": "IOS_B_SPATIAL_JOURNEY",
+        "platform": "iOS",
+        "direction": "Spatial Journey (Map-Centric Companion)",
+        "surfaces_target": 8
+      },
+      {
+        "group_id": "IOS_C_GLASS_HERITAGE",
+        "platform": "iOS",
+        "direction": "Glass Heritage (Progressive Enhancement Glass)",
+        "surfaces_target": 8
+      }
+    ]
+  },
+  "governance_rules": {
+    "zero_production_code": "Stitch HTML/React output is strictly an interim conceptual design artifact. Zero Stitch code is committed to mobile/android, mobile/ios, or mobile/shared.",
+    "figma_boundary": "Approved concepts will be reconstructed canonically in Figma once authenticated read/write access is verified."
+  },
+  "status": "CONFIGURED_AND_READY"
+}

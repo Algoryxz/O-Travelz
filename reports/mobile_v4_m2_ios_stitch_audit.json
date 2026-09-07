@@ -1,0 +1,313 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_8_IOS_STITCH_EXPLORATION",
+  "timestamp": "2026-09-07T10:01:00Z",
+  "total_concepts_audited": 24,
+  "surface_set": [
+    "1. Discover Root",
+    "2. Place Detail",
+    "3. Map + Selected Place",
+    "4. Plan Root / Constraint Input",
+    "5. Itinerary Result",
+    "6. Active Trip",
+    "7. Transit Route / Stop State",
+    "8. You / Saved Trips Overview"
+  ],
+  "audits": {
+    "IOS_A_EDITORIAL_ATLAS": [
+      {
+        "screen_id": "scr_ios_a_01_discover",
+        "surface": "Discover Root",
+        "traveler_job": "Job 1: Discover Cultural Places",
+        "strengths": "Flawless Apple HIG adherence; large title 'Odisha' collapses to inline navigation title; clean grouped card list; subtle sandstone hairline accents; SF Pro typography with tabular numbers.",
+        "weaknesses": "Initial prompt suggested generic iOS search bar that crowded the navigation bar.",
+        "generic_template_symptoms": "Avoided standard Airbnb-style bottom navigation and floating pills.",
+        "truth_contract_issues": "None; truth badges render cleanly as vibrant capsule pills (.tint(.green), .tint(.orange)).",
+        "accessibility_issues": "Full Dynamic Type scaling up to AX5; VoiceOver reads cards as unified accessibility elements.",
+        "motion_feasibility": "Native NavigationStack push with interactive swipe-to-pop; 60/120fps fluid.",
+        "device_feasibility": "EXCELLENT across iPhone 11 to iPhone 16 Pro."
+      },
+      {
+        "screen_id": "scr_ios_a_02_detail",
+        "surface": "Place Detail",
+        "traveler_job": "Job 2: Inspect Place Detail",
+        "strengths": "Edge-to-edge verified photography with subtle gradient overlay; collapsible editorial sections; live weather card using SF Symbols (sun.max.fill, cloud.sun.fill); native Apple Maps / Google Maps handoff sheet.",
+        "weaknesses": "Need to ensure Odia text uses proper font cascade (Kohinoor Odia) without vertical clipping.",
+        "generic_template_symptoms": "Zero fake star reviews or user rating widgets.",
+        "truth_contract_issues": "Provenance and opening hours clearly attributed to verified sources.",
+        "accessibility_issues": "Passed; high contrast labels and full VoiceOver heading hierarchy.",
+        "motion_feasibility": "Native SwiftUI scroll bounce; no custom renderers.",
+        "device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_ios_a_03_map",
+        "surface": "Map + Selected Place",
+        "traveler_job": "Job 6: Navigate Spatially",
+        "strengths": "First-party SwiftUI.Map integration; custom MapMarker annotations; native presentationDetents (.fraction(0.25), .fraction(0.6), .large) for place preview sheet; immediate external routing trigger.",
+        "weaknesses": "Need to prevent bottom sheet grabber from conflicting with swipe-up home indicator.",
+        "generic_template_symptoms": "None; feels like Apple Maps with a cultural curation layer.",
+        "truth_contract_issues": "Candidate stops rendered with dashed amber circles; verified stops have solid emerald pins.",
+        "accessibility_issues": "Accessible list view easily accessible via navigation bar trailing button.",
+        "motion_feasibility": "Native sheet spring physics (interactiveSpring); buttery smooth.",
+        "device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_ios_a_04_plan_input",
+        "surface": "Plan Root / Constraint Input",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Input)",
+        "strengths": "Native SwiftUI Form / Section structure; Steppers for days and pace; segmented picker for transit preference; discrete AI assistant text box for natural language refinement.",
+        "weaknesses": "Form can look slightly utilitarian without editorial hero photography.",
+        "generic_template_symptoms": "Zero neon AI gradients or conversational chatbot bubbles.",
+        "truth_contract_issues": "Clear notice that trip schedules are solved deterministically from verified transit databases.",
+        "accessibility_issues": "Native iOS form components have built-in accessibility traits.",
+        "motion_feasibility": "Zero frame drops.",
+        "device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_ios_a_05_itinerary_result",
+        "surface": "Itinerary Result",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Output)",
+        "strengths": "Sectioned List by day; transit legs clearly demarcated with bus glyph and route numbers; walking distances shown as FirstMileEngine pills; 'Save Itinerary' button in navigation toolbar.",
+        "weaknesses": "Large itineraries with > 5 days require collapsible day disclosure groups.",
+        "generic_template_symptoms": "Zero booking upsells.",
+        "truth_contract_issues": "Fares explicitly marked null; departure times labeled [◷ Scheduled · HH:MM IST].",
+        "accessibility_issues": "Clear section headers and tabular departure times.",
+        "motion_feasibility": "Native list expansion animation.",
+        "device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_ios_a_06_active_trip",
+        "surface": "Active Trip",
+        "traveler_job": "Job 4: Execute Active Trip",
+        "strengths": "Prominent next-stop card with distance and walking pill; emergency call button (telephony intent) directly in navigation bar; manual 'Mark Visited' advances milestone; 100% offline operable from SwiftData.",
+        "weaknesses": "Ensure phone dialer prompt confirmation is clear before initiating emergency calls.",
+        "generic_template_symptoms": "No silent geofence triggers.",
+        "truth_contract_issues": "Only verified phone numbers and canonical coordinates used.",
+        "accessibility_issues": "High-contrast action buttons; VoiceOver announces active stop prominently.",
+        "motion_feasibility": "SwiftUI list reordering transition.",
+        "device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_ios_a_07_transit",
+        "surface": "Transit Route / Stop State",
+        "traveler_job": "Job 5: Board Transit with Confidence",
+        "strengths": "Native List displaying all 154 routes with searchable corridor filter; stop detail sheet shows scheduled departures, official operator citation (CRUT), and locality boundary chips.",
+        "weaknesses": "Timetable rows need sufficient vertical spacing when Dynamic Type is scaled.",
+        "generic_template_symptoms": "Zero fake live bus tracking or estimated arrival minutes countdown.",
+        "truth_contract_issues": "5,549 canonical departures truth upheld.",
+        "accessibility_issues": "Monospace digits for hours and minutes.",
+        "motion_feasibility": "Standard list navigation.",
+        "device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_ios_a_08_you",
+        "surface": "You / Saved Trips Overview",
+        "traveler_job": "Job 8: Curate & Retain Favorites",
+        "strengths": "Inset grouped list; storage breakdown bar; instant English/Odia language picker; Privacy & Terms links.",
+        "weaknesses": "Storage bar needs clear legend between data bytes and photo cache.",
+        "generic_template_symptoms": "Zero social login pressure or gamified points.",
+        "truth_contract_issues": "Clear display of on-device vs synced trip status.",
+        "accessibility_issues": "Accessible toggle controls.",
+        "motion_feasibility": "Instantaneous.",
+        "device_feasibility": "EXCELLENT."
+      }
+    ],
+    "IOS_B_SPATIAL_JOURNEY": [
+      {
+        "screen_id": "scr_ios_b_01_discover",
+        "surface": "Discover Root",
+        "traveler_job": "Job 1: Discover Cultural Places",
+        "strengths": "Full-screen MapKit with floating cards; high spatial awareness; smooth camera transitions between districts.",
+        "weaknesses": "Less space for editorial essays; cards can obscure map points of interest.",
+        "generic_template_symptoms": "Floating search bar feels a bit like Google Maps default.",
+        "truth_contract_issues": "Clustered pins show counts accurately.",
+        "accessibility_issues": "VoiceOver needs an explicit accessible list button since spatial panning is difficult for blind users.",
+        "motion_feasibility": "Continuous map rendering requires battery awareness.",
+        "device_feasibility": "MODERATE on iPhone 11."
+      },
+      {
+        "screen_id": "scr_ios_b_02_detail",
+        "surface": "Place Detail",
+        "traveler_job": "Job 2: Inspect Place Detail",
+        "strengths": "Drawer slides up to 85% height while map remains visible in the background.",
+        "weaknesses": "Map behind sheet draws GPU power even when mostly covered.",
+        "generic_template_symptoms": "None.",
+        "truth_contract_issues": "Verified badges clear.",
+        "accessibility_issues": "Focus must trap within the sheet when expanded.",
+        "motion_feasibility": "Smooth gesture handling.",
+        "device_feasibility": "MODERATE."
+      },
+      {
+        "screen_id": "scr_ios_b_03_map",
+        "surface": "Map + Selected Place",
+        "traveler_job": "Job 6: Navigate Spatially",
+        "strengths": "Superb spatial interaction; camera centers immediately; haptic feedback on pin selection.",
+        "weaknesses": "Dense city areas (Old Town Bhubaneswar) can get visually crowded.",
+        "generic_template_symptoms": "None.",
+        "truth_contract_issues": "Strict stop confidence demarcation.",
+        "accessibility_issues": "Good annotation labels.",
+        "motion_feasibility": "Fast camera transitions.",
+        "device_feasibility": "MODERATE."
+      },
+      {
+        "screen_id": "scr_ios_b_04_plan_input",
+        "surface": "Plan Root / Constraint Input",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Input)",
+        "strengths": "Travelers select destinations by lassoing or tapping directly on the map canvas.",
+        "weaknesses": "Lassoing on mobile screen is error-prone while walking or riding.",
+        "generic_template_symptoms": "Novelty interaction that violates standard iOS simplicity.",
+        "truth_contract_issues": "Hard to communicate deterministic transit constraints purely through spatial gestures.",
+        "accessibility_issues": "Fails standard VoiceOver accessibility without complete form fallback.",
+        "motion_feasibility": "Gesture tracking load.",
+        "device_feasibility": "MODERATE."
+      },
+      {
+        "screen_id": "scr_ios_b_05_itinerary_result",
+        "surface": "Itinerary Result",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Output)",
+        "strengths": "Route polyline drawn dynamically on the map as traveler swipes through day cards.",
+        "weaknesses": "If route covers statewide distances (Puri to Sambalpur), map zooms out too far to see details.",
+        "generic_template_symptoms": "None.",
+        "truth_contract_issues": "Transit legs clearly drawn.",
+        "accessibility_issues": "Needs table alternative.",
+        "motion_feasibility": "Camera zoom animation load.",
+        "device_feasibility": "MODERATE."
+      },
+      {
+        "screen_id": "scr_ios_b_06_active_trip",
+        "surface": "Active Trip",
+        "traveler_job": "Job 4: Execute Active Trip",
+        "strengths": "Navigation-style tracking; live distance to next milestone; map camera tracks user location.",
+        "weaknesses": "High battery drain from continuous GPS + MapKit rendering.",
+        "generic_template_symptoms": "Looks like an in-car turn-by-turn navigation app rather than a cultural guide.",
+        "truth_contract_issues": "Risks giving traveler the impression of real-time turn-by-turn routing instead of external handoff.",
+        "accessibility_issues": "Moving canvas is distracting.",
+        "motion_feasibility": "High render load.",
+        "device_feasibility": "MODERATE."
+      },
+      {
+        "screen_id": "scr_ios_b_07_transit",
+        "surface": "Transit Route / Stop State",
+        "traveler_job": "Job 5: Board Transit with Confidence",
+        "strengths": "Complete bus route polyline rendered on map with bus stop nodes.",
+        "weaknesses": "154 routes simultaneously would cause severe visual clutter; requires aggressive corridor filtering.",
+        "generic_template_symptoms": "Transit map overlay.",
+        "truth_contract_issues": "Candidate stops well separated.",
+        "accessibility_issues": "Hard to inspect stop lists.",
+        "motion_feasibility": "Polyline rendering load.",
+        "device_feasibility": "MODERATE."
+      },
+      {
+        "screen_id": "scr_ios_b_08_you",
+        "surface": "You / Saved Trips Overview",
+        "traveler_job": "Job 8: Curate & Retain Favorites",
+        "strengths": "Saved destinations plotted as gold star pins on the map.",
+        "weaknesses": "Hard to browse 50+ saved bookmarks spatially; list view is much faster.",
+        "generic_template_symptoms": "Pin map.",
+        "truth_contract_issues": "None.",
+        "accessibility_issues": "Pin density issues.",
+        "motion_feasibility": "Standard.",
+        "device_feasibility": "SAFE."
+      }
+    ],
+    "IOS_C_GLASS_HERITAGE": [
+      {
+        "screen_id": "scr_ios_c_01_discover",
+        "surface": "Discover Root",
+        "traveler_job": "Job 1: Discover Cultural Places",
+        "strengths": "Deep visual luxury; translucent glass navigation bar and glass tab bar; specular highlights; progressive enhancement using native .ultraThinMaterial and real Liquid Glass on iOS 26+.",
+        "weaknesses": "Over-reliance on glass blur can reduce text contrast in direct outdoor sun.",
+        "generic_template_symptoms": "Temptation to add neon reflections or synthetic glass shine.",
+        "truth_contract_issues": "Truth badges look gorgeous but must maintain opaque high-contrast borders.",
+        "accessibility_issues": "Must strictly support 'Reduce Transparency' system setting (reverting to solid opaque surfaces).",
+        "motion_feasibility": "Real-time blur shader passes on older iPhones can cause frame hitches.",
+        "device_feasibility": "RISKY on iPhone 11; smooth on iPhone 15 Pro+."
+      },
+      {
+        "screen_id": "scr_ios_c_02_detail",
+        "surface": "Place Detail",
+        "traveler_job": "Job 2: Inspect Place Detail",
+        "strengths": "Frosted glass bottom sheet sliding over photography; rich tactile feel.",
+        "weaknesses": "Long cultural essays are tiring to read over blurred image backgrounds.",
+        "generic_template_symptoms": "Dribbble-concept visual styling.",
+        "truth_contract_issues": "Verified badges must stay prominent.",
+        "accessibility_issues": "Contrast sensitive.",
+        "motion_feasibility": "Heavy blur compositing.",
+        "device_feasibility": "RISKY."
+      },
+      {
+        "screen_id": "scr_ios_c_03_map",
+        "surface": "Map + Selected Place",
+        "traveler_job": "Job 6: Navigate Spatially",
+        "strengths": "Floating glass search capsule and glass preview sheet over MapKit.",
+        "weaknesses": "Too many translucent layers over the map can cause visual mush.",
+        "generic_template_symptoms": "Over-layered glass pills.",
+        "truth_contract_issues": "Dashed candidate rings look indistinct through frosted glass.",
+        "accessibility_issues": "Poor in sunlight.",
+        "motion_feasibility": "Map + Blur concurrency.",
+        "device_feasibility": "RISKY."
+      },
+      {
+        "screen_id": "scr_ios_c_04_plan_input",
+        "surface": "Plan Root / Constraint Input",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Input)",
+        "strengths": "Glass cards with tactile slider controls.",
+        "weaknesses": "Form inputs feel less crisp than standard iOS grouped tables.",
+        "generic_template_symptoms": "Unconventional form controls.",
+        "truth_contract_issues": "None.",
+        "accessibility_issues": "Border contrast needs careful tuning.",
+        "motion_feasibility": "Standard.",
+        "device_feasibility": "SAFE."
+      },
+      {
+        "screen_id": "scr_ios_c_05_itinerary_result",
+        "surface": "Itinerary Result",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Output)",
+        "strengths": "Translucent milestone cards with tinted glass status badges.",
+        "weaknesses": "Dense timetable data is hard to scan across translucent backgrounds.",
+        "generic_template_symptoms": "Visual styling gets in the way of utility.",
+        "truth_contract_issues": "Fares and timetables must be legible.",
+        "accessibility_issues": "Violates Ponytail simplicity.",
+        "motion_feasibility": "Moderate.",
+        "device_feasibility": "MODERATE."
+      },
+      {
+        "screen_id": "scr_ios_c_06_active_trip",
+        "surface": "Active Trip",
+        "traveler_job": "Job 4: Execute Active Trip",
+        "strengths": "Floating glass HUD for navigation.",
+        "weaknesses": "Extremely difficult to read while walking under coastal Odisha mid-day sun.",
+        "generic_template_symptoms": "HUD styling inappropriate for heritage walking.",
+        "truth_contract_issues": "Emergency contacts must not be blurred.",
+        "accessibility_issues": "Severe outdoor legibility risk.",
+        "motion_feasibility": "Heavy.",
+        "device_feasibility": "RISKY."
+      },
+      {
+        "screen_id": "scr_ios_c_07_transit",
+        "surface": "Transit Route / Stop State",
+        "traveler_job": "Job 5: Board Transit with Confidence",
+        "strengths": "Sleek timetable layout.",
+        "weaknesses": "Thin frosted dividers lack sufficient contrast in transit environments.",
+        "generic_template_symptoms": "None.",
+        "truth_contract_issues": "Timetable accuracy clear.",
+        "accessibility_issues": "Needs solid backgrounds.",
+        "motion_feasibility": "Standard.",
+        "device_feasibility": "SAFE."
+      },
+      {
+        "screen_id": "scr_ios_c_08_you",
+        "surface": "You / Saved Trips Overview",
+        "traveler_job": "Job 8: Curate & Retain Favorites",
+        "strengths": "Frosted glass settings tiles.",
+        "weaknesses": "Standard iOS grouped table is simpler and faster.",
+        "generic_template_symptoms": "Stylized settings menu.",
+        "truth_contract_issues": "None.",
+        "accessibility_issues": "Reduce transparency required.",
+        "motion_feasibility": "Standard.",
+        "device_feasibility": "SAFE."
+      }
+    ]
+  },
+  "summary": "All 24 iOS surface concepts evaluated against traveler jobs, truth contracts, Apple HIG, accessibility, and device performance."
+}

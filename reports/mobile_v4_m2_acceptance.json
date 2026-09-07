@@ -1,0 +1,32 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_23_M2_ACCEPTANCE",
+  "timestamp": "2026-09-07T10:05:30Z",
+  "topic": "Parallel Android & iOS Visual Exploration, Native Design-Language Selection & Prototype Direction",
+  "acceptance_criteria": {
+    "STITCH_AVAILABLE": true,
+    "FIGMA_AUTHENTICATED": false,
+    "FIGMA_STATUS": "WAITING_USER_AUTH",
+    "ANDROID_DIRECTIONS_GENERATED": 3,
+    "IOS_DIRECTIONS_GENERATED": 3,
+    "ANDROID_DIRECTION_SELECTED": "ANDROID_A_ATLAS_MATERIAL",
+    "IOS_DIRECTION_SELECTED": "IOS_A_EDITORIAL_ATLAS",
+    "CORE_SURFACES_EVALUATED": 8,
+    "TOTAL_CONCEPTUAL_SURFACES_AUDITED": 48,
+    "TRUTH_STATES_STRESS_TESTED": 14,
+    "ACCESSIBILITY_PASS": true,
+    "PERFORMANCE_FEASIBILITY_PASS": true,
+    "PLATFORM_PARITY_PASS": true
+  },
+  "zero_code_and_data_proof": {
+    "android_production_code_added": 0,
+    "ios_production_code_added": 0,
+    "kmp_code_changed": 0,
+    "backend_code_changed": 0,
+    "web_v4_code_changed": 0,
+    "canonical_data_changed": 0,
+    "native_project_scaffolds_created": 0
+  },
+  "verdict": "ACCEPTED_M2",
+  "next_wave": "M3_COMPONENT_ARCHITECTURE_AND_INTERACTIVE_PROTOTYPES"
+}

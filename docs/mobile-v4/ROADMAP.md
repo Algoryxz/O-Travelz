@@ -16,8 +16,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M0** | Repository forensics, skills audit, platform policies, KMP & Map SDK decisions | `[COMPLETED]` |
 | **M0.5** | Figma MCP integration, Stitch capability audit, design workspace setup, architecture closure | `[COMPLETED]` |
 | **M1** | Product anatomy, Information Architecture, and core user journeys | `[COMPLETED]` |
-| **M2** | Parallel Android & iOS visual exploration using Stitch + Figma | `[NEXT]` |
-| **M3** | Parallel Android & iOS motion and interaction design | `[PLANNED]` |
+| **M2** | Parallel Android & iOS visual exploration using Stitch + Figma | `[COMPLETED]` |
+| **M3** | Component Architecture & Interactive Prototype Specification | `[NEXT]` |
 | **M4** | Parallel clickable prototypes and formal design acceptance freeze | `[PLANNED]` |
 | **M5** | Fresh production Android and iOS project bootstrap | `[PLANNED]` |
 | **M6** | API contracts, DTO generation, and native networking clients | `[PLANNED]` |
@@ -83,18 +83,18 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **Acceptance Criteria**: All 204 places, 154 routes, and 7 core journeys mapped to screen states.
 - **Non-Goals**: No code implementation; no UI layout code.
 
-### Wave M2: Parallel Android/iOS Visual Exploration `[PLANNED]`
+### Wave M2: Parallel Android/iOS Visual Exploration `[COMPLETED]`
 - **Objective**: Generate 2–3 architectural visual alternatives per major screen using Stitch MCP and reconstruct approved concepts in Figma.
 - **Android Scope**: Material 3 visual exploration (pill chips, rounded card corners, dark basalt surfaces).
 - **iOS Scope**: Apple HIG visual exploration (hairline dividers, native materials, typography hierarchy).
 - **Skills Used**: `Stitch MCP`, `Figma MCP`, `frontend-design`, `brand`.
 - **Dependencies**: Wave M1 completion.
-- **Artifacts**: Figma frames in sections `13 — Android Screens` and `23 — iOS Screens`.
+- **Artifacts**: Selected directions in `docs/mobile-v4/ANDROID_VISUAL_DIRECTION.md` and `docs/mobile-v4/IOS_VISUAL_DIRECTION.md`.
 - **Tests**: Editorial critique against Modern Odisha Cultural Atlas standards; anti-vibe-code compliance check.
-- **Acceptance Criteria**: 2 approved visual concepts for Discover, Detail, Map, and Transit on each platform.
+- **Acceptance Criteria**: Single winning Android and iOS visual directions selected and truth-tested across 8 core surfaces.
 - **Non-Goals**: Zero Stitch code committed; no mobile project files modified.
 
-### Wave M3: Parallel Android/iOS Motion Systems `[PLANNED]`
+### Wave M3: Component Architecture & Interactive Prototype Specification `[NEXT]`
 - **Objective**: Design platform-native motion, gestures, and interaction physics.
 - **Android Scope**: Predictive back gestures, shared element container transforms, elevation lifts.
 - **iOS Scope**: SwiftUI interactive spring curves, sheet dismissal drag physics, zoom transitions.

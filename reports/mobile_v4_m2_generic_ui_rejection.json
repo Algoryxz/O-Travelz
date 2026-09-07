@@ -1,0 +1,101 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_9_GENERIC_UI_REJECTION_PASS",
+  "timestamp": "2026-09-07T10:01:30Z",
+  "methodology": "Ponytail Review + UI/UX Pro Max forensic audit across all 6 candidate directions (48 conceptual surfaces). Systematic elimination of generic-template tropes, vibe-coded artifacts, and anti-patterns.",
+  "rejected_patterns": [
+    {
+      "pattern_id": "REJ_01_AI_MAGIC_GRADIENTS",
+      "description": "Purple/cyan glowing gradients or 'sparkle magic' icons representing AI itinerary generation.",
+      "classification": "GENERIC_TEMPLATE",
+      "verdict": "REJECTED",
+      "rationale": "Violates Anti-Vibe-Code constraints. AI is a deterministic planning instrument solving constraints, not a magical mystical chatbot."
+    },
+    {
+      "pattern_id": "REJ_02_FAKE_REVIEWS_AND_STAR_RATINGS",
+      "description": "Star rating displays ('4.8 ★ (1,240 reviews)') and commercial booking review summaries.",
+      "classification": "TRUTH_RISK",
+      "verdict": "REJECTED",
+      "rationale": "Violates truth boundary. O-TRAVELZ does not collect commercial reviews. Verification is based on official administrative provenance."
+    },
+    {
+      "pattern_id": "REJ_03_FLOATING_GLASS_PILL_PROLIFERATION",
+      "description": "Stacking 10+ translucent floating glass pill buttons across the map and discover screens.",
+      "classification": "ACCESSIBILITY_RISK",
+      "verdict": "REJECTED",
+      "rationale": "Causes visual clutter ('pill pollution'), fails outdoor contrast in bright coastal sun, and confuses TalkBack/VoiceOver focus traversal."
+    },
+    {
+      "pattern_id": "REJ_04_COMMERCIAL_BOOKING_MIMICRY",
+      "description": "Hotel search boxes, 'Book Now' CTAs, urgency counters ('Only 2 spots left!'), and price tags.",
+      "classification": "GENERIC_TEMPLATE",
+      "verdict": "REJECTED",
+      "rationale": "O-TRAVELZ is a Modern Odisha Cultural Atlas, not a booking aggregator. Fares are null until official CRUT tables are ingested."
+    },
+    {
+      "pattern_id": "REJ_05_BOTTOM_SHEET_FOR_EVERYTHING",
+      "description": "Opening modal bottom sheets for simple settings, forms, filter changes, and search results.",
+      "classification": "NAVIGATION_RISK",
+      "verdict": "REJECTED",
+      "rationale": "Destroys navigation back-stack clarity. Sheets are reserved for transient inspections (map place preview, transit stop departures); full flows use NavigationStack / NavigationBar."
+    },
+    {
+      "pattern_id": "REJ_06_DECORATIVE_PARALLAX_WALLPAPER",
+      "description": "Heavy multi-layer image parallax scroll headers that consume GPU cycles without conveying information.",
+      "classification": "PERFORMANCE_RISK",
+      "verdict": "REJECTED",
+      "rationale": "Causes frame drops on entry-level target hardware (Vivo Y19 / Helio P65). Media must be presented cleanly as verified evidence."
+    },
+    {
+      "pattern_id": "REJ_07_LIVE_BUS_ANIMATION_FABRICATION",
+      "description": "Animated bus icons moving continuously along route polylines simulating live vehicle positions.",
+      "classification": "TRUTH_RISK",
+      "verdict": "REJECTED",
+      "rationale": "CRITICAL REPOSITORY RULE VIOLATION: Zero vehicle telemetry exists. Scheduled timetable departures must never be presented as live GPS tracking."
+    },
+    {
+      "pattern_id": "REJ_08_COLOR_ONLY_STATUS_INDICATION",
+      "description": "Relying purely on a green or yellow dot without accompanying text to indicate verification status.",
+      "classification": "ACCESSIBILITY_RISK",
+      "verdict": "REJECTED",
+      "rationale": "Fails WCAG 2.2 AA accessibility for color-blind travelers. Every status badge must combine distinct icon shapes with explicit textual labels."
+    },
+    {
+      "pattern_id": "REJ_09_ARTIFICIAL_CROSS_PLATFORM_CLONING",
+      "description": "Forcing Android to use iOS hairline lists or forcing iOS to use Android Material floating action buttons.",
+      "classification": "PLATFORM_MISMATCH",
+      "verdict": "REJECTED",
+      "rationale": "Violates Dual-Native contract. Android must feel like pure Material 3; iOS must feel like pure Apple HIG."
+    },
+    {
+      "pattern_id": "REJ_10_CONTINUOUS_FULLSCREEN_MAPKIT_IN_ACTIVE_TRIP",
+      "description": "Keeping full-screen MapKit camera actively rendering and tracking in foreground throughout walking trips.",
+      "classification": "PERFORMANCE_RISK",
+      "verdict": "REJECTED",
+      "rationale": "Severe battery drain during full-day travel. Active Trip must prioritize low-power structured timeline lists, delegating live turn-by-turn to external maps."
+    }
+  ],
+  "preserved_patterns_keep": [
+    {
+      "pattern_id": "KEEP_01_STANDARDIZED_TRUTH_BADGES",
+      "description": "Integrated tonal/capsule badges with explicit text: [● Verified Official], [◷ Scheduled · HH:MM], [☁ Live · 31°C].",
+      "classification": "KEEP"
+    },
+    {
+      "pattern_id": "KEEP_02_FIRST_MILE_ENGINE_PILLS",
+      "description": "Standardized walking feasibility indicators based on Haversine distance bands (<=800m, 800-1500m, >1500m).",
+      "classification": "KEEP"
+    },
+    {
+      "pattern_id": "KEEP_03_BOTTOM_THUMB_ZONE_CONTROLS",
+      "description": "Anchoring primary interactive targets in the bottom 40% of the screen for safe transit and walking use.",
+      "classification": "KEEP"
+    },
+    {
+      "pattern_id": "KEEP_04_PERSISTENT_EMERGENCY_ACCESS",
+      "description": "Instant single-tap access to 211 verified civic utilities and emergency phone numbers.",
+      "classification": "KEEP"
+    }
+  ],
+  "status": "PASS"
+}

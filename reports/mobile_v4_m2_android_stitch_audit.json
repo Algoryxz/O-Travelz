@@ -1,0 +1,313 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_7_ANDROID_STITCH_EXPLORATION",
+  "timestamp": "2026-09-07T10:00:30Z",
+  "total_concepts_audited": 24,
+  "surface_set": [
+    "1. Discover Root",
+    "2. Place Detail",
+    "3. Map + Selected Place",
+    "4. Plan Root / Constraint Input",
+    "5. Itinerary Result",
+    "6. Active Trip",
+    "7. Transit Route / Stop State",
+    "8. You / Saved Trips Overview"
+  ],
+  "audits": {
+    "ANDROID_A_ATLAS_MATERIAL": [
+      {
+        "screen_id": "scr_and_a_01_discover",
+        "surface": "Discover Root",
+        "traveler_job": "Job 1: Discover Cultural Places",
+        "strengths": "Crisp M3 editorial hierarchy; 16:9 verified photo cards with sandstone borders; Odia/English dual typography; district filter chips in horizontal scrolling row.",
+        "weaknesses": "Initial prompt suggested oversized hero carousel that pushed verified destinations below the fold.",
+        "generic_template_symptoms": "Occasional urge to render generic booking filters ('Price range', 'Stars'); stripped out.",
+        "truth_contract_issues": "None; verified truth badges [● Verified Official] prominent.",
+        "accessibility_issues": "Passed; all chips have 48dp touch bounding boxes and 4.8:1 contrast.",
+        "motion_feasibility": "Container transform on card tap; 300ms duration safe on 60Hz display.",
+        "low_end_device_feasibility": "SAFE on Vivo Y19 (Compose LazyColumn with fixed card keys)."
+      },
+      {
+        "screen_id": "scr_and_a_02_detail",
+        "surface": "Place Detail",
+        "traveler_job": "Job 2: Inspect Place Detail",
+        "strengths": "Magazine-style header; verified provenance notice; weather card integrated cleanly; external turn-by-turn button anchored at bottom.",
+        "weaknesses": "Need to ensure Odia text doesn't wrap awkwardly next to long English titles.",
+        "generic_template_symptoms": "Zero fake reviews; pure editorial text and verified attributes.",
+        "truth_contract_issues": "Weather shows [☁ Live · 31°C] Open-Meteo citation; opening hours explicit.",
+        "accessibility_issues": "High contrast body text (#F0F6FC on #161B22); TalkBack reads section by section.",
+        "motion_feasibility": "Parallax header clamped to 40dp offset; low GPU draw cost.",
+        "low_end_device_feasibility": "SAFE on Vivo Y19."
+      },
+      {
+        "screen_id": "scr_and_a_03_map",
+        "surface": "Map + Selected Place",
+        "traveler_job": "Job 6: Navigate Spatially",
+        "strengths": "Google Maps dark styling; custom pins by category; bottom preview sheet with 180dp height; immediate navigation CTA.",
+        "weaknesses": "Clustered district numbers must remain legible against dark map tiles.",
+        "generic_template_symptoms": "Zero decorative map graphics; real Google Maps projection.",
+        "truth_contract_issues": "Candidate stops visually distinct as translucent rings, never solid official pins.",
+        "accessibility_issues": "Alternative accessible list button available in top toolbar.",
+        "motion_feasibility": "Smooth camera pan animation with bottom offset.",
+        "low_end_device_feasibility": "SAFE with Google Maps Compose hardware acceleration."
+      },
+      {
+        "screen_id": "scr_and_a_04_plan_input",
+        "surface": "Plan Root / Constraint Input",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Input)",
+        "strengths": "Structured constraint selectors (days, pace, interests, transit preference); natural language input as optional supplement, not requirement.",
+        "weaknesses": "Initial draft looked like a generic chat screen; restructured into a structured planning instrument.",
+        "generic_template_symptoms": "Avoided glowing 'AI sparkles' and purple gradients.",
+        "truth_contract_issues": "Clear disclaimer that AI operates under verified deterministic transit schedules.",
+        "accessibility_issues": "Stepper controls have 48dp touch targets and clear TalkBack announcements.",
+        "motion_feasibility": "Simple fade transitions between constraint sections.",
+        "low_end_device_feasibility": "SAFE."
+      },
+      {
+        "screen_id": "scr_and_a_05_itinerary_result",
+        "surface": "Itinerary Result",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Output)",
+        "strengths": "Day-by-day tabbed view; verified transit legs with route numbers; null fare indicator; save trip button prominent.",
+        "weaknesses": "Dense schedule table requires horizontal scrolling if > 4 stops per day.",
+        "generic_template_symptoms": "Zero hotel upsells or flight booking prompts.",
+        "truth_contract_issues": "FirstMileEngine walking pills visible (e.g. '600m Walk'); schedules labeled [◷ Scheduled].",
+        "accessibility_issues": "Clear heading semantics (H2 per day, H3 per milestone).",
+        "motion_feasibility": "Predictive back supported to return to constraint edits.",
+        "low_end_device_feasibility": "SAFE."
+      },
+      {
+        "screen_id": "scr_and_a_06_active_trip",
+        "surface": "Active Trip",
+        "traveler_job": "Job 4: Execute Active Trip",
+        "strengths": "Active milestone card elevated at top; floating Emergency Essentials pill; 'Mark Visited' advances step; offline verified phone numbers.",
+        "weaknesses": "Need to ensure floating emergency pill doesn't obscure bottom milestone actions.",
+        "generic_template_symptoms": "Zero fake GPS auto-advance; explicit user advance only.",
+        "truth_contract_issues": "100% operable from local Room SQLite database.",
+        "accessibility_issues": "Milestone completion announced via accessibility live region.",
+        "motion_feasibility": "Swift vertical list slide when step completed.",
+        "low_end_device_feasibility": "SAFE."
+      },
+      {
+        "screen_id": "scr_and_a_07_transit",
+        "surface": "Transit Route / Stop State",
+        "traveler_job": "Job 5: Board Transit with Confidence",
+        "strengths": "Route 10 timeline; verified stop poles marked [● Official]; timetable shows next 3 scheduled departures; locality boundaries noted.",
+        "weaknesses": "Timetable list can be long during peak rush hours.",
+        "generic_template_symptoms": "No fake live bus animation moving along the route.",
+        "truth_contract_issues": "Exact 5,549 departure fidelity; fares shown as null with stage guideline note.",
+        "accessibility_issues": "Tabular numerals for departure times prevent jitter during screen refresh.",
+        "motion_feasibility": "Standard list scroll; no heavy render passes.",
+        "low_end_device_feasibility": "SAFE."
+      },
+      {
+        "screen_id": "scr_and_a_08_you",
+        "surface": "You / Saved Trips Overview",
+        "traveler_job": "Job 8: Curate & Retain Favorites",
+        "strengths": "Quick access to saved bookmarks grouped by district; offline atlas storage meter; language toggle (English/Odia) in 1 tap.",
+        "weaknesses": "Ensure storage bar is clear about what text data vs WebP media takes up.",
+        "generic_template_symptoms": "Zero social profile bloat or useless gamification badges.",
+        "truth_contract_issues": "Clear distinction between locally persisted trips and cloud backup state.",
+        "accessibility_issues": "Language selector announces current selection in both languages.",
+        "motion_feasibility": "Instantaneous toggle switches.",
+        "low_end_device_feasibility": "SAFE."
+      }
+    ],
+    "ANDROID_B_FIELD_GUIDE": [
+      {
+        "screen_id": "scr_and_b_01_discover",
+        "surface": "Discover Root",
+        "traveler_job": "Job 1: Discover Cultural Places",
+        "strengths": "Compact horizontal cards; instant district pills; high contrast in direct sunlight; very low memory footprint.",
+        "weaknesses": "Less visual romance and editorial breathing room compared to Atlas Material.",
+        "generic_template_symptoms": "None; feels like a specialized field instrument.",
+        "truth_contract_issues": "Truth badges clear and high contrast.",
+        "accessibility_issues": "Highest contrast ratio (6:1+).",
+        "motion_feasibility": "Instant cuts or 100ms fades.",
+        "low_end_device_feasibility": "EXCELLENT on Vivo Y19."
+      },
+      {
+        "screen_id": "scr_and_b_02_detail",
+        "surface": "Place Detail",
+        "traveler_job": "Job 2: Inspect Place Detail",
+        "strengths": "High information density; coordinates and practical hours displayed in structured table; instant 'Navigate' button.",
+        "weaknesses": "Cultural essay feels slightly boxed in; less expansive imagery.",
+        "generic_template_symptoms": "None.",
+        "truth_contract_issues": "Direct coordinates and phone numbers verified.",
+        "accessibility_issues": "Very easy to traverse with TalkBack.",
+        "motion_feasibility": "Instant slide.",
+        "low_end_device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_and_b_03_map",
+        "surface": "Map + Selected Place",
+        "traveler_job": "Job 6: Navigate Spatially",
+        "strengths": "Persistent map with compact 120dp bottom bar; rapid transit stop toggles.",
+        "weaknesses": "Bottom sheet has minimal preview info; requires opening detail view.",
+        "generic_template_symptoms": "None.",
+        "truth_contract_issues": "High stop vs candidate contrast.",
+        "accessibility_issues": "Coordinates read out clearly.",
+        "motion_feasibility": "Minimal.",
+        "low_end_device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_and_b_04_plan_input",
+        "surface": "Plan Root / Constraint Input",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Input)",
+        "strengths": "Compact checkbox and radio chip grid; rapid entry for field workers and fast planning.",
+        "weaknesses": "Lacks the conversational refinement of Direction A.",
+        "generic_template_symptoms": "None.",
+        "truth_contract_issues": "Fully deterministic constraints.",
+        "accessibility_issues": "Standard accessible form fields.",
+        "motion_feasibility": "Zero.",
+        "low_end_device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_and_b_05_itinerary_result",
+        "surface": "Itinerary Result",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Output)",
+        "strengths": "Tabular transit timetable view; bold route badges; instant offline save.",
+        "weaknesses": "Feels slightly spreadsheet-like without photography accents.",
+        "generic_template_symptoms": "None.",
+        "truth_contract_issues": "Timetable departures clear.",
+        "accessibility_issues": "Table rows well announced.",
+        "motion_feasibility": "Zero.",
+        "low_end_device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_and_b_06_active_trip",
+        "surface": "Active Trip",
+        "traveler_job": "Job 4: Execute Active Trip",
+        "strengths": "Turn-by-turn style cards with big tap buttons; high utility on bumpy bus rides.",
+        "weaknesses": "Less contextual storytelling.",
+        "generic_template_symptoms": "None.",
+        "truth_contract_issues": "Rock solid offline support.",
+        "accessibility_issues": "Very large buttons.",
+        "motion_feasibility": "Instant.",
+        "low_end_device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_and_b_07_transit",
+        "surface": "Transit Route / Stop State",
+        "traveler_job": "Job 5: Board Transit with Confidence",
+        "strengths": "Dense stop matrix; clear scheduled arrival times; candidate stop warning pill.",
+        "weaknesses": "Can feel visually dry.",
+        "generic_template_symptoms": "None.",
+        "truth_contract_issues": "No false claims.",
+        "accessibility_issues": "High contrast.",
+        "motion_feasibility": "Instant.",
+        "low_end_device_feasibility": "EXCELLENT."
+      },
+      {
+        "screen_id": "scr_and_b_08_you",
+        "surface": "You / Saved Trips Overview",
+        "traveler_job": "Job 8: Curate & Retain Favorites",
+        "strengths": "Clean list view; fast export to plain text / GPX; direct cache clearing.",
+        "weaknesses": "Lacks the warmth of cultural atlas branding.",
+        "generic_template_symptoms": "None.",
+        "truth_contract_issues": "Accurate storage bytes shown.",
+        "accessibility_issues": "Good.",
+        "motion_feasibility": "Instant.",
+        "low_end_device_feasibility": "EXCELLENT."
+      }
+    ],
+    "ANDROID_C_LIVING_ODISHA": [
+      {
+        "screen_id": "scr_and_c_01_discover",
+        "surface": "Discover Root",
+        "traveler_job": "Job 1: Discover Cultural Places",
+        "strengths": "Rich terracotta cards; handcrafted temple motifs; beautiful cultural pull quotes.",
+        "weaknesses": "Heavy layouts push key search filters down; card padding wastes screen real estate on smaller phones.",
+        "generic_template_symptoms": "Temptation to use decorative floral borders.",
+        "truth_contract_issues": "Artistic flair can obscure verification badges.",
+        "accessibility_issues": "Terracotta text on dark backgrounds struggles to meet 4.5:1 contrast without brightening.",
+        "motion_feasibility": "Staggered animations risk dropping frames on Vivo Y19.",
+        "low_end_device_feasibility": "MODERATE / RISKY."
+      },
+      {
+        "screen_id": "scr_and_c_02_detail",
+        "surface": "Place Detail",
+        "traveler_job": "Job 2: Inspect Place Detail",
+        "strengths": "Immersive storytelling; artisanal backstory prominently featured.",
+        "weaknesses": "Parallax hero image causes jank on budget GPUs; practical facts buried below fold.",
+        "generic_template_symptoms": "Looks like an arts magazine rather than a practical travel tool.",
+        "truth_contract_issues": "Truth badges styled like wax seals, less legible at small sizes.",
+        "accessibility_issues": "Serif font rendering on low-res screens lacks sharpness.",
+        "motion_feasibility": "Parallax header is GPU intensive.",
+        "low_end_device_feasibility": "RISKY on Vivo Y19."
+      },
+      {
+        "screen_id": "scr_and_c_03_map",
+        "surface": "Map + Selected Place",
+        "traveler_job": "Job 6: Navigate Spatially",
+        "strengths": "Warm custom map pins resembling temple spires and craft pots.",
+        "weaknesses": "Custom pin silhouettes are harder to distinguish at a glance than standard category icons.",
+        "generic_template_symptoms": "Decorative antique map overlay harms road contrast.",
+        "truth_contract_issues": "Candidate stop dashed styling unclear against textured map tiles.",
+        "accessibility_issues": "Pin contrast weak on sunlight.",
+        "motion_feasibility": "Map tile loading is heavier.",
+        "low_end_device_feasibility": "RISKY."
+      },
+      {
+        "screen_id": "scr_and_c_04_plan_input",
+        "surface": "Plan Root / Constraint Input",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Input)",
+        "strengths": "Warm, inspiring questionnaire format with illustrated pace options.",
+        "weaknesses": "Takes too many taps to configure simple trips; slow questionnaire flow.",
+        "generic_template_symptoms": "Excessive illustration cards.",
+        "truth_contract_issues": "Presents AI as 'magical story guide' which conflicts with deterministic facts.",
+        "accessibility_issues": "Questionnaire steps can disorient screen reader users.",
+        "motion_feasibility": "Page transitions are slow.",
+        "low_end_device_feasibility": "MODERATE."
+      },
+      {
+        "screen_id": "scr_and_c_05_itinerary_result",
+        "surface": "Itinerary Result",
+        "traveler_job": "Job 3: Plan Intelligent Itinerary (Output)",
+        "strengths": "Illustrated travel journal style with cultural quotes per day.",
+        "weaknesses": "Timetable and bus route details are minimized; hard to see connection times.",
+        "generic_template_symptoms": "Travel blog aesthetic.",
+        "truth_contract_issues": "Transit truth takes a back seat to editorial prose.",
+        "accessibility_issues": "Low contrast captions.",
+        "motion_feasibility": "Moderate.",
+        "low_end_device_feasibility": "MODERATE."
+      },
+      {
+        "screen_id": "scr_and_c_06_active_trip",
+        "surface": "Active Trip",
+        "traveler_job": "Job 4: Execute Active Trip",
+        "strengths": "Cultural milestones feel rewarding to complete; artistic badge unlocks.",
+        "weaknesses": "Emergency phone numbers and transit handoff buried under cultural essay snippets.",
+        "generic_template_symptoms": "Gamified badges detract from operational utility.",
+        "truth_contract_issues": "Fails on-the-move usability in stressful situations.",
+        "accessibility_issues": "Crowded UI.",
+        "motion_feasibility": "Animation celebratory effects.",
+        "low_end_device_feasibility": "MODERATE."
+      },
+      {
+        "screen_id": "scr_and_c_07_transit",
+        "surface": "Transit Route / Stop State",
+        "traveler_job": "Job 5: Board Transit with Confidence",
+        "strengths": "Artistic route map visualization.",
+        "weaknesses": "Departure timetable is hard to read in sunlight; candidate stops look too prominent.",
+        "generic_template_symptoms": "Stylized transit map resembles a tourist brochure rather than an operational schedule.",
+        "truth_contract_issues": "Departure precision lost.",
+        "accessibility_issues": "Text sizes too small.",
+        "motion_feasibility": "Low.",
+        "low_end_device_feasibility": "MODERATE."
+      },
+      {
+        "screen_id": "scr_and_c_08_you",
+        "surface": "You / Saved Trips Overview",
+        "traveler_job": "Job 8: Curate & Retain Favorites",
+        "strengths": "Scrapbook aesthetic with high emotional resonance.",
+        "weaknesses": "Offline storage and system settings are awkward to find.",
+        "generic_template_symptoms": "Personal diary vibe.",
+        "truth_contract_issues": "Storage metrics hard to interpret.",
+        "accessibility_issues": "Irregular grid layout.",
+        "motion_feasibility": "Moderate.",
+        "low_end_device_feasibility": "MODERATE."
+      }
+    ]
+  },
+  "summary": "All 24 Android surface concepts evaluated against traveler jobs, truth contracts, accessibility, and device performance."
+}

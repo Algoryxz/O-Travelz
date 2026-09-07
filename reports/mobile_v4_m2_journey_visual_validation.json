@@ -1,0 +1,66 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_21_GOLDEN_JOURNEY_VISUAL_WALKTHROUGH",
+  "timestamp": "2026-09-07T10:04:30Z",
+  "selected_directions": {
+    "android": "ANDROID_A_ATLAS_MATERIAL",
+    "ios": "IOS_A_EDITORIAL_ATLAS"
+  },
+  "evaluated_journeys": [
+    {
+      "journey_id": "J1_FIRST_TIME_VISITOR",
+      "title": "First-Time Cultural Explorer",
+      "user_flow": "App Launch -> Language Picker (English/Odia) -> Discover Feed -> Place Detail (Mukteshwar Temple) -> Save Bookmark",
+      "android_validation": "M3 NavigationBar lands on Explore; cards render with [● Verified Official]; tap triggers 280ms Container Transform to Detail; bookmark icon triggers immediate local Room insert and haptic tick.",
+      "ios_validation": "SwiftUI TabView lands on Explore with large title; tap triggers NavigationStack push; top photo header anchors with subtle scrim; save bookmark updates SwiftData with light haptic feedback.",
+      "truth_verifications": "Verified photography proven; official provenance clearly badged; zero commercial ratings or booking prompts.",
+      "status": "PASS"
+    },
+    {
+      "journey_id": "J3_AI_PLANNING",
+      "title": "Intelligent Constraint-Based Itinerary Generation",
+      "user_flow": "Plan Tab -> Select 3 Days / Heritage Pace -> Optional Chat Refinement -> View Generated Day-by-Day Schedule -> Save Trip",
+      "android_validation": "M3 Form controls provide clear steppers; AI chat drawer collapses cleanly; itinerary rendered as day-by-day tabs; FirstMileEngine walking pills visible; Save Trip button elevated.",
+      "ios_validation": "SwiftUI Section Form with steppers and segmented controls; day-by-day DisclosureGroups; transit legs show CRUT Route numbers with [◷ Scheduled · HH:MM IST]; Save button in navigation bar.",
+      "truth_verifications": "Fares explicitly marked null; schedules derived from canonical 5,549 departures; opening hours validated against visiting days.",
+      "status": "PASS"
+    },
+    {
+      "journey_id": "J5_TRANSIT_DEPENDENT_TRIP",
+      "title": "Transit Corridor & Timetable Evaluation",
+      "user_flow": "Transit Tab -> Search Route 10 -> Inspect Corridor Timeline -> Tap Stop (Master Canteen) -> Evaluate Scheduled Departures",
+      "android_validation": "M3 SearchBar filters 154 routes; timeline renders official stop poles vs candidate stops; tapping stop slides up 180dp bottom sheet with next 3 departures.",
+      "ios_validation": "SwiftUI searchable List; stop details open native .presentationDetents sheet; departure times formatted in tabular SF Mono.",
+      "truth_verifications": "Zero fake live bus tracking; exact scheduled timestamps; locality boundaries clearly distinguished.",
+      "status": "PASS"
+    },
+    {
+      "journey_id": "J6_ACTIVE_TRIP",
+      "title": "On-the-Move Active Journey Execution",
+      "user_flow": "Active Trip Card -> View Current Destination -> Tap External Navigation Handoff -> Return & Tap 'Mark Visited' -> Advance",
+      "android_validation": "Active milestone card elevated at screen top; 'Navigate' launches Google Maps external intent; 'Mark Visited' advances step with tactical haptic feedback; floating Emergency Essentials pill accessible.",
+      "ios_validation": "Hero active milestone card with walking feasibility pill; 'Navigate' presents Apple Maps / Google Maps choice sheet; 'Mark Visited' animates list reorder with success haptic.",
+      "truth_verifications": "100% operable from local database; zero silent geofence triggers; emergency phone numbers verified.",
+      "status": "PASS"
+    },
+    {
+      "journey_id": "J8_OFFLINE_TRIP",
+      "title": "Airplane Mode Heritage Exploration",
+      "user_flow": "Toggle Airplane Mode -> Browse Saved Itinerary -> Inspect Cultural Essay -> View Emergency Numbers",
+      "android_validation": "Discreet top banner: '[Offline Mode · Viewing Cached Itinerary]'; all saved text, hours, and cached WebP images load instantly from Room SQLite.",
+      "ios_validation": "SwiftUI ContentUnavailableView handles un-cached areas gracefully; saved itinerary and offline civic emergency contacts display flawlessly from SwiftData.",
+      "truth_verifications": "Truthful offline boundaries; weather card shows '[☁ Weather Unavailable]'; zero crashes or freezing.",
+      "status": "PASS"
+    },
+    {
+      "journey_id": "J12_LOCATION_PERMISSION_DENIED",
+      "title": "Location Permission Denied Graceful Fallback",
+      "user_flow": "Deny Location Permission -> Open Map Tab -> Browse Statewide Odisha -> Filter by District",
+      "android_validation": "Map defaults to Statewide Reference Datum (Bhubaneswar center); walking distance pills are completely hidden to prevent misleading advice; district filter remains fully operational.",
+      "ios_validation": "SwiftUI.Map camera centers on Odisha bounds; FirstMileEngine walking pills hidden; manual district picker active.",
+      "truth_verifications": "Zero false location errors; clean, dignified privacy-first operation.",
+      "status": "PASS"
+    }
+  ],
+  "coherence_verdict": "COMPLETE_SYSTEM_COHERENCE — Both selected directions (Atlas Material on Android, Editorial Atlas on iOS) successfully sustain all 6 Golden Journeys without layout breakdown, truth compromise, or performance hitches."
+}

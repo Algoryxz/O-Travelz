@@ -1,0 +1,30 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_1_REVALIDATE_DESIGN_TOOLING_STATE",
+  "timestamp": "2026-09-07T09:58:30Z",
+  "stitch": {
+    "tool_name": "StitchMCP",
+    "stitch_available": true,
+    "stitch_schema_location": "C:\\Users\\smara\\.gemini\\antigravity-ide\\mcp\\StitchMCP",
+    "stitch_project_creation_available": true,
+    "stitch_screen_generation_available": true,
+    "stitch_variants_available": true,
+    "stitch_edit_available": true,
+    "capability_scope": "Conceptual visual exploration, layout variation, editorial theme testing. Non-production interim artifacts only."
+  },
+  "figma": {
+    "figma_mcp_configured": true,
+    "figma_server_url": "https://mcp.figma.com/mcp",
+    "figma_authenticated": false,
+    "figma_read_verified": false,
+    "figma_write_verified": false,
+    "figma_status": "WAITING_USER_AUTH",
+    "figma_canonical_reconstruction": "BLOCKED"
+  },
+  "enforcement": {
+    "stitch_exploration_allowed": true,
+    "figma_reconstruction_allowed": false,
+    "native_production_code_allowed": false
+  },
+  "status": "PASS"
+}

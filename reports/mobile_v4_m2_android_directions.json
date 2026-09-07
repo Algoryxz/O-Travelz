@@ -1,0 +1,59 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_3_ANDROID_DESIGN_DIRECTION_BRIEF",
+  "timestamp": "2026-09-07T09:59:00Z",
+  "directions": {
+    "ANDROID_A_ATLAS_MATERIAL": {
+      "name": "Atlas Material",
+      "visual_thesis": "An authoritative, contemporary digital cultural atlas rendered through disciplined Material 3 Expressive surfaces. Combines deep basalt canvases (#10141B) and warm sandstone containers (#1A202C) with high-density editorial typography, sharp hairline stone borders, and restrained tonal elevation.",
+      "navigation_behavior": "Edge-to-edge root NavigationBar (5 tabs: Explore, Map, Plan, Transit, You) with tonal pill indicators. On foldable unfolded / tablets (>=600dp), transitions smoothly to a left NavigationRail. Inner navigation powered by Jetpack Navigation 3 with predictive back gesture continuity.",
+      "card_architecture": "Structured tonal containers (Container Low / High) with 16dp rounded corners, 1.5dp subtle stone borders (#30363D), full-bleed 16:9 verified photography with scrimmed text protection, and discrete metadata footers.",
+      "typography_hierarchy": "Headline Large (Serif / Odia display, 28sp), Title Medium (20sp bold stone), Body Medium (15sp relaxed), Label Small (12sp tabular mono for departure times). Supports dynamic font scaling up to 2.0x without line clipping.",
+      "map_relationship": "Map as an analytical mode with Google Maps Compose. Standard basemap with custom JSON dark atlas styling. Cards dock cleanly at the bottom third as non-intrusive preview chips with elevation level 2.",
+      "sheet_behavior": "ModalBottomSheet with standard M3 snap points (peek 25%, expanded 85%). Smooth drag handle with spring damping. Respects system edge-to-edge insets and software keyboard IME padding.",
+      "motion_principles": "Material Shared Axis transitions (Z-axis for depth navigation, X-axis for tab switching) and Container Transform for card-to-detail expansion. Clamped duration (250–350ms) to ensure responsiveness on 60Hz displays.",
+      "truth_badge_language": "Integrated tonal chips in card header: [● Verified Official] (Emerald container), [◷ Scheduled · HH:MM] (Amber container), [☁ Live · 31°C] (Chilika container). High contrast text labels alongside discrete glyphs.",
+      "offline_error_presentation": "Persistent top status banner with subtle sandstone styling: 'Offline Atlas Active · Cached Content Available'. Retryable errors render an inline action button rather than blocking modal dialogs.",
+      "active_trip_presentation": "Clean vertical step timeline. Current stop elevated with active pulse indicator and walking feasibility chip (e.g. '800m · Walk Reasonable'). Emergency essentials accessible via floating pill button.",
+      "one_hand_ergonomics": "Primary interactive targets anchored within bottom 40% thumb zone. Fab / primary CTA aligned bottom-right with 48x48dp minimum touch target.",
+      "adaptive_tablet_behavior": "Two-pane List-Detail layout on expanded screens (Navigation 3 TwoPaneScene). Map occupies primary 60% canvas while place detail or route stops occupy secondary 40% supporting pane.",
+      "low_end_gpu_feasibility": "SAFE on Vivo Y19 / Helio P65. Zero real-time blur or custom shaders; relies exclusively on hardware-accelerated Compose Canvas and elevation shadows.",
+      "accessibility_implications": "Exceeds WCAG 2.2 AA. Fully compliant TalkBack reading order, touch targets >= 48dp, color-independent status icons, and robust focus restoration on sheet dismiss."
+    },
+    "ANDROID_B_FIELD_GUIDE": {
+      "name": "Field Guide",
+      "visual_thesis": "A rugged, travel-execution utility engineered for high mobility, field durability, and instant situational awareness. High-contrast monochrome base with vivid categorical accents (Terracotta, Forest Green, Chilika Blue), tight metadata grids, and zero decorative fluff.",
+      "navigation_behavior": "Compact edge-to-edge bottom bar with high-contrast glyphs and immediate state counters (e.g. 'Saved: 14'). Top action bar minimized to optimize vertical field viewport.",
+      "card_architecture": "Compact horizontal list cards (8dp corner radius) designed for rapid thumb skimming. Prominent status badges on the left edge, tabular distances on the right, and thumbnail inset.",
+      "typography_hierarchy": "Strict sans-serif and tabular mono hierarchy. Large tabular figures for distances ('1.4 km') and departure counts ('8 min'). High-contrast weights for extreme outdoor sunlight legibility.",
+      "map_relationship": "Persistent map canvas with high-density marker clustering. Floating bottom control strip allowing instantaneous toggling between Place Pins, Bus Stops, and Emergency Essentials.",
+      "sheet_behavior": "Compact non-modal bottom sheet (peek 180dp, max 60% height). Never covers the entire map so spatial context is perpetually visible while inspecting transit stops or destinations.",
+      "motion_principles": "Ultra-low-latency, utilitarian motion. Linear fades and swift vertical slides (< 150ms). Zero container morphs or heavy shared-element calculations. Instant response even during CPU throttling.",
+      "truth_badge_language": "Monochrome pill badges with clear text symbols: '[V] Official', '[S] Scheduled 08:30', '[E] Est 1.2km'. Designed for instant comprehension in bright glare.",
+      "offline_error_presentation": "Top-bar status pill: '[Airplane Mode: Local DB Active]'. Offline state is treated as a normal operating mode rather than an error or degraded condition.",
+      "active_trip_presentation": "Card-per-stop carousel anchored at screen bottom over the route polyline. Tapping 'Mark Visited' advances to next stop with immediate tactical haptic feedback.",
+      "one_hand_ergonomics": "Optimized for single-thumb transit grip. All core filters, search toggles, and navigation actions reside strictly within bottom 35% of the viewport.",
+      "adaptive_tablet_behavior": "Split timeline + map view. Itinerary schedule on the left rail, persistent interactive transit graph on the right.",
+      "low_end_gpu_feasibility": "SUPERIOR on Vivo Y19. Lowest memory footprint, zero complex clipping paths, instant cold boot rendering.",
+      "accessibility_implications": "Highest contrast ratios (6:1+ throughout). Excellent TalkBack ergonomics due to concise card semantics and logical sequential traversal."
+    },
+    "ANDROID_C_LIVING_ODISHA": {
+      "name": "Living Odisha",
+      "visual_thesis": "An expressive, culturally immersive journey celebrating Odisha living arts, temple architecture, and landscape. Incorporates handcrafted stone textures, warm terracotta backgrounds, editorial chapter markers, and rich cultural storytelling.",
+      "navigation_behavior": "Floating bottom navigation bar with soft rounded ends and terracotta indicator glow. Smooth page curls and chapter-like screen transitions.",
+      "card_architecture": "Expansive magazine-style cards with 24dp rounded corners, warm parchment headers (#FBF9F5 in light mode, #1C1917 in dark mode), artistic aspect ratios (4:3 and 1:1 craft showcases), and rich artisan pull-quotes.",
+      "typography_hierarchy": "Distinctive serif headlines inspired by stone inscriptions, paired with warm humanist body text. Extended line height (1.65) for relaxed long-form reading.",
+      "map_relationship": "Map styled with warm ochre and sandstone hues. Custom temple shikhar and craft pot pin icons. Map interacts through artistic translucent overlays.",
+      "sheet_behavior": "Full-bleed expressive modal sheets with top curved headers and integrated hero photo parallax.",
+      "motion_principles": "Fluid spring curves and expressive staggered entry animations. Visual elements cascade into view on initial load. Rich micro-interactions on bookmarking.",
+      "truth_badge_language": "Artisan seal-style badges: '[Temple Directorate Verified]', '[CRUT Official Timetable]'. Beautifully rendered with subtle borders and serif glyphs.",
+      "offline_error_presentation": "Warm illustrative empty states depicting Odisha heritage motifs (e.g. Konark wheel silhouette) with poetic offline guidance.",
+      "active_trip_presentation": "Story-driven travel log. Each completed destination unfolds a small cultural insight or folk tale associated with the monument or craft village.",
+      "one_hand_ergonomics": "Moderate. Top-anchored magazine headers require occasional two-handed reach; bottom actions provide core navigation.",
+      "adaptive_tablet_behavior": "Editorial multi-column magazine spread. Places presented as interactive editorial articles flanked by high-resolution cultural photo galleries.",
+      "low_end_gpu_feasibility": "MODERATE / RISKY on Vivo Y19. Staggered animations, large image surfaces, and parallax scroll increase frame drop risks on entry-level GPUs.",
+      "accessibility_implications": "Requires careful color auditing to ensure artistic terracotta and ochre accents maintain 4.5:1 contrast against dark canvases. Dynamic Type requires strict container bounds."
+    }
+  },
+  "summary": "Three genuinely distinct Android systems established: Atlas Material (balanced editorial M3), Field Guide (utilitarian transit & field execution), and Living Odisha (culturally expressive magazine). All grounded in real repository constraints."
+}

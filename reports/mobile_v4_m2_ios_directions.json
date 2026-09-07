@@ -1,0 +1,59 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_4_IOS_DESIGN_DIRECTION_BRIEF",
+  "timestamp": "2026-09-07T09:59:30Z",
+  "directions": {
+    "IOS_A_EDITORIAL_ATLAS": {
+      "name": "Editorial Atlas",
+      "visual_thesis": "A sophisticated, publication-grade digital atlas adhering strictly to Apple Human Interface Guidelines. Marries edge-to-edge authentic photography with refined New York (Serif) display typography and crisp SF Pro body copy, separated by subtle hairlines and thin system materials.",
+      "navigation_behavior": "Native SwiftUI TabView at root (5 tabs). Hierarchy managed via NavigationStack with standard push transitions, large editorial navigation titles that collapse into compact inline headers on scroll, and native interactive swipe-to-pop.",
+      "card_architecture": "Clean Apple-native inset grouped cards. 12pt corner radius, subtle 0.5pt system borders (.separator), verified 16:9 media with subtle gradient scrims for title legibility, and secondary metadata laid out using SF Symbol iconography.",
+      "typography_hierarchy": "Large Title (.serif, 34pt, bold), Title 2 (.sansSerif, 22pt, semibold), Body (.sansSerif, 17pt, regular), Caption 1 (.monospaced, 12pt, medium tabular figures). Full Dynamic Type compliance up to accessibility sizes (AX5).",
+      "map_relationship": "First-party SwiftUI.Map (MapKit). Clean, unobtrusive map canvas with standard Apple Maps vector layers. Tapping annotations presents native bottom sheets with MapReader camera centering.",
+      "sheet_behavior": "Native SwiftUI .sheet with presentationDetents: [.fraction(0.25), .fraction(0.6), .large]. Natural interactive drag physics, rubber-banding, and background dimming.",
+      "motion_principles": "Restrained Apple spring motion (interactiveSpring(response: 0.35, dampingFraction: 0.8)). Sheet dismissal physics match native iOS ergonomics. Fully respects UIAccessibility.isReduceMotionEnabled.",
+      "truth_badge_language": "Subtle capsule badges with system vibrancy: [● Verified Official] with .tint(.green), [◷ Scheduled · HH:MM] with .tint(.orange). Legible against both light and dark system appearances.",
+      "offline_error_presentation": "Inline ContentUnavailableView with standard SF Symbols (wifi.slash, externaldrive.badge.wifi) and actionable retry buttons. Smooth non-modal error messaging.",
+      "active_trip_presentation": "Clean hierarchical Section List. Current stop highlighted with subtle accent tint and SF Symbol navigation arrow. Tapping next destination provides quick action sheet.",
+      "one_hand_ergonomics": "Optimized for iOS reachability. Primary actions located in bottom bar and bottom sheet grab area. Large navigation title collapses smoothly.",
+      "adaptive_ipad_behavior": "NavigationSplitView with sidebar, content list, and detail pane. Adapts to Slide Over and Split View multitasking seamlessly.",
+      "performance_feasibility": "EXCELLENT. Standard SwiftUI layout containers (VStack, LazyVStack, List), zero custom render loops, instant 60/120fps ProMotion fluidity on iPhone 11+.",
+      "accessibility_implications": "Flawless VoiceOver integration. Proper accessibilityElement(children: .combine) on cards, trait labeling, Dynamic Type text reflow, and full high-contrast mode support."
+    },
+    "IOS_B_SPATIAL_JOURNEY": {
+      "name": "Spatial Journey",
+      "visual_thesis": "A dynamic, map-centric travel companion where spatial geography is the continuous backdrop for all journey planning and execution. The MapKit canvas is the primary spatial plane, with cards, sheets, and timeline controls floating as contextual instruments above it.",
+      "navigation_behavior": "Unified spatial viewport. Tabbing between Explore, Map, Plan, and Transit smoothly shifts the MapKit camera rather than replacing the screen entirely. Contextual toolbars float over the canvas.",
+      "card_architecture": "Floating contextual cards with generous corner radius (18pt), ultra-thin material backgrounds (.ultraThinMaterial), and subtle drop shadows (.shadow(color: .black.opacity(0.15), radius: 8, y: 4)).",
+      "typography_hierarchy": "SF Pro rounded and monospace accents. Bold, high-visibility headline typography paired with tabular figures for real-time tracking of distances and timetable departures.",
+      "map_relationship": "Persistent full-screen MapKit canvas throughout the entire session. All entities (destinations, bus lines, stops) rendered directly as interactive annotations with custom MapMarker glyphs.",
+      "sheet_behavior": "Custom continuous interactive bottom drawer with multi-stage gestures (collapsed peek 90pt, half 45%, full 92%). Gesture seamlessly hands off velocity to spring animations.",
+      "motion_principles": "Physics-driven Apple spring animations with matchedGeometryEffect between card selection and map annotation zoom. Rich UIImpactFeedbackGenerator haptic clicks on stop selection.",
+      "truth_badge_language": "Floating status pills overlaid directly on map annotations: '[● Verified]' and '[◷ Scheduled]'. Tapping opens immediate spatial callout bubble.",
+      "offline_error_presentation": "Subtle floating pill banner at the screen top: '[Offline Map Mode · Local Cache Active]'. Map tiles gracefully display fallback grid if un-cached.",
+      "active_trip_presentation": "Interactive bottom progress tracker overlaid on the active GPS route polyline. Shows distance to next turn, straight-line walking pill, and single-tap emergency access.",
+      "one_hand_ergonomics": "Exceptional. All major navigation, panning controls, and trip actions anchored in the lower 30% of the screen within comfortable reach.",
+      "adaptive_ipad_behavior": "Full-bleed interactive map canvas on iPad with floating floating inspector panel on the leading side.",
+      "performance_feasibility": "MODERATE. Continuous map rendering combined with floating thin material sheets requires careful view hierarchy management to prevent GPU hitching on older iPhones.",
+      "accessibility_implications": "Requires accessible list alternative for VoiceOver users who cannot navigate spatial map annotations. Clear VoiceOver rotors for stops and places."
+    },
+    "IOS_C_GLASS_HERITAGE": {
+      "name": "Glass Heritage",
+      "visual_thesis": "An elevated, tactile visual experience leveraging progressive enhancement: rock-solid iOS 17 system materials as the baseline, gracefully unlocking true platform Liquid Glass APIs (glassEffect, GlassEffectContainer, interactive glass) exclusively on supported iOS 26+ devices without synthetic shader hacks.",
+      "navigation_behavior": "Standard NavigationStack with floating translucent navigation bar and frosted glass bottom tab bar. Depth hierarchy creates a sense of floating layers over rich cultural imagery.",
+      "card_architecture": "Layered frosted glass cards with dual-tone borders and specular highlights. Authentic cultural photography shines through translucent surfaces with high readability.",
+      "typography_hierarchy": "SF Pro with optical sizing and vibrant text styles (.primary, .secondary, .tertiary). High legibility maintained through adaptive background darkening scrims.",
+      "map_relationship": "MapKit canvas viewed through translucent controls. Floating search glass bar and glass filter chips.",
+      "sheet_behavior": "Interactive glass sheets with real-time blur and depth separation. When expanded, background canvas gently recedes with subtle scale transformation.",
+      "motion_principles": "Fluid interactive fluid springs with morphing glass transitions. Haptic feedback calibrated to gesture velocity.",
+      "truth_badge_language": "Glass pill badges with tinted borders: Emerald glass for Verified, Amber glass for Scheduled, Sky Blue glass for Weather.",
+      "offline_error_presentation": "Frosted glass alert cards with clear call-to-action buttons and system SF Symbols.",
+      "active_trip_presentation": "Floating glass itinerary companion card showing upcoming stops, walking feasibility, and emergency telephony.",
+      "one_hand_ergonomics": "High. All glass controls and sheet interactions stay in lower screen quadrants.",
+      "adaptive_ipad_behavior": "Floating multi-pane glass panels over cultural backdrop.",
+      "performance_feasibility": "SAFE on iOS 17+ baseline using native .ultraThinMaterial; progressive enhancement ensures zero performance degradation on devices without hardware support for newer glass APIs.",
+      "accessibility_implications": "Strict compliance with 'Reduce Transparency' system accessibility setting: automatically falls back to solid high-contrast opaque cards when user enables Reduce Transparency."
+    }
+  },
+  "summary": "Three genuinely distinct iOS systems established: Editorial Atlas (disciplined HIG publication), Spatial Journey (map-first continuous plane), and Glass Heritage (progressive enhancement glass depth). All aligned with Apple guidelines."
+}

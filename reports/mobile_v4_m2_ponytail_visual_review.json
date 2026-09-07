@@ -1,0 +1,63 @@
+{
+  "wave": "M2",
+  "phase": "PHASE_22_PONYTAIL_FINAL_REDUCTION",
+  "timestamp": "2026-09-07T10:05:00Z",
+  "reduction_audit": [
+    {
+      "element": "Multiple stacked weather metrics (UV index, wind speed, pressure) on place cards",
+      "verdict": "REMOVE",
+      "rationale": "Overloads the card. A traveler visiting a temple only needs temperature and general sky condition (e.g. '31°C · Sunny'). Detailed meteorology belongs in a secondary detail tap."
+    },
+    {
+      "element": "Floating decorative compass rose and ornamental scale bar on Map canvas",
+      "verdict": "REMOVE",
+      "rationale": "Purely decorative fluff. Native Google Maps and Apple MapKit have built-in legal scale and compass indicators."
+    },
+    {
+      "element": "Persistent full-page conversational AI chat screen in Plan tab",
+      "verdict": "SIMPLIFY",
+      "rationale": "Simplified from a full conversational UI into a structured constraint form (Days, Pace, Corridor) with a concise, optional natural language prompt bar. Faster, cheaper, and more reliable."
+    },
+    {
+      "element": "Number of badges per card header",
+      "verdict": "SIMPLIFY",
+      "rationale": "Capped at a maximum of 2 badges simultaneously (e.g. [Verified Official] + [Live 31°C]). If more exist, collapse into a single '+2 details' chip to prevent badge pollution."
+    },
+    {
+      "element": "Multi-stage glass blur specular reflection animations on iOS",
+      "verdict": "REMOVE",
+      "rationale": "Decorative eye-candy that drains battery and harms outdoor sunlight contrast. Replaced with clean Apple system materials."
+    },
+    {
+      "element": "Continuous vehicle tracking polyline glow animation on transit routes",
+      "verdict": "REMOVE",
+      "rationale": "Misleadingly implies real-time tracking when O-TRAVELZ transit data is static timetable schedules. Static crisp vector lines are truthful and performant."
+    },
+    {
+      "element": "Integrated FirstMileEngine walking feasibility pills (<=800m, 800-1500m, >1500m)",
+      "verdict": "KEEP",
+      "rationale": "Critical functional utility for on-the-ground pedestrian safety and first-mile decisions. Retained exactly as specified."
+    },
+    {
+      "element": "Single-tap emergency essentials floating button in Active Trip",
+      "verdict": "KEEP",
+      "rationale": "High-priority traveler safety feature providing instant phone dialing to verified police and district hospitals."
+    },
+    {
+      "element": "Odia dual-script headline rendering",
+      "verdict": "KEEP",
+      "rationale": "Core to the Modern Odisha Cultural Atlas identity and local accessibility."
+    },
+    {
+      "element": "Specific custom font asset bundling and licensing",
+      "verdict": "DEFER_TO_IMPLEMENTATION",
+      "rationale": "Belongs strictly in implementation waves M22 (Android) and M25 (iOS). Design phase uses system-native font cascades."
+    },
+    {
+      "element": "Detailed Room / SwiftData indexing and schema migration rules",
+      "verdict": "DEFER_TO_IMPLEMENTATION",
+      "rationale": "Belongs in Wave M14 (Persistence). Conceptual schema is verified."
+    }
+  ],
+  "summary": "Ponytail reduction successfully stripped out 4 unnecessary decorative elements, simplified 2 over-engineered interactions, preserved 3 critical truth/safety features, and deferred 2 implementation details. Net result: faster, leaner, and more truthful product systems."
+}
