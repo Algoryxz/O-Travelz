@@ -1,0 +1,35 @@
+﻿{
+  "wave": "M12",
+  "phase": "PHASE_3_ROUTE_CONTRACT_FORENSICS",
+  "fields": {
+    "REQUIRED": [
+      "route_id",
+      "route_number",
+      "route_name",
+      "operator",
+      "network_type",
+      "origin",
+      "destination",
+      "direction",
+      "service_area",
+      "cities",
+      "total_stops",
+      "has_schedule",
+      "verification_status"
+    ],
+    "OPTIONAL": [
+      "via",
+      "source_document",
+      "effective_date"
+    ],
+    "NULLABLE": [
+      "via"
+    ],
+    "NOT_CURRENTLY_AVAILABLE": [
+      "fare_matrix",
+      "live_vehicle_telemetry",
+      "current_crowd_density"
+    ]
+  },
+  "route_count": 154
+}

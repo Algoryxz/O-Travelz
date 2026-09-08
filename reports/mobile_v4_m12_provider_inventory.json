@@ -1,0 +1,41 @@
+﻿{
+  "wave": "M12",
+  "phase": "PHASE_2_TRANSIT_PROVIDER_INVENTORY",
+  "audit_timestamp": "2026-09-08T10:52:00+05:30",
+  "primary_operator": {
+    "provider_id": "operator_crut",
+    "name": "Capital Region Urban Transport (CRUT)",
+    "networks": ["AMA Bus", "Mo Bus"],
+    "total_routes": 154,
+    "effective_date": "2026-08-21",
+    "source_provenance": "Official CRUT Gazette, Detailed Stoppages PDFs & Revised Timetable Schedules (Aug 2026)",
+    "operational_regions": [
+      {
+        "region_name": "Capital Region",
+        "cities": ["Bhubaneswar", "Cuttack", "Puri", "Khordha", "Jatani"],
+        "routes_count": 96
+      },
+      {
+        "region_name": "Rourkela",
+        "cities": ["Rourkela", "Sundargarh"],
+        "routes_count": 25
+      },
+      {
+        "region_name": "Sambalpur",
+        "cities": ["Sambalpur", "Burla", "Hirakud"],
+        "routes_count": 17
+      },
+      {
+        "region_name": "Berhampur",
+        "cities": ["Berhampur", "Gopalpur", "Chhatrapur"],
+        "routes_count": 10
+      },
+      {
+        "region_name": "Keonjhar",
+        "cities": ["Keonjhar"],
+        "routes_count": 6
+      }
+    ],
+    "fare_availability": "UNAVAILABLE (Fares strictly null until official audited CRUT/OSRTC stage fare table is ingested)"
+  }
+}

@@ -1,0 +1,31 @@
+﻿{
+  "wave": "M12",
+  "phase": "PHASE_0_STOP_TIER_RECONCILIATION",
+  "audit_timestamp": "2026-09-08T10:52:00+05:30",
+  "stop_counts": {
+    "total_canonical_stops": 1430,
+    "VERIFIED_OFFICIAL": 103,
+    "VERIFIED_GEOSPATIAL": 70,
+    "CANDIDATE_HIGH": 0,
+    "CANDIDATE_MEDIUM": 0,
+    "CANDIDATE_LOW": 0,
+    "LOCALITY_ONLY": 0,
+    "UNRESOLVED": 1257
+  },
+  "tier_sum_check": {
+    "verified_subtotal": 173,
+    "unresolved_subtotal": 1257,
+    "calculated_total": 1430,
+    "canonical_total": 1430,
+    "reconciliation_exact": true
+  },
+  "questions_answered": {
+    "candidate_stops_present_today": false,
+    "candidates_inside_1257": false,
+    "locality_1257_aggregate_nature": "All 1257 stops are official CRUT gazette/schedule PDF stops whose physical boarding coordinates are UNRESOLVED (locality_status = 'OFFICIAL_SERVICE_AREA')",
+    "authoritative_fields": "coordinate_status and verification_status for physical coordinates; locality_status for administrative service area",
+    "tiers_mutually_exclusive": true,
+    "dual_confidence_permitted": "Yes, identity can be OFFICIAL_SERVICE_AREA while physical coordinate remains UNRESOLVED"
+  },
+  "traveler_ui_rule": "Candidate semantics remain supported in architectural domain models, but traveler UI displays zero candidate records because none exist in canonical today."
+}

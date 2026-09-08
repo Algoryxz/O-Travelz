@@ -26,8 +26,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M9** | Discover feed, spatial filtering, and full-text search | `[COMPLETED]` |
 | **M10** | Place Detail editorial sheets, verified photography, and live weather cards | `[COMPLETED]` |
 | **M11** | Native mapping canvases (Google Maps Compose & Apple MapKit) | `[COMPLETED]` |
-| **M12** | 154-Route transit directory, stop details, and timetable evaluation | `[NEXT]` |
-| **M13** | Constraint-aware itinerary builder and grounded AI conversational assistant | `[PLANNED]` |
+| **M12** | 154-Route transit directory, stop details, and timetable evaluation | `[COMPLETED]` |
+| **M13** | Constraint-aware itinerary builder and grounded AI conversational assistant | `[NEXT]` |
 | **M14** | Trips persistence (Room SQLite & SwiftData) with offline sync | `[PLANNED]` |
 | **M15** | Emergency essentials, civic contacts, and artisan clusters | `[PLANNED]` |
 | **M16** | Authentication, secure session exchange, and user profiles | `[PLANNED]` |
@@ -140,10 +140,12 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **M8 (Home Screen)**: Editorial Cultural Atlas landing feed with living artisan features. `[COMPLETED]`
 - **M9 (Discover & Search)**: Multi-dimensional district filtering across all 30 districts, Odia script search, Haversine spatial proximity. `[COMPLETED]`
 
-### Wave M10: Place Detail Editorial Sheets, Photography & Live Weather `[NEXT]`
-- **M10 (Place Detail)**: Magazine-grade editorial sheets, WebP image loading, live weather card.
-- **M11 (Mapping)**: Google Maps Compose on Android, Apple MapKit on iOS; custom pins.
-- **M12 (Transit)**: 154-Route directory, CRUT Mo Bus timetables, locality chip boundaries.
+### Waves M10–M12: Editorial Detail, Mapping & Transit Directory `[COMPLETED]`
+- **M10 (Place Detail)**: Magazine-grade editorial sheets, WebP image loading, live weather card. `[COMPLETED]`
+- **M11 (Mapping)**: Google Maps Compose on Android, Apple MapKit on iOS; custom pins. `[COMPLETED]`
+- **M12 (Transit)**: 154-Route directory, CRUT Mo Bus & AMA Bus timetables, stop truth & locality gating. `[COMPLETED]`
+
+### Wave M13: Constraint-Aware Itinerary Builder & Grounded AI Assistant `[NEXT]`
 - **M13 (AI Planner)**: Constraint-based itinerary generator, grounded AI conversational chat.
 - **M14 (Trips & Persistence)**: Room SQLite (Android) and SwiftData (iOS) offline sync.
 - **M15 (Essentials & Culture)**: Emergency civic contacts, artisan clusters, cultural essays.

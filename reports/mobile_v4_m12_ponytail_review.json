@@ -1,0 +1,44 @@
+﻿{
+  "wave": "M12",
+  "phase": "PHASE_57_PONYTAIL_REVIEW",
+  "audit_timestamp": "2026-09-08T11:06:00+05:30",
+  "reductions_and_simplifications": [
+    {
+      "area": "Transit Persistence",
+      "proposal": "Introduce Room SQLite / SwiftData database to store routes and stops",
+      "action": "DELETED / REJECTED",
+      "rationale": "Bundled canonical JSON assets load instantly in memory with zero SQL migrations, ORM overhead, or database sync bugs."
+    },
+    {
+      "area": "Live Tracking Simulation",
+      "proposal": "Simulate moving bus pins and countdowns ('Arriving in 3m')",
+      "action": "DELETED / REJECTED",
+      "rationale": "Deceptive and violates project operating rules. Scheduled timetables are strictly labeled as timetables."
+    },
+    {
+      "area": "Fare Estimation",
+      "proposal": "Estimate bus fares based on distance calculations (e.g. ₹10 base + ₹2/km)",
+      "action": "DELETED / REJECTED",
+      "rationale": "Fabrication of commercial data is prohibited. Fares remain strictly null/unavailable until official CRUT fare tables are ingested."
+    },
+    {
+      "area": "Navigation Shell Extension",
+      "proposal": "Add 6th bottom navigation item / tab for Transit",
+      "action": "DELETED / REJECTED",
+      "rationale": "Violates frozen 5-root architecture. Transit is reached via Discover root portal banner or Map corridor selection."
+    },
+    {
+      "area": "Heavyweight Search Dependencies",
+      "proposal": "Add SQLite FTS5 or external search library for transit query matching",
+      "action": "DELETED / REJECTED",
+      "rationale": "Pure Kotlin/Swift 6-tier deterministic search engine is fast (<2ms over 154 routes) and zero-dependency."
+    },
+    {
+      "area": "Locality Coordinate Hallucination",
+      "proposal": "Geocode the 1,257 locality-only stops with centroid approximation",
+      "action": "DELETED / REJECTED",
+      "rationale": "Hallucinating physical bus pole coordinates sends travelers to the middle of nowhere. Locality disclosure is honest and accurate."
+    }
+  ],
+  "ponytail_verdict": "STRICT_MINIMALISM_PRESERVED"
+}

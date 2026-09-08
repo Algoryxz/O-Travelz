@@ -1,0 +1,13 @@
+﻿{
+  "wave": "M12",
+  "phase": "PHASE_1_SCHEDULE_COUNT_REVERIFICATION",
+  "audit_timestamp": "2026-09-08T10:52:00+05:30",
+  "schedule_counts": {
+    "total_schedule_rows": 302,
+    "canonical_unique_departures": 5549,
+    "raw_historical_db_elements": 5553,
+    "duplicate_historical_entries": 4,
+    "current_canonical_duplicate_count": 0
+  },
+  "deduplication_enforcement": "PASS. Canonical dataset contains exactly 5,549 deduplicated unique departures. Traveler UI consumes canonical schedules directly and never exposes raw duplicate rows."
+}

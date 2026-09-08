@@ -1,0 +1,53 @@
+﻿{
+  "wave": "M12",
+  "phase": "PHASE_54_REGIONAL_TRANSIT_ACCEPTANCE",
+  "audit_timestamp": "2026-09-08T10:53:00+05:30",
+  "regional_scenarios": [
+    {
+      "region": "Capital Region",
+      "route_count": 96,
+      "sample_routes": ["10", "11", "12", "F1"],
+      "network": "AMA Bus / Mo Bus",
+      "cities": ["Bhubaneswar", "Cuttack", "Puri", "Khordha", "Jatani"],
+      "schedule_coverage": "High (active timetables published)",
+      "stop_verification_level": "Mixed (173 verified poles in Capital Region corridor)"
+    },
+    {
+      "region": "Rourkela",
+      "route_count": 25,
+      "sample_routes": ["100", "101", "102"],
+      "network": "AMA Bus",
+      "cities": ["Rourkela", "Sundargarh"],
+      "schedule_coverage": "Verified CRUT gazette timetables",
+      "stop_verification_level": "Locality service areas"
+    },
+    {
+      "region": "Sambalpur",
+      "route_count": 17,
+      "sample_routes": ["200", "201", "202"],
+      "network": "AMA Bus",
+      "cities": ["Sambalpur", "Burla", "Hirakud"],
+      "schedule_coverage": "Verified CRUT gazette timetables",
+      "stop_verification_level": "Locality service areas"
+    },
+    {
+      "region": "Berhampur",
+      "route_count": 10,
+      "sample_routes": ["300", "301", "302"],
+      "network": "AMA Bus",
+      "cities": ["Berhampur", "Gopalpur", "Chhatrapur"],
+      "schedule_coverage": "Verified CRUT gazette timetables",
+      "stop_verification_level": "Locality service areas"
+    },
+    {
+      "region": "Keonjhar",
+      "route_count": 6,
+      "sample_routes": ["400", "401", "402"],
+      "network": "AMA Bus",
+      "cities": ["Keonjhar"],
+      "schedule_coverage": "Verified CRUT gazette timetables",
+      "stop_verification_level": "Locality service areas"
+    }
+  ],
+  "status": "PASS"
+}

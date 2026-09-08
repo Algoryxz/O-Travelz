@@ -89,4 +89,44 @@
     <string name="map_essentials_in_area">ନିକଟସ୍ଥ ଜରୁରୀ ସେବା</string>
     <string name="map_verified_stop_badge">ଯାଞ୍ଚ ହୋଇଥିବା CRUT ରହଣି</string>
     <string name="map_candidate_stop_badge">ପ୍ରସ୍ତାବିତ ରହଣି</string>
+
+    <!-- M12 Transit Directory & Timetable Strings (Odia) -->
+    <string name="transit_directory_title">ଓଡ଼ିଶା ଗମନାଗମନ ନିର୍ଦ୍ଦେଶିକା</string>
+    <string name="transit_directory_subtitle">୫ଟି ଅଞ୍ଚଳରେ ୧୫୪ଟି ଯାଞ୍ଚ ହୋଇଥିବା ମାର୍ଗ</string>
+    <string name="transit_search_hint">ମାର୍ଗ ନମ୍ବର, ଆରମ୍ଭ କିମ୍ବା ଶେଷ ସ୍ଥାନ ଖୋଜନ୍ତୁ...</string>
+    <string name="transit_filter_all_regions">ସମସ୍ତ ଅଞ୍ଚଳ</string>
+    <string name="transit_region_capital">କ୍ୟାପିଟାଲ୍ ରିଜିଅନ୍</string>
+    <string name="transit_region_rourkela">ରାଉରକେଲା</string>
+    <string name="transit_region_sambalpur">ସମ୍ବଲପୁର</string>
+    <string name="transit_region_berhampur">ବ୍ରହ୍ମପୁର</string>
+    <string name="transit_region_keonjhar">କେନ୍ଦୁଝର</string>
+    <string name="transit_routes_count">%d ଟି ମାର୍ଗ</string>
+    <string name="transit_no_routes_found">କୌଣସି ମାର୍ଗ ମିଳିଲା ନାହିଁ</string>
+    <string name="transit_action_clear_filters">ଫିଲ୍ଟର୍ ହଟାନ୍ତୁ</string>
+    <string name="transit_portal_banner_title">ସାର୍ବଜନୀନ ପରିବହନ ବ୍ୟବସ୍ଥା</string>
+    <string name="transit_portal_banner_desc">୧୫୪ଟି ମୋ ବସ୍ ଓ ଆମ ବସ୍ ମାର୍ଗ, ରହଣି ଏବଂ ସମୟସାରଣୀ ଦେଖନ୍ତୁ।</string>
+    <string name="transit_portal_action">ମାର୍ଗ ଅନ୍ୱେଷଣ କରନ୍ତୁ</string>
+    <string name="transit_route_detail_title">ମାର୍ଗ ବିବରଣୀ</string>
+    <string name="transit_operator_crut">କ୍ୟାପିଟାଲ୍ ରିଜିଅନ୍ ଅର୍ବାନ୍ ଟ୍ରାନ୍ସପୋର୍ଟ (CRUT)</string>
+    <string name="transit_disclaimer_scheduled">ନିର୍ଦ୍ଧାରିତ ସମୟସାରଣୀ (IST)। ସିଧାପ୍ରସାରଣ ଟ୍ରାକିଂ ଉପଲବ୍ଧ ନାହିଁ।</string>
+    <string name="transit_direction_selector_title">ଦିଗ</string>
+    <string name="transit_stop_timeline_title">ମାର୍ଗ ରହଣି ସ୍ଥଳ (%d)</string>
+    <string name="transit_badge_verified_stop">ଯାଞ୍ଚ ହୋଇଥିବା ରହଣି</string>
+    <string name="transit_badge_locality_only">କେବଳ ଅଞ୍ଚଳ ସ୍ତର</string>
+    <string name="transit_next_departure_label">ପରବର୍ତ୍ତୀ ପ୍ରସ୍ଥାନ: %1$s IST (%2$s)</string>
+    <string name="transit_service_finished_today">ଆଜି ପାଇଁ ସେବା ସମାପ୍ତ</string>
+    <string name="transit_timetable_unavailable">ସମୟସାରଣୀ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="transit_stop_details_title">ରହଣି ବିସ୍ତୃତ ବିବରଣୀ</string>
+    <string name="transit_stop_verified_desc">ଜିପିଏସ୍ ସ୍ଥାନାଙ୍କ ସହ ବସ୍ ରହଣି ଯାଞ୍ଚ କରାଯାଇଛି।</string>
+    <string name="transit_stop_locality_desc">ସାଧାରଣ ସେବା ଅଞ୍ଚଳ। ସଠିକ୍ ପୋଲ୍ ସ୍ଥାନାଙ୍କ ଏପର୍ଯ୍ୟନ୍ତ ଯାଞ୍ଚ ହୋଇନାହିଁ।</string>
+    <string name="transit_serving_routes_title">ଏହି ରହଣି ଦେଇ ଯାଉଥିବା ମାର୍ଗ</string>
+    <string name="transit_first_mile_walk">ଚାଲିବା ଦୂରତା (%1$s, ~%2$d ମିନିଟ୍)</string>
+    <string name="transit_first_mile_short_auto">ଚାଲିବା କିମ୍ବା ଛୋଟ ଅଟୋ ସଂଯୋଗ (%1$s)</string>
+    <string name="transit_first_mile_cab_auto">ଅଟୋ କିମ୍ବା ଅନ୍ୟ ସଂଯୋଗୀ ପରିବହନ ଅନୁମୋଦିତ (%1$s)</string>
+    <string name="transit_first_mile_unavailable">ପ୍ରଥମ-ମାଇଲ୍ ମାର୍ଗଦର୍ଶନ କେବଳ ଲାଇଭ୍ ଜିପିଏସ୍ ସହ ଯାଞ୍ଚ ହୋଇଥିବା ରହଣି ପାଇଁ ଉପଲବ୍ଧ।</string>
+    <string name="transit_action_view_on_map">ମାନଚିତ୍ରରେ ଦେଖନ୍ତୁ</string>
+    <string name="transit_action_close">ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="transit_action_get_directions">ଦିଗ ନିର୍ଦ୍ଦେଶ</string>
+    <string name="transit_fare_notice">ସରକାରୀ ଭଡ଼ା ତାଲିକା ଯାଞ୍ଚ ଅପେକ୍ଷାରେ</string>
+    <string name="transit_departure_times_title">ନିର୍ଦ୍ଧାରିତ ପ୍ରସ୍ଥାନ ସମୟ (%d)</string>
 </resources>

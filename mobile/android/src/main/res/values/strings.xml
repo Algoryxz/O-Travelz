@@ -89,4 +89,44 @@
     <string name="map_essentials_in_area">Civic Essentials Nearby</string>
     <string name="map_verified_stop_badge">Verified CRUT Stop</string>
     <string name="map_candidate_stop_badge">Candidate Stop</string>
+
+    <!-- M12 Transit Directory & Timetable Strings -->
+    <string name="transit_directory_title">Odisha Transit Directory</string>
+    <string name="transit_directory_subtitle">154 Verified Routes across 5 Regions</string>
+    <string name="transit_search_hint">Search route number, origin, destination...</string>
+    <string name="transit_filter_all_regions">All Regions</string>
+    <string name="transit_region_capital">Capital Region</string>
+    <string name="transit_region_rourkela">Rourkela</string>
+    <string name="transit_region_sambalpur">Sambalpur</string>
+    <string name="transit_region_berhampur">Berhampur</string>
+    <string name="transit_region_keonjhar">Keonjhar</string>
+    <string name="transit_routes_count">%d Routes</string>
+    <string name="transit_no_routes_found">No transit routes match your search</string>
+    <string name="transit_action_clear_filters">Clear Filters</string>
+    <string name="transit_portal_banner_title">Public Transit Network</string>
+    <string name="transit_portal_banner_desc">Explore 154 Mo Bus &amp; AMA Bus routes, stops, and scheduled timetables.</string>
+    <string name="transit_portal_action">Explore Routes</string>
+    <string name="transit_route_detail_title">Route Details</string>
+    <string name="transit_operator_crut">Capital Region Urban Transport (CRUT)</string>
+    <string name="transit_disclaimer_scheduled">Scheduled Timetable (IST). Live vehicle tracking is not available.</string>
+    <string name="transit_direction_selector_title">Direction</string>
+    <string name="transit_stop_timeline_title">Route Stops (%d)</string>
+    <string name="transit_badge_verified_stop">Verified Stop</string>
+    <string name="transit_badge_locality_only">Locality Only</string>
+    <string name="transit_next_departure_label">Next scheduled departure: %1$s IST (%2$s)</string>
+    <string name="transit_service_finished_today">Service finished for today</string>
+    <string name="transit_timetable_unavailable">Timetable unavailable</string>
+    <string name="transit_stop_details_title">Stop Details</string>
+    <string name="transit_stop_verified_desc">Physical stop location verified with GPS coordinates.</string>
+    <string name="transit_stop_locality_desc">General service area. Exact pole coordinates not yet verified. Bus boards within this locality.</string>
+    <string name="transit_serving_routes_title">Routes Serving This Stop</string>
+    <string name="transit_first_mile_walk">Walking distance (%1$s, ~%2$d mins walk)</string>
+    <string name="transit_first_mile_short_auto">Walk or short auto-rickshaw connection (%1$s)</string>
+    <string name="transit_first_mile_cab_auto">Auto-rickshaw or connecting transit recommended (%1$s)</string>
+    <string name="transit_first_mile_unavailable">First-mile guidance available only for verified physical stops with live GPS.</string>
+    <string name="transit_action_view_on_map">View on Map</string>
+    <string name="transit_action_close">Close</string>
+    <string name="transit_action_get_directions">Get Directions</string>
+    <string name="transit_fare_notice">Official fare table pending ingestion</string>
+    <string name="transit_departure_times_title">Scheduled Departures (%d)</string>
 </resources>

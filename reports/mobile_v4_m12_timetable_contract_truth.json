@@ -1,0 +1,23 @@
+﻿{
+  "wave": "M12",
+  "phase": "PHASE_22_TIMETABLE_CONTRACT_TRUTH",
+  "audit_timestamp": "2026-09-08T10:52:00+05:30",
+  "schedule_coverage": {
+    "total_canonical_routes": 154,
+    "routes_with_schedules": 145,
+    "routes_without_schedules": 9,
+    "total_schedule_rows": 302,
+    "total_unique_departures": 5549
+  },
+  "timezone_policy": {
+    "standard": "Indian Standard Time (IST / UTC+05:30)",
+    "display_formula": "[◷ Scheduled · HH:MM IST]",
+    "device_timezone_rule": "Schedules are evaluated strictly against current IST time regardless of traveler device locale."
+  },
+  "timetable_states": {
+    "HAS_UPCOMING": "Displays next scheduled departures in IST",
+    "NO_MORE_TODAY": "Displays 'No more scheduled departures today' when current IST > last departure",
+    "UNAVAILABLE": "Displays 'Timetable unavailable — No official schedule published' for routes without schedule data"
+  },
+  "anti_fake_gps_rule": "NEVER label scheduled times as live arrival, ETA, or live vehicle tracking."
+}

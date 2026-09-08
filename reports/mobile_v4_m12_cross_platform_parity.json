@@ -1,0 +1,34 @@
+﻿{
+  "wave": "M12",
+  "phase": "PHASE_55_CROSS_PLATFORM_PARITY",
+  "dimensions": {
+    "route_count": { "android": 154, "ios": 154, "parity": true },
+    "stop_count": { "android": 1430, "ios": 1430, "parity": true },
+    "search_algorithm": {
+      "android": "Deterministic 6-tier in-memory TransitSearchEngine with alias normalization",
+      "ios": "Deterministic 6-tier in-memory TransitSearchEngine with alias normalization",
+      "parity": true
+    },
+    "stop_truth_tiers": {
+      "android": "Exact pin + first-mile strictly for 173 verified stops; suppressed for locality stops",
+      "ios": "Exact pin + first-mile strictly for 173 verified stops; suppressed for locality stops",
+      "parity": true
+    },
+    "timetable_ist_policy": {
+      "android": "Indian Standard Time (UTC+05:30) evaluation",
+      "ios": "Indian Standard Time (UTC+05:30) evaluation",
+      "parity": true
+    },
+    "fare_presentation": {
+      "android": "Truthful 'Fare information unavailable' (no ₹0 or fake fares)",
+      "ios": "Truthful 'Fare information unavailable' (no ₹0 or fake fares)",
+      "parity": true
+    },
+    "route_geometry_gating": {
+      "android": "Only surveyed road vectors render; missing geometry fails closed",
+      "ios": "Only surveyed road vectors render; missing geometry fails closed",
+      "parity": true
+    }
+  },
+  "overall_verdict": "VERIFIED_PARITY"
+}

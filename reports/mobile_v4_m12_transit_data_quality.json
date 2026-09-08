@@ -1,0 +1,43 @@
+﻿{
+  "wave": "M12",
+  "phase": "PHASE_56_DATA_QUALITY",
+  "audit_timestamp": "2026-09-08T11:05:00+05:30",
+  "transit_catalog": {
+    "total_routes": 154,
+    "provider_breakdown": {
+      "CRUT_MO_BUS": 1,
+      "CRUT_AMA_BUS": 153
+    },
+    "regional_distribution": {
+      "capital_region": 96,
+      "rourkela": 25,
+      "sambalpur": 17,
+      "berhampur": 10,
+      "keonjhar": 6
+    },
+    "total_directional_schedules": 302,
+    "routes_with_schedules": 145,
+    "routes_without_schedules": 9,
+    "total_daily_departures": 5549,
+    "timezone": "Asia/Kolkata (IST, UTC+05:30)",
+    "stops_total_unique": 1430,
+    "stop_confidence_distribution": {
+      "verified_official": 173,
+      "locality_only": 1257,
+      "candidate_high": 0
+    },
+    "geocoded_stops_count": 173,
+    "null_coordinate_stops_count": 1257,
+    "fare_coverage": {
+      "known_fares": 0,
+      "null_fares": 154,
+      "fare_truth_status": "FARES_STRICTLY_NULL_PENDING_INGESTION"
+    },
+    "telemetry_truth": {
+      "live_gps_claims": 0,
+      "fake_arrival_predictions": 0,
+      "scheduled_departures_truthful": true
+    }
+  },
+  "data_quality_verdict": "VERIFIED_ACCURATE"
+}

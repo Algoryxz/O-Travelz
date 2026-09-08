@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -28,6 +29,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
@@ -35,8 +38,10 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -81,6 +86,7 @@ sealed interface DiscoverUiState {
 @Composable
 fun DiscoverRoot(
     onPlaceClick: (String) -> Unit,
+    onTransitClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     var uiState by remember { mutableStateOf<DiscoverUiState>(DiscoverUiState.Loading) }
@@ -297,7 +303,8 @@ fun DiscoverRoot(
                         userLon = null
                         locationNotice = null
                     },
-                    onPlaceClick = onPlaceClick
+                    onPlaceClick = onPlaceClick,
+                    onTransitClick = onTransitClick
                 )
             }
         }
@@ -324,7 +331,8 @@ private fun DiscoverContent(
     onClearCategory: () -> Unit,
     onClearDistrict: () -> Unit,
     onClearAllFilters: () -> Unit,
-    onPlaceClick: (String) -> Unit
+    onPlaceClick: (String) -> Unit,
+    onTransitClick: () -> Unit
 ) {
     val categories = remember(allPlaces) {
         allPlaces.map { it.category }.distinct().sorted()
@@ -360,7 +368,7 @@ private fun DiscoverContent(
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = Spacing.space5, vertical = Spacing.space3),
+                .padding(horizontal = Spacing.space5, vertical = Spacing.space2),
             singleLine = true,
             shape = RoundedCornerShape(12.dp),
             colors = OutlinedTextFieldDefaults.colors(
@@ -370,6 +378,63 @@ private fun DiscoverContent(
                 unfocusedBorderColor = MaterialTheme.colorScheme.outlineVariant
             )
         )
+
+        // Transit Portal Banner
+        Card(
+            onClick = onTransitClick,
+            shape = RoundedCornerShape(12.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = Spacing.space5, vertical = Spacing.space2)
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 14.dp, vertical = 10.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = MaterialTheme.colorScheme.primaryContainer,
+                        modifier = Modifier.size(36.dp)
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Text("🚌", style = MaterialTheme.typography.bodyMedium)
+                        }
+                    }
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Column {
+                        Text(
+                            text = stringResource(R.string.transit_portal_banner_title),
+                            style = MaterialTheme.typography.labelLarge,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                        Text(
+                            text = stringResource(R.string.transit_portal_banner_desc),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = "›",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
 
         // Row 1: Near Me + Category Filter Chips
         Row(

@@ -1,0 +1,90 @@
+﻿{
+  "wave": "M12",
+  "phase": "PHASE_53_CANONICAL_TRANSIT_REGRESSION_MATRIX",
+  "regressions_verified": [
+    {
+      "id": "REG_TR_01",
+      "rule": "Total routes equals verified canonical count",
+      "expected": 154,
+      "actual": 154,
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_02",
+      "rule": "Total stops equals verified canonical count",
+      "expected": 1430,
+      "actual": 1430,
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_03",
+      "rule": "Stop-tier counts reconcile exactly to total",
+      "breakdown": {
+        "VERIFIED_OFFICIAL": 103,
+        "VERIFIED_GEOSPATIAL": 70,
+        "UNRESOLVED": 1257
+      },
+      "sum": 1430,
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_04",
+      "rule": "Unique departures equals verified canonical count",
+      "expected": 5549,
+      "actual": 5549,
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_05",
+      "rule": "Raw database duplicate entries are suppressed",
+      "duplicates_exposed": 0,
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_06",
+      "rule": "No fake live vehicle telemetry or moving bus animations",
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_07",
+      "rule": "No fabricated fares (fares strictly null/unavailable)",
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_08",
+      "rule": "No stop coordinates fabricated (1257 unresolved have lat=null, lon=null)",
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_09",
+      "rule": "No candidate first-mile walking or navigation calculations",
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_10",
+      "rule": "No locality-only stops placed as exact boarding map pins",
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_11",
+      "rule": "Route directions are kept distinct and never merged",
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_12",
+      "rule": "Stop sequences preserve canonical order (never sorted alphabetically)",
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_13",
+      "rule": "Zero synthetic straight-line route polylines",
+      "status": "PASS"
+    },
+    {
+      "id": "REG_TR_14",
+      "rule": "All schedules evaluated and labeled in Indian Standard Time (IST)",
+      "status": "PASS"
+    }
+  ],
+  "overall_verdict": "PASS"
+}

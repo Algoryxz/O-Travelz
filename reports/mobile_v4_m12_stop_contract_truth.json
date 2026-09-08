@@ -1,0 +1,34 @@
+﻿{
+  "wave": "M12",
+  "phase": "PHASE_4_STOP_CONTRACT_FORENSICS",
+  "fields": {
+    "REQUIRED": [
+      "stop_id",
+      "canonical_name",
+      "published_name",
+      "aliases",
+      "operator",
+      "network",
+      "coordinate_status",
+      "served_routes",
+      "locality_status",
+      "render_exact_marker",
+      "participates_in_first_mile",
+      "participates_in_route_sequence"
+    ],
+    "NULLABLE": [
+      "lat",
+      "lon",
+      "city",
+      "district",
+      "coordinate_source",
+      "source_page",
+      "locality_provenance",
+      "coordinate_provenance"
+    ],
+    "COORDINATE_POLICY": "lat and lon are strictly null for 1257 unresolved stops; never converted to 0,0 or dummy values."
+  },
+  "total_stops": 1430,
+  "stops_with_coordinates": 173,
+  "stops_without_coordinates": 1257
+}

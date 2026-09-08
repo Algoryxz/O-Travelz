@@ -83,6 +83,7 @@ struct DiscoverRootView: View {
     @State private var selectedDistrict: String? = nil
     @State private var searchQuery: String = ""
     @State private var isNearbyActive: Bool = false
+    @State private var isShowingTransitDirectory: Bool = false
 
     @StateObject private var locationRequester = DiscoverLocationRequester()
 
@@ -159,6 +160,44 @@ struct DiscoverRootView: View {
                 } else {
                     ScrollView {
                         VStack(alignment: .leading, spacing: SpacingTokens.space4) {
+                            // Transit Portal Banner
+                            Button(action: { isShowingTransitDirectory = true }) {
+                                HStack(spacing: SpacingTokens.space4) {
+                                    Image(systemName: "bus.fill")
+                                        .font(.system(size: 20))
+                                        .foregroundStyle(ColorTokens.terracotta)
+                                        .frame(width: 40, height: 40)
+                                        .background(ColorTokens.terracotta.opacity(0.12))
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(LocalizedStringKey("transit_portal_title"))
+                                            .font(TypographyTokens.labelLarge)
+                                            .foregroundStyle(ColorTokens.textPrimary)
+                                        Text(LocalizedStringKey("transit_portal_subtitle"))
+                                            .font(TypographyTokens.bodySmall)
+                                            .foregroundStyle(ColorTokens.textSecondary)
+                                            .lineLimit(2)
+                                    }
+
+                                    Spacer()
+
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 14, weight: .semibold))
+                                        .foregroundStyle(ColorTokens.textSecondary)
+                                }
+                                .padding(SpacingTokens.space4)
+                                .background(Color(uiColor: .secondarySystemBackground))
+                                .clipShape(RoundedRectangle(cornerRadius: 14))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 14)
+                                        .stroke(ColorTokens.textSecondary.opacity(0.15), lineWidth: 1)
+                                )
+                            }
+                            .buttonStyle(.plain)
+                            .padding(.horizontal, SpacingTokens.space5)
+                            .padding(.top, SpacingTokens.space2)
+
                             // Row 1: "Near Me" + Category Filter Chips
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: SpacingTokens.space2) {
@@ -388,6 +427,9 @@ struct DiscoverRootView: View {
             .searchable(text: $searchQuery, prompt: LocalizedStringKey("search_places_hint"))
             .navigationDestination(for: DiscoverPlace.self) { place in
                 PlaceDetailView(placeId: place.id, initialPlace: place)
+            }
+            .sheet(isPresented: $isShowingTransitDirectory) {
+                TransitDirectoryView()
             }
             .task {
                 if places.isEmpty {
