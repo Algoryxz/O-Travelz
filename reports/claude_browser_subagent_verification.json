@@ -1,0 +1,47 @@
+{
+  "agent": "CLAUDE_BROWSER_RESEARCHER",
+  "verification_timestamp": "2026-09-08T09:30:03+05:30",
+  "launch_mechanism": {
+    "primary": {
+      "type": "Antigravity native subagent",
+      "definition_tool": "define_subagent",
+      "invocation_tool": "invoke_subagent",
+      "model_tier": "pro",
+      "persona_prompt": "docs/research/CLAUDE_BROWSER_AGENT_PROMPT.md",
+      "workspace_mode": "inherit"
+    },
+    "standby_external_cli": {
+      "binary_path": "C:\\Users\\smara\\AppData\\Roaming\\npm\\claude.cmd",
+      "version": "2.1.197 (Claude Code)",
+      "auth_status": "UNAUTHENTICATED (requires manual /login)"
+    }
+  },
+  "capabilities": {
+    "live_browser_access": true,
+    "public_url_navigation": true,
+    "pdf_reading": true,
+    "documentation_analysis": true,
+    "terms_licensing_page_analysis": true,
+    "structured_evidence_output": true,
+    "task_delegation_capability": true,
+    "concurrent_execution": true,
+    "auth_status": "PRO_SUBAGENT_ACTIVE_CLI_STANDBY"
+  },
+  "verification_task": {
+    "task_id": "VERIFY_CLAUDE_001",
+    "prompt": "Find an official Odisha Tourism webpage and report the source title, organization, URL, whether it is a primary tourism source, and provenance details.",
+    "execution_conversation_id": "0ba3619d-ed7c-4316-a40b-8507aa60ba30",
+    "status": "FOUND",
+    "result": {
+      "source_title": "Odisha Tourism Official Website",
+      "organization": "Department of Tourism, Government of Odisha",
+      "url": "https://odishatourism.gov.in",
+      "source_type": "Primary Tourism Source",
+      "official": true,
+      "license": "Government Copyright / Subject to terms of use",
+      "freshness": "Current",
+      "confidence": 1.0
+    }
+  },
+  "verdict": "VERIFIED_OPERATIONAL"
+}

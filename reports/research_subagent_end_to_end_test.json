@@ -1,0 +1,101 @@
+{
+  "test_suite": "RESEARCH_SUBAGENT_END_TO_END_TEST",
+  "executed_at": "2026-09-08T09:30:12+05:30",
+  "orchestration_lead": "ANTIGRAVITY_LEAD",
+  "concurrency_mode": "NATIVE_BACKGROUND",
+  "verification_objectives": {
+    "SUBAGENT_LAUNCH": true,
+    "BROWSER_ACCESS": true,
+    "RESULT_RETURN": true,
+    "SOURCE_CAPTURE": true
+  },
+  "subagent_executions": [
+    {
+      "agent": "GEMINI_BROWSER_RESEARCHER",
+      "conversation_id": "eb91663b-cb59-4c83-b8cb-acb9c83823f4",
+      "task_id": "VERIFY_GEMINI_001",
+      "test_query": "Find the official public documentation homepage for ArcGIS REST services and report the page title, URL, and whether the page is documentation.",
+      "status": "SUCCESS",
+      "captured_url": "https://developers.arcgis.com/rest/",
+      "captured_title": "Build powerful apps with ArcGIS services | Esri Developer REST APIs documentation | Esri Developer",
+      "is_documentation": true,
+      "factual_field": "APIs for scripting, automating and building applications with ArcGIS services.",
+      "raw_output": {
+        "task_id": "VERIFY_GEMINI_001",
+        "agent": "GEMINI_BROWSER_RESEARCHER",
+        "status": "FOUND",
+        "findings": [
+          "Page Title: Build powerful apps with ArcGIS services | Esri Developer REST APIs documentation | Esri Developer (Banner Title: ArcGIS REST APIs documentation)",
+          "URL: https://developers.arcgis.com/rest/",
+          "Is Documentation: true (Official public documentation homepage for ArcGIS REST APIs)",
+          "Factual Field: Page subtitle is 'APIs for scripting, automating and building applications with ArcGIS services.' with publisher organization 'Environmental Systems Research Institute, Inc.'"
+        ],
+        "sources": [
+          {
+            "title": "Build powerful apps with ArcGIS services | Esri Developer REST APIs documentation | Esri Developer",
+            "url": "https://developers.arcgis.com/rest/",
+            "organization": "Esri (Environmental Systems Research Institute, Inc.)",
+            "source_type": "official_documentation",
+            "official": true,
+            "format": "HTML",
+            "license": "Proprietary / Esri Master Agreement",
+            "access_method": "HTTPS GET",
+            "freshness": "live",
+            "last_updated": "2026",
+            "runtime_usable": false,
+            "ingestion_usable": false,
+            "cache_usable": true,
+            "limitations": [
+              "Documentation portal; actual ArcGIS REST service calls require API keys or OAuth authentication tokens depending on the service tier."
+            ]
+          }
+        ],
+        "recommended_next_action": "Reference the service reference guide (/rest/services-reference/) to parse ArcGIS FeatureServer and MapServer query parameters for GIS integrations.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "agent": "CLAUDE_BROWSER_RESEARCHER",
+      "conversation_id": "0ba3619d-ed7c-4316-a40b-8507aa60ba30",
+      "task_id": "VERIFY_CLAUDE_001",
+      "test_query": "Find an official Odisha Tourism webpage and report the source title, organization, URL, and whether it is a primary tourism source.",
+      "status": "SUCCESS",
+      "captured_url": "https://odishatourism.gov.in",
+      "captured_title": "Odisha Tourism Official Website",
+      "organization": "Department of Tourism, Government of Odisha",
+      "is_primary_source": true,
+      "raw_output": {
+        "task_id": "VERIFY_CLAUDE_001",
+        "agent": "CLAUDE_BROWSER_RESEARCHER",
+        "status": "FOUND",
+        "findings": [
+          "Identified the official Odisha Tourism website."
+        ],
+        "sources": [
+          {
+            "title": "Odisha Tourism Official Website",
+            "url": "https://odishatourism.gov.in",
+            "organization": "Department of Tourism, Government of Odisha",
+            "source_type": "Primary Tourism Source",
+            "official": true,
+            "format": "HTML",
+            "license": "Government Copyright / Subject to terms of use",
+            "access_method": "Public Web",
+            "freshness": "Current",
+            "last_updated": "2026-09-08",
+            "runtime_usable": true,
+            "ingestion_usable": true,
+            "cache_usable": true,
+            "limitations": [
+              "Content scraping might be restricted by Terms of Service",
+              "Updates rely on official publication schedules"
+            ]
+          }
+        ],
+        "recommended_next_action": "Proceed with extracting destination data or specific policies from the official site.",
+        "confidence": 1.0
+      }
+    }
+  ],
+  "overall_verdict": "PASSED_OPERATIONAL"
+}

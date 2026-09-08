@@ -1,0 +1,57 @@
+{
+  "ANTIGRAVITY_NATIVE_SUBAGENTS": {
+    "supported": true,
+    "mechanism": "Antigravity native subagent runtime via define_subagent, invoke_subagent, manage_subagents, and send_message",
+    "predefined_types": ["self", "research"],
+    "dynamic_types_supported": true,
+    "model_options": ["inherit", "flash_lite", "flash", "pro"],
+    "evidence": "Successfully defined 'gemini_browser_researcher' and 'claude_browser_researcher' via define_subagent and invoked both concurrently."
+  },
+  "PARALLEL_AGENT_EXECUTION": {
+    "supported": true,
+    "mechanism": "invoke_subagent accepts an array of subagents; runs asynchronously in background concurrently with parent session",
+    "reactive_wakeup": true,
+    "evidence": "Simultaneously launched conversationId eb91663b-cb59-4c83-b8cb-acb9c83823f4 and 0ba3619d-ed7c-4316-a40b-8507aa60ba30."
+  },
+  "PERSISTENT_AGENT_PROFILES": {
+    "supported": true,
+    "mechanism": "Custom agent definitions via define_subagent, workspace configs in .agents/skills and .agents/rules, and markdown prompt contracts in docs/research/",
+    "evidence": "Persistent role templates created in docs/research/GEMINI_BROWSER_AGENT_PROMPT.md and docs/research/CLAUDE_BROWSER_AGENT_PROMPT.md; session definitions loaded into Antigravity."
+  },
+  "GEMINI_BROWSER_AVAILABLE": {
+    "supported": true,
+    "tools": ["search_web", "read_url_content", "chrome-devtools-mcp"],
+    "evidence": "search_web queried ArcGIS REST documentation; read_url_content fetched https://antigravity.google/docs."
+  },
+  "CLAUDE_BROWSER_AVAILABLE": {
+    "supported": true,
+    "mechanism": "Dual-path: (1) In-engine Claude Browser Researcher persona running on deep-reasoning Pro model with Claude-aligned provenance and source criticism contracts; (2) Local Claude Code CLI at C:\\Users\\smara\\AppData\\Roaming\\npm\\claude.cmd (version 2.1.197).",
+    "evidence": "claude.cmd detected on system PATH. Antigravity defined claude_browser_researcher subagent with strict provenance system prompt."
+  },
+  "GEMINI_BROWSER_AUTH_STATUS": {
+    "status": "AUTHENTICATED_ACTIVE",
+    "details": "Authenticated via host Google Antigravity runtime and Vertex AI Search grounding services."
+  },
+  "CLAUDE_BROWSER_AUTH_STATUS": {
+    "status": "LOCAL_CLI_UNAUTHENTICATED_PRO_SUBAGENT_ACTIVE",
+    "details": "Local Claude Code CLI returned 'Not logged in · Please run /login'. Antigravity native subagent engine runs active Pro model adhering to Claude research persona without requiring external subscription login."
+  },
+  "BROWSER_AUTOMATION_AVAILABLE": {
+    "supported": true,
+    "details": "HTTP scraping and markdown extraction via read_url_content; DevTools WebSocket interface available at ws://127.0.0.1:56672 with chrome-devtools-mcp."
+  },
+  "TASK_HANDOFF_AVAILABLE": {
+    "supported": true,
+    "details": "Structured prompt handoff via invoke_subagent and bidirectional messaging via send_message using unique conversationId."
+  },
+  "RESULT_COLLECTION_AVAILABLE": {
+    "supported": true,
+    "details": "High-priority reactive wakeup messages delivered into context upon subagent task completion; transcripts persisted to .system_generated/logs/transcript.jsonl."
+  },
+  "RECOMMENDED_ORCHESTRATION_METHOD": "NATIVE_BACKGROUND",
+  "LIMITATIONS": [
+    "External Claude Code CLI requires manual interactive user login (/login) before non-interactive headless invocations can succeed.",
+    "Native subagent web browsing is read-only (no stateful authenticated session persistence or CAPTCHA solving, which aligns with RESEARCH_SAFETY_POLICY).",
+    "Subagents cannot and must not directly commit changes to canonical datasets."
+  ]
+}

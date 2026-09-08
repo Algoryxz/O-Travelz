@@ -1,0 +1,27 @@
+{
+  "concurrency_classification": "NATIVE_BACKGROUND",
+  "supported_architectures": [
+    "NATIVE_BACKGROUND",
+    "PARALLEL_TASK_SESSIONS",
+    "EXPLICIT_AGENT_LAUNCH"
+  ],
+  "runtime_evaluation": {
+    "engine": "Antigravity 2.0 Subagent Architecture",
+    "background_execution": true,
+    "parallel_subagent_dispatch": true,
+    "reactive_wakeup": true,
+    "parent_turn_non_blocking": true
+  },
+  "concurrency_workflow": {
+    "mobile_implementation_thread": "Runs in primary Antigravity session handling Compose UI, Swift views, KMP shared domain models, and unit test execution.",
+    "research_orchestration_thread": "Dispatches bounded subagents via invoke_subagent; subagents run in background with individual conversationIds; parent receives results via high-priority reactive system messages without polling loops.",
+    "verification_gate_thread": "Executes on reactive wakeup to evaluate candidate findings before staging."
+  },
+  "operational_guarantees": {
+    "continuous_autonomous_scraping_claimed": false,
+    "bounded_batch_execution": true,
+    "resource_safe": true,
+    "no_blocking_on_io": true
+  },
+  "evidence": "Successfully executed parallel subagents conversationId eb91663b-cb59-4c83-b8cb-acb9c83823f4 and 0ba3619d-ed7c-4316-a40b-8507aa60ba30 asynchronously while inspecting repository state."
+}

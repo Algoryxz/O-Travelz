@@ -1,0 +1,38 @@
+{
+  "agent": "GEMINI_BROWSER_RESEARCHER",
+  "verification_timestamp": "2026-09-08T09:30:12+05:30",
+  "launch_mechanism": {
+    "type": "Antigravity native subagent",
+    "definition_tool": "define_subagent",
+    "invocation_tool": "invoke_subagent",
+    "model_tier": "flash",
+    "workspace_mode": "inherit"
+  },
+  "capabilities": {
+    "live_browser_access": true,
+    "open_arbitrary_public_urls": true,
+    "inspect_api_docs": true,
+    "inspect_json_xml_geojson": true,
+    "inspect_pdfs": true,
+    "download_public_files": "read_only_in_memory",
+    "structured_findings_output": true,
+    "delegated_subagent_execution": true,
+    "concurrent_execution": true,
+    "auth_status": "AUTHENTICATED_ACTIVE"
+  },
+  "verification_task": {
+    "task_id": "VERIFY_GEMINI_001",
+    "prompt": "Find the official public documentation homepage for ArcGIS REST services and report the page title, URL, whether the page is documentation, and one factual field.",
+    "execution_conversation_id": "eb91663b-cb59-4c83-b8cb-acb9c83823f4",
+    "status": "FOUND",
+    "result": {
+      "page_title": "Build powerful apps with ArcGIS services | Esri Developer REST APIs documentation | Esri Developer",
+      "url": "https://developers.arcgis.com/rest/",
+      "is_documentation": true,
+      "factual_field": "APIs for scripting, automating and building applications with ArcGIS services.",
+      "publisher": "Esri (Environmental Systems Research Institute, Inc.)",
+      "confidence": 1.0
+    }
+  },
+  "verdict": "VERIFIED_OPERATIONAL"
+}
