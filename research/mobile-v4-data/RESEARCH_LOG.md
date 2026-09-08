@@ -177,6 +177,22 @@ This log documents the sequential execution of background research tasks by `GEM
   - Background subagent tokens hit rate-limit cooldown (reset expected ~13:20 IST).
   - All findings committed and synced to `feature/v4-platform-rebuild`.
 
+### [2026-09-08] - Runtime Architecture Refinement & Role Alignment
+- **Refinement Goal**: Align research orchestration roles and documentation with Antigravity native subagent runtime capabilities.
+- **Role Mappings**:
+  - `gemini_browser_researcher` (`31d92cd7...`) $\rightarrow$ `GIS_API_RESEARCHER` (Model Tier: `FLASH`).
+  - `claude_browser_researcher` (`bdd76a9e...`) $\rightarrow$ `PROVENANCE_POLICY_RESEARCHER` (Model Tier: `PRO`).
+  - Added `ADVERSARIAL_EVIDENCE_REVIEWER` (Model Tier: `PRO`) for post-worker structured finding audit.
+- **Runtime Capabilities Recorded**:
+  - `VENDOR_INDEPENDENCE: false`
+  - `THREAD_INDEPENDENCE: true`
+  - `PROMPT_INDEPENDENCE: true`
+  - `MODEL_TIER_DIVERSITY: true`
+  - `MODEL_FAMILY_DIVERSITY: false`
+- **Cross-Validation Wording Standard**: Updated to `"independent Antigravity research-thread cross-validation"`.
+- **Evidence Integrity Preserved**: All 7 previously collected partial research findings (`TRANSIT_STOP_COORDINATE_CLOSURE`, `TRANSIT_ROUTE_GEOMETRY_GAPS`, `DESTINATION_OPENING_HOURS`, `DESTINATION_ENTRY_FEES`, `DESTINATION_ACCESSIBILITY`, `VERIFIED_DESTINATION_MEDIA`, `ARTISAN_AND_CRAFT_DATA`) remain 100% valid as they were gathered directly from primary statutory endpoints and portals (`.gov.in`, `.nic.in`, ASI, SJTA, IP India, Wikimedia Commons).
+
+
 
 
 

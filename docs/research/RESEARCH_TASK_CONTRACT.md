@@ -69,7 +69,7 @@ Subagents must return their findings exclusively in structured JSON format. **No
     },
     "agent": {
       "type": "string",
-      "enum": ["GEMINI_BROWSER_RESEARCHER", "CLAUDE_BROWSER_RESEARCHER"]
+      "enum": ["GIS_API_RESEARCHER", "PROVENANCE_POLICY_RESEARCHER", "ADVERSARIAL_EVIDENCE_REVIEWER"]
     },
     "status": {
       "type": "string",

@@ -21,7 +21,7 @@
     "limitations": [
       "Specification hub; live feature endpoints require separate layer licenses."
     ],
-    "discovered_by": "GEMINI_BROWSER_RESEARCHER",
+    "discovered_by": "GIS_API_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SPECIFICATION"
   },
@@ -47,7 +47,7 @@
     "limitations": [
       "Subject to government update cycles; darshan schedules vary on festival dates."
     ],
-    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "discovered_by": "PROVENANCE_POLICY_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
   },
@@ -73,7 +73,7 @@
     "limitations": [
       "Monument grounds open sunrise to sunset; on-site ASI museums operate on separate hours (e.g. Konark Museum closed Fridays)."
     ],
-    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "discovered_by": "PROVENANCE_POLICY_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
   },
@@ -99,7 +99,7 @@
     "limitations": [
       "Public darshan typically 05:00 to 23:30 but subject to variable daily niti (ritual) pauses and annual festive reconfigurations."
     ],
-    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "discovered_by": "PROVENANCE_POLICY_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
   },
@@ -126,8 +126,8 @@
       "Covers Bhubaneswar capital city corridor; does not cover Western or Southern Odisha rural feeder stops.",
       "BSCL disclaims legal liability for coordinate precision; cross-referencing with CRUT operational schedule is mandatory."
     ],
-    "discovered_by": "GEMINI_BROWSER_RESEARCHER",
-    "cross_checked_by": "CLAUDE_BROWSER_RESEARCHER",
+    "discovered_by": "GIS_API_RESEARCHER",
+    "cross_checked_by": "PROVENANCE_POLICY_RESEARCHER",
     "antigravity_verdict": "VALIDATED_SOURCE"
   },
   {
@@ -147,7 +147,7 @@
     "limitations": [
       "Restricted to physical shelters equipped with digital PIS displays; not all stops have PIS."
     ],
-    "discovered_by": "GEMINI_BROWSER_RESEARCHER",
+    "discovered_by": "GIS_API_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
   },
@@ -173,7 +173,7 @@
     "limitations": [
       "Online discount of ₹5 on domestic tickets subject to payment gateway policy."
     ],
-    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "discovered_by": "PROVENANCE_POLICY_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
   },
@@ -199,7 +199,7 @@
     "limitations": [
       "Safari tariffs and battery vehicle charges operate on separate ticket counters on-site."
     ],
-    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "discovered_by": "PROVENANCE_POLICY_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
   },
@@ -225,7 +225,7 @@
     "limitations": [
       "Closed on Mondays and Government Gazetted Holidays."
     ],
-    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "discovered_by": "PROVENANCE_POLICY_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
   },
@@ -251,7 +251,7 @@
     "limitations": [
       "Application status transitions (e.g. examination to registration) occur on gazette publication cycles."
     ],
-    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "discovered_by": "PROVENANCE_POLICY_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
   },
@@ -272,7 +272,7 @@
     "limitations": [
       "Labels utilize legacy municipal line identifiers (e.g. Route 207, 306, 333, 522) that require correspondence mapping to modern CRUT Mo Bus route codes."
     ],
-    "discovered_by": "GEMINI_BROWSER_RESEARCHER",
+    "discovered_by": "GIS_API_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
   }

@@ -9,10 +9,30 @@
   "not_available": 0,
   "researching": 0,
   "deferred": 0,
-  "gemini_active_task": null,
-  "claude_active_task": null,
+  "active_worker_roles": [
+    "GIS_API_RESEARCHER",
+    "PROVENANCE_POLICY_RESEARCHER",
+    "ADVERSARIAL_EVIDENCE_REVIEWER"
+  ],
+  "runtime_capabilities": {
+    "VENDOR_INDEPENDENCE": false,
+    "THREAD_INDEPENDENCE": true,
+    "PROMPT_INDEPENDENCE": true,
+    "MODEL_TIER_DIVERSITY": true,
+    "MODEL_FAMILY_DIVERSITY": false
+  },
+  "historical_conversations": {
+    "31d92cd7-ce17-41cb-b60c-cce787c10282": {
+      "role": "GIS_API_RESEARCHER",
+      "tier": "FLASH"
+    },
+    "bdd76a9e-773a-4293-8d06-85355fab472c": {
+      "role": "PROVENANCE_POLICY_RESEARCHER",
+      "tier": "PRO"
+    }
+  },
   "quota_cooldown_reset_expected": "2026-09-08T13:20:00+05:30",
-  "last_checkpoint": "2026-09-08T09:57:30+05:30",
+  "last_checkpoint": "2026-09-08T10:06:00+05:30",
   "canonical_mutations": 0,
   "production_db_mutations": 0
 }
