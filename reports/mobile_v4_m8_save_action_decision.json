@@ -1,0 +1,9 @@
+{
+  "wave": "M8",
+  "topic": "SAVE_ACTION_DECISION",
+  "generated_at": "2026-09-08T09:28:00+05:30",
+  "decision": "OPTION_A_HIDE_SAVE_BUTTON",
+  "rationale": "In accordance with the O-TRAVELZ Multidimensional Truth Model and Anti-Vibe-Code principles, no UI affordance may promise functionality that does not persist. Wave M14 introduces Room SQLite (Android) and SwiftData (iOS) offline storage. Providing a volatile, in-memory-only bookmark button or disabled button in M8 would mislead travelers.",
+  "target_wave_for_save": "M14 (Offline Storage & Local Persistence)",
+  "verdict": "VERIFIED"
+}

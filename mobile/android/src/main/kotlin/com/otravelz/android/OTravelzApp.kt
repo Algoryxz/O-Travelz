@@ -30,38 +30,99 @@ import com.otravelz.android.ui.roots.MapRoot
 import com.otravelz.android.ui.roots.PlanRoot
 import com.otravelz.android.ui.roots.TripsRoot
 import com.otravelz.android.ui.roots.YouRoot
+import com.otravelz.android.ui.screens.PlaceDetailScreen
 
 /**
- * Root composable hosting the 5 frozen root navigation tabs.
+ * Root composable hosting the 5 frozen root navigation tabs and nested Place Detail routing.
  * Dynamically adapts between Bottom NavigationBar (Compact width)
  * and Leading NavigationRail (Medium & Expanded widths).
- * Implements deterministic back navigation (returns to DISCOVER before exit).
+ * Implements deterministic back navigation:
+ * - If in Place Detail -> return to Discover
+ * - If on secondary tab -> return to Discover root
+ * - If on Discover root -> exit app
  */
 @Composable
 fun OTravelzApp() {
     var currentTab by rememberSaveable { mutableStateOf(NavDestination.DISCOVER) }
+    var selectedPlaceId by rememberSaveable { mutableStateOf<String?>(null) }
 
-    // Intercept back navigation: Return to Discover root if currently on another tab
-    BackHandler(enabled = currentTab != NavDestination.DISCOVER) {
-        currentTab = NavDestination.DISCOVER
+    // Intercept back navigation: Detail -> Discover -> System Exit
+    BackHandler(enabled = selectedPlaceId != null || currentTab != NavDestination.DISCOVER) {
+        if (selectedPlaceId != null) {
+            selectedPlaceId = null
+        } else {
+            currentTab = NavDestination.DISCOVER
+        }
     }
 
-    AdaptiveBox { windowSizeClass ->
-        when (windowSizeClass) {
-            WindowSizeClassCategory.COMPACT -> {
-                // Phone portrait / compact width: Scaffold with bottom NavigationBar
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    bottomBar = {
-                        NavigationBar(
+    if (selectedPlaceId != null) {
+        // Nested Place Detail view
+        PlaceDetailScreen(
+            placeId = selectedPlaceId!!,
+            onBack = { selectedPlaceId = null }
+        )
+    } else {
+        AdaptiveBox { windowSizeClass ->
+            when (windowSizeClass) {
+                WindowSizeClassCategory.COMPACT -> {
+                    // Phone portrait / compact width: Scaffold with bottom NavigationBar
+                    Scaffold(
+                        modifier = Modifier.fillMaxSize(),
+                        bottomBar = {
+                            NavigationBar(
+                                containerColor = MaterialTheme.colorScheme.surfaceContainer
+                            ) {
+                                NavDestination.rootDestinations.forEach { destination ->
+                                    val selected = currentTab == destination
+                                    NavigationBarItem(
+                                        selected = selected,
+                                        onClick = {
+                                            currentTab = destination
+                                        },
+                                        icon = {
+                                            Text(
+                                                text = destination.name.take(1),
+                                                style = MaterialTheme.typography.labelLarge,
+                                                fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal
+                                            )
+                                        },
+                                        label = {
+                                            Text(
+                                                text = stringResource(destination.titleRes),
+                                                style = MaterialTheme.typography.labelSmall
+                                            )
+                                        }
+                                    )
+                                }
+                            }
+                        }
+                    ) { innerPadding ->
+                        RootContentHost(
+                            destination = currentTab,
+                            onPlaceClick = { placeId -> selectedPlaceId = placeId },
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(innerPadding)
+                        )
+                    }
+                }
+                WindowSizeClassCategory.MEDIUM,
+                WindowSizeClassCategory.EXPANDED -> {
+                    // Tablet / foldable unfolded / expanded width: Row with leading NavigationRail
+                    Row(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(MaterialTheme.colorScheme.surface)
+                    ) {
+                        NavigationRail(
+                            modifier = Modifier.fillMaxHeight(),
                             containerColor = MaterialTheme.colorScheme.surfaceContainer
                         ) {
                             NavDestination.rootDestinations.forEach { destination ->
                                 val selected = currentTab == destination
-                                NavigationBarItem(
+                                NavigationRailItem(
                                     selected = selected,
                                     onClick = {
-                                        // Tab selection / reselection is idempotent
                                         currentTab = destination
                                     },
                                     icon = {
@@ -80,62 +141,18 @@ fun OTravelzApp() {
                                 )
                             }
                         }
-                    }
-                ) { innerPadding ->
-                    RootContentHost(
-                        destination = currentTab,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(innerPadding)
-                    )
-                }
-            }
-            WindowSizeClassCategory.MEDIUM,
-            WindowSizeClassCategory.EXPANDED -> {
-                // Tablet / foldable unfolded / expanded width: Row with leading NavigationRail
-                Row(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(MaterialTheme.colorScheme.surface)
-                ) {
-                    NavigationRail(
-                        modifier = Modifier.fillMaxHeight(),
-                        containerColor = MaterialTheme.colorScheme.surfaceContainer
-                    ) {
-                        NavDestination.rootDestinations.forEach { destination ->
-                            val selected = currentTab == destination
-                            NavigationRailItem(
-                                selected = selected,
-                                onClick = {
-                                    // Tab selection / reselection is idempotent
-                                    currentTab = destination
-                                },
-                                icon = {
-                                    Text(
-                                        text = destination.name.take(1),
-                                        style = MaterialTheme.typography.labelLarge,
-                                        fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal
-                                    )
-                                },
-                                label = {
-                                    Text(
-                                        text = stringResource(destination.titleRes),
-                                        style = MaterialTheme.typography.labelSmall
-                                    )
-                                }
+
+                        Box(
+                            modifier = Modifier
+                                .fillMaxHeight()
+                                .weight(1f)
+                        ) {
+                            RootContentHost(
+                                destination = currentTab,
+                                onPlaceClick = { placeId -> selectedPlaceId = placeId },
+                                modifier = Modifier.fillMaxSize()
                             )
                         }
-                    }
-
-                    Box(
-                        modifier = Modifier
-                            .fillMaxHeight()
-                            .weight(1f)
-                    ) {
-                        RootContentHost(
-                            destination = currentTab,
-                            modifier = Modifier.fillMaxSize()
-                        )
                     }
                 }
             }
@@ -149,10 +166,11 @@ fun OTravelzApp() {
 @Composable
 private fun RootContentHost(
     destination: NavDestination,
+    onPlaceClick: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     when (destination) {
-        NavDestination.DISCOVER -> DiscoverRoot(modifier = modifier)
+        NavDestination.DISCOVER -> DiscoverRoot(onPlaceClick = onPlaceClick, modifier = modifier)
         NavDestination.MAP -> MapRoot(modifier = modifier)
         NavDestination.PLAN -> PlanRoot(modifier = modifier)
         NavDestination.TRIPS -> TripsRoot(modifier = modifier)

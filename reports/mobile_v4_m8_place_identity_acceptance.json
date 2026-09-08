@@ -1,0 +1,36 @@
+{
+  "wave": "M8",
+  "topic": "PLACE_IDENTITY_ACCEPTANCE",
+  "generated_at": "2026-09-08T09:28:00+05:30",
+  "catalog_statistics": {
+    "total_database_places": 204,
+    "excluded_non_leisure_places": 25,
+    "mobile_discover_eligible_places": 179,
+    "verified_photo_places": 70,
+    "pending_photo_verification_places": 109
+  },
+  "non_leisure_exclusion_policy": {
+    "status": "VERIFIED",
+    "excluded_categories": [
+      "hospital",
+      "medical",
+      "clinic",
+      "transit",
+      "transit_hub",
+      "bus_stop",
+      "train_station",
+      "railway_station"
+    ],
+    "rationale": "Cultural atlas leisure browse view must present places of leisure, heritage, and nature, while transit hubs and emergency services are accessible via specialized Map/Services views."
+  },
+  "canonical_odia_naming": {
+    "status": "VERIFIED",
+    "rule": "Canonical Odia script name from localized_names.or is preserved and displayed alongside English title across PlaceCard and PlaceDetail.",
+    "search_inclusion": "Search queries in Odia unicode script match against odiaName directly."
+  },
+  "geographic_classification": {
+    "districts_verified": true,
+    "regions_verified": true
+  },
+  "verdict": "VERIFIED"
+}

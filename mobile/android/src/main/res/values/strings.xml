@@ -14,4 +14,38 @@
     <string name="root_plan_desc">Deterministic itinerary solver and transit schedule planner.</string>
     <string name="root_trips_desc">Active journey tracking, offline itinerary packs, and saved trips.</string>
     <string name="root_you_desc">Atlas preferences, offline storage management, and cultural provenance.</string>
+
+    <!-- M8 Discover & Place Detail Strings -->
+    <string name="search_places_hint">Search destinations, heritage, districts…</string>
+    <string name="filter_all_categories">All Categories</string>
+    <string name="filter_all_districts">All Districts</string>
+    <string name="discover_headline">Modern Odisha Cultural Atlas</string>
+    <string name="discover_subhead">Verified destinations, living heritage, and sacred landscapes</string>
+    <string name="state_loading">Discovering Odisha Cultural Atlas…</string>
+    <string name="state_empty_title">No Destinations Found</string>
+    <string name="state_empty_desc">No verified places match your search or filter selection.</string>
+    <string name="state_error_title">Atlas Data Unavailable</string>
+    <string name="state_error_desc">Unable to retrieve verified places from the atlas server.</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_clear_filters">Clear Filters</string>
+    <string name="badge_verified">Verified Place</string>
+    <string name="badge_official">Official Source</string>
+    <string name="badge_pending">Verification Pending</string>
+    <string name="section_about">Cultural Heritage &amp; Significance</string>
+    <string name="section_practical">Practical Traveler Information</string>
+    <string name="section_weather">Live Local Weather</string>
+    <string name="section_gallery">Verified Photography</string>
+    <string name="section_provenance">Catalog &amp; Data Provenance</string>
+    <string name="label_address">Address / Location</string>
+    <string name="label_coordinates">Coordinates</string>
+    <string name="label_visit_duration">Average Visit Time</string>
+    <string name="label_price_tier">Price Tier</string>
+    <string name="label_contact">Contact Phone</string>
+    <string name="label_emergency">Emergency Phone</string>
+    <string name="label_source">Source Provenance</string>
+    <string name="label_verified_at">Verified On</string>
+    <string name="weather_unavailable">Weather readings currently unavailable for this location.</string>
+    <string name="gallery_single_photo">1 Verified Photo</string>
+    <string name="gallery_multiple_photos">%1$d Verified Photos</string>
+    <string name="action_back">Back</string>
 </resources>

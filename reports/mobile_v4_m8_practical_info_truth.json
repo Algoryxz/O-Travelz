@@ -1,0 +1,36 @@
+{
+  "wave": "M8",
+  "topic": "PRACTICAL_INFO_TRUTH",
+  "generated_at": "2026-09-08T09:28:00+05:30",
+  "truth_boundaries": {
+    "null_field_handling": {
+      "status": "VERIFIED",
+      "rule": "Fields with null values in database/API are omitted entirely from UI; never replaced with fabricated placeholder text or fake defaults.",
+      "tested_fields": [
+        "avgVisitMinutes",
+        "priceTier",
+        "contactPhone",
+        "emergencyPhone",
+        "address",
+        "coordinates"
+      ]
+    },
+    "opening_hours": {
+      "status": "VERIFIED",
+      "rule": "Opening hours and 'Open Now' indicators are strictly omitted until verified opening hour data feeds are ingested."
+    },
+    "rating_and_reviews": {
+      "status": "VERIFIED",
+      "rule": "Zero fabricated ratings. Ratings only rendered when genuine numeric score exists (> 0)."
+    },
+    "live_weather": {
+      "status": "VERIFIED",
+      "rule": "Weather requested only when genuine coordinates (lat/lon) exist. If weather fails or is unavailable, calm unavailable card renders without disrupting place detail view."
+    },
+    "capability_gating": {
+      "3d_models": "GATED_OFF (Zero 3D tabs/affordances on mobile until verified GLB assets exist)",
+      "video_streams": "GATED_OFF (Zero video player tabs until verified video feeds exist)"
+    }
+  },
+  "verdict": "VERIFIED"
+}

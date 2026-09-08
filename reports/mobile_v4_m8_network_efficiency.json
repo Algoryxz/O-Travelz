@@ -1,0 +1,28 @@
+{
+  "wave": "M8",
+  "topic": "NETWORK_EFFICIENCY",
+  "generated_at": "2026-09-08T09:28:00+05:30",
+  "network_calls": {
+    "discover_root": {
+      "endpoint": "GET /places?limit=300",
+      "call_frequency": "Once on initial load or manual pull-to-refresh",
+      "payload_efficiency": "Single batched query, client-side category/search filtering"
+    },
+    "place_detail": {
+      "endpoint": "GET /places/{id}",
+      "call_frequency": "Once when traveler taps destination card",
+      "payload_efficiency": "Targeted payload fetching full description, provenance, and photo array"
+    },
+    "weather": {
+      "endpoint": "GET /weather/current?lat={lat}&lon={lon}",
+      "call_frequency": "Conditional on place having non-null coordinates",
+      "payload_efficiency": "Lightweight current conditions payload; skipped entirely for non-geocoded places"
+    }
+  },
+  "zero_unnecessary_speculative_requests": {
+    "transit_stops_on_discover": "ZERO",
+    "ai_conversations_on_discover": "ZERO",
+    "itinerary_evaluations_on_discover": "ZERO"
+  },
+  "verdict": "VERIFIED"
+}

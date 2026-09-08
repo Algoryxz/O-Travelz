@@ -1,0 +1,62 @@
+{
+  "wave": "M8",
+  "name": "Editorial Cultural Atlas: Discover + Place Detail Production Vertical Slice",
+  "status": "ACCEPTED",
+  "starting_sha": "1af8dc17992fb9d94e20a1bcaa916cd232eec410",
+  "timestamp": "2026-09-08T09:30:00+05:30",
+  "catalog_truth": {
+    "total_places": 204,
+    "excluded_non_leisure_entities": 25,
+    "eligible_leisure_places": 179,
+    "places_with_verified_photos": 70,
+    "places_pending_photo_verification": 109,
+    "unverified_places_presentation": "Sandstone cultural typography cards with authentic Odia title and pending verification badge; zero stock photos"
+  },
+  "android": {
+    "framework": "Jetpack Compose + Material 3 Expressive",
+    "compile_status": "SUCCESS",
+    "unit_test_status": "PASS (DiscoverPlaceModelTest)",
+    "image_pipeline": "coil-compose 2.7.0 (AsyncImage) with ContentScale.Crop",
+    "navigation": "RootContentHost + PlaceDetailScreen routing with BackHandler interception",
+    "adaptive_chrome": "NavigationBar (compact) + NavigationRail (medium/expanded)"
+  },
+  "ios": {
+    "framework": "SwiftUI + Apple HIG Publication System",
+    "project_pbxproj_sync": "VERIFIED (1A000015–1A000018)",
+    "syntax_status": "VERIFIED",
+    "runtime_tests": "PENDING_MACOS (Windows development host; dual-native static parity verified)",
+    "image_pipeline": "AsyncImage with FallbackCulturalBanner",
+    "navigation": "NavigationStack with .searchable and .navigationDestination(for: DiscoverPlace.self)"
+  },
+  "truth_and_quality": {
+    "source_photo_deduplication": "VERIFIED (Multi-resolution variants hero/card/thumbnail collapse to 1 photo via folder hash)",
+    "null_practical_fields": "VERIFIED (Cleanly omitted from UI)",
+    "opening_hours": "VERIFIED (Strictly omitted until verified feeds ingested)",
+    "save_action_decision": "OPTION_A_HIDE_SAVE_BUTTON (Zero fake bookmarks before M14 offline persistence)",
+    "live_weather": "VERIFIED (Requested only for places with coordinates; non-blocking fallback)"
+  },
+  "localization": {
+    "android": "mobile/android/src/main/res/values-or/strings.xml",
+    "ios": "mobile/ios/OTravelz/Resources/or.lproj/Localizable.strings",
+    "odia_script_rendering": "VERIFIED",
+    "bilingual_search": "VERIFIED"
+  },
+  "reports_generated": [
+    "reports/mobile_v4_m8_before.json",
+    "reports/mobile_v4_m8_skill_application.json",
+    "reports/mobile_v4_m8_discover_catalog_truth.json",
+    "reports/mobile_v4_m8_discover_state_acceptance.json",
+    "reports/mobile_v4_m8_media_identity_acceptance.json",
+    "reports/mobile_v4_m8_place_identity_acceptance.json",
+    "reports/mobile_v4_m8_practical_info_truth.json",
+    "reports/mobile_v4_m8_save_action_decision.json",
+    "reports/mobile_v4_m8_media_regression_suite.json",
+    "reports/mobile_v4_m8_odia_acceptance.json",
+    "reports/mobile_v4_m8_network_efficiency.json",
+    "reports/mobile_v4_m8_failure_drill.json",
+    "reports/mobile_v4_m8_cross_platform_parity.json",
+    "reports/mobile_v4_m8_ponytail_review.json",
+    "reports/mobile_v4_m8_acceptance.json"
+  ],
+  "next_wave": "M9"
+}

@@ -12,3 +12,37 @@
 "root_plan_desc" = "Deterministic itinerary solver and transit schedule planner.";
 "root_trips_desc" = "Active journey tracking, offline itinerary packs, and saved trips.";
 "root_you_desc" = "Atlas preferences, offline storage management, and cultural provenance.";
+
+/* M8 Discover & Place Detail Strings */
+"search_places_hint" = "Search destinations, heritage, districts…";
+"filter_all_categories" = "All Categories";
+"filter_all_districts" = "All Districts";
+"discover_headline" = "Modern Odisha Cultural Atlas";
+"discover_subhead" = "Verified destinations, living heritage, and sacred landscapes";
+"state_loading" = "Discovering Odisha Cultural Atlas…";
+"state_empty_title" = "No Destinations Found";
+"state_empty_desc" = "No verified places match your search or filter selection.";
+"state_error_title" = "Atlas Data Unavailable";
+"state_error_desc" = "Unable to retrieve verified places from the atlas server.";
+"action_retry" = "Retry";
+"action_clear_filters" = "Clear Filters";
+"badge_verified" = "Verified Place";
+"badge_official" = "Official Source";
+"badge_pending" = "Verification Pending";
+"section_about" = "Cultural Heritage & Significance";
+"section_practical" = "Practical Traveler Information";
+"section_weather" = "Live Local Weather";
+"section_gallery" = "Verified Photography";
+"section_provenance" = "Catalog & Data Provenance";
+"label_address" = "Address / Location";
+"label_coordinates" = "Coordinates";
+"label_visit_duration" = "Average Visit Time";
+"label_price_tier" = "Price Tier";
+"label_contact" = "Contact Phone";
+"label_emergency" = "Emergency Phone";
+"label_source" = "Source Provenance";
+"label_verified_at" = "Verified On";
+"weather_unavailable" = "Weather readings currently unavailable for this location.";
+"gallery_single_photo" = "1 Verified Photo";
+"gallery_multiple_photos" = "%lld Verified Photos";
+"action_back" = "Back";

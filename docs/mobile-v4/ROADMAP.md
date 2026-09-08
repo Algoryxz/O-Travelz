@@ -22,8 +22,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M5** | Fresh production Android and iOS project bootstrap | `[COMPLETED]` |
 | **M6** | API contracts, DTO generation, and native networking clients | `[COMPLETED]` |
 | **M7** | App shells, root navigation, and adaptive chrome | `[COMPLETED]` |
-| **M8** | Home / Editorial Cultural Atlas landing screen | `[NEXT]` |
-| **M9** | Discover feed, spatial filtering, and full-text search | `[PLANNED]` |
+| **M8** | Editorial Cultural Atlas: Discover + Place Detail Production Vertical Slice | `[COMPLETED]` |
+| **M9** | Discover feed, spatial filtering, and full-text search | `[NEXT]` |
 | **M10** | Place Detail editorial sheets, verified photography, and live weather cards | `[PLANNED]` |
 | **M11** | Native mapping canvases (Google Maps Compose & Apple MapKit) | `[PLANNED]` |
 | **M12** | 154-Route transit directory, stop details, and timetable evaluation | `[PLANNED]` |

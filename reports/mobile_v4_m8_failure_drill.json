@@ -1,0 +1,33 @@
+{
+  "wave": "M8",
+  "topic": "FAILURE_DRILL",
+  "generated_at": "2026-09-08T09:28:00+05:30",
+  "scenarios": {
+    "catalog_network_failure": {
+      "behavior": "UI displays state_error_title + friendly error description + action_retry button",
+      "user_recovery": "Tapping retry re-executes loadPlaces()",
+      "status": "PASS"
+    },
+    "place_detail_network_failure": {
+      "behavior": "PlaceDetailScreen/PlaceDetailView displays error layout with retry button without crashing",
+      "user_recovery": "Tapping retry re-executes loadDetail()",
+      "status": "PASS"
+    },
+    "weather_network_failure": {
+      "behavior": "Detail screen seamlessly renders calm weather_unavailable status card; place details remain fully accessible",
+      "user_recovery": "Non-blocking graceful degradation",
+      "status": "PASS"
+    },
+    "empty_search_results": {
+      "behavior": "Displays calm state_empty_title + state_empty_desc + action_clear_filters button",
+      "user_recovery": "Tapping clear resets search query and category filter to restore full catalog",
+      "status": "PASS"
+    },
+    "missing_image_variant": {
+      "behavior": "Fallback cultural sandstone banner renders with authentic Odia title and verification pending badge",
+      "user_recovery": "Zero visual broken image icon or app crash",
+      "status": "PASS"
+    }
+  },
+  "verdict": "PASS"
+}

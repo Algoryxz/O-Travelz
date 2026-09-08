@@ -1,0 +1,72 @@
+{
+  "wave": "M8",
+  "topic": "DISCOVER_STATE_ACCEPTANCE",
+  "generated_at": "2026-09-08T09:28:00+05:30",
+  "platforms": {
+    "android": {
+      "framework": "Jetpack Compose",
+      "root_screen": "com.otravelz.android.ui.roots.DiscoverRoot",
+      "states": {
+        "loading": {
+          "status": "VERIFIED",
+          "indicator": "CircularProgressIndicator",
+          "message_res": "R.string.state_loading"
+        },
+        "success": {
+          "status": "VERIFIED",
+          "component": "LazyVerticalGrid",
+          "item_card": "PlaceCard",
+          "adaptive_columns": "GridCells.Adaptive(minSize = 320.dp)"
+        },
+        "empty": {
+          "status": "VERIFIED",
+          "title_res": "R.string.state_empty_title",
+          "desc_res": "R.string.state_empty_desc",
+          "action_clear_res": "R.string.action_clear_filters"
+        },
+        "error": {
+          "status": "VERIFIED",
+          "title_res": "R.string.state_error_title",
+          "action_retry_res": "R.string.action_retry"
+        }
+      },
+      "filters": {
+        "categories": "Dynamic sorted distinct leisure categories via FilterChip",
+        "search": "Bilingual real-time filter across name, canonical Odia script, and district"
+      }
+    },
+    "ios": {
+      "framework": "SwiftUI",
+      "root_screen": "DiscoverRootView",
+      "states": {
+        "loading": {
+          "status": "VERIFIED",
+          "indicator": "ProgressView",
+          "message_key": "state_loading"
+        },
+        "success": {
+          "status": "VERIFIED",
+          "component": "LazyVGrid",
+          "item_card": "PlaceCardView",
+          "adaptive_columns": "GridItem.adaptive(minimum: 300, maximum: 500)"
+        },
+        "empty": {
+          "status": "VERIFIED",
+          "title_key": "state_empty_title",
+          "desc_key": "state_empty_desc",
+          "action_clear_key": "action_clear_filters"
+        },
+        "error": {
+          "status": "VERIFIED",
+          "title_key": "state_error_title",
+          "action_retry_key": "action_retry"
+        }
+      },
+      "filters": {
+        "categories": "Horizontal ScrollView capsule buttons with All Categories filter",
+        "search": "SwiftUI .searchable with prompt search_places_hint"
+      }
+    }
+  },
+  "verdict": "VERIFIED"
+}

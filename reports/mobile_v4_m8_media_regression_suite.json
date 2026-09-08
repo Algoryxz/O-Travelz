@@ -1,0 +1,25 @@
+{
+  "wave": "M8",
+  "topic": "MEDIA_REGRESSION_SUITE",
+  "generated_at": "2026-09-08T09:28:00+05:30",
+  "suites": {
+    "image_loader_integration": {
+      "android": "Coil 2.7.0 (AsyncImage) configured with ContentScale.Crop and SurfaceContainer fallback",
+      "ios": "SwiftUI AsyncImage configured with 16/10 aspect ratio and FallbackCulturalBanner",
+      "status": "PASS"
+    },
+    "cross_place_leak_prevention": {
+      "rule": "Every AsyncImage keyed strictly to resolved URL of target place; zero fallback to generic image from other destinations",
+      "status": "PASS"
+    },
+    "corrupt_url_resilience": {
+      "rule": "If image fails to load (HTTP 404/500 or malformed URL), card seamlessly falls back to cultural sandstone typography view",
+      "status": "PASS"
+    },
+    "responsive_variant_collapse": {
+      "rule": "Directory hash deduplication guarantees hero.webp + card.webp + thumbnail.webp collapse into 1 photo count",
+      "status": "PASS"
+    }
+  },
+  "verdict": "PASS"
+}

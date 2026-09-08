@@ -1,0 +1,35 @@
+{
+  "wave": "M8",
+  "topic": "MEDIA_IDENTITY_ACCEPTANCE",
+  "generated_at": "2026-09-08T09:28:00+05:30",
+  "source_photo_deduplication": {
+    "status": "VERIFIED",
+    "rule": "Multiple responsive image variants (hero.webp, card.webp, thumbnail.webp) sharing identical source photo directory hash collapse into exactly 1 domain photo asset.",
+    "hash_extractor_pattern": "Extract parent directory hash of image URL (e.g. /static/images/places/place_bbsr_001/06a456469886/hero.webp -> 06a456469886)",
+    "android_implementation": "com.otravelz.android.domain.model.PlaceModelsKt.toDomainPhotos",
+    "ios_implementation": "PlaceDomainMapper.toDomainPhotos",
+    "cross_platform_tests": [
+      "DiscoverPlaceModelTest.testPhotoDeduplicationResponsiveVariants",
+      "DiscoverDomainTests.testPhotoDeduplicationCollapsesResponsiveVariants"
+    ]
+  },
+  "verified_image_gate": {
+    "status": "VERIFIED",
+    "rule": "NO VERIFIED IMAGE = NO PUBLIC STOCK PHOTO. Places pending photo verification display neutral cultural sandstone typography cards.",
+    "verified_places_count": 70,
+    "pending_verification_places_count": 109,
+    "unverified_presentation": {
+      "android": "Box with Sandstone/surfaceContainerHigh background + category + Odia script + place name",
+      "ios": "FallbackCulturalBanner with ColorTokens.sandstoneLight + Odia typography + badge_pending"
+    }
+  },
+  "photo_count_indicator": {
+    "status": "VERIFIED",
+    "behavior": "When place has verified photos, badge displays singular ('1 Verified Photo') or plural ('N Verified Photos') accurately reflecting deduplicated source photos count, never raw variant URL count."
+  },
+  "attribution_provenance": {
+    "status": "VERIFIED",
+    "fields_displayed": ["sourceName", "attribution", "license"]
+  },
+  "verdict": "VERIFIED"
+}

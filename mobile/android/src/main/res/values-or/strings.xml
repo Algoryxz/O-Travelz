@@ -14,4 +14,38 @@
     <string name="root_plan_desc">ନିର୍ଦ୍ଧାରିତ ଯାତ୍ରା କାର୍ଯ୍ୟସୂଚୀ ଏବଂ ଗମନାଗମନ ଯୋଜନାକାରୀ।</string>
     <string name="root_trips_desc">ସକ୍ରିୟ ଯାତ୍ରା ଟ୍ରାକିଂ ଏବଂ ସଂରକ୍ଷିତ ଯାତ୍ରା ସୂଚୀ।</string>
     <string name="root_you_desc">ଆଟଲାସ୍ ପସନ୍ଦ, ଅଫଲାଇନ୍ ଷ୍ଟୋରେଜ୍ ଏବଂ ସାଂସ୍କୃତିକ ସୂଚନା।</string>
+
+    <!-- M8 Discover & Place Detail Strings (Odia) -->
+    <string name="search_places_hint">ସ୍ଥାନ, ଐତିହ୍ୟ, ଜିଲ୍ଲା ଖୋଜନ୍ତୁ…</string>
+    <string name="filter_all_categories">ସମସ୍ତ ବର୍ଗ</string>
+    <string name="filter_all_districts">ସମସ୍ତ ଜିଲ୍ଲା</string>
+    <string name="discover_headline">ଆଧୁନିକ ଓଡ଼ିଶା ସାଂସ୍କୃତିକ ଆଟଲାସ୍</string>
+    <string name="discover_subhead">ପ୍ରମାଣିତ ସ୍ଥାନ, ଜୀବନ୍ତ ଐତିହ୍ୟ ଏବଂ ପବିତ୍ର ଭୂମି</string>
+    <string name="state_loading">ଓଡ଼ିଶା ସାଂସ୍କୃତିକ ଆଟଲାସ୍ ଖୋଜା ଚାଲିଛି…</string>
+    <string name="state_empty_title">କୌଣସି ସ୍ଥାନ ମିଳିଲା ନାହିଁ</string>
+    <string name="state_empty_desc">ଆପଣଙ୍କ ସନ୍ଧାନ ସହିତ କୌଣସି ପ୍ରମାଣିତ ସ୍ଥାନ ମେଳ ଖାଉନାହିଁ।</string>
+    <string name="state_error_title">ଆଟଲାସ୍ ତଥ୍ୟ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="state_error_desc">ସର୍ଭରରୁ ତଥ୍ୟ ଆଣିବାରେ ଅସମର୍ଥ।</string>
+    <string name="action_retry">ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ</string>
+    <string name="action_clear_filters">ଫିଲ୍ଟର୍ ହଟାନ୍ତୁ</string>
+    <string name="badge_verified">ପ୍ରମାଣିତ ସ୍ଥାନ</string>
+    <string name="badge_official">ସରକାରୀ ଉତ୍ସ</string>
+    <string name="badge_pending">ପ୍ରମାଣୀକରଣ ବାକି ଅଛି</string>
+    <string name="section_about">ସାଂସ୍କୃତିକ ଐତିହ୍ୟ ଏବଂ ମହତ୍ତ୍ୱ</string>
+    <string name="section_practical">ଯାତ୍ରୀ ସୂଚନା</string>
+    <string name="section_weather">ପାଣିପାଗ ସୂଚନା</string>
+    <string name="section_gallery">ପ୍ରମାଣିତ ଫଟୋ</string>
+    <string name="section_provenance">ତଥ୍ୟ ଉତ୍ସ</string>
+    <string name="label_address">ଠିକଣା / ସ୍ଥାନ</string>
+    <string name="label_coordinates">ଭୌଗୋଳିକ ସ୍ଥିତି</string>
+    <string name="label_visit_duration">ହାରାହାରି ସମୟ</string>
+    <string name="label_price_tier">ମୂଲ୍ୟ ବର୍ଗ</string>
+    <string name="label_contact">ଫୋନ୍ ନମ୍ବର</string>
+    <string name="label_emergency">ଜରୁରୀକାଳୀନ ଫୋନ୍</string>
+    <string name="label_source">ଉତ୍ସ ପ୍ରମାଣିକତା</string>
+    <string name="label_verified_at">ପ୍ରମାଣିତ ତାରିଖ</string>
+    <string name="weather_unavailable">ପାଣିପାଗ ତଥ୍ୟ ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ନାହିଁ।</string>
+    <string name="gallery_single_photo">୧ଟି ପ୍ରମାଣିତ ଫଟୋ</string>
+    <string name="gallery_multiple_photos">%1$dଟି ପ୍ରମାଣିତ ଫଟୋ</string>
+    <string name="action_back">ପଛକୁ ଯାଆନ୍ତୁ</string>
 </resources>

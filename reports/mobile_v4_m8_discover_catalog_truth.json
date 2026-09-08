@@ -1,0 +1,24 @@
+{
+  "wave": "M8",
+  "timestamp": "2026-09-08T09:18:30+05:30",
+  "counts_investigation": {
+    "database_total_places": 204,
+    "places_json_count": 161,
+    "non_leisure_in_db": {
+      "hospital": 13,
+      "transit_hub": 12,
+      "total": 25
+    },
+    "backend_search_service_default_response_count": 179
+  },
+  "eligibility_rules": {
+    "rule_1_leisure_tourism": "Place must be a cultural, leisure, or tourism destination. Non-leisure categories (hospital, emergency_facility, transit_hub) are isolated out by SearchService domain separation unless explicitly queried.",
+    "rule_2_publication_status": "Place must have verified status or coordinates within Odisha bounding box.",
+    "rule_3_not_transit_stop": "Raw transit bus stops and Mo Bus route waypoints are transit graph entities, not Discover places.",
+    "rule_4_verified_media_handling": "70 of the 179 default leisure places currently possess verified authentic photography in place_images. The remaining 109 are legitimate cultural destinations undergoing active photographic verification. In Discover, destinations display verified authentic imagery where available, and clean, dignified cultural typography cards where photographic verification is pending. No fake stock images, placeholders, or cross-destination imagery is ever shown."
+  },
+  "mobile_discover_eligible_count": 179,
+  "mobile_discover_with_verified_image_count": 70,
+  "mobile_discover_pending_image_count": 109,
+  "verdict": "DISCOVER_CATALOG_TRUTH_RESOLVED"
+}

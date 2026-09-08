@@ -61,6 +61,9 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
 
+    // Image Loading (Wave M8)
+    implementation(libs.coil.compose)
+
     // Networking (Wave M6)
     implementation(libs.retrofit)
     implementation(libs.okhttp)

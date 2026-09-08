@@ -1,0 +1,26 @@
+{
+  "wave": "M8",
+  "topic": "ODIA_ACCEPTANCE",
+  "generated_at": "2026-09-08T09:28:00+05:30",
+  "resource_parity": {
+    "android": {
+      "file": "mobile/android/src/main/res/values-or/strings.xml",
+      "status": "VERIFIED",
+      "keys_count": 35
+    },
+    "ios": {
+      "file": "mobile/ios/OTravelz/Resources/or.lproj/Localizable.strings",
+      "status": "VERIFIED",
+      "keys_count": 35
+    }
+  },
+  "cultural_atlas_typography": {
+    "rule": "Canonical Odia script names from localized_names.or are rendered prominently as cultural titles alongside English names.",
+    "status": "VERIFIED"
+  },
+  "bilingual_search": {
+    "rule": "Travelers can search using Odia Unicode keyboard or English romanization.",
+    "status": "VERIFIED"
+  },
+  "verdict": "VERIFIED"
+}

@@ -1,0 +1,76 @@
+{
+  "wave": "M8",
+  "snapshot_type": "BEFORE",
+  "timestamp": "2026-09-08T09:18:00+05:30",
+  "branch": "feature/v4-platform-rebuild",
+  "head_sha": "1af8dc17992fb9d94e20a1bcaa916cd232eec410",
+  "worktree_clean": true,
+  "m7_shell_state": {
+    "android": "Adaptive NavigationBar (<600dp) / NavigationRail (>=600dp) with Discover, Map, Plan, Trips, You roots",
+    "ios": "Adaptive TabView (compact) / NavigationSplitView (regular) with 5 independent NavigationStacks"
+  },
+  "m6_api_state": {
+    "openapi_snapshot_hash": "verified_synced",
+    "endpoints_monitored": 11,
+    "android_networking": "Retrofit 2.11.0 + OkHttp 4.12.0 + Kotlinx Serialization",
+    "ios_networking": "URLSession + Swift 6 Codable"
+  },
+  "current_discover_placeholder": "Bootstrap structural placeholder showing static title and subtitle",
+  "current_place_dto_contract": {
+    "place_fields": [
+      "id",
+      "research_id",
+      "name",
+      "category",
+      "description",
+      "lat",
+      "lon",
+      "district",
+      "region",
+      "avg_visit_minutes",
+      "price_tier",
+      "rating",
+      "rating_count",
+      "interests",
+      "source",
+      "source_url",
+      "verification_status",
+      "contact_phone",
+      "emergency_phone",
+      "address",
+      "images",
+      "localized_names",
+      "confidence"
+    ],
+    "image_fields": [
+      "url",
+      "thumbnail_url",
+      "card_url",
+      "alt_text",
+      "title",
+      "source_name",
+      "license",
+      "attribution",
+      "status",
+      "is_primary"
+    ]
+  },
+  "current_weather_api_fields": [
+    "temperature_c",
+    "condition",
+    "humidity_percent",
+    "wind_speed_kmh",
+    "observation_time",
+    "source",
+    "is_live"
+  ],
+  "canonical_place_counts": {
+    "postgres_total_places": 204,
+    "places_json_records": 161,
+    "excluded_non_leisure_hospitals": 13,
+    "excluded_non_leisure_transit_hubs": 12,
+    "search_service_default_candidates": 179,
+    "candidates_with_verified_images": 70,
+    "candidates_without_verified_images": 109
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "wave": "M8",
+  "topic": "CROSS_PLATFORM_PARITY",
+  "generated_at": "2026-09-08T09:28:00+05:30",
+  "parity_matrix": {
+    "api_contracts": {
+      "android": "Retrofit PlacesApiService + Kotlinx Serialization DTOs",
+      "ios": "URLSession APIClient + Swift Codable DTOs",
+      "parity": "FULL_MATCH"
+    },
+    "domain_models": {
+      "android": "DiscoverPlace, PlaceDetail, PlacePhoto",
+      "ios": "DiscoverPlace, PlaceDetail, PlacePhoto",
+      "parity": "FULL_MATCH"
+    },
+    "media_deduplication": {
+      "android": "Directory hash deduplication in PlaceModels.kt",
+      "ios": "Directory hash deduplication in PlaceDomainModels.swift",
+      "parity": "FULL_MATCH"
+    },
+    "non_leisure_filtering": {
+      "android": "EXCLUDED_NON_LEISURE_CATEGORIES filter in DiscoverPlace",
+      "ios": "isLeisureEligible filter in PlaceDomainMapper",
+      "parity": "FULL_MATCH"
+    },
+    "ui_styling": {
+      "android": "Material 3 Expressive Editorial (SurfaceContainer, Terracotta, Chilika)",
+      "ios": "Apple HIG Editorial Atlas (Sandstone, Terracotta, Chilika, Serif Typography)",
+      "parity": "NATIVELY_AUTHENTIC"
+    },
+    "bilingual_localization": {
+      "android": "values/strings.xml & values-or/strings.xml",
+      "ios": "en.lproj/Localizable.strings & or.lproj/Localizable.strings",
+      "parity": "FULL_MATCH"
+    }
+  },
+  "verdict": "VERIFIED"
+}

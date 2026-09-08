@@ -10,18 +10,18 @@ struct TripsRootView: View {
                     .ignoresSafeArea()
 
                 VStack(spacing: SpacingTokens.space4) {
-                    Text(Active Trips & Offline Atlas Packs)
+                    Text("Active Trips & Offline Atlas Packs")
                         .font(TypographyTokens.titleMedium)
                         .foregroundStyle(ColorTokens.terracotta)
                         .multilineTextAlignment(.center)
 
-                    Text(LocalizedStringKey(root_trips_desc))
+                    Text(LocalizedStringKey("root_trips_desc"))
                         .font(TypographyTokens.bodyMedium)
                         .foregroundStyle(ColorTokens.textSecondary)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, SpacingTokens.space6)
 
-                    Text(LocalizedStringKey(bootstrap_status))
+                    Text(LocalizedStringKey("bootstrap_status"))
                         .font(TypographyTokens.caption)
                         .foregroundStyle(ColorTokens.textSecondary.opacity(0.7))
                         .multilineTextAlignment(.center)

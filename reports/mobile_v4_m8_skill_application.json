@@ -1,0 +1,42 @@
+{
+  "wave": "M8",
+  "timestamp": "2026-09-08T09:19:00+05:30",
+  "skills_applied": [
+    {
+      "skill": "android-adaptive",
+      "role": "Drives single-column vertical feed in compact width, reflowing to 2-column editorial cards in medium/expanded width."
+    },
+    {
+      "skill": "android-edge-to-edge",
+      "role": "Ensures discover list and place detail screens consume Scaffold insets cleanly behind transparent system bars."
+    },
+    {
+      "skill": "android-styles",
+      "role": "Ensures Material 3 Expressive tokens (Deep Basalt / Sunlit Sandstone, Kalinga Terracotta) are consistently applied."
+    },
+    {
+      "skill": "swiftui-navigation",
+      "role": "Manages NavigationStack hierarchy for Discover -> Place Detail push navigation and deep-linking by ID."
+    },
+    {
+      "skill": "swiftui-layout-components",
+      "role": "Guides SwiftUI LazyVStack/LazyVGrid, ScrollView, and LabeledContent components."
+    },
+    {
+      "skill": "ios-accessibility",
+      "role": "Ensures Dynamic Type, 44pt touch targets, VoiceOver accessibility elements, and heading traits."
+    },
+    {
+      "skill": "swift-codable",
+      "role": "Validates Codable parsing and error handling for PlaceDTO and WeatherDTO."
+    },
+    {
+      "skill": "ponytail",
+      "role": "Enforces minimal vertical slice: zero room/swiftdata, zero fake save, zero map sdk, zero fake ratings/hours."
+    },
+    {
+      "skill": "graphify",
+      "role": "Maintains codebase AST and relationship knowledge graph."
+    }
+  ]
+}
