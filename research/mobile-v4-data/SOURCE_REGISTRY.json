@@ -49,6 +49,107 @@
     ],
     "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
-    "antigravity_verdict": "VALIDATED_PRIMARY"
+    "antigravity_verdict": "VALIDATED_SOURCE"
+  },
+  {
+    "source_id": "SRC_ASI_OFFICIAL_TIMINGS",
+    "domain": "Heritage & Monuments",
+    "title": "Archaeological Survey of India Official Monument Portal",
+    "organization": "Archaeological Survey of India (ASI), Ministry of Culture, Government of India",
+    "url": "https://asi.nic.in",
+    "quality_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "format": "HTML",
+    "license": "Government of India Copyright",
+    "attribution_required": true,
+    "auth_required": false,
+    "rate_limit": "Public Web",
+    "runtime_allowed": true,
+    "ingestion_allowed": true,
+    "cache_allowed": true,
+    "freshness_class": "SLOW_CHANGING",
+    "last_checked": "2026-09-08",
+    "coverage": "Centrally Protected Monuments in Odisha (Konark, Mukteswar, Rajarani, Khandagiri-Udayagiri)",
+    "sample_verified": true,
+    "limitations": [
+      "Monument grounds open sunrise to sunset; on-site ASI museums operate on separate hours (e.g. Konark Museum closed Fridays)."
+    ],
+    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "cross_checked_by": "ANTIGRAVITY_LEAD",
+    "antigravity_verdict": "VALIDATED_SOURCE"
+  },
+  {
+    "source_id": "SRC_SJTA_PURI_JAGANNATH_OFFICIAL",
+    "domain": "Heritage & Religious Administration",
+    "title": "Shree Jagannatha Temple Administration (SJTA) Official Portal",
+    "organization": "Shree Jagannatha Temple Managing Committee, Law Department, Govt of Odisha",
+    "url": "https://www.shreejagannatha.in",
+    "quality_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "format": "HTML",
+    "license": "Government of Odisha Copyright",
+    "attribution_required": true,
+    "auth_required": false,
+    "rate_limit": "Public Web",
+    "runtime_allowed": true,
+    "ingestion_allowed": true,
+    "cache_allowed": true,
+    "freshness_class": "SLOW_CHANGING",
+    "last_checked": "2026-09-08",
+    "coverage": "Puri Jagannath Temple, Gundicha Temple, daily ritual calendar",
+    "sample_verified": true,
+    "limitations": [
+      "Public darshan typically 05:00 to 23:30 but subject to variable daily niti (ritual) pauses and annual festive reconfigurations."
+    ],
+    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "cross_checked_by": "ANTIGRAVITY_LEAD",
+    "antigravity_verdict": "VALIDATED_SOURCE"
+  },
+  {
+    "source_id": "SRC_BHUBANESWARONE_TRANSIT_GIS",
+    "domain": "Transit GIS",
+    "title": "BhubaneswarOne UpdatedBusStops GIS Layer",
+    "organization": "Bhubaneswar Smart City Limited (BSCL) / BDA / CRUT",
+    "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusStops/FeatureServer/3",
+    "quality_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "format": "ArcGIS FeatureServer / GeoJSON",
+    "license": "Government Portal Disclaimer / Open Informational Service",
+    "attribution_required": true,
+    "auth_required": false,
+    "rate_limit": "Public ArcGIS REST API",
+    "runtime_allowed": false,
+    "ingestion_allowed": true,
+    "cache_allowed": true,
+    "freshness_class": "SLOW_CHANGING",
+    "last_checked": "2026-09-08",
+    "coverage": "Bhubaneswar Urban Area (394 Bus Stops with exact WGS84 coordinates, BQS shelters, PIS indicators)",
+    "sample_verified": true,
+    "limitations": [
+      "Covers Bhubaneswar capital city corridor; does not cover Western or Southern Odisha rural feeder stops.",
+      "BSCL disclaims legal liability for coordinate precision; cross-referencing with CRUT operational schedule is mandatory."
+    ],
+    "discovered_by": "GEMINI_BROWSER_RESEARCHER",
+    "cross_checked_by": "CLAUDE_BROWSER_RESEARCHER",
+    "antigravity_verdict": "VALIDATED_SOURCE"
+  },
+  {
+    "source_id": "SRC_BHUBANESWARONE_SMART_ELEMENTS_PIS",
+    "domain": "Transit GIS & IoT",
+    "title": "BhubaneswarOne SmartElements Bus PIS MapServer",
+    "organization": "Bhubaneswar Smart City Limited (BSCL)",
+    "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/SmartElements/MapServer/11",
+    "quality_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "format": "ArcGIS MapServer / GeoJSON",
+    "license": "Government Open Data / Public Municipal GIS Portal",
+    "access_method": "HTTP GET REST queries",
+    "freshness_class": "CURRENT",
+    "last_checked": "2026-09-08",
+    "coverage": "Smart City IoT Passenger Information System (PIS) bus stops in Bhubaneswar",
+    "sample_verified": true,
+    "limitations": [
+      "Restricted to physical shelters equipped with digital PIS displays; not all stops have PIS."
+    ],
+    "discovered_by": "GEMINI_BROWSER_RESEARCHER",
+    "cross_checked_by": "ANTIGRAVITY_LEAD",
+    "antigravity_verdict": "VALIDATED_SOURCE"
   }
 ]
+

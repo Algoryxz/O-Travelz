@@ -12,10 +12,10 @@
       "repo_truth": "Ama Bus candidate stop entities exist in data/staging/ with 47 missing or coarse coordinates; canonical transit stops remain authoritative.",
       "product_impact": "Mobile V4 MapRootView requires valid coordinates to draw stop markers and calculate first-mile walking distance bands.",
       "assigned_agent": "GEMINI_BROWSER_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "PARTIAL",
       "preferred_source_type": "CRUT official GTFS/GIS, Odisha Spatial Data Infrastructure (OSDI), Mo Bus / Ama Bus portal",
       "last_checked": "2026-09-08",
-      "notes": "Target: machine-readable stop coordinates for Ama Bus feeder network."
+      "notes": "BhubaneswarOne UpdatedBusStops FeatureServer (Layer 3) provides 394 official stops with WGS84 coords for Bhubaneswar/BDA/Khurda Road. Outer district stops (Puri, Cuttack, Rourkela, Sambalpur, Keonjhar) remain in queue for state-level ORSAC discovery."
     },
     {
       "gap_id": "TRANSIT_ROUTE_GEOMETRY_GAPS",
@@ -24,7 +24,7 @@
       "repo_truth": "Current canonical routes have sequence lists; some route shapes lack dense polyline geometries.",
       "product_impact": "MapKit and Google Maps SDK require dense shape polylines to render crisp transit corridors on mobile screens.",
       "assigned_agent": "GEMINI_BROWSER_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "RESEARCHING",
       "preferred_source_type": "CRUT GIS shapefiles / GeoJSON / ArcGIS REST FeatureServer",
       "last_checked": "2026-09-08",
       "notes": "Must preserve route IDs exactly as defined in canonical routes.json."
@@ -36,10 +36,10 @@
       "repo_truth": "Baseline places.json has general time descriptions; lacks structured weekly opening/closure matrices.",
       "product_impact": "Mobile PlaceDetailView requires verified 'Open Now' calculation and closure warning banners.",
       "assigned_agent": "CLAUDE_BROWSER_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "PARTIAL",
       "preferred_source_type": "Odisha Tourism official portal, ASI circulars, District NIC official circulars",
       "last_checked": "2026-09-08",
-      "notes": "Must distinguish daily darshan hours from administrative office hours."
+      "notes": "Official opening hours documented for Golden Journey (Puri Jagannath, Konark Sun Temple, Lingaraj, Mukteswar, Rajarani, Khandagiri-Udayagiri) and Chilika. Remaining 90+ places in queue."
     },
     {
       "gap_id": "DESTINATION_ENTRY_FEES",
@@ -48,7 +48,7 @@
       "repo_truth": "Entry fees are currently null or placeholder text; anti-vibe-code rule forbids fabricating ticket costs.",
       "product_impact": "PlaceDetailView shows accurate pricing badges for Indian vs Foreign nationals and camera fees.",
       "assigned_agent": "CLAUDE_BROWSER_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "RESEARCHING",
       "preferred_source_type": "ASI ticket booking portal, Department of Tourism notifications, Odisha State Museum tariff",
       "last_checked": "2026-09-08",
       "notes": "Capture camera charges and free entry days where applicable."

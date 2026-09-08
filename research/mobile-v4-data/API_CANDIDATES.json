@@ -15,5 +15,57 @@
     "cache_restrictions": "Standard response caching allowed",
     "risk": "Endpoints hosted by third-party government departments may have erratic uptime",
     "confidence": 0.95
+  },
+  {
+    "candidate_id": "API_BHUBANESWARONE_UPDATED_BUS_STOPS",
+    "endpoint": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusStops/FeatureServer/3",
+    "provider": "Bhubaneswar Smart City Limited (BSCL) / CRUT",
+    "protocol": "HTTPS ArcGIS REST FeatureServer",
+    "auth": "None (Open Public)",
+    "example_query": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusStops/FeatureServer/3/query?where=1=1&outFields=*&outSR=4326&f=json",
+    "response_type": "ArcGIS FeatureSet / GeoJSON (394 point features)",
+    "geographic_coverage": "Bhubaneswar & Khordha Capital Transit Network",
+    "freshness": "SLOW_CHANGING",
+    "rate_limits": "Unrestricted public GET",
+    "runtime_suitability": false,
+    "ingestion_suitability": true,
+    "cache_restrictions": "Standard public caching allowed",
+    "risk": "Low (hosted on BSCL production ArcGIS Server 10.71)",
+    "confidence": 0.98
+  },
+  {
+    "candidate_id": "API_BHUBANESWARONE_CIVIC_SERVICES_DIRECTORY",
+    "endpoint": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/Category/FeatureServer",
+    "provider": "Bhubaneswar Smart City Limited (BSCL)",
+    "protocol": "HTTPS ArcGIS REST FeatureServer",
+    "auth": "None (Open Public)",
+    "example_query": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/Category/FeatureServer/37/query?where=1=1&outFields=*&outSR=4326&f=json",
+    "response_type": "ArcGIS FeatureSet / GeoJSON (Hospitals, Police, Clinics, Toilets, Fuel)",
+    "geographic_coverage": "Bhubaneswar Municipal Corporation (BMC) Area",
+    "freshness": "SLOW_CHANGING",
+    "rate_limits": "Unrestricted public GET",
+    "runtime_suitability": false,
+    "ingestion_suitability": true,
+    "cache_restrictions": "Standard public caching allowed",
+    "risk": "Low",
+    "confidence": 0.95
+  },
+  {
+    "candidate_id": "API_BHUBANESWARONE_SMART_ELEMENTS_PIS",
+    "endpoint": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/SmartElements/MapServer/11",
+    "provider": "Bhubaneswar Smart City Limited (BSCL)",
+    "protocol": "HTTPS ArcGIS REST MapServer",
+    "auth": "None (Open Public)",
+    "example_query": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/SmartElements/MapServer/11/query?where=1=1&outFields=*&outSR=4326&f=json",
+    "response_type": "ArcGIS FeatureSet / GeoJSON (PIS device locations)",
+    "geographic_coverage": "Bhubaneswar Urban Agglomeration",
+    "freshness": "CURRENT",
+    "rate_limits": "Unrestricted public GET",
+    "runtime_suitability": false,
+    "ingestion_suitability": true,
+    "cache_restrictions": "Standard public caching allowed",
+    "risk": "Low",
+    "confidence": 0.92
   }
 ]
+
