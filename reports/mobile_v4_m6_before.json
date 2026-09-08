@@ -1,0 +1,59 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_0_FORENSIC_BASELINE",
+  "timestamp": "2026-09-08T08:45:00+05:30",
+  "branch": "feature/v4-platform-rebuild",
+  "head_sha": "371d5d4bc9b71070f169d699b940101d1c5a0e99",
+  "worktree_clean": true,
+  "backend_public_url": "https://otravelz-backend.onrender.com",
+  "health_check": {
+    "status_code": 200,
+    "response": {
+      "status": "ok",
+      "version": "4.0.0",
+      "git_sha": "4affea9fba7ac49acbad6eacd0d017c68818385d",
+      "alembic_version": "0020_transit_ride_observations",
+      "database": "connected"
+    }
+  },
+  "ready_check": {
+    "status_code": 200,
+    "response": {
+      "status": "ready",
+      "database": "connected"
+    }
+  },
+  "openapi_audit": {
+    "status_code": 200,
+    "openapi_version": "3.1.0",
+    "api_title": "O-Travelz API",
+    "api_version": "0.1.0",
+    "route_count": 100
+  },
+  "android_module_state": {
+    "path": "mobile/android",
+    "package": "com.otravelz.android",
+    "agp": "8.6.0",
+    "compile_sdk": 35,
+    "min_sdk": 26,
+    "target_sdk": 35,
+    "compose_bom": "2024.09.02",
+    "build_status": "BUILD_SUCCESSFUL"
+  },
+  "ios_source_state": {
+    "path": "mobile/ios",
+    "bundle_id": "com.otravelz.ios",
+    "deployment_target": "iOS 17.0+",
+    "swift_version": "6.0",
+    "root_navigation": "RootTabView (5-tab shell)",
+    "source_status": "ACCEPTED_STATIC_SOURCE",
+    "runtime_build_status": "NOT_EXECUTABLE_ON_WINDOWS_HOST"
+  },
+  "shared_core_state": {
+    "path": "mobile/shared",
+    "type": "KMP deterministic domain only",
+    "all_tests": "35 passing tasks",
+    "networking_in_shared": false
+  },
+  "verdict": "FORENSIC_BASELINE_VERIFIED"
+}

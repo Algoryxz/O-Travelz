@@ -1,0 +1,68 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_1_OPENAPI_REALITY_AUDIT",
+  "timestamp": "2026-09-08T08:46:00+05:30",
+  "openapi_version": "3.1.0",
+  "api_title": "O-Travelz API",
+  "api_version": "0.1.0",
+  "route_count": 100,
+  "schema_count": 92,
+  "duplicate_mount_count": 36,
+  "duplicate_mounts_sample": [
+    {
+      "root": "/auth/google/start",
+      "api_prefix": "/api/auth/google/start"
+    },
+    {
+      "root": "/auth/google/callback",
+      "api_prefix": "/api/auth/google/callback"
+    },
+    {
+      "root": "/auth/session/exchange",
+      "api_prefix": "/api/auth/session/exchange"
+    },
+    {
+      "root": "/auth/me",
+      "api_prefix": "/api/auth/me"
+    },
+    {
+      "root": "/auth/logout",
+      "api_prefix": "/api/auth/logout"
+    },
+    {
+      "root": "/api/v1/trips/share",
+      "api_prefix": "/api/api/v1/trips/share"
+    },
+    {
+      "root": "/api/v1/trips/shared/{share_id}",
+      "api_prefix": "/api/api/v1/trips/shared/{share_id}"
+    },
+    {
+      "root": "/transport/hop",
+      "api_prefix": "/api/transport/hop"
+    },
+    {
+      "root": "/transport/providers",
+      "api_prefix": "/api/transport/providers"
+    },
+    {
+      "root": "/transport/providers/{provider_id}",
+      "api_prefix": "/api/transport/providers/{provider_id}"
+    }
+  ],
+  "duplicate_mount_policy": "FastAPI mounts dual routers (/route and /api/route) for backwards compatibility. Mobile clients use canonical un-prefixed or versioned prefix (/api/v1/) consistently.",
+  "audited_endpoints": {
+    "health": "/health",
+    "ready": "/ready",
+    "places_list": "/places",
+    "places_detail": "/places/{place_id}",
+    "weather_current": "/weather/current",
+    "itinerary_plan": "/itinerary/plan",
+    "ai_converse": "/ai/converse",
+    "transport_routes": "/api/transport/routes",
+    "transport_geometry": "/api/transport/routes/{route_id}/geometry",
+    "transport_stops_nearby": "/transport/stops/nearby",
+    "services_nearby": "/api/v1/services/nearby"
+  },
+  "verdict": "OPENAPI_REALITY_VERIFIED"
+}

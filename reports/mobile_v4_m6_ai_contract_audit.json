@@ -1,0 +1,25 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_25_AI_CONTRACT_AUDIT",
+  "timestamp": "2026-09-08T08:48:00+05:30",
+  "endpoint": "POST /ai/converse",
+  "request_schema": {
+    "messages": "List of ChatMessage objects (role: 'user'|'assistant'|'system', content: string)",
+    "constraints": "PlanningConstraints (optional, null by default)",
+    "context": "AppContextPayload (optional, null by default)"
+  },
+  "response_schema": {
+    "message": "Assistant conversational response string",
+    "status": "Response status string ('ok')",
+    "language": "Detected language ('en', 'or')",
+    "intent": "Parsed user intent ('explore', 'plan', etc.)",
+    "constraints": "Extracted planning constraints",
+    "itinerary": "Generated deterministic itinerary if requested",
+    "places": "Referenced places list",
+    "transport": "Referenced transport connections",
+    "is_grounded": "Boolean indicating tool-grounded verification"
+  },
+  "cloud_vendor_leakage": false,
+  "chat_transcript_persistence_in_m6": false,
+  "verdict": "AI_CONTRACT_VERIFIED"
+}

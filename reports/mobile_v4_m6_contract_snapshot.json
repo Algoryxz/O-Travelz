@@ -1,0 +1,12 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_5_CANONICAL_CONTRACT_SNAPSHOT",
+  "timestamp": "2026-09-08T08:47:00+05:30",
+  "snapshot_path": "mobile/contracts/openapi-mobile.json",
+  "generator_script": "scripts/export_mobile_openapi.py",
+  "deterministic_ordering": true,
+  "size_bytes": 324371,
+  "source_app": "backend/app/main.py",
+  "check_mode_supported": true,
+  "verdict": "CANONICAL_CONTRACT_SNAPSHOT_COMMITTED"
+}

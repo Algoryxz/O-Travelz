@@ -1,0 +1,33 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_13_ANDROID_NETWORK_TESTING",
+  "timestamp": "2026-09-08T08:53:00+05:30",
+  "test_suites": [
+    "com.otravelz.android.network.DtoDecodingTest",
+    "com.otravelz.android.network.ApiClientMockWebServerTest",
+    "com.otravelz.android.NavigationTest",
+    "com.otravelz.android.SharedCoreIntegrationTest",
+    "com.otravelz.android.ThemeTest"
+  ],
+  "unit_tests_count": 17,
+  "unit_tests_passed": 17,
+  "unit_tests_failed": 0,
+  "unit_tests_skipped": 0,
+  "tested_scenarios": [
+    "HealthResponseDto parsing with real backend attributes",
+    "Places list parsing with nested image objects",
+    "Weather truth adapter: null temperature maps to WeatherState.Unavailable (never 0.0°C)",
+    "Weather truth adapter: valid temperature maps to WeatherState.Available",
+    "Transit truth adapter: candidate stops map to LocalityOnly (never exact coordinates)",
+    "Services nearby parsing and distance calculations",
+    "MockWebServer: HTTP 200 Success envelope mapping",
+    "MockWebServer: HTTP 404 Client error mapping",
+    "MockWebServer: HTTP 422 Validation error mapping",
+    "MockWebServer: HTTP 500 Server error mapping",
+    "MockWebServer: Malformed JSON decoding error mapping",
+    "MockWebServer: Socket timeout mapping"
+  ],
+  "lint_status": "BUILD_SUCCESSFUL (0 errors)",
+  "assemble_status": "BUILD_SUCCESSFUL",
+  "verdict": "ANDROID_NETWORK_TESTS_ACCEPTED"
+}

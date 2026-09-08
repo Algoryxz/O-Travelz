@@ -1,0 +1,41 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_15_IOS_NETWORK_STACK_DECISION",
+  "timestamp": "2026-09-08T08:48:00+05:30",
+  "options_evaluated": {
+    "native_urlsession_async_await_codable": {
+      "simplicity": "MAXIMAL",
+      "dependencies": "ZERO",
+      "swift_concurrency_native": "EXCELLENT",
+      "maintenance": "LOWEST",
+      "binary_size": "0 KB (Foundation built-in)",
+      "maturity": "APPLE_FIRST_PARTY",
+      "verdict": "SELECTED"
+    },
+    "alamofire": {
+      "simplicity": "MEDIUM",
+      "dependencies": "THIRD_PARTY_SPM",
+      "swift_concurrency_native": "GOOD",
+      "maintenance": "REQUIRES_EXTERNAL_UPDATES",
+      "binary_size": "+2.5 MB",
+      "maturity": "HIGH",
+      "verdict": "REJECTED_UNNECESSARY_DEPENDENCY"
+    }
+  },
+  "winning_stack": "Foundation URLSession (async/await) + Swift 6 Codable",
+  "structure": {
+    "root": "mobile/ios/OTravelz/Networking/",
+    "files": [
+      "APIConfiguration.swift",
+      "APIError.swift",
+      "APIClient.swift",
+      "DTO/CoreDTOs.swift",
+      "DTO/PlacesDTOs.swift",
+      "DTO/WeatherDTOs.swift",
+      "DTO/ItineraryDTOs.swift",
+      "DTO/AIDTOs.swift",
+      "DTO/TransitDTOs.swift",
+      "DTO/ServicesDTOs.swift"
+    ]
+  }
+}

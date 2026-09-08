@@ -1,0 +1,29 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_26_ITINERARY_CONTRACT_AUDIT",
+  "timestamp": "2026-09-08T08:48:00+05:30",
+  "endpoint": "POST /itinerary/plan",
+  "request_schema": {
+    "days": "integer (required, >= 1)",
+    "interests": "list of strings (optional, default empty)",
+    "dates": "list of dates (optional, null by default)",
+    "pace": "string (optional)",
+    "budget_transport_per_day": "float (optional, >= 0)",
+    "start": "string (optional)",
+    "mobility": "string (optional)",
+    "avoid_crowds": "bool (optional)",
+    "low_walking": "bool (optional)",
+    "vegetarian": "bool (optional)",
+    "budget_conscious": "bool (optional)",
+    "public_transport_preferred": "bool (optional)",
+    "travel_party": "string (optional)"
+  },
+  "response_schema": {
+    "itinerary_id": "string UUID",
+    "constraints": "PlanningConstraints echo",
+    "days": "list of ItineraryDayContract (day_number, stops, hops)",
+    "explanation": "string describing itinerary logic"
+  },
+  "forbid_extra_fields": true,
+  "verdict": "ITINERARY_CONTRACT_VERIFIED"
+}

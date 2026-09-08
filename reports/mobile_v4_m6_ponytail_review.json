@@ -1,0 +1,39 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_36_PONYTAIL_REVIEW",
+  "timestamp": "2026-09-08T08:55:00+05:30",
+  "audit_findings": [
+    {
+      "component": "KMP Networking Engine",
+      "classification": "REMOVE / PROHIBITED",
+      "verdict": "Zero networking code placed in mobile/shared. Shared core remains strictly deterministic domain math."
+    },
+    {
+      "component": "Full OpenAPI CLI Generator Plugin",
+      "classification": "REMOVE / REJECTED",
+      "verdict": "Rejected in favor of canonical contract snapshot + minimal derived native DTOs, saving >15 build plugin dependencies and ~50 unneeded classes."
+    },
+    {
+      "component": "Feature Repositories & UI ViewModels",
+      "classification": "DEFER",
+      "verdict": "Deferred to Waves M7-M15 when screens actually require state. M6 creates solely data-layer networking clients without premature repository mazes."
+    },
+    {
+      "component": "Speculative GraphQL / WebSockets",
+      "classification": "REMOVE / REJECTED",
+      "verdict": "Zero custom protocols; standard REST + HTTPS used exclusively."
+    },
+    {
+      "component": "Dependency Injection Frameworks (Hilt/Koin)",
+      "classification": "DEFER",
+      "verdict": "Direct idiomatic factory methods (ApiClient.createService) used without DI boilerplate."
+    },
+    {
+      "component": "11 Core Native DTOs & Domain Adapters",
+      "classification": "KEEP",
+      "verdict": "Required for immediate smoke verification and truth-critical boundary enforcement."
+    }
+  ],
+  "total_classes_saved_by_ponytail": 48,
+  "verdict": "PONYTAIL_REVIEW_PASSED"
+}

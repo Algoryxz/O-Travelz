@@ -1,0 +1,48 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_9_ANDROID_NETWORK_STACK_DECISION",
+  "timestamp": "2026-09-08T08:48:00+05:30",
+  "options_evaluated": {
+    "retrofit2_okhttp_kotlinx_serialization": {
+      "simplicity": "HIGH",
+      "typed_endpoints": "EXCELLENT",
+      "coroutines": "NATIVE",
+      "openapi_compatibility": "EXCELLENT",
+      "maintenance": "LOW",
+      "binary_size": "MINIMAL (~1.8 MB)",
+      "maturity": "INDUSTRY_STANDARD",
+      "verdict": "SELECTED"
+    },
+    "plain_okhttp": {
+      "simplicity": "MEDIUM",
+      "typed_endpoints": "MANUAL_BOILERPLATE",
+      "coroutines": "REQUIRES_CUSTOM_BRIDGES",
+      "openapi_compatibility": "POOR",
+      "maintenance": "HIGH",
+      "binary_size": "MINIMAL",
+      "maturity": "HIGH",
+      "verdict": "REJECTED_EXCESSIVE_BOILERPLATE"
+    },
+    "ktor_client": {
+      "simplicity": "LOW",
+      "typed_endpoints": "MEDIUM",
+      "coroutines": "NATIVE",
+      "openapi_compatibility": "MEDIUM",
+      "maintenance": "MEDIUM",
+      "binary_size": "LARGE (multiple engine artifacts)",
+      "maturity": "MODERATE",
+      "verdict": "REJECTED_UNNECESSARY_COMPLEXITY_FOR_SINGLE_ANDROID_APP"
+    }
+  },
+  "winning_stack": "Retrofit 2.11.0 + OkHttp 4.12.0 + Kotlinx Serialization JSON 1.7.2",
+  "dependencies_to_add": [
+    "libs.retrofit",
+    "libs.okhttp",
+    "libs.okhttp.logging",
+    "libs.kotlinx.serialization.json",
+    "libs.retrofit.kotlinx.serialization"
+  ],
+  "test_dependencies_to_add": [
+    "com.squareup.okhttp3:mockwebserver:4.12.0"
+  ]
+}

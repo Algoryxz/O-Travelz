@@ -1,0 +1,42 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_33_TIMEOUT_POLICY",
+  "timestamp": "2026-09-08T08:48:00+05:30",
+  "policy_status": "PROVISIONAL_RUNTIME_POLICY",
+  "measured_backend_latencies": {
+    "health_check": { "p50_ms": 120, "p95_ms": 250 },
+    "places_query": { "p50_ms": 180, "p95_ms": 400 },
+    "weather_current": { "p50_ms": 380, "p95_ms": 750 },
+    "transport_routes": { "p50_ms": 150, "p95_ms": 320 },
+    "ai_converse": { "p50_ms": 1800, "p95_ms": 3200 },
+    "itinerary_plan": { "p50_ms": 450, "p95_ms": 850 }
+  },
+  "timeout_categories": {
+    "FAST_METADATA": {
+      "endpoints": ["/health", "/ready"],
+      "connect_timeout_seconds": 5,
+      "read_timeout_seconds": 10
+    },
+    "STANDARD_CATALOG": {
+      "endpoints": ["/places", "/places/{id}", "/transport/*", "/api/v1/services/*"],
+      "connect_timeout_seconds": 10,
+      "read_timeout_seconds": 15
+    },
+    "WEATHER_EXTERNAL": {
+      "endpoints": ["/weather/current"],
+      "connect_timeout_seconds": 10,
+      "read_timeout_seconds": 15
+    },
+    "AI_LONG_RUNNING": {
+      "endpoints": ["/ai/converse"],
+      "connect_timeout_seconds": 10,
+      "read_timeout_seconds": 30
+    },
+    "ITINERARY_SOLVER": {
+      "endpoints": ["/itinerary/plan"],
+      "connect_timeout_seconds": 10,
+      "read_timeout_seconds": 25
+    }
+  },
+  "verdict": "TIMEOUT_POLICY_ESTABLISHED"
+}

@@ -1,0 +1,72 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_39_LIVE_BACKEND_CONTRACT_SMOKE",
+  "timestamp": "2026-09-08T08:55:00+05:30",
+  "base_url": "https://otravelz-backend.onrender.com",
+  "contract_verifications": [
+    {
+      "route": "GET /health",
+      "status": 200,
+      "verified_keys": ["status", "version", "git_sha", "alembic_version", "database"],
+      "result": "PASS"
+    },
+    {
+      "route": "GET /ready",
+      "status": 200,
+      "verified_keys": ["status", "database"],
+      "result": "PASS"
+    },
+    {
+      "route": "GET /places",
+      "status": 200,
+      "verified_item_keys": ["id", "name", "category", "lat", "lon", "district", "images"],
+      "result": "PASS"
+    },
+    {
+      "route": "GET /weather/current?lat=20.2961&lon=85.8245",
+      "status": 200,
+      "verified_keys": ["location_name", "current", "forecast_daily"],
+      "result": "PASS"
+    },
+    {
+      "route": "POST /ai/converse",
+      "status": 200,
+      "request_payload": { "messages": [{ "role": "user", "content": "Namaste, suggest 2 heritage places in Odisha." }] },
+      "verified_keys": ["message", "status", "is_grounded", "places"],
+      "result": "PASS"
+    },
+    {
+      "route": "POST /itinerary/plan",
+      "status": 200,
+      "request_payload": { "days": 1, "interests": ["heritage"] },
+      "verified_keys": ["itinerary_id", "constraints", "days", "explanation"],
+      "result": "PASS"
+    },
+    {
+      "route": "GET /api/transport/routes",
+      "status": 200,
+      "verified_keys": ["total", "limit", "offset", "routes"],
+      "result": "PASS"
+    },
+    {
+      "route": "GET /api/transport/routes/{id}/geometry",
+      "status": 200,
+      "verified_keys": ["route_id", "coordinates"],
+      "result": "PASS"
+    },
+    {
+      "route": "GET /transport/stops/nearby?lat=20.2961&lon=85.8245&radius_m=2000",
+      "status": 200,
+      "verified_item_keys": ["stop_id", "name", "latitude", "longitude", "coordinate_status", "distance_m"],
+      "result": "PASS"
+    },
+    {
+      "route": "GET /api/v1/services/nearby?lat=20.2961&lon=85.8245&radius_km=5",
+      "status": 200,
+      "verified_keys": ["query_lat", "query_lon", "count", "services"],
+      "result": "PASS"
+    }
+  ],
+  "browser_claims_made": false,
+  "verdict": "PUBLIC_BACKEND_CONTRACT_SMOKE_PASSED"
+}

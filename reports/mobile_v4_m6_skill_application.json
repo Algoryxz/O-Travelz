@@ -1,0 +1,62 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_0_SKILL_APPLICATION",
+  "timestamp": "2026-09-08T08:45:00+05:30",
+  "skills": [
+    {
+      "skill": "Ponytail",
+      "guidance_used": "Radical minimalism, standard library over custom code, minimal DTOs, direct typed calls over repository layers, no speculative GraphQL or KMP networking.",
+      "guidance_rejected": "None.",
+      "reason": "Prevents enterprise architectural sprawl and over-engineering."
+    },
+    {
+      "skill": "android-testing-setup",
+      "guidance_used": "Unit tests for DTO decoding, MockWebServer for testing HTTP contract parsing, error envelopes, and timeouts.",
+      "guidance_rejected": "Robolectric or instrumented tests for simple DTO decoding.",
+      "reason": "JVM unit tests with MockWebServer are fast, deterministic, and verify exact HTTP contracts."
+    },
+    {
+      "skill": "android-intent-security",
+      "guidance_used": "Ensured no sensitive API configurations or internal endpoints exposed via exported components.",
+      "guidance_rejected": "N/A for network data layer.",
+      "reason": "Keeps network layer purely internal to app package."
+    },
+    {
+      "skill": "android-play-policy-insights",
+      "guidance_used": "HTTPS-only enforcement; no cleartext HTTP traffic allowed; no user location or sensitive data transmitted without explicit consent.",
+      "guidance_rejected": "None.",
+      "reason": "Adheres to Google Play Network Security and Data Safety requirements."
+    },
+    {
+      "skill": "ios-networking",
+      "guidance_used": "Native URLSession with async/await, URLRequest configuration, URLProtocol-based unit testing, status code validation, explicit timeoutInterval, no Alamofire.",
+      "guidance_rejected": "Third-party networking libraries (Alamofire, Moya), complex delegate-based background session managers.",
+      "reason": "URLSession async/await is native, robust, and zero-dependency in iOS 17+."
+    },
+    {
+      "skill": "swift-codable",
+      "guidance_used": "Safe decoding strategies, robust enum decoding with unknown fallbacks, nullable optional properties, snake_case key remapping.",
+      "guidance_rejected": "Force unwrapping, throwing on unknown enum cases.",
+      "reason": "Guarantees forward-compatibility against backend evolution."
+    },
+    {
+      "skill": "swift-concurrency",
+      "guidance_used": "Async/await patterns, Task cancellation handling, Sendable conformance for DTOs and network configuration.",
+      "guidance_rejected": "DispatchQueue callbacks, completion handlers.",
+      "reason": "Swift 6 strict concurrency compliance."
+    },
+    {
+      "skill": "swift-security",
+      "guidance_used": "HTTPS enforcement, ATS compliance, no logging of credentials or personal data.",
+      "guidance_rejected": "Hardcoded certificate pinning.",
+      "reason": "Pinning introduces operational risk for API endpoints without active rotation automation."
+    },
+    {
+      "skill": "Graphify",
+      "guidance_used": "Codebase relationship verification and AST update post-modification.",
+      "guidance_rejected": "Full LLM extraction during local iteration.",
+      "reason": "Keeps graph consistent without API cost."
+    }
+  ],
+  "verdict": "SKILLS_AUDITED_AND_ALIGNED"
+}

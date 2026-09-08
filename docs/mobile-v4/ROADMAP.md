@@ -20,8 +20,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M3** | Component Architecture & Interactive Prototype Specification | `[COMPLETED]` |
 | **M4** | Parallel clickable prototypes and formal design acceptance freeze | `[COMPLETED]` |
 | **M5** | Fresh production Android and iOS project bootstrap | `[COMPLETED]` |
-| **M6** | API contracts, DTO generation, and native networking clients | `[NEXT]` |
-| **M7** | App shells, root navigation, and adaptive chrome | `[PLANNED]` |
+| **M6** | API contracts, DTO generation, and native networking clients | `[COMPLETED]` |
+| **M7** | App shells, root navigation, and adaptive chrome | `[NEXT]` |
 | **M8** | Home / Editorial Cultural Atlas landing screen | `[PLANNED]` |
 | **M9** | Discover feed, spatial filtering, and full-text search | `[PLANNED]` |
 | **M10** | Place Detail editorial sheets, verified photography, and live weather cards | `[PLANNED]` |
@@ -127,8 +127,15 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **Acceptance Criteria**: Both empty shells configured with zero errors; Android debug APK generated; shared KMP integration verified.
 - **Non-Goals**: No screen implementation; no mock data bundles.
 
-### Wave M6: Native Design System Tokens & Foundations `[NEXT]`
-- **M6 (Contracts & Networking)**: Native Retrofit/OkHttp client (Android) and URLSession client (iOS).
+### Wave M6: API Contracts, DTO Generation & Native Networking Clients `[COMPLETED]`
+- **Objective**: Establish canonical API contract snapshot, drift enforcement, and minimal native Android and iOS networking clients against live public backend.
+- **Android Scope**: Implement Retrofit 2.11 + OkHttp + Kotlinx Serialization DTOs and MockWebServer tests under `com.otravelz.android.data.network`.
+- **iOS Scope**: Implement native URLSession + Swift 6 Codable DTOs and domain adapters under `mobile/ios/OTravelz/Networking/`.
+- **Contract Enforcement**: Deterministic `mobile/contracts/openapi-mobile.json`, `scripts/check_mobile_api_contract.py`, and `backend/tests/test_mobile_api_contract.py`.
+- **Tests**: 17 Android unit tests pass; 0 lint errors; live backend contract smoke verified against all 11 core endpoints.
+- **Acceptance Criteria**: Dual-native typed networking clients compile; zero UI screen contamination; zero networking in `:shared`.
+
+### Wave M7: App Shells, Root Navigation & Adaptive Chrome `[NEXT]`
 - **M7 (App Shells)**: Root 5-tab navigation, adaptive navigation rail (Android), NavigationSplitView (iOS).
 - **M8 (Home Screen)**: Editorial Cultural Atlas landing feed with living artisan features.
 - **M9 (Discover & Search)**: District filtering across all 30 districts, spatial search.

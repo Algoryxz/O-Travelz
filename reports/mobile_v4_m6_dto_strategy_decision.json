@@ -1,0 +1,53 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_4_DTO_STRATEGY_DECISION",
+  "timestamp": "2026-09-08T08:46:00+05:30",
+  "options_evaluated": {
+    "A_fully_generated_via_cli": {
+      "drift_resistance": "HIGH",
+      "swift_ergonomics": "LOW",
+      "kotlin_ergonomics": "MEDIUM",
+      "nullable_safety": "MEDIUM",
+      "enum_unknown_handling": "POOR",
+      "build_complexity": "VERY_HIGH",
+      "maintenance": "HIGH",
+      "ponytail_simplicity": "POOR",
+      "verdict": "REJECTED_DUE_TO_BUILD_BLOAT"
+    },
+    "B_canonical_snapshot_derived_native_dtos_and_adapters": {
+      "drift_resistance": "VERY_HIGH",
+      "swift_ergonomics": "VERY_HIGH",
+      "kotlin_ergonomics": "VERY_HIGH",
+      "nullable_safety": "VERY_HIGH",
+      "enum_unknown_handling": "VERY_HIGH",
+      "build_complexity": "LOW",
+      "maintenance": "LOW",
+      "ponytail_simplicity": "VERY_HIGH",
+      "verdict": "SELECTED"
+    },
+    "C_fully_handwritten_without_snapshot": {
+      "drift_resistance": "LOW",
+      "swift_ergonomics": "HIGH",
+      "kotlin_ergonomics": "HIGH",
+      "nullable_safety": "MEDIUM",
+      "enum_unknown_handling": "MEDIUM",
+      "build_complexity": "VERY_LOW",
+      "maintenance": "HIGH",
+      "ponytail_simplicity": "HIGH",
+      "verdict": "REJECTED_DUE_TO_DRIFT_RISK"
+    },
+    "D_kmp_shared_dtos": {
+      "drift_resistance": "MEDIUM",
+      "swift_ergonomics": "POOR",
+      "kotlin_ergonomics": "HIGH",
+      "nullable_safety": "HIGH",
+      "enum_unknown_handling": "MEDIUM",
+      "build_complexity": "HIGH",
+      "maintenance": "HIGH",
+      "ponytail_simplicity": "POOR",
+      "verdict": "REJECTED_VIOLATES_KMP_SCOPE_BOUNDARY"
+    }
+  },
+  "winning_strategy": "OPTION_B",
+  "rationale": "Strategy B provides automated drift checking via scripts/check_mobile_api_contract.py against the canonical snapshot mobile/contracts/openapi-mobile.json, while allowing native Swift Codable and Kotlin models to use native idioms, custom safe enum decoders, and direct nullability semantics without heavy generator plugins."
+}

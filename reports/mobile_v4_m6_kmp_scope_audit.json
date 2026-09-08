@@ -1,0 +1,18 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_37_KMP_SCOPE_AUDIT",
+  "timestamp": "2026-09-08T08:55:00+05:30",
+  "shared_module_path": "mobile/shared",
+  "audit_results": {
+    "http_client_in_shared": false,
+    "retrofit_in_shared": false,
+    "ktor_in_shared": false,
+    "urlsession_bridge_in_shared": false,
+    "api_dto_layer_in_shared": false,
+    "openapi_code_in_shared": false,
+    "networking_json_framework_in_shared": false,
+    "files_modified_in_shared": 0
+  },
+  "kmp_scope_creep": 0,
+  "verdict": "KMP_SCOPE_BOUNDARY_PRESERVED"
+}

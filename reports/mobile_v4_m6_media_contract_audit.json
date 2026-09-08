@@ -1,0 +1,22 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_24_MEDIA_CONTRACT_AUDIT",
+  "timestamp": "2026-09-08T08:48:00+05:30",
+  "endpoints_audited": [
+    "/places/{place_id}",
+    "/api/v1/media/places/{place_id}",
+    "/api/v1/images/{storage_key}"
+  ],
+  "required_fields_check": {
+    "canonical_place_id": "PRESENT in /places response",
+    "media_asset_identity": "PRESENT as image storage_key/id",
+    "publication_status": "PRESENT in place verification_status",
+    "storage_key_or_url": "PRESENT in place.images array",
+    "attribution": "PRESENT in place image objects",
+    "video_capability": "PRESENT in /api/v1/media routes",
+    "three_d_capability": "PRESENT in /api/v1/heritage routes"
+  },
+  "truth_boundary": "NO VERIFIED IMAGE = NO PUBLIC DESTINATION strictly preserved. Missing image list marks place unpublished.",
+  "backend_contract_defect": false,
+  "verdict": "MEDIA_CONTRACT_VERIFIED"
+}

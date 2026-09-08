@@ -1,0 +1,29 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_27_SERVICES_CONTRACT_AUDIT",
+  "timestamp": "2026-09-08T08:48:00+05:30",
+  "endpoint": "GET /api/v1/services/nearby",
+  "query_parameters": {
+    "lat": "float (required)",
+    "lon": "float (required)",
+    "category": "string (optional: hospital, police, atm, fuel, fire)",
+    "radius_km": "float (optional, default 5.0)"
+  },
+  "response_schema": {
+    "query_lat": "float",
+    "query_lon": "float",
+    "category": "string or null",
+    "requested_radius_km": "float",
+    "active_radius_km": "float",
+    "is_expanded": "boolean",
+    "count": "integer",
+    "distance_semantics": "string",
+    "services": "list of ServiceItem (id, name, category, lat, lon, distance_km, address, phone)"
+  },
+  "isolation_audit": {
+    "isolated_from_leisure_places": true,
+    "shared_place_schema_used": false,
+    "accidental_card_injection_possible": false
+  },
+  "verdict": "SERVICES_ISOLATION_VERIFIED"
+}

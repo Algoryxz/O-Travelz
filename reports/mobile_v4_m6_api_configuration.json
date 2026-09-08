@@ -1,0 +1,23 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_30_API_CONFIGURATION",
+  "timestamp": "2026-09-08T08:48:00+05:30",
+  "environments": {
+    "DEBUG": {
+      "base_url": "https://otravelz-backend.onrender.com",
+      "logging_level": "BASIC",
+      "strict_ssl": true,
+      "timeout_multiplier": 1.0
+    },
+    "RELEASE": {
+      "base_url": "https://otravelz-backend.onrender.com",
+      "logging_level": "NONE",
+      "strict_ssl": true,
+      "timeout_multiplier": 1.0
+    }
+  },
+  "android_config_mechanism": "com.otravelz.android.data.network.ApiConfig object with build-variant configurable BASE_URL",
+  "ios_config_mechanism": "OTravelz.APIConfiguration struct with environment-driven default base URL",
+  "secret_policy": "NO_SECRETS_REQUIRED_FOR_PUBLIC_DATA",
+  "verdict": "CONFIGURATION_STRUCTURE_ESTABLISHED"
+}

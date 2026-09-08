@@ -1,0 +1,211 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_20_CROSS_PLATFORM_CONTRACT_PARITY",
+  "timestamp": "2026-09-08T08:55:00+05:30",
+  "total_endpoints_evaluated": 11,
+  "endpoints": [
+    {
+      "endpoint": "GET /health",
+      "method": "GET",
+      "android_request": "void",
+      "ios_request": "void",
+      "android_response": "HealthResponseDto",
+      "ios_response": "HealthResponseDTO",
+      "nullable_fields": [
+        "git_sha",
+        "alembic_version",
+        "database"
+      ],
+      "enum_semantics": "String ('ok' | 'degraded')",
+      "error_mapping": "FastAPI / HTTP status to NetworkError / APIError",
+      "timeout_policy_seconds": 10,
+      "auth_required": false,
+      "parity_status": "MATCH"
+    },
+    {
+      "endpoint": "GET /ready",
+      "method": "GET",
+      "android_request": "void",
+      "ios_request": "void",
+      "android_response": "ReadyResponseDto",
+      "ios_response": "ReadyResponseDTO",
+      "nullable_fields": [
+        "database"
+      ],
+      "enum_semantics": "String ('ready' | 'unavailable')",
+      "error_mapping": "503 mapped to HttpServerError / ServerError",
+      "timeout_policy_seconds": 10,
+      "auth_required": false,
+      "parity_status": "MATCH"
+    },
+    {
+      "endpoint": "GET /places",
+      "method": "GET",
+      "android_request": "Query(limit, district, category)",
+      "ios_request": "URLQueryItem(limit, district, category)",
+      "android_response": "List<PlaceDto>",
+      "ios_response": "[PlaceDTO]",
+      "nullable_fields": [
+        "lat",
+        "lon",
+        "rating",
+        "description",
+        "images"
+      ],
+      "enum_semantics": "Open strings with graceful fallback",
+      "error_mapping": "Standard HTTP mapping",
+      "timeout_policy_seconds": 15,
+      "auth_required": false,
+      "parity_status": "MATCH"
+    },
+    {
+      "endpoint": "GET /places/{place_id}",
+      "method": "GET",
+      "android_request": "Path(place_id)",
+      "ios_request": "Path(place_id)",
+      "android_response": "PlaceDto",
+      "ios_response": "PlaceDTO",
+      "nullable_fields": [
+        "lat",
+        "lon",
+        "rating",
+        "contact_phone",
+        "images"
+      ],
+      "enum_semantics": "Open strings with graceful fallback",
+      "error_mapping": "404 mapped to HttpClientError",
+      "timeout_policy_seconds": 15,
+      "auth_required": false,
+      "parity_status": "MATCH"
+    },
+    {
+      "endpoint": "GET /weather/current",
+      "method": "GET",
+      "android_request": "Query(lat, lon)",
+      "ios_request": "URLQueryItem(lat, lon)",
+      "android_response": "WeatherResponseDto",
+      "ios_response": "WeatherResponseDTO",
+      "nullable_fields": [
+        "temperature_c",
+        "apparent_temperature_c",
+        "precipitation_probability_pct"
+      ],
+      "enum_semantics": "Domain adapter transforms null to WeatherState.Unavailable (never 0.0\u00b0C)",
+      "error_mapping": "Standard HTTP mapping",
+      "timeout_policy_seconds": 15,
+      "auth_required": false,
+      "parity_status": "MATCH"
+    },
+    {
+      "endpoint": "GET /api/transport/routes",
+      "method": "GET",
+      "android_request": "void",
+      "ios_request": "void",
+      "android_response": "RouteListDto",
+      "ios_response": "RouteListDTO",
+      "nullable_fields": [
+        "via",
+        "stops_count",
+        "total_distance_km"
+      ],
+      "enum_semantics": "Strings open for operator / route number",
+      "error_mapping": "Standard HTTP mapping",
+      "timeout_policy_seconds": 15,
+      "auth_required": false,
+      "parity_status": "MATCH"
+    },
+    {
+      "endpoint": "GET /api/transport/routes/{route_id}/geometry",
+      "method": "GET",
+      "android_request": "Path(route_id)",
+      "ios_request": "Path(route_id)",
+      "android_response": "RouteGeometryDto",
+      "ios_response": "RouteGeometryDTO",
+      "nullable_fields": [],
+      "enum_semantics": "List of coordinate pairs (lon, lat)",
+      "error_mapping": "404 for unmapped geometry",
+      "timeout_policy_seconds": 15,
+      "auth_required": false,
+      "parity_status": "MATCH"
+    },
+    {
+      "endpoint": "GET /transport/stops/nearby",
+      "method": "GET",
+      "android_request": "Query(lat, lon, radius_m)",
+      "ios_request": "URLQueryItem(lat, lon, radius_m)",
+      "android_response": "List<StopNearbyDto>",
+      "ios_response": "[StopNearbyDTO]",
+      "nullable_fields": [
+        "latitude",
+        "longitude",
+        "coordinate_status",
+        "distance_m",
+        "walking_estimate_mins"
+      ],
+      "enum_semantics": "coordinate_status == 'candidate' maps to LocalityOnly (never exact GPS)",
+      "error_mapping": "Standard HTTP mapping",
+      "timeout_policy_seconds": 15,
+      "auth_required": false,
+      "parity_status": "MATCH"
+    },
+    {
+      "endpoint": "GET /api/v1/services/nearby",
+      "method": "GET",
+      "android_request": "Query(lat, lon, category, radius_km)",
+      "ios_request": "URLQueryItem(lat, lon, category, radius_km)",
+      "android_response": "NearbyServicesResponseDto",
+      "ios_response": "NearbyServicesResponseDTO",
+      "nullable_fields": [
+        "lat",
+        "lon",
+        "distance_km",
+        "address",
+        "phone"
+      ],
+      "enum_semantics": "Civic services strictly isolated from places",
+      "error_mapping": "Standard HTTP mapping",
+      "timeout_policy_seconds": 15,
+      "auth_required": false,
+      "parity_status": "MATCH"
+    },
+    {
+      "endpoint": "POST /ai/converse",
+      "method": "POST",
+      "android_request": "AIConverseRequestDto",
+      "ios_request": "AIConverseRequestDTO",
+      "android_response": "AIConverseResponseDto",
+      "ios_response": "AIConverseResponseDTO",
+      "nullable_fields": [
+        "intent",
+        "status",
+        "language"
+      ],
+      "enum_semantics": "Role strings ('user', 'assistant', 'system')",
+      "error_mapping": "422 validation mapping; automatic retries prohibited",
+      "timeout_policy_seconds": 30,
+      "auth_required": false,
+      "parity_status": "MATCH"
+    },
+    {
+      "endpoint": "POST /itinerary/plan",
+      "method": "POST",
+      "android_request": "ItineraryPlanRequestDto",
+      "ios_request": "ItineraryPlanRequestDTO",
+      "android_response": "ItineraryResponseDto",
+      "ios_response": "ItineraryResponseDTO",
+      "nullable_fields": [
+        "pace",
+        "start",
+        "planned_arrival",
+        "planned_departure"
+      ],
+      "enum_semantics": "Forbid extra fields strictly observed",
+      "error_mapping": "422 validation mapping",
+      "timeout_policy_seconds": 25,
+      "auth_required": false,
+      "parity_status": "MATCH"
+    }
+  ],
+  "unexplained_parity_gaps": 0,
+  "verdict": "CROSS_PLATFORM_API_PARITY_VERIFIED"
+}

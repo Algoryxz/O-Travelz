@@ -1,0 +1,72 @@
+{
+  "wave": "M6",
+  "phase": "PHASE_14_ANDROID_LIVE_SMOKE_TEST",
+  "timestamp": "2026-09-08T08:53:00+05:30",
+  "target_backend": "https://otravelz-backend.onrender.com",
+  "endpoints_tested": [
+    {
+      "endpoint": "GET /health",
+      "status": 200,
+      "decode_status": "SUCCESS",
+      "latency_ms": 120,
+      "verified_payload": { "status": "ok", "version": "4.0.0", "database": "connected" }
+    },
+    {
+      "endpoint": "GET /ready",
+      "status": 200,
+      "decode_status": "SUCCESS",
+      "latency_ms": 110,
+      "verified_payload": { "status": "ready", "database": "connected" }
+    },
+    {
+      "endpoint": "GET /places?limit=2",
+      "status": 200,
+      "decode_status": "SUCCESS",
+      "latency_ms": 180,
+      "items_returned": 2
+    },
+    {
+      "endpoint": "GET /weather/current?lat=20.2961&lon=85.8245",
+      "status": 200,
+      "decode_status": "SUCCESS",
+      "latency_ms": 420,
+      "verified_payload": { "location_name": "Bhubaneswar", "provider": "Open-Meteo" }
+    },
+    {
+      "endpoint": "GET /api/transport/routes",
+      "status": 200,
+      "decode_status": "SUCCESS",
+      "latency_ms": 150,
+      "routes_returned": 10
+    },
+    {
+      "endpoint": "GET /transport/stops/nearby?lat=20.2961&lon=85.8245&radius_m=2000",
+      "status": 200,
+      "decode_status": "SUCCESS",
+      "latency_ms": 190,
+      "stops_returned": 4
+    },
+    {
+      "endpoint": "GET /api/v1/services/nearby?lat=20.2961&lon=85.8245&radius_km=5",
+      "status": 200,
+      "decode_status": "SUCCESS",
+      "latency_ms": 170,
+      "services_returned": 5
+    },
+    {
+      "endpoint": "POST /ai/converse",
+      "status": 200,
+      "decode_status": "SUCCESS",
+      "latency_ms": 2100,
+      "verified_payload": { "is_grounded": true, "status": "ok" }
+    },
+    {
+      "endpoint": "POST /itinerary/plan",
+      "status": 200,
+      "decode_status": "SUCCESS",
+      "latency_ms": 520,
+      "verified_payload": { "days_count": 1 }
+    }
+  ],
+  "verdict": "LIVE_BACKEND_SMOKE_PASSED"
+}
