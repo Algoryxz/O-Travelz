@@ -1,0 +1,31 @@
+{
+  "registry_version": "1.0.0",
+  "last_updated": "2026-09-08T10:35:00+05:30",
+  "classes": [
+    {
+      "freshness_class": "ARCHIVAL",
+      "ttl_seconds": 315360000,
+      "description": "Historical texts, out-of-copyright literature, established temple architecture treatises."
+    },
+    {
+      "freshness_class": "SLOW_CHANGING",
+      "ttl_seconds": 7776000,
+      "description": "Administrative district boundaries, GI registrations, railway stations, airport codes, bus stop physical coordinates."
+    },
+    {
+      "freshness_class": "SEASONAL",
+      "ttl_seconds": 2592000,
+      "description": "Eco Retreat glamping operations, sanctuary boat tariffs, seasonal festival opening adjustments."
+    },
+    {
+      "freshness_class": "CURRENT",
+      "ttl_seconds": 604800,
+      "description": "Monument entry tariffs, museum hours, panthanivas property rosters."
+    },
+    {
+      "freshness_class": "REALTIME",
+      "ttl_seconds": 1800,
+      "description": "IMD weather warnings, SACHET disaster bulletins, live departure observations (network-required)."
+    }
+  ]
+}

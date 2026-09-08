@@ -1,0 +1,106 @@
+{
+  "report_version": "1.0.0",
+  "stage": "STAGE_F_REPRODUCIBILITY",
+  "verified_at": "2026-09-08T10:35:00+05:30",
+  "total_artifacts": 16,
+  "diff_count": 0,
+  "reproducibility_verdict": "PASS",
+  "comparisons": [
+    {
+      "artifact": "data/staging/transit/researched_stop_crosswalks.json",
+      "sha256_pass_1": "70d0241204701600f285c2dc884ac3ebd3ce6697cd2eb3108ad12aa2e3dcb3e2",
+      "sha256_pass_2": "70d0241204701600f285c2dc884ac3ebd3ce6697cd2eb3108ad12aa2e3dcb3e2",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/transit/researched_route_geometry.json",
+      "sha256_pass_1": "ed7c4b3ffe6f422a70dfb1262dc477b0be05b52ec30ec0d8aa86af7e38674676",
+      "sha256_pass_2": "ed7c4b3ffe6f422a70dfb1262dc477b0be05b52ec30ec0d8aa86af7e38674676",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/geospatial/odisha_district_boundaries.geojson",
+      "sha256_pass_1": "63890982c55a884e408c7d92d8fde2fb18893c2b72ef2fcfdd0e5940f3e14506",
+      "sha256_pass_2": "63890982c55a884e408c7d92d8fde2fb18893c2b72ef2fcfdd0e5940f3e14506",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/services/researched_civic_services.json",
+      "sha256_pass_1": "a4cf7ce822d284b51168b7fe73f07b25cc987b5c915f5311924dc3fea18b3f8f",
+      "sha256_pass_2": "a4cf7ce822d284b51168b7fe73f07b25cc987b5c915f5311924dc3fea18b3f8f",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/places/researched_operational_facts.json",
+      "sha256_pass_1": "b47da302ea5ea27ea1a791a3968d4a0a477b42374e2c094c4decd19deb4484cf",
+      "sha256_pass_2": "b47da302ea5ea27ea1a791a3968d4a0a477b42374e2c094c4decd19deb4484cf",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/media/researched_media_candidates.json",
+      "sha256_pass_1": "114b29e81a5af1dd425869abbe32f5a8f6acba3e8a727f960fe1ac2733999930",
+      "sha256_pass_2": "114b29e81a5af1dd425869abbe32f5a8f6acba3e8a727f960fe1ac2733999930",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/culture/gi_products.json",
+      "sha256_pass_1": "b7da5677b8f2d99583e8544b9aea73de4a9cee0d61dc37d78f0d08677158e316",
+      "sha256_pass_2": "b7da5677b8f2d99583e8544b9aea73de4a9cee0d61dc37d78f0d08677158e316",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/culture/artisan_clusters.json",
+      "sha256_pass_1": "d4feee25d43ea66fa32f8427187259765669c3f3bda5f83161b8fc519a7c4d62",
+      "sha256_pass_2": "d4feee25d43ea66fa32f8427187259765669c3f3bda5f83161b8fc519a7c4d62",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/food/official_food_sources.json",
+      "sha256_pass_1": "59c3f4737d1f91fe99033aa783222e14c4bd33ee3befc04aabb1c18d678733f6",
+      "sha256_pass_2": "59c3f4737d1f91fe99033aa783222e14c4bd33ee3befc04aabb1c18d678733f6",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/accommodation/official_accommodation_sources.json",
+      "sha256_pass_1": "b35bfcd1b91f2c180c9e0b67ce854b18927a8a580b4a34d8d7068ee03d8f920b",
+      "sha256_pass_2": "b35bfcd1b91f2c180c9e0b67ce854b18927a8a580b4a34d8d7068ee03d8f920b",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/connectivity/rail_hubs.json",
+      "sha256_pass_1": "36fda6176b7de658e1965f17dc98c647363b9dff8eea97b81c11f8f2c15ee827",
+      "sha256_pass_2": "36fda6176b7de658e1965f17dc98c647363b9dff8eea97b81c11f8f2c15ee827",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/connectivity/airports.json",
+      "sha256_pass_1": "56e4c3ad0858100c3e9a8201bf52bc20b0f33fa4fa13505694d087797de4eff1",
+      "sha256_pass_2": "56e4c3ad0858100c3e9a8201bf52bc20b0f33fa4fa13505694d087797de4eff1",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/weather/warning_sources.json",
+      "sha256_pass_1": "18c76f3fb3145faa8d3608cc008cbaab52c55e869a4f77e23b0feaf8b6e76f1f",
+      "sha256_pass_2": "18c76f3fb3145faa8d3608cc008cbaab52c55e869a4f77e23b0feaf8b6e76f1f",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "data/staging/rag/corpus_source_manifest.json",
+      "sha256_pass_1": "deaea324c0292f5ba8b0d8a96e4900a663bf6b953dbec277d0b9d26d804f4020",
+      "sha256_pass_2": "deaea324c0292f5ba8b0d8a96e4900a663bf6b953dbec277d0b9d26d804f4020",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "reports/research/mobile_offline_packaging_candidates.json",
+      "sha256_pass_1": "82bccb8370ddc72ae5f8c4957910a1fa6b142a41fec899fefde7e919db989e35",
+      "sha256_pass_2": "82bccb8370ddc72ae5f8c4957910a1fa6b142a41fec899fefde7e919db989e35",
+      "deterministic_match": true
+    },
+    {
+      "artifact": "reports/research/stage_f_asset_measurements.json",
+      "sha256_pass_1": "e4d83224b93783536ce7a16c83ba2405db2bcf96e56d40be6577db337de09b07",
+      "sha256_pass_2": "e4d83224b93783536ce7a16c83ba2405db2bcf96e56d40be6577db337de09b07",
+      "deterministic_match": true
+    }
+  ]
+}

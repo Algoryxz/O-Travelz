@@ -171,7 +171,7 @@ private fun RootContentHost(
 ) {
     when (destination) {
         NavDestination.DISCOVER -> DiscoverRoot(onPlaceClick = onPlaceClick, modifier = modifier)
-        NavDestination.MAP -> MapRoot(modifier = modifier)
+        NavDestination.MAP -> MapRoot(onPlaceClick = onPlaceClick, modifier = modifier)
         NavDestination.PLAN -> PlanRoot(modifier = modifier)
         NavDestination.TRIPS -> TripsRoot(modifier = modifier)
         NavDestination.YOU -> YouRoot(modifier = modifier)

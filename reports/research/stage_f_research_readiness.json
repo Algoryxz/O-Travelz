@@ -1,0 +1,211 @@
+{
+  "classification_version": "1.0.0",
+  "evaluation_stage": "STAGE_F_RESEARCH_READINESS",
+  "evaluated_at": "2026-09-08T10:35:00+05:30",
+  "DISCOVERY_BACKLOG_V1_COMPLETE": true,
+  "total_gaps": 16,
+  "classification_summary": {
+    "ACCEPT_STAGING": 9,
+    "ACCEPT_WITH_LIMITATIONS": 7,
+    "NEEDS_CROSSCHECK": 0,
+    "IDENTITY_AMBIGUOUS": 0,
+    "STALE_OR_TIME_SENSITIVE": 0,
+    "LICENSING_UNCLEAR": 0,
+    "REJECT": 0
+  },
+  "invariants": {
+    "canonical_mutations": 0,
+    "production_db_mutations": 0,
+    "mobile_production_mutations": 0,
+    "no_live_tracking_claims": true,
+    "no_fabricated_ratings_or_reviews": true,
+    "no_ai_generated_tourist_photos": true
+  },
+  "gap_readiness": [
+    {
+      "gap_id": "TRANSIT_STOP_COORDINATE_CLOSURE",
+      "domain": "Transit GIS",
+      "priority": "P1",
+      "classification": "ACCEPT_WITH_LIMITATIONS",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "394 physical GIS features represent physical infrastructure (shelters, bays, directional poles), NOT 394 unique canonical stop identities.",
+        "Only 85 exact and 45 probable matches resolved; 1127 canonical stops remain locality-only without exact coordinates.",
+        "Restricted to Bhubaneswar/BDA/Khurda Road urban corridor; statewide transit stops remain uncoordinated."
+      ]
+    },
+    {
+      "gap_id": "TRANSIT_ROUTE_GEOMETRY_GAPS",
+      "domain": "Transit GIS",
+      "priority": "P1",
+      "classification": "ACCEPT_WITH_LIMITATIONS",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Route layers reflect legacy pre-CRUT corridor numbers (207, 306, 333, 522).",
+        "Corridor polylines cannot be promoted to canonical routes without explicit multi-direction survey and CRUT validation.",
+        "Zero straight-line interpolation permitted between stop points."
+      ]
+    },
+    {
+      "gap_id": "DESTINATION_OPENING_HOURS",
+      "domain": "Heritage & Culture",
+      "priority": "P1",
+      "classification": "ACCEPT_WITH_LIMITATIONS",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Verified hours restricted to Golden Journey cluster (Konark, Puri, Lingaraj, Mukteswar, Rajarani, Khandagiri-Udayagiri, Dhauli, Chilika).",
+        "Puri Jagannath and Lingaraj hours subject to unannounced ritual closures (niti pauses).",
+        "Statewide coverage for remaining destinations remains null."
+      ]
+    },
+    {
+      "gap_id": "DESTINATION_ENTRY_FEES",
+      "domain": "Heritage & Culture",
+      "priority": "P1",
+      "classification": "ACCEPT_WITH_LIMITATIONS",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Statutory tariffs verified only for ticketed ASI and state heritage assets (Konark, Khandagiri-Udayagiri, State Museum, Nandankanan, Dhauli Light & Sound, Mangalajodi boats).",
+        "Unverified destinations must remain strictly null rather than defaulting to free."
+      ]
+    },
+    {
+      "gap_id": "DESTINATION_ACCESSIBILITY",
+      "domain": "Civic & Accessibility",
+      "priority": "P1",
+      "classification": "ACCEPT_WITH_LIMITATIONS",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Physical accessibility verified for major monuments (paved paths, ramps, battery vehicles).",
+        "Wheelchair access to inner sanctums (garbhagriha) at Jagannath and Lingaraj is architecturally barred; assistance required.",
+        "Categorical boolean accessible=true is prohibited."
+      ]
+    },
+    {
+      "gap_id": "VERIFIED_DESTINATION_MEDIA",
+      "domain": "Media & Provenance",
+      "priority": "P1",
+      "classification": "ACCEPT_WITH_LIMITATIONS",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Specific Wikimedia Commons CC BY-SA 3.0/4.0 files identified for Golden Journey.",
+        "Category gallery URLs are strictly barred from destination card rendering.",
+        "No images downloaded or promoted into canonical pipeline in Stage F."
+      ]
+    },
+    {
+      "gap_id": "MOBILE_CANONICAL_CATALOG_RECONCILIATION",
+      "domain": "Data Architecture",
+      "priority": "P1",
+      "classification": "ACCEPT_STAGING",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Full structural and semantic parity verified between backend OpenAPI, iOS PlaceDTO, and Android PlaceDto.",
+        "Requires runtime catalog sync gate when staging promoted to production."
+      ]
+    },
+    {
+      "gap_id": "ODISHA_DISTRICT_BOUNDARIES",
+      "domain": "Geospatial GIS",
+      "priority": "P2",
+      "classification": "ACCEPT_STAGING",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "geoBoundaries gbOpen IND ADM2 provides CC BY 4.0 vector boundaries for all 30 districts mapped to Census/LGD codes.",
+        "Source authority is external open data, not primary Odisha government administrative truth.",
+        "Requires CC BY 4.0 attribution in application credits."
+      ]
+    },
+    {
+      "gap_id": "CIVIC_SERVICES_EXPANSION",
+      "domain": "Civic Amenities",
+      "priority": "P2",
+      "classification": "ACCEPT_STAGING",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Verified rosters for 8 Tourist Police Cells, 41 Commissionerate stations, 30 DHHs, 11 medical colleges, and 340+ fire stations.",
+        "Must never be merged into leisure Place catalog.",
+        "Emergency 24x7 status only attached where explicitly confirmed by health department."
+      ]
+    },
+    {
+      "gap_id": "FOOD_AND_RESTAURANT_VERIFICATION",
+      "domain": "Culinary & Culture",
+      "priority": "P2",
+      "classification": "ACCEPT_WITH_LIMITATIONS",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Statutory provenance established via GI registrations and FSSAI Clean Street Food Hubs.",
+        "Individual restaurant directories with crowdsourced reviews or ratings are strictly excluded per anti-vibe rule.",
+        "GI food records define culinary heritage, not commercial dining establishments."
+      ]
+    },
+    {
+      "gap_id": "ACCOMMODATION_SOURCES",
+      "domain": "Hospitality",
+      "priority": "P2",
+      "classification": "ACCEPT_STAGING",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Restricted to state-operated OTDC Panthanivas, Eco Retreat Odisha glamping hubs, and EcoTour Odisha community nature camps.",
+        "No live availability or dynamic pricing claimed without real-time booking API integration.",
+        "Commercial OTAs and user review scrapers strictly excluded."
+      ]
+    },
+    {
+      "gap_id": "ARTISAN_AND_CRAFT_DATA",
+      "domain": "Cultural Crafts",
+      "priority": "P2",
+      "classification": "ACCEPT_STAGING",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Statutory provenance verified via IP India GI Registrations for 7 craft and handloom clusters.",
+        "GI records prove craft identity and provenance, NOT commercial shop opening hours or artisan availability."
+      ]
+    },
+    {
+      "gap_id": "RAIL_STATIC_CONNECTIVITY",
+      "domain": "Inter-City Transit",
+      "priority": "P2",
+      "classification": "ACCEPT_STAGING",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "12 Railway Junction Hubs crosswalked with station codes, divisional boundaries, and coordinates.",
+        "Strictly static timetable connectivity; zero real-time GPS train location claims."
+      ]
+    },
+    {
+      "gap_id": "AVIATION_STATIC_CONNECTIVITY",
+      "domain": "Inter-City Transit",
+      "priority": "P2",
+      "classification": "ACCEPT_STAGING",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "5 operational airports crosswalked with IATA/ICAO codes, coordinates, and public transit feeder links.",
+        "Strictly scheduled commercial/UDAN services; zero live flight radar claims."
+      ]
+    },
+    {
+      "gap_id": "WEATHER_WARNING_FEEDS",
+      "domain": "Safety & Climate",
+      "priority": "P2",
+      "classification": "ACCEPT_STAGING",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Identified IMD Bhubaneswar color-coded bulletin feed and NDMA SACHET CAP RSS feed specifications.",
+        "Represents provider integration research; static warning content must never be bundled into the application binary."
+      ]
+    },
+    {
+      "gap_id": "FUTURE_RAG_CORPUS_SOURCES",
+      "domain": "AI Knowledge",
+      "priority": "P2",
+      "classification": "ACCEPT_STAGING",
+      "canonical_promotion_allowed": false,
+      "limitations": [
+        "Odia Virtual Academy public-domain historical texts approved for AI retrieval augmentation.",
+        "Copyrighted government periodicals (Odisha Review, Utkal Prasanga) and recent ASI publications strictly barred from full-text ingestion without express license."
+      ]
+    }
+  ]
+}

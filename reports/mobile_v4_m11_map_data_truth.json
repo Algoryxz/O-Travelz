@@ -1,0 +1,61 @@
+{
+  "wave": "M11",
+  "phase": "PHASE_0_MAP_DATA_FORENSICS",
+  "audit_timestamp": "2026-09-08T10:32:00+05:30",
+  "destinations": {
+    "total_postgres_places": 204,
+    "eligible_leisure_places": 179,
+    "excluded_infrastructure_places": 25,
+    "coordinate_completeness": "100% (179/179 eligible leisure destinations have valid lat/lon inside Odisha bounding box 17.78-22.57N, 81.39-87.53E)",
+    "zero_coordinate_destinations": 0,
+    "fallback_0_0_destinations": 0
+  },
+  "transit_stops": {
+    "total_canonical_stops": 1430,
+    "verified_official_count": 103,
+    "verified_geospatial_count": 70,
+    "total_verified_marker_stops": 173,
+    "candidate_stops_in_canonical": 0,
+    "locality_only_unresolved_count": 1257,
+    "stop_pin_rendering_rule": "Only verified stops (173) render exact pins by default. Locality-only stops (1257) have coordinate_status=UNRESOLVED and never render fake pins."
+  },
+  "transit_routes": {
+    "total_canonical_routes": 154,
+    "route_geometry_coverage": {
+      "exact_continuous_road": 23,
+      "partial_surveyed": 79,
+      "corridor_only": 62,
+      "geometry_unavailable": "Routes lacking verified road geometry suppress polyline completely"
+    },
+    "route_geometry_confidence_values": [
+      "VERIFIED_ROUTE_GEOMETRY",
+      "HIGH_CONFIDENCE_ROUTE_GEOMETRY",
+      "MEDIUM_CONFIDENCE_ROUTE_GEOMETRY",
+      "GEOMETRY_UNAVAILABLE"
+    ],
+    "straight_line_bridging": "STRICTLY_PROHIBITED (0 straight lines or synthetic chords)"
+  },
+  "civic_essentials": {
+    "total_canonical_services": 211,
+    "coordinate_completeness": "100% (211/211 valid coordinates)",
+    "category_breakdown": {
+      "healthcare": 53,
+      "police": 45,
+      "fuel": 33,
+      "atm": 63,
+      "hotel": 10,
+      "restaurant": 3,
+      "transit_hub": 4
+    },
+    "isolation_rule": "Civic essentials are strictly isolated from leisure destinations in a separate layer to prevent pin pollution"
+  },
+  "map_projection_endpoint_relevance": {
+    "endpoint": "POST /map/projection",
+    "relevance_assessment": "LEGACY_BACKEND_BOUNDARY - Mobile V4 natively renders GPU vectors on platform SDKs (Google Maps Compose / Apple MapKit) consuming typed domain endpoints (/places, /services, /transport/routes/{id}/geometry). Server-side projection endpoint is not needed for native mobile rendering."
+  },
+  "district_polygons_status": {
+    "exists": false,
+    "polygon_count": 0,
+    "policy": "NO_FABRICATED_POLYGONS - District exploration uses metadata and centroids; drawing synthetic MultiPolygons is strictly banned."
+  }
+}

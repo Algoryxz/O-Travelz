@@ -1,0 +1,152 @@
+{
+  "report_version": "1.0.0",
+  "evaluation_stage": "STAGE_F_ASSET_MEASUREMENTS",
+  "measured_at": "2026-09-08T10:35:00+05:30",
+  "total_datasets": 14,
+  "total_staged_records": 166,
+  "total_raw_bytes": 4821917,
+  "total_gzip_bytes": 446374,
+  "overall_compression_ratio": 10.8,
+  "measurements": [
+    {
+      "file_path": "data/staging/transit/researched_stop_crosswalks.json",
+      "record_count": 8,
+      "raw_bytes": 11793,
+      "gzip_bytes": 1611,
+      "compression_ratio": 7.32,
+      "largest_record_bytes": 1090,
+      "coordinate_precision": "4 decimal places (~0.0m resolution)",
+      "estimated_mobile_memory_footprint_bytes": 29482
+    },
+    {
+      "file_path": "data/staging/transit/researched_route_geometry.json",
+      "record_count": 5,
+      "raw_bytes": 8893,
+      "gzip_bytes": 1435,
+      "compression_ratio": 6.2,
+      "largest_record_bytes": 1254,
+      "coordinate_precision": "N/A",
+      "estimated_mobile_memory_footprint_bytes": 22232
+    },
+    {
+      "file_path": "data/staging/geospatial/odisha_district_boundaries.geojson",
+      "record_count": 30,
+      "raw_bytes": 4633196,
+      "gzip_bytes": 418201,
+      "compression_ratio": 11.08,
+      "largest_record_bytes": 66044,
+      "coordinate_precision": "6-8 decimal places (raw unsimplified vector polygon precision)",
+      "estimated_mobile_memory_footprint_bytes": 11582990
+    },
+    {
+      "file_path": "data/staging/services/researched_civic_services.json",
+      "record_count": 45,
+      "raw_bytes": 53833,
+      "gzip_bytes": 4425,
+      "compression_ratio": 12.17,
+      "largest_record_bytes": 984,
+      "coordinate_precision": "4 decimal places (~0.0m resolution)",
+      "estimated_mobile_memory_footprint_bytes": 134582
+    },
+    {
+      "file_path": "data/staging/places/researched_operational_facts.json",
+      "record_count": 8,
+      "raw_bytes": 24704,
+      "gzip_bytes": 4730,
+      "compression_ratio": 5.22,
+      "largest_record_bytes": 3071,
+      "coordinate_precision": "N/A",
+      "estimated_mobile_memory_footprint_bytes": 61760
+    },
+    {
+      "file_path": "data/staging/media/researched_media_candidates.json",
+      "record_count": 8,
+      "raw_bytes": 12408,
+      "gzip_bytes": 1716,
+      "compression_ratio": 7.23,
+      "largest_record_bytes": 1244,
+      "coordinate_precision": "N/A",
+      "estimated_mobile_memory_footprint_bytes": 31020
+    },
+    {
+      "file_path": "data/staging/culture/gi_products.json",
+      "record_count": 10,
+      "raw_bytes": 12112,
+      "gzip_bytes": 2375,
+      "compression_ratio": 5.1,
+      "largest_record_bytes": 1042,
+      "coordinate_precision": "N/A",
+      "estimated_mobile_memory_footprint_bytes": 30280
+    },
+    {
+      "file_path": "data/staging/culture/artisan_clusters.json",
+      "record_count": 6,
+      "raw_bytes": 8155,
+      "gzip_bytes": 1780,
+      "compression_ratio": 4.58,
+      "largest_record_bytes": 1131,
+      "coordinate_precision": "4 decimal places (~0.0m resolution)",
+      "estimated_mobile_memory_footprint_bytes": 20387
+    },
+    {
+      "file_path": "data/staging/food/official_food_sources.json",
+      "record_count": 5,
+      "raw_bytes": 6217,
+      "gzip_bytes": 1399,
+      "compression_ratio": 4.44,
+      "largest_record_bytes": 1009,
+      "coordinate_precision": "4 decimal places (~0.0m resolution)",
+      "estimated_mobile_memory_footprint_bytes": 15542
+    },
+    {
+      "file_path": "data/staging/accommodation/official_accommodation_sources.json",
+      "record_count": 15,
+      "raw_bytes": 21065,
+      "gzip_bytes": 2697,
+      "compression_ratio": 7.81,
+      "largest_record_bytes": 1157,
+      "coordinate_precision": "4 decimal places (~0.0m resolution)",
+      "estimated_mobile_memory_footprint_bytes": 52662
+    },
+    {
+      "file_path": "data/staging/connectivity/rail_hubs.json",
+      "record_count": 12,
+      "raw_bytes": 12052,
+      "gzip_bytes": 1302,
+      "compression_ratio": 9.26,
+      "largest_record_bytes": 800,
+      "coordinate_precision": "4 decimal places (~0.0m resolution)",
+      "estimated_mobile_memory_footprint_bytes": 30130
+    },
+    {
+      "file_path": "data/staging/connectivity/airports.json",
+      "record_count": 5,
+      "raw_bytes": 5613,
+      "gzip_bytes": 1103,
+      "compression_ratio": 5.09,
+      "largest_record_bytes": 867,
+      "coordinate_precision": "4 decimal places (~0.0m resolution)",
+      "estimated_mobile_memory_footprint_bytes": 14032
+    },
+    {
+      "file_path": "data/staging/weather/warning_sources.json",
+      "record_count": 2,
+      "raw_bytes": 5067,
+      "gzip_bytes": 1871,
+      "compression_ratio": 2.71,
+      "largest_record_bytes": 1916,
+      "coordinate_precision": "N/A",
+      "estimated_mobile_memory_footprint_bytes": 12667
+    },
+    {
+      "file_path": "data/staging/rag/corpus_source_manifest.json",
+      "record_count": 7,
+      "raw_bytes": 6809,
+      "gzip_bytes": 1729,
+      "compression_ratio": 3.94,
+      "largest_record_bytes": 770,
+      "coordinate_precision": "N/A",
+      "estimated_mobile_memory_footprint_bytes": 17022
+    }
+  ]
+}

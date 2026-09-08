@@ -1,0 +1,35 @@
+{
+  "report_version": "1.0.0",
+  "stage": "STAGE_F_CODEX_ESCALATIONS",
+  "evaluated_at": "2026-09-08T10:35:00+05:30",
+  "codex_escalation_required": false,
+  "escalations_conducted": 0,
+  "evaluation_criteria": [
+    {
+      "criterion": "conflicting_tier_a_evidence",
+      "triggered": false,
+      "details": "No conflicting primary evidence encountered. Census 2011, LGD directory, and official government portals are mutually consistent."
+    },
+    {
+      "criterion": "licensing_ambiguity_affecting_offline_bundling",
+      "triggered": false,
+      "details": "geoBoundaries gbOpen ADM2 is confirmed under Creative Commons Attribution 4.0 International (CC BY 4.0). Attribution obligations are clearly documented."
+    },
+    {
+      "criterion": "route_id_crosswalk_ambiguity_proposed_for_promotion",
+      "triggered": false,
+      "details": "Zero route geometries are proposed for canonical promotion in Stage F. All candidate corridor geometries remain strictly in staging."
+    },
+    {
+      "criterion": "district_boundary_license_ambiguity",
+      "triggered": false,
+      "details": "Survey of India OMP click-through requirements are recognized, and geoBoundaries open data was selected and validated under CC BY 4.0."
+    },
+    {
+      "criterion": "accessibility_claim_with_major_contradiction",
+      "triggered": false,
+      "details": "Physical ground access evidence is unanimous: outer paved areas and ramps are accessible; ancient sanctum sanctorums (Garbhagriha) are physically and ritually restricted."
+    }
+  ],
+  "escalation_summary": "No disputes or ambiguities met the threshold for external Codex CLI invocation during Stage F."
+}

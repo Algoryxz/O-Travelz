@@ -1,0 +1,57 @@
+﻿{
+  "wave": "M11",
+  "phase": "PHASE_51_CROSS_PLATFORM_PARITY",
+  "dimensions": {
+    "destination_marker_population": {
+      "android": "179 eligible leisure destinations",
+      "ios": "179 eligible leisure destinations",
+      "parity": true
+    },
+    "canonical_ids": {
+      "android": "Preserves backend UUID/canonical string id without mutation",
+      "ios": "Preserves backend UUID/canonical string id without mutation",
+      "parity": true
+    },
+    "selection_semantics": {
+      "android": "Compact Material preview card with title, Odia script, category, photo badge, Open Details, Navigate",
+      "ios": "Compact presentation card with title, Odia script, category, photo badge, Open Details, Navigate",
+      "parity": true
+    },
+    "layer_defaults": {
+      "android": "DESTINATIONS=ON, USER_LOCATION=contextual, TRANSIT=OFF, STOPS=OFF, ESSENTIALS=OFF",
+      "ios": "DESTINATIONS=ON, USER_LOCATION=contextual, TRANSIT=OFF, STOPS=OFF, ESSENTIALS=OFF",
+      "parity": true
+    },
+    "stop_gating": {
+      "android": "173 verified stops render exact markers; candidate stops hidden unless explicitly enabled; 1257 locality-only stops have no pins",
+      "ios": "173 verified stops render exact markers; candidate stops hidden unless explicitly enabled; 1257 locality-only stops have no pins",
+      "parity": true
+    },
+    "route_geometry_gating": {
+      "android": "Suppresses polylines for UNAVAILABLE geometry; 0 straight-line bridging",
+      "ios": "Suppresses polylines for UNAVAILABLE geometry; 0 straight-line bridging",
+      "parity": true
+    },
+    "service_isolation": {
+      "android": "211 essentials segregated into mutually exclusive Essentials layer",
+      "ios": "211 essentials segregated into mutually exclusive Essentials layer",
+      "parity": true
+    },
+    "location_denied_behavior": {
+      "android": "Statewide Odisha overview preserved, no fake GPS fallback, manual browsing intact",
+      "ios": "Statewide Odisha overview preserved, no fake GPS fallback, manual browsing intact",
+      "parity": true
+    },
+    "search_semantics": {
+      "android": "English + Odia text matching, district and category filtering from M9",
+      "ios": "English + Odia text matching, district and category filtering from M9",
+      "parity": true
+    },
+    "external_navigation_target": {
+      "android": "geo:0,0?q=lat,lon(name) intent (48dp target)",
+      "ios": "maps://?daddr=lat,lon Apple Maps URL (44pt target)",
+      "parity": true
+    }
+  },
+  "overall_parity_status": "VERIFIED_PARITY"
+}

@@ -1,0 +1,12 @@
+﻿{
+  "wave": "M11",
+  "phase": "PHASE_46_LOCATION_PRIVACY",
+  "rules_enforced": {
+    "no_precise_gps_logging": "PASS (0 log statements printing user latitude/longitude)",
+    "no_analytics_location_telemetry": "PASS (0 analytics events containing GPS coordinates)",
+    "explicit_user_action_only": "PASS (Location requested only when traveler taps 'My Location' or 'Near Me')",
+    "foreground_only": "PASS (0 background location services or continuous GPS tracking)",
+    "anti_fake_gps": "PASS (User location is never labeled as live bus, vehicle position, or transit telemetry)"
+  },
+  "backend_transmission_boundary": "User coordinates are transmitted to GET /services/nearby ONLY upon explicit user toggle/query for nearby essentials."
+}

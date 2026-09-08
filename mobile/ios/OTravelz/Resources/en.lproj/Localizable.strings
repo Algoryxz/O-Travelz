@@ -66,3 +66,17 @@
 "badge_photo_pending" = "Photographic Verification in Progress";
 "photo_pending_desc" = "Authentic field photography for this destination is currently undergoing editorial review.";
 "action_share" = "Share";
+
+/* M11 Native Map Product Strings */
+"map_layer_destinations" = "Destinations";
+"map_layer_essentials" = "Essentials";
+"map_layer_stops" = "Transit Stops";
+"map_layer_candidates" = "Candidate Stops";
+"map_action_my_location" = "My Location";
+"map_action_list_view" = "List View";
+"map_action_open_details" = "Open Details";
+"map_action_navigate" = "Navigate";
+"map_candidate_stop_disclaimer" = "Candidate stop pending final verification — precise walking distance and navigation disabled.";
+"map_places_in_area" = "Places in Current Area";
+"map_verified_stop_badge" = "Verified CRUT Stop";
+"map_candidate_stop_badge" = "Candidate Stop";

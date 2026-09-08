@@ -1,0 +1,153 @@
+{
+  "dataset": "official_food_sources",
+  "version": "1.0.0",
+  "schema_compliance": "STAGE_F_FOOD_STAGING",
+  "total_sources": 5,
+  "invariants": [
+    "Commercial ratings, user reviews, and scraper directories are strictly barred per anti-vibe PRD rule.",
+    "Food sources represent statutory GI specialties and FSSAI certified hygienic hubs only.",
+    "canonical_promotion_allowed = false across all records."
+  ],
+  "food_sources": [
+    {
+      "source_item_id": "food_fssai_khao_gali_bbs",
+      "name": "Khao Gali Food Street, Bhubaneswar",
+      "type": "FSSAI_CERTIFIED_CLEAN_STREET_HUB",
+      "gi_reference": null,
+      "district": "Khordha",
+      "locality": "Ram Mandir Square, Unit-3, Bhubaneswar",
+      "latitude": 20.2745,
+      "longitude": 85.8398,
+      "traditional_hubs": [
+        "Ram Mandir Street Food Promenade"
+      ],
+      "cuisine_category": "STREET_FOOD_HUB",
+      "is_vegetarian": null,
+      "certification": "FSSAI Clean Street Food Hub Certified Benchmark",
+      "crowdsourced_ratings_allowed": false,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_FSSAI_CLEAN_STREET_FOOD",
+        "claim_id": "CLM_FOOD_REGIONAL_SPECIALTIES_GI_009",
+        "source_title": "FSSAI Clean Street Food Hubs & Eat Right Stations",
+        "source_url": "https://fssai.gov.in",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T10:10:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "STATUTORY_PUBLIC_RECORD",
+        "review_verdict": "ACCEPT_WITH_LIMITATIONS"
+      }
+    },
+    {
+      "source_item_id": "food_gi_kai_chutney",
+      "name": "Mayurbhanj Kai Chutney",
+      "type": "GI_REGISTERED_SPECIALTY",
+      "gi_reference": "gi_similipal_kai_chutney",
+      "district": "Mayurbhanj",
+      "traditional_hubs": [
+        "Baripada Tribal Weekly Haats, Similipal"
+      ],
+      "cuisine_category": "TRADITIONAL_SAVORY_RELISH",
+      "is_vegetarian": false,
+      "certification": "GI Application 705 (IP India)",
+      "crowdsourced_ratings_allowed": false,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_IPINDIA_GI_REGISTRY",
+        "claim_id": "CLM_CRAFTS_GI_REGISTRY_007",
+        "source_title": "Geographical Indications Registry (Intellectual Property India)",
+        "source_url": "https://ipindia.gov.in",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T09:40:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "STATUTORY_PUBLIC_RECORD",
+        "review_verdict": "ACCEPT_STAGING"
+      }
+    },
+    {
+      "source_item_id": "food_gi_magji",
+      "name": "Dhenkanal Magji",
+      "type": "GI_REGISTERED_SPECIALTY",
+      "gi_reference": "gi_dhenkanal_magji",
+      "district": "Dhenkanal",
+      "traditional_hubs": [
+        "Gondia and Dhenkanal Town Sweets Hub"
+      ],
+      "cuisine_category": "SWEET_CONFECTIONERY",
+      "is_vegetarian": true,
+      "certification": "GI Application 735 (IP India)",
+      "crowdsourced_ratings_allowed": false,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_IPINDIA_GI_REGISTRY",
+        "claim_id": "CLM_CRAFTS_GI_REGISTRY_007",
+        "source_title": "Geographical Indications Registry (Intellectual Property India)",
+        "source_url": "https://ipindia.gov.in",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T09:40:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "STATUTORY_PUBLIC_RECORD",
+        "review_verdict": "ACCEPT_STAGING"
+      }
+    },
+    {
+      "source_item_id": "food_gi_rasabali",
+      "name": "Kendrapada Rasabali",
+      "type": "GI_REGISTERED_SPECIALTY",
+      "gi_reference": "gi_kendrapada_rasabali",
+      "district": "Kendrapara",
+      "traditional_hubs": [
+        "Baladevjew Temple Premises, Ichhapur, Kendrapara"
+      ],
+      "cuisine_category": "SWEET_CONFECTIONERY",
+      "is_vegetarian": true,
+      "certification": "GI Application 707 (IP India)",
+      "crowdsourced_ratings_allowed": false,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_IPINDIA_GI_REGISTRY",
+        "claim_id": "CLM_CRAFTS_GI_REGISTRY_007",
+        "source_title": "Geographical Indications Registry (Intellectual Property India)",
+        "source_url": "https://ipindia.gov.in",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T09:40:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "STATUTORY_PUBLIC_RECORD",
+        "review_verdict": "ACCEPT_STAGING"
+      }
+    },
+    {
+      "source_item_id": "food_gi_rasagola",
+      "name": "Odisha Rasagola",
+      "type": "GI_REGISTERED_SPECIALTY",
+      "gi_reference": "gi_odisha_rasagola",
+      "district": "Puri / Khordha / Cuttack",
+      "traditional_hubs": [
+        "Pahala (NH-16 Sweet Cluster)",
+        "Salepur (Bikalananda Kar Heritage)",
+        "Puri Jagannath Temple Ananda Bazar"
+      ],
+      "cuisine_category": "SWEET_CONFECTIONERY",
+      "is_vegetarian": true,
+      "certification": "GI Application 612 (IP India)",
+      "crowdsourced_ratings_allowed": false,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_IPINDIA_GI_REGISTRY",
+        "claim_id": "CLM_CRAFTS_GI_REGISTRY_007",
+        "source_title": "Geographical Indications Registry (Intellectual Property India)",
+        "source_url": "https://ipindia.gov.in",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T09:40:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "STATUTORY_PUBLIC_RECORD",
+        "review_verdict": "ACCEPT_STAGING"
+      }
+    }
+  ]
+}

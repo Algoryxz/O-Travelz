@@ -1,0 +1,34 @@
+﻿{
+  "wave": "M11",
+  "phase": "PHASE_54_DATA_QUALITY_LEDGER",
+  "geospatial_data_gaps": [
+    {
+      "gap_id": "GEO_GAP_01",
+      "entity": "District Polygons",
+      "status": "UNAVAILABLE",
+      "gap_description": "Zero canonical 30-district MultiPolygon boundaries exist in repository. District browsing is centroid/metadata only.",
+      "severity": "LOW (Truthful centroid/list browsing functions without boundaries)"
+    },
+    {
+      "gap_id": "GEO_GAP_02",
+      "entity": "Transit Route Geometry",
+      "status": "PARTIAL",
+      "gap_description": "23 routes have exact surveyed road geometry; 79 have partial geometry; 62 are corridor-only; 15 routes lack surveyed vector alignments.",
+      "severity": "MEDIUM (Polylines are suppressed cleanly when geometry is unavailable)"
+    },
+    {
+      "gap_id": "GEO_GAP_03",
+      "entity": "Transit Stop Coordinates",
+      "status": "PARTIAL",
+      "gap_description": "173 stops have verified physical coordinates; 1,257 stops are official service area localities without surveyed pole lat/lon.",
+      "severity": "HIGH for transit routing, but strictly handled in M11 by suppressing exact pins for locality stops"
+    },
+    {
+      "gap_id": "GEO_GAP_04",
+      "entity": "Civic Essentials Coordinates",
+      "status": "COMPLETE",
+      "gap_description": "211 of 211 civic services have verified coordinates inside Odisha bounds.",
+      "severity": "NONE"
+    }
+  ]
+}

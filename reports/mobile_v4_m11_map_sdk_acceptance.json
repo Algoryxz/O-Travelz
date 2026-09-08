@@ -1,0 +1,30 @@
+{
+  "wave": "M11",
+  "phase": "PHASE_1_MAP_SDK_DEPENDENCY_AUDIT",
+  "audit_timestamp": "2026-09-08T10:32:05+05:30",
+  "android": {
+    "sdk_name": "Google Maps SDK for Android + Maps Compose",
+    "maps_compose_library": "com.google.maps.android:maps-compose",
+    "maps_compose_version": "6.1.2",
+    "play_services_maps_version": "19.0.0",
+    "play_services_location_library": "com.google.android.gms:play-services-location",
+    "play_services_location_version": "21.3.0",
+    "min_sdk": 26,
+    "target_sdk": 35,
+    "compile_sdk": 35,
+    "api_key_handling": "Gradle BuildConfig / manifestPlaceholders injection from local.properties or MAPS_API_KEY env var with graceful unconfigured fallback",
+    "api_key_committed": false,
+    "billing_requirement": "Google Cloud Platform Project with Maps SDK for Android and billing enabled",
+    "pricing_classification": "SUBJECT_TO_PROVIDER_PRICING",
+    "graceful_degradation": "When Maps API key is blank or invalid, MapScreen displays a calm Native Map Provider Unavailable state card instead of crashing"
+  },
+  "ios": {
+    "sdk_name": "Apple MapKit / SwiftUI.Map",
+    "framework": "MapKit.framework",
+    "min_ios_version": "17.0",
+    "third_party_dependencies": "NONE (0 external packages, 100% native Apple framework)",
+    "api_key_required": false,
+    "billing_requirement": "Included with standard Apple Developer Program membership (no per-tile billing for native MapKit views)",
+    "pricing_classification": "NATIVE_PLATFORM_ENTITLEMENT"
+  }
+}

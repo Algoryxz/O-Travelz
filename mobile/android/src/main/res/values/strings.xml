@@ -70,4 +70,23 @@
     <string name="action_share">Share</string>
     <string name="share_text_template">%1$s, %2$s — Odisha Cultural Atlas</string>
     <string name="content_desc_gallery_photo">Photograph %1$d of %2$d: %3$s</string>
+
+    <!-- M11 Native Map Product Strings -->
+    <string name="map_layer_destinations">Destinations</string>
+    <string name="map_layer_essentials">Essentials</string>
+    <string name="map_layer_stops">Transit Stops</string>
+    <string name="map_layer_routes">Transit Routes</string>
+    <string name="map_layer_candidates">Candidate Stops</string>
+    <string name="map_action_my_location">My Location</string>
+    <string name="map_action_list_view">List View</string>
+    <string name="map_action_open_details">Open Details</string>
+    <string name="map_action_navigate">Navigate</string>
+    <string name="map_provider_unavailable_title">Native Map Provider Unavailable</string>
+    <string name="map_provider_unavailable_desc">Configure MAPS_API_KEY in local.properties for interactive vector tiles. Exploring destinations via linear list.</string>
+    <string name="map_candidate_stop_disclaimer">Candidate stop pending final verification — precise walking distance and navigation disabled.</string>
+    <string name="map_route_unavailable">Route map unavailable</string>
+    <string name="map_places_in_area">Places in Current Area</string>
+    <string name="map_essentials_in_area">Civic Essentials Nearby</string>
+    <string name="map_verified_stop_badge">Verified CRUT Stop</string>
+    <string name="map_candidate_stop_badge">Candidate Stop</string>
 </resources>

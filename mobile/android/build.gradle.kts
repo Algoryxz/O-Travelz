@@ -1,9 +1,22 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
 }
+
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(localPropertiesFile.inputStream())
+}
+val mapsApiKey: String = (project.findProperty("mapsApiKey") as? String)
+    ?.takeIf { it.isNotBlank() }
+    ?: System.getenv("MAPS_API_KEY")?.takeIf { it.isNotBlank() }
+    ?: localProperties.getProperty("MAPS_API_KEY")?.takeIf { it.isNotBlank() }
+    ?: ""
 
 android {
     namespace = "com.otravelz.android"
@@ -15,6 +28,9 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "4.0.0"
+
+        manifestPlaceholders["MAPS_API_KEY"] = mapsApiKey
+        buildConfigField("String", "MAPS_API_KEY", "\"$mapsApiKey\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,6 +60,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -63,6 +80,11 @@ dependencies {
 
     // Image Loading (Wave M8)
     implementation(libs.coil.compose)
+
+    // Maps & Location (Wave M11)
+    implementation(libs.google.maps.compose)
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
 
     // Networking (Wave M6)
     implementation(libs.retrofit)

@@ -1,0 +1,90 @@
+{
+  "registry_version": "1.0.0",
+  "last_updated": "2026-09-08T10:35:00+05:30",
+  "licenses": [
+    {
+      "license_id": "CC_BY_4_0",
+      "name": "Creative Commons Attribution 4.0 International",
+      "redistribution_allowed": true,
+      "mobile_offline_bundling_allowed": true,
+      "attribution_required": true,
+      "commercial_use_allowed": true,
+      "share_alike_required": false,
+      "applicable_domains": [
+        "Geospatial Boundaries (geoBoundaries IND ADM2)"
+      ]
+    },
+    {
+      "license_id": "CC_BY_SA_4_0",
+      "name": "Creative Commons Attribution-ShareAlike 4.0 International",
+      "redistribution_allowed": true,
+      "mobile_offline_bundling_allowed": true,
+      "attribution_required": true,
+      "commercial_use_allowed": true,
+      "share_alike_required": true,
+      "applicable_domains": [
+        "Verified Cultural Media (Wikimedia Commons)"
+      ]
+    },
+    {
+      "license_id": "CC_BY_SA_3_0",
+      "name": "Creative Commons Attribution-ShareAlike 3.0 Unported",
+      "redistribution_allowed": true,
+      "mobile_offline_bundling_allowed": true,
+      "attribution_required": true,
+      "commercial_use_allowed": true,
+      "share_alike_required": true,
+      "applicable_domains": [
+        "Verified Cultural Media (Wikimedia Commons)"
+      ]
+    },
+    {
+      "license_id": "PUBLIC_DOMAIN_EXPIRY",
+      "name": "Public Domain (Out of Copyright - Indian Copyright Act 1957 s.22)",
+      "redistribution_allowed": true,
+      "mobile_offline_bundling_allowed": true,
+      "attribution_required": true,
+      "commercial_use_allowed": true,
+      "share_alike_required": false,
+      "applicable_domains": [
+        "Historical Odia Literature / RAG Corpus (Odia Virtual Academy)"
+      ]
+    },
+    {
+      "license_id": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+      "name": "Government Open Public Service Disclaimer (Smart City / Portal)",
+      "redistribution_allowed": true,
+      "mobile_offline_bundling_allowed": false,
+      "attribution_required": true,
+      "commercial_use_allowed": false,
+      "share_alike_required": false,
+      "applicable_domains": [
+        "BhubaneswarOne Transit GIS, Bus Route Network"
+      ]
+    },
+    {
+      "license_id": "STATUTORY_PUBLIC_RECORD",
+      "name": "Government Statutory Public Record / Gazette",
+      "redistribution_allowed": true,
+      "mobile_offline_bundling_allowed": true,
+      "attribution_required": true,
+      "commercial_use_allowed": true,
+      "share_alike_required": false,
+      "applicable_domains": [
+        "GI Registrations (IP India), Census of India Codes, LGD Directory, ASI Tariffs"
+      ]
+    },
+    {
+      "license_id": "GOVERNMENT_PUBLIC_BULLETIN",
+      "name": "Government Public Weather & Emergency Bulletin",
+      "redistribution_allowed": true,
+      "mobile_offline_bundling_allowed": false,
+      "attribution_required": true,
+      "commercial_use_allowed": false,
+      "share_alike_required": false,
+      "applicable_domains": [
+        "IMD MC Bhubaneswar, NDMA SACHET CAP Alerts"
+      ]
+    }
+  ]
+}

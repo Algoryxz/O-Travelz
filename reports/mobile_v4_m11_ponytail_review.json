@@ -1,0 +1,43 @@
+﻿{
+  "wave": "M11",
+  "phase": "PHASE_52_PONYTAIL_REVIEW",
+  "reductions_and_simplifications": [
+    {
+      "area": "Clustering",
+      "proposal": "Add Android Maps Utils quadtree spatial clustering",
+      "action": "DELETED / REJECTED",
+      "rationale": "179 markers are lightweight. Standard platform rendering avoids third-party dependency bloat and marker jitter."
+    },
+    {
+      "area": "Custom Map JSON Styling",
+      "proposal": "Apply custom desert/terracotta tile styling JSON",
+      "action": "DELETED / REJECTED",
+      "rationale": "Over-styling base maps damages road/water legibility and increases tile asset payload. Native system light/dark styling prioritized."
+    },
+    {
+      "area": "Map Persistence",
+      "proposal": "Add Room/SwiftData tables to persist viewport and selected pins across restarts",
+      "action": "DELETED / REJECTED",
+      "rationale": "M11 strictly outlaws Room and SwiftData. In-memory ViewModel state suffices."
+    },
+    {
+      "area": "Transit Route Polylines",
+      "proposal": "Fetch and draw all 154 routes at once",
+      "action": "DELETED / REJECTED",
+      "rationale": "Drawing 154 routes causes extreme visual spaghetti. Geometry is requested on-demand only for the focused/selected corridor."
+    },
+    {
+      "area": "Generic MapEntity Hierarchy",
+      "proposal": "Create abstract MapEntity base class with common interface",
+      "action": "DELETED / REJECTED",
+      "rationale": "Polymorphic dumping loses truth boundaries. Distinct Destination, TransitStop, RouteGeometry, and CivicService types preserve exact truth contracts."
+    },
+    {
+      "area": "Background Location Streaming",
+      "proposal": "Continuously stream GPS fixes with background service",
+      "action": "DELETED / REJECTED",
+      "rationale": "Battery drain, privacy violation, and excessive permission friction. Use one-shot foreground fix when traveler taps 'My Location'."
+    }
+  ],
+  "ponytail_verdict": "MINIMAL_NATIVE_PARITY"
+}

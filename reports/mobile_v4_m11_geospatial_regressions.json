@@ -1,0 +1,67 @@
+﻿{
+  "wave": "M11",
+  "phase": "PHASE_50_HISTORICAL_GEOSPATIAL_REGRESSIONS",
+  "regressions_audited": [
+    {
+      "regression_id": "REG_GEO_01",
+      "description": "No fake 30-district MultiPolygons drawn on canvas",
+      "status": "PASS",
+      "truth_basis": "Zero district polygon datasets in repository; district browsing strictly metadata/centroid"
+    },
+    {
+      "regression_id": "REG_GEO_02",
+      "description": "No fake live vehicle location or animated bus pins",
+      "status": "PASS",
+      "truth_basis": "Transit data is scheduled only; no vehicle hardware telemetry"
+    },
+    {
+      "regression_id": "REG_GEO_03",
+      "description": "No straight-line transit chords between unresolved stops",
+      "status": "PASS",
+      "truth_basis": "Missing route geometry suppresses polyline completely"
+    },
+    {
+      "regression_id": "REG_GEO_04",
+      "description": "No candidate-stop first-mile walking or navigation claims",
+      "status": "PASS",
+      "truth_basis": "First-mile calculation strictly restricted to VERIFIED_OFFICIAL and VERIFIED_GEOSPATIAL stops"
+    },
+    {
+      "regression_id": "REG_GEO_05",
+      "description": "No locality-only stops placed at fake pin coordinates",
+      "status": "PASS",
+      "truth_basis": "1257 unresolved/locality stops have render_exact_marker=false and are suppressed from pin layers"
+    },
+    {
+      "regression_id": "REG_GEO_06",
+      "description": "No missing coordinates mapped to (0.0, 0.0)",
+      "status": "PASS",
+      "truth_basis": "All coordinates validated against Odisha bounding box [17.78..22.57 N, 81.39..87.53 E]"
+    },
+    {
+      "regression_id": "REG_GEO_07",
+      "description": "No silent fallback to Bhubaneswar as fake GPS location on permission denial",
+      "status": "PASS",
+      "truth_basis": "Permission denial retains nationwide/statewide Odisha camera and leaves location puck inactive"
+    },
+    {
+      "regression_id": "REG_GEO_08",
+      "description": "No route geometry fabricated from stop-to-stop straight lines",
+      "status": "PASS",
+      "truth_basis": "Only surveyed road geometry renders as polylines"
+    },
+    {
+      "regression_id": "REG_GEO_09",
+      "description": "No civic essentials leaking into cultural leisure destinations",
+      "status": "PASS",
+      "truth_basis": "211 civic essentials strictly segregated into dedicated, mutually exclusive Essentials layer"
+    },
+    {
+      "regression_id": "REG_GEO_10",
+      "description": "No user location coordinates sent to analytics or persistent tracking",
+      "status": "PASS",
+      "truth_basis": "0 telemetry logging of user lat/lon"
+    }
+  ],
+  "overall_verdict": "PASS"
+}

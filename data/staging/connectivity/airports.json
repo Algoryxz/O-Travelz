@@ -1,0 +1,143 @@
+{
+  "dataset": "airports",
+  "version": "1.0.0",
+  "schema_compliance": "STAGE_F_CONNECTIVITY_STAGING",
+  "total_airports": 5,
+  "invariants": [
+    "Static airport facility coordinates and verified public feeder transit links.",
+    "Live flight radar, gate allocations, and flight status strictly unsupported.",
+    "canonical_promotion_allowed = false across all records."
+  ],
+  "airports": [
+    {
+      "iata_code": "BBI",
+      "icao_code": "VEBS",
+      "airport_name": "Biju Patnaik International Airport",
+      "city": "Bhubaneswar",
+      "district": "Khordha",
+      "latitude": 20.2444,
+      "longitude": 85.8178,
+      "operator": "Airports Authority of India",
+      "feeder_transit": "CRUT Mo Bus Route 10, Airport Express AE-1, AE-2",
+      "live_radar_supported": false,
+      "gate_assignment_supported": false,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_AAI_AIRPORTS",
+        "claim_id": "CLM_INTERCITY_RAIL_AND_AVIATION_012",
+        "source_title": "Airports Authority of India Operational Flight Information & UDAN RCS",
+        "source_url": "https://www.aai.aero",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T10:15:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "STATUTORY_PUBLIC_RECORD",
+        "review_verdict": "ACCEPT_STAGING"
+      }
+    },
+    {
+      "iata_code": "JRG",
+      "icao_code": "VEJH",
+      "airport_name": "Veer Surendra Sai Airport",
+      "city": "Jharsuguda",
+      "district": "Jharsuguda",
+      "latitude": 21.9142,
+      "longitude": 84.0505,
+      "operator": "Airports Authority of India",
+      "feeder_transit": "NH-49 / State Highway Dedicated Feeder",
+      "live_radar_supported": false,
+      "gate_assignment_supported": false,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_AAI_AIRPORTS",
+        "claim_id": "CLM_INTERCITY_RAIL_AND_AVIATION_012",
+        "source_title": "Airports Authority of India Operational Flight Information & UDAN RCS",
+        "source_url": "https://www.aai.aero",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T10:15:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "STATUTORY_PUBLIC_RECORD",
+        "review_verdict": "ACCEPT_STAGING"
+      }
+    },
+    {
+      "iata_code": "PYB",
+      "icao_code": "VEJP",
+      "airport_name": "Jeypore Airport",
+      "city": "Jeypore",
+      "district": "Koraput",
+      "latitude": 18.8805,
+      "longitude": 82.551,
+      "operator": "Govt of Odisha & AAI (UDAN)",
+      "feeder_transit": "NH-26 Feeder Link",
+      "live_radar_supported": false,
+      "gate_assignment_supported": false,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_AAI_AIRPORTS",
+        "claim_id": "CLM_INTERCITY_RAIL_AND_AVIATION_012",
+        "source_title": "Airports Authority of India Operational Flight Information & UDAN RCS",
+        "source_url": "https://www.aai.aero",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T10:15:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "STATUTORY_PUBLIC_RECORD",
+        "review_verdict": "ACCEPT_STAGING"
+      }
+    },
+    {
+      "iata_code": "RRK",
+      "icao_code": "VERK",
+      "airport_name": "Rourkela Airport",
+      "city": "Rourkela",
+      "district": "Sundargarh",
+      "latitude": 22.2572,
+      "longitude": 84.8147,
+      "operator": "SAIL & AAI Joint Operation",
+      "feeder_transit": "Ring Road City Bus & Taxi Link",
+      "live_radar_supported": false,
+      "gate_assignment_supported": false,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_AAI_AIRPORTS",
+        "claim_id": "CLM_INTERCITY_RAIL_AND_AVIATION_012",
+        "source_title": "Airports Authority of India Operational Flight Information & UDAN RCS",
+        "source_url": "https://www.aai.aero",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T10:15:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "STATUTORY_PUBLIC_RECORD",
+        "review_verdict": "ACCEPT_STAGING"
+      }
+    },
+    {
+      "iata_code": "UKE",
+      "icao_code": "VEUK",
+      "airport_name": "Utkela Airport",
+      "city": "Utkela",
+      "district": "Kalahandi",
+      "latitude": 20.0988,
+      "longitude": 83.1844,
+      "operator": "Govt of Odisha & AAI (UDAN)",
+      "feeder_transit": "NH-26 Bhawanipatna Link",
+      "live_radar_supported": false,
+      "gate_assignment_supported": false,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_AAI_AIRPORTS",
+        "claim_id": "CLM_INTERCITY_RAIL_AND_AVIATION_012",
+        "source_title": "Airports Authority of India Operational Flight Information & UDAN RCS",
+        "source_url": "https://www.aai.aero",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T10:15:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "STATUTORY_PUBLIC_RECORD",
+        "review_verdict": "ACCEPT_STAGING"
+      }
+    }
+  ]
+}

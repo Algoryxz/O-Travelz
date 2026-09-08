@@ -1,0 +1,19 @@
+﻿{
+  "wave": "M11",
+  "phase": "PHASE_18_ROUTE_GEOMETRY_REGRESSION",
+  "rule": "ZERO_STRAIGHT_LINE_BRIDGING",
+  "audit": {
+    "total_routes_checked": 154,
+    "straight_line_fallbacks_allowed": 0,
+    "synthetic_chords_generated": 0,
+    "geometry_unavailable_behavior": "POLYLINE_SUPPRESSED",
+    "unresolved_stop_interpolation": "PROHIBITED"
+  },
+  "truth_contract": {
+    "VERIFIED_ROUTE_GEOMETRY": "Render solid vector polyline along surveyed road geometry",
+    "HIGH_CONFIDENCE_ROUTE_GEOMETRY": "Render solid vector polyline with road-alignment metadata",
+    "MEDIUM_CONFIDENCE_ROUTE_GEOMETRY": "Render only verified road segments; suppress unresolved gaps",
+    "GEOMETRY_UNAVAILABLE": "Suppress polyline completely. Render calm message: 'Route map unavailable'"
+  },
+  "status": "PASS"
+}

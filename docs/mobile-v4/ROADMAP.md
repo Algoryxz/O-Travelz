@@ -25,8 +25,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M8** | Editorial Cultural Atlas: Discover + Place Detail Production Vertical Slice | `[COMPLETED]` |
 | **M9** | Discover feed, spatial filtering, and full-text search | `[COMPLETED]` |
 | **M10** | Place Detail editorial sheets, verified photography, and live weather cards | `[COMPLETED]` |
-| **M11** | Native mapping canvases (Google Maps Compose & Apple MapKit) | `[NEXT]` |
-| **M12** | 154-Route transit directory, stop details, and timetable evaluation | `[PLANNED]` |
+| **M11** | Native mapping canvases (Google Maps Compose & Apple MapKit) | `[COMPLETED]` |
+| **M12** | 154-Route transit directory, stop details, and timetable evaluation | `[NEXT]` |
 | **M13** | Constraint-aware itinerary builder and grounded AI conversational assistant | `[PLANNED]` |
 | **M14** | Trips persistence (Room SQLite & SwiftData) with offline sync | `[PLANNED]` |
 | **M15** | Emergency essentials, civic contacts, and artisan clusters | `[PLANNED]` |

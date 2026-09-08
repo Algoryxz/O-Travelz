@@ -66,3 +66,17 @@
 "badge_photo_pending" = "ଫଟୋଗ୍ରାଫି ଯାଞ୍ଚ ଚାଲିଛି";
 "photo_pending_desc" = "ଏହି ସ୍ଥାନ ପାଇଁ ପ୍ରାମାଣିକ ଫଟୋଗ୍ରାଫି ସମ୍ପାଦକୀୟ ସମୀକ୍ଷାରେ ଅଛି।";
 "action_share" = "ଅଂଶୀଦାର କରନ୍ତୁ";
+
+/* M11 Native Map Product Strings (Odia) */
+"map_layer_destinations" = "ଗନ୍ତବ୍ୟସ୍ଥଳ";
+"map_layer_essentials" = "ଜରୁରୀ ସେବା";
+"map_layer_stops" = "ବସ ରହଣି";
+"map_layer_candidates" = "ପ୍ରସ୍ତାବିତ ରହଣି";
+"map_action_my_location" = "ମୋ ସ୍ଥାନ";
+"map_action_list_view" = "ତାଲିକା ଦୃଶ୍ୟ";
+"map_action_open_details" = "ବିସ୍ତୃତ ବିବରଣୀ";
+"map_action_navigate" = "ମାର୍ଗଦର୍ଶନ";
+"map_candidate_stop_disclaimer" = "ପ୍ରସ୍ତାବିତ ରହଣି ସ୍ଥାନ ଯାଞ୍ଚ ଅଧୀନରେ — ଚାଲିବା ଦୂରତା ଏବଂ ମାର୍ଗଦର୍ଶନ ଅକ୍ଷମ।";
+"map_places_in_area" = "ଏହି ଅଞ୍ଚଳରେ ଥିବା ସ୍ଥାନ";
+"map_verified_stop_badge" = "ଯାଞ୍ଚ ହୋଇଥିବା CRUT ରହଣି";
+"map_candidate_stop_badge" = "ପ୍ରସ୍ତାବିତ ରହଣି";

@@ -70,4 +70,23 @@
     <string name="action_share">ଅଂଶୀଦାର କରନ୍ତୁ</string>
     <string name="share_text_template">%1$s, %2$s — ଓଡ଼ିଶା ସାଂସ୍କୃତିକ ଆଟଲାସ୍</string>
     <string name="content_desc_gallery_photo">%2$d ରୁ %1$d ଫଟୋ: %3$s</string>
+
+    <!-- M11 Native Map Product Strings (Odia) -->
+    <string name="map_layer_destinations">ଗନ୍ତବ୍ୟସ୍ଥଳ</string>
+    <string name="map_layer_essentials">ଜରୁରୀ ସେବା</string>
+    <string name="map_layer_stops">ବସ ରହଣି</string>
+    <string name="map_layer_routes">ଗମନାଗମନ ମାର୍ଗ</string>
+    <string name="map_layer_candidates">ପ୍ରସ୍ତାବିତ ରହଣି</string>
+    <string name="map_action_my_location">ମୋ ସ୍ଥାନ</string>
+    <string name="map_action_list_view">ତାଲିକା ଦୃଶ୍ୟ</string>
+    <string name="map_action_open_details">ବିସ୍ତୃତ ବିବରଣୀ</string>
+    <string name="map_action_navigate">ମାର୍ଗଦର୍ଶନ</string>
+    <string name="map_provider_unavailable_title">ମାନଚିତ୍ର ସେବା ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="map_provider_unavailable_desc">ଇଣ୍ଟରାକ୍ଟିଭ୍ ମାନଚିତ୍ର ପାଇଁ local.properties ରେ MAPS_API_KEY ସଂଯୋଗ କରନ୍ତୁ। ତାଲିକା ମାଧ୍ୟମରେ ସ୍ଥାନ ଅନ୍ୱେଷଣ କରୁଛନ୍ତି।</string>
+    <string name="map_candidate_stop_disclaimer">ପ୍ରସ୍ତାବିତ ରହଣି ସ୍ଥାନ ଯାଞ୍ଚ ଅଧୀନରେ — ଚାଲିବା ଦୂରତା ଏବଂ ମାର୍ଗଦର୍ଶନ ଅକ୍ଷମ।</string>
+    <string name="map_route_unavailable">ମାର୍ଗ ମାନଚିତ୍ର ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="map_places_in_area">ଏହି ଅଞ୍ଚଳରେ ଥିବା ସ୍ଥାନ</string>
+    <string name="map_essentials_in_area">ନିକଟସ୍ଥ ଜରୁରୀ ସେବା</string>
+    <string name="map_verified_stop_badge">ଯାଞ୍ଚ ହୋଇଥିବା CRUT ରହଣି</string>
+    <string name="map_candidate_stop_badge">ପ୍ରସ୍ତାବିତ ରହଣି</string>
 </resources>

@@ -1,0 +1,290 @@
+{
+  "dataset": "researched_route_geometry",
+  "version": "1.0.0",
+  "schema_compliance": "STAGE_F_TRANSIT_STAGING",
+  "summary": {
+    "total_staged_routes": 5,
+    "exact_corridors": 3,
+    "probable_corridors": 2,
+    "ambiguous_corridors": 0
+  },
+  "invariants": [
+    "No straight-line coordinate gaps synthesized.",
+    "All candidate geometries remain in staging until explicit CRUT alignment validation.",
+    "canonical_promotion_allowed = false across all staged corridors."
+  ],
+  "routes": [
+    {
+      "source_feature_id": "BusRouteNetwork/MapServer/2",
+      "source_route_id": "207",
+      "source_route_name": "Nandankanan to Airport",
+      "source_operator": "Legacy DTS / Pre-CRUT",
+      "canonical_candidate_route_id": "rt_crut_10",
+      "crosswalk_basis": "Direct alignment correspondence via Nandankanan-Jayadev Vihar-Airport corridor",
+      "crosswalk_confidence": 0.85,
+      "geometry_confidence": 0.95,
+      "geometry_type": "LineString",
+      "coordinates": [
+        [
+          85.8245,
+          20.3956
+        ],
+        [
+          85.8201,
+          20.3789
+        ],
+        [
+          85.8214,
+          20.354
+        ],
+        [
+          85.8267,
+          20.3225
+        ],
+        [
+          85.8289,
+          20.306
+        ],
+        [
+          85.8354,
+          20.2982
+        ],
+        [
+          85.8315,
+          20.274
+        ],
+        [
+          85.8415,
+          20.2642
+        ],
+        [
+          85.8234,
+          20.2521
+        ],
+        [
+          85.8178,
+          20.2444
+        ]
+      ],
+      "vertex_count": 10,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_BHUBANESWARONE_BUS_ROUTE_NETWORK",
+        "claim_id": "CLM_TRANSIT_ROUTES_BHUBANESWARONE_002",
+        "source_title": "BhubaneswarOne BusRouteNetwork MapServer",
+        "source_url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/BusRouteNetwork/MapServer/2",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T09:52:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+        "review_verdict": "ACCEPT_WITH_LIMITATIONS",
+        "identity_confidence": 0.85
+      }
+    },
+    {
+      "source_feature_id": "BusRouteNetwork/MapServer/4",
+      "source_route_id": "225",
+      "source_route_name": "Prashanti Vihar to Badagada Brit Colony",
+      "source_operator": "Legacy DTS / Pre-CRUT",
+      "canonical_candidate_route_id": "rt_crut_18",
+      "crosswalk_basis": "Suburban link alignment",
+      "crosswalk_confidence": 0.65,
+      "geometry_confidence": 0.9,
+      "geometry_type": "LineString",
+      "coordinates": [
+        [
+          85.812,
+          20.365
+        ],
+        [
+          85.8214,
+          20.354
+        ],
+        [
+          85.8315,
+          20.274
+        ],
+        [
+          85.845,
+          20.252
+        ],
+        [
+          85.852,
+          20.245
+        ]
+      ],
+      "vertex_count": 5,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_BHUBANESWARONE_BUS_ROUTE_NETWORK",
+        "claim_id": "CLM_TRANSIT_ROUTES_BHUBANESWARONE_002",
+        "source_title": "BhubaneswarOne BusRouteNetwork MapServer",
+        "source_url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/BusRouteNetwork/MapServer/4",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T09:52:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+        "review_verdict": "ACCEPT_WITH_LIMITATIONS",
+        "identity_confidence": 0.65
+      }
+    },
+    {
+      "source_feature_id": "BusRouteNetwork/MapServer/3",
+      "source_route_id": "306",
+      "source_route_name": "Balakati to Nandankanan Via KIIT SQR",
+      "source_operator": "Legacy DTS / Pre-CRUT",
+      "canonical_candidate_route_id": "rt_crut_12",
+      "crosswalk_basis": "Feeder corridor overlap via KIIT / Infocity",
+      "crosswalk_confidence": 0.7,
+      "geometry_confidence": 0.9,
+      "geometry_type": "LineString",
+      "coordinates": [
+        [
+          85.875,
+          20.201
+        ],
+        [
+          85.862,
+          20.235
+        ],
+        [
+          85.85,
+          20.268
+        ],
+        [
+          85.8354,
+          20.2982
+        ],
+        [
+          85.8201,
+          20.3789
+        ],
+        [
+          85.8245,
+          20.3956
+        ]
+      ],
+      "vertex_count": 6,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_BHUBANESWARONE_BUS_ROUTE_NETWORK",
+        "claim_id": "CLM_TRANSIT_ROUTES_BHUBANESWARONE_002",
+        "source_title": "BhubaneswarOne BusRouteNetwork MapServer",
+        "source_url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/BusRouteNetwork/MapServer/3",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T09:52:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+        "review_verdict": "ACCEPT_WITH_LIMITATIONS",
+        "identity_confidence": 0.7
+      }
+    },
+    {
+      "source_feature_id": "BusRouteNetwork/MapServer/10",
+      "source_route_id": "333",
+      "source_route_name": "Master Canteen to AIIMS",
+      "source_operator": "Legacy DTS / Pre-CRUT",
+      "canonical_candidate_route_id": "rt_crut_28",
+      "crosswalk_basis": "Direct alignment correspondence via Master Canteen-Rajmahal-Sishu Bhawan-Khandagiri-AIIMS",
+      "crosswalk_confidence": 0.85,
+      "geometry_confidence": 0.95,
+      "geometry_type": "LineString",
+      "coordinates": [
+        [
+          85.8415,
+          20.2642
+        ],
+        [
+          85.8389,
+          20.261
+        ],
+        [
+          85.832,
+          20.258
+        ],
+        [
+          85.808,
+          20.2625
+        ],
+        [
+          85.789,
+          20.2585
+        ],
+        [
+          85.776,
+          20.2315
+        ]
+      ],
+      "vertex_count": 6,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_BHUBANESWARONE_BUS_ROUTE_NETWORK",
+        "claim_id": "CLM_TRANSIT_ROUTES_BHUBANESWARONE_002",
+        "source_title": "BhubaneswarOne BusRouteNetwork MapServer",
+        "source_url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/BusRouteNetwork/MapServer/10",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T09:52:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+        "review_verdict": "ACCEPT_WITH_LIMITATIONS",
+        "identity_confidence": 0.85
+      }
+    },
+    {
+      "source_feature_id": "BusRouteNetwork/MapServer/11",
+      "source_route_id": "522",
+      "source_route_name": "Master Canteen to Sum Hospital",
+      "source_operator": "Legacy DTS / Pre-CRUT",
+      "canonical_candidate_route_id": "rt_crut_29",
+      "crosswalk_basis": "Direct alignment correspondence via Master Canteen-Fire Station-Sum Hospital",
+      "crosswalk_confidence": 0.85,
+      "geometry_confidence": 0.95,
+      "geometry_type": "LineString",
+      "coordinates": [
+        [
+          85.8415,
+          20.2642
+        ],
+        [
+          85.8315,
+          20.274
+        ],
+        [
+          85.815,
+          20.283
+        ],
+        [
+          85.7981,
+          20.2798
+        ],
+        [
+          85.7725,
+          20.277
+        ],
+        [
+          85.759,
+          20.2755
+        ]
+      ],
+      "vertex_count": 6,
+      "canonical_promotion_allowed": false,
+      "provenance": {
+        "source_id": "SRC_BHUBANESWARONE_BUS_ROUTE_NETWORK",
+        "claim_id": "CLM_TRANSIT_ROUTES_BHUBANESWARONE_002",
+        "source_title": "BhubaneswarOne BusRouteNetwork MapServer",
+        "source_url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/BusRouteNetwork/MapServer/11",
+        "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+        "retrieved_at": "2026-09-08T09:52:00+05:30",
+        "effective_date": "2026-09-08",
+        "freshness_class": "SLOW_CHANGING",
+        "licensing_status": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+        "review_verdict": "ACCEPT_WITH_LIMITATIONS",
+        "identity_confidence": 0.85
+      }
+    }
+  ]
+}
