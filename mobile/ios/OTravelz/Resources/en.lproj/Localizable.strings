@@ -46,3 +46,17 @@
 "gallery_single_photo" = "1 Verified Photo";
 "gallery_multiple_photos" = "%lld Verified Photos";
 "action_back" = "Back";
+
+/* M9 Discovery Intelligence Strings */
+"filter_nearby" = "Near Me";
+"filter_district" = "District";
+"label_distance_km" = "%.1f km away";
+"label_distance_m" = "%lld m away";
+"places_found_count" = "%lld places";
+"places_near_you" = "%lld places near you";
+"location_permission_rationale" = "Allow location access to discover cultural destinations near you.";
+"location_denied_notice" = "Location access denied. Exploring statewide atlas.";
+"action_clear_search" = "Clear search";
+"action_clear_district" = "Clear district";
+"action_clear_category" = "Clear category";
+"action_disable_nearby" = "Turn off Near Me";

@@ -1,0 +1,72 @@
+{
+  "wave": "M9",
+  "topic": "Cross-Platform Discovery Intelligence Parity",
+  "timestamp": "2026-09-08T09:48:30+05:30",
+  "platforms": {
+    "android": {
+      "engine": "DiscoverSearchEngine (Kotlin)",
+      "ui_container": "DiscoverRoot.kt (Jetpack Compose)",
+      "location_requester": "LocationManager (opt-in near me chip)",
+      "distance_formula": "HaversineDistance (KMP shared core parity)",
+      "result_recovery": "Discrete filter reset chips"
+    },
+    "ios": {
+      "engine": "DiscoverSearchEngine (Swift)",
+      "ui_container": "DiscoverRootView.swift (SwiftUI)",
+      "location_requester": "CLLocationManager (opt-in near me chip)",
+      "distance_formula": "HaversineDistance (deterministic parity)",
+      "result_recovery": "Discrete filter reset chips"
+    }
+  },
+  "parity_matrix": [
+    {
+      "feature": "Deterministic Tiered Ranking (Exact > Prefix > Odia > District > Substring)",
+      "android": true,
+      "ios": true,
+      "parity": "EXACT"
+    },
+    {
+      "feature": "Multi-dimensional filter (Category + District + Query)",
+      "android": true,
+      "ios": true,
+      "parity": "EXACT"
+    },
+    {
+      "feature": "Kendujhar to Keonjhar normalization",
+      "android": true,
+      "ios": true,
+      "parity": "EXACT"
+    },
+    {
+      "feature": "Contextual Location Opt-in (zero launch permission prompts)",
+      "android": true,
+      "ios": true,
+      "parity": "EXACT"
+    },
+    {
+      "feature": "Haversine great-circle distance sorting",
+      "android": true,
+      "ios": true,
+      "parity": "EXACT"
+    },
+    {
+      "feature": "Distance presentation truth (2.4 km away / 650 m away, no driving times)",
+      "android": true,
+      "ios": true,
+      "parity": "EXACT"
+    },
+    {
+      "feature": "Actionable zero-results recovery buttons",
+      "android": true,
+      "ios": true,
+      "parity": "EXACT"
+    },
+    {
+      "feature": "Odia localization strings in sync",
+      "android": true,
+      "ios": true,
+      "parity": "EXACT"
+    }
+  ],
+  "verdict": "FULL_CROSS_PLATFORM_PARITY"
+}

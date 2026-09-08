@@ -48,4 +48,18 @@
     <string name="gallery_single_photo">1 Verified Photo</string>
     <string name="gallery_multiple_photos">%1$d Verified Photos</string>
     <string name="action_back">Back</string>
+
+    <!-- M9 Discovery Intelligence Strings -->
+    <string name="filter_nearby">Near Me</string>
+    <string name="filter_district">District</string>
+    <string name="label_distance_km">%.1f km away</string>
+    <string name="label_distance_m">%d m away</string>
+    <string name="places_found_count">%d places</string>
+    <string name="places_near_you">%d places near you</string>
+    <string name="location_permission_rationale">Allow location access to discover cultural destinations near you.</string>
+    <string name="location_denied_notice">Location access denied. Exploring statewide atlas.</string>
+    <string name="action_clear_search">Clear search</string>
+    <string name="action_clear_district">Clear district</string>
+    <string name="action_clear_category">Clear category</string>
+    <string name="action_disable_nearby">Turn off Near Me</string>
 </resources>

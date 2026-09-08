@@ -48,4 +48,18 @@
     <string name="gallery_single_photo">୧ଟି ପ୍ରମାଣିତ ଫଟୋ</string>
     <string name="gallery_multiple_photos">%1$dଟି ପ୍ରମାଣିତ ଫଟୋ</string>
     <string name="action_back">ପଛକୁ ଯାଆନ୍ତୁ</string>
+
+    <!-- M9 Discovery Intelligence Strings (Odia) -->
+    <string name="filter_nearby">ନିକଟସ୍ଥ</string>
+    <string name="filter_district">ଜିଲ୍ଲା</string>
+    <string name="label_distance_km">%.1f କି.ମି. ଦୂର</string>
+    <string name="label_distance_m">%d ମି. ଦୂର</string>
+    <string name="places_found_count">%d ଟି ସ୍ଥାନ</string>
+    <string name="places_near_you">ଆପଣଙ୍କ ନିକଟରେ %d ଟି ସ୍ଥାନ</string>
+    <string name="location_permission_rationale">ଆପଣଙ୍କ ନିକଟସ୍ଥ ସ୍ଥାନ ଖୋଜିବା ପାଇଁ ଲୋକେସନ୍ ଅନୁମତି ଆବଶ୍ୟକ।</string>
+    <string name="location_denied_notice">ଲୋକେସନ୍ ଅନୁମତି ନାହିଁ। ସମଗ୍ର ରାଜ୍ୟର ସ୍ଥାନ ପ୍ରଦର୍ଶିତ।</string>
+    <string name="action_clear_search">ସନ୍ଧାନ ହଟାନ୍ତୁ</string>
+    <string name="action_clear_district">ଜିଲ୍ଲା ହଟାନ୍ତୁ</string>
+    <string name="action_clear_category">ବର୍ଗ ହଟାନ୍ତୁ</string>
+    <string name="action_disable_nearby">ନିକଟସ୍ଥ ବନ୍ଦ କରନ୍ତୁ</string>
 </resources>

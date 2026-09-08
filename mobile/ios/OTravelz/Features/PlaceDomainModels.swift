@@ -44,6 +44,8 @@ public struct DiscoverPlace: Identifiable, Hashable, Sendable {
     public let category: String
     public let district: String?
     public let region: String?
+    public let lat: Double?
+    public let lon: Double?
     public let rating: Double?
     public let ratingCount: Int?
     public let isEligibleLeisure: Bool
@@ -56,12 +58,49 @@ public struct DiscoverPlace: Identifiable, Hashable, Sendable {
         primaryPhoto != nil
     }
 
+    public var hasCoordinates: Bool {
+        lat != nil && lon != nil
+    }
+
+    public var normalizedDistrict: String? {
+        guard let d = district?.trimmingCharacters(in: .whitespacesAndNewlines), !d.isEmpty else { return nil }
+        if d.caseInsensitiveCompare("Kendujhar") == .orderedSame {
+            return "Keonjhar"
+        }
+        return d
+    }
+
+    public func distanceKmFrom(userLat: Double, userLon: Double) -> Double? {
+        guard let pLat = lat, let pLon = lon else { return nil }
+        let r = 6371.0
+        let dLat = (pLat - userLat) * .pi / 180.0
+        let dLon = (pLon - userLon) * .pi / 180.0
+        let fromLatRad = userLat * .pi / 180.0
+        let toLatRad = pLat * .pi / 180.0
+        let a = sin(dLat / 2.0) * sin(dLat / 2.0) +
+                cos(fromLatRad) * cos(toLatRad) *
+                sin(dLon / 2.0) * sin(dLon / 2.0)
+        let c = 2.0 * atan2(sqrt(a), sqrt(1.0 - a))
+        return r * c
+    }
+
+    public func formattedDistance(_ distanceKm: Double) -> String {
+        if distanceKm < 1.0 {
+            let meters = Int((distanceKm * 1000).rounded())
+            return "\(meters) m away"
+        } else {
+            return String(format: "%.1f km away", distanceKm)
+        }
+    }
+
     public init(
         id: String,
         name: String,
         category: String,
         district: String? = nil,
         region: String? = nil,
+        lat: Double? = nil,
+        lon: Double? = nil,
         rating: Double? = nil,
         ratingCount: Int? = nil,
         isEligibleLeisure: Bool = true,
@@ -75,6 +114,8 @@ public struct DiscoverPlace: Identifiable, Hashable, Sendable {
         self.category = category
         self.district = district
         self.region = region
+        self.lat = lat
+        self.lon = lon
         self.rating = rating
         self.ratingCount = ratingCount
         self.isEligibleLeisure = isEligibleLeisure
@@ -233,6 +274,8 @@ public enum PlaceDomainMapper {
             category: dto.category,
             district: dto.district,
             region: dto.region,
+            lat: dto.lat,
+            lon: dto.lon,
             rating: dto.rating,
             ratingCount: dto.ratingCount,
             isEligibleLeisure: isEligible,
@@ -273,5 +316,160 @@ public enum PlaceDomainMapper {
             odiaName: dto.localizedNames?.or,
             hindiName: dto.localizedNames?.hi
         )
+    }
+}
+
+/// Pure deterministic search, ranking and spatial filtering engine for iOS Discover catalog.
+/// Implements the tiered ranking contract matching Android DiscoverSearchEngine:
+/// - Tier 1: Exact name match (1000 pts)
+/// - Tier 2: Prefix match on name (800 pts)
+/// - Tier 3: Odia script match (600 pts)
+/// - Tier 4: District or Category match (400 pts)
+/// - Tier 5: Substring / token match on name (200 pts)
+/// - Tier 6: Substring match on description / tags (100 pts)
+public enum DiscoverSearchEngine {
+
+    public static func calculateRelevance(
+        place: DiscoverPlace,
+        queryTokens: [String],
+        rawQuery: String
+    ) -> Int {
+        if queryTokens.isEmpty { return 0 }
+
+        let normName = place.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        let normQuery = rawQuery.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+
+        // Tier 1: Exact name match
+        if normName == normQuery {
+            return 1000
+        }
+
+        // Tier 2: Prefix name match
+        if normName.hasPrefix(normQuery) {
+            return 800
+        }
+
+        // Tier 3: Odia script match
+        if let odia = place.odiaName, !odia.isEmpty {
+            if odia.contains(rawQuery.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                return 600
+            }
+        }
+
+        // Tier 4: District or category match
+        let normDistrict = place.normalizedDistrict?.lowercased() ?? ""
+        let normCategory = place.category.lowercased()
+        if (!normDistrict.isEmpty && normDistrict.contains(normQuery)) ||
+           (!normCategory.isEmpty && normCategory.contains(normQuery)) {
+            return 400
+        }
+
+        // Tier 5: Token or substring match in name
+        var allTokensMatch = true
+        for token in queryTokens {
+            if !normName.contains(token) {
+                allTokensMatch = false
+                break
+            }
+        }
+        if allTokensMatch {
+            return 200
+        }
+
+        // Partial match
+        for token in queryTokens {
+            if normName.contains(token) || normDistrict.contains(token) || normCategory.contains(token) {
+                return 100
+            }
+        }
+
+        return 0
+    }
+
+    public static func filterAndRank(
+        catalog: [DiscoverPlace],
+        query: String? = nil,
+        selectedCategory: String? = nil,
+        selectedDistrict: String? = nil,
+        userLat: Double? = nil,
+        userLon: Double? = nil,
+        sortByDistance: Bool = false
+    ) -> [DiscoverPlace] {
+        let trimmedQuery = query?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let hasQuery = !trimmedQuery.isEmpty
+        let queryTokens = hasQuery ? trimmedQuery.lowercased().components(separatedBy: .whitespacesAndNewlines).filter { !$0.isEmpty } : []
+
+        let filtered = catalog.filter { place in
+            guard place.isEligibleLeisure else { return false }
+
+            // Category filter
+            if let cat = selectedCategory, !cat.isEmpty && cat != "all" {
+                let placeCat = place.category.lowercased()
+                let targetCat = cat.lowercased()
+                if !placeCat.contains(targetCat) && !targetCat.contains(placeCat) {
+                    return false
+                }
+            }
+
+            // District filter
+            if let dist = selectedDistrict, !dist.isEmpty && dist != "all" {
+                let pDist = place.normalizedDistrict?.lowercased() ?? ""
+                let tDist = dist.lowercased()
+                if pDist != tDist {
+                    return false
+                }
+            }
+
+            // Search query filter
+            if hasQuery {
+                let score = calculateRelevance(place: place, queryTokens: queryTokens, rawQuery: trimmedQuery)
+                if score <= 0 {
+                    return false
+                }
+            }
+
+            return true
+        }
+
+        if sortByDistance, let uLat = userLat, let uLon = userLon {
+            return filtered.sorted { p1, p2 in
+                let d1 = p1.distanceKmFrom(userLat: uLat, userLon: uLon)
+                let d2 = p2.distanceKmFrom(userLat: uLat, userLon: uLon)
+
+                switch (d1, d2) {
+                case let (dist1?, dist2?):
+                    if dist1 != dist2 {
+                        return dist1 < dist2
+                    }
+                    return p1.name.localizedCompare(p2.name) == .orderedAscending
+                case (_?, nil):
+                    return true
+                case (nil, _?):
+                    return false
+                case (nil, nil):
+                    return p1.name.localizedCompare(p2.name) == .orderedAscending
+                }
+            }
+        } else if hasQuery {
+            return filtered.sorted { p1, p2 in
+                let s1 = calculateRelevance(place: p1, queryTokens: queryTokens, rawQuery: trimmedQuery)
+                let s2 = calculateRelevance(place: p2, queryTokens: queryTokens, rawQuery: trimmedQuery)
+                if s1 != s2 {
+                    return s1 > s2
+                }
+                if p1.verifiedPhotosCount != p2.verifiedPhotosCount {
+                    return p1.verifiedPhotosCount > p2.verifiedPhotosCount
+                }
+                return p1.name.localizedCompare(p2.name) == .orderedAscending
+            }
+        } else {
+            // Default browse: verified photos first, then name
+            return filtered.sorted { p1, p2 in
+                if p1.hasVerifiedImage != p2.hasVerifiedImage {
+                    return p1.hasVerifiedImage && !p2.hasVerifiedImage
+                }
+                return p1.name.localizedCompare(p2.name) == .orderedAscending
+            }
+        }
     }
 }

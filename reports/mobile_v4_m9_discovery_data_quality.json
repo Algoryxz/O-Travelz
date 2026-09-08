@@ -1,0 +1,24 @@
+{
+  "wave": "M9",
+  "topic": "Catalog Data Quality and Spatial Completeness",
+  "timestamp": "2026-09-08T09:48:30+05:30",
+  "database_places_total": 204,
+  "non_leisure_excluded": 25,
+  "eligible_leisure_places": 179,
+  "coordinates_completeness": {
+    "places_with_valid_lat_lon": 179,
+    "places_missing_coordinates": 0,
+    "percentage": "100.0%"
+  },
+  "media_verification": {
+    "verified_photos_places": 70,
+    "pending_photos_places": 109,
+    "fabrications": 0
+  },
+  "spatial_coverage": {
+    "districts_count": 30,
+    "kendujhar_normalized_to": "Keonjhar",
+    "categories_count": 20
+  },
+  "verdict": "CATALOG_DATA_QUALITY_VALIDATED"
+}

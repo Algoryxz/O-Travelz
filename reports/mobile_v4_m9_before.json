@@ -1,0 +1,92 @@
+{
+  "wave": "M9",
+  "topic": "FORENSIC_BASELINE_BEFORE",
+  "generated_at": "2026-09-08T09:41:00+05:30",
+  "current_discover_request_count": 1,
+  "request_specification": "GET /places?limit=300",
+  "current_catalog_size": 179,
+  "database_total_places": 204,
+  "excluded_infrastructure_entities": 25,
+  "current_filter_dimensions": [
+    "category"
+  ],
+  "current_search_implementation": "Client-side case-insensitive contains substring match across name, odiaName, and district",
+  "current_sorting": "Database default query order (unranked)",
+  "current_coordinate_coverage": {
+    "eligible_places_count": 179,
+    "coordinate_valid_count": 179,
+    "coordinate_missing_count": 0,
+    "coverage_percentage": 100.0
+  },
+  "current_district_coverage": {
+    "unique_districts_count": 31,
+    "districts": {
+      "Khordha": 43,
+      "Puri": 18,
+      "Cuttack": 9,
+      "Koraput": 6,
+      "Sambalpur": 6,
+      "Ganjam": 5,
+      "Kandhamal": 5,
+      "Sundargarh": 5,
+      "Angul": 4,
+      "Balangir": 4,
+      "Balasore": 4,
+      "Bhadrak": 4,
+      "Dhenkanal": 4,
+      "Gajapati": 4,
+      "Jagatsinghpur": 4,
+      "Jajpur": 4,
+      "Kalahandi": 4,
+      "Keonjhar": 4,
+      "Malkangiri": 4,
+      "Mayurbhanj": 4,
+      "Nayagarh": 4,
+      "Subarnapur": 4,
+      "Bargarh": 3,
+      "Boudh": 3,
+      "Deogarh": 3,
+      "Jharsuguda": 3,
+      "Kendrapara": 3,
+      "Nabarangpur": 3,
+      "Nuapada": 3,
+      "Rayagada": 3,
+      "Kendujhar": 2
+    }
+  },
+  "current_category_coverage": {
+    "unique_categories_count": 20,
+    "categories": {
+      "temple": 44,
+      "monument": 19,
+      "waterfall": 14,
+      "market": 11,
+      "beach": 10,
+      "nature": 10,
+      "street_food_market": 10,
+      "heritage_sweet_stall": 9,
+      "lake": 8,
+      "museum": 8,
+      "highway_stop": 7,
+      "local_food_experience": 7,
+      "wildlife": 6,
+      "restaurant": 4,
+      "park": 3,
+      "regional_speciality": 3,
+      "traditional_temple_food": 3,
+      "planetarium": 1,
+      "science_center": 1,
+      "sports_venue": 1
+    }
+  },
+  "current_odia_name_coverage": {
+    "database_live_api_count": 0,
+    "staging_localized_names_count": 25,
+    "missing_count": 179
+  },
+  "media_verification_coverage": {
+    "verified_photo_places": 70,
+    "pending_verification_places": 109
+  },
+  "verdict": "BASELINE_CAPTURED"
+}

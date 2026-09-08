@@ -3,6 +3,7 @@ package com.otravelz.android.domain.model
 import com.otravelz.android.data.network.ApiConfig
 import com.otravelz.android.data.network.dto.PlaceDto
 import com.otravelz.android.data.network.dto.PlaceImageDto
+import com.otravelz.shared.geo.HaversineDistance
 
 /**
  * Domain representation of a verified authentic destination photograph.
@@ -44,22 +45,52 @@ data class PlacePhoto(
 }
 
 /**
- * Lean domain model for Discover catalog listings and cards.
+ * Lean domain model for Discover catalog listings, search, and spatial filtering.
  */
 data class DiscoverPlace(
     val id: String,
     val name: String,
-    val odiaName: String?,
+    val odiaName: String? = null,
     val category: String,
-    val district: String?,
-    val region: String?,
-    val description: String?,
-    val verificationStatus: String?,
-    val primaryPhoto: PlacePhoto?,
-    val verifiedPhotoCount: Int
+    val district: String? = null,
+    val region: String? = null,
+    val description: String? = null,
+    val lat: Double? = null,
+    val lon: Double? = null,
+    val verificationStatus: String? = null,
+    val primaryPhoto: PlacePhoto? = null,
+    val verifiedPhotoCount: Int = 0
 ) {
     val isEligibleLeisure: Boolean
         get() = !EXCLUDED_NON_LEISURE_CATEGORIES.contains(category.lowercase().trim())
+
+    val hasCoordinates: Boolean
+        get() = lat != null && lon != null
+
+    val normalizedDistrict: String?
+        get() = when (district?.trim()?.lowercase()) {
+            "kendujhar" -> "Keonjhar"
+            null -> null
+            else -> district.trim()
+        }
+
+    fun distanceKmFrom(userLat: Double, userLon: Double): Double? {
+        if (lat == null || lon == null) return null
+        return HaversineDistance.calculateKm(userLat, userLon, lat, lon)
+    }
+
+    fun formattedDistance(km: Double): String {
+        return if (km < 1.0) {
+            "${(km * 1000).toInt()} m away"
+        } else {
+            "${String.format(java.util.Locale.US, "%.1f", km)} km away"
+        }
+    }
+
+    fun formattedDistance(userLat: Double, userLon: Double): String? {
+        val km = distanceKmFrom(userLat, userLon) ?: return null
+        return formattedDistance(km)
+    }
 
     companion object {
         val EXCLUDED_NON_LEISURE_CATEGORIES = setOf(
@@ -98,6 +129,142 @@ data class PlaceDetail(
 
     val primaryPhoto: PlacePhoto?
         get() = photos.firstOrNull { it.isPrimary } ?: photos.firstOrNull()
+}
+
+/**
+ * Pure, deterministic search, filtering, and ranking engine for Discover.
+ */
+object DiscoverSearchEngine {
+    /**
+     * Normalized tokens from query string. Preserves Unicode Odia script.
+     */
+    fun tokenize(query: String): List<String> {
+        val trimmed = query.trim().lowercase()
+        if (trimmed.isEmpty()) return emptyList()
+        return trimmed.split(Regex("[\\s,;]+")).filter { it.isNotBlank() }
+    }
+
+    /**
+     * Evaluates whether a destination matches all query tokens.
+     */
+    fun matches(place: DiscoverPlace, query: String): Boolean {
+        val tokens = tokenize(query)
+        if (tokens.isEmpty()) return true
+
+        val searchCorpus = buildString {
+            append(place.name.lowercase()).append(" ")
+            place.odiaName?.let { append(it.lowercase()).append(" ") }
+            place.district?.let { append(it.lowercase()).append(" ") }
+            place.normalizedDistrict?.let { append(it.lowercase()).append(" ") }
+            append(place.category.lowercase().replace('_', ' ')).append(" ")
+            place.description?.let { append(it.lowercase()).append(" ") }
+        }
+
+        return tokens.all { token -> searchCorpus.contains(token) }
+    }
+
+    /**
+     * Computes tiered deterministic relevance score:
+     * Tier 1: Exact Name match = 1000
+     * Tier 2: Name Prefix match = 800
+     * Tier 3: Odia Script exact/prefix = 600
+     * Tier 4: District or Category match = 400
+     * Tier 5: Substring match in Name/Desc = 200
+     */
+    fun calculateRelevanceScore(place: DiscoverPlace, query: String): Int {
+        val trimmed = query.trim().lowercase()
+        if (trimmed.isEmpty()) return 0
+
+        val nameLower = place.name.lowercase()
+        if (nameLower == trimmed) return 1000
+        if (nameLower.startsWith(trimmed)) return 800
+        if (nameLower.split(' ').any { it.startsWith(trimmed) }) return 750
+
+        val odiaLower = place.odiaName?.lowercase()
+        if (odiaLower != null) {
+            if (odiaLower == trimmed) return 600
+            if (odiaLower.startsWith(trimmed)) return 550
+            if (odiaLower.contains(trimmed)) return 500
+        }
+
+        val distLower = (place.normalizedDistrict ?: place.district)?.lowercase()
+        if (distLower != null && (distLower == trimmed || distLower.startsWith(trimmed))) return 400
+
+        val catLower = place.category.lowercase().replace('_', ' ')
+        if (catLower == trimmed || catLower.startsWith(trimmed)) return 350
+
+        if (nameLower.contains(trimmed)) return 250
+        if (place.description?.lowercase()?.contains(trimmed) == true) return 200
+
+        return 100
+    }
+
+    /**
+     * Filters and ranks catalog according to query, category, district, and spatial proximity.
+     */
+    fun filterAndRank(
+        catalog: List<DiscoverPlace>,
+        query: String = "",
+        category: String? = null,
+        district: String? = null,
+        isNearbyEnabled: Boolean = false,
+        userLat: Double? = null,
+        userLon: Double? = null
+    ): List<DiscoverPlace> {
+        val filtered = catalog.filter { place ->
+            if (!place.isEligibleLeisure) return@filter false
+
+            // Category filter
+            if (category != null && category != "all") {
+                val catNorm = category.trim().lowercase().replace('_', ' ')
+                val placeCatNorm = place.category.trim().lowercase().replace('_', ' ')
+                if (catNorm != placeCatNorm && !placeCatNorm.contains(catNorm)) {
+                    return@filter false
+                }
+            }
+
+            // District filter
+            if (district != null && district != "all") {
+                val distNorm = district.trim().lowercase()
+                val placeDist = (place.normalizedDistrict ?: place.district)?.trim()?.lowercase()
+                if (placeDist != distNorm) {
+                    return@filter false
+                }
+            }
+
+            // Text search filter
+            if (query.isNotBlank()) {
+                if (!matches(place, query)) {
+                    return@filter false
+                }
+            }
+
+            true
+        }
+
+        // Sorting & Ranking
+        return if (isNearbyEnabled && userLat != null && userLon != null) {
+            // Spatial proximity sort (nearest first)
+            filtered.sortedWith(
+                compareBy<DiscoverPlace> {
+                    it.distanceKmFrom(userLat, userLon) ?: Double.MAX_VALUE
+                }.thenBy { it.name }
+            )
+        } else if (query.isNotBlank()) {
+            // Search relevance score sort (highest score first)
+            filtered.sortedWith(
+                compareByDescending<DiscoverPlace> {
+                    calculateRelevanceScore(it, query)
+                }.thenBy { it.name }
+            )
+        } else {
+            // Default discovery sort: Verified photo first, then alphabetical A-Z
+            filtered.sortedWith(
+                compareByDescending<DiscoverPlace> { it.primaryPhoto != null }
+                    .thenBy { it.name }
+            )
+        }
+    }
 }
 
 /**
@@ -151,6 +318,8 @@ fun PlaceDto.toDiscoverPlace(): DiscoverPlace {
         district = district,
         region = region,
         description = description,
+        lat = lat,
+        lon = lon,
         verificationStatus = verificationStatus,
         primaryPhoto = primary,
         verifiedPhotoCount = domainPhotos.size

@@ -1,0 +1,34 @@
+{
+  "wave": "M9",
+  "topic": "SPATIAL_TRUTH",
+  "generated_at": "2026-09-08T09:41:00+05:30",
+  "coordinate_coverage": {
+    "eligible_places_count": 179,
+    "coordinate_valid_count": 179,
+    "coordinate_missing_count": 0,
+    "coverage_percentage": 100.0,
+    "geographic_bounding_box": {
+      "min_lat": 17.92,
+      "max_lat": 22.25,
+      "min_lon": 81.88,
+      "max_lon": 87.05,
+      "contained_in_odisha_bounds": true
+    }
+  },
+  "distance_formula": {
+    "name": "Haversine Great-Circle Distance",
+    "earth_radius_km": 6371.0,
+    "parity_source": "mobile/shared/src/commonMain/kotlin/com/otravelz/shared/geo/HaversineDistance.kt"
+  },
+  "spatial_truth_constraints": {
+    "zero_fake_driving_time": "STRICTLY_ENFORCED (Distance is presented purely as geographic proximity e.g. '2.4 km away'; never '5 mins away' or 'walking distance')",
+    "zero_launch_location_prompt": "STRICTLY_ENFORCED (Location permission requested solely upon explicit traveler invocation of Nearby filter)",
+    "permission_denied_resilience": "STRICTLY_ENFORCED (If permission is denied, Discover remains fully functional with manual district/category browsing; zero fake coordinates inferred)",
+    "missing_coordinate_handling": "STRICTLY_ENFORCED (If coordinates ever null, place is grouped under 'Distance unavailable'; never treated as zero distance)"
+  },
+  "distance_formatting": {
+    "sub_kilometer": "meters ('%d m away')",
+    "kilometer_and_above": "1 decimal place ('%.1f km away')"
+  },
+  "verdict": "VERIFIED"
+}

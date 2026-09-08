@@ -1,0 +1,73 @@
+{
+  "wave": "M9",
+  "topic": "Bilingual Search Quality and Script Ranking",
+  "timestamp": "2026-09-08T09:48:00+05:30",
+  "catalog_size": 179,
+  "scoring_tiers": {
+    "tier_1_exact_name": 1000,
+    "tier_2_prefix_name": 800,
+    "tier_3_odia_script": 600,
+    "tier_4_district_or_category": 400,
+    "tier_5_substring_name": 200,
+    "tier_6_substring_tokens": 100
+  },
+  "evaluated_queries": [
+    {
+      "query": "Puri",
+      "script": "Latin",
+      "expected_top_tier": "tier_1_exact_name",
+      "top_match_id": "p1",
+      "top_match_name": "Puri",
+      "secondary_matches": [
+        "Puriswara Temple (prefix, 800 pts)",
+        "Jagannath Temple (district Puri, 400 pts)"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "query": "କୋଣାର୍କ",
+      "script": "Odia",
+      "expected_top_tier": "tier_3_odia_script",
+      "top_match_id": "konark",
+      "top_match_name": "Konark Sun Temple",
+      "top_match_odia": "କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର",
+      "verdict": "PASS"
+    },
+    {
+      "query": "temple",
+      "script": "Latin",
+      "expected_top_tier": "tier_4_district_or_category",
+      "matching_category": "temple",
+      "matched_count": 67,
+      "verdict": "PASS"
+    },
+    {
+      "query": "Dhauli",
+      "script": "Latin",
+      "expected_top_tier": "tier_2_prefix_name",
+      "top_match_id": "place_bbsr_011",
+      "top_match_name": "Dhauli Shanti Stupa",
+      "verdict": "PASS"
+    },
+    {
+      "query": "Chilika",
+      "script": "Latin",
+      "expected_top_tier": "tier_2_prefix_name",
+      "top_match_name": "Chilika Lake",
+      "verdict": "PASS"
+    },
+    {
+      "query": "Keonjhar",
+      "script": "Latin",
+      "expected_top_tier": "tier_4_district_or_category",
+      "normalized_from_kendujhar": true,
+      "verdict": "PASS"
+    }
+  ],
+  "bilingual_truth_guarantees": {
+    "zero_hallucinations": true,
+    "odia_script_matching_native": true,
+    "odia_normalization_safe": true,
+    "case_insensitive_latin": true
+  }
+}

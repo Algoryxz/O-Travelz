@@ -34,13 +34,15 @@ import com.otravelz.android.ui.theme.TruthVerifiedLight
 /**
  * Production Place Card component adhering to ANDROID_A_ATLAS_MATERIAL.
  * Displays grounded canonical identity, verified image (or neutral cultural typography card),
- * Odia name, category, and district. Zero fake ratings or fake open status.
+ * Odia name, category, district, and optional straight-line distance.
+ * Zero fake ratings, fake open status, or fake travel times.
  */
 @Composable
 fun PlaceCard(
     place: DiscoverPlace,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    distanceString: String? = null
 ) {
     Card(
         modifier = modifier
@@ -133,12 +135,26 @@ fun PlaceCard(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(
-                        text = place.category.replace('_', ' ').replaceFirstChar { it.uppercase() },
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.primary,
-                        fontWeight = FontWeight.Medium
-                    )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
+                    ) {
+                        Text(
+                            text = place.category.replace('_', ' ').replaceFirstChar { it.uppercase() },
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.primary,
+                            fontWeight = FontWeight.Medium
+                        )
+
+                        if (distanceString != null) {
+                            Text(
+                                text = "•  $distanceString",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.tertiary,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                        }
+                    }
 
                     if (place.verificationStatus?.lowercase() == "verified") {
                         Text(
@@ -175,7 +191,7 @@ fun PlaceCard(
                 }
 
                 // District / Region
-                val locationTag = listOfNotNull(place.district, place.region).joinToString(" • ")
+                val locationTag = listOfNotNull(place.normalizedDistrict ?: place.district, place.region).joinToString(" • ")
                 if (locationTag.isNotBlank()) {
                     Spacer(modifier = Modifier.height(Spacing.space2))
                     Text(

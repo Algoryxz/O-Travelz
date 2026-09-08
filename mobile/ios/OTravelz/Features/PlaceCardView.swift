@@ -6,6 +6,7 @@ import SwiftUI
 /// NEVER fabricates imagery or stock photos.
 struct PlaceCardView: View {
     let place: DiscoverPlace
+    var distanceString: String? = nil
     let onSelect: () -> Void
 
     var body: some View {
@@ -69,10 +70,16 @@ struct PlaceCardView: View {
                             .foregroundStyle(ColorTokens.terracotta)
                             .clipShape(RoundedRectangle(cornerRadius: 4))
 
-                        if let district = place.district, !district.isEmpty {
+                        if let district = place.normalizedDistrict ?? place.district, !district.isEmpty {
                             Text(district.capitalized)
                                 .font(TypographyTokens.labelSmall)
                                 .foregroundStyle(ColorTokens.textSecondary)
+                        }
+
+                        if let dist = distanceString, !dist.isEmpty {
+                            Text("• \(dist)")
+                                .font(TypographyTokens.labelSmall)
+                                .foregroundStyle(ColorTokens.terracotta)
                         }
 
                         Spacer()

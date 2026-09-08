@@ -1,0 +1,35 @@
+{
+  "wave": "M9",
+  "topic": "SEARCH_ARCHITECTURE_DECISION",
+  "generated_at": "2026-09-08T09:41:00+05:30",
+  "options_evaluated": {
+    "option_a_backend_search": {
+      "pros": ["Offloads computation from device"],
+      "cons": [
+        "Network latency on every keystroke (300ms-1500ms)",
+        "Zero offline usability during transit across rural Odisha corridors",
+        "Higher server load and connection pool pressure",
+        "Inconsistent latency on free-tier server cold starts"
+      ]
+    },
+    "option_b_client_catalog_search": {
+      "pros": [
+        "Instantaneous 0ms filtering at 60fps/120fps",
+        "Full offline usability once 179-place catalog is held in memory",
+        "Zero network chatter or battery drain while filtering/searching",
+        "Completely deterministic parity between Android (Kotlin) and iOS (Swift)",
+        "Catalog size (179 items, ~150KB) is tiny and fits in a few hundred kilobytes of RAM"
+      ],
+      "cons": [
+        "Initial batch load required (already part of M8 architecture)"
+      ]
+    },
+    "option_c_hybrid": {
+      "pros": ["Fallback options"],
+      "cons": ["Unnecessary complexity for a 179-item catalog; violates Ponytail"]
+    }
+  },
+  "selected_architecture": "OPTION_B_CLIENT_CATALOG_SEARCH",
+  "rationale": "For a verified catalog of 179 destinations, client-side in-memory search and spatial filtering provides immediate 60fps interaction, zero network chatter, complete offline resilience across travel corridors, and deterministic cross-platform parity.",
+  "verdict": "ACCEPTED"
+}

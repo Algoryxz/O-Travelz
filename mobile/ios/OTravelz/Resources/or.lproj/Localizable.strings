@@ -46,3 +46,17 @@
 "gallery_single_photo" = "୧ଟି ପ୍ରମାଣିତ ଫଟୋ";
 "gallery_multiple_photos" = "%lldଟି ପ୍ରମାଣିତ ଫଟୋ";
 "action_back" = "ପଛକୁ ଯାଆନ୍ତୁ";
+
+/* M9 Discovery Intelligence Strings (Odia) */
+"filter_nearby" = "ନିକଟସ୍ଥ";
+"filter_district" = "ଜିଲ୍ଲା";
+"label_distance_km" = "%.1f କି.ମି. ଦୂର";
+"label_distance_m" = "%lld ମି. ଦୂର";
+"places_found_count" = "%lld ଟି ସ୍ଥାନ";
+"places_near_you" = "ଆପଣଙ୍କ ନିକଟରେ %lld ଟି ସ୍ଥାନ";
+"location_permission_rationale" = "ଆପଣଙ୍କ ନିକଟସ୍ଥ ସ୍ଥାନ ଖୋଜିବା ପାଇଁ ଲୋକେସନ୍ ଅନୁମତି ଆବଶ୍ୟକ।";
+"location_denied_notice" = "ଲୋକେସନ୍ ଅନୁମତି ନାହିଁ। ସମଗ୍ର ରାଜ୍ୟର ସ୍ଥାନ ପ୍ରଦର୍ଶିତ।";
+"action_clear_search" = "ସନ୍ଧାନ ହଟାନ୍ତୁ";
+"action_clear_district" = "ଜିଲ୍ଲା ହଟାନ୍ତୁ";
+"action_clear_category" = "ବର୍ଗ ହଟାନ୍ତୁ";
+"action_disable_nearby" = "ନିକଟସ୍ଥ ବନ୍ଦ କରନ୍ତୁ";

@@ -23,8 +23,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M6** | API contracts, DTO generation, and native networking clients | `[COMPLETED]` |
 | **M7** | App shells, root navigation, and adaptive chrome | `[COMPLETED]` |
 | **M8** | Editorial Cultural Atlas: Discover + Place Detail Production Vertical Slice | `[COMPLETED]` |
-| **M9** | Discover feed, spatial filtering, and full-text search | `[NEXT]` |
-| **M10** | Place Detail editorial sheets, verified photography, and live weather cards | `[PLANNED]` |
+| **M9** | Discover feed, spatial filtering, and full-text search | `[COMPLETED]` |
+| **M10** | Place Detail editorial sheets, verified photography, and live weather cards | `[NEXT]` |
 | **M11** | Native mapping canvases (Google Maps Compose & Apple MapKit) | `[PLANNED]` |
 | **M12** | 154-Route transit directory, stop details, and timetable evaluation | `[PLANNED]` |
 | **M13** | Constraint-aware itinerary builder and grounded AI conversational assistant | `[PLANNED]` |
@@ -135,10 +135,12 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **Tests**: 17 Android unit tests pass; 0 lint errors; live backend contract smoke verified against all 11 core endpoints.
 - **Acceptance Criteria**: Dual-native typed networking clients compile; zero UI screen contamination; zero networking in `:shared`.
 
-### Wave M7: App Shells, Root Navigation & Adaptive Chrome `[NEXT]`
-- **M7 (App Shells)**: Root 5-tab navigation, adaptive navigation rail (Android), NavigationSplitView (iOS).
-- **M8 (Home Screen)**: Editorial Cultural Atlas landing feed with living artisan features.
-- **M9 (Discover & Search)**: District filtering across all 30 districts, spatial search.
+### Waves M7–M9: Foundation, Feed, and Discovery Intelligence `[COMPLETED]`
+- **M7 (App Shells)**: Root 5-tab navigation, adaptive navigation rail (Android), NavigationSplitView (iOS). `[COMPLETED]`
+- **M8 (Home Screen)**: Editorial Cultural Atlas landing feed with living artisan features. `[COMPLETED]`
+- **M9 (Discover & Search)**: Multi-dimensional district filtering across all 30 districts, Odia script search, Haversine spatial proximity. `[COMPLETED]`
+
+### Wave M10: Place Detail Editorial Sheets, Photography & Live Weather `[NEXT]`
 - **M10 (Place Detail)**: Magazine-grade editorial sheets, WebP image loading, live weather card.
 - **M11 (Mapping)**: Google Maps Compose on Android, Apple MapKit on iOS; custom pins.
 - **M12 (Transit)**: 154-Route directory, CRUT Mo Bus timetables, locality chip boundaries.
