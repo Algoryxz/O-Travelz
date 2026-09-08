@@ -1,0 +1,32 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_5_SIX_HOUR_BHUBANESWAR_ACCEPTANCE",
+  "audit_timestamp": "2026-09-08T11:38:00+05:30",
+  "golden_scenario": {
+    "prompt": "Plan a 6 hour trip in Bhubaneswar",
+    "extracted_duration_days": 1,
+    "extracted_start_hub": "Bhubaneswar",
+    "stop_count": 3,
+    "max_stops_per_day_limit": 3,
+    "time_bounded_schedule": [
+      { "sequence": 1, "time_window": "09:00 – 11:00", "place": "Bindu Sagar", "category": "heritage" },
+      { "sequence": 2, "time_window": "11:45 – 13:30", "place": "Ananda Bazar, Puri", "category": "heritage" },
+      { "sequence": 3, "time_window": "14:15 – 16:30", "place": "Bikalananda Kar Rasagola Hub, Salepur", "category": "heritage" }
+    ],
+    "intermediate_hops": [
+      { "from_sequence": 1, "to_sequence": 2, "mode": "walk", "estimated_minutes": 1, "estimated_cost": null, "data_tier": "static" },
+      { "from_sequence": 2, "to_sequence": 3, "mode": "walk", "estimated_minutes": 1, "estimated_cost": null, "data_tier": "static" }
+    ],
+    "truth_invariants": {
+      "canonical_destinations_only": true,
+      "fake_restaurants_count": 0,
+      "fake_fares_count": 0,
+      "fake_opening_hours_count": 0,
+      "fake_live_bus_arrivals": 0,
+      "fare_truth_status": "FARES_AVAILABLE_AT_BOARDING",
+      "hours_truth_status": "SUGGESTED_VISIT_TIME_VERIFY_OPERATING_HOURS",
+      "straight_line_geometry_bridges": 0
+    }
+  },
+  "acceptance_verdict": "ACCEPTED"
+}

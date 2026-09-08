@@ -1,0 +1,25 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_0_RECONCILIATION",
+  "audit_timestamp": "2026-09-08T11:32:00+05:30",
+  "starting_head": {
+    "sha": "e90ac3173591f516754bc50847fa00f2a821a832",
+    "branch": "feature/v4-platform-rebuild",
+    "worktree_clean": true
+  },
+  "branch_ancestry": {
+    "m12_commit": "e90ac31",
+    "stage_g1_commit": "0ce5bd1",
+    "m11_commit": "69af29b",
+    "stage_e_commit": "c7e208e",
+    "reconciliation_status": "M12_ON_TOP_OF_STAGE_G1_VERIFIED"
+  },
+  "stage_g2_lock_status": "LOCKED",
+  "baseline_readiness": {
+    "m8_m12_regressions": 0,
+    "backend_itinerary_plan_status": "VERIFIED_ACTIVE",
+    "backend_ai_converse_status": "VERIFIED_ACTIVE",
+    "openapi_sync": true,
+    "staging_validators_pass": true
+  }
+}

@@ -1,0 +1,14 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_13_WEATHER_PLANNER_TRUTH",
+  "audit_timestamp": "2026-09-08T11:39:45+05:30",
+  "weather_truth_invariants": {
+    "zero_celsius_fallback": false,
+    "fake_sunny_fallback": false,
+    "zero_percent_rain_fallback": false,
+    "unavailable_means_unavailable": true,
+    "stale_cache_misrepresented_as_current": false,
+    "imd_ndma_early_warning_feeds_ingested": false
+  },
+  "verdict": "WEATHER_TRUTH_HONEST"
+}

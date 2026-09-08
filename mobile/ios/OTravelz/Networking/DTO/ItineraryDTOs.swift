@@ -5,12 +5,48 @@ public struct ItineraryPlanRequestDTO: Codable, Sendable {
     public let interests: [String]?
     public let pace: String?
     public let start: String?
+    public let budgetTransportPerDay: Double?
+    public let lowWalking: Bool?
+    public let vegetarian: Bool?
+    public let avoidCrowds: Bool?
+    public let publicTransportPreferred: Bool?
+    public let budgetConscious: Bool?
 
-    public init(days: Int, interests: [String]? = nil, pace: String? = nil, start: String? = nil) {
+    enum CodingKeys: String, CodingKey {
+        case days
+        case interests
+        case pace
+        case start
+        case budgetTransportPerDay = "budget_transport_per_day"
+        case lowWalking = "low_walking"
+        case vegetarian
+        case avoidCrowds = "avoid_crowds"
+        case publicTransportPreferred = "public_transport_preferred"
+        case budgetConscious = "budget_conscious"
+    }
+
+    public init(
+        days: Int,
+        interests: [String]? = nil,
+        pace: String? = nil,
+        start: String? = nil,
+        budgetTransportPerDay: Double? = nil,
+        lowWalking: Bool? = nil,
+        vegetarian: Bool? = nil,
+        avoidCrowds: Bool? = nil,
+        publicTransportPreferred: Bool? = nil,
+        budgetConscious: Bool? = nil
+    ) {
         self.days = days
         self.interests = interests
         self.pace = pace
         self.start = start
+        self.budgetTransportPerDay = budgetTransportPerDay
+        self.lowWalking = lowWalking
+        self.vegetarian = vegetarian
+        self.avoidCrowds = avoidCrowds
+        self.publicTransportPreferred = publicTransportPreferred
+        self.budgetConscious = budgetConscious
     }
 }
 
@@ -20,17 +56,39 @@ public struct PlaceSummaryDTO: Codable, Sendable {
     public let category: String
 }
 
+public struct TransportLegDTO: Codable, Sendable {
+    public let mode: String?
+    public let detail: String?
+    public let provider: String?
+    public let route: String?
+}
+
 public struct TransportHopDTO: Codable, Sendable {
+    public let fromSequence: Int?
+    public let toSequence: Int?
+    public let mode: String?
+    public let estimatedMinutes: Int?
+    public let estimatedCost: Double?
+    public let legs: [TransportLegDTO]?
+    public let dataTier: String?
+    public let reason: String?
+    // Legacy / fallback
     public let fromStopId: String?
     public let toStopId: String?
-    public let mode: String?
     public let routeNumber: String?
     public let durationMinutes: Int?
 
     enum CodingKeys: String, CodingKey {
+        case fromSequence = "from_sequence"
+        case toSequence = "to_sequence"
+        case mode
+        case estimatedMinutes = "estimated_minutes"
+        case estimatedCost = "estimated_cost"
+        case legs
+        case dataTier = "data_tier"
+        case reason
         case fromStopId = "from_stop_id"
         case toStopId = "to_stop_id"
-        case mode
         case routeNumber = "route_number"
         case durationMinutes = "duration_minutes"
     }

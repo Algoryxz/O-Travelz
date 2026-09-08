@@ -1,0 +1,53 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_18_CROSS_PLATFORM_PARITY",
+  "audit_timestamp": "2026-09-08T11:40:00+05:30",
+  "parity_matrix": {
+    "supported_constraints": {
+      "android": ["days (1..7)", "interests (7 categories)", "pace (3 levels)", "startHub", "lowWalking", "publicTransportPreferred", "budgetConscious"],
+      "ios": ["days (1..7)", "interests (7 categories)", "pace (3 levels)", "startHub", "lowWalking", "publicTransportPreferred", "budgetConscious"],
+      "parity": true
+    },
+    "planner_request_mapping": {
+      "android": "PlanConstraints.toRequestDto() -> ItineraryPlanRequestDto",
+      "ios": "PlanConstraints.toRequestDTO() -> ItineraryPlanRequestDTO",
+      "parity": true
+    },
+    "planner_response_mapping": {
+      "android": "PlanResult.fromDto() with days, stops, and hops",
+      "ios": "PlanResult.fromDTO() with days, stops, and hops",
+      "parity": true
+    },
+    "natural_language_extraction": {
+      "android": "extractConstraintsWithAI() via POST /ai/converse",
+      "ios": "extractConstraintsWithAI() via POST /ai/converse",
+      "parity": true
+    },
+    "itinerary_grouping": {
+      "android": "Day headers with interleaved stop and hop cards",
+      "ios": "Day headers with interleaved stop and hop cards",
+      "parity": true
+    },
+    "grounded_ai_badge": {
+      "android": "Visually distinct AI companion card with 'Grounded on Atlas Facts' badge",
+      "ios": "Visually distinct AI companion card with 'Grounded on Atlas Facts' badge",
+      "parity": true
+    },
+    "map_handoff": {
+      "android": "Navigates to Map root or displays coordinates",
+      "ios": "Navigates to Map root or displays coordinates",
+      "parity": true
+    },
+    "place_detail_handoff": {
+      "android": "onPlaceClick navigates to canonical Place Detail",
+      "ios": "onPlaceClick navigates to canonical Place Detail",
+      "parity": true
+    },
+    "fare_null_truth": {
+      "android": "estimatedCost is strictly null",
+      "ios": "estimatedCost is strictly nil",
+      "parity": true
+    }
+  },
+  "overall_verdict": "PARITY_VERIFIED"
+}

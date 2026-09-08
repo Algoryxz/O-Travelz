@@ -11,7 +11,10 @@ data class ItineraryPlanRequestDto(
     val start: String? = null,
     @SerialName("budget_transport_per_day") val budgetTransportPerDay: Double? = null,
     @SerialName("low_walking") val lowWalking: Boolean? = null,
-    val vegetarian: Boolean? = null
+    val vegetarian: Boolean? = null,
+    @SerialName("avoid_crowds") val avoidCrowds: Boolean? = null,
+    @SerialName("public_transport_preferred") val publicTransportPreferred: Boolean? = null,
+    @SerialName("budget_conscious") val budgetConscious: Boolean? = null
 )
 
 @Serializable
@@ -22,10 +25,25 @@ data class PlaceSummaryDto(
 )
 
 @Serializable
+data class TransportLegDto(
+    val mode: String? = null,
+    val detail: String? = null,
+    val provider: String? = null,
+    val route: String? = null
+)
+
+@Serializable
 data class TransportHopDto(
+    @SerialName("from_sequence") val fromSequence: Int? = null,
+    @SerialName("to_sequence") val toSequence: Int? = null,
+    val mode: String? = null,
+    @SerialName("estimated_minutes") val estimatedMinutes: Int? = null,
+    @SerialName("estimated_cost") val estimatedCost: Double? = null,
+    val legs: List<TransportLegDto> = emptyList(),
+    @SerialName("data_tier") val dataTier: String? = null,
+    val reason: String? = null,
     @SerialName("from_stop_id") val fromStopId: String? = null,
     @SerialName("to_stop_id") val toStopId: String? = null,
-    val mode: String? = null,
     @SerialName("route_number") val routeNumber: String? = null,
     @SerialName("duration_minutes") val durationMinutes: Int? = null,
     val fare: Double? = null
@@ -51,5 +69,5 @@ data class ItineraryDayDto(
 data class ItineraryResponseDto(
     @SerialName("itinerary_id") val itineraryId: String,
     val days: List<ItineraryDayDto> = emptyList(),
-    val explanation: String
+    val explanation: String = ""
 )

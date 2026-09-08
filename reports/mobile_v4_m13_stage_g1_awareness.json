@@ -1,0 +1,27 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_1_STAGE_G1_AWARENESS",
+  "audit_timestamp": "2026-09-08T11:32:30+05:30",
+  "stage_g1_summary": {
+    "manifest_file": "data/staging/mobile/mobile_offline_manifest.json",
+    "offline_baseline_bytes_raw": 196000,
+    "offline_baseline_bytes_gzip": 34000,
+    "district_simplification_bytes_raw": 78000,
+    "district_simplification_bytes_gzip": 18700,
+    "transit_crosswalks_exact": 85,
+    "transit_crosswalks_probable": 45,
+    "stage_g2_status": "LOCKED"
+  },
+  "invariants_enforced": {
+    "direct_staging_imports_in_mobile": 0,
+    "probable_crosswalks_used_for_exact_math": 0,
+    "staged_external_district_geometry_promoted": false,
+    "staged_hours_promoted": false,
+    "staged_fees_promoted": false,
+    "staged_accommodation_shown_as_live": false,
+    "staged_rail_airport_shown_as_live": false,
+    "gi_records_turned_into_shops": false,
+    "rag_corpus_bundled_into_mobile": false
+  },
+  "verdict": "STAGE_G1_AWARE_AND_ISOLATED"
+}

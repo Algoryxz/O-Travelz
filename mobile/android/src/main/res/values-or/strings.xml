@@ -129,4 +129,42 @@
     <string name="transit_action_get_directions">ଦିଗ ନିର୍ଦ୍ଦେଶ</string>
     <string name="transit_fare_notice">ସରକାରୀ ଭଡ଼ା ତାଲିକା ଯାଞ୍ଚ ଅପେକ୍ଷାରେ</string>
     <string name="transit_departure_times_title">ନିର୍ଦ୍ଧାରିତ ପ୍ରସ୍ଥାନ ସମୟ (%d)</string>
+
+    <!-- M13 Constraint-Aware Itinerary Planner Strings (Odia) -->
+    <string name="plan_screen_title">ଆପଣଙ୍କ ଯାତ୍ରା ଯୋଜନା କରନ୍ତୁ</string>
+    <string name="plan_duration_title">ଯାତ୍ରା ଅବଧି</string>
+    <string name="plan_duration_1_day">୧ ଦିନ (କିମ୍ବା ୬ ଘଣ୍ଟା)</string>
+    <string name="plan_duration_2_days">୨ ଦିନ</string>
+    <string name="plan_duration_3_days">୩ ଦିନ</string>
+    <string name="plan_duration_5_days">୫ ଦିନ</string>
+    <string name="plan_start_hub_title">ଆରମ୍ଭ ସହର / କେନ୍ଦ୍ର</string>
+    <string name="plan_interests_title">ରୁଚି ଓ ବିଷୟବସ୍ତୁ</string>
+    <string name="plan_pace_title">ଯାତ୍ରାର ଗତି</string>
+    <string name="plan_pace_relaxed">ଆରାମଦାୟକ</string>
+    <string name="plan_pace_moderate">ମଧ୍ୟମ</string>
+    <string name="plan_pace_fast">ଦ୍ରୁତ</string>
+    <string name="plan_transport_title">ପରିବହନ ଓ ପଦଯାତ୍ରା ପସନ୍ଦ</string>
+    <string name="plan_pref_public_transit">ମୋ ବସ୍ / ଆମ ବସ୍ ପ୍ରାଥମିକତା</string>
+    <string name="plan_pref_low_walking">କମ୍ ଚାଲିବା</string>
+    <string name="plan_prompt_title">ନିଜ ଭାଷାରେ ଯୋଜନା ବିବରଣୀ (ଇଚ୍ଛାଧୀନ)</string>
+    <string name="plan_prompt_hint">ଯଥା: ଭୁବନେଶ୍ୱରରେ ୬ ଘଣ୍ଟା, ପ୍ରାଚୀନ ମନ୍ଦିର ଦେଖିବାକୁ ଚାହେଁ, କମ୍ ଚାଲିବା...</string>
+    <string name="plan_action_extract_ai">AI ଦ୍ୱାରା ବୁଝନ୍ତୁ</string>
+    <string name="plan_action_generate">ଯୋଜନା ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
+    <string name="plan_action_modify">ସର୍ତ୍ତ ପରିବର୍ତ୍ତନ କରନ୍ତୁ</string>
+    <string name="plan_action_regenerate">ନୂଆ ଯୋଜନା କରନ୍ତୁ</string>
+    <string name="plan_result_summary">%1$d-ଦିନର ଯୋଜନା · %2$s</string>
+    <string name="plan_stops_count">%d ଟି ସ୍ଥାନ</string>
+    <string name="plan_hop_walk">%d ମିନିଟ୍ ପଦଯାତ୍ରା</string>
+    <string name="plan_hop_transit">ନିର୍ଦ୍ଧାରିତ ପରିବହନ (%d ମିନିଟ୍)</string>
+    <string name="plan_hop_unavailable">ଏହି ସ୍ଥାନଗୁଡ଼ିକ ମଧ୍ୟରେ ପରିବହନ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="plan_disclaimer_title">ଯାତ୍ରୀ ସୂଚନା</string>
+    <string name="plan_disclaimer_hours">ପ୍ରସ୍ତାବିତ ଭ୍ରମଣ ସମୟ। ଯାତ୍ରା ପୂର୍ବରୁ ଖୋଲିବା ସମୟ ଯାଞ୍ଚ କରନ୍ତୁ।</string>
+    <string name="plan_disclaimer_fares">ଚଢ଼ିବା ସମୟରେ ଭଡ଼ା ଦେୟ। ଅନଲାଇନ୍ ଭଡ଼ା ଆକଳନ ନିଷିଦ୍ଧ।</string>
+    <string name="plan_ai_companion_title">AI ସହାୟକ ଅନ୍ତର୍ଦୃଷ୍ଟି</string>
+    <string name="plan_ai_grounded_badge">ଯାଞ୍ଚ ହୋଇଥିବା ତଥ୍ୟ ଉପରେ ଆଧାରିତ</string>
+    <string name="plan_generating_loading">ଗନ୍ତବ୍ୟସ୍ଥଳ ଏବଂ ଗମନାଗମନ ସଂଯୋଗ ଯାଞ୍ଚ କରାଯାଉଛି...</string>
+    <string name="plan_extracting_loading">ଆପଣଙ୍କ ବିବରଣୀରୁ ସର୍ତ୍ତ ବୁଝାଯାଉଛି...</string>
+    <string name="plan_empty_or_error">ଏହି ସର୍ତ୍ତଗୁଡ଼ିକ ପାଇଁ ଯୋଜନା ପ୍ରସ୍ତୁତ ହୋଇପାରିଲା ନାହିଁ।</string>
+    <string name="plan_empty_retry">ଅନ୍ୟ ଆରମ୍ଭ କେନ୍ଦ୍ର ବାଛନ୍ତୁ କିମ୍ବା ରୁଚି ପରିବର୍ତ୍ତନ କରନ୍ତୁ।</string>
+    <string name="plan_view_itinerary_map">ମାନଚିତ୍ରରେ ଦେଖନ୍ତୁ</string>
 </resources>

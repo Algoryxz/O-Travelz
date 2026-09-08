@@ -1,0 +1,75 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_0_BACKEND_CONTRACT_AUDIT",
+  "audit_timestamp": "2026-09-08T11:33:00+05:30",
+  "endpoints": {
+    "itinerary_plan": {
+      "path": "/itinerary/plan",
+      "method": "POST",
+      "request_schema": "ItineraryPlanRequest",
+      "request_fields": {
+        "days": { "type": "int", "required": true, "ge": 1 },
+        "interests": { "type": "list[str]", "default": [] },
+        "dates": { "type": "list[date]", "nullable": true },
+        "pace": { "type": "str", "nullable": true, "values": ["relaxed", "moderate", "fast"] },
+        "start": { "type": "str", "nullable": true, "description": "Resolved to place_id or hub name" },
+        "budget_transport_per_day": { "type": "float", "nullable": true, "ge": 0 },
+        "low_walking": { "type": "bool", "nullable": true },
+        "vegetarian": { "type": "bool", "nullable": true },
+        "avoid_crowds": { "type": "bool", "nullable": true },
+        "mobility": { "type": "str", "nullable": true },
+        "budget_conscious": { "type": "bool", "nullable": true },
+        "public_transport_preferred": { "type": "bool", "nullable": true },
+        "travel_party": { "type": "str", "nullable": true }
+      },
+      "response_schema": "ItineraryPlanResponse",
+      "response_fields": {
+        "itinerary_id": { "type": "str" },
+        "constraints": { "type": "PlanningConstraints" },
+        "days": {
+          "type": "list[ItineraryDayContract]",
+          "items": {
+            "day_number": "int",
+            "date": "date | null",
+            "stops": "list[ItineraryStopContract]",
+            "hops": "list[TransportHopContract]"
+          }
+        },
+        "explanation": { "type": "str" }
+      },
+      "grounding_invariants": "Deterministic facts-only generation; stops limited to MAX_STOPS_PER_DAY=3; coordinates validated; hops resolved with TransportService"
+    },
+    "ai_converse": {
+      "path": "/ai/converse",
+      "method": "POST",
+      "request_schema": "AIConversationRequest",
+      "request_fields": {
+        "messages": { "type": "list[ChatMessage]", "required": true },
+        "constraints": { "type": "PlanningConstraints", "nullable": true },
+        "context": { "type": "AppContextPayload", "nullable": true }
+      },
+      "response_schema": "GroundedConversationResponse",
+      "response_fields": {
+        "message": { "type": "str" },
+        "status": { "type": "str" },
+        "language": { "type": "str" },
+        "intent": { "type": "str | null" },
+        "constraints": { "type": "PlanningConstraints | null" },
+        "itinerary": { "type": "ItineraryResponse | null" },
+        "places": { "type": "list[Any]" },
+        "transport": { "type": "list[TransportHopContract]" },
+        "is_grounded": { "type": "bool" },
+        "evidence_items": { "type": "list[EvidenceItem]" },
+        "warnings": { "type": "list[str]" }
+      }
+    }
+  },
+  "dto_mismatches_identified": {
+    "android_transport_hop": "Missing from_sequence, to_sequence, estimated_minutes, legs, data_tier, reason in TransportHopDto (harmlessly ignored currently). Safe non-breaking addition planned.",
+    "ios_transport_hop": "Missing fromSequence, toSequence, estimatedMinutes, legs, dataTier, reason in TransportHopDTO. Safe non-breaking addition planned.",
+    "android_ai_converse": "Missing optional constraints, itinerary, warnings in AIConverseResponseDto. Safe non-breaking addition planned.",
+    "ios_ai_converse": "Missing optional constraints, itinerary, warnings in AIConverseResponseDTO. Safe non-breaking addition planned."
+  },
+  "backend_change_required": false,
+  "verdict": "BACKEND_CONTRACT_SUFFICIENT_AND_STABLE"
+}

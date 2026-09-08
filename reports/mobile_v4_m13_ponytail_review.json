@@ -1,0 +1,38 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_22_PONYTAIL_REVIEW",
+  "audit_timestamp": "2026-09-08T11:41:00+05:30",
+  "simplifications": [
+    {
+      "component": "Plan Interface",
+      "proposal": "Implement full chatbot UI with streaming message bubbles as the default",
+      "action": "DELETED / REJECTED",
+      "rationale": "Chatbots are clumsy for specifying dates, durations, and multi-select categories. A clean structured constraints form provides 10x faster trip configuration."
+    },
+    {
+      "component": "AI Execution",
+      "proposal": "Run local on-device small language model (e.g. MediaPipe LLM Inference)",
+      "action": "DELETED / REJECTED",
+      "rationale": "Excessive app binary size (+2GB), high memory usage, and risk of hallucinations. Server-side grounded endpoint ensures canonical fact boundaries."
+    },
+    {
+      "component": "Itinerary Mutation",
+      "proposal": "Build a complex drag-and-drop itinerary node graph editor",
+      "action": "DELETED / REJECTED",
+      "rationale": "Recomputing valid itineraries deterministically from updated constraints is vastly simpler and avoids invalid routing state bugs."
+    },
+    {
+      "component": "Entity Models",
+      "proposal": "Create a new duplicate Place domain model for itinerary stops",
+      "action": "DELETED / REJECTED",
+      "rationale": "Reusing canonical placeId and existing M8/M10 presentation components preserves single source of truth."
+    },
+    {
+      "component": "Persistence",
+      "proposal": "Introduce Room SQLite / SwiftData tables to persist drafts",
+      "action": "DEFERRED_M14",
+      "rationale": "Wave M13 is generation and presentation only. Persistence is explicitly M14 scope."
+    }
+  ],
+  "ponytail_verdict": "PONYTAIL_APPROVED_MINIMAL"
+}

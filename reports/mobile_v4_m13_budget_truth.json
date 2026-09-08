@@ -1,0 +1,15 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_9_BUDGET_TRUTH",
+  "audit_timestamp": "2026-09-08T11:38:45+05:30",
+  "budget_policy": {
+    "entry_fees_status": "Stage F research validated fees; Stage G2 promotion locked; 0 fees displayed as canonical in itinerary",
+    "transit_fares_status": "Official CRUT fare stage matrices pending; 0 fares fabricated in itinerary hops",
+    "food_estimates_status": "Zero fake meal costs or dining calculations",
+    "accommodation_estimates_status": "Zero fake hotel prices or lodging calculations",
+    "trip_total_budget_display": "Omitted; no synthetic '₹500 budget trip' totals",
+    "supported_budget_preference": "Qualitative only ('budget_conscious: Boolean')",
+    "traveler_disclosure": "Transit fares available at boarding. Online fare estimation is disabled."
+  },
+  "verdict": "ZERO_COST_FABRICATION"
+}

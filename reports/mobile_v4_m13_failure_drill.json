@@ -1,0 +1,28 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_8_FAILURE_DRILL",
+  "audit_timestamp": "2026-09-08T11:38:30+05:30",
+  "failure_scenarios": {
+    "ai_endpoint_timeout_or_error": {
+      "behavior": "AI enhancement degrades gracefully; deterministic itinerary planner executes directly; traveler receives valid itinerary with AI insight badge hidden",
+      "verdict": "FAIL_OPEN_TO_DETERMINISTIC_PLAN"
+    },
+    "itinerary_endpoint_timeout_or_5xx": {
+      "behavior": "Displays clear, retryable error message in UI; zero fake or synthetic itineraries generated",
+      "verdict": "FAIL_CLOSED_WITH_RETRY"
+    },
+    "network_unavailable_offline": {
+      "behavior": "Reports network unavailable honestly; zero claim that local LLM or on-device offline planner exists; previously persisted trips deferred to M14",
+      "verdict": "FAIL_CLOSED_HONEST"
+    },
+    "invalid_or_unfeasible_constraints": {
+      "behavior": "Displays actionable guidance ('Try adjusting your starting hub or selecting different interests'); no hallucinated destinations",
+      "verdict": "GRACEFUL_USER_RECOVERY"
+    },
+    "weather_service_unavailable": {
+      "behavior": "Plan generates normally without fake weather fallback (0 fake Sunny or 0°C)",
+      "verdict": "WEATHER_OMITTED_SAFELY"
+    }
+  },
+  "overall_verdict": "PASS"
+}

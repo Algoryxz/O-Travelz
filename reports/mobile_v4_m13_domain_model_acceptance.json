@@ -1,0 +1,23 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_1_DOMAIN_MODEL_ACCEPTANCE",
+  "audit_timestamp": "2026-09-08T11:34:00+05:30",
+  "domain_models": {
+    "PlanConstraints": "Pure typed constraints model; supports days, interests, pace, startHub, lowWalking, publicTransportPreferred, budgetConscious",
+    "PlanInterest": "7 catalog-aligned categories: HERITAGE, TEMPLE, NATURE, BEACH, CULTURE, CRAFTS, FOOD",
+    "PlanPace": "3-value enum: RELAXED, MODERATE, FAST",
+    "PlanStop": "Time-scheduled destination stop using canonical database place UUID",
+    "JourneyLeg": "Truth-preserving transit/walk leg with mode, minutes, data_tier, legDetail, and honest unavailable reason",
+    "PlanDay": "Day partition containing max 3 stops and ordered hops",
+    "PlanResult": "Complete immutable plan output with server ID, warnings, and optional grounded AI message",
+    "AIPlannerState": "Multi-phase state holder: IDLE, EXTRACTING, GENERATING, EXPLAINING, SUCCESS, ERROR"
+  },
+  "invariants_satisfied": {
+    "generic_entity_hierarchies_avoided": true,
+    "canonical_place_ids_used": true,
+    "place_model_duplication_avoided": true,
+    "magic_defaults_prohibited": true,
+    "fake_fares_prohibited": true
+  },
+  "acceptance_verdict": "ACCEPTED"
+}

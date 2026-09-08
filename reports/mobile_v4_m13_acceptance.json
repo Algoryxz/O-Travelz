@@ -1,0 +1,84 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_24_ACCEPTANCE",
+  "audit_timestamp": "2026-09-08T11:41:30+05:30",
+  "git": {
+    "branch": "feature/v4-platform-rebuild",
+    "starting_sha": "e90ac3173591f516754bc50847fa00f2a821a832",
+    "status": "CLEAN_BEFORE_COMMIT"
+  },
+  "endpoints": {
+    "planner_endpoint": "POST /itinerary/plan",
+    "ai_endpoint": "POST /ai/converse",
+    "backend_changes_required": false
+  },
+  "files_changed_summary": {
+    "android_files": [
+      "mobile/android/src/main/kotlin/com/otravelz/android/domain/model/PlannerModels.kt",
+      "mobile/android/src/main/kotlin/com/otravelz/android/data/network/dto/ItineraryDtos.kt",
+      "mobile/android/src/main/kotlin/com/otravelz/android/data/network/dto/AIDtos.kt",
+      "mobile/android/src/main/kotlin/com/otravelz/android/data/repository/PlannerRepository.kt",
+      "mobile/android/src/main/kotlin/com/otravelz/android/ui/screens/PlanViewModel.kt",
+      "mobile/android/src/main/kotlin/com/otravelz/android/ui/screens/PlanScreens.kt",
+      "mobile/android/src/main/kotlin/com/otravelz/android/ui/roots/PlanRoot.kt",
+      "mobile/android/src/main/kotlin/com/otravelz/android/OTravelzApp.kt",
+      "mobile/android/src/main/res/values/strings.xml",
+      "mobile/android/src/main/res/values-or/strings.xml",
+      "mobile/android/src/test/kotlin/com/otravelz/android/PlannerProductModelTest.kt"
+    ],
+    "ios_files": [
+      "mobile/ios/OTravelz/Features/PlannerDomainModels.swift",
+      "mobile/ios/OTravelz/Features/PlannerRepository.swift",
+      "mobile/ios/OTravelz/Features/PlannerViewModel.swift",
+      "mobile/ios/OTravelz/Features/PlanRootView.swift",
+      "mobile/ios/OTravelz/Networking/DTO/ItineraryDTOs.swift",
+      "mobile/ios/OTravelz/Networking/DTO/AIDTOs.swift",
+      "mobile/ios/OTravelz/Resources/en.lproj/Localizable.strings",
+      "mobile/ios/OTravelz/Resources/or.lproj/Localizable.strings",
+      "mobile/ios/OTravelzTests/PlannerDomainTests.swift"
+    ],
+    "backend_files_changed": 0,
+    "kmp_files_changed": 0,
+    "canonical_data_files_changed": 0,
+    "staging_data_files_changed": 0
+  },
+  "constraints_audit": {
+    "supported_count": 7,
+    "supported_list": [
+      "days (1..7, bounded)",
+      "interests (7 categories)",
+      "pace (relaxed, moderate, fast)",
+      "startHub (Bhubaneswar, Puri, Cuttack, etc.)",
+      "lowWalking (Boolean)",
+      "publicTransportPreferred (Boolean)",
+      "budgetConscious (Boolean)"
+    ],
+    "unsupported_count": 0,
+    "disclosures_provided": [
+      "Operating hours suggested; traveler advised to verify live",
+      "Transit fares available at boarding; online fare calculation omitted"
+    ]
+  },
+  "truth_evaluation": {
+    "six_hour_bhubaneswar_golden_scenario": "PASSED",
+    "fare_truth": "PASSED (0 fake fares)",
+    "hours_truth": "PASSED (0 inferred open/closed)",
+    "transit_truth": "PASSED (scheduled timetables only, 0 fake tracking)",
+    "weather_truth": "PASSED (0 fake sunny/0°C)",
+    "ai_grounding_model": "PASSED (AI interprets/explains; facts owned by API)",
+    "failure_resilience": "PASSED (graceful degradation)",
+    "network_efficiency": "PASSED (0 background polling, 1 plan request per generation)",
+    "privacy": "PASSED (0 prompt/history logging)"
+  },
+  "stage_g1_gate": {
+    "status": "PASSED",
+    "staging_imports_count": 0,
+    "stage_g2_locked": true
+  },
+  "test_execution": {
+    "android_compile": "BUILD SUCCESSFUL",
+    "android_unit_tests": "BUILD SUCCESSFUL",
+    "ios_test_status": "SOURCE_VERIFIED / PENDING_MACOS"
+  },
+  "overall_verdict": "ACCEPTED"
+}

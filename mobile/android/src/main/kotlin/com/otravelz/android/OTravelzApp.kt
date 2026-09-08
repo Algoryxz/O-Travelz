@@ -129,6 +129,7 @@ fun OTravelzApp(
                         destination = currentTab,
                         onPlaceClick = { placeId -> selectedPlaceId = placeId },
                         onTransitClick = { isTransitOpen = true },
+                        onNavigateToMap = { currentTab = NavDestination.MAP },
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(innerPadding)
@@ -180,6 +181,7 @@ fun OTravelzApp(
                             destination = currentTab,
                             onPlaceClick = { placeId -> selectedPlaceId = placeId },
                             onTransitClick = { isTransitOpen = true },
+                            onNavigateToMap = { currentTab = NavDestination.MAP },
                             modifier = Modifier.fillMaxSize()
                         )
                     }
@@ -198,6 +200,7 @@ private fun RootContentHost(
     destination: NavDestination,
     onPlaceClick: (String) -> Unit,
     onTransitClick: () -> Unit,
+    onNavigateToMap: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     when (destination) {
@@ -207,7 +210,11 @@ private fun RootContentHost(
             modifier = modifier
         )
         NavDestination.MAP -> MapRoot(onPlaceClick = onPlaceClick, modifier = modifier)
-        NavDestination.PLAN -> PlanRoot(modifier = modifier)
+        NavDestination.PLAN -> PlanRoot(
+            onPlaceClick = onPlaceClick,
+            onViewOnMap = onNavigateToMap,
+            modifier = modifier
+        )
         NavDestination.TRIPS -> TripsRoot(modifier = modifier)
         NavDestination.YOU -> YouRoot(modifier = modifier)
     }

@@ -1,0 +1,13 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_10_HOURS_TRUTH",
+  "audit_timestamp": "2026-09-08T11:39:00+05:30",
+  "operating_hours_policy": {
+    "staging_hours_ingestion": "LOCKED; Stage F hours are not promoted to shipping assets",
+    "production_backend_hours": "Null or unverified; open/closed status is NOT inferred",
+    "itinerary_time_slots": "Preset realistic schedule buckets (09:00–11:00, 11:45–13:30, 14:15–16:30)",
+    "traveler_disclosure": "Suggested visit schedule. Verify current operating hours before traveling.",
+    "fake_open_closed_claims": 0
+  },
+  "verdict": "TRUTHFUL_HOURS_DISCLOSURE"
+}

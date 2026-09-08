@@ -27,8 +27,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M10** | Place Detail editorial sheets, verified photography, and live weather cards | `[COMPLETED]` |
 | **M11** | Native mapping canvases (Google Maps Compose & Apple MapKit) | `[COMPLETED]` |
 | **M12** | 154-Route transit directory, stop details, and timetable evaluation | `[COMPLETED]` |
-| **M13** | Constraint-aware itinerary builder and grounded AI conversational assistant | `[NEXT]` |
-| **M14** | Trips persistence (Room SQLite & SwiftData) with offline sync | `[PLANNED]` |
+| **M13** | Constraint-aware itinerary builder and grounded AI conversational assistant | `[COMPLETED]` |
+| **M14** | Trips persistence (Room SQLite & SwiftData) with offline sync | `[NEXT]` |
 | **M15** | Emergency essentials, civic contacts, and artisan clusters | `[PLANNED]` |
 | **M16** | Authentication, secure session exchange, and user profiles | `[PLANNED]` |
 | **M17** | Push notifications and local transit departure countdowns | `[PLANNED]` |
@@ -145,9 +145,9 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **M11 (Mapping)**: Google Maps Compose on Android, Apple MapKit on iOS; custom pins. `[COMPLETED]`
 - **M12 (Transit)**: 154-Route directory, CRUT Mo Bus & AMA Bus timetables, stop truth & locality gating. `[COMPLETED]`
 
-### Wave M13: Constraint-Aware Itinerary Builder & Grounded AI Assistant `[NEXT]`
-- **M13 (AI Planner)**: Constraint-based itinerary generator, grounded AI conversational chat.
-- **M14 (Trips & Persistence)**: Room SQLite (Android) and SwiftData (iOS) offline sync.
+### Wave M13: Constraint-Aware Itinerary Builder & Grounded AI Assistant `[COMPLETED]`
+- **M13 (AI Planner)**: Structured constraint-aware planner, deterministic backend execution (`POST /itinerary/plan`), grounded AI conversational companion (`POST /ai/converse`), and six-hour Bhubaneswar golden tour. `[COMPLETED]`
+- **M14 (Trips & Persistence)**: Room SQLite (Android) and SwiftData (iOS) offline sync. `[NEXT]`
 - **M15 (Essentials & Culture)**: Emergency civic contacts, artisan clusters, cultural essays.
 - **M16 (Auth & Accounts)**: Sign in with Apple, Google Credential Manager, secure tokens.
 - **M17 (Notifications)**: Local transit departure countdown notifications.

@@ -1,0 +1,20 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_21_STAGE_G1_NON_INGESTION_GATE",
+  "audit_timestamp": "2026-09-08T11:40:45+05:30",
+  "invariants_proof": {
+    "android_staging_imports_count": 0,
+    "ios_staging_imports_count": 0,
+    "stage_g2_executed": false,
+    "canonical_data_mutated": false,
+    "staging_hours_surfaced": false,
+    "staging_fees_surfaced": false,
+    "probable_transit_crosswalks_promoted": false,
+    "district_staging_geometry_bundled": false,
+    "static_rail_airport_shown_as_live": false,
+    "gi_records_converted_into_shops": false,
+    "rag_corpus_bundled_into_mobile": false,
+    "staged_accommodation_shown_as_bookable": false
+  },
+  "gate_verdict": "PASSED"
+}

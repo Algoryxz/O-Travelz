@@ -1,0 +1,12 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_11_ACCESSIBILITY_PLANNING_TRUTH",
+  "audit_timestamp": "2026-09-08T11:39:15+05:30",
+  "accessibility_policy": {
+    "feature_level_accessibility_runtime": "Absent in production database; reduction to naive boolean rejected",
+    "accessible_only_planner_toggle": "Omitted to prevent false accessibility promises",
+    "low_walking_support": "Supported natively via 'low_walking: Boolean' (prioritizes shorter transit-connected destinations)",
+    "future_integration_dependency": "Pending Stage G2 multi-attribute accessibility schema promotion"
+  },
+  "verdict": "HONEST_ACCESSIBILITY_BOUNDARY"
+}

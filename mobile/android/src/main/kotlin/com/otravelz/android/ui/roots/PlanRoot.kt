@@ -1,51 +1,68 @@
-package com.otravelz.android.ui.roots
+﻿package com.otravelz.android.ui.roots
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.otravelz.android.R
 import com.otravelz.android.navigation.NavDestination
-import com.otravelz.android.ui.theme.Spacing
+import com.otravelz.android.ui.screens.PlanConstraintsForm
+import com.otravelz.android.ui.screens.PlanItineraryView
+import com.otravelz.android.ui.screens.PlanViewModel
 
 /**
  * Structural container for Plan root.
- * Owns its M3 TopAppBar and responsive layout boundary.
- * Strictly free of premature feature state or fake plans.
+ * Integrates constraint-aware itinerary builder, deterministic generation, and grounded AI assistant.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlanRoot(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onPlaceClick: (String) -> Unit = {},
+    onViewOnMap: () -> Unit = {},
+    viewModel: PlanViewModel = viewModel()
 ) {
+    val uiState by viewModel.uiState.collectAsState()
+
+    // Back handling: if viewing an itinerary result, back returns to constraints editor
+    BackHandler(enabled = !uiState.showConstraintsForm && uiState.planResult != null) {
+        viewModel.modifyPlan()
+    }
+
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
                 title = {
                     Text(
-                        text = stringResource(NavDestination.PLAN.titleRes),
+                        text = if (!uiState.showConstraintsForm && uiState.planResult != null) {
+                            stringResource(R.string.plan_result_summary, uiState.constraints.days, uiState.constraints.startHub ?: "Odisha")
+                        } else {
+                            stringResource(NavDestination.PLAN.titleRes)
+                        },
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold
                     )
+                },
+                navigationIcon = {
+                    if (!uiState.showConstraintsForm && uiState.planResult != null) {
+                        IconButton(onClick = { viewModel.modifyPlan() }) {
+                            Icon(
+                                Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = stringResource(R.string.action_back)
+                            )
+                        }
+                    }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface,
@@ -58,36 +75,26 @@ fun PlanRoot(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .background(MaterialTheme.colorScheme.surface),
-            contentAlignment = Alignment.Center
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
-                modifier = Modifier
-                    .padding(Spacing.space7)
-                    .widthIn(max = 600.dp)
-            ) {
-                Text(
-                    text = "Deterministic Itinerary Planner",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.SemiBold,
-                    textAlign = TextAlign.Center
+            if (uiState.showConstraintsForm || uiState.planResult == null) {
+                PlanConstraintsForm(
+                    uiState = uiState,
+                    onDaysChanged = { viewModel.onDaysChanged(it) },
+                    onInterestToggled = { viewModel.onInterestToggled(it) },
+                    onPaceChanged = { viewModel.onPaceChanged(it) },
+                    onStartHubChanged = { viewModel.onStartHubChanged(it) },
+                    onLowWalkingToggled = { viewModel.onLowWalkingToggled(it) },
+                    onPublicTransportToggled = { viewModel.onPublicTransportToggled(it) },
+                    onPromptChanged = { viewModel.onPromptChanged(it) },
+                    onExtractWithAI = { viewModel.extractConstraintsWithAI() },
+                    onGeneratePlan = { viewModel.generatePlan() }
                 )
-                Spacer(modifier = Modifier.height(Spacing.space3))
-                Text(
-                    text = stringResource(R.string.root_plan_desc),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center
-                )
-                Spacer(modifier = Modifier.height(Spacing.space5))
-                Text(
-                    text = stringResource(R.string.bootstrap_status),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.outlineVariant,
-                    textAlign = TextAlign.Center
+            } else {
+                PlanItineraryView(
+                    plan = uiState.planResult!!,
+                    onModifyPlan = { viewModel.modifyPlan() },
+                    onPlaceClick = onPlaceClick,
+                    onViewOnMap = onViewOnMap
                 )
             }
         }

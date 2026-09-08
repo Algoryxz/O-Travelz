@@ -11,7 +11,8 @@ data class ChatMessageDto(
 
 @Serializable
 data class AIConverseRequestDto(
-    val messages: List<ChatMessageDto>
+    val messages: List<ChatMessageDto>,
+    val constraints: ItineraryPlanRequestDto? = null
 )
 
 @Serializable
@@ -20,5 +21,8 @@ data class AIConverseResponseDto(
     val status: String? = "ok",
     val language: String? = "en",
     val intent: String? = null,
-    @SerialName("is_grounded") val isGrounded: Boolean = false
+    @SerialName("is_grounded") val isGrounded: Boolean = false,
+    val constraints: ItineraryPlanRequestDto? = null,
+    val itinerary: ItineraryResponseDto? = null,
+    val warnings: List<String> = emptyList()
 )

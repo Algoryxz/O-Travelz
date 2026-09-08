@@ -1,0 +1,17 @@
+﻿{
+  "wave": "M13",
+  "phase": "PHASE_12_TRANSIT_PLANNER_TRUTH",
+  "audit_timestamp": "2026-09-08T11:39:30+05:30",
+  "transit_truth_invariants": {
+    "m12_parity_preserved": true,
+    "scheduled_timetables_only": true,
+    "live_bus_tracking_claimed": false,
+    "arriving_in_x_min_claimed": false,
+    "moving_vehicle_pins": false,
+    "fares_fabricated": false,
+    "first_mile_gating_preserved": "Exact walking minutes allowed only for verified physical stops with live GPS; suppressed for locality-only stops",
+    "route_geometry_straight_line_bridges": 0,
+    "stage_g1_probable_crosswalks_promoted": false
+  },
+  "verdict": "M12_TRANSIT_TRUTH_PRESERVED"
+}

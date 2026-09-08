@@ -12,9 +12,11 @@ public struct ChatMessageDTO: Codable, Sendable {
 
 public struct AIConverseRequestDTO: Codable, Sendable {
     public let messages: [ChatMessageDTO]
+    public let constraints: ItineraryPlanRequestDTO?
 
-    public init(messages: [ChatMessageDTO]) {
+    public init(messages: [ChatMessageDTO], constraints: ItineraryPlanRequestDTO? = nil) {
         self.messages = messages
+        self.constraints = constraints
     }
 }
 
@@ -24,6 +26,9 @@ public struct AIConverseResponseDTO: Codable, Sendable {
     public let language: String?
     public let intent: String?
     public let isGrounded: Bool?
+    public let constraints: ItineraryPlanRequestDTO?
+    public let itinerary: ItineraryResponseDTO?
+    public let warnings: [String]?
 
     enum CodingKeys: String, CodingKey {
         case message
@@ -31,5 +36,8 @@ public struct AIConverseResponseDTO: Codable, Sendable {
         case language
         case intent
         case isGrounded = "is_grounded"
+        case constraints
+        case itinerary
+        case warnings
     }
 }
