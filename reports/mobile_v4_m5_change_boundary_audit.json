@@ -1,0 +1,41 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_30_CHANGE_BOUNDARY_AUDIT",
+  "timestamp": "2026-09-08T08:35:00+05:30",
+  "strict_inviolable_boundaries": {
+    "backend": {
+      "path": "backend/",
+      "changes_detected": 0,
+      "status": "UNTOUCHED"
+    },
+    "data": {
+      "path": "data/",
+      "changes_detected": 0,
+      "status": "UNTOUCHED"
+    },
+    "web": {
+      "path": "web/",
+      "changes_detected": 0,
+      "status": "UNTOUCHED"
+    },
+    "frontend": {
+      "path": "frontend/",
+      "changes_detected": 0,
+      "status": "UNTOUCHED"
+    },
+    "shared_kmp_core": {
+      "path": "mobile/shared/",
+      "changes_detected": 0,
+      "status": "UNTOUCHED"
+    }
+  },
+  "authorized_mutation_zones": [
+    "mobile/android/",
+    "mobile/ios/",
+    "mobile/build.gradle.kts",
+    "mobile/settings.gradle.kts",
+    "docs/mobile-v4/",
+    "reports/"
+  ],
+  "verdict": "CHANGE_BOUNDARIES_PRESERVED"
+}

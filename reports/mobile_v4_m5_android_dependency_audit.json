@@ -1,0 +1,53 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_4_ANDROID_DEPENDENCY_HYGIENE",
+  "timestamp": "2026-09-08T08:35:00+05:30",
+  "dependencies_added": [
+    {
+      "name": ":shared",
+      "purpose": "Deterministic domain core (OdishaBounds, Haversine)",
+      "why_now": "Required for compile-time integration proof",
+      "why_not_deferred": "Core architectural requirement"
+    },
+    {
+      "name": "androidx.core:core-ktx",
+      "purpose": "Android system KTX",
+      "why_now": "Base app startup",
+      "why_not_deferred": "Fundamental platform requirement"
+    },
+    {
+      "name": "androidx.lifecycle:lifecycle-runtime-ktx",
+      "purpose": "Lifecycle runtime",
+      "why_now": "Activity Compose lifecycle",
+      "why_not_deferred": "Fundamental platform requirement"
+    },
+    {
+      "name": "androidx.activity:activity-compose",
+      "purpose": "Activity setContent & enableEdgeToEdge",
+      "why_now": "MainActivity entry point",
+      "why_not_deferred": "Required for Compose Activity"
+    },
+    {
+      "name": "androidx.compose.material3:material3",
+      "purpose": "Material 3 Expressive tokens & Scaffold",
+      "why_now": "Root navigation shell",
+      "why_not_deferred": "Required for UI presentation"
+    },
+    {
+      "name": "androidx.navigation:navigation-compose",
+      "purpose": "Root tab navigation",
+      "why_now": "5-tab root shell",
+      "why_not_deferred": "Required for root IA"
+    }
+  ],
+  "dependencies_deferred": [
+    "retrofit",
+    "okhttp",
+    "room",
+    "coil",
+    "ksp",
+    "media3",
+    "datastore"
+  ],
+  "verdict": "ANDROID_DEPENDENCIES_HYGIENIC_AND_MINIMAL"
+}

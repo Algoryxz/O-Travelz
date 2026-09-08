@@ -1,0 +1,16 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_7_ANDROID_ROOT_NAVIGATION_SHELL",
+  "timestamp": "2026-09-08T08:36:00+05:30",
+  "navigation_library": "androidx.navigation:navigation-compose:2.8.1",
+  "root_destinations": [
+    "DISCOVER",
+    "MAP",
+    "PLAN",
+    "TRIPS",
+    "YOU"
+  ],
+  "state_restoration": "rememberSaveable with NavDestination enum",
+  "predictive_back_ready": true,
+  "verdict": "ANDROID_NAVIGATION_BOOTSTRAP_READY"
+}

@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "OTravelzMobile"
 include(":shared")
+include(":android")

@@ -1,0 +1,43 @@
+{
+  "wave": "M5",
+  "phase": "SKILL_APPLICATION_AUDIT",
+  "timestamp": "2026-09-08T08:25:00+05:30",
+  "skills_consulted": [
+    {
+      "skill": "android-edge-to-edge",
+      "guidance_applied": "Call enableEdgeToEdge() in ComponentActivity before setContent; configure windowSoftInputMode=adjustResize; consume innerPadding via Scaffold without double-padding.",
+      "guidance_rejected": "None",
+      "reason": "Official Android edge-to-edge best practices enforced for compileSdk 35."
+    },
+    {
+      "skill": "android-navigation-3",
+      "guidance_applied": "Evaluated Navigation 3 vs Navigation Compose baseline.",
+      "guidance_rejected": "Navigation 3 preview APIs rejected for M5 bootstrap.",
+      "reason": "Navigation Compose 2.8.1 from version catalog is fully stable with AGP 8.6 and Compose BOM 2024.09.02."
+    },
+    {
+      "skill": "android-styles",
+      "guidance_applied": "Material 3 Expressive semantic color scheme definitions in Theme.kt.",
+      "guidance_rejected": "Custom complex styleable modifiers.",
+      "reason": "Bootstrap shell requires only core MaterialTheme colorScheme and typography."
+    },
+    {
+      "skill": "android-testing-setup",
+      "guidance_applied": "JUnit 4 unit testing foundation for JVM tests without emulator requirement.",
+      "guidance_rejected": "Heavy Robolectric or connected instrumented harnesses at bootstrap.",
+      "reason": "Keep bootstrap verification lightweight and instant."
+    },
+    {
+      "skill": "swiftui-patterns",
+      "guidance_applied": "Default to MV pattern; views are declarative state expressions; avoid premature view models; use @State and native View hierarchy.",
+      "guidance_rejected": "Heavy global observable router or state coordinator.",
+      "reason": "Ponytail simplicity: TabView + NavigationStack satisfies 5-tab root architecture cleanly."
+    },
+    {
+      "skill": "swift-architecture",
+      "guidance_applied": "Clean modular layout: App, Navigation, DesignSystem, Features, Resources, Supporting.",
+      "guidance_rejected": "VIPER / TCA / Complex VIP architecture.",
+      "reason": "Standard SwiftUI architecture aligns with frozen HIG publication system."
+    }
+  ]
+}

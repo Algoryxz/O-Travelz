@@ -19,8 +19,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M2** | Parallel Android & iOS visual exploration using Stitch + Figma | `[COMPLETED]` |
 | **M3** | Component Architecture & Interactive Prototype Specification | `[COMPLETED]` |
 | **M4** | Parallel clickable prototypes and formal design acceptance freeze | `[COMPLETED]` |
-| **M5** | Fresh production Android and iOS project bootstrap | `[NEXT]` |
-| **M6** | API contracts, DTO generation, and native networking clients | `[PLANNED]` |
+| **M5** | Fresh production Android and iOS project bootstrap | `[COMPLETED]` |
+| **M6** | API contracts, DTO generation, and native networking clients | `[NEXT]` |
 | **M7** | App shells, root navigation, and adaptive chrome | `[PLANNED]` |
 | **M8** | Home / Editorial Cultural Atlas landing screen | `[PLANNED]` |
 | **M9** | Discover feed, spatial filtering, and full-text search | `[PLANNED]` |
@@ -116,18 +116,18 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **Acceptance Criteria**: Formal sign-off on design tokens, typography, and component specifications.
 - **Non-Goals**: No production app code.
 
-### Wave M5: Fresh Android & iOS Project Bootstrap `[NEXT]`
+### Wave M5: Fresh Android & iOS Project Bootstrap `[COMPLETED]`
 - **Objective**: Initialize clean production project structures for Android and iOS.
-- **Android Scope**: Bootstrap `mobile/android/` with Kotlin 2.0+, AGP 8.6, Compose BOM, wiring `:shared` Gradle dep.
+- **Android Scope**: Bootstrap `mobile/android/` with Kotlin 2.0.21, AGP 8.6, Compose BOM, wiring `:shared` Gradle dep.
 - **iOS Scope**: Initialize clean Xcode project `mobile/ios/OTravelz.xcodeproj` targeting iOS 17.0+, link `OTravelzCore.xcframework`.
-- **Skills Used**: `android-testing-setup`, `swift-architecture`, `swift-testing`.
+- **Skills Used**: `android-testing-setup`, `android-edge-to-edge`, `swift-architecture`, `swift-testing`, `ponytail`.
 - **Dependencies**: Wave M4 design freeze.
-- **Artifacts**: Clean compilable empty shells on both platforms.
-- **Tests**: `./gradlew :android:assembleDebug` and `xcodebuild build` succeed.
-- **Acceptance Criteria**: Both empty shells compile with zero errors and zero warnings.
+- **Artifacts**: Clean compilable empty shells on both platforms, baseline docs, and 20 validation reports.
+- **Tests**: `./gradlew :android:testDebugUnitTest` and `:android:assembleDebug` succeed.
+- **Acceptance Criteria**: Both empty shells configured with zero errors; Android debug APK generated; shared KMP integration verified.
 - **Non-Goals**: No screen implementation; no mock data bundles.
 
-### Waves M6–M18: Core Feature Implementation `[PLANNED]`
+### Wave M6: Native Design System Tokens & Foundations `[NEXT]`
 - **M6 (Contracts & Networking)**: Native Retrofit/OkHttp client (Android) and URLSession client (iOS).
 - **M7 (App Shells)**: Root 5-tab navigation, adaptive navigation rail (Android), NavigationSplitView (iOS).
 - **M8 (Home Screen)**: Editorial Cultural Atlas landing feed with living artisan features.

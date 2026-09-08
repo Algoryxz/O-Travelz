@@ -1,0 +1,67 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_24_LOCALIZATION_FOUNDATION",
+  "timestamp": "2026-09-08T08:31:00+05:30",
+  "languages_supported": [
+    "English (en)",
+    "Odia (or)"
+  ],
+  "bootstrap_keys": [
+    {
+      "key": "app_name",
+      "en": "O-TRAVELZ",
+      "or": "ଓ-ଟ୍ରାଭେଲ୍‌ଜ୍"
+    },
+    {
+      "key": "nav_discover",
+      "en": "Discover",
+      "or": "ଆବିଷ୍କାର"
+    },
+    {
+      "key": "nav_map",
+      "en": "Map",
+      "or": "ମାନଚିତ୍ର"
+    },
+    {
+      "key": "nav_plan",
+      "en": "Plan",
+      "or": "ଯୋଜନା"
+    },
+    {
+      "key": "nav_trips",
+      "en": "Trips",
+      "or": "ଯାତ୍ରା"
+    },
+    {
+      "key": "nav_you",
+      "en": "You",
+      "or": "ଆପଣ"
+    },
+    {
+      "key": "bootstrap_title",
+      "en": "O-TRAVELZ V4 Bootstrap Shell",
+      "or": "ଓ-ଟ୍ରାଭେଲ୍‌ଜ୍ V4 ମୂଳଭିତ୍ତି"
+    },
+    {
+      "key": "bootstrap_subtitle",
+      "en": "Modern Odisha Cultural Atlas",
+      "or": "ଆଧୁନିକ ଓଡ଼ିଶା ସାଂସ୍କୃତିକ ଆଟଲାସ୍"
+    },
+    {
+      "key": "bootstrap_status",
+      "en": "Native Foundation Active",
+      "or": "ନେଟିଭ୍ ମୂଳଭିତ୍ତି ସକ୍ରିୟ"
+    }
+  ],
+  "resource_files": {
+    "android": [
+      "mobile/android/src/main/res/values/strings.xml",
+      "mobile/android/src/main/res/values-or/strings.xml"
+    ],
+    "ios": [
+      "mobile/ios/OTravelz/Resources/en.lproj/Localizable.strings",
+      "mobile/ios/OTravelz/Resources/or.lproj/Localizable.strings"
+    ]
+  },
+  "verdict": "LOCALIZATION_FOUNDATION_ESTABLISHED"
+}

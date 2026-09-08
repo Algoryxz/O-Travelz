@@ -1,0 +1,28 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_0_BOOTSTRAP_FORENSIC_SNAPSHOT",
+  "timestamp": "2026-09-08T08:24:00+05:30",
+  "repository": "https://github.com/Algoryxz/O-Travelz",
+  "branch": "feature/v4-platform-rebuild",
+  "starting_sha": "1eef0cb1c0fb2f8445ef8332f0579269f58fca17",
+  "working_tree_clean": true,
+  "mobile_toolchain": {
+    "agp_version": "8.6.0",
+    "kotlin_version": "2.0.20",
+    "compose_bom": "2024.09.02",
+    "gradle_version": "8.7",
+    "shared_module_targets": [
+      "jvm",
+      "androidTarget",
+      "iosX64",
+      "iosArm64",
+      "iosSimulatorArm64"
+    ],
+    "shared_tests_status": "PASS (35 actionable tasks up to date)"
+  },
+  "initial_directories": {
+    "mobile_android": "EMPTY (README.md only)",
+    "mobile_ios": "EMPTY (README.md only)",
+    "mobile_shared": "ACTIVE (pure deterministic domain logic)"
+  }
+}

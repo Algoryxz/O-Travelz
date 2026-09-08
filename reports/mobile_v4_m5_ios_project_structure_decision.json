@@ -1,0 +1,10 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_13_IOS_PROJECT_GENERATION_POLICY",
+  "timestamp": "2026-09-08T08:28:00+05:30",
+  "decision": "DETERMINISTIC_NATIVE_XCODEPROJ",
+  "rationale": "Generated a clean, standard, zero-dependency Xcode project (OTravelz.xcodeproj/project.pbxproj) compatible with Xcode 15/16. Avoided unnecessary external generators (Tuist, XcodeGen) to maintain Ponytail simplicity.",
+  "project_bundle": "mobile/ios/OTravelz.xcodeproj",
+  "bundle_id": "com.otravelz.ios",
+  "deployment_target": "17.0"
+}

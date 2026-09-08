@@ -1,0 +1,11 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_8_ANDROID_EDGE_TO_EDGE",
+  "timestamp": "2026-09-08T08:37:00+05:30",
+  "activity": "com.otravelz.android.MainActivity",
+  "enable_edge_to_edge_called": true,
+  "manifest_adjust_resize_configured": true,
+  "scaffold_inner_padding_consumed": true,
+  "hardcoded_status_bar_heights_avoided": true,
+  "verdict": "ANDROID_EDGE_TO_EDGE_PROPERLY_CONFIGURED"
+}

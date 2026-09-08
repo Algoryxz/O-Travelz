@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">O-TRAVELZ</string>
+    <string name="nav_discover">Discover</string>
+    <string name="nav_map">Map</string>
+    <string name="nav_plan">Plan</string>
+    <string name="nav_trips">Trips</string>
+    <string name="nav_you">You</string>
+    <string name="bootstrap_title">O-TRAVELZ V4 Bootstrap Shell</string>
+    <string name="bootstrap_subtitle">Modern Odisha Cultural Atlas</string>
+    <string name="bootstrap_status">Native Android Compose Foundation Active</string>
+</resources>

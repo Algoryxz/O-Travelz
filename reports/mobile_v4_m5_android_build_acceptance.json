@@ -1,0 +1,38 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_21_ANDROID_BUILD_ACCEPTANCE",
+  "timestamp": "2026-09-08T08:35:00+05:30",
+  "gradle_tasks_executed": [
+    ":android:compileDebugKotlin",
+    ":android:processDebugResources",
+    ":android:testDebugUnitTest",
+    ":android:assembleDebug"
+  ],
+  "unit_tests": {
+    "total": 6,
+    "suites": [
+      "com.otravelz.android.NavigationTest",
+      "com.otravelz.android.SharedCoreIntegrationTest",
+      "com.otravelz.android.ThemeTest"
+    ],
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0,
+    "html_report": "mobile/android/build/reports/tests/testDebugUnitTest/index.html"
+  },
+  "artifacts_produced": [
+    {
+      "type": "APK",
+      "variant": "debug",
+      "relative_path": "mobile/android/build/outputs/apk/debug/android-debug.apk",
+      "size_bytes": 9845511,
+      "exists": true
+    }
+  ],
+  "compile_sdk": 35,
+  "target_sdk": 35,
+  "min_sdk": 26,
+  "agp_version": "8.6.0",
+  "compose_bom": "2024.09.02",
+  "verdict": "ANDROID_BUILD_ACCEPTED"
+}

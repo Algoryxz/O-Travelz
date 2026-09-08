@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A0001012C8A000100000001 /* OTravelzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000012C8A000100000001 /* OTravelzApp.swift */; };
+		1A0001022C8A000100000002 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000022C8A000100000002 /* RootTabView.swift */; };
+		1A0001032C8A000100000003 /* TabDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000032C8A000100000003 /* TabDestination.swift */; };
+		1A0001042C8A000100000004 /* ColorTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000042C8A000100000004 /* ColorTokens.swift */; };
+		1A0001052C8A000100000005 /* TypographyTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000052C8A000100000005 /* TypographyTokens.swift */; };
+		1A0001062C8A000100000006 /* SpacingTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000062C8A000100000006 /* SpacingTokens.swift */; };
+		1A0001072C8A000100000007 /* BootstrapPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000072C8A000100000007 /* BootstrapPlaceholderView.swift */; };
+		1A0001082C8A000100000008 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A0000082C8A000100000008 /* Localizable.strings */; };
+		1A0001092C8A000100000009 /* OTravelzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000092C8A000100000009 /* OTravelzTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A0000002C8A000000000001 /* OTravelz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTravelz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A0000002C8A000000000002 /* OTravelzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OTravelzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A0000012C8A000100000001 /* OTravelzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTravelzApp.swift; sourceTree = "<group>"; };
+		1A0000022C8A000100000002 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		1A0000032C8A000100000003 /* TabDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDestination.swift; sourceTree = "<group>"; };
+		1A0000042C8A000100000004 /* ColorTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTokens.swift; sourceTree = "<group>"; };
+		1A0000052C8A000100000005 /* TypographyTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyTokens.swift; sourceTree = "<group>"; };
+		1A0000062C8A000100000006 /* SpacingTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingTokens.swift; sourceTree = "<group>"; };
+		1A0000072C8A000100000007 /* BootstrapPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootstrapPlaceholderView.swift; sourceTree = "<group>"; };
+		1A0000082C8A000100000008 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1A0000092C8A000100000009 /* OTravelzTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTravelzTests.swift; sourceTree = "<group>"; };
+		1A00000A2C8A00010000000A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A0000F02C8A000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A0000F02C8A000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A0000G02C8A000000000001 = {
+			isa = PBXGroup;
+			children = (
+				1A0000G12C8A000000000001 /* OTravelz */,
+				1A0000G12C8A000000000002 /* OTravelzTests */,
+				1A0000G12C8A000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A0000G12C8A000000000001 /* OTravelz */ = {
+			isa = PBXGroup;
+			children = (
+				1A0000G22C8A000000000001 /* App */,
+				1A0000G22C8A000000000002 /* Navigation */,
+				1A0000G22C8A000000000003 /* DesignSystem */,
+				1A0000G22C8A000000000004 /* Features */,
+				1A0000G22C8A000000000005 /* Resources */,
+				1A0000G22C8A000000000006 /* Supporting */,
+			);
+			path = OTravelz;
+			sourceTree = "<group>";
+		};
+		1A0000G22C8A000000000001 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1A0000012C8A000100000001 /* OTravelzApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1A0000G22C8A000000000002 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1A0000022C8A000100000002 /* RootTabView.swift */,
+				1A0000032C8A000100000003 /* TabDestination.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1A0000G22C8A000000000003 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				1A0000042C8A000100000004 /* ColorTokens.swift */,
+				1A0000052C8A000100000005 /* TypographyTokens.swift */,
+				1A0000062C8A000100000006 /* SpacingTokens.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		1A0000G22C8A000000000004 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1A0000072C8A000100000007 /* BootstrapPlaceholderView.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		1A0000G22C8A000000000005 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A0000082C8A000100000008 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1A0000G22C8A000000000006 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				1A00000A2C8A00010000000A /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		1A0000G12C8A000000000002 /* OTravelzTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A0000092C8A000100000009 /* OTravelzTests.swift */,
+			);
+			path = OTravelzTests;
+			sourceTree = "<group>";
+		};
+		1A0000G12C8A000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A0000002C8A000000000001 /* OTravelz.app */,
+				1A0000002C8A000000000002 /* OTravelzTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A0000T02C8A000000000001 /* OTravelz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A0000C02C8A000000000001 /* Build configuration list for PBXNativeTarget "OTravelz" */;
+			buildPhases = (
+				1A0000S02C8A000000000001 /* Sources */,
+				1A0000F02C8A000000000001 /* Frameworks */,
+				1A0000R02C8A000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OTravelz;
+			productName = OTravelz;
+			productReference = 1A0000002C8A000000000001 /* OTravelz.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1A0000T02C8A000000000002 /* OTravelzTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A0000C02C8A000000000002 /* Build configuration list for PBXNativeTarget "OTravelzTests" */;
+			buildPhases = (
+				1A0000S02C8A000000000002 /* Sources */,
+				1A0000F02C8A000000000002 /* Frameworks */,
+				1A0000R02C8A000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A0000D02C8A000000000001 /* PBXTargetDependency */,
+			);
+			name = OTravelzTests;
+			productName = OTravelzTests;
+			productReference = 1A0000002C8A000000000002 /* OTravelzTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A0000P02C8A000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					1A0000T02C8A000000000001 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					1A0000T02C8A000000000002 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 1A0000T02C8A000000000001;
+					};
+				};
+			};
+			buildConfigurationList = 1A0000C02C8A000000000000 /* Build configuration list for PBXProject "OTravelz" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A0000G02C8A000000000001;
+			productRefGroup = 1A0000G12C8A000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A0000T02C8A000000000001 /* OTravelz */,
+				1A0000T02C8A000000000002 /* OTravelzTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A0000R02C8A000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A0001082C8A000100000008 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A0000R02C8A000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A0000S02C8A000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A0001012C8A000100000001 /* OTravelzApp.swift in Sources */,
+				1A0001022C8A000100000002 /* RootTabView.swift in Sources */,
+				1A0001032C8A000100000003 /* TabDestination.swift in Sources */,
+				1A0001042C8A000100000004 /* ColorTokens.swift in Sources */,
+				1A0001052C8A000100000005 /* TypographyTokens.swift in Sources */,
+				1A0001062C8A000100000006 /* SpacingTokens.swift in Sources */,
+				1A0001072C8A000100000007 /* BootstrapPlaceholderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A0000S02C8A000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A0001092C8A000100000009 /* OTravelzTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A0000D02C8A000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A0000T02C8A000000000001 /* OTravelz */;
+			targetProxy = 1A0000Y02C8A000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+		1A0000Y02C8A000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A0000P02C8A000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A0000T02C8A000000000001;
+			remoteInfo = OTravelz;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin XCBuildConfiguration section */
+		1A0000C12C8A000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1A0000C12C8A000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A0000C22C8A000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = OTravelz/Supporting/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "O-TRAVELZ";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.otravelz.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A0000C22C8A000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = OTravelz/Supporting/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "O-TRAVELZ";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.otravelz.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1A0000C32C8A000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 4.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.otravelz.ios.OTravelzTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTravelz.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OTravelz";
+			};
+			name = Debug;
+		};
+		1A0000C32C8A000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 4.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.otravelz.ios.OTravelzTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTravelz.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OTravelz";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A0000C02C8A000000000000 /* Build configuration list for PBXProject "OTravelz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A0000C12C8A000000000001 /* Debug */,
+				1A0000C12C8A000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A0000C02C8A000000000001 /* Build configuration list for PBXNativeTarget "OTravelz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A0000C22C8A000000000001 /* Debug */,
+				1A0000C22C8A000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A0000C02C8A000000000002 /* Build configuration list for PBXNativeTarget "OTravelzTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A0000C32C8A000000000001 /* Debug */,
+				1A0000C32C8A000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 1A0000P02C8A000000000001 /* Project object */;
+}

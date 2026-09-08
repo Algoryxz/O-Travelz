@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ଓ-ଟ୍ରାଭେଲ୍‌ଜ୍</string>
+    <string name="nav_discover">ଆବିଷ୍କାର</string>
+    <string name="nav_map">ମାନଚିତ୍ର</string>
+    <string name="nav_plan">ଯୋଜନା</string>
+    <string name="nav_trips">ଯାତ୍ରା</string>
+    <string name="nav_you">ଆପଣ</string>
+    <string name="bootstrap_title">ଓ-ଟ୍ରାଭେଲ୍‌ଜ୍ V4 ମୂଳଭିତ୍ତି</string>
+    <string name="bootstrap_subtitle">ଆଧୁନିକ ଓଡ଼ିଶା ସାଂସ୍କୃତିକ ଆଟଲାସ୍</string>
+    <string name="bootstrap_status">ଆଣ୍ଡ୍ରଏଡ୍ କମ୍ପୋଜ୍ ମୂଳଭିତ୍ତି ସକ୍ରିୟ</string>
+</resources>

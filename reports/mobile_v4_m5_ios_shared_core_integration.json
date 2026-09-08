@@ -1,0 +1,20 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_17_KMP_IOS_FRAMEWORK_INTEGRATION_REALITY",
+  "timestamp": "2026-09-08T08:38:00+05:30",
+  "framework_name": "OTravelzCore",
+  "framework_type": "Static Framework (isStatic = true)",
+  "configured_targets": [
+    "iosX64",
+    "iosArm64",
+    "iosSimulatorArm64"
+  ],
+  "status_matrix": {
+    "FRAMEWORK_CONFIGURED": true,
+    "FRAMEWORK_BUILT": false,
+    "FRAMEWORK_LINKED": false,
+    "SWIFT_IMPORT_VERIFIED": false
+  },
+  "host_limitation_explanation": "Current build host is Windows 11. Kotlin/Native iOS compiler and framework linking tasks require Xcode and macOS host. Tasks are configured in mobile/shared/build.gradle.kts and ready to link on macOS CI/local environment.",
+  "verdict": "IOS_SHARED_FRAMEWORK_CONFIGURED_LINK_PENDING_MACOS"
+}

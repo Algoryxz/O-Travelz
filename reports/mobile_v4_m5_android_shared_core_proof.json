@@ -1,0 +1,27 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_20_ANDROID_SHARED_CORE_INTEGRATION",
+  "timestamp": "2026-09-08T08:35:00+05:30",
+  "test_suite": "com.otravelz.android.SharedCoreIntegrationTest",
+  "test_source": "mobile/android/src/test/kotlin/com/otravelz/android/SharedCoreIntegrationTest.kt",
+  "tested_shared_apis": [
+    "com.otravelz.shared.geo.GeoPoint",
+    "com.otravelz.shared.geo.OdishaBounds",
+    "com.otravelz.shared.geo.HaversineDistance"
+  ],
+  "test_cases": [
+    {
+      "name": "testOdishaBoundsEvaluationFromAndroid",
+      "assertion": "OdishaBounds.contains(GeoPoint(20.2961, 85.8245)) == true",
+      "result": "PASSED"
+    },
+    {
+      "name": "testHaversineDistanceEvaluationFromAndroid",
+      "assertion": "HaversineDistance.calculateKm(Bhubaneswar, Puri) in 50.0..60.0",
+      "result": "PASSED"
+    }
+  ],
+  "gradle_task": ":android:testDebugUnitTest",
+  "report_path": "mobile/android/build/reports/tests/testDebugUnitTest/classes/com.otravelz.android.SharedCoreIntegrationTest.html",
+  "verdict": "SHARED_CORE_INTEGRATION_PROVEN"
+}

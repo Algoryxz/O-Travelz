@@ -1,0 +1,24 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_1_REVALIDATE_PLATFORM_BASELINES",
+  "timestamp": "2026-09-08T08:26:00+05:30",
+  "android": {
+    "minSdk": 26,
+    "compileSdk": 35,
+    "targetSdk": 35,
+    "kotlin": "2.0.20",
+    "agp": "8.6.0",
+    "compose_bom": "2024.09.02",
+    "architecture": "Single Activity (MainActivity) + Compose Navigation + Material 3",
+    "edge_to_edge": true,
+    "sdk_platform_installed": "Android SDK Platform 35 verified in C:\\Users\\smara\\AppData\\Local\\Android\\Sdk\\platforms\\android-35"
+  },
+  "ios": {
+    "deployment_target": "17.0",
+    "swift_version": "5.9 / 6.0 compatibility",
+    "framework": "SwiftUI",
+    "root_container": "TabView + NavigationStack",
+    "shared_core_artifact": "OTravelzCore (static framework)"
+  },
+  "verdict": "PLATFORM_BASELINES_VERIFIED_AND_LOCKED"
+}

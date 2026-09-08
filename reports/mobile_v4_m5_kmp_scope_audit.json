@@ -1,0 +1,16 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_18_SHARED_CORE_SCOPE_AUDIT",
+  "timestamp": "2026-09-08T08:29:00+05:30",
+  "KMP_SCOPE_CREEP": 0,
+  "prohibited_items_checked": {
+    "compose_ui_in_shared": false,
+    "swift_ui_in_shared": false,
+    "network_clients_in_shared": false,
+    "databases_in_shared": false,
+    "map_sdks_in_shared": false,
+    "dependency_injection_in_shared": false,
+    "platform_lifecycle_in_shared": false
+  },
+  "verdict": "SHARED_CORE_CONFINED_TO_DETERMINISTIC_DOMAIN_LOGIC"
+}

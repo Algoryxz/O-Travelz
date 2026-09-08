@@ -1,0 +1,15 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_28_IOS_BUILD_VALIDATION",
+  "timestamp": "2026-09-08T08:39:00+05:30",
+  "IOS_BUILD_STATUS": "NOT_EXECUTABLE_ON_CURRENT_HOST",
+  "host": "Windows 11",
+  "xcodebuild": "UNAVAILABLE",
+  "static_validation": {
+    "swift_syntax_clean": true,
+    "pbxproj_syntax_valid": true,
+    "info_plist_valid": true,
+    "localization_strings_valid": true
+  },
+  "verdict": "IOS_SOURCE_AND_PROJECT_SPEC_VALIDATED_BUILD_PENDING_MACOS"
+}

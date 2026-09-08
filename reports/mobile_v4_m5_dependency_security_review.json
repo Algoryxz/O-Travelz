@@ -1,0 +1,55 @@
+{
+  "wave": "M5",
+  "phase": "PHASE_29_DEPENDENCY_SECURITY_REVIEW",
+  "timestamp": "2026-09-08T08:33:00+05:30",
+  "vetted_dependencies": [
+    {
+      "dependency": "com.otravelz:shared",
+      "source": "project(:shared)",
+      "purpose": "Deterministic domain core",
+      "license": "Proprietary (Algoryxz)"
+    },
+    {
+      "dependency": "androidx.core:core-ktx",
+      "version": "1.13.1",
+      "purpose": "Android KTX extensions",
+      "license": "Apache 2.0"
+    },
+    {
+      "dependency": "androidx.lifecycle:lifecycle-runtime-ktx",
+      "version": "2.8.5",
+      "purpose": "Lifecycle scopes",
+      "license": "Apache 2.0"
+    },
+    {
+      "dependency": "androidx.activity:activity-compose",
+      "version": "1.9.2",
+      "purpose": "ComponentActivity edge-to-edge and setContent",
+      "license": "Apache 2.0"
+    },
+    {
+      "dependency": "androidx.compose:compose-bom",
+      "version": "2024.09.02",
+      "purpose": "Compose dependency alignment",
+      "license": "Apache 2.0"
+    },
+    {
+      "dependency": "androidx.compose.material3:material3",
+      "purpose": "Material 3 Expressive UI components",
+      "license": "Apache 2.0"
+    },
+    {
+      "dependency": "androidx.navigation:navigation-compose",
+      "version": "2.8.1",
+      "purpose": "Root tab navigation",
+      "license": "Apache 2.0"
+    }
+  ],
+  "prohibited_sdks_verified_absent": [
+    "Firebase Analytics / Crashlytics",
+    "Advertising / Attribution SDKs (AppsFlyer, Adjust)",
+    "Tracker SDKs (Mixpanel, Amplitude)",
+    "Payment / Billing SDKs (deferred)"
+  ],
+  "verdict": "DEPENDENCY_SECURITY_CLEAN"
+}
