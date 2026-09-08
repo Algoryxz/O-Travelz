@@ -1,0 +1,19 @@
+[
+  {
+    "candidate_id": "API_ARCGIS_REST_SERVICES_SPEC",
+    "endpoint": "https://developers.arcgis.com/rest/services-reference/enterprise/",
+    "provider": "Esri",
+    "protocol": "HTTPS REST",
+    "auth": "API Key / OAuth 2.0 / Token",
+    "example_query": "GET /arcgis/rest/services/{folder}/{serviceName}/FeatureServer/0/query?where=1=1&outFields=*&f=geojson",
+    "response_type": "GeoJSON / JSON",
+    "geographic_coverage": "Specification Standard",
+    "freshness": "SLOW_CHANGING",
+    "rate_limits": "Determined by host portal instance",
+    "runtime_suitability": false,
+    "ingestion_suitability": true,
+    "cache_restrictions": "Standard response caching allowed",
+    "risk": "Endpoints hosted by third-party government departments may have erratic uptime",
+    "confidence": 0.95
+  }
+]

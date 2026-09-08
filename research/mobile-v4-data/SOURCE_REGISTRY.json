@@ -1,0 +1,54 @@
+[
+  {
+    "source_id": "SRC_ESRI_ARCGIS_REST_001",
+    "domain": "GIS Infrastructure",
+    "title": "ArcGIS REST APIs Documentation",
+    "organization": "Esri (Environmental Systems Research Institute, Inc.)",
+    "url": "https://developers.arcgis.com/rest/",
+    "quality_tier": "TIER_B_AUTHORITATIVE_INSTITUTIONAL",
+    "format": "HTML / REST Specification",
+    "license": "Proprietary Developer Terms",
+    "attribution_required": true,
+    "auth_required": true,
+    "rate_limit": "Tiered API Key limits",
+    "runtime_allowed": false,
+    "ingestion_allowed": false,
+    "cache_allowed": true,
+    "freshness_class": "SLOW_CHANGING",
+    "last_checked": "2026-09-08",
+    "coverage": "Global GIS Specification",
+    "sample_verified": true,
+    "limitations": [
+      "Specification hub; live feature endpoints require separate layer licenses."
+    ],
+    "discovered_by": "GEMINI_BROWSER_RESEARCHER",
+    "cross_checked_by": "ANTIGRAVITY_LEAD",
+    "antigravity_verdict": "VALIDATED_SPECIFICATION"
+  },
+  {
+    "source_id": "SRC_ODISHA_TOURISM_OFFICIAL_001",
+    "domain": "Tourism & Heritage",
+    "title": "Odisha Tourism Official Portal",
+    "organization": "Department of Tourism, Government of Odisha",
+    "url": "https://odishatourism.gov.in",
+    "quality_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "format": "HTML",
+    "license": "Government Copyright / Terms of Use",
+    "attribution_required": true,
+    "auth_required": false,
+    "rate_limit": "Standard public web browsing",
+    "runtime_allowed": true,
+    "ingestion_allowed": true,
+    "cache_allowed": true,
+    "freshness_class": "CURRENT",
+    "last_checked": "2026-09-08",
+    "coverage": "Statewide Odisha Destinations",
+    "sample_verified": true,
+    "limitations": [
+      "Subject to government update cycles; darshan schedules vary on festival dates."
+    ],
+    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "cross_checked_by": "ANTIGRAVITY_LEAD",
+    "antigravity_verdict": "VALIDATED_PRIMARY"
+  }
+]
