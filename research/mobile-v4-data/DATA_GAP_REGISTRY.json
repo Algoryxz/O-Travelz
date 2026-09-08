@@ -72,10 +72,10 @@
       "repo_truth": "Strict rule: NO VERIFIED IMAGE = NO PUBLIC DESTINATION. Several candidate places lack WebP verified authentic photos.",
       "product_impact": "Place cards and Hero banners cannot render without authentic verified imagery.",
       "assigned_agent": "CLAUDE_BROWSER_RESEARCHER",
-      "status": "RESEARCHING",
+      "status": "PARTIAL",
       "preferred_source_type": "Wikimedia Commons CC/PD high-res, Odisha Tourism photo gallery with explicit license",
       "last_checked": "2026-09-08",
-      "notes": "Must record license type, author, source URL, and resolution."
+      "notes": "Verified CC BY-SA 3.0/4.0 image assets identified on Wikimedia Commons for Konark Sun Temple (Category:Konark_Sun_Temple), Mukteswar Temple (File:Mukteswar_Temple-1.jpg, File:Mukteswar_Temple.jpg), Rajarani Temple (File:Rajarani_Temple,_Bhubaneswar.jpg, File:Rajarani_Temple_03.jpg), Dhauli Giri, Mangalajodi, and Raghurajpur."
     },
     {
       "gap_id": "MOBILE_CANONICAL_CATALOG_RECONCILIATION",
@@ -144,7 +144,7 @@
       "repo_truth": "Raghurajpur (Pattachitra) and Pipili (Applique) recognized; artisan cooperative registries unharvested.",
       "product_impact": "Cultural Atlas artisan profiles and direct cooperative visits in PlanRootView.",
       "assigned_agent": "CLAUDE_BROWSER_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "RESEARCHING",
       "preferred_source_type": "Directorate of Handicrafts Odisha, Utkalika official portal, Boyanika registries",
       "last_checked": "2026-09-08",
       "notes": "Verify village coordinates and official society registration numbers."
