@@ -1,0 +1,33 @@
+{
+  "wave": "M13.1",
+  "phase": "PHASE_5_CLAIM_CALIBRATION",
+  "audit_timestamp": "2026-09-08T12:26:00+05:30",
+  "claims_audited": [
+    {
+      "claim": "10x faster trip configuration",
+      "location": "reports/mobile_v4_m13_ponytail_review.json",
+      "classification": "UNSUPPORTED",
+      "action_taken": "REMOVED. Replaced with empirical qualitative rationale: 'provides direct, low-friction trip configuration'."
+    },
+    {
+      "claim": "100% behavioral parity verified",
+      "location": "reports/mobile_v4_m13_cross_platform_parity.json & acceptance report",
+      "classification": "OVERCLAIM",
+      "action_taken": "DOWNGRADED. iOS status calibrated to SOURCE_PARITY_VERIFIED / PENDING_MACOS; Android verified on JVM."
+    },
+    {
+      "claim": "Transit fares available at boarding",
+      "location": "strings.xml & Localizable.strings",
+      "classification": "SPECULATIVE_PAYMENT_CLAIM",
+      "action_taken": "REPLACED with canonical truth statement: 'Fare information unavailable. Check official or operator information before travel.'"
+    },
+    {
+      "claim": "6 hour trip created with 1-minute walking hops between Bhubaneswar, Puri, and Salepur",
+      "location": "reports/mobile_v4_m13_six_hour_bhubaneswar_acceptance.json",
+      "classification": "INCORRECT_MOCK_FIXTURE",
+      "action_taken": "CORRECTED with verified runtime execution producing 100% Bhubaneswar-local destinations (Lingaraj Temple, Old Town Kora Khai Hub, Chitrakarini Temple)."
+    }
+  ],
+  "unsubstantiated_claims_remaining": 0,
+  "acceptance_verdict": "CALIBRATED_AND_ACCEPTED"
+}

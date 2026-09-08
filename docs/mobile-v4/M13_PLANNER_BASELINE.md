@@ -1,4 +1,4 @@
-﻿# O-TRAVELZ Mobile V4 — Wave M13 Planner Baseline Specification
+# O-TRAVELZ Mobile V4 — Wave M13 Planner Baseline Specification
 
 > **Authoritative Specification: Constraint-Aware Itinerary Planner & Grounded AI Assistant**  
 > Status: `ACCEPTED_PRODUCTION_BASELINE` | Wave: `M13` | Date: `2026-09-08`  
@@ -42,7 +42,7 @@ Wave M13 establishes the native Plan root across Android and iOS as a truthful, 
 
 1. **Fare Truth**:
    - Fares in journey hops are strictly `null`.
-   - Disclosed clearly: *"Transit fares available at boarding. Online fare estimation is disabled."*
+   - Disclosed clearly: *"Fare information unavailable. Check official or operator information before travel."*
 2. **Opening Hours Truth**:
    - Operating hours are not inferred from unverified sources.
    - Disclosed clearly: *"Suggested visit schedule. Verify current operating hours before traveling."*

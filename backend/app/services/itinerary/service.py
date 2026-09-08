@@ -49,7 +49,12 @@ class ItineraryService:
             start=start,
         )
         eligible = self._unique_coordinate_places(ranked)
-        selected = eligible[: constraints.days * self.MAX_STOPS_PER_DAY]
+        selected = self._select_clustered_places(
+            eligible,
+            days=constraints.days,
+            max_stops_per_day=self.MAX_STOPS_PER_DAY,
+            start=start,
+        )
         if not selected:
             # Fallback to general verified coordinate places if interest filtering was too narrow
             all_coords = [p for p in all_places if p.coordinate is not None]
@@ -61,7 +66,12 @@ class ItineraryService:
                     start=start,
                 )
                 eligible = self._unique_coordinate_places(fallback_ranked)
-                selected = eligible[: constraints.days * self.MAX_STOPS_PER_DAY]
+                selected = self._select_clustered_places(
+                    eligible,
+                    days=constraints.days,
+                    max_stops_per_day=self.MAX_STOPS_PER_DAY,
+                    start=start,
+                )
 
         if not selected:
             raise ItineraryPlanningError(
@@ -160,6 +170,79 @@ class ItineraryService:
                 continue
             seen.add(candidate.place.database_id)
             selected.append(candidate)
+        return selected
+
+    @classmethod
+    def _select_clustered_places(
+        cls,
+        eligible: list[RankedPlace],
+        days: int,
+        max_stops_per_day: int,
+        start: VerifiedPlace | None,
+    ) -> list[RankedPlace]:
+        if not eligible:
+            return []
+
+        # For single-day trips, enforce intra-day locality clustering (<= 25km radius from day's anchor)
+        # For multi-day trips, each day can cluster around its own regional anchor (<= 45km)
+        max_cluster_radius_km = 25.0 if days == 1 else 45.0
+
+        available = list(eligible)
+        selected: list[RankedPlace] = []
+
+        for day_num in range(1, days + 1):
+            if not available:
+                break
+
+            # For multi-day itineraries (day_num > 1), allow progressing to the next regional cluster
+            # (e.g. Puri, Konark, Cuttack) if available candidates exist outside the prior day's cluster
+            day_anchor = None
+            if day_num > 1 and selected:
+                prev_anchor = selected[0]
+                if prev_anchor.place.coordinate is not None:
+                    from app.services.ranking.service import _haversine_distance_km
+                    for idx, cand in enumerate(available):
+                        if cand.place.coordinate is not None:
+                            dist = _haversine_distance_km(
+                                prev_anchor.place.coordinate.latitude,
+                                prev_anchor.place.coordinate.longitude,
+                                cand.place.coordinate.latitude,
+                                cand.place.coordinate.longitude,
+                            )
+                            if dist >= 25.0:
+                                day_anchor = available.pop(idx)
+                                break
+            if day_anchor is None:
+                day_anchor = available.pop(0)
+
+            day_stops = [day_anchor]
+
+            i = 0
+            while i < len(available) and len(day_stops) < max_stops_per_day:
+                cand = available[i]
+                if (
+                    day_anchor.place.coordinate is not None
+                    and cand.place.coordinate is not None
+                ):
+                    from app.services.ranking.service import _haversine_distance_km
+                    d = _haversine_distance_km(
+                        day_anchor.place.coordinate.latitude,
+                        day_anchor.place.coordinate.longitude,
+                        cand.place.coordinate.latitude,
+                        cand.place.coordinate.longitude,
+                    )
+                    if d <= max_cluster_radius_km:
+                        day_stops.append(available.pop(i))
+                        continue
+                i += 1
+
+            # For multi-day trips, if slots remain on this day and candidates exist,
+            # allow filling from remaining available to ensure multi-day schedules are utilized
+            while len(day_stops) < max_stops_per_day and available and days > 1:
+                day_stops.append(available.pop(0))
+
+            selected.extend(day_stops)
+
         return selected
 
     @staticmethod

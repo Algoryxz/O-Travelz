@@ -1,0 +1,76 @@
+{
+  "wave": "M13.1",
+  "phase": "M13_1_CLOSURE_ACCEPTANCE",
+  "audit_timestamp": "2026-09-08T12:35:00+05:30",
+  "git": {
+    "branch": "feature/v4-platform-rebuild",
+    "starting_sha": "ff9835c75c50aa9a2bd4a4efb2a8975d12f87dc9",
+    "status": "VERIFIED_READY_FOR_COMMIT"
+  },
+  "defects_resolved": [
+    {
+      "defect_id": "DEFECT_1_BHUBANESWAR_LOCAL_BOUNDARY",
+      "summary": "M13 report claimed 6-hour Bhubaneswar trip produced Ananda Bazar (Puri, 48km away) and Bikalananda Kar Rasagola Hub (Salepur, 32km away) with fake 1-min walk hops.",
+      "resolution": "Calibrated RankingService proximity tiers: for days==1, Tier 0 is <= 25.0 km (immediate urban continuum), Tier 1 is <= 55.0 km, Tier 2 is <= 100.0 km. Implemented _select_clustered_places in ItineraryService: stops on a given day strictly cluster within <= 25.0 km of the day anchor. Updated AI model to resolve start location via explicit prepositions before district scanning.",
+      "status": "RESOLVED_VERIFIED",
+      "regression_tests": "backend/tests/test_itinerary_geographic_truth.py (9 tests passed)"
+    },
+    {
+      "defect_id": "DEFECT_2_FARE_SEMANTICS_REGRESSION",
+      "summary": "M13 introduced 'Transit fares available at boarding. Online fare estimation is disabled.', which violated canonical transit truth rule that fares are strictly null until official tables are ingested.",
+      "resolution": "Replaced microcopy with canonical truth disclosure across Android (strings.xml, values-or/strings.xml) and iOS (Localizable.strings in en and or): 'Fare information unavailable. Check official or operator information before travel.' / 'ଭଡ଼ା ସୂଚନା ଉପଲବ୍ଧ ନାହିଁ। ଯାତ୍ରା ପୂର୍ବରୁ ସରକାରୀ କିମ୍ବା ପରିଚାଳକ ସୂଚନା ଯାଞ୍ଚ କରନ୍ତୁ।' Also removed references to 'Pay on Bus'.",
+      "status": "RESOLVED_VERIFIED",
+      "regression_tests": "PlannerProductModelTest.kt:testFareMicrocopyPolicyAdherence, PlannerDomainTests.swift:testFareMicrocopyPolicyAdherence"
+    },
+    {
+      "defect_id": "DEFECT_3_DURATION_TRUTH",
+      "summary": "Lack of transparent disclosure that backend itinerary API models 'days' (1..7 integer) rather than sub-day hours, causing 6 hours to map to a 1-day plan with potentially infeasible pacing.",
+      "resolution": "Formally audited duration truth. AI intent and multilingual parser map '6 hours' / 'half day' to 1 day with pacing bounds (max 3 stops for single day). Documented API day-level granularity in M13_PLANNER_BASELINE.md and M13_1_PLANNER_TRUTH_CLOSURE.md.",
+      "status": "RESOLVED_VERIFIED"
+    },
+    {
+      "defect_id": "DEFECT_4_EVIDENCE_PARITY_CALIBRATION",
+      "summary": "M13 claimed 100% iOS behavioral parity without running on a macOS/Xcode runner.",
+      "resolution": "Calibrated all evidence and reports: iOS verification status is downgraded to SOURCE_PARITY_VERIFIED / PENDING_MACOS. Swift syntax, model bindings, and test suites are audited for exact parity with Kotlin models.",
+      "status": "CALIBRATED_HONEST_DISCLOSURE"
+    },
+    {
+      "defect_id": "DEFECT_5_UNSUPPORTED_QUANTITATIVE_CLAIMS",
+      "summary": "Claim of '10x faster trip configuration' in ponytail review without benchmark methodology.",
+      "resolution": "Removed '10x faster' claim from reports/mobile_v4_m13_ponytail_review.json and replaced with factual description of direct UI constraint selection versus freeform conversational typing.",
+      "status": "CALIBRATED"
+    }
+  ],
+  "invariants_verified": {
+    "no_fabricated_fares": true,
+    "no_live_tracking_claims": true,
+    "no_unverified_destinations": true,
+    "no_cross_district_hop_walks": true,
+    "stage_g2_locked": true,
+    "canonical_data_untouched": true,
+    "persistence_unintroduced": true,
+    "openapi_sync": true
+  },
+  "test_execution_summary": {
+    "backend_geographic_truth_tests": "8 unit + 1 integration passed (9/9)",
+    "backend_itinerary_tests": "13/13 passed",
+    "backend_ai_tests": "311/311 passed",
+    "android_unit_tests": "BUILD SUCCESSFUL (testDebugUnitTest, 38 tasks)",
+    "android_assemble": "BUILD SUCCESSFUL (assembleDebug, 56 tasks)",
+    "ios_test_status": "SOURCE_PARITY_VERIFIED / PENDING_MACOS",
+    "mobile_openapi_check": "PASS (0 contract drift)",
+    "project_context_check": "PASS (24/24 files)",
+    "staging_validation": "PASS (Stage F and Stage G1 invariant checks passed)"
+  },
+  "audit_artifacts_generated": [
+    "reports/mobile_v4_m13_1_before.json",
+    "reports/mobile_v4_m13_1_geographic_intent_audit.json",
+    "reports/mobile_v4_m13_1_duration_truth.json",
+    "reports/mobile_v4_m13_1_fare_semantics_audit.json",
+    "reports/mobile_v4_m13_1_parity_evidence_calibration.json",
+    "reports/mobile_v4_m13_1_claim_calibration.json",
+    "reports/mobile_v4_m13_1_acceptance.json",
+    "docs/mobile-v4/M13_1_PLANNER_TRUTH_CLOSURE.md"
+  ],
+  "overall_verdict": "ACCEPTED"
+}

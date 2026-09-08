@@ -182,6 +182,36 @@ class RuleBasedModelAdapter(ModelAdapter):
     def _resolve_start_location(self, text: str) -> str | None:
         text_norm = normalize_text(text)
 
+        # Check explicit starting patterns first: "start in <place>", "starting from <place>", "from <place>"
+        start_match = re.search(
+            r"\b(?:start(?:ing)?\s+(?:in|at|from)|from)\s+([A-Za-z\u0B00-\u0B7F\u0900-\u097F\s]+?)(?:\s+(?:and|to|take|with|prefer|want|\.|\,)|$)",
+            text,
+            re.IGNORECASE,
+        )
+        if start_match:
+            candidate_phrase = start_match.group(1).strip()
+            resolved = resolve_multilingual_location(candidate_phrase)
+            if resolved:
+                return resolved
+            for canonical_name, aliases in self._KNOWN_PLACES:
+                if any(re.search(r"\b" + re.escape(normalize_text(alias)) + r"\b", normalize_text(candidate_phrase)) for alias in aliases):
+                    return canonical_name
+
+        # Check "in <place>" when indicating current location or trip context
+        in_match = re.search(
+            r"\b(?:in|at)\s+([A-Za-z\u0B00-\u0B7F\u0900-\u097F\s]+?)(?:\s+(?:and|to|take|with|prefer|want|\.|\,)|$)",
+            text,
+            re.IGNORECASE,
+        )
+        if in_match:
+            candidate_phrase = in_match.group(1).strip()
+            resolved = resolve_multilingual_location(candidate_phrase)
+            if resolved:
+                return resolved
+            for canonical_name, aliases in self._KNOWN_PLACES:
+                if any(re.search(r"\b" + re.escape(normalize_text(alias)) + r"\b", normalize_text(candidate_phrase)) for alias in aliases):
+                    return canonical_name
+
         # 1. Exact canonical district match (all 30 districts)
         for district in ODISHA_DISTRICTS:
             pattern = r"\b" + re.escape(normalize_text(district)) + r"\b"
@@ -339,6 +369,7 @@ class RuleBasedModelAdapter(ModelAdapter):
         planning_keywords = (
             "plan", "trip", "itinerary", "day trip", "1 day", "one day", "tour", "daytour", "day-tour", "guide me",
             "visit", "want to visit", "visit places", "places to see", "places to explore", "sightseeing", "places to visit",
+            "take me", "where practical", "prefer mo bus", "prefer bus", "prefer public transit",
             "ଯୋଜନା", "ଭ୍ରମଣ", "ଦିନ", "ଦେଖିବା", "यात्रा", "योजना", "घूमना", "देखना"
         )
         is_planning_query = not has_nearby_term and (any(w in text_lower for w in planning_keywords) or (detected_days is not None and bool(detected_start or found_interests)))
@@ -598,8 +629,8 @@ class RuleBasedModelAdapter(ModelAdapter):
             }
 
         # 3. New planning request from scratch (or via context)
-        if detected_days or detected_start or found_interests:
-            days = detected_days if detected_days else 2
+        if detected_days or detected_start or found_interests or is_planning_query:
+            days = detected_days if detected_days else (1 if is_planning_query and not any(w in text_lower for w in ("2 day", "3 day", "multi", "week")) else 2)
             constraints: dict[str, Any] = {"days": days, "interests": found_interests, **detected_prefs}
             if detected_start:
                 constraints["start"] = detected_start

@@ -175,4 +175,64 @@ class PlannerProductModelTest {
         val cExcess = PlanConstraints(days = 10).toRequestDto()
         assertEquals(7, cExcess.days)
     }
+
+    @Test
+    fun testBhubaneswarLocalStopsDoNotIncludePuriOrSalepur() {
+        val constraints = PlanConstraints(
+            days = 1,
+            startHub = "Bhubaneswar",
+            interests = setOf("heritage")
+        )
+
+        val responseDto = ItineraryResponseDto(
+            itineraryId = "itin-bhubaneswar-verified",
+            days = listOf(
+                ItineraryDayDto(
+                    dayNumber = 1,
+                    stops = listOf(
+                        ItineraryStopDto(1, PlaceSummaryDto("p-lingaraj", "Lingaraj Temple", "temple")),
+                        ItineraryStopDto(2, PlaceSummaryDto("p-chitrakarini", "Chitrakarini Temple", "temple")),
+                        ItineraryStopDto(3, PlaceSummaryDto("p-bharati", "Bharati Matha Temple", "temple"))
+                    ),
+                    hops = listOf(
+                        TransportHopDto(fromSequence = 1, toSequence = 2, mode = "walk", estimatedMinutes = 2),
+                        TransportHopDto(fromSequence = 2, toSequence = 3, mode = "walk", estimatedMinutes = 3)
+                    )
+                )
+            ),
+            explanation = ""
+        )
+
+        val result = PlanResult.fromDto(responseDto, constraints)
+        assertEquals(1, result.days.size)
+        assertEquals(3, result.totalStopsCount)
+        val stopNames = result.days[0].stops.map { it.placeName }
+        assertFalse(stopNames.any { it.contains("Puri") })
+        assertFalse(stopNames.any { it.contains("Salepur") })
+        assertTrue(stopNames.contains("Lingaraj Temple"))
+    }
+
+    @Test
+    fun testFareMicrocopyPolicyAdherence() {
+        val hopDto = TransportHopDto(
+            fromSequence = 1,
+            toSequence = 2,
+            mode = "walk",
+            estimatedMinutes = 2,
+            fare = null
+        )
+        val leg = JourneyLeg(
+            fromSequence = 1,
+            toSequence = 2,
+            mode = "walk",
+            estimatedMinutes = 2,
+            estimatedCost = null,
+            legDetail = "Walk ~100m",
+            dataTier = "static",
+            reason = null
+        )
+        assertNull(leg.estimatedCost)
+        assertFalse("Must not claim payment on bus", leg.displayModeTitle.contains("Pay on Bus"))
+        assertFalse("Must not claim payment at boarding", leg.displayModeTitle.contains("boarding"))
+    }
 }

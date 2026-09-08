@@ -1,0 +1,32 @@
+{
+  "wave": "M13.1",
+  "phase": "PHASE_4_PARITY_EVIDENCE_CALIBRATION",
+  "audit_timestamp": "2026-09-08T12:25:00+05:30",
+  "prior_claim_audit": {
+    "claim": "100% behavioral parity verified",
+    "issue": "iOS runtime was not directly executed via xcodebuild on macOS hardware in the current development environment. Conflating static source parity with runtime execution is an overclaim."
+  },
+  "calibrated_status": {
+    "android": {
+      "source_status": "SOURCE_VERIFIED",
+      "runtime_status": "RUNTIME_VERIFIED_JVM",
+      "test_framework": "JUnit4 / Android Gradle Plugin",
+      "lint_status": "VERIFIED"
+    },
+    "ios": {
+      "source_status": "SOURCE_PARITY_VERIFIED",
+      "runtime_status": "PENDING_MACOS",
+      "test_framework": "Swift Testing (@Test, @Suite, #expect)",
+      "compilation_status": "STATICALLY_VERIFIED_PARITY"
+    }
+  },
+  "static_parity_checklist": {
+    "dto_contracts_aligned": true,
+    "domain_models_aligned": true,
+    "bilingual_resources_aligned": true,
+    "truth_disclosure_policies_aligned": true,
+    "unit_tests_mirrored": true
+  },
+  "fabricated_xcodebuild_logs": 0,
+  "acceptance_verdict": "CALIBRATED_AND_ACCEPTED"
+}

@@ -159,7 +159,7 @@
     <string name="plan_hop_unavailable">Transit unavailable between these stops</string>
     <string name="plan_disclaimer_title">Traveler Disclosures</string>
     <string name="plan_disclaimer_hours">Suggested visit schedule. Verify current operating hours before traveling.</string>
-    <string name="plan_disclaimer_fares">Transit fares available at boarding. Online fare estimation is disabled.</string>
+    <string name="plan_disclaimer_fares">Fare information unavailable. Check official or operator information before travel.</string>
     <string name="plan_ai_companion_title">AI Assistant Insights</string>
     <string name="plan_ai_grounded_badge">Grounded on Atlas Facts</string>
     <string name="plan_generating_loading">Evaluating destinations, route feasibility, and transit connectivity...</string>

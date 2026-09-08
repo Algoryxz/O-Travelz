@@ -1,0 +1,38 @@
+{
+  "wave": "M13.1",
+  "phase": "PHASE_0_FORENSIC_SYNC",
+  "audit_timestamp": "2026-09-08T12:10:00+05:30",
+  "starting_head": {
+    "sha": "ff9835c75c50aa9a2bd4a4efb2a8975d12f87dc9",
+    "branch": "feature/v4-platform-rebuild",
+    "worktree_clean": true
+  },
+  "defects_identified": [
+    {
+      "defect_id": "DEFECT_1_GEOGRAPHIC_INTENT",
+      "description": "Six-hour trip in Bhubaneswar returned Ananda Bazar (Puri) and Bikalananda Kar Rasagola Hub (Salepur, Cuttack) due to ranking prioritizing interest scores over geographic locality without radius/locality constraints."
+    },
+    {
+      "defect_id": "DEFECT_2_FARE_SEMANTICS",
+      "description": "Null fares were described as 'Transit fares available at boarding', implying a specific payment location/method without verified payment evidence."
+    },
+    {
+      "defect_id": "DEFECT_3_DURATION_TRUTH",
+      "description": "API represents days (1..7); 6 hours is mapped to 1 day but travel time between distant cities was not accounted for as infeasible."
+    },
+    {
+      "defect_id": "DEFECT_4_PARITY_OVERCLAIM",
+      "description": "Acceptance report stated '100% behavioral parity verified' while iOS runtime is pending macOS."
+    },
+    {
+      "defect_id": "DEFECT_5_UNSUPPORTED_CLAIMS",
+      "description": "Ponytail report included unsupported claim '10x faster trip creation' not backed by measured benchmark."
+    }
+  ],
+  "scope_boundaries": {
+    "m14_started": false,
+    "room_introduced": false,
+    "swiftdata_introduced": false,
+    "stage_g2_locked": true
+  }
+}

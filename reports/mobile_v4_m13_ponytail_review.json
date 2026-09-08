@@ -1,4 +1,4 @@
-﻿{
+{
   "wave": "M13",
   "phase": "PHASE_22_PONYTAIL_REVIEW",
   "audit_timestamp": "2026-09-08T11:41:00+05:30",
@@ -7,7 +7,7 @@
       "component": "Plan Interface",
       "proposal": "Implement full chatbot UI with streaming message bubbles as the default",
       "action": "DELETED / REJECTED",
-      "rationale": "Chatbots are clumsy for specifying dates, durations, and multi-select categories. A clean structured constraints form provides 10x faster trip configuration."
+      "rationale": "Chatbots are clumsy for specifying dates, durations, and multi-select categories. A clean structured constraints form provides direct, low-friction trip configuration."
     },
     {
       "component": "AI Execution",

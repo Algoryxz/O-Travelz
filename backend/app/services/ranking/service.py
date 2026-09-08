@@ -51,7 +51,7 @@ class RankingService:
         ranked = []
         for candidate in candidates:
             relevance = self._calculate_relevance(candidate, requested_interests)
-            tier, dist = self._calculate_proximity(candidate, start)
+            tier, dist = self._calculate_proximity(candidate, start, days=constraints.days)
             ranked.append(
                 RankedPlace(
                     place=candidate,
@@ -64,24 +64,35 @@ class RankingService:
 
     @staticmethod
     def _calculate_proximity(
-        candidate: VerifiedPlace, start: VerifiedPlace | None
+        candidate: VerifiedPlace, start: VerifiedPlace | None, days: int = 1
     ) -> tuple[int, float]:
         if start is None or start.coordinate is None:
             return 0, 0.0
         if candidate.coordinate is None:
-            return 3, 9999.0
+            return 4, 9999.0
         dist = _haversine_distance_km(
             start.coordinate.latitude,
             start.coordinate.longitude,
             candidate.coordinate.latitude,
             candidate.coordinate.longitude,
         )
-        if dist <= 45.0:
-            tier = 0
-        elif dist <= 95.0:
-            tier = 1
+        # For single-day trips (days == 1), restrict immediate local cluster to <= 25.0 km
+        if days == 1:
+            if dist <= 25.0:
+                tier = 0  # Immediate city / urban continuum (<= 25 km)
+            elif dist <= 55.0:
+                tier = 1  # Adjacent regional cluster (<= 55 km, e.g. Salepur, Puri from BBSR)
+            elif dist <= 100.0:
+                tier = 2  # Extended regional travel
+            else:
+                tier = 3  # Statewide
         else:
-            tier = 2
+            if dist <= 45.0:
+                tier = 0
+            elif dist <= 95.0:
+                tier = 1
+            else:
+                tier = 2
         return tier, round(dist, 2)
 
     @staticmethod

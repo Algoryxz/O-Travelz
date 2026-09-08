@@ -1,0 +1,31 @@
+{
+  "wave": "M13.1",
+  "phase": "PHASE_2_DURATION_TRUTH",
+  "audit_timestamp": "2026-09-08T12:22:00+05:30",
+  "api_contract_representation": {
+    "field": "days",
+    "type": "integer",
+    "range": [1, 7],
+    "sub_day_support": false,
+    "hour_precision_in_contract": false
+  },
+  "duration_capability_classification": "PARTIALLY_SUPPORTED",
+  "classification_rationale": "The backend API contract accepts whole integer days (1..7). Sub-day requests such as '6 hours', 'four hours', or 'half day' are mapped to days=1 with a maximum of 3 stops. Within the day, realistic time slots (09:00–11:00, 11:45–13:30, 14:15–16:30) provide structured visit scheduling, but arbitrary hour durations (e.g. 3.5 hours) cannot be specified directly in the backend schema.",
+  "single_day_six_hour_budget": {
+    "max_stops_per_day": 3,
+    "default_visit_slots": [
+      { "slot": 1, "window": "09:00 – 11:00", "visit_duration_minutes": 120 },
+      { "slot": 2, "window": "11:45 – 13:30", "visit_duration_minutes": 105 },
+      { "slot": 3, "window": "14:15 – 16:30", "visit_duration_minutes": 135 }
+    ],
+    "total_visit_time_minutes": 360,
+    "available_transit_windows_minutes": [45, 45],
+    "maximum_feasible_hop_minutes": 45,
+    "maximum_intra_day_radius_km": 25.0
+  },
+  "intercity_travel_feasibility": {
+    "policy": "Hops exceeding 45-60 minutes are physically impossible between 45-minute visit gaps. Candidate stops for a single day must cluster within <= 25.0 km.",
+    "treatment_of_unknown_travel": "Never silently counted as zero travel time. Fails closed to unavailable mode with reason preserved."
+  },
+  "acceptance_verdict": "ACCEPTED"
+}

@@ -1,0 +1,141 @@
+{
+  "wave": "M13.1",
+  "phase": "PHASE_1_GEOGRAPHIC_INTENT_AUDIT",
+  "audit_timestamp": "2026-09-08T12:20:00+05:30",
+  "primary_defect": {
+    "id": "DEFECT_M13_BHUBANESWAR_GEOGRAPHIC_SCOPE",
+    "reported_scenario": "Plan a 6 hour trip in Bhubaneswar",
+    "reported_stops": [
+      "Bindu Sagar",
+      "Ananda Bazar, Puri",
+      "Bikalananda Kar Rasagola Hub, Salepur"
+    ],
+    "reported_hops": [
+      { "from_sequence": 1, "to_sequence": 2, "mode": "walk", "estimated_minutes": 1 },
+      { "from_sequence": 2, "to_sequence": 3, "mode": "walk", "estimated_minutes": 1 }
+    ],
+    "discrepancy_analysis": {
+      "puri_distance_km": 48.15,
+      "salepur_distance_km": 32.08,
+      "real_road_minutes_hop_1_to_2": 86,
+      "real_road_minutes_hop_2_to_3": 126,
+      "verdict": "FALSE_HOPS_AND_OUT_OF_SCOPE_DESTINATIONS"
+    }
+  },
+  "root_cause_forensics": {
+    "cause_1_probe_omission": "In M13 Phase 0 evaluation, the probe payload submitted was {'days': 1, 'interests': ['heritage']} with start=None. When start was None, RankingService assigned proximity_tier=0 and distance_km=0.0 to every destination statewide, falling back to alphabetical sorting by category and name.",
+    "cause_2_proximity_tier_threshold": "RankingService._calculate_proximity used a single static threshold of <= 45.0 km for Tier 0. For single-day trips, 45 km permitted inter-district candidates in Salepur (32.1 km) to compete in the top tier against destinations within 1 km.",
+    "cause_3_missing_intra_day_clustering": "ItineraryService.plan naively sliced eligible[:days * max_stops] without verifying that consecutive stops on the same day were within feasible intra-day transit windows.",
+    "cause_4_ai_word_number_mismatch": "extract_multilingual_days matched only digit hour patterns (e.g. '6 hours'), causing 'six hours' to return None and default to 2 days.",
+    "cause_5_ai_prepositional_start_extraction": "_resolve_start_location checked 30 districts before prepositional phrases, matching 'Puri' in 'Start in Bhubaneswar and take me to Puri' because Puri is a district while Bhubaneswar is not."
+  },
+  "corrections_implemented": {
+    "ranking_service": "Calibrated proximity tiers in RankingService: for days==1, Tier 0 is <= 25.0 km (immediate urban continuum), Tier 1 is <= 55.0 km, Tier 2 is <= 100.0 km, Tier 3 is > 100.0 km.",
+    "itinerary_service": "Implemented _select_clustered_places in ItineraryService: intra-day stops strictly cluster within <= 25.0 km of the day's anchor for 1-day trips, and <= 45.0 km for multi-day trips.",
+    "multilingual_extractor": "Updated extract_multilingual_days regex to support written number words (one..twelve, Odia, Hindi).",
+    "model_adapter": "Updated _resolve_start_location to check explicit start prepositions ('start in/from/at', 'from', 'in') before scanning all districts."
+  },
+  "verified_scenarios_after_fix": [
+    {
+      "prompt": "Plan a 6 hour trip in Bhubaneswar",
+      "extracted_constraints": { "days": 1, "start": "Bhubaneswar", "interests": [] },
+      "stops": [
+        { "sequence": 1, "name": "Lingaraj Temple", "district": "Khordha", "category": "temple", "distance_km": 0.0 },
+        { "sequence": 2, "name": "Old Town Lingaraj Temple Kora Khai Hub", "district": "Khordha", "category": "traditional_temple_food", "distance_km": 0.0 },
+        { "sequence": 3, "name": "Chitrakarini Temple", "district": "Khordha", "category": "temple", "distance_km": 0.11 }
+      ],
+      "hops": [
+        { "from_sequence": 0, "to_sequence": 1, "mode": "walk", "estimated_minutes": 0 },
+        { "from_sequence": 1, "to_sequence": 2, "mode": "walk", "estimated_minutes": 1 },
+        { "from_sequence": 2, "to_sequence": 3, "mode": "walk", "estimated_minutes": 2 }
+      ],
+      "all_stops_in_scope": true,
+      "feasibility_verified": true
+    },
+    {
+      "prompt": "Plan a one day trip in Bhubaneswar",
+      "extracted_constraints": { "days": 1, "start": "Bhubaneswar", "interests": [] },
+      "stops": [
+        { "sequence": 1, "name": "Lingaraj Temple", "district": "Khordha", "category": "temple", "distance_km": 0.0 },
+        { "sequence": 2, "name": "Old Town Lingaraj Temple Kora Khai Hub", "district": "Khordha", "category": "traditional_temple_food", "distance_km": 0.0 },
+        { "sequence": 3, "name": "Chitrakarini Temple", "district": "Khordha", "category": "temple", "distance_km": 0.11 }
+      ],
+      "all_stops_in_scope": true,
+      "feasibility_verified": true
+    },
+    {
+      "prompt": "I have six hours in Bhubaneswar and want temples and local culture",
+      "extracted_constraints": { "days": 1, "start": "Bhubaneswar", "interests": ["spirituality", "culture"] },
+      "stops": [
+        { "sequence": 1, "name": "Lingaraj Temple", "district": "Khordha", "category": "temple", "distance_km": 0.0 },
+        { "sequence": 2, "name": "Chitrakarini Temple", "district": "Khordha", "category": "temple", "distance_km": 0.11 },
+        { "sequence": 3, "name": "Bharati Matha Temple", "district": "Khordha", "category": "temple", "distance_km": 0.26 }
+      ],
+      "all_stops_in_scope": true,
+      "feasibility_verified": true
+    },
+    {
+      "prompt": "I am in Bhubaneswar and prefer Mo Bus where practical",
+      "extracted_constraints": { "days": 1, "start": "Bhubaneswar", "interests": [], "public_transport_preferred": true },
+      "stops": [
+        { "sequence": 1, "name": "Lingaraj Temple", "district": "Khordha", "category": "temple", "distance_km": 0.0 },
+        { "sequence": 2, "name": "Old Town Lingaraj Temple Kora Khai Hub", "district": "Khordha", "category": "traditional_temple_food", "distance_km": 0.0 },
+        { "sequence": 3, "name": "Chitrakarini Temple", "district": "Khordha", "category": "temple", "distance_km": 0.11 }
+      ],
+      "all_stops_in_scope": true,
+      "feasibility_verified": true
+    },
+    {
+      "prompt": "I want a relaxed six-hour Bhubaneswar trip with less walking",
+      "extracted_constraints": { "days": 1, "start": "Bhubaneswar", "interests": [], "low_walking": true },
+      "stops": [
+        { "sequence": 1, "name": "Lingaraj Temple", "district": "Khordha", "category": "temple", "distance_km": 0.0 },
+        { "sequence": 2, "name": "Old Town Lingaraj Temple Kora Khai Hub", "district": "Khordha", "category": "traditional_temple_food", "distance_km": 0.0 },
+        { "sequence": 3, "name": "Chitrakarini Temple", "district": "Khordha", "category": "temple", "distance_km": 0.11 }
+      ],
+      "all_stops_in_scope": true,
+      "feasibility_verified": true
+    },
+    {
+      "prompt": "Statewide 1-Day Heritage Plan (No Start Hub Provided)",
+      "extracted_constraints": { "days": 1, "interests": ["heritage"] },
+      "stops": [
+        { "sequence": 1, "name": "Bindu Sagar", "district": "Khordha", "category": "lake", "distance_km": 0.0 },
+        { "sequence": 2, "name": "Dhauli Shanti Stupa", "district": "Khordha", "category": "monument", "distance_km": 6.8 },
+        { "sequence": 3, "name": "Rajarani Temple", "district": "Khordha", "category": "monument", "distance_km": 1.2 }
+      ],
+      "all_stops_in_scope": true,
+      "feasibility_verified": true
+    }
+  ],
+  "target_place_investigations": {
+    "ananda_bazar_puri": {
+      "database_id": "5097243e-042a-50f3-a10a-6b5bae0fd283",
+      "name": "Ananda Bazar, Puri",
+      "district": "Puri",
+      "category": "market",
+      "coordinates": [19.8055, 85.8188],
+      "interests": ["food", "culture", "heritage", "spirituality"],
+      "research_id": "place_food_003",
+      "distance_from_lingaraj_km": 48.15,
+      "why_it_ranked_previously": "Associated with 'heritage' interest and sorted alphabetically before temples under category 'market'.",
+      "why_it_is_excluded_now": "At 48.15 km, it exceeds the single-day local radius limit of 25.0 km from Bhubaneswar.",
+      "data_defective": false
+    },
+    "bikalananda_kar_rasagola_hub_salepur": {
+      "database_id": "c49a4fc0-6e31-56c9-802c-541d97ac7aca",
+      "name": "Bikalananda Kar Rasagola Hub, Salepur",
+      "district": "Cuttack",
+      "category": "market",
+      "coordinates": [20.4856, 85.9922],
+      "interests": ["food", "culture", "heritage"],
+      "research_id": "place_food_005",
+      "distance_from_lingaraj_km": 32.08,
+      "why_it_ranked_previously": "Associated with 'heritage' interest, fell within legacy 45km tier 0, and sorted alphabetically under category 'market'.",
+      "why_it_is_excluded_now": "At 32.08 km, it is placed in Tier 1 (> 25 km) and excluded from the 25 km intra-day cluster of Bhubaneswar.",
+      "data_defective": false
+    }
+  },
+  "canonical_data_mutated": false,
+  "acceptance_verdict": "ACCEPTED"
+}

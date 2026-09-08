@@ -150,7 +150,7 @@
 "plan_hop_unavailable" = "Transit unavailable between these stops";
 "plan_disclaimer_title" = "Traveler Disclosures";
 "plan_disclaimer_hours" = "Suggested visit schedule. Verify current operating hours before traveling.";
-"plan_disclaimer_fares" = "Transit fares available at boarding. Online fare estimation is disabled.";
+"plan_disclaimer_fares" = "Fare information unavailable. Check official or operator information before travel.";
 "plan_ai_companion_title" = "AI Assistant Insights";
 "plan_ai_grounded_badge" = "Grounded on Atlas Facts";
 "plan_generating_loading" = "Evaluating destinations, route feasibility, and transit connectivity...";

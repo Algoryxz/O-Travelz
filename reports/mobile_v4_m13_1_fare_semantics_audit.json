@@ -1,0 +1,31 @@
+{
+  "wave": "M13.1",
+  "phase": "PHASE_3_FARE_SEMANTICS_AUDIT",
+  "audit_timestamp": "2026-09-08T12:24:00+05:30",
+  "fare_regression_audit": {
+    "found_regression": true,
+    "prior_string_en": "Transit fares available at boarding. Online fare estimation is disabled.",
+    "prior_string_or": "ଚଢ଼ିବା ସମୟରେ ଭଡ଼ା ଦେୟ। ଅନଲାଇନ୍ ଭଡ଼ା ଆକଳନ ନିଷିଦ୍ଧ।",
+    "defect_analysis": "The phrase 'available at boarding' / 'ଚଢ଼ିବା ସମୟରେ ଭଡ଼ା ଦେୟ' inferred a specific payment location and method without canonical source evidence, violating MICROCOPY_SYSTEM.md Section 3.9 and M3.1 truth agreements."
+  },
+  "corrected_fare_copy": {
+    "english": "Fare information unavailable. Check official or operator information before travel.",
+    "odia": "ଭଡ଼ା ସୂଚନା ଉପଲବ୍ଧ ନାହିଁ। ଯାତ୍ରା ପୂର୍ବରୁ ସରକାରୀ କିମ୍ବା ପରିଚାଳକ ସୂଚନା ଯାଞ୍ଚ କରନ୍ତୁ।"
+  },
+  "files_updated": [
+    "mobile/android/src/main/res/values/strings.xml",
+    "mobile/android/src/main/res/values-or/strings.xml",
+    "mobile/ios/OTravelz/Resources/en.lproj/Localizable.strings",
+    "mobile/ios/OTravelz/Resources/or.lproj/Localizable.strings",
+    "docs/mobile-v4/M13_PLANNER_BASELINE.md"
+  ],
+  "speculative_payment_claims_audit": {
+    "pay_on_bus_count": 0,
+    "pay_conductor_count": 0,
+    "available_at_boarding_count": 0,
+    "raw_null_count": 0,
+    "speculative_claims_remaining": 0
+  },
+  "canonical_fare_rule": "Fares in transport hops evaluate strictly to null until official CRUT fare matrices are ingested into canonical data. UI renders strictly 'Fare information unavailable. Check official or operator information before travel.'",
+  "acceptance_verdict": "ACCEPTED"
+}
