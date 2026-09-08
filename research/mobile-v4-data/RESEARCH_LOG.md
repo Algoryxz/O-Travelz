@@ -67,3 +67,27 @@ This log documents the sequential execution of background research tasks by `GEM
   - `PROGRAM_STATUS.json`: `partial: 2`, `researching: 2`.
 - **Next Action**: Dispatch Batch 2: `TRANSIT_ROUTE_GEOMETRY_GAPS` (Gemini G2) and `DESTINATION_ENTRY_FEES` (Claude C2).
 
+### [2026-09-08] - Task Execution: C2 Destination Entry Fees
+- **Task ID**: `CLAUDE_TASK_C2_ENTRY_FEES`
+- **Agent**: `CLAUDE_BROWSER_RESEARCHER`
+- **Gap**: `DESTINATION_ENTRY_FEES`
+- **Sources Inspected**:
+  - `https://asi.payumoney.com` & `https://asi.nic.in` (ASI E-Ticketing Portal)
+  - `http://odishamuseum.nic.in` (Department of Odia Language, Literature & Culture)
+  - `https://nandankanan.org` (Nandankanan Zoological Park / Forest & Environment Dept)
+  - `https://odishatourism.gov.in` (Department of Tourism, Government of Odisha)
+- **Key Result**:
+  - **Konark Sun Temple (ASI)**: Domestic/SAARC/BIMSTEC ₹40 (Cash) / ₹35 (Online); Foreigner ₹600 (Cash) / ₹550 (Online); Children under 15 free.
+  - **Khandagiri & Udayagiri Caves (ASI)**: Domestic ₹25; Foreigner ₹250.
+  - **Odisha State Museum**: Adult ₹20, Child (<10 yrs) ₹10, Student ₹10, Foreigner ₹100; Camera ₹10 (Domestic) / ₹100 (Foreigner).
+  - **Nandankanan Zoo**: Adult (>12 yrs) ₹50, Child (3-12 yrs) ₹10, Child (<3 yrs) Free, Foreigner ₹100; Camera ₹100.
+  - **Dhauli Shanti Stupa**: Monument entry free; Light & Sound show Adult ₹25, Student ₹10.
+  - **Chilika Lake / Mangalajodi**: Boat tariff ₹750/boat for 3-hour birding excursion (up to 4 persons).
+- **Status**: `PARTIAL` (Key high-priority attractions verified; remaining catalog places queued).
+- **Registry Changes**:
+  - `DATA_GAP_REGISTRY.json`: Updated `DESTINATION_ENTRY_FEES` to `PARTIAL`, `DESTINATION_ACCESSIBILITY` to `RESEARCHING`.
+  - `SOURCE_REGISTRY.json`: Added `SRC_ASI_ETICKETING_PORTAL`, `SRC_NANDANKANAN_OFFICIAL_FEES`, `SRC_ODISHA_STATE_MUSEUM_FEES`.
+  - `PROGRAM_STATUS.json`: `partial: 3`, `researching: 2`.
+- **Next Action**: Claude executing `CLAUDE_TASK_C3_ACCESSIBILITY`; Gemini executing `GEMINI_TASK_G2_ROUTE_GEOMETRY`.
+
+

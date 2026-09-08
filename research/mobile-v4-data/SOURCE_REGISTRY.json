@@ -150,6 +150,85 @@
     "discovered_by": "GEMINI_BROWSER_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
+  },
+  {
+    "source_id": "SRC_ASI_ETICKETING_PORTAL",
+    "domain": "Heritage & Monument Tariffs",
+    "title": "Archaeological Survey of India E-Ticketing Portal",
+    "organization": "Archaeological Survey of India (ASI), Ministry of Culture",
+    "url": "https://asi.payumoney.com",
+    "quality_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "format": "HTML / Transactional Portal",
+    "license": "Government of India Official Service",
+    "attribution_required": true,
+    "auth_required": false,
+    "rate_limit": "Public E-Commerce Gateway",
+    "runtime_allowed": false,
+    "ingestion_allowed": true,
+    "cache_allowed": true,
+    "freshness_class": "SLOW_CHANGING",
+    "last_checked": "2026-09-08",
+    "coverage": "Centrally protected ticketed monuments: Konark Sun Temple, Khandagiri-Udayagiri",
+    "sample_verified": true,
+    "limitations": [
+      "Online discount of ₹5 on domestic tickets subject to payment gateway policy."
+    ],
+    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "cross_checked_by": "ANTIGRAVITY_LEAD",
+    "antigravity_verdict": "VALIDATED_SOURCE"
+  },
+  {
+    "source_id": "SRC_NANDANKANAN_OFFICIAL_FEES",
+    "domain": "Ecotourism & Wildlife Tariffs",
+    "title": "Nandankanan Zoological Park Official Visitor Amenities & Tariffs",
+    "organization": "Nandankanan Zoological Park, Forest & Environment Department, Govt of Odisha",
+    "url": "https://nandankanan.org",
+    "quality_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "format": "HTML",
+    "license": "Government of Odisha Copyright",
+    "attribution_required": true,
+    "auth_required": false,
+    "rate_limit": "Public Web",
+    "runtime_allowed": true,
+    "ingestion_allowed": true,
+    "cache_allowed": true,
+    "freshness_class": "SLOW_CHANGING",
+    "last_checked": "2026-09-08",
+    "coverage": "Nandankanan Zoo, Botanical Garden, Safari, and Camera charges",
+    "sample_verified": true,
+    "limitations": [
+      "Safari tariffs and battery vehicle charges operate on separate ticket counters on-site."
+    ],
+    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "cross_checked_by": "ANTIGRAVITY_LEAD",
+    "antigravity_verdict": "VALIDATED_SOURCE"
+  },
+  {
+    "source_id": "SRC_ODISHA_STATE_MUSEUM_FEES",
+    "domain": "Cultural Institutions & Museums",
+    "title": "Odisha State Museum Official Portal",
+    "organization": "Department of Odia Language, Literature & Culture, Govt of Odisha",
+    "url": "http://odishamuseum.nic.in",
+    "quality_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "format": "HTML",
+    "license": "Government of Odisha Copyright",
+    "attribution_required": true,
+    "auth_required": false,
+    "rate_limit": "Public Web",
+    "runtime_allowed": true,
+    "ingestion_allowed": true,
+    "cache_allowed": true,
+    "freshness_class": "SLOW_CHANGING",
+    "last_checked": "2026-09-08",
+    "coverage": "Odisha State Museum entry and photography permits",
+    "sample_verified": true,
+    "limitations": [
+      "Closed on Mondays and Government Gazetted Holidays."
+    ],
+    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "cross_checked_by": "ANTIGRAVITY_LEAD",
+    "antigravity_verdict": "VALIDATED_SOURCE"
   }
 ]
+
 

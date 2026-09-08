@@ -48,10 +48,10 @@
       "repo_truth": "Entry fees are currently null or placeholder text; anti-vibe-code rule forbids fabricating ticket costs.",
       "product_impact": "PlaceDetailView shows accurate pricing badges for Indian vs Foreign nationals and camera fees.",
       "assigned_agent": "CLAUDE_BROWSER_RESEARCHER",
-      "status": "RESEARCHING",
+      "status": "PARTIAL",
       "preferred_source_type": "ASI ticket booking portal, Department of Tourism notifications, Odisha State Museum tariff",
       "last_checked": "2026-09-08",
-      "notes": "Capture camera charges and free entry days where applicable."
+      "notes": "Verified statutory tariffs for Konark (₹40 cash / ₹35 online Indian; ₹600 cash / ₹550 online Foreigner; child <15 free), Khandagiri-Udayagiri (₹25 Indian; ₹250 Foreigner), Odisha State Museum (₹20 adult / ₹10 child / ₹100 foreigner), Nandankanan (₹50 adult / ₹10 child / ₹100 foreigner), Dhauli Light & Sound (₹25 adult / ₹10 student), Chilika Mangalajodi boat (₹750/boat). Remaining sites in queue."
     },
     {
       "gap_id": "DESTINATION_ACCESSIBILITY",
@@ -60,7 +60,7 @@
       "repo_truth": "Accessibility fields are largely unpopulated across 100+ public destinations.",
       "product_impact": "Accessible travel filters on mobile; compliance with iOS Accessibility Nutrition guidelines.",
       "assigned_agent": "CLAUDE_BROWSER_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "RESEARCHING",
       "preferred_source_type": "District NIC accessibility audits, Accessible India Campaign reports, ASI ramp audit records",
       "last_checked": "2026-09-08",
       "notes": "Wheelchair access, ramp availability, battery car service at Konark/Puri."
