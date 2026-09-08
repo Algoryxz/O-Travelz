@@ -4,14 +4,14 @@
   "started_at": "2026-09-08T09:38:00+05:30",
   "total_gaps": 16,
   "validated": 0,
-  "partial": 3,
+  "partial": 4,
   "blocked": 0,
   "not_available": 0,
   "researching": 2,
   "deferred": 0,
   "gemini_active_task": "TRANSIT_ROUTE_GEOMETRY_GAPS",
-  "claude_active_task": "DESTINATION_ACCESSIBILITY",
-  "last_checkpoint": "2026-09-08T09:50:00+05:30",
+  "claude_active_task": "VERIFIED_DESTINATION_MEDIA",
+  "last_checkpoint": "2026-09-08T09:51:00+05:30",
   "canonical_mutations": 0,
   "production_db_mutations": 0
 }

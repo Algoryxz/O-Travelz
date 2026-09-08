@@ -60,10 +60,10 @@
       "repo_truth": "Accessibility fields are largely unpopulated across 100+ public destinations.",
       "product_impact": "Accessible travel filters on mobile; compliance with iOS Accessibility Nutrition guidelines.",
       "assigned_agent": "CLAUDE_BROWSER_RESEARCHER",
-      "status": "RESEARCHING",
+      "status": "PARTIAL",
       "preferred_source_type": "District NIC accessibility audits, Accessible India Campaign reports, ASI ramp audit records",
       "last_checked": "2026-09-08",
-      "notes": "Wheelchair access, ramp availability, battery car service at Konark/Puri."
+      "notes": "Verified physical accessibility for Konark (ramps, paved paths, free entry for disabled, solar battery vehicles), Puri (free battery vehicles from parking, outer Parikrama corridor step-free, wheelchairs banned inside main sanctum/manual assistance required), Lingaraj (attendant carriers for stairs, external viewing platform), Nandankanan (wheelchair rental at entrance, battery vehicles, wheelchair spaces in toy train), Dhauli (elevator/lift installed for upper stupa platform)."
     },
     {
       "gap_id": "VERIFIED_DESTINATION_MEDIA",
@@ -72,7 +72,7 @@
       "repo_truth": "Strict rule: NO VERIFIED IMAGE = NO PUBLIC DESTINATION. Several candidate places lack WebP verified authentic photos.",
       "product_impact": "Place cards and Hero banners cannot render without authentic verified imagery.",
       "assigned_agent": "CLAUDE_BROWSER_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "RESEARCHING",
       "preferred_source_type": "Wikimedia Commons CC/PD high-res, Odisha Tourism photo gallery with explicit license",
       "last_checked": "2026-09-08",
       "notes": "Must record license type, author, source URL, and resolution."
