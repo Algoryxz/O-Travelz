@@ -164,5 +164,38 @@
       "geometry_confidence": 0.90,
       "service_date_if_available": null
     }
+  ],
+  "district_crosswalks": [
+    {"otravelz_name": "Angul", "census_2011_name": "Anugul", "census_code": 384, "lgd_code": 344, "travel_region": "Cuttack & Mahanadi"},
+    {"otravelz_name": "Balangir", "census_2011_name": "Balangir", "census_code": 393, "lgd_code": 345, "travel_region": "Sambalpur & Western Odisha"},
+    {"otravelz_name": "Balasore", "census_2011_name": "Baleshwar", "census_code": 377, "lgd_code": 346, "travel_region": "Northern Odisha & Wildlife"},
+    {"otravelz_name": "Bargarh", "census_2011_name": "Bargarh", "census_code": 370, "lgd_code": 347, "travel_region": "Sambalpur & Western Odisha"},
+    {"otravelz_name": "Bhadrak", "census_2011_name": "Bhadrak", "census_code": 378, "lgd_code": 348, "travel_region": "Northern Odisha & Wildlife"},
+    {"otravelz_name": "Boudh", "census_2011_name": "Baudh", "census_code": 391, "lgd_code": 349, "travel_region": "Kandhamal & Southern Hills"},
+    {"otravelz_name": "Cuttack", "census_2011_name": "Cuttack", "census_code": 381, "lgd_code": 350, "travel_region": "Cuttack & Mahanadi"},
+    {"otravelz_name": "Deogarh", "census_2011_name": "Debagarh", "census_code": 373, "lgd_code": 351, "travel_region": "Sambalpur & Western Odisha"},
+    {"otravelz_name": "Dhenkanal", "census_2011_name": "Dhenkanal", "census_code": 383, "lgd_code": 352, "travel_region": "Cuttack & Mahanadi"},
+    {"otravelz_name": "Gajapati", "census_2011_name": "Gajapati", "census_code": 389, "lgd_code": 353, "travel_region": "Chilika & Southern Coast"},
+    {"otravelz_name": "Ganjam", "census_2011_name": "Ganjam", "census_code": 388, "lgd_code": 354, "travel_region": "Chilika & Southern Coast"},
+    {"otravelz_name": "Jagatsinghpur", "census_2011_name": "Jagatsinghapur", "census_code": 380, "lgd_code": 355, "travel_region": "Cuttack & Mahanadi"},
+    {"otravelz_name": "Jajpur", "census_2011_name": "Jajapur", "census_code": 382, "lgd_code": 356, "travel_region": "Cuttack & Mahanadi"},
+    {"otravelz_name": "Jharsuguda", "census_2011_name": "Jharsuguda", "census_code": 371, "lgd_code": 357, "travel_region": "Sambalpur & Western Odisha"},
+    {"otravelz_name": "Kalahandi", "census_2011_name": "Kalahandi", "census_code": 395, "lgd_code": 358, "travel_region": "Koraput & Tribal Highlands"},
+    {"otravelz_name": "Kandhamal", "census_2011_name": "Kandhamal", "census_code": 390, "lgd_code": 359, "travel_region": "Kandhamal & Southern Hills"},
+    {"otravelz_name": "Kendrapara", "census_2011_name": "Kendrapara", "census_code": 379, "lgd_code": 360, "travel_region": "Northern Odisha & Wildlife"},
+    {"otravelz_name": "Keonjhar", "census_2011_name": "Kendujhar", "census_code": 375, "lgd_code": 361, "travel_region": "Northern Odisha & Wildlife"},
+    {"otravelz_name": "Khordha", "census_2011_name": "Khordha", "census_code": 386, "lgd_code": 362, "travel_region": "Bhubaneswar & Central"},
+    {"otravelz_name": "Koraput", "census_2011_name": "Koraput", "census_code": 398, "lgd_code": 363, "travel_region": "Koraput & Tribal Highlands"},
+    {"otravelz_name": "Malkangiri", "census_2011_name": "Malkangiri", "census_code": 399, "lgd_code": 364, "travel_region": "Koraput & Tribal Highlands"},
+    {"otravelz_name": "Mayurbhanj", "census_2011_name": "Mayurbhanj", "census_code": 376, "lgd_code": 365, "travel_region": "Northern Odisha & Wildlife"},
+    {"otravelz_name": "Nabarangpur", "census_2011_name": "Nabarangapur", "census_code": 397, "lgd_code": 366, "travel_region": "Koraput & Tribal Highlands"},
+    {"otravelz_name": "Nayagarh", "census_2011_name": "Nayagarh", "census_code": 385, "lgd_code": 367, "travel_region": "Bhubaneswar & Central"},
+    {"otravelz_name": "Nuapada", "census_2011_name": "Nuapada", "census_code": 394, "lgd_code": 368, "travel_region": "Sambalpur & Western Odisha"},
+    {"otravelz_name": "Puri", "census_2011_name": "Puri", "census_code": 387, "lgd_code": 369, "travel_region": "Puri & Coastal"},
+    {"otravelz_name": "Rayagada", "census_2011_name": "Rayagada", "census_code": 396, "lgd_code": 370, "travel_region": "Koraput & Tribal Highlands"},
+    {"otravelz_name": "Sambalpur", "census_2011_name": "Sambalpur", "census_code": 372, "lgd_code": 371, "travel_region": "Sambalpur & Western Odisha"},
+    {"otravelz_name": "Subarnapur", "census_2011_name": "Subarnapur", "census_code": 392, "lgd_code": 372, "travel_region": "Sambalpur & Western Odisha"},
+    {"otravelz_name": "Sundargarh", "census_2011_name": "Sundargarh", "census_code": 374, "lgd_code": 373, "travel_region": "Rourkela & Sundargarh"}
   ]
 }
+

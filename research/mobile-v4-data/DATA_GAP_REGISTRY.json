@@ -96,10 +96,10 @@
       "repo_truth": "Basic bounding boxes exist in KMP shared core; fine vector polygons for 30 districts not yet embedded.",
       "product_impact": "Offline vector boundary clipping and district-level map overlays on mobile.",
       "assigned_agent": "GIS_API_RESEARCHER",
-      "status": "RESEARCHING",
+      "status": "EVIDENCE_PRESERVED_PENDING_ADVERSARIAL_REVIEW",
       "preferred_source_type": "Survey of India open data, Odisha SDI GeoJSON, Census 2011 district boundary shapefiles",
       "last_checked": "2026-09-08",
-      "notes": "Simplify GeoJSON geometries to optimize mobile asset footprint (< 500KB)."
+      "notes": "Verified 30-district crosswalk between O-Travelz canonical names, Census 2011 (370-399), and LGD codes (344-373). GeoBoundaries gbOpen ADM2 verified as CC BY 4.0 offline bundleable source. Survey of India (OVSF/1M/9) identified as national gold standard. Audited and ACCEPT_STAGING by Adversarial Reviewer."
     },
     {
       "gap_id": "CIVIC_SERVICES_EXPANSION",
@@ -120,10 +120,10 @@
       "repo_truth": "Canonical Odia culinary items identified; geographic clusters and authentic eateries unverified.",
       "product_impact": "Culinary heritage screen: curated authentic regional specialties (Chhena Poda, Rasagola, Dalma).",
       "assigned_agent": "PROVENANCE_POLICY_RESEARCHER",
-      "status": "RESEARCHING",
+      "status": "EVIDENCE_PRESERVED_PENDING_ADVERSARIAL_REVIEW",
       "preferred_source_type": "OTDC Panthanivas menus, FSSAI certified regional hubs, Geographical Indication (GI) registries",
       "last_checked": "2026-09-08",
-      "notes": "Actively investigating official culinary hubs: Odisha Rasagola (GI 612), Kendrapada Rasabali (GI 719), Dhenkanal Magji (GI 720), Mayurbhanj Kai Chutney (GI 721), OTDC Panthanivas restaurants."
+      "notes": "Verified statutory culinary provenance: GI Registry for regional specialties (Rasagola, Rasabali, Magji, Kai Chutney) and FSSAI Clean Street Food Hubs (Khao Gali, Bhubaneswar). Commercial scrapers and crowd ratings excluded per anti-vibe PRD rule. Audited and ACCEPT_WITH_LIMITATIONS by Adversarial Reviewer."
     },
     {
       "gap_id": "ACCOMMODATION_SOURCES",

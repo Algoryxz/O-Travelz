@@ -209,3 +209,25 @@ This log documents the sequential execution of background research tasks by `GEM
   - Worker 1: `GIS_API_RESEARCHER` (`dd9d6a40-7bd5-479b-8a47-33e2f13be047`) $\rightarrow$ `ODISHA_DISTRICT_BOUNDARIES` (Task G3)
   - Worker 2: `PROVENANCE_POLICY_RESEARCHER` (`48279045-683f-45c5-b883-c21f5cbdd752`) $\rightarrow$ `FOOD_AND_RESTAURANT_VERIFICATION` (Task C5)
 - **Status**: Running. Canonical mutations strictly 0.
+
+### [2026-09-08] - Stage B Completion & Adversarial Review
+- **Audit Subagent**: `ADVERSARIAL_EVIDENCE_REVIEWER` (`a346f65e-0dc0-43fe-8a9e-a2a7860a6a1c`, Tier: `pro`)
+- **Worker Outputs Audited**:
+  1. `GIS_TASK_G3_DISTRICT_BOUNDARIES` (`GIS_API_RESEARCHER`, `dd9d6a40...`):
+     - Discovered official boundary sources: Survey of India (SOI) OMP Product `OVSF/1M/9` (Odisha, Shapefile, ₹0/-, requires registration), ORSAC OSDI (`orsacosdi.in`, WMS/WFS, restricted download), Bhuvan (`bhuvan-vec2.nrsc.gov.in`, WMS EPSG:4326), Bharat Maps (`mapservice.gov.in`, MeitY, mission-mode only).
+     - Identified open redistributable vector dataset: geoBoundaries (`gbOpen` / `gbAuthoritative` IND ADM2, William & Mary GeoLab / UN OCHA HDX, CC BY 4.0, API: `https://www.geoboundaries.org/api/current/gbOpen/IND/ADM2/`).
+     - Established 100% deterministic 30-district crosswalk between O-Travelz canonical names (`regions.py`), Census 2011 codes (370–399, State 21), and Ministry of Panchayati Raj LGD codes (344–373).
+     - **Adversarial Verdict**: `ACCEPT_STAGING`. Rationale: 30-district crosswalk verified 1-to-1 without omissions. geoBoundaries CC BY 4.0 explicitly allows offline client bundling with attribution, avoiding Survey of India portal click-through friction.
+  2. `PROVENANCE_TASK_C5_FOOD_VERIFICATION` (`PROVENANCE_POLICY_RESEARCHER`, `48279045...`):
+     - Confirmed that no centralized, structured official dataset (JSON/CSV) containing coordinates, opening hours, or contact exists across Odisha Tourism, OTDC, or FSSAI platforms.
+     - Extracted statutory GI food registrations: Odisha Rasagola (GI 612), Kendrapada Rasabali (GI 719), Dhenkanal Magji (GI 720), Mayurbhanj Kai Chutney (GI 721), Odisha Khajuri Guda.
+     - Identified FSSAI certified Clean Street Food Hub: 'Khao Gali' (Ram Mandir, Bhubaneswar).
+     - Enforced anti-vibe constraints: Commercial restaurant listings and crowdsourced review ratings (Zomato/Google Maps) strictly rejected.
+     - **Adversarial Verdict**: `ACCEPT_WITH_LIMITATIONS`. Rationale: Excludes commercial restaurant listings and fake/crowdsourced ratings; food discovery scoped to regional dish heritage and certified geographic clusters. Canonical promotion disallowed.
+- **Codex Escalation Evaluation**: Evaluated; `codex_escalation_required = false`. Findings are coherent, supported by official gazettes/portals, and agree across independent Antigravity research threads.
+- **Registry Updates**:
+  - `CLAIM_REGISTRY.json`: Added `CLM_DISTRICT_BOUNDARIES_GEOBOUNDARIES_008` (`ACCEPT_STAGING`) and `CLM_FOOD_REGIONAL_SPECIALTIES_GI_009` (`ACCEPT_WITH_LIMITATIONS`). Total claims reviewed: 9.
+  - `IDENTITY_CROSSWALKS.json`: Added 30-district crosswalk table (`district_crosswalks`).
+  - `DATA_GAP_REGISTRY.json`: Updated `ODISHA_DISTRICT_BOUNDARIES` and `FOOD_AND_RESTAURANT_VERIFICATION`.
+  - `PROGRAM_STATUS.json`: Updated status to `STAGE_B_REVIEW_COMPLETE`. Canonical mutations strictly 0.
+

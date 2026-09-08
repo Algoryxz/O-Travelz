@@ -163,5 +163,54 @@
       "Sadeibareni Dhokra is an ongoing application (No. 1322) under examination, not yet a registered GI."
     ],
     "canonical_promotion_allowed": false
+  },
+  {
+    "claim_id": "CLM_DISTRICT_BOUNDARIES_GEOBOUNDARIES_008",
+    "gap_id": "ODISHA_DISTRICT_BOUNDARIES",
+    "entity_id": "odisha_30_districts_boundaries",
+    "entity_name": "Odisha 30 Administrative District Boundaries & Codes",
+    "claim": "All 30 Odisha districts deterministically mapped across O-Travelz canonical names, Census 2011 3-digit codes (370-399), and LGD codes (344-373). GeoBoundaries gbOpen ADM2 provides unauthenticated, topologically valid CC BY 4.0 vector geometries suitable for client-side offline bundle.",
+    "source_url": "https://www.geoboundaries.org/api/current/gbOpen/IND/ADM2/",
+    "source_title": "geoBoundaries India ADM2 Open Administrative Database / Survey of India / LGD",
+    "source_tier": "TIER_C_INSTITUTIONAL",
+    "retrieved_at": "2026-09-08T10:19:35+05:30",
+    "effective_date_if_known": "2024-01-15",
+    "freshness_class": "SLOW_CHANGING",
+    "identity_confidence": 1.0,
+    "source_confidence": 0.98,
+    "licensing_status": "CREATIVE_COMMONS_CC_BY_4_0",
+    "cross_thread_support": "Discovered by GIS_API_RESEARCHER; audited and accepted by ADVERSARIAL_EVIDENCE_REVIEWER.",
+    "reviewer_verdict": "ACCEPT_STAGING",
+    "limitations": [
+      "National ADM2 dataset contains all ~700 Indian districts; requires build-time filter for Odisha (ST_NM == 'Odisha' / State Code 21).",
+      "Requires CC BY 4.0 attribution in application credits.",
+      "Raw SOI shapefiles require portal registration and click-through agreement, precluding frictionless offline client bundling."
+    ],
+    "canonical_promotion_allowed": true
+  },
+  {
+    "claim_id": "CLM_FOOD_REGIONAL_SPECIALTIES_GI_009",
+    "gap_id": "FOOD_AND_RESTAURANT_VERIFICATION",
+    "entity_id": "odisha_regional_food_specialties",
+    "entity_name": "Odisha Statutory Regional Food Specialties & FSSAI Clean Hubs",
+    "claim": "Statutory regional food provenance established via GI Registry (Odisha Rasagola [GI 612], Kendrapada Rasabali [GI 719], Dhenkanal Magji [GI 720], Mayurbhanj Kai Chutney [GI 721], Odisha Khajuri Guda) and FSSAI Certified Clean Street Food Hubs (Khao Gali, Ram Mandir, Bhubaneswar). Individual commercial restaurant listings and crowdsourced reviews are excluded per anti-vibe constraints.",
+    "source_url": "https://ipindia.gov.in",
+    "source_title": "Geographical Indications Registry / FSSAI Clean Street Food Hubs",
+    "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "retrieved_at": "2026-09-08T10:16:00+05:30",
+    "effective_date_if_known": "2024-01-01",
+    "freshness_class": "STATIC",
+    "identity_confidence": 0.95,
+    "source_confidence": 0.98,
+    "licensing_status": "STATUTORY_GOVERNMENT_REGISTER",
+    "cross_thread_support": "Researched by PROVENANCE_POLICY_RESEARCHER; audited by ADVERSARIAL_EVIDENCE_REVIEWER.",
+    "reviewer_verdict": "ACCEPT_WITH_LIMITATIONS",
+    "limitations": [
+      "No centralized, structured official dataset exists for individual restaurants, coordinates, or opening hours across Odisha Tourism or FSSAI.",
+      "Commercial restaurant directories and user ratings (Google/TripAdvisor/Zomato) are strictly disallowed per anti-vibe PRD rules.",
+      "Food discovery on mobile must be scoped to regional dish heritage and certified geographic clusters, not unverified commercial eateries."
+    ],
+    "canonical_promotion_allowed": false
   }
 ]
+
