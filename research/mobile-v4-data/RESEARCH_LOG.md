@@ -150,6 +150,34 @@ This log documents the sequential execution of background research tasks by `GEM
   - `PROGRAM_STATUS.json`: `partial: 6`, `researching: 2`.
 - **Next Action**: Claude executing `CLAUDE_TASK_C6_CULINARY_HERITAGE`; Gemini executing `GEMINI_TASK_G2_ROUTE_GEOMETRY`.
 
+### [2026-09-08] - Task Execution: G2 Transit Route Geometry
+- **Task ID**: `GEMINI_TASK_G2_ROUTE_GEOMETRY`
+- **Agent**: `GEMINI_BROWSER_RESEARCHER`
+- **Gap**: `TRANSIT_ROUTE_GEOMETRY_GAPS`
+- **Sources Inspected**:
+  - `https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/BusRouteNetwork/MapServer`
+  - `https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusStops/FeatureServer` (Layers 1 & 2: OD_Terminal, Depot)
+- **Key Result**:
+  - Discovered public ArcGIS MapServer layer serving dense `esriGeometryPolyline` geometries with server-side WGS84 GeoJSON reprojection (`outSR=4326&f=geojson`).
+  - Tested and extracted dense line coordinate arrays:
+    - Layer 2: "Nandankanan to Airport" (Route 207, maps to Mo Bus Route 10/11)
+    - Layer 3: "Balakati to Nandankanan Via KIIT SQR" (Route 306)
+    - Layer 4: "Prashanti Vihar to Badagada Brit Colony" (Route 225)
+    - Layer 10: "Master Canteen to AIIMS" (Route 333)
+    - Layer 11: "Master Canteen to Sum Hospital" (Route 522)
+  - Mapped terminals (`UpdatedBusStops/FeatureServer/1`) and bus depots (`UpdatedBusStops/FeatureServer/2`).
+- **Status**: `PARTIAL` (Intra-city polyline shapes validated; legacy municipal numbers mapped to modern Mo Bus corridors).
+- **Registry Changes**:
+  - `DATA_GAP_REGISTRY.json`: Updated `TRANSIT_ROUTE_GEOMETRY_GAPS` to `PARTIAL`, `FOOD_AND_RESTAURANT_VERIFICATION` to `BACKLOG`.
+  - `SOURCE_REGISTRY.json`: Added `SRC_BHUBANESWARONE_BUS_ROUTE_NETWORK`.
+  - `API_CANDIDATES.json`: Added `API_BHUBANESWARONE_BUS_ROUTE_NETWORK`.
+  - `PROGRAM_STATUS.json`: `partial: 7`, `researching: 0`, `status: PAUSED_QUOTA_COOLDOWN`.
+- **Session Checkpoint**:
+  - 7 critical gaps reached `PARTIAL` with verified primary sources (0 fabrications, 0 canonical mutations).
+  - Background subagent tokens hit rate-limit cooldown (reset expected ~13:20 IST).
+  - All findings committed and synced to `feature/v4-platform-rebuild`.
+
+
 
 
 

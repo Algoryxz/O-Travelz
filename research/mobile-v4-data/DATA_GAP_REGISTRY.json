@@ -24,10 +24,10 @@
       "repo_truth": "Current canonical routes have sequence lists; some route shapes lack dense polyline geometries.",
       "product_impact": "MapKit and Google Maps SDK require dense shape polylines to render crisp transit corridors on mobile screens.",
       "assigned_agent": "GEMINI_BROWSER_RESEARCHER",
-      "status": "RESEARCHING",
+      "status": "PARTIAL",
       "preferred_source_type": "CRUT GIS shapefiles / GeoJSON / ArcGIS REST FeatureServer",
       "last_checked": "2026-09-08",
-      "notes": "Must preserve route IDs exactly as defined in canonical routes.json."
+      "notes": "Discovered dense GeoJSON LineString corridor shapes on BhubaneswarOne BusRouteNetwork/MapServer (with outSR=4326) covering primary capital lines: Route 207 Nandankanan-Airport, Route 306 Balakati-Nandankanan, Route 333 Master Canteen-AIIMS, Route 522 Master Canteen-Sum Hospital; OD Terminals (Layer 1) and Depots (Layer 2). Legacy municipal numbers map to modern Mo Bus corridors."
     },
     {
       "gap_id": "DESTINATION_OPENING_HOURS",
@@ -120,10 +120,10 @@
       "repo_truth": "Canonical Odia culinary items identified; geographic clusters and authentic eateries unverified.",
       "product_impact": "Culinary heritage screen: curated authentic regional specialties (Chhena Poda, Rasagola, Dalma).",
       "assigned_agent": "CLAUDE_BROWSER_RESEARCHER",
-      "status": "RESEARCHING",
+      "status": "BACKLOG",
       "preferred_source_type": "OTDC Panthanivas menus, FSSAI certified regional hubs, Geographical Indication (GI) registries",
       "last_checked": "2026-09-08",
-      "notes": "Focus on institutional/cultural provenance, not subjective commercial reviews."
+      "notes": "Queued for execution after subagent rate limit reset; target items: Odisha Rasagola (GI 612), Kendrapada Rasabali (GI 719), Dhenkanal Magji (GI 720), Mayurbhanj Kai Chutney (GI 721)."
     },
     {
       "gap_id": "ACCOMMODATION_SOURCES",

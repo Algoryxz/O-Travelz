@@ -66,6 +66,24 @@
     "cache_restrictions": "Standard public caching allowed",
     "risk": "Low",
     "confidence": 0.92
+  },
+  {
+    "candidate_id": "API_BHUBANESWARONE_BUS_ROUTE_NETWORK",
+    "endpoint": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/BusRouteNetwork/MapServer",
+    "provider": "Bhubaneswar Smart City Limited (BSCL) / CRUT",
+    "protocol": "HTTPS ArcGIS REST MapServer",
+    "auth": "None (Open Public)",
+    "example_query": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/BusRouteNetwork/MapServer/11/query?where=1=1&outFields=*&outSR=4326&f=geojson",
+    "response_type": "GeoJSON FeatureCollection (LineString coordinate arrays)",
+    "geographic_coverage": "Bhubaneswar Urban Transit Corridors (Intra City Routes)",
+    "freshness": "SLOW_CHANGING",
+    "rate_limits": "Unrestricted public GET",
+    "runtime_suitability": false,
+    "ingestion_suitability": true,
+    "cache_restrictions": "Standard public caching allowed",
+    "risk": "Low (hosted on BSCL production ArcGIS Server)",
+    "confidence": 0.95
   }
 ]
+
 

@@ -254,8 +254,30 @@
     "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
+  },
+  {
+    "source_id": "SRC_BHUBANESWARONE_BUS_ROUTE_NETWORK",
+    "domain": "Transit GIS",
+    "title": "BhubaneswarOne BusRouteNetwork MapServer Layer",
+    "organization": "Bhubaneswar Smart City Limited (BSCL) / CRUT",
+    "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/BusRouteNetwork/MapServer",
+    "quality_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "format": "ArcGIS MapServer / GeoJSON",
+    "license": "Government Open Data / Public Municipal GIS Portal",
+    "access_method": "HTTP GET REST queries (outSR=4326&f=geojson)",
+    "freshness_class": "SLOW_CHANGING",
+    "last_checked": "2026-09-08",
+    "coverage": "Bhubaneswar Urban Transit Corridors (Dense LineString shape polylines)",
+    "sample_verified": true,
+    "limitations": [
+      "Labels utilize legacy municipal line identifiers (e.g. Route 207, 306, 333, 522) that require correspondence mapping to modern CRUT Mo Bus route codes."
+    ],
+    "discovered_by": "GEMINI_BROWSER_RESEARCHER",
+    "cross_checked_by": "ANTIGRAVITY_LEAD",
+    "antigravity_verdict": "VALIDATED_SOURCE"
   }
 ]
+
 
 
 
