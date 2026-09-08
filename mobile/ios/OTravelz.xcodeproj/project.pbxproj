@@ -20,6 +20,12 @@
 		1A00010B2C8A00010000000B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00000C2C8A00010000000C /* APIError.swift */; };
 		1A00010C2C8A00010000000D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00000D2C8A00010000000D /* APIClient.swift */; };
 		1A00010D2C8A00010000000E /* NetworkDTOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00000E2C8A00010000000E /* NetworkDTOTests.swift */; };
+		1A00010E2C8A00010000000F /* DiscoverRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00000F2C8A00010000000F /* DiscoverRootView.swift */; };
+		1A00010F2C8A000100000010 /* MapRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000102C8A000100000010 /* MapRootView.swift */; };
+		1A0001102C8A000100000011 /* PlanRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000112C8A000100000011 /* PlanRootView.swift */; };
+		1A0001112C8A000100000012 /* TripsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000122C8A000100000012 /* TripsRootView.swift */; };
+		1A0001122C8A000100000013 /* YouRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000132C8A000100000013 /* YouRootView.swift */; };
+		1A0001132C8A000100000014 /* RootNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000142C8A000100000014 /* RootNavigationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +45,12 @@
 		1A00000C2C8A00010000000C /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		1A00000D2C8A00010000000D /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		1A00000E2C8A00010000000E /* NetworkDTOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDTOTests.swift; sourceTree = "<group>"; };
+		1A00000F2C8A00010000000F /* DiscoverRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverRootView.swift; sourceTree = "<group>"; };
+		1A0000102C8A000100000010 /* MapRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRootView.swift; sourceTree = "<group>"; };
+		1A0000112C8A000100000011 /* PlanRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanRootView.swift; sourceTree = "<group>"; };
+		1A0000122C8A000100000012 /* TripsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsRootView.swift; sourceTree = "<group>"; };
+		1A0000132C8A000100000013 /* YouRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouRootView.swift; sourceTree = "<group>"; };
+		1A0000142C8A000100000014 /* RootNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +124,11 @@
 			isa = PBXGroup;
 			children = (
 				1A0000072C8A000100000007 /* BootstrapPlaceholderView.swift */,
+				1A00000F2C8A00010000000F /* DiscoverRootView.swift */,
+				1A0000102C8A000100000010 /* MapRootView.swift */,
+				1A0000112C8A000100000011 /* PlanRootView.swift */,
+				1A0000122C8A000100000012 /* TripsRootView.swift */,
+				1A0000132C8A000100000013 /* YouRootView.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -136,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				1A0000092C8A000100000009 /* OTravelzTests.swift */,
+				1A00000E2C8A00010000000E /* NetworkDTOTests.swift */,
+				1A0000142C8A000100000014 /* RootNavigationTests.swift */,
 			);
 			path = OTravelzTests;
 			sourceTree = "<group>";
@@ -258,6 +277,11 @@
 				1A00010A2C8A00010000000A /* APIConfiguration.swift in Sources */,
 				1A00010B2C8A00010000000B /* APIError.swift in Sources */,
 				1A00010C2C8A00010000000D /* APIClient.swift in Sources */,
+				1A00010E2C8A00010000000F /* DiscoverRootView.swift in Sources */,
+				1A00010F2C8A000100000010 /* MapRootView.swift in Sources */,
+				1A0001102C8A000100000011 /* PlanRootView.swift in Sources */,
+				1A0001112C8A000100000012 /* TripsRootView.swift in Sources */,
+				1A0001122C8A000100000013 /* YouRootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +291,7 @@
 			files = (
 				1A0001092C8A000100000009 /* OTravelzTests.swift in Sources */,
 				1A00010D2C8A00010000000E /* NetworkDTOTests.swift in Sources */,
+				1A0001132C8A000100000014 /* RootNavigationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

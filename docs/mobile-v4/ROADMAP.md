@@ -21,8 +21,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M4** | Parallel clickable prototypes and formal design acceptance freeze | `[COMPLETED]` |
 | **M5** | Fresh production Android and iOS project bootstrap | `[COMPLETED]` |
 | **M6** | API contracts, DTO generation, and native networking clients | `[COMPLETED]` |
-| **M7** | App shells, root navigation, and adaptive chrome | `[NEXT]` |
-| **M8** | Home / Editorial Cultural Atlas landing screen | `[PLANNED]` |
+| **M7** | App shells, root navigation, and adaptive chrome | `[COMPLETED]` |
+| **M8** | Home / Editorial Cultural Atlas landing screen | `[NEXT]` |
 | **M9** | Discover feed, spatial filtering, and full-text search | `[PLANNED]` |
 | **M10** | Place Detail editorial sheets, verified photography, and live weather cards | `[PLANNED]` |
 | **M11** | Native mapping canvases (Google Maps Compose & Apple MapKit) | `[PLANNED]` |

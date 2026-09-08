@@ -1,0 +1,39 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:10:30+05:30",
+  "boundaries_audited": {
+    "backend_app": {
+      "changed": false,
+      "status": "UNTOUCHED"
+    },
+    "frontend_web": {
+      "changed": false,
+      "status": "UNTOUCHED"
+    },
+    "canonical_data": {
+      "changed": false,
+      "status": "UNTOUCHED"
+    },
+    "mobile_shared_kmp": {
+      "changed": false,
+      "status": "UNTOUCHED"
+    },
+    "mobile_android": {
+      "changed": true,
+      "status": "AUTHORIZED_M7_SHELL_CHANGES"
+    },
+    "mobile_ios": {
+      "changed": true,
+      "status": "AUTHORIZED_M7_SHELL_CHANGES"
+    },
+    "docs_mobile_v4": {
+      "changed": true,
+      "status": "AUTHORIZED_DOCUMENTATION_UPDATES"
+    },
+    "reports": {
+      "changed": true,
+      "status": "AUTHORIZED_VERIFICATION_REPORTS"
+    }
+  },
+  "verdict": "CHANGE_BOUNDARY_AUDIT_PASS"
+}

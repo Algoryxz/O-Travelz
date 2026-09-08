@@ -1,0 +1,27 @@
+{
+  " wave\: \M7\,
+ \snapshot_type\: \BEFORE\,
+ \timestamp\: \2026-09-08T09:01:00+05:30\,
+ \branch\: \feature/v4-platform-rebuild\,
+ \head_sha\: \3e3afa9730634c7723cdab84bb08f812b0eb1f26\,
+ \working_tree_clean\: true,
+ \android_state\: {
+ \package\: \com.otravelz.android\,
+ \root_destinations_count\: 5,
+ \root_destinations\: [\discover\, \map\, \plan\, \trips\, \you\],
+ \has_adaptive_chrome\: false,
+ \has_navigation_rail\: false,
+ \has_feature_roots\: false,
+ \network_calls_on_launch\: 0
+ },
+ \ios_state\: {
+ \root_destinations_count\: 5,
+ \root_destinations\: [\discover\, \map\, \plan\, \trips\, \you\],
+ \has_adaptive_chrome\: false,
+ \has_navigation_split_view\: false,
+ \has_feature_roots\: false,
+ \network_calls_on_launch\: 0,
+ \toolchain\: \PENDING_MACOS\
+ },
+ \verdict\: \READY_FOR_M7_EXECUTION\
+}

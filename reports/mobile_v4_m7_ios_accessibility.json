@@ -1,0 +1,21 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:09:00+05:30",
+  "platform": "iOS (SwiftUI)",
+  "touch_targets": {
+    "tab_bar_item_min": "44pt x 44pt",
+    "sidebar_item_min": "44pt height",
+    "status": "PASS"
+  },
+  "dynamic_type": {
+    "font_tokens_use_standard_text_styles": true,
+    "large_content_viewer_ready": true,
+    "status": "PASS"
+  },
+  "voice_over": {
+    "tab_labels_localized": true,
+    "sf_symbols_standard": true,
+    "status": "PASS"
+  },
+  "verdict": "IOS_A11Y_ACCEPTED"
+}

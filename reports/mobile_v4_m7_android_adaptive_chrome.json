@@ -1,0 +1,22 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:07:30+05:30",
+  "platform": "Android (Compose)",
+  "breakpoints": {
+    "compact_under_600dp": {
+      "chrome": "NavigationBar (bottom)",
+      "touch_target_min_dp": 48,
+      "form_factor": "Portrait smartphones"
+    },
+    "medium_600_to_839dp": {
+      "chrome": "NavigationRail (start/leading)",
+      "form_factor": "Foldables unfolded, small tablets, landscape smartphones"
+    },
+    "expanded_840dp_plus": {
+      "chrome": "NavigationRail (start/leading) with balanced content pane",
+      "form_factor": "Large tablets, Chromebooks, desktop windows"
+    }
+  },
+  "tests_passed": true,
+  "verdict": "ADAPTIVE_CHROME_ACCEPTED"
+}

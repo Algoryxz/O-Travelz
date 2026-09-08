@@ -1,0 +1,12 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:08:15+05:30",
+  "platform": "Android (Compose)",
+  "palette_governance": "Modern Odisha Cultural Atlas Palette (Frozen Wave M4)",
+  "dynamic_color_evaluation": {
+    "material_you_dynamic_color": "DISABLED for cultural identity surfaces and truth states",
+    "rationale": "Allowing Android 12+ wallpaper-extracted dynamic colors to override primary terracotta (#C85A32) or truth badges (verified green, scheduled blue, candidate orange) violates O-TRAVELZ brand identity and corrupts truth status semantics.",
+    "deterministic_contrast": "Guaranteed minimum 4.5:1 contrast against Sunlit Sandstone Light (#F5F2EB) and Deep Basalt Dark (#12100E)."
+  },
+  "verdict": "DETERMINISTIC_PALETTE_LOCKED"
+}

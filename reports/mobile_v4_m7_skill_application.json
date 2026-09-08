@@ -1,0 +1,34 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:01:30+05:30",
+  "skills_applied": [
+    {
+      "skill": "android-adaptive",
+      "role": "Specifies WindowSizeClass breakpoints (Compact under 600dp -> Bottom NavigationBar, Medium 600-839dp -> NavigationRail, Expanded 840dp+ -> NavigationRail + wide pane) and layout reflow without device branching"
+    },
+    {
+      "skill": "android-edge-to-edge",
+      "role": "Ensures WindowInsets handling in Scaffold, transparent status/nav bars, IME awareness, and insets propagation to content"
+    },
+    {
+      "skill": "android-navigation-3",
+      "role": "Evaluated for navigation architecture; weighed against standard Compose Navigation and State-driven tabs"
+    },
+    {
+      "skill": "swiftui-navigation",
+      "role": "Specifies isolated NavigationStack per tab, TabView selection binding, and adaptive NavigationSplitView for iPad/macOS"
+    },
+    {
+      "skill": "swiftui-layout-components",
+      "role": "Governs adaptive layout reflow, spacing tokens, and structural containers"
+    },
+    {
+      "skill": "ios-accessibility",
+      "role": "Ensures AX traits, labels, minimum 44pt touch targets, and dynamic type support"
+    },
+    {
+      "skill": "ponytail",
+      "role": "Strict anti-bloat guardrail: minimal code, zero premature feature content, zero speculative state, native framework solutions over custom libraries"
+    }
+  ]
+}

@@ -9,4 +9,9 @@
     <string name="bootstrap_title">ଓ-ଟ୍ରାଭେଲ୍‌ଜ୍ V4 ମୂଳଭିତ୍ତି</string>
     <string name="bootstrap_subtitle">ଆଧୁନିକ ଓଡ଼ିଶା ସାଂସ୍କୃତିକ ଆଟଲାସ୍</string>
     <string name="bootstrap_status">ଆଣ୍ଡ୍ରଏଡ୍ କମ୍ପୋଜ୍ ମୂଳଭିତ୍ତି ସକ୍ରିୟ</string>
+    <string name="root_discover_desc">ଓଡ଼ିଶାର ସାଂସ୍କୃତିକ ଐତିହ୍ୟ ଏବଂ ପ୍ରମାଣିତ ସ୍ଥାନଗୁଡ଼ିକ ଅନୁସନ୍ଧାନ କରନ୍ତୁ।</string>
+    <string name="root_map_desc">ମୋ ବସ୍ / ଆମ ବସ୍ ରୁଟ୍ ଏବଂ ଭୌଗୋଳିକ ସୀମା ସହିତ ସର୍ବେକ୍ଷଣ କରାଯାଇଥିବା ମାନଚିତ୍ର।</string>
+    <string name="root_plan_desc">ନିର୍ଦ୍ଧାରିତ ଯାତ୍ରା କାର୍ଯ୍ୟସୂଚୀ ଏବଂ ଗମନାଗମନ ଯୋଜନାକାରୀ।</string>
+    <string name="root_trips_desc">ସକ୍ରିୟ ଯାତ୍ରା ଟ୍ରାକିଂ ଏବଂ ସଂରକ୍ଷିତ ଯାତ୍ରା ସୂଚୀ।</string>
+    <string name="root_you_desc">ଆଟଲାସ୍ ପସନ୍ଦ, ଅଫଲାଇନ୍ ଷ୍ଟୋରେଜ୍ ଏବଂ ସାଂସ୍କୃତିକ ସୂଚନା।</string>
 </resources>

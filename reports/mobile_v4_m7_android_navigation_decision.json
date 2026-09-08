@@ -1,0 +1,18 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:02:00+05:30",
+  "evaluation": {
+    "navigation_3_eval": {
+      "status": "EXPERIMENTAL_ALPHA",
+      "suitability": "Navigation 3 (androidx.navigation3) is in early experimental alpha stages and introduces unstable APIs not yet standardized in stable compose-bom 2024.09.02.",
+      "selected": false
+    },
+    "navigation_compose_eval": {
+      "status": "STABLE (2.8.1)",
+      "suitability": "Stable NavHost is available, but for top-level 5-root tab switching where each root maintains its own state and stack, standard state-driven tab switching with rememberSaveable (backed by Compose Navigation per-tab subgraphs in subsequent feature waves) provides the most deterministic, leak-free, and minimal footprint without backstack thrashing.",
+      "selected": true
+    }
+  },
+  "root_navigation_strategy": "Stateful Root Navigation with rememberSaveable tab state, independent per-root view containers, and back press handling to Discover root before app exit.",
+  "ponytail_verdict": "Adhere to simplest stable standard: rememberSaveable for current tab state with BackHandler, avoiding unnecessary alpha dependencies."
+}

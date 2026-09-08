@@ -1,0 +1,17 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:07:45+05:30",
+  "platform": "Android (Compose)",
+  "handler": "androidx.activity.compose.BackHandler",
+  "contract": {
+    "from_discover_root": "Back delegates to system activity finish / exit app",
+    "from_map_root": "Back redirects to DISCOVER root",
+    "from_plan_root": "Back redirects to DISCOVER root",
+    "from_trips_root": "Back redirects to DISCOVER root",
+    "from_you_root": "Back redirects to DISCOVER root"
+  },
+  "reselection_policy": "Idempotent (no view tree recreation, no reload)",
+  "state_restoration": "rememberSaveable persists currentTab across configuration changes (rotation/fold/theme)",
+  "tests_passed": true,
+  "verdict": "BACK_BEHAVIOR_ACCEPTED"
+}

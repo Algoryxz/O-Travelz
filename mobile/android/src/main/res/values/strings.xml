@@ -9,4 +9,9 @@
     <string name="bootstrap_title">O-TRAVELZ V4 Bootstrap Shell</string>
     <string name="bootstrap_subtitle">Modern Odisha Cultural Atlas</string>
     <string name="bootstrap_status">Native Android Compose Foundation Active</string>
+    <string name="root_discover_desc">Explore cultural trails, authentic heritage, and verified destinations across Odisha.</string>
+    <string name="root_map_desc">Surveyed geographic atlas with Mo Bus / Ama Bus transit stops, routes, and geographic boundaries.</string>
+    <string name="root_plan_desc">Deterministic itinerary solver and transit schedule planner.</string>
+    <string name="root_trips_desc">Active journey tracking, offline itinerary packs, and saved trips.</string>
+    <string name="root_you_desc">Atlas preferences, offline storage management, and cultural provenance.</string>
 </resources>

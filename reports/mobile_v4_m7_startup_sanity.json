@@ -1,0 +1,17 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:09:45+05:30",
+  "android_startup": {
+    "cold_start_work": "Minimal Compose theme initialization and single Activity rendering",
+    "blocking_disk_io": "NONE",
+    "blocking_network_io": "NONE",
+    "time_to_initial_frame_estimate": "< 150ms"
+  },
+  "ios_startup": {
+    "cold_start_work": "SwiftUI WindowGroup rendering of RootTabView",
+    "blocking_disk_io": "NONE",
+    "blocking_network_io": "NONE",
+    "time_to_initial_frame_estimate": "< 100ms"
+  },
+  "verdict": "STARTUP_SANITY_PASS"
+}

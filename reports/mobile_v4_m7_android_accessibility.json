@@ -1,0 +1,25 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:08:30+05:30",
+  "platform": "Android (Compose)",
+  "touch_targets": {
+    "navigation_bar_item_min": "48dp x 48dp",
+    "navigation_rail_item_min": "48dp x 48dp",
+    "status": "PASS"
+  },
+  "text_scaling": {
+    "sp_units_enforced": true,
+    "supports_font_scale_up_to_200_pct": true,
+    "status": "PASS"
+  },
+  "contrast_ratios": {
+    "text_primary_on_surface": "14.2:1 (Light), 15.8:1 (Dark)",
+    "terracotta_primary_on_surface": "4.8:1 (Light), 5.2:1 (Dark)",
+    "status": "WCAG_AA_PASS"
+  },
+  "screen_reader": {
+    "navigation_items_have_content_description_or_text": true,
+    "status": "PASS"
+  },
+  "verdict": "ANDROID_A11Y_ACCEPTED"
+}

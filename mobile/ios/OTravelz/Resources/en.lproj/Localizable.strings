@@ -7,3 +7,8 @@
 "bootstrap_title" = "O-TRAVELZ V4 Bootstrap Shell";
 "bootstrap_subtitle" = "Modern Odisha Cultural Atlas";
 "bootstrap_status" = "Native iOS SwiftUI Foundation Active";
+"root_discover_desc" = "Explore cultural trails, authentic heritage, and verified destinations across Odisha.";
+"root_map_desc" = "Surveyed geographic atlas with Mo Bus / Ama Bus transit stops, routes, and geographic boundaries.";
+"root_plan_desc" = "Deterministic itinerary solver and transit schedule planner.";
+"root_trips_desc" = "Active journey tracking, offline itinerary packs, and saved trips.";
+"root_you_desc" = "Atlas preferences, offline storage management, and cultural provenance.";

@@ -1,0 +1,68 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:10:00+05:30",
+  "contract_parity": {
+    "root_tab_count": {
+      "android": 5,
+      "ios": 5,
+      "match": true
+    },
+    "root_identities": {
+      "discover": {
+        "android": "NavDestination.DISCOVER",
+        "ios": "TabDestination.discover",
+        "match": true
+      },
+      "map": {
+        "android": "NavDestination.MAP",
+        "ios": "TabDestination.map",
+        "match": true
+      },
+      "plan": {
+        "android": "NavDestination.PLAN",
+        "ios": "TabDestination.plan",
+        "match": true
+      },
+      "trips": {
+        "android": "NavDestination.TRIPS",
+        "ios": "TabDestination.trips",
+        "match": true
+      },
+      "you": {
+        "android": "NavDestination.YOU",
+        "ios": "TabDestination.you",
+        "match": true
+      }
+    },
+    "adaptive_chrome_parity": {
+      "compact": {
+        "android": "NavigationBar",
+        "ios": "TabView",
+        "match": true
+      },
+      "medium_expanded": {
+        "android": "NavigationRail",
+        "ios": "NavigationSplitView (Sidebar)",
+        "match": true
+      }
+    },
+    "top_app_bar_parity": {
+      "android": "Material 3 TopAppBar in each root container",
+      "ios": "Large navigation title in each NavigationStack root container",
+      "match": true
+    },
+    "localization_parity": {
+      "languages": [
+        "English (en)",
+        "Odia (or)"
+      ],
+      "match": true
+    },
+    "reselection_behavior": {
+      "android": "Idempotent (no state recreation)",
+      "ios": "Idempotent (default SwiftUI TabView behavior)",
+      "match": true
+    }
+  },
+  "verdict": "CROSS_PLATFORM_SHELL_PARITY_VERIFIED"
+}

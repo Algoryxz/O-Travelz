@@ -1,0 +1,11 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:08:00+05:30",
+  "platform": "Android (Compose)",
+  "activity_setup": "enableEdgeToEdge() in MainActivity.onCreate()",
+  "system_bars": "Transparent status bar and navigation bar with automatic light/dark icon theming",
+  "scaffold_insets_handling": "Window insets correctly consumed by innerPadding in Compact Scaffold and applied to RootContentHost; NavigationRail in Medium/Expanded consumes start window inset",
+  "ime_behavior": "Layout reflows above software keyboard via default Compose WindowInsets.ime handling",
+  "cutout_protection": "TopAppBar and NavigationRail respect system status bar / display cutout safe bounds",
+  "verdict": "INSETS_ACCEPTANCE_PASS"
+}

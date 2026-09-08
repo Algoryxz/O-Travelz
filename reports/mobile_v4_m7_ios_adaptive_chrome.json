@@ -1,0 +1,17 @@
+{
+  "wave": "M7",
+  "timestamp": "2026-09-08T09:08:45+05:30",
+  "platform": "iOS (SwiftUI)",
+  "adaptive_chrome": {
+    "compact_horizontal": {
+      "component": "TabView with 5 tabItems",
+      "device_class": "iPhone (all portrait), smaller iPhone landscape, iPad 1/3 split"
+    },
+    "regular_horizontal": {
+      "component": "NavigationSplitView with sidebar List and detail host",
+      "device_class": "iPad (full screen, 1/2, 2/3 split), large iPhone landscape"
+    }
+  },
+  "navigation_stack_isolation": "Each root destination hosts an independent NavigationStack with large title display mode",
+  "verdict": "IOS_ADAPTIVE_CHROME_ACCEPTED"
+}
