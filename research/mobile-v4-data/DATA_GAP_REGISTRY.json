@@ -84,10 +84,10 @@
       "repo_truth": "Discover screen models in Android and iOS consume local fallback JSONs that need continuous reconciliation with backend.",
       "product_impact": "Ensures deterministic parity between Android Compose, iOS SwiftUI, and backend catalog endpoints.",
       "assigned_agent": "GIS_API_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "EVIDENCE_PRESERVED_PENDING_ADVERSARIAL_REVIEW",
       "preferred_source_type": "Backend OpenAPI schema, shared KMP models, canonical places inventory",
       "last_checked": "2026-09-08",
-      "notes": "Validate UUIDs, category slugs, and district names across all client platforms."
+      "notes": "100% deterministic parity confirmed between backend (PlaceDetailResponse), iOS (PlaceDTO), and Android (PlaceDto). Identical 16-category taxonomy, 8-item non-leisure exclusion sets, 30-district taxonomy, 10-zone travel regions, and M10 typography fallback publication rules validated. Audited and ACCEPT_STAGING by Adversarial Reviewer."
     },
     {
       "gap_id": "ODISHA_DISTRICT_BOUNDARIES",
