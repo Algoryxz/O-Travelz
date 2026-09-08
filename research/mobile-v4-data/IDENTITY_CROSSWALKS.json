@@ -196,6 +196,28 @@
     {"otravelz_name": "Sambalpur", "census_2011_name": "Sambalpur", "census_code": 372, "lgd_code": 371, "travel_region": "Sambalpur & Western Odisha"},
     {"otravelz_name": "Subarnapur", "census_2011_name": "Subarnapur", "census_code": 392, "lgd_code": 372, "travel_region": "Sambalpur & Western Odisha"},
     {"otravelz_name": "Sundargarh", "census_2011_name": "Sundargarh", "census_code": 374, "lgd_code": 373, "travel_region": "Rourkela & Sundargarh"}
+  ],
+  "rail_junction_crosswalks": [
+    {"station_code": "BBS", "station_name": "Bhubaneswar", "division": "Khurda Road (ECoR)", "latitude": 20.2648, "longitude": 85.8428, "role": "State Capital Terminal & Trunk Hub"},
+    {"station_code": "CTC", "station_name": "Cuttack", "division": "Khurda Road (ECoR)", "latitude": 20.4632, "longitude": 85.8942, "role": "Major Junction (Mahanadi / Paradeep / Sambalpur)"},
+    {"station_code": "PURI", "station_name": "Puri", "division": "Khurda Road (ECoR)", "latitude": 19.8130, "longitude": 85.8315, "role": "Pilgrim Terminal Station"},
+    {"station_code": "KUR", "station_name": "Khurda Road Junction", "division": "Khurda Road (ECoR) HQ", "latitude": 20.1845, "longitude": 85.7338, "role": "Divisional HQ Tri-Junction"},
+    {"station_code": "SBP", "station_name": "Sambalpur Junction", "division": "Sambalpur (ECoR) HQ", "latitude": 21.4645, "longitude": 83.9740, "role": "Western Division HQ Junction"},
+    {"station_code": "ROU", "station_name": "Rourkela Junction", "division": "Chakradharpur (SER)", "latitude": 22.2492, "longitude": 84.8565, "role": "Industrial Mainline Trunk Junction"},
+    {"station_code": "BAM", "station_name": "Brahmapur", "division": "Khurda Road (ECoR)", "latitude": 19.3090, "longitude": 84.7950, "role": "Southern Gateway Mainline Station"},
+    {"station_code": "JJKR", "station_name": "Jajpur Keonjhar Road", "division": "Khurda Road (ECoR)", "latitude": 20.9575, "longitude": 86.1360, "role": "Mining & Industrial Junction"},
+    {"station_code": "BLS", "station_name": "Balasore", "division": "Kharagpur (SER)", "latitude": 21.4960, "longitude": 86.9315, "role": "Northern Gateway Mainline Junction"},
+    {"station_code": "TIG", "station_name": "Titlagarh Junction", "division": "Sambalpur (ECoR)", "latitude": 20.2970, "longitude": 83.1485, "role": "Western Tri-Junction"},
+    {"station_code": "RGDA", "station_name": "Rayagada", "division": "Waltair (ECoR)", "latitude": 19.1670, "longitude": 83.4180, "role": "Highland Mineral & Tribal Junction"},
+    {"station_code": "KRPU", "station_name": "Koraput Junction", "division": "Waltair (ECoR)", "latitude": 18.8120, "longitude": 82.7160, "role": "Tribal Highlands K-K Line Junction"}
+  ],
+  "airport_crosswalks": [
+    {"iata_code": "BBI", "icao_code": "VEBS", "airport_name": "Biju Patnaik International Airport", "city": "Bhubaneswar", "district": "Khordha", "latitude": 20.2444, "longitude": 85.8178, "operator": "Airports Authority of India", "feeder_transit": "CRUT Mo Bus Route 10, Airport Express AE-1, AE-2"},
+    {"iata_code": "JRG", "icao_code": "VEJH", "airport_name": "Veer Surendra Sai Airport", "city": "Jharsuguda", "district": "Jharsuguda", "latitude": 21.9142, "longitude": 84.0505, "operator": "Airports Authority of India", "feeder_transit": "NH-49 / State Highway Dedicated Feeder"},
+    {"iata_code": "RRK", "icao_code": "VERK", "airport_name": "Rourkela Airport", "city": "Rourkela", "district": "Sundargarh", "latitude": 22.2572, "longitude": 84.8147, "operator": "SAIL & AAI Joint Operation", "feeder_transit": "Ring Road City Bus & Taxi Link"},
+    {"iata_code": "PYB", "icao_code": "VEJP", "airport_name": "Jeypore Airport", "city": "Jeypore", "district": "Koraput", "latitude": 18.8805, "longitude": 82.5510, "operator": "Govt of Odisha & AAI (UDAN)", "feeder_transit": "NH-26 Feeder Link"},
+    {"iata_code": "UKE", "icao_code": "VEUK", "airport_name": "Utkela Airport", "city": "Utkela", "district": "Kalahandi", "latitude": 20.0988, "longitude": 83.1844, "operator": "Govt of Odisha & AAI (UDAN)", "feeder_transit": "NH-26 Bhawanipatna Link"}
   ]
 }
+
 

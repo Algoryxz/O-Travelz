@@ -1,11 +1,11 @@
 {
   "program": "O-TRAVELZ Continuous Data Intelligence",
-  "status": "STAGE_C_REVIEW_COMPLETE",
+  "status": "STAGE_D_REVIEW_COMPLETE",
   "started_at": "2026-09-08T09:38:00+05:30",
   "total_gaps": 16,
   "validated": 0,
-  "evidence_preserved_pending_adversarial_review": 11,
-  "claims_reviewed": 11,
+  "evidence_preserved_pending_adversarial_review": 15,
+  "claims_reviewed": 13,
   "partial": 0,
   "blocked": 0,
   "not_available": 0,
@@ -26,19 +26,19 @@
   "active_tasks": {
     "dd9d6a40-7bd5-479b-8a47-33e2f13be047": {
       "role": "GIS_API_RESEARCHER",
-      "task_id": "GIS_TASK_G4_CIVIC_SERVICES_EXPANSION",
+      "task_id": "GIS_TASK_G5_INTERCITY_CONNECTIVITY",
       "tier": "FLASH",
       "status": "COMPLETED"
     },
     "48279045-683f-45c5-b883-c21f5cbdd752": {
       "role": "PROVENANCE_POLICY_RESEARCHER",
-      "task_id": "PROVENANCE_TASK_C6_ACCOMMODATION_SOURCES",
+      "task_id": "PROVENANCE_TASK_C7_SAFETY_FEEDS_AND_RAG_CORPUS",
       "tier": "PRO",
       "status": "COMPLETED"
     },
     "a346f65e-0dc0-43fe-8a9e-a2a7860a6a1c": {
       "role": "ADVERSARIAL_EVIDENCE_REVIEWER",
-      "task_id": "AUDIT_STAGE_C_CIVIC_AND_STAYS",
+      "task_id": "AUDIT_STAGE_D_INTERCITY_AND_CORPUS",
       "tier": "PRO",
       "status": "COMPLETED"
     }

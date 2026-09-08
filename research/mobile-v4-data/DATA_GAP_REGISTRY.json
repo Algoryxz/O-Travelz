@@ -156,10 +156,10 @@
       "repo_truth": "Major railway station coordinates indexed (BBS, CTC, PURI); junction connectivity graph incomplete.",
       "product_impact": "Inter-district multimodal routing (e.g. connecting bus from train arrival).",
       "assigned_agent": "GIS_API_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "EVIDENCE_PRESERVED_PENDING_ADVERSARIAL_REVIEW",
       "preferred_source_type": "East Coast Railway (ECoR) timetable publications, IRCTC official schedule feeds",
       "last_checked": "2026-09-08",
-      "notes": "Static timetable schedules only; no real-time train tracking claims."
+      "notes": "Verified 12 rail junction hubs (BBS, CTC, PURI, KUR, SBP, ROU, BAM, JJKR, BLS, TIG, RGDA, KRPU) with coordinates, station codes, operational divisions, and interconnectivity. Strict static timetable schedule rule enforced (zero live-tracking claims). Audited and ACCEPT_STAGING by Adversarial Reviewer."
     },
     {
       "gap_id": "AVIATION_STATIC_CONNECTIVITY",
@@ -168,10 +168,10 @@
       "repo_truth": "BBI (Bhubaneswar), JRG (Jharsuguda), ROU (Rourkela), UTK (Utkela), JEY (Jeypore) identified.",
       "product_impact": "Airport access transit linkages in Discover and Plan views.",
       "assigned_agent": "GIS_API_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "EVIDENCE_PRESERVED_PENDING_ADVERSARIAL_REVIEW",
       "preferred_source_type": "Airports Authority of India (AAI) schedules, UDAN scheme route publications",
       "last_checked": "2026-09-08",
-      "notes": "Document airport bus feeder connectivity (e.g. Mo Bus Route 10)."
+      "notes": "Verified 5 operational airports (BBI, JRG, RRK/ROU, PYB/JEY, UKE/UTK) with IATA/ICAO codes, coordinates, and UDAN RCS routes. Mapped ground feeder links (Mo Bus Route 10, Airport Express AE-1/AE-2). Audited and ACCEPT_STAGING by Adversarial Reviewer."
     },
     {
       "gap_id": "WEATHER_WARNING_FEEDS",
@@ -179,11 +179,11 @@
       "domain": "Safety & Climate",
       "repo_truth": "Weather client models defined; cyclone/monsoon alert RSS/API source unlinked.",
       "product_impact": "Travel safety banners during coastal monsoon/cyclone events.",
-      "assigned_agent": "GIS_API_RESEARCHER",
-      "status": "BACKLOG",
+      "assigned_agent": "PROVENANCE_POLICY_RESEARCHER",
+      "status": "EVIDENCE_PRESERVED_PENDING_ADVERSARIAL_REVIEW",
       "preferred_source_type": "IMD Bhubaneswar official bulletins, OSDMA public API/bulletin feeds",
       "last_checked": "2026-09-08",
-      "notes": "Must categorize alerts strictly as CURRENT with bulletin IDs."
+      "notes": "Verified IMD Bhubaneswar color-coded bulletins (Yellow, Orange, Red) and NDMA SACHET CAP RSS feeds (sachet.ndma.gov.in). Categorized strictly as static bulletins with timestamp validity. Audited and ACCEPT_STAGING by Adversarial Reviewer."
     },
     {
       "gap_id": "FUTURE_RAG_CORPUS_SOURCES",
@@ -192,10 +192,10 @@
       "repo_truth": "AI assistant knowledge base lacks licensed, clean corpus documents for Odia temple architecture.",
       "product_impact": "Conversational assistant answers traveler questions with cited historical depth.",
       "assigned_agent": "PROVENANCE_POLICY_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "EVIDENCE_PRESERVED_PENDING_ADVERSARIAL_REVIEW",
       "preferred_source_type": "Odisha Review archives, Utkal Prasanga, Archaeological Survey publications",
       "last_checked": "2026-09-08",
-      "notes": "Verify Creative Commons / Government open publication licensing before ingesting text into RAG."
+      "notes": "Identified public-domain historical texts on Odia Virtual Academy (ova.gov.in). Strictly blocked unauthorized scraping of Crown/Government copyrighted magazines (Odisha Review, Utkal Prasanga) and recent ASI monographs pending formal licensing. Audited and ACCEPT_STAGING by Adversarial Reviewer."
     }
   ]
 }

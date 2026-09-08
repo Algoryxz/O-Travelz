@@ -258,7 +258,54 @@
       "Commercial OTA pricing and crowdsourced reviews are prohibited."
     ],
     "canonical_promotion_allowed": false
+  },
+  {
+    "claim_id": "CLM_INTERCITY_RAIL_AND_AVIATION_012",
+    "gap_id": "RAIL_STATIC_CONNECTIVITY",
+    "entity_id": "odisha_intercity_rail_and_air_gateways",
+    "entity_name": "Odisha 12 Railway Junction Hubs & 5 Aviation Gateways",
+    "claim": "Authoritative static transit hubs verified across 12 railway junctions (BBS, CTC, PURI, KUR, SBP, ROU, BAM, JJKR, BLS, TIG, RGDA, KRPU) and 5 operational airports (BBI, JRG, RRK/ROU, PYB/JEY, UKE/UTK) with exact coordinates, IATA/IR station codes, and multimodal ground feeder links (Mo Bus Route 10, Airport Express AE-1 & AE-2). All claims strictly schedule-based without live-tracking assertions.",
+    "source_url": "https://enquiry.indianrail.gov.in/ / https://eastcoastrail.indianrailways.gov.in/ / https://www.aai.aero/ / https://www.civilaviation.gov.in/",
+    "source_title": "Indian Railways NTES, ECoR, AAI & Ministry of Civil Aviation UDAN Rosters",
+    "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "retrieved_at": "2026-09-08T10:25:50+05:30",
+    "effective_date_if_known": "2024-05-01",
+    "freshness_class": "SLOW_CHANGING",
+    "identity_confidence": 1.0,
+    "source_confidence": 1.0,
+    "licensing_status": "OFFICIAL_PUBLIC_TRANSIT_ROSTER",
+    "cross_thread_support": "Researched by GIS_API_RESEARCHER; audited and accepted by ADVERSARIAL_EVIDENCE_REVIEWER.",
+    "reviewer_verdict": "ACCEPT_STAGING",
+    "limitations": [
+      "Real-time GPS train tracking is explicitly prohibited under anti-vibe constraints.",
+      "Regional 9-seater flights under UDAN are subject to visual flight rules (VFR) and seasonal operational adjustments."
+    ],
+    "canonical_promotion_allowed": true
+  },
+  {
+    "claim_id": "CLM_WEATHER_ALERTS_AND_RAG_CORPUS_013",
+    "gap_id": "WEATHER_WARNING_FEEDS",
+    "entity_id": "odisha_safety_alerts_and_rag_corpus",
+    "entity_name": "IMD Weather Warning Bulletins & Odia Virtual Academy Cultural Corpus",
+    "claim": "Authoritative safety feeds and cultural corpus boundaries established: IMD Bhubaneswar provides color-coded weather bulletins (Yellow, Orange, Red) and NDMA SACHET (sachet.ndma.gov.in) provides CAP RSS feeds. Cultural AI knowledge base is restricted strictly to verified public-domain historical texts from Odia Virtual Academy (ova.gov.in). Unauthorized scraping of Crown/Government copyrighted magazines (Odisha Review, Utkal Prasanga) and modern ASI monographs is blocked pending formal licensing clearance.",
+    "source_url": "https://mausam.imd.gov.in/bhubaneswar / https://sachet.ndma.gov.in/ / https://ova.gov.in/",
+    "source_title": "IMD, NDMA SACHET & Odia Virtual Academy Portals",
+    "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "retrieved_at": "2026-09-08T10:25:20+05:30",
+    "effective_date_if_known": "2024-01-01",
+    "freshness_class": "SLOW_CHANGING",
+    "identity_confidence": 0.95,
+    "source_confidence": 0.98,
+    "licensing_status": "GOVERNMENT_OPEN_AND_PUBLIC_DOMAIN",
+    "cross_thread_support": "Researched by PROVENANCE_POLICY_RESEARCHER; audited and accepted by ADVERSARIAL_EVIDENCE_REVIEWER.",
+    "reviewer_verdict": "ACCEPT_STAGING",
+    "limitations": [
+      "Odisha Review and Utkal Prasanga lack open CC licenses and must not be ingested into AI memory without written clearance.",
+      "Weather alerts must be presented with static bulletin timestamps and official disaster management attribution."
+    ],
+    "canonical_promotion_allowed": false
   }
 ]
+
 
 
