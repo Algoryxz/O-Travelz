@@ -1,0 +1,14 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_13_VIDEO_CAPABILITY_TRUTH",
+  "backend_api_has_video": false,
+  "destination_video_stream_count": 0,
+  "video_implemented": false,
+  "ui_enforcement": {
+    "play_buttons_on_photos": "FORBIDDEN (0 rendered)",
+    "fake_durations": "FORBIDDEN (0 rendered)",
+    "video_tabs_without_streams": "FORBIDDEN (0 rendered)",
+    "gating_logic": "Strictly capability-gated. Gating evaluates to false across all 179 places."
+  },
+  "verdict": "ZERO_FAKE_VIDEO_CONTROLS_ACCEPTED"
+}

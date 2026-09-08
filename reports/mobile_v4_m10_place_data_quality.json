@@ -1,0 +1,37 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_45_PLACE_DATA_QUALITY_LEDGER",
+  "total_eligible_destinations": 179,
+  "current_health": {
+    "verified_photo_coverage": "70 / 179 (39.1%)",
+    "pending_photo_coverage": "109 / 179 (60.9%)",
+    "odia_name_coverage": "72 / 179 (40.2%)",
+    "coordinates_coverage": "179 / 179 (100.0%)",
+    "description_coverage": "179 / 179 (100.0%)",
+    "structured_hours_coverage": "0 / 179 (0.0%)",
+    "verified_accessibility_coverage": "0 / 179 (0.0%)"
+  },
+  "acquisition_priorities": [
+    {
+      "tier": "P1",
+      "focus": "Photographic verification for 109 pending cultural destinations"
+    },
+    {
+      "tier": "P1",
+      "focus": "Odia script name coverage for remaining 107 destinations"
+    },
+    {
+      "tier": "P2",
+      "focus": "Structured opening hours ingestion from official temple / ASI registers"
+    },
+    {
+      "tier": "P2",
+      "focus": "Physical accessibility audit metadata (ramps, wheelchairs, tactile paths)"
+    },
+    {
+      "tier": "P3",
+      "focus": "Multi-photo enrichment for major heritage destinations"
+    }
+  ],
+  "verdict": "FUTURE_DATA_ACQUISITION_LEDGERED"
+}

@@ -1,0 +1,16 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_41_CROSS_PLATFORM_PARITY",
+  "contracts_aligned": {
+    "canonical_identity": "MATCH (UUID / String placeId)",
+    "photo_count_deduplication": "MATCH (5-tier source-photo identity)",
+    "hero_eligibility": "MATCH (verified authentic photos only)",
+    "video_eligibility": "MATCH (FALSE across both platforms)",
+    "three_d_eligibility": "MATCH (FALSE across both platforms)",
+    "weather_truth": "MATCH (Open-Meteo current or calm unavailable state)",
+    "practical_null_omission": "MATCH (null fields omitted, null != Free, null != Closed)",
+    "provenance_semantics": "MATCH (source and verification status shown clearly)",
+    "external_navigation_intent": "MATCH (geo: / maps:// intent handoff)"
+  },
+  "verdict": "CROSS_PLATFORM_PARITY_PASSED"
+}

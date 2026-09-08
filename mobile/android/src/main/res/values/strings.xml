@@ -62,4 +62,12 @@
     <string name="action_clear_district">Clear district</string>
     <string name="action_clear_category">Clear category</string>
     <string name="action_disable_nearby">Turn off Near Me</string>
+
+    <!-- M10 Place Detail & Media Strings -->
+    <string name="action_open_in_maps">Open in Maps</string>
+    <string name="badge_photo_pending">Photographic Verification in Progress</string>
+    <string name="photo_pending_desc">Authentic field photography for this destination is currently undergoing editorial review.</string>
+    <string name="action_share">Share</string>
+    <string name="share_text_template">%1$s, %2$s — Odisha Cultural Atlas</string>
+    <string name="content_desc_gallery_photo">Photograph %1$d of %2$d: %3$s</string>
 </resources>

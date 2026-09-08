@@ -5,6 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class PlaceImageDto(
+    val id: String? = null,
+    @SerialName("media_asset_id") val mediaAssetId: String? = null,
+    @SerialName("content_sha256") val contentSha256: String? = null,
+    @SerialName("asset_hash") val assetHash: String? = null,
     val url: String,
     @SerialName("thumbnail_url") val thumbnailUrl: String? = null,
     @SerialName("card_url") val cardUrl: String? = null,

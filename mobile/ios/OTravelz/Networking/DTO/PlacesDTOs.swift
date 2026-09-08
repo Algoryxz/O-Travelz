@@ -1,6 +1,10 @@
 import Foundation
 
 public struct PlaceImageDTO: Codable, Sendable {
+    public let id: String?
+    public let mediaAssetId: String?
+    public let contentSha256: String?
+    public let assetHash: String?
     public let url: String
     public let thumbnailUrl: String?
     public let cardUrl: String?
@@ -13,6 +17,10 @@ public struct PlaceImageDTO: Codable, Sendable {
     public let isPrimary: Bool?
 
     enum CodingKeys: String, CodingKey {
+        case id
+        case mediaAssetId = "media_asset_id"
+        case contentSha256 = "content_sha256"
+        case assetHash = "asset_hash"
         case url
         case thumbnailUrl = "thumbnail_url"
         case cardUrl = "card_url"

@@ -156,6 +156,28 @@ public struct PlaceDetail: Identifiable, Hashable, Sendable {
         primaryPhoto != nil
     }
 
+    public var hasCoordinates: Bool {
+        lat != nil && lon != nil
+    }
+
+    public var distinctPhotoCount: Int {
+        photos.count
+    }
+
+    public var hasMultiplePhotos: Bool {
+        photos.count > 1
+    }
+
+    /// Strict capability gating: backend places API does not expose video streams.
+    public var hasVideo: Bool {
+        false
+    }
+
+    /// Strict capability gating: backend places API does not expose 3D runtime models.
+    public var has3d: Bool {
+        false
+    }
+
     public init(
         id: String,
         researchId: String? = nil,
@@ -219,6 +241,28 @@ public enum PlaceDomainMapper {
         !excludedCategories.contains(category.lowercased().trimmingCharacters(in: .whitespacesAndNewlines))
     }
 
+    /// Canonical 5-tier source-photo identity priority:
+    /// 1. media_asset_id
+    /// 2. content_sha256
+    /// 3. asset_hash
+    /// 4. canonical image record id
+    /// 5. normalized source URL fallback
+    public static func extractSourceIdentity(dto: PlaceImageDTO) -> String {
+        if let aid = dto.mediaAssetId, !aid.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return "media_asset:\(aid)"
+        }
+        if let sha = dto.contentSha256, !sha.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return "sha256:\(sha)"
+        }
+        if let hash = dto.assetHash, !hash.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return "hash:\(hash)"
+        }
+        if let recId = dto.id, !recId.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return "record_id:\(recId)"
+        }
+        return extractSourceIdentity(url: dto.url)
+    }
+
     public static func extractSourceIdentity(url: String) -> String {
         let normalized = url.replacingOccurrences(of: "\\", with: "/")
         let components = normalized.split(separator: "/")
@@ -231,6 +275,9 @@ public enum PlaceDomainMapper {
                 }
             }
         }
+        if components.count >= 3 {
+            return components[components.count - 3...components.count - 2].joined(separator: "/")
+        }
         return normalized
     }
 
@@ -240,10 +287,11 @@ public enum PlaceDomainMapper {
         var photos: [PlacePhoto] = []
 
         for img in list {
-            let identity = extractSourceIdentity(url: img.url)
+            let isVerified = (img.status?.lowercased() == "verified") || (img.isPrimary == true)
+            guard isVerified else { continue }
+            let identity = extractSourceIdentity(dto: img)
             if !seenIdentities.contains(identity) {
                 seenIdentities.insert(identity)
-                let isVerified = (img.status?.lowercased() == "verified") || (img.isPrimary == true)
                 photos.append(
                     PlacePhoto(
                         url: img.url,
@@ -254,7 +302,7 @@ public enum PlaceDomainMapper {
                         sourceName: img.sourceName,
                         license: img.license,
                         attribution: img.attribution,
-                        isVerified: isVerified,
+                        isVerified: true,
                         sourceIdentity: identity
                     )
                 )

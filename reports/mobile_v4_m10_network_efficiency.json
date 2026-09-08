@@ -1,0 +1,13 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_40_NETWORK_EFFICIENCY",
+  "calls_per_detail_session": {
+    "get_place_detail": 1,
+    "get_weather_current": 1,
+    "image_fetches": "On-demand for visible hero only",
+    "n_plus_one_calls": 0,
+    "background_polling": false,
+    "unnecessary_metadata_calls": 0
+  },
+  "verdict": "NETWORK_BUDGET_OPTIMAL"
+}

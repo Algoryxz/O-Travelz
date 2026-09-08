@@ -1,0 +1,18 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_0_EVIDENCE_RECONCILIATION",
+  "timestamp": "2026-09-08T10:11:00+05:30",
+  "search_performance_calibration": {
+    "prior_statement": "60fps guaranteed across all devices based on <1ms benchmark",
+    "calibrated_classification": "SEARCH_CPU_COST_LOW",
+    "runtime_classification": "RUNTIME_FRAME_PERFORMANCE_PENDING_DEVICE_PROFILING",
+    "rationale": "In-memory token search consumes <1ms CPU time on standard JVM/ART, but physical 60fps rendering depends on Compose/SwiftUI layout complexity, font rendering, and hardware display refresh rates. Device profiling on real hardware is scheduled for QA phase."
+  },
+  "offline_resilience_calibration": {
+    "prior_statement": "100% operational during connectivity dropouts",
+    "calibrated_classification": "NETWORK_INDEPENDENT_AFTER_SUCCESSFUL_CATALOG_LOAD",
+    "cold_offline_status": "COLD_OFFLINE_WITHOUT_PERSISTED_CATALOG = UNAVAILABLE",
+    "rationale": "Once catalog items are loaded into runtime memory, searching, filtering, and detail navigation are 100% network-independent. However, initial cold launch without network remains unavailable until persistent storage (Room / SwiftData) is introduced in M14."
+  },
+  "status": "RECONCILED"
+}

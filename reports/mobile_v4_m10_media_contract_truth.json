@@ -1,0 +1,29 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_4_MEDIA_DATA_FORENSICS",
+  "canonical_identity_priority": [
+    "1. media_asset_id (UUID)",
+    "2. content_sha256 (64-char lowercase hex)",
+    "3. asset_hash (string)",
+    "4. canonical image record id (UUID / String)",
+    "5. normalized source URL fallback (directory prefix)"
+  ],
+  "deduplication_rule": "1 source asset with 3 responsive variants (hero.webp, card.webp, thumbnail.webp) evaluates strictly to 1 distinct photograph.",
+  "fields_inspected": [
+    "id",
+    "media_asset_id",
+    "content_sha256",
+    "asset_hash",
+    "url",
+    "card_url",
+    "thumbnail_url",
+    "alt_text",
+    "title",
+    "source_name",
+    "license",
+    "attribution",
+    "status",
+    "is_primary"
+  ],
+  "verdict": "MEDIA_CONTRACT_TRUTH_ESTABLISHED"
+}

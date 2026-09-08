@@ -192,9 +192,20 @@ This log documents the sequential execution of background research tasks by `GEM
 - **Cross-Validation Wording Standard**: Updated to `"independent Antigravity research-thread cross-validation"`.
 - **Evidence Integrity Preserved**: All 7 previously collected partial research findings (`TRANSIT_STOP_COORDINATE_CLOSURE`, `TRANSIT_ROUTE_GEOMETRY_GAPS`, `DESTINATION_OPENING_HOURS`, `DESTINATION_ENTRY_FEES`, `DESTINATION_ACCESSIBILITY`, `VERIFIED_DESTINATION_MEDIA`, `ARTISAN_AND_CRAFT_DATA`) remain 100% valid as they were gathered directly from primary statutory endpoints and portals (`.gov.in`, `.nic.in`, ASI, SJTA, IP India, Wikimedia Commons).
 
-
-
-
-
-
-
+### [2026-09-08] - Stage A Adversarial Review & Stage B Dispatch
+- **Audit Subagent**: `ADVERSARIAL_EVIDENCE_REVIEWER` (Tier: `pro`)
+- **Stage A Execution**: Completed adversarial audit across all 7 historical findings:
+  1. `TRANSIT_STOP_COORDINATE_CLOSURE`: Reviewed Claim `CLM_TRANSIT_STOPS_BHUBANESWARONE_001`. Verdict: `ACCEPT_WITH_LIMITATIONS`. Audit confirmed: 394 features represent physical assets (shelters, bays, directional poles), NOT 394 canonical stop identities. Bounded strictly to Bhubaneswar/BDA. Generated `IDENTITY_CROSSWALKS.json` (85 exact matches, 45 probable, 1,127 canonical stops statewide remaining unresolved).
+  2. `TRANSIT_ROUTE_GEOMETRY_GAPS`: Reviewed Claim `CLM_TRANSIT_ROUTES_BHUBANESWARONE_002`. Verdict: `ACCEPT_WITH_LIMITATIONS`. Route polylines validated as dense LineStrings, but route codes are legacy municipal designations (207, 306, 225, 333, 522). Crosswalk to modern CRUT Mo Bus IDs (`rt_crut_*`) mapped in `IDENTITY_CROSSWALKS.json`.
+  3. `DESTINATION_OPENING_HOURS`: Reviewed Claim `CLM_DEST_HOURS_GOLDEN_JOURNEY_003`. Verdict: `ACCEPT_WITH_LIMITATIONS`. Konark, Puri, Lingaraj, Khandagiri-Udayagiri, Dhauli statutory hours validated; noted dynamic ritual exceptions at Puri and Friday closures of ASI on-site museums.
+  4. `DESTINATION_ENTRY_FEES`: Reviewed Claim `CLM_DEST_FEES_TICKETED_HERITAGE_004`. Verdict: `ACCEPT_WITH_LIMITATIONS`. Exact tariffs validated (Konark, Khandagiri, Museum, Nandankanan, Dhauli show, Chilika boat); noted online ₹5 domestic discount dependencies.
+  5. `DESTINATION_ACCESSIBILITY`: Reviewed Claim `CLM_DEST_ACCESSIBILITY_AMENITIES_005`. Verdict: `ACCEPT_WITH_LIMITATIONS`. Verified ramps, battery vehicles, elevators; confirmed sanctum wheelchair bans due to 11th-century architecture.
+  6. `VERIFIED_DESTINATION_MEDIA`: Reviewed Claim `CLM_DEST_MEDIA_WIKIMEDIA_COMMONS_006`. Verdict: `ACCEPT_WITH_LIMITATIONS`. Strictly enforced file-level licensing: `File:Mukteswar_Temple-1.jpg` and `File:Rajarani_Temple,_Bhubaneswar.jpg` approved for staging; Category-level indices rejected for direct hero/card promotion.
+  7. `ARTISAN_AND_CRAFT_DATA`: Reviewed Claim `CLM_CRAFTS_GI_REGISTRY_007`. Verdict: `ACCEPT_STAGING`. 6 registered GIs confirmed via IP India; Sadeibareni Dhokra correctly classified as ongoing application (No. 1322).
+- **Artifacts Created**:
+  - `research/mobile-v4-data/CLAIM_REGISTRY.json` (7 claim-level audit objects)
+  - `research/mobile-v4-data/IDENTITY_CROSSWALKS.json` (transit stops & route corridor crosswalks)
+- **Stage B Parallel Dispatch**:
+  - Worker 1: `GIS_API_RESEARCHER` (`dd9d6a40-7bd5-479b-8a47-33e2f13be047`) $\rightarrow$ `ODISHA_DISTRICT_BOUNDARIES` (Task G3)
+  - Worker 2: `PROVENANCE_POLICY_RESEARCHER` (`48279045-683f-45c5-b883-c21f5cbdd752`) $\rightarrow$ `FOOD_AND_RESTAURANT_VERIFICATION` (Task C5)
+- **Status**: Running. Canonical mutations strictly 0.

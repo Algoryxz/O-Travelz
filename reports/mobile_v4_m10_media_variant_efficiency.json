@@ -1,0 +1,16 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_8_RESPONSIVE_MEDIA_VARIANT_SELECTION",
+  "rules": {
+    "place_detail_hero": "hero.webp variant (high resolution tailored to viewport)",
+    "discover_cards": "card.webp / thumbnail.webp variant (compact bandwidth)",
+    "gallery_items": "hero.webp / card.webp variant",
+    "original_masters": "STRICTLY FORBIDDEN in standard mobile feeds and details"
+  },
+  "audit_result": {
+    "hero_variant_requested": true,
+    "original_master_requests": 0,
+    "unbounded_source_fetches": 0
+  },
+  "verdict": "MEDIA_VARIANT_EFFICIENCY_ACCEPTED"
+}

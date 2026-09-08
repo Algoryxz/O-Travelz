@@ -53,12 +53,17 @@ struct PlaceDetailView: View {
                     .frame(maxWidth: .infinity, minHeight: 300)
                     .padding(SpacingTokens.space6)
                 } else if let place = detail ?? initialPlace.map({ PlaceDomainMapper.toPlaceDetail(PlaceDTO(id: $0.id, researchId: nil, name: $0.name, category: $0.category, description: nil, lat: nil, lon: nil, district: $0.district, region: $0.region, avgVisitMinutes: nil, priceTier: nil, rating: $0.rating, ratingCount: $0.ratingCount, interests: nil, source: nil, sourceUrl: nil, verificationStatus: nil, contactPhone: nil, emergencyPhone: nil, address: nil, images: nil, localizedNames: LocalizedNamesDTO(en: $0.name, or: $0.odiaName, hi: $0.hindiName))) }) {
-                    // Hero Media
-                    heroSection(place: place)
-
                     VStack(alignment: .leading, spacing: SpacingTokens.space5) {
-                        // Title & Cultural Header
+                        // Title & Cultural Header (Always visible immediately at top)
                         headerSection(place: place)
+
+                        // Hero Media
+                        heroSection(place: place)
+
+                        // Location Action: External Map Navigation Handoff (Phase 26)
+                        if place.hasCoordinates {
+                            mapActionButton(place: place)
+                        }
 
                         // Live Weather Card
                         weatherSection(place: place)
@@ -77,16 +82,19 @@ struct PlaceDetailView: View {
                             }
                         }
 
+                        // Verified Photos Gallery (Rendered only when distinct photos > 1)
+                        if place.hasMultiplePhotos {
+                            photoGallerySection(place: place)
+                        }
+
                         // Practical Information
                         practicalInfoSection(place: place)
-
-                        // Verified Photos Gallery
-                        photoGallerySection(place: place)
 
                         // Provenance & Source Metadata
                         provenanceSection(place: place)
                     }
                     .padding(.horizontal, SpacingTokens.space5)
+                    .padding(.top, SpacingTokens.space4)
                     .padding(.bottom, SpacingTokens.space8)
                 }
             }
@@ -94,6 +102,18 @@ struct PlaceDetailView: View {
         .background(ColorTokens.canvas.ignoresSafeArea())
         .navigationTitle(detail?.name ?? initialPlace?.name ?? "")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            if let place = detail ?? initialPlace.map({ PlaceDomainMapper.toPlaceDetail(PlaceDTO(id: $0.id, researchId: nil, name: $0.name, category: $0.category, description: nil, lat: nil, lon: nil, district: $0.district, region: $0.region, avgVisitMinutes: nil, priceTier: nil, rating: $0.rating, ratingCount: $0.ratingCount, interests: nil, source: nil, sourceUrl: nil, verificationStatus: nil, contactPhone: nil, emergencyPhone: nil, address: nil, images: nil, localizedNames: LocalizedNamesDTO(en: $0.name, or: $0.odiaName, hi: $0.hindiName))) }) {
+                ToolbarItem(placement: .topBarTrailing) {
+                    ShareLink(
+                        item: "\(place.name)\(place.district.map { ", \($0)" } ?? "") — Odisha Cultural Atlas"
+                    ) {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundStyle(ColorTokens.terracotta)
+                    }
+                }
+            }
+        }
         .task {
             loadDetail()
         }
@@ -114,7 +134,7 @@ struct PlaceDetailView: View {
                     case .success(let img):
                         img
                             .resizable()
-                            .aspectRatio(16 / 9, contentMode: .fill)
+                            .aspectRatio(16 / 10, contentMode: .fill)
                             .clipped()
                     case .failure:
                         fallbackHero(place: place)
@@ -122,8 +142,8 @@ struct PlaceDetailView: View {
                         fallbackHero(place: place)
                     }
                 }
-                .frame(height: 240)
                 .frame(maxWidth: .infinity)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
 
                 // Verification Badge
                 HStack(spacing: SpacingTokens.space1) {
@@ -141,8 +161,37 @@ struct PlaceDetailView: View {
             }
         } else {
             fallbackHero(place: place)
-                .frame(height: 180)
                 .frame(maxWidth: .infinity)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+        }
+    }
+
+    @ViewBuilder
+    private func mapActionButton(place: PlaceDetail) -> some View {
+        if let lat = place.lat, let lon = place.lon {
+            Button(action: {
+                let nameEncoded = place.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                let urlString = "maps://?q=\(nameEncoded)&ll=\(lat),\(lon)"
+                if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                } else if let webUrl = URL(string: "https://maps.apple.com/?q=\(lat),\(lon)") {
+                    UIApplication.shared.open(webUrl)
+                }
+            }) {
+                HStack(spacing: SpacingTokens.space2) {
+                    Image(systemName: "mappin.and.ellipse")
+                    Text(LocalizedStringKey("action_open_in_maps"))
+                }
+                .font(TypographyTokens.labelLarge)
+                .foregroundStyle(ColorTokens.terracotta)
+                .frame(maxWidth: .infinity, minHeight: 44)
+                .background(ColorTokens.canvas)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(ColorTokens.terracotta, lineWidth: 1)
+                )
+            }
         }
     }
 
@@ -159,18 +208,17 @@ struct PlaceDetailView: View {
                         .padding(.horizontal, SpacingTokens.space4)
                 }
 
-                HStack(spacing: SpacingTokens.space1) {
-                    Image(systemName: "photo.badge.exclamationmark")
-                    Text(LocalizedStringKey("badge_pending"))
-                }
-                .font(TypographyTokens.labelSmall)
-                .padding(.horizontal, SpacingTokens.space3)
-                .padding(.vertical, SpacingTokens.space1)
-                .background(ColorTokens.truthCandidate.opacity(0.15))
-                .foregroundStyle(ColorTokens.truthCandidate)
-                .clipShape(Capsule())
+                Text(LocalizedStringKey("badge_photo_pending"))
+                    .font(TypographyTokens.labelMedium)
+                    .foregroundStyle(ColorTokens.textPrimary)
+
+                Text(LocalizedStringKey("photo_pending_desc"))
+                    .font(TypographyTokens.bodySmall)
+                    .foregroundStyle(ColorTokens.textSecondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, SpacingTokens.space4)
             }
-            .padding(SpacingTokens.space4)
+            .padding(SpacingTokens.space6)
         }
     }
 

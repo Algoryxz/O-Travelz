@@ -1,0 +1,17 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_6_PUBLICATION_POLICY_RECONCILIATION",
+  "prior_rule": "NO VERIFIED IMAGE = NO PUBLIC DESTINATION (from early bootstrap stage)",
+  "operational_reality": "All 179 default leisure destinations in Odisha database are legitimate cultural destinations. 70 have verified authentic photography; 109 are currently undergoing field photographic verification.",
+  "reconciled_policy": {
+    "DESTINATION_PUBLICATION": "Decoupled from media verification. All 179 verified cultural and leisure destinations are publicly browsable in O-TRAVELZ.",
+    "MEDIA_PUBLICATION": "Strictly gated. UNVERIFIED_MEDIA_MUST_NEVER_RENDER_PUBLICLY. No stock photos, no AI imagery, no cross-destination photo borrowing.",
+    "MISSING_MEDIA_BEHAVIOR": "Destinations pending photographic verification display an editorial cultural typography card in warm Sunlit Sandstone / Deep Basalt with prominent Odia calligraphy."
+  },
+  "counts": {
+    "eligible_public_leisure_destinations": 179,
+    "destinations_with_verified_media": 70,
+    "destinations_pending_photo_verification": 109
+  },
+  "verdict": "PUBLICATION_POLICY_RESOLVED"
+}

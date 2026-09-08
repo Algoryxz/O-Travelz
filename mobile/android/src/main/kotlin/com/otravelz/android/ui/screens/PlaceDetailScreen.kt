@@ -1,5 +1,7 @@
 package com.otravelz.android.ui.screens
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,8 +13,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -24,6 +29,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -38,7 +44,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -49,6 +59,7 @@ import com.otravelz.android.data.network.NetworkResult
 import com.otravelz.android.data.network.adapter.WeatherState
 import com.otravelz.android.data.network.adapter.toDomain
 import com.otravelz.android.domain.model.PlaceDetail
+import com.otravelz.android.domain.model.PlacePhoto
 import com.otravelz.android.domain.model.toPlaceDetail
 import com.otravelz.android.ui.theme.Spacing
 import kotlinx.coroutines.launch
@@ -78,6 +89,7 @@ fun PlaceDetailScreen(
 ) {
     var uiState by remember { mutableStateOf<PlaceDetailUiState>(PlaceDetailUiState.Loading) }
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     fun loadData() {
         uiState = PlaceDetailUiState.Loading
@@ -123,12 +135,43 @@ fun PlaceDetailScreen(
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
+                    IconButton(
+                        onClick = onBack,
+                        modifier = Modifier.size(48.dp)
+                    ) {
                         Text(
-                            text = "\u2190",
+                            text = "←",
                             style = MaterialTheme.typography.titleLarge,
                             color = MaterialTheme.colorScheme.onSurface
                         )
+                    }
+                },
+                actions = {
+                    val successState = uiState as? PlaceDetailUiState.Success
+                    if (successState != null) {
+                        IconButton(
+                            onClick = {
+                                val place = successState.place
+                                val shareText = "${place.name}${place.district?.let { ", $it" } ?: ""} — Odisha Cultural Atlas"
+                                val sendIntent = Intent().apply {
+                                    action = Intent.ACTION_SEND
+                                    putExtra(Intent.EXTRA_TEXT, shareText)
+                                    type = "text/plain"
+                                }
+                                val shareIntent = Intent.createChooser(sendIntent, null)
+                                context.startActivity(shareIntent)
+                            },
+                            modifier = Modifier.size(48.dp)
+                        ) {
+                            Text(
+                                text = "⤵",
+                                style = MaterialTheme.typography.titleMedium,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.semantics {
+                                    contentDescription = context.getString(R.string.action_share)
+                                }
+                            )
+                        }
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -201,6 +244,7 @@ private fun PlaceDetailContent(
     weather: WeatherState
 ) {
     val scrollState = rememberScrollState()
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier
@@ -216,6 +260,8 @@ private fun PlaceDetailContent(
                 .padding(horizontal = Spacing.space6)
         ) {
             Spacer(modifier = Modifier.height(Spacing.space4))
+
+            // 1. Immediate Destination Identity (Always at top, never buried)
             Text(
                 text = place.category.replace('_', ' ').uppercase(),
                 style = MaterialTheme.typography.labelSmall,
@@ -228,7 +274,8 @@ private fun PlaceDetailContent(
                 text = place.name,
                 style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.onSurface,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.semantics { heading() }
             )
 
             if (!place.odiaName.isNullOrBlank()) {
@@ -253,6 +300,7 @@ private fun PlaceDetailContent(
 
             Spacer(modifier = Modifier.height(Spacing.space5))
 
+            // 2. Verified Hero Media or Cultural Typography Card
             val primary = place.primaryPhoto
             if (primary != null) {
                 Card(
@@ -269,41 +317,126 @@ private fun PlaceDetailContent(
                                 .aspectRatio(16f / 10f),
                             contentScale = ContentScale.Crop
                         )
-                        if (!primary.attribution.isNullOrBlank() || !primary.sourceName.isNullOrBlank()) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = Spacing.space4, vertical = Spacing.space3),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
                             val attributionText = listOfNotNull(primary.sourceName, primary.attribution).joinToString(" - ")
                             Text(
-                                text = attributionText,
+                                text = if (attributionText.isNotBlank()) attributionText else stringResource(R.string.badge_verified),
                                 style = MaterialTheme.typography.labelSmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.padding(Spacing.space4)
+                                modifier = Modifier.weight(1f, fill = false)
+                            )
+                            Spacer(modifier = Modifier.width(Spacing.space2))
+                            Text(
+                                text = stringResource(R.string.badge_verified),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.primary,
+                                fontWeight = FontWeight.Bold
                             )
                         }
                     }
                 }
+            } else {
+                // Truthful cultural sandstone card when photographic verification is pending
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(Spacing.space6),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        if (!place.odiaName.isNullOrBlank()) {
+                            Text(
+                                text = place.odiaName,
+                                style = MaterialTheme.typography.headlineSmall,
+                                color = MaterialTheme.colorScheme.primary,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center
+                            )
+                            Spacer(modifier = Modifier.height(Spacing.space3))
+                        }
+                        Text(
+                            text = stringResource(R.string.badge_photo_pending),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurface,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                        Spacer(modifier = Modifier.height(Spacing.space2))
+                        Text(
+                            text = stringResource(R.string.photo_pending_desc),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(Spacing.space5))
+
+            // 3. Location Action: External Map Navigation Handoff (Phase 26)
+            if (place.hasCoordinates) {
+                OutlinedButton(
+                    onClick = {
+                        val lat = place.lat!!
+                        val lon = place.lon!!
+                        val uri = Uri.parse("geo:$lat,$lon?q=$lat,$lon(${Uri.encode(place.name)})")
+                        val mapIntent = Intent(Intent.ACTION_VIEW, uri)
+                        try {
+                            context.startActivity(mapIntent)
+                        } catch (e: Exception) {
+                            val webUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=$lat,$lon")
+                            context.startActivity(Intent(Intent.ACTION_VIEW, webUri))
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp)
+                ) {
+                    Text(
+                        text = "📍 " + stringResource(R.string.action_open_in_maps),
+                        style = MaterialTheme.typography.labelLarge,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
                 Spacer(modifier = Modifier.height(Spacing.space6))
             }
 
+            // 4. Cultural Significance / Narrative
             if (!place.description.isNullOrBlank()) {
                 Text(
                     text = stringResource(R.string.section_about),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.semantics { heading() }
                 )
                 Spacer(modifier = Modifier.height(Spacing.space3))
                 Text(
                     text = place.description,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    lineHeight = MaterialTheme.typography.bodyLarge.lineHeight
                 )
                 Spacer(modifier = Modifier.height(Spacing.space6))
             }
 
+            // 5. Live Local Weather (Phase 21-24)
             Text(
                 text = stringResource(R.string.section_weather),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier.semantics { heading() }
             )
             Spacer(modifier = Modifier.height(Spacing.space3))
             when (weather) {
@@ -344,22 +477,63 @@ private fun PlaceDetailContent(
                     }
                 }
                 is WeatherState.Unavailable -> {
-                    Text(
-                        text = stringResource(R.string.weather_unavailable),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)
+                    ) {
+                        Text(
+                            text = stringResource(R.string.weather_unavailable),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(Spacing.space4)
+                        )
+                    }
                 }
             }
             Spacer(modifier = Modifier.height(Spacing.space6))
 
-            val hasPractical = !place.address.isNullOrBlank() || place.hasCoordinates || place.avgVisitMinutes != null || !place.priceTier.isNullOrBlank() || !place.contactPhone.isNullOrBlank()
+            // 6. Photo Gallery (Rendered only when distinct verified photos > 1) (Phase 11)
+            if (place.hasMultiplePhotos) {
+                Text(
+                    text = "${stringResource(R.string.section_gallery)} (${place.distinctPhotoCount})",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.semantics { heading() }
+                )
+                Spacer(modifier = Modifier.height(Spacing.space3))
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(Spacing.space4),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    itemsIndexed(place.photos) { index, photo ->
+                        GalleryPhotoCard(
+                            photo = photo,
+                            placeName = place.name,
+                            index = index + 1,
+                            total = place.photos.size
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.height(Spacing.space6))
+            }
+
+            // 7. Sourced Practical Facts (Null fields strictly omitted) (Phase 16-20)
+            val hasPractical = !place.address.isNullOrBlank() ||
+                place.hasCoordinates ||
+                place.avgVisitMinutes != null ||
+                !place.priceTier.isNullOrBlank() ||
+                !place.contactPhone.isNullOrBlank() ||
+                !place.emergencyPhone.isNullOrBlank()
+
             if (hasPractical) {
                 Text(
                     text = stringResource(R.string.section_practical),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.semantics { heading() }
                 )
                 Spacer(modifier = Modifier.height(Spacing.space3))
                 Card(
@@ -372,7 +546,10 @@ private fun PlaceDetailContent(
                             PracticalRow(label = stringResource(R.string.label_address), value = it)
                         }
                         if (place.hasCoordinates) {
-                            PracticalRow(label = stringResource(R.string.label_coordinates), value = "${place.lat}, ${place.lon}")
+                            PracticalRow(
+                                label = stringResource(R.string.label_coordinates),
+                                value = "${String.format(java.util.Locale.US, "%.4f", place.lat)}, ${String.format(java.util.Locale.US, "%.4f", place.lon)}"
+                            )
                         }
                         place.avgVisitMinutes?.let {
                             PracticalRow(label = stringResource(R.string.label_visit_duration), value = "$it minutes")
@@ -391,11 +568,13 @@ private fun PlaceDetailContent(
                 Spacer(modifier = Modifier.height(Spacing.space6))
             }
 
+            // 8. Catalog & Data Provenance (Phase 25)
             Text(
                 text = stringResource(R.string.section_provenance),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier.semantics { heading() }
             )
             Spacer(modifier = Modifier.height(Spacing.space3))
             Card(
@@ -414,6 +593,45 @@ private fun PlaceDetailContent(
                         PracticalRow(label = "Status", value = it.uppercase())
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun GalleryPhotoCard(
+    photo: PlacePhoto,
+    placeName: String,
+    index: Int,
+    total: Int
+) {
+    Card(
+        modifier = Modifier
+            .width(220.dp)
+            .semantics {
+                contentDescription = "Photograph $index of $total: ${photo.altText ?: placeName}"
+            },
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)
+    ) {
+        Column {
+            AsyncImage(
+                model = photo.resolvedCardUrl,
+                contentDescription = photo.altText ?: placeName,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(4f / 3f),
+                contentScale = ContentScale.Crop
+            )
+            val attributionText = listOfNotNull(photo.sourceName, photo.attribution).joinToString(" - ")
+            if (attributionText.isNotBlank()) {
+                Text(
+                    text = attributionText,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    modifier = Modifier.padding(Spacing.space3)
+                )
             }
         }
     }

@@ -60,3 +60,9 @@
 "action_clear_district" = "ଜିଲ୍ଲା ହଟାନ୍ତୁ";
 "action_clear_category" = "ବର୍ଗ ହଟାନ୍ତୁ";
 "action_disable_nearby" = "ନିକଟସ୍ଥ ବନ୍ଦ କରନ୍ତୁ";
+
+/* M10 Place Detail Strings */
+"action_open_in_maps" = "ମାନଚିତ୍ରରେ ଖୋଲନ୍ତୁ";
+"badge_photo_pending" = "ଫଟୋଗ୍ରାଫି ଯାଞ୍ଚ ଚାଲିଛି";
+"photo_pending_desc" = "ଏହି ସ୍ଥାନ ପାଇଁ ପ୍ରାମାଣିକ ଫଟୋଗ୍ରାଫି ସମ୍ପାଦକୀୟ ସମୀକ୍ଷାରେ ଅଛି।";
+"action_share" = "ଅଂଶୀଦାର କରନ୍ତୁ";

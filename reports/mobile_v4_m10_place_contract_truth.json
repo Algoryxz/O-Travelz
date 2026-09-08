@@ -1,0 +1,199 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_1_PLACE_DETAIL_CONTRACT_FORENSICS",
+  "endpoint": "GET /places/{id}",
+  "field_classifications": {
+    "IDENTITY": [
+      {
+        "field": "id",
+        "type": "UUID / String",
+        "nullable": false,
+        "traveler_presentation": "Internal key / deep link identifier",
+        "truth_risk": "NONE"
+      },
+      {
+        "field": "name",
+        "type": "String",
+        "nullable": false,
+        "traveler_presentation": "Primary title",
+        "truth_risk": "NONE"
+      },
+      {
+        "field": "localized_names.or",
+        "type": "String",
+        "nullable": true,
+        "traveler_presentation": "Odia script sub-headline",
+        "truth_risk": "LOW - must preserve matras"
+      }
+    ],
+    "EDITORIAL": [
+      {
+        "field": "description",
+        "type": "String",
+        "nullable": true,
+        "traveler_presentation": "About / cultural significance narrative",
+        "truth_risk": "LOW - authentic text only, no AI hype"
+      },
+      {
+        "field": "category",
+        "type": "String",
+        "nullable": false,
+        "traveler_presentation": "Category tag (e.g. HERITAGE, TEMPLE, NATURE)",
+        "truth_risk": "NONE"
+      },
+      {
+        "field": "interests",
+        "type": "List[String]",
+        "nullable": false,
+        "traveler_presentation": "Thematic topic tags",
+        "truth_risk": "NONE"
+      }
+    ],
+    "LOCATION": [
+      {
+        "field": "lat",
+        "type": "Double",
+        "nullable": true,
+        "traveler_presentation": "Coordinates / external map intent",
+        "truth_risk": "MEDIUM - must be within Odisha bounds (17.78-22.57N, 81.39-87.53E)"
+      },
+      {
+        "field": "lon",
+        "type": "Double",
+        "nullable": true,
+        "traveler_presentation": "Coordinates / external map intent",
+        "truth_risk": "MEDIUM - must be within Odisha bounds"
+      },
+      {
+        "field": "district",
+        "type": "String",
+        "nullable": true,
+        "traveler_presentation": "Administrative district tag",
+        "truth_risk": "NONE"
+      },
+      {
+        "field": "region",
+        "type": "String",
+        "nullable": true,
+        "traveler_presentation": "Cultural travel region tag",
+        "truth_risk": "NONE"
+      },
+      {
+        "field": "address",
+        "type": "String",
+        "nullable": true,
+        "traveler_presentation": "Postal / locality address",
+        "truth_risk": "LOW - omit if null"
+      }
+    ],
+    "PRACTICAL": [
+      {
+        "field": "avg_visit_minutes",
+        "type": "Int",
+        "nullable": true,
+        "traveler_presentation": "Typical visit duration",
+        "truth_risk": "LOW - omit if null"
+      },
+      {
+        "field": "price_tier",
+        "type": "String",
+        "nullable": true,
+        "traveler_presentation": "Price indicator",
+        "truth_risk": "HIGH - null != Free"
+      },
+      {
+        "field": "contact_phone",
+        "type": "String",
+        "nullable": true,
+        "traveler_presentation": "Public contact phone",
+        "truth_risk": "LOW - omit if null"
+      },
+      {
+        "field": "emergency_phone",
+        "type": "String",
+        "nullable": true,
+        "traveler_presentation": "Emergency assistance phone",
+        "truth_risk": "LOW - omit if null"
+      }
+    ],
+    "MEDIA": [
+      {
+        "field": "images",
+        "type": "List[PlaceImageDto]",
+        "nullable": false,
+        "traveler_presentation": "Verified hero photo and gallery",
+        "truth_risk": "CRITICAL - only verified authentic images allowed, dedup variants"
+      }
+    ],
+    "PROVENANCE": [
+      {
+        "field": "source",
+        "type": "String",
+        "nullable": true,
+        "traveler_presentation": "Source entity / catalog attribution",
+        "truth_risk": "NONE"
+      },
+      {
+        "field": "verified_at",
+        "type": "String",
+        "nullable": true,
+        "traveler_presentation": "Verification date timestamp",
+        "truth_risk": "NONE"
+      },
+      {
+        "field": "verification_status",
+        "type": "String",
+        "nullable": true,
+        "traveler_presentation": "Verification status badge",
+        "truth_risk": "NONE"
+      }
+    ],
+    "OPTIONAL": [
+      {
+        "field": "rating",
+        "type": "Double",
+        "nullable": true,
+        "traveler_presentation": "Suppressed in M10 (no third-party review scrapers)",
+        "truth_risk": "HIGH - avoid fake ratings"
+      },
+      {
+        "field": "rating_count",
+        "type": "Int",
+        "nullable": true,
+        "traveler_presentation": "Suppressed in M10",
+        "truth_risk": "HIGH"
+      }
+    ],
+    "UNSUPPORTED": [
+      {
+        "field": "opening_hours",
+        "type": "None",
+        "nullable": true,
+        "traveler_presentation": "Strictly omitted when unstructured",
+        "truth_risk": "CRITICAL - never calculate Open Now"
+      },
+      {
+        "field": "accessibility",
+        "type": "None",
+        "nullable": true,
+        "traveler_presentation": "Strictly omitted when unverified",
+        "truth_risk": "CRITICAL - never invent wheelchair status"
+      },
+      {
+        "field": "video_stream",
+        "type": "None",
+        "nullable": true,
+        "traveler_presentation": "ZERO video controls rendered",
+        "truth_risk": "CRITICAL - no video streams exist in API"
+      },
+      {
+        "field": "model_3d",
+        "type": "None",
+        "nullable": true,
+        "traveler_presentation": "ZERO 3D controls rendered",
+        "truth_risk": "CRITICAL - no 3D runtime assets exist in API"
+      }
+    ]
+  },
+  "verdict": "PLACE_DETAIL_CONTRACT_AUDITED"
+}

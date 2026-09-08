@@ -1,13 +1,15 @@
 {
   "program": "O-TRAVELZ Continuous Data Intelligence",
-  "status": "PAUSED_QUOTA_COOLDOWN",
+  "status": "STAGE_B_PARALLEL_RESEARCH",
   "started_at": "2026-09-08T09:38:00+05:30",
   "total_gaps": 16,
   "validated": 0,
-  "partial": 7,
+  "evidence_preserved_pending_adversarial_review": 7,
+  "claims_reviewed": 7,
+  "partial": 0,
   "blocked": 0,
   "not_available": 0,
-  "researching": 0,
+  "researching": 2,
   "deferred": 0,
   "active_worker_roles": [
     "GIS_API_RESEARCHER",
@@ -21,6 +23,18 @@
     "MODEL_TIER_DIVERSITY": true,
     "MODEL_FAMILY_DIVERSITY": false
   },
+  "active_tasks": {
+    "dd9d6a40-7bd5-479b-8a47-33e2f13be047": {
+      "role": "GIS_API_RESEARCHER",
+      "task_id": "GIS_TASK_G3_DISTRICT_BOUNDARIES",
+      "tier": "FLASH"
+    },
+    "48279045-683f-45c5-b883-c21f5cbdd752": {
+      "role": "PROVENANCE_POLICY_RESEARCHER",
+      "task_id": "PROVENANCE_TASK_C5_FOOD_VERIFICATION",
+      "tier": "PRO"
+    }
+  },
   "historical_conversations": {
     "31d92cd7-ce17-41cb-b60c-cce787c10282": {
       "role": "GIS_API_RESEARCHER",
@@ -31,8 +45,7 @@
       "tier": "PRO"
     }
   },
-  "quota_cooldown_reset_expected": "2026-09-08T13:20:00+05:30",
-  "last_checkpoint": "2026-09-08T10:06:00+05:30",
+  "last_checkpoint": "2026-09-08T10:15:30+05:30",
   "canonical_mutations": 0,
   "production_db_mutations": 0
 }

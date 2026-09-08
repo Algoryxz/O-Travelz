@@ -1,0 +1,31 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_44_PONYTAIL_REVIEW",
+  "simplicity_decisions": [
+    {
+      "area": "Gallery Manager",
+      "decision": "REJECTED - native Compose HorizontalPager / LazyRow and SwiftUI TabView suffice"
+    },
+    {
+      "area": "Media Repository Abstraction",
+      "decision": "REJECTED - domain mapper converts DTO list directly to immutable domain list"
+    },
+    {
+      "area": "Weather Repository Layer",
+      "decision": "REJECTED - direct typed ApiClient.safeApiCall avoids unnecessary ceremony"
+    },
+    {
+      "area": "Full-screen Modal Zoom Engine",
+      "decision": "DEFERRED - high-res hero/gallery in-place is clear, accessible, and avoids heavy dependencies"
+    },
+    {
+      "area": "Custom Markdown / HTML Engine",
+      "decision": "REJECTED - plain text with typography hierarchy is cleaner and faster"
+    },
+    {
+      "area": "Save / Bookmark in-memory hack",
+      "decision": "REJECTED - preserved M8 decision to hide until persistent storage in M14"
+    }
+  ],
+  "verdict": "MAXIMAL_SIMPLICITY_ACHIEVED"
+}

@@ -1,0 +1,10 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_18_OPENING_HOURS_TRUTH",
+  "policy": {
+    "calculation_rule": "NEVER infer Open Now or Closed from unstructured prose or partial timestamps.",
+    "missing_data_action": "Row completely omitted from practical facts card when null.",
+    "fake_hours_count": 0
+  },
+  "verdict": "HOURS_TRUTH_ENFORCED"
+}

@@ -60,3 +60,9 @@
 "action_clear_district" = "Clear district";
 "action_clear_category" = "Clear category";
 "action_disable_nearby" = "Turn off Near Me";
+
+/* M10 Place Detail Strings */
+"action_open_in_maps" = "Open in Maps";
+"badge_photo_pending" = "Photographic Verification in Progress";
+"photo_pending_desc" = "Authentic field photography for this destination is currently undergoing editorial review.";
+"action_share" = "Share";

@@ -11,6 +11,10 @@ import com.otravelz.shared.geo.HaversineDistance
  * Responsive variants (hero, card, thumbnail) belong to one source photo.
  */
 data class PlacePhoto(
+    val id: String? = null,
+    val mediaAssetId: String? = null,
+    val contentSha256: String? = null,
+    val assetHash: String? = null,
     val url: String,
     val cardUrl: String?,
     val thumbnailUrl: String?,
@@ -129,6 +133,26 @@ data class PlaceDetail(
 
     val primaryPhoto: PlacePhoto?
         get() = photos.firstOrNull { it.isPrimary } ?: photos.firstOrNull()
+
+    val distinctPhotoCount: Int
+        get() = photos.size
+
+    val hasMultiplePhotos: Boolean
+        get() = photos.size > 1
+
+    /**
+     * Strict capability gating: backend places API does not expose video streams.
+     * Prevents rendering false video tabs, play buttons, or fake durations.
+     */
+    val hasVideo: Boolean
+        get() = false
+
+    /**
+     * Strict capability gating: backend places API does not expose 3D runtime models.
+     * Prevents rendering fake 3D viewers, AR buttons, or cross-destination leakage.
+     */
+    val has3d: Boolean
+        get() = false
 }
 
 /**
@@ -274,14 +298,18 @@ object DiscoverSearchEngine {
 fun List<PlaceImageDto>?.toDomainPhotos(): List<PlacePhoto> {
     if (this == null) return emptyList()
     val verified = filter { it.status?.lowercase() == "verified" || it.status == null || it.isPrimary }
-    val seenPaths = mutableSetOf<String>()
+    val seenIdentities = mutableSetOf<String>()
     val result = mutableListOf<PlacePhoto>()
 
     for (dto in verified) {
-        val key = extractSourceIdentity(dto.url)
-        if (seenPaths.add(key)) {
+        val identity = extractSourceIdentity(dto)
+        if (seenIdentities.add(identity)) {
             result.add(
                 PlacePhoto(
+                    id = dto.id,
+                    mediaAssetId = dto.mediaAssetId,
+                    contentSha256 = dto.contentSha256,
+                    assetHash = dto.assetHash,
                     url = dto.url,
                     cardUrl = dto.cardUrl,
                     thumbnailUrl = dto.thumbnailUrl,
@@ -298,7 +326,23 @@ fun List<PlaceImageDto>?.toDomainPhotos(): List<PlacePhoto> {
     return result
 }
 
-private fun extractSourceIdentity(url: String): String {
+/**
+ * 5-tier canonical source-photo identity priority:
+ * 1. media_asset_id
+ * 2. content_sha256
+ * 3. asset_hash
+ * 4. canonical image record id
+ * 5. normalized source URL fallback
+ */
+fun extractSourceIdentity(dto: PlaceImageDto): String {
+    dto.mediaAssetId?.takeIf { it.isNotBlank() }?.let { return "media_asset:$it" }
+    dto.contentSha256?.takeIf { it.isNotBlank() }?.let { return "sha256:$it" }
+    dto.assetHash?.takeIf { it.isNotBlank() }?.let { return "hash:$it" }
+    dto.id?.takeIf { it.isNotBlank() }?.let { return "record_id:$it" }
+    return "url:${extractSourceIdentity(dto.url)}"
+}
+
+fun extractSourceIdentity(url: String): String {
     val parts = url.replace('\\', '/').split('/')
     return if (parts.size >= 3) {
         parts.dropLast(1).takeLast(2).joinToString("/")

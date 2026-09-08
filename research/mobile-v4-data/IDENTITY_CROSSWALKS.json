@@ -1,0 +1,168 @@
+{
+  "crosswalk_version": "1.0.0",
+  "generated_at": "2026-09-08T10:15:00+05:30",
+  "summary_metrics": {
+    "official_source_feature_count": 394,
+    "unique_source_stop_count": 240,
+    "canonical_exact_matches": 85,
+    "canonical_probable_matches": 45,
+    "unmatched_official_features": 264,
+    "canonical_stops_still_unresolved": 1127,
+    "duplicate_or_near_duplicate_features": 154
+  },
+  "stop_crosswalks": [
+    {
+      "source_system": "BHUBANESWARONE_UPDATED_BUS_STOPS_LAYER_3",
+      "source_entity_id": "1",
+      "source_name": "Master Canteen Terminal",
+      "canonical_candidate_id": "stop_crut_bbs_master_canteen",
+      "match_method": "EXACT_NAME_AND_TERMINAL_ROLE",
+      "distance_m": 0.0,
+      "name_similarity": 1.0,
+      "route_context_match": true,
+      "confidence": 0.98,
+      "status": "EXACT"
+    },
+    {
+      "source_system": "BHUBANESWARONE_UPDATED_BUS_STOPS_LAYER_3",
+      "source_entity_id": "14",
+      "source_name": "New Airport Sq",
+      "canonical_candidate_id": "stop_crut_bbs_airport_square",
+      "match_method": "HIGH_SIMILARITY_CORRIDOR_MATCH",
+      "distance_m": 15.2,
+      "name_similarity": 0.92,
+      "route_context_match": true,
+      "confidence": 0.95,
+      "status": "EXACT"
+    },
+    {
+      "source_system": "BHUBANESWARONE_UPDATED_BUS_STOPS_LAYER_3",
+      "source_entity_id": "15",
+      "source_name": "Old Airport Sq",
+      "canonical_candidate_id": "stop_crut_bbs_old_airport",
+      "match_method": "HIGH_SIMILARITY_CORRIDOR_MATCH",
+      "distance_m": 12.0,
+      "name_similarity": 0.90,
+      "route_context_match": true,
+      "confidence": 0.92,
+      "status": "EXACT"
+    },
+    {
+      "source_system": "BHUBANESWARONE_UPDATED_BUS_STOPS_LAYER_3",
+      "source_entity_id": "82",
+      "source_name": "Khurda Road Railway Station",
+      "canonical_candidate_id": "stop_crut_khurda_road_junction",
+      "match_method": "TERMINAL_AND_RAIL_ANCHOR_MATCH",
+      "distance_m": 22.5,
+      "name_similarity": 0.88,
+      "route_context_match": true,
+      "confidence": 0.92,
+      "status": "PROBABLE"
+    },
+    {
+      "source_system": "BHUBANESWARONE_UPDATED_BUS_STOPS_LAYER_3",
+      "source_entity_id": "104",
+      "source_name": "Lingaraj Station",
+      "canonical_candidate_id": "stop_crut_bbs_lingaraj_temple_road_stn",
+      "match_method": "RAIL_STATION_CORRIDOR_MATCH",
+      "distance_m": 18.0,
+      "name_similarity": 0.85,
+      "route_context_match": true,
+      "confidence": 0.90,
+      "status": "PROBABLE"
+    },
+    {
+      "source_system": "BHUBANESWARONE_UPDATED_BUS_STOPS_LAYER_3",
+      "source_entity_id": "118",
+      "source_name": "Mancheswar Station",
+      "canonical_candidate_id": "stop_crut_bbs_mancheswar_railway_stn",
+      "match_method": "RAIL_STATION_CORRIDOR_MATCH",
+      "distance_m": 14.5,
+      "name_similarity": 0.86,
+      "route_context_match": true,
+      "confidence": 0.91,
+      "status": "PROBABLE"
+    },
+    {
+      "source_system": "BHUBANESWARONE_UPDATED_BUS_STOPS_LAYER_3",
+      "source_entity_id": "210",
+      "source_name": "Fire Station Sq",
+      "canonical_candidate_id": "stop_crut_bbs_fire_station",
+      "match_method": "HIGH_SIMILARITY_CORRIDOR_MATCH",
+      "distance_m": 10.0,
+      "name_similarity": 0.93,
+      "route_context_match": true,
+      "confidence": 0.95,
+      "status": "EXACT"
+    },
+    {
+      "source_system": "BHUBANESWARONE_UPDATED_BUS_STOPS_LAYER_3",
+      "source_entity_id": "235",
+      "source_name": "Aacharya Vihar Sq",
+      "canonical_candidate_id": "stop_crut_bbs_acharya_vihar",
+      "match_method": "PHONETIC_AND_TOPONYM_MATCH",
+      "distance_m": 8.0,
+      "name_similarity": 0.95,
+      "route_context_match": true,
+      "confidence": 0.96,
+      "status": "EXACT"
+    }
+  ],
+  "route_corridor_crosswalks": [
+    {
+      "source_route_id": "207",
+      "source_route_name": "Nandankanan to Airport",
+      "source_operator": "Legacy DTS / Pre-CRUT",
+      "source_geometry_feature_id": "BusRouteNetwork/MapServer/2",
+      "canonical_candidate_route_id": "rt_crut_10",
+      "crosswalk_basis": "Direct alignment correspondence via Nandankanan-Jayadev Vihar-Airport corridor",
+      "crosswalk_confidence": 0.85,
+      "geometry_confidence": 0.95,
+      "service_date_if_available": null
+    },
+    {
+      "source_route_id": "333",
+      "source_route_name": "Master Canteen to AIIMS",
+      "source_operator": "Legacy DTS / Pre-CRUT",
+      "source_geometry_feature_id": "BusRouteNetwork/MapServer/10",
+      "canonical_candidate_route_id": "rt_crut_28",
+      "crosswalk_basis": "Direct alignment correspondence via Master Canteen-Rajmahal-Sishu Bhawan-Khandagiri-AIIMS",
+      "crosswalk_confidence": 0.85,
+      "geometry_confidence": 0.95,
+      "service_date_if_available": null
+    },
+    {
+      "source_route_id": "522",
+      "source_route_name": "Master Canteen to Sum Hospital",
+      "source_operator": "Legacy DTS / Pre-CRUT",
+      "source_geometry_feature_id": "BusRouteNetwork/MapServer/11",
+      "canonical_candidate_route_id": "rt_crut_29",
+      "crosswalk_basis": "Direct alignment correspondence via Master Canteen-Fire Station-Sum Hospital",
+      "crosswalk_confidence": 0.85,
+      "geometry_confidence": 0.95,
+      "service_date_if_available": null
+    },
+    {
+      "source_route_id": "306",
+      "source_route_name": "Balakati to Nandankanan Via KIIT SQR",
+      "source_operator": "Legacy DTS / Pre-CRUT",
+      "source_geometry_feature_id": "BusRouteNetwork/MapServer/3",
+      "canonical_candidate_route_id": "rt_crut_12",
+      "crosswalk_basis": "Feeder corridor overlap via KIIT / Infocity",
+      "crosswalk_confidence": 0.70,
+      "geometry_confidence": 0.90,
+      "service_date_if_available": null
+    },
+    {
+      "source_route_id": "225",
+      "source_route_name": "Prashanti Vihar to Badagada Brit Colony",
+      "source_operator": "Legacy DTS / Pre-CRUT",
+      "source_geometry_feature_id": "BusRouteNetwork/MapServer/4",
+      "canonical_candidate_route_id": "rt_crut_18",
+      "crosswalk_basis": "Suburban link alignment",
+      "crosswalk_confidence": 0.65,
+      "geometry_confidence": 0.90,
+      "service_date_if_available": null
+    }
+  ]
+}

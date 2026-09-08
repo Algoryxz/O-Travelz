@@ -62,4 +62,12 @@
     <string name="action_clear_district">ଜିଲ୍ଲା ହଟାନ୍ତୁ</string>
     <string name="action_clear_category">ବର୍ଗ ହଟାନ୍ତୁ</string>
     <string name="action_disable_nearby">ନିକଟସ୍ଥ ବନ୍ଦ କରନ୍ତୁ</string>
+
+    <!-- M10 Place Detail & Media Strings (Odia) -->
+    <string name="action_open_in_maps">ମାନଚିତ୍ରରେ ଖୋଲନ୍ତୁ</string>
+    <string name="badge_photo_pending">ଫଟୋଗ୍ରାଫି ଯାଞ୍ଚ ଚାଲିଛି</string>
+    <string name="photo_pending_desc">ଏହି ସ୍ଥାନ ପାଇଁ ପ୍ରାମାଣିକ ଫଟୋଗ୍ରାଫି ସମ୍ପାଦକୀୟ ସମୀକ୍ଷାରେ ଅଛି।</string>
+    <string name="action_share">ଅଂଶୀଦାର କରନ୍ତୁ</string>
+    <string name="share_text_template">%1$s, %2$s — ଓଡ଼ିଶା ସାଂସ୍କୃତିକ ଆଟଲାସ୍</string>
+    <string name="content_desc_gallery_photo">%2$d ରୁ %1$d ଫଟୋ: %3$s</string>
 </resources>

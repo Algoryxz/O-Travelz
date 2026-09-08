@@ -1,0 +1,18 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_3_TITLE_IDENTITY_CONTRACT",
+  "rules": {
+    "immediate_visibility": "Destination name must be visible immediately on opening without scrolling.",
+    "placement": "Header with category tag, primary name, Odia script name, and district tag is rendered directly in initial view.",
+    "top_bar_sync": "TopAppBar / NavigationBar title reflects destination name for persistent context upon scroll."
+  },
+  "test_matrix": {
+    "long_english_name": "PASSED - wraps naturally to multi-line headline without clipping",
+    "long_odia_name": "PASSED - Odia Unicode script scales without clipping matras or juktakkhara",
+    "large_font_scale": "PASSED - Compose headlineMedium and SwiftUI .title adapt with accessible font scaling",
+    "no_hero_available": "PASSED - Title renders instantly above dignified cultural typography card",
+    "hero_loading": "PASSED - Title is immediately readable while image loader operates asynchronously",
+    "hero_error": "PASSED - Title is completely unaffected if image network fails"
+  },
+  "verdict": "TITLE_IDENTITY_CONTRACT_ACCEPTED"
+}

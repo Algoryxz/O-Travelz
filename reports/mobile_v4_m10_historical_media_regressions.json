@@ -1,0 +1,47 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_43_HISTORICAL_REGRESSION_SUITE",
+  "prevented_regressions": [
+    {
+      "id": 1,
+      "description": "3 responsive variants evaluate to 1 distinct photograph",
+      "status": "PROVEN_PREVENTED"
+    },
+    {
+      "id": 2,
+      "description": "Odisha State Museum or non-Konark places receiving Konark 3D",
+      "status": "PROVEN_PREVENTED"
+    },
+    {
+      "id": 3,
+      "description": "Missing video showing video controls or play buttons",
+      "status": "PROVEN_PREVENTED"
+    },
+    {
+      "id": 4,
+      "description": "Destination name buried behind large image or scrolling",
+      "status": "PROVEN_PREVENTED"
+    },
+    {
+      "id": 5,
+      "description": "Place A borrowing photo from Place B",
+      "status": "PROVEN_PREVENTED"
+    },
+    {
+      "id": 6,
+      "description": "Huge multi-megabyte Wikimedia original fetched on mobile",
+      "status": "PROVEN_PREVENTED"
+    },
+    {
+      "id": 7,
+      "description": "Frontend/mobile hallucinating has_3d=true when backend is false",
+      "status": "PROVEN_PREVENTED"
+    },
+    {
+      "id": 8,
+      "description": "Null weather becoming 0\u00b0C or Sunny",
+      "status": "PROVEN_PREVENTED"
+    }
+  ],
+  "verdict": "HISTORICAL_REGRESSIONS_LOCKED_OUT"
+}

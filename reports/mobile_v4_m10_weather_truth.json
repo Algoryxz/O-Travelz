@@ -1,0 +1,22 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_23_WEATHER_TRUTH",
+  "endpoint": "GET /weather/current?lat={lat}&lon={lon}",
+  "provider": "Open-Meteo via backend proxy",
+  "states_handled": [
+    "Loading (subtle shimmer / loading)",
+    "Available (exact temperature \u00b0C, condition description, advice if present)",
+    "Unavailable (calm note: Weather data currently unavailable)"
+  ],
+  "anti_fake_rules": [
+    "Null temperature NEVER becomes 0\u00b0C",
+    "Null condition NEVER becomes Sunny",
+    "Failed request NEVER displays synthetic forecast"
+  ],
+  "request_efficiency": {
+    "calls_per_place_detail": 1,
+    "polling_enabled": false,
+    "skip_when_coordinates_null": true
+  },
+  "verdict": "WEATHER_TRUTH_VERIFIED"
+}

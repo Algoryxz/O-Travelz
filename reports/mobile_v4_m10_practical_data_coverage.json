@@ -1,0 +1,60 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_16_PRACTICAL_DATA_COVERAGE",
+  "destination_pool": 179,
+  "coverage": {
+    "coordinates": {
+      "covered": 179,
+      "coverage_pct": 100.0
+    },
+    "description_narrative": {
+      "covered": 179,
+      "coverage_pct": 100.0
+    },
+    "district": {
+      "covered": 179,
+      "coverage_pct": 100.0
+    },
+    "region": {
+      "covered": 179,
+      "coverage_pct": 100.0
+    },
+    "odia_name": {
+      "covered": 72,
+      "coverage_pct": 40.2
+    },
+    "avg_visit_minutes": {
+      "covered": 159,
+      "coverage_pct": 88.8
+    },
+    "price_tier": {
+      "covered": 159,
+      "coverage_pct": 88.8
+    },
+    "verified_media": {
+      "covered": 70,
+      "coverage_pct": 39.1
+    },
+    "address": {
+      "covered": 0,
+      "coverage_pct": 0.0,
+      "note": "To be enriched via official tourism directory research"
+    },
+    "contact_phone": {
+      "covered": 0,
+      "coverage_pct": 0.0,
+      "note": "To be enriched via official directory research"
+    },
+    "opening_hours_structured": {
+      "covered": 0,
+      "coverage_pct": 0.0,
+      "note": "Omitted until structured hours ingested"
+    },
+    "accessibility_verified": {
+      "covered": 0,
+      "coverage_pct": 0.0,
+      "note": "Omitted until physical site audits verified"
+    }
+  },
+  "policy": "Null and missing practical fields are strictly omitted. No synthetic defaults."
+}

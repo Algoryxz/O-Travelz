@@ -1,0 +1,14 @@
+{
+  "wave": "M10",
+  "phase": "PHASE_14_3D_CAPABILITY_TRUTH",
+  "backend_api_has_3d": false,
+  "runtime_model_metadata_count": 0,
+  "three_d_implemented": false,
+  "ui_enforcement": {
+    "fake_ar_buttons": "FORBIDDEN (0 rendered)",
+    "fake_3d_viewer_entrypoints": "FORBIDDEN (0 rendered)",
+    "konark_cross_destination_leakage": "PREVENTED - no substring matching of place names to force 3D",
+    "gating_logic": "Strictly capability-gated. Gating evaluates to false across all 179 places."
+  },
+  "verdict": "ZERO_FAKE_3D_CONTROLS_ACCEPTED"
+}
