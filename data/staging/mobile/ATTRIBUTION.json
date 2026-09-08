@@ -1,0 +1,106 @@
+{
+  "attribution_manifest_version": "1.0.0",
+  "stage": "STAGE_G1",
+  "generated_at": "2026-09-08T06:00:00Z",
+  "policy": "All datasets in the mobile offline manifest require attribution. Any dataset where redistribution rights are unclear receives mobile_packaging_class = NOT_ELIGIBLE.",
+  "attributions": [
+    {
+      "dataset_name": "transit_stop_crosswalks",
+      "license": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+      "license_url": "https://bhubaneswarone.in",
+      "attribution_text": "Bus stop location data: BhubaneswarOne / CRUT — Government of Odisha. Data accuracy subject to official CRUT source.",
+      "redistribution_assessment": "PERMITTED_WITH_ATTRIBUTION",
+      "redistribution_confidence": "MEDIUM",
+      "notes": "Government open service data. No formal Creative Commons license identified. Attribution required; do not imply official endorsement.",
+      "mobile_packaging_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "transit_route_geometry",
+      "license": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+      "license_url": "https://www.odishatransit.in",
+      "attribution_text": "Mo Bus route corridors: CRUT — Capital Region Urban Transport, Government of Odisha.",
+      "redistribution_assessment": "PERMITTED_WITH_ATTRIBUTION",
+      "redistribution_confidence": "MEDIUM",
+      "notes": "Approximate corridor geometries derived from official CRUT Mo Bus route descriptions.",
+      "mobile_packaging_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "district_boundaries_high",
+      "license": "CC_BY_4_0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution_text": "District boundary data: Runfola, D. et al. (2020). geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4). CC BY 4.0. https://www.geoboundaries.org",
+      "redistribution_assessment": "PERMITTED_WITH_ATTRIBUTION",
+      "redistribution_confidence": "HIGH",
+      "notes": "CC BY 4.0 explicitly permits redistribution with attribution. Attribution must appear in-app for any screen displaying district map layers.",
+      "mobile_packaging_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "civic_services",
+      "license": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+      "license_url": "https://odishahealth.gov.in",
+      "attribution_text": "District hospital and civic services data: Health & Family Welfare Department, Government of Odisha; Odisha Tourism Police.",
+      "redistribution_assessment": "PERMITTED_WITH_ATTRIBUTION",
+      "redistribution_confidence": "MEDIUM",
+      "notes": "Government directory data. No formal open data license identified. Contact information is subject to change; stale label required after 90 days.",
+      "mobile_packaging_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "gi_products",
+      "license": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+      "license_url": "https://ipindia.gov.in/gi.htm",
+      "attribution_text": "Geographical Indication registrations: Geographical Indications Registry — CGPDTM, Government of India.",
+      "redistribution_assessment": "PERMITTED_WITH_ATTRIBUTION",
+      "redistribution_confidence": "HIGH",
+      "notes": "Statutory public records. GI registrations are public legal notices. Attribution mandatory.",
+      "mobile_packaging_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "artisan_clusters",
+      "license": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+      "license_url": "https://handicrafts.nic.in",
+      "attribution_text": "Artisan craft cluster data: DC Handicrafts / DC Handlooms — Ministry of Textiles, Government of India.",
+      "redistribution_assessment": "PERMITTED_WITH_ATTRIBUTION",
+      "redistribution_confidence": "MEDIUM",
+      "notes": "Government directory data. artisan_count field excluded from bundling due to mutation rate.",
+      "mobile_packaging_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "official_food_sources",
+      "license": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+      "license_url": "https://ipindia.gov.in/gi.htm",
+      "attribution_text": "GI-registered food references: Geographical Indications Registry — CGPDTM; FSSAI — Food Safety and Standards Authority of India.",
+      "redistribution_assessment": "PERMITTED_WITH_ATTRIBUTION",
+      "redistribution_confidence": "HIGH",
+      "notes": "Statutory public records. Attribution mandatory.",
+      "mobile_packaging_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "rail_hubs",
+      "license": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+      "license_url": "https://enquiry.indianrail.gov.in",
+      "attribution_text": "Railway station data: National Train Enquiry System (NTES) — Indian Railways, Government of India.",
+      "redistribution_assessment": "PERMITTED_WITH_ATTRIBUTION",
+      "redistribution_confidence": "MEDIUM",
+      "notes": "Official station codes and names are public information. No live schedule data bundled.",
+      "mobile_packaging_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "airports",
+      "license": "GOVERNMENT_OPEN_SERVICE_DISCLAIMER",
+      "license_url": "https://www.aai.aero",
+      "attribution_text": "Airport data: Airports Authority of India (AAI), Government of India.",
+      "redistribution_assessment": "PERMITTED_WITH_ATTRIBUTION",
+      "redistribution_confidence": "HIGH",
+      "notes": "IATA/ICAO codes are international standards. AAI airport master data is public. Attribution mandatory.",
+      "mobile_packaging_class": "BASE_BUNDLE_CANDIDATE"
+    }
+  ],
+  "hard_invariants": [
+    "No dataset with redistribution_confidence = LOW is included in the bundle manifest.",
+    "All CC BY 4.0 attributions must appear in in-app legal/attribution screens.",
+    "Government disclaimer attributions must appear in data source disclosure.",
+    "No fabricated licensing assertions. If rights are unclear, mobile_packaging_class = NOT_ELIGIBLE.",
+    "canonical_mutations = 0"
+  ],
+  "canonical_mutations": 0
+}

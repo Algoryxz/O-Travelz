@@ -1,0 +1,199 @@
+{
+  "dataset": "mutable_fact_cache_policy",
+  "stage": "STAGE_G1_OPERATIONAL_FACTS_FRESHNESS_MODEL",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-08T05:45:00Z",
+  "policy_purpose": "Defines per-field freshness semantics for all mutable operational data in Stage F staging datasets. Governs mobile client display rules for stale data.",
+  "freshness_classes": {
+    "STABLE_REFERENCE": "Changes only via official gazette or regulatory action. Stale label not required; 180-day background refresh recommended.",
+    "SLOW_CHANGING": "Changes via planned administrative updates. 90-day TTL. Stale label required after expiry.",
+    "MODERATE_CHANGING": "Subject to seasonal or annual updates. 30-day TTL. Stale label required after expiry.",
+    "FAST_CHANGING": "Changes frequently (daily/weekly). 24-hour TTL. Network refresh required before display.",
+    "REALTIME": "Must never be cached as static data. Always fetch live. Display blocked offline."
+  },
+  "field_policies": [
+    {
+      "domain": "Heritage Destinations (places/researched_operational_facts.json)",
+      "field": "place_name",
+      "freshness_class": "STABLE_REFERENCE",
+      "retrieved_at_field": "provenance.retrieved_at",
+      "expires_at_policy": "P180D",
+      "offline_display_allowed": true,
+      "stale_display_allowed": true,
+      "stale_label_required": false,
+      "network_refresh_required": false
+    },
+    {
+      "domain": "Heritage Destinations",
+      "field": "opening_hours",
+      "freshness_class": "MODERATE_CHANGING",
+      "retrieved_at_field": "provenance.retrieved_at",
+      "expires_at_policy": "P30D",
+      "offline_display_allowed": true,
+      "stale_display_allowed": true,
+      "stale_label_required": true,
+      "network_refresh_required": false,
+      "stale_label_text": "Hours may have changed — verify before visiting"
+    },
+    {
+      "domain": "Heritage Destinations",
+      "field": "entry_fee",
+      "freshness_class": "MODERATE_CHANGING",
+      "retrieved_at_field": "provenance.retrieved_at",
+      "expires_at_policy": "P30D",
+      "offline_display_allowed": true,
+      "stale_display_allowed": true,
+      "stale_label_required": true,
+      "network_refresh_required": false,
+      "stale_label_text": "Fee information may be outdated — check at entry"
+    },
+    {
+      "domain": "Heritage Destinations",
+      "field": "seasonal_closure",
+      "freshness_class": "MODERATE_CHANGING",
+      "retrieved_at_field": "provenance.retrieved_at",
+      "expires_at_policy": "P30D",
+      "offline_display_allowed": true,
+      "stale_display_allowed": true,
+      "stale_label_required": true,
+      "network_refresh_required": true,
+      "stale_label_text": "Closure status may have changed",
+      "null_inference_rule": "If seasonal_closure is absent, display null / unknown. Never infer open or closed from absence."
+    },
+    {
+      "domain": "Civic Services (services/researched_civic_services.json)",
+      "field": "facility_name",
+      "freshness_class": "STABLE_REFERENCE",
+      "retrieved_at_field": "provenance.retrieved_at",
+      "expires_at_policy": "P180D",
+      "offline_display_allowed": true,
+      "stale_display_allowed": true,
+      "stale_label_required": false,
+      "network_refresh_required": false
+    },
+    {
+      "domain": "Civic Services",
+      "field": "phone_primary",
+      "freshness_class": "SLOW_CHANGING",
+      "retrieved_at_field": "provenance.retrieved_at",
+      "expires_at_policy": "P90D",
+      "offline_display_allowed": true,
+      "stale_display_allowed": true,
+      "stale_label_required": true,
+      "network_refresh_required": false,
+      "stale_label_text": "Phone may have changed — call to verify"
+    },
+    {
+      "domain": "Civic Services",
+      "field": "operating_hours",
+      "freshness_class": "SLOW_CHANGING",
+      "retrieved_at_field": "provenance.retrieved_at",
+      "expires_at_policy": "P90D",
+      "offline_display_allowed": true,
+      "stale_display_allowed": true,
+      "stale_label_required": true,
+      "network_refresh_required": false,
+      "stale_label_text": "Hours may have changed",
+      "null_inference_rule": "If 24_hour is absent from source, display null. Never infer 24_hour = false from absence."
+    },
+    {
+      "domain": "Civic Services",
+      "field": "bed_availability",
+      "freshness_class": "REALTIME",
+      "retrieved_at_field": null,
+      "expires_at_policy": null,
+      "offline_display_allowed": false,
+      "stale_display_allowed": false,
+      "stale_label_required": false,
+      "network_refresh_required": true,
+      "note": "Never bundle. Always fetch live from hospital portal."
+    },
+    {
+      "domain": "Accommodation (accommodation/official_accommodation_sources.json)",
+      "field": "property_name",
+      "freshness_class": "STABLE_REFERENCE",
+      "retrieved_at_field": "provenance.retrieved_at",
+      "expires_at_policy": "P180D",
+      "offline_display_allowed": true,
+      "stale_display_allowed": true,
+      "stale_label_required": false,
+      "network_refresh_required": false
+    },
+    {
+      "domain": "Accommodation",
+      "field": "tariff",
+      "freshness_class": "FAST_CHANGING",
+      "retrieved_at_field": null,
+      "expires_at_policy": "PT24H",
+      "offline_display_allowed": false,
+      "stale_display_allowed": false,
+      "stale_label_required": false,
+      "network_refresh_required": true,
+      "note": "Tariff is null until official rate tables ingested. Never display AI-inferred pricing."
+    },
+    {
+      "domain": "Accommodation",
+      "field": "availability",
+      "freshness_class": "REALTIME",
+      "retrieved_at_field": null,
+      "expires_at_policy": null,
+      "offline_display_allowed": false,
+      "stale_display_allowed": false,
+      "stale_label_required": false,
+      "network_refresh_required": true
+    },
+    {
+      "domain": "Intercity Connectivity",
+      "field": "station_code",
+      "freshness_class": "STABLE_REFERENCE",
+      "retrieved_at_field": "provenance.retrieved_at",
+      "expires_at_policy": "P180D",
+      "offline_display_allowed": true,
+      "stale_display_allowed": true,
+      "stale_label_required": false,
+      "network_refresh_required": false
+    },
+    {
+      "domain": "Intercity Connectivity",
+      "field": "live_departures",
+      "freshness_class": "REALTIME",
+      "retrieved_at_field": null,
+      "expires_at_policy": null,
+      "offline_display_allowed": false,
+      "stale_display_allowed": false,
+      "stale_label_required": false,
+      "network_refresh_required": true
+    },
+    {
+      "domain": "Weather (weather/warning_sources.json)",
+      "field": "provider_url",
+      "freshness_class": "STABLE_REFERENCE",
+      "retrieved_at_field": "provenance.retrieved_at",
+      "expires_at_policy": "P180D",
+      "offline_display_allowed": true,
+      "stale_display_allowed": true,
+      "stale_label_required": false,
+      "network_refresh_required": false
+    },
+    {
+      "domain": "Weather",
+      "field": "active_warnings",
+      "freshness_class": "REALTIME",
+      "retrieved_at_field": null,
+      "expires_at_policy": null,
+      "offline_display_allowed": false,
+      "stale_display_allowed": false,
+      "stale_label_required": false,
+      "network_refresh_required": true,
+      "note": "Weather alerts are always REALTIME. Displaying stale alerts is a safety risk."
+    }
+  ],
+  "hard_invariants": [
+    "REALTIME fields must never be displayed from cache — always block display offline or show explicit unavailability.",
+    "null_inference_rule: if a field is absent from the source, the client MUST display null/unknown. Never infer a value.",
+    "Tariff fields are null until official rate tables are ingested — no AI-inferred pricing.",
+    "Weather alerts are a safety-critical REALTIME class — never show stale warnings.",
+    "canonical_mutations = 0"
+  ],
+  "canonical_mutations": 0
+}

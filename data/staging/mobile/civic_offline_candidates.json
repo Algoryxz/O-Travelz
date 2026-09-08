@@ -1,0 +1,54 @@
+{
+  "dataset": "civic_offline_candidates",
+  "stage": "STAGE_G1_CIVIC_SAFETY_OFFLINE_QUALIFICATION",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-08T05:38:00Z",
+  "source_dataset": "data/staging/services/researched_civic_services.json",
+  "source_record_count": 45,
+  "field_classification_schema": {
+    "STABLE_REFERENCE": "Structural identifier — facility name, district assignment, facility type, static coordinates. Changes only via government reorganisation. Safe to bundle.",
+    "MUTABLE_CONTACT": "Phone numbers, fax, email, operating hours. Subject to change without formal gazette notification. Must display stale label after freshness window.",
+    "REALTIME_OR_UNKNOWN": "Bed availability, waiting time, on-call roster, emergency alert status. Always NETWORK_REQUIRED. Never bundle."
+  },
+  "field_map": {
+    "facility_name": "STABLE_REFERENCE",
+    "facility_type": "STABLE_REFERENCE",
+    "district": "STABLE_REFERENCE",
+    "latitude": "STABLE_REFERENCE",
+    "longitude": "STABLE_REFERENCE",
+    "source_id": "STABLE_REFERENCE",
+    "source_tier": "STABLE_REFERENCE",
+    "address": "STABLE_REFERENCE",
+    "phone_primary": "MUTABLE_CONTACT",
+    "phone_secondary": "MUTABLE_CONTACT",
+    "fax": "MUTABLE_CONTACT",
+    "email": "MUTABLE_CONTACT",
+    "operating_hours": "MUTABLE_CONTACT",
+    "emergency_availability": "REALTIME_OR_UNKNOWN",
+    "bed_availability": "REALTIME_OR_UNKNOWN",
+    "on_call_doctor": "REALTIME_OR_UNKNOWN"
+  },
+  "classification_breakdown": {
+    "total_records": 45,
+    "by_type": {
+      "TOURIST_POLICE_POST": 8,
+      "DISTRICT_HEADQUARTERS_HOSPITAL": 30,
+      "MEDICAL_COLLEGE_HOSPITAL": 4,
+      "EMERGENCY_DISPATCH": 3
+    }
+  },
+  "bundleable_field_set": ["facility_name", "facility_type", "district", "latitude", "longitude", "source_id", "address"],
+  "stale_display_fields": ["phone_primary", "phone_secondary", "fax", "email", "operating_hours"],
+  "network_only_fields": ["emergency_availability", "bed_availability", "on_call_doctor"],
+  "hard_invariants": [
+    "24_hour field: MUST remain null when source does not explicitly state 24-hour operation. Never infer false from absence.",
+    "Emergency dispatch numbers (112, 108, 100) may be bundled as well-known STABLE_REFERENCE constants.",
+    "Bed availability is ALWAYS REALTIME_OR_UNKNOWN — never bundle.",
+    "Phone numbers require freshness label in UI after 90-day cache window.",
+    "canonical_mutations = 0"
+  ],
+  "null_inference_rule": "If a field is absent from the source record, the mobile client MUST display null / unknown — never infer a value. Applies especially to: operating_hours, emergency_availability, 24_hour.",
+  "offline_safe_record_count": 45,
+  "stale_label_required_after_days": 90,
+  "canonical_mutations": 0
+}

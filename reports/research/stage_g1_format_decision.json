@@ -1,0 +1,54 @@
+{
+  "report_version": "1.0.0",
+  "stage": "STAGE_G1_PLATFORM_FORMAT_DECISION",
+  "generated_at": "2026-09-08T05:55:00Z",
+  "ponytail_principle": "Use the simplest neutral deterministic artifact unless measurements prove otherwise.",
+  "formats_evaluated": [
+    {
+      "format": "Plain JSON",
+      "pro": ["Universal tooling support", "Human-readable", "No conversion step", "Deterministic serialization with sorted keys", "Zero runtime dependencies", "Natively supported in Swift/Kotlin/Dart"],
+      "con": ["Larger file size than binary formats"],
+      "applicable_to": ["All domain datasets"],
+      "bundle_size_note": "196 KB raw for 9 datasets. Acceptable without compression.",
+      "verdict": "SELECTED — default format for all domain datasets"
+    },
+    {
+      "format": "Compressed JSON (gzip)",
+      "pro": ["34 KB for the full bundle at compresslevel=9", "5.77x reduction", "Widely supported in iOS/Android asset pipelines"],
+      "con": ["Adds one decompression step at app startup", "Slightly more complex build tooling"],
+      "applicable_to": ["Large datasets (district boundaries > 50 KB)"],
+      "bundle_size_note": "High-simplification district boundary: 78 KB → 18.7 KB compressed",
+      "verdict": "OPTIONAL — recommended for district_boundaries_high.geojson if app binary size budget is tight"
+    },
+    {
+      "format": "GeoJSON",
+      "pro": ["Standard geospatial format", "Already produced by Stage F pipeline", "Direct MapKit/MapLibre GL consumption"],
+      "con": ["No topology compression", "Larger than TopoJSON for shared-boundary datasets"],
+      "applicable_to": ["Geospatial datasets only"],
+      "verdict": "SELECTED — used for district boundaries (simplified GeoJSON is sufficient at 78 KB)"
+    },
+    {
+      "format": "TopoJSON",
+      "pro": ["Shares boundaries between adjacent polygons", "~40-60% smaller than GeoJSON for contiguous district data"],
+      "con": ["No Python stdlib support (topojson package unavailable)", "Requires additional conversion tooling", "Less natively supported in mobile SDKs", "Adds complexity without necessity given 78 KB is already within budget"],
+      "applicable_to": ["Geospatial boundary datasets"],
+      "verdict": "NOT SELECTED — ponytail: 78 KB GeoJSON is within budget; TopoJSON complexity is not justified by measurements"
+    },
+    {
+      "format": "SQLite",
+      "pro": ["Efficient indexed query for large datasets", "Native on iOS and Android"],
+      "con": ["Overkill for 126 records totaling 196 KB", "Requires schema migration tooling", "Binary format reduces human readability and audit trail"],
+      "applicable_to": ["Large record-count datasets (>10,000 records)"],
+      "verdict": "NOT SELECTED — current dataset scale (126 records) does not justify SQLite complexity"
+    }
+  ],
+  "decision": {
+    "primary_format": "JSON",
+    "geospatial_format": "GeoJSON (simplified, high-tolerance variant)",
+    "compression": "gzip optional for assets > 50 KB raw",
+    "encoding": "UTF-8",
+    "serialization": "Compact JSON (no pretty-print in binary bundle, sorted keys for determinism)",
+    "rationale": "All 9 bundle datasets fit in 196 KB raw / 34 KB compressed. Plain JSON with optional gzip satisfies the ponytail principle: simplest neutral deterministic artifact. No SQLite, TopoJSON, or binary formats needed at current scale."
+  },
+  "canonical_mutations": 0
+}

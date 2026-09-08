@@ -1,0 +1,65 @@
+{
+  "script": "scripts/staging/optimize_district_boundaries.py",
+  "stage": "STAGE_G1_DISTRICT_GEOMETRY_OPTIMIZATION",
+  "generated_at": "2026-09-08T05:32:32.163206+00:00",
+  "source_file": "data/staging/geospatial/odisha_district_boundaries.geojson",
+  "source_raw_bytes": 4633196,
+  "required_districts": 30,
+  "selection_rule": "SMALLEST_GEOMETRY_THAT_PRESERVES_DISTRICT_BROWSING_INTEGRITY",
+  "variants": [
+    {
+      "variant": "full",
+      "tolerance_degrees": null,
+      "description": "No simplification \u2014 raw 4.6 MB source",
+      "output_file": "data/staging/geospatial/odisha_district_boundaries_full.geojson",
+      "raw_bytes": 1160605,
+      "gzip_bytes": 364169,
+      "compression_ratio": 3.19,
+      "non_degenerate_districts": 30,
+      "integrity_pass": true,
+      "sha256": "0b8dab09f33132e864c5829880081653fd0fec2f8335b012eadb721eaa9495a6"
+    },
+    {
+      "variant": "low",
+      "tolerance_degrees": 0.001,
+      "description": "Low simplification ~0.001\u00b0 (~111 m)",
+      "output_file": "data/staging/geospatial/odisha_district_boundaries_low.geojson",
+      "raw_bytes": 287258,
+      "gzip_bytes": 89279,
+      "compression_ratio": 3.22,
+      "non_degenerate_districts": 30,
+      "integrity_pass": true,
+      "sha256": "4fb85c55ab4a6c861a70bd636cf4dae9fc466b1d7a8a468b9b7ae122ae9247b4"
+    },
+    {
+      "variant": "medium",
+      "tolerance_degrees": 0.005,
+      "description": "Medium simplification ~0.005\u00b0 (~555 m)",
+      "output_file": "data/staging/geospatial/odisha_district_boundaries_medium.geojson",
+      "raw_bytes": 119829,
+      "gzip_bytes": 32425,
+      "compression_ratio": 3.7,
+      "non_degenerate_districts": 30,
+      "integrity_pass": true,
+      "sha256": "a55110a5a230cd64f16c1940dc51153deac1b1258fe766c11ab4ab0b8cc5c5d5"
+    },
+    {
+      "variant": "high",
+      "tolerance_degrees": 0.01,
+      "description": "High simplification ~0.01\u00b0 (~1.1 km)",
+      "output_file": "data/staging/geospatial/odisha_district_boundaries_high.geojson",
+      "raw_bytes": 78192,
+      "gzip_bytes": 18707,
+      "compression_ratio": 4.18,
+      "non_degenerate_districts": 30,
+      "integrity_pass": true,
+      "sha256": "4fa49c338e5c30799dd893d6aa245de3de74ff1b8ed030e36563e3fa04f426aa"
+    }
+  ],
+  "selected_variant": "high",
+  "selected_file": "data/staging/geospatial/odisha_district_boundaries_high.geojson",
+  "selected_raw_bytes": 78192,
+  "selected_gzip_bytes": 18707,
+  "selected_sha256": "4fa49c338e5c30799dd893d6aa245de3de74ff1b8ed030e36563e3fa04f426aa",
+  "canonical_mutations": 0
+}

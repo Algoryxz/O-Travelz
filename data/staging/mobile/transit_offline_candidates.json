@@ -1,0 +1,86 @@
+{
+  "dataset": "transit_offline_candidates",
+  "stage": "STAGE_G1_TRANSIT_OFFLINE_QUALIFICATION",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-08T05:35:00Z",
+  "classification_schema": {
+    "TRANSIT_OFFLINE_SAFE": "EXACT crosswalk records with high confidence. Static identity + coordinates may be bundled. Must not enable first-mile navigation with PROBABLE or UNMATCHED records.",
+    "TRANSIT_REFERENCE_ONLY": "PROBABLE crosswalk records. Internal research metadata only. MUST NOT enable exact first-mile navigation, walking distance, or canonical promotion.",
+    "TRANSIT_NOT_BUNDLEABLE": "UNMATCHED, ambiguous, or schedule/live-tracking data. Network-required or excluded from mobile."
+  },
+  "source_dataset": "data/staging/transit/researched_stop_crosswalks.json",
+  "source_summary_metrics": {
+    "source_features": 394,
+    "source_unique_stops": 240,
+    "exact_crosswalks": 85,
+    "probable_crosswalks": 45,
+    "ambiguous": 0,
+    "unmatched": 264,
+    "canonical_stops_remaining_unresolved": 1127,
+    "total_canonical_stops": 1430
+  },
+  "classification_breakdown": {
+    "TRANSIT_OFFLINE_SAFE": 85,
+    "TRANSIT_REFERENCE_ONLY": 45,
+    "TRANSIT_NOT_BUNDLEABLE": 1300
+  },
+  "offline_safe_records": {
+    "count": 85,
+    "description": "EXACT crosswalk matches from BhubaneswarOne GIS source. Source tier: TIER_A_OFFICIAL_PRIMARY. confidence >= 0.90.",
+    "representative_sample": [
+      {
+        "canonical_candidate_id": "stop_crut_bbs_acharya_vihar",
+        "source_name": "Aacharya Vihar Sq",
+        "match_method": "PHONETIC_AND_TOPONYM_MATCH",
+        "confidence": 0.96,
+        "status": "EXACT",
+        "mobile_offline_class": "TRANSIT_OFFLINE_SAFE",
+        "canonical_promotion_allowed": false,
+        "offline_display": "Name + coordinate pin on map. No first-mile walk distance.",
+        "provenance_source_id": "SRC_BHUBANESWARONE_TRANSIT_GIS"
+      }
+    ],
+    "mobile_constraints": [
+      "Display stop name and map pin only.",
+      "Do NOT display walking distance calculations to PROBABLE or UNMATCHED stops.",
+      "canonical_promotion_allowed remains false until CRUT official data ingested.",
+      "Licensing: GOVERNMENT_OPEN_SERVICE_DISCLAIMER — attribution required in-app."
+    ]
+  },
+  "reference_only_records": {
+    "count": 45,
+    "description": "PROBABLE crosswalk matches. Internal research records for gap analysis only. Must not surface to end users as navigation-grade data.",
+    "mobile_constraints": [
+      "MUST NOT enable first-mile walking distance calculations.",
+      "MUST NOT display as confirmed stop locations on public map.",
+      "Permitted use: internal research reference, gap analysis tooling, future canonical resolution.",
+      "canonical_promotion_allowed = false (hard constraint)."
+    ]
+  },
+  "not_bundleable": {
+    "count": 1300,
+    "breakdown": {
+      "unmatched_source_features": 264,
+      "unresolved_canonical_stops": 1127,
+      "schedule_timetable_records": 0,
+      "live_tracking_records": 0
+    },
+    "reason": "Unmatched and unresolved stops have no verified coordinate crosswalk. Schedule and live tracking data is NETWORK_REQUIRED and must never be bundled.",
+    "note": "1127 canonical stops remain unresolved. First-mile accuracy for these is undefined until CRUT supplies official GIS coordinates."
+  },
+  "route_geometry_offline": {
+    "count": 5,
+    "routes": ["207", "333", "522", "306", "225"],
+    "offline_class": "TRANSIT_OFFLINE_SAFE",
+    "constraint": "Display as approximate corridor only. Not turn-by-turn. Not live vehicle position.",
+    "source": "data/staging/transit/researched_route_geometry.json"
+  },
+  "hard_invariants": [
+    "Zero schedule timetables bundled as offline data in Stage G1.",
+    "Zero live GPS/vehicle telemetry bundled.",
+    "PROBABLE records never enable walking distance display or canonical promotion.",
+    "Transit fares remain null — no fare data ingested from official tables.",
+    "canonical_mutations = 0"
+  ],
+  "canonical_mutations": 0
+}

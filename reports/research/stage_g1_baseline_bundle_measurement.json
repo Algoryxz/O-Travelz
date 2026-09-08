@@ -1,0 +1,98 @@
+{
+  "report_version": "1.0.0",
+  "stage": "STAGE_G1_BASELINE_BUNDLE_MEASUREMENT",
+  "generated_at": "2026-09-08T05:52:00Z",
+  "scope_note": "Essential reference metadata only. Explicitly EXCLUDES: photos, videos, 3D assets, weather alert content, AI corpus, live operational facts, accommodation tariffs, schedule data.",
+  "measurement_methodology": "Exact file sizes measured from data/staging/** source files at HEAD 69af29b. gzip measured at compresslevel=9.",
+  "bundle_datasets": [
+    {
+      "name": "transit_stop_crosswalks",
+      "file": "data/staging/transit/researched_stop_crosswalks.json",
+      "record_count": 8,
+      "raw_bytes": 11793,
+      "gzip_bytes": 1611,
+      "mobile_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "name": "transit_route_geometry",
+      "file": "data/staging/transit/researched_route_geometry.json",
+      "record_count": 5,
+      "raw_bytes": 8893,
+      "gzip_bytes": 1435,
+      "mobile_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "name": "district_boundaries_high",
+      "file": "data/staging/geospatial/odisha_district_boundaries_high.geojson",
+      "record_count": 30,
+      "raw_bytes": 78192,
+      "gzip_bytes": 18667,
+      "mobile_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "name": "civic_services",
+      "file": "data/staging/services/researched_civic_services.json",
+      "record_count": 45,
+      "raw_bytes": 53833,
+      "gzip_bytes": 4425,
+      "mobile_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "name": "gi_products",
+      "file": "data/staging/culture/gi_products.json",
+      "record_count": 10,
+      "raw_bytes": 12112,
+      "gzip_bytes": 2375,
+      "mobile_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "name": "artisan_clusters",
+      "file": "data/staging/culture/artisan_clusters.json",
+      "record_count": 6,
+      "raw_bytes": 8155,
+      "gzip_bytes": 1780,
+      "mobile_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "name": "official_food_sources",
+      "file": "data/staging/food/official_food_sources.json",
+      "record_count": 5,
+      "raw_bytes": 6217,
+      "gzip_bytes": 1399,
+      "mobile_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "name": "rail_hubs",
+      "file": "data/staging/connectivity/rail_hubs.json",
+      "record_count": 12,
+      "raw_bytes": 12052,
+      "gzip_bytes": 1302,
+      "mobile_class": "BASE_BUNDLE_CANDIDATE"
+    },
+    {
+      "name": "airports",
+      "file": "data/staging/connectivity/airports.json",
+      "record_count": 5,
+      "raw_bytes": 5613,
+      "gzip_bytes": 1103,
+      "mobile_class": "BASE_BUNDLE_CANDIDATE"
+    }
+  ],
+  "total_bundle_datasets": 9,
+  "total_record_count": 126,
+  "total_raw_bytes": 196860,
+  "total_gzip_bytes": 34097,
+  "compression_ratio": 5.77,
+  "excluded_from_baseline": [
+    "data/staging/media/researched_media_candidates.json — SERVER_ONLY (metadata only, no pixel data)",
+    "data/staging/places/researched_operational_facts.json — CACHE_AFTER_USE (mutable facts)",
+    "data/staging/accommodation/official_accommodation_sources.json — CACHE_AFTER_USE (mutable tariff/contact)",
+    "data/staging/weather/warning_sources.json — NETWORK_REQUIRED (realtime alerts)",
+    "data/staging/rag/corpus_source_manifest.json — SERVER_ONLY",
+    "Photos, videos, 3D, AI corpus — not in scope for Stage G1"
+  ],
+  "budget_headroom_note": "196 KB raw (34 KB compressed) is well within a 2 MB essential bundle budget. District boundaries at 78 KB raw (after high simplification) is the largest single file.",
+  "canonical_mutations": 0,
+  "production_db_mutations": 0,
+  "mobile_production_mutations": 0
+}

@@ -1,0 +1,182 @@
+{
+  "report_version": "1.0.0",
+  "stage": "STAGE_G1_PACKAGING_DECISION",
+  "generated_at": "2026-09-08T05:30:00Z",
+  "classification_schema": {
+    "BASE_BUNDLE_CANDIDATE": "Small, stable, essential metadata. Include in initial app binary.",
+    "OPTIONAL_OFFLINE_PACKAGE": "Useful offline but too large or optional for baseline. Offer as downloadable pack.",
+    "CACHE_AFTER_USE": "Fetch on first use, cache locally. Do not bundle.",
+    "NETWORK_REQUIRED": "Data is mutable, near-realtime, or legally restricted from offline use.",
+    "SERVER_ONLY": "Backend/indexing artifacts not intended for client runtime.",
+    "NOT_ELIGIBLE": "Cannot determine redistribution rights, or data is speculative."
+  },
+  "total_datasets_evaluated": 14,
+  "classification_breakdown": {
+    "BASE_BUNDLE_CANDIDATE": 9,
+    "OPTIONAL_OFFLINE_PACKAGE": 1,
+    "CACHE_AFTER_USE": 2,
+    "NETWORK_REQUIRED": 1,
+    "SERVER_ONLY": 1,
+    "NOT_ELIGIBLE": 0
+  },
+  "datasets": [
+    {
+      "dataset_name": "transit_stop_crosswalks",
+      "file_path": "data/staging/transit/researched_stop_crosswalks.json",
+      "domain": "Urban Transit",
+      "raw_bytes": 11793,
+      "gzip_bytes": 1611,
+      "g1_classification": "BASE_BUNDLE_CANDIDATE",
+      "rationale": "EXACT crosswalk records (5 explicit) are stable reference metadata. PROBABLE records must ship with display constraints — not usable for navigation. Small payload; 1.6 KB gzip.",
+      "mobile_constraint": "PROBABLE records must not enable first-mile walking navigation or distance calculations.",
+      "stage_f_class": "BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "transit_route_geometry",
+      "file_path": "data/staging/transit/researched_route_geometry.json",
+      "domain": "Urban Transit",
+      "raw_bytes": 8893,
+      "gzip_bytes": 1435,
+      "g1_classification": "BASE_BUNDLE_CANDIDATE",
+      "rationale": "5 corridor geometries provide map layer reference without live schedule dependency. Stable shapes; 1.4 KB gzip.",
+      "mobile_constraint": "Display as approximate corridors only; not turn-by-turn routes.",
+      "stage_f_class": "BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "odisha_district_boundaries",
+      "file_path": "data/staging/geospatial/odisha_district_boundaries_high.geojson",
+      "domain": "Geospatial GIS",
+      "raw_bytes": 78192,
+      "gzip_bytes": 18707,
+      "g1_classification": "BASE_BUNDLE_CANDIDATE",
+      "rationale": "High-simplification variant (0.01° tolerance) passes full 30-district integrity. 78 KB raw / 18.7 KB gzip is well within bundle budget. Enables district-level map browsing offline.",
+      "mobile_constraint": "Attribution mandatory: geoBoundaries gbOpen IND ADM2 (CC BY 4.0).",
+      "stage_f_class": "OPTIONAL_OFFLINE_PACKAGE",
+      "g1_reclassification_reason": "Stage F evaluated the raw 4.6 MB file. Stage G1 simplification reduces to 78 KB, enabling bundle inclusion."
+    },
+    {
+      "dataset_name": "civic_services",
+      "file_path": "data/staging/services/researched_civic_services.json",
+      "domain": "Emergency / Civic",
+      "raw_bytes": 53833,
+      "gzip_bytes": 4425,
+      "g1_classification": "BASE_BUNDLE_CANDIDATE",
+      "rationale": "District HQ hospitals, tourist police, emergency dispatch — stable reference identifiers and coordinates qualify for bundling. Mutable contact fields (phone, hours) constrained by cache policy.",
+      "mobile_constraint": "Phone numbers and hours must display stale label if beyond freshness window. Live call routing must use real-time network fetch.",
+      "stage_f_class": "BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "destination_operational_facts",
+      "file_path": "data/staging/places/researched_operational_facts.json",
+      "domain": "Heritage Destinations",
+      "raw_bytes": 24704,
+      "gzip_bytes": 4730,
+      "g1_classification": "CACHE_AFTER_USE",
+      "rationale": "Operational facts (hours, fees, seasonal closures) are MUTABLE_CONTACT class. Do not bundle; fetch on destination detail load and cache with 7-day TTL.",
+      "mobile_constraint": "Show stale label if cache is older than 7 days. Never infer closure from absence of data.",
+      "stage_f_class": "BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "researched_media_candidates",
+      "file_path": "data/staging/media/researched_media_candidates.json",
+      "domain": "Media / Images",
+      "raw_bytes": 12408,
+      "gzip_bytes": 1716,
+      "g1_classification": "SERVER_ONLY",
+      "rationale": "Media candidate metadata is a backend ingestion manifest, not consumer client runtime data. Actual media assets are not bundled. Server resolves license and CDN delivery.",
+      "mobile_constraint": "Client never reads this manifest directly.",
+      "stage_f_class": "CACHE_AFTER_USE"
+    },
+    {
+      "dataset_name": "gi_products",
+      "file_path": "data/staging/culture/gi_products.json",
+      "domain": "Cultural / GI",
+      "raw_bytes": 12112,
+      "gzip_bytes": 2375,
+      "g1_classification": "BASE_BUNDLE_CANDIDATE",
+      "rationale": "Statutory GI registrations change only via official CGPDTM gazette notifications. Highly stable. 2.4 KB gzip.",
+      "mobile_constraint": "Preserve GI_PRODUCT semantic type; do not merge into generic Place records.",
+      "stage_f_class": "BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "artisan_clusters",
+      "file_path": "data/staging/culture/artisan_clusters.json",
+      "domain": "Cultural / Crafts",
+      "raw_bytes": 8155,
+      "gzip_bytes": 1780,
+      "g1_classification": "BASE_BUNDLE_CANDIDATE",
+      "rationale": "Craft village cluster coordinates and cooperative identifiers are stable cultural reference metadata. 1.8 KB gzip.",
+      "mobile_constraint": "Preserve CRAFT_CLUSTER semantic type; do not transform into Place records.",
+      "stage_f_class": "BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "official_food_sources",
+      "file_path": "data/staging/food/official_food_sources.json",
+      "domain": "Food / GI",
+      "raw_bytes": 6217,
+      "gzip_bytes": 1399,
+      "g1_classification": "BASE_BUNDLE_CANDIDATE",
+      "rationale": "GI-registered dishes and FSSAI hubs are official food reference records with low mutation rate. 1.4 KB gzip.",
+      "mobile_constraint": "Preserve OFFICIAL_FOOD_REFERENCE semantic type.",
+      "stage_f_class": "BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "official_accommodation_sources",
+      "file_path": "data/staging/accommodation/official_accommodation_sources.json",
+      "domain": "Hospitality",
+      "raw_bytes": 21065,
+      "gzip_bytes": 2697,
+      "g1_classification": "CACHE_AFTER_USE",
+      "rationale": "Government guesthouse and lodge contact details (phone, tariff, availability) are mutable. Fetch on accommodation search; cache with 24-hour TTL.",
+      "mobile_constraint": "Tariff data always null until official rate tables ingested. Stale label required after 24 h.",
+      "stage_f_class": "CACHE_AFTER_USE"
+    },
+    {
+      "dataset_name": "rail_hubs",
+      "file_path": "data/staging/connectivity/rail_hubs.json",
+      "domain": "Intercity Connectivity",
+      "raw_bytes": 12052,
+      "gzip_bytes": 1302,
+      "g1_classification": "BASE_BUNDLE_CANDIDATE",
+      "rationale": "Station codes (NTES), zone identifiers, and static coordinates change only via IRCTC official updates. 1.3 KB gzip.",
+      "mobile_constraint": "No live schedule, platform, or delay data bundled. Static identity only.",
+      "stage_f_class": "BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "airports",
+      "file_path": "data/staging/connectivity/airports.json",
+      "domain": "Intercity Connectivity",
+      "raw_bytes": 5613,
+      "gzip_bytes": 1103,
+      "g1_classification": "BASE_BUNDLE_CANDIDATE",
+      "rationale": "5 civil airports with IATA/ICAO codes, operator, and coordinates. Highly stable identity metadata. 1.1 KB gzip.",
+      "mobile_constraint": "No live flight schedule, gate, or delay bundled. Static identity only.",
+      "stage_f_class": "BUNDLE_CANDIDATE"
+    },
+    {
+      "dataset_name": "weather_warning_sources",
+      "file_path": "data/staging/weather/warning_sources.json",
+      "domain": "Weather / Safety",
+      "raw_bytes": 5067,
+      "gzip_bytes": 1871,
+      "g1_classification": "NETWORK_REQUIRED",
+      "rationale": "IMD and NDMA SACHET are real-time alert providers. Warning content is always live. Bundle only provider URLs and API endpoint metadata.",
+      "mobile_constraint": "Never display cached weather alerts as current. Always fetch fresh.",
+      "stage_f_class": "NETWORK_REQUIRED"
+    },
+    {
+      "dataset_name": "corpus_source_manifest",
+      "file_path": "data/staging/rag/corpus_source_manifest.json",
+      "domain": "AI Knowledge",
+      "raw_bytes": 6809,
+      "gzip_bytes": 1729,
+      "g1_classification": "SERVER_ONLY",
+      "rationale": "RAG corpus ingestion manifest. Backend pipeline artifact only.",
+      "mobile_constraint": "Client never reads this file.",
+      "stage_f_class": "NOT_MOBILE_DATA"
+    }
+  ],
+  "canonical_mutations": 0,
+  "production_db_mutations": 0,
+  "mobile_production_mutations": 0
+}

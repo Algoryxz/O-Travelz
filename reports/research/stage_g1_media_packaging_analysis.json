@@ -1,0 +1,51 @@
+{
+  "report_version": "1.0.0",
+  "stage": "STAGE_G1_MEDIA_PACKAGING_ANALYSIS",
+  "generated_at": "2026-09-08T05:50:00Z",
+  "scope_note": "This analysis does NOT download original media files. Estimates are derived from existing metadata records in data/staging/media/researched_media_candidates.json. No media files are bundled in Stage G1.",
+  "source_dataset": "data/staging/media/researched_media_candidates.json",
+  "source_record_count": 8,
+  "source_raw_bytes": 12408,
+  "verification_class_breakdown": {
+    "EXACT_LOCATION_VERIFIED": 7,
+    "RELATED_LOCATION": 1
+  },
+  "packaging_eligibility": {
+    "ELIGIBLE_FOR_THUMBNAIL_METADATA": 7,
+    "NOT_ELIGIBLE_FOR_BUNDLING": 1,
+    "rationale": "RELATED_LOCATION records cannot be bundled as destination thumbnails — provenance is insufficient for in-app display without further verification."
+  },
+  "thumbnail_package_estimate": {
+    "note": "Thumbnail actual byte sizes require image pipeline processing. Estimates based on industry standard WebP encoding at 80% quality.",
+    "target_format": "WebP (per docs/v4/MEDIA_LANGUAGE_VOICE.md gate)",
+    "estimated_thumbnail_size_bytes_per_image": 8192,
+    "estimated_card_size_bytes_per_image": 32768,
+    "estimated_hero_size_bytes_per_image": 131072,
+    "eligible_image_count": 7,
+    "estimated_thumbnail_pack_bytes": 57344,
+    "estimated_card_pack_bytes": 229376,
+    "estimated_hero_pack_bytes": 917504,
+    "recommendation": "Thumbnails (57 KB est.) could be considered for OPTIONAL_OFFLINE_PACKAGE after WebP encoding and license clearance. Cards and heroes must remain CACHE_AFTER_USE. Heroes must remain NETWORK_REQUIRED for large destinations.",
+    "prerequisites_before_bundling": [
+      "Image pipeline must transcode originals to WebP.",
+      "License for offline redistribution must be confirmed per MEDIA_LANGUAGE_VOICE.md.",
+      "Each image must pass visual authenticity review (no AI-generated tourist photos).",
+      "NO VERIFIED IMAGE = NO PUBLIC DESTINATION rule applies."
+    ]
+  },
+  "metadata_only_bundle": {
+    "eligible_records": 7,
+    "metadata_raw_bytes": 10858,
+    "estimated_gzip_bytes": 1600,
+    "classification": "BASE_BUNDLE_CANDIDATE",
+    "content": "URL references, caption text, location identifiers, license strings only. No pixel data."
+  },
+  "hard_invariants": [
+    "No original media files downloaded in Stage G1.",
+    "No AI-generated tourist photos may be introduced at any stage.",
+    "RELATED_LOCATION images are not eligible for in-app display without further provenance verification.",
+    "WebP gate: all images must pass WebP encoding verification before mobile bundling.",
+    "canonical_mutations = 0"
+  ],
+  "canonical_mutations": 0
+}

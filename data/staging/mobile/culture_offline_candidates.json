@@ -1,0 +1,78 @@
+{
+  "dataset": "culture_offline_candidates",
+  "stage": "STAGE_G1_CULTURE_GI_OFFLINE_QUALIFICATION",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-08T05:40:00Z",
+  "sources": [
+    "data/staging/culture/gi_products.json",
+    "data/staging/culture/artisan_clusters.json",
+    "data/staging/food/official_food_sources.json"
+  ],
+  "semantic_type_preservation_rule": "Each cultural entity MUST retain its authoritative semantic type. GI_PRODUCT, CRAFT_CLUSTER, and OFFICIAL_FOOD_REFERENCE are distinct ontological categories with different legal and provenance semantics. They must NOT be merged, flattened, or transformed into generic Place objects in any mobile data layer.",
+  "datasets": [
+    {
+      "dataset_name": "gi_products",
+      "file_path": "data/staging/culture/gi_products.json",
+      "semantic_type": "GI_PRODUCT",
+      "record_count": 10,
+      "raw_bytes": 12112,
+      "gzip_bytes": 2375,
+      "mobile_offline_class": "BASE_BUNDLE_CANDIDATE",
+      "authority": "CGPDTM — Geographical Indications Registry of India (statutory)",
+      "change_trigger": "Official CGPDTM GI Journal notification",
+      "estimated_change_frequency": "RARE (years)",
+      "freshness_class": "STABLE_REFERENCE",
+      "attribution_required": true,
+      "attribution_text": "Geographical Indications Registry — CGPDTM, Government of India",
+      "bundleable_fields": ["gi_registration_number", "product_name", "applicant", "category", "state", "registration_date", "description_summary", "source_id"],
+      "excluded_fields": [],
+      "notes": "Statutory GI records. Do not infer producer locations from GI filing area. Do not transform into map Place pins without explicit coordinate evidence."
+    },
+    {
+      "dataset_name": "artisan_clusters",
+      "file_path": "data/staging/culture/artisan_clusters.json",
+      "semantic_type": "CRAFT_CLUSTER",
+      "record_count": 6,
+      "raw_bytes": 8155,
+      "gzip_bytes": 1780,
+      "mobile_offline_class": "BASE_BUNDLE_CANDIDATE",
+      "authority": "DC Handicrafts & DC Handlooms (Ministry of Textiles) / State Craft Council",
+      "change_trigger": "Official cooperative dissolution or new cluster registration",
+      "estimated_change_frequency": "SLOW (years)",
+      "freshness_class": "SLOW_CHANGING",
+      "attribution_required": true,
+      "attribution_text": "DC Handicrafts / DC Handlooms — Ministry of Textiles, Government of India",
+      "bundleable_fields": ["cluster_id", "cluster_name", "craft_type", "district", "latitude", "longitude", "cooperative_name", "source_id"],
+      "excluded_fields": ["artisan_count"],
+      "notes": "artisan_count is a MUTABLE_CONTACT class field — subject to annual census changes. Do not bundle as static fact. Coordinates are cluster-centroid level, not individual artisan homes."
+    },
+    {
+      "dataset_name": "official_food_sources",
+      "file_path": "data/staging/food/official_food_sources.json",
+      "semantic_type": "OFFICIAL_FOOD_REFERENCE",
+      "record_count": 5,
+      "raw_bytes": 6217,
+      "gzip_bytes": 1399,
+      "mobile_offline_class": "BASE_BUNDLE_CANDIDATE",
+      "authority": "CGPDTM GI Registry (GI-registered dishes) + FSSAI (food safety hub)",
+      "change_trigger": "GI Journal notification or FSSAI regulatory update",
+      "estimated_change_frequency": "RARE",
+      "freshness_class": "STABLE_REFERENCE",
+      "attribution_required": true,
+      "attribution_text": "Geographical Indications Registry — CGPDTM; FSSAI — Food Safety and Standards Authority of India",
+      "bundleable_fields": ["food_id", "food_name", "gi_registration_number", "category", "origin_district", "description_summary", "source_id"],
+      "excluded_fields": [],
+      "notes": "GI food records reference dishes and origin regions, not individual restaurants. Do not associate with specific eatery locations without verified evidence."
+    }
+  ],
+  "combined_raw_bytes": 26484,
+  "combined_gzip_bytes": 5554,
+  "hard_invariants": [
+    "GI_PRODUCT, CRAFT_CLUSTER, OFFICIAL_FOOD_REFERENCE must be preserved as distinct semantic types in all mobile data layers.",
+    "Do NOT merge cultural entities into Place objects.",
+    "artisan_count field must not be bundled as a static numeric fact.",
+    "No AI-generated descriptions or coordinates may substitute for verified source data.",
+    "canonical_mutations = 0"
+  ],
+  "canonical_mutations": 0
+}

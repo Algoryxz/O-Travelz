@@ -1,0 +1,64 @@
+{
+  "dataset": "connectivity_offline_candidates",
+  "stage": "STAGE_G1_INTERCITY_CONNECTIVITY_OFFLINE_QUALIFICATION",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-08T05:42:00Z",
+  "sources": [
+    "data/staging/connectivity/rail_hubs.json",
+    "data/staging/connectivity/airports.json"
+  ],
+  "static_identity_only_rule": "Only static identity fields (codes, names, coordinates, operator, zone) are eligible for offline bundling. Live schedule, platform assignment, gate, delay, PNR, and real-time status are ALWAYS NETWORK_REQUIRED and must never be bundled.",
+  "datasets": [
+    {
+      "dataset_name": "rail_hubs",
+      "file_path": "data/staging/connectivity/rail_hubs.json",
+      "record_count": 12,
+      "raw_bytes": 12052,
+      "gzip_bytes": 1302,
+      "mobile_offline_class": "BASE_BUNDLE_CANDIDATE",
+      "authority": "NTES / Indian Railways official station master data",
+      "bundleable_fields": ["station_code", "station_name", "zone", "division", "latitude", "longitude", "district", "source_id"],
+      "excluded_fields": ["live_departures", "live_arrivals", "platform_status", "train_delays", "crowd_level", "pnr_status"],
+      "change_trigger": "IRCTC zone/division restructure or station renaming gazette",
+      "freshness_class": "SLOW_CHANGING",
+      "stale_label_required_after_days": 180,
+      "attribution_required": true,
+      "attribution_text": "National Train Enquiry System (NTES) — Indian Railways",
+      "stations": [
+        "Bhubaneswar (BBS)", "Cuttack (CTC)", "Puri (PURI)", "Berhampur (BAM)",
+        "Rourkela (ROU)", "Sambalpur (SBP)", "Balasore (BLS)", "Brahmapur (BAM)",
+        "Jharsuguda (JSG)", "Angul (ANGU)", "Kendujhargarh (KNJR)", "Koraput (KRPU)"
+      ]
+    },
+    {
+      "dataset_name": "airports",
+      "file_path": "data/staging/connectivity/airports.json",
+      "record_count": 5,
+      "raw_bytes": 5613,
+      "gzip_bytes": 1103,
+      "mobile_offline_class": "BASE_BUNDLE_CANDIDATE",
+      "authority": "AAI — Airports Authority of India; ICAO/IATA official designators",
+      "bundleable_fields": ["iata_code", "icao_code", "airport_name", "operator", "latitude", "longitude", "district", "source_id"],
+      "excluded_fields": ["live_departures", "live_arrivals", "gate_status", "baggage_belt", "security_queue", "flight_delays"],
+      "change_trigger": "AAI gazette notification for new airport opening or IATA code change",
+      "freshness_class": "SLOW_CHANGING",
+      "stale_label_required_after_days": 180,
+      "attribution_required": true,
+      "attribution_text": "Airports Authority of India (AAI)",
+      "airports": [
+        "Biju Patnaik International (BBI)", "Veer Surendra Sai (BRGD)",
+        "Jeypore (JYP)", "Utkela (BUTK)", "Rourkela (RRK)"
+      ]
+    }
+  ],
+  "combined_raw_bytes": 17665,
+  "combined_gzip_bytes": 2405,
+  "hard_invariants": [
+    "Live schedule data is NEVER bundled — always fetch from NTES/IndiaRail APIs at runtime.",
+    "Platform, gate, delay, PNR lookup are ALWAYS NETWORK_REQUIRED.",
+    "Station and airport codes are stable identifiers; bundle with 180-day stale label policy.",
+    "Feeder bus linkages (if any) must be sourced from CRUT canonical data, not inferred.",
+    "canonical_mutations = 0"
+  ],
+  "canonical_mutations": 0
+}
