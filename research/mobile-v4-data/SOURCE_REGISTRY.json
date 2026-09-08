@@ -228,7 +228,34 @@
     "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
     "cross_checked_by": "ANTIGRAVITY_LEAD",
     "antigravity_verdict": "VALIDATED_SOURCE"
+  },
+  {
+    "source_id": "SRC_IPINDIA_GI_REGISTRY",
+    "domain": "Geographical Indications & Cultural Provenance",
+    "title": "Geographical Indications Registry of India",
+    "organization": "Cell for IPR Promotion and Management (CIPAM) / DPIIT, Ministry of Commerce & Industry",
+    "url": "https://ipindia.gov.in",
+    "quality_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "format": "HTML / Statutory Register",
+    "license": "Government of India Official Statutory Registry",
+    "attribution_required": true,
+    "auth_required": false,
+    "rate_limit": "Public Web",
+    "runtime_allowed": true,
+    "ingestion_allowed": true,
+    "cache_allowed": true,
+    "freshness_class": "SLOW_CHANGING",
+    "last_checked": "2026-09-08",
+    "coverage": "Registered GI Crafts, Textiles, Agricultural and Food items of Odisha",
+    "sample_verified": true,
+    "limitations": [
+      "Application status transitions (e.g. examination to registration) occur on gazette publication cycles."
+    ],
+    "discovered_by": "CLAUDE_BROWSER_RESEARCHER",
+    "cross_checked_by": "ANTIGRAVITY_LEAD",
+    "antigravity_verdict": "VALIDATED_SOURCE"
   }
 ]
+
 
 

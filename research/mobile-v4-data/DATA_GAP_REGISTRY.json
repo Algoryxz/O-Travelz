@@ -120,7 +120,7 @@
       "repo_truth": "Canonical Odia culinary items identified; geographic clusters and authentic eateries unverified.",
       "product_impact": "Culinary heritage screen: curated authentic regional specialties (Chhena Poda, Rasagola, Dalma).",
       "assigned_agent": "CLAUDE_BROWSER_RESEARCHER",
-      "status": "BACKLOG",
+      "status": "RESEARCHING",
       "preferred_source_type": "OTDC Panthanivas menus, FSSAI certified regional hubs, Geographical Indication (GI) registries",
       "last_checked": "2026-09-08",
       "notes": "Focus on institutional/cultural provenance, not subjective commercial reviews."
@@ -144,10 +144,10 @@
       "repo_truth": "Raghurajpur (Pattachitra) and Pipili (Applique) recognized; artisan cooperative registries unharvested.",
       "product_impact": "Cultural Atlas artisan profiles and direct cooperative visits in PlanRootView.",
       "assigned_agent": "CLAUDE_BROWSER_RESEARCHER",
-      "status": "RESEARCHING",
+      "status": "PARTIAL",
       "preferred_source_type": "Directorate of Handicrafts Odisha, Utkalika official portal, Boyanika registries",
       "last_checked": "2026-09-08",
-      "notes": "Verify village coordinates and official society registration numbers."
+      "notes": "Verified GI Registry data (IP India) for Odisha Pattachitra (GI 2008 / Raghurajpur), Cuttack Rupa Tarakasi (GI 2024), Pipili Applique (GI 2008), Sambalpuri Bandha/Ikat (GI 2010 / Bargarh & Sonepur), Kotpad Handloom (GI 2005 / Koraput Mirgan community), Berhampur Patta (GI 2012), Sadeibareni Dhokra (App No. 1322)."
     },
     {
       "gap_id": "RAIL_STATIC_CONNECTIVITY",
