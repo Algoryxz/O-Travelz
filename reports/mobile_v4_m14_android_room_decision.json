@@ -1,0 +1,24 @@
+{
+  "wave": "M14",
+  "phase": "PHASE_4_ANDROID_ROOM_DECISION",
+  "audit_timestamp": "2026-09-08T21:32:00+05:30",
+  "dependencies": {
+    "room_runtime": "androidx.room:room-runtime:2.6.1",
+    "room_ktx": "androidx.room:room-ktx:2.6.1",
+    "room_compiler": "androidx.room:room-compiler:2.6.1 via KSP",
+    "ksp_plugin": "com.google.devtools.ksp:2.0.20-1.0.25",
+    "rejected_dependencies": [
+      "Hilt / Dagger (Unnecessary abstraction)",
+      "Koin (Unnecessary abstraction)",
+      "Room Paging (Overkill for local bookmark counts)",
+      "SQLCipher (No defined high-sensitivity credential requirement)"
+    ]
+  },
+  "database_configuration": {
+    "name": "otravelz_user_data.db",
+    "version": 1,
+    "entities_count": 4,
+    "daos_count": 3,
+    "cascade_delete": true
+  }
+}

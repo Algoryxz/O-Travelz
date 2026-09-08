@@ -27,6 +27,11 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.BookmarkBorder
+import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -36,6 +41,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import com.otravelz.android.data.repository.PersistenceRepository
+import com.otravelz.android.ui.theme.TerracottaAccent
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -90,6 +98,8 @@ fun PlaceDetailScreen(
     var uiState by remember { mutableStateOf<PlaceDetailUiState>(PlaceDetailUiState.Loading) }
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
+    val persistenceRepo = remember { PersistenceRepository.getInstance(context) }
+    val isSaved by persistenceRepo.isPlaceSaved(placeId).collectAsState(initial = false)
 
     fun loadData() {
         uiState = PlaceDetailUiState.Loading
@@ -149,9 +159,35 @@ fun PlaceDetailScreen(
                 actions = {
                     val successState = uiState as? PlaceDetailUiState.Success
                     if (successState != null) {
+                        val place = successState.place
                         IconButton(
                             onClick = {
-                                val place = successState.place
+                                scope.launch {
+                                    if (isSaved) {
+                                        persistenceRepo.unsavePlace(place.id)
+                                    } else {
+                                        persistenceRepo.savePlace(
+                                            canonicalPlaceId = place.id,
+                                            placeName = place.name,
+                                            category = place.category,
+                                            district = place.district,
+                                            imageUrl = place.primaryPhoto?.resolvedHeroUrl,
+                                            rating = null
+                                        )
+                                    }
+                                }
+                            },
+                            modifier = Modifier.size(48.dp)
+                        ) {
+                            Icon(
+                                imageVector = if (isSaved) Icons.Default.Bookmark else Icons.Default.BookmarkBorder,
+                                contentDescription = if (isSaved) stringResource(R.string.action_unsave_place) else stringResource(R.string.action_save_place),
+                                tint = if (isSaved) TerracottaAccent else MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+
+                        IconButton(
+                            onClick = {
                                 val shareText = "${place.name}${place.district?.let { ", $it" } ?: ""} — Odisha Cultural Atlas"
                                 val sendIntent = Intent().apply {
                                     action = Intent.ACTION_SEND
@@ -163,13 +199,10 @@ fun PlaceDetailScreen(
                             },
                             modifier = Modifier.size(48.dp)
                         ) {
-                            Text(
-                                text = "⤵",
-                                style = MaterialTheme.typography.titleMedium,
-                                color = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.semantics {
-                                    contentDescription = context.getString(R.string.action_share)
-                                }
+                            Icon(
+                                imageVector = Icons.Default.Share,
+                                contentDescription = context.getString(R.string.action_share),
+                                tint = MaterialTheme.colorScheme.primary
                             )
                         }
                     }

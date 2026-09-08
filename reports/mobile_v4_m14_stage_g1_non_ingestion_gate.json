@@ -1,0 +1,20 @@
+{
+  "wave": "M14",
+  "phase": "STAGE_G1_NON_INGESTION_GATE",
+  "audit_timestamp": "2026-09-08T21:55:00+05:30",
+  "gate_check": {
+    "stage_g1_status": "QUALIFIED_STAGED",
+    "stage_g2_status": "STRICTLY_LOCKED_NOT_STARTED",
+    "staged_directory": "data/staging/mobile_offline/",
+    "ingestion_prohibition": "M14 does not bundle, copy, ingest, or promote Stage G1 staged bundles into mobile app assets or SQLite tables",
+    "canonical_protection": "Zero files in data/ or backend/app/ were modified or replaced during M14"
+  },
+  "file_system_audit": {
+    "staged_offline_manifest": "UNTOUCHED (data/staging/mobile_offline/mobile_offline_manifest.json)",
+    "staged_transit_candidates": "UNTOUCHED (data/staging/mobile_offline/transit_offline_candidates.json)",
+    "staged_civic_candidates": "UNTOUCHED (data/staging/mobile_offline/civic_offline_candidates.json)",
+    "canonical_destinations": "UNTOUCHED (data/destinations/canonical/)",
+    "canonical_transit": "UNTOUCHED (data/transport/canonical/)"
+  },
+  "gate_verdict": "PASS — Zero Stage G1 ingestion or Stage G2 promotion occurred"
+}

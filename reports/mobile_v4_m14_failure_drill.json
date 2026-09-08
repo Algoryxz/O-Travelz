@@ -1,0 +1,38 @@
+{
+  "wave": "M14",
+  "phase": "FAILURE_DRILL",
+  "audit_timestamp": "2026-09-08T21:55:00+05:30",
+  "scenarios": [
+    {
+      "drill_id": "DRILL_1_EMPTY_DATABASE_LAUNCH",
+      "condition": "First app launch with no saved places, trips, or progress records",
+      "expected_behavior": "TripsRoot renders calm empty state without flashing or crashing; all flows emit empty lists gracefully",
+      "result": "PASS"
+    },
+    {
+      "drill_id": "DRILL_2_CONCURRENT_SAVE_REQUESTS",
+      "condition": "Rapid double-click on 'Save Itinerary' button in Planner",
+      "expected_behavior": "Button state transitions to SAVING; idempotent database upsert prevents duplicate entries or primary key crash",
+      "result": "PASS"
+    },
+    {
+      "drill_id": "DRILL_3_CORRUPTED_JSON_STOP_LIST",
+      "condition": "Malformed completedStopIdsJson string in trip_progress table (e.g., non-JSON or partial write)",
+      "expected_behavior": "parseJsonList / parseJsonIds falls back safely to empty list without unhandled exception",
+      "result": "PASS"
+    },
+    {
+      "drill_id": "DRILL_4_ACTIVE_TRIP_DELETION",
+      "condition": "User deletes the saved itinerary that is currently marked active",
+      "expected_behavior": "Foreign key cascade atomically deletes trip_progress; UI immediately updates without dangling active state",
+      "result": "PASS"
+    },
+    {
+      "drill_id": "DRILL_5_DEVICE_STORAGE_CONSTRAINED",
+      "condition": "Low disk space condition during save",
+      "expected_behavior": "SQLite / SwiftData throws caught disk error; UI updates saveTripState to SAVE_FAILED without crashing app",
+      "result": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

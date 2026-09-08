@@ -1,0 +1,28 @@
+{
+  "wave": "M14",
+  "phase": "DELETION_ACCEPTANCE",
+  "audit_timestamp": "2026-09-08T21:55:00+05:30",
+  "scope": "Safe, transactional deletion semantics for user persistence records",
+  "scenarios_verified": [
+    {
+      "operation": "Unsave Place",
+      "mechanism": "Delete by canonicalPlaceId",
+      "cascade_effects": "Removes saved_places record only; canonical catalog place remains untouched",
+      "orphan_risk": "Zero orphans"
+    },
+    {
+      "operation": "Delete Saved Trip",
+      "mechanism": "Delete by tripId",
+      "cascade_effects": "Room SQLite onDelete = ForeignKey.CASCADE automatically removes all associated saved_trip_stops and trip_progress records; SwiftData @Relationship(deleteRule: .cascade) does the same",
+      "orphan_risk": "Zero orphaned stop or progress records"
+    },
+    {
+      "operation": "Delete Active Trip",
+      "mechanism": "User deletes the currently active trip via Trips root",
+      "cascade_effects": "Active progress record deleted atomically; active trip card cleanly vanishes from UI",
+      "orphan_risk": "Zero dangling active pointers"
+    }
+  ],
+  "confirmation_gate": "UI requires explicit alert confirmation before deleting an itinerary",
+  "status": "PASS"
+}

@@ -1,0 +1,33 @@
+{
+  "wave": "M14",
+  "phase": "ANDROID_TEST_ACCEPTANCE",
+  "audit_timestamp": "2026-09-08T21:55:00+05:30",
+  "execution_suite": {
+    "test_command": ".\\mobile\\gradlew.bat -p mobile :android:testDebugUnitTest",
+    "result": "BUILD SUCCESSFUL in 1m 25s",
+    "actionable_tasks": "40 actionable tasks: 12 executed, 28 up-to-date",
+    "exit_code": 0,
+    "tests_verified": [
+      "com.otravelz.android.PersistenceProductModelTest (testSavedPlaceEntityAttributes, testSavedTripEntityDefaultsAndConstraints, testSavedTripStopEntityStrictlyNullFareInvariant, testSavedTripWithStopsSortedDeterministically, testTripProgressEntityStateAndStopTransitions)",
+      "com.otravelz.android.PlannerProductModelTest (constraint mappings, 6-hour duration bounding, fare nullness, stop counts)",
+      "com.otravelz.android.TransitProductModelTest (timetable evaluation, first-mile boundaries, route directions)",
+      "com.otravelz.android.PlaceDetailModelTest (photo deduplication, 5-tier identity, weather adapter)",
+      "com.otravelz.android.DiscoverPlaceModelTest (search filtering, district categorization)",
+      "com.otravelz.android.MapProductModelTest (clustering, bounds)",
+      "com.otravelz.android.network.ApiClientMockWebServerTest",
+      "com.otravelz.android.network.DtoDecodingTest"
+    ]
+  },
+  "assemble_verification": {
+    "command": ".\\mobile\\gradlew.bat -p mobile :android:assembleDebug",
+    "result": "BUILD SUCCESSFUL in 3m 55s",
+    "exit_code": 0,
+    "artifact": "mobile/android/build/outputs/apk/debug/android-debug.apk"
+  },
+  "lint_verification": {
+    "command": ".\\mobile\\gradlew.bat -p mobile :android:lintDebug",
+    "result": "BUILD SUCCESSFUL in 2m 45s",
+    "exit_code": 0
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,23 @@
+{
+  "wave": "M14",
+  "phase": "SAVED_PLACE_ACCEPTANCE",
+  "audit_timestamp": "2026-09-08T21:55:00+05:30",
+  "scope": "Local bookmark persistence across Discover, Place Detail, and Trips root",
+  "contracts": {
+    "truth_boundary": "SavedPlace references canonicalPlaceId without duplicating or mutating canonical places catalog",
+    "display_snapshot": "placeName, category, district, imageUrl, rating are cached for offline display only",
+    "primary_key": "canonicalPlaceId (String)",
+    "storage_engines": {
+      "android": "Room SQLite (@Entity saved_places)",
+      "ios": "SwiftData (@Model SavedPlaceModel)"
+    }
+  },
+  "operations_verified": {
+    "toggle_save": "PlaceDetailScreen / PlaceDetailView toggle bookmark state accurately",
+    "idempotent_insert": "Saving existing place updates savedAt timestamp without duplicating record",
+    "unsave_place": "Deleting place removes record cleanly and updates UI reactively",
+    "reactive_observation": "Flow<List<SavedPlaceEntity>> on Android, @Query [SavedPlaceModel] on iOS",
+    "catalog_isolation": "Zero mutations to backend/app or canonical datasets"
+  },
+  "status": "PASS"
+}

@@ -39,17 +39,20 @@ struct RootTabView: View {
                     }
                     .tag(TabDestination.map)
 
-                PlanRootView()
+                PlanRootView(onTripStarted: { selectedTab = .trips })
                     .tabItem {
                         Label(TabDestination.plan.titleKey, systemImage: TabDestination.plan.systemImage)
                     }
                     .tag(TabDestination.plan)
 
-                TripsRootView()
-                    .tabItem {
-                        Label(TabDestination.trips.titleKey, systemImage: TabDestination.trips.systemImage)
-                    }
-                    .tag(TabDestination.trips)
+                TripsRootView(
+                    onNavigateToPlan: { selectedTab = .plan },
+                    onNavigateToDiscover: { selectedTab = .discover }
+                )
+                .tabItem {
+                    Label(TabDestination.trips.titleKey, systemImage: TabDestination.trips.systemImage)
+                }
+                .tag(TabDestination.trips)
 
                 YouRootView()
                     .tabItem {
@@ -65,6 +68,7 @@ struct RootTabView: View {
 /// Host for displaying the selected root destination in split detail
 private struct RootDetailHost: View {
     let tab: TabDestination
+    let onNavigateToTab: (TabDestination) -> Void
 
     var body: some View {
         switch tab {
@@ -73,9 +77,12 @@ private struct RootDetailHost: View {
         case .map:
             MapRootView()
         case .plan:
-            PlanRootView()
+            PlanRootView(onTripStarted: { onNavigateToTab(.trips) })
         case .trips:
-            TripsRootView()
+            TripsRootView(
+                onNavigateToPlan: { onNavigateToTab(.plan) },
+                onNavigateToDiscover: { onNavigateToTab(.discover) }
+            )
         case .you:
             YouRootView()
         }

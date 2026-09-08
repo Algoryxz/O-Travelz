@@ -1,0 +1,28 @@
+{
+  "wave": "M14",
+  "phase": "TRIPS_ROOT_ACCEPTANCE",
+  "audit_timestamp": "2026-09-08T21:55:00+05:30",
+  "scope": "Trips root container UI and interaction behavior on Android and iOS",
+  "sections_verified": {
+    "section_1_active_trip": {
+      "presence": "Renders prominently when an active trip exists in database",
+      "controls": "Day indicator, Current milestone stop card, Mark Visited button, Skip Stop button, End Trip button",
+      "truth_boundary": "Manual milestone advancement only; zero live tracking claims or GPS auto-advance"
+    },
+    "section_2_saved_trips": {
+      "presence": "Renders list of persisted itineraries with confirmed stop counts and days",
+      "controls": "Stop preview chips, Start Trip action button, Delete dialog confirmation",
+      "reactive_updates": "Instant re-render upon deletion or activation"
+    },
+    "section_3_saved_places": {
+      "presence": "Renders list of bookmarked destinations with photo thumbnails or initial badge",
+      "controls": "Category/district label, Bookmark unsave toggle button, Tap to view detail sheet/screen"
+    },
+    "empty_state": {
+      "presence": "Renders when activeTrip == null and savedTrips is empty and savedPlaces is empty",
+      "visuals": "Terracotta bookmark icon, calm explanatory copy, direct CTA buttons to Plan and Discover",
+      "anti_vibe_check": "Zero fake counters, zero neon gradients, zero decorative confetti"
+    }
+  },
+  "status": "PASS"
+}

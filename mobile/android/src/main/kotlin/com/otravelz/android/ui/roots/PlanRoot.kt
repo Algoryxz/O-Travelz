@@ -1,4 +1,4 @@
-﻿package com.otravelz.android.ui.roots
+package com.otravelz.android.ui.roots
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
@@ -30,6 +30,7 @@ fun PlanRoot(
     modifier: Modifier = Modifier,
     onPlaceClick: (String) -> Unit = {},
     onViewOnMap: () -> Unit = {},
+    onTripStarted: () -> Unit = {},
     viewModel: PlanViewModel = viewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -90,11 +91,15 @@ fun PlanRoot(
                     onGeneratePlan = { viewModel.generatePlan() }
                 )
             } else {
+                val context = androidx.compose.ui.platform.LocalContext.current
                 PlanItineraryView(
                     plan = uiState.planResult!!,
                     onModifyPlan = { viewModel.modifyPlan() },
                     onPlaceClick = onPlaceClick,
-                    onViewOnMap = onViewOnMap
+                    onViewOnMap = onViewOnMap,
+                    saveTripState = uiState.saveTripState,
+                    onSaveTrip = { viewModel.saveCurrentPlan(context) },
+                    onStartTrip = { viewModel.startCurrentPlan(context, onTripStarted) }
                 )
             }
         }

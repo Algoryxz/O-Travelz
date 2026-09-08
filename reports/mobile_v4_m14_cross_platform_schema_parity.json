@@ -1,0 +1,45 @@
+{
+  "wave": "M14",
+  "phase": "PHASE_6_CROSS_PLATFORM_SCHEMA_PARITY",
+  "audit_timestamp": "2026-09-08T21:30:00+05:30",
+  "entities_parity": [
+    {
+      "entity": "SavedPlace",
+      "android_table": "saved_places",
+      "ios_model": "SavedPlaceModel",
+      "fields_count": 7,
+      "parity_status": "FULL_PARITY",
+      "primary_key": "canonicalPlaceId"
+    },
+    {
+      "entity": "SavedTrip",
+      "android_table": "saved_trips",
+      "ios_model": "SavedTripModel",
+      "fields_count": 9,
+      "parity_status": "FULL_PARITY",
+      "primary_key": "tripId"
+    },
+    {
+      "entity": "SavedTripStop",
+      "android_table": "saved_trip_stops",
+      "ios_model": "SavedTripStopModel",
+      "fields_count": 13,
+      "parity_status": "FULL_PARITY",
+      "primary_key": "stopId"
+    },
+    {
+      "entity": "TripProgress",
+      "android_table": "trip_progress",
+      "ios_model": "TripProgressModel",
+      "fields_count": 9,
+      "parity_status": "FULL_PARITY",
+      "primary_key": "tripId"
+    }
+  ],
+  "parity_invariants": {
+    "fare_null_truth": "Both platforms strictly enforce hopFare as null",
+    "milestone_ordering": "Both platforms enforce deterministic dayNumber + stopSequence sorting",
+    "idempotent_save": "Both platforms key SavedPlace on canonicalPlaceId",
+    "cascade_deletion": "Deleting a trip cascades to stops and progress on both platforms"
+  }
+}

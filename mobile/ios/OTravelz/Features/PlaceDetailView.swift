@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 /// Editorial Place Detail Screen for iOS.
 /// Implements full cultural atlas inspection with authentic photography,
@@ -9,6 +10,9 @@ struct PlaceDetailView: View {
     var initialPlace: DiscoverPlace? = nil
     var onBack: (() -> Void)? = nil
 
+    @Environment(\.modelContext) private var modelContext
+    @Query private var savedPlaces: [SavedPlaceModel]
+
     @State private var detail: PlaceDetail? = nil
     @State private var weather: WeatherResponseDTO? = nil
     @State private var isLoading = true
@@ -16,6 +20,10 @@ struct PlaceDetailView: View {
     @State private var errorMessage: String? = nil
 
     private let apiClient = APIClient()
+
+    private var isSaved: Bool {
+        savedPlaces.contains(where: { $0.canonicalPlaceId == placeId })
+    }
 
     var body: some View {
         ScrollView {
@@ -105,11 +113,20 @@ struct PlaceDetailView: View {
         .toolbar {
             if let place = detail ?? initialPlace.map({ PlaceDomainMapper.toPlaceDetail(PlaceDTO(id: $0.id, researchId: nil, name: $0.name, category: $0.category, description: nil, lat: nil, lon: nil, district: $0.district, region: $0.region, avgVisitMinutes: nil, priceTier: nil, rating: $0.rating, ratingCount: $0.ratingCount, interests: nil, source: nil, sourceUrl: nil, verificationStatus: nil, contactPhone: nil, emergencyPhone: nil, address: nil, images: nil, localizedNames: LocalizedNamesDTO(en: $0.name, or: $0.odiaName, hi: $0.hindiName))) }) {
                 ToolbarItem(placement: .topBarTrailing) {
-                    ShareLink(
-                        item: "\(place.name)\(place.district.map { ", \($0)" } ?? "") — Odisha Cultural Atlas"
-                    ) {
-                        Image(systemName: "square.and.arrow.up")
-                            .foregroundStyle(ColorTokens.terracotta)
+                    HStack(spacing: SpacingTokens.space3) {
+                        Button(action: {
+                            toggleSave(place: place)
+                        }) {
+                            Image(systemName: isSaved ? "bookmark.fill" : "bookmark")
+                                .foregroundStyle(ColorTokens.terracotta)
+                        }
+
+                        ShareLink(
+                            item: "\(place.name)\(place.district.map { ", \($0)" } ?? "") — Odisha Cultural Atlas"
+                        ) {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundStyle(ColorTokens.terracotta)
+                        }
                     }
                 }
             }
@@ -533,5 +550,23 @@ struct PlaceDetailView: View {
                 }
             }
         }
+    }
+
+    private func toggleSave(place: PlaceDetail) {
+        if let existing = savedPlaces.first(where: { $0.canonicalPlaceId == place.id }) {
+            modelContext.delete(existing)
+        } else {
+            let newSave = SavedPlaceModel(
+                canonicalPlaceId: place.id,
+                savedAt: Date(),
+                placeName: place.name,
+                category: place.category,
+                district: place.district,
+                imageUrl: place.heroImageUrl,
+                rating: place.rating
+            )
+            modelContext.insert(newSave)
+        }
+        try? modelContext.save()
     }
 }

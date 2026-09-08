@@ -1,0 +1,24 @@
+{
+  "wave": "M14",
+  "phase": "SAVED_TRIP_ACCEPTANCE",
+  "audit_timestamp": "2026-09-08T21:55:00+05:30",
+  "scope": "Local itinerary persistence from PlanResult into immutable snapshot",
+  "contracts": {
+    "truth_boundary": "Trip snapshot is immutable once saved; does not re-fetch or alter canonical routes",
+    "fare_semantics": "hopFare is strictly null across all saved stops (truth invariant)",
+    "stop_sequence_ordering": "sortedStops evaluates dayNumber ascending, then stopSequence ascending",
+    "cascade_deletion": "Deleting saved_trips record cascades deletion to saved_trip_stops and trip_progress",
+    "storage_engines": {
+      "android": "Room SQLite (saved_trips, saved_trip_stops with ForeignKey CASCADE)",
+      "ios": "SwiftData (SavedTripModel, SavedTripStopModel with @Relationship(deleteRule: .cascade))"
+    }
+  },
+  "operations_verified": {
+    "save_plan_action": "PlanItineraryView / itineraryResultView saves generated itinerary to local database",
+    "save_trip_states": "UNSAVED -> SAVING -> SAVED lifecycle feedback rendered accurately",
+    "title_formatting": "Automatic fallback title: '<days>-Day <hub> Itinerary' if custom title omitted",
+    "constraints_snapshot": "JSON payload captures days, pace, startHub, lowWalking, publicTransportPreferred, interests",
+    "ai_explanation_persisted": "Grounded AI explanation stored verbatim for offline consultation"
+  },
+  "status": "PASS"
+}

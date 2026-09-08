@@ -1,20 +1,25 @@
-﻿import SwiftUI
+import SwiftUI
+import SwiftData
 
 /// Structural container for Plan root on iOS.
 /// Implements structured constraint-aware planning and grounded conversational companion.
 public struct PlanRootView: View {
+    @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel: PlannerViewModel
     public var onPlaceClick: ((String) -> Void)?
     public var onViewOnMap: (() -> Void)?
+    public var onTripStarted: (() -> Void)?
 
     public init(
         viewModel: PlannerViewModel = PlannerViewModel(),
         onPlaceClick: ((String) -> Void)? = nil,
-        onViewOnMap: (() -> Void)? = nil
+        onViewOnMap: (() -> Void)? = nil,
+        onTripStarted: (() -> Void)? = nil
     ) {
         _viewModel = StateObject(wrappedValue: viewModel)
         self.onPlaceClick = onPlaceClick
         self.onViewOnMap = onViewOnMap
+        self.onTripStarted = onTripStarted
     }
 
     public var body: some View {
@@ -318,6 +323,50 @@ public struct PlanRootView: View {
                             .foregroundColor(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
+                    }
+
+                    Divider()
+
+                    // Persistence Action Row (Wave M14)
+                    HStack(spacing: SpacingTokens.space3) {
+                        Button(action: {
+                            let repo = PersistenceRepository(context: modelContext)
+                            viewModel.saveCurrentPlan(persistenceRepo: repo)
+                        }) {
+                            HStack(spacing: 6) {
+                                Image(systemName: viewModel.saveTripState == .saved ? "bookmark.fill" : "bookmark")
+                                Text(viewModel.saveTripState == .saved ? LocalizedStringKey("trips_status_saved") : (viewModel.saveTripState == .saving ? LocalizedStringKey("trips_action_saving") : LocalizedStringKey("trips_action_save_itinerary")))
+                                    .font(TypographyTokens.labelMedium)
+                            }
+                            .frame(maxWidth: .infinity, minHeight: 42)
+                            .background(Color(uiColor: .systemBackground))
+                            .foregroundColor(ColorTokens.terracotta)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(ColorTokens.terracotta.opacity(0.3), lineWidth: 1)
+                            )
+                        }
+                        .disabled(viewModel.saveTripState == .saving)
+                        .buttonStyle(.plain)
+
+                        Button(action: {
+                            let repo = PersistenceRepository(context: modelContext)
+                            viewModel.startCurrentPlan(persistenceRepo: repo) {
+                                onTripStarted?()
+                            }
+                        }) {
+                            HStack(spacing: 6) {
+                                Image(systemName: "play.fill")
+                                Text(LocalizedStringKey("trips_action_start_trip"))
+                                    .font(TypographyTokens.labelMedium)
+                            }
+                            .frame(maxWidth: .infinity, minHeight: 42)
+                            .background(ColorTokens.terracotta)
+                            .foregroundColor(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
                 .padding(SpacingTokens.space4)

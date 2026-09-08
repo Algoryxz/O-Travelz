@@ -2,7 +2,7 @@
 
 > **Authoritative Offline Specification**<br>
 > Principle: **Truthful Offline Boundaries; Zero Unsupported Availability Claims**<br>
-> Document Version: `4.1.0` | Last Updated: `2026-09-07` (Audited in Wave M1.1)
+> Document Version: `4.2.0` | Last Updated: `2026-09-08` (Wave M14 Persistence Accepted)
 
 ---
 

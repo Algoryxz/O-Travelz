@@ -165,6 +165,35 @@
     <string name="plan_generating_loading">ଗନ୍ତବ୍ୟସ୍ଥଳ ଏବଂ ଗମନାଗମନ ସଂଯୋଗ ଯାଞ୍ଚ କରାଯାଉଛି...</string>
     <string name="plan_extracting_loading">ଆପଣଙ୍କ ବିବରଣୀରୁ ସର୍ତ୍ତ ବୁଝାଯାଉଛି...</string>
     <string name="plan_empty_or_error">ଏହି ସର୍ତ୍ତଗୁଡ଼ିକ ପାଇଁ ଯୋଜନା ପ୍ରସ୍ତୁତ ହୋଇପାରିଲା ନାହିଁ।</string>
-    <string name="plan_empty_retry">ଅନ୍ୟ ଆରମ୍ଭ କେନ୍ଦ୍ର ବାଛନ୍ତୁ କିମ୍ବା ରୁଚି ପରିବର୍ତ୍ତନ କରନ୍ତୁ।</string>
     <string name="plan_view_itinerary_map">ମାନଚିତ୍ରରେ ଦେଖନ୍ତୁ</string>
+
+    <!-- M14 Trips & Persistence Strings (Odia) -->
+    <string name="action_save_place">ସ୍ଥାନ ସଂରକ୍ଷଣ କରନ୍ତୁ</string>
+    <string name="action_unsave_place">ସଂରକ୍ଷିତରୁ ହଟାନ୍ତୁ</string>
+    <string name="place_saved_notice">ସ୍ଥାନଟି ଆପଣଙ୍କ ଆଟଲାସରେ ସଂରକ୍ଷିତ ହେଲା</string>
+    <string name="place_unsaved_notice">ସ୍ଥାନଟି ସଂରକ୍ଷିତରୁ ହଟାଗଲା</string>
+    <string name="plan_action_save_trip">ଯୋଜନା ସଂରକ୍ଷଣ କରନ୍ତୁ</string>
+    <string name="plan_saving_trip">ଯୋଜନା ସଂରକ୍ଷଣ ହେଉଛି...</string>
+    <string name="plan_trip_saved">ଯୋଜନା ସଂରକ୍ଷିତ ହେଲା</string>
+    <string name="plan_trip_save_failed">ଯୋଜନା ସଂରକ୍ଷଣ ବିଫଳ ହେଲା</string>
+    <string name="trips_section_active">ସକ୍ରିୟ ଯାତ୍ରା</string>
+    <string name="trips_section_saved_trips">ସଂରକ୍ଷିତ ଯୋଜନାଗୁଡ଼ିକ</string>
+    <string name="trips_section_saved_places">ସଂରକ୍ଷିତ ସ୍ଥାନଗୁଡ଼ିକ</string>
+    <string name="trips_empty_active_title">କୌଣସି ସକ୍ରିୟ ଯାତ୍ରା ନାହିଁ</string>
+    <string name="trips_empty_active_desc">ପ୍ରତ୍ୟେକ ପଦକ୍ଷେପ ଅନୁସରଣ କରିବାକୁ ଏକ ସଂରକ୍ଷିତ ଯୋଜନା ଆରମ୍ଭ କରନ୍ତୁ।</string>
+    <string name="trips_empty_saved_trips_title">କୌଣସି ସଂରକ୍ଷିତ ଯୋଜନା ନାହିଁ</string>
+    <string name="trips_empty_saved_trips_desc">ପ୍ଲାନ ଟ୍ୟାବରେ ଏକ ଯାତ୍ରା ପ୍ରସ୍ତୁତ କରି ଅଫଲାଇନ ପାଇଁ ସଂରକ୍ଷଣ କରନ୍ତୁ।</string>
+    <string name="trips_empty_saved_places_title">କୌଣସି ସଂରକ୍ଷିତ ସ୍ଥାନ ନାହିଁ</string>
+    <string name="trips_empty_saved_places_desc">ଡିସକଭରରୁ ମନ୍ଦିର, ଐତିହ୍ୟ ସ୍ଥାନ ଏବଂ ବଜାରଗୁଡ଼ିକୁ ସଂରକ୍ଷଣ କରନ୍ତୁ।</string>
+    <string name="trips_action_start_trip">ଯାତ୍ରା ଆରମ୍ଭ କରନ୍ତୁ</string>
+    <string name="trips_action_end_trip">ଯାତ୍ରା ସମାପ୍ତ କରନ୍ତୁ</string>
+    <string name="trips_action_resume_trip">ଯାତ୍ରା ଜାରି ରଖନ୍ତୁ</string>
+    <string name="trips_action_mark_visited">ପରିଦର୍ଶନ ହେଲା ଚିହ୍ନିତ କରନ୍ତୁ</string>
+    <string name="trips_action_skip_stop">ସ୍ଥାନ ଛାଡ଼ନ୍ତୁ</string>
+    <string name="trips_action_delete_trip">ଯୋଜନା ବିଲୋପ କରନ୍ତୁ</string>
+    <string name="trips_confirm_delete_title">ଯୋଜନା ବିଲୋପ କରିବେ?</string>
+    <string name="trips_confirm_delete_msg">ଏହା ଆପଣଙ୍କ ଡିଭାଇସରୁ ଏହି ସଂରକ୍ଷିତ ଯୋଜନା ଏବଂ ପ୍ରଗତିକୁ ହଟାଇଦେବ।</string>
+    <string name="trips_active_day_label">ଦିନ %1$d / %2$d</string>
+    <string name="trips_active_current_stop">ବର୍ତ୍ତମାନର ସ୍ଥାନ: %s</string>
+    <string name="trips_active_next_stop">ପରବର୍ତ୍ତୀ: %s</string>
 </resources>

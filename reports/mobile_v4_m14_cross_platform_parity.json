@@ -1,0 +1,44 @@
+{
+  "wave": "M14",
+  "phase": "CROSS_PLATFORM_PARITY",
+  "audit_timestamp": "2026-09-08T21:55:00+05:30",
+  "feature_matrix": [
+    {
+      "feature": "Saved Places / Wishlist",
+      "android_implementation": "Room SavedPlaceEntity + observeSavedPlaces()",
+      "ios_implementation": "SwiftData SavedPlaceModel + @Query savedPlaces",
+      "parity_status": "IDENTICAL_SEMANTICS"
+    },
+    {
+      "feature": "Saved Trips / Itineraries",
+      "android_implementation": "Room SavedTripEntity + SavedTripStopEntity (CASCADE)",
+      "ios_implementation": "SwiftData SavedTripModel + SavedTripStopModel (CASCADE)",
+      "parity_status": "IDENTICAL_SEMANTICS"
+    },
+    {
+      "feature": "Stop Sequence Ordering",
+      "android_implementation": "SavedTripWithStops.sortedStops (dayNumber, stopSequence)",
+      "ios_implementation": "SavedTripModel.sortedStops (dayNumber, stopSequence)",
+      "parity_status": "IDENTICAL_SEMANTICS"
+    },
+    {
+      "feature": "Fares Strictly Null Invariant",
+      "android_implementation": "SavedTripStopEntity.hopFare == null",
+      "ios_implementation": "SavedTripStopModel.hopFare == nil",
+      "parity_status": "IDENTICAL_SEMANTICS"
+    },
+    {
+      "feature": "Active Trip Milestone Progression",
+      "android_implementation": "TripProgressEntity + markStopVisited + skipStop",
+      "ios_implementation": "TripProgressModel + markStopVisited + skipStop",
+      "parity_status": "IDENTICAL_SEMANTICS"
+    },
+    {
+      "feature": "Trips Root UI Presentation",
+      "android_implementation": "TripsRoot.kt (Material 3 Adaptive, 3 sections, calm empty state)",
+      "ios_implementation": "TripsRootView.swift (SwiftUI Adaptive, 3 sections, calm empty state)",
+      "parity_status": "IDENTICAL_SEMANTICS"
+    }
+  ],
+  "status": "PASS"
+}

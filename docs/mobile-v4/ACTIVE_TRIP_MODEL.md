@@ -1,8 +1,8 @@
-﻿# O-TRAVELZ Mobile V4 — Active Trip Execution Model
+# O-TRAVELZ Mobile V4 — Active Trip Execution Model
 
 > **Authoritative Behavioral Specification**  
 > Model: **On-the-Ground Trip Execution Engine (Deterministic vs. Inferred Boundaries)**  
-> Document Version: `4.0.0` | Last Updated: `2026-09-07`
+> Document Version: `4.1.0` | Last Updated: `2026-09-08` (Wave M14 Persistence Accepted)
 
 ---
 

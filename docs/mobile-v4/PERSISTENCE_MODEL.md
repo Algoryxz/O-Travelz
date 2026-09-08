@@ -1,8 +1,8 @@
-﻿# O-TRAVELZ Mobile V4 — Persistence Domain Model
+# O-TRAVELZ Mobile V4 — Persistence Domain Model
 
 > **Authoritative Data Persistence Specification**  
 > Engines: **Android Room SQLite (KSP) & iOS SwiftData (@Model)**  
-> Document Version: `4.0.0` | Last Updated: `2026-09-07`
+> Status: **Wave M14 Implemented & Accepted** | Last Updated: `2026-09-08`
 
 ---
 

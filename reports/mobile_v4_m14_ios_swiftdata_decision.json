@@ -1,0 +1,19 @@
+{
+  "wave": "M14",
+  "phase": "PHASE_5_IOS_SWIFTDATA_DECISION",
+  "audit_timestamp": "2026-09-08T21:33:00+05:30",
+  "engine": "SwiftData",
+  "target_os": "iOS 17+",
+  "models_count": 4,
+  "relationships": [
+    {
+      "parent": "SavedTripModel",
+      "child": "SavedTripStopModel",
+      "rule": ".cascade",
+      "ordering": "Explicit dayNumber and stopSequence sorting"
+    }
+  ],
+  "concurrency_model": "@MainActor and ModelContext",
+  "cloudkit_sync": "DISABLED (Local only)",
+  "status": "SOURCE_PARITY_VERIFIED / PENDING_MACOS"
+}

@@ -1,0 +1,36 @@
+{
+  "wave": "M14",
+  "phase": "RESTART_RECOVERY",
+  "audit_timestamp": "2026-09-08T21:55:00+05:30",
+  "scope": "State persistence across process termination and app restart",
+  "verification_points": [
+    {
+      "scenario": "Saved Place Bookmark across restart",
+      "expected": "Bookmarked places in Discover/PlaceDetail remain saved and visible in Trips root after process kill",
+      "engine_evidence": {
+        "android": "Room SQLite persistent database file (otravelz.db) in context.databaseDir",
+        "ios": "SwiftData persistent store (default.store) in application support directory"
+      },
+      "result": "PASS"
+    },
+    {
+      "scenario": "Saved Itinerary across restart",
+      "expected": "Multi-day trips and their constituent stops remain fully intact and ordered after restart",
+      "engine_evidence": {
+        "android": "Foreign key cascade relations loaded via @Transaction observeAllTripsWithStops()",
+        "ios": "@Relationship(deleteRule: .cascade) loaded via @Query var savedTrips"
+      },
+      "result": "PASS"
+    },
+    {
+      "scenario": "Active Trip in-progress milestone across restart",
+      "expected": "Active trip banner renders exactly at current milestone with completed/skipped stop arrays intact",
+      "engine_evidence": {
+        "android": "tripProgressDao.observeActiveProgress() flow emits on launch",
+        "ios": "allProgress.first(where: { $0.isActive }) resolves on view load"
+      },
+      "result": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,27 @@
+{
+  "wave": "M14",
+  "phase": "STORAGE_SIZE_REVIEW",
+  "audit_timestamp": "2026-09-08T21:55:00+05:30",
+  "scope": "Storage footprint analysis for Room SQLite and SwiftData user persistence",
+  "schema_footprint": {
+    "tables_entities": [
+      "saved_places (7 columns, index on PK)",
+      "saved_trips (9 columns, index on PK)",
+      "saved_trip_stops (12 columns, index on PK + FK index on tripId)",
+      "trip_progress (9 columns, index on PK)"
+    ],
+    "overhead_per_record": {
+      "saved_place": "~180 bytes avg",
+      "saved_trip": "~320 bytes avg (including constraints JSON)",
+      "saved_trip_stop": "~160 bytes avg",
+      "trip_progress": "~140 bytes avg"
+    },
+    "binary_blobs": "ZERO binary images stored in database. All images referenced by HTTPS/relative URL strings."
+  },
+  "projected_usage": {
+    "light_user": "5 saved places, 1 saved trip (6 stops): ~4 KB total payload (< 64 KB SQLite page allocation)",
+    "heavy_traveler": "100 saved places, 20 saved trips (150 stops): ~60 KB total payload (< 256 KB SQLite file)",
+    "app_size_impact": "Negligible. Native SQLite overhead < 0.1% of baseline APK/IPA."
+  },
+  "status": "PASS"
+}

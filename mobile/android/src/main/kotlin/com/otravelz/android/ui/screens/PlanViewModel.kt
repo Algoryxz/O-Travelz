@@ -1,4 +1,4 @@
-﻿package com.otravelz.android.ui.screens
+package com.otravelz.android.ui.screens
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,6 +14,13 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
+enum class SaveTripState {
+    UNSAVED,
+    SAVING,
+    SAVED,
+    SAVE_FAILED
+}
+
 /**
  * Observable UI state for the Plan root.
  */
@@ -26,7 +33,8 @@ data class PlanUiState(
     val errorMessage: String? = null,
     val aiCompanionMessage: String? = null,
     val isAIGrounded: Boolean = false,
-    val showConstraintsForm: Boolean = true
+    val showConstraintsForm: Boolean = true,
+    val saveTripState: SaveTripState = SaveTripState.UNSAVED
 )
 
 /**
@@ -164,6 +172,35 @@ class PlanViewModel(
                 constraints = PlanConstraints(),
                 showConstraintsForm = true
             )
+        }
+    }
+
+    fun saveCurrentPlan(context: android.content.Context) {
+        val plan = _uiState.value.planResult ?: return
+        _uiState.update { it.copy(saveTripState = SaveTripState.SAVING) }
+        viewModelScope.launch {
+            try {
+                val repo = com.otravelz.android.data.repository.PersistenceRepository.getInstance(context)
+                repo.savePlanResult(plan)
+                _uiState.update { it.copy(saveTripState = SaveTripState.SAVED) }
+            } catch (e: Exception) {
+                _uiState.update { it.copy(saveTripState = SaveTripState.SAVE_FAILED) }
+            }
+        }
+    }
+
+    fun startCurrentPlan(context: android.content.Context, onStarted: () -> Unit) {
+        val plan = _uiState.value.planResult ?: return
+        viewModelScope.launch {
+            try {
+                val repo = com.otravelz.android.data.repository.PersistenceRepository.getInstance(context)
+                val tripId = repo.savePlanResult(plan)
+                repo.startTrip(tripId)
+                _uiState.update { it.copy(saveTripState = SaveTripState.SAVED) }
+                onStarted()
+            } catch (e: Exception) {
+                _uiState.update { it.copy(saveTripState = SaveTripState.SAVE_FAILED) }
+            }
         }
     }
 }

@@ -1,0 +1,55 @@
+{
+  "wave": "M14",
+  "phase": "PHASE_1_SCOPE_RECONCILIATION",
+  "audit_timestamp": "2026-09-08T21:26:00+05:30",
+  "entities_reconciliation": [
+    {
+      "candidate": "SavedPlace",
+      "classification": "IMPLEMENT_M14",
+      "rationale": "Directly needed for Place Detail and Discover bookmarking. Persists canonical place ID and timestamp with display snapshot fields.",
+      "ui_touchpoints": ["PlaceDetailScreen (Android)", "PlaceDetailView (iOS)", "TripsRoot (Saved Places section)"]
+    },
+    {
+      "candidate": "SavedTrip",
+      "classification": "IMPLEMENT_M14",
+      "rationale": "Directly needed for Planner result persistence. Stores immutable generated itinerary snapshot, constraints, and canonical stops.",
+      "ui_touchpoints": ["PlanScreens (Android)", "PlanRootView (iOS)", "TripsRoot (Saved Trips section)"]
+    },
+    {
+      "candidate": "TripProgress",
+      "classification": "IMPLEMENT_M14",
+      "rationale": "Directly needed for Active Trip execution. Tracks active trip ID, active day, current milestone, completed and skipped stop lists.",
+      "ui_touchpoints": ["TripsRoot (Active Trip section)", "ActiveTripScreen / View"]
+    },
+    {
+      "candidate": "RecentSearch",
+      "classification": "DEFER",
+      "rationale": "Search across Discover and Transit operates in-memory; no existing UI exposes a persisted recent searches history.",
+      "ui_touchpoints": []
+    },
+    {
+      "candidate": "UserPreference",
+      "classification": "DEFER",
+      "rationale": "Current native apps rely on platform configuration and standard system localization. No database table is warranted for preferences.",
+      "ui_touchpoints": []
+    },
+    {
+      "candidate": "OfflinePackage",
+      "classification": "REMOVE_FROM_CURRENT_SCOPE",
+      "rationale": "Offline bundle downloading requires Stage G2 canonical promotion which remains strictly LOCKED.",
+      "ui_touchpoints": []
+    },
+    {
+      "candidate": "PendingContribution",
+      "classification": "REMOVE_FROM_CURRENT_SCOPE",
+      "rationale": "Community contribution flows are scheduled for Wave M15+; no contribution UI exists in current baseline.",
+      "ui_touchpoints": []
+    }
+  ],
+  "scope_verdict": {
+    "implemented_count": 3,
+    "deferred_count": 2,
+    "removed_count": 2,
+    "ponytail_alignment": "Minimal necessary local persistence without speculative tables or premature frameworks."
+  }
+}

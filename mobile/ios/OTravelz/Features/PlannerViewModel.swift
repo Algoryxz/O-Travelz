@@ -1,4 +1,4 @@
-﻿import Foundation
+import Foundation
 import SwiftUI
 
 /// Observable ViewModel managing constraint-aware itinerary generation and grounded AI companion interactions.
@@ -99,6 +99,15 @@ public final class PlannerViewModel: ObservableObject {
         }
     }
 
+    public enum SaveTripState {
+        case unsaved
+        case saving
+        case saved
+        case saveFailed
+    }
+
+    @Published public var saveTripState: SaveTripState = .unsaved
+
     public func modifyPlan() {
         showConstraintsForm = true
     }
@@ -110,5 +119,21 @@ public final class PlannerViewModel: ObservableObject {
         aiCompanionMessage = nil
         errorMessage = nil
         showConstraintsForm = true
+        saveTripState = .unsaved
+    }
+
+    public func saveCurrentPlan(persistenceRepo: PersistenceRepository) {
+        guard let plan = planResult else { return }
+        saveTripState = .saving
+        _ = persistenceRepo.savePlanResult(plan: plan)
+        saveTripState = .saved
+    }
+
+    public func startCurrentPlan(persistenceRepo: PersistenceRepository, onStarted: () -> Void) {
+        guard let plan = planResult else { return }
+        let tripId = persistenceRepo.savePlanResult(plan: plan)
+        persistenceRepo.startTrip(tripId: tripId)
+        saveTripState = .saved
+        onStarted()
     }
 }

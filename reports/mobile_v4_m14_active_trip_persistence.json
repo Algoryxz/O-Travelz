@@ -1,0 +1,21 @@
+{
+  "wave": "M14",
+  "phase": "ACTIVE_TRIP_PERSISTENCE",
+  "audit_timestamp": "2026-09-08T21:55:00+05:30",
+  "scope": "Active trip execution state lifecycle and persistence",
+  "contracts": {
+    "single_active_trip": "At most one trip progress record can have isActive == true at any time",
+    "activation_rule": "Starting a trip deactivates any previously active trip in an atomic transaction",
+    "manual_milestone_progression": "Only explicit traveler clicks on Mark Visited or Skip Stop advance milestones",
+    "tracking_invariants": "Zero background location services, zero GPS geofencing, zero simulated telematics"
+  },
+  "lifecycle_states": {
+    "start_trip": "Sets isActive = true, activeDay = 1, currentMilestoneIndex = 0, startedAt = now, completionState = IN_PROGRESS",
+    "mark_visited": "Appends canonicalPlaceId to completedStopIdsJson, removes from skippedStopIdsJson, increments milestone index",
+    "skip_stop": "Appends canonicalPlaceId to skippedStopIdsJson, removes from completedStopIdsJson, increments milestone index",
+    "end_trip": "Sets isActive = false, completionState = COMPLETED, updates lastUpdatedAt",
+    "cancel_trip": "Sets isActive = false, completionState = CANCELLED, updates lastUpdatedAt"
+  },
+  "restart_survival": "Active progress reloads immediately upon application launch from SQLite / SwiftData disk store",
+  "status": "PASS"
+}

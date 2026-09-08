@@ -1,0 +1,46 @@
+{
+  "wave": "M14",
+  "phase": "PHASE_0_BEFORE_AUDIT",
+  "audit_timestamp": "2026-09-08T21:25:00+05:30",
+  "git": {
+    "branch": "feature/v4-platform-rebuild",
+    "starting_sha": "539f1599df481f90da7d06bee59af0ef1d5ba043",
+    "status": "CLEAN"
+  },
+  "persistence_prerequisites_audit": {
+    "android": {
+      "room_version_catalog": "2.6.1",
+      "ksp_version_catalog": "2.0.20-1.0.25",
+      "ksp_plugin_applied_to_project": false,
+      "room_dependencies_applied": false,
+      "existing_database_files": 0,
+      "existing_entities": 0,
+      "existing_daos": 0
+    },
+    "ios": {
+      "swiftdata_available": true,
+      "existing_model_files": 0,
+      "existing_swiftdata_models": 0
+    }
+  },
+  "ui_touchpoints_pre_m14": {
+    "place_detail": {
+      "android": "Save button absent from top bar (Share only)",
+      "ios": "Save button absent from navigation/toolbar"
+    },
+    "plan_result": {
+      "android": "Modify and View On Map buttons only; Save Trip absent",
+      "ios": "Modify and View On Map buttons only; Save Trip absent"
+    },
+    "trips_root": {
+      "android": "Placeholder text screen with static bootstrap label",
+      "ios": "Placeholder text screen with static bootstrap label"
+    }
+  },
+  "scope_boundaries": {
+    "stage_g2_locked": true,
+    "cloud_sync_prohibited": true,
+    "account_auth_prohibited": true,
+    "gps_background_tracking_prohibited": true
+  }
+}

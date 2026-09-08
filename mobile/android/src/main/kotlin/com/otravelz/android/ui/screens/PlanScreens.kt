@@ -11,10 +11,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.*
@@ -310,6 +312,9 @@ fun PlanItineraryView(
     onModifyPlan: () -> Unit,
     onPlaceClick: (String) -> Unit,
     onViewOnMap: () -> Unit,
+    saveTripState: SaveTripState = SaveTripState.UNSAVED,
+    onSaveTrip: () -> Unit = {},
+    onStartTrip: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val scrollState = rememberScrollState()
@@ -329,7 +334,7 @@ fun PlanItineraryView(
         ) {
             Column(
                 modifier = Modifier.padding(Spacing.space4),
-                verticalArrangement = Arrangement.spacedBy(Spacing.space2)
+                verticalArrangement = Arrangement.spacedBy(Spacing.space3)
             ) {
                 Text(
                     text = stringResource(
@@ -347,6 +352,55 @@ fun PlanItineraryView(
                     color = TerracottaAccent,
                     fontWeight = FontWeight.SemiBold
                 )
+
+                // Persistence Actions (Wave M14)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(Spacing.space2),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Button(
+                        onClick = onSaveTrip,
+                        enabled = saveTripState != SaveTripState.SAVING && saveTripState != SaveTripState.SAVED,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = if (saveTripState == SaveTripState.SAVED) ForestGreenAccent else MaterialTheme.colorScheme.primary
+                        ),
+                        shape = RoundedCornerShape(10.dp),
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        when (saveTripState) {
+                            SaveTripState.SAVING -> {
+                                CircularProgressIndicator(
+                                    modifier = Modifier.size(16.dp),
+                                    color = Color.White,
+                                    strokeWidth = 2.dp
+                                )
+                                Spacer(modifier = Modifier.width(6.dp))
+                                Text(stringResource(R.string.plan_saving_trip), style = MaterialTheme.typography.labelMedium)
+                            }
+                            SaveTripState.SAVED -> {
+                                Icon(Icons.Default.Check, contentDescription = null, modifier = Modifier.size(16.dp))
+                                Spacer(modifier = Modifier.width(6.dp))
+                                Text(stringResource(R.string.plan_trip_saved), style = MaterialTheme.typography.labelMedium)
+                            }
+                            else -> {
+                                Icon(Icons.Default.Bookmark, contentDescription = null, modifier = Modifier.size(16.dp))
+                                Spacer(modifier = Modifier.width(6.dp))
+                                Text(stringResource(R.string.plan_action_save_trip), style = MaterialTheme.typography.labelMedium)
+                            }
+                        }
+                    }
+
+                    FilledTonalButton(
+                        onClick = onStartTrip,
+                        shape = RoundedCornerShape(10.dp),
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        Icon(Icons.Default.PlayArrow, contentDescription = null, modifier = Modifier.size(16.dp))
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(stringResource(R.string.trips_action_start_trip), style = MaterialTheme.typography.labelMedium)
+                    }
+                }
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),

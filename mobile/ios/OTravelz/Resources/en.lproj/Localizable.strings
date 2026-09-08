@@ -158,3 +158,30 @@
 "plan_empty_or_error" = "Unable to generate a feasible itinerary for these constraints.";
 "plan_empty_retry" = "Try selecting a different starting hub or broadening your interests.";
 "plan_view_itinerary_map" = "View on Map";
+
+/* M14 Trips & Persistence Strings */
+"action_save_place" = "Save Place";
+"action_unsave_place" = "Remove from Saved";
+"place_saved_notice" = "Place saved to your atlas";
+"place_unsaved_notice" = "Place removed from saved";
+"plan_action_save_trip" = "Save Itinerary";
+"plan_saving_trip" = "Saving itinerary...";
+"plan_trip_saved" = "Itinerary Saved";
+"plan_trip_save_failed" = "Failed to save itinerary";
+"trips_section_active" = "Active Trip";
+"trips_section_saved_trips" = "Saved Itineraries";
+"trips_section_saved_places" = "Saved Places";
+"trips_empty_active_title" = "No Active Trip";
+"trips_empty_active_desc" = "Start a saved itinerary to track your journey step by step.";
+"trips_empty_saved_trips_title" = "No Saved Itineraries";
+"trips_empty_saved_trips_desc" = "Generate a trip in the Plan tab and save it for offline access.";
+"trips_empty_saved_places_title" = "No Saved Places";
+"trips_empty_saved_places_desc" = "Bookmark temples, heritage sites, and markets from Discover to build your wishlist.";
+"trips_action_start_trip" = "Start Trip";
+"trips_action_end_trip" = "End Trip";
+"trips_action_resume_trip" = "Resume Trip";
+"trips_action_mark_visited" = "Mark Visited";
+"trips_action_skip_stop" = "Skip Stop";
+"trips_action_delete_trip" = "Delete Trip";
+"trips_confirm_delete_title" = "Delete Itinerary?";
+"trips_confirm_delete_msg" = "This will remove this saved itinerary and any associated progress from your device.";

@@ -182,6 +182,7 @@ fun OTravelzApp(
                             onPlaceClick = { placeId -> selectedPlaceId = placeId },
                             onTransitClick = { isTransitOpen = true },
                             onNavigateToMap = { currentTab = NavDestination.MAP },
+                            onNavigateToTab = { currentTab = it },
                             modifier = Modifier.fillMaxSize()
                         )
                     }
@@ -201,6 +202,7 @@ private fun RootContentHost(
     onPlaceClick: (String) -> Unit,
     onTransitClick: () -> Unit,
     onNavigateToMap: () -> Unit,
+    onNavigateToTab: (NavDestination) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     when (destination) {
@@ -213,9 +215,15 @@ private fun RootContentHost(
         NavDestination.PLAN -> PlanRoot(
             onPlaceClick = onPlaceClick,
             onViewOnMap = onNavigateToMap,
+            onTripStarted = { onNavigateToTab(NavDestination.TRIPS) },
             modifier = modifier
         )
-        NavDestination.TRIPS -> TripsRoot(modifier = modifier)
+        NavDestination.TRIPS -> TripsRoot(
+            onPlaceClick = onPlaceClick,
+            onNavigateToPlan = { onNavigateToTab(NavDestination.PLAN) },
+            onNavigateToDiscover = { onNavigateToTab(NavDestination.DISCOVER) },
+            modifier = modifier
+        )
         NavDestination.YOU -> YouRoot(modifier = modifier)
     }
 }
