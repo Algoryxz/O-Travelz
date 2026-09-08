@@ -211,6 +211,54 @@
       "Food discovery on mobile must be scoped to regional dish heritage and certified geographic clusters, not unverified commercial eateries."
     ],
     "canonical_promotion_allowed": false
+  },
+  {
+    "claim_id": "CLM_CIVIC_TOURIST_POLICE_AND_EMERGENCY_010",
+    "gap_id": "CIVIC_SERVICES_EXPANSION",
+    "entity_id": "odisha_tourist_police_and_emergency_amenities",
+    "entity_name": "Odisha Tourist Police Cells, DHH Hospitals & Emergency Services",
+    "claim": "Statutory emergency infrastructure verified across 8 dedicated Tourist Police Cells (Puri Sea Beach 9937100285, Konark 9937100382, Nandankanan 9937100416, Dhauli 9937100465, Lingaraj 9937100740, Satapada 9937100755, Gopalpur 9937100949, Chandipur 9937100806), Commissionerate Police 41 stations, 30 DHH hospitals & 11 medical colleges (SCB Cuttack, MKCG Berhampur, VIMSAR Burla), 340+ fire stations, and OSDMA multipurpose cyclone shelters. Universal helplines: 112 (ERSS), 108 (Ambulance), 101 (Fire), 1070 (SEOC Disaster).",
+    "source_url": "https://odishatourism.gov.in/ / https://odishapolice.gov.in/ / https://health.odisha.gov.in/ / https://odishafshgscd.gov.in/",
+    "source_title": "Odisha Tourism, Police, Health, Fire & OSDMA Official Rosters",
+    "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "retrieved_at": "2026-09-08T10:23:15+05:30",
+    "effective_date_if_known": "2024-04-01",
+    "freshness_class": "SLOW_CHANGING",
+    "identity_confidence": 1.0,
+    "source_confidence": 1.0,
+    "licensing_status": "OFFICIAL_PUBLIC_SAFETY_ROSTER",
+    "cross_thread_support": "Researched by GIS_API_RESEARCHER; audited and accepted by ADVERSARIAL_EVIDENCE_REVIEWER.",
+    "reviewer_verdict": "ACCEPT_STAGING",
+    "limitations": [
+      "Tourist Police mobile hotlines are assigned to official beat CUGs and subject to departmental re-assignment upon officer transfers.",
+      "General non-Commissionerate rural police stations operate under district SP administrative lines."
+    ],
+    "canonical_promotion_allowed": true
+  },
+  {
+    "claim_id": "CLM_ACCOMMODATIONS_GOVT_ECOTOUR_011",
+    "gap_id": "ACCOMMODATION_SOURCES",
+    "entity_id": "odisha_official_hospitality_inventory",
+    "entity_name": "OTDC Panthanivas, Eco Retreat Odisha & EcoTour Nature Camps",
+    "claim": "Official government and community eco-tourism inventory identified across OTDC Panthanivas (panthanivas.com), Eco Retreat Odisha 7 seasonal glamping destinations (Konark, Satkosia, Bhitarkanika, Sonapur, Hirakud, Daringbadi, Putsil on ecoretreat.odishatourism.gov.in), and EcoTour Odisha 50+ nature camps (ecotourodisha.com). Commercial OTAs, fake star ratings, and review aggregations are strictly excluded per anti-vibe PRD rules.",
+    "source_url": "https://panthanivas.com/ / https://ecoretreat.odishatourism.gov.in/ / https://ecotourodisha.com/",
+    "source_title": "OTDC, Odisha Tourism Eco Retreat & EcoTour Odisha Portals",
+    "source_tier": "TIER_A_OFFICIAL_PRIMARY",
+    "retrieved_at": "2026-09-08T10:22:00+05:30",
+    "effective_date_if_known": "2024-01-01",
+    "freshness_class": "SLOW_CHANGING",
+    "identity_confidence": 0.95,
+    "source_confidence": 0.95,
+    "licensing_status": "OFFICIAL_GOVERNMENT_PORTALS",
+    "cross_thread_support": "Researched by PROVENANCE_POLICY_RESEARCHER; audited and accepted by ADVERSARIAL_EVIDENCE_REVIEWER.",
+    "reviewer_verdict": "ACCEPT_STAGING",
+    "limitations": [
+      "No public open JSON API feed exists; structured property records must be ingested via sitemap / HTML parsing.",
+      "Eco Retreat operates strictly on a seasonal window (typically November to March).",
+      "Commercial OTA pricing and crowdsourced reviews are prohibited."
+    ],
+    "canonical_promotion_allowed": false
   }
 ]
+
 
