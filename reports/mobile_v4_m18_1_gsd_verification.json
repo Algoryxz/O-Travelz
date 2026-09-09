@@ -1,0 +1,68 @@
+{
+  "wave": "M18.1",
+  "verification": "GSD_PHASE_VERIFICATION",
+  "evaluated_at": "2026-09-09T10:01:45Z",
+  "criteria_verification": [
+    {
+      "criterion": "OFFLINE_PLAN_GENERATION_CLAIM_GROUNDED",
+      "status": "PASS",
+      "evidence": "Grounded to NOT_IMPLEMENTED on-device. User copy: 'Trip planning requires an internet connection. Your saved trips remain available offline.'"
+    },
+    {
+      "criterion": "TRANSIT_COUNTS_RECONCILED",
+      "status": "PASS",
+      "evidence": "Reconciled to 1,430 canonical stops (173 verified coordinates, 1,257 locality-only) across 154 routes with 164 variants and 1,491 stop occurrences."
+    },
+    {
+      "criterion": "DESTINATION_OFFLINE_CLAIM_GROUNDED",
+      "status": "PASS",
+      "evidence": "NO_DESTINATION_REFERENCE_BUNDLE confirmed. Map copy calibrated to reflect saved places and previously available local content."
+    },
+    {
+      "criterion": "AUTH_OFFLINE_SEMANTICS_HONEST",
+      "status": "PASS",
+      "evidence": "Cached identity distinguished from remote session validity (UNKNOWN_WHILE_OFFLINE)."
+    },
+    {
+      "criterion": "MEDIA_CACHE_CLAIMS_GROUNDED",
+      "status": "PASS",
+      "evidence": "Both platforms calibrated to SYSTEM_CACHE_BEST_EFFORT. Zero raw master images bundled."
+    },
+    {
+      "criterion": "NO_PLACEHOLDER_AS_PHOTO",
+      "status": "PASS",
+      "evidence": "Uncached media presents sandstone cultural typography with Odia script and pending badge, never fake photos."
+    },
+    {
+      "criterion": "STORAGE_SIZE_CLAIMS_MEASURED_OR_DEFERRED",
+      "status": "PASS",
+      "evidence": "Android debug APK empirically measured at 19.40 MB (20,346,607 bytes); iOS deferred as PENDING_MACOS."
+    },
+    {
+      "criterion": "NO_UNSUPPORTED_100_PERCENT_CLAIMS",
+      "status": "PASS",
+      "evidence": "All 8 unqualified or inflated claims audited and reworded or removed."
+    },
+    {
+      "criterion": "WEATHER_CACHE_TRUTH",
+      "status": "PASS",
+      "evidence": "Dynamic relative time elapsed disclosed; never badged as live or current; no arbitrary TTL."
+    },
+    {
+      "criterion": "IOS_EVIDENCE_CALIBRATED",
+      "status": "PASS",
+      "evidence": "iOS marked SOURCE_PARITY_VERIFIED / PENDING_MACOS on Windows host."
+    },
+    {
+      "criterion": "STAGE_G2_NOT_STARTED",
+      "status": "PASS",
+      "evidence": "Stage G1 quarantined, Stage G2 remains LOCKED / NOT STARTED."
+    },
+    {
+      "criterion": "CANONICAL_DATA_MUTATIONS",
+      "status": "PASS",
+      "evidence": "0 canonical data mutations performed."
+    }
+  ],
+  "verdict": "GSD_VERIFICATION_COMPLETE_ALL_CRITERIA_SATISFIED"
+}

@@ -1,0 +1,35 @@
+{
+  "wave": "M18.1",
+  "audit": "OFFLINE_DESTINATION_CATALOG_TRUTH",
+  "evaluated_at": "2026-09-09T09:56:30Z",
+  "findings": {
+    "bundle_audit_result": "NO_DESTINATION_REFERENCE_BUNDLE",
+    "android_bundled_assets": [
+      "transit/routes.json (108,963 bytes)",
+      "transit/route_stops.json (493,351 bytes)",
+      "transit/schedules.json (285,943 bytes)"
+    ],
+    "ios_bundled_assets": [
+      "Transit/routes.json (108,963 bytes)",
+      "Transit/route_stops.json (493,351 bytes)",
+      "Transit/schedules.json (285,943 bytes)",
+      "en.lproj/Localizable.strings",
+      "or.lproj/Localizable.strings"
+    ],
+    "bundled_destination_count": 0,
+    "discover_feed_persistence_mode": "IN_MEMORY_STATE_FLOW",
+    "discover_durably_persisted": false,
+    "discover_fresh_install_offline": "UNAVAILABLE (honest error screen rendered)",
+    "persisted_destination_data": "SAVED_PLACE_SNAPSHOTS_ONLY",
+    "persisted_saved_place_store": {
+      "android": "Room SQLite (SavedPlaceEntity)",
+      "ios": "SwiftData (SavedPlaceModel)"
+    },
+    "map_offline_copy_correction": {
+      "previous_report_claim": "bundled places remain viewable as list",
+      "calibrated_copy": "Map tiles are unavailable offline. Saved places and previously available local content can still be viewed.",
+      "action": "Updated Android and iOS localization strings and map view notices"
+    }
+  },
+  "verdict": "DESTINATION_CATALOG_OFFLINE_TRUTH_GROUNDED"
+}

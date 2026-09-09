@@ -1,0 +1,56 @@
+{
+  "wave": "M18.1",
+  "audit": "OFFLINE_CLAIM_AUDIT",
+  "evaluated_at": "2026-09-09T09:58:30Z",
+  "occurrences": [
+    {
+      "claim": "Bundled 154 routes, 302 schedules, 5,549 departures, and 24x7 state helplines are 100% available offline",
+      "location": "docs/mobile-v4/M18_OFFLINE_BASELINE.md",
+      "classification": "SUPPORTED",
+      "justification": "These assets are embedded directly into production app bundles (routes.json, schedules.json, helplines in code)."
+    },
+    {
+      "claim": "Saved trips remain 100% readable and executable offline",
+      "location": "docs/mobile-v4/OFFLINE_PRODUCT_MODEL.md",
+      "classification": "SUPPORTED",
+      "justification": "Saved trips and active trip state reside exclusively in local Room SQLite / SwiftData databases."
+    },
+    {
+      "claim": "Transit route directory, stop sequences, and scheduled timetables are 100% available offline",
+      "location": "docs/mobile-v4/OFFLINE_PRODUCT_MODEL.md",
+      "classification": "SUPPORTED",
+      "justification": "Pure local JSON asset parsing and KMP timetable evaluator; zero network calls involved."
+    },
+    {
+      "claim": "auth session … 100% offline",
+      "location": "M18 completion report",
+      "classification": "OVERCLAIM",
+      "remediation": "REWORDED to: 'Cached account identity is available offline; remote session token validity remains unverified until network reconnection.'"
+    },
+    {
+      "claim": "deterministic itinerary generation continues locally",
+      "location": "M18 completion report",
+      "classification": "OVERCLAIM",
+      "remediation": "REMOVED. The itinerary planner requires POST /itinerary/plan network access. Offline Plan allows viewing/editing local saved trips and constraints."
+    },
+    {
+      "claim": "bundled places remain viewable as list",
+      "location": "M18 completion report & map copy",
+      "classification": "OVERCLAIM",
+      "remediation": "REWORDED to: 'Map tiles are unavailable offline. Saved places and previously available local content can still be viewed.'"
+    },
+    {
+      "claim": "~45 MB baseline cross-platform size",
+      "location": "M18 completion report",
+      "classification": "OVERCLAIM",
+      "remediation": "REPLACED with empirically measured Android debug APK: 19.40 MB (20,346,607 bytes); iOS binary deferred as PENDING_MACOS."
+    },
+    {
+      "claim": "3,467 stops",
+      "location": "M18 completion report",
+      "classification": "OVERCLAIM",
+      "remediation": "RECONCILED to 1,430 canonical stops (173 verified coordinates, 1,257 locality-only) across 154 routes."
+    }
+  ],
+  "verdict": "UNGROUNDED_CLAIMS_AUDITED_AND_REMEDIATED"
+}

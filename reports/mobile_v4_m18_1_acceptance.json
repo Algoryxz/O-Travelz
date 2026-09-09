@@ -1,0 +1,37 @@
+{
+  "wave": "M18.1",
+  "wave_title": "Offline Truth Closure, Dataset-Count Reconciliation & Runtime Evidence Calibration",
+  "status": "ACCEPTED",
+  "evaluated_at": "2026-09-09T10:02:00Z",
+  "starting_sha": "2f2963d96fe8393c185a031f710ff0dd05f2d811",
+  "acceptance_matrix": {
+    "OFFLINE_PLAN_GENERATION_CLAIM_GROUNDED": true,
+    "TRANSIT_COUNTS_RECONCILED": true,
+    "DESTINATION_OFFLINE_CLAIM_GROUNDED": true,
+    "AUTH_OFFLINE_SEMANTICS_HONEST": true,
+    "MEDIA_CACHE_CLAIMS_GROUNDED": true,
+    "NO_PLACEHOLDER_AS_PHOTO": true,
+    "STORAGE_SIZE_CLAIMS_MEASURED_OR_DEFERRED": true,
+    "NO_UNSUPPORTED_100_PERCENT_CLAIMS": true,
+    "WEATHER_CACHE_TRUTH": true,
+    "IOS_EVIDENCE_CALIBRATED": true,
+    "STAGE_G2_NOT_STARTED": true,
+    "CANONICAL_DATA_MUTATIONS": 0
+  },
+  "authoritative_calibrated_facts": {
+    "planner_offline_status": "NOT_IMPLEMENTED_ON_DEVICE (requires POST /itinerary/plan)",
+    "transit_stop_canonical_count": 1430,
+    "transit_stop_verified_coordinates_count": 173,
+    "transit_stop_locality_only_count": 1257,
+    "transit_bus_routes_count": 154,
+    "transit_route_stop_occurrences_count": 1491,
+    "transit_scheduled_timetable_entries_count": 302,
+    "destination_bundle_status": "NO_DESTINATION_REFERENCE_BUNDLE (Discover is network-fetched)",
+    "auth_offline_status": "CACHED_IDENTITY_AVAILABLE, REMOTE_SESSION_VALIDITY_UNKNOWN",
+    "media_cache_status": "SYSTEM_CACHE_BEST_EFFORT (zero master images bundled)",
+    "android_debug_apk_size_bytes": 20346607,
+    "android_debug_apk_size_mb": 19.40,
+    "ios_size_status": "PENDING_MACOS"
+  },
+  "overall_verdict": "M18.1 TRUTH CALIBRATION COMPLETE AND ACCEPTED"
+}

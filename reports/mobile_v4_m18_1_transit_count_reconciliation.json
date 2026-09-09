@@ -1,0 +1,35 @@
+{
+  "wave": "M18.1",
+  "audit": "TRANSIT_STOP_COUNT_RECONCILIATION",
+  "evaluated_at": "2026-09-09T09:55:30Z",
+  "reconciliation_summary": {
+    "claimed_m18_count": 3467,
+    "status_of_m18_claim": "DISCREDITED_HALLUCINATION_OR_STAGING_CONFLATION",
+    "authoritative_counts": {
+      "canonical_stop_entities": 1430,
+      "stops_with_verified_physical_coordinates": 173,
+      "locality_only_or_unresolved_coordinate_stops": 1257,
+      "canonical_bus_routes": 154,
+      "directional_route_variants_in_route_stops": 164,
+      "directional_stop_occurrences_in_sequences": 1491,
+      "scheduled_timetable_service_entries": 302
+    }
+  },
+  "asset_truth": {
+    "android_assets_transit": {
+      "routes_json_routes": 154,
+      "route_stops_json_mappings": 164,
+      "schedules_json_entries": 302
+    },
+    "ios_resources_transit": {
+      "routes_json_routes": 154,
+      "route_stops_json_mappings": 164,
+      "schedules_json_entries": 302
+    }
+  },
+  "explanation_of_discrepancy": "The number 3,467 cited in the M18 completion report was an ungrounded hallucination/conflation with raw research staging nodes in data/transport/staging/ama_bus/osm_odisha_amenity_nodes.json. The authoritative canonical inventory is 1,430 stops (173 verified coordinates, 1,257 locality-only) across 154 routes with 164 directional variants and 1,491 stop occurrences.",
+  "documentation_actions": [
+    "Correct all M18 documents and reports referencing 3,467 stops to state 1,430 canonical stops (173 with verified physical coordinates, 1,257 locality-only) across 154 routes"
+  ],
+  "verdict": "RECONCILED_TO_1430_CANONICAL_STOPS"
+}

@@ -1,0 +1,43 @@
+{
+  "wave": "M18.1",
+  "drill": "OFFLINE_FAILURE_AND_DEGRADATION_DRILL",
+  "evaluated_at": "2026-09-09T10:00:45Z",
+  "scenarios": [
+    {
+      "scenario": "DRILL_1_NEW_ITINERARY_REQUEST_OFFLINE",
+      "action": "User attempts to generate a new itinerary in Airplane Mode",
+      "expected_behavior": "Displays canonical message: 'Trip planning requires an internet connection. Your saved trips remain available offline.'",
+      "verified_in_code": true,
+      "result": "PASS"
+    },
+    {
+      "scenario": "DRILL_2_DISCOVER_FRESH_INSTALL_OFFLINE",
+      "action": "Cold launch Discover tab without internet and without prior cache",
+      "expected_behavior": "Displays honest empty state: 'Connection required to discover new places. Saved places and transit schedules remain available.'",
+      "verified_in_code": true,
+      "result": "PASS"
+    },
+    {
+      "scenario": "DRILL_3_MAP_OFFLINE_TILES_UNAVAILABLE",
+      "action": "Open Map tab in Airplane Mode without cached vector tiles",
+      "expected_behavior": "Map renders linear list sheet with notice: 'Map tiles are unavailable offline. Saved places and previously available local content can still be viewed.'",
+      "verified_in_code": true,
+      "result": "PASS"
+    },
+    {
+      "scenario": "DRILL_4_AUTH_COLD_BOOT_OFFLINE",
+      "action": "Launch app offline with stored session token",
+      "expected_behavior": "Restores cached identity for display in You tab without asserting remote validity; fails open without forcing logout.",
+      "verified_in_code": true,
+      "result": "PASS"
+    },
+    {
+      "scenario": "DRILL_5_WEATHER_UNCACHED_COORDINATES",
+      "action": "View place detail for coordinates with no cached weather",
+      "expected_behavior": "Displays 'Weather unavailable offline'; never fabricates 0°C or Sunny.",
+      "verified_in_code": true,
+      "result": "PASS"
+    }
+  ],
+  "verdict": "ALL_DEGRADED_DRILLS_PASS"
+}

@@ -1,0 +1,23 @@
+{
+  "wave": "M18.1",
+  "wave_title": "Offline Truth Closure, Dataset-Count Reconciliation & Runtime Evidence Calibration",
+  "started_at": "2026-09-09T09:54:30Z",
+  "baseline_commit_sha": "2f2963d96fe8393c185a031f710ff0dd05f2d811",
+  "branch": "feature/v4-platform-rebuild",
+  "worktree_status": "CLEAN",
+  "calibration_triggers": [
+    "Overstated claim that deterministic itinerary generation continues locally offline",
+    "Transit stop count reported as 3,467 without distinguishing route-stop occurrences from canonical stops (1,430)",
+    "Map copy claimed 'bundled places remain viewable as list' when destination catalog is network-fetched",
+    "Auth session grouped under 100% offline without separating cached identity from remote session validity",
+    "Uncached photo category-icon fallback requires strict non-photo empty-media semantics",
+    "iOS URLCache.shared offline durability requires realistic system-cache classification",
+    "~45 MB baseline storage claim requires empirical APK measurement rather than generic cross-platform assertion",
+    "Review and reword all unqualified '100% offline' claims across M18 documentation and reports"
+  ],
+  "governance": {
+    "stage_g1_candidates_quarantined": true,
+    "stage_g2_locked": true,
+    "canonical_data_mutations_allowed": 0
+  }
+}

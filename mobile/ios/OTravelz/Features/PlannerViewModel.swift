@@ -93,7 +93,7 @@ public final class PlannerViewModel: ObservableObject {
                 self.isLoading = false
                 self.showConstraintsForm = false
             } catch {
-                self.errorMessage = NSLocalizedString("offline_ai_notice", comment: "")
+                self.errorMessage = NSLocalizedString("offline_planner_notice", comment: "")
                 self.isLoading = false
             }
         }

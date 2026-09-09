@@ -252,8 +252,9 @@
     <string name="offline_banner_desc">Some live features are unavailable. Saved trips and local content remain available.</string>
     <string name="offline_weather_cached">Cached weather • %1$s ago</string>
     <string name="offline_weather_unavailable">Weather unavailable</string>
+    <string name="offline_planner_notice">Trip planning requires an internet connection. Your saved trips remain available offline.</string>
     <string name="offline_ai_notice">AI Assistant requires an internet connection. You can still view saved trips and edit local trip details.</string>
-    <string name="offline_map_tiles_unavailable">Map tiles unavailable offline. Use List View for saved destinations and route details.</string>
+    <string name="offline_map_tiles_unavailable">Map tiles are unavailable offline. Saved places and previously available local content can still be viewed.</string>
     <string name="offline_nearby_unavailable">Nearby facilities unavailable offline. Emergency helplines remain available.</string>
     <string name="offline_discover_empty">Connection required to discover new places. Saved places and transit schedules remain available.</string>
     <string name="offline_snapshot_badge">Offline Snapshot</string>

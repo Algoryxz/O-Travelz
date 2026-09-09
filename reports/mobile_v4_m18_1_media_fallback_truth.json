@@ -1,0 +1,22 @@
+{
+  "wave": "M18.1",
+  "audit": "MEDIA_FALLBACK_TRUTH",
+  "evaluated_at": "2026-09-09T09:57:45Z",
+  "findings": {
+    "empty_media_treatment": {
+      "android": "Cultural sandstone typography container (PlaceDetailScreen / PlaceCard) with R.string.badge_photo_pending / photo_pending_desc",
+      "ios": "FallbackCulturalBanner (PlaceDetailView / PlaceCardView) with ColorTokens.sandstoneLight, Odia typography, and photo.badge.exclamationmark icon"
+    },
+    "rules_adherence": {
+      "icon_represents_media_unavailable": true,
+      "icon_never_implies_authentic_photo": true,
+      "icon_never_increments_photo_count": true,
+      "icon_never_labeled_hero_photo": true,
+      "no_cross_destination_artwork": true,
+      "no_ai_generated_tourist_imagery": true
+    },
+    "distinct_source_photo_count_preserved": true,
+    "photo_gating_integrity": "NO VERIFIED IMAGE = NO PUBLIC DESTINATION HERO"
+  },
+  "verdict": "NO_PLACEHOLDER_AS_PHOTO_PRESERVED"
+}

@@ -1,0 +1,7 @@
+{
+  "wave": "M18.1",
+  "review": "CODERABBIT_RECONCILIATION",
+  "evaluated_at": "2026-09-09T10:01:30Z",
+  "status": "NOT_EXECUTED_NO_PR_CONTEXT",
+  "reason": "Direct development on branch feature/v4-platform-rebuild; no active Pull Request context exists on remote host."
+}

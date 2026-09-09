@@ -1,0 +1,22 @@
+{
+  "wave": "M18.1",
+  "audit": "WEATHER_CACHE_TRUTH",
+  "evaluated_at": "2026-09-09T09:58:45Z",
+  "findings": {
+    "temporal_separation": {
+      "provider_observation_time": "Preserved from provider observed_at ISO timestamp where exposed, parsed to milliseconds/Date",
+      "fetched_at": "Recorded at time of network response retrieval",
+      "cache_age": "Dynamically computed as nowMillis - observedAtMillis at presentation time"
+    },
+    "badging_invariants": {
+      "never_labeled_live": true,
+      "never_labeled_current": true,
+      "never_labeled_now": true,
+      "presentation_format_en": "Cached weather · {relativeTimeAgo}",
+      "presentation_format_or": "କ୍ୟାସ୍ ପାଣିପାଗ · {relativeTimeAgo}",
+      "fallback_when_uncached": "Weather unavailable offline"
+    },
+    "ttl_policy": "NO_ARBITRARY_EXPIRY_THRESHOLD (Observation age is always truthfully disclosed rather than silently purged at arbitrary 30-minute intervals)"
+  },
+  "verdict": "WEATHER_CACHE_TRUTH_VERIFIED"
+}

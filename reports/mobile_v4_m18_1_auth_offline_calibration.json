@@ -1,0 +1,28 @@
+{
+  "wave": "M18.1",
+  "audit": "AUTH_OFFLINE_SEMANTICS_CALIBRATION",
+  "evaluated_at": "2026-09-09T09:57:00Z",
+  "calibrated_classification": {
+    "CACHED_ACCOUNT_IDENTITY": {
+      "status": "AVAILABLE_OFFLINE",
+      "description": "Cached display name, email, and avatar URI stored in encrypted local storage; safely rendered in You tab while offline.",
+      "claim_boundary": "Read-only presentation of previously validated identity."
+    },
+    "LOCAL_SECURE_SESSION_TOKEN": {
+      "status": "STORED_LOCALLY",
+      "android": "EncryptedSharedPreferences (MasterKey AES-256-GCM)",
+      "ios": "Apple Keychain (kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly)",
+      "claim_boundary": "Opaque bearer token retained locally across app restarts; never logged or exposed in deep links."
+    },
+    "REMOTE_SESSION_VALIDITY": {
+      "status": "UNKNOWN_WHILE_OFFLINE",
+      "description": "Backend token validity (active / revoked / expired) cannot be verified without GET /auth/me network exchange.",
+      "claim_boundary": "Never assert '100% offline valid session' or 'authenticated with server'. The app fails open gracefully without forcing logout."
+    }
+  },
+  "wording_corrections": [
+    "Tier 2 documentation updated to state 'Cached identity and local session token available offline; remote session validity remains unverified until reconnection'",
+    "Removed any claims that authentication is 100% offline"
+  ],
+  "verdict": "AUTH_OFFLINE_SEMANTICS_CALIBRATED"
+}

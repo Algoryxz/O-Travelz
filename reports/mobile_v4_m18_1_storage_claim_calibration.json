@@ -1,0 +1,30 @@
+{
+  "wave": "M18.1",
+  "audit": "STORAGE_CLAIM_CALIBRATION",
+  "evaluated_at": "2026-09-09T09:58:00Z",
+  "empirical_measurements": {
+    "android_debug_apk": {
+      "path": "mobile/android/build/outputs/apk/debug/android-debug.apk",
+      "size_bytes": 20346607,
+      "size_mb": 19.40,
+      "measurement_method": "EMPIRICALLY_MEASURED_ON_HOST"
+    },
+    "ios_binary": {
+      "status": "PENDING_MACOS",
+      "measurement_method": "DEFERRED_TO_MACOS_TOOLCHAIN",
+      "reason": "Host environment is Windows; Xcode / xcrun cannot execute locally to generate IPA"
+    },
+    "cross_platform_generic_claim": {
+      "previous_claim": "~45 MB baseline",
+      "calibration_decision": "REMOVED",
+      "rationale": "An unmeasured cross-platform estimate is misleading when the real Android debug APK is 19.40 MB and iOS binary generation requires macOS."
+    }
+  },
+  "asset_breakdown_bytes": {
+    "transit_routes_json": 108963,
+    "transit_route_stops_json": 493351,
+    "transit_schedules_json": 285943,
+    "total_bundled_transit_data": 888257
+  },
+  "verdict": "STORAGE_CLAIMS_CALIBRATED_TO_EMPIRICAL_EVIDENCE"
+}

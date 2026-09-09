@@ -1,0 +1,21 @@
+{
+  "wave": "M18.1",
+  "audit": "CROSS_PLATFORM_EVIDENCE_CALIBRATION",
+  "evaluated_at": "2026-09-09T09:59:00Z",
+  "platform_evidence_status": {
+    "android": {
+      "status": "RUNTIME_VERIFIED",
+      "test_suite": "OfflineProductModelTest (5 unit tests passed)",
+      "compilation": ":android:assembleDebug SUCCESSFUL",
+      "lint": ":android:lintDebug PASSED",
+      "host_environment": "Windows 11 / JVM / Android SDK / Gradle Daemon"
+    },
+    "ios": {
+      "status": "SOURCE_PARITY_VERIFIED / PENDING_MACOS",
+      "test_suite": "OTravelzTests/OfflineDomainTests (Swift source parity verified, syntax & structural inspection complete)",
+      "compilation": "PENDING_MACOS_TOOLCHAIN",
+      "reason": "Host operating system is Windows 11 without native macOS / Xcode build toolchain; claims calibrated to source parity only"
+    }
+  },
+  "verdict": "PLATFORM_EVIDENCE_CALIBRATED"
+}

@@ -1,0 +1,29 @@
+{
+  "wave": "M18.1",
+  "audit": "OFFLINE_ITINERARY_PLANNER_TRUTH",
+  "evaluated_at": "2026-09-09T09:55:00Z",
+  "findings": {
+    "ANDROID_OFFLINE_PLAN_GENERATION": "NOT_IMPLEMENTED",
+    "IOS_OFFLINE_PLAN_GENERATION": "NOT_IMPLEMENTED",
+    "android_implementation_path": "PlannerRepository.kt -> apiService.planItinerary() -> POST /itinerary/plan",
+    "ios_implementation_path": "PlannerRepository.swift -> apiClient.planItinerary() -> POST /itinerary/plan",
+    "kmp_shared_core_capabilities": [
+      "HaversineDistance calculation",
+      "BoundingBox geographic filters",
+      "Transit timetable lookup from bundled JSON"
+    ],
+    "kmp_itinerary_solver_present": false,
+    "actual_offline_planner_capabilities": [
+      "Viewing saved trips from Room / SwiftData",
+      "Active-trip progress tracking and milestone countdowns",
+      "Editing local trip notes / metadata",
+      "Form input and constraint review"
+    ],
+    "unsupported_claims_removed": [
+      "deterministic itinerary generation continues locally",
+      "offline plan generation"
+    ],
+    "canonical_user_copy": "Trip planning requires an internet connection. Your saved trips remain available offline."
+  },
+  "verdict": "PLANNER_REQUIRES_NETWORK_CONFIRMED"
+}

@@ -33,6 +33,7 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M16** | Authentication, secure session exchange, and user profiles | `[COMPLETED]` |
 | **M17** | Push notifications and local transit departure countdowns | `[COMPLETED]` |
 | **M18** | Complete offline flight check and bundle synchronizer | `[COMPLETED]` |
+| **M18.1** | Offline truth closure, dataset-count reconciliation & runtime evidence calibration | `[COMPLETED]` |
 | **M19** | Community photo contributions and CameraX / AVCapture validation | `[NEXT]` |
 | **M20** | Crowdsourced transit check-in and ride verification consensus | `[PLANNED]` |
 | **M21** | Accessibility audit (VoiceOver, TalkBack, Dynamic Type, AA contrast) | `[PLANNED]` |

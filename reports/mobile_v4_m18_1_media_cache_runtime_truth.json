@@ -1,0 +1,25 @@
+{
+  "wave": "M18.1",
+  "audit": "MEDIA_CACHE_RUNTIME_TRUTH",
+  "evaluated_at": "2026-09-09T09:57:30Z",
+  "platform_analysis": {
+    "ios": {
+      "mechanism": "AsyncImage backed by URLSession.shared / URLCache.shared",
+      "classification": "SYSTEM_CACHE_BEST_EFFORT",
+      "durability_boundary": "URLCache disk storage is managed by iOS system heuristics. Media is not guaranteed to persist across system cache purges, restarts, or memory pressure. No offline bundle of destination photography exists.",
+      "offline_behavior": "Previously rendered images may display from disk cache; un-cached requests fail gracefully and present non-photo empty-media category fallback treatments."
+    },
+    "android": {
+      "mechanism": "Coil AsyncImage backed by OkHttp DiskLruCache",
+      "classification": "SYSTEM_CACHE_BEST_EFFORT",
+      "durability_boundary": "Disk cache is stored in context.cacheDir/image_cache and subject to LRU eviction and Android system storage trimming. No offline master image bundle is embedded.",
+      "offline_behavior": "Cached bitmaps load from disk; un-cached images display non-photo category fallback icons."
+    }
+  },
+  "truth_calibration": {
+    "previous_claim_calibrated": "Downgraded from durable/guaranteed media availability to SYSTEM_CACHE_BEST_EFFORT on both platforms.",
+    "zero_master_images_bundled": true,
+    "user_disclosure": "Images are cached during online browsing where storage permits, but offline viewing cannot guarantee un-cached photos."
+  },
+  "verdict": "MEDIA_CACHE_REALITY_CALIBRATED"
+}
