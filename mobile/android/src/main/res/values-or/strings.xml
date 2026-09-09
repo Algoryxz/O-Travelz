@@ -196,4 +196,27 @@
     <string name="trips_active_day_label">ଦିନ %1$d / %2$d</string>
     <string name="trips_active_current_stop">ବର୍ତ୍ତମାନର ସ୍ଥାନ: %s</string>
     <string name="trips_active_next_stop">ପରବର୍ତ୍ତୀ: %s</string>
+
+    <!-- M15 Emergency Essentials, Civic Contacts & Artisan Clusters (Odia) -->
+    <string name="essentials_sheet_title">ଜରୁରୀକାଳୀନ ସେବା ଓ ନାଗରିକ ସହାୟତା</string>
+    <string name="essentials_sheet_subtitle">ଓଡ଼ିଶାର ଯାଞ୍ଚ ହୋଇଥିବା ଡାକ୍ତରଖାନା, ପୋଲିସ୍, ପେଟ୍ରୋଲ ପମ୍ପ, ଏଟିଏମ୍ ଓ ହେଲ୍ପଲାଇନ୍</string>
+    <string name="essentials_state_helplines_title">୨୪x୭ ଜରୁରୀକାଳୀନ ହେଲ୍ପଲାଇନ୍</string>
+    <string name="essentials_nearby_facilities_title">ଯାଞ୍ଚ ହୋଇଥିବା ନାଗରିକ ସୁବିଧା</string>
+    <string name="essentials_empty_services">ଏହି ଅଞ୍ଚଳରେ କୌଣସି ସୁବିଧା ମିଳିଲା ନାହିଁ। ଅନ୍ୟ ବର୍ଗ ଚୟନ କରନ୍ତୁ।</string>
+    <string name="essentials_dial_confirm_title">ହେଲ୍ପଲାଇନ୍ କଲ୍ କରିବେ?</string>
+    <string name="essentials_dial_confirm_msg">ଆପଣ %1$s (%2$s) କୁ କଲ୍ କରିବାକୁ ଯାଉଛନ୍ତି। ଏହା ଆପଣଙ୍କ ଫୋନ୍ ଡାଏଲର୍ ଖୋଲିବ।</string>
+    <string name="essentials_action_dial">ଡାଏଲ୍ କରନ୍ତୁ</string>
+    <string name="you_section_emergency">ଜରୁରୀକାଳୀନ ହେଲ୍ପଲାଇନ୍</string>
+    <string name="you_section_emergency_desc">୨୪x୭ ଯାଞ୍ଚ ହୋଇଥିବା ଜରୁରୀକାଳୀନ ନମ୍ବର</string>
+    <string name="you_action_view_nearby_civic">ନିକଟସ୍ଥ ଡାକ୍ତରଖାନା, ପୋଲିସ୍ ଓ ଏଟିଏମ୍ ଖୋଜନ୍ତୁ</string>
+    <string name="you_section_artisan_clusters">ଓଡ଼ିଶାର ଜୀବନ୍ତ ଐତିହ୍ୟ ଓ କଳାକାର ଗ୍ରାମ</string>
+    <string name="you_section_artisan_clusters_desc">ପାରମ୍ପରିକ ହସ୍ତଶିଳ୍ପ, ବୁଣାକାର ଓ ଜିଆଇ ଟ୍ୟାଗ୍ ପ୍ରାପ୍ତ କଳା</string>
+    <string name="you_section_preferences">ପସନ୍ଦ ଓ ସ୍ୱଚ୍ଛତା</string>
+    <string name="you_pref_language_title">ପ୍ରଦର୍ଶନ ଭାଷା</string>
+    <string name="you_pref_language_value">ଇଂରାଜୀ / ଓଡ଼ିଆ</string>
+    <string name="you_pref_offline_title">ଅଫଲାଇନ୍ ଆଟଲାସ୍ ସ୍ଥିତି</string>
+    <string name="you_pref_offline_desc">ସମସ୍ତ ସାଇଭ୍ ସ୍ଥାନ, ଯାତ୍ରା ଓ ଜରୁରୀ ନମ୍ବର ଆପଣଙ୍କ ଫୋନ୍ରେ ସୁରକ୍ଷିତ ଅଛି।</string>
+    <string name="you_pref_trust_title">ପ୍ଲାଟଫର୍ମ ସତ୍ୟତା</string>
+    <string name="you_pref_trust_desc">ଆଲଗୋରିକ୍ସ (Algoryxz) ଦ୍ୱାରା ନିର୍ମିତ ଆଧୁନିକ ଓଡ଼ିଶା ସାଂସ୍କୃତିକ ଆଟଲାସ୍। କୌଣସି କାଳ୍ପନିକ ତଥ୍ୟ ବିନା ଯାଞ୍ଚ ହୋଇଥିବା ସ୍ଥାନ ଓ ଗମନାଗମନ ସୂଚନା।</string>
+    <string name="place_action_nearby_essentials">ନିକଟସ୍ଥ ଜରୁରୀକାଳୀନ ସହାୟତା</string>
 </resources>

@@ -34,6 +34,22 @@ enum ColorTokens {
     static let chilika = Color(red: 0.169, green: 0.420, blue: 0.533)        // #2B6B88
     static let forest = Color(red: 0.176, green: 0.353, blue: 0.247)         // #2D5A3F
 
+    // Semantic aliases
+    static let chilikaBlue = chilika
+    static let forestGreen = forest
+
+    static var surface: Color {
+        Color(uiColor: UIColor { traitCollection in
+            traitCollection.userInterfaceStyle == .dark ?
+                UIColor(red: 0.12, green: 0.11, blue: 0.10, alpha: 1.0) :
+                UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        })
+    }
+
+    static var surfaceVariant: Color {
+        textSecondary.opacity(0.15)
+    }
+
     // Truth Colors
     static let truthVerified = Color(red: 0.180, green: 0.490, blue: 0.196)  // #2E7D32
     static let truthScheduled = Color(red: 0.082, green: 0.396, blue: 0.753) // #1565C0

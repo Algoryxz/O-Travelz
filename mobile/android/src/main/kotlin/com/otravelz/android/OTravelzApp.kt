@@ -224,6 +224,9 @@ private fun RootContentHost(
             onNavigateToDiscover = { onNavigateToTab(NavDestination.DISCOVER) },
             modifier = modifier
         )
-        NavDestination.YOU -> YouRoot(modifier = modifier)
+        NavDestination.YOU -> YouRoot(
+            onPlaceClick = onPlaceClick,
+            modifier = modifier
+        )
     }
 }

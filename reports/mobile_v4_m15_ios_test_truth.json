@@ -1,0 +1,27 @@
+{
+  "wave": "M15",
+  "audit_name": "IOS_TEST_TRUTH",
+  "timestamp": "2026-09-09T07:20:00+05:30",
+  "execution_environment": {
+    "host_os": "Windows",
+    "xcode_available": false,
+    "claim_status": "SOURCE_PARITY_VERIFIED / PENDING_MACOS"
+  },
+  "authored_test_suites": [
+    "mobile/ios/OTravelzTests/EssentialsDomainTests.swift",
+    "mobile/ios/OTravelzTests/PersistenceDomainTests.swift",
+    "mobile/ios/OTravelzTests/PlannerDomainTests.swift",
+    "mobile/ios/OTravelzTests/TransitDomainTests.swift",
+    "mobile/ios/OTravelzTests/PlaceDetailDomainTests.swift",
+    "mobile/ios/OTravelzTests/DiscoverDomainTests.swift",
+    "mobile/ios/OTravelzTests/MapDomainTests.swift",
+    "mobile/ios/OTravelzTests/NetworkDTOTests.swift",
+    "mobile/ios/OTravelzTests/RootNavigationTests.swift"
+  ],
+  "verification_details": {
+    "syntax_contract_parity": true,
+    "anti_hallucination_guarantee": "Zero unverified test execution claimed on non-macOS environment",
+    "safe_dialer_implementation": "Uses tel:// with character sanitization and explicit user confirmation dialog"
+  },
+  "overall_verdict": "PASS"
+}

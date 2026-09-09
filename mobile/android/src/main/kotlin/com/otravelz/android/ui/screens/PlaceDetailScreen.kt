@@ -42,7 +42,10 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.otravelz.android.data.repository.PersistenceRepository
+import com.otravelz.android.ui.components.EssentialsSheet
+import com.otravelz.android.ui.screens.EssentialsViewModel
 import com.otravelz.android.ui.theme.TerracottaAccent
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -278,6 +281,9 @@ private fun PlaceDetailContent(
 ) {
     val scrollState = rememberScrollState()
     val context = LocalContext.current
+    val essentialsViewModel: EssentialsViewModel = viewModel()
+    val essentialsState by essentialsViewModel.uiState.collectAsState()
+    var showEssentialsSheet by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -416,30 +422,57 @@ private fun PlaceDetailContent(
 
             Spacer(modifier = Modifier.height(Spacing.space5))
 
-            // 3. Location Action: External Map Navigation Handoff (Phase 26)
+            // 3. Location Action: External Map Navigation Handoff & Nearby Civic Help
             if (place.hasCoordinates) {
-                OutlinedButton(
-                    onClick = {
-                        val lat = place.lat!!
-                        val lon = place.lon!!
-                        val uri = Uri.parse("geo:$lat,$lon?q=$lat,$lon(${Uri.encode(place.name)})")
-                        val mapIntent = Intent(Intent.ACTION_VIEW, uri)
-                        try {
-                            context.startActivity(mapIntent)
-                        } catch (e: Exception) {
-                            val webUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=$lat,$lon")
-                            context.startActivity(Intent(Intent.ACTION_VIEW, webUri))
-                        }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
                 ) {
-                    Text(
-                        text = "📍 " + stringResource(R.string.action_open_in_maps),
-                        style = MaterialTheme.typography.labelLarge,
-                        fontWeight = FontWeight.SemiBold
-                    )
+                    OutlinedButton(
+                        onClick = {
+                            val lat = place.lat!!
+                            val lon = place.lon!!
+                            val uri = Uri.parse("geo:$lat,$lon?q=$lat,$lon(${Uri.encode(place.name)})")
+                            val mapIntent = Intent(Intent.ACTION_VIEW, uri)
+                            try {
+                                context.startActivity(mapIntent)
+                            } catch (e: Exception) {
+                                val webUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=$lat,$lon")
+                                context.startActivity(Intent(Intent.ACTION_VIEW, webUri))
+                            }
+                        },
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(48.dp)
+                    ) {
+                        Text(
+                            text = "📍 " + stringResource(R.string.action_open_in_maps),
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.SemiBold,
+                            maxLines = 1
+                        )
+                    }
+
+                    OutlinedButton(
+                        onClick = {
+                            place.lat?.let { lat ->
+                                place.lon?.let { lon ->
+                                    essentialsViewModel.loadServicesForCoordinates(lat, lon)
+                                    showEssentialsSheet = true
+                                }
+                            }
+                        },
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(48.dp)
+                    ) {
+                        Text(
+                            text = "🛡️ " + stringResource(R.string.place_action_nearby_essentials),
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.SemiBold,
+                            maxLines = 1
+                        )
+                    }
                 }
                 Spacer(modifier = Modifier.height(Spacing.space6))
             }
@@ -628,6 +661,17 @@ private fun PlaceDetailContent(
                 }
             }
         }
+    }
+
+    if (showEssentialsSheet) {
+        EssentialsSheet(
+            onDismissRequest = { showEssentialsSheet = false },
+            helplines = essentialsState.helplines,
+            services = essentialsState.nearbyServices,
+            selectedCategory = essentialsState.selectedCategory,
+            onCategorySelected = { cat -> essentialsViewModel.selectCategory(cat) },
+            isLoading = essentialsState.isLoadingServices
+        )
     }
 }
 

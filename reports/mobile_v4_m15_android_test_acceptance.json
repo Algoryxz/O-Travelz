@@ -1,0 +1,42 @@
+{
+  "wave": "M15",
+  "audit_name": "ANDROID_TEST_ACCEPTANCE",
+  "timestamp": "2026-09-09T07:20:00+05:30",
+  "tasks": {
+    ":android:testDebugUnitTest": {
+      "status": "SUCCESS",
+      "total_tests": 81,
+      "passed": 81,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 57
+    },
+    ":android:assembleDebug": {
+      "status": "SUCCESS",
+      "apk_generated": true,
+      "duration_seconds": 66
+    },
+    ":android:lintDebug": {
+      "status": "SUCCESS",
+      "error_count": 0,
+      "warning_count": 0,
+      "duration_seconds": 153
+    }
+  },
+  "key_test_suites": [
+    "com.otravelz.android.EssentialsProductModelTest",
+    "com.otravelz.android.PersistenceProductModelTest",
+    "com.otravelz.android.PlannerProductModelTest",
+    "com.otravelz.android.TransitProductModelTest",
+    "com.otravelz.android.DiscoverPlaceModelTest",
+    "com.otravelz.android.MapProductModelTest",
+    "com.otravelz.android.PlaceDetailModelTest",
+    "com.otravelz.android.SharedCoreIntegrationTest",
+    "com.otravelz.android.ThemeTest",
+    "com.otravelz.android.NavigationTest",
+    "com.otravelz.android.AdaptiveChromeTest",
+    "com.otravelz.android.network.ApiClientMockWebServerTest",
+    "com.otravelz.android.network.DtoDecodingTest"
+  ],
+  "overall_verdict": "PASS"
+}

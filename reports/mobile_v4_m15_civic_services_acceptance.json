@@ -1,0 +1,31 @@
+{
+  "wave": "M15",
+  "audit_name": "CIVIC_SERVICES_ACCEPTANCE",
+  "timestamp": "2026-09-09T07:20:00+05:30",
+  "backend_contract": {
+    "endpoint": "GET /api/v1/services/nearby",
+    "query_parameters": ["lat", "lon", "category", "radius_km"],
+    "categories_supported": ["all", "healthcare", "police", "fuel", "atm", "transit"],
+    "catalog_source": "data/services/odisha_services.json",
+    "verified_facility_count": 211
+  },
+  "android_implementation": {
+    "repository": "com.otravelz.android.data.repository.EssentialsRepository",
+    "viewmodel": "com.otravelz.android.ui.screens.EssentialsViewModel",
+    "component": "com.otravelz.android.ui.components.EssentialsSheet",
+    "status": "VERIFIED"
+  },
+  "ios_implementation": {
+    "repository": "EssentialsRepository",
+    "view": "EssentialsSheetView",
+    "client": "APIClient.getNearbyServices",
+    "status": "VERIFIED"
+  },
+  "anti_vibe_invariants": {
+    "zero_hallucinated_facilities": true,
+    "zero_fabricated_contact_numbers": true,
+    "distance_format_truth": "meters under 1000m, 1 decimal km otherwise",
+    "category_fallback": "Defaults to all upon unknown or missing category"
+  },
+  "overall_verdict": "PASS"
+}

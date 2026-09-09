@@ -1,0 +1,35 @@
+{
+  "wave": "M15",
+  "phase": "PHASE_0_BEFORE_AUDIT",
+  "audit_timestamp": "2026-09-09T07:05:00+05:30",
+  "git": {
+    "branch": "feature/v4-platform-rebuild",
+    "starting_sha": "5ed98475502673323e5bd3936292677619da4c59",
+    "worktree_clean": true
+  },
+  "roadmap_reconciliation": {
+    "m15_id": "M15",
+    "m15_title": "Emergency essentials, civic contacts, and artisan clusters",
+    "roadmap_source": "docs/mobile-v4/ROADMAP.md (lines 32, 151)",
+    "prior_wave": "M14 (Trips Persistence, Saved Places, Room SQLite & SwiftData) — ACCEPTED",
+    "operational_state": "READY_FOR_EXECUTION"
+  },
+  "m14_regression_check": {
+    "saved_place_persistence": "VERIFIED (Room & SwiftData entities intact)",
+    "saved_trip_immutable_snapshot": "VERIFIED (stops and constraints json intact)",
+    "trip_progress_manual_only": "VERIFIED (zero background location, manual progression only)",
+    "cloud_sync_unintroduced": "VERIFIED (strictly local storage)",
+    "fares_strictly_null": "VERIFIED (hopFare null invariant holds)",
+    "stage_g1_intact": "VERIFIED (zero production ingestion)",
+    "stage_g2_locked": "VERIFIED (zero canonical promotion)",
+    "android_tests": "BUILD SUCCESSFUL (40 actionable tasks up to date)",
+    "ios_runtime_claims": "SOURCE_PARITY_VERIFIED / PENDING_MACOS"
+  },
+  "current_screens_state": {
+    "android_you_root": "Placeholder ('Profile, Offline Storage & Transparency')",
+    "ios_you_root": "Placeholder ('Profile, Offline Storage & Transparency')",
+    "essentials_ui": "Unimplemented in mobile UI (backend endpoint GET /api/v1/services/nearby wired in DTOs)",
+    "artisan_clusters_ui": "Unimplemented as dedicated surface"
+  },
+  "status": "PASS"
+}

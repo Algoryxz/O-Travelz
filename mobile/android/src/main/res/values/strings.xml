@@ -196,4 +196,27 @@
     <string name="trips_active_day_label">Day %1$d of %2$d</string>
     <string name="trips_active_current_stop">Current Stop: %s</string>
     <string name="trips_active_next_stop">Next: %s</string>
+
+    <!-- M15 Emergency Essentials, Civic Contacts & Artisan Clusters -->
+    <string name="essentials_sheet_title">Civic Essentials &amp; Emergency Help</string>
+    <string name="essentials_sheet_subtitle">Verified hospitals, police, fuel, ATMs &amp; state helplines across Odisha</string>
+    <string name="essentials_state_helplines_title">24x7 Emergency Helplines</string>
+    <string name="essentials_nearby_facilities_title">Verified Civic Facilities</string>
+    <string name="essentials_empty_services">No facilities found within search area. Try another category.</string>
+    <string name="essentials_dial_confirm_title">Call Helpline?</string>
+    <string name="essentials_dial_confirm_msg">You are about to call %1$s (%2$s). This will open your phone dialer.</string>
+    <string name="essentials_action_dial">Dial Now</string>
+    <string name="you_section_emergency">Emergency Helplines</string>
+    <string name="you_section_emergency_desc">Instant access to 24x7 verified emergency numbers</string>
+    <string name="you_action_view_nearby_civic">Find Nearby Hospitals, Police &amp; ATMs</string>
+    <string name="you_section_artisan_clusters">Odisha Living Heritage &amp; Artisan Clusters</string>
+    <string name="you_section_artisan_clusters_desc">Centuries-old craft enclaves, master weavers, and GI-tagged traditions</string>
+    <string name="you_section_preferences">Preferences &amp; Transparency</string>
+    <string name="you_pref_language_title">Display Language</string>
+    <string name="you_pref_language_value">English / ଓଡ଼ିଆ (Odia)</string>
+    <string name="you_pref_offline_title">Offline Atlas Footprint</string>
+    <string name="you_pref_offline_desc">All bookmarks, saved trips, and emergency numbers are stored 100% locally on device.</string>
+    <string name="you_pref_trust_title">Platform Truth &amp; Provenance</string>
+    <string name="you_pref_trust_desc">Modern Odisha Cultural Atlas built by Algoryxz. Verified canonical places and transit graph with zero fabricated telemetry.</string>
+    <string name="place_action_nearby_essentials">Nearby Emergency &amp; Civic Help</string>
 </resources>

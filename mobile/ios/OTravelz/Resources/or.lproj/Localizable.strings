@@ -185,3 +185,25 @@
 "trips_action_delete_trip" = "ଯୋଜନା ବିଲୋପ କରନ୍ତୁ";
 "trips_confirm_delete_title" = "ଯୋଜନା ବିଲୋପ କରିବେ?";
 "trips_confirm_delete_msg" = "ଏହା ଆପଣଙ୍କ ଡିଭାଇସରୁ ଏହି ସଂରକ୍ଷିତ ଯୋଜନା ଏବଂ ପ୍ରଗତିକୁ ହଟାଇଦେବ।";
+
+/* M15 Emergency Essentials, Civic Contacts & Artisan Clusters (Odia) */
+"essentials_sheet_title" = "ନାଗରିକ ସୁବିଧା ଓ ଜରୁରୀକାଳୀନ ସହାୟତା";
+"essentials_sheet_subtitle" = "ଓଡ଼ିଶାର ଯାଞ୍ଚ ହୋଇଥିବା ଡାକ୍ତରଖାନା, ପୋଲିସ୍, ଇନ୍ଧନ, ଏଟିଏମ୍ ଓ ହେଲ୍ପଲାଇନ୍";
+"essentials_state_helplines_title" = "୨୪x୭ ରାଜ୍ୟ ଜରୁରୀକାଳୀନ ହେଲ୍ପଲାଇନ୍";
+"essentials_nearby_facilities_title" = "ନିକଟସ୍ଥ ଯାଞ୍ଚ ହୋଇଥିବା ନାଗରିକ ସୁବିଧା";
+"essentials_empty_services" = "ଏହି ଅଞ୍ଚଳରେ କୌଣସି ସୁବିଧା ମିଳିଲା ନାହିଁ। ଅନ୍ୟ ବର୍ଗ ବାଛନ୍ତୁ।";
+"essentials_dial_confirm_title" = "କଲ୍ କରିବେ?";
+"essentials_action_dial" = "କଲ୍ କରନ୍ତୁ";
+"you_section_emergency" = "ଜରୁରୀକାଳୀନ ହେଲ୍ପଲାଇନ୍";
+"you_section_emergency_desc" = "୨୪x୭ ଯାଞ୍ଚ ହୋଇଥିବା ଜରୁରୀକାଳୀନ ନମ୍ବର";
+"you_action_view_nearby_civic" = "ନିକଟସ୍ଥ ଡାକ୍ତରଖାନା, ପୋଲିସ୍ ଓ ଏଟିଏମ୍ ଖୋଜନ୍ତୁ";
+"you_section_artisan_clusters" = "ଓଡ଼ିଶାର ଜୀବନ୍ତ ଐତିହ୍ୟ ଓ କାରିଗର ଗ୍ରାମ";
+"you_section_artisan_clusters_desc" = "ଶତାବ୍ଦୀ ପୁରୁଣା ହସ୍ତଶିଳ୍ପ, ବୁଣାକାର ଓ ଜିଆଇ ଟ୍ୟାଗ୍ ପ୍ରାପ୍ତ ପରମ୍ପରା";
+"you_section_preferences" = "ପସନ୍ଦ ଓ ସ୍ୱଚ୍ଛତା";
+"you_pref_language_title" = "ଭାଷା";
+"you_pref_language_value" = "English / ଓଡ଼ିଆ (Odia)";
+"you_pref_offline_title" = "ଅଫଲାଇନ୍ ଆଟଲାସ";
+"you_pref_offline_desc" = "ସମସ୍ତ ସଂରକ୍ଷିତ ସ୍ଥାନ, ଯୋଜନା ଓ ଜରୁରୀକାଳୀନ ନମ୍ବର ୧୦୦% ଡିଭାଇସରେ ସଂରକ୍ଷିତ ରହିଥାଏ।";
+"you_pref_trust_title" = "ପ୍ଲାଟଫର୍ମ ସତ୍ୟତା";
+"you_pref_trust_desc" = "Algoryxz ଦ୍ୱାରା ନିର୍ମିତ ଆଧୁନିକ ଓଡ଼ିଶା ସାଂସ୍କୃତିକ ଆଟଲାସ୍। କୌଣସି କାଳ୍ପନିକ ତଥ୍ୟ ବିନା ଯାଞ୍ଚ ହୋଇଥିବା ପ୍ରାମାଣିକ ବିବରଣୀ।";
+"place_action_nearby_essentials" = "ନିକଟସ୍ଥ ଜରୁରୀକାଳୀନ ଓ ନାଗରିକ ସହାୟତା";

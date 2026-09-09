@@ -18,6 +18,7 @@ struct PlaceDetailView: View {
     @State private var isLoading = true
     @State private var isWeatherLoading = false
     @State private var errorMessage: String? = nil
+    @State private var showEssentialsSheet: Bool = false
 
     private let apiClient = APIClient()
 
@@ -134,6 +135,12 @@ struct PlaceDetailView: View {
         .task {
             loadDetail()
         }
+        .sheet(isPresented: $showEssentialsSheet) {
+            if let lat = detail?.lat ?? initialPlace?.lat,
+               let lon = detail?.lon ?? initialPlace?.lon {
+                EssentialsSheetView(queryLat: lat, queryLon: lon)
+            }
+        }
     }
 
     // MARK: - Subviews
@@ -186,28 +193,48 @@ struct PlaceDetailView: View {
     @ViewBuilder
     private func mapActionButton(place: PlaceDetail) -> some View {
         if let lat = place.lat, let lon = place.lon {
-            Button(action: {
-                let nameEncoded = place.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-                let urlString = "maps://?q=\(nameEncoded)&ll=\(lat),\(lon)"
-                if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
-                } else if let webUrl = URL(string: "https://maps.apple.com/?q=\(lat),\(lon)") {
-                    UIApplication.shared.open(webUrl)
+            HStack(spacing: SpacingTokens.space2) {
+                Button(action: {
+                    let nameEncoded = place.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                    let urlString = "maps://?q=\(nameEncoded)&ll=\(lat),\(lon)"
+                    if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    } else if let webUrl = URL(string: "https://maps.apple.com/?q=\(lat),\(lon)") {
+                        UIApplication.shared.open(webUrl)
+                    }
+                }) {
+                    HStack(spacing: SpacingTokens.space1) {
+                        Image(systemName: "mappin.and.ellipse")
+                        Text(LocalizedStringKey("action_open_in_maps"))
+                    }
+                    .font(TypographyTokens.labelMedium)
+                    .foregroundStyle(ColorTokens.terracotta)
+                    .frame(maxWidth: .infinity, minHeight: 44)
+                    .background(ColorTokens.canvas)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(ColorTokens.terracotta, lineWidth: 1)
+                    )
                 }
-            }) {
-                HStack(spacing: SpacingTokens.space2) {
-                    Image(systemName: "mappin.and.ellipse")
-                    Text(LocalizedStringKey("action_open_in_maps"))
+
+                Button(action: {
+                    showEssentialsSheet = true
+                }) {
+                    HStack(spacing: SpacingTokens.space1) {
+                        Image(systemName: "shield.fill")
+                        Text(LocalizedStringKey("place_action_nearby_essentials"))
+                    }
+                    .font(TypographyTokens.labelMedium)
+                    .foregroundStyle(ColorTokens.chilika)
+                    .frame(maxWidth: .infinity, minHeight: 44)
+                    .background(ColorTokens.canvas)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(ColorTokens.chilika, lineWidth: 1)
+                    )
                 }
-                .font(TypographyTokens.labelLarge)
-                .foregroundStyle(ColorTokens.terracotta)
-                .frame(maxWidth: .infinity, minHeight: 44)
-                .background(ColorTokens.canvas)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(ColorTokens.terracotta, lineWidth: 1)
-                )
             }
         }
     }

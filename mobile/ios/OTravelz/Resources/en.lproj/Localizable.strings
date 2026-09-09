@@ -185,3 +185,25 @@
 "trips_action_delete_trip" = "Delete Trip";
 "trips_confirm_delete_title" = "Delete Itinerary?";
 "trips_confirm_delete_msg" = "This will remove this saved itinerary and any associated progress from your device.";
+
+/* M15 Emergency Essentials, Civic Contacts & Artisan Clusters */
+"essentials_sheet_title" = "Civic Essentials & Emergency Help";
+"essentials_sheet_subtitle" = "Verified hospitals, police, fuel, ATMs & state helplines across Odisha";
+"essentials_state_helplines_title" = "24x7 Emergency Helplines";
+"essentials_nearby_facilities_title" = "Verified Civic Facilities";
+"essentials_empty_services" = "No facilities found within search area. Try another category.";
+"essentials_dial_confirm_title" = "Call Helpline?";
+"essentials_action_dial" = "Dial Now";
+"you_section_emergency" = "Emergency Helplines";
+"you_section_emergency_desc" = "Instant access to 24x7 verified emergency numbers";
+"you_action_view_nearby_civic" = "Find Nearby Hospitals, Police & ATMs";
+"you_section_artisan_clusters" = "Odisha Living Heritage & Artisan Clusters";
+"you_section_artisan_clusters_desc" = "Centuries-old craft enclaves, master weavers, and GI-tagged traditions";
+"you_section_preferences" = "Preferences & Transparency";
+"you_pref_language_title" = "Display Language";
+"you_pref_language_value" = "English / ଓଡ଼ିଆ (Odia)";
+"you_pref_offline_title" = "Offline Atlas Footprint";
+"you_pref_offline_desc" = "All bookmarks, saved trips, and emergency numbers are stored 100% locally on device.";
+"you_pref_trust_title" = "Platform Truth & Provenance";
+"you_pref_trust_desc" = "Modern Odisha Cultural Atlas built by Algoryxz. Verified canonical places and transit graph with zero fabricated telemetry.";
+"place_action_nearby_essentials" = "Nearby Emergency & Civic Help";

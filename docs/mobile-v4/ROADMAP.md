@@ -28,9 +28,9 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M11** | Native mapping canvases (Google Maps Compose & Apple MapKit) | `[COMPLETED]` |
 | **M12** | 154-Route transit directory, stop details, and timetable evaluation | `[COMPLETED]` |
 | **M13** | Constraint-aware itinerary builder and grounded AI conversational assistant | `[COMPLETED]` |
-| **M14** | Trips persistence (Room SQLite & SwiftData) with offline sync | `[NEXT]` |
-| **M15** | Emergency essentials, civic contacts, and artisan clusters | `[PLANNED]` |
-| **M16** | Authentication, secure session exchange, and user profiles | `[PLANNED]` |
+| **M14** | Trips persistence (Room SQLite & SwiftData) with offline sync | `[COMPLETED]` |
+| **M15** | Emergency essentials, civic contacts, and artisan clusters | `[COMPLETED]` |
+| **M16** | Authentication, secure session exchange, and user profiles | `[NEXT]` |
 | **M17** | Push notifications and local transit departure countdowns | `[PLANNED]` |
 | **M18** | Complete offline flight check and bundle synchronizer | `[PLANNED]` |
 | **M19** | Community photo contributions and CameraX / AVCapture validation | `[PLANNED]` |
@@ -147,9 +147,9 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 
 ### Wave M13: Constraint-Aware Itinerary Builder & Grounded AI Assistant `[COMPLETED]`
 - **M13 (AI Planner)**: Structured constraint-aware planner, deterministic backend execution (`POST /itinerary/plan`), grounded AI conversational companion (`POST /ai/converse`), and six-hour Bhubaneswar golden tour. `[COMPLETED]`
-- **M14 (Trips & Persistence)**: Room SQLite (Android) and SwiftData (iOS) offline sync. `[NEXT]`
-- **M15 (Essentials & Culture)**: Emergency civic contacts, artisan clusters, cultural essays.
-- **M16 (Auth & Accounts)**: Sign in with Apple, Google Credential Manager, secure tokens.
+- **M14 (Trips & Persistence)**: Room SQLite (Android) and SwiftData (iOS) offline sync. `[COMPLETED]`
+- **M15 (Essentials & Culture)**: Emergency civic contacts, artisan clusters, cultural essays. `[COMPLETED]`
+- **M16 (Auth & Accounts)**: Sign in with Apple, Google Credential Manager, secure tokens. `[NEXT]`
 - **M17 (Notifications)**: Local transit departure countdown notifications.
 - **M18 (Offline Mode)**: Airplane mode flight check, cached WebP photos, deterministic KMP math.
 

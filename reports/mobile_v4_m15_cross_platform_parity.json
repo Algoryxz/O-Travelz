@@ -1,0 +1,44 @@
+{
+  "wave": "M15",
+  "audit_name": "CROSS_PLATFORM_PARITY",
+  "timestamp": "2026-09-09T07:20:00+05:30",
+  "parity_matrix": {
+    "domain_models": {
+      "android": "com.otravelz.android.domain.model.EssentialsDomainModels",
+      "ios": "mobile/ios/OTravelz/Features/EssentialsDomainModels.swift",
+      "parity": "FULL_PARITY"
+    },
+    "emergency_helplines": {
+      "android_count": 8,
+      "ios_count": 8,
+      "parity": "EXACT_MATCH"
+    },
+    "artisan_clusters": {
+      "android_count": 6,
+      "ios_count": 6,
+      "parity": "EXACT_MATCH"
+    },
+    "civic_services_endpoint": {
+      "endpoint": "/api/v1/services/nearby",
+      "android": "OTravelzApiService.getNearbyServices (Retrofit)",
+      "ios": "APIClient.getNearbyServices (URLSession)",
+      "parity": "IDENTICAL_CONTRACT"
+    },
+    "dialer_security": {
+      "android": "Intent.ACTION_DIAL with sanitized digits and AlertDialog confirmation",
+      "ios": "tel:// URL scheme with sanitized digits and Alert confirmation",
+      "parity": "IDENTICAL_SECURITY_BEHAVIOR"
+    },
+    "place_detail_action": {
+      "android": "PlaceDetailScreen -> EssentialsSheet (modal bottom sheet)",
+      "ios": "PlaceDetailView -> EssentialsSheetView (sheet)",
+      "parity": "IDENTICAL_CAPABILITY"
+    },
+    "localization": {
+      "android": "English + Odia in res/values/ and res/values-or/",
+      "ios": "English + Odia in en.lproj/ and or.lproj/",
+      "parity": "IDENTICAL_LOCALIZATION"
+    }
+  },
+  "overall_verdict": "PASS"
+}

@@ -1,0 +1,26 @@
+{
+  "wave": "M15",
+  "audit_name": "EMERGENCY_DIAL_SECURITY",
+  "timestamp": "2026-09-09T07:20:00+05:30",
+  "security_controls": {
+    "silent_calling_permitted": false,
+    "android_action": "android.intent.action.DIAL",
+    "android_permissions_requested": [],
+    "android_call_permission_prohibited": true,
+    "ios_url_scheme": "tel://",
+    "ios_user_confirmation_required": true,
+    "phone_sanitization_policy": "Strictly filters input to digits and leading '+' sign; rejects arbitrary strings or URI injection payloads",
+    "system_dialer_handoff": "Delegates execution entirely to system telephony dialer with explicit user confirmation"
+  },
+  "verified_helplines": [
+    { "id": "helpline-112", "label": "National Emergency Service", "number": "112", "sanitized": "112" },
+    { "id": "helpline-108", "label": "Emergency Medical Ambulance", "number": "108", "sanitized": "108" },
+    { "id": "helpline-1363", "label": "National Tourist Helpline", "number": "1363", "sanitized": "1363" },
+    { "id": "helpline-odisha-tourist", "label": "Odisha Tourist Police / Helpline", "number": "0674-2396996", "sanitized": "06742396996" },
+    { "id": "helpline-181", "label": "Women Helpline (Odisha)", "number": "181", "sanitized": "181" },
+    { "id": "helpline-101", "label": "Fire & Rescue Service", "number": "101", "sanitized": "101" },
+    { "id": "helpline-1033", "label": "National Highway Emergency (NHAI)", "number": "1033", "sanitized": "1033" },
+    { "id": "helpline-1098", "label": "Childline Emergency Support", "number": "1098", "sanitized": "1098" }
+  ],
+  "overall_verdict": "PASS"
+}

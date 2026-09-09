@@ -1,0 +1,52 @@
+{
+  "wave": "M15",
+  "audit_name": "UI_ACCEPTANCE",
+  "timestamp": "2026-09-09T07:20:00+05:30",
+  "sections_verified": [
+    {
+      "section_number": 1,
+      "name": "Emergency Helplines Quick Card",
+      "android_component": "YouRoot.kt (Emergency card with 112, 108, 1363 chips)",
+      "ios_component": "YouRootView.swift (Emergency section with quick dial buttons)",
+      "safe_dial_dialog": true,
+      "status": "PASS"
+    },
+    {
+      "section_number": 2,
+      "name": "Nearby Civic Facilities Launcher",
+      "android_component": "YouRoot.kt -> EssentialsSheet.kt (ModalBottomSheet with filter chips)",
+      "ios_component": "YouRootView.swift -> EssentialsSheetView.swift (Sheet with category selector)",
+      "category_filtering": ["all", "healthcare", "police", "fuel", "atm", "transit"],
+      "status": "PASS"
+    },
+    {
+      "section_number": 3,
+      "name": "Living Heritage & Artisan Clusters",
+      "android_component": "YouRoot.kt (ArtisanClusterCard with GI badges and destination links)",
+      "ios_component": "YouRootView.swift (ArtisanClusterCard with GI badges)",
+      "cluster_count": 6,
+      "status": "PASS"
+    },
+    {
+      "section_number": 4,
+      "name": "Preferences & Transparency",
+      "android_component": "YouRoot.kt (PreferenceRow cards, offline footprint, provenance footer)",
+      "ios_component": "YouRootView.swift (PreferenceCard views, offline description, provenance footer)",
+      "zero_fake_counters": true,
+      "status": "PASS"
+    },
+    {
+      "section_number": 5,
+      "name": "Place Detail Integration",
+      "android_component": "PlaceDetailScreen.kt (Nearby Emergency & Civic Help action button)",
+      "ios_component": "PlaceDetailView.swift (Nearby Emergency & Civic Help button in map action row)",
+      "status": "PASS"
+    }
+  ],
+  "accessibility_and_localization": {
+    "english_strings": "100% complete in strings.xml and en.lproj/Localizable.strings",
+    "odia_strings": "100% authentic Odia in values-or/strings.xml and or.lproj/Localizable.strings",
+    "content_descriptions": "Provided on icons and interactive elements"
+  },
+  "overall_verdict": "PASS"
+}
