@@ -1,0 +1,56 @@
+﻿{
+  "timestamp": "2026-09-09T07:30:35+05:30",
+  "repository": "https://github.com/Algoryxz/O-Travelz",
+  "git": {
+    "branch": "feature/v4-platform-rebuild",
+    "head_sha": "5fe874e9ee3fc3fe000c68dc3b3786f6c8965f45",
+    "expected_mobile_v4_sha": "5ed98475502673323e5bd3936292677619da4c59",
+    "drift_status": "HEAD is 1 commit ahead of M14 (5fe874e: feat(mobile): add emergency essentials, civic contacts and artisan clusters (M15))",
+    "working_tree_clean": true
+  },
+  "environment": {
+    "node_version": "v24.13.0",
+    "npm_version": "11.6.2",
+    "npx_available": true,
+    "os": "Windows_NT 10.0.26200 x64"
+  },
+  "tooling_inventory": {
+    "antigravity": {
+      "cli_path": "C:\\Users\\smara\\AppData\\Local\\agy\\bin\\agy.exe",
+      "app_data_dir": "C:\\Users\\smara\\.gemini\\antigravity-ide",
+      "skills_dir": "C:\\Users\\smara\\.gemini\\config\\skills"
+    },
+    "vscode": {
+      "version": "1.134.0",
+      "commit": "110a328ea54b42367b803ec53ee0bf52ef26b419"
+    },
+    "roo_code": {
+      "installed": true,
+      "extension_id": "rooveterinaryinc.roo-cline",
+      "version": "3.54.0",
+      "global_storage_path": "C:\\Users\\smara\\AppData\\Roaming\\Code\\User\\globalStorage\\rooveterinaryinc.roo-cline"
+    },
+    "coderabbit": {
+      "installed": true,
+      "extension_id": "coderabbit.coderabbit-vscode",
+      "version": "0.21.6",
+      "antigravity_extension_path": "C:\\Users\\smara\\.antigravity-ide\\extensions\\coderabbit.coderabbit-vscode-0.21.6-universal",
+      "vscode_extension_installed": true,
+      "repo_config_present": false
+    },
+    "ralph_loop": {
+      "installed": true,
+      "extension_id": "alexj11324.ralph-loop-for-antigravity-updated",
+      "version": "0.7.43",
+      "path": "C:\\Users\\smara\\.antigravity-ide\\extensions\\alexj11324.ralph-loop-for-antigravity-updated-0.7.43-universal"
+    },
+    "gsd_core": {
+      "installed": true,
+      "package": "@opengsd/gsd-core@1.13.0",
+      "runtime": "antigravity",
+      "path": "C:\\Users\\smara\\.gemini\\antigravity\\gsd-core",
+      "skills_count": 72,
+      "skills_path": "C:\\Users\\smara\\.gemini\\config\\skills"
+    }
+  }
+}

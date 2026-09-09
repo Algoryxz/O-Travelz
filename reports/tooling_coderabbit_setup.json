@@ -1,0 +1,24 @@
+﻿{
+  "timestamp": "2026-09-09T07:45:00+05:30",
+  "tool": "CodeRabbit",
+  "extension_id": "coderabbit.coderabbit-vscode",
+  "version": "0.21.6",
+  "antigravity_extension_path": "C:\\Users\\smara\\.antigravity-ide\\extensions\\coderabbit.coderabbit-vscode-0.21.6-universal",
+  "vscode_extension_installed": true,
+  "repo_config_path": ".coderabbit.yaml",
+  "role": "independent_automated_pr_reviewer",
+  "review_focus": [
+    "truth_contract_adherence",
+    "kmp_mobile_safety",
+    "persistence_migrations",
+    "networking_safety",
+    "ponytail_simplicity",
+    "secrets_hygiene"
+  ],
+  "suggestion_reconciliation": "manual_reconciliation_required_no_auto_apply",
+  "verification_status": {
+    "config_valid": true,
+    "extension_installed": true,
+    "gate_configured": true
+  }
+}

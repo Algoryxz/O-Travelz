@@ -1,0 +1,34 @@
+﻿{
+  "timestamp": "2026-09-09T07:45:00+05:30",
+  "tool": "Ralph Loop for Antigravity",
+  "extension_id": "alexj11324.ralph-loop-for-antigravity-updated",
+  "version": "0.7.43",
+  "extension_path": "C:\\Users\\smara\\.antigravity-ide\\extensions\\alexj11324.ralph-loop-for-antigravity-updated-0.7.43-universal",
+  "invocation": {
+    "command_start": "ralph.start",
+    "command_pause": "ralph.pause",
+    "command_stop": "ralph.stop",
+    "command_emergency": "ralph.emergency",
+    "view_container": "ralph-loop-container"
+  },
+  "config_schema": {
+    "max_iterations_key": "ralphLoop.maxIterations",
+    "default_mode_key": "ralphLoop.defaultMode",
+    "task_file_key": "ralphLoop.taskFile",
+    "progress_file_key": "ralphLoop.progressFile",
+    "prompt_file_key": "ralphLoop.promptFile",
+    "backpressure_key": "ralphLoop.enabledBackpressure"
+  },
+  "operational_policy": {
+    "role": "subordinate_execution_loop",
+    "max_iterations_bounded": 10,
+    "completion_marker_model": "ralph-done-* token matching",
+    "auto_commit_mode": "disabled_during_iteration_atomic_on_green",
+    "hard_stop_enforced": true
+  },
+  "verification_status": {
+    "extension_installed": true,
+    "manifest_valid": true,
+    "safe_loop_bounded": true
+  }
+}

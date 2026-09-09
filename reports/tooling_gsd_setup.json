@@ -1,0 +1,24 @@
+﻿{
+  "timestamp": "2026-09-09T07:45:00+05:30",
+  "tool": "GSD Core",
+  "package": "@opengsd/gsd-core@1.13.0",
+  "runtime": "antigravity",
+  "installation_path": "C:\\Users\\smara\\.gemini\\antigravity\\gsd-core",
+  "skills_path": "C:\\Users\\smara\\.gemini\\config\\skills",
+  "agents_path": "C:\\Users\\smara\\.gemini\\config\\agents",
+  "config_path": "C:\\Users\\smara\\.gsd\\defaults.json",
+  "skills_count": 72,
+  "verification_status": {
+    "installer_success": true,
+    "skills_registered": true,
+    "agents_registered": true,
+    "runtime_configured": true,
+    "conflict_free": true
+  },
+  "governance_mapping": {
+    "roadmap_source": "docs/mobile-v4/ROADMAP.md",
+    "onboarding_mode": "additive_governance_without_doc_overwrite",
+    "authority_rank": 4,
+    "hard_stop_enforced": true
+  }
+}

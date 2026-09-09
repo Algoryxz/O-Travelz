@@ -1,0 +1,35 @@
+﻿# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "en-US"
+tone_instructions: "Be concise, rigorous, and strictly enforce repository truth contracts and anti-vibe-code rules."
+early_access: false
+reviews:
+  profile: "assertive"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - "main"
+      - "feature/v4-platform-rebuild"
+  tools:
+    ast-grep:
+      enabled: true
+    shellcheck:
+      enabled: true
+  path_filters:
+    - "!**/build/**"
+    - "!**/.gradle/**"
+    - "!**/node_modules/**"
+    - "!**/dist/**"
+    - "!**/*.lock"
+    - "!**/*.pb"
+    - "!**/graphify-out/**"
+chat:
+  auto_reply: true
+knowledge_base:
+  opt_out: false
+  learnings:
+    scope: "project"

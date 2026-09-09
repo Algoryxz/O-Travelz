@@ -1,0 +1,30 @@
+﻿{
+  "timestamp": "2026-09-09T07:45:00+05:30",
+  "tool": "Roo Code in VS Code",
+  "extension_id": "rooveterinaryinc.roo-cline",
+  "version": "3.54.0",
+  "host_editor": "VS Code 1.134.0",
+  "storage_path": "C:\\Users\\smara\\AppData\\Roaming\\Code\\User\\globalStorage\\rooveterinaryinc.roo-cline",
+  "concurrency_policy": {
+    "single_writer_lock": "enforced",
+    "antigravity_writing_state": "Roo is Read/Review Only",
+    "roo_writing_state": "Antigravity is Paused or Read Only",
+    "parallel_worktree_isolation": "required_for_concurrent_writes"
+  },
+  "roles": [
+    "secondary_pr_review",
+    "targeted_subsystem_refactor",
+    "failing_test_diagnosis",
+    "platform_specific_architecture_audit"
+  ],
+  "governance_compliance": {
+    "agents_md_enforced": true,
+    "truth_contracts_enforced": true,
+    "stage_g2_lock_enforced": true
+  },
+  "verification_status": {
+    "extension_installed": true,
+    "workspace_accessible": true,
+    "secret_leak_free": true
+  }
+}
