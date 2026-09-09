@@ -23,6 +23,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import android.os.Build
+import android.content.pm.PackageManager
+import androidx.core.content.ContextCompat
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import com.otravelz.android.notifications.ActiveReminderInfo
+import com.otravelz.android.notifications.ReminderScheduleResult
 import com.otravelz.android.R
 import com.otravelz.android.domain.model.*
 import com.otravelz.android.ui.theme.Spacing
@@ -49,8 +56,24 @@ fun TransitDirectoryScreen(
         RouteDetailScreen(
             route = uiState.selectedRouteDetail!!,
             selectedDirectionIndex = uiState.selectedDirectionIndex,
+            activeReminders = uiState.activeReminders,
             onDirectionSelected = { viewModel.selectDirection(it) },
             onStopClick = { viewModel.selectStop(it) },
+            onScheduleReminder = { depTime, offset ->
+                viewModel.scheduleDepartureReminder(
+                    routeId = uiState.selectedRouteDetail!!.routeId,
+                    routeNumber = uiState.selectedRouteDetail!!.routeNumber,
+                    origin = uiState.selectedRouteDetail!!.origin,
+                    departureTime = depTime,
+                    offsetMinutes = offset
+                )
+            },
+            onCancelReminder = { depTime ->
+                viewModel.cancelDepartureReminder(
+                    routeId = uiState.selectedRouteDetail!!.routeId,
+                    departureTime = depTime
+                )
+            },
             onViewOnMap = onViewOnMap,
             onBack = { viewModel.clearSelectedRoute() }
         )
@@ -335,8 +358,11 @@ fun TransitRouteCard(
 fun RouteDetailScreen(
     route: TransitRouteDetail,
     selectedDirectionIndex: Int,
+    activeReminders: Map<String, ActiveReminderInfo> = emptyMap(),
     onDirectionSelected: (Int) -> Unit,
     onStopClick: (TransitStop) -> Unit,
+    onScheduleReminder: (departureTime: String, offsetMinutes: Int) -> ReminderScheduleResult = { _, _ -> ReminderScheduleResult.PassedDeparture },
+    onCancelReminder: (departureTime: String) -> Unit = {},
     onViewOnMap: (String) -> Unit,
     onBack: () -> Unit,
     modifier: Modifier = Modifier
@@ -520,17 +546,122 @@ fun RouteDetailScreen(
             ) {
                 Column(modifier = Modifier.padding(14.dp)) {
                     if (departureResult != null && departureResult.nextDepartureTime != null) {
+                        val nextTime = departureResult.nextDepartureTime!!
                         val waitText = departureResult.minutesUntilDeparture?.let { "in ${it}m" } ?: ""
-                        Text(
-                            text = stringResource(
-                                R.string.transit_next_departure_label,
-                                departureResult.nextDepartureTime!!,
-                                waitText
-                            ),
-                            style = MaterialTheme.typography.bodyMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary
-                        )
+                        val reminderKey = "${route.routeId}_$nextTime"
+                        val activeReminder = activeReminders[reminderKey]
+
+                        val context = LocalContext.current
+                        var showPermissionExplanation by remember { mutableStateOf(false) }
+                        var selectedOffset by remember { mutableIntStateOf(15) }
+                        var feedbackMessage by remember { mutableStateOf<String?>(null) }
+
+                        val permissionLauncher = rememberLauncherForActivityResult(
+                            ActivityResultContracts.RequestPermission()
+                        ) { isGranted ->
+                            if (isGranted) {
+                                val res = onScheduleReminder(nextTime, selectedOffset)
+                                if (res is ReminderScheduleResult.PassedDeparture) {
+                                    feedbackMessage = context.getString(R.string.transit_reminder_passed_error)
+                                }
+                            } else {
+                                feedbackMessage = context.getString(R.string.transit_notifications_disabled)
+                            }
+                        }
+
+                        fun requestAndSchedule(offset: Int) {
+                            selectedOffset = offset
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                val hasPermission = ContextCompat.checkSelfPermission(
+                                    context,
+                                    android.Manifest.permission.POST_NOTIFICATIONS
+                                ) == PackageManager.PERMISSION_GRANTED
+
+                                if (!hasPermission) {
+                                    showPermissionExplanation = true
+                                } else {
+                                    val res = onScheduleReminder(nextTime, offset)
+                                    if (res is ReminderScheduleResult.PassedDeparture) {
+                                        feedbackMessage = context.getString(R.string.transit_reminder_passed_error)
+                                    }
+                                }
+                            } else {
+                                val res = onScheduleReminder(nextTime, offset)
+                                if (res is ReminderScheduleResult.PassedDeparture) {
+                                    feedbackMessage = context.getString(R.string.transit_reminder_passed_error)
+                                }
+                            }
+                        }
+
+                        if (showPermissionExplanation) {
+                            AlertDialog(
+                                onDismissRequest = { showPermissionExplanation = false },
+                                title = { Text(stringResource(R.string.transit_reminder_dialog_title)) },
+                                text = { Text(stringResource(R.string.transit_reminder_dialog_desc)) },
+                                confirmButton = {
+                                    TextButton(onClick = {
+                                        showPermissionExplanation = false
+                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                            permissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+                                        }
+                                    }) {
+                                        Text(stringResource(android.R.string.ok))
+                                    }
+                                },
+                                dismissButton = {
+                                    TextButton(onClick = { showPermissionExplanation = false }) {
+                                        Text(stringResource(android.R.string.cancel))
+                                    }
+                                }
+                            )
+                        }
+
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = stringResource(
+                                    R.string.transit_next_departure_label,
+                                    nextTime,
+                                    waitText
+                                ),
+                                style = MaterialTheme.typography.bodyMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+
+                            if (activeReminder != null) {
+                                AssistChip(
+                                    onClick = { onCancelReminder(nextTime) },
+                                    label = { Text(stringResource(R.string.transit_reminder_active, activeReminder.offsetMinutes)) },
+                                    leadingIcon = { Text("🔔") },
+                                    trailingIcon = { Text("✕") },
+                                    colors = AssistChipDefaults.assistChipColors(
+                                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                                        labelColor = MaterialTheme.colorScheme.onPrimaryContainer
+                                    )
+                                )
+                            } else {
+                                OutlinedButton(
+                                    onClick = { requestAndSchedule(15) },
+                                    shape = RoundedCornerShape(8.dp),
+                                    contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp)
+                                ) {
+                                    Text("🔔 " + stringResource(R.string.transit_action_remind_me))
+                                }
+                            }
+                        }
+
+                        if (feedbackMessage != null) {
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = feedbackMessage!!,
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.error
+                            )
+                        }
                     } else if (departureResult?.isServiceFinishedForDay == true) {
                         Text(
                             text = stringResource(R.string.transit_service_finished_today),

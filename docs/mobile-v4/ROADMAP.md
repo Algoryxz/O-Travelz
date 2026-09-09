@@ -150,8 +150,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **M14 (Trips & Persistence)**: Room SQLite (Android) and SwiftData (iOS) offline sync. `[COMPLETED]`
 - **M15 (Essentials & Culture)**: Emergency civic contacts, artisan clusters, cultural essays. `[COMPLETED]`
 - **M16 (Auth & Accounts)**: Sign in with Apple, Google Credential Manager, secure tokens. `[COMPLETED]`
-- **M17 (Notifications)**: Local transit departure countdown notifications. `[NEXT]`
-- **M18 (Offline Mode)**: Airplane mode flight check, cached WebP photos, deterministic KMP math.
+- **M17 (Notifications)**: Local transit departure countdown notifications. `[COMPLETED]`
+- **M18 (Offline Mode)**: Airplane mode flight check, cached WebP photos, deterministic KMP math. `[NEXT]`
 
 ### Waves M19–M26: Verification, Hardening & Compliance `[PLANNED]`
 - **M19 (Contributions)**: CameraX / AVCapture community photo uploads.

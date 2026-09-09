@@ -1,0 +1,43 @@
+{
+  "wave": "M17",
+  "audit_target": "cross_platform_parity",
+  "timestamp": "2026-09-09T08:45:20+05:30",
+  "parity_dimensions": {
+    "notification_request_model": {
+      "android": "TransitReminderRequest(routeId, routeNumber, origin, departureTime, offsetMinutes, targetDate)",
+      "ios": "TransitReminderRequest(routeId, routeNumber, origin, departureTime, offsetMinutes)",
+      "parity": true
+    },
+    "timezone_engine": {
+      "android": "TransitReminderCalculator (Asia/Kolkata / ZoneId.of('Asia/Kolkata'))",
+      "ios": "TransitReminderCalculator (Asia/Kolkata / TimeZone(identifier: 'Asia/Kolkata'))",
+      "parity": true
+    },
+    "offset_support": {
+      "android": [10, 15, 30],
+      "ios": [10, 15, 30],
+      "parity": true
+    },
+    "deep_link_scheme": {
+      "android": "otravelz://route/{routeId}",
+      "ios": "otravelz://route/{routeId}",
+      "parity": true
+    },
+    "permission_model": {
+      "android": "Progressive contextual disclosure on 'Remind me' tap (POST_NOTIFICATIONS)",
+      "ios": "Progressive contextual disclosure on 'Remind me' tap (UNUserNotificationCenter)",
+      "parity": true
+    },
+    "reminder_store": {
+      "android": "SharedPrefsReminderStore / InMemoryReminderStore",
+      "ios": "UserDefaultsReminderStore / InMemoryReminderStore",
+      "parity": true
+    },
+    "truthful_copy": {
+      "android": "Title contains 'Scheduled departure'; body contains 'IST' and 'check operator'",
+      "ios": "Title contains 'Scheduled departure'; body contains 'IST' and 'check operator'",
+      "parity": true
+    }
+  },
+  "verdict": "FULL_CROSS_PLATFORM_PARITY"
+}

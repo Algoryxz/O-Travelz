@@ -15,6 +15,7 @@ import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -50,11 +51,19 @@ import com.otravelz.android.auth.AuthViewModel
 @Composable
 fun OTravelzApp(
     transitViewModel: TransitViewModel = viewModel(),
-    authViewModel: AuthViewModel? = null
+    authViewModel: AuthViewModel? = null,
+    initialRouteId: String? = null
 ) {
     var currentTab by rememberSaveable { mutableStateOf(NavDestination.DISCOVER) }
     var selectedPlaceId by rememberSaveable { mutableStateOf<String?>(null) }
     var isTransitOpen by rememberSaveable { mutableStateOf(false) }
+
+    LaunchedEffect(initialRouteId) {
+        if (!initialRouteId.isNullOrBlank()) {
+            isTransitOpen = true
+            transitViewModel.selectRoute(initialRouteId)
+        }
+    }
 
     val transitUiState by transitViewModel.uiState.collectAsState()
 

@@ -1,0 +1,21 @@
+{
+  "wave": "M17",
+  "audit_target": "notification_privacy",
+  "timestamp": "2026-09-09T08:34:57+05:30",
+  "lock_screen_privacy_rules": {
+    "account_email_in_body": false,
+    "user_id_in_body": false,
+    "precise_coordinates_in_body": false,
+    "auth_tokens_in_intent_extras": false,
+    "planner_prompt_history_in_body": false,
+    "emergency_call_logs_in_body": false
+  },
+  "allowed_payload_attributes": [
+    "route_number",
+    "route_name",
+    "origin_stop_name",
+    "scheduled_departure_time_ist",
+    "offset_minutes"
+  ],
+  "verdict": "PASS_PRIVACY_PRESERVED"
+}

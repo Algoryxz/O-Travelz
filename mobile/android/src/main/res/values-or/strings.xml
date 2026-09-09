@@ -231,4 +231,19 @@
     <string name="you_account_local_notice">ଲୋକାଲ୍-ପ୍ରଥମ ଷ୍ଟୋରେଜ୍ ସକ୍ରିୟ • ସାଇଭ୍ ସ୍ଥାନ ଓ ଯାତ୍ରା ଡିଭାଇସ୍ରେ ସୁରକ୍ଷିତ ଅଛି</string>
     <string name="you_account_session_expired">ଅବଧି ସମାପ୍ତ। ଲୋକାଲ୍ ସୁବିଧା ସାଧାରଣ ଭାବେ କାର୍ଯ୍ୟ କରୁଛି।</string>
     <string name="you_account_signin_again">ପୁନର୍ବାର ସାଇନ୍ ଇନ୍ କରନ୍ତୁ</string>
+
+    <!-- M17 Local Notifications & Transit Reminders (Odia) -->
+    <string name="transit_action_remind_me">ମନେ ପକାଇ ଦିଅନ୍ତୁ</string>
+    <string name="transit_reminder_active">ସ୍ମାରକ ସେଟ୍ ହୋଇଛି (%1$d ମିନିଟ୍)</string>
+    <string name="transit_action_cancel_reminder">ସ୍ମାରକ ବାତିଲ୍ କରନ୍ତୁ</string>
+    <string name="transit_reminder_dialog_title">ନିର୍ଦ୍ଧାରିତ ପ୍ରସ୍ଥାନ ସ୍ମାରକ</string>
+    <string name="transit_reminder_dialog_desc">ବସ୍ ଛାଡ଼ିବା ପୂର୍ବରୁ O-TRAVELZ ଆପଣଙ୍କୁ ସତର୍କ କରାଇବ। ଏହା ପ୍ରକାଶିତ ସମୟସାରଣୀ ଅନୁଯାୟୀ କାର୍ଯ୍ୟ କରେ।</string>
+    <string name="transit_reminder_option_10m">୧୦ ମିନିଟ୍ ପୂର୍ବରୁ</string>
+    <string name="transit_reminder_option_15m">୧୫ ମିନିଟ୍ ପୂର୍ବରୁ</string>
+    <string name="transit_reminder_option_30m">୩୦ ମିନିଟ୍ ପୂର୍ବରୁ</string>
+    <string name="transit_reminder_passed_error">ଏହି ନିର୍ଦ୍ଧାରିତ ପ୍ରସ୍ଥାନ ସମୟ ପୂର୍ବରୁ ଅତିକ୍ରାନ୍ତ ହୋଇସାରିଛି।</string>
+    <string name="transit_reminder_set_success">%1$s ପାଇଁ ସ୍ମାରକ ସେଟ୍ ହୋଇଛି (%2$d ମିନିଟ୍ ପୂର୍ବରୁ)</string>
+    <string name="transit_reminder_cancelled">ସ୍ମାରକ ବାତିଲ୍ କରାଗଲା</string>
+    <string name="transit_notifications_disabled">ବିଜ୍ଞପ୍ତି (Notifications) ଅକ୍ଷମ ଅଛି। ସେଟିଙ୍ଗ୍ସରୁ ଏହାକୁ ସକ୍ଷମ କରନ୍ତୁ।</string>
+    <string name="transit_notif_operator_disclaimer">କେବଳ ନିର୍ଦ୍ଧାରିତ ସମୟସାରଣୀ; ଯାତ୍ରା ପୂର୍ବରୁ ଅପରେଟରଙ୍କ ତଥ୍ୟ ଯାଞ୍ଚ କରନ୍ତୁ।</string>
 </resources>

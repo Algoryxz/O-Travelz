@@ -1,0 +1,33 @@
+{
+  "wave": "M17",
+  "audit_target": "before_state",
+  "timestamp": "2026-09-09T08:32:45+05:30",
+  "git": {
+    "branch": "feature/v4-platform-rebuild",
+    "head_sha": "ca6a2af4d5625b379cf7ee408567448f3156176f",
+    "dirty": false,
+    "last_product_wave": "M16",
+    "last_commit_message": "feat(mobile): add optional secure account identity without gating local use (M16)"
+  },
+  "notification_infrastructure": {
+    "push_provider_exists": false,
+    "server_push_endpoint_exists": false,
+    "current_notification_implementation": "NONE",
+    "android_notification_code_exists": false,
+    "ios_notification_code_exists": false,
+    "background_location_exists": false
+  },
+  "domain_and_persistence_prerequisites": {
+    "transit_schedule_source": "canonical_m12_timetables_ist",
+    "routes_count": 154,
+    "schedules_count": 302,
+    "unique_departures_count": 5549,
+    "timezone": "Asia/Kolkata",
+    "active_trip_persistence_ready": true,
+    "m14_room_ready": true,
+    "m14_swiftdata_ready": true,
+    "m16_auth_ready": true
+  },
+  "stage_g2_status": "LOCKED",
+  "verdict": "READY_FOR_M17_LOCAL_NOTIFICATION_EXECUTION"
+}

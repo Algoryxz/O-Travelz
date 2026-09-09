@@ -1,0 +1,13 @@
+{
+  "wave": "M17",
+  "audit_target": "offline_notification_truth",
+  "timestamp": "2026-09-09T08:34:47+05:30",
+  "offline_capabilities": {
+    "alarms_fire_in_airplane_mode": true,
+    "alarms_fire_in_dead_zones": true,
+    "network_required_to_trigger_reminder": false,
+    "notification_copy_remains_truthful_offline": true,
+    "offline_tap_behavior": "Navigates to cached route detail view. If offline bundle exists, displays stops and schedule. If network required for dynamic extras, displays graceful offline banner."
+  },
+  "verdict": "PASS_OFFLINE_AUTONOMOUS"
+}

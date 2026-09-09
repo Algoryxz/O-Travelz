@@ -231,4 +231,19 @@
     <string name="you_account_local_notice">Local-first storage active • Saved places &amp; itineraries stay safe on device</string>
     <string name="you_account_session_expired">Session expired. Local features continue working normally.</string>
     <string name="you_account_signin_again">Sign In Again</string>
+
+    <!-- M17 Local Notifications & Transit Reminders -->
+    <string name="transit_action_remind_me">Remind Me</string>
+    <string name="transit_reminder_active">Reminder Set (%1$dm)</string>
+    <string name="transit_action_cancel_reminder">Cancel Reminder</string>
+    <string name="transit_reminder_dialog_title">Scheduled Departure Reminder</string>
+    <string name="transit_reminder_dialog_desc">O-TRAVELZ will alert you before this bus leaves. Calculated locally from published timetables.</string>
+    <string name="transit_reminder_option_10m">10 minutes before</string>
+    <string name="transit_reminder_option_15m">15 minutes before</string>
+    <string name="transit_reminder_option_30m">30 minutes before</string>
+    <string name="transit_reminder_passed_error">This scheduled departure has already passed.</string>
+    <string name="transit_reminder_set_success">Reminder set for %1$s (%2$dm before)</string>
+    <string name="transit_reminder_cancelled">Reminder cancelled</string>
+    <string name="transit_notifications_disabled">Notifications are disabled. Enable them in Settings to receive alerts.</string>
+    <string name="transit_notif_operator_disclaimer">Scheduled timetable only; check operator before travel.</string>
 </resources>

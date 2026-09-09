@@ -1,0 +1,29 @@
+{
+  "wave": "M17",
+  "audit_target": "notification_permission_strategy",
+  "timestamp": "2026-09-09T08:33:05+05:30",
+  "permission_rules": {
+    "launch_prompt_allowed": false,
+    "onboarding_prompt_allowed": false,
+    "trigger_point": "User explicitly taps 'Remind me' on a scheduled departure",
+    "pre_permission_dialog": {
+      "required": true,
+      "title": "Enable Departure Reminders",
+      "body": "O-TRAVELZ will send a local notification before your bus leaves. Reminders are calculated locally from published timetables."
+    }
+  },
+  "android_behavior": {
+    "api_level_gte_33": "Contextually requests POST_NOTIFICATIONS runtime permission upon tap",
+    "api_level_lt_33": "Creates notification channel 'TRAVEL_REMINDERS'; permission granted at install time",
+    "denied_flow": "Dismisses calmly; displays non-intrusive snackbar explaining reminder could not be set without notification permission; offers action to open system App Settings",
+    "repeated_nagging_prohibited": true
+  },
+  "ios_behavior": {
+    "framework": "UserNotifications (UNUserNotificationCenter)",
+    "request_timing": "Invoked on first tap of 'Remind me'",
+    "options": ["alert", "sound", "badge"],
+    "provisional_authorization": false,
+    "denied_flow": "In-app toast indicates notifications disabled in iOS Settings"
+  },
+  "verdict": "COMPLIANT_WITH_PROGRESSIVE_DISCLOSURE"
+}

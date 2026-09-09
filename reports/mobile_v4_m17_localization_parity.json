@@ -1,0 +1,61 @@
+{
+  "wave": "M17",
+  "audit_target": "localization_parity",
+  "timestamp": "2026-09-09T08:43:55+05:30",
+  "string_keys": {
+    "transit_action_remind_me": {
+      "en": "Remind Me",
+      "or": "ମନେ ପକାଇ ଦିଅନ୍ତୁ"
+    },
+    "transit_reminder_active": {
+      "en": "Reminder Set (%1$dm)",
+      "or": "ସ୍ମାରକ ସେଟ୍ ହୋଇଛି (%1$d ମିନିଟ୍)"
+    },
+    "transit_action_cancel_reminder": {
+      "en": "Cancel Reminder",
+      "or": "ସ୍ମାରକ ବାତିଲ୍ କରନ୍ତୁ"
+    },
+    "transit_reminder_dialog_title": {
+      "en": "Scheduled Departure Reminder",
+      "or": "ନିର୍ଦ୍ଧାରିତ ପ୍ରସ୍ଥାନ ସ୍ମାରକ"
+    },
+    "transit_reminder_dialog_desc": {
+      "en": "O-TRAVELZ will alert you before this bus leaves. Calculated locally from published timetables.",
+      "or": "ବସ୍ ଛାଡ଼ିବା ପୂର୍ବରୁ O-TRAVELZ ଆପଣଙ୍କୁ ସତର୍କ କରାଇବ। ଏହା ପ୍ରକାଶିତ ସମୟସାରଣୀ ଅନୁଯାୟୀ କାର୍ଯ୍ୟ କରେ।"
+    },
+    "transit_reminder_option_10m": {
+      "en": "10 minutes before",
+      "or": "୧୦ ମିନିଟ୍ ପୂର୍ବରୁ"
+    },
+    "transit_reminder_option_15m": {
+      "en": "15 minutes before",
+      "or": "୧୫ ମିନିଟ୍ ପୂର୍ବରୁ"
+    },
+    "transit_reminder_option_30m": {
+      "en": "30 minutes before",
+      "or": "୩୦ ମିନିଟ୍ ପୂର୍ବରୁ"
+    },
+    "transit_reminder_passed_error": {
+      "en": "This scheduled departure has already passed.",
+      "or": "ଏହି ନିର୍ଦ୍ଧାରିତ ପ୍ରସ୍ଥାନ ସମୟ ପୂର୍ବରୁ ଅତିକ୍ରାନ୍ତ ହୋଇସାରିଛି।"
+    },
+    "transit_reminder_set_success": {
+      "en": "Reminder set for %1$s (%2$dm before)",
+      "or": "%1$s ପାଇଁ ସ୍ମାରକ ସେଟ୍ ହୋଇଛି (%2$d ମିନିଟ୍ ପୂର୍ବରୁ)"
+    },
+    "transit_reminder_cancelled": {
+      "en": "Reminder cancelled",
+      "or": "ସ୍ମାରକ ବାତିଲ୍ କରାଗଲା"
+    },
+    "transit_notifications_disabled": {
+      "en": "Notifications are disabled. Enable them in Settings to receive alerts.",
+      "or": "ବିଜ୍ଞପ୍ତି (Notifications) ଅକ୍ଷମ ଅଛି। ସେଟିଙ୍ଗ୍ସରୁ ଏହାକୁ ସକ୍ଷମ କରନ୍ତୁ।"
+    },
+    "transit_notif_operator_disclaimer": {
+      "en": "Scheduled timetable only; check operator before travel.",
+      "or": "କେବଳ ନିର୍ଦ୍ଧାରିତ ସମୟସାରଣୀ; ଯାତ୍ରା ପୂର୍ବରୁ ଅପରେଟରଙ୍କ ତଥ୍ୟ ଯାଞ୍ଚ କରନ୍ତୁ।"
+    }
+  },
+  "canonical_route_names_preserved": true,
+  "verdict": "FULL_LOCALIZATION_PARITY"
+}

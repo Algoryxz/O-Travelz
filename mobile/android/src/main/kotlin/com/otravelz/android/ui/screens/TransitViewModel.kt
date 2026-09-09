@@ -16,6 +16,13 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
+import com.otravelz.android.notifications.ActiveReminderInfo
+import com.otravelz.android.notifications.ReminderScheduleResult
+import com.otravelz.android.notifications.ReminderStore
+import com.otravelz.android.notifications.SharedPrefsReminderStore
+import com.otravelz.android.notifications.TransitReminderRequest
+import com.otravelz.android.notifications.TransitReminderScheduler
+
 data class TransitUiState(
     val isLoading: Boolean = true,
     val allRoutes: List<TransitRouteSummary> = emptyList(),
@@ -28,7 +35,8 @@ data class TransitUiState(
     val selectedStopForSheet: TransitStop? = null,
     val userLat: Double? = null,
     val userLon: Double? = null,
-    val isRealGps: Boolean = false
+    val isRealGps: Boolean = false,
+    val activeReminders: Map<String, ActiveReminderInfo> = emptyMap()
 ) {
     val totalRouteCount: Int
         get() = allRoutes.size
@@ -42,7 +50,9 @@ data class TransitUiState(
 
 class TransitViewModel(
     application: Application,
-    private val repository: TransitRepository = TransitRepositoryImpl(application)
+    private val repository: TransitRepository = TransitRepositoryImpl(application),
+    private val reminderStore: ReminderStore = SharedPrefsReminderStore(application),
+    private val reminderScheduler: TransitReminderScheduler = TransitReminderScheduler(application, reminderStore)
 ) : AndroidViewModel(application) {
 
     private val _uiState = MutableStateFlow(TransitUiState())
@@ -50,6 +60,7 @@ class TransitViewModel(
 
     init {
         loadRoutes()
+        refreshActiveReminders()
     }
 
     fun loadRoutes() {
@@ -136,5 +147,37 @@ class TransitViewModel(
 
     fun updateUserLocation(lat: Double?, lon: Double?, isReal: Boolean) {
         _uiState.update { it.copy(userLat = lat, userLon = lon, isRealGps = isReal) }
+    }
+
+    fun scheduleDepartureReminder(
+        routeId: String,
+        routeNumber: String,
+        origin: String,
+        departureTime: String,
+        offsetMinutes: Int = 15
+    ): ReminderScheduleResult {
+        val request = TransitReminderRequest(
+            routeId = routeId,
+            routeNumber = routeNumber,
+            origin = origin,
+            departureTime = departureTime,
+            offsetMinutes = offsetMinutes
+        )
+        val result = reminderScheduler.scheduleReminder(request)
+        if (result is ReminderScheduleResult.Success) {
+            refreshActiveReminders()
+        }
+        return result
+    }
+
+    fun cancelDepartureReminder(routeId: String, departureTime: String) {
+        reminderScheduler.cancelReminder(routeId, departureTime)
+        refreshActiveReminders()
+    }
+
+    fun refreshActiveReminders() {
+        val list = reminderStore.getAllReminders()
+        val map = list.associateBy { "${it.routeId}_${it.departureTime}" }
+        _uiState.update { it.copy(activeReminders = map) }
     }
 }

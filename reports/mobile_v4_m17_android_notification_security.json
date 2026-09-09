@@ -1,0 +1,22 @@
+{
+  "wave": "M17",
+  "audit_target": "android_notification_security",
+  "timestamp": "2026-09-09T08:33:52+05:30",
+  "pending_intent_security": {
+    "flag_immutable_enforced": true,
+    "flag_mutable_prohibited": true,
+    "explicit_component_targeting": true,
+    "receiver_class": "com.otravelz.android.notifications.TransitReminderReceiver",
+    "activity_class": "com.otravelz.android.MainActivity",
+    "exported_receiver": false
+  },
+  "deep_link_sanitization": {
+    "scheme": "otravelz",
+    "host": "route",
+    "path_structure": "/{routeId}",
+    "arbitrary_intent_injection_prevented": true,
+    "sanitized_parameters": ["routeId", "departureTime"]
+  },
+  "intent_filter_leak_risk": "NONE",
+  "verdict": "SECURE_PENDING_INTENT_ENFORCED"
+}

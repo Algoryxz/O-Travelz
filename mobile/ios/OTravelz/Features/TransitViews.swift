@@ -227,6 +227,9 @@ public struct RouteDetailView: View {
     public let onStopClick: (TransitStop) -> Void
     public let onViewOnMap: (String) -> Void
 
+    @State private var scheduler = NotificationScheduler()
+    @State private var reminderStatusMessage: String? = nil
+
     public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
@@ -324,9 +327,59 @@ public struct RouteDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     if let result = departureResult, let nextTime = result.nextDepartureTime {
                         let waitText = result.minutesUntilDeparture.map { "in \($0)m" } ?? ""
-                        Text(String(format: NSLocalizedString("transit_next_departure_label", comment: ""), nextTime, waitText))
-                            .font(.subheadline.weight(.bold))
-                            .foregroundColor(.accentColor)
+                        HStack {
+                            Text(String(format: NSLocalizedString("transit_next_departure_label", comment: ""), nextTime, waitText))
+                                .font(.subheadline.weight(.bold))
+                                .foregroundColor(.accentColor)
+
+                            Spacer()
+
+                            Button {
+                                Task {
+                                    if scheduler.isReminderActive(routeId: route.routeId, departureTime: nextTime) {
+                                        scheduler.cancelReminder(routeId: route.routeId, departureTime: nextTime)
+                                        reminderStatusMessage = "Reminder cancelled"
+                                    } else {
+                                        let req = TransitReminderRequest(
+                                            routeId: route.routeId,
+                                            routeNumber: route.routeNumber,
+                                            origin: route.origin,
+                                            departureTime: nextTime,
+                                            offsetMinutes: 15
+                                        )
+                                        let res = await scheduler.scheduleReminder(request: req)
+                                        switch res {
+                                        case .success:
+                                            reminderStatusMessage = "Reminder set for 15m before departure"
+                                        case .passedDeparture:
+                                            reminderStatusMessage = "This scheduled departure has already passed."
+                                        case .permissionDenied:
+                                            reminderStatusMessage = "Notifications disabled in Settings."
+                                        case .error(let msg):
+                                            reminderStatusMessage = msg
+                                        }
+                                    }
+                                }
+                            } label: {
+                                let isActive = scheduler.isReminderActive(routeId: route.routeId, departureTime: nextTime)
+                                HStack(spacing: 4) {
+                                    Image(systemName: isActive ? "bell.fill" : "bell")
+                                    Text(isActive ? "Reminder set (15m)" : "Remind me")
+                                }
+                                .font(.caption.weight(.semibold))
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 5)
+                                .background(isActive ? Color.accentColor.opacity(0.15) : Color(.secondarySystemBackground))
+                                .foregroundColor(isActive ? .accentColor : .primary)
+                                .cornerRadius(8)
+                            }
+                        }
+
+                        if let msg = reminderStatusMessage {
+                            Text(msg)
+                                .font(.caption2)
+                                .foregroundColor(.secondary)
+                        }
                     } else if departureResult?.isServiceFinishedForDay == true {
                         Text(LocalizedStringKey("transit_service_finished_today"))
                             .font(.subheadline.weight(.semibold))

@@ -1,0 +1,35 @@
+{
+  "wave": "M17",
+  "decision_target": "reminder_persistence_mechanism",
+  "timestamp": "2026-09-09T08:34:15+05:30",
+  "options_evaluated": {
+    "option_a_platform_scheduler_only": {
+      "description": "Rely strictly on AlarmManager PendingIntent lookup and UNUserNotificationCenter getPendingNotificationRequests.",
+      "pros": ["Zero database changes", "Zero state drift"],
+      "cons": ["Asynchronous querying on Android can cause transient UI flicker for active toggle states"],
+      "verdict": "PARTIAL"
+    },
+    "option_b_full_room_swiftdata_schema": {
+      "description": "Add new Room entities and SwiftData models (`scheduled_reminders` table) with DAOs and migrations.",
+      "pros": ["Relational queryability"],
+      "cons": [
+        "Massive over-engineering for a 15-minute departure alert",
+        "Requires database migration from M14",
+        "Orphan risk if user clears app alarms via system settings",
+        "Violates Ponytail minimalism"
+      ],
+      "verdict": "REJECTED"
+    },
+    "option_c_lightweight_active_reminder_store": {
+      "description": "Platform OS scheduler owns the execution alarm. A lightweight SharedPreferences / UserDefaults store tracks active reminder IDs (`rem_tr_route10_0830_15m`) for immediate synchronous UI rendering.",
+      "pros": [
+        "Zero Room / SwiftData schema churn or migrations",
+        "Immediate synchronous UI state binding ('Remind me' vs 'Reminder active')",
+        "Automatic pruning when reminder fires or route is cancelled",
+        "Zero overhead"
+      ],
+      "verdict": "SELECTED"
+    }
+  },
+  "selected_option": "OPTION_C_LIGHTWEIGHT_STORE_PLUS_OS_SCHEDULER"
+}

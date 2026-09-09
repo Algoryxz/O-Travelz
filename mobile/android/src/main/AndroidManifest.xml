@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".OTravelzApplication"
@@ -30,7 +31,21 @@
                     android:host="auth"
                     android:pathPrefix="/callback" />
             </intent-filter>
+            <!-- Wave M17: Transit Route Deep Link -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="otravelz"
+                    android:host="route" />
+            </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".notifications.TransitReminderReceiver"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />

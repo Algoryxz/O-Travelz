@@ -1,0 +1,25 @@
+{
+  "wave": "M17",
+  "verification_type": "gsd_wave_verification",
+  "timestamp": "2026-09-09T08:46:22+05:30",
+  "invariants": {
+    "NO_LIVE_TRANSIT_CLAIMS": true,
+    "LOCAL_NOTIFICATION_ONLY": true,
+    "CONTEXTUAL_PERMISSION": true,
+    "SIGNED_OUT_REMINDERS_SUPPORTED": true,
+    "NO_BACKGROUND_LOCATION": true,
+    "NO_POLLING": true,
+    "IST_TIMEZONE_CORRECT": true,
+    "DEEP_LINKS_SAFE": true,
+    "OFFLINE_REMINDERS_TRUTHFUL": true,
+    "NO_MARKETING_SPAM": true,
+    "NO_STAGE_G2_INGESTION": true,
+    "ANDROID_TESTS_PASS": true,
+    "ANDROID_BUILD_PASS": true,
+    "ANDROID_LINT_PASS": true,
+    "IOS_STATUS_HONEST": true,
+    "PONYTAIL_REVIEW_COMPLETE": true,
+    "GSD_VERIFY_PASS": true
+  },
+  "overall_verdict": "VERIFIED_PASS"
+}

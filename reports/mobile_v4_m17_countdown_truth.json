@@ -1,0 +1,38 @@
+{
+  "wave": "M17",
+  "audit_target": "countdown_truth",
+  "timestamp": "2026-09-09T08:33:35+05:30",
+  "semantics": {
+    "permitted_concept": "CALENDAR_ARITHMETIC_COUNTDOWN",
+    "forbidden_concept": "VEHICLE_TELEMETRY_COUNTDOWN",
+    "description": "Calculates remaining time until the published static timetable departure time. Does not track physical bus movement."
+  },
+  "vocabulary_audit": {
+    "required_terms": [
+      "scheduled",
+      "timetable"
+    ],
+    "prohibited_terms": [
+      "arriving",
+      "approaching",
+      "live departure",
+      "bus is nearby",
+      "vehicle location",
+      "real-time countdown"
+    ],
+    "prohibited_term_instances_in_notifications": 0
+  },
+  "sample_truth_payloads": [
+    {
+      "title": "Route 10 — Scheduled departure in 15 min",
+      "body": "08:30 IST from Master Canteen. Scheduled timetable only; check operator before travel.",
+      "truth_rating": "ACCURATE"
+    },
+    {
+      "title": "Route 24 — Scheduled departure in 10 min",
+      "body": "14:15 IST from Baramunda ISBT. Scheduled timetable only; check operator before travel.",
+      "truth_rating": "ACCURATE"
+    }
+  ],
+  "verdict": "COMPLIANT_WITH_CRUT_TRUTH_BOUNDARY"
+}

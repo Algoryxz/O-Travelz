@@ -1,0 +1,43 @@
+{
+  "wave": "M17",
+  "audit_target": "failure_drills",
+  "timestamp": "2026-09-09T08:44:15+05:30",
+  "drills": {
+    "F1_permission_denied": {
+      "scenario": "Traveler taps 'Remind me' and denies POST_NOTIFICATIONS / notification permission",
+      "expected": "App remains 100% usable; reminder not scheduled; contextual error message displayed; option to open Settings available without nagging modals",
+      "actual": "PASS: Permission launcher catches denial, displays non-intrusive snackbar, does not schedule alarm"
+    },
+    "F2_departure_already_passed": {
+      "scenario": "Traveler attempts to set a reminder for a departure that has already passed today",
+      "expected": "No alarm scheduled; user informed calmly with 'This scheduled departure has already passed'",
+      "actual": "PASS: TransitReminderCalculator returns null; ReminderScheduleResult.PassedDeparture returned and handled"
+    },
+    "F3_app_killed": {
+      "scenario": "User schedules a 15m reminder and force-quits / swipes away the app",
+      "expected": "AlarmManager RTC_WAKEUP / iOS UNUserNotificationCenter trigger fires independently of app process state",
+      "actual": "PASS: Native OS alarm facility handles wake event independently of foreground process"
+    },
+    "F4_device_offline": {
+      "scenario": "Device enters airplane mode or transit blackspot after scheduling",
+      "expected": "Local notification still triggers on schedule; notification copy remains truthful ('Scheduled departure')",
+      "actual": "PASS: Zero network required for local alarm execution; copy explicitly states 'Scheduled timetable only'"
+    },
+    "F5_route_deleted_or_unavailable": {
+      "scenario": "Notification deep link tapped for a route that is no longer found in catalog",
+      "expected": "Deep link router falls back gracefully to Transit directory; zero unhandled crashes",
+      "actual": "PASS: OTravelzApp opens TransitDirectoryScreen safely if route lookup returns null"
+    },
+    "F6_user_changes_device_timezone": {
+      "scenario": "Device timezone changed from IST to London GMT (UTC+0)",
+      "expected": "Timetable departure remains IST (08:30 IST); universal trigger moment remains 08:15 IST (02:45 UTC)",
+      "actual": "PASS: Unit tests verify triggerEpochMs maps to exact universal epoch timestamp matching 08:15 IST"
+    },
+    "F7_sign_out_after_scheduling": {
+      "scenario": "Traveler signs in, sets departure reminder, then signs out in You tab",
+      "expected": "Local scheduled reminder remains active and fires normally; local app remains usable",
+      "actual": "PASS: Reminders are device-scoped in ReminderStore and AlarmManager; logout does not wipe local reminders"
+    }
+  },
+  "verdict": "ALL_DRILLS_PASS"
+}

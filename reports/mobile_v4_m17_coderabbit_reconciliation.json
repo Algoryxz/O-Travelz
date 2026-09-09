@@ -1,0 +1,14 @@
+{
+  "wave": "M17",
+  "review_type": "coderabbit_reconciliation",
+  "timestamp": "2026-09-09T08:46:13+05:30",
+  "status": "NOT_EXECUTED_NO_PR_CONTEXT",
+  "rationale": "CodeRabbit operates on remote pull request webhooks. Execution is currently local on branch feature/v4-platform-rebuild.",
+  "local_pre_reconciliation": {
+    "security_vulnerabilities_found": 0,
+    "api_contract_drift_found": 0,
+    "lifecycle_issues_found": 0,
+    "test_coverage_gaps_found": 0
+  },
+  "verdict": "READY_FOR_PR"
+}

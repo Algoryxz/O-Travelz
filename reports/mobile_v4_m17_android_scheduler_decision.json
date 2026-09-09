@@ -1,0 +1,34 @@
+{
+  "wave": "M17",
+  "decision_target": "android_scheduler_mechanism",
+  "timestamp": "2026-09-09T08:33:45+05:30",
+  "schedulers_evaluated": {
+    "alarm_manager": {
+      "mechanism": "AlarmManager with setAndAllowWhileIdle(RTC_WAKEUP) and fallback to set()",
+      "suitability": "HIGH",
+      "battery_impact": "NEGLIGIBLE (single wake event at requested offset)",
+      "exact_alarm_permission_required": false,
+      "play_store_policy_risk": "ZERO (no SCHEDULE_EXACT_ALARM / USE_EXACT_ALARM declared in manifest)",
+      "pros": [
+        "Fires reliably at designated epoch timestamp even in low-power idle",
+        "Zero background service requirement",
+        "Deterministic cancel via matching PendingIntent"
+      ],
+      "verdict": "SELECTED"
+    },
+    "work_manager": {
+      "mechanism": "OneTimeWorkRequest with setInitialDelay()",
+      "suitability": "POOR",
+      "battery_impact": "LOW",
+      "play_store_policy_risk": "ZERO",
+      "cons": [
+        "WorkManager is not an alarm clock; Android OS may delay execution by 10 to 30 minutes during Doze mode",
+        "A 15-minute departure reminder delayed by 15 minutes arrives after the bus has departed",
+        "Introduces heavyweight database and worker orchestration"
+      ],
+      "verdict": "REJECTED"
+    }
+  },
+  "selected_scheduler": "ALARM_MANAGER_SAFE_IDLE",
+  "security_enforcement": "Explicit PendingIntent to TransitReminderReceiver, FLAG_IMMUTABLE, no exported receivers."
+}

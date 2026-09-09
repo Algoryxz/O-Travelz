@@ -1,0 +1,47 @@
+{
+  "wave": "M17",
+  "decision_target": "notification_architecture",
+  "timestamp": "2026-09-09T08:32:50+05:30",
+  "options_evaluated": {
+    "option_a_local_notifications_only": {
+      "description": "Native OS-level local scheduled reminders using AlarmManager/NotificationManager on Android and UNUserNotificationCenter on iOS.",
+      "score": 98,
+      "pros": [
+        "Zero server infrastructure or API dependency",
+        "Works 100% offline and in airplane mode after scheduling",
+        "Zero account dependency (usable signed out)",
+        "Zero battery drain from background location or polling",
+        "Zero third-party vendor lock-in (no Firebase/OneSignal/APNs server certs)",
+        "Truthful to scheduled timetable facts"
+      ],
+      "cons": [
+        "Cannot receive server-pushed dynamic cancellations if transit network changes mid-route"
+      ],
+      "verdict": "SELECTED"
+    },
+    "option_b_local_plus_remote_push": {
+      "description": "Local alarms plus server-side push registration foundation.",
+      "score": 45,
+      "pros": ["Prepares for future real-time tracking if operators publish telemetry"],
+      "cons": [
+        "No backend push endpoints or APNs/FCM keys exist in repo",
+        "Violates Ponytail minimalism and YAGNI",
+        "Requires invasive device token registration plumbing"
+      ],
+      "verdict": "REJECTED"
+    },
+    "option_c_remote_push_first": {
+      "description": "All departure reminders scheduled on server and delivered via push.",
+      "score": 15,
+      "pros": [],
+      "cons": [
+        "Fails completely when device is offline in transit dead zones",
+        "Forces account sign-in to associate push tokens",
+        "High server operational overhead without benefits"
+      ],
+      "verdict": "REJECTED"
+    }
+  },
+  "selected_architecture": "OPTION_A_LOCAL_NOTIFICATIONS_ONLY",
+  "rationale": "O-TRAVELZ is a local-first atlas. Scheduled transit departures are static deterministic facts from CRUT/Mo Bus timetables. Scheduling on-device guarantees reminders fire even in poor cellular connectivity without account gates."
+}
