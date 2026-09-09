@@ -1,0 +1,31 @@
+{
+  "wave": "M16",
+  "audit_target": "security_review",
+  "timestamp": "2026-09-09T08:18:30+05:30",
+  "credential_storage": {
+    "android": "Android Keystore backed AES-GCM encrypted preferences / device-isolated fallback",
+    "ios": "iOS Keychain Services (kSecClassGenericPassword)",
+    "plaintext_shared_preferences": false,
+    "room_sqlite_contains_tokens": false,
+    "swiftdata_contains_tokens": false,
+    "userdefaults_contains_tokens": false
+  },
+  "secret_leakage_checks": {
+    "tokens_in_logcat": false,
+    "tokens_in_oslog": false,
+    "tokens_in_analytics": false,
+    "tokens_in_crash_breadcrumbs": false,
+    "tokens_in_git": false,
+    "hardcoded_production_secrets": 0
+  },
+  "deep_link_security": {
+    "scheme": "otravelz",
+    "host": "auth",
+    "path": "/callback",
+    "wildcard_schemes_prohibited": true,
+    "state_tamper_proofing": "HMAC-SHA256 cookie",
+    "ticket_ttl_seconds": 60,
+    "ticket_single_use_enforced": true
+  },
+  "verdict": "PASS"
+}

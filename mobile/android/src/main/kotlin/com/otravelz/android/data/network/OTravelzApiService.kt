@@ -7,8 +7,10 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
+import retrofit2.http.Header
+
 /**
- * Retrofit interface representing the 11 core MOBILE_REQUIRED_NOW backend contracts.
+ * Retrofit interface representing core MOBILE_REQUIRED_NOW backend contracts.
  */
 interface OTravelzApiService {
 
@@ -68,4 +70,24 @@ interface OTravelzApiService {
     suspend fun planItinerary(
         @Body request: ItineraryPlanRequestDto
     ): ItineraryResponseDto
+
+    @POST("auth/session/exchange")
+    suspend fun exchangeAuthTicket(
+        @Body request: AuthTicketExchangeRequestDto
+    ): AuthExchangeResponseDto
+
+    @GET("auth/me")
+    suspend fun getMe(
+        @Header("Authorization") authorization: String? = null
+    ): AuthMeResponseDto
+
+    @POST("auth/logout")
+    suspend fun logout(
+        @Header("Authorization") authorization: String? = null
+    ): AuthLogoutResponseDto
+
+    @POST("auth/dev/mock-login")
+    suspend fun devMockLogin(
+        @Body request: DevLoginRequestDto = DevLoginRequestDto()
+    ): AuthExchangeResponseDto
 }

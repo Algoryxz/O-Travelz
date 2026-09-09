@@ -149,8 +149,8 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 - **M13 (AI Planner)**: Structured constraint-aware planner, deterministic backend execution (`POST /itinerary/plan`), grounded AI conversational companion (`POST /ai/converse`), and six-hour Bhubaneswar golden tour. `[COMPLETED]`
 - **M14 (Trips & Persistence)**: Room SQLite (Android) and SwiftData (iOS) offline sync. `[COMPLETED]`
 - **M15 (Essentials & Culture)**: Emergency civic contacts, artisan clusters, cultural essays. `[COMPLETED]`
-- **M16 (Auth & Accounts)**: Sign in with Apple, Google Credential Manager, secure tokens. `[NEXT]`
-- **M17 (Notifications)**: Local transit departure countdown notifications.
+- **M16 (Auth & Accounts)**: Sign in with Apple, Google Credential Manager, secure tokens. `[COMPLETED]`
+- **M17 (Notifications)**: Local transit departure countdown notifications. `[NEXT]`
 - **M18 (Offline Mode)**: Airplane mode flight check, cached WebP photos, deterministic KMP math.
 
 ### Waves M19–M26: Verification, Hardening & Compliance `[PLANNED]`

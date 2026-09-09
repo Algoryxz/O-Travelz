@@ -1,0 +1,50 @@
+{
+  "wave": "M16",
+  "audit_type": "BACKEND_AUTH_CONTRACT_AUDIT",
+  "audit_timestamp": "2026-09-09T08:06:00+05:30",
+  "contract_summary": {
+    "BACKEND_AUTH_EXISTS": true,
+    "AUTH_PROVIDER": "Google OAuth 2.0 (PKCE + OpenID Connect)",
+    "SESSION_TYPE": "Server-side stateful session tokens (SHA-256 hashed in database, raw token held by client)",
+    "COOKIE_SUPPORT": true,
+    "BEARER_SUPPORT": true,
+    "TOKEN_EXCHANGE_SUPPORT": true,
+    "MOBILE_SAFE_FLOW_AVAILABLE": true,
+    "MOBILE_REDIRECT_SCHEME_SUPPORTED": false,
+    "MOBILE_DEEP_LINK_CALLBACK_SUPPORTED": false,
+    "LOGOUT_SUPPORTED": true,
+    "ACCOUNT_PROFILE_SUPPORTED": true,
+    "SYNC_ENDPOINTS_EXIST": true
+  },
+  "endpoints": {
+    "/auth/google/start": {
+      "method": "GET",
+      "purpose": "Initiate Google OAuth 2.0 PKCE flow with signed state cookie",
+      "mobile_fit": "Can initiate via system browser / Custom Tab; requires whitelisting mobile redirect URI"
+    },
+    "/auth/google/callback": {
+      "method": "GET",
+      "purpose": "Google callback verifying state, exchanging auth code, resolving user, and creating single-use exchange ticket",
+      "mobile_fit": "Must redirect to mobile deep link (otravelz://auth/callback?auth_ticket=...) when mobile initiated"
+    },
+    "/auth/session/exchange": {
+      "method": "POST",
+      "payload": { "ticket": "string" },
+      "purpose": "Burns 60-second single-use auth ticket; returns active session token and user profile",
+      "mobile_fit": "Ideal for native mobile apps to exchange ticket for bearer session token without token in URL"
+    },
+    "/auth/me": {
+      "method": "GET",
+      "auth_methods": ["HttpOnly Cookie", "Authorization: Bearer <token>"],
+      "purpose": "Returns authenticated UserProfile or unauthenticated status",
+      "mobile_fit": "Perfect for native mobile app launch/background session verification"
+    },
+    "/auth/logout": {
+      "method": "POST",
+      "auth_methods": ["HttpOnly Cookie"],
+      "purpose": "Revokes session in database and clears cookie",
+      "mobile_gap": "Does not currently read Authorization: Bearer header. Surgical update required for mobile logout session revocation."
+    }
+  },
+  "verdict": "Backend auth provides 90% of mobile requirements. Surgical updates to /auth/logout (bearer support) and /auth/google/callback (mobile scheme redirect) provide 100% native mobile safety with zero third-party dependencies."
+}

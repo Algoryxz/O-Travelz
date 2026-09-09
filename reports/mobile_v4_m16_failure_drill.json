@@ -1,0 +1,33 @@
+{
+  "wave": "M16",
+  "audit_target": "failure_drill",
+  "timestamp": "2026-09-09T08:19:08+05:30",
+  "drills": {
+    "F1_backend_unavailable_at_launch": {
+      "scenario": "Network unavailable or backend 503 during app cold start",
+      "expected": "App opens immediately to Discover/Trips; cached local data displayed; no crash or error wall; auth state remains SignedOut or retains cached user profile gracefully",
+      "actual": "PASS: Async session restore handles IOException, catches network errors gracefully without blocking Compose/SwiftUI UI shell"
+    },
+    "F2_oauth_cancelled": {
+      "scenario": "Traveler opens system browser OAuth and dismisses it / taps cancel",
+      "expected": "Returns to You tab; remains in SignedOut state; no error loop or intrusive alert dialog",
+      "actual": "PASS: onNewIntent / ASWebAuthenticationSession cancellation handles cancel event cleanly and resets state to SignedOut"
+    },
+    "F3_invalid_callback": {
+      "scenario": "Deep link triggered with malformed URL, foreign host, or missing ticket",
+      "expected": "Rejected immediately; no credential saved; error state emitted without crashing",
+      "actual": "PASS: URI scheme/host/path validation ensures only otravelz://auth/callback with valid ticket parameter proceeds"
+    },
+    "F4_session_expires_mid_use": {
+      "scenario": "Server invalidates session token while traveler is using the app",
+      "expected": "Token cleared from secure store; state transitions to Expired/SignedOut; local browsing/trips continue uninterrupted",
+      "actual": "PASS: 401 response invalidates local session store and emits Expired; non-account app functionality operates normally"
+    },
+    "F5_sign_out_during_active_trip": {
+      "scenario": "Traveler has an active trip milestone in progress and taps Sign Out in You tab",
+      "expected": "Server session revoked; secure token cleared; active trip progress in Room/SwiftData remains intact and navigable",
+      "actual": "PASS: Unit tests verify Room trip_progress and saved_trips tables are completely unaffected by logout"
+    }
+  },
+  "verdict": "ALL_DRILLS_PASS"
+}

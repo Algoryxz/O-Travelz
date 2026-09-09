@@ -1,6 +1,7 @@
 """Google OAuth and Authentication Endpoints."""
 from __future__ import annotations
 
+import hashlib
 import logging
 from typing import Any, Dict, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, Request, Response
@@ -14,6 +15,7 @@ from app.db.session import get_db
 from app.models.user import User
 from app.services.auth.google_oauth import (
     GoogleOAuthError,
+    GoogleProfile,
     build_authorization_url,
     create_auth_exchange_ticket,
     exchange_code_for_tokens,
@@ -98,14 +100,23 @@ def _delete_cookie_safe(resp: Response, key: str) -> None:
     )
 
 
+ALLOWED_MOBILE_REDIRECT_URIS = {
+    "otravelz://auth/callback",
+    "otravelz://auth",
+}
+
+
 @router.get("/google/start")
 def google_auth_start(
     request: Request,
     response: Response,
+    redirect_uri: Optional[str] = Query(None),
+    db: Session = Depends(get_db),
 ) -> Any:
     """
     Initiate Google OAuth 2.0 PKCE flow.
     Redirects user to Google's consent screen with signed state cookie.
+    Supports optional whitelisted mobile redirect_uri (e.g. otravelz://auth/callback).
     """
     client_ip = _get_client_ip(request)
     # Auth rate limit: max 20 requests per minute
@@ -117,7 +128,40 @@ def google_auth_start(
             headers={"Retry-After": str(retry_after)},
         )
 
+    if redirect_uri:
+        allowed_targets = ALLOWED_MOBILE_REDIRECT_URIS | {settings.auth_frontend_redirect_url}
+        if redirect_uri not in allowed_targets:
+            raise HTTPException(
+                status_code=400,
+                detail={"error": "invalid_redirect_uri", "message": f"Redirect URI '{redirect_uri}' is not authorized."},
+            )
+
     if not settings.google_oauth_enabled or not settings.google_oauth_client_id:
+        if settings.environment.lower() != "production" and redirect_uri in ALLOWED_MOBILE_REDIRECT_URIS:
+            mock_profile = GoogleProfile(
+                sub="dev-mock-mobile-user",
+                email="traveler@odisha.in",
+                name="Odisha Traveler",
+                display_name="Traveler",
+                avatar_url="https://lh3.googleusercontent.com/a/default-user=s96-c",
+            )
+            user = resolve_or_create_user(db, mock_profile)
+            raw_token, _ = create_session(
+                db=db,
+                user=user,
+                expire_days=settings.auth_session_expire_days,
+            )
+            exchange_ticket = create_auth_exchange_ticket(
+                user_id=str(user.id),
+                raw_session_token=raw_token,
+                secret=settings.auth_session_secret,
+                ttl_seconds=60,
+            )
+            return RedirectResponse(
+                url=f"{redirect_uri}?auth_ticket={exchange_ticket}",
+                status_code=302,
+            )
+
         return JSONResponse(
             status_code=400,
             content={
@@ -147,6 +191,7 @@ def google_auth_start(
         code_verifier=code_verifier,
         secret=settings.auth_session_secret,
         max_age_seconds=settings.auth_oauth_state_expire_seconds,
+        app_redirect=redirect_uri if redirect_uri in ALLOWED_MOBILE_REDIRECT_URIS else None,
     )
 
     redirect_resp = RedirectResponse(url=auth_url, status_code=302)
@@ -174,7 +219,7 @@ def google_auth_callback(
     """
     OAuth 2.0 callback handler.
     Validates state cookie, exchanges code with PKCE verifier, validates ID token,
-    creates local user & session, sets HttpOnly session cookie, and redirects to frontend.
+    creates local user & session, sets HttpOnly session cookie, and redirects to frontend or mobile app.
     """
     client_ip = _get_client_ip(request)
     allowed, retry_after = rate_limiter.check_and_record(f"auth_callback_{client_ip}")
@@ -185,11 +230,17 @@ def google_auth_callback(
             headers={"Retry-After": str(retry_after)},
         )
 
+    # 1. Retrieve and verify state cookie first so app_redirect is known
+    state_cookie = request.cookies.get(settings.auth_oauth_state_cookie_name)
+    cookie_data = verify_and_decode_oauth_state_cookie(state_cookie, settings.auth_session_secret)
+    app_redirect = cookie_data.get("app_redirect") if cookie_data else None
+
     # Handle user denial / OAuth error
     if error:
         logger.warning("Google OAuth returned error: %s", error)
+        target_url = f"{app_redirect}?auth_error={error}" if (app_redirect and app_redirect in ALLOWED_MOBILE_REDIRECT_URIS) else f"{settings.auth_frontend_redirect_url}?auth_error={error}"
         fail_redirect = RedirectResponse(
-            url=f"{settings.auth_frontend_redirect_url}?auth_error={error}",
+            url=target_url,
             status_code=302,
         )
         _delete_cookie_safe(fail_redirect, settings.auth_oauth_state_cookie_name)
@@ -200,10 +251,6 @@ def google_auth_callback(
             status_code=400,
             content={"error": "invalid_request", "message": "Missing code or state parameter."},
         )
-
-    # 1. Retrieve and verify state cookie
-    state_cookie = request.cookies.get(settings.auth_oauth_state_cookie_name)
-    cookie_data = verify_and_decode_oauth_state_cookie(state_cookie, settings.auth_session_secret)
 
     if not cookie_data or cookie_data.get("state") != state:
         fail_resp = JSONResponse(
@@ -255,12 +302,15 @@ def google_auth_callback(
             ttl_seconds=60,
         )
 
-        # Build redirect URL with auth_ticket in URL fragment (#) or search query
-        base_redirect = settings.auth_frontend_redirect_url.rstrip("/")
-        if "#" in base_redirect:
-            redirect_url = f"{base_redirect}&auth_ticket={exchange_ticket}"
+        # Build redirect URL with auth_ticket
+        if app_redirect and app_redirect in ALLOWED_MOBILE_REDIRECT_URIS:
+            redirect_url = f"{app_redirect}?auth_ticket={exchange_ticket}"
         else:
-            redirect_url = f"{base_redirect}#auth_ticket={exchange_ticket}"
+            base_redirect = settings.auth_frontend_redirect_url.rstrip("/")
+            if "#" in base_redirect:
+                redirect_url = f"{base_redirect}&auth_ticket={exchange_ticket}"
+            else:
+                redirect_url = f"{base_redirect}#auth_ticket={exchange_ticket}"
 
         # 7. Set session cookie and clear state cookie
         success_redirect = RedirectResponse(
@@ -281,16 +331,18 @@ def google_auth_callback(
 
     except GoogleOAuthError as e:
         logger.error("OAuth authentication error: %s", e.message)
+        err_url = f"{app_redirect}?auth_error=authentication_failed" if (app_redirect and app_redirect in ALLOWED_MOBILE_REDIRECT_URIS) else f"{settings.auth_frontend_redirect_url}?auth_error=authentication_failed"
         fail_redirect = RedirectResponse(
-            url=f"{settings.auth_frontend_redirect_url}?auth_error=authentication_failed",
+            url=err_url,
             status_code=302,
         )
         _delete_cookie_safe(fail_redirect, settings.auth_oauth_state_cookie_name)
         return fail_redirect
     except Exception as e:
         logger.exception("Unexpected error during Google OAuth callback: %s", str(e))
+        err_url = f"{app_redirect}?auth_error=server_error" if (app_redirect and app_redirect in ALLOWED_MOBILE_REDIRECT_URIS) else f"{settings.auth_frontend_redirect_url}?auth_error=server_error"
         fail_redirect = RedirectResponse(
-            url=f"{settings.auth_frontend_redirect_url}?auth_error=server_error",
+            url=err_url,
             status_code=302,
         )
         _delete_cookie_safe(fail_redirect, settings.auth_oauth_state_cookie_name)
@@ -389,8 +441,14 @@ def logout(
 ) -> Dict[str, Any]:
     """
     Revoke active session and clear session cookie. Idempotent.
+    Supports both HttpOnly session cookie and Authorization: Bearer <session_token> header.
     """
     session_token = request.cookies.get(settings.auth_session_cookie_name)
+    if not session_token:
+        auth_header = request.headers.get("Authorization")
+        if auth_header and auth_header.startswith("Bearer "):
+            session_token = auth_header[7:].strip()
+
     if session_token:
         revoke_session(db, session_token)
 
@@ -398,4 +456,57 @@ def logout(
     return {
         "authenticated": False,
         "message": "Logged out successfully.",
+    }
+
+
+class DevLoginRequest(BaseModel):
+    email: Optional[str] = "traveler@odisha.in"
+    name: Optional[str] = "Odisha Traveler"
+
+
+@router.post("/dev/mock-login")
+def dev_mock_login(
+    payload: DevLoginRequest,
+    db: Session = Depends(get_db),
+) -> Dict[str, Any]:
+    """
+    Development/testing mock login endpoint.
+    Only available when environment != 'production'.
+    Generates a valid test user, session token, and exchange ticket.
+    """
+    if settings.environment.lower() == "production":
+        raise HTTPException(status_code=404, detail="Not found")
+
+    sub_hash = hashlib.sha256((payload.email or "traveler@odisha.in").encode()).hexdigest()[:16]
+    mock_profile = GoogleProfile(
+        sub=f"dev-mock-{sub_hash}",
+        email=payload.email or "traveler@odisha.in",
+        name=payload.name or "Odisha Traveler",
+        display_name=(payload.name or "Odisha Traveler").split()[0],
+        avatar_url="https://lh3.googleusercontent.com/a/default-user=s96-c",
+    )
+    user = resolve_or_create_user(db, mock_profile)
+    raw_token, _ = create_session(
+        db=db,
+        user=user,
+        expire_days=settings.auth_session_expire_days,
+    )
+    exchange_ticket = create_auth_exchange_ticket(
+        user_id=str(user.id),
+        raw_session_token=raw_token,
+        secret=settings.auth_session_secret,
+        ttl_seconds=60,
+    )
+    return {
+        "authenticated": True,
+        "user": {
+            "id": str(user.id),
+            "email": user.email,
+            "name": user.name,
+            "display_name": user.display_name or user.name,
+            "avatar_url": user.avatar_url,
+            "provider": user.provider,
+        },
+        "session_token": raw_token,
+        "exchange_ticket": exchange_ticket,
     }

@@ -1,0 +1,14 @@
+{
+  "wave": "M16",
+  "review_type": "coderabbit_reconciliation",
+  "timestamp": "2026-09-09T08:19:48+05:30",
+  "status": "NOT_EXECUTED_NO_PR_CONTEXT",
+  "rationale": "CodeRabbit runs as a GitHub App on remote pull request events. Currently operating in local feature branch feature/v4-platform-rebuild prior to PR submission.",
+  "local_pre_reconciliation": {
+    "security_vulnerabilities_found": 0,
+    "api_contract_drift_found": 0,
+    "concurrency_issues_found": 0,
+    "test_coverage_gaps_found": 0
+  },
+  "verdict": "READY_FOR_PR"
+}

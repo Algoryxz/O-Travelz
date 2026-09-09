@@ -1,0 +1,66 @@
+{
+  "wave": "M16",
+  "classification_type": "DATA_OWNERSHIP_AND_PERSISTENCE_BOUNDARY",
+  "timestamp": "2026-09-09T08:08:00+05:30",
+  "data_categories": {
+    "DEVICE_LOCAL": {
+      "owner": "Local Device Database (Room SQLite / SwiftData)",
+      "persistence_lifecycle": "Survives app updates, restarts, and sign-out. Never wiped upon logout.",
+      "entities": [
+        "SavedPlaceEntity / SavedPlaceItem (M14)",
+        "SavedTripEntity / SavedTripItem (M14)",
+        "SavedTripStopEntity / SavedTripStopItem (M14)",
+        "TripProgressEntity / TripProgressItem (M14 active trip state)",
+        "Recent searches and spatial filter chips",
+        "Offline media and transit timetable cache",
+        "Local appearance & language preferences"
+      ],
+      "account_scoping": "ACCOUNT_AGNOSTIC (userId is NOT required or added as NOT NULL column in M16)"
+    },
+    "ACCOUNT_IDENTITY": {
+      "owner": "Remote Backend Auth / Active Session",
+      "persistence_lifecycle": "Stored exclusively in Android Keystore / iOS Keychain; cleared immediately on sign-out or session revocation.",
+      "attributes": [
+        "id (Canonical UUID string)",
+        "email (Google account email)",
+        "name (Full profile name)",
+        "display_name (Display name or given name)",
+        "avatar_url (Google profile photo URL)",
+        "provider (e.g. 'google')"
+      ],
+      "forbidden_fabricated_attributes": [
+        "username",
+        "phone_number",
+        "age",
+        "gender",
+        "home_address",
+        "subscription_tier",
+        "traveler_rank"
+      ]
+    },
+    "FUTURE_SYNCABLE": {
+      "status": "DEFERRED_IN_M16",
+      "description": "Backend has /api/v1/sync endpoints, but mobile sync is explicitly deferred to preserve device-primary integrity and avoid partial sync states.",
+      "candidates": [
+        "Saved places (upsert/tombstone)",
+        "Saved trips (upsert/tombstone)",
+        "User preferences"
+      ]
+    },
+    "NEVER_SYNC_BY_DEFAULT": {
+      "rationale": "Strict privacy and offline integrity guarantees",
+      "items": [
+        "Raw GPS location coordinates or trajectory traces",
+        "Ride verification sensor telemetry",
+        "Emergency helpline dial usage or timestamp records",
+        "Private AI planner conversational prompt text",
+        "Locally cached binary media and map vector tiles"
+      ]
+    }
+  },
+  "signout_invariants": {
+    "local_data_retained": true,
+    "active_trip_survives_signout": true,
+    "credentials_cleared": true
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "wave": "M16",
+  "decision_type": "AUTH_STRATEGY_EVALUATION",
+  "timestamp": "2026-09-09T08:07:00+05:30",
+  "options_evaluated": {
+    "OPTION_A_EMBEDDED_WEB_OAUTH": {
+      "name": "Embedded Webview OAuth + Cookie Session",
+      "backend_reuse": 8,
+      "native_ux": 4,
+      "security": 4,
+      "complexity": 6,
+      "logout_clarity": 5,
+      "secret_handling": 5,
+      "cross_platform_parity": 7,
+      "offline_independence": 6,
+      "future_sync_readiness": 6,
+      "total_score": 51,
+      "rejection_reason": "Google blocks embedded WebViews for OAuth 2.0 (RFC 8252 violation). Insecure cookie sharing across native/webview boundaries."
+    },
+    "OPTION_B_SYSTEM_BROWSER_TICKET_EXCHANGE": {
+      "name": "System Browser / Custom Tab / ASWebAuthenticationSession + One-Time Ticket Exchange",
+      "backend_reuse": 10,
+      "native_ux": 9,
+      "security": 10,
+      "complexity": 8,
+      "logout_clarity": 10,
+      "secret_handling": 10,
+      "cross_platform_parity": 10,
+      "offline_independence": 10,
+      "future_sync_readiness": 10,
+      "total_score": 87,
+      "verdict": "SELECTED. Full Ponytail-aligned reuse of existing SessionManager and single-use ticket exchange. Zero third-party SDK bloat. Maximum RFC 8252 compliance."
+    },
+    "OPTION_C_NATIVE_GOOGLE_IDENTITY_SDK": {
+      "name": "Native Google Identity SDK (Credential Manager) Direct to Backend",
+      "backend_reuse": 5,
+      "native_ux": 9,
+      "security": 8,
+      "complexity": 4,
+      "logout_clarity": 7,
+      "secret_handling": 8,
+      "cross_platform_parity": 4,
+      "offline_independence": 7,
+      "future_sync_readiness": 8,
+      "total_score": 60,
+      "rejection_reason": "Requires heavy platform-specific client credentials, Google Play Services dependencies on Android, separate Google Sign-In SDK on iOS, and custom backend token verification pathways."
+    },
+    "OPTION_D_DEFER_AUTH": {
+      "name": "Defer Account Authentication Entirely",
+      "backend_reuse": 0,
+      "native_ux": 5,
+      "security": 10,
+      "complexity": 10,
+      "logout_clarity": 0,
+      "secret_handling": 10,
+      "cross_platform_parity": 10,
+      "offline_independence": 10,
+      "future_sync_readiness": 0,
+      "total_score": 45,
+      "rejection_reason": "Backend already possesses 90% of the necessary auth infrastructure. Deferring leaves M16 milestone unfulfilled."
+    }
+  },
+  "selected_option": "OPTION_B_SYSTEM_BROWSER_TICKET_EXCHANGE",
+  "key_architectural_guarantees": [
+    "Uses Android Custom Tabs / Chrome / system browser and iOS ASWebAuthenticationSession",
+    "Deep link callback delivers ONLY short-lived (60s), single-use burned exchange tickets (no session tokens or refresh tokens in URLs)",
+    "Native apps exchange ticket via POST /auth/session/exchange and store session token in Android Keystore / iOS Keychain",
+    "Zero Firebase, zero Auth0, zero Clerk, zero Supabase"
+  ]
+}

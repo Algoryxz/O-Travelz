@@ -1,0 +1,21 @@
+{
+  "wave": "M16",
+  "audit_target": "launch_auth_resilience",
+  "timestamp": "2026-09-09T08:18:25+05:30",
+  "app_launch_policy": {
+    "account_wall_present": false,
+    "blocks_ui_render_on_auth_me": false,
+    "auth_restoration_async": true,
+    "discover_available_instantly": true,
+    "trips_available_instantly": true,
+    "map_available_instantly": true
+  },
+  "backend_down_behavior": {
+    "app_crashes": false,
+    "unhandled_exceptions": 0,
+    "fallback_state": "SIGNED_OUT_LOCAL",
+    "secure_store_cleared_on_transient_network_error": false,
+    "local_persistence_accessible": true
+  },
+  "verdict": "PASS"
+}

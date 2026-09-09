@@ -219,4 +219,16 @@
     <string name="you_pref_trust_title">ପ୍ଲାଟଫର୍ମ ସତ୍ୟତା</string>
     <string name="you_pref_trust_desc">ଆଲଗୋରିକ୍ସ (Algoryxz) ଦ୍ୱାରା ନିର୍ମିତ ଆଧୁନିକ ଓଡ଼ିଶା ସାଂସ୍କୃତିକ ଆଟଲାସ୍। କୌଣସି କାଳ୍ପନିକ ତଥ୍ୟ ବିନା ଯାଞ୍ଚ ହୋଇଥିବା ସ୍ଥାନ ଓ ଗମନାଗମନ ସୂଚନା।</string>
     <string name="place_action_nearby_essentials">ନିକଟସ୍ଥ ଜରୁରୀକାଳୀନ ସହାୟତା</string>
+
+    <!-- M16 Authentication & Account Identity (Odia) -->
+    <string name="you_account_title">ଖାତା ଓ ପରିଚୟ</string>
+    <string name="you_account_signed_out_desc">ଆକାଉଣ୍ଟ ପରିଚୟ ଏବଂ ଭବିଷ୍ୟତ ସଂଯୋଗ ପାଇଁ ସାଇନ୍ ଇନ୍ କରନ୍ତୁ। ଆପଣଙ୍କ ସାଇଭ୍ ଯାତ୍ରା ଏହି ଡିଭାଇସ୍ରେ ସୁରକ୍ଷିତ ରହିବ।</string>
+    <string name="you_account_action_signin">Google ସହିତ ସାଇନ୍ ଇନ୍ କରନ୍ତୁ</string>
+    <string name="you_account_action_signout">ସାଇନ୍ ଆଉଟ୍</string>
+    <string name="you_account_action_dev_signin">ଶୀଘ୍ର ଡେଭ୍ ସାଇନ୍-ଇନ୍</string>
+    <string name="you_account_authenticating">ପ୍ରାମାଣିକିକରଣ ଚାଲିଛି…</string>
+    <string name="you_account_local_primary_badge">ଡିଭାଇସ୍-ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍</string>
+    <string name="you_account_local_notice">ଲୋକାଲ୍-ପ୍ରଥମ ଷ୍ଟୋରେଜ୍ ସକ୍ରିୟ • ସାଇଭ୍ ସ୍ଥାନ ଓ ଯାତ୍ରା ଡିଭାଇସ୍ରେ ସୁରକ୍ଷିତ ଅଛି</string>
+    <string name="you_account_session_expired">ଅବଧି ସମାପ୍ତ। ଲୋକାଲ୍ ସୁବିଧା ସାଧାରଣ ଭାବେ କାର୍ଯ୍ୟ କରୁଛି।</string>
+    <string name="you_account_signin_again">ପୁନର୍ବାର ସାଇନ୍ ଇନ୍ କରନ୍ତୁ</string>
 </resources>

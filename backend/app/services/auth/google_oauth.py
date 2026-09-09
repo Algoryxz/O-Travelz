@@ -90,18 +90,22 @@ def sign_oauth_state_cookie(
     code_verifier: str,
     secret: str,
     max_age_seconds: int = 600,
+    app_redirect: Optional[str] = None,
 ) -> str:
     """
     Create a signed, tamper-evident OAuth transaction cookie value.
-    Payload: JSON of {state, nonce, code_verifier, exp} signed with HMAC-SHA256.
+    Payload: JSON of {state, nonce, code_verifier, exp, app_redirect} signed with HMAC-SHA256.
     """
     exp = int(time.time()) + max_age_seconds
-    payload_dict = {
+    payload_dict: Dict[str, Any] = {
         "s": state,
         "n": nonce,
         "v": code_verifier,
         "e": exp,
     }
+    if app_redirect:
+        payload_dict["r"] = app_redirect
+
     payload_json = json.dumps(payload_dict, separators=(",", ":")).encode("utf-8")
     payload_b64 = _base64url_encode(payload_json)
 
@@ -146,12 +150,16 @@ def verify_and_decode_oauth_state_cookie(
     if time.time() > exp:
         return None
 
-    return {
+    result: Dict[str, Any] = {
         "state": payload.get("s"),
         "nonce": payload.get("n"),
         "code_verifier": payload.get("v"),
         "exp": exp,
     }
+    if "r" in payload:
+        result["app_redirect"] = payload["r"]
+
+    return result
 
 
 def create_auth_exchange_ticket(

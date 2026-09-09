@@ -35,6 +35,7 @@ import com.otravelz.android.ui.roots.YouRoot
 import com.otravelz.android.ui.screens.PlaceDetailScreen
 import com.otravelz.android.ui.screens.TransitDirectoryScreen
 import com.otravelz.android.ui.screens.TransitViewModel
+import com.otravelz.android.auth.AuthViewModel
 
 /**
  * Root composable hosting the 5 frozen root navigation tabs and nested Place Detail routing.
@@ -48,7 +49,8 @@ import com.otravelz.android.ui.screens.TransitViewModel
  */
 @Composable
 fun OTravelzApp(
-    transitViewModel: TransitViewModel = viewModel()
+    transitViewModel: TransitViewModel = viewModel(),
+    authViewModel: AuthViewModel? = null
 ) {
     var currentTab by rememberSaveable { mutableStateOf(NavDestination.DISCOVER) }
     var selectedPlaceId by rememberSaveable { mutableStateOf<String?>(null) }
@@ -130,6 +132,7 @@ fun OTravelzApp(
                         onPlaceClick = { placeId -> selectedPlaceId = placeId },
                         onTransitClick = { isTransitOpen = true },
                         onNavigateToMap = { currentTab = NavDestination.MAP },
+                        authViewModel = authViewModel,
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(innerPadding)
@@ -183,6 +186,7 @@ fun OTravelzApp(
                             onTransitClick = { isTransitOpen = true },
                             onNavigateToMap = { currentTab = NavDestination.MAP },
                             onNavigateToTab = { currentTab = it },
+                            authViewModel = authViewModel,
                             modifier = Modifier.fillMaxSize()
                         )
                     }
@@ -203,6 +207,7 @@ private fun RootContentHost(
     onTransitClick: () -> Unit,
     onNavigateToMap: () -> Unit,
     onNavigateToTab: (NavDestination) -> Unit = {},
+    authViewModel: AuthViewModel? = null,
     modifier: Modifier = Modifier
 ) {
     when (destination) {
@@ -224,9 +229,19 @@ private fun RootContentHost(
             onNavigateToDiscover = { onNavigateToTab(NavDestination.DISCOVER) },
             modifier = modifier
         )
-        NavDestination.YOU -> YouRoot(
-            onPlaceClick = onPlaceClick,
-            modifier = modifier
-        )
+        NavDestination.YOU -> {
+            if (authViewModel != null) {
+                YouRoot(
+                    onPlaceClick = onPlaceClick,
+                    authViewModel = authViewModel,
+                    modifier = modifier
+                )
+            } else {
+                YouRoot(
+                    onPlaceClick = onPlaceClick,
+                    modifier = modifier
+                )
+            }
+        }
     }
 }

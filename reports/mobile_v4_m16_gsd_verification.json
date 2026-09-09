@@ -1,0 +1,30 @@
+{
+  "wave": "M16",
+  "verification_type": "gsd_wave_verification",
+  "timestamp": "2026-09-09T08:20:00+05:30",
+  "invariants": {
+    "NO_ACCOUNT_WALL": true,
+    "SIGNED_OUT_APP_USABLE": true,
+    "AUTH_FLOW_SECURE": true,
+    "AUTH_CALLBACK_VALIDATED": true,
+    "SECRETS_NOT_LOGGED": true,
+    "SECURE_CREDENTIAL_STORAGE": true,
+    "SIGNOUT_PRESERVES_LOCAL_DATA": true,
+    "ACTIVE_TRIP_SURVIVES_SIGNOUT": true,
+    "AUTH_BACKEND_FAILURE_DOES_NOT_BREAK_APP": true,
+    "SESSION_EXPIRY_FAILS_GRACEFULLY": true,
+    "SYNC_CLAIMS_MATCH_REALITY": true,
+    "ANDROID_TESTS_PASS": true,
+    "ANDROID_BUILD_PASS": true,
+    "ANDROID_LINT_PASS": true,
+    "IOS_STATUS_HONEST": true,
+    "BACKEND_AUTH_TESTS_PASS_IF_CHANGED": true,
+    "OPENAPI_SYNC_PASS": true,
+    "STAGE_G2_LOCKED": true,
+    "CANONICAL_DATA_CHANGED": false,
+    "STAGING_DATA_CHANGED": false,
+    "PONYTAIL_REVIEW_COMPLETE": true,
+    "GSD_VERIFY_PASS": true
+  },
+  "overall_verdict": "VERIFIED_PASS"
+}

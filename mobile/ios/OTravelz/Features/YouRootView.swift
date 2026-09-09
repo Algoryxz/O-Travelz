@@ -9,6 +9,7 @@ import SwiftUI
 struct YouRootView: View {
     var onPlaceClick: ((String) -> Void)? = nil
 
+    @State private var authViewModel = AuthViewModel()
     @State private var showEssentialsSheet: Bool = false
     @State private var pendingCallTarget: (name: String, number: String)? = nil
     @State private var showCallAlert: Bool = false
@@ -24,6 +25,13 @@ struct YouRootView: View {
 
                 ScrollView {
                     VStack(alignment: .leading, spacing: SpacingTokens.space4) {
+                        // ==========================================
+                        // SECTION 0: ACCOUNT & IDENTITY (WAVE M16)
+                        // ==========================================
+                        AccountIdentityCard(authViewModel: authViewModel)
+                            .padding(.horizontal, SpacingTokens.space4)
+                            .padding(.top, SpacingTokens.space2)
+
                         // ==========================================
                         // SECTION 1: EMERGENCY HELPLINES QUICK CARD
                         // ==========================================
@@ -322,6 +330,175 @@ private struct PreferenceCard: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay(
             RoundedRectangle(cornerRadius: 10)
+                .stroke(ColorTokens.surfaceVariant, lineWidth: 1)
+        )
+    }
+}
+
+/// Wave M16: Account Identity Surface for iOS You Tab.
+private struct AccountIdentityCard: View {
+    @Bindable var authViewModel: AuthViewModel
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: SpacingTokens.space3) {
+            switch authViewModel.authState {
+            case .signedOut:
+                HStack(spacing: SpacingTokens.space3) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(ColorTokens.chilika.opacity(0.15))
+                            .frame(width: 40, height: 40)
+                        Image(systemName: "person.crop.circle")
+                            .font(.system(size: 20))
+                            .foregroundStyle(ColorTokens.chilika)
+                    }
+
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Account & Identity")
+                            .font(TypographyTokens.bodySmall)
+                            .fontWeight(.bold)
+                            .foregroundStyle(ColorTokens.textPrimary)
+
+                        Text("Sign in for account identity and future connected features. Your saved trips remain on this device.")
+                            .font(TypographyTokens.caption)
+                            .foregroundStyle(ColorTokens.textSecondary)
+                    }
+                }
+
+                HStack(spacing: SpacingTokens.space2) {
+                    Button {
+                        authViewModel.initiateSignIn()
+                    } label: {
+                        HStack(spacing: SpacingTokens.space2) {
+                            Image(systemName: "arrow.right.circle.fill")
+                            Text("Sign in with Google")
+                                .font(TypographyTokens.bodySmall)
+                                .fontWeight(.semibold)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, SpacingTokens.space2)
+                        .background(ColorTokens.chilika)
+                        .foregroundStyle(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                    }
+
+                    Button {
+                        authViewModel.devSignIn()
+                    } label: {
+                        Text("Quick Dev")
+                            .font(TypographyTokens.caption)
+                            .padding(.vertical, SpacingTokens.space2)
+                            .padding(.horizontal, SpacingTokens.space3)
+                            .background(ColorTokens.surfaceVariant)
+                            .foregroundStyle(ColorTokens.textPrimary)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                    }
+                }
+
+            case .authenticating:
+                HStack(spacing: SpacingTokens.space3) {
+                    ProgressView()
+                        .tint(ColorTokens.chilika)
+                    Text("Authenticating session…")
+                        .font(TypographyTokens.bodySmall)
+                        .foregroundStyle(ColorTokens.textSecondary)
+                }
+                .padding(.vertical, SpacingTokens.space2)
+
+            case .signedIn(let user):
+                HStack(spacing: SpacingTokens.space3) {
+                    ZStack {
+                        Circle()
+                            .fill(ColorTokens.forest.opacity(0.15))
+                            .frame(width: 40, height: 40)
+                        Text(String(user.displayName.prefix(1)).uppercased())
+                            .font(TypographyTokens.titleSmall)
+                            .fontWeight(.bold)
+                            .foregroundStyle(ColorTokens.forest)
+                    }
+
+                    VStack(alignment: .leading, spacing: 2) {
+                        HStack(spacing: SpacingTokens.space2) {
+                            Text(user.displayName)
+                                .font(TypographyTokens.bodySmall)
+                                .fontWeight(.bold)
+                                .foregroundStyle(ColorTokens.textPrimary)
+
+                            Text(user.provider.capitalized)
+                                .font(.system(size: 10, weight: .bold))
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                                .background(ColorTokens.chilika.opacity(0.15))
+                                .foregroundStyle(ColorTokens.chilika)
+                                .clipShape(Capsule())
+                        }
+
+                        Text(user.email)
+                            .font(TypographyTokens.caption)
+                            .foregroundStyle(ColorTokens.textSecondary)
+                    }
+                }
+
+                HStack(spacing: SpacingTokens.space2) {
+                    Image(systemName: "checkmark.shield.fill")
+                        .font(.system(size: 12))
+                        .foregroundStyle(ColorTokens.forest)
+                    Text("Device-primary storage • Trips & places remain local")
+                        .font(TypographyTokens.caption)
+                        .foregroundStyle(ColorTokens.textSecondary)
+                }
+                .padding(.vertical, 2)
+
+                HStack {
+                    Spacer()
+                    Button {
+                        authViewModel.signOut()
+                    } label: {
+                        HStack(spacing: SpacingTokens.space1) {
+                            Image(systemName: "rectangle.portrait.and.arrow.right")
+                            Text("Sign Out")
+                                .font(TypographyTokens.labelSmall)
+                        }
+                        .padding(.horizontal, SpacingTokens.space3)
+                        .padding(.vertical, SpacingTokens.space1)
+                        .background(ColorTokens.surfaceVariant)
+                        .foregroundStyle(ColorTokens.textPrimary)
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                    }
+                }
+
+            case .error(let msg):
+                HStack(spacing: SpacingTokens.space2) {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .foregroundStyle(Color.red)
+                    Text(msg)
+                        .font(TypographyTokens.caption)
+                        .foregroundStyle(Color.red)
+                    Spacer()
+                    Button("Dismiss") {
+                        authViewModel.signOut()
+                    }
+                    .font(TypographyTokens.caption)
+                }
+
+            case .expired:
+                VStack(alignment: .leading, spacing: SpacingTokens.space2) {
+                    Text("Session expired. Local app remains fully functional.")
+                        .font(TypographyTokens.caption)
+                        .foregroundStyle(ColorTokens.terracotta)
+                    Button("Sign In Again") {
+                        authViewModel.initiateSignIn()
+                    }
+                    .font(TypographyTokens.caption)
+                    .foregroundStyle(ColorTokens.chilika)
+                }
+            }
+        }
+        .padding(SpacingTokens.space3)
+        .background(ColorTokens.surface)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
                 .stroke(ColorTokens.surfaceVariant, lineWidth: 1)
         )
     }

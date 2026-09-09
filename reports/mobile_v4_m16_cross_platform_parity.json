@@ -1,0 +1,43 @@
+{
+  "wave": "M16",
+  "audit_target": "cross_platform_parity",
+  "timestamp": "2026-09-09T08:19:18+05:30",
+  "parity_dimensions": {
+    "auth_states": {
+      "android": ["SignedOut", "Authenticating", "SignedIn", "Error", "Expired"],
+      "ios": ["signedOut", "authenticating", "signedIn", "error", "expired"],
+      "parity": true
+    },
+    "user_profile_dto": {
+      "android": ["id", "email", "name", "displayName", "avatarUrl", "provider"],
+      "ios": ["id", "email", "name", "displayName", "avatarUrl", "provider"],
+      "parity": true
+    },
+    "secure_storage": {
+      "android": "Android Keystore backed AES-GCM EncryptedPreferences with file isolation fallback",
+      "ios": "iOS Keychain Services (kSecClassGenericPassword)",
+      "parity": true
+    },
+    "oauth_browser_presentation": {
+      "android": "Custom Tabs / ACTION_VIEW system browser",
+      "ios": "ASWebAuthenticationSession system browser sheet",
+      "parity": true
+    },
+    "deep_link_scheme": {
+      "android": "otravelz://auth/callback",
+      "ios": "otravelz://auth/callback",
+      "parity": true
+    },
+    "local_persistence_protection": {
+      "android": "Room SQLite tables (saved_places, saved_trips, trip_progress) preserved on logout",
+      "ios": "SwiftData models (SavedPlaceModel, SavedTripModel, TripProgressModel) preserved on logout",
+      "parity": true
+    },
+    "you_root_integration": {
+      "android": "AccountCard with M3 elevation, warm terracotta / sun stone accents",
+      "ios": "AccountIdentityCard with rounded rectangular glassmorphism styling",
+      "parity": true
+    }
+  },
+  "verdict": "FULL_CROSS_PLATFORM_PARITY"
+}

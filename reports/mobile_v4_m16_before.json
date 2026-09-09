@@ -1,0 +1,46 @@
+{
+  "wave": "M16",
+  "phase": "PHASE_0_BEFORE_AUDIT",
+  "audit_timestamp": "2026-09-09T08:05:00+05:30",
+  "git": {
+    "branch": "feature/v4-platform-rebuild",
+    "actual_head": "5523761f47d0ba4cc5d9ac52d8aecd3bd0530996",
+    "dirty_clean_state": "clean",
+    "last_product_commit": "5fe874e9ee3fc3fe000c68dc3b3786f6c8965f45",
+    "tooling_commit_reconciliation": "5523761f47d0ba4cc5d9ac52d8aecd3bd0530996 (tooling / GSD / Ralph / Roo / CodeRabbit setup) directly succeeds M15 and introduces zero product changes"
+  },
+  "current_auth_backend_capabilities": {
+    "auth_routes_exist": true,
+    "google_oauth_pkce_supported": true,
+    "session_manager_supported": true,
+    "bearer_token_supported_on_me": true,
+    "bearer_token_supported_on_logout": false,
+    "exchange_ticket_endpoint_exists": true,
+    "sync_endpoints_exist": true,
+    "mobile_deep_link_redirect_supported": false
+  },
+  "android_auth_state": {
+    "auth_module_exists": false,
+    "token_storage_exists": false,
+    "you_root_account_card_exists": false,
+    "deep_link_filter_configured": false
+  },
+  "ios_auth_state": {
+    "auth_feature_exists": false,
+    "keychain_store_exists": false,
+    "you_root_account_card_exists": false,
+    "url_scheme_configured": false
+  },
+  "m14_local_persistence_state": {
+    "android_room_tables": ["saved_places", "saved_trips", "saved_trip_stops", "trip_progress"],
+    "ios_swiftdata_models": ["SavedPlaceItem", "SavedTripItem", "SavedTripStopItem", "TripProgressItem"],
+    "account_agnostic_local_storage": true,
+    "cloud_sync_active": false
+  },
+  "stage_g2_state": {
+    "locked": true,
+    "canonical_data_mutations": 0,
+    "staging_data_mutations": 0
+  },
+  "status": "PASS"
+}

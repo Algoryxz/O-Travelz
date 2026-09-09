@@ -37,11 +37,18 @@ import com.otravelz.android.ui.screens.EssentialsViewModel
 import com.otravelz.android.ui.theme.ChilikaBlueAccent
 import com.otravelz.android.ui.theme.ForestGreenAccent
 import com.otravelz.android.ui.theme.Spacing
+import androidx.compose.material.icons.filled.Login
+import androidx.compose.material.icons.filled.Logout
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Warning
+import com.otravelz.android.auth.AuthState
+import com.otravelz.android.auth.AuthViewModel
 import com.otravelz.android.ui.theme.TerracottaAccent
 
 /**
- * Structural container for You root in Wave M15.
+ * Structural container for You root in Wave M16.
  * Contains:
+ * 0. Account & Identity optional card (Wave M16)
  * 1. Emergency Helplines quick card with safe system dialer launcher
  * 2. Nearby Civic Facilities launcher opening EssentialsSheet
  * 3. Living Heritage & Artisan Clusters with GI-tagged craft histories
@@ -52,9 +59,11 @@ import com.otravelz.android.ui.theme.TerracottaAccent
 fun YouRoot(
     onPlaceClick: (String) -> Unit = {},
     modifier: Modifier = Modifier,
-    viewModel: EssentialsViewModel = viewModel()
+    viewModel: EssentialsViewModel = viewModel(),
+    authViewModel: AuthViewModel = viewModel(factory = AuthViewModel.provideFactory(LocalContext.current))
 ) {
     val uiState by viewModel.uiState.collectAsState()
+    val authState by authViewModel.authState.collectAsState()
     val context = LocalContext.current
     var showEssentialsSheet by remember { mutableStateOf(false) }
     var callConfirmTarget by remember { mutableStateOf<Pair<String, String>?>(null) }
@@ -85,6 +94,15 @@ fun YouRoot(
             contentPadding = PaddingValues(Spacing.space4),
             verticalArrangement = Arrangement.spacedBy(Spacing.space4)
         ) {
+            // ==========================================
+            // SECTION 0: ACCOUNT & IDENTITY (WAVE M16)
+            // ==========================================
+            item(key = "section_account_identity") {
+                AccountCard(
+                    authState = authState,
+                    authViewModel = authViewModel
+                )
+            }
             // ==========================================
             // SECTION 1: EMERGENCY HELPLINES QUICK CARD
             // ==========================================
@@ -509,6 +527,254 @@ private fun PreferenceRow(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
+        }
+    }
+}
+
+/**
+ * Optional Account Identity Card for Wave M16.
+ * Adheres strictly to the 3-state product model:
+ * - Never gates local functionality.
+ * - Displays authentic profile attributes only.
+ * - Keeps local database primary.
+ */
+@Composable
+private fun AccountCard(
+    authState: AuthState,
+    authViewModel: AuthViewModel,
+    modifier: Modifier = Modifier
+) {
+    val context = LocalContext.current
+    Card(
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f)),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)),
+        modifier = modifier.fillMaxWidth()
+    ) {
+        Column(
+            modifier = Modifier.padding(Spacing.space4),
+            verticalArrangement = Arrangement.spacedBy(Spacing.space3)
+        ) {
+            when (authState) {
+                is AuthState.SignedOut -> {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(Spacing.space3)
+                    ) {
+                        Surface(
+                            shape = RoundedCornerShape(12.dp),
+                            color = ChilikaBlueAccent.copy(alpha = 0.15f),
+                            modifier = Modifier.size(44.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Icon(
+                                    imageVector = Icons.Default.Person,
+                                    contentDescription = null,
+                                    tint = ChilikaBlueAccent,
+                                    modifier = Modifier.size(24.dp)
+                                )
+                            }
+                        }
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = stringResource(R.string.you_account_title),
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Text(
+                                text = stringResource(R.string.you_account_signed_out_desc),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
+                    ) {
+                        Button(
+                            onClick = { authViewModel.initiateSignIn(context) },
+                            shape = RoundedCornerShape(10.dp),
+                            modifier = Modifier.weight(1f),
+                            colors = ButtonDefaults.buttonColors(containerColor = ChilikaBlueAccent)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Login,
+                                contentDescription = null,
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Spacer(modifier = Modifier.width(Spacing.space2))
+                            Text(
+                                text = stringResource(R.string.you_account_action_signin),
+                                style = MaterialTheme.typography.labelMedium,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                        }
+
+                        OutlinedButton(
+                            onClick = { authViewModel.devSignIn() },
+                            shape = RoundedCornerShape(10.dp),
+                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.4f))
+                        ) {
+                            Text(
+                                text = stringResource(R.string.you_account_action_dev_signin),
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                        }
+                    }
+                }
+                is AuthState.Authenticating -> {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(Spacing.space3),
+                        modifier = Modifier.padding(vertical = Spacing.space2)
+                    ) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(24.dp),
+                            strokeWidth = 2.5.dp,
+                            color = ChilikaBlueAccent
+                        )
+                        Text(
+                            text = stringResource(R.string.you_account_authenticating),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                    }
+                }
+                is AuthState.SignedIn -> {
+                    val user = authState.user
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(Spacing.space3)
+                    ) {
+                        Surface(
+                            shape = RoundedCornerShape(22.dp),
+                            color = ForestGreenAccent.copy(alpha = 0.15f),
+                            modifier = Modifier.size(44.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Text(
+                                    text = user.displayName.take(1).uppercase(),
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.Bold,
+                                    color = ForestGreenAccent
+                                )
+                            }
+                        }
+                        Column(modifier = Modifier.weight(1f)) {
+                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space2)) {
+                                Text(
+                                    text = user.displayName,
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                                Surface(
+                                    shape = RoundedCornerShape(6.dp),
+                                    color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
+                                ) {
+                                    Text(
+                                        text = user.provider.replaceFirstChar { it.uppercase() },
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.primary,
+                                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                    )
+                                }
+                            }
+                            Text(
+                                text = user.email,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.6f)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(Spacing.space2),
+                            modifier = Modifier.padding(horizontal = Spacing.space3, vertical = Spacing.space2)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Verified,
+                                contentDescription = null,
+                                tint = ForestGreenAccent,
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Text(
+                                text = stringResource(R.string.you_account_local_notice),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.End
+                    ) {
+                        OutlinedButton(
+                            onClick = { authViewModel.signOut() },
+                            shape = RoundedCornerShape(8.dp),
+                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.4f))
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Logout,
+                                contentDescription = null,
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Spacer(modifier = Modifier.width(Spacing.space2))
+                            Text(
+                                text = stringResource(R.string.you_account_action_signout),
+                                style = MaterialTheme.typography.labelMedium
+                            )
+                        }
+                    }
+                }
+                is AuthState.Error -> {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Warning,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.error,
+                            modifier = Modifier.size(20.dp)
+                        )
+                        Text(
+                            text = authState.message,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.error,
+                            modifier = Modifier.weight(1f)
+                        )
+                        TextButton(onClick = { authViewModel.signOut() }) {
+                            Text("Dismiss", style = MaterialTheme.typography.labelSmall)
+                        }
+                    }
+                }
+                is AuthState.Expired -> {
+                    Column(verticalArrangement = Arrangement.spacedBy(Spacing.space2)) {
+                        Text(
+                            text = stringResource(R.string.you_account_session_expired),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = TerracottaAccent
+                        )
+                        Button(
+                            onClick = { authViewModel.initiateSignIn(context) },
+                            shape = RoundedCornerShape(8.dp),
+                            colors = ButtonDefaults.buttonColors(containerColor = ChilikaBlueAccent)
+                        ) {
+                            Text(stringResource(R.string.you_account_signin_again))
+                        }
+                    }
+                }
+            }
         }
     }
 }

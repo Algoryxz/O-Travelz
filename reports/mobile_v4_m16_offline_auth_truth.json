@@ -1,0 +1,25 @@
+{
+  "wave": "M16",
+  "audit_target": "offline_auth_truth",
+  "timestamp": "2026-09-09T08:19:02+05:30",
+  "offline_scenarios": {
+    "launch_offline_when_signed_out": {
+      "app_usable": true,
+      "cached_places_renderable": true,
+      "saved_trips_accessible": true,
+      "offline_navigation_available": true
+    },
+    "launch_offline_when_signed_in": {
+      "app_usable": true,
+      "credentials_preserved": true,
+      "ui_displays_cached_identity": true,
+      "no_force_logout_on_offline": true
+    },
+    "token_expired_while_offline": {
+      "app_continues_working": true,
+      "local_trips_never_locked": true,
+      "reauth_prompt_deferred_until_connected": true
+    }
+  },
+  "verdict": "PASS"
+}

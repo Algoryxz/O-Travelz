@@ -1195,6 +1195,36 @@
         "title": "DestinationSafetyContract",
         "type": "object"
       },
+      "DevLoginRequest": {
+        "properties": {
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": "traveler@odisha.in",
+            "title": "Email"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": "Odisha Traveler",
+            "title": "Name"
+          }
+        },
+        "title": "DevLoginRequest",
+        "type": "object"
+      },
       "EmergencyContactContract": {
         "properties": {
           "is_24x7": {
@@ -6179,9 +6209,52 @@
         ]
       }
     },
+    "/api/auth/dev/mock-login": {
+      "post": {
+        "description": "Development/testing mock login endpoint.\nOnly available when environment != 'production'.\nGenerates a valid test user, session token, and exchange ticket.",
+        "operationId": "dev_mock_login_api_auth_dev_mock_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DevLoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Dev Mock Login Api Auth Dev Mock Login Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Dev Mock Login",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
     "/api/auth/google/callback": {
       "get": {
-        "description": "OAuth 2.0 callback handler.\nValidates state cookie, exchanges code with PKCE verifier, validates ID token,\ncreates local user & session, sets HttpOnly session cookie, and redirects to frontend.",
+        "description": "OAuth 2.0 callback handler.\nValidates state cookie, exchanges code with PKCE verifier, validates ID token,\ncreates local user & session, sets HttpOnly session cookie, and redirects to frontend or mobile app.",
         "operationId": "google_auth_callback_api_auth_google_callback_get",
         "parameters": [
           {
@@ -6263,8 +6336,26 @@
     },
     "/api/auth/google/start": {
       "get": {
-        "description": "Initiate Google OAuth 2.0 PKCE flow.\nRedirects user to Google's consent screen with signed state cookie.",
+        "description": "Initiate Google OAuth 2.0 PKCE flow.\nRedirects user to Google's consent screen with signed state cookie.\nSupports optional whitelisted mobile redirect_uri (e.g. otravelz://auth/callback).",
         "operationId": "google_auth_start_api_auth_google_start_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "redirect_uri",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Redirect Uri"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -6275,6 +6366,16 @@
               }
             },
             "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
           }
         },
         "summary": "Google Auth Start",
@@ -6285,7 +6386,7 @@
     },
     "/api/auth/logout": {
       "post": {
-        "description": "Revoke active session and clear session cookie. Idempotent.",
+        "description": "Revoke active session and clear session cookie. Idempotent.\nSupports both HttpOnly session cookie and Authorization: Bearer <session_token> header.",
         "operationId": "logout_api_auth_logout_post",
         "responses": {
           "200": {
@@ -9126,9 +9227,52 @@
         ]
       }
     },
+    "/auth/dev/mock-login": {
+      "post": {
+        "description": "Development/testing mock login endpoint.\nOnly available when environment != 'production'.\nGenerates a valid test user, session token, and exchange ticket.",
+        "operationId": "dev_mock_login_auth_dev_mock_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DevLoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Dev Mock Login Auth Dev Mock Login Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Dev Mock Login",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
     "/auth/google/callback": {
       "get": {
-        "description": "OAuth 2.0 callback handler.\nValidates state cookie, exchanges code with PKCE verifier, validates ID token,\ncreates local user & session, sets HttpOnly session cookie, and redirects to frontend.",
+        "description": "OAuth 2.0 callback handler.\nValidates state cookie, exchanges code with PKCE verifier, validates ID token,\ncreates local user & session, sets HttpOnly session cookie, and redirects to frontend or mobile app.",
         "operationId": "google_auth_callback_auth_google_callback_get",
         "parameters": [
           {
@@ -9210,8 +9354,26 @@
     },
     "/auth/google/start": {
       "get": {
-        "description": "Initiate Google OAuth 2.0 PKCE flow.\nRedirects user to Google's consent screen with signed state cookie.",
+        "description": "Initiate Google OAuth 2.0 PKCE flow.\nRedirects user to Google's consent screen with signed state cookie.\nSupports optional whitelisted mobile redirect_uri (e.g. otravelz://auth/callback).",
         "operationId": "google_auth_start_auth_google_start_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "redirect_uri",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Redirect Uri"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -9222,6 +9384,16 @@
               }
             },
             "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
           }
         },
         "summary": "Google Auth Start",
@@ -9232,7 +9404,7 @@
     },
     "/auth/logout": {
       "post": {
-        "description": "Revoke active session and clear session cookie. Idempotent.",
+        "description": "Revoke active session and clear session cookie. Idempotent.\nSupports both HttpOnly session cookie and Authorization: Bearer <session_token> header.",
         "operationId": "logout_auth_logout_post",
         "responses": {
           "200": {

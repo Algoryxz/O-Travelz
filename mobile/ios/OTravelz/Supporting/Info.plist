@@ -38,6 +38,18 @@
         <string>UIInterfaceOrientationPortrait</string>
         <string>UIInterfaceOrientationLandscapeLeft</string>
         <string>UIInterfaceOrientationLandscapeRight</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>com.otravelz.ios</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>otravelz</string>
+            </array>
+        </dict>
     </array>
 </dict>
 </plist>

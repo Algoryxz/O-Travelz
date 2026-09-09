@@ -1,0 +1,39 @@
+{
+  "wave": "M16",
+  "audit_target": "deeplink_security",
+  "timestamp": "2026-09-09T08:18:48+05:30",
+  "scheme_evaluation": {
+    "scheme": "otravelz",
+    "host": "auth",
+    "path": "/callback",
+    "full_uri_pattern": "otravelz://auth/callback?auth_ticket={ticket}",
+    "wildcard_hosts": false,
+    "wildcard_paths": false,
+    "open_redirect_vector": false
+  },
+  "android_manifest_verification": {
+    "activity": "com.otravelz.android.MainActivity",
+    "exported": true,
+    "launchMode": "singleTask",
+    "categories": [
+      "android.intent.category.DEFAULT",
+      "android.intent.category.BROWSABLE"
+    ],
+    "action": "android.intent.action.VIEW",
+    "intent_filter_leak_risk": "NONE"
+  },
+  "ios_url_types_verification": {
+    "bundle_url_name": "com.otravelz.ios.auth",
+    "bundle_url_schemes": ["otravelz"],
+    "aswebauthenticationsession_used": true,
+    "url_type_leak_risk": "NONE"
+  },
+  "rejection_test_cases": [
+    "http://evil.com/auth/callback?auth_ticket=123",
+    "otravelz://evil.com/callback?auth_ticket=123",
+    "otravelz://auth/admin_escalate?auth_ticket=123",
+    "content://com.otravelz/auth/callback"
+  ],
+  "all_rejection_tests_passed": true,
+  "verdict": "PASS"
+}
