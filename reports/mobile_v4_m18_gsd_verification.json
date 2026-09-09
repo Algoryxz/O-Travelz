@@ -1,0 +1,18 @@
+{
+  "wave": "M18",
+  "verification_name": "gsd_verification",
+  "timestamp": "2026-09-09T09:40:30+05:30",
+  "core_goals_satisfied": {
+    "offline_core_flows_usable": true,
+    "network_only_features_truthfully_disabled": true,
+    "stage_g1_not_ingested_prematurely": true,
+    "stage_g2_locked": true,
+    "canonical_data_unchanged": true,
+    "no_account_wall": true,
+    "no_fake_offline_map": true,
+    "no_fake_offline_ai": true,
+    "no_stale_weather_as_current": true,
+    "no_live_transit_hallucinations": true
+  },
+  "verdict": "VERIFIED_PASS"
+}

@@ -1,0 +1,7 @@
+{
+  "wave": "M18",
+  "review_name": "coderabbit_reconciliation",
+  "timestamp": "2026-09-09T09:40:00+05:30",
+  "execution_status": "NOT_EXECUTED_NO_PR_CONTEXT",
+  "rationale": "Execution is running directly on branch feature/v4-platform-rebuild; no external pull request context currently active for CodeRabbit inspection."
+}

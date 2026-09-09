@@ -1,0 +1,22 @@
+{
+  "wave": "M18",
+  "policy": "M18_WEATHER_CACHE_POLICY",
+  "timestamp": "2026-09-09T09:26:00+05:30",
+  "prohibited_values": [
+    "0°C",
+    "Sunny (unverified default)",
+    "0% rain",
+    "Live label on cached data"
+  ],
+  "states": {
+    "fresh_online": "WeatherState.Available",
+    "cached_offline": "WeatherState.Cached with relativeTimeAgo",
+    "missing": "WeatherState.Unavailable"
+  },
+  "arbitrary_ttl_enforced": false,
+  "relative_time_disclosed": true,
+  "storage_mechanism": {
+    "android": "WeatherCacheStore (SharedPreferences + Memory)",
+    "ios": "WeatherCacheStore (UserDefaults + Memory)"
+  }
+}

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -219,37 +220,50 @@ private fun RootContentHost(
     authViewModel: AuthViewModel? = null,
     modifier: Modifier = Modifier
 ) {
-    when (destination) {
-        NavDestination.DISCOVER -> DiscoverRoot(
-            onPlaceClick = onPlaceClick,
-            onTransitClick = onTransitClick,
-            modifier = modifier
-        )
-        NavDestination.MAP -> MapRoot(onPlaceClick = onPlaceClick, modifier = modifier)
-        NavDestination.PLAN -> PlanRoot(
-            onPlaceClick = onPlaceClick,
-            onViewOnMap = onNavigateToMap,
-            onTripStarted = { onNavigateToTab(NavDestination.TRIPS) },
-            modifier = modifier
-        )
-        NavDestination.TRIPS -> TripsRoot(
-            onPlaceClick = onPlaceClick,
-            onNavigateToPlan = { onNavigateToTab(NavDestination.PLAN) },
-            onNavigateToDiscover = { onNavigateToTab(NavDestination.DISCOVER) },
-            modifier = modifier
-        )
-        NavDestination.YOU -> {
-            if (authViewModel != null) {
-                YouRoot(
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val networkMonitor = androidx.compose.runtime.remember {
+        com.otravelz.android.offline.NetworkConnectivityMonitor.getInstance(context)
+    }
+    val networkState by networkMonitor.networkState.collectAsState()
+
+    androidx.compose.foundation.layout.Column(modifier = modifier) {
+        if (networkState is com.otravelz.android.offline.NetworkState.Offline) {
+            com.otravelz.android.offline.OfflineStatusBanner()
+        }
+        Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
+            when (destination) {
+                NavDestination.DISCOVER -> DiscoverRoot(
                     onPlaceClick = onPlaceClick,
-                    authViewModel = authViewModel,
-                    modifier = modifier
+                    onTransitClick = onTransitClick,
+                    modifier = Modifier.fillMaxSize()
                 )
-            } else {
-                YouRoot(
+                NavDestination.MAP -> MapRoot(onPlaceClick = onPlaceClick, modifier = Modifier.fillMaxSize())
+                NavDestination.PLAN -> PlanRoot(
                     onPlaceClick = onPlaceClick,
-                    modifier = modifier
+                    onViewOnMap = onNavigateToMap,
+                    onTripStarted = { onNavigateToTab(NavDestination.TRIPS) },
+                    modifier = Modifier.fillMaxSize()
                 )
+                NavDestination.TRIPS -> TripsRoot(
+                    onPlaceClick = onPlaceClick,
+                    onNavigateToPlan = { onNavigateToTab(NavDestination.PLAN) },
+                    onNavigateToDiscover = { onNavigateToTab(NavDestination.DISCOVER) },
+                    modifier = Modifier.fillMaxSize()
+                )
+                NavDestination.YOU -> {
+                    if (authViewModel != null) {
+                        YouRoot(
+                            onPlaceClick = onPlaceClick,
+                            authViewModel = authViewModel,
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    } else {
+                        YouRoot(
+                            onPlaceClick = onPlaceClick,
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
+                }
             }
         }
     }

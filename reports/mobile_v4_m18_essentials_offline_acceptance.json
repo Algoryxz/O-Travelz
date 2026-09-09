@@ -1,0 +1,22 @@
+{
+  "wave": "M18",
+  "acceptance_name": "essentials_offline_acceptance",
+  "timestamp": "2026-09-09T09:33:30+05:30",
+  "emergency_helplines": {
+    "classification": "BUNDLED_AND_GUARANTEED",
+    "offline_available": true,
+    "source": "EssentialsRepository (in-code 24x7 state helplines)"
+  },
+  "artisan_clusters": {
+    "classification": "BUNDLED_AND_GUARANTEED",
+    "offline_available": true,
+    "source": "EssentialsRepository (in-code GI craft traditions)"
+  },
+  "nearby_civic_facilities": {
+    "classification": "NETWORK_REQUIRED",
+    "endpoint": "/api/v1/services/nearby",
+    "offline_available": false,
+    "offline_notice": "Nearby facilities unavailable offline. Emergency helplines remain available."
+  },
+  "stage_g1_civic_candidates_ingested": false
+}

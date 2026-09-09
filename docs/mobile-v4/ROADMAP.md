@@ -30,10 +30,10 @@ Implementation executes across 31 strictly ordered waves where Android and iOS p
 | **M13** | Constraint-aware itinerary builder and grounded AI conversational assistant | `[COMPLETED]` |
 | **M14** | Trips persistence (Room SQLite & SwiftData) with offline sync | `[COMPLETED]` |
 | **M15** | Emergency essentials, civic contacts, and artisan clusters | `[COMPLETED]` |
-| **M16** | Authentication, secure session exchange, and user profiles | `[NEXT]` |
-| **M17** | Push notifications and local transit departure countdowns | `[PLANNED]` |
-| **M18** | Complete offline flight check and bundle synchronizer | `[PLANNED]` |
-| **M19** | Community photo contributions and CameraX / AVCapture validation | `[PLANNED]` |
+| **M16** | Authentication, secure session exchange, and user profiles | `[COMPLETED]` |
+| **M17** | Push notifications and local transit departure countdowns | `[COMPLETED]` |
+| **M18** | Complete offline flight check and bundle synchronizer | `[COMPLETED]` |
+| **M19** | Community photo contributions and CameraX / AVCapture validation | `[NEXT]` |
 | **M20** | Crowdsourced transit check-in and ride verification consensus | `[PLANNED]` |
 | **M21** | Accessibility audit (VoiceOver, TalkBack, Dynamic Type, AA contrast) | `[PLANNED]` |
 | **M22** | Dual-script localization (English & Odia) and font rendering | `[PLANNED]` |

@@ -1,0 +1,20 @@
+{
+  "wave": "M18",
+  "acceptance_name": "map_offline_truth",
+  "timestamp": "2026-09-09T09:31:00+05:30",
+  "android_map_sdk": "Google Maps SDK",
+  "ios_map_sdk": "Apple MapKit",
+  "classification": "PROVIDER_DEPENDENT",
+  "guaranteed_offline_basemap": false,
+  "fake_offline_tiles_prohibited": true,
+  "fake_raster_maps_prohibited": true,
+  "linear_list_alternative_available": {
+    "android": true,
+    "ios": true
+  },
+  "truthful_fallback_notice": {
+    "english": "Map tiles unavailable offline. Use List View for saved destinations and route details.",
+    "odia": "ଅଫଲାଇନରେ ମାନଚିତ୍ର ଉପଲବ୍ଧ ନାହିଁ। ସାଇତା ସ୍ଥାନ ଏବଂ ରୁଟ୍ ବିବରଣୀ ପାଇଁ ତାଲିକା ଦେଖନ୍ତୁ।"
+  },
+  "staged_district_polygons_ingested": false
+}

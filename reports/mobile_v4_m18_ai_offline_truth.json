@@ -1,0 +1,19 @@
+{
+  "wave": "M18",
+  "acceptance_name": "ai_offline_truth",
+  "timestamp": "2026-09-09T09:32:30+05:30",
+  "ai_endpoints": [
+    "POST /ai/converse",
+    "POST /itinerary/plan"
+  ],
+  "classification": "NETWORK_REQUIRED",
+  "local_llm_built": false,
+  "local_llm_implied": false,
+  "offline_behavior": {
+    "structured_constraints_editable": true,
+    "persisted_trips_viewable": true,
+    "ai_prompt_extraction_disabled_or_failed_cleanly": true,
+    "degraded_message": "AI Assistant requires an internet connection. You can still view saved trips and edit local trip details.",
+    "fake_offline_ai_response_prohibited": true
+  }
+}

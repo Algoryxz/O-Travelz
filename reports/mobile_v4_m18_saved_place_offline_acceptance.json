@@ -1,0 +1,29 @@
+{
+  "wave": "M18",
+  "acceptance_name": "saved_place_offline_acceptance",
+  "timestamp": "2026-09-09T09:29:40+05:30",
+  "m14_schema_reused": true,
+  "room_migration_needed": false,
+  "swiftdata_migration_needed": false,
+  "snapshot_fields_reused": [
+    "canonicalPlaceId",
+    "savedAt",
+    "placeName",
+    "category",
+    "district",
+    "imageUrl",
+    "rating"
+  ],
+  "offline_snapshot_badge": {
+    "android": "R.string.offline_snapshot_badge",
+    "ios": "LocalizedStringKey(\"offline_snapshot_badge\")"
+  },
+  "unavailable_live_facts_omitted": [
+    "entry_fee",
+    "timings",
+    "contact_phone"
+  ],
+  "weather_fallback": "Cached observation if available or calm unavailable; no 0°C or default sunny",
+  "media_fallback": "Single verified photo if cached in Coil/URLCache, or terracotta/sandstone placeholder",
+  "tested_and_verified": true
+}

@@ -1,0 +1,17 @@
+{
+  "wave": "M18",
+  "acceptance_name": "active_trip_offline_acceptance",
+  "timestamp": "2026-09-09T09:30:00+05:30",
+  "trips_tab_offline_launch": "SUCCESS",
+  "local_itinerary_structure": "AVAILABLE",
+  "saved_stop_metadata": "AVAILABLE_FROM_PERSISTED_JSON",
+  "transit_timetable": "AVAILABLE_BUNDLED",
+  "live_weather": "UNAVAILABLE_OR_CACHED_WITH_TIMESTAMP",
+  "ai_itinerary_modification": "NETWORK_REQUIRED_DISABLED",
+  "external_navigation": "PROVIDER_DEPENDENT",
+  "manual_milestone_completion": "ALLOWED_LOCAL",
+  "manual_milestone_skip": "ALLOWED_LOCAL",
+  "inferred_user_arrival": false,
+  "automatic_location_progress": false,
+  "invariants_satisfied": true
+}

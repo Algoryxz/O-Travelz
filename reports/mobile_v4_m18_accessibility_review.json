@@ -1,0 +1,18 @@
+{
+  "wave": "M18",
+  "audit_name": "accessibility_review",
+  "timestamp": "2026-09-09T09:37:00+05:30",
+  "android": {
+    "offline_banner_talkback_labeled": true,
+    "no_icon_only_meaning": true,
+    "touch_target_min_48dp": true,
+    "contrast_ratio_aa": true
+  },
+  "ios": {
+    "offline_banner_voiceover_labeled": true,
+    "semantic_status_announced": true,
+    "touch_target_min_44pt": true,
+    "dynamic_type_supported": true
+  },
+  "linear_list_alternative_available": true
+}

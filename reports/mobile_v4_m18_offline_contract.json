@@ -1,0 +1,49 @@
+{
+  "wave": "M18",
+  "report_name": "offline_contract",
+  "timestamp": "2026-09-09T09:13:00+05:30",
+  "contract_spec": "docs/mobile-v4/M18_OFFLINE_RUNTIME_CONTRACT.md",
+  "categories": {
+    "A_BUNDLED_AND_GUARANTEED": [
+      "transit_route_directory_154",
+      "transit_schedules_302_groups_5549_departures",
+      "emergency_helplines_24x7",
+      "artisan_clusters_catalog",
+      "kmp_deterministic_math",
+      "user_gnss_location",
+      "local_transit_departure_reminders"
+    ],
+    "B_PERSISTED_AFTER_USE": [
+      "saved_places_room_swiftdata",
+      "saved_itineraries_room_swiftdata",
+      "active_trip_progress_room_swiftdata",
+      "user_profile_secure_cache",
+      "active_reminder_store"
+    ],
+    "C_CACHE_AFTER_USE": [
+      "verified_webp_media_coil_urlcache",
+      "weather_last_known_observation"
+    ],
+    "D_NETWORK_REQUIRED": [
+      "discover_feed_live_catalog",
+      "place_detail_full_remote_refresh",
+      "ai_converse",
+      "itinerary_plan_solver",
+      "civic_nearby_facilities_query",
+      "remote_session_validation"
+    ],
+    "E_PROVIDER_DEPENDENT": [
+      "google_maps_sdk_tiles",
+      "apple_mapkit_tiles",
+      "external_navigation_handoff"
+    ]
+  },
+  "invariants_enforced": {
+    "zero_fake_metrics": true,
+    "zero_fake_maps": true,
+    "zero_fake_local_ai": true,
+    "no_arbitrary_weather_ttl": true,
+    "advisory_network_monitor": true,
+    "stage_g1_g2_quarantine": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "wave": "M18",
+  "acceptance_name": "kmp_offline_capability",
+  "timestamp": "2026-09-09T09:34:30+05:30",
+  "module": "mobile/shared/",
+  "kmp_modified": false,
+  "deterministic_math_kernels": [
+    "HaversineDistance",
+    "OdishaBounds",
+    "FirstMileEngine",
+    "TimetableEngine"
+  ],
+  "networking_in_kmp": false,
+  "database_in_kmp": false,
+  "offline_availability": "BUNDLED_AND_GUARANTEED"
+}

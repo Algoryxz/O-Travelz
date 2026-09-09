@@ -1,0 +1,16 @@
+{
+  "wave": "M18",
+  "acceptance_name": "auth_offline_truth",
+  "timestamp": "2026-09-09T09:33:00+05:30",
+  "signed_out_offline_support": "FULL",
+  "account_wall_present": false,
+  "offline_session_handling": {
+    "forced_logout_on_offline": false,
+    "cached_profile_displayable": true,
+    "semantic_state": "SESSION_VALIDITY_UNKNOWN",
+    "remote_validation_deferred": true,
+    "signout_clears_local_credentials": true
+  },
+  "local_trips_accessible_offline": true,
+  "invariants_verified": true
+}

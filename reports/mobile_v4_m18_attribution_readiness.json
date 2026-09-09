@@ -1,0 +1,29 @@
+{
+  "wave": "M18",
+  "audit_name": "attribution_readiness",
+  "timestamp": "2026-09-09T09:35:30+05:30",
+  "staged_attribution_manifest": "data/staging/mobile/ATTRIBUTION.json",
+  "staging_ingested_in_m18": false,
+  "future_screen_readiness": {
+    "about_screen_architecture_compatible": true,
+    "required_attributions_mapped": [
+      {
+        "domain": "transit_stops",
+        "attribution": "BhubaneswarOne / CRUT — Government of Odisha"
+      },
+      {
+        "domain": "route_geometry",
+        "attribution": "CRUT — Capital Region Urban Transport, Government of Odisha"
+      },
+      {
+        "domain": "district_boundaries",
+        "attribution": "geoBoundaries (Runfola et al. 2020, CC-BY-4.0)"
+      },
+      {
+        "domain": "civic_services",
+        "attribution": "Health & Family Welfare / Odisha Police / Government of Odisha"
+      }
+    ]
+  },
+  "legal_invariants_preserved": true
+}

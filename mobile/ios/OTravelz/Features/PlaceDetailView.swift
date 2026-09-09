@@ -15,6 +15,8 @@ struct PlaceDetailView: View {
 
     @State private var detail: PlaceDetail? = nil
     @State private var weather: WeatherResponseDTO? = nil
+    @State private var cachedWeatherState: WeatherState? = nil
+    @State private var isOfflineSnapshot = false
     @State private var isLoading = true
     @State private var isWeatherLoading = false
     @State private var errorMessage: String? = nil
@@ -269,22 +271,36 @@ struct PlaceDetailView: View {
     @ViewBuilder
     private func headerSection(place: PlaceDetail) -> some View {
         VStack(alignment: .leading, spacing: SpacingTokens.space2) {
-            // Badges
+            if isOfflineSnapshot {
+                VStack(alignment: .leading, spacing: SpacingTokens.space1) {
+                    Text(LocalizedStringKey("offline_snapshot_badge"))
+                        .font(TypographyTokens.labelMedium)
+                        .fontWeight(.bold)
+                        .foregroundStyle(ColorTokens.terracotta)
+                    Text(LocalizedStringKey("offline_snapshot_desc"))
+                        .font(TypographyTokens.bodySmall)
+                        .foregroundStyle(ColorTokens.textSecondary)
+                }
+                .padding(SpacingTokens.space3)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(ColorTokens.warmStone.opacity(0.85))
+                .cornerRadius(8)
+                .padding(.bottom, SpacingTokens.space2)
+            }
+
+            // Category & Hierarchy (Always top-left)
             HStack(spacing: SpacingTokens.space2) {
-                Text(place.category.replacingOccurrences(of: "_", with: " ").capitalized)
+                Text(place.category.replacingOccurrences(of: "_", with: " ").uppercased())
                     .font(TypographyTokens.labelSmall)
-                    .padding(.horizontal, SpacingTokens.space2)
-                    .padding(.vertical, SpacingTokens.space1)
-                    .background(ColorTokens.terracotta.opacity(0.12))
                     .foregroundStyle(ColorTokens.terracotta)
-                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                    .fontWeight(.bold)
 
                 if let district = place.district, !district.isEmpty {
-                    Text(district.capitalized)
+                    Text("•")
                         .font(TypographyTokens.labelSmall)
-                        .padding(.horizontal, SpacingTokens.space2)
-                        .padding(.vertical, SpacingTokens.space1)
-                        .background(ColorTokens.textSecondary.opacity(0.08))
+                        .foregroundStyle(ColorTokens.textSecondary)
+                    Text(district)
+                        .font(TypographyTokens.labelSmall)
                         .foregroundStyle(ColorTokens.textSecondary)
                         .clipShape(RoundedRectangle(cornerRadius: 4))
                 }
@@ -351,6 +367,43 @@ struct PlaceDetailView: View {
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(ColorTokens.textSecondary.opacity(0.15), lineWidth: 1)
                 )
+            } else if let cached = cachedWeatherState, case .cached(let name, let temp, let cond, let adv, let relTime) = cached {
+                HStack(spacing: SpacingTokens.space4) {
+                    Image(systemName: "cloud.sun.fill")
+                        .font(.system(size: 28))
+                        .foregroundStyle(ColorTokens.terracotta)
+
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(String(format: NSLocalizedString("offline_weather_cached", comment: ""), relTime))
+                            .font(TypographyTokens.caption)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(ColorTokens.terracotta)
+
+                        HStack {
+                            Text(String(format: "%.1f°C", temp))
+                                .font(TypographyTokens.titleLarge)
+                                .foregroundStyle(ColorTokens.textPrimary)
+
+                            Text("• \(cond)")
+                                .font(TypographyTokens.bodyMedium)
+                                .foregroundStyle(ColorTokens.textSecondary)
+                        }
+
+                        if let adv = adv, !adv.isEmpty {
+                            Text(adv)
+                                .font(TypographyTokens.caption)
+                                .foregroundStyle(ColorTokens.textSecondary)
+                        }
+                    }
+                    Spacer()
+                }
+                .padding(SpacingTokens.space4)
+                .background(ColorTokens.canvas)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(ColorTokens.textSecondary.opacity(0.15), lineWidth: 1)
+                )
             } else if isWeatherLoading {
                 HStack(spacing: SpacingTokens.space3) {
                     ProgressView().tint(ColorTokens.terracotta)
@@ -363,7 +416,7 @@ struct PlaceDetailView: View {
                 HStack(spacing: SpacingTokens.space2) {
                     Image(systemName: "cloud.slash")
                         .foregroundStyle(ColorTokens.truthUnavailable)
-                    Text(LocalizedStringKey("weather_unavailable"))
+                    Text(LocalizedStringKey("offline_weather_unavailable"))
                         .font(TypographyTokens.bodyMedium)
                         .foregroundStyle(ColorTokens.truthUnavailable)
                 }
@@ -559,21 +612,66 @@ struct PlaceDetailView: View {
                     await MainActor.run { isWeatherLoading = true }
                     do {
                         let w = try await apiClient.getWeatherCurrent(lat: lat, lon: lon)
+                        if let current = w.current, let temp = current.temperatureC, let cond = current.condition {
+                            WeatherCacheStore.shared.saveObservation(
+                                lat: lat,
+                                lon: lon,
+                                locationName: current.locationName ?? w.locationName ?? "Odisha",
+                                temperatureC: temp,
+                                condition: cond,
+                                advice: current.advice
+                            )
+                        }
                         await MainActor.run {
                             self.weather = w
                             self.isWeatherLoading = false
                         }
                     } catch {
+                        let cached = WeatherCacheStore.shared.getCachedObservation(lat: lat, lon: lon)
                         await MainActor.run {
                             self.weather = nil
+                            self.cachedWeatherState = cached
                             self.isWeatherLoading = false
                         }
                     }
                 }
             } catch {
-                await MainActor.run {
-                    self.errorMessage = error.localizedDescription
-                    self.isLoading = false
+                if let saved = savedPlaces.first(where: { $0.canonicalPlaceId == placeId }) {
+                    let photoList = saved.imageUrl.map { [PlacePhoto(id: "photo_\(saved.canonicalPlaceId)", url: $0, caption: saved.placeName, photographer: "Verified Editorial Catalog", license: "Editorial Verification", isPrimary: true)] } ?? []
+                    let offlineSnapshot = PlaceDetail(
+                        id: saved.canonicalPlaceId,
+                        researchId: nil,
+                        name: saved.placeName,
+                        category: saved.category,
+                        descriptionText: nil,
+                        lat: nil,
+                        lon: nil,
+                        district: saved.district,
+                        region: nil,
+                        avgVisitMinutes: nil,
+                        priceTier: nil,
+                        rating: saved.rating,
+                        ratingCount: nil,
+                        interests: [],
+                        source: "Local Offline Snapshot",
+                        sourceUrl: nil,
+                        verificationStatus: "Verified Offline Snapshot",
+                        contactPhone: nil,
+                        emergencyPhone: nil,
+                        address: nil,
+                        photos: photoList,
+                        localizedNames: LocalizedNames(en: saved.placeName, or: nil, hi: nil)
+                    )
+                    await MainActor.run {
+                        self.detail = offlineSnapshot
+                        self.isOfflineSnapshot = true
+                        self.isLoading = false
+                    }
+                } else {
+                    await MainActor.run {
+                        self.errorMessage = error.localizedDescription
+                        self.isLoading = false
+                    }
                 }
             }
         }

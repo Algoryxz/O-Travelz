@@ -3,6 +3,7 @@ import Foundation
 /// Domain representation of live weather conditions.
 public enum WeatherState: Equatable, Sendable {
     case available(locationName: String, temperatureC: Double, condition: String, advice: String?)
+    case cached(locationName: String, temperatureC: Double, condition: String, advice: String?, relativeTimeAgo: String)
     case unavailable(reason: String)
 }
 

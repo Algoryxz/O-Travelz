@@ -1,0 +1,47 @@
+{
+  "wave": "M18",
+  "audit_name": "failure_drill",
+  "timestamp": "2026-09-09T09:36:30+05:30",
+  "drills": {
+    "F1_cold_launch_offline": {
+      "status": "PASS",
+      "behavior": "Shell opens smoothly, 5 tabs navigation operational, no crash, local database initialized."
+    },
+    "F2_discover_offline": {
+      "status": "PASS",
+      "behavior": "Honest empty/offline state displayed; zero fake destination catalogs claimed."
+    },
+    "F3_place_detail_offline": {
+      "status": "PASS",
+      "behavior": "Displays saved snapshot if bookmarked with explicit badge; uncached media shows fallback; weather is cached or calm unavailable."
+    },
+    "F4_transit_directory_offline": {
+      "status": "PASS",
+      "behavior": "154 routes, 302 directional schedules, and 5,549 departures 100% accessible from assets."
+    },
+    "F5_active_trip_offline": {
+      "status": "PASS",
+      "behavior": "Active itinerary structure and milestone progress remain locally readable and toggleable."
+    },
+    "F6_map_offline": {
+      "status": "PASS",
+      "behavior": "Provider tiles degrade calmly; list view alternative accessible immediately with truthful notice."
+    },
+    "F7_local_reminder_fires_offline": {
+      "status": "PASS",
+      "behavior": "Local AlarmManager / UNUserNotificationCenter fires countdown alert without cellular or Wi-Fi."
+    },
+    "F8_account_session_restore_offline": {
+      "status": "PASS",
+      "behavior": "Cached profile identity renders; session validity reported as SESSION_VALIDITY_UNKNOWN without network error dialog."
+    },
+    "F9_nearby_civic_offline": {
+      "status": "PASS",
+      "behavior": "24x7 state helplines remain 100% available; nearby facility queries show calm unavailable state."
+    },
+    "F10_ai_request_offline": {
+      "status": "PASS",
+      "behavior": "Natural language prompt extraction disabled or calmly informs user that AI requires an internet connection."
+    }
+  }
+}

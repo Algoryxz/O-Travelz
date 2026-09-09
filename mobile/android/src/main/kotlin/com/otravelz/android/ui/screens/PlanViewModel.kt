@@ -117,7 +117,7 @@ class PlanViewModel(
                 }
                 is NetworkResult.Failure -> {
                     val msg = when (result.error) {
-                        is NetworkError.NetworkUnavailable -> "Offline: unable to contact AI service"
+                        is NetworkError.NetworkUnavailable -> "AI Assistant requires an internet connection. You can still view saved trips and edit local trip details."
                         is NetworkError.Timeout -> "AI request timed out"
                         else -> "Unable to extract constraints with AI"
                     }
@@ -151,7 +151,7 @@ class PlanViewModel(
                 }
                 is NetworkResult.Failure -> {
                     val msg = when (result.error) {
-                        is NetworkError.NetworkUnavailable -> "Network unavailable. Please check your connection."
+                        is NetworkError.NetworkUnavailable -> "AI Assistant requires an internet connection. You can still view saved trips and edit local trip details."
                         is NetworkError.Timeout -> "Planner request timed out. Please try again."
                         is NetworkError.ValidationError -> "No feasible itinerary for selected constraints. Try adjusting starting hub."
                         else -> "Unable to generate itinerary. Please try again."

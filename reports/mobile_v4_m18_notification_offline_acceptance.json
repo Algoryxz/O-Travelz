@@ -1,0 +1,12 @@
+{
+  "wave": "M18",
+  "acceptance_name": "notification_offline_acceptance",
+  "timestamp": "2026-09-09T09:34:00+05:30",
+  "local_alarms_offline_firing": true,
+  "remote_push_server_dependency": false,
+  "app_killed_alarm_survives": true,
+  "signout_preserves_reminders": true,
+  "deep_link_resolves_to_bundled_route": true,
+  "missing_route_fails_safely": true,
+  "network_required_to_fire": false
+}

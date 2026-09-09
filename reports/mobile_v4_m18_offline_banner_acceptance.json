@@ -1,0 +1,22 @@
+{
+  "wave": "M18",
+  "acceptance_name": "offline_banner_acceptance",
+  "timestamp": "2026-09-09T09:21:30+05:30",
+  "android": {
+    "component": "com.otravelz.android.offline.OfflineStatusBanner",
+    "icon": "Icons.Default.CloudOff",
+    "surface": "MaterialTheme.colorScheme.surfaceContainerHigh",
+    "text_english": "Offline mode: Some live features are unavailable. Saved trips and local content remain available.",
+    "text_odia": "ଅଫଲାଇନ୍ ମୋଡ୍: କିଛି ଲାଇଭ୍ ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ। ସାଇତା ଯାତ୍ରା ଏବଂ ସ୍ଥାନୀୟ ବିବରଣୀ ଉପଲବ୍ଧ ଅଛି।",
+    "modal_dialog": false,
+    "dismissible_on_reconnect": true
+  },
+  "ios": {
+    "component": "OfflineBannerView",
+    "icon": "wifi.slash",
+    "surface": "ColorTokens.warmStone.opacity(0.85)",
+    "localized": true,
+    "modal_dialog": false,
+    "dismissible_on_reconnect": true
+  }
+}

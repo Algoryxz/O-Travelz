@@ -1,0 +1,29 @@
+{
+  "wave": "M18",
+  "contract": "docs/mobile-v4/M18_OFFLINE_PACKAGE_INGESTION_CONTRACT.md",
+  "timestamp": "2026-09-09T09:35:00+05:30",
+  "stage_g1_status": "QUALIFIED_CANDIDATES_PRESENT",
+  "stage_g2_status": "LOCKED_NOT_STARTED",
+  "verdict": "ARCHITECTURE_READY",
+  "production_ingestion": "BLOCKED_PENDING_STAGE_G2",
+  "candidate_bundles": {
+    "neutral_baseline_bundle": {
+      "raw_bytes": 200704,
+      "gzip_bytes": 34816,
+      "shipped_in_m18": false
+    },
+    "district_geometry_simplified": {
+      "raw_bytes": 79872,
+      "gzip_bytes": 19148,
+      "shipped_in_m18": false
+    },
+    "stop_crosswalks_exact_85": {
+      "count": 85,
+      "shipped_in_m18": false
+    },
+    "stop_crosswalks_probable_45": {
+      "count": 45,
+      "shipped_in_m18": false
+    }
+  }
+}

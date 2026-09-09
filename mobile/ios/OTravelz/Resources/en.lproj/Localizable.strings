@@ -207,3 +207,16 @@
 "you_pref_trust_title" = "Platform Truth & Provenance";
 "you_pref_trust_desc" = "Modern Odisha Cultural Atlas built by Algoryxz. Verified canonical places and transit graph with zero fabricated telemetry.";
 "place_action_nearby_essentials" = "Nearby Emergency & Civic Help";
+
+/* M18 Offline Mode & Degraded-State Execution */
+"offline_banner_title" = "Offline mode";
+"offline_banner_desc" = "Some live features are unavailable. Saved trips and local content remain available.";
+"offline_weather_cached" = "Cached weather • %@ ago";
+"offline_weather_unavailable" = "Weather unavailable";
+"offline_ai_notice" = "AI Assistant requires an internet connection. You can still view saved trips and edit local trip details.";
+"offline_map_tiles_unavailable" = "Map tiles unavailable offline. Use List View for saved destinations and route details.";
+"offline_nearby_unavailable" = "Nearby facilities unavailable offline. Emergency helplines remain available.";
+"offline_discover_empty" = "Connection required to discover new places. Saved places and transit schedules remain available.";
+"offline_snapshot_badge" = "Offline Snapshot";
+"offline_snapshot_desc" = "Saved place details displayed offline. Live facts and weather require connection.";
+"offline_transit_geometry_unavailable" = "Schedule only — route map unavailable";

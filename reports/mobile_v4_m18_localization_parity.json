@@ -1,0 +1,22 @@
+{
+  "wave": "M18",
+  "audit_name": "localization_parity",
+  "timestamp": "2026-09-09T09:37:30+05:30",
+  "keys_verified": [
+    "offline_banner_title",
+    "offline_banner_desc",
+    "offline_weather_cached",
+    "offline_weather_unavailable",
+    "offline_ai_notice",
+    "offline_map_tiles_unavailable",
+    "offline_nearby_unavailable",
+    "offline_discover_empty",
+    "offline_snapshot_badge",
+    "offline_snapshot_desc",
+    "offline_transit_geometry_unavailable"
+  ],
+  "english_complete": true,
+  "odia_complete": true,
+  "canonical_place_names_untranslated": true,
+  "cross_platform_parity": true
+}

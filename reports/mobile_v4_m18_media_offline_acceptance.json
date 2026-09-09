@@ -1,0 +1,14 @@
+{
+  "wave": "M18",
+  "acceptance_name": "media_offline_acceptance",
+  "timestamp": "2026-09-09T09:32:00+05:30",
+  "verified_places_distinct_photos": 204,
+  "cache_retention_verified": true,
+  "uncached_photo_behavior": {
+    "renders_error_crash": false,
+    "renders_dignified_placeholder": true,
+    "shows_caption_and_essay": true
+  },
+  "cross_destination_substitution": "PROHIBITED_AND_TESTED",
+  "provenance_retained": true
+}

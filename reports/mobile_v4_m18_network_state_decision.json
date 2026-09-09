@@ -1,0 +1,29 @@
+{
+  "wave": "M18",
+  "decision_name": "network_state_decision",
+  "timestamp": "2026-09-09T09:13:30+05:30",
+  "principles": {
+    "authoritative_source": "HTTP_REQUEST_RESULT",
+    "advisory_presentation": "OS_CONNECTIVITY_API",
+    "polling_loop_allowed": false,
+    "wake_lock_allowed": false,
+    "background_service_allowed": false,
+    "analytics_allowed": false,
+    "failsafe_default": "Online (unit test fallback)"
+  },
+  "states": [
+    "ONLINE",
+    "OFFLINE",
+    "UNKNOWN"
+  ],
+  "platform_bindings": {
+    "android": "ConnectivityManager.NetworkCallback with NET_CAPABILITY_INTERNET",
+    "ios": "NWPathMonitor on background dispatch queue"
+  },
+  "banner_behavior": {
+    "presentation": "Unobtrusive inline surface at root content header",
+    "modal_dialogs": false,
+    "auto_dismiss_on_reconnect": true,
+    "localized": true
+  }
+}

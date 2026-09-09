@@ -1,0 +1,23 @@
+{
+  "wave": "M18",
+  "audit_phase": "before",
+  "timestamp": "2026-09-09T09:12:00+05:30",
+  "git_branch": "feature/v4-platform-rebuild",
+  "git_head": "9923463a51924d9984902f411e4efe7cd9368f24",
+  "worktree_clean": true,
+  "preceding_accepted_wave": "M17",
+  "preceding_commit_subject": "feat(mobile): add truthful local trip and transit reminders (M17)",
+  "open_api_contract_synced": true,
+  "project_context_clean": true,
+  "research_staging_clean": true,
+  "mobile_offline_staging_clean": true,
+  "stage_g1_status": "QUALIFIED_OFFLINE_CANDIDATES",
+  "stage_g2_status": "LOCKED_NOT_STARTED",
+  "canonical_assets_clean": true,
+  "canonical_mutations": 0,
+  "staging_mutations": 0,
+  "backend_mutations": 0,
+  "kmp_mutations": 0,
+  "android_unit_tests_pass": true,
+  "ios_source_parity": true
+}

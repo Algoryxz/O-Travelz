@@ -1,4 +1,4 @@
-﻿import SwiftUI
+import SwiftUI
 import MapKit
 
 /// Native spatial map product on iOS using MapKit and SwiftUI.Map.
@@ -190,23 +190,32 @@ struct MapRootView: View {
             }
             .sheet(isPresented: $viewModel.isListAlternativeVisible) {
                 NavigationStack {
-                    List(viewModel.visibleDestinations) { place in
-                        Button(action: {
-                            viewModel.isListAlternativeVisible = false
-                            selectedDestinationForDetail = place.id
-                        }) {
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(place.name)
-                                    .font(TypographyTokens.headline)
-                                    .foregroundStyle(ColorTokens.textPrimary)
-                                if let odia = place.odiaName, !odia.isEmpty {
-                                    Text(odia)
-                                        .font(TypographyTokens.bodySmall)
-                                        .foregroundStyle(ColorTokens.terracotta)
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text(LocalizedStringKey("offline_map_tiles_unavailable"))
+                            .font(TypographyTokens.caption)
+                            .foregroundStyle(ColorTokens.mutedCharcoal)
+                            .padding(.horizontal, SpacingTokens.space4)
+                            .padding(.vertical, SpacingTokens.space2)
+                            .background(ColorTokens.warmStone.opacity(0.85))
+
+                        List(viewModel.visibleDestinations) { place in
+                            Button(action: {
+                                viewModel.isListAlternativeVisible = false
+                                selectedDestinationForDetail = place.id
+                            }) {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(place.name)
+                                        .font(TypographyTokens.headline)
+                                        .foregroundStyle(ColorTokens.textPrimary)
+                                    if let odia = place.odiaName, !odia.isEmpty {
+                                        Text(odia)
+                                            .font(TypographyTokens.bodySmall)
+                                            .foregroundStyle(ColorTokens.terracotta)
+                                    }
+                                    Text("\(place.category) · \(place.district ?? "")")
+                                        .font(TypographyTokens.caption)
+                                        .foregroundStyle(ColorTokens.textSecondary)
                                 }
-                                Text("\(place.category) · \(place.district ?? "")")
-                                    .font(TypographyTokens.caption)
-                                    .foregroundStyle(ColorTokens.textSecondary)
                             }
                         }
                     }

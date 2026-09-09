@@ -68,7 +68,7 @@ public final class PlannerViewModel: ObservableObject {
                 self.isAIGrounded = aiResponse.isGrounded ?? false
                 self.isAIExtracting = false
             } catch {
-                self.errorMessage = "Unable to extract constraints with AI: \(error.localizedDescription)"
+                self.errorMessage = NSLocalizedString("offline_ai_notice", comment: "")
                 self.isAIExtracting = false
             }
         }
@@ -93,7 +93,7 @@ public final class PlannerViewModel: ObservableObject {
                 self.isLoading = false
                 self.showConstraintsForm = false
             } catch {
-                self.errorMessage = "Unable to generate itinerary: \(error.localizedDescription)"
+                self.errorMessage = NSLocalizedString("offline_ai_notice", comment: "")
                 self.isLoading = false
             }
         }

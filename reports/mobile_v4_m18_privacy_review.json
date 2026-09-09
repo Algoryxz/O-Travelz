@@ -1,0 +1,12 @@
+{
+  "wave": "M18",
+  "audit_name": "privacy_review",
+  "timestamp": "2026-09-09T09:38:00+05:30",
+  "raw_gps_history_persisted": false,
+  "ai_prompt_history_persisted": false,
+  "emergency_call_history_persisted": false,
+  "notification_payload_sensitive_data": false,
+  "cached_identity_in_secure_storage": true,
+  "image_cache_public_media_only": true,
+  "verdict": "PASS"
+}

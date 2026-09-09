@@ -246,4 +246,17 @@
     <string name="transit_reminder_cancelled">ସ୍ମାରକ ବାତିଲ୍ କରାଗଲା</string>
     <string name="transit_notifications_disabled">ବିଜ୍ଞପ୍ତି (Notifications) ଅକ୍ଷମ ଅଛି। ସେଟିଙ୍ଗ୍ସରୁ ଏହାକୁ ସକ୍ଷମ କରନ୍ତୁ।</string>
     <string name="transit_notif_operator_disclaimer">କେବଳ ନିର୍ଦ୍ଧାରିତ ସମୟସାରଣୀ; ଯାତ୍ରା ପୂର୍ବରୁ ଅପରେଟରଙ୍କ ତଥ୍ୟ ଯାଞ୍ଚ କରନ୍ତୁ।</string>
+
+    <!-- M18 Offline Mode & Degraded-State Execution (Odia) -->
+    <string name="offline_banner_title">ଅଫଲାଇନ୍ ମୋଡ୍</string>
+    <string name="offline_banner_desc">କିଛି ଲାଇଭ୍ ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ। ସାଇତା ଯାତ୍ରା ଏବଂ ସ୍ଥାନୀୟ ବିବରଣୀ ଉପଲବ୍ଧ ଅଛି।</string>
+    <string name="offline_weather_cached">ସାଇତା ପାଣିପାଗ • %1$s ପୂର୍ବରୁ</string>
+    <string name="offline_weather_unavailable">ପାଣିପାଗ ତଥ୍ୟ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="offline_ai_notice">ଏଆଇ ସହାୟକ ପାଇଁ ଇଣ୍ଟରନେଟ୍ ସଂଯୋଗ ଆବଶ୍ୟକ। ଆପଣ ସାଇତା ଯାତ୍ରା ଦେଖିପାରିବେ ଏବଂ ସ୍ଥାନୀୟ ବିବରଣୀ ସମ୍ପାଦନା କରିପାରିବେ।</string>
+    <string name="offline_map_tiles_unavailable">ଅଫଲାଇନରେ ମାନଚିତ୍ର ଉପଲବ୍ଧ ନାହିଁ। ସାଇତା ସ୍ଥାନ ଏବଂ ରୁଟ୍ ବିବରଣୀ ପାଇଁ ତାଲିକା ଦେଖନ୍ତୁ।</string>
+    <string name="offline_nearby_unavailable">ନିକଟସ୍ଥ ସୁବିଧା ଅଫଲାଇନରେ ଉପଲବ୍ଧ ନାହିଁ। ଜରୁରୀକାଳୀନ ହେଲ୍ପଲାଇନ୍ ଉପଲବ୍ଧ ଅଛି।</string>
+    <string name="offline_discover_empty">ନୂଆ ସ୍ଥାନ ଖୋଜିବା ପାଇଁ ଇଣ୍ଟରନେଟ୍ ଆବଶ୍ୟକ। ସାଇତା ସ୍ଥାନ ଓ ବସ୍ ସମୟସାରଣୀ ଉପଲବ୍ଧ ଅଛି।</string>
+    <string name="offline_snapshot_badge">ଅଫଲାଇନ୍ ତଥ୍ୟ</string>
+    <string name="offline_snapshot_desc">ସାଇତା ସ୍ଥାନର ବିବରଣୀ ଅଫଲାଇନରେ ଦର୍ଶାଯାଇଛି। ଲାଇଭ୍ ତଥ୍ୟ ପାଇଁ ସଂଯୋଗ ଆବଶ୍ୟକ।</string>
+    <string name="offline_transit_geometry_unavailable">କେବଳ ସମୟସାରଣୀ — ରୁଟ୍ ମାନଚିତ୍ର ଉପଲବ୍ଧ ନାହିଁ</string>
 </resources>

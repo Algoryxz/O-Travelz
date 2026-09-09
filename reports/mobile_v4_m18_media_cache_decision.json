@@ -1,0 +1,25 @@
+{
+  "wave": "M18",
+  "decision_name": "media_cache_decision",
+  "timestamp": "2026-09-09T09:31:30+05:30",
+  "android_strategy": {
+    "library": "Coil (libs.coil.compose)",
+    "cache_mechanism": "Coil ImageLoader disk cache (OkHttp Cache backing)",
+    "format": "Responsive WebP only",
+    "bundled_raw_masters": false,
+    "strategy": "CACHE_AFTER_USE"
+  },
+  "ios_strategy": {
+    "library": "Native SwiftUI AsyncImage / Foundation URLCache",
+    "cache_mechanism": "System URLCache (50MB memory / 150MB disk standard backing)",
+    "format": "Responsive WebP / JPEG",
+    "heavy_third_party_library_added": false,
+    "strategy": "CACHE_AFTER_USE"
+  },
+  "invariants": {
+    "cross_place_fallback_prohibited": true,
+    "placeholder_pretending_to_be_photo_prohibited": true,
+    "raw_originals_bundled": false,
+    "only_verified_destination_media": true
+  }
+}

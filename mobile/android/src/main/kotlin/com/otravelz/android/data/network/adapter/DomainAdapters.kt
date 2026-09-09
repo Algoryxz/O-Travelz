@@ -11,6 +11,14 @@ sealed interface WeatherState {
         val advice: String?
     ) : WeatherState
 
+    data class Cached(
+        val locationName: String,
+        val temperatureC: Double,
+        val condition: String,
+        val advice: String?,
+        val relativeTimeAgo: String
+    ) : WeatherState
+
     data class Unavailable(val reason: String = "Sensor readings currently unavailable") : WeatherState
 }
 

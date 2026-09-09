@@ -75,9 +75,15 @@ import com.otravelz.android.domain.model.toPlaceDetail
 import com.otravelz.android.ui.theme.Spacing
 import kotlinx.coroutines.launch
 
+import com.otravelz.android.offline.WeatherCacheStore
+
 sealed interface PlaceDetailUiState {
     object Loading : PlaceDetailUiState
-    data class Success(val place: PlaceDetail, val weather: WeatherState) : PlaceDetailUiState
+    data class Success(
+        val place: PlaceDetail,
+        val weather: WeatherState,
+        val isOfflineSnapshot: Boolean = false
+    ) : PlaceDetailUiState
     data class Error(val message: String) : PlaceDetailUiState
 }
 
@@ -108,6 +114,7 @@ fun PlaceDetailScreen(
         uiState = PlaceDetailUiState.Loading
         scope.launch {
             val api = ApiClient.createService()
+            val weatherStore = WeatherCacheStore.getInstance(context)
             when (val placeResult = ApiClient.safeApiCall { api.getPlaceDetail(placeId) }) {
                 is NetworkResult.Success -> {
                     val placeDetail = placeResult.data.toPlaceDetail()
@@ -119,13 +126,74 @@ fun PlaceDetailScreen(
                         }
                         if (weatherResult is NetworkResult.Success) {
                             weatherState = weatherResult.data.toDomain()
+                            if (weatherState is WeatherState.Available) {
+                                weatherStore.saveObservation(
+                                    lat = placeDetail.lat!!,
+                                    lon = placeDetail.lon!!,
+                                    locationName = weatherState.locationName,
+                                    temperatureC = weatherState.temperatureC,
+                                    condition = weatherState.condition,
+                                    advice = weatherState.advice
+                                )
+                            }
+                        } else {
+                            weatherState = weatherStore.getCachedObservation(placeDetail.lat!!, placeDetail.lon!!)
+                                ?: WeatherState.Unavailable("Weather unavailable offline")
                         }
                     }
 
-                    uiState = PlaceDetailUiState.Success(place = placeDetail, weather = weatherState)
+                    uiState = PlaceDetailUiState.Success(place = placeDetail, weather = weatherState, isOfflineSnapshot = false)
                 }
                 is NetworkResult.Failure -> {
-                    uiState = PlaceDetailUiState.Error(placeResult.error.message ?: "Failed to load place details")
+                    val savedPlaces = persistenceRepo.getSavedPlaces()
+                    val saved = savedPlaces.firstOrNull { it.canonicalPlaceId == placeId }
+                    if (saved != null) {
+                        val photoList = if (!saved.imageUrl.isNullOrBlank()) {
+                            listOf(
+                                PlacePhoto(
+                                    id = "photo_${saved.canonicalPlaceId}",
+                                    url = saved.imageUrl,
+                                    cardUrl = saved.imageUrl,
+                                    thumbnailUrl = saved.imageUrl,
+                                    altText = saved.placeName,
+                                    title = saved.placeName,
+                                    sourceName = "Verified Editorial Catalog",
+                                    license = "Editorial Verification",
+                                    attribution = null,
+                                    isPrimary = true
+                                )
+                            )
+                        } else emptyList()
+
+                        val offlinePlace = PlaceDetail(
+                            id = saved.canonicalPlaceId,
+                            name = saved.placeName,
+                            odiaName = null,
+                            category = saved.category,
+                            district = saved.district ?: "Odisha",
+                            region = null,
+                            description = null,
+                            lat = null,
+                            lon = null,
+                            avgVisitMinutes = null,
+                            priceTier = null,
+                            address = null,
+                            contactPhone = null,
+                            emergencyPhone = null,
+                            source = "Local Offline Snapshot",
+                            sourceUrl = null,
+                            verifiedAt = null,
+                            verificationStatus = "Verified Offline Snapshot",
+                            photos = photoList
+                        )
+                        uiState = PlaceDetailUiState.Success(
+                            place = offlinePlace,
+                            weather = WeatherState.Unavailable("Weather unavailable offline"),
+                            isOfflineSnapshot = true
+                        )
+                    } else {
+                        uiState = PlaceDetailUiState.Error(placeResult.error.message ?: "Failed to load place details")
+                    }
                 }
             }
         }
@@ -266,7 +334,8 @@ fun PlaceDetailScreen(
                 is PlaceDetailUiState.Success -> {
                     PlaceDetailContent(
                         place = state.place,
-                        weather = state.weather
+                        weather = state.weather,
+                        isOfflineSnapshot = state.isOfflineSnapshot
                     )
                 }
             }
@@ -277,7 +346,8 @@ fun PlaceDetailScreen(
 @Composable
 private fun PlaceDetailContent(
     place: PlaceDetail,
-    weather: WeatherState
+    weather: WeatherState,
+    isOfflineSnapshot: Boolean = false
 ) {
     val scrollState = rememberScrollState()
     val context = LocalContext.current
@@ -299,6 +369,31 @@ private fun PlaceDetailContent(
                 .padding(horizontal = Spacing.space6)
         ) {
             Spacer(modifier = Modifier.height(Spacing.space4))
+
+            if (isOfflineSnapshot) {
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = Spacing.space3),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
+                ) {
+                    Column(modifier = Modifier.padding(Spacing.space3)) {
+                        Text(
+                            text = stringResource(R.string.offline_snapshot_badge),
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.tertiary
+                        )
+                        Spacer(modifier = Modifier.height(Spacing.space1))
+                        Text(
+                            text = stringResource(R.string.offline_snapshot_desc),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+            }
 
             // 1. Immediate Destination Identity (Always at top, never buried)
             Text(
@@ -542,6 +637,49 @@ private fun PlaceDetailContent(
                         }
                     }
                 }
+                is WeatherState.Cached -> {
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)
+                    ) {
+                        Column(modifier = Modifier.padding(Spacing.space5)) {
+                            Text(
+                                text = stringResource(R.string.offline_weather_cached, weather.relativeTimeAgo),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.tertiary,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                            Spacer(modifier = Modifier.height(Spacing.space2))
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = "${weather.temperatureC}°C",
+                                    style = MaterialTheme.typography.headlineMedium,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.primary
+                                )
+                                Text(
+                                    text = weather.condition,
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                            }
+                            if (!weather.advice.isNullOrBlank()) {
+                                Spacer(modifier = Modifier.height(Spacing.space2))
+                                Text(
+                                    text = weather.advice,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
+                    }
+                }
                 is WeatherState.Unavailable -> {
                     Card(
                         modifier = Modifier.fillMaxWidth(),
@@ -549,7 +687,7 @@ private fun PlaceDetailContent(
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)
                     ) {
                         Text(
-                            text = stringResource(R.string.weather_unavailable),
+                            text = stringResource(R.string.offline_weather_unavailable),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             modifier = Modifier.padding(Spacing.space4)

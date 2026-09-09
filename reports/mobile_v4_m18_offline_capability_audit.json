@@ -1,0 +1,162 @@
+{
+  "wave": "M18",
+  "audit_name": "offline_capability_audit",
+  "timestamp": "2026-09-09T09:12:30+05:30",
+  "framework": {
+    "BUNDLED_AND_GUARANTEED": "Available immediately on fresh install without prior network use",
+    "PERSISTED_AFTER_USE": "Persisted in Room / SwiftData / Keystore after user action or prior fetch",
+    "CACHE_AFTER_USE": "Retained in disk/memory HTTP or media cache after prior viewing",
+    "OPTIONAL_DOWNLOAD": "Explicit offline package downloaded by user (future Stage G1/G2 packages)",
+    "NETWORK_REQUIRED": "Strictly requires live internet connectivity; degraded calmly when offline",
+    "PROVIDER_DEPENDENT": "Delegated to OS SDK or external app; availability not guaranteed by O-TRAVELZ",
+    "NOT_IMPLEMENTED": "Not built or deferred to future roadmap waves"
+  },
+  "capabilities": {
+    "discover_place_metadata": {
+      "fresh_install_offline": "NETWORK_REQUIRED",
+      "prior_use_offline": "CACHE_AFTER_USE",
+      "persistence_mechanism": "None before M14 save; network-first live catalog",
+      "classification": "NETWORK_REQUIRED"
+    },
+    "place_detail_metadata": {
+      "fresh_install_offline": "NETWORK_REQUIRED",
+      "prior_use_offline": "PERSISTED_AFTER_USE",
+      "persistence_mechanism": "Room SavedPlaceEntity / SwiftData SavedPlaceModel snapshot fallback if bookmarked",
+      "classification": "PERSISTED_AFTER_USE"
+    },
+    "verified_media": {
+      "fresh_install_offline": "NETWORK_REQUIRED",
+      "prior_use_offline": "CACHE_AFTER_USE",
+      "persistence_mechanism": "Coil disk cache (Android) / URLCache (iOS); no raw originals bundled",
+      "classification": "CACHE_AFTER_USE"
+    },
+    "saved_places": {
+      "fresh_install_offline": "PERSISTED_AFTER_USE",
+      "prior_use_offline": "PERSISTED_AFTER_USE",
+      "persistence_mechanism": "Room SQLite (Android) / SwiftData (iOS) with canonical place reference",
+      "classification": "PERSISTED_AFTER_USE"
+    },
+    "saved_itineraries": {
+      "fresh_install_offline": "PERSISTED_AFTER_USE",
+      "prior_use_offline": "PERSISTED_AFTER_USE",
+      "persistence_mechanism": "Room SQLite (Android) / SwiftData (iOS) full stop and milestone JSON",
+      "classification": "PERSISTED_AFTER_USE"
+    },
+    "active_trip_progress": {
+      "fresh_install_offline": "PERSISTED_AFTER_USE",
+      "prior_use_offline": "PERSISTED_AFTER_USE",
+      "persistence_mechanism": "Room SQLite (Android) / SwiftData (iOS) local milestone checklist state",
+      "classification": "PERSISTED_AFTER_USE"
+    },
+    "transit_route_directory": {
+      "fresh_install_offline": "BUNDLED_AND_GUARANTEED",
+      "prior_use_offline": "BUNDLED_AND_GUARANTEED",
+      "persistence_mechanism": "Bundled assets/transit/routes.json (154 routes across 5 regions)",
+      "classification": "BUNDLED_AND_GUARANTEED"
+    },
+    "route_schedules": {
+      "fresh_install_offline": "BUNDLED_AND_GUARANTEED",
+      "prior_use_offline": "BUNDLED_AND_GUARANTEED",
+      "persistence_mechanism": "Bundled assets/transit/schedules.json (302 schedule groups, 5549 departures)",
+      "classification": "BUNDLED_AND_GUARANTEED"
+    },
+    "route_geometry": {
+      "fresh_install_offline": "NETWORK_REQUIRED",
+      "prior_use_offline": "NETWORK_REQUIRED",
+      "persistence_mechanism": "Staged candidate data quarantined in data/staging/transit/; not bundled",
+      "classification": "NETWORK_REQUIRED"
+    },
+    "map_basemap_tiles": {
+      "fresh_install_offline": "PROVIDER_DEPENDENT",
+      "prior_use_offline": "PROVIDER_DEPENDENT",
+      "persistence_mechanism": "Google Maps SDK / Apple MapKit native disk cache; list fallback provided",
+      "classification": "PROVIDER_DEPENDENT"
+    },
+    "user_location": {
+      "fresh_install_offline": "BUNDLED_AND_GUARANTEED",
+      "prior_use_offline": "BUNDLED_AND_GUARANTEED",
+      "persistence_mechanism": "On-device GNSS / GPS hardware chips; zero network required for lat/lon fix",
+      "classification": "BUNDLED_AND_GUARANTEED"
+    },
+    "weather": {
+      "fresh_install_offline": "NETWORK_REQUIRED",
+      "prior_use_offline": "CACHE_AFTER_USE",
+      "persistence_mechanism": "Local key-value observation store; disclosed as cached with timestamp",
+      "classification": "CACHE_AFTER_USE"
+    },
+    "ai_planner": {
+      "fresh_install_offline": "NETWORK_REQUIRED",
+      "prior_use_offline": "NETWORK_REQUIRED",
+      "persistence_mechanism": "Remote /ai/converse and /itinerary/plan; no fake local LLM",
+      "classification": "NETWORK_REQUIRED"
+    },
+    "deterministic_itinerary_logic": {
+      "fresh_install_offline": "BUNDLED_AND_GUARANTEED",
+      "prior_use_offline": "BUNDLED_AND_GUARANTEED",
+      "persistence_mechanism": "mobile/shared/ KMP core: Haversine, OdishaBounds, FirstMileEngine",
+      "classification": "BUNDLED_AND_GUARANTEED"
+    },
+    "civic_nearby_services": {
+      "fresh_install_offline": "NETWORK_REQUIRED",
+      "prior_use_offline": "NETWORK_REQUIRED",
+      "persistence_mechanism": "Remote /api/v1/services/nearby; candidate staging data quarantined",
+      "classification": "NETWORK_REQUIRED"
+    },
+    "emergency_helplines": {
+      "fresh_install_offline": "BUNDLED_AND_GUARANTEED",
+      "prior_use_offline": "BUNDLED_AND_GUARANTEED",
+      "persistence_mechanism": "Bundled EssentialsRepository in-code catalog of 24x7 state helplines",
+      "classification": "BUNDLED_AND_GUARANTEED"
+    },
+    "artisan_cluster_content": {
+      "fresh_install_offline": "BUNDLED_AND_GUARANTEED",
+      "prior_use_offline": "BUNDLED_AND_GUARANTEED",
+      "persistence_mechanism": "Bundled EssentialsRepository in-code catalog of GI crafts & clusters",
+      "classification": "BUNDLED_AND_GUARANTEED"
+    },
+    "account_session_identity": {
+      "fresh_install_offline": "PERSISTED_AFTER_USE",
+      "prior_use_offline": "PERSISTED_AFTER_USE",
+      "persistence_mechanism": "EncryptedSharedPreferences (Android) / Keychain (iOS) minimal profile cache",
+      "classification": "PERSISTED_AFTER_USE"
+    },
+    "local_transit_reminders": {
+      "fresh_install_offline": "BUNDLED_AND_GUARANTEED",
+      "prior_use_offline": "BUNDLED_AND_GUARANTEED",
+      "persistence_mechanism": "AlarmManager (Android) / UNUserNotificationCenter (iOS) on-device schedule",
+      "classification": "BUNDLED_AND_GUARANTEED"
+    },
+    "deep_links": {
+      "fresh_install_offline": "BUNDLED_AND_GUARANTEED",
+      "prior_use_offline": "BUNDLED_AND_GUARANTEED",
+      "persistence_mechanism": "Manifest / Info.plist declared intent filters for otravelz:// URI schemes",
+      "classification": "BUNDLED_AND_GUARANTEED"
+    },
+    "navigation_handoff": {
+      "fresh_install_offline": "PROVIDER_DEPENDENT",
+      "prior_use_offline": "PROVIDER_DEPENDENT",
+      "persistence_mechanism": "External intent/URI scheme handoff to Google Maps / Apple Maps",
+      "classification": "PROVIDER_DEPENDENT"
+    },
+    "contribution_system": {
+      "fresh_install_offline": "NOT_IMPLEMENTED",
+      "prior_use_offline": "NOT_IMPLEMENTED",
+      "persistence_mechanism": "Planned for Wave M19; not implemented in M18",
+      "classification": "NOT_IMPLEMENTED"
+    },
+    "future_stage_g1_bundles": {
+      "fresh_install_offline": "OPTIONAL_DOWNLOAD",
+      "prior_use_offline": "OPTIONAL_DOWNLOAD",
+      "persistence_mechanism": "Candidate assets staged in repo; Stage G2 locked; pending promotion",
+      "classification": "OPTIONAL_DOWNLOAD"
+    }
+  },
+  "truth_guarantees": {
+    "zero_hallucinated_metrics": true,
+    "zero_fake_offline_maps": true,
+    "zero_fake_local_ai": true,
+    "stage_g1_g2_quarantined": true,
+    "no_arbitrary_weather_ttl": true,
+    "advisory_network_monitor": true
+  }
+}

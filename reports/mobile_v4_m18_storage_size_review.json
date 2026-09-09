@@ -1,0 +1,44 @@
+{
+  "wave": "M18",
+  "audit_name": "storage_size_review",
+  "timestamp": "2026-09-09T09:36:00+05:30",
+  "measurements": {
+    "transit_routes_json": {
+      "bytes": 108963,
+      "kb": 106.4,
+      "classification": "MEASURED"
+    },
+    "transit_route_stops_json": {
+      "bytes": 493351,
+      "kb": 481.8,
+      "classification": "MEASURED"
+    },
+    "transit_schedules_json": {
+      "bytes": 285943,
+      "kb": 279.2,
+      "classification": "MEASURED"
+    },
+    "total_bundled_transit_assets": {
+      "bytes": 888257,
+      "kb": 867.4,
+      "classification": "MEASURED"
+    },
+    "room_sqlite_fresh_install": {
+      "bytes": 0,
+      "classification": "MEASURED"
+    },
+    "swiftdata_fresh_install": {
+      "bytes": 0,
+      "classification": "MEASURED"
+    },
+    "initial_image_disk_cache": {
+      "bytes": 0,
+      "classification": "MEASURED"
+    },
+    "staged_offline_candidates_shipped": {
+      "bytes": 0,
+      "classification": "MEASURED"
+    }
+  },
+  "arbitrary_250mb_quota_enforced": false
+}

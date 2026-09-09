@@ -1,0 +1,22 @@
+{
+  "wave": "M18",
+  "acceptance_name": "transit_offline_acceptance",
+  "timestamp": "2026-09-09T09:30:30+05:30",
+  "bundled_transit_assets": {
+    "routes": "mobile/android/src/main/assets/transit/routes.json (154 routes)",
+    "route_stops": "mobile/android/src/main/assets/transit/route_stops.json",
+    "schedules": "mobile/android/src/main/assets/transit/schedules.json (302 schedule groups, 5549 departures)"
+  },
+  "route_directory_offline": "AVAILABLE",
+  "scheduled_departures_offline": "AVAILABLE",
+  "stop_sequences_offline": "AVAILABLE",
+  "locality_stops_preserved": true,
+  "zero_fake_stop_coordinates": true,
+  "route_geometry_status": {
+    "bundled": false,
+    "staged_quarantined": true,
+    "offline_fallback_message": "Schedule only — route map unavailable"
+  },
+  "stage_g1_crosswalks_ingested": false,
+  "timetable_90_day_horizon_domain_scoped": true
+}

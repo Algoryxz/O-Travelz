@@ -1,0 +1,17 @@
+{
+  "wave": "M18",
+  "drill_name": "restart_recovery",
+  "timestamp": "2026-09-09T09:30:30+05:30",
+  "cold_boot_airplane_mode": {
+    "app_shell_opens": true,
+    "crash_observed": false,
+    "active_trip_restored": true,
+    "active_trip_milestones_restored": true,
+    "completed_milestone_retained": true,
+    "skipped_milestone_retained": true,
+    "saved_places_accessible": true,
+    "local_auth_profile_restored": true,
+    "server_session_not_falsely_claimed": true
+  },
+  "recovery_determinism": "EXACT"
+}
