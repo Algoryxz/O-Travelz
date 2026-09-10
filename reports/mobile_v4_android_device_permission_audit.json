@@ -1,0 +1,33 @@
+{
+  "wave": "M18.1",
+  "audit": "ANDROID_PERMISSION_AUDIT",
+  "evaluated_at": "2026-09-10T08:50:00Z",
+  "device": "OnePlus CPH2943 (Android 16, SDK 36)",
+  "package": "com.otravelz.android.debug",
+  "requested_permissions": [
+    "android.permission.INTERNET",
+    "android.permission.ACCESS_NETWORK_STATE",
+    "android.permission.ACCESS_COARSE_LOCATION",
+    "android.permission.ACCESS_FINE_LOCATION",
+    "android.permission.POST_NOTIFICATIONS",
+    "com.otravelz.android.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+  ],
+  "granted_at_install": [
+    "android.permission.INTERNET",
+    "android.permission.ACCESS_NETWORK_STATE",
+    "com.otravelz.android.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+  ],
+  "runtime_permissions_contextual_state": {
+    "android.permission.ACCESS_FINE_LOCATION": "NOT_GRANTED_UPFRONT (Contextual request only when user taps Near Me / Map)",
+    "android.permission.ACCESS_COARSE_LOCATION": "NOT_GRANTED_UPFRONT (Contextual request only)",
+    "android.permission.POST_NOTIFICATIONS": "NOT_GRANTED_UPFRONT (Contextual request only when setting reminder)"
+  },
+  "prohibited_permissions_verified_absent": {
+    "android.permission.ACCESS_BACKGROUND_LOCATION": "ABSENT (Verified zero background location tracking)",
+    "android.permission.CALL_PHONE": "ABSENT (Verified dialer handoff uses ACTION_DIAL)",
+    "android.permission.READ_EXTERNAL_STORAGE": "ABSENT",
+    "android.permission.WRITE_EXTERNAL_STORAGE": "ABSENT",
+    "android.permission.CAMERA": "ABSENT"
+  },
+  "verdict": "PERMISSIONS_COMPLY_WITH_PRIVACY_AND_SECURITY_RULES"
+}

@@ -1,0 +1,21 @@
+{
+  "wave": "M18.1",
+  "audit": "ANDROID_TRUTH_REGRESSION_AUDIT",
+  "evaluated_at": "2026-09-10T08:55:00Z",
+  "invariants_checked": {
+    "fake_live_buses": "ZERO (Schedule-only indicators present)",
+    "arriving_in_x_min_claims": "ZERO",
+    "fake_fares": "ZERO (Null fares kept null, no ₹0 placeholders)",
+    "fake_opening_hours": "ZERO",
+    "fake_accessibility_claims": "ZERO",
+    "fake_ratings_or_reviews": "ZERO",
+    "stock_or_ai_destination_photos": "ZERO (Authentic verified photos or neutral fallback)",
+    "cross_destination_image_reuse": "ZERO",
+    "zero_degrees_or_sunny_on_missing_weather": "ZERO (Truthful observation timestamp or unavailable badge)",
+    "fake_offline_map_availability": "ZERO",
+    "fake_offline_ai_planner": "ZERO",
+    "staging_data_treated_as_promoted": "ZERO"
+  },
+  "truth_contract_violations": 0,
+  "verdict": "TRUTH_CONTRACTS_STRICTLY_MAINTAINED"
+}

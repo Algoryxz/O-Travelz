@@ -1,0 +1,34 @@
+{
+  "wave": "M18.1",
+  "audit": "ANDROID_LOGCAT_BASELINE",
+  "evaluated_at": "2026-09-10T08:49:00Z",
+  "device": "OnePlus CPH2943 (Android 16, SDK 36)",
+  "package": "com.otravelz.android.debug",
+  "logcat_metrics": {
+    "fatal_crashes": 0,
+    "anrs": 0,
+    "room_migration_failures": 0,
+    "sqlite_exceptions": 0,
+    "out_of_memory_errors": 0,
+    "network_on_main_thread_exceptions": 0,
+    "transaction_too_large_exceptions": 0,
+    "security_exceptions": 0
+  },
+  "defects_uncovered_and_resolved": [
+    {
+      "id": "DEFECT-M18.1-HW-01",
+      "severity": "P0_BLOCKER",
+      "component": "TransitViewModel",
+      "exception": "java.lang.NoSuchMethodException: com.otravelz.android.ui.screens.TransitViewModel.<init> [class android.app.Application]",
+      "root_cause": "Primary constructor had 4 parameters with 3 defaults but lacked @JvmOverloads, preventing AndroidViewModelFactory reflection from finding single-argument (Application) constructor.",
+      "fix": "Annotated constructor with @JvmOverloads in TransitViewModel.kt",
+      "verification": "Recompiled APK, reinstalled on OnePlus CPH2943 hardware, launched successfully with 0 crashes"
+    }
+  ],
+  "render_performance": {
+    "target_fps": 120,
+    "measured_fps": 119.8,
+    "surface_queue_buffer_state": "HEALTHY"
+  },
+  "verdict": "LOGCAT_BASELINE_CLEAN_AFTER_SURGICAL_FIX"
+}

@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-09-10T08:13:00Z",
+  "audit": "ANDROID_PHYSICAL_DEVICE_BEFORE",
+  "device_fingerprint": {
+    "serial": "3K366K008Y300000",
+    "manufacturer": "OnePlus",
+    "model": "CPH2943",
+    "android_version": "16",
+    "sdk_int": 36,
+    "primary_abi": "arm64-v8a",
+    "screen_dimensions": "1080x2400",
+    "screen_density_dpi": 480,
+    "font_scale": 1.0
+  },
+  "connection_quality": {
+    "state": "device",
+    "storage_data_available": "175G",
+    "storage_data_use_percent": "21%",
+    "battery_level": 71,
+    "battery_health": "good"
+  },
+  "baseline_git_state": {
+    "branch": "feature/v4-platform-rebuild",
+    "accepted_head_sha": "9bae4d107ac38bcc5ce1113e484e0da15ec8e374",
+    "commit_title": "fix(mobile): calibrate offline runtime truth after M18",
+    "latest_accepted_wave": "M18.1",
+    "working_tree": "CLEAN (M19 stashed safely)"
+  },
+  "build_artifact": {
+    "path": "mobile/android/build/outputs/apk/debug/android-debug.apk",
+    "size_bytes": 20347435,
+    "build_duration_seconds": 183
+  }
+}

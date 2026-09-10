@@ -1,0 +1,43 @@
+{
+  "wave": "M18.1",
+  "audit": "ANDROID_PHYSICAL_DEVICE_ACCEPTANCE",
+  "evaluated_at": "2026-09-10T08:56:00Z",
+  "hardware_target": {
+    "manufacturer": "OnePlus",
+    "model": "CPH2943",
+    "android_version": "16",
+    "sdk_level": 36,
+    "screen_resolution": "1080x2400",
+    "density_dpi": 480
+  },
+  "acceptance_criteria": {
+    "APP_INSTALLS": true,
+    "APP_LAUNCHES": true,
+    "FATAL_CRASHES": 0,
+    "P0_DEFECTS": 0,
+    "ROOT_NAVIGATION_USABLE": true,
+    "DISCOVER_RUNNABLE": true,
+    "PLACE_DETAIL_RUNNABLE": true,
+    "MAP_RUNNABLE_OR_HONESTLY_CONFIG_BLOCKED": true,
+    "PLAN_RUNNABLE": true,
+    "TRIPS_RUNNABLE": true,
+    "TRANSIT_RUNNABLE": true,
+    "ESSENTIALS_RUNNABLE": true,
+    "PERSISTENCE_RESTART_RECOVERY": true,
+    "AUTH_LOCAL_FIRST_BOUNDARY": true,
+    "LOCAL_REMINDERS": true,
+    "OFFLINE_CONTINUITY": true,
+    "TRUTH_CONTRACT_VIOLATIONS": 0,
+    "SCREENSHOTS_CAPTURED": 0,
+    "SCREEN_RECORDINGS_CAPTURED": 0
+  },
+  "defects_resolved": [
+    {
+      "id": "DEFECT-M18.1-HW-01",
+      "severity": "P0_BLOCKER",
+      "summary": "Added @JvmOverloads constructor to TransitViewModel to allow AndroidViewModelFactory reflection instantiation with Application parameter",
+      "status": "FIXED_AND_VERIFIED_ON_HARDWARE"
+    }
+  ],
+  "overall_verdict": "ACCEPTED_ON_PHYSICAL_HARDWARE"
+}

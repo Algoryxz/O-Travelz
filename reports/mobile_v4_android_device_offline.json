@@ -1,0 +1,21 @@
+{
+  "wave": "M18.1",
+  "audit": "ANDROID_OFFLINE_CONTINUITY_AUDIT",
+  "evaluated_at": "2026-09-10T08:52:00Z",
+  "drill_method": "adb shell svc wifi disable & svc data disable, followed by restoration",
+  "behavior_under_offline_state": {
+    "app_crashes_on_disconnect": false,
+    "offline_status_banner": "RENDERED ('You are offline — showing saved and bundled content')",
+    "saved_trips_available": true,
+    "saved_places_available": true,
+    "bundled_transit_routes_queryable": true,
+    "emergency_helplines_accessible": true,
+    "weather_behavior": "Truthfully displays cached observation timestamp or offline notice, never 0°C or fake Sunny",
+    "trip_planner_behavior": "Truthfully discloses network connection requirement, no fake offline itinerary solver"
+  },
+  "connectivity_restoration": {
+    "network_restored_cleanly": true,
+    "banner_dismissed_upon_reconnect": true
+  },
+  "verdict": "OFFLINE_MODE_TRUTHFUL_AND_ROBUST"
+}

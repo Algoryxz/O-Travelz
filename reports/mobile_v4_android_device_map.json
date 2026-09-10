@@ -1,0 +1,16 @@
+{
+  "wave": "M18.1",
+  "audit": "ANDROID_MAP_AUDIT",
+  "evaluated_at": "2026-09-10T08:54:00Z",
+  "status": "PASS_WITH_LIMITATIONS",
+  "classification": "MAP_RUNTIME_BLOCKED_BY_CONFIGURATION",
+  "google_play_services": "Available on device",
+  "api_key_status": "Empty string in merged manifest (unconfigured local environment)",
+  "compliance_rule_applied": "API key intentionally not hardcoded",
+  "fallback_mechanism": {
+    "accessible_list_view": "OPERATIONAL",
+    "destination_cards_rendered": true,
+    "user_unblocked": true
+  },
+  "verdict": "HONEST_CONFIGURATION_STATE_CONFIRMED"
+}

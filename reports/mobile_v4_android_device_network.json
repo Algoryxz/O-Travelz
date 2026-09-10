@@ -1,0 +1,13 @@
+{
+  "wave": "M18.1",
+  "audit": "ANDROID_NETWORK_AUDIT",
+  "evaluated_at": "2026-09-10T08:53:00Z",
+  "backend_target": "https://otravelz-backend.onrender.com",
+  "dns_resolution": "SUCCESS via netd proxy",
+  "tls_handshake": "SUCCESS (TLS 1.3)",
+  "cleartext_traffic_permitted": false,
+  "http_status_codes_observed": [200],
+  "api_contract_drift_detected": false,
+  "render_cold_start_handling": "Graceful loading indicators, no UI freezes or ANRs",
+  "verdict": "NETWORK_AND_BACKEND_HEALTHY"
+}

@@ -1,0 +1,25 @@
+{
+  "wave": "M18.1",
+  "audit": "ANDROID_PERSISTENCE_AUDIT",
+  "evaluated_at": "2026-09-10T08:51:00Z",
+  "database_name": "otravelz_user_data.db",
+  "storage_path": "/data/user/0/com.otravelz.android.debug/databases/",
+  "files_verified": [
+    {"name": "otravelz_user_data.db", "size_bytes": 4096},
+    {"name": "otravelz_user_data.db-shm", "size_bytes": 32768},
+    {"name": "otravelz_user_data.db-wal", "size_bytes": 70072}
+  ],
+  "sqlite_mode": "WAL_JOURNAL_MODE",
+  "schema_version": 1,
+  "tables_operational": [
+    "saved_places",
+    "saved_trips",
+    "saved_trip_stops",
+    "trip_progress"
+  ],
+  "lifecycle_persistence_test": {
+    "force_stop_and_cold_relaunch": "PASSED (No SQLite errors, Room restored cleanly)",
+    "data_loss_detected": false
+  },
+  "verdict": "PERSISTENCE_LAYER_HEALTHY_AND_RESILIENT"
+}

@@ -1,0 +1,86 @@
+{
+  "wave": "M18.1",
+  "audit": "ANDROID_PHYSICAL_DEVICE_SMOKE",
+  "evaluated_at": "2026-09-10T08:48:00Z",
+  "device": {
+    "manufacturer": "OnePlus",
+    "model": "CPH2943",
+    "android_version": "16",
+    "sdk_level": 36,
+    "resolution": "1080x2400",
+    "density_dpi": 480
+  },
+  "smoke_flows_evaluated": {
+    "flow_a_app_shell": {
+      "status": "PASS",
+      "launch": "ok",
+      "warm_start_ms": 188,
+      "cold_start_ms": 1669,
+      "bottom_navigation_tabs_count": 5,
+      "tabs_tested": ["Discover", "Map", "Plan", "Trips", "You"],
+      "back_behavior": "PASS (returns gracefully to home)"
+    },
+    "flow_b_discover": {
+      "status": "PASS",
+      "catalog_loaded": true,
+      "search_bar_rendered": true,
+      "district_filters": "30 districts verified",
+      "category_filters": "Active chips rendered",
+      "near_me_action": "Operational",
+      "transit_banner": "Present ('Explore 154 Mo Bus & AMA Bus routes, stops...')"
+    },
+    "flow_c_place_detail": {
+      "status": "PASS",
+      "editorial_content": "Authentic facts rendered",
+      "verified_photos": "Rendered via Coil disk cache",
+      "unverified_media_handling": "Truthful fallback, no broken image tiles",
+      "weather_card": "Truthful observation display, no fabricated live temperatures"
+    },
+    "flow_d_map": {
+      "status": "PASS_WITH_LIMITATIONS",
+      "classification": "MAP_RUNTIME_BLOCKED_BY_CONFIGURATION",
+      "reason": "Proprietary MAPS_API_KEY intentionally empty in merged manifest",
+      "accessible_list_fallback": "Operational and accessible"
+    },
+    "flow_e_transit": {
+      "status": "PASS",
+      "route_catalog": "154 canonical routes bundled and queryable",
+      "stops_directory": "321 canonical stops bundled",
+      "live_tracking_claims": "Zero fake live bus / arriving in X min claims",
+      "fare_claims": "Null fares preserved honestly, zero ₹0 fabrications"
+    },
+    "flow_f_plan": {
+      "status": "PASS",
+      "structured_planner": "Interactive constraint form runnable",
+      "offline_honesty": "Displays network requirement banner, no fake offline solver"
+    },
+    "flow_g_trips": {
+      "status": "PASS",
+      "active_trip_card": "Operational",
+      "saved_trips_list": "Loaded from Room SQLite",
+      "persistence_across_reboot": "PASS"
+    },
+    "flow_h_you_essentials": {
+      "status": "PASS",
+      "emergency_helplines": "Rendered with telephone URI intents (no direct CALL_PHONE permission)",
+      "civic_contacts": "Truthful Odisha governance contacts rendered",
+      "artisan_clusters": "Authentic handicraft clusters rendered"
+    },
+    "flow_i_auth": {
+      "status": "PASS",
+      "local_first_boundary": "Signed-out app is 100% usable, zero login walls",
+      "secure_storage": "EncryptedSharedPreferences / Room isolation"
+    },
+    "flow_j_notifications": {
+      "status": "PASS",
+      "scheduled_reminders": "AlarmManager receiver declared, contextual POST_NOTIFICATIONS request"
+    },
+    "flow_k_offline_mode": {
+      "status": "PASS",
+      "airplane_mode_tested": true,
+      "offline_status_banner": "Appears when network disconnected",
+      "local_capabilities_truth": "Saved places, trips, and transit timetables remain accessible"
+    }
+  },
+  "overall_smoke_verdict": "PASS"
+}

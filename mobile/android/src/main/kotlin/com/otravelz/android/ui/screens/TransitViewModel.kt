@@ -48,7 +48,7 @@ data class TransitUiState(
         get() = searchQuery.isNotBlank() || selectedRegion != null
 }
 
-class TransitViewModel(
+class TransitViewModel @JvmOverloads constructor(
     application: Application,
     private val repository: TransitRepository = TransitRepositoryImpl(application),
     private val reminderStore: ReminderStore = SharedPrefsReminderStore(application),
