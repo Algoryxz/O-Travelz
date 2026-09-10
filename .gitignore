@@ -6,6 +6,9 @@
 **/local.properties
 .gradle/
 **/.gradle/
+.idea/
+**/.idea/
+*.iml
 
 # Python virtual environments
 .venv/

@@ -14,6 +14,8 @@ import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.PlayArrow
@@ -21,6 +23,8 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,6 +40,7 @@ import com.otravelz.android.ui.theme.*
 /**
  * Primary structured constraints form for trip planning.
  */
+@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
 fun PlanConstraintsForm(
     uiState: PlanUiState,
@@ -51,174 +56,279 @@ fun PlanConstraintsForm(
     modifier: Modifier = Modifier
 ) {
     val scrollState = rememberScrollState()
+    var isAiPromptExpanded by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(uiState.naturalLanguagePrompt.isNotBlank()) }
 
     Column(
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(scrollState)
-            .padding(Spacing.space5),
-        verticalArrangement = Arrangement.spacedBy(Spacing.space5)
+            .padding(horizontal = Spacing.space4, vertical = Spacing.space2),
+        verticalArrangement = Arrangement.spacedBy(Spacing.space4)
     ) {
-        // Natural Language Assistant Entry
-        Surface(
+        // Form Intro Card
+        Card(
             shape = RoundedCornerShape(16.dp),
-            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+            border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(
+                modifier = Modifier.padding(Spacing.space4),
+                verticalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Text(
+                    text = "Odisha Trip Planner",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = "Build a multi-day itinerary grounded on verified cultural destinations and scheduled Mo Bus connections.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+
+        // ==========================================
+        // STEP 1: STARTING HUB & DURATION
+        // ==========================================
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+            border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
             modifier = Modifier.fillMaxWidth()
         ) {
             Column(
                 modifier = Modifier.padding(Spacing.space4),
                 verticalArrangement = Arrangement.spacedBy(Spacing.space3)
             ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Surface(
+                        shape = CircleShape,
+                        color = TerracottaAccent.copy(alpha = 0.15f),
+                        modifier = Modifier.size(28.dp)
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Text("1", style = MaterialTheme.typography.labelSmall, fontWeight = FontWeight.Bold, color = TerracottaAccent)
+                        }
+                    }
+                    Text(
+                        text = "Origin & Duration",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+
+                // Starting Hub
                 Text(
-                    text = stringResource(R.string.plan_prompt_title),
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                OutlinedTextField(
-                    value = uiState.naturalLanguagePrompt,
-                    onValueChange = onPromptChanged,
-                    placeholder = {
-                        Text(
-                            text = stringResource(R.string.plan_prompt_hint),
-                            style = MaterialTheme.typography.bodySmall
-                        )
-                    },
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(12.dp),
-                    maxLines = 3
+                    text = "Starting Hub",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontWeight = FontWeight.Medium
                 )
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.End
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
                 ) {
-                    Button(
-                        onClick = onExtractWithAI,
-                        enabled = uiState.naturalLanguagePrompt.isNotBlank() && !uiState.isAIExtracting,
-                        colors = ButtonDefaults.buttonColors(containerColor = TerracottaAccent)
-                    ) {
-                        if (uiState.isAIExtracting) {
-                            CircularProgressIndicator(
-                                modifier = Modifier.size(16.dp),
-                                strokeWidth = 2.dp,
-                                color = Color.White
+                    PlannerHubs.POPULAR_HUBS.forEach { hub ->
+                        val isSelected = uiState.constraints.startHub?.equals(hub, ignoreCase = true) == true
+                        FilterChip(
+                            selected = isSelected,
+                            onClick = { onStartHubChanged(hub) },
+                            label = { Text(hub, style = MaterialTheme.typography.labelMedium) },
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = ChilikaBlueAccent,
+                                selectedLabelColor = Color.White
                             )
-                            Spacer(modifier = Modifier.width(Spacing.space2))
-                            Text(stringResource(R.string.plan_extracting_loading), style = MaterialTheme.typography.labelMedium)
-                        } else {
-                            Text(stringResource(R.string.plan_action_extract_ai), style = MaterialTheme.typography.labelMedium)
-                        }
+                        )
+                    }
+                }
+
+                HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
+
+                // Duration
+                Text(
+                    text = "Trip Length",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontWeight = FontWeight.Medium
+                )
+                val durations = listOf(
+                    1 to stringResource(R.string.plan_duration_1_day),
+                    2 to stringResource(R.string.plan_duration_2_days),
+                    3 to stringResource(R.string.plan_duration_3_days),
+                    5 to stringResource(R.string.plan_duration_5_days)
+                )
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
+                ) {
+                    durations.forEach { (days, label) ->
+                        val isSelected = uiState.constraints.days == days
+                        FilterChip(
+                            selected = isSelected,
+                            onClick = { onDaysChanged(days) },
+                            label = { Text(label, style = MaterialTheme.typography.labelMedium) },
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = TerracottaAccent,
+                                selectedLabelColor = Color.White
+                            )
+                        )
                     }
                 }
             }
         }
 
-        // Section 1: Duration
-        Column(verticalArrangement = Arrangement.spacedBy(Spacing.space2)) {
-            Text(
-                text = stringResource(R.string.plan_duration_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold
-            )
-            val durations = listOf(
-                1 to stringResource(R.string.plan_duration_1_day),
-                2 to stringResource(R.string.plan_duration_2_days),
-                3 to stringResource(R.string.plan_duration_3_days),
-                5 to stringResource(R.string.plan_duration_5_days)
-            )
-            Row(
-                modifier = Modifier.horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
+        // ==========================================
+        // STEP 2: THEMES & INTERESTS
+        // ==========================================
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+            border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(
+                modifier = Modifier.padding(Spacing.space4),
+                verticalArrangement = Arrangement.spacedBy(Spacing.space3)
             ) {
-                durations.forEach { (days, label) ->
-                    val isSelected = uiState.constraints.days == days
-                    FilterChip(
-                        selected = isSelected,
-                        onClick = { onDaysChanged(days) },
-                        label = { Text(label, style = MaterialTheme.typography.labelMedium) },
-                        colors = FilterChipDefaults.filterChipColors(
-                            selectedContainerColor = TerracottaAccent,
-                            selectedLabelColor = Color.White
-                        )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Surface(
+                        shape = CircleShape,
+                        color = TerracottaAccent.copy(alpha = 0.15f),
+                        modifier = Modifier.size(28.dp)
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Text("2", style = MaterialTheme.typography.labelSmall, fontWeight = FontWeight.Bold, color = TerracottaAccent)
+                        }
+                    }
+                    Text(
+                        text = "Interests & Themes",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface
                     )
+                }
+
+                androidx.compose.foundation.layout.FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(Spacing.space2),
+                    verticalArrangement = Arrangement.spacedBy(Spacing.space2),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    PlanInterest.entries.forEach { interest ->
+                        val isSelected = uiState.constraints.interests.contains(interest.key)
+                        FilterChip(
+                            selected = isSelected,
+                            onClick = { onInterestToggled(interest.key) },
+                            label = { Text(interest.displayName, style = MaterialTheme.typography.labelMedium) },
+                            leadingIcon = if (isSelected) {
+                                { Icon(Icons.Default.Check, contentDescription = null, modifier = Modifier.size(16.dp)) }
+                            } else null,
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = TerracottaAccent,
+                                selectedLabelColor = Color.White
+                            )
+                        )
+                    }
                 }
             }
         }
 
-        // Section 2: Starting Hub
-        Column(verticalArrangement = Arrangement.spacedBy(Spacing.space2)) {
-            Text(
-                text = stringResource(R.string.plan_start_hub_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold
-            )
-            Row(
-                modifier = Modifier.horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
+        // ==========================================
+        // STEP 3: MOBILITY & PACE
+        // ==========================================
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+            border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(
+                modifier = Modifier.padding(Spacing.space4),
+                verticalArrangement = Arrangement.spacedBy(Spacing.space3)
             ) {
-                PlannerHubs.POPULAR_HUBS.forEach { hub ->
-                    val isSelected = uiState.constraints.startHub?.equals(hub, ignoreCase = true) == true
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Surface(
+                        shape = CircleShape,
+                        color = TerracottaAccent.copy(alpha = 0.15f),
+                        modifier = Modifier.size(28.dp)
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Text("3", style = MaterialTheme.typography.labelSmall, fontWeight = FontWeight.Bold, color = TerracottaAccent)
+                        }
+                    }
+                    Text(
+                        text = "Travel Preferences",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+
+                // Pace Selection
+                Text(
+                    text = "Travel Pace",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontWeight = FontWeight.Medium
+                )
+                Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space2)) {
+                    PlanPace.entries.forEach { pace ->
+                        val isSelected = uiState.constraints.pace == pace
+                        val label = when (pace) {
+                            PlanPace.RELAXED -> stringResource(R.string.plan_pace_relaxed)
+                            PlanPace.MODERATE -> stringResource(R.string.plan_pace_moderate)
+                            PlanPace.FAST -> stringResource(R.string.plan_pace_fast)
+                        }
+                        FilterChip(
+                            selected = isSelected,
+                            onClick = { onPaceChanged(pace) },
+                            label = { Text(label, style = MaterialTheme.typography.labelMedium) },
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = ForestGreenAccent,
+                                selectedLabelColor = Color.White
+                            )
+                        )
+                    }
+                }
+
+                HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
+
+                // Transit & Walking Toggles
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
+                ) {
                     FilterChip(
-                        selected = isSelected,
-                        onClick = { onStartHubChanged(hub) },
-                        label = { Text(hub, style = MaterialTheme.typography.labelMedium) },
+                        selected = uiState.constraints.publicTransportPreferred,
+                        onClick = { onPublicTransportToggled(!uiState.constraints.publicTransportPreferred) },
+                        label = { Text("Mo Bus Preferred", style = MaterialTheme.typography.labelSmall) },
+                        leadingIcon = { Icon(Icons.Default.LocationOn, contentDescription = null, modifier = Modifier.size(16.dp)) },
                         colors = FilterChipDefaults.filterChipColors(
                             selectedContainerColor = ChilikaBlueAccent,
                             selectedLabelColor = Color.White
                         )
                     )
-                }
-            }
-        }
-
-        // Section 3: Interests
-        Column(verticalArrangement = Arrangement.spacedBy(Spacing.space2)) {
-            Text(
-                text = stringResource(R.string.plan_interests_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold
-            )
-            Row(
-                modifier = Modifier.horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
-            ) {
-                PlanInterest.entries.forEach { interest ->
-                    val isSelected = uiState.constraints.interests.contains(interest.key)
                     FilterChip(
-                        selected = isSelected,
-                        onClick = { onInterestToggled(interest.key) },
-                        label = { Text(interest.displayName, style = MaterialTheme.typography.labelMedium) },
-                        leadingIcon = if (isSelected) {
-                            { Icon(Icons.Default.Check, contentDescription = null, modifier = Modifier.size(16.dp)) }
-                        } else null,
-                        colors = FilterChipDefaults.filterChipColors(
-                            selectedContainerColor = TerracottaAccent,
-                            selectedLabelColor = Color.White
-                        )
-                    )
-                }
-            }
-        }
-
-        // Section 4: Pace
-        Column(verticalArrangement = Arrangement.spacedBy(Spacing.space2)) {
-            Text(
-                text = stringResource(R.string.plan_pace_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold
-            )
-            Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space2)) {
-                PlanPace.entries.forEach { pace ->
-                    val isSelected = uiState.constraints.pace == pace
-                    val label = when (pace) {
-                        PlanPace.RELAXED -> stringResource(R.string.plan_pace_relaxed)
-                        PlanPace.MODERATE -> stringResource(R.string.plan_pace_moderate)
-                        PlanPace.FAST -> stringResource(R.string.plan_pace_fast)
-                    }
-                    FilterChip(
-                        selected = isSelected,
-                        onClick = { onPaceChanged(pace) },
-                        label = { Text(label, style = MaterialTheme.typography.labelMedium) },
+                        selected = uiState.constraints.lowWalking,
+                        onClick = { onLowWalkingToggled(!uiState.constraints.lowWalking) },
+                        label = { Text("Reduced Walking", style = MaterialTheme.typography.labelSmall) },
+                        leadingIcon = { Icon(Icons.Default.Info, contentDescription = null, modifier = Modifier.size(16.dp)) },
                         colors = FilterChipDefaults.filterChipColors(
                             selectedContainerColor = ForestGreenAccent,
                             selectedLabelColor = Color.White
@@ -228,29 +338,99 @@ fun PlanConstraintsForm(
             }
         }
 
-        // Section 5: Transport Preferences
-        Column(verticalArrangement = Arrangement.spacedBy(Spacing.space2)) {
-            Text(
-                text = stringResource(R.string.plan_transport_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
-            ) {
-                FilterChip(
-                    selected = uiState.constraints.publicTransportPreferred,
-                    onClick = { onPublicTransportToggled(!uiState.constraints.publicTransportPreferred) },
-                    label = { Text(stringResource(R.string.plan_pref_public_transit), style = MaterialTheme.typography.labelMedium) },
-                    leadingIcon = { Icon(Icons.Default.LocationOn, contentDescription = null, modifier = Modifier.size(16.dp)) }
-                )
-                FilterChip(
-                    selected = uiState.constraints.lowWalking,
-                    onClick = { onLowWalkingToggled(!uiState.constraints.lowWalking) },
-                    label = { Text(stringResource(R.string.plan_pref_low_walking), style = MaterialTheme.typography.labelMedium) },
-                    leadingIcon = { Icon(Icons.Default.Info, contentDescription = null, modifier = Modifier.size(16.dp)) }
-                )
+        // ==========================================
+        // STEP 4: OPTIONAL AI ASSISTANT NOTE (ACCORDION)
+        // ==========================================
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceContainer
+            ),
+            border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(modifier = Modifier.padding(Spacing.space3)) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { isAiPromptExpanded = !isAiPromptExpanded }
+                        .padding(vertical = 4.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Text("✨", style = MaterialTheme.typography.titleSmall)
+                        Column {
+                            Text(
+                                text = "Special Request or Custom Note (Optional)",
+                                style = MaterialTheme.typography.bodyMedium,
+                                fontWeight = FontWeight.SemiBold,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Text(
+                                text = "Have specific timing constraints or requests? Describe in plain English",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+
+                    Icon(
+                        if (isAiPromptExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
+                        contentDescription = if (isAiPromptExpanded) "Collapse" else "Expand",
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+
+                androidx.compose.animation.AnimatedVisibility(visible = isAiPromptExpanded) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = Spacing.space3),
+                        verticalArrangement = Arrangement.spacedBy(Spacing.space3)
+                    ) {
+                        OutlinedTextField(
+                            value = uiState.naturalLanguagePrompt,
+                            onValueChange = onPromptChanged,
+                            placeholder = {
+                                Text(
+                                    text = "e.g. 6 hours in Bhubaneswar, want ancient temples and less walking...",
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(12.dp),
+                            maxLines = 3
+                        )
+
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            Button(
+                                onClick = onExtractWithAI,
+                                enabled = uiState.naturalLanguagePrompt.isNotBlank() && !uiState.isAIExtracting,
+                                colors = ButtonDefaults.buttonColors(containerColor = TerracottaAccent),
+                                shape = RoundedCornerShape(10.dp)
+                            ) {
+                                if (uiState.isAIExtracting) {
+                                    CircularProgressIndicator(
+                                        modifier = Modifier.size(16.dp),
+                                        strokeWidth = 2.dp,
+                                        color = Color.White
+                                    )
+                                    Spacer(modifier = Modifier.width(Spacing.space2))
+                                    Text(stringResource(R.string.plan_extracting_loading), style = MaterialTheme.typography.labelMedium)
+                                } else {
+                                    Text(stringResource(R.string.plan_action_extract_ai), style = MaterialTheme.typography.labelMedium)
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 

@@ -1,63 +1,55 @@
 package com.otravelz.android.ui.roots
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Call
-import androidx.compose.material.icons.filled.ChevronRight
-import androidx.compose.material.icons.filled.HealthAndSafety
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.LocalHospital
-import androidx.compose.material.icons.filled.Palette
-import androidx.compose.material.icons.filled.Security
-import androidx.compose.material.icons.filled.Verified
+import androidx.compose.material.icons.automirrored.filled.Login
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.otravelz.android.R
-import com.otravelz.android.domain.model.ArtisanCluster
-import com.otravelz.android.domain.model.CivicCategory
-import com.otravelz.android.domain.model.EmergencyHelpline
+import com.otravelz.android.auth.AuthState
+import com.otravelz.android.auth.AuthViewModel
 import com.otravelz.android.navigation.NavDestination
 import com.otravelz.android.ui.components.EssentialsSheet
 import com.otravelz.android.ui.components.launchSafeDialer
 import com.otravelz.android.ui.screens.EssentialsViewModel
-import com.otravelz.android.ui.theme.ChilikaBlueAccent
-import com.otravelz.android.ui.theme.ForestGreenAccent
-import com.otravelz.android.ui.theme.Spacing
-import androidx.compose.material.icons.filled.Login
-import androidx.compose.material.icons.filled.Logout
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Warning
-import com.otravelz.android.auth.AuthState
-import com.otravelz.android.auth.AuthViewModel
-import com.otravelz.android.ui.theme.TerracottaAccent
+import com.otravelz.android.ui.theme.*
 
 /**
- * Structural container for You root in Wave M16.
- * Contains:
- * 0. Account & Identity optional card (Wave M16)
- * 1. Emergency Helplines quick card with safe system dialer launcher
- * 2. Nearby Civic Facilities launcher opening EssentialsSheet
- * 3. Living Heritage & Artisan Clusters with GI-tagged craft histories
- * 4. App Preferences, Offline Storage footprint, and Platform Truth Transparency
+ * Redesigned "You" Personal Control Center for O-TRAVELZ Mobile V4.
+ *
+ * Reorganizes the previously cramped screen into a tranquil, spacious personal hub:
+ * 1. Account & Identity Summary Card (Guest / Signed-in)
+ * 2. High-Visibility Compact Emergency SOS Shortcut
+ * 3. Your O-TRAVELZ (Living Heritage handoff, Saved Content)
+ * 4. Travel Tools (Civic Facilities directory, Offline Storage footprint)
+ * 5. Preferences (Bilingual Language, Appearance, Reminders)
+ * 6. About O-TRAVELZ & Algoryxz Attribution
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YouRoot(
     onPlaceClick: (String) -> Unit = {},
+    onLivingHeritageClick: () -> Unit = {},
     modifier: Modifier = Modifier,
     viewModel: EssentialsViewModel = viewModel(),
     authViewModel: AuthViewModel = viewModel(factory = AuthViewModel.provideFactory(LocalContext.current))
@@ -65,8 +57,10 @@ fun YouRoot(
     val uiState by viewModel.uiState.collectAsState()
     val authState by authViewModel.authState.collectAsState()
     val context = LocalContext.current
+
     var showEssentialsSheet by remember { mutableStateOf(false) }
     var callConfirmTarget by remember { mutableStateOf<Pair<String, String>?>(null) }
+    var showAboutDialog by remember { mutableStateOf(false) }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -91,159 +85,253 @@ fun YouRoot(
                 .fillMaxSize()
                 .padding(innerPadding)
                 .background(MaterialTheme.colorScheme.surface),
-            contentPadding = PaddingValues(Spacing.space4),
+            contentPadding = PaddingValues(horizontal = Spacing.space4, vertical = Spacing.space2),
             verticalArrangement = Arrangement.spacedBy(Spacing.space4)
         ) {
             // ==========================================
-            // SECTION 0: ACCOUNT & IDENTITY (WAVE M16)
+            // 1. ACCOUNT & IDENTITY
             // ==========================================
-            item(key = "section_account_identity") {
-                AccountCard(
+            item(key = "you_account_summary") {
+                AccountSummaryCard(
                     authState = authState,
                     authViewModel = authViewModel
                 )
             }
-            // ==========================================
-            // SECTION 1: EMERGENCY HELPLINES QUICK CARD
-            // ==========================================
-            item(key = "section_emergency_header") {
-                Column {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.HealthAndSafety,
-                            contentDescription = null,
-                            tint = TerracottaAccent,
-                            modifier = Modifier.size(24.dp)
-                        )
-                        Text(
-                            text = stringResource(R.string.you_section_emergency),
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-                    Text(
-                        text = stringResource(R.string.you_section_emergency_desc),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            }
 
-            item(key = "section_emergency_card") {
+            // ==========================================
+            // 2. COMPACT EMERGENCY SOS SHORTCUT
+            // ==========================================
+            item(key = "you_emergency_shortcut") {
                 Card(
-                    shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.2f)),
-                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.error.copy(alpha = 0.3f)),
+                    shape = RoundedCornerShape(14.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.15f)
+                    ),
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.error.copy(alpha = 0.35f)),
                     modifier = Modifier.fillMaxWidth()
-                ) {
-                    Column(
-                        modifier = Modifier.padding(Spacing.space3),
-                        verticalArrangement = Arrangement.spacedBy(Spacing.space2)
-                    ) {
-                        val quickHelplines = uiState.helplines.take(3)
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
-                        ) {
-                            quickHelplines.forEach { helpline ->
-                                Button(
-                                    onClick = { callConfirmTarget = helpline.label to helpline.number },
-                                    colors = ButtonDefaults.buttonColors(
-                                        containerColor = if (helpline.number == "112") MaterialTheme.colorScheme.error else TerracottaAccent
-                                    ),
-                                    shape = RoundedCornerShape(8.dp),
-                                    modifier = Modifier.weight(1f),
-                                    contentPadding = PaddingValues(horizontal = 6.dp, vertical = 6.dp)
-                                ) {
-                                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                        Text(
-                                            text = helpline.number,
-                                            style = MaterialTheme.typography.titleSmall,
-                                            fontWeight = FontWeight.Bold
-                                        )
-                                        Text(
-                                            text = helpline.label.substringBefore(" "),
-                                            style = MaterialTheme.typography.labelSmall,
-                                            maxLines = 1,
-                                            overflow = TextOverflow.Ellipsis
-                                        )
-                                    }
-                                }
-                            }
-                        }
-
-                        Text(
-                            text = "Calls use your device dialer with sanitized numbers. Zero background permissions.",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
-                }
-            }
-
-            // ==========================================
-            // SECTION 2: NEARBY CIVIC FACILITIES LAUNCHER
-            // ==========================================
-            item(key = "section_civic_facilities_launcher") {
-                Card(
-                    shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)),
-                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.2f)),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable {
-                            viewModel.loadServicesForCoordinates(uiState.centerLat, uiState.centerLon)
-                            showEssentialsSheet = true
-                        }
                 ) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(Spacing.space3),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(Spacing.space3),
+                            horizontalArrangement = Arrangement.spacedBy(10.dp),
                             modifier = Modifier.weight(1f)
                         ) {
                             Surface(
-                                shape = RoundedCornerShape(8.dp),
-                                color = MaterialTheme.colorScheme.primary.copy(alpha = 0.15f),
-                                modifier = Modifier.size(40.dp)
+                                shape = CircleShape,
+                                color = MaterialTheme.colorScheme.error,
+                                modifier = Modifier.size(36.dp)
                             ) {
                                 Box(contentAlignment = Alignment.Center) {
                                     Icon(
-                                        imageVector = Icons.Default.LocalHospital,
+                                        Icons.Default.HealthAndSafety,
                                         contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.primary,
-                                        modifier = Modifier.size(22.dp)
+                                        tint = Color.White,
+                                        modifier = Modifier.size(20.dp)
                                     )
                                 }
                             }
 
                             Column {
                                 Text(
-                                    text = stringResource(R.string.you_action_view_nearby_civic),
+                                    text = "Emergency Quick Dial",
                                     style = MaterialTheme.typography.titleSmall,
                                     fontWeight = FontWeight.Bold,
                                     color = MaterialTheme.colorScheme.onSurface
                                 )
                                 Text(
-                                    text = "Verified district hospitals, police stations, fuel & ATMs",
-                                    style = MaterialTheme.typography.bodySmall,
+                                    text = "National SOS (112) • Ambulance (108) • Police (100)",
+                                    style = MaterialTheme.typography.labelSmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             }
                         }
 
+                        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                            FilledTonalButton(
+                                onClick = { callConfirmTarget = "National Emergency" to "112" },
+                                colors = ButtonDefaults.filledTonalButtonColors(
+                                    containerColor = MaterialTheme.colorScheme.error,
+                                    contentColor = Color.White
+                                ),
+                                contentPadding = PaddingValues(horizontal = 10.dp, vertical = 6.dp),
+                                shape = RoundedCornerShape(8.dp)
+                            ) {
+                                Text("112 SOS", style = MaterialTheme.typography.labelSmall, fontWeight = FontWeight.Bold)
+                            }
+
+                            OutlinedIconButton(
+                                onClick = {
+                                    viewModel.loadServicesForCoordinates(uiState.centerLat, uiState.centerLon)
+                                    showEssentialsSheet = true
+                                },
+                                shape = RoundedCornerShape(8.dp),
+                                modifier = Modifier.size(36.dp)
+                            ) {
+                                Icon(Icons.Default.LocalHospital, contentDescription = "More Essentials", tint = MaterialTheme.colorScheme.error, modifier = Modifier.size(18.dp))
+                            }
+                        }
+                    }
+                }
+            }
+
+            // ==========================================
+            // 3. YOUR O-TRAVELZ
+            // ==========================================
+            item(key = "section_your_otravelz_header") {
+                Text(
+                    text = "Your O-TRAVELZ",
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(top = Spacing.space1)
+                )
+            }
+
+            item(key = "you_living_heritage_card") {
+                YouMenuCard(
+                    title = "Odisha Living Heritage",
+                    subtitle = "Explore 12 craft traditions, GI enclaves & master weavers",
+                    icon = Icons.Default.Palette,
+                    accentColor = TerracottaAccent,
+                    onClick = onLivingHeritageClick
+                )
+            }
+
+            // ==========================================
+            // 4. TRAVEL TOOLS & ESSENTIALS
+            // ==========================================
+            item(key = "section_travel_tools_header") {
+                Text(
+                    text = "Travel Tools",
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(top = Spacing.space1)
+                )
+            }
+
+            item(key = "you_civic_facilities_card") {
+                YouMenuCard(
+                    title = "Civic Essentials & Emergency Directory",
+                    subtitle = "Verified district hospitals, police stations, fuel & ATMs",
+                    icon = Icons.Default.LocalHospital,
+                    accentColor = ChilikaBlueAccent,
+                    onClick = {
+                        viewModel.loadServicesForCoordinates(uiState.centerLat, uiState.centerLon)
+                        showEssentialsSheet = true
+                    }
+                )
+            }
+
+            item(key = "you_offline_footprint_card") {
+                YouMenuCard(
+                    title = "Offline Atlas Footprint",
+                    subtitle = "100% local-first storage • Saved places & itineraries stay on device",
+                    icon = Icons.Default.CloudDone,
+                    accentColor = ForestGreenAccent,
+                    onClick = {}
+                )
+            }
+
+            // ==========================================
+            // 5. PREFERENCES
+            // ==========================================
+            item(key = "section_preferences_header") {
+                Text(
+                    text = "Preferences",
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(top = Spacing.space1)
+                )
+            }
+
+            item(key = "you_pref_language") {
+                PreferenceRow(
+                    title = stringResource(R.string.you_pref_language_title),
+                    subtitle = stringResource(R.string.you_pref_language_value),
+                    icon = Icons.Default.Language
+                )
+            }
+
+            item(key = "you_pref_reminders") {
+                PreferenceRow(
+                    title = "Transit Timetable Reminders",
+                    subtitle = "Calculated locally from published schedules without background tracking",
+                    icon = Icons.Default.Notifications
+                )
+            }
+
+            // ==========================================
+            // 6. ABOUT & TRUST FOUNDATION
+            // ==========================================
+            item(key = "section_about_header") {
+                Text(
+                    text = "Trust & Provenance",
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(top = Spacing.space1)
+                )
+            }
+
+            item(key = "you_about_brand_card") {
+                Card(
+                    shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { showAboutDialog = true }
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(Spacing.space4),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(Spacing.space3)
+                    ) {
+                        Surface(
+                            shape = RoundedCornerShape(10.dp),
+                            border = BorderStroke(1.dp, TerracottaAccent.copy(alpha = 0.3f)),
+                            modifier = Modifier.size(44.dp),
+                            color = MaterialTheme.colorScheme.surfaceContainerHigh
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.ic_otravelz_logo),
+                                contentDescription = "O-TRAVELZ Logo",
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
+                            )
+                        }
+
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = "About O-TRAVELZ",
+                                style = MaterialTheme.typography.titleSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Text(
+                                text = "Modern Odisha Cultural Atlas • Built by Algoryxz",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            Text(
+                                text = "Version 4.0.0 • Verified Canonical Data",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = TerracottaAccent
+                            )
+                        }
+
                         Icon(
-                            imageVector = Icons.Default.ChevronRight,
+                            Icons.Default.ChevronRight,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -251,114 +339,8 @@ fun YouRoot(
                 }
             }
 
-            // ==========================================
-            // SECTION 3: LIVING HERITAGE & ARTISAN CLUSTERS
-            // ==========================================
-            item(key = "section_artisan_header") {
-                Column(modifier = Modifier.padding(top = Spacing.space2)) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Palette,
-                            contentDescription = null,
-                            tint = ChilikaBlueAccent,
-                            modifier = Modifier.size(24.dp)
-                        )
-                        Text(
-                            text = stringResource(R.string.you_section_artisan_clusters),
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-                    Text(
-                        text = stringResource(R.string.you_section_artisan_clusters_desc),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            }
-
-            items(uiState.artisanClusters, key = { it.id }) { cluster ->
-                ArtisanClusterCard(
-                    cluster = cluster,
-                    onClick = {
-                        cluster.canonicalPlaceId?.let { pid ->
-                            onPlaceClick(pid)
-                        }
-                    }
-                )
-            }
-
-            // ==========================================
-            // SECTION 4: PREFERENCES & TRANSPARENCY
-            // ==========================================
-            item(key = "section_preferences_header") {
-                Column(modifier = Modifier.padding(top = Spacing.space2)) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Security,
-                            contentDescription = null,
-                            tint = ForestGreenAccent,
-                            modifier = Modifier.size(24.dp)
-                        )
-                        Text(
-                            text = stringResource(R.string.you_section_preferences),
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-                }
-            }
-
-            item(key = "pref_language") {
-                PreferenceRow(
-                    title = stringResource(R.string.you_pref_language_title),
-                    subtitle = stringResource(R.string.you_pref_language_value)
-                )
-            }
-
-            item(key = "pref_offline") {
-                PreferenceRow(
-                    title = stringResource(R.string.you_pref_offline_title),
-                    subtitle = stringResource(R.string.you_pref_offline_desc)
-                )
-            }
-
-            item(key = "pref_trust") {
-                PreferenceRow(
-                    title = stringResource(R.string.you_pref_trust_title),
-                    subtitle = stringResource(R.string.you_pref_trust_desc)
-                )
-            }
-
-            item(key = "app_provenance_footer") {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = Spacing.space4),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(
-                            text = "O-TRAVELZ V4 • Modern Odisha Cultural Atlas",
-                            style = MaterialTheme.typography.labelMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                        Text(
-                            text = "Built by Algoryxz with verified data and zero hallucinated transit telemetry.",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.outlineVariant
-                        )
-                    }
-                }
+            item(key = "you_footer_spacing") {
+                Spacer(modifier = Modifier.height(Spacing.space4))
             }
         }
     }
@@ -375,7 +357,7 @@ fun YouRoot(
         )
     }
 
-    // Confirmation dialog before launching system dialer
+    // Dial confirmation dialog
     if (callConfirmTarget != null) {
         val (name, number) = callConfirmTarget!!
         AlertDialog(
@@ -404,102 +386,121 @@ fun YouRoot(
             }
         )
     }
+
+    // About Dialog
+    if (showAboutDialog) {
+        AlertDialog(
+            onDismissRequest = { showAboutDialog = false },
+            title = {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        modifier = Modifier.size(36.dp)
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.ic_otravelz_logo),
+                            contentDescription = null,
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+                    Text("O-TRAVELZ V4", fontWeight = FontWeight.Bold)
+                }
+            },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(
+                        text = "Modern Odisha Cultural Atlas & Intelligent Travel Platform.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    Text(
+                        text = "Built by Algoryxz with verified data and zero hallucinated transit telemetry.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
+                    Text(
+                        text = "• 204 verified destinations across 30 districts\n• 154 Mo Bus & AMA Bus transit routes\n• 6 canonical living heritage artisan traditions\n• Zero synthetic/AI-generated tourist photography",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        lineHeight = MaterialTheme.typography.bodySmall.lineHeight * 1.3f
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showAboutDialog = false }) {
+                    Text("Close")
+                }
+            }
+        )
+    }
 }
 
 @Composable
-private fun ArtisanClusterCard(
-    cluster: ArtisanCluster,
+private fun YouMenuCard(
+    title: String,
+    subtitle: String,
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    accentColor: Color,
     onClick: () -> Unit
 ) {
     Card(
-        shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f)),
+        shape = RoundedCornerShape(14.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
     ) {
-        Column(
-            modifier = Modifier.padding(Spacing.space3),
-            verticalArrangement = Arrangement.spacedBy(Spacing.space1)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(Spacing.space3),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(Spacing.space3),
+                modifier = Modifier.weight(1f)
             ) {
-                Column(modifier = Modifier.weight(1f)) {
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = accentColor.copy(alpha = 0.12f),
+                    modifier = Modifier.size(40.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Icon(icon, contentDescription = null, tint = accentColor, modifier = Modifier.size(20.dp))
+                    }
+                }
+
+                Column {
                     Text(
-                        text = cluster.name,
+                        text = title,
                         style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
-                        text = "${cluster.craftName} • ${cluster.district}",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = ChilikaBlueAccent,
-                        fontWeight = FontWeight.Medium
+                        text = subtitle,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
-                }
-
-                if (cluster.giTagged) {
-                    Surface(
-                        shape = RoundedCornerShape(6.dp),
-                        color = TerracottaAccent.copy(alpha = 0.15f),
-                        border = BorderStroke(1.dp, TerracottaAccent.copy(alpha = 0.4f))
-                    ) {
-                        Row(
-                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(3.dp)
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Verified,
-                                contentDescription = null,
-                                tint = TerracottaAccent,
-                                modifier = Modifier.size(12.dp)
-                            )
-                            Text(
-                                text = "GI Tag",
-                                style = MaterialTheme.typography.labelSmall,
-                                color = TerracottaAccent,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                    }
                 }
             }
 
-            Spacer(modifier = Modifier.height(2.dp))
-
-            Text(
-                text = cluster.description,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+            Icon(
+                Icons.Default.ChevronRight,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.size(18.dp)
             )
-
-            if (cluster.canonicalPlaceId != null) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 4.dp),
-                    horizontalArrangement = Arrangement.End,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = "Explore Destination",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.primary,
-                        fontWeight = FontWeight.SemiBold
-                    )
-                    Icon(
-                        imageVector = Icons.Default.ChevronRight,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(14.dp)
-                    )
-                }
-            }
         }
     }
 }
@@ -507,39 +508,54 @@ private fun ArtisanClusterCard(
 @Composable
 private fun PreferenceRow(
     title: String,
-    subtitle: String
+    subtitle: String,
+    icon: androidx.compose.ui.graphics.vector.ImageVector
 ) {
     Card(
-        shape = RoundedCornerShape(10.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.25f)),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         modifier = Modifier.fillMaxWidth()
     ) {
-        Column(modifier = Modifier.padding(Spacing.space3)) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            Spacer(modifier = Modifier.height(2.dp))
-            Text(
-                text = subtitle,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(Spacing.space3),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(Spacing.space3)
+        ) {
+            Surface(
+                shape = RoundedCornerShape(8.dp),
+                color = MaterialTheme.colorScheme.surfaceContainerHigh,
+                modifier = Modifier.size(36.dp)
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Icon(icon, contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.size(18.dp))
+                }
+            }
+
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = subtitle,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
         }
     }
 }
 
 /**
- * Optional Account Identity Card for Wave M16.
- * Adheres strictly to the 3-state product model:
- * - Never gates local functionality.
- * - Displays authentic profile attributes only.
- * - Keeps local database primary.
+ * Compact Account & Identity Summary Card.
  */
 @Composable
-private fun AccountCard(
+private fun AccountSummaryCard(
     authState: AuthState,
     authViewModel: AuthViewModel,
     modifier: Modifier = Modifier
@@ -547,8 +563,8 @@ private fun AccountCard(
     val context = LocalContext.current
     Card(
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f)),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         modifier = modifier.fillMaxWidth()
     ) {
         Column(
@@ -562,13 +578,13 @@ private fun AccountCard(
                         horizontalArrangement = Arrangement.spacedBy(Spacing.space3)
                     ) {
                         Surface(
-                            shape = RoundedCornerShape(12.dp),
+                            shape = CircleShape,
                             color = ChilikaBlueAccent.copy(alpha = 0.15f),
                             modifier = Modifier.size(44.dp)
                         ) {
                             Box(contentAlignment = Alignment.Center) {
                                 Icon(
-                                    imageVector = Icons.Default.Person,
+                                    Icons.Default.Person,
                                     contentDescription = null,
                                     tint = ChilikaBlueAccent,
                                     modifier = Modifier.size(24.dp)
@@ -577,13 +593,13 @@ private fun AccountCard(
                         }
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                text = stringResource(R.string.you_account_title),
+                                text = "Guest Traveler",
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
                                 color = MaterialTheme.colorScheme.onSurface
                             )
                             Text(
-                                text = stringResource(R.string.you_account_signed_out_desc),
+                                text = "Local-first storage active • Zero login walls",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
@@ -600,36 +616,23 @@ private fun AccountCard(
                             modifier = Modifier.weight(1f),
                             colors = ButtonDefaults.buttonColors(containerColor = ChilikaBlueAccent)
                         ) {
-                            Icon(
-                                imageVector = Icons.Default.Login,
-                                contentDescription = null,
-                                modifier = Modifier.size(18.dp)
-                            )
-                            Spacer(modifier = Modifier.width(Spacing.space2))
-                            Text(
-                                text = stringResource(R.string.you_account_action_signin),
-                                style = MaterialTheme.typography.labelMedium,
-                                fontWeight = FontWeight.SemiBold
-                            )
+                            Icon(Icons.AutoMirrored.Filled.Login, contentDescription = null, modifier = Modifier.size(16.dp))
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text("Sign In with Google", style = MaterialTheme.typography.labelMedium)
                         }
 
                         OutlinedButton(
                             onClick = { authViewModel.devSignIn() },
-                            shape = RoundedCornerShape(10.dp),
-                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.4f))
+                            shape = RoundedCornerShape(10.dp)
                         ) {
-                            Text(
-                                text = stringResource(R.string.you_account_action_dev_signin),
-                                style = MaterialTheme.typography.labelSmall
-                            )
+                            Text("Dev Sign-In", style = MaterialTheme.typography.labelSmall)
                         }
                     }
                 }
                 is AuthState.Authenticating -> {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(Spacing.space3),
-                        modifier = Modifier.padding(vertical = Spacing.space2)
+                        horizontalArrangement = Arrangement.spacedBy(Spacing.space3)
                     ) {
                         CircularProgressIndicator(
                             modifier = Modifier.size(24.dp),
@@ -637,7 +640,7 @@ private fun AccountCard(
                             color = ChilikaBlueAccent
                         )
                         Text(
-                            text = stringResource(R.string.you_account_authenticating),
+                            text = "Authenticating session…",
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurface
                         )
@@ -650,7 +653,7 @@ private fun AccountCard(
                         horizontalArrangement = Arrangement.spacedBy(Spacing.space3)
                     ) {
                         Surface(
-                            shape = RoundedCornerShape(22.dp),
+                            shape = CircleShape,
                             color = ForestGreenAccent.copy(alpha = 0.15f),
                             modifier = Modifier.size(44.dp)
                         ) {
@@ -664,75 +667,24 @@ private fun AccountCard(
                             }
                         }
                         Column(modifier = Modifier.weight(1f)) {
-                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space2)) {
-                                Text(
-                                    text = user.displayName,
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontWeight = FontWeight.Bold,
-                                    color = MaterialTheme.colorScheme.onSurface
-                                )
-                                Surface(
-                                    shape = RoundedCornerShape(6.dp),
-                                    color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
-                                ) {
-                                    Text(
-                                        text = user.provider.replaceFirstChar { it.uppercase() },
-                                        style = MaterialTheme.typography.labelSmall,
-                                        color = MaterialTheme.colorScheme.primary,
-                                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                                    )
-                                }
-                            }
+                            Text(
+                                text = user.displayName,
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
                             Text(
                                 text = user.email,
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
-                    }
-
-                    Surface(
-                        shape = RoundedCornerShape(8.dp),
-                        color = MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.6f)
-                    ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(Spacing.space2),
-                            modifier = Modifier.padding(horizontal = Spacing.space3, vertical = Spacing.space2)
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Verified,
-                                contentDescription = null,
-                                tint = ForestGreenAccent,
-                                modifier = Modifier.size(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.you_account_local_notice),
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-                    }
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End
-                    ) {
                         OutlinedButton(
                             onClick = { authViewModel.signOut() },
                             shape = RoundedCornerShape(8.dp),
-                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.4f))
+                            contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp)
                         ) {
-                            Icon(
-                                imageVector = Icons.Default.Logout,
-                                contentDescription = null,
-                                modifier = Modifier.size(16.dp)
-                            )
-                            Spacer(modifier = Modifier.width(Spacing.space2))
-                            Text(
-                                text = stringResource(R.string.you_account_action_signout),
-                                style = MaterialTheme.typography.labelMedium
-                            )
+                            Text("Sign Out", style = MaterialTheme.typography.labelSmall)
                         }
                     }
                 }
@@ -741,36 +693,22 @@ private fun AccountCard(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.Warning,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.error,
-                            modifier = Modifier.size(20.dp)
-                        )
-                        Text(
-                            text = authState.message,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.error,
-                            modifier = Modifier.weight(1f)
-                        )
+                        Icon(Icons.Default.Warning, contentDescription = null, tint = MaterialTheme.colorScheme.error)
+                        Text(text = authState.message, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error, modifier = Modifier.weight(1f))
                         TextButton(onClick = { authViewModel.signOut() }) {
                             Text("Dismiss", style = MaterialTheme.typography.labelSmall)
                         }
                     }
                 }
                 is AuthState.Expired -> {
-                    Column(verticalArrangement = Arrangement.spacedBy(Spacing.space2)) {
-                        Text(
-                            text = stringResource(R.string.you_account_session_expired),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = TerracottaAccent
-                        )
-                        Button(
-                            onClick = { authViewModel.initiateSignIn(context) },
-                            shape = RoundedCornerShape(8.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = ChilikaBlueAccent)
-                        ) {
-                            Text(stringResource(R.string.you_account_signin_again))
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text("Session expired", style = MaterialTheme.typography.bodySmall, color = TerracottaAccent)
+                        Button(onClick = { authViewModel.initiateSignIn(context) }) {
+                            Text("Sign In Again", style = MaterialTheme.typography.labelSmall)
                         }
                     }
                 }

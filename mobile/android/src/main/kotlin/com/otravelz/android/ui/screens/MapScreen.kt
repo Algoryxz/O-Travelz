@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
@@ -16,6 +17,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Layers
+import androidx.compose.material.icons.filled.NearMe
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -39,9 +43,17 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.*
 import com.otravelz.android.R
 import com.otravelz.android.domain.model.*
-import com.otravelz.android.ui.theme.TerracottaAccent
-import com.otravelz.android.ui.theme.Spacing
+import com.otravelz.android.ui.theme.*
 
+/**
+ * Spatial Cultural Atlas & Transit Map Screen for Android.
+ *
+ * Major Improvements:
+ * - The map is prioritized as the primary full-bleed hero element.
+ * - Floating translucent search pill & compact layer controls replace opaque header columns.
+ * - Truthful, clear diagnostics when MAPS_API_KEY is unconfigured in local.properties.
+ * - Google Maps universal external navigation (geo:0,0?q=...) preserved and prominent.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MapScreen(
@@ -70,44 +82,78 @@ fun MapScreen(
                 }
             }
             is MapProductState.ProviderUnavailable -> {
-                // Calm truthful degradation when Google Maps API key is unconfigured
+                // Truthful degradation when Google Maps API key is unconfigured in local.properties
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.surface)
                         .padding(horizontal = Spacing.space4, vertical = Spacing.space2)
                 ) {
                     Card(
+                        shape = RoundedCornerShape(14.dp),
                         colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant
+                            containerColor = MaterialTheme.colorScheme.surfaceContainer
                         ),
+                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(bottom = Spacing.space3)
+                            .padding(bottom = Spacing.space2)
                     ) {
-                        Column(modifier = Modifier.padding(Spacing.space4)) {
-                            Text(
-                                text = stringResource(R.string.map_provider_unavailable_title),
-                                style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.primary
-                            )
-                            Spacer(modifier = Modifier.height(Spacing.space2))
-                            Text(
-                                text = stringResource(R.string.map_provider_unavailable_desc),
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
+                        Row(
+                            modifier = Modifier.padding(Spacing.space3),
+                            verticalAlignment = Alignment.Top,
+                            horizontalArrangement = Arrangement.spacedBy(10.dp)
+                        ) {
+                            Surface(
+                                shape = CircleShape,
+                                color = ChilikaBlueAccent.copy(alpha = 0.15f),
+                                modifier = Modifier.size(36.dp)
+                            ) {
+                                Box(contentAlignment = Alignment.Center) {
+                                    Icon(Icons.Default.Info, contentDescription = null, tint = ChilikaBlueAccent, modifier = Modifier.size(20.dp))
+                                }
+                            }
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = "Google Maps API Key Not Set",
+                                    style = MaterialTheme.typography.titleSmall,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                                Text(
+                                    text = "To render interactive Google Maps vector tiles, set MAPS_API_KEY in mobile/local.properties. Exploring ${uiState.visibleDestinations.size} destinations via linear list with external navigation below.",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
                         }
                     }
 
-                    // Linear destination alternative
-                    Text(
-                        text = stringResource(R.string.map_places_in_area) + " (${uiState.visibleDestinations.size})",
-                        style = MaterialTheme.typography.titleSmall,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.padding(vertical = Spacing.space2)
+                    // Search input for linear destination list
+                    OutlinedTextField(
+                        value = uiState.searchQuery,
+                        onValueChange = { viewModel.onSearchQueryChanged(it) },
+                        placeholder = { Text(stringResource(R.string.search_places_hint), style = MaterialTheme.typography.bodySmall) },
+                        leadingIcon = { Icon(Icons.Default.Search, contentDescription = null, tint = TerracottaAccent, modifier = Modifier.size(18.dp)) },
+                        trailingIcon = {
+                            if (uiState.searchQuery.isNotBlank()) {
+                                IconButton(onClick = { viewModel.onSearchQueryChanged("") }) {
+                                    Icon(Icons.Default.Close, contentDescription = null, modifier = Modifier.size(18.dp))
+                                }
+                            }
+                        },
+                        singleLine = true,
+                        shape = RoundedCornerShape(12.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = Spacing.space2),
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedContainerColor = MaterialTheme.colorScheme.surfaceContainer,
+                            unfocusedContainerColor = MaterialTheme.colorScheme.surfaceContainer
+                        )
                     )
 
+                    // Linear destination alternative list
                     LazyColumn(
                         modifier = Modifier.fillMaxSize(),
                         verticalArrangement = Arrangement.spacedBy(Spacing.space2)
@@ -140,7 +186,7 @@ fun MapScreen(
                 }
             }
             is MapProductState.Ready -> {
-                // Interactive Google Map View
+                // Interactive Google Map View (Full-Bleed Canvas)
                 val cameraPositionState = rememberCameraPositionState {
                     position = CameraPosition.fromLatLngZoom(
                         LatLng(uiState.cameraTarget.lat, uiState.cameraTarget.lon),
@@ -226,151 +272,169 @@ fun MapScreen(
                         )
                     }
                 }
-            }
-        }
 
-        // Top Layer Bar & Search Overlay
-        Column(
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .fillMaxWidth()
-                .padding(horizontal = Spacing.space4, vertical = Spacing.space2)
-        ) {
-            // Search Input
-            OutlinedTextField(
-                value = uiState.searchQuery,
-                onValueChange = { viewModel.onSearchQueryChanged(it) },
-                placeholder = {
-                    Text(
-                        stringResource(R.string.search_places_hint),
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                },
-                leadingIcon = {
-                    Icon(Icons.Default.Search, contentDescription = null, tint = TerracottaAccent)
-                },
-                trailingIcon = {
-                    if (uiState.searchQuery.isNotBlank()) {
-                        IconButton(onClick = { viewModel.onSearchQueryChanged("") }) {
-                            Icon(Icons.Default.Close, contentDescription = stringResource(R.string.action_clear_search))
-                        }
-                    }
-                },
-                singleLine = true,
-                shape = RoundedCornerShape(24.dp),
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                    focusedBorderColor = TerracottaAccent
-                ),
-                modifier = Modifier.fillMaxWidth()
-            )
-
-            Spacer(modifier = Modifier.height(Spacing.space2))
-
-            // Filter Chips Row
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
-            ) {
-                FilterChip(
-                    selected = uiState.layers.showDestinations,
-                    onClick = { viewModel.toggleDestinationsLayer() },
-                    label = { Text(stringResource(R.string.map_layer_destinations)) }
-                )
-                FilterChip(
-                    selected = uiState.layers.showEssentials,
-                    onClick = { viewModel.toggleEssentialsLayer() },
-                    label = { Text(stringResource(R.string.map_layer_essentials)) }
-                )
-                FilterChip(
-                    selected = uiState.layers.showVerifiedStops,
-                    onClick = { viewModel.toggleVerifiedStopsLayer() },
-                    label = { Text(stringResource(R.string.map_layer_stops)) }
-                )
-                FilterChip(
-                    selected = uiState.layers.showCandidateStops,
-                    onClick = { viewModel.toggleCandidateStopsLayer() },
-                    label = { Text(stringResource(R.string.map_layer_candidates)) }
-                )
-                FilterChip(
-                    selected = uiState.isListAlternativeVisible,
-                    onClick = { viewModel.toggleListAlternative() },
-                    label = { Text(stringResource(R.string.map_action_list_view)) }
-                )
-            }
-        }
-
-        // Floating Action Buttons (My Location)
-        FloatingActionButton(
-            onClick = {
-                locationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-            },
-            shape = CircleShape,
-            containerColor = MaterialTheme.colorScheme.surface,
-            contentColor = TerracottaAccent,
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(end = Spacing.space4, bottom = if (uiState.selectedEntity != SelectedMapEntity.None) 220.dp else Spacing.space4)
-        ) {
-            Text(
-                text = "📍",
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.semantics {
-                    contentDescription = "My Location"
-                }
-            )
-        }
-
-        // Selected Entity Bottom Sheet
-        if (uiState.selectedEntity != SelectedMapEntity.None) {
-            Box(
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .fillMaxWidth()
-                    .padding(Spacing.space3)
-            ) {
-                SelectedEntityCard(
-                    entity = uiState.selectedEntity,
-                    onPlaceClick = onPlaceClick,
-                    onDismiss = { viewModel.clearSelection() }
-                )
-            }
-        }
-
-        // Linear Accessible List Alternative Sheet
-        if (uiState.isListAlternativeVisible) {
-            ModalBottomSheet(
-                onDismissRequest = { viewModel.toggleListAlternative() }
-            ) {
+                // Floating Top Search & Layer Controls (Over the Map)
                 Column(
                     modifier = Modifier
+                        .align(Alignment.TopCenter)
                         .fillMaxWidth()
-                        .padding(horizontal = Spacing.space4)
+                        .padding(horizontal = Spacing.space4, vertical = Spacing.space3)
                 ) {
-                    Text(
-                        text = stringResource(R.string.map_places_in_area) + " (${uiState.visibleDestinations.size})",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.padding(bottom = Spacing.space3)
-                    )
-
-                    LazyColumn(
-                        modifier = Modifier.fillMaxHeight(0.7f),
-                        verticalArrangement = Arrangement.spacedBy(Spacing.space2)
+                    // Floating Search Card
+                    Surface(
+                        shape = RoundedCornerShape(24.dp),
+                        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.94f),
+                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+                        shadowElevation = 6.dp,
+                        modifier = Modifier.fillMaxWidth()
                     ) {
-                        items(uiState.visibleDestinations, key = { it.id }) { place ->
-                            MapPlaceListItem(
-                                place = place,
-                                onPlaceClick = {
-                                    viewModel.toggleListAlternative()
-                                    onPlaceClick(it)
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 14.dp, vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(Icons.Default.Search, contentDescription = null, tint = TerracottaAccent, modifier = Modifier.size(20.dp))
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Box(modifier = Modifier.weight(1f)) {
+                                if (uiState.searchQuery.isEmpty()) {
+                                    Text(
+                                        text = "Search map destinations...",
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
                                 }
+                                androidx.compose.foundation.text.BasicTextField(
+                                    value = uiState.searchQuery,
+                                    onValueChange = { viewModel.onSearchQueryChanged(it) },
+                                    singleLine = true,
+                                    textStyle = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onSurface),
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+                            }
+                            if (uiState.searchQuery.isNotBlank()) {
+                                IconButton(
+                                    onClick = { viewModel.onSearchQueryChanged("") },
+                                    modifier = Modifier.size(28.dp)
+                                ) {
+                                    Icon(Icons.Default.Close, contentDescription = "Clear", tint = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.size(16.dp))
+                                }
+                            }
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(Spacing.space2))
+
+                    // Floating Layer Filter Chips Row
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .horizontalScroll(rememberScrollState()),
+                        horizontalArrangement = Arrangement.spacedBy(Spacing.space2)
+                    ) {
+                        FilterChip(
+                            selected = uiState.layers.showDestinations,
+                            onClick = { viewModel.toggleDestinationsLayer() },
+                            label = { Text("🏛️ Destinations", style = MaterialTheme.typography.labelSmall) },
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = TerracottaAccent,
+                                selectedLabelColor = Color.White
                             )
+                        )
+                        FilterChip(
+                            selected = uiState.layers.showEssentials,
+                            onClick = { viewModel.toggleEssentialsLayer() },
+                            label = { Text("🏥 Essentials", style = MaterialTheme.typography.labelSmall) },
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = ForestGreenAccent,
+                                selectedLabelColor = Color.White
+                            )
+                        )
+                        FilterChip(
+                            selected = uiState.layers.showVerifiedStops,
+                            onClick = { viewModel.toggleVerifiedStopsLayer() },
+                            label = { Text("🚌 CRUT Stops", style = MaterialTheme.typography.labelSmall) },
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = ChilikaBlueAccent,
+                                selectedLabelColor = Color.White
+                            )
+                        )
+                        FilterChip(
+                            selected = uiState.isListAlternativeVisible,
+                            onClick = { viewModel.toggleListAlternative() },
+                            label = { Text("📋 List Alternative", style = MaterialTheme.typography.labelSmall) }
+                        )
+                    }
+                }
+
+                // Floating Action Button: My Location
+                FloatingActionButton(
+                    onClick = {
+                        locationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                    },
+                    shape = CircleShape,
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    contentColor = TerracottaAccent,
+                    elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 6.dp),
+                    modifier = Modifier
+                        .align(Alignment.BottomEnd)
+                        .padding(end = Spacing.space4, bottom = if (uiState.selectedEntity != SelectedMapEntity.None) 230.dp else Spacing.space4)
+                ) {
+                    Icon(
+                        Icons.Default.NearMe,
+                        contentDescription = "My Location",
+                        modifier = Modifier.size(22.dp)
+                    )
+                }
+
+                // Selected Entity Floating Bottom Card
+                if (uiState.selectedEntity != SelectedMapEntity.None) {
+                    Box(
+                        modifier = Modifier
+                            .align(Alignment.BottomCenter)
+                            .fillMaxWidth()
+                            .padding(Spacing.space3)
+                    ) {
+                        SelectedEntityCard(
+                            entity = uiState.selectedEntity,
+                            onPlaceClick = onPlaceClick,
+                            onDismiss = { viewModel.clearSelection() }
+                        )
+                    }
+                }
+
+                // Linear Accessible List Alternative Sheet
+                if (uiState.isListAlternativeVisible) {
+                    ModalBottomSheet(
+                        onDismissRequest = { viewModel.toggleListAlternative() }
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = Spacing.space4)
+                        ) {
+                            Text(
+                                text = stringResource(R.string.map_places_in_area) + " (${uiState.visibleDestinations.size})",
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.padding(bottom = Spacing.space3)
+                            )
+
+                            LazyColumn(
+                                modifier = Modifier.fillMaxHeight(0.7f),
+                                verticalArrangement = Arrangement.spacedBy(Spacing.space2)
+                            ) {
+                                items(uiState.visibleDestinations, key = { it.id }) { place ->
+                                    MapPlaceListItem(
+                                        place = place,
+                                        onPlaceClick = {
+                                            viewModel.toggleListAlternative()
+                                            onPlaceClick(it)
+                                        }
+                                    )
+                                }
+                            }
                         }
                     }
                 }
@@ -392,7 +456,9 @@ private fun MapPlaceListItem(
             .semantics(mergeDescendants = true) {
                 contentDescription = "${place.name}, ${place.category} in ${place.district ?: ""}"
             },
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant)
     ) {
         Row(
             modifier = Modifier.padding(Spacing.space3),
@@ -402,7 +468,7 @@ private fun MapPlaceListItem(
                 modifier = Modifier
                     .size(56.dp)
                     .clip(RoundedCornerShape(8.dp))
-                    .background(MaterialTheme.colorScheme.surfaceVariant),
+                    .background(MaterialTheme.colorScheme.surfaceContainerHigh),
                 contentAlignment = Alignment.Center
             ) {
                 if (place.primaryPhoto != null) {
@@ -444,6 +510,7 @@ private fun MapPlaceListItem(
                 )
             }
 
+            // Google Maps Universal External Navigation Shortcut
             IconButton(
                 onClick = {
                     if (place.lat != null && place.lon != null) {
@@ -453,7 +520,7 @@ private fun MapPlaceListItem(
                     }
                 }
             ) {
-                Text("🧭")
+                Text("🧭", style = MaterialTheme.typography.titleMedium)
             }
         }
     }
@@ -471,6 +538,7 @@ private fun SelectedEntityCard(
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(modifier = Modifier.padding(Spacing.space4)) {
@@ -516,7 +584,8 @@ private fun SelectedEntityCard(
                         Button(
                             onClick = { onPlaceClick(place.id) },
                             colors = ButtonDefaults.buttonColors(containerColor = TerracottaAccent),
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f),
+                            shape = RoundedCornerShape(10.dp)
                         ) {
                             Text(stringResource(R.string.map_action_open_details))
                         }
@@ -527,9 +596,10 @@ private fun SelectedEntityCard(
                                     val uri = Uri.parse("geo:0,0?q=${place.lat},${place.lon}(${Uri.encode(place.name)})")
                                     context.startActivity(Intent(Intent.ACTION_VIEW, uri))
                                 },
-                                modifier = Modifier.weight(1f)
+                                modifier = Modifier.weight(1f),
+                                shape = RoundedCornerShape(10.dp)
                             ) {
-                                Text(stringResource(R.string.map_action_navigate))
+                                Text("🧭 Navigate (Google Maps)", maxLines = 1, overflow = TextOverflow.Ellipsis)
                             }
                         }
                     }
@@ -579,9 +649,10 @@ private fun SelectedEntityCard(
                                 context.startActivity(Intent(Intent.ACTION_VIEW, uri))
                             },
                             colors = ButtonDefaults.buttonColors(containerColor = TerracottaAccent),
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(10.dp)
                         ) {
-                            Text(stringResource(R.string.map_action_navigate))
+                            Text("🧭 Navigate with Google Maps")
                         }
                     }
                 }
@@ -622,9 +693,10 @@ private fun SelectedEntityCard(
                             context.startActivity(Intent(Intent.ACTION_VIEW, uri))
                         },
                         colors = ButtonDefaults.buttonColors(containerColor = TerracottaAccent),
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(10.dp)
                     ) {
-                        Text(stringResource(R.string.map_action_navigate))
+                        Text("🧭 Navigate with Google Maps")
                     }
                 }
                 else -> {}
