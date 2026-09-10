@@ -1,0 +1,36 @@
+{
+  "name": "O-Travelz — Odisha Travel Intelligence",
+  "short_name": "O-Travelz",
+  "description": "Grounded itinerary planner, verified destinations, interactive maps, and cultural exploration for Odisha.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0B1220",
+  "background_color": "#0B1220",
+  "categories": [
+    "travel",
+    "navigation",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "/logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

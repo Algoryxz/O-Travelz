@@ -1,0 +1,152 @@
+{
+  "id": "konark-sun-temple",
+  "name": "Konark Sun Temple",
+  "odia_name": "\u0b15\u0b4b\u0b23\u0b3e\u0b30\u0b4d\u0b15 \u0b38\u0b42\u0b30\u0b4d\u0b2f\u0b4d\u0b5f \u0b2e\u0b28\u0b4d\u0b26\u0b3f\u0b30",
+  "district": "Puri District",
+  "century": "13th Century CE (King Narasimhadeva I, Eastern Ganga Dynasty)",
+  "category": "Monumental Chariot & Chlorite Deula",
+  "description": "The monumental 24-spoke Surya Chakra astronomical sundials, Jagamohana stone massing, Natya Mandap pillared pavilion, and intricately sculpted chlorite relief panels.",
+  "scene_type": "RECONSTRUCTION_IN_PROGRESS",
+  "status": "PROCESSING",
+  "asset": {
+    "format": "archival_spatial_reference",
+    "model_url": null,
+    "splat_url": null,
+    "progressive_low_res_url": null,
+    "point_count": null,
+    "mesh_quality": "archival_spatial_reference",
+    "coordinate_system": "Y-Up",
+    "file_size_bytes": null
+  },
+  "thumbnail": "https://images.unsplash.com/photo-1606210114565-964c5d12038a?q=80&w=800&auto=format&fit=crop",
+  "hero_banner": "https://images.unsplash.com/photo-1606210114565-964c5d12038a?q=80&w=1600&auto=format&fit=crop",
+  "hotspots": [
+    {
+      "id": "konark_wheel",
+      "title": "24-Spoke Surya Chakra",
+      "odia_title": "\u0b38\u0b42\u0b30\u0b4d\u0b2f\u0b4d\u0b5f \u0b1a\u0b15\u0b4d\u0b30",
+      "description": "Astronomical stone sundial wheels where the 8 major spokes signify 3-hour praharas. The shadows cast by the axle pin indicate precise solar time.",
+      "architectural_significance": "Masterpiece of Kalinga sculptural precision, carved from fine-grained chlorite stone with beadings and animal medallions.",
+      "position": [
+        0.0,
+        1.3,
+        0.2
+      ],
+      "look_at": [
+        0.0,
+        1.3,
+        0.0
+      ],
+      "camera_offset": [
+        0.0,
+        1.5,
+        2.8
+      ]
+    },
+    {
+      "id": "konark_jagamohana",
+      "title": "Jagamohana (Audience Hall)",
+      "odia_title": "\u0b1c\u0b17\u0b2e\u0b4b\u0b39\u0b28",
+      "description": "Surviving 39-meter pyramidal tiered porch constructed in three distinct tiers (potalas) crowned with the monumental kalasa and amalaka.",
+      "architectural_significance": "Largest surviving freestanding stone stepped-pyramid hall of Kalinga architectural style, built with interlocking laterite and khondalite blocks.",
+      "position": [
+        0.0,
+        2.4,
+        -1.0
+      ],
+      "look_at": [
+        0.0,
+        2.0,
+        -0.6
+      ],
+      "camera_offset": [
+        0.0,
+        2.8,
+        4.5
+      ]
+    },
+    {
+      "id": "konark_natya_mandap",
+      "title": "Natya Mandap (Dancing Pavilion)",
+      "odia_title": "\u0b28\u0b3e\u0b1f\u0b4d\u0b5f \u0b2e\u0b23\u0b4d\u0b21\u0b2a",
+      "description": "Open hypostyle dancing pavilion featuring 16 massive carved pillars depicting classical Odissi dance postures, musicians playing mardala, and dancers.",
+      "architectural_significance": "Elevated plinth adorned with continuous friezes of war elephants, court musicians, and celestial nymphs (apsaras).",
+      "position": [
+        -1.8,
+        0.8,
+        1.4
+      ],
+      "look_at": [
+        -1.4,
+        0.8,
+        0.9
+      ],
+      "camera_offset": [
+        -2.4,
+        1.4,
+        3.2
+      ]
+    },
+    {
+      "id": "konark_sculpture_frieze",
+      "title": "Chlorite Relief Facades",
+      "odia_title": "\u0b36\u0b3f\u0b33\u0b4d\u0b2a\u0b15\u0b33\u0b3e \u0b15\u0b3e\u0b30\u0b41\u0b15\u0b3e\u0b30\u0b4d\u0b2f\u0b4d\u0b5f",
+      "description": "Green chlorite relief panels depicting royal hunting processions, planetary deities (Navagrahas), and mythical gajasimha motifs.",
+      "architectural_significance": "Unsurpassed relief depth and polish, highlighting 13th-century metallurgical tools and stonemasonry guilds.",
+      "position": [
+        1.5,
+        0.7,
+        0.4
+      ],
+      "look_at": [
+        1.2,
+        0.7,
+        0.0
+      ],
+      "camera_offset": [
+        2.0,
+        1.1,
+        2.2
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Archaeological Survey of India Reference Monograph",
+      "source": "ASI Architectural Survey of Konark Sun Temple & Epigraphical Archives",
+      "license": "Government of India Public Historical Archive",
+      "url": "https://odishatourism.gov.in",
+      "access_date": "2026-08-20",
+      "content_type": "Architectural Survey & Spatial Mapping Reference",
+      "attribution": "Archaeological Survey of India & Odisha Tourism"
+    },
+    {
+      "title": "Wikimedia Commons Cultural Heritage Documentation",
+      "source": "High-resolution orthogonal monument photographic documentation",
+      "license": "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
+      "url": "https://commons.wikimedia.org",
+      "access_date": "2026-08-22",
+      "content_type": "Multi-angle Photographic Documentation",
+      "attribution": "Contributing Photographers & Wikimedia Foundation"
+    }
+  ],
+  "reconstruction_notes": "3D Reconstruction in progress. Currently presenting high-definition archival photographic canvas, verified spatial coordinates, and interactive architectural hotspots.",
+  "camera_preset": {
+    "position": [
+      0.0,
+      1.8,
+      4.8
+    ],
+    "target": [
+      0.0,
+      1.1,
+      0.0
+    ],
+    "min_distance": 1.5,
+    "max_distance": 12.0,
+    "fov": 45.0
+  },
+  "lighting_preset": "golden_hour",
+  "surrounding_environment": "Sandy coastal plains, landscaped sandstone plinths, and coastal sunlight",
+  "is_canonical": true
+}
